@@ -1,0 +1,1596 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/shop_clerestories.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_funeral_parlour",
+      "parts": [
+        {
+          "name": "storm_shop_funeral_parlour_borrowed_sill__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_funeral_parlour_borrowed_sill__plaster_stained",
+          "key": "plaster_stained",
+          "tile": 1.8
+        },
+        {
+          "name": "storm_shop_funeral_parlour_borrowed_sill__trim",
+          "key": "trim",
+          "tile": 1.1
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_funeral_parlour_borrowed_sill",
+          "key": "trim",
+          "low": [
+            4.0,
+            2.3000000000000003,
+            60.010000000000005
+          ],
+          "high": [
+            4.07,
+            2.35,
+            63.39
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_borrowed_head",
+          "key": "trim",
+          "low": [
+            4.0,
+            3.05,
+            60.010000000000005
+          ],
+          "high": [
+            4.07,
+            3.0999999999999996,
+            63.39
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_borrowed_muntin1",
+          "key": "trim",
+          "low": [
+            4.0,
+            2.35,
+            60.855000000000004
+          ],
+          "high": [
+            4.065,
+            3.05,
+            60.895
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_borrowed_muntin2",
+          "key": "trim",
+          "low": [
+            4.0,
+            2.35,
+            61.68000000000001
+          ],
+          "high": [
+            4.065,
+            3.05,
+            61.72
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_borrowed_muntin3",
+          "key": "trim",
+          "low": [
+            4.0,
+            2.35,
+            62.504999999999995
+          ],
+          "high": [
+            4.065,
+            3.05,
+            62.545
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_borrowed_glass",
+          "key": "glassish",
+          "low": [
+            4.015,
+            2.35,
+            60.050000000000004
+          ],
+          "high": [
+            4.045,
+            3.05,
+            63.349999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_back_lo_w",
+          "key": "plaster_stained",
+          "low": [
+            4.0,
+            0.01,
+            59.5
+          ],
+          "high": [
+            4.06,
+            2.35,
+            60.35000000000001
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_back_lo_e",
+          "key": "plaster_stained",
+          "low": [
+            4.0,
+            0.01,
+            61.260000000000005
+          ],
+          "high": [
+            4.06,
+            2.35,
+            63.9
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_back_lo_lintel",
+          "key": "plaster_stained",
+          "low": [
+            4.0,
+            2.09,
+            60.35000000000001
+          ],
+          "high": [
+            4.06,
+            2.3499999999999996,
+            61.260000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_back_hi",
+          "key": "plaster_stained",
+          "low": [
+            4.0,
+            3.05,
+            59.5
+          ],
+          "high": [
+            4.06,
+            3.26,
+            63.9
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_hardware_paint",
+      "parts": [
+        {
+          "name": "storm_shop_hardware_paint_borrowed_sill__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_hardware_paint_borrowed_sill__plaster_stained",
+          "key": "plaster_stained",
+          "tile": 1.8
+        },
+        {
+          "name": "storm_shop_hardware_paint_borrowed_sill__trim",
+          "key": "trim",
+          "tile": 1.1
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_hardware_paint_borrowed_sill",
+          "key": "trim",
+          "low": [
+            4.5,
+            2.3000000000000003,
+            54.61
+          ],
+          "high": [
+            4.57,
+            2.35,
+            58.79
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_borrowed_head",
+          "key": "trim",
+          "low": [
+            4.5,
+            3.05,
+            54.61
+          ],
+          "high": [
+            4.57,
+            3.0999999999999996,
+            58.79
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_borrowed_muntin1",
+          "key": "trim",
+          "low": [
+            4.5,
+            2.35,
+            55.655
+          ],
+          "high": [
+            4.565,
+            3.05,
+            55.695
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_borrowed_muntin2",
+          "key": "trim",
+          "low": [
+            4.5,
+            2.35,
+            56.68000000000001
+          ],
+          "high": [
+            4.565,
+            3.05,
+            56.72
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_borrowed_muntin3",
+          "key": "trim",
+          "low": [
+            4.5,
+            2.35,
+            57.705
+          ],
+          "high": [
+            4.565,
+            3.05,
+            57.745000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_borrowed_glass",
+          "key": "glassish",
+          "low": [
+            4.515,
+            2.35,
+            54.650000000000006
+          ],
+          "high": [
+            4.545,
+            3.05,
+            58.75
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_back_lo",
+          "key": "plaster_stained",
+          "low": [
+            4.5,
+            0.01,
+            54.1
+          ],
+          "high": [
+            4.56,
+            2.35,
+            59.3
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_back_hi",
+          "key": "plaster_stained",
+          "low": [
+            4.5,
+            3.05,
+            54.1
+          ],
+          "high": [
+            4.56,
+            3.26,
+            59.3
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_keys_cut",
+      "parts": [
+        {
+          "name": "storm_shop_keys_cut_borrowed_sill__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_keys_cut_borrowed_sill__plaster_stained",
+          "key": "plaster_stained",
+          "tile": 1.8
+        },
+        {
+          "name": "storm_shop_keys_cut_borrowed_sill__trim",
+          "key": "trim",
+          "tile": 1.1
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_keys_cut_borrowed_sill",
+          "key": "trim",
+          "low": [
+            6.0,
+            2.3000000000000003,
+            51.010000000000005
+          ],
+          "high": [
+            6.07,
+            2.35,
+            53.39
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_keys_cut_borrowed_head",
+          "key": "trim",
+          "low": [
+            6.0,
+            3.05,
+            51.010000000000005
+          ],
+          "high": [
+            6.07,
+            3.0999999999999996,
+            53.39
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_keys_cut_borrowed_muntin1",
+          "key": "trim",
+          "low": [
+            6.0,
+            2.35,
+            51.605000000000004
+          ],
+          "high": [
+            6.065,
+            3.05,
+            51.645
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_keys_cut_borrowed_muntin2",
+          "key": "trim",
+          "low": [
+            6.0,
+            2.35,
+            52.18000000000001
+          ],
+          "high": [
+            6.065,
+            3.05,
+            52.22
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_keys_cut_borrowed_muntin3",
+          "key": "trim",
+          "low": [
+            6.0,
+            2.35,
+            52.755
+          ],
+          "high": [
+            6.065,
+            3.05,
+            52.795
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_keys_cut_borrowed_glass",
+          "key": "glassish",
+          "low": [
+            6.015,
+            2.35,
+            51.050000000000004
+          ],
+          "high": [
+            6.045,
+            3.05,
+            53.35
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_keys_cut_back_lo",
+          "key": "plaster_stained",
+          "low": [
+            6.0,
+            0.01,
+            50.5
+          ],
+          "high": [
+            6.06,
+            2.35,
+            53.900000000000006
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_keys_cut_back_hi",
+          "key": "plaster_stained",
+          "low": [
+            6.0,
+            3.05,
+            50.5
+          ],
+          "high": [
+            6.06,
+            3.26,
+            53.900000000000006
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_luncheonette",
+      "parts": [
+        {
+          "name": "storm_shop_luncheonette_borrowed_sill__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_luncheonette_borrowed_sill__plaster_stained",
+          "key": "plaster_stained",
+          "tile": 1.8
+        },
+        {
+          "name": "storm_shop_luncheonette_borrowed_sill__trim",
+          "key": "trim",
+          "tile": 1.1
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_luncheonette_borrowed_sill",
+          "key": "trim",
+          "low": [
+            23.93,
+            2.3000000000000003,
+            39.81
+          ],
+          "high": [
+            24.0,
+            2.35,
+            43.78999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_borrowed_head",
+          "key": "trim",
+          "low": [
+            23.93,
+            3.05,
+            39.81
+          ],
+          "high": [
+            24.0,
+            3.0999999999999996,
+            43.78999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_borrowed_muntin1",
+          "key": "trim",
+          "low": [
+            23.935,
+            2.35,
+            42.754999999999995
+          ],
+          "high": [
+            24.0,
+            3.05,
+            42.794999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_borrowed_muntin2",
+          "key": "trim",
+          "low": [
+            23.935,
+            2.35,
+            41.78
+          ],
+          "high": [
+            24.0,
+            3.05,
+            41.81999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_borrowed_muntin3",
+          "key": "trim",
+          "low": [
+            23.935,
+            2.35,
+            40.80499999999999
+          ],
+          "high": [
+            24.0,
+            3.05,
+            40.845
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_borrowed_glass",
+          "key": "glassish",
+          "low": [
+            23.955,
+            2.35,
+            39.849999999999994
+          ],
+          "high": [
+            23.985,
+            3.05,
+            43.74999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_back_lo",
+          "key": "plaster_stained",
+          "low": [
+            23.94,
+            0.01,
+            39.3
+          ],
+          "high": [
+            24.0,
+            2.35,
+            44.3
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_back_hi",
+          "key": "plaster_stained",
+          "low": [
+            23.94,
+            3.05,
+            39.3
+          ],
+          "high": [
+            24.0,
+            3.26,
+            44.3
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_model_laundry",
+      "parts": [
+        {
+          "name": "storm_shop_model_laundry_borrowed_sill__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_model_laundry_borrowed_sill__plaster_stained",
+          "key": "plaster_stained",
+          "tile": 1.8
+        },
+        {
+          "name": "storm_shop_model_laundry_borrowed_sill__trim",
+          "key": "trim",
+          "tile": 1.1
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_model_laundry_borrowed_sill",
+          "key": "trim",
+          "low": [
+            4.0,
+            2.3000000000000003,
+            39.81
+          ],
+          "high": [
+            4.07,
+            2.35,
+            44.190000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_model_laundry_borrowed_head",
+          "key": "trim",
+          "low": [
+            4.0,
+            3.05,
+            39.81
+          ],
+          "high": [
+            4.07,
+            3.0999999999999996,
+            44.190000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_model_laundry_borrowed_muntin1",
+          "key": "trim",
+          "low": [
+            4.0,
+            2.35,
+            40.905
+          ],
+          "high": [
+            4.065,
+            3.05,
+            40.945
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_model_laundry_borrowed_muntin2",
+          "key": "trim",
+          "low": [
+            4.0,
+            2.35,
+            41.980000000000004
+          ],
+          "high": [
+            4.065,
+            3.05,
+            42.02
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_model_laundry_borrowed_muntin3",
+          "key": "trim",
+          "low": [
+            4.0,
+            2.35,
+            43.055
+          ],
+          "high": [
+            4.065,
+            3.05,
+            43.095
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_model_laundry_borrowed_glass",
+          "key": "glassish",
+          "low": [
+            4.015,
+            2.35,
+            39.85
+          ],
+          "high": [
+            4.045,
+            3.05,
+            44.150000000000006
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_model_laundry_back_lo",
+          "key": "plaster_stained",
+          "low": [
+            4.0,
+            0.01,
+            39.300000000000004
+          ],
+          "high": [
+            4.06,
+            2.35,
+            44.7
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_model_laundry_back_hi",
+          "key": "plaster_stained",
+          "low": [
+            4.0,
+            3.05,
+            39.300000000000004
+          ],
+          "high": [
+            4.06,
+            3.26,
+            44.7
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_news_cigars",
+      "parts": [
+        {
+          "name": "storm_shop_news_cigars_borrowed_sill__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_news_cigars_borrowed_sill__plaster_stained",
+          "key": "plaster_stained",
+          "tile": 1.8
+        },
+        {
+          "name": "storm_shop_news_cigars_borrowed_sill__trim",
+          "key": "trim",
+          "tile": 1.1
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_news_cigars_borrowed_sill",
+          "key": "trim",
+          "low": [
+            20.93,
+            2.3000000000000003,
+            49.309999999999995
+          ],
+          "high": [
+            21.0,
+            2.35,
+            50.38999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_news_cigars_borrowed_head",
+          "key": "trim",
+          "low": [
+            20.93,
+            3.05,
+            49.309999999999995
+          ],
+          "high": [
+            21.0,
+            3.0999999999999996,
+            50.38999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_news_cigars_borrowed_muntin1",
+          "key": "trim",
+          "low": [
+            20.935,
+            2.35,
+            50.08
+          ],
+          "high": [
+            21.0,
+            3.05,
+            50.11999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_news_cigars_borrowed_muntin2",
+          "key": "trim",
+          "low": [
+            20.935,
+            2.35,
+            49.83
+          ],
+          "high": [
+            21.0,
+            3.05,
+            49.86999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_news_cigars_borrowed_muntin3",
+          "key": "trim",
+          "low": [
+            20.935,
+            2.35,
+            49.58
+          ],
+          "high": [
+            21.0,
+            3.05,
+            49.61999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_news_cigars_borrowed_glass",
+          "key": "glassish",
+          "low": [
+            20.955,
+            2.35,
+            49.349999999999994
+          ],
+          "high": [
+            20.985,
+            3.05,
+            50.349999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_news_cigars_back_lo",
+          "key": "plaster_stained",
+          "low": [
+            20.94,
+            0.01,
+            48.8
+          ],
+          "high": [
+            21.0,
+            2.35,
+            50.89999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_news_cigars_back_hi",
+          "key": "plaster_stained",
+          "low": [
+            20.94,
+            3.05,
+            48.8
+          ],
+          "high": [
+            21.0,
+            3.26,
+            50.89999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_otis_son",
+      "parts": [
+        {
+          "name": "storm_shop_otis___son_borrowed_sill__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_otis___son_borrowed_sill__plaster_stained",
+          "key": "plaster_stained",
+          "tile": 1.8
+        },
+        {
+          "name": "storm_shop_otis___son_borrowed_sill__trim",
+          "key": "trim",
+          "tile": 1.1
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_otis___son_borrowed_sill",
+          "key": "trim",
+          "low": [
+            23.93,
+            2.3000000000000003,
+            45.01
+          ],
+          "high": [
+            24.0,
+            2.35,
+            48.08999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_borrowed_head",
+          "key": "trim",
+          "low": [
+            23.93,
+            3.05,
+            45.01
+          ],
+          "high": [
+            24.0,
+            3.0999999999999996,
+            48.08999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_borrowed_muntin1",
+          "key": "trim",
+          "low": [
+            23.935,
+            2.35,
+            47.279999999999994
+          ],
+          "high": [
+            24.0,
+            3.05,
+            47.31999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_borrowed_muntin2",
+          "key": "trim",
+          "low": [
+            23.935,
+            2.35,
+            46.53
+          ],
+          "high": [
+            24.0,
+            3.05,
+            46.56999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_borrowed_muntin3",
+          "key": "trim",
+          "low": [
+            23.935,
+            2.35,
+            45.78
+          ],
+          "high": [
+            24.0,
+            3.05,
+            45.81999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_borrowed_glass",
+          "key": "glassish",
+          "low": [
+            23.955,
+            2.35,
+            45.05
+          ],
+          "high": [
+            23.985,
+            3.05,
+            48.05
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_back_lo",
+          "key": "plaster_stained",
+          "low": [
+            23.94,
+            0.01,
+            44.5
+          ],
+          "high": [
+            24.0,
+            2.35,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_back_hi",
+          "key": "plaster_stained",
+          "low": [
+            23.94,
+            3.05,
+            44.5
+          ],
+          "high": [
+            24.0,
+            3.26,
+            48.599999999999994
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_pawnbroker",
+      "parts": [
+        {
+          "name": "storm_shop_pawnbroker_borrowed_sill__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_borrowed_sill__plaster_stained",
+          "key": "plaster_stained",
+          "tile": 1.8
+        },
+        {
+          "name": "storm_shop_pawnbroker_borrowed_sill__trim",
+          "key": "trim",
+          "tile": 1.1
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_pawnbroker_borrowed_sill",
+          "key": "trim",
+          "low": [
+            22.93,
+            2.3000000000000003,
+            51.61
+          ],
+          "high": [
+            23.0,
+            2.35,
+            54.989999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_borrowed_head",
+          "key": "trim",
+          "low": [
+            22.93,
+            3.05,
+            51.61
+          ],
+          "high": [
+            23.0,
+            3.0999999999999996,
+            54.989999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_borrowed_muntin1",
+          "key": "trim",
+          "low": [
+            22.935,
+            2.35,
+            54.105
+          ],
+          "high": [
+            23.0,
+            3.05,
+            54.144999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_borrowed_muntin2",
+          "key": "trim",
+          "low": [
+            22.935,
+            2.35,
+            53.279999999999994
+          ],
+          "high": [
+            23.0,
+            3.05,
+            53.31999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_borrowed_muntin3",
+          "key": "trim",
+          "low": [
+            22.935,
+            2.35,
+            52.455
+          ],
+          "high": [
+            23.0,
+            3.05,
+            52.49499999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_borrowed_glass",
+          "key": "glassish",
+          "low": [
+            22.955,
+            2.35,
+            51.64999999999999
+          ],
+          "high": [
+            22.985,
+            3.05,
+            54.949999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_back_lo",
+          "key": "plaster_stained",
+          "low": [
+            22.94,
+            0.01,
+            51.099999999999994
+          ],
+          "high": [
+            23.0,
+            2.35,
+            55.49999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_back_hi",
+          "key": "plaster_stained",
+          "low": [
+            22.94,
+            3.05,
+            51.099999999999994
+          ],
+          "high": [
+            23.0,
+            3.26,
+            55.49999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_photo_supplies",
+      "parts": [
+        {
+          "name": "storm_shop_photo_supplies_borrowed_sill__plaster_stained",
+          "key": "plaster_stained",
+          "tile": 1.8
+        },
+        {
+          "name": "storm_shop_photo_supplies_borrowed_sill__trim",
+          "key": "trim",
+          "tile": 1.1
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_photo_supplies_borrowed_sill",
+          "key": "trim",
+          "low": [
+            22.93,
+            2.3000000000000003,
+            59.41
+          ],
+          "high": [
+            23.0,
+            2.35,
+            63.38999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_borrowed_head",
+          "key": "trim",
+          "low": [
+            22.93,
+            3.05,
+            59.41
+          ],
+          "high": [
+            23.0,
+            3.0999999999999996,
+            63.38999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_borrowed_muntin1",
+          "key": "trim",
+          "low": [
+            22.935,
+            2.35,
+            62.355
+          ],
+          "high": [
+            23.0,
+            3.05,
+            62.394999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_borrowed_muntin2",
+          "key": "trim",
+          "low": [
+            22.935,
+            2.35,
+            61.379999999999995
+          ],
+          "high": [
+            23.0,
+            3.05,
+            61.419999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_borrowed_muntin3",
+          "key": "trim",
+          "low": [
+            22.935,
+            2.35,
+            60.404999999999994
+          ],
+          "high": [
+            23.0,
+            3.05,
+            60.44499999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_back_lo",
+          "key": "plaster_stained",
+          "low": [
+            22.94,
+            0.01,
+            58.89999999999999
+          ],
+          "high": [
+            23.0,
+            2.35,
+            63.89999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_back_hi",
+          "key": "plaster_stained",
+          "low": [
+            22.94,
+            3.05,
+            58.89999999999999
+          ],
+          "high": [
+            23.0,
+            3.26,
+            63.89999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_radio_service",
+      "parts": [
+        {
+          "name": "storm_shop_radio_service_borrowed_sill__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_radio_service_borrowed_sill__plaster_stained",
+          "key": "plaster_stained",
+          "tile": 1.8
+        },
+        {
+          "name": "storm_shop_radio_service_borrowed_sill__trim",
+          "key": "trim",
+          "tile": 1.1
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_radio_service_borrowed_sill",
+          "key": "trim",
+          "low": [
+            21.93,
+            2.3000000000000003,
+            56.209999999999994
+          ],
+          "high": [
+            22.0,
+            2.35,
+            58.19
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_borrowed_head",
+          "key": "trim",
+          "low": [
+            21.93,
+            3.05,
+            56.209999999999994
+          ],
+          "high": [
+            22.0,
+            3.0999999999999996,
+            58.19
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_borrowed_muntin1",
+          "key": "trim",
+          "low": [
+            21.935,
+            2.35,
+            57.654999999999994
+          ],
+          "high": [
+            22.0,
+            3.05,
+            57.69499999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_borrowed_muntin2",
+          "key": "trim",
+          "low": [
+            21.935,
+            2.35,
+            57.17999999999999
+          ],
+          "high": [
+            22.0,
+            3.05,
+            57.21999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_borrowed_muntin3",
+          "key": "trim",
+          "low": [
+            21.935,
+            2.35,
+            56.705
+          ],
+          "high": [
+            22.0,
+            3.05,
+            56.74499999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_borrowed_glass",
+          "key": "glassish",
+          "low": [
+            21.955,
+            2.35,
+            56.24999999999999
+          ],
+          "high": [
+            21.985,
+            3.05,
+            58.14999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_back_lo",
+          "key": "plaster_stained",
+          "low": [
+            21.94,
+            0.01,
+            55.699999999999996
+          ],
+          "high": [
+            22.0,
+            2.35,
+            58.699999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_back_hi",
+          "key": "plaster_stained",
+          "low": [
+            21.94,
+            3.05,
+            55.699999999999996
+          ],
+          "high": [
+            22.0,
+            3.26,
+            58.699999999999996
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_shoe_rebuilding",
+      "parts": [
+        {
+          "name": "storm_shop_shoe_rebuilding_borrowed_sill__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_borrowed_sill__plaster_stained",
+          "key": "plaster_stained",
+          "tile": 1.8
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_borrowed_sill__trim",
+          "key": "trim",
+          "tile": 1.1
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_shoe_rebuilding_borrowed_sill",
+          "key": "trim",
+          "low": [
+            5.0,
+            2.3000000000000003,
+            45.410000000000004
+          ],
+          "high": [
+            5.07,
+            2.35,
+            49.79
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_borrowed_head",
+          "key": "trim",
+          "low": [
+            5.0,
+            3.05,
+            45.410000000000004
+          ],
+          "high": [
+            5.07,
+            3.0999999999999996,
+            49.79
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_borrowed_muntin1",
+          "key": "trim",
+          "low": [
+            5.0,
+            2.35,
+            46.505
+          ],
+          "high": [
+            5.065,
+            3.05,
+            46.545
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_borrowed_muntin2",
+          "key": "trim",
+          "low": [
+            5.0,
+            2.35,
+            47.58
+          ],
+          "high": [
+            5.065,
+            3.05,
+            47.620000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_borrowed_muntin3",
+          "key": "trim",
+          "low": [
+            5.0,
+            2.35,
+            48.655
+          ],
+          "high": [
+            5.065,
+            3.05,
+            48.695
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_borrowed_glass",
+          "key": "glassish",
+          "low": [
+            5.015,
+            2.35,
+            45.45
+          ],
+          "high": [
+            5.045,
+            3.05,
+            49.75
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_back_lo",
+          "key": "plaster_stained",
+          "low": [
+            5.0,
+            0.01,
+            44.9
+          ],
+          "high": [
+            5.06,
+            2.35,
+            50.300000000000004
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_back_hi",
+          "key": "plaster_stained",
+          "low": [
+            5.0,
+            3.05,
+            44.9
+          ],
+          "high": [
+            5.06,
+            3.26,
+            50.300000000000004
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ],
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "registered_owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06
+  }
+}

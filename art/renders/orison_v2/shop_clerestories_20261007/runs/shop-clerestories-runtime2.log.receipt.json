@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 57.83,
+  "exit_code": 1,
+  "finished_utc": "2026-10-07T16:31:46Z",
+  "started_utc": "2026-10-07T16:30:47Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/shop-clerestories-runtime2.log.stderr",
+  "stderr_sha256": "ff21e4b4a791707c692e02e698b2737c5d0a8ad630f85faa5dbb3e3de3b9df9f",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/shop-clerestories-runtime2.log",
+  "stdout_sha256": "e2cefa55d55a20d4e67cd8d9427a5b170fb07b7861f608007c6ea2cd76ffaa69"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/shop-clerestories-runtime2-shots",
+ "source": {
+  "dirty_paths": 27,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/scripts/build_shop_clerestories.py",
+   "?? art/blender/scripts/inspect_shop_clerestories.py",
+   "?? art/blender/scripts/shop_clerestories_geometry.py",
+   "?? art/blender/shop_clerestories.blend",
+   "?? art/blender/shop_clerestories_construction.json",
+   "?? art/data/shop_clerestories/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? game/assets/props/shop_clerestories.glb"
+  ],
+  "repository_head": "28f70b85220bab10110410a1c9e40421e2cd196a",
+  "repository_tree": "c603b757776c26403f2baf2b64ad573d087f3e3f",
+  "runtime_inputs_sha256": "73866dc0fd55e40598d3958857a6e6843fd0c069947f5ce7744fa2e267df3308",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "edca91882dababe6cd9196532a5a9e73152514bdf9d55e65f16e81615e167520"
+ },
+ "windowed": true
+}

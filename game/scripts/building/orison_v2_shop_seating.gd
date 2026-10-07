@@ -10,6 +10,9 @@ static func mount_laundry(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_laundry_apparatus(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/laundry_apparatus.json","LaundryApparatus","F01_retail_laundry_apparatus_","laundry_apparatus_part")
 
+static func mount_shop_clerestories(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/shop_clerestories.json","ShopClerestories","F01_retail_clerestories_","shop_clerestories_part")
+
 static func mount_shop_joinery(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/shop_joinery.json","ShopJoinery","F01_retail_shop_joinery_","shop_joinery_part")
 

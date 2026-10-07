@@ -1,0 +1,16 @@
+{
+  "stages": [
+    {
+      "script": "art/blender/scripts/build_shop_clerestories.py"
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_clerestories.py",
+      "env": {
+        "SHOP_CLERESTORIES_RENDER": "0"
+      }
+    },
+    {
+      "script": "art/blender/scripts/inspect_shop_clerestories.py"
+    }
+  ]
+}

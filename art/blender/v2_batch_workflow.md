@@ -66,6 +66,10 @@ resets Blender's scene, restores environment/cwd/arguments/import paths and
 stops on failure. Python's module cache stays shared: group compatible recipes
 and inspect every result. Its initial two-file smoke test opened both accepted
 Pawn native files; it did not rebuild or qualify all 141 existing builders.
+Update linked-object transforms before native BVH queries. Run fit/support
+preflight across the entire batch before rendering; **shop_clerestories** uses
+**SHOP_CLERESTORIES_RENDER=0** for this first inspection stage. This avoids
+re-rendering early shops when a later one fails. Then render the validated set.
 Use draft renders during iteration and one final native review per changed
 family. Export the complete batch after fit, support, UV and material checks.
 
@@ -74,7 +78,8 @@ family. Export the complete batch after fit, support, UV and material checks.
 Modules: **pawn_clocks**, **pawn_display**, **pawn_fittings**, **laundry_fittings**,
 **laundry_apparatus**, **laundry_trade**, **diner_counter**, **diner_till**,
 **hardware_tools**, **photo_cameras**, **photo_counter**, **photo_stock**,
-**photo_enlargers**, **photo_portraits**, **radio_wire** and **shop_joinery**. The original
+**photo_enlargers**, **photo_portraits**, **radio_wire**, **shop_joinery** and
+**shop_clerestories**. The original
 clock/display checks remain; display now also checks the fitted safe boundary.
 Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and

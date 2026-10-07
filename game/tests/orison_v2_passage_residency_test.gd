@@ -120,6 +120,8 @@ func _check_specialist_fittings() -> bool:
 		["shop_radio_service","RadioBattery","radio_battery"],
 		["shop_radio_service","RadioWire","radio_wire"],
 		["shop_radio_service","RadioDisplay","radio_display"]]
+	var clerestories: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_shop_clerestories.json"))
+	for record: Dictionary in clerestories.runtime.cells:specialist_specs.append([str(record.id),"ShopClerestories","shop_clerestories"])
 	var joinery: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_shop_joinery.json"))
 	for record: Dictionary in joinery.runtime.cells:specialist_specs.append([str(record.id),"ShopJoinery","shop_joinery"])
 	for spec: Array in specialist_specs:

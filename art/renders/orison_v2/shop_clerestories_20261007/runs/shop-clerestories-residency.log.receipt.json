@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 118.65,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T16:41:31Z",
+  "started_utc": "2026-10-07T16:39:32Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/shop-clerestories-residency.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/shop-clerestories-residency.log",
+  "stdout_sha256": "02123b038f2d29ed2511c95758a8b2b12a47e9cf12f52fee21c9ed5530a3749e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PassageResidencyTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/shop-clerestories-residency-shots",
+ "source": {
+  "dirty_paths": 32,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/scripts/build_shop_clerestories.py",
+   "?? art/blender/scripts/inspect_shop_clerestories.py",
+   "?? art/blender/scripts/shop_clerestories_geometry.py",
+   "?? art/blender/shop_clerestories.blend",
+   "?? art/blender/shop_clerestories.md",
+   "?? art/blender/shop_clerestories_construction.json",
+   "?? art/data/shop_clerestories/",
+   "?? art/renders/insitu/shot_024.png"
+  ],
+  "repository_head": "28f70b85220bab10110410a1c9e40421e2cd196a",
+  "repository_tree": "c603b757776c26403f2baf2b64ad573d087f3e3f",
+  "runtime_inputs_sha256": "73866dc0fd55e40598d3958857a6e6843fd0c069947f5ce7744fa2e267df3308",
+  "test_path": "game/tests/orison_v2_passage_residency_test.gd",
+  "test_sha256": "845fb44e4478f4a0d1bc9d8eeef11527c82514f80dd101eb35945385c5405552"
+ },
+ "windowed": true
+}

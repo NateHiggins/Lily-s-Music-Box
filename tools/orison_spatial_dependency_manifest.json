@@ -225194,6 +225194,2556 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "d733d63417ce39e9",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_back_hi",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "71d3cc6879f2c397",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_back_lo_e",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "613c09fa7c3ab3ae",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_back_lo_lintel",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "4afa1d5b24e32eb1",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_back_lo_w",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a65e4ae3a691b0ce",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_borrowed_glass",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "add64ca45498d8cf",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_borrowed_head",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5e34979a24055ec9",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_borrowed_muntin1",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "471429301cf69c34",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_borrowed_muntin2",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "09ccb48a5b5f976a",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_borrowed_muntin3",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7c905307995985cf",
+   "kind": "id_reference",
+   "token": "storm_shop_funeral_parlour_borrowed_sill",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1c682c9d49a45636",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_back_hi",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[1]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b497d77cb0d7fd68",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_back_lo",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[1]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "66a834e6b585d50c",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_borrowed_glass",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[1]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "30f54f38184b3e7c",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_borrowed_head",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[1]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ce01cc8c35ce5a29",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_borrowed_muntin1",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[1]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "16be140847bc13dd",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_borrowed_muntin2",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[1]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a9cfe73f793ea8c7",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_borrowed_muntin3",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[1]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e75a14796490edcd",
+   "kind": "id_reference",
+   "token": "storm_shop_hardware_paint_borrowed_sill",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[1]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9be89769f12713be",
+   "kind": "id_reference",
+   "token": "storm_shop_keys_cut_back_hi",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[2]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "36e101a9425f5fc2",
+   "kind": "id_reference",
+   "token": "storm_shop_keys_cut_back_lo",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[2]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "fec91bf64e978674",
+   "kind": "id_reference",
+   "token": "storm_shop_keys_cut_borrowed_glass",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[2]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "006e20806d2cf763",
+   "kind": "id_reference",
+   "token": "storm_shop_keys_cut_borrowed_head",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[2]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "3700c7e0c126f7b2",
+   "kind": "id_reference",
+   "token": "storm_shop_keys_cut_borrowed_muntin1",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[2]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "25e31d7ecf33e56f",
+   "kind": "id_reference",
+   "token": "storm_shop_keys_cut_borrowed_muntin2",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[2]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "2dac4c8cfedb6cb4",
+   "kind": "id_reference",
+   "token": "storm_shop_keys_cut_borrowed_muntin3",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[2]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ceb245d94bdbbb80",
+   "kind": "id_reference",
+   "token": "storm_shop_keys_cut_borrowed_sill",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[2]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "58faa6ace4b46c21",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_back_hi",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "17721a62dc89c489",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_back_lo",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0813c4730824c637",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_borrowed_glass",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5b92dd0cb290deb4",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_borrowed_head",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "32d08652e439280f",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_borrowed_muntin1",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "d1741c71abbe674f",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_borrowed_muntin2",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "fc2290b42809cd86",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_borrowed_muntin3",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e9be550283589a6b",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_borrowed_sill",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b73b13fdea3854e5",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_back_hi",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9ceb9f1af5e023b2",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_back_lo",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7f23efbc26b1a97a",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_borrowed_glass",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "fc61feabd04b6389",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_borrowed_head",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "69a034179ff40993",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_borrowed_muntin1",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9383026f94aa5e82",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_borrowed_muntin2",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "861bb13b92541799",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_borrowed_muntin3",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b3e2fe5fee7f1fc9",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_borrowed_sill",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "33e190400b33254e",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_back_hi",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ea4c3200bbac7e97",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_back_lo",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "2103b591ce3364ef",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_borrowed_glass",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e0da1b166c424ffb",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_borrowed_head",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9196e8488a0dc675",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_borrowed_muntin1",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "706e9d3d05bde027",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_borrowed_muntin2",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "aac1bcb224bff856",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_borrowed_muntin3",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "36d6b426586e1c5c",
+   "kind": "id_reference",
+   "token": "storm_shop_news_cigars_borrowed_sill",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6523e326630506e6",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_back_hi",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e5308d251a915d6b",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_back_lo",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "30dfd028e2d08531",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_borrowed_glass",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e83850e30333936b",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_borrowed_head",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9d1205e2ffaf85b4",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_borrowed_muntin1",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6ec5a5a967a0e6ee",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_borrowed_muntin2",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a2a77be0775f504d",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_borrowed_muntin3",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "3ad7253a95cd7e10",
+   "kind": "id_reference",
+   "token": "storm_shop_otis___son_borrowed_sill",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "2d92e9f52478c2e7",
+   "kind": "id_reference",
+   "token": "storm_shop_pawnbroker_back_hi",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "bc5d744302bac4fd",
+   "kind": "id_reference",
+   "token": "storm_shop_pawnbroker_back_lo",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7781a87e9559c707",
+   "kind": "id_reference",
+   "token": "storm_shop_pawnbroker_borrowed_glass",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c2744770f496fef6",
+   "kind": "id_reference",
+   "token": "storm_shop_pawnbroker_borrowed_head",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6ceb5eda59266673",
+   "kind": "id_reference",
+   "token": "storm_shop_pawnbroker_borrowed_muntin1",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5d1ec2ff08e812c2",
+   "kind": "id_reference",
+   "token": "storm_shop_pawnbroker_borrowed_muntin2",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a89e7b9d9384f00a",
+   "kind": "id_reference",
+   "token": "storm_shop_pawnbroker_borrowed_muntin3",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "242377aa468e3b82",
+   "kind": "id_reference",
+   "token": "storm_shop_pawnbroker_borrowed_sill",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "99402b6256f28e1f",
+   "kind": "id_reference",
+   "token": "storm_shop_photo_supplies_back_hi",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c6d643246f8b7adc",
+   "kind": "id_reference",
+   "token": "storm_shop_photo_supplies_back_lo",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f4bc2ba68d8fbb53",
+   "kind": "id_reference",
+   "token": "storm_shop_photo_supplies_borrowed_head",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6deea357730a7cae",
+   "kind": "id_reference",
+   "token": "storm_shop_photo_supplies_borrowed_muntin1",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5ead8e76130b2155",
+   "kind": "id_reference",
+   "token": "storm_shop_photo_supplies_borrowed_muntin2",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "dde59181c01fa297",
+   "kind": "id_reference",
+   "token": "storm_shop_photo_supplies_borrowed_muntin3",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e79af0b924a2dfe1",
+   "kind": "id_reference",
+   "token": "storm_shop_photo_supplies_borrowed_sill",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "b17d8260a4c2d700",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_back_hi",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6545f0d0c1ddd875",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_back_lo",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0ef11a617a66d6c2",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_borrowed_glass",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "53c26063ae0d9274",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_borrowed_head",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5e74f96b31cd4920",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_borrowed_muntin1",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "014d983b27e98df1",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_borrowed_muntin2",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "1f75638c8b0cafff",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_borrowed_muntin3",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "9e246a8e91cd2ac8",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_borrowed_sill",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0e5952a46d25a320",
+   "kind": "id_reference",
+   "token": "storm_shop_shoe_rebuilding_back_hi",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7bcb21643eb7578f",
+   "kind": "id_reference",
+   "token": "storm_shop_shoe_rebuilding_back_lo",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "dca2383e1c8eda72",
+   "kind": "id_reference",
+   "token": "storm_shop_shoe_rebuilding_borrowed_glass",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f90da931100c60c1",
+   "kind": "id_reference",
+   "token": "storm_shop_shoe_rebuilding_borrowed_head",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "939c70ece9c62986",
+   "kind": "id_reference",
+   "token": "storm_shop_shoe_rebuilding_borrowed_muntin1",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "2681668e0d34f6ae",
+   "kind": "id_reference",
+   "token": "storm_shop_shoe_rebuilding_borrowed_muntin2",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5d194e1266a28f4e",
+   "kind": "id_reference",
+   "token": "storm_shop_shoe_rebuilding_borrowed_muntin3",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "97a1e4a4a290d98e",
+   "kind": "id_reference",
+   "token": "storm_shop_shoe_rebuilding_borrowed_sill",
+   "file": "game/data/orison_v2/shop_clerestories.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[*]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "87662a886d7965c0",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_shop_clerestories_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    38
+   ],
+   "count": 1,
+   "context": [
+    "var owner_rows: Array=passage.source_layout.floors.filter(func(floor):return floor.id==\"F01\")[0].furniture"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "776cdee52270d160",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_shop_clerestories_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    20
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id==\"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }

@@ -1,0 +1,295 @@
+{
+	"batch_checks": 22,
+	"elapsed_ms": 48611,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 7582,
+	"modules": {
+		"diner_counter": {
+			"captured": false,
+			"checks": 136,
+			"elapsed_ms": 85,
+			"failures": [],
+			"fixture_sha256": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
+			"parts": 5,
+			"removed": 48,
+			"supports": 8,
+			"triangles": 4760,
+			"validator_sha256": "9d82678688e315746ffb4c7e439bf09394460f8ccbb150284304c75b030010eb"
+		},
+		"diner_till": {
+			"captured": false,
+			"checks": 130,
+			"elapsed_ms": 112,
+			"failures": [],
+			"fixture_sha256": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4",
+			"parts": 7,
+			"removed": 24,
+			"supports": 8,
+			"triangles": 16992,
+			"validator_sha256": "cdbc056a2f082640b621626fb6defde1b53ff4fe8a3b0f7b110c1237695dd86c"
+		},
+		"hardware_tools": {
+			"captured": false,
+			"checks": 254,
+			"elapsed_ms": 311,
+			"failures": [],
+			"fixture_sha256": "0d3c7b1555196ba840c72c347f407c1d588c43898609d1acc2046fe2be20a2ac",
+			"parts": 11,
+			"removed": 408,
+			"supports": 12,
+			"triangles": 10976,
+			"validator_sha256": "67779ac2b944a2bf293a576d57a7552ff661a1a0fb66e5d1c14462770b6d3f59"
+		},
+		"laundry_apparatus": {
+			"captured": false,
+			"checks": 284,
+			"elapsed_ms": 96,
+			"failures": [],
+			"fixture_sha256": "f3280a5a4ad2d4dde8188391afed572d69ff4e1523cb39525699011962e009cf",
+			"parts": 18,
+			"removed": 276,
+			"supports": 24,
+			"triangles": 32980,
+			"validator_sha256": "dfc3facfc32367ab823938bde9106de2601abdc1de7398226c84c9077113de6b"
+		},
+		"laundry_fittings": {
+			"captured": false,
+			"checks": 1139,
+			"elapsed_ms": 304,
+			"failures": [],
+			"fixture_sha256": "171e66970e84534226044760a83abbc9bce6c3ed3f0619599fa53bf67e98fc06",
+			"parts": 99,
+			"removed": 636,
+			"supports": 57,
+			"triangles": 83928,
+			"validator_sha256": "47a4d8440eb40a43b72524899f315cdba7b55dc98b82802ba3e282f11f6ad2cd"
+		},
+		"laundry_trade": {
+			"captured": false,
+			"checks": 311,
+			"elapsed_ms": 133,
+			"failures": [],
+			"fixture_sha256": "599e5781bebdf630076477b5929a7a6c93182e737b2fef7572314b7929206bae",
+			"parts": 14,
+			"removed": 312,
+			"supports": 29,
+			"triangles": 20218,
+			"validator_sha256": "63c594b51a058e832daff67d5d62afe83074f6fe86e56b597002113d5171951f"
+		},
+		"pawn_clocks": {
+			"captured": false,
+			"checks": 989,
+			"elapsed_ms": 876,
+			"failures": [],
+			"fixture_sha256": "4de79c8e83208dfba29b0e91cd2d763255406efc362989eeaf4dcb33ecb01c86",
+			"parts": 68,
+			"removed": 180,
+			"supports": 30,
+			"triangles": 27816,
+			"validator_sha256": "9dfb99f42c9ceba61b6c77429eda2320356df5777bbad66806dbe83fd7b4e40e"
+		},
+		"pawn_display": {
+			"captured": false,
+			"checks": 299,
+			"elapsed_ms": 288,
+			"failures": [],
+			"fixture_sha256": "75c124e805c39c01aec8d687d60f33d01aa715e4a05b2d1ac9f2a05913d120ef",
+			"parts": 16,
+			"removed": 96,
+			"supports": 14,
+			"triangles": 28296,
+			"validator_sha256": "f798516421cf74e7fb5e3cec9bdf77001d67c4be98f5ebbcf7615fbb843bb75d"
+		},
+		"pawn_fittings": {
+			"captured": false,
+			"checks": 546,
+			"elapsed_ms": 224,
+			"failures": [],
+			"fixture_sha256": "fdcadf3fe9f1e197b71a8e46cb30c04b5f01c90318d4a63e5c4df89a3ac827dc",
+			"parts": 33,
+			"removed": 480,
+			"supports": 23,
+			"triangles": 44672,
+			"validator_sha256": "afa61ef00d6d9f2daf925948fcdc03ef169ba04b3b26d08a188890bd929399f6"
+		},
+		"photo_cameras": {
+			"captured": false,
+			"checks": 168,
+			"elapsed_ms": 296,
+			"failures": [],
+			"fixture_sha256": "f5f3a5a94c7f4cafa7878d9a9435adc1e44c305c9b30c410e620e9a508035ebf",
+			"parts": 8,
+			"removed": 96,
+			"supports": 7,
+			"triangles": 10016,
+			"validator_sha256": "cc8e1af4650fa1c0f794bb3e5826b50b7ed568f0fe23aa05d2490db5dcf13078"
+		},
+		"photo_counter": {
+			"captured": false,
+			"checks": 124,
+			"elapsed_ms": 118,
+			"failures": [],
+			"fixture_sha256": "517863a03cd211637e3f6ac177087fd29b17f3b26b6e66e0443f6e56c693972b",
+			"parts": 5,
+			"removed": 48,
+			"supports": 5,
+			"triangles": 5124,
+			"validator_sha256": "910e21311a96f56ceae900e9453c5119dd9c0a332b5c374d9d2237943edd11a7"
+		},
+		"photo_enlargers": {
+			"captured": false,
+			"checks": 160,
+			"elapsed_ms": 233,
+			"failures": [],
+			"fixture_sha256": "626fc562e378ccff57cce3b0fb1dcd7de1137260ea37fe718cfad8c3aab1ce60",
+			"parts": 10,
+			"removed": 48,
+			"supports": 9,
+			"triangles": 8732,
+			"validator_sha256": "92aef8da4427903b0da35e3b7b1ede3ad8179cb20e9b6e884f3a3fb34980c21a"
+		},
+		"photo_portraits": {
+			"captured": false,
+			"checks": 361,
+			"elapsed_ms": 70,
+			"failures": [],
+			"fixture_sha256": "1c6d7ab2cfcd0d03d5335a9e95572211e494739241445579919b5de3ddee812b",
+			"parts": 23,
+			"removed": 96,
+			"supports": 25,
+			"triangles": 3896,
+			"validator_sha256": "338d0ddbd7825aaedb244794e8b51acdf30e9043c6d53b9279b22044a02c7a38"
+		},
+		"photo_stock": {
+			"captured": false,
+			"checks": 300,
+			"elapsed_ms": 148,
+			"failures": [],
+			"fixture_sha256": "116cafb9a1579ec2b7ae0a9a93ced0f3087d82254369a143ffbe6ff5ea48a838",
+			"parts": 16,
+			"removed": 240,
+			"supports": 19,
+			"triangles": 18988,
+			"validator_sha256": "e5aec2ef86bd00424a323d294b43b4483a45ea04d4101bd21b6709875fa93678"
+		},
+		"radio_wire": {
+			"captured": false,
+			"checks": 115,
+			"elapsed_ms": 424,
+			"failures": [],
+			"fixture_sha256": "19cad59d679348dd81837d6d91c938691d2cc0be1caad37c4078b8788536ba90",
+			"parts": 4,
+			"removed": 24,
+			"supports": 8,
+			"triangles": 30108,
+			"validator_sha256": "83205e76fb26cd3ecf431e89885675ab30dd0aea080c23cc3def2e1a82d17488"
+		},
+		"shop_clerestories": {
+			"captured": true,
+			"checks": 1460,
+			"elapsed_ms": 14662,
+			"encoded_contact_offsets": [
+				{
+					"budget_m": 0.000113474122642097,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000102996826171875,
+					"owner": "storm_shop_funeral_parlour_back_jamb_w"
+				},
+				{
+					"budget_m": 0.000189054147375888,
+					"label": "plaster rebate at chapel head end",
+					"native_owner": false,
+					"offset_m": 0.0001068115234375,
+					"owner": "storm_shop_funeral_parlour_chapel_head"
+				},
+				{
+					"budget_m": 0.000121000720875627,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.00009918212890625,
+					"owner": "storm_shop_luncheonette_back_jamb_e"
+				},
+				{
+					"budget_m": 0.000186667000224936,
+					"label": "upper panel above retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000100208439107519,
+					"owner": "storm_shop_model_laundry_back_jamb_e"
+				},
+				{
+					"budget_m": 0.000186667000224936,
+					"label": "upper panel above retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000100135803222656,
+					"owner": "storm_shop_model_laundry_back_jamb_w"
+				},
+				{
+					"budget_m": 0.000186667000224936,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.00009918212890625,
+					"owner": "storm_shop_model_laundry_back_jamb_w"
+				},
+				{
+					"budget_m": 0.000113474122642097,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.0001068115234375,
+					"owner": "storm_shop_pawnbroker_back_jamb_e"
+				},
+				{
+					"budget_m": 0.000172456474371139,
+					"label": "upper panel above retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000100208439107519,
+					"owner": "storm_shop_photo_supplies_back_jamb_e"
+				},
+				{
+					"budget_m": 0.000172456474371139,
+					"label": "upper panel above retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000100135803222656,
+					"owner": "storm_shop_photo_supplies_back_jamb_w"
+				},
+				{
+					"budget_m": 0.000172456474371139,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.00009918212890625,
+					"owner": "storm_shop_photo_supplies_back_jamb_w"
+				},
+				{
+					"budget_m": 0.000126175511823581,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000102996826171875,
+					"owner": "storm_shop_shoe_rebuilding_back_jamb_w"
+				}
+			],
+			"failures": [],
+			"fixture_sha256": "a557a7a6f83ae33090de7d9799ac1ed08bd85ac36cfaa0694a9c59f8fd6cc59e",
+			"parts": 32,
+			"removed": 1068,
+			"supports": 251,
+			"triangles": 60216,
+			"validator_sha256": "2e5ab3450a22fab57aba5b1a69b19071ae31f9828f77f47cb6f94606e2e9cc1a"
+		},
+		"shop_joinery": {
+			"captured": false,
+			"checks": 806,
+			"elapsed_ms": 953,
+			"failures": [],
+			"fixture_sha256": "ea2a134a91ba97c94a955c9316e474362a6c226e6de09e368d9f8021ba02eb96",
+			"parts": 35,
+			"removed": 288,
+			"supports": 50,
+			"triangles": 120440,
+			"validator_sha256": "7af2cac89654827bd4609361d62d8cf5b8af3060e28159c9c7db9b4182cb2a24"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

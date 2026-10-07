@@ -1021,3 +1021,16 @@ game/scripts/building/orison_v2_shop_joinery.gd -text
 game/assets/props/shop_joinery.glb.import -text
 game/tests/orison_v2_shop_joinery_test.gd -text
 art/renders/orison_v2/shop_joinery_20261007/** -text -whitespace
+
+# Source-owned clerestory fabrication bindings.
+art/data/shop_clerestories/source_plan.json -text
+art/blender/scripts/build_shop_clerestories.py -text
+art/blender/scripts/shop_clerestories_geometry.py -text
+art/blender/scripts/inspect_shop_clerestories.py -text
+art/blender/shop_clerestories_construction.json -text
+game/data/orison_v2/shop_clerestories.json -text
+game/tests/fixtures/orison_shop_clerestories.json -text
+game/scripts/building/orison_v2_shop_clerestories.gd -text
+game/assets/props/shop_clerestories.glb.import -text
+game/tests/orison_v2_shop_clerestories_test.gd -text
+art/renders/orison_v2/shop_clerestories_20261007/** -text -whitespace

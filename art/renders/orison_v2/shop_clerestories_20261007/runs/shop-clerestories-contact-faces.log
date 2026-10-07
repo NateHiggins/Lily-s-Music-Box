@@ -1,0 +1,81 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1104 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 1308 surfaces layered (475 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 170 surfaces layered (81 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=16465.791
+[LIGHTING] 207 sources active in system; 207 full personalities; profiles steady/breathe/mains/beat/dropout=[50, 45, 36, 42, 34]
+CAP MAPPING: mesh=shop_clerestories_storm_shop_funeral_parlour_borrowed_sill__glassish valid_basis=true max_uv_excess=0.00000023841858 widest=1.00000007224807 vertices=34 derivatives=true bad_derivatives=0 min_determinant=0.00420002965927 worst_dot=0.99999994039536
+CAP MAPPING: mesh=shop_clerestories_storm_shop_funeral_parlour_borrowed_sill__plaster_stained valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000011807524 vertices=461 derivatives=true bad_derivatives=0 min_determinant=0.0019999675751 worst_dot=1.0
+CAP MAPPING: mesh=shop_clerestories_storm_shop_funeral_parlour_borrowed_sill__trim valid_basis=true max_uv_excess=0.00000011920929 widest=1.00053234879881 vertices=14339 derivatives=true bad_derivatives=0 min_determinant=0.00000002889016 worst_dot=0.99999952316284
+CLERESTORY CONTACT sash at retained jamb owner=storm_shop_funeral_parlour_back_jamb_w expected=(4.045, 2.7, 60.05) hit=(4.045, 2.7, 60.0499) collider=F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_plaster_stained
+CONTACT FACE storm_shop_funeral_parlour_back_jamb_w bounds=(0.06, 3.25, 4.400002) face=[(4.0, 2.35, 60.0499), (4.06, 3.05, 60.0499), (4.06, 2.35, 60.0499)]
+CLERESTORY CONTACT plaster rebate at chapel head end owner=storm_shop_funeral_parlour_chapel_head expected=(4.03, 2.12, 60.29) hit=(4.03, 2.12, 60.28989) collider=F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_wood_dark
+CONTACT FACE storm_shop_funeral_parlour_chapel_head bounds=(9.29, 2.16, 4.204998) face=[(4.075, 2.07, 60.28989), (4.0, 2.17, 60.28989), (4.0, 2.07, 60.28989)]
+CAP MAPPING: mesh=shop_clerestories_storm_shop_hardware_paint_borrowed_sill__glassish valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=34 derivatives=true bad_derivatives=0 min_determinant=0.00420002965927 worst_dot=0.99999994039536
+CAP MAPPING: mesh=shop_clerestories_storm_shop_hardware_paint_borrowed_sill__plaster_stained valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=256 derivatives=true bad_derivatives=0 min_determinant=0.0019999675751 worst_dot=1.0
+CAP MAPPING: mesh=shop_clerestories_storm_shop_hardware_paint_borrowed_sill__trim valid_basis=true max_uv_excess=0.00000011920929 widest=1.00043232532014 vertices=14324 derivatives=true bad_derivatives=0 min_determinant=0.0000000289043 worst_dot=0.9999988079071
+CAP MAPPING: mesh=shop_clerestories_storm_shop_keys_cut_borrowed_sill__glassish valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=34 derivatives=true bad_derivatives=0 min_determinant=0.00420002965927 worst_dot=0.99999994039536
+CAP MAPPING: mesh=shop_clerestories_storm_shop_keys_cut_borrowed_sill__plaster_stained valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=256 derivatives=true bad_derivatives=0 min_determinant=0.0019999675751 worst_dot=1.0
+CAP MAPPING: mesh=shop_clerestories_storm_shop_keys_cut_borrowed_sill__trim valid_basis=true max_uv_excess=0.00000010707299 widest=1.00046475084624 vertices=14444 derivatives=true bad_derivatives=0 min_determinant=0.00000002889016 worst_dot=0.99999970197678
+CAP MAPPING: mesh=shop_clerestories_storm_shop_luncheonette_borrowed_sill__glassish valid_basis=true max_uv_excess=0.00000023841858 widest=1.00000006113295 vertices=35 derivatives=true bad_derivatives=0 min_determinant=0.00420036344531 worst_dot=0.99999994039536
+CAP MAPPING: mesh=shop_clerestories_storm_shop_luncheonette_borrowed_sill__plaster_stained valid_basis=true max_uv_excess=0.00000005960464 widest=1.00000012957557 vertices=279 derivatives=true bad_derivatives=0 min_determinant=0.0019999675751 worst_dot=1.0
+CAP MAPPING: mesh=shop_clerestories_storm_shop_luncheonette_borrowed_sill__trim valid_basis=true max_uv_excess=0.00000023841858 widest=1.00043622798077 vertices=14330 derivatives=true bad_derivatives=0 min_determinant=0.00000002889016 worst_dot=0.99999964237213
+CLERESTORY CONTACT sash at retained jamb owner=storm_shop_luncheonette_back_jamb_e expected=(23.985, 2.7, 39.85) hit=(23.985, 2.7, 39.8499) collider=F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained
+CONTACT FACE storm_shop_luncheonette_back_jamb_e bounds=(0.059999, 3.25, 5.0) face=[(23.94, 2.35, 39.8499), (24.0, 3.05, 39.8499), (24.0, 2.35, 39.8499)]
+CAP MAPPING: mesh=shop_clerestories_storm_shop_model_laundry_borrowed_sill__glassish valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=31 derivatives=true bad_derivatives=0 min_determinant=0.00420002965927 worst_dot=0.99999994039536
+CAP MAPPING: mesh=shop_clerestories_storm_shop_model_laundry_borrowed_sill__plaster_stained valid_basis=true max_uv_excess=0.00000011920929 widest=1.000000259149 vertices=279 derivatives=true bad_derivatives=0 min_determinant=0.0019999675751 worst_dot=1.0
+CAP MAPPING: mesh=shop_clerestories_storm_shop_model_laundry_borrowed_sill__trim valid_basis=true max_uv_excess=0.00000011199154 widest=1.00045163142463 vertices=14340 derivatives=true bad_derivatives=0 min_determinant=0.00000002890725 worst_dot=0.99999892711639
+CLERESTORY CONTACT upper panel above retained jamb owner=storm_shop_model_laundry_back_jamb_e expected=(4.03, 3.05, 44.425) hit=(4.03, 3.0499, 44.425) collider=F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained
+CONTACT FACE storm_shop_model_laundry_back_jamb_e bounds=(7.42, 4.2, 5.720001) face=[(4.0, 3.0499, 44.6999), (4.0599, 3.0499, 44.14999), (4.0599, 3.0499, 44.6999)]
+CLERESTORY CONTACT upper panel above retained jamb owner=storm_shop_model_laundry_back_jamb_w expected=(4.03, 3.05, 39.575) hit=(4.03, 3.0499, 39.575) collider=F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained
+CONTACT FACE storm_shop_model_laundry_back_jamb_w bounds=(7.42, 4.2, 5.720001) face=[(4.0, 3.0499, 39.8499), (4.0599, 3.0499, 39.3), (4.0599, 3.0499, 39.8499)]
+CLERESTORY CONTACT sash at retained jamb owner=storm_shop_model_laundry_back_jamb_w expected=(4.045, 2.7, 39.85) hit=(4.045, 2.7, 39.8499) collider=F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained
+CONTACT FACE storm_shop_model_laundry_back_jamb_w bounds=(7.42, 4.2, 5.720001) face=[(4.0, 2.35, 39.8499), (4.0599, 3.0499, 39.8499), (4.0599, 2.35, 39.8499)]
+CAP MAPPING: mesh=shop_clerestories_storm_shop_news_cigars_borrowed_sill__glassish valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=31 derivatives=true bad_derivatives=0 min_determinant=0.00420036344531 worst_dot=0.99999994039536
+CAP MAPPING: mesh=shop_clerestories_storm_shop_news_cigars_borrowed_sill__plaster_stained valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=259 derivatives=true bad_derivatives=0 min_determinant=0.0019999675751 worst_dot=1.0
+CAP MAPPING: mesh=shop_clerestories_storm_shop_news_cigars_borrowed_sill__trim valid_basis=true max_uv_excess=0.00000011341763 widest=1.00043860570568 vertices=14270 derivatives=true bad_derivatives=0 min_determinant=0.00000002889958 worst_dot=0.99999982118607
+CAP MAPPING: mesh=shop_clerestories_storm_shop_otis___son_borrowed_sill__glassish valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=35 derivatives=true bad_derivatives=0 min_determinant=0.00420036344531 worst_dot=0.99999994039536
+CAP MAPPING: mesh=shop_clerestories_storm_shop_otis___son_borrowed_sill__plaster_stained valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=279 derivatives=true bad_derivatives=0 min_determinant=0.0019999675751 worst_dot=1.0
+CAP MAPPING: mesh=shop_clerestories_storm_shop_otis___son_borrowed_sill__trim valid_basis=true max_uv_excess=0.00000023841858 widest=1.00043250336438 vertices=14262 derivatives=true bad_derivatives=0 min_determinant=0.00000002889958 worst_dot=0.99999988079071
+CAP MAPPING: mesh=shop_clerestories_storm_shop_pawnbroker_borrowed_sill__glassish valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=34 derivatives=true bad_derivatives=0 min_determinant=0.00420036344531 worst_dot=0.99999994039536
+CAP MAPPING: mesh=shop_clerestories_storm_shop_pawnbroker_borrowed_sill__plaster_stained valid_basis=true max_uv_excess=0.00000047683716 widest=1.00000014105382 vertices=256 derivatives=true bad_derivatives=0 min_determinant=0.0019999675751 worst_dot=1.0
+CAP MAPPING: mesh=shop_clerestories_storm_shop_pawnbroker_borrowed_sill__trim valid_basis=true max_uv_excess=0.00000023841858 widest=1.00042869608488 vertices=14335 derivatives=true bad_derivatives=0 min_determinant=0.00000002889958 worst_dot=0.99999958276749
+CLERESTORY CONTACT sash at retained jamb owner=storm_shop_pawnbroker_back_jamb_e expected=(22.985, 2.7, 51.65) hit=(22.985, 2.7, 51.64989) collider=F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_plaster_stained
+CONTACT FACE storm_shop_pawnbroker_back_jamb_e bounds=(0.059999, 3.25, 4.400002) face=[(22.94, 2.35, 51.64989), (23.0, 3.05, 51.64989), (23.0, 2.35, 51.64989)]
+CAP MAPPING: mesh=shop_clerestories_storm_shop_photo_supplies_borrowed_sill__plaster_stained valid_basis=true max_uv_excess=0.00000047683716 widest=1.00000011584473 vertices=279 derivatives=true bad_derivatives=0 min_determinant=0.0019999675751 worst_dot=1.0
+CAP MAPPING: mesh=shop_clerestories_storm_shop_photo_supplies_borrowed_sill__trim valid_basis=true max_uv_excess=0.00000023841858 widest=1.00043232532014 vertices=14324 derivatives=true bad_derivatives=0 min_determinant=0.00000002889016 worst_dot=0.99999928474426
+CLERESTORY CONTACT upper panel above retained jamb owner=storm_shop_photo_supplies_back_jamb_e expected=(22.97, 3.05, 59.175) hit=(22.97, 3.0499, 59.175) collider=F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained
+CONTACT FACE storm_shop_photo_supplies_back_jamb_e bounds=(6.42, 4.2, 5.319996) face=[(22.9399, 3.0499, 59.45), (23.0, 3.0499, 58.89989), (23.0, 3.0499, 59.45)]
+CLERESTORY CONTACT upper panel above retained jamb owner=storm_shop_photo_supplies_back_jamb_w expected=(22.97, 3.05, 63.625) hit=(22.97, 3.0499, 63.625) collider=F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained
+CONTACT FACE storm_shop_photo_supplies_back_jamb_w bounds=(6.42, 4.2, 5.319996) face=[(22.9399, 3.0499, 63.89999), (23.0, 3.0499, 63.3499), (23.0, 3.0499, 63.89999)]
+CLERESTORY CONTACT sash at retained jamb owner=storm_shop_photo_supplies_back_jamb_w expected=(22.985, 2.7, 63.35) hit=(22.985, 2.7, 63.3499) collider=F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained
+CONTACT FACE storm_shop_photo_supplies_back_jamb_w bounds=(6.42, 4.2, 5.319996) face=[(23.0, 2.35, 63.3499), (23.0, 3.0499, 63.3499), (22.9399, 3.0499, 63.3499)]
+CAP MAPPING: mesh=shop_clerestories_storm_shop_radio_service_borrowed_sill__glassish valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=34 derivatives=true bad_derivatives=0 min_determinant=0.00420036344531 worst_dot=0.99999994039536
+CAP MAPPING: mesh=shop_clerestories_storm_shop_radio_service_borrowed_sill__plaster_stained valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000006020673 vertices=279 derivatives=true bad_derivatives=0 min_determinant=0.0019999675751 worst_dot=1.0
+CAP MAPPING: mesh=shop_clerestories_storm_shop_radio_service_borrowed_sill__trim valid_basis=true max_uv_excess=0.00000012130477 widest=1.0004791717186 vertices=14314 derivatives=true bad_derivatives=0 min_determinant=0.0000000289043 worst_dot=0.99999988079071
+CAP MAPPING: mesh=shop_clerestories_storm_shop_shoe_rebuilding_borrowed_sill__glassish valid_basis=true max_uv_excess=0.0 widest=1.0 vertices=31 derivatives=true bad_derivatives=0 min_determinant=0.00420002965927 worst_dot=0.99999994039536
+CAP MAPPING: mesh=shop_clerestories_storm_shop_shoe_rebuilding_borrowed_sill__plaster_stained valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000025915115 vertices=279 derivatives=true bad_derivatives=0 min_determinant=0.0019999675751 worst_dot=1.0
+CAP MAPPING: mesh=shop_clerestories_storm_shop_shoe_rebuilding_borrowed_sill__trim valid_basis=true max_uv_excess=0.00000047683716 widest=1.00043309162752 vertices=14514 derivatives=true bad_derivatives=0 min_determinant=0.0000000289043 worst_dot=0.99999958276749
+CLERESTORY CONTACT sash at retained jamb owner=storm_shop_shoe_rebuilding_back_jamb_w expected=(5.045, 2.7, 45.45) hit=(5.045, 2.7, 45.4499) collider=F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_plaster_stained
+CONTACT FACE storm_shop_shoe_rebuilding_back_jamb_w bounds=(0.06, 3.25, 5.399998) face=[(5.0, 2.35, 45.4499), (5.06, 3.05, 45.4499), (5.06, 2.35, 45.4499)]
+SHOP CLERESTORIES: checks=1460 parts=32 triangles=60216 removed=1068 supports=251 failures=11
+FABRICATION BATCH: worlds=1 modules=1 module_checks=1460 failures=11 elapsed_ms=18114
