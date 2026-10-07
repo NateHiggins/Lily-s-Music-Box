@@ -960,3 +960,14 @@ game/tests/fixtures/orison_pawn_clocks.json -text
 
 # Exact hash-bound clock review diagnostics retain their captured bytes.
 art/renders/orison_v2/pawn_clocks_20261007/** -text -whitespace
+
+# Source-bound Pawnbroker display fitting.
+art/data/pawn_display/source_plan.json -text
+art/blender/scripts/build_pawn_display.py -text
+art/blender/scripts/inspect_pawn_display.py -text
+art/blender/pawn_display_construction.json -text
+game/assets/props/pawn_display.glb.import -text
+game/data/orison_v2/pawn_display.json -text
+game/tests/fixtures/orison_pawn_display.json -text
+game/scripts/building/orison_v2_pawn_display.gd -text
+art/renders/orison_v2/pawn_display_20261007/** -text -whitespace

@@ -313,6 +313,9 @@ func _stage_one() -> void:
 		if not region.PawnReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
 			_fail("native Pawn Shop receiving chassis reload refused: "+identity)
 			return
+		if not region.PawnDisplay.mount_cell(cell,region.source_layout):
+			_fail("native Pawn Shop display reload refused: "+identity)
+			return
 		if not region.PawnClocks.mount_cell(cell,region.source_layout):
 			_fail("native Pawn Shop clocks reload refused: "+identity)
 			return

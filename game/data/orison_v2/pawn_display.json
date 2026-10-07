@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/pawn_display.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_pawnbroker",
+      "parts": [
+        {
+          "name": "storm_shop_pawnbroker_case_w__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_case_w__fabric_warm",
+          "key": "fabric_warm",
+          "tile": 0.7,
+          "catalog_key": "fabric_warm",
+          "tint": [
+            0.22,
+            0.27,
+            0.23,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_pawnbroker_case_w__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_case_w__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_pawnbroker_case_e__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_case_e__fabric_warm",
+          "key": "fabric_warm",
+          "tile": 0.7,
+          "catalog_key": "fabric_warm",
+          "tint": [
+            0.22,
+            0.27,
+            0.23,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_pawnbroker_case_e__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_case_e__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_pawnbroker_window_plinth__bakelite_black",
+          "key": "bakelite_black",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black"
+        },
+        {
+          "name": "storm_shop_pawnbroker_window_plinth__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_window_plinth__fabric_warm",
+          "key": "fabric_warm",
+          "tile": 0.7,
+          "catalog_key": "fabric_warm",
+          "tint": [
+            0.22,
+            0.27,
+            0.23,
+            1.0
+          ]
+        },
+        {
+          "name": "storm_shop_pawnbroker_window_plinth__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_window_plinth__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_window_plinth__plywood",
+          "key": "plywood",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_pawnbroker_window_plinth__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_window_plinth__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_pawnbroker_case_w",
+          "key": "wood_dark",
+          "low": [
+            19.6,
+            0.05,
+            54.879999999999995
+          ],
+          "high": [
+            21.8,
+            0.9700000000000001,
+            55.449999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_case_w_gl",
+          "key": "glassish",
+          "low": [
+            19.6,
+            0.97,
+            54.879999999999995
+          ],
+          "high": [
+            21.8,
+            1.41,
+            55.449999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_case_w_top",
+          "key": "brass_dull",
+          "low": [
+            19.57,
+            1.41,
+            54.849999999999994
+          ],
+          "high": [
+            21.83,
+            1.45,
+            55.47999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_case_e",
+          "key": "wood_dark",
+          "low": [
+            19.6,
+            0.05,
+            51.14999999999999
+          ],
+          "high": [
+            21.8,
+            0.9700000000000001,
+            51.71999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_case_e_gl",
+          "key": "glassish",
+          "low": [
+            19.6,
+            0.97,
+            51.14999999999999
+          ],
+          "high": [
+            21.8,
+            1.41,
+            51.71999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_case_e_top",
+          "key": "brass_dull",
+          "low": [
+            19.57,
+            1.41,
+            51.12
+          ],
+          "high": [
+            21.83,
+            1.45,
+            51.74999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_window_plinth",
+          "key": "wood_dark",
+          "low": [
+            17.18,
+            0.05,
+            52.72
+          ],
+          "high": [
+            17.54,
+            0.44,
+            55.31999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_window_back",
+          "key": "plywood",
+          "low": [
+            17.54,
+            0.42,
+            52.72
+          ],
+          "high": [
+            17.58,
+            1.5699999999999998,
+            55.31999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ],
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "registered_owner": "res://scripts/building/orison_v2_architectural_materials.gd",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06
+  }
+}
