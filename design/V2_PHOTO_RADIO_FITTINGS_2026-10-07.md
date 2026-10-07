@@ -1,8 +1,8 @@
-# V2 Photo darkroom and Radio window — 2026-10-07
+# V2 Photo darkroom and Radio window â€” 2026-10-07
 
 Evidence class: **INERT**
 
-REPORT — V2-PHOTO-RADIO-FITTINGS — 2026-10-07
+REPORT â€” V2-PHOTO-RADIO-FITTINGS â€” 2026-10-07
 
 ## Branch and source
 
@@ -70,3 +70,15 @@ V2 is still incomplete. Scope blocker counts remain **7 / 8 / 127 / 42 / 151 /
 153**. Remaining shop architecture and the wider building's surface finish,
 service/route proof and human acceptance still require work. The owner's
 request to continue autonomously remains active.
+
+## Verified source binding
+
+Source **0e5cc698647d6be860ee8c626fea24afbdce2aed** has the exact tree of clean verified
+candidate **f36d769eaf2757a7c99c3637201be2d367a49169**: **501617488122056cd8448f69bd7efb118e397aa0**.
+All 49 board entries match the clean cached baseline: zero regressions,
+zero requirement-status changes and all 17 protected paths unchanged. The
+sole gate-file diff appends spatial-manifest records; this batch adds twelve
+resolved rows and preserves all earlier rows. No gate predicate or exception
+was weakened. The temporary verification checkout was removed. The packet
+binds the raw verification and source tree; this metadata update needs no
+additional engine run.

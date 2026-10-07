@@ -1,0 +1,21 @@
+{
+  "evidence_class": "INERT",
+  "candidate": "f36d769eaf2757a7c99c3637201be2d367a49169",
+  "source_commit": "0e5cc698647d6be860ee8c626fea24afbdce2aed",
+  "identical_tree": "501617488122056cd8448f69bd7efb118e397aa0",
+  "verification_sha256": "84546589cbf4ae27b6ebfc68577889f3a03751d8b4e75f37c9e998aaa6493d40",
+  "gate_entries": 49,
+  "regressions": [],
+  "requirements_changed": [],
+  "protected_matched": 17,
+  "gate_review": "This batch appends twelve resolved spatial-manifest rows, preserving all prior rows. No audit predicate, baseline or exception was relaxed. Prior appended rows belong to earlier verified batches.",
+  "runtime_scope": "Local 24-module batch plus final 42-waypoint residency. Verifier uses the clean cached baseline and --no-godot; no duplicate engine import/run.",
+  "remaining_scope_blockers": [
+    7,
+    8,
+    127,
+    42,
+    151,
+    153
+  ]
+}
