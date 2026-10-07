@@ -11,6 +11,8 @@ const Seating := preload("res://scripts/building/orison_v2_shop_seating.gd")
 const Laundry := preload("res://scripts/building/orison_v2_laundry_fittings.gd")
 const LaundryApparatus := preload("res://scripts/building/orison_v2_laundry_apparatus.gd")
 const ShopClerestories := preload("res://scripts/building/orison_v2_shop_clerestories.gd")
+const PhotoRadioFittings := preload("res://scripts/building/orison_v2_photo_radio_fittings.gd")
+const PhotoDarkroomLight := preload("res://scripts/props/photo_darkroom_light.gd")
 const ShopJoinery := preload("res://scripts/building/orison_v2_shop_joinery.gd")
 const LaundryTrade := preload("res://scripts/building/orison_v2_laundry_trade.gd")
 const CobblerFittings := preload("res://scripts/building/orison_v2_cobbler_fittings.gd")
@@ -138,6 +140,9 @@ func _ready() -> void:
 			return
 		if not ShopJoinery.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native closed shop joinery fit refused: "+identity)
+			return
+		if not PhotoRadioFittings.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native Photo/Radio fit refused: "+identity)
 			return
 		if not LocksmithFittings.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native locksmith fit refused: "+identity)
@@ -345,7 +350,7 @@ func _mount_markers() -> void:
 				_signs.append(sign_prop)
 				prop = sign_prop
 			elif LightFixtureProp.TONE.has(str(marker.kind)):
-				var fixture := LightFixtureProp.new()
+				var fixture: LightFixtureProp = PhotoDarkroomLight.new() if identity == "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES" else LightFixtureProp.new()
 				fixture.prop_type = str(marker.kind)
 				fixture.range_clamp = float(marker.get("range", 0.0))
 				fixture.energy_scale = float(marker.get("energy", 1.0))

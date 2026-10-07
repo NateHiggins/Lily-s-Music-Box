@@ -1,0 +1,91 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 4,
+  "groups": [
+    {
+      "kind": "darkroom",
+      "sources": [
+        "storm_shop_photo_supplies_dr_door"
+      ]
+    },
+    {
+      "kind": "controlled_lamp",
+      "sources": [
+        "storm_shop_photo_supplies_dr_lamp"
+      ]
+    },
+    {
+      "kind": "window",
+      "sources": [
+        "storm_shop_radio_service_window_plinth",
+        "storm_shop_radio_service_window_back"
+      ]
+    }
+  ],
+  "runtime_keys": [
+    "wood_dark",
+    "iron_blackened",
+    "plywood",
+    "milk_glass",
+    "lacquer_red",
+    "fabric_warm"
+  ],
+  "catalog_variants": {
+    "wood_dark": "wood_dark",
+    "iron_blackened": "iron_blackened",
+    "plywood": "plywood",
+    "milk_glass": "milk_glass",
+    "lacquer_red": "indicator_enamel",
+    "fabric_warm": "fabric_warm"
+  },
+  "material_aliases": {},
+  "material_tints": {
+    "milk_glass": [
+      0.55,
+      0.012,
+      0.008,
+      1.0
+    ],
+    "fabric_warm": [
+      0.035,
+      0.035,
+      0.035,
+      1.0
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "actor_source": "storm_shop_photo_supplies_dr_lamp",
+  "actor_id": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+  "emitter_godot": [
+    22.788,
+    2.27,
+    59.725
+  ],
+  "context_families": [
+    "shop_joinery",
+    "shop_clerestories",
+    "shop_seating",
+    "photo_cameras",
+    "photo_counter",
+    "photo_stock",
+    "photo_enlargers",
+    "photo_process",
+    "photo_portraits",
+    "photo_glazing",
+    "photo_receiving",
+    "radio_display",
+    "radio_wire",
+    "radio_battery",
+    "radio_stock",
+    "radio_apparatus",
+    "radio_bench",
+    "radio_receiving"
+  ],
+  "open_work": [
+    "Four immutable source rows. A closed darkroom entrance gains fitted jambs, threshold and two staggered opaque curtain leaves; no new opening, room or interaction authority.",
+    "The former red box and procedural hanging cage are replaced by one native wall lamp under the original electrical actor. Authored actor position, circuit, energy, range, identity and after-hours policy remain; the visible emitter is placed inside the red diffuser.",
+    "Radio window stand and backing keep the exact original deck datum and extents supporting the accepted horn and cone. No stock or labels are added.",
+    "Photo jamb fronts sit 50mm forward of the former slab and rebate over the actual retained dado; independent floor, dado-face, dado-top and fitted-plaster contacts are checked."
+  ]
+}

@@ -2,6 +2,8 @@ extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
 const MODULES := {
+	"photo_radio_fittings": preload("res://tests/orison_v2_photo_radio_fittings_test.gd"),
+	"radio_display": preload("res://tests/orison_v2_radio_display_test.gd"),
 	"cobbler_fittings": preload("res://tests/orison_v2_cobbler_fittings_test.gd"),
 	"druggist_cupboard": preload("res://tests/orison_v2_druggist_cupboard_test.gd"),
 	"locksmith_fittings": preload("res://tests/orison_v2_locksmith_fittings_test.gd"),
@@ -83,6 +85,13 @@ func _run() -> void:
 		OS.set_environment("SHOT_DIR", destination)
 		var module_started := Time.get_ticks_msec()
 		var result: Dictionary = await module.validate_in_world(world)
+		if not result.has_all(["checks", "failures"]):
+			# A script error can unwind a validator with an empty dictionary.
+			# Record that failure and finish the batch instead of hanging until
+			# the serial lane's timeout with no final diagnostic packet.
+			var incomplete: Array = module.failures.duplicate()
+			incomplete.append("validator returned no complete result; inspect engine errors")
+			result = {"checks":int(module.checks), "failures":incomplete}
 		result["elapsed_ms"] = Time.get_ticks_msec() - module_started
 		result["captured"] = module.capture_enabled
 		result["validator_sha256"] = FileAccess.get_sha256(MODULES[id].resource_path)

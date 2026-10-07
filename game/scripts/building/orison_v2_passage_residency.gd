@@ -199,6 +199,9 @@ func _stage_one() -> void:
 		if not region.ShopJoinery.mount_cell(cell,region.source_layout):
 			_fail("native closed shop joinery reload fit refused: "+identity)
 			return
+		if not region.PhotoRadioFittings.mount_cell(cell,region.source_layout):
+			_fail("native Photo/Radio reload fit refused: "+identity)
+			return
 		if not region.LocksmithFittings.mount_cell(cell,region.source_layout):
 			_fail("native locksmith reload fit refused: "+identity)
 			return

@@ -1,0 +1,94 @@
+WARNING: Adding 'storm_shop_photo_supplies_dr_lamp__iron_blackened' as child to '@Node3D@20989' will make owner 'photo_radio_fittings' inconsistent. Consider unsetting the owner beforehand.
+   at: add_child (scene/main/node.cpp:1728)
+   GDScript backtrace (most recent call first):
+       [0] _build_body (res://scripts/props/photo_darkroom_light.gd:22)
+       [1] _build_visual (res://scripts/props/light_fixture_prop.gd:110)
+       [2] _build_visual (res://scripts/props/photo_darkroom_light.gd:40)
+       [3] _ready (res://scripts/props/functional_prop.gd:38)
+       [4] _mount_markers (res://scripts/building/orison_v2_passage_region.gd:374)
+       [5] _ready (res://scripts/building/orison_v2_passage_region.gd:286)
+       [6] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:586)
+       [7] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [8] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [9] _run (res://tests/orison_v2_fabrication_batch.gd:51)
+ERROR: Invalid owner. Owner must be an ancestor in the tree.
+   at: set_owner (scene/main/node.cpp:2285)
+   GDScript backtrace (most recent call first):
+       [0] _build_body (res://scripts/props/photo_darkroom_light.gd:34)
+       [1] _build_visual (res://scripts/props/light_fixture_prop.gd:110)
+       [2] _build_visual (res://scripts/props/photo_darkroom_light.gd:40)
+       [3] _ready (res://scripts/props/functional_prop.gd:38)
+       [4] _mount_markers (res://scripts/building/orison_v2_passage_region.gd:374)
+       [5] _ready (res://scripts/building/orison_v2_passage_region.gd:286)
+       [6] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:586)
+       [7] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [8] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [9] _run (res://tests/orison_v2_fabrication_batch.gd:51)
+ERROR: Invalid owner. Owner must be an ancestor in the tree.
+   at: set_owner (scene/main/node.cpp:2285)
+   GDScript backtrace (most recent call first):
+       [0] _build_body (res://scripts/props/photo_darkroom_light.gd:34)
+       [1] _build_visual (res://scripts/props/light_fixture_prop.gd:110)
+       [2] _build_visual (res://scripts/props/photo_darkroom_light.gd:40)
+       [3] _ready (res://scripts/props/functional_prop.gd:38)
+       [4] _mount_markers (res://scripts/building/orison_v2_passage_region.gd:374)
+       [5] _ready (res://scripts/building/orison_v2_passage_region.gd:286)
+       [6] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:586)
+       [7] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [8] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [9] _run (res://tests/orison_v2_fabrication_batch.gd:51)
+WARNING: Adding 'storm_shop_photo_supplies_dr_lamp__milk_glass' as child to '@Node3D@20989' will make owner 'photo_radio_fittings' inconsistent. Consider unsetting the owner beforehand.
+   at: add_child (scene/main/node.cpp:1728)
+   GDScript backtrace (most recent call first):
+       [0] _build_body (res://scripts/props/photo_darkroom_light.gd:22)
+       [1] _build_visual (res://scripts/props/light_fixture_prop.gd:110)
+       [2] _build_visual (res://scripts/props/photo_darkroom_light.gd:40)
+       [3] _ready (res://scripts/props/functional_prop.gd:38)
+       [4] _mount_markers (res://scripts/building/orison_v2_passage_region.gd:374)
+       [5] _ready (res://scripts/building/orison_v2_passage_region.gd:286)
+       [6] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:586)
+       [7] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [8] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [9] _run (res://tests/orison_v2_fabrication_batch.gd:51)
+ERROR: Invalid owner. Owner must be an ancestor in the tree.
+   at: set_owner (scene/main/node.cpp:2285)
+   GDScript backtrace (most recent call first):
+       [0] _build_body (res://scripts/props/photo_darkroom_light.gd:34)
+       [1] _build_visual (res://scripts/props/light_fixture_prop.gd:110)
+       [2] _build_visual (res://scripts/props/photo_darkroom_light.gd:40)
+       [3] _ready (res://scripts/props/functional_prop.gd:38)
+       [4] _mount_markers (res://scripts/building/orison_v2_passage_region.gd:374)
+       [5] _ready (res://scripts/building/orison_v2_passage_region.gd:286)
+       [6] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:586)
+       [7] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [8] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [9] _run (res://tests/orison_v2_fabrication_batch.gd:51)
+ERROR: Invalid owner. Owner must be an ancestor in the tree.
+   at: set_owner (scene/main/node.cpp:2285)
+   GDScript backtrace (most recent call first):
+       [0] _build_body (res://scripts/props/photo_darkroom_light.gd:34)
+       [1] _build_visual (res://scripts/props/light_fixture_prop.gd:110)
+       [2] _build_visual (res://scripts/props/photo_darkroom_light.gd:40)
+       [3] _ready (res://scripts/props/functional_prop.gd:38)
+       [4] _mount_markers (res://scripts/building/orison_v2_passage_region.gd:374)
+       [5] _ready (res://scripts/building/orison_v2_passage_region.gd:286)
+       [6] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:586)
+       [7] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [8] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [9] _run (res://tests/orison_v2_fabrication_batch.gd:51)
+ERROR: source optical maps reach native metre charts; drawn glass retains its literal color
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_photo_radio_fittings_test.gd:68)
+       [3] _run (res://tests/orison_v2_fabrication_batch.gd:87)
+SCRIPT ERROR: Invalid access to property or key 'albedo_texture' on a base object of type 'Nil'.
+   at: validate_in_world (res://tests/orison_v2_photo_radio_fittings_test.gd:75)
+   GDScript backtrace (most recent call first):
+       [0] validate_in_world (res://tests/orison_v2_photo_radio_fittings_test.gd:75)
+       [1] _run (res://tests/orison_v2_fabrication_batch.gd:87)
+SCRIPT ERROR: Invalid access to property or key 'checks' on a base object of type 'Dictionary'.
+   at: _run (res://tests/orison_v2_fabrication_batch.gd:93)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/orison_v2_fabrication_batch.gd:93)

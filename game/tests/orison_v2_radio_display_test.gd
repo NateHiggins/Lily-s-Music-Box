@@ -1,5 +1,11 @@
 extends "res://tests/orison_v2_city_sweep.gd"
 ## Actual retained shop boundaries, fitted supports, imported charts and standing detail views.
+var batch_mode := false
+var capture_enabled := true
+
+func _ready() -> void:
+	if not batch_mode: call_deferred("_run")
+
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
@@ -22,10 +28,15 @@ func _run() -> void:
 	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
 	if passage.residency.state!="RESIDENT":world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	await get_tree().physics_frame;await get_tree().physics_frame
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var passage: OrisonV2PassageRegion=world.passage_region
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_radio_display.json"))
 	var installed: bool=passage.cell_nodes.has("shop_radio_service") and passage.cell_nodes.shop_radio_service.has_node("RadioDisplay")
 	check(installed,"actual retained radio cell and native fittings exist before their contracts")
-	if not installed:world.shutdown_for_tests();world.free();get_tree().quit(1);return
+	if not installed:return {"checks":checks,"failures":failures.duplicate()}
 	check(FileAccess.get_sha256("res://assets/props/radio_display.glb")==fixture.asset_sha256,"installed mesh binds the native counter and passive display export")
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
 	for record: Dictionary in fixture.runtime.cells:
@@ -82,7 +93,7 @@ func _run() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
 	print("RADIO DISPLAY: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	return {"checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures.duplicate()}
 
 func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, start: Vector3, finish: Vector3) -> Dictionary:
 	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("radio_display_part",""))==part)
@@ -153,7 +164,9 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, _fixture: Dictionary) -> v
 		check(_city_clear_station(world,cell.to_global(feet)),"retained window/counter standing floor and capsule sample: "+str(view.id))
 		world.player.global_position=cell.to_global(feet);world.player.velocity=Vector3.ZERO
 		world.player.face_world_point(cell.to_global(target));world.player.set_lamp_enabled(bool(view.lamp))
-		await _settled_optics();await shot(view.id);observations.append(view.duplicate(true))
+		if capture_enabled:
+			await _settled_optics();await shot(view.id)
+		observations.append(view.duplicate(true))
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"capture_leaf_pose":{"id":"SITE_SHOP_DOOR_RADIO_SERVICE","open":capture_door.open,"angle_radians":capture_door._body.rotation.y,"method":"existing npc_set_open closed diagnostic pose; no ordinary-input route claim"},"scope":"Matched floor/capsule observations of window speaker placement and fitted counter. Original glazing/backboard and physical collision remain. Exterior lamp off avoids direct torch reflection. No continuous route, sightline, signal, operation or engineering capacity."}))
 
 const RADIO_WINDOW_VIEWS: Array=[{"id":"passive_window_stock","image":"passive_window_stock.png","feet":[15.6,0.03,57.95],"target":[17.24,0.74,57.95],"lamp":false},{"id":"window_horn_mouth","image":"window_horn_mouth.png","feet":[15.6,0.03,58.25],"target":[17.24,0.72,58.27],"lamp":false},{"id":"window_cone_speaker","image":"window_cone_speaker.png","feet":[15.6,0.03,57.6],"target":[17.24,0.75,57.63],"lamp":false},{"id":"window_plinth_bearings","image":"window_plinth_bearings.png","feet":[15.6,0.03,57.95],"target":[17.35,0.44,57.95],"lamp":false},{"id":"counter_floor_posts","image":"counter_floor_posts.png","feet":[17.5,0.03,56.8],"target":[17.98,0.1,57.36],"lamp":true},{"id":"seated_counter_ledger","image":"seated_counter_ledger.png","feet":[17.5,0.03,56.8],"target":[18.1,1.16,57.35],"lamp":true}]

@@ -1,0 +1,116 @@
+{
+  "evidence_class": "INERT",
+  "native_views": 7,
+  "runtime_views": 11,
+  "images": [
+    {
+      "file": "native/photo_context.png",
+      "sha256": "f5f33ada804fefcbb6c5b07ffe75f9c3b84f7e1651d602e0c201222f5a8c7f27",
+      "width": 1200,
+      "height": 850
+    },
+    {
+      "file": "native/photo_darkroom.png",
+      "sha256": "c89780d869dbff0a5f11dd6a07c69d58ca8b6ec87bf9f138db8ccaa3f25d84f5",
+      "width": 1200,
+      "height": 850
+    },
+    {
+      "file": "native/photo_red_lamp.png",
+      "sha256": "61558c5b9f5dc58478ef421b9831029131c4d82cf7feca9b203f9e9f0b72bbe2",
+      "width": 1200,
+      "height": 850
+    },
+    {
+      "file": "native/radio_back.png",
+      "sha256": "fdc51669163f8293b4f85a4b633b1d509b65ecdce9304992ff4d2ed4f0a237fd",
+      "width": 1200,
+      "height": 850
+    },
+    {
+      "file": "native/radio_context.png",
+      "sha256": "b54d3090e6e0fdc3408fb2680dffa1e4bdf7d93221355eca90673f99ace81be3",
+      "width": 1200,
+      "height": 850
+    },
+    {
+      "file": "native/radio_pavement_context.png",
+      "sha256": "30ebbda07c456fcafb37ad15cbd8ac1f1a25908046de8e2e99e278d20f397d27",
+      "width": 1200,
+      "height": 850
+    },
+    {
+      "file": "native/radio_window.png",
+      "sha256": "5811d14f871bf97ea16c27d0cb881870fef2003b406b1ee94624d6bf2fd40fd4",
+      "width": 1200,
+      "height": 850
+    },
+    {
+      "file": "runtime/photo_radio_fittings/photo_darkroom_lit.png",
+      "sha256": "b0c4cf07b42436fccb446be81a6f4dcf3cf75934ab3b55023deec048b6cc3eac",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "runtime/photo_radio_fittings/photo_red_lamp.png",
+      "sha256": "073c29473b67a71f0d7c04d7ed9e144c31392236b327ff9b50dc096a2c2cb416",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "runtime/photo_radio_fittings/photo_red_lamp_after_hours.png",
+      "sha256": "4a146e664ea9d6538a7b0df325103276e49ebdce60c124883902b8a908601632",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "runtime/photo_radio_fittings/radio_framed_back.png",
+      "sha256": "4f143e5baf969f651989840056ae88a566d0980429c6680539960bdcbe2e3f4b",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "runtime/photo_radio_fittings/radio_window_stand.png",
+      "sha256": "306f49247223aa7c0155b39f49e7dd73efaf689a3ac23140172cf3563d505941",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "runtime/radio_display/counter_floor_posts.png",
+      "sha256": "b344098509ac5352e2b6412b1e55b9e8a136def56c6219af5fda61d0a3872280",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "runtime/radio_display/passive_window_stock.png",
+      "sha256": "9b42aae304a11c5fd2fd433ac1f9bc69875c43b760dc487579aa788473d118e9",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "runtime/radio_display/seated_counter_ledger.png",
+      "sha256": "22bcc6d4804e4cdb4d2d1dd236f3c4cc62a936b6b6258215025cbf160316c282",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "runtime/radio_display/window_cone_speaker.png",
+      "sha256": "f92671092c9ede48e22dca0c74199492116b912d2e77a545ad36a84aff776042",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "runtime/radio_display/window_horn_mouth.png",
+      "sha256": "02a3dc73647012cd44a124732d08c361877a47047a705427121678d48ab240b3",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "file": "runtime/radio_display/window_plinth_bearings.png",
+      "sha256": "dd027b6bf32deb6de9cd708038417b8a60c71eb761950ce2d185d0197c0d1c72",
+      "width": 1280,
+      "height": 720
+    }
+  ],
+  "scope": "Selected final native and composed batch views. Earlier failed/intermediate engine results are retained as raw diagnostics, not final acceptance. Final null scene-owner fix changes ownership metadata only; residency verifies it without rerendering unchanged geometry."
+}

@@ -80,7 +80,8 @@ Modules: **pawn_clocks**, **pawn_display**, **pawn_fittings**, **laundry_fitting
 **hardware_tools**, **photo_cameras**, **photo_counter**, **photo_stock**,
 **photo_enlargers**, **photo_portraits**, **radio_wire**, **shop_joinery** and
 **shop_clerestories**, **hardware_stock**, **news_fittings**,
-**locksmith_fittings**, **druggist_cupboard** and **cobbler_fittings**. The original
+**locksmith_fittings**, **druggist_cupboard**, **cobbler_fittings**,
+**photo_radio_fittings** and **radio_display**. The original
 clock/display checks remain; display now also checks the fitted safe boundary.
 Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and
@@ -171,7 +172,7 @@ checking unaffected parts: harmless export triangle order changes must not be
 mistaken for surface changes. Never waive a real penetration to make a batch pass.
 
 The Hardware validator retains its real purchase/input regression and runs
-last in the default 22-module world. Capture suppression keeps geometry and
+last in the default 24-module world. Capture suppression keeps geometry and
 standing-station checks active. Metadata-only binding refreshes need no import.
 
 Before import, run **audit_native_support_dependents.py** with every changed

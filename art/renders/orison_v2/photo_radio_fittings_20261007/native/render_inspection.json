@@ -1,0 +1,942 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 50,
+  "assemblies": [
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_photo_supplies_dr_door_NearJambLower",
+          "storm_shop_photo_supplies_dr_door_Threshold"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_door_NearJambLower",
+          "storm_shop_photo_supplies_dr_door_LightTrapCurtain0"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_door_NearJambUpper",
+          "storm_shop_photo_supplies_dr_door_Head"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_door_NearJambUpper",
+          "storm_shop_photo_supplies_dr_door_LightTrapCurtain0"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_door_FarJambLower",
+          "storm_shop_photo_supplies_dr_door_Threshold"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_door_FarJambLower",
+          "storm_shop_photo_supplies_dr_door_LightTrapCurtain1"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_door_FarJambLower",
+          "storm_shop_photo_supplies_dr_door_FingerPlate"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_door_FarJambUpper",
+          "storm_shop_photo_supplies_dr_door_Head"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_door_FarJambUpper",
+          "storm_shop_photo_supplies_dr_door_LightTrapCurtain1"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_door_FarJambUpper",
+          "storm_shop_photo_supplies_dr_door_FingerPlate"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_door_Head",
+          "storm_shop_photo_supplies_dr_door_LightTrapCurtain0"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_door_Head",
+          "storm_shop_photo_supplies_dr_door_LightTrapCurtain1"
+        ]
+      ]
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_photo_supplies_dr_lamp_WallBracket",
+          "storm_shop_photo_supplies_dr_lamp_CaseBack"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseBack",
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.849999999999994"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseBack",
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.608999999999995"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseBack",
+          "storm_shop_photo_supplies_dr_lamp_CaseCap2.18"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseBack",
+          "storm_shop_photo_supplies_dr_lamp_CaseCap2.3510000000000004"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.849999999999994",
+          "storm_shop_photo_supplies_dr_lamp_CaseCap2.18"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.849999999999994",
+          "storm_shop_photo_supplies_dr_lamp_CaseCap2.3510000000000004"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.849999999999994",
+          "storm_shop_photo_supplies_dr_lamp_BezelWeb-59.843999999999994"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.849999999999994",
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.82999999999999, 2.2)"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.849999999999994",
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.82999999999999, 2.3400000000000003)"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.608999999999995",
+          "storm_shop_photo_supplies_dr_lamp_CaseCap2.18"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.608999999999995",
+          "storm_shop_photo_supplies_dr_lamp_CaseCap2.3510000000000004"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.608999999999995",
+          "storm_shop_photo_supplies_dr_lamp_BezelWeb-59.651999999999994"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.608999999999995",
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.62, 2.2)"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseSide-59.608999999999995",
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.62, 2.3400000000000003)"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseCap2.18",
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.82999999999999, 2.2)"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseCap2.18",
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.62, 2.2)"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseCap2.3510000000000004",
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.82999999999999, 2.3400000000000003)"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CaseCap2.3510000000000004",
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.62, 2.3400000000000003)"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_Bezel",
+          "storm_shop_photo_supplies_dr_lamp_RedDiffuser"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_Bezel",
+          "storm_shop_photo_supplies_dr_lamp_BezelWeb-59.843999999999994"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_Bezel",
+          "storm_shop_photo_supplies_dr_lamp_BezelWeb-59.651999999999994"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.82999999999999, 2.2)",
+          "storm_shop_photo_supplies_dr_lamp_CaseScrew(-59.82999999999999, 2.2)"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.82999999999999, 2.3400000000000003)",
+          "storm_shop_photo_supplies_dr_lamp_CaseScrew(-59.82999999999999, 2.3400000000000003)"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.62, 2.2)",
+          "storm_shop_photo_supplies_dr_lamp_CaseScrew(-59.62, 2.2)"
+        ],
+        [
+          "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.62, 2.3400000000000003)",
+          "storm_shop_photo_supplies_dr_lamp_CaseScrew(-59.62, 2.3400000000000003)"
+        ]
+      ]
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.205_-58.489999999999995",
+          "storm_shop_radio_service_window_plinth_Deck"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.205_-58.489999999999995",
+          "storm_shop_radio_service_window_plinth_LowerRail17.182"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.205_-58.489999999999995",
+          "storm_shop_radio_service_window_plinth_Panel17.182_0"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.205_-57.919999999999995",
+          "storm_shop_radio_service_window_plinth_Deck"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.205_-57.919999999999995",
+          "storm_shop_radio_service_window_plinth_LowerRail17.182"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.205_-57.919999999999995",
+          "storm_shop_radio_service_window_plinth_Panel17.182_2"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.205_-57.349999999999994",
+          "storm_shop_radio_service_window_plinth_Deck"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.205_-57.349999999999994",
+          "storm_shop_radio_service_window_plinth_LowerRail17.182"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.205_-57.349999999999994",
+          "storm_shop_radio_service_window_plinth_Panel17.182_4"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.515_-58.489999999999995",
+          "storm_shop_radio_service_window_plinth_Deck"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.515_-58.489999999999995",
+          "storm_shop_radio_service_window_plinth_LowerRail17.512999999999998"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.515_-58.489999999999995",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_0"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.515_-57.919999999999995",
+          "storm_shop_radio_service_window_plinth_Deck"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.515_-57.919999999999995",
+          "storm_shop_radio_service_window_plinth_LowerRail17.512999999999998"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.515_-57.919999999999995",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_2"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.515_-57.349999999999994",
+          "storm_shop_radio_service_window_plinth_Deck"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.515_-57.349999999999994",
+          "storm_shop_radio_service_window_plinth_LowerRail17.512999999999998"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Foot17.515_-57.349999999999994",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_4"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_Panel17.182_0"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_Panel17.182_1"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_Panel17.182_2"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_Panel17.182_3"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_Panel17.182_4"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_0"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_1"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_2"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_3"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_4"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_Back"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_BackStile-58.519999999999996"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Deck",
+          "storm_shop_radio_service_window_plinth_BackStile-57.346"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_LowerRail17.182",
+          "storm_shop_radio_service_window_plinth_Panel17.182_0"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_LowerRail17.182",
+          "storm_shop_radio_service_window_plinth_Panel17.182_1"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_LowerRail17.182",
+          "storm_shop_radio_service_window_plinth_Panel17.182_2"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_LowerRail17.182",
+          "storm_shop_radio_service_window_plinth_Panel17.182_3"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_LowerRail17.182",
+          "storm_shop_radio_service_window_plinth_Panel17.182_4"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_LowerRail17.512999999999998",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_0"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_LowerRail17.512999999999998",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_1"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_LowerRail17.512999999999998",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_2"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_LowerRail17.512999999999998",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_3"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_LowerRail17.512999999999998",
+          "storm_shop_radio_service_window_plinth_Panel17.512999999999998_4"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Back",
+          "storm_shop_radio_service_window_plinth_BackStile-58.519999999999996"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Back",
+          "storm_shop_radio_service_window_plinth_BackStile-57.346"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_Back",
+          "storm_shop_radio_service_window_plinth_BackCap"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_BackStile-58.519999999999996",
+          "storm_shop_radio_service_window_plinth_BackCap"
+        ],
+        [
+          "storm_shop_radio_service_window_plinth_BackStile-57.346",
+          "storm_shop_radio_service_window_plinth_BackCap"
+        ]
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.855,
+        0.009999999999999995,
+        60.177499999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "door case on retained shop floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_db",
+      "point": [
+        22.89,
+        0.75,
+        60.177499999999995
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "lower case on retained wainscot",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_db",
+      "point": [
+        22.915,
+        1.1,
+        60.177499999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case rebate on retained dado top",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_borrowed_sill",
+      "point": [
+        22.94,
+        1.5,
+        60.177499999999995
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "upper case on fitted rear plaster",
+      "native_owner": true
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.855,
+        0.009999999999999995,
+        59.272499999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "door case on retained shop floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_db",
+      "point": [
+        22.89,
+        0.75,
+        59.272499999999994
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "lower case on retained wainscot",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_db",
+      "point": [
+        22.915,
+        1.1,
+        59.272499999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case rebate on retained dado top",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_borrowed_sill",
+      "point": [
+        22.94,
+        1.5,
+        59.272499999999994
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "upper case on fitted rear plaster",
+      "native_owner": true
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "owner": "storm_shop_photo_supplies_borrowed_sill",
+      "point": [
+        22.94,
+        2.23,
+        59.724999999999994
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "lamp bracket on fitted plaster below clerestory sill",
+      "native_owner": true
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.205,
+        0.009999999999999995,
+        58.489999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.205,
+        0.009999999999999995,
+        57.919999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.205,
+        0.009999999999999995,
+        57.349999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.515,
+        0.009999999999999995,
+        58.489999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.515,
+        0.009999999999999995,
+        57.919999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.515,
+        0.009999999999999995,
+        57.349999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    }
+  ],
+  "uv": [
+    {
+      "part": "storm_shop_photo_supplies_dr_door__fabric_warm",
+      "minimum_metres_per_uv": 0.9999927224435318,
+      "maximum_metres_per_uv": 1.000008564930705
+    },
+    {
+      "part": "storm_shop_photo_supplies_dr_door__iron_blackened",
+      "minimum_metres_per_uv": 0.9999328236036441,
+      "maximum_metres_per_uv": 1.0000831194325925
+    },
+    {
+      "part": "storm_shop_photo_supplies_dr_door__wood_dark",
+      "minimum_metres_per_uv": 0.9998756545724828,
+      "maximum_metres_per_uv": 1.0001728733207527
+    },
+    {
+      "part": "storm_shop_photo_supplies_dr_lamp__iron_blackened",
+      "minimum_metres_per_uv": 0.9999013525739557,
+      "maximum_metres_per_uv": 1.0001013067352205
+    },
+    {
+      "part": "storm_shop_photo_supplies_dr_lamp__milk_glass",
+      "minimum_metres_per_uv": 0.999989018563326,
+      "maximum_metres_per_uv": 1.0000111829145064
+    },
+    {
+      "part": "storm_shop_radio_service_window_plinth__plywood",
+      "minimum_metres_per_uv": 0.999884883852312,
+      "maximum_metres_per_uv": 1.0001029442669709
+    },
+    {
+      "part": "storm_shop_radio_service_window_plinth__wood_dark",
+      "minimum_metres_per_uv": 0.9998722002163342,
+      "maximum_metres_per_uv": 1.0001902877652764
+    }
+  ],
+  "source_triangle_retirement": {
+    "storm_shop_photo_supplies_dr_door": 12,
+    "storm_shop_photo_supplies_dr_lamp": 12,
+    "storm_shop_photo_supplies_boh_door": 12,
+    "storm_shop_photo_supplies_boh_knob": 12,
+    "storm_shop_photo_supplies_borrowed_sill": 12,
+    "storm_shop_photo_supplies_borrowed_head": 12,
+    "storm_shop_photo_supplies_borrowed_muntin1": 12,
+    "storm_shop_photo_supplies_borrowed_muntin2": 12,
+    "storm_shop_photo_supplies_borrowed_muntin3": 12,
+    "storm_shop_photo_supplies_back_lo": 12,
+    "storm_shop_photo_supplies_back_hi": 12,
+    "storm_shop_photo_supplies_window_plinth": 12,
+    "storm_shop_photo_supplies_window_back": 12,
+    "storm_shop_photo_supplies_camera_body0": 12,
+    "storm_shop_photo_supplies_camera_lens0": 12,
+    "storm_shop_photo_supplies_camera_body1": 12,
+    "storm_shop_photo_supplies_camera_lens1": 12,
+    "storm_shop_photo_supplies_camera_body2": 12,
+    "storm_shop_photo_supplies_camera_lens2": 12,
+    "storm_shop_photo_supplies_counter": 12,
+    "storm_shop_photo_supplies_counter_gl": 12,
+    "storm_shop_photo_supplies_counter_top": 12,
+    "storm_shop_photo_supplies_ledger": 12,
+    "storm_shop_photo_supplies_cab_sh0": 12,
+    "storm_shop_photo_supplies_cab_sh1": 12,
+    "storm_shop_photo_supplies_cab_sh2": 12,
+    "storm_shop_photo_supplies_cab_sh3": 12,
+    "storm_shop_photo_supplies_cab_sh4": 12,
+    "storm_shop_photo_supplies_box0": 12,
+    "storm_shop_photo_supplies_box1": 12,
+    "storm_shop_photo_supplies_box2": 12,
+    "storm_shop_photo_supplies_box3": 12,
+    "storm_shop_photo_supplies_box4": 12,
+    "storm_shop_photo_supplies_box5": 12,
+    "storm_shop_photo_supplies_box6": 12,
+    "storm_shop_photo_supplies_box7": 12,
+    "storm_shop_photo_supplies_box8": 12,
+    "storm_shop_photo_supplies_box9": 12,
+    "storm_shop_photo_supplies_box10": 12,
+    "storm_shop_photo_supplies_box11": 12,
+    "storm_shop_photo_supplies_box12": 12,
+    "storm_shop_photo_supplies_box13": 12,
+    "storm_shop_photo_supplies_box14": 12,
+    "storm_shop_photo_supplies_enl_shelf": 12,
+    "storm_shop_photo_supplies_enl0": 12,
+    "storm_shop_photo_supplies_enl1": 12,
+    "storm_shop_photo_supplies_enl2": 12,
+    "storm_shop_photo_supplies_dev_tray0": 12,
+    "storm_shop_photo_supplies_dev_tray1": 12,
+    "storm_shop_photo_supplies_dev_tray2": 12,
+    "storm_shop_photo_supplies_dev_tray3": 12,
+    "storm_shop_photo_supplies_tank0": 12,
+    "storm_shop_photo_supplies_tank1": 12,
+    "storm_shop_photo_supplies_tank2": 12,
+    "storm_shop_photo_supplies_print_dryer": 12,
+    "storm_shop_photo_supplies_tripod0": 12,
+    "storm_shop_photo_supplies_tripod1": 12,
+    "storm_shop_photo_supplies_tripod2": 12,
+    "storm_shop_photo_supplies_tripod3": 12,
+    "storm_shop_photo_supplies_flash_tin0": 12,
+    "storm_shop_photo_supplies_flash_tin1": 12,
+    "storm_shop_photo_supplies_flash_tin2": 12,
+    "storm_shop_photo_supplies_flash_tin3": 12,
+    "storm_shop_photo_supplies_portrait_rail": 12,
+    "storm_shop_photo_supplies_portrait0": 12,
+    "storm_shop_photo_supplies_portrait1": 12,
+    "storm_shop_photo_supplies_portrait2": 12,
+    "storm_shop_photo_supplies_portrait3": 12,
+    "storm_shop_photo_supplies_portrait4": 12,
+    "storm_shop_photo_supplies_portrait5": 12,
+    "storm_shop_photo_supplies_portrait6": 12,
+    "storm_sf_photo_supplies_glass1": 12,
+    "storm_sf_photo_supplies_transom": 12,
+    "storm_shop_photo_supplies_borrowed_glass": 12,
+    "storm_shop_radio_service_window_plinth": 12,
+    "storm_shop_radio_service_window_back": 12,
+    "storm_shop_radio_service_boh_door": 12,
+    "storm_shop_radio_service_boh_knob": 12,
+    "storm_shop_radio_service_borrowed_sill": 12,
+    "storm_shop_radio_service_borrowed_head": 12,
+    "storm_shop_radio_service_borrowed_muntin1": 12,
+    "storm_shop_radio_service_borrowed_muntin2": 12,
+    "storm_shop_radio_service_borrowed_muntin3": 12,
+    "storm_shop_radio_service_borrowed_glass": 12,
+    "storm_shop_radio_service_back_lo": 12,
+    "storm_shop_radio_service_back_hi": 12,
+    "storm_shop_radio_service_counter": 12,
+    "storm_shop_radio_service_counter_top": 12,
+    "storm_shop_radio_service_ledger": 12,
+    "storm_shop_radio_service_horn_mouth": 12,
+    "storm_shop_radio_service_horn_throat": 12,
+    "storm_shop_radio_service_cone_speaker": 12,
+    "storm_shop_radio_service_aerial_spools": 12,
+    "storm_shop_radio_service_solder_ring": 12,
+    "storm_shop_radio_service_battery_rack": 12,
+    "storm_shop_radio_service_wet_cell0": 12,
+    "storm_shop_radio_service_wet_cell1": 12,
+    "storm_shop_radio_service_wet_cell2": 12,
+    "storm_shop_radio_service_wet_cell3": 12,
+    "storm_shop_radio_service_wet_cell4": 12,
+    "storm_shop_radio_service_cell_cap0": 12,
+    "storm_shop_radio_service_cell_cap1": 12,
+    "storm_shop_radio_service_cell_cap2": 12,
+    "storm_shop_radio_service_cell_cap3": 12,
+    "storm_shop_radio_service_cell_cap4": 12,
+    "storm_shop_radio_service_valve_sh0": 12,
+    "storm_shop_radio_service_valve_sh1": 12,
+    "storm_shop_radio_service_valve_sh2": 12,
+    "storm_shop_radio_service_valve_sh3": 12,
+    "storm_shop_radio_service_valve0": 12,
+    "storm_shop_radio_service_valve1": 12,
+    "storm_shop_radio_service_valve2": 12,
+    "storm_shop_radio_service_valve3": 12,
+    "storm_shop_radio_service_valve4": 12,
+    "storm_shop_radio_service_valve5": 12,
+    "storm_shop_radio_service_valve6": 12,
+    "storm_shop_radio_service_valve7": 12,
+    "storm_shop_radio_service_valve8": 12,
+    "storm_shop_radio_service_valve9": 12,
+    "storm_shop_radio_service_valve10": 12,
+    "storm_shop_radio_service_valve11": 12,
+    "storm_shop_radio_service_valve12": 12,
+    "storm_shop_radio_service_valve13": 12,
+    "storm_shop_radio_service_chassis": 12,
+    "storm_shop_radio_service_bench_valve0": 12,
+    "storm_shop_radio_service_bench_valve1": 12,
+    "storm_shop_radio_service_bench_valve2": 12,
+    "storm_shop_radio_service_bench_valve3": 12,
+    "storm_shop_radio_service_bench_valve4": 12,
+    "storm_shop_radio_service_scope": 12,
+    "storm_shop_radio_service_signal_gen": 12,
+    "storm_shop_radio_service_bench": 12,
+    "storm_shop_radio_service_bench_top": 12
+  },
+  "assembled_retirements": {
+    "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite": 128,
+    "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite_black": 128,
+    "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass": 12,
+    "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_chrome": 12,
+    "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_enamel": 64,
+    "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_hull-colonly": 12,
+    "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_milk_glass": 12,
+    "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_screen": 12,
+    "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_terracotta": 32,
+    "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite": 128,
+    "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black": 128,
+    "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass": 12,
+    "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome": 12,
+    "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel": 64,
+    "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull-colonly": 12,
+    "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass": 12,
+    "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen": 12,
+    "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta": 32
+  },
+  "allowed_contact_pairs": [
+    [
+      "storm_shop_photo_supplies_dr_door__wood_dark",
+      "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_linoleum-col"
+    ],
+    [
+      "storm_shop_photo_supplies_dr_door__wood_dark",
+      "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_wainscot-col"
+    ],
+    [
+      "storm_shop_photo_supplies_dr_door__wood_dark",
+      "storm_shop_photo_supplies_borrowed_sill__plaster_stained"
+    ],
+    [
+      "storm_shop_photo_supplies_dr_lamp__iron_blackened",
+      "storm_shop_photo_supplies_borrowed_sill__plaster_stained"
+    ],
+    [
+      "storm_shop_radio_service_window_plinth__wood_dark",
+      "storm_shop_radio_service_cone_speaker__cast_iron"
+    ],
+    [
+      "storm_shop_radio_service_window_plinth__wood_dark",
+      "storm_shop_radio_service_horn_mouth__cast_iron"
+    ]
+  ],
+  "contexts": [
+    {
+      "cell": "shop_photo_supplies",
+      "accepted_parts": 111,
+      "retired_source_records": 74,
+      "unresolved_intersections": 0
+    },
+    {
+      "cell": "shop_radio_service",
+      "accepted_parts": 78,
+      "retired_source_records": 59,
+      "unresolved_intersections": 0
+    }
+  ],
+  "views": [
+    {
+      "id": "photo_darkroom",
+      "eye": [
+        18.67438507080078,
+        -61.88811111450195,
+        2.1054883003234863
+      ],
+      "target": [
+        22.9,
+        -59.725,
+        1.2
+      ],
+      "file": "photo_darkroom.png",
+      "context": false
+    },
+    {
+      "id": "photo_red_lamp",
+      "eye": [
+        22.100000381469727,
+        -60.099998474121094,
+        2.200000047683716
+      ],
+      "target": [
+        22.85,
+        -59.725,
+        2.27
+      ],
+      "file": "photo_red_lamp.png",
+      "context": false
+    },
+    {
+      "id": "photo_context",
+      "eye": [
+        21.100000381469727,
+        -61.5,
+        1.7000000476837158
+      ],
+      "target": [
+        22.9,
+        -59.725,
+        1.35
+      ],
+      "file": "photo_context.png",
+      "context": true
+    },
+    {
+      "id": "radio_window",
+      "eye": [
+        13.997389793395996,
+        -59.49594497680664,
+        1.8349661827087402
+      ],
+      "target": [
+        17.4,
+        -57.92,
+        0.85
+      ],
+      "file": "radio_window.png",
+      "context": false
+    },
+    {
+      "id": "radio_back",
+      "eye": [
+        20.699392318725586,
+        -57.024173736572266,
+        2.4930498600006104
+      ],
+      "target": [
+        17.5,
+        -57.92,
+        1.0
+      ],
+      "file": "radio_back.png",
+      "context": false
+    },
+    {
+      "id": "radio_context",
+      "eye": [
+        18.75,
+        -56.849998474121094,
+        1.7000000476837158
+      ],
+      "target": [
+        17.4,
+        -57.92,
+        0.85
+      ],
+      "file": "radio_context.png",
+      "context": true
+    },
+    {
+      "id": "radio_pavement_context",
+      "eye": [
+        15.600000381469727,
+        -57.95000076293945,
+        1.600000023841858
+      ],
+      "target": [
+        17.4,
+        -57.95,
+        0.74
+      ],
+      "file": "radio_pavement_context.png",
+      "context": true
+    }
+  ],
+  "scope": "Native closed darkroom representation, controlled wall lamp and Radio window furniture; composed physical QA, no runtime or completion claim."
+}

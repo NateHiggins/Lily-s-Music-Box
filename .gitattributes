@@ -1057,3 +1057,19 @@ game/assets/props/locksmith_fittings.glb -text
 game/assets/props/news_fittings.glb -text
 game/assets/props/shop_joinery.glb -text
 game/tests/fixtures/orison_laundry_receiving.json -text
+
+# Bound Photo/Radio native geometry and controlled lamp body.
+art/data/photo_radio_fittings/source_plan.json -text
+art/blender/scripts/build_photo_radio_fittings.py -text
+art/blender/scripts/photo_radio_fittings_geometry.py -text
+art/blender/scripts/inspect_photo_radio_fittings.py -text
+art/blender/photo_radio_fittings.blend -text
+art/blender/photo_radio_fittings_construction.json -text
+game/assets/props/photo_radio_fittings.glb -text
+game/assets/props/photo_radio_fittings.glb.import -text
+game/data/orison_v2/photo_radio_fittings.json -text
+game/tests/fixtures/orison_photo_radio_fittings.json -text
+game/scripts/building/orison_v2_photo_radio_fittings.gd -text
+game/scripts/props/photo_darkroom_light.gd -text
+game/tests/orison_v2_photo_radio_fittings_test.gd -text
+art/renders/orison_v2/photo_radio_fittings_20261007/** -text -whitespace

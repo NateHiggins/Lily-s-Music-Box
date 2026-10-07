@@ -1,0 +1,28 @@
+WARNING: Adding 'storm_shop_photo_supplies_dr_lamp__iron_blackened' as child to '@Node3D@20989' will make owner 'photo_radio_fittings' inconsistent. Consider unsetting the owner beforehand.
+   at: add_child (scene/main/node.cpp:1728)
+   GDScript backtrace (most recent call first):
+       [0] _build_body (res://scripts/props/photo_darkroom_light.gd:22)
+       [1] _build_visual (res://scripts/props/light_fixture_prop.gd:110)
+       [2] _build_visual (res://scripts/props/photo_darkroom_light.gd:48)
+       [3] _ready (res://scripts/props/functional_prop.gd:38)
+       [4] _mount_markers (res://scripts/building/orison_v2_passage_region.gd:374)
+       [5] _ready (res://scripts/building/orison_v2_passage_region.gd:286)
+       [6] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:586)
+       [7] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [8] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [9] _run (res://tests/orison_v2_fabrication_batch.gd:51)
+WARNING: Adding 'storm_shop_photo_supplies_dr_lamp__milk_glass' as child to '@Node3D@20989' will make owner 'photo_radio_fittings' inconsistent. Consider unsetting the owner beforehand.
+   at: add_child (scene/main/node.cpp:1728)
+   GDScript backtrace (most recent call first):
+       [0] _build_body (res://scripts/props/photo_darkroom_light.gd:22)
+       [1] _build_visual (res://scripts/props/light_fixture_prop.gd:110)
+       [2] _build_visual (res://scripts/props/photo_darkroom_light.gd:48)
+       [3] _ready (res://scripts/props/functional_prop.gd:38)
+       [4] _mount_markers (res://scripts/building/orison_v2_passage_region.gd:374)
+       [5] _ready (res://scripts/building/orison_v2_passage_region.gd:286)
+       [6] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:586)
+       [7] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [8] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [9] _run (res://tests/orison_v2_fabrication_batch.gd:51)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

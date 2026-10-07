@@ -1,0 +1,992 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_photo_supplies_dr_door",
+      "rect": [
+        22.87,
+        -60.199999999999996,
+        22.93,
+        -59.24999999999999
+      ],
+      "z0": 0.05,
+      "h": 2.05,
+      "mat": "wood_dark",
+      "batch": "shop_photo_supplies",
+      "shop_role": "hero",
+      "hero": "photo",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_photo_supplies_dr_lamp",
+      "rect": [
+        22.78,
+        -59.849999999999994,
+        22.87,
+        -59.599999999999994
+      ],
+      "z0": 2.18,
+      "h": 0.18,
+      "mat": "lacquer_red",
+      "batch": "shop_photo_supplies",
+      "shop_role": "hero",
+      "hero": "photo",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_radio_service_window_plinth",
+      "rect": [
+        17.18,
+        -58.519999999999996,
+        17.54,
+        -57.31999999999999
+      ],
+      "z0": 0.05,
+      "h": 0.39,
+      "mat": "wood_dark",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_radio_service_window_back",
+      "rect": [
+        17.54,
+        -58.519999999999996,
+        17.58,
+        -57.31999999999999
+      ],
+      "z0": 0.42,
+      "h": 1.15,
+      "mat": "plywood",
+      "batch": "shop_radio_service",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_photo_supplies_dr_door",
+      "kind": "darkroom",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_photo_supplies_dr_lamp",
+      "kind": "controlled_lamp",
+      "cell": "shop_photo_supplies",
+      "floor": {
+        "id": "storm_shop_photo_supplies_floor",
+        "rect": [
+          17.0,
+          -63.89999999999999,
+          23.0,
+          -58.89999999999999
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_photo_supplies",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_radio_service_window_plinth",
+      "kind": "window",
+      "cell": "shop_radio_service",
+      "floor": {
+        "id": "storm_shop_radio_service_floor",
+        "rect": [
+          17.0,
+          -58.699999999999996,
+          22.0,
+          -55.699999999999996
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "linoleum",
+        "batch": "shop_radio_service",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_photo_supplies_dr_door_NearJambLower",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "key": "wood_dark",
+      "volume_m3": 0.0034288300310850906
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door_NearJambUpper",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "key": "wood_dark",
+      "volume_m3": 0.005395628729672976
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door_FarJambLower",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "key": "wood_dark",
+      "volume_m3": 0.003428538986203926
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door_FarJambUpper",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "key": "wood_dark",
+      "volume_m3": 0.005395170978113351
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door_Head",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "key": "wood_dark",
+      "volume_m3": 0.006766230306875775
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door_Threshold",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "key": "wood_dark",
+      "volume_m3": 0.0024264911469715866
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door_LightTrapCurtain0",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "key": "fabric_warm",
+      "volume_m3": 0.002313844172806689
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door_LightTrapCurtain1",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "key": "fabric_warm",
+      "volume_m3": 0.0023140510455668035
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door_FingerPlate",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "key": "iron_blackened",
+      "volume_m3": 2.4563489332935854e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_WallBracket",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 0.0004618559577317573
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CaseBack",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 0.00035962309475037334
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CaseSide-59.849999999999994",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 0.00013417300011336604
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CaseSide-59.608999999999995",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 0.00013422998794714554
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CaseCap2.18",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 0.0001774566969230516
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CaseCap2.3510000000000004",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 0.0001774566969230516
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_Bezel",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 9.9588452898996e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_RedDiffuser",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "milk_glass",
+      "volume_m3": 0.0002931063340088605
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_BezelWeb-59.843999999999994",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 1.3716433555727947e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_BezelWeb-59.651999999999994",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 1.3716433555727947e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.82999999999999, 2.2)",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 1.1192873569844126e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CaseScrew(-59.82999999999999, 2.2)",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 2.9455892856499023e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.82999999999999, 2.3400000000000003)",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 1.1192873569844126e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CaseScrew(-59.82999999999999, 2.3400000000000003)",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 2.9455892856499023e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.62, 2.2)",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 1.1192873569844128e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CaseScrew(-59.62, 2.2)",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 2.9455892856499023e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CornerEar(-59.62, 2.3400000000000003)",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 1.1192873569844128e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp_CaseScrew(-59.62, 2.3400000000000003)",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "key": "iron_blackened",
+      "volume_m3": 2.9455892856499023e-07
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Foot17.205_-58.489999999999995",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0007860080053955658
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Foot17.205_-57.919999999999995",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0007860080053955658
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Foot17.205_-57.349999999999994",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0007860080053955658
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Foot17.515_-58.489999999999995",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0007860421565311205
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Foot17.515_-57.919999999999995",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0007860421565311203
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Foot17.515_-57.349999999999994",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0007860421565311203
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Deck",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.012945766413209978
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_LowerRail17.182",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0016449954652024215
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Panel17.182_0",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0011213746318465404
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Panel17.182_1",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0011213944586966305
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Panel17.182_2",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0011213746318465404
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Panel17.182_3",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0011213746318465404
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Panel17.182_4",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0011213746318465404
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_LowerRail17.512999999999998",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.001644869587734197
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Panel17.512999999999998_0",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0011215006921045832
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Panel17.512999999999998_1",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0011215205211811165
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Panel17.512999999999998_2",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0011215006921045832
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Panel17.512999999999998_3",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0011215006921045832
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Panel17.512999999999998_4",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0011215006921045832
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_Back",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "plywood",
+      "volume_m3": 0.05518912453418899
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_BackStile-58.519999999999996",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0014415780336698733
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_BackStile-57.346",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0014415780336698733
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth_BackCap",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "key": "wood_dark",
+      "volume_m3": 0.0017381502700014224
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.855,
+        0.009999999999999995,
+        60.177499999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "door case on retained shop floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_db",
+      "point": [
+        22.89,
+        0.75,
+        60.177499999999995
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "lower case on retained wainscot",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_db",
+      "point": [
+        22.915,
+        1.1,
+        60.177499999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case rebate on retained dado top",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_borrowed_sill",
+      "point": [
+        22.94,
+        1.5,
+        60.177499999999995
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "upper case on fitted rear plaster",
+      "native_owner": true
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_floor",
+      "point": [
+        22.855,
+        0.009999999999999995,
+        59.272499999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "door case on retained shop floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_db",
+      "point": [
+        22.89,
+        0.75,
+        59.272499999999994
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "lower case on retained wainscot",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_db",
+      "point": [
+        22.915,
+        1.1,
+        59.272499999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case rebate on retained dado top",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "owner": "storm_shop_photo_supplies_borrowed_sill",
+      "point": [
+        22.94,
+        1.5,
+        59.272499999999994
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "upper case on fitted rear plaster",
+      "native_owner": true
+    },
+    {
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "owner": "storm_shop_photo_supplies_borrowed_sill",
+      "point": [
+        22.94,
+        2.23,
+        59.724999999999994
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "lamp bracket on fitted plaster below clerestory sill",
+      "native_owner": true
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.205,
+        0.009999999999999995,
+        58.489999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.205,
+        0.009999999999999995,
+        57.919999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.205,
+        0.009999999999999995,
+        57.349999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.515,
+        0.009999999999999995,
+        58.489999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.515,
+        0.009999999999999995,
+        57.919999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    },
+    {
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "owner": "storm_shop_radio_service_floor",
+      "point": [
+        17.515,
+        0.009999999999999995,
+        57.349999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Radio window stand foot on retained floor",
+      "native_owner": false
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_photo_supplies_dr_door__fabric_warm",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "cell": "shop_photo_supplies",
+      "key": "fabric_warm",
+      "triangles": 1288
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door__iron_blackened",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "cell": "shop_photo_supplies",
+      "key": "iron_blackened",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_door__wood_dark",
+      "assembly": "storm_shop_photo_supplies_dr_door",
+      "cell": "shop_photo_supplies",
+      "key": "wood_dark",
+      "triangles": 1128
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp__iron_blackened",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "cell": "shop_photo_supplies",
+      "key": "iron_blackened",
+      "triangles": 3920
+    },
+    {
+      "name": "storm_shop_photo_supplies_dr_lamp__milk_glass",
+      "assembly": "storm_shop_photo_supplies_dr_lamp",
+      "cell": "shop_photo_supplies",
+      "key": "milk_glass",
+      "triangles": 640
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth__plywood",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "cell": "shop_radio_service",
+      "key": "plywood",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_radio_service_window_plinth__wood_dark",
+      "assembly": "storm_shop_radio_service_window_plinth",
+      "cell": "shop_radio_service",
+      "key": "wood_dark",
+      "triangles": 4136
+    }
+  ],
+  "triangles": 11488,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "actor_parts": [
+      {
+        "name": "storm_shop_photo_supplies_dr_lamp__iron_blackened",
+        "key": "iron_blackened",
+        "tile": 0.4,
+        "catalog_key": "iron_blackened"
+      },
+      {
+        "name": "storm_shop_photo_supplies_dr_lamp__milk_glass",
+        "key": "milk_glass",
+        "tile": 0.5,
+        "catalog_key": "milk_glass",
+        "tint": [
+          0.55,
+          0.012,
+          0.008,
+          1.0
+        ]
+      }
+    ],
+    "emitter": [
+      22.788,
+      2.27,
+      59.725
+    ],
+    "schema_version": 1,
+    "asset": "res://assets/props/photo_radio_fittings.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_photo_supplies",
+        "parts": [
+          {
+            "name": "storm_shop_photo_supplies_dr_door__fabric_warm",
+            "key": "fabric_warm",
+            "tile": 0.7,
+            "catalog_key": "fabric_warm",
+            "tint": [
+              0.035,
+              0.035,
+              0.035,
+              1.0
+            ]
+          },
+          {
+            "name": "storm_shop_photo_supplies_dr_door__iron_blackened",
+            "key": "iron_blackened",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_photo_supplies_dr_door__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_photo_supplies_dr_door",
+            "key": "wood_dark",
+            "low": [
+              22.87,
+              0.05,
+              59.24999999999999
+            ],
+            "high": [
+              22.93,
+              2.0999999999999996,
+              60.199999999999996
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_photo_supplies_dr_lamp",
+            "key": "lacquer_red",
+            "low": [
+              22.78,
+              2.18,
+              59.599999999999994
+            ],
+            "high": [
+              22.87,
+              2.3600000000000003,
+              59.849999999999994
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      },
+      {
+        "id": "shop_radio_service",
+        "parts": [
+          {
+            "name": "storm_shop_radio_service_window_plinth__plywood",
+            "key": "plywood",
+            "tile": 1.2,
+            "catalog_key": "plywood"
+          },
+          {
+            "name": "storm_shop_radio_service_window_plinth__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_radio_service_window_plinth",
+            "key": "wood_dark",
+            "low": [
+              17.18,
+              0.05,
+              57.31999999999999
+            ],
+            "high": [
+              17.54,
+              0.44,
+              58.519999999999996
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_radio_service_window_back",
+            "key": "plywood",
+            "low": [
+              17.54,
+              0.42,
+              57.31999999999999
+            ],
+            "high": [
+              17.58,
+              1.5699999999999998,
+              58.519999999999996
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "ddc6615cb1c9de85f0cd889f4c6f257c1e8d8b8bca9ef6e9d84a775d6633d4e6",
+  "source_bindings": {
+    "art/data/photo_radio_fittings/source_plan.json": "a01d44020956d1ee3ebff72a61cf0bd3bdd8c3d73da7e0d44fbe16cfce3d4520",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_photo_radio_fittings.py": "99fe0225b0e60b55bb770db95dde661fcd9fcbe64fc84a2cfb86a8bfdaa1b2a5",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/photo_radio_fittings.glb.import": "842ed2126607000c5ab4564224706bc2bf5a2b6985cd706f4a1bbc124fefc07f",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "art/textures/ai_materials/plywood/material.json": "57360fd4af761f00c81589d6ffd31f8b05040961a148ab403273c5548a933569",
+    "art/textures/ai_materials/milk_glass/material.json": "1657b195f2ab90deb87f28db7efe4efebb5058a176e980028f820fa1dc6f6cac",
+    "art/textures/ai_materials/indicator_enamel/material.json": "0c933f0668f366e31702892101fa3c6bdf87e71004d259935a3abb246f19efbc",
+    "art/textures/ai_materials/fabric_warm/material.json": "1abddc7e2663a99577a3cb76c7e53344f6d30f4951c33cc70a07d281af6ed115",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_ai_materials_plywood_albedo.png": "370ae5676f1716e34121fad697b74d0799475c052d59cfd83b4494451257ece4",
+    "game/assets/building/textures/T_ai_materials_plywood_rough.png": "eee53b07db79e1bd95aac94b77fe1e9e39613b6941c909165c1c6f7514fe0db3",
+    "game/assets/building/textures/T_ai_materials_plywood_normal.png": "1ae17f1406a5e67ca7068bac0b968dfd9342b3c9da5db4ffe38bef590f35b186",
+    "game/assets/building/textures/T_ai_materials_milk_glass_albedo.png": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1",
+    "game/assets/building/textures/T_ai_materials_milk_glass_rough.png": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d",
+    "game/assets/building/textures/T_ai_materials_milk_glass_normal.png": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286",
+    "game/assets/building/textures/T_ai_materials_indicator_enamel_albedo.png": "64bfd4a979e1cf5ca37f116c83e4b187d25dbd56d3e18cbb82e496c0ec8cd32d",
+    "game/assets/building/textures/T_ai_materials_indicator_enamel_rough.png": "5c5fd3837456c45f683d4e35cc5bf4e335749940107a361886dcd691173ada29",
+    "game/assets/building/textures/T_ai_materials_indicator_enamel_normal.png": "f3034797fc658673767625552c3c607b63b3b041cc34b95f89730365138fd850",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_albedo.png": "17e3c8f6683826d45e8c7cdf3b5e31325085aefe24e7f48de75e5a7410d3ec51",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_rough.png": "decd1f03f1899b1789622f188fa212d65cd8fe36a2785799dadf505ae6e6ea2c",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_normal.png": "39cede434d791aa75e1404f398e84b152933923f33323b04c4d2adcc909980ef",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
+    "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
+    "game/assets/building/floor_01_cells/shop_radio_service.gltf": "c1786e26dbae42f23bc9da9dcb7afc3629e09615ef104e01fe5e769d6050300a",
+    "game/assets/building/floor_01_cells/shop_radio_service.bin": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
+    "art/blender/scripts/inspect_photo_radio_fittings.py": "89c41a0267bb621f8c5187b2eb007ecd4c560467e9b2d17321a8f13e187a3979",
+    "game/scripts/building/orison_v2_photo_radio_fittings.gd": "97e02a16e1effe4624bee4b11efa388ff94db02c738d37e6e4a17416f802d475",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
+    "game/assets/building/floor_01_cells/passage.gltf": "143d159a55e1bebdf1507b0ea2e515ccd763bf2b47770cdd11bb0349cf0f9907",
+    "game/assets/building/floor_01_cells/passage.bin": "2861fceab55c8883fa24b7d3f03525fa26ee6eee25ea629bd2dda5df231fac36",
+    "art/blender/scripts/photo_radio_fittings_geometry.py": "143d26be10c74bfb737d37170624c967656a2f90b08e4bea3baf321dbb8825bd",
+    "game/scripts/props/photo_darkroom_light.gd": "16d800a6f4459ee67e252841e8fd8ba48749c9c2100bc098630e47a665d68658",
+    "art/blender/shop_joinery.blend": "22e3de65c32fab32d4acb3d428a08a7a5e731c38ca241a5864aff26b8cc3982f",
+    "game/assets/props/shop_joinery.glb": "b86a4760076dd0389fe50abf2d23906f759e11108562ceb0622ff90d61cce24e",
+    "game/tests/fixtures/orison_shop_joinery.json": "4e796256d19a18dead73828b0da63ab79b3ed1f33788cbf3623e160dc03a4cb7",
+    "game/data/orison_v2/shop_joinery.json": "3f061e3b9b95170e6a4dedbecf8f36740b7839802c0d4c1951671d756696aeda",
+    "art/blender/shop_clerestories.blend": "c31cf355b906578da54f07e3d5467827d7ae382e3f31cedb52137cb2d1790b09",
+    "game/assets/props/shop_clerestories.glb": "8b60520552d45ccdbd3250f4a76b304a1143f53a6f246e92f6b25511b690374d",
+    "game/tests/fixtures/orison_shop_clerestories.json": "425b523890be677213cbdeeba491be31b759939bbed90e456105f40f23223a4d",
+    "game/data/orison_v2/shop_clerestories.json": "479a1f3add7bff98353cb9176ae21a78d608b8d9be317ba502492cebb4c2062a",
+    "art/blender/shop_seating.blend": "5b20a4c4419cd2d15e42dcb6c3784c11674e8e048a5454dada00097152cf0b5a",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/tests/fixtures/orison_shop_seating.json": "18d11054825d788e560a72a6c3f56f290ee5fe1a86ae119d0782df21a6fd4a23",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "art/blender/photo_cameras.blend": "471ad2ee4ecc6460156c2df3823a7abcb770ffdd615736d3de4378925a4018ce",
+    "game/assets/props/photo_cameras.glb": "f2fdbfce2370967d0cc4772b757ea31dfc7ef888e1149097d90992c5cda158de",
+    "game/tests/fixtures/orison_photo_cameras.json": "f5f3a5a94c7f4cafa7878d9a9435adc1e44c305c9b30c410e620e9a508035ebf",
+    "game/data/orison_v2/photo_cameras.json": "5305b43d29a602d7ded9366581630f57c81992af66f318b2d17c369e5187056b",
+    "art/blender/photo_counter.blend": "11a1ba46d34ee16103ebd170b02ea199fb474d6d25eceb7aa783cc048f4a5eac",
+    "game/assets/props/photo_counter.glb": "208a4194d79b044ee3fb47f4e4ad250613f2bd648b437dd384bb1289813fc802",
+    "game/tests/fixtures/orison_photo_counter.json": "517863a03cd211637e3f6ac177087fd29b17f3b26b6e66e0443f6e56c693972b",
+    "game/data/orison_v2/photo_counter.json": "d20a95f883eca27036e7ff74ce096a56d875a36d83fd6de5bceadb6c7c0d5d2c",
+    "art/blender/photo_stock.blend": "6e941179295c73cea9dd8f43d83b10ed7bf958d65da2fc1a724a185db0d4dfc4",
+    "game/assets/props/photo_stock.glb": "cf5bb93649d39119d52f861472607b05a19235870a11dce62e2f8810510d84d6",
+    "game/tests/fixtures/orison_photo_stock.json": "116cafb9a1579ec2b7ae0a9a93ced0f3087d82254369a143ffbe6ff5ea48a838",
+    "game/data/orison_v2/photo_stock.json": "50f0facbb0c8a604849c2d0fb7b11e7192cee3b7d5a7ade52f6e5ce8e60dc368",
+    "art/blender/photo_enlargers.blend": "dec2bbc3d525ed74d519e1cbb152335cb012304d25cc5ef6ccaece442f4485f4",
+    "game/assets/props/photo_enlargers.glb": "969f352a40d134e278c789c1cd4c607b730a339630315def7272f5d5843cd741",
+    "game/tests/fixtures/orison_photo_enlargers.json": "626fc562e378ccff57cce3b0fb1dcd7de1137260ea37fe718cfad8c3aab1ce60",
+    "game/data/orison_v2/photo_enlargers.json": "7e4fa7980a8db037d086d07fb4f2ea133010f85018390c021da24538202de1bc",
+    "art/blender/photo_process.blend": "ab265a9051ad88182041abf94a6ca43a84b15a90f66ae9783df102468418fe72",
+    "game/assets/props/photo_process.glb": "8e8c31e48c8d3a7362e1567e06e562f5721ce6046b18e57c20cfc60ca8e1c032",
+    "game/tests/fixtures/orison_photo_process.json": "5cbc003d3fb8f6ea77a9d96eb352d25baef032a12f5937723c77d4df36becda5",
+    "game/data/orison_v2/photo_process.json": "d3b6a346e5dd494d51e39f46770517f2bba55ea623d42810e2b529c942d6dd01",
+    "art/blender/photo_portraits.blend": "9c2cc57bb6667fd7552f8e8d291b7ff9f3201556ffe61e647c2e29edf22fa777",
+    "game/assets/props/photo_portraits.glb": "0b6aca61e68d665ba1b201b272d587d789db71be22b20f565ac02c6218f14053",
+    "game/tests/fixtures/orison_photo_portraits.json": "1c6d7ab2cfcd0d03d5335a9e95572211e494739241445579919b5de3ddee812b",
+    "game/data/orison_v2/photo_portraits.json": "bba64fee00e61a903c4b7a32c8cbce53707d1f79915021998034c339bcf708f1",
+    "art/blender/photo_glazing.blend": "1787c33ec14d825eee94e760b863831cd24eb8bfd94d8855f785a9284e08eeb4",
+    "game/assets/props/photo_glazing.glb": "d4637a76f86a5010a8cb2ce2b60abb1d72c53b6a47ef8d1426fed4eaf6382c60",
+    "game/tests/fixtures/orison_photo_glazing.json": "7b2485d12307461b645273e0e760b31e2a886fd43b0ad2581215a2969415f2b9",
+    "game/data/orison_v2/photo_glazing.json": "c0f978846e8105a4fd75c31e64094670b40baad438a7e4e1beab170a605cd128",
+    "art/blender/photo_receiving.blend": "df08232f6fd414e749a2183e34385e149098c885d3817faeb029b78f7a689eec",
+    "game/assets/props/photo_receiving.glb": "9c8411b41d3ac3e5c69b0e71ba19667d3e3306bde7b90ba8cc4d93c149a02622",
+    "game/tests/fixtures/orison_photo_receiving.json": "8d0850c174ce6448a9a7b23ebe3ddc7eb14f4e831b89e44b3d60b1a819af3c8f",
+    "game/data/orison_v2/photo_receiving.json": "bc3da7bd45a5a2976fc3cb71d9e81ed175d2163e2cefab5a2056ba7d97cb9acf",
+    "art/blender/radio_display.blend": "bd36f5ffdff2a0a1301220e662e826c52e145de9b3745ad09f065e6081d25b76",
+    "game/assets/props/radio_display.glb": "3d10edef5b0acd087e053e5a2d4970aa1382e3c3f274e4966d87e98c8bcb42d7",
+    "game/tests/fixtures/orison_radio_display.json": "bffcbd092d4bd082662c2d1652c90677c62c0704049876f9e3c4bd4e936af819",
+    "game/data/orison_v2/radio_display.json": "3627d57e25d112dcaf0f5d6e8888b53b8b6009288ff30057b2262e7de7d8bfbd",
+    "art/blender/radio_wire.blend": "920ce2e6ec150d8f72a64fbf9c186afdcb30f6677d643655437185c1a4e6aa3f",
+    "game/assets/props/radio_wire.glb": "b4972672d9ccebfa0ca66274c53645c95fe8dc36482059f829c74eca41782893",
+    "game/tests/fixtures/orison_radio_wire.json": "0f31ffdab2d4ec8051c743690b4c5b7ebb87e5980d72c50860cd7e80f9c8de55",
+    "game/data/orison_v2/radio_wire.json": "d4e0e32ebf9d9e4ac436539f8fe91909c2bef64e8dfdbf3b99a0a010ca3315ee",
+    "art/blender/radio_battery.blend": "75a903535b12ad6e1856975e2e8764bbd09ea4866b739e10be0fcf9c03862b75",
+    "game/assets/props/radio_battery.glb": "24d6d69902a4acd42ee7330638fce4dc228e5086c8804616a6acdcbeda922966",
+    "game/tests/fixtures/orison_radio_battery.json": "3dab9b6f4a79e344706d2c7bff5c4809852b526e2093786f48506e72dd3b8857",
+    "game/data/orison_v2/radio_battery.json": "d35a9df2dd923599c46ce660b6165052743027e9c7888e02f8dfa2f5940161b6",
+    "art/blender/radio_stock.blend": "287e4988337c632769fd255ddbe23a1afc9d7bccee3bef6d3616fd98759328cd",
+    "game/assets/props/radio_stock.glb": "f3f23b82856e3fba92f3be8869ce9e0ea542245896ac2dd89baa9b9aef1d8fbf",
+    "game/tests/fixtures/orison_radio_stock.json": "6849c5e3fea71f13186cd453159c21515ee30420b649bf3d9523d535f4c88d0e",
+    "game/data/orison_v2/radio_stock.json": "a76029e79ea3637c15416faa7a1d1e0d9ca0cef3c485a99b241eff9b35a04dd6",
+    "art/blender/radio_apparatus.blend": "b2ad3337a17357b71883c4660ebb345be9a30dc16f7758c39b9fe6ba98c629d4",
+    "game/assets/props/radio_apparatus.glb": "2b54a33db7ace8706584cff3ea2b1ddbb8758781e7e3113f31d64024552e541d",
+    "game/tests/fixtures/orison_radio_apparatus.json": "37b78c9b83ae3e6ecedcdc4cc8d68f236bf87048057c412796aee2fecd1794be",
+    "game/data/orison_v2/radio_apparatus.json": "6f1dd1866df7c25478c54019d112ec5f5068b7d7c9b5f1873e18fbc5f291bdc4",
+    "art/blender/radio_bench.blend": "3b24bffb7fe18fe757babbc2900d56da377c9eb15c9c18374c0c100d448c4307",
+    "game/assets/props/radio_bench.glb": "baa2a2f2cb86061b7b3b0401c9528d3d48d77f42ee8ff964ca5c227cce0623e8",
+    "game/tests/fixtures/orison_radio_bench.json": "7dbce7b31e57f697d022ddc3e8f234c0e621679f0b1c33b56fdfa7cf13746159",
+    "game/data/orison_v2/radio_bench.json": "9b6f0fe4efaceec0021f497b0b13117a7bed0a3cbbdd51b52a422326ac04ecda",
+    "art/blender/radio_receiving.blend": "671bea1488f50b2d66d4806ebaff7318132cea7daba84768c52f24a9cec75725",
+    "game/assets/props/radio_receiving.glb": "3430a78a621c7aba367e22c9cc489bc9eec0fd775f6c52b0488e586d8dccec01",
+    "game/tests/fixtures/orison_radio_receiving.json": "ee57ab12f836081faa76f38709c226ff842ecbf4afa99789d71a5a4823116327",
+    "game/data/orison_v2/radio_receiving.json": "0f97a4c54406f14e3f2180ec41905d7f2279fddee344be3c90f03ad66ee3da84"
+  },
+  "open_work": [
+    "Four immutable source rows. A closed darkroom entrance gains fitted jambs, threshold and two staggered opaque curtain leaves; no new opening, room or interaction authority.",
+    "The former red box and procedural hanging cage are replaced by one native wall lamp under the original electrical actor. Authored actor position, circuit, energy, range, identity and after-hours policy remain; the visible emitter is placed inside the red diffuser.",
+    "Radio window stand and backing keep the exact original deck datum and extents supporting the accepted horn and cone. No stock or labels are added.",
+    "Photo jamb fronts sit 50mm forward of the former slab and rebate over the actual retained dado; independent floor, dado-face, dado-top and fitted-plaster contacts are checked."
+  ]
+}

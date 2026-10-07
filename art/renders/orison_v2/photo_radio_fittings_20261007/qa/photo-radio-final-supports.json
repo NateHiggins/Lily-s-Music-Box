@@ -1,0 +1,44 @@
+{
+  "evidence_class": "INERT",
+  "changed_families": [
+    "photo_radio_fittings"
+  ],
+  "bindings": {
+    "game/tests/fixtures/orison_photo_radio_fittings.json": "462763c8c279e888ee37dfb53a1ab9f4a88471994b02497ec0a0354f580591a5",
+    "art/blender/photo_radio_fittings.blend": "df0bb6776452d9743bc54bf1c33c2404d741b9416c40dfe746082dfd85cc3bd5",
+    "art/data/photo_radio_fittings/source_plan.json": "a01d44020956d1ee3ebff72a61cf0bd3bdd8c3d73da7e0d44fbe16cfce3d4520",
+    "game/tests/fixtures/orison_radio_display.json": "bffcbd092d4bd082662c2d1652c90677c62c0704049876f9e3c4bd4e936af819"
+  },
+  "checks": [
+    {
+      "consumer_family": "radio_display",
+      "assembly": "storm_shop_radio_service_horn_mouth",
+      "owner": "storm_shop_radio_service_window_plinth",
+      "native_owner_family": "photo_radio_fittings",
+      "label": "horn foot on actual retained window plinth",
+      "point": [
+        17.459999999999997,
+        0.44,
+        58.269999999999996
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    },
+    {
+      "consumer_family": "radio_display",
+      "assembly": "storm_shop_radio_service_cone_speaker",
+      "owner": "storm_shop_radio_service_window_plinth",
+      "native_owner_family": "photo_radio_fittings",
+      "label": "cone foot on actual retained window plinth",
+      "point": [
+        17.369999999999997,
+        0.44,
+        57.629999999999995
+      ],
+      "distance_m": 0.0,
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "scope": "Actual owner-side native bearing only, 30 micrometre bound. No floor/source owners, reciprocal embedded fixings, gameplay or runtime acceptance."
+}

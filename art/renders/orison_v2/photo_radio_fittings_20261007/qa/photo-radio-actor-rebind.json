@@ -1,0 +1,8 @@
+{
+  "evidence_class": "INERT",
+  "reason": "Runtime-only collision construction explicitly creates unowned body/shape after reparenting; native geometry, maps and poses unchanged.",
+  "path": "game/scripts/props/photo_darkroom_light.gd",
+  "before": "1cc0a3bd8f9aa31176cb3724431da787818a6b24908879840444015840f8b10b",
+  "after": "7cfeba71c66fd0b58b483a3c49908212883596ae55412fc932636c2951f84e03",
+  "asset_sha256": "ddc6615cb1c9de85f0cd889f4c6f257c1e8d8b8bca9ef6e9d84a775d6633d4e6"
+}

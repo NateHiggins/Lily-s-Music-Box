@@ -1,0 +1,8 @@
+{
+  "evidence_class": "INERT",
+  "reason": "Clear imported mesh owner before reparenting under persistent actor; no geometry/material/pose/light change. Final lifecycle run verifies null owner and identical visible/physical geometry.",
+  "path": "game/scripts/props/photo_darkroom_light.gd",
+  "before": "7cfeba71c66fd0b58b483a3c49908212883596ae55412fc932636c2951f84e03",
+  "after": "16d800a6f4459ee67e252841e8fd8ba48749c9c2100bc098630e47a665d68658",
+  "asset_sha256": "ddc6615cb1c9de85f0cd889f4c6f257c1e8d8b8bca9ef6e9d84a775d6633d4e6"
+}

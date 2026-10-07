@@ -1,0 +1,211 @@
+{
+	"batch_checks": 16,
+	"elapsed_ms": 46602,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 3815,
+	"modules": {
+		"photo_cameras": {
+			"captured": false,
+			"checks": 168,
+			"elapsed_ms": 282,
+			"failures": [],
+			"fixture_sha256": "f5f3a5a94c7f4cafa7878d9a9435adc1e44c305c9b30c410e620e9a508035ebf",
+			"parts": 8,
+			"removed": 96,
+			"supports": 7,
+			"triangles": 10016,
+			"validator_sha256": "cc8e1af4650fa1c0f794bb3e5826b50b7ed568f0fe23aa05d2490db5dcf13078"
+		},
+		"photo_counter": {
+			"captured": false,
+			"checks": 124,
+			"elapsed_ms": 117,
+			"failures": [],
+			"fixture_sha256": "517863a03cd211637e3f6ac177087fd29b17f3b26b6e66e0443f6e56c693972b",
+			"parts": 5,
+			"removed": 48,
+			"supports": 5,
+			"triangles": 5124,
+			"validator_sha256": "910e21311a96f56ceae900e9453c5119dd9c0a332b5c374d9d2237943edd11a7"
+		},
+		"photo_enlargers": {
+			"captured": false,
+			"checks": 160,
+			"elapsed_ms": 222,
+			"failures": [],
+			"fixture_sha256": "626fc562e378ccff57cce3b0fb1dcd7de1137260ea37fe718cfad8c3aab1ce60",
+			"parts": 10,
+			"removed": 48,
+			"supports": 9,
+			"triangles": 8732,
+			"validator_sha256": "92aef8da4427903b0da35e3b7b1ede3ad8179cb20e9b6e884f3a3fb34980c21a"
+		},
+		"photo_portraits": {
+			"captured": false,
+			"checks": 361,
+			"elapsed_ms": 67,
+			"failures": [],
+			"fixture_sha256": "1c6d7ab2cfcd0d03d5335a9e95572211e494739241445579919b5de3ddee812b",
+			"parts": 23,
+			"removed": 96,
+			"supports": 25,
+			"triangles": 3896,
+			"validator_sha256": "338d0ddbd7825aaedb244794e8b51acdf30e9043c6d53b9279b22044a02c7a38"
+		},
+		"photo_radio_fittings": {
+			"captured": true,
+			"checks": 170,
+			"elapsed_ms": 6367,
+			"failures": [],
+			"fixture_sha256": "d4d2e411956c99fd84a5f2eeaffa510a83aa0a0542a5c94572a09cf0a42d0363",
+			"parts": 7,
+			"removed": 48,
+			"supports": 15,
+			"triangles": 11488,
+			"validator_sha256": "db99a4e58a059ad2b5189c8015ad4f96cbae259ce9ecc781df021c7bcb67e813"
+		},
+		"photo_stock": {
+			"captured": false,
+			"checks": 287,
+			"elapsed_ms": 144,
+			"failures": [],
+			"fixture_sha256": "116cafb9a1579ec2b7ae0a9a93ced0f3087d82254369a143ffbe6ff5ea48a838",
+			"parts": 16,
+			"removed": 240,
+			"supports": 19,
+			"triangles": 18988,
+			"validator_sha256": "e5aec2ef86bd00424a323d294b43b4483a45ea04d4101bd21b6709875fa93678"
+		},
+		"radio_display": {
+			"captured": true,
+			"checks": 164,
+			"elapsed_ms": 8384,
+			"failures": [],
+			"fixture_sha256": "bffcbd092d4bd082662c2d1652c90677c62c0704049876f9e3c4bd4e936af819",
+			"parts": 7,
+			"removed": 72,
+			"supports": 6,
+			"triangles": 10204,
+			"validator_sha256": "84fc19bf90af2ab35c424445ebf1fd2df2e71a229c3f2e3054592d05dda173c6"
+		},
+		"radio_wire": {
+			"captured": false,
+			"checks": 115,
+			"elapsed_ms": 412,
+			"failures": [],
+			"fixture_sha256": "0f31ffdab2d4ec8051c743690b4c5b7ebb87e5980d72c50860cd7e80f9c8de55",
+			"parts": 4,
+			"removed": 24,
+			"supports": 8,
+			"triangles": 30108,
+			"validator_sha256": "83205e76fb26cd3ecf431e89885675ab30dd0aea080c23cc3def2e1a82d17488"
+		},
+		"shop_clerestories": {
+			"captured": false,
+			"checks": 1460,
+			"elapsed_ms": 1106,
+			"encoded_contact_offsets": [
+				{
+					"budget_m": 0.000113474122642097,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000102996826171875,
+					"owner": "storm_shop_funeral_parlour_back_jamb_w"
+				},
+				{
+					"budget_m": 0.000189054147375888,
+					"label": "plaster rebate at chapel head end",
+					"native_owner": false,
+					"offset_m": 0.0001068115234375,
+					"owner": "storm_shop_funeral_parlour_chapel_head"
+				},
+				{
+					"budget_m": 0.000121000720875627,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.00009918212890625,
+					"owner": "storm_shop_luncheonette_back_jamb_e"
+				},
+				{
+					"budget_m": 0.000186667000224936,
+					"label": "upper panel above retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000100208439107519,
+					"owner": "storm_shop_model_laundry_back_jamb_e"
+				},
+				{
+					"budget_m": 0.000186667000224936,
+					"label": "upper panel above retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000100135803222656,
+					"owner": "storm_shop_model_laundry_back_jamb_w"
+				},
+				{
+					"budget_m": 0.000186667000224936,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.00009918212890625,
+					"owner": "storm_shop_model_laundry_back_jamb_w"
+				},
+				{
+					"budget_m": 0.000113474122642097,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.0001068115234375,
+					"owner": "storm_shop_pawnbroker_back_jamb_e"
+				},
+				{
+					"budget_m": 0.000172456474371139,
+					"label": "upper panel above retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000100208439107519,
+					"owner": "storm_shop_photo_supplies_back_jamb_e"
+				},
+				{
+					"budget_m": 0.000172456474371139,
+					"label": "upper panel above retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000100135803222656,
+					"owner": "storm_shop_photo_supplies_back_jamb_w"
+				},
+				{
+					"budget_m": 0.000172456474371139,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.00009918212890625,
+					"owner": "storm_shop_photo_supplies_back_jamb_w"
+				},
+				{
+					"budget_m": 0.000126175511823581,
+					"label": "sash at retained jamb",
+					"native_owner": false,
+					"offset_m": 0.000102996826171875,
+					"owner": "storm_shop_shoe_rebuilding_back_jamb_w"
+				}
+			],
+			"failures": [],
+			"fixture_sha256": "425b523890be677213cbdeeba491be31b759939bbed90e456105f40f23223a4d",
+			"parts": 32,
+			"removed": 1068,
+			"supports": 251,
+			"triangles": 60216,
+			"validator_sha256": "2e5ab3450a22fab57aba5b1a69b19071ae31f9828f77f47cb6f94606e2e9cc1a"
+		},
+		"shop_joinery": {
+			"captured": false,
+			"checks": 806,
+			"elapsed_ms": 950,
+			"failures": [],
+			"fixture_sha256": "4e796256d19a18dead73828b0da63ab79b3ed1f33788cbf3623e160dc03a4cb7",
+			"parts": 35,
+			"removed": 288,
+			"supports": 50,
+			"triangles": 120440,
+			"validator_sha256": "e0523063d6468a54fd4681b7c1d2a90fa1bf4818ad8d29fda1079aada62c435a"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

@@ -97,6 +97,8 @@ func _receiver_values() -> Dictionary:
 			"infection":receiver._infection}
 	return result
 
+var _photo_lamp_instance := 0
+
 func _check_specialist_fittings() -> bool:
 	# Both observed reconstruction cycles must carry the same native owners
 	# as startup, rather than quietly reverting to retired source boxes.
@@ -124,6 +126,8 @@ func _check_specialist_fittings() -> bool:
 	for record: Dictionary in clerestories.runtime.cells:specialist_specs.append([str(record.id),"ShopClerestories","shop_clerestories"])
 	var joinery: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_shop_joinery.json"))
 	for record: Dictionary in joinery.runtime.cells:specialist_specs.append([str(record.id),"ShopJoinery","shop_joinery"])
+	var photo_radio: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_photo_radio_fittings.json"))
+	for record: Dictionary in photo_radio.runtime.cells:specialist_specs.append([str(record.id),"PhotoRadioFittings","photo_radio_fittings"])
 	for spec: Array in specialist_specs:
 		var cell: Node3D=world.passage_region.cell_nodes[spec[0]]
 		var model:=cell.get_node_or_null(str(spec[1])) as Node3D
@@ -143,6 +147,14 @@ func _check_specialist_fittings() -> bool:
 		for draw: MeshInstance3D in draws:
 			var shapes:=draw.find_children("*","CollisionShape3D",true,false)
 			if not _require(shapes.size()==1 and shapes[0].shape is ConcavePolygonShape3D and shapes[0].shape.get_faces()==draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform),"reloaded native visible/physical faces agree: "+str(draw.name)):return false
+	var photo_lamp = world.passage_region._actors.get_node("SITE_SHOP_DARKROOM_PHOTO_SUPPLIES")
+	if _photo_lamp_instance == 0: _photo_lamp_instance = photo_lamp.get_instance_id()
+	if not _require(photo_lamp.get_instance_id() == _photo_lamp_instance and photo_lamp.get_script() == preload("res://scripts/props/photo_darkroom_light.gd"), "streamed geometry preserves original Photo electrical actor"): return false
+	if not _require(photo_lamp.native_parts.size() == photo_radio.runtime.actor_parts.size(), "streaming preserves one complete actor-owned native lamp"): return false
+	for draw: MeshInstance3D in photo_lamp.native_parts.values():
+		if not _require(draw.owner == null, "persistent lamp draw has no retired imported-scene owner"): return false
+		var shapes := draw.find_children("*", "CollisionShape3D", true, false)
+		if not _require(shapes.size() == 1 and shapes[0].shape.get_faces() == draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform), "persistent Photo lamp retains native physical pose"): return false
 	if not world.passage_region.cabinets_enabled:
 		return _check_removed_cabinets()
 	var radio_cell: Node3D = world.passage_region.cell_nodes.shop_radio_service

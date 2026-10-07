@@ -227744,6 +227744,365 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "af66d54b09bc45cd",
+   "kind": "id_reference",
+   "token": "storm_shop_photo_supplies_dr_door",
+   "file": "game/data/orison_v2/photo_radio_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "eec0064eab63cd7b",
+   "kind": "id_reference",
+   "token": "storm_shop_photo_supplies_dr_lamp",
+   "file": "game/data/orison_v2/photo_radio_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cacadcbadb620c90",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_window_back",
+   "file": "game/data/orison_v2/photo_radio_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[1]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "386773101376edfb",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_window_plinth",
+   "file": "game/data/orison_v2/photo_radio_fittings.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[1]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "845b38ed19d815ae",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "file": "game/scripts/building/orison_v2_passage_region.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_mount_markers"
+   ],
+   "lines": [
+    353
+   ],
+   "count": 1,
+   "context": [
+    "var fixture: LightFixtureProp = PhotoDarkroomLight.new() if identity == \"SITE_SHOP_DARKROOM_PHOTO_SUPPLIES\" else LightFixtureProp.new()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "48bc926355fd7db6",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "file": "game/tests/orison_v2_passage_residency_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_specialist_fittings"
+   ],
+   "lines": [
+    150
+   ],
+   "count": 1,
+   "context": [
+    "var photo_lamp = world.passage_region._actors.get_node(\"SITE_SHOP_DARKROOM_PHOTO_SUPPLIES\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "ac9dc047a467c05e",
+   "kind": "node_path",
+   "token": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "file": "game/tests/orison_v2_passage_residency_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_specialist_fittings"
+   ],
+   "lines": [
+    150
+   ],
+   "count": 1,
+   "context": [
+    "var photo_lamp = world.passage_region._actors.get_node(\"SITE_SHOP_DARKROOM_PHOTO_SUPPLIES\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": null
+  },
+  {
+   "key": "ed4963cf8f503734",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_photo_radio_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world",
+    "_check_photo_radio_details"
+   ],
+   "lines": [
+    38,
+    115
+   ],
+   "count": 2,
+   "context": [
+    "var owner_rows: Array=passage.source_layout.floors.filter(func(floor):return floor.id==\"F01\")[0].furniture",
+    "var marker: Dictionary = passage.source_layout.floors.filter(func(f): return f.id == \"F01\")[0].markers.filter(func(m): return m.id == str(lamp.name))[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7727b78c8580dc1e",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_photo_radio_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    20
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id==\"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cec302d63436e183",
+   "kind": "id_reference",
+   "token": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "file": "game/tests/orison_v2_photo_radio_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world",
+    "_check_photo_radio_details"
+   ],
+   "lines": [
+    45,
+    113
+   ],
+   "count": 2,
+   "context": [
+    "var lamp = passage._actors.get_node(\"SITE_SHOP_DARKROOM_PHOTO_SUPPLIES\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "b18313c5ed5e830c",
+   "kind": "id_reference",
+   "token": "storm_shop_radio_service_window_plinth",
+   "file": "game/tests/orison_v2_photo_radio_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_photo_radio_details"
+   ],
+   "lines": [
+    157
+   ],
+   "count": 1,
+   "context": [
+    "if contact.owner != \"storm_shop_radio_service_window_plinth\": continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "61739cc76a5a2c44",
+   "kind": "node_path",
+   "token": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+   "file": "game/tests/orison_v2_photo_radio_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world",
+    "_check_photo_radio_details"
+   ],
+   "lines": [
+    45,
+    113
+   ],
+   "count": 2,
+   "context": [
+    "var lamp = passage._actors.get_node(\"SITE_SHOP_DARKROOM_PHOTO_SUPPLIES\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": null
   }
  ]
 }

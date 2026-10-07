@@ -1,0 +1,65 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 180.14,
+  "exit_code": null,
+  "finished_utc": "2026-10-07T18:15:22Z",
+  "started_utc": "2026-10-07T18:12:22Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 2,
+  "script_error_lines": [
+   "SCRIPT ERROR: Invalid access to property or key 'albedo_texture' on a base object of type 'Nil'.",
+   "SCRIPT ERROR: Invalid access to property or key 'checks' on a base object of type 'Dictionary'."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-radio-batch.log.stderr",
+  "stderr_sha256": "b5b33318885849ca09cfc5a30c41cbfafeaf81ed0e823701097e7630a8ea6d6a",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-radio-batch.log",
+  "stdout_sha256": "d496454852d6ad1b4f4e87ed97f95edb27f43d52da80eae1d88cc8fa73fda835"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-radio-runtime",
+ "source": {
+  "dirty_paths": 294,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M game/tests/orison_v2_radio_display_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/photo_radio_fittings.blend",
+   "?? art/blender/photo_radio_fittings.md",
+   "?? art/blender/photo_radio_fittings_construction.json",
+   "?? art/blender/scripts/build_photo_radio_fittings.py",
+   "?? art/blender/scripts/inspect_photo_radio_fittings.py",
+   "?? art/blender/scripts/photo_radio_fittings_geometry.py",
+   "?? art/data/photo_radio_fittings/",
+   "?? art/renders/insitu/shot_024.png"
+  ],
+  "repository_head": "177788e9a55017de0e4b8ddb7be2ae5f4569d6f0",
+  "repository_tree": "dfcb69cb69a1f48f6deee7f11aba81cc65bc610d",
+  "runtime_inputs_sha256": "05b46313e2c3fffba210368d3b5411a882d06ff9447a48200bebb31ebbb572fc",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "f21e88fbc2355838011a4053664f1d65bcdfaf9314403cb0af5f0ab24c71d753"
+ },
+ "windowed": true
+}

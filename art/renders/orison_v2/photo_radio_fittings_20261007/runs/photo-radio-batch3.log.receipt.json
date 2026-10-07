@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 63.44,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T18:19:19Z",
+  "started_utc": "2026-10-07T18:18:15Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-radio-batch3.log.stderr",
+  "stderr_sha256": "07755b6e3d2c8d0b6cb4a1b44324e9b9652a7e014ad616eeaec693372cce10ad",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-radio-batch3.log",
+  "stdout_sha256": "c15f8ecf1879ece5c397eb725ef4a71a009a5db401613b772fdb59052db23505"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/photo-radio-runtime3",
+ "source": {
+  "dirty_paths": 33,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M game/tests/orison_v2_radio_display_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/photo_radio_fittings.blend",
+   "?? art/blender/photo_radio_fittings.md",
+   "?? art/blender/photo_radio_fittings_construction.json",
+   "?? art/blender/scripts/build_photo_radio_fittings.py",
+   "?? art/blender/scripts/inspect_photo_radio_fittings.py",
+   "?? art/blender/scripts/photo_radio_fittings_geometry.py",
+   "?? art/data/photo_radio_fittings/",
+   "?? art/renders/insitu/shot_024.png"
+  ],
+  "repository_head": "177788e9a55017de0e4b8ddb7be2ae5f4569d6f0",
+  "repository_tree": "dfcb69cb69a1f48f6deee7f11aba81cc65bc610d",
+  "runtime_inputs_sha256": "4e982e853b63e11fe424bbd3aca22586ca4082aa734752b2055ff70b02d9d4ac",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "f21e88fbc2355838011a4053664f1d65bcdfaf9314403cb0af5f0ab24c71d753"
+ },
+ "windowed": true
+}
