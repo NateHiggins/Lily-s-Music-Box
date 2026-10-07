@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 62.92,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T11:48:31Z",
+  "started_utc": "2026-10-07T11:47:28Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-display-focused.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-display-focused.log",
+  "stdout_sha256": "5c03e3398226e28cbbf608079a11e6f090154de6d2766e28eb79816ba712b1b2"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PawnDisplayTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-display-focused-shots",
+ "source": {
+  "dirty_paths": 22,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/pawn_display.blend",
+   "?? art/blender/pawn_display_construction.json",
+   "?? art/blender/scripts/build_pawn_display.py",
+   "?? art/blender/scripts/inspect_pawn_display.py",
+   "?? art/data/pawn_display/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? game/assets/props/pawn_display.glb",
+   "?? game/data/orison_v2/pawn_display.json",
+   "?? game/tests/OrisonV2PawnDisplayTest.tscn",
+   "?? game/tests/fixtures/orison_pawn_display.json"
+  ],
+  "repository_head": "908d187e5fb4f00016a6c1e8b5a4d6a0386f4491",
+  "repository_tree": "aabeac476349f1f9b539194fd68dc4eab4168750",
+  "runtime_inputs_sha256": "ecc457d78c4508e147a3ff4af781d16d6c84e78ec94fef8b6db692fc0ba3e11b",
+  "test_path": "game/tests/orison_v2_pawn_display_test.gd",
+  "test_sha256": "b26e16117cabd66b02fd68b72d301d8d2fcbe34df2ea1cfdff7259cf3649e062"
+ },
+ "windowed": true
+}

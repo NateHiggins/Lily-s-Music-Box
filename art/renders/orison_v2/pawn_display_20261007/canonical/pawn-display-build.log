@@ -1,0 +1,10 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_pawn_display.py:63: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_pawn_display.py", line 277, in <module>
+    record['volume_m3']=bm.calc_volume(signed=True);assert record['volume_m3']>1e-12
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

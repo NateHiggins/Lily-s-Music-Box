@@ -1,0 +1,54 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 67.69,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T12:06:43Z",
+  "started_utc": "2026-10-07T12:05:35Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "PASSAGE RECEIVING CONTRACT: PASS checks=384 retained_nodes=0 retained_resources=0 retained_playbacks=0"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-display-restoration.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-display-restoration.log",
+  "stdout_sha256": "79950f32355fb8fec2727c58c78643a9160912bc6376032272eb5e39604a5ee8"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PassageReceiversTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-display-restoration-shots",
+ "source": {
+  "dirty_paths": 10,
+  "dirty_sample": [
+   "M DOCS.md",
+   " M art/blender/pawn_clocks.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M art/blender/v2_space_sweep.md",
+   " M art/renders/insitu/shots.md",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? art/renders/orison_v2/pawn_display_20261007/"
+  ],
+  "repository_head": "0c3f2bb9a57c3867f03bd2c10ea42d78b7001e4b",
+  "repository_tree": "51e67fc1cc9ac812ef032e1497d174740baff873",
+  "runtime_inputs_sha256": "6865a290e8fdfe8c774e74fcaf2fc8300d3ea663c5d846b633e2ed7571d4e9e7",
+  "test_path": "game/tests/orison_v2_passage_receivers_test.gd",
+  "test_sha256": "8cf91dfb39089c2c81f2b47f59b7978c4276cd65444f4f8fe78f30397472264d"
+ },
+ "windowed": true
+}

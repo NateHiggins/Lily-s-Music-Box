@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 2.09,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T11:57:25Z",
+  "started_utc": "2026-10-07T11:57:23Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-display-regressions/OrisonV2ShopSimulationTest.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-display-regressions/OrisonV2ShopSimulationTest.log",
+  "stdout_sha256": "bc06e3e99abd1a44440ee2bbae66e84719111e2e838d8247cd9f0ac78fc57b7a"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2ShopSimulationTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\pawn-display-regressions\\OrisonV2ShopSimulationTest_shots",
+ "source": {
+  "dirty_paths": 27,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/pawn_display.blend",
+   "?? art/blender/pawn_display.md",
+   "?? art/blender/pawn_display_construction.json",
+   "?? art/blender/scripts/build_pawn_display.py",
+   "?? art/blender/scripts/inspect_pawn_display.py",
+   "?? art/data/pawn_display/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? art/renders/orison_v2/pawn_display_20261007/",
+   "?? game/assets/props/pawn_display.glb"
+  ],
+  "repository_head": "908d187e5fb4f00016a6c1e8b5a4d6a0386f4491",
+  "repository_tree": "aabeac476349f1f9b539194fd68dc4eab4168750",
+  "runtime_inputs_sha256": "6865a290e8fdfe8c774e74fcaf2fc8300d3ea663c5d846b633e2ed7571d4e9e7",
+  "test_path": "game/tests/orison_v2_shop_simulation_test.gd",
+  "test_sha256": "81ee6be1ff6aecc3e274828ee463267a899e768cf9ac6f3df6c5c569c972c03b"
+ },
+ "windowed": true
+}

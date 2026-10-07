@@ -641,4 +641,4 @@ Evidence class: **INERT**
 - `design/ORISON_V2_VERTICAL_CORE_CHECKPOINT_2026-08-28.md` sha256 `83cff9b36fd379d2...`
 - `game/data/orison_v2_blockout.json` sha256 `053033cbe95d8775...`
 - `game/scripts/building/orison_v2_anchor_adapter.gd` sha256 `59a544e60c3b4751...`
-- `tools/orison_spatial_dependency_manifest.json` sha256 `1a6188f3b2b14ecb...`
+- `tools/orison_spatial_dependency_manifest.json` sha256 `045d3b92c2b77457...`

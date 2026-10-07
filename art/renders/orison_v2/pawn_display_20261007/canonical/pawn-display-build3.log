@@ -1,0 +1,44 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_pawn_display.py:63: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "pawn_display.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+07:44:04 | INFO: Starting glTF 2.0 export
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_case_e__brass_dull
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_case_e__fabric_warm
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_case_e__glassish
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_case_e__wood_dark
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_case_w__brass_dull
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_case_w__fabric_warm
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_case_w__glassish
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_case_w__wood_dark
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_window_plinth__bakelite_black
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_window_plinth__brass_dull
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_window_plinth__fabric_warm
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_window_plinth__glassish
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_window_plinth__iron_blackened
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_window_plinth__plywood
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_window_plinth__porcelain
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Extracting primitive: storm_shop_pawnbroker_window_plinth__wood_dark
+07:44:04 | INFO: Primitives created: 1
+07:44:04 | INFO: Finished glTF 2.0 export in 0.06891226768493652 s
+
+PAWN DISPLAY 8 original records; 3 assemblies; 161 closed stocks; 16 parts; 28296 triangles; 14 foot contacts
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

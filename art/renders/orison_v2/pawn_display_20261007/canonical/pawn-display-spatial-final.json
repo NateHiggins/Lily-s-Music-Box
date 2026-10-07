@@ -1,0 +1,258 @@
+{
+ "mode": "check",
+ "summary": {
+  "records": 7498,
+  "by_tier": {
+   "data": 4297,
+   "production": 974,
+   "scene": 5,
+   "test": 2222
+  },
+  "by_kind": {
+   "asset_path": 348,
+   "floor_reference": 378,
+   "generated_name": 105,
+   "id_candidate": 107,
+   "id_reference": 4819,
+   "layout_load": 30,
+   "manual_contract": 13,
+   "node_path": 268,
+   "plan_coordinate": 73,
+   "runtime_id": 264,
+   "unit_reference": 855,
+   "vector3_coordinate": 238
+  },
+  "by_authority": {
+   "DATA_FOREIGN_KEY": 4297,
+   "DEBUG_ONLY": 12,
+   "GENERATED_IDENTITY": 370,
+   "RUNTIME_LOOKUP": 820,
+   "SAVE_CONTRACT": 16,
+   "SCENE_NODE_PATH": 268,
+   "TEST_CONTRACT": 2222
+  },
+  "by_spatial": {
+   "ASSET_PATH": 348,
+   "CAMERA_STATION": 266,
+   "CONTAINMENT_ASSUMPTION": 10,
+   "DERIVED_LAYOUT_LOOKUP": 30,
+   "DISTANCE_THRESHOLD": 10,
+   "FLOOR_MEMBERSHIP": 389,
+   "RAW_GODOT_COORDINATE": 239,
+   "RAW_PLAN_COORDINATE": 76,
+   "ROOM_MEMBERSHIP": 681,
+   "SEMANTIC_ANCHOR": 4713,
+   "UNKNOWN_DYNAMIC": 108
+  },
+  "by_disposition": {
+   "MUST_PRESERVE_ID": 107,
+   "OWNER_DECISION": 1,
+   "PRESERVE_OR_ALIAS": 4972,
+   "REGENERATE_CONSUMER": 138,
+   "REPLACE_WITH_NAMED_ANCHOR": 52,
+   "SAFE_TO_CHANGE": 5,
+   "UNRESOLVED": 107,
+   "UPDATE_TEST_FIXTURE": 2116
+  },
+  "by_confidence": {
+   "HIGH": 379,
+   "LOW": 107,
+   "MEDIUM": 7012
+  }
+ },
+ "stats": {
+  "files_scanned": 1353,
+  "vector3_total": 5146,
+  "vector3_stats_only": 4042,
+  "b2g_derived": 334,
+  "gd_strings_seen": 91726
+ },
+ "drift": {
+  "new_failing": [],
+  "new_reported": [],
+  "stale_preserved": [],
+  "cleanup_opportunities": [
+   {
+    "key": "696ad76059d7e47b",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_root.tscn",
+    "file": "game/tests/debug_in_pause_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     28
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DEBUG_ONLY",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "ec38c048df1ef0c7",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_root.tscn",
+    "file": "game/tests/dream_ecology_entry_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     14
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "ba67dfc6fa3b9703",
+    "kind": "vector3_coordinate",
+    "token": "_run",
+    "file": "game/tests/orison_v2_vertical_route_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     23
+    ],
+    "count": 1,
+    "context": [
+     "player.global_position = world.adapter.root.to_global(Vector3(2.3, 0.02, -3.5))"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "3bdade892942c01b",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_root.tscn",
+    "file": "game/tests/zoo_teleport_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     34
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "6bc5eea6111d4f8f",
+    "kind": "vector3_coordinate",
+    "token": "_prepare_player_start",
+    "file": "game/tests/orison_v2_basement_route_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_prepare_player_start"
+    ],
+    "lines": [
+     7
+    ],
+    "count": 1,
+    "context": [
+     "player.global_position = world.adapter.root.to_global(Vector3(4.4,-3.18,2.8))"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "20288e5701dac9a2",
+    "kind": "generated_name",
+    "token": "mount_cell",
+    "file": "game/scripts/building/orison_v2_shop_seating.gd",
+    "tier": "production",
+    "subsystem": "building",
+    "symbols": [
+     "mount_cell"
+    ],
+    "lines": [
+     62
+    ],
+    "count": 1,
+    "context": [
+     "\"F01_retail_seating_\"+str(draw.name)"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "MEDIUM",
+    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+    "resolved_target": null,
+    "target_exists": null
+   }
+  ],
+  "class_changes": [],
+  "target_vanished": [],
+  "save_unresolved": []
+ },
+ "result": "clean"
+}

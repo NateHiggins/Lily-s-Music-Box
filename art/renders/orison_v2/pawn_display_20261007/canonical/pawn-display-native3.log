@@ -1,0 +1,156 @@
+00:01.531  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\pawn_display.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_pawn_display.py:63: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+07:44:07 | INFO: Data are loaded, start creating Blender stuff
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite_black
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite_black-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_bright-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_dull-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_mesh-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bronze-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_cast_iron-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_concrete-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_countertop-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_enamel
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_enamel-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_fabric_cool
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_fabric_warm-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_fx_shadow
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_glassish-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_hull-colonly
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_linen-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_metal-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_milk_glass
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_paper-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_plaster-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_plaster_stained-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_plywood-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_screen
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_terracotta
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_timber-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_tin_ceiling-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_trim-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_wainscot-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_wood_dark-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_wear_fx_scuff
+07:44:07 | INFO: glTF import finished in 0.12s
+07:44:07 | INFO: Data are loaded, start creating Blender stuff
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_bakelite_black-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_brass_dull
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_cast_iron
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_cast_iron-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_common_brick-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_concrete-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_glassish-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_limestone-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_metal
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_milk_glass-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_paper-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_plaster-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_plaster_stained-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_soot-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_terrazzo
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_terrazzo_dark
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_trim-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_wood_dark-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_funeral_parlour_limestone-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_hardware_paint_wood_dark-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_keys_cut_common_brick-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_luncheonette_chrome-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_model_laundry_plaster_stained-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_news_cigars_wood_dark-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_otis___son_limestone-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_pawnbroker_common_brick-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_photo_supplies_plaster_stained-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_radio_service_wood_dark-col
+07:44:07 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_shoe_rebuilding_wood_dark-col
+07:44:07 | INFO: glTF import finished in 0.08s
+07:44:07 | INFO: Data are loaded, start creating Blender stuff
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock0__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock0__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock0__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock0__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock0__wood_dark
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock1__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock1__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock1__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock1__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock2__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock2__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock2__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock2__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock2__wood_dark
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock3__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock3__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock3__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock3__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock4__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock4__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock4__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock4__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock4__wood_dark
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock5__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock5__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock5__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock5__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock6__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock6__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock6__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock6__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock6__wood_dark
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock7__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock7__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock7__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock7__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock8__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock8__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock8__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock8__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock8__wood_dark
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock9__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock9__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock9__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock9__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock10__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock10__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock10__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock10__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock10__wood_dark
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock11__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock11__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock11__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock11__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock12__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock12__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock12__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock12__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock12__wood_dark
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock13__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock13__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock13__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock13__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock14__brass_dull
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock14__glassish
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock14__iron_blackened
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock14__porcelain
+07:44:07 | INFO: Blender create Mesh node storm_shop_pawnbroker_clock14__wood_dark
+07:44:07 | INFO: glTF import finished in 0.12s
+00:07.594  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\pawn-display-native\storm_shop_pawnbroker_case_w_front.png'
+00:09.516  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\pawn-display-native\storm_shop_pawnbroker_case_w_glazing.png'
+00:11.953  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\pawn-display-native\storm_shop_pawnbroker_case_e_front.png'
+00:13.984  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\pawn-display-native\storm_shop_pawnbroker_case_e_glazing.png'
+00:16.125  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\pawn-display-native\window_front.png'
+00:17.813  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\pawn-display-native\window_rear.png'
+00:22.156  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\pawn-display-native\watch_stock.png'
+00:27.531  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\pawn-display-native\field_glasses.png'
+00:32.016  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\pawn-display-native\telescope.png'
+PAWN DISPLAY NATIVE QA 161 closed connected stocks; 3 joined assemblies; 14 actual contacts; 9 views
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

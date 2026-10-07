@@ -1,0 +1,4092 @@
+{
+ "evidence_class": "INERT",
+ "native_sha256": "f9da8208735e4f56d9e9bdb7114e4ee0ddbed4353eaf6aa08b56e33f2b45392d",
+ "closed_volumes": [
+  {
+   "name": "storm_shop_pawnbroker_case_w_Post00",
+   "volume_m3": 0.0032610752938430363
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Post01",
+   "volume_m3": 0.0032610752938430363
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Post10",
+   "volume_m3": 0.0032610752938430363
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Post11",
+   "volume_m3": 0.0032610752938430363
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_LowerRails0.12_Near",
+   "volume_m3": 0.0057172795942673415
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_LowerRails0.12_Far",
+   "volume_m3": 0.005717825091921091
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_LowerRails0.12_Left",
+   "volume_m3": 0.0012629796261135165
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_LowerRails0.12_Right",
+   "volume_m3": 0.0012629796261135165
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+   "volume_m3": 0.005717278936067437
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+   "volume_m3": 0.005717824433658655
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_LowerRails0.895_Left",
+   "volume_m3": 0.0012629794805674617
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_LowerRails0.895_Right",
+   "volume_m3": 0.0012629794805674617
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Panel-55.437_0",
+   "volume_m3": 0.009963230667020345
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Stile-55.437_0",
+   "volume_m3": 0.0007977795254328491
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Panel-55.437_1",
+   "volume_m3": 0.009963257440881043
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Stile-55.437_1",
+   "volume_m3": 0.0007977795254328491
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Panel-55.437_2",
+   "volume_m3": 0.009963230667020345
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Stile-55.437_2",
+   "volume_m3": 0.0007977795254328491
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_0",
+   "volume_m3": 0.009961118105654563
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_0",
+   "volume_m3": 0.0007977795254328491
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_1",
+   "volume_m3": 0.009961144873840012
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_1",
+   "volume_m3": 0.0007977795254328491
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_2",
+   "volume_m3": 0.009961118105654563
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_2",
+   "volume_m3": 0.0007977795254328491
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_EndPanel19.612000000000002",
+   "volume_m3": 0.007074744469111372
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_EndPanel21.77",
+   "volume_m3": 0.007074744469111372
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_DisplayDeck",
+   "volume_m3": 0.029636994800805172
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_DisplayLining",
+   "volume_m3": 0.003938271468965251
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_LongPane-55.428999999999995",
+   "volume_m3": 0.003996621462781515
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_LongPane-54.904999999999994",
+   "volume_m3": 0.003992811528117281
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_EndPane19.618000000000002",
+   "volume_m3": 0.0009061733432713247
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_EndPane21.778000000000002",
+   "volume_m3": 0.0009061733432713247
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_GlazingBar19.622-55.431999999999995",
+   "volume_m3": 8.577651183786234e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_GlazingBar19.622-54.907999999999994",
+   "volume_m3": 8.580933097887172e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_GlazingBar20.700000000000003-55.431999999999995",
+   "volume_m3": 8.577651183786235e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_GlazingBar20.700000000000003-54.907999999999994",
+   "volume_m3": 8.580933097887173e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-55.431999999999995",
+   "volume_m3": 8.578562649802106e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-54.907999999999994",
+   "volume_m3": 8.581844911693763e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_TopCore_Near",
+   "volume_m3": 0.004498319313734578
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_TopCore_Far",
+   "volume_m3": 0.004498319313734578
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_TopCore_Left",
+   "volume_m3": 0.0010248138160290747
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_TopCore_Right",
+   "volume_m3": 0.0010248138160290747
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_FoldedBrassTop_Near",
+   "volume_m3": 0.0011005699402977772
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_FoldedBrassTop_Far",
+   "volume_m3": 0.0011005699402977772
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_FoldedBrassTop_Left",
+   "volume_m3": 0.0002483057461322677
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_FoldedBrassTop_Right",
+   "volume_m3": 0.0002483057461322677
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_TopPane",
+   "volume_m3": 0.005510071777194267
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_PullPin20.150000000000002",
+   "volume_m3": 3.379372946875174e-06
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_w_PullPin21.25",
+   "volume_m3": 3.379372946875174e-06
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Post00",
+   "volume_m3": 0.0032610752938430363
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Post01",
+   "volume_m3": 0.0032610752938430363
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Post10",
+   "volume_m3": 0.0032610752938430363
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Post11",
+   "volume_m3": 0.0032610752938430363
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_LowerRails0.12_Near",
+   "volume_m3": 0.005327967127965252
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_LowerRails0.12_Far",
+   "volume_m3": 0.005327967127965252
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_LowerRails0.12_Left",
+   "volume_m3": 0.0012629796261135165
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_LowerRails0.12_Right",
+   "volume_m3": 0.0012629796261135165
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+   "volume_m3": 0.005327966514581152
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+   "volume_m3": 0.005327966514581152
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_LowerRails0.895_Left",
+   "volume_m3": 0.0012629794805674617
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_LowerRails0.895_Right",
+   "volume_m3": 0.0012629794805674617
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_0",
+   "volume_m3": 0.009261380665154802
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_0",
+   "volume_m3": 0.0007978845796068155
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_1",
+   "volume_m3": 0.009261380665154802
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_1",
+   "volume_m3": 0.000797839773038469
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_2",
+   "volume_m3": 0.009261380665154802
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_2",
+   "volume_m3": 0.000797839773038469
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_0",
+   "volume_m3": 0.009261380665154802
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_0",
+   "volume_m3": 0.0007977795254328491
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_1",
+   "volume_m3": 0.009261380665154802
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_1",
+   "volume_m3": 0.0007977347247580286
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_2",
+   "volume_m3": 0.009261380665154802
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_2",
+   "volume_m3": 0.0007977347247580286
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_EndPanel19.612000000000002",
+   "volume_m3": 0.007074744469111372
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_EndPanel21.62",
+   "volume_m3": 0.007074744469111372
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_DisplayDeck",
+   "volume_m3": 0.027597769516874426
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_DisplayLining",
+   "volume_m3": 0.0036574929425948768
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_LongPane-51.69899999999999",
+   "volume_m3": 0.003713307703187281
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_LongPane-51.17499999999999",
+   "volume_m3": 0.003709767848370134
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_EndPane19.618000000000002",
+   "volume_m3": 0.0009061733432713247
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_EndPane21.628000000000004",
+   "volume_m3": 0.0009061733432713247
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.70199999999999",
+   "volume_m3": 8.577651183786234e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.17799999999999",
+   "volume_m3": 8.580933097887172e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_GlazingBar20.625-51.70199999999999",
+   "volume_m3": 8.578562649802106e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_GlazingBar20.625-51.17799999999999",
+   "volume_m3": 8.581844911693763e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.70199999999999",
+   "volume_m3": 8.577651183786235e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.17799999999999",
+   "volume_m3": 8.580933097887173e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_TopCore_Near",
+   "volume_m3": 0.004199223507700552
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_TopCore_Far",
+   "volume_m3": 0.004199223507700552
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_TopCore_Left",
+   "volume_m3": 0.0010248138160290747
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_TopCore_Right",
+   "volume_m3": 0.0010248138160290747
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_FoldedBrassTop_Near",
+   "volume_m3": 0.00102751899015624
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_FoldedBrassTop_Far",
+   "volume_m3": 0.00102751899015624
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_FoldedBrassTop_Left",
+   "volume_m3": 0.0002483057461322677
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_FoldedBrassTop_Right",
+   "volume_m3": 0.0002483057461322677
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_TopPane",
+   "volume_m3": 0.005124573170988186
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_PullPin20.150000000000002",
+   "volume_m3": 3.379372946875174e-06
+  },
+  {
+   "name": "storm_shop_pawnbroker_case_e_PullPin21.1",
+   "volume_m3": 3.379372946875174e-06
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_Foot17.2120",
+   "volume_m3": 0.0014302497387390619
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_Foot17.2121",
+   "volume_m3": 0.0014302497387390619
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_Foot17.2122",
+   "volume_m3": 0.0014302497387390619
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_Foot17.5120",
+   "volume_m3": 0.0014301928001660628
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_Foot17.5121",
+   "volume_m3": 0.0014301928001660628
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_Foot17.5122",
+   "volume_m3": 0.0014301928001660628
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_LowerFrame_Near",
+   "volume_m3": 0.0009168359811903597
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_LowerFrame_Far",
+   "volume_m3": 0.0009168359811903597
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_LowerFrame_Left",
+   "volume_m3": 0.006805990131050445
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_LowerFrame_Right",
+   "volume_m3": 0.006805990131050445
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_UpperFrame_Near",
+   "volume_m3": 0.0009225338149886877
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_UpperFrame_Far",
+   "volume_m3": 0.0009225338149886877
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_UpperFrame_Left",
+   "volume_m3": 0.006599585881434519
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_UpperFrame_Right",
+   "volume_m3": 0.006599585881434519
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_Deck",
+   "volume_m3": 0.023373183959901005
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_BackPanel",
+   "volume_m3": 0.07228601320727744
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_BackStile-55.31999999999999",
+   "volume_m3": 0.001833459679041605
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_BackStile-52.756",
+   "volume_m3": 0.001833459679041605
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_BackRail0.613",
+   "volume_m3": 0.00448306563525178
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_BackRail1.534",
+   "volume_m3": 0.00448306563525178
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_ScopeFoot-55.01999999999999",
+   "volume_m3": 0.00029448085222849937
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_ScopeCradle-55.01999999999999",
+   "volume_m3": 0.0003830884636227697
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_ScopeFoot-54.63999999999999",
+   "volume_m3": 0.00029448085222849937
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_ScopeCradle-54.63999999999999",
+   "volume_m3": 0.0003830884636227697
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_TelescopeTube",
+   "volume_m3": 0.0012193189968859148
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_TelescopeGrip",
+   "volume_m3": 0.00031916807867589923
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_ScopeLens0",
+   "volume_m3": 3.1724527659614695e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_ScopeLens1",
+   "volume_m3": 3.1724527659614695e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchTray",
+   "volume_m3": 0.0040882709290598045
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchLining",
+   "volume_m3": 0.0008228176985207872
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchCushion",
+   "volume_m3": 0.002238624622963759
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchCase",
+   "volume_m3": 0.00028229995938588634
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchDial",
+   "volume_m3": 1.69412742858947e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark0",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark1",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark2",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark3",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark4",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark5",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark6",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark7",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark8",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark9",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark10",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchMark11",
+   "volume_m3": 1.6358456349056805e-08
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchHandA",
+   "volume_m3": 2.489514424313527e-07
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchHandB",
+   "volume_m3": 1.3695348526077122e-07
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchPin",
+   "volume_m3": 1.691619210993068e-07
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_WatchCrown",
+   "volume_m3": 2.9816147376071633e-06
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_LaidWatchChain",
+   "volume_m3": 3.891629898158884e-06
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassFoot",
+   "volume_m3": 0.0020563721040406033
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassCradle0",
+   "volume_m3": 0.0003953614099073719
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassBody0",
+   "volume_m3": 0.0010255787559879817
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassRing00",
+   "volume_m3": 1.4134420646242055e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassRing01",
+   "volume_m3": 9.62343744730008e-06
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassLens0",
+   "volume_m3": 1.42941778850758e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassCradle1",
+   "volume_m3": 0.0003953614099073719
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassBody1",
+   "volume_m3": 0.0010255787559879817
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassRing10",
+   "volume_m3": 1.4134420646242055e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassRing11",
+   "volume_m3": 9.62343744730008e-06
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassLens1",
+   "volume_m3": 1.42941778850758e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FieldGlassBridge",
+   "volume_m3": 7.541404569673237e-05
+  },
+  {
+   "name": "storm_shop_pawnbroker_window_plinth_FocusWheel",
+   "volume_m3": 5.287461168551351e-05
+  }
+ ],
+ "assembly_stock_joins": [
+  {
+   "assembly": "storm_shop_pawnbroker_case_w",
+   "connected_components": 1,
+   "surface_contact_edges": [
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_Panel-55.437_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_DisplayLining"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_LongPane-55.428999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_EndPane19.618000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_GlazingBar19.622-55.431999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post00",
+     "storm_shop_pawnbroker_case_w_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_DisplayLining"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_LongPane-54.904999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_EndPane19.618000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_GlazingBar19.622-54.907999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post01",
+     "storm_shop_pawnbroker_case_w_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_Panel-55.437_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_EndPanel21.77"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_DisplayLining"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_LongPane-55.428999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_EndPane21.778000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-55.431999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post10",
+     "storm_shop_pawnbroker_case_w_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_EndPanel21.77"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_DisplayLining"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_LongPane-54.904999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_EndPane21.778000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-54.907999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Post11",
+     "storm_shop_pawnbroker_case_w_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_w_Panel-55.437_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_w_Panel-55.437_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_w_Panel-55.437_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_w_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_w_EndPanel21.77"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_w_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_w_EndPanel21.77"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Left",
+     "storm_shop_pawnbroker_case_w_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.12_Right",
+     "storm_shop_pawnbroker_case_w_EndPanel21.77"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_Panel-55.437_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_Panel-55.437_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_Panel-55.437_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_EndPanel21.77"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_LongPane-55.428999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_GlazingBar19.622-55.431999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_GlazingBar20.700000000000003-55.431999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-55.431999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_EndPanel21.77"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_LongPane-54.904999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_GlazingBar19.622-54.907999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_GlazingBar20.700000000000003-54.907999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-54.907999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Left",
+     "storm_shop_pawnbroker_case_w_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Left",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Left",
+     "storm_shop_pawnbroker_case_w_EndPane19.618000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Right",
+     "storm_shop_pawnbroker_case_w_EndPanel21.77"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Right",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LowerRails0.895_Right",
+     "storm_shop_pawnbroker_case_w_EndPane21.778000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-55.437_0",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-55.437_0",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Stile-55.437_0",
+     "storm_shop_pawnbroker_case_w_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Stile-55.437_0",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-55.437_1",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-55.437_1",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Stile-55.437_1",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-55.437_2",
+     "storm_shop_pawnbroker_case_w_Stile-55.437_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Stile-55.437_2",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_0",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_0",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_0",
+     "storm_shop_pawnbroker_case_w_PullPin20.150000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_0",
+     "storm_shop_pawnbroker_case_w_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_0",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_1",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_1",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_1",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_2",
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Panel-54.910999999999994_2",
+     "storm_shop_pawnbroker_case_w_PullPin21.25"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_Stile-54.910999999999994_2",
+     "storm_shop_pawnbroker_case_w_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_DisplayDeck",
+     "storm_shop_pawnbroker_case_w_DisplayLining"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_DisplayDeck",
+     "storm_shop_pawnbroker_case_w_LongPane-55.428999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_DisplayDeck",
+     "storm_shop_pawnbroker_case_w_LongPane-54.904999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_DisplayDeck",
+     "storm_shop_pawnbroker_case_w_EndPane19.618000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_DisplayDeck",
+     "storm_shop_pawnbroker_case_w_EndPane21.778000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_DisplayDeck",
+     "storm_shop_pawnbroker_case_w_GlazingBar19.622-55.431999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_DisplayDeck",
+     "storm_shop_pawnbroker_case_w_GlazingBar19.622-54.907999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_DisplayDeck",
+     "storm_shop_pawnbroker_case_w_GlazingBar20.700000000000003-55.431999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_DisplayDeck",
+     "storm_shop_pawnbroker_case_w_GlazingBar20.700000000000003-54.907999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_DisplayDeck",
+     "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-55.431999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_DisplayDeck",
+     "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-54.907999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LongPane-55.428999999999995",
+     "storm_shop_pawnbroker_case_w_GlazingBar20.700000000000003-55.431999999999995"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LongPane-55.428999999999995",
+     "storm_shop_pawnbroker_case_w_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LongPane-54.904999999999994",
+     "storm_shop_pawnbroker_case_w_GlazingBar20.700000000000003-54.907999999999994"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_LongPane-54.904999999999994",
+     "storm_shop_pawnbroker_case_w_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_EndPane19.618000000000002",
+     "storm_shop_pawnbroker_case_w_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_EndPane21.778000000000002",
+     "storm_shop_pawnbroker_case_w_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_GlazingBar19.622-55.431999999999995",
+     "storm_shop_pawnbroker_case_w_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_GlazingBar19.622-55.431999999999995",
+     "storm_shop_pawnbroker_case_w_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_GlazingBar19.622-54.907999999999994",
+     "storm_shop_pawnbroker_case_w_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_GlazingBar19.622-54.907999999999994",
+     "storm_shop_pawnbroker_case_w_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_GlazingBar20.700000000000003-55.431999999999995",
+     "storm_shop_pawnbroker_case_w_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_GlazingBar20.700000000000003-54.907999999999994",
+     "storm_shop_pawnbroker_case_w_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-55.431999999999995",
+     "storm_shop_pawnbroker_case_w_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-55.431999999999995",
+     "storm_shop_pawnbroker_case_w_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-54.907999999999994",
+     "storm_shop_pawnbroker_case_w_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_GlazingBar21.778000000000002-54.907999999999994",
+     "storm_shop_pawnbroker_case_w_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Near",
+     "storm_shop_pawnbroker_case_w_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Near",
+     "storm_shop_pawnbroker_case_w_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Near",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Near",
+     "storm_shop_pawnbroker_case_w_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Far",
+     "storm_shop_pawnbroker_case_w_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Far",
+     "storm_shop_pawnbroker_case_w_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Far",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Far",
+     "storm_shop_pawnbroker_case_w_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Left",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Left",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Left",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Left",
+     "storm_shop_pawnbroker_case_w_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Right",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Right",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Right",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_TopCore_Right",
+     "storm_shop_pawnbroker_case_w_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Near",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Near",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Near",
+     "storm_shop_pawnbroker_case_w_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Far",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Far",
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Far",
+     "storm_shop_pawnbroker_case_w_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Left",
+     "storm_shop_pawnbroker_case_w_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_w_FoldedBrassTop_Right",
+     "storm_shop_pawnbroker_case_w_TopPane"
+    ]
+   ]
+  },
+  {
+   "assembly": "storm_shop_pawnbroker_case_e",
+   "connected_components": 1,
+   "surface_contact_edges": [
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_DisplayLining"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_LongPane-51.69899999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_EndPane19.618000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.70199999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post00",
+     "storm_shop_pawnbroker_case_e_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_DisplayLining"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_LongPane-51.17499999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_EndPane19.618000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.17799999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post01",
+     "storm_shop_pawnbroker_case_e_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_EndPanel21.62"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_DisplayLining"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_LongPane-51.69899999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_EndPane21.628000000000004"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.70199999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post10",
+     "storm_shop_pawnbroker_case_e_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_EndPanel21.62"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_DisplayLining"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_LongPane-51.17499999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_EndPane21.628000000000004"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.17799999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Post11",
+     "storm_shop_pawnbroker_case_e_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_e_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Near",
+     "storm_shop_pawnbroker_case_e_EndPanel21.62"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_e_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Far",
+     "storm_shop_pawnbroker_case_e_EndPanel21.62"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Left",
+     "storm_shop_pawnbroker_case_e_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.12_Right",
+     "storm_shop_pawnbroker_case_e_EndPanel21.62"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_EndPanel21.62"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_LongPane-51.69899999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.70199999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_GlazingBar20.625-51.70199999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Near",
+     "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.70199999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_EndPanel21.62"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_LongPane-51.17499999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.17799999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_GlazingBar20.625-51.17799999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Far",
+     "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.17799999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Left",
+     "storm_shop_pawnbroker_case_e_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Left",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Left",
+     "storm_shop_pawnbroker_case_e_EndPane19.618000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Right",
+     "storm_shop_pawnbroker_case_e_EndPanel21.62"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Right",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LowerRails0.895_Right",
+     "storm_shop_pawnbroker_case_e_EndPane21.628000000000004"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_0",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_0",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_0",
+     "storm_shop_pawnbroker_case_e_PullPin20.150000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_0",
+     "storm_shop_pawnbroker_case_e_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_0",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_1",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_1",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_1",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_2",
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.706999999999994_2",
+     "storm_shop_pawnbroker_case_e_PullPin21.1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Stile-51.706999999999994_2",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_0",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_0"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_0",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_0",
+     "storm_shop_pawnbroker_case_e_EndPanel19.612000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_0",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_1",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_1"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_1",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_1",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Panel-51.18099999999999_2",
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_2"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_Stile-51.18099999999999_2",
+     "storm_shop_pawnbroker_case_e_DisplayDeck"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_DisplayDeck",
+     "storm_shop_pawnbroker_case_e_DisplayLining"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_DisplayDeck",
+     "storm_shop_pawnbroker_case_e_LongPane-51.69899999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_DisplayDeck",
+     "storm_shop_pawnbroker_case_e_LongPane-51.17499999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_DisplayDeck",
+     "storm_shop_pawnbroker_case_e_EndPane19.618000000000002"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_DisplayDeck",
+     "storm_shop_pawnbroker_case_e_EndPane21.628000000000004"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_DisplayDeck",
+     "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.70199999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_DisplayDeck",
+     "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.17799999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_DisplayDeck",
+     "storm_shop_pawnbroker_case_e_GlazingBar20.625-51.70199999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_DisplayDeck",
+     "storm_shop_pawnbroker_case_e_GlazingBar20.625-51.17799999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_DisplayDeck",
+     "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.70199999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_DisplayDeck",
+     "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.17799999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LongPane-51.69899999999999",
+     "storm_shop_pawnbroker_case_e_GlazingBar20.625-51.70199999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LongPane-51.69899999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LongPane-51.17499999999999",
+     "storm_shop_pawnbroker_case_e_GlazingBar20.625-51.17799999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_LongPane-51.17499999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_EndPane19.618000000000002",
+     "storm_shop_pawnbroker_case_e_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_EndPane21.628000000000004",
+     "storm_shop_pawnbroker_case_e_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.70199999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.70199999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.17799999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_GlazingBar19.622-51.17799999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_GlazingBar20.625-51.70199999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_GlazingBar20.625-51.17799999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.70199999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.70199999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.17799999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_GlazingBar21.628000000000004-51.17799999999999",
+     "storm_shop_pawnbroker_case_e_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Near",
+     "storm_shop_pawnbroker_case_e_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Near",
+     "storm_shop_pawnbroker_case_e_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Near",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Near",
+     "storm_shop_pawnbroker_case_e_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Far",
+     "storm_shop_pawnbroker_case_e_TopCore_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Far",
+     "storm_shop_pawnbroker_case_e_TopCore_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Far",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Far",
+     "storm_shop_pawnbroker_case_e_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Left",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Left",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Left",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Left",
+     "storm_shop_pawnbroker_case_e_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Right",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Right",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Right",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_TopCore_Right",
+     "storm_shop_pawnbroker_case_e_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Near",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Near",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Near",
+     "storm_shop_pawnbroker_case_e_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Far",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Far",
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Far",
+     "storm_shop_pawnbroker_case_e_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Left",
+     "storm_shop_pawnbroker_case_e_TopPane"
+    ],
+    [
+     "storm_shop_pawnbroker_case_e_FoldedBrassTop_Right",
+     "storm_shop_pawnbroker_case_e_TopPane"
+    ]
+   ]
+  },
+  {
+   "assembly": "storm_shop_pawnbroker_window_plinth",
+   "connected_components": 1,
+   "surface_contact_edges": [
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2120",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2120",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2120",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2120",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2120",
+     "storm_shop_pawnbroker_window_plinth_Deck"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2121",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2121",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2121",
+     "storm_shop_pawnbroker_window_plinth_Deck"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2122",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2122",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2122",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2122",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.2122",
+     "storm_shop_pawnbroker_window_plinth_Deck"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5120",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5120",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5120",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Near"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5120",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5120",
+     "storm_shop_pawnbroker_window_plinth_Deck"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5120",
+     "storm_shop_pawnbroker_window_plinth_BackStile-55.31999999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5120",
+     "storm_shop_pawnbroker_window_plinth_BackRail0.613"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5121",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5121",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5121",
+     "storm_shop_pawnbroker_window_plinth_Deck"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5121",
+     "storm_shop_pawnbroker_window_plinth_BackRail0.613"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5122",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5122",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5122",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Far"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5122",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5122",
+     "storm_shop_pawnbroker_window_plinth_Deck"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5122",
+     "storm_shop_pawnbroker_window_plinth_BackStile-52.756"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Foot17.5122",
+     "storm_shop_pawnbroker_window_plinth_BackRail0.613"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Near",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Near",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Far",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Far",
+     "storm_shop_pawnbroker_window_plinth_LowerFrame_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Near",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Near",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Near",
+     "storm_shop_pawnbroker_window_plinth_Deck"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Near",
+     "storm_shop_pawnbroker_window_plinth_BackStile-55.31999999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Near",
+     "storm_shop_pawnbroker_window_plinth_BackRail0.613"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Far",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Left"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Far",
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Right"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Far",
+     "storm_shop_pawnbroker_window_plinth_Deck"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Far",
+     "storm_shop_pawnbroker_window_plinth_BackStile-52.756"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Far",
+     "storm_shop_pawnbroker_window_plinth_BackRail0.613"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Left",
+     "storm_shop_pawnbroker_window_plinth_Deck"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Right",
+     "storm_shop_pawnbroker_window_plinth_Deck"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_UpperFrame_Right",
+     "storm_shop_pawnbroker_window_plinth_BackRail0.613"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Deck",
+     "storm_shop_pawnbroker_window_plinth_BackStile-55.31999999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Deck",
+     "storm_shop_pawnbroker_window_plinth_BackStile-52.756"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Deck",
+     "storm_shop_pawnbroker_window_plinth_BackRail0.613"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Deck",
+     "storm_shop_pawnbroker_window_plinth_ScopeFoot-55.01999999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Deck",
+     "storm_shop_pawnbroker_window_plinth_ScopeFoot-54.63999999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Deck",
+     "storm_shop_pawnbroker_window_plinth_WatchTray"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_Deck",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassFoot"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_BackPanel",
+     "storm_shop_pawnbroker_window_plinth_BackStile-55.31999999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_BackPanel",
+     "storm_shop_pawnbroker_window_plinth_BackStile-52.756"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_BackPanel",
+     "storm_shop_pawnbroker_window_plinth_BackRail0.613"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_BackPanel",
+     "storm_shop_pawnbroker_window_plinth_BackRail1.534"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_BackStile-55.31999999999999",
+     "storm_shop_pawnbroker_window_plinth_BackRail0.613"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_BackStile-55.31999999999999",
+     "storm_shop_pawnbroker_window_plinth_BackRail1.534"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_BackStile-52.756",
+     "storm_shop_pawnbroker_window_plinth_BackRail0.613"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_BackStile-52.756",
+     "storm_shop_pawnbroker_window_plinth_BackRail1.534"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_ScopeFoot-55.01999999999999",
+     "storm_shop_pawnbroker_window_plinth_ScopeCradle-55.01999999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_ScopeCradle-55.01999999999999",
+     "storm_shop_pawnbroker_window_plinth_TelescopeTube"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_ScopeFoot-54.63999999999999",
+     "storm_shop_pawnbroker_window_plinth_ScopeCradle-54.63999999999999"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_ScopeCradle-54.63999999999999",
+     "storm_shop_pawnbroker_window_plinth_TelescopeTube"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_ScopeCradle-54.63999999999999",
+     "storm_shop_pawnbroker_window_plinth_ScopeLens1"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_TelescopeTube",
+     "storm_shop_pawnbroker_window_plinth_TelescopeGrip"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_TelescopeTube",
+     "storm_shop_pawnbroker_window_plinth_ScopeLens0"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_TelescopeTube",
+     "storm_shop_pawnbroker_window_plinth_ScopeLens1"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchTray",
+     "storm_shop_pawnbroker_window_plinth_WatchLining"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchLining",
+     "storm_shop_pawnbroker_window_plinth_WatchCushion"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchLining",
+     "storm_shop_pawnbroker_window_plinth_LaidWatchChain"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchCushion",
+     "storm_shop_pawnbroker_window_plinth_WatchCase"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchCase",
+     "storm_shop_pawnbroker_window_plinth_WatchDial"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchCase",
+     "storm_shop_pawnbroker_window_plinth_WatchPin"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchCase",
+     "storm_shop_pawnbroker_window_plinth_WatchCrown"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchCase",
+     "storm_shop_pawnbroker_window_plinth_LaidWatchChain"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark0"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark1"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark2"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark3"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark4"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark5"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark6"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark7"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark8"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark9"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark10"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchMark11"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchDial",
+     "storm_shop_pawnbroker_window_plinth_WatchPin"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchHandA",
+     "storm_shop_pawnbroker_window_plinth_WatchHandB"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchHandA",
+     "storm_shop_pawnbroker_window_plinth_WatchPin"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchHandB",
+     "storm_shop_pawnbroker_window_plinth_WatchPin"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_WatchCrown",
+     "storm_shop_pawnbroker_window_plinth_LaidWatchChain"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassFoot",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassCradle0"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassFoot",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassCradle1"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassCradle0",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBody0"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBody0",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassRing00"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBody0",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassRing01"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBody0",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassLens0"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBody0",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBridge"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassCradle1",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBody1"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBody1",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassRing10"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBody1",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassRing11"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBody1",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassLens1"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBody1",
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBridge"
+    ],
+    [
+     "storm_shop_pawnbroker_window_plinth_FieldGlassBridge",
+     "storm_shop_pawnbroker_window_plinth_FocusWheel"
+    ]
+   ]
+  }
+ ],
+ "actual_native_support_samples": [
+  {
+   "label": "case post seated on original oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "case post seated on original oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "case post seated on original oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "case post seated on original oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "case post seated on original oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "case post seated on original oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "case post seated on original oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "case post seated on original oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 9.313225746154785e-09
+  }
+ ],
+ "actual_owner_support_samples": [
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "case post seated on original oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "case post seated on original oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "case post seated on original oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "case post seated on original oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "case post seated on original oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "case post seated on original oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "case post seated on original oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "case post seated on original oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_pawnbroker_floor",
+   "label": "window stand foot on retained oak floor",
+   "distance_m": 0.0
+  }
+ ],
+ "parts": 16,
+ "triangles": 28296,
+ "removed_original_triangles": 96,
+ "previously_fitted_clock_triangles": 180,
+ "retired_context_boundaries": {
+  "storm_shop_pawnbroker_case_w": 12,
+  "storm_shop_pawnbroker_case_w_gl": 12,
+  "storm_shop_pawnbroker_case_w_top": 12,
+  "storm_shop_pawnbroker_case_e": 12,
+  "storm_shop_pawnbroker_case_e_gl": 12,
+  "storm_shop_pawnbroker_case_e_top": 12,
+  "storm_shop_pawnbroker_window_plinth": 12,
+  "storm_shop_pawnbroker_window_back": 12,
+  "storm_shop_pawnbroker_clock0": 12,
+  "storm_shop_pawnbroker_clock1": 12,
+  "storm_shop_pawnbroker_clock2": 12,
+  "storm_shop_pawnbroker_clock3": 12,
+  "storm_shop_pawnbroker_clock4": 12,
+  "storm_shop_pawnbroker_clock5": 12,
+  "storm_shop_pawnbroker_clock6": 12,
+  "storm_shop_pawnbroker_clock7": 12,
+  "storm_shop_pawnbroker_clock8": 12,
+  "storm_shop_pawnbroker_clock9": 12,
+  "storm_shop_pawnbroker_clock10": 12,
+  "storm_shop_pawnbroker_clock11": 12,
+  "storm_shop_pawnbroker_clock12": 12,
+  "storm_shop_pawnbroker_clock13": 12,
+  "storm_shop_pawnbroker_clock14": 12
+ },
+ "retired_receiving_owners": {},
+ "accepted_native_context_objects": 68,
+ "context_intersections": [],
+ "declared_floor_contact_pairs": [
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_w__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_case_e__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  },
+  {
+   "native": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "context": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col",
+   "owner": "storm_shop_pawnbroker_floor"
+  }
+ ],
+ "declared_countertop_contact_pairs": [],
+ "uv_metrics": [
+  {
+   "part": "storm_shop_pawnbroker_case_w__brass_dull",
+   "minimum_metres_per_uv": 0.9998725387788941,
+   "maximum_metres_per_uv": 1.0001372068071737,
+   "triangles": 2064
+  },
+  {
+   "part": "storm_shop_pawnbroker_case_w__fabric_warm",
+   "minimum_metres_per_uv": 0.999668566673771,
+   "maximum_metres_per_uv": 1.0002893449754866,
+   "triangles": 188
+  },
+  {
+   "part": "storm_shop_pawnbroker_case_w__glassish",
+   "minimum_metres_per_uv": 0.9999998758235538,
+   "maximum_metres_per_uv": 1.0000001262810423,
+   "triangles": 60
+  },
+  {
+   "part": "storm_shop_pawnbroker_case_w__wood_dark",
+   "minimum_metres_per_uv": 0.9996514977954796,
+   "maximum_metres_per_uv": 1.000355885725568,
+   "triangles": 5828
+  },
+  {
+   "part": "storm_shop_pawnbroker_case_e__brass_dull",
+   "minimum_metres_per_uv": 0.9998714684421521,
+   "maximum_metres_per_uv": 1.0001327417683474,
+   "triangles": 2064
+  },
+  {
+   "part": "storm_shop_pawnbroker_case_e__fabric_warm",
+   "minimum_metres_per_uv": 0.9996904077151775,
+   "maximum_metres_per_uv": 1.0003059007426187,
+   "triangles": 188
+  },
+  {
+   "part": "storm_shop_pawnbroker_case_e__glassish",
+   "minimum_metres_per_uv": 0.9999997516471385,
+   "maximum_metres_per_uv": 1.0000001262810423,
+   "triangles": 60
+  },
+  {
+   "part": "storm_shop_pawnbroker_case_e__wood_dark",
+   "minimum_metres_per_uv": 0.999630540684297,
+   "maximum_metres_per_uv": 1.0003437110907054,
+   "triangles": 5828
+  },
+  {
+   "part": "storm_shop_pawnbroker_window_plinth__bakelite_black",
+   "minimum_metres_per_uv": 0.999995404973701,
+   "maximum_metres_per_uv": 1.0000055375574393,
+   "triangles": 1788
+  },
+  {
+   "part": "storm_shop_pawnbroker_window_plinth__brass_dull",
+   "minimum_metres_per_uv": 0.9999385381439564,
+   "maximum_metres_per_uv": 1.0000447949433715,
+   "triangles": 3620
+  },
+  {
+   "part": "storm_shop_pawnbroker_window_plinth__fabric_warm",
+   "minimum_metres_per_uv": 0.9998982369261739,
+   "maximum_metres_per_uv": 1.000166019468906,
+   "triangles": 376
+  },
+  {
+   "part": "storm_shop_pawnbroker_window_plinth__glassish",
+   "minimum_metres_per_uv": 0.9999797646572985,
+   "maximum_metres_per_uv": 1.0000209400901756,
+   "triangles": 384
+  },
+  {
+   "part": "storm_shop_pawnbroker_window_plinth__iron_blackened",
+   "minimum_metres_per_uv": 0.9999737886528667,
+   "maximum_metres_per_uv": 1.0000316521330441,
+   "triangles": 392
+  },
+  {
+   "part": "storm_shop_pawnbroker_window_plinth__plywood",
+   "minimum_metres_per_uv": 0.9997289710579732,
+   "maximum_metres_per_uv": 1.0003217045098467,
+   "triangles": 188
+  },
+  {
+   "part": "storm_shop_pawnbroker_window_plinth__porcelain",
+   "minimum_metres_per_uv": 0.9999841677842348,
+   "maximum_metres_per_uv": 1.0000066277788973,
+   "triangles": 192
+  },
+  {
+   "part": "storm_shop_pawnbroker_window_plinth__wood_dark",
+   "minimum_metres_per_uv": 0.9997058148065345,
+   "maximum_metres_per_uv": 1.0003160628946552,
+   "triangles": 5076
+  }
+ ],
+ "independent_stock_pairs_checked": 80,
+ "views": [
+  {
+   "id": "storm_shop_pawnbroker_case_w_front",
+   "eye": [
+    18.74527931213379,
+    -51.255558013916016,
+    2.3137025833129883
+   ],
+   "target": [
+    20.700000762939453,
+    -55.165000915527344,
+    0.7799999713897705
+   ],
+   "file": "storm_shop_pawnbroker_case_w_front.png",
+   "scope": "isolated fitted case / passive display stock"
+  },
+  {
+   "id": "storm_shop_pawnbroker_case_w_glazing",
+   "eye": [
+    17.80658721923828,
+    -49.86040115356445,
+    4.449199199676514
+   ],
+   "target": [
+    20.700000762939453,
+    -55.165000915527344,
+    1.1699999570846558
+   ],
+   "file": "storm_shop_pawnbroker_case_w_glazing.png",
+   "scope": "isolated fitted case / passive display stock"
+  },
+  {
+   "id": "storm_shop_pawnbroker_case_e_front",
+   "eye": [
+    18.74527931213379,
+    -55.34444046020508,
+    2.3137032985687256
+   ],
+   "target": [
+    20.700000762939453,
+    -51.435001373291016,
+    0.7799999713897705
+   ],
+   "file": "storm_shop_pawnbroker_case_e_front.png",
+   "scope": "isolated fitted case / passive display stock"
+  },
+  {
+   "id": "storm_shop_pawnbroker_case_e_glazing",
+   "eye": [
+    17.806591033935547,
+    -56.73957443237305,
+    4.449195384979248
+   ],
+   "target": [
+    20.700000762939453,
+    -51.435001373291016,
+    1.1699999570846558
+   ],
+   "file": "storm_shop_pawnbroker_case_e_glazing.png",
+   "scope": "isolated fitted case / passive display stock"
+  },
+  {
+   "id": "window_front",
+   "eye": [
+    13.31268310546875,
+    -55.810848236083984,
+    1.4767969846725464
+   ],
+   "target": [
+    17.360000610351562,
+    -54.02000045776367,
+    0.8500000238418579
+   ],
+   "file": "window_front.png",
+   "scope": "isolated fitted case / passive display stock"
+  },
+  {
+   "id": "window_rear",
+   "eye": [
+    21.530012130737305,
+    -51.62343978881836,
+    2.6474194526672363
+   ],
+   "target": [
+    17.360000610351562,
+    -54.02000045776367,
+    0.8500000238418579
+   ],
+   "file": "window_rear.png",
+   "scope": "isolated fitted case / passive display stock"
+  },
+  {
+   "id": "watch_stock",
+   "eye": [
+    16.899999618530273,
+    -54.02000045776367,
+    0.949999988079071
+   ],
+   "target": [
+    17.360000610351562,
+    -54.02000045776367,
+    0.7799999713897705
+   ],
+   "file": "watch_stock.png",
+   "scope": "isolated fitted case / passive display stock"
+  },
+  {
+   "id": "field_glasses",
+   "eye": [
+    16.899999618530273,
+    -53.29999923706055,
+    0.949999988079071
+   ],
+   "target": [
+    17.360000610351562,
+    -53.150001525878906,
+    0.75
+   ],
+   "file": "field_glasses.png",
+   "scope": "isolated fitted case / passive display stock"
+  },
+  {
+   "id": "telescope",
+   "eye": [
+    16.920000076293945,
+    -55.0099983215332,
+    0.9399999976158142
+   ],
+   "target": [
+    17.360000610351562,
+    -54.83000183105469,
+    0.7799999713897705
+   ],
+   "file": "telescope.png",
+   "scope": "isolated fitted case / passive display stock"
+  }
+ ],
+ "limits": "Two source cases, declared .15m east-case end shortening, raised supported window display and passive inferred stock. Exact 96 original triangles retired; accepted clocks checked independently. No inventory, time, optical gameplay, route, capacity or human acceptance claim."
+}

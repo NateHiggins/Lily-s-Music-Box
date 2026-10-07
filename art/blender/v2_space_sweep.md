@@ -53,6 +53,14 @@ their native/production, contact, depletion, receiving, power and frontage
 checks bind to the later clean code revision. Their current views are retained
 separately in the same packet. No room is silently promoted to full acceptance.
 
+The later Pawnbroker detail pass fits two hollow cases, fourteen floor bearings,
+a raised window stand and three explicitly inferred passive stock arrangements.
+Its source-owned case/window geometry and scoped existing clear-glass finish
+are reviewed separately in **pawn_display.md** and the **pawn_display_20261007**
+packet. Pledge shelving, grille/counter, safe, balance, ledger, loupe, broad brick
+finish and continuous access remain open; the older overview keeps its original
+revision and scope.
+
 Routine local PNG bulk can be removed after the compact packet is checked.
 Native Blender sources, inspections, comparisons, logs and exact receipts are
 retained. Captures, this guide and its INERT index grant no ledger promotion.
