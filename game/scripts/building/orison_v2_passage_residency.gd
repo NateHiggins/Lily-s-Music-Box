@@ -190,6 +190,9 @@ func _stage_one() -> void:
 		if not region.LaundryApparatus.mount_cell(cell,region.source_layout):
 			_fail("native laundry apparatus reload fit refused: "+identity)
 			return
+		if not region.LaundryTrade.mount_cell(cell,region.source_layout):
+			_fail("native laundry trade furniture reload fit refused: "+identity)
+			return
 		if not region.LocksmithFittings.mount_cell(cell,region.source_layout):
 			_fail("native locksmith reload fit refused: "+identity)
 			return

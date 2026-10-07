@@ -1,0 +1,742 @@
+{
+  "evidence_class": "INERT",
+  "method": "Area-weighted UV grain versus principal length on slender stocks; end grain and unknown maps excluded. Findings require rendered review, not automatic rebuilding.",
+  "texture_axes": {
+    "T_ai_materials_timber_albedo.png": 0,
+    "T_library_furniture_walnut_albedo.png": 1
+  },
+  "families": [
+    {
+      "family": "laundry_trade",
+      "native_sha256": "1c129d0fead371c72a143d99d5c43ab441cee93c58421ab7df2bdb6c89491196",
+      "checked": 67,
+      "unmeasured": 0,
+      "review": 40,
+      "stocks": [
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Post4.14_-44.44500000000001",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 11,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Post4.14_-42.0",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 11,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Post4.14_-39.555",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 11,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Post4.42_-44.44500000000001",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 11,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Post4.42_-42.0",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 11,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Post4.42_-39.555",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 11,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Deck",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Bearer-44.44500000000001",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Bearer-42.0",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Bearer-39.555",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf1_Deck",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf1_Bearer-44.44500000000001",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf1_Bearer-42.0",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf1_Bearer-39.555",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf2_Deck",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf2_Bearer-44.44500000000001",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf2_Bearer-42.0",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf2_Bearer-39.555",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf3_Deck",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf3_Bearer-44.44500000000001",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf3_Bearer-42.0",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf3_Bearer-39.555",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf4_Deck",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf4_Bearer-44.44500000000001",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf4_Bearer-42.0",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf4_Bearer-39.555",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Crown4.14",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_parcel_shelf0_Crown4.42",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_Leg10.485000000000001_-43.052",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_Leg10.485000000000001_-41.28",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_Leg10.485000000000001_-39.508",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_Leg10.795_-43.052",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_Leg10.795_-41.28",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_Leg10.795_-39.508",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_Deck",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 10,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_LowerRail10.462000000000002",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 8,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_LowerRail10.793000000000001",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 8,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_BackStile-43.08",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 16,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_BackStile-39.50600000000001",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 16,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_window_plinth_BackCap",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 10,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Post9.729999999999999_-43.068000000000005",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Post9.729999999999999_-42.438",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Post9.729999999999999_-40.9",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Post9.729999999999999_-39.391999999999996",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Post10.290000000000001_-43.068000000000005",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Post10.290000000000001_-42.438",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Post10.290000000000001_-40.9",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Post10.290000000000001_-39.391999999999996",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Rail9.709_0.12",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Rail9.709_0.935",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Rail10.285_0.12",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_Rail10.285_0.935",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_EndRail-43.09",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 10,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_counter_EndRail-39.385",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 10,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_bench_Leg8.715_-44.555",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_bench_Leg8.715_-44.325",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_bench_CrossBearer8.715",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_bench_Leg9.685_-44.555",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_bench_Leg9.685_-44.325",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_bench_CrossBearer9.685",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_bench_Apron-44.576",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_bench_Apron-44.329",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_bench_SeatBoard0",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 14,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_bench_SeatBoard1",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 14,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_bench_SeatBoard2",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 14,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_model_laundry_ledger_Spine",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 16,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_model_laundry_pencil_Pencil",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        }
+      ]
+    },
+    {
+      "family": "pawn_fittings",
+      "native_sha256": "a2dea557e3d0e8066adfbc01ea15e6bcbd9743c2209c600580f4efa4f19fd13c",
+      "checked": 35,
+      "unmeasured": 0,
+      "review": 25,
+      "stocks": [
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_Upright22.484_-55.025999999999996",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_Upright22.484_-53.3",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_Upright22.484_-51.574",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_Upright22.836_-55.025999999999996",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_Upright22.836_-53.3",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_Upright22.836_-51.574",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_Deck",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_Bearer-55.025999999999996",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_Bearer-53.3",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_Bearer-51.574",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf1_Deck",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf1_Bearer-55.025999999999996",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf1_Bearer-53.3",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf1_Bearer-51.574",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf2_Deck",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf2_Bearer-55.025999999999996",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf2_Bearer-53.3",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf2_Bearer-51.574",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf3_Deck",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf3_Bearer-55.025999999999996",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf3_Bearer-53.3",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf3_Bearer-51.574",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_DeckBackBearer-54.412",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_DeckBackBearer-53.318",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 12,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_pledge_shelf0_TopRearRail",
+          "key": "timber",
+          "alignment": 0.0,
+          "samples": 10,
+          "review": true
+        },
+        {
+          "stock": "storm_shop_pawnbroker_grille_counter_Post20.988_-54.798",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_pawnbroker_grille_counter_Post20.988_-53.78",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_pawnbroker_grille_counter_Post20.988_-52.344",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_pawnbroker_grille_counter_Post21.612_-54.798",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_pawnbroker_grille_counter_Post21.612_-53.78",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_pawnbroker_grille_counter_Post21.612_-52.344",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_pawnbroker_grille_counter_Rail20.97_0.13",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_pawnbroker_grille_counter_Rail20.97_1.065",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_pawnbroker_grille_counter_Rail21.6_0.13",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        },
+        {
+          "stock": "storm_shop_pawnbroker_grille_counter_Rail21.6_1.065",
+          "key": "wood_dark",
+          "alignment": 1.0,
+          "samples": 12,
+          "review": false
+        }
+      ]
+    }
+  ]
+}

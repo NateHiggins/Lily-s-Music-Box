@@ -223592,6 +223592,878 @@
    "rationale": "Node-path lookup embeds spatial identity.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "b90134fbc7f2dbdb",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_bench",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "4a82c0593ea723e3",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_counter",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "cb4b725174958c46",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_counter_top",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "e8ae2d65daecf162",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ledger",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "ea04c9d741c1ccbe",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel_shelf0",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "07d58696437899ee",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel_shelf1",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "be84a9669511f637",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel_shelf2",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "bff8405fa56a8fef",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel_shelf3",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "f558cd13e9cb7906",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_parcel_shelf4",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "865daa1ed1228818",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_pencil",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "6764d88834a93607",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket0",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "4eb4578a9b48d3ef",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket1",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "7479a49f98dda6ae",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket10",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "dc44cbf99e733dd8",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket11",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "bf6cd819eb6f914a",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket12",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "a269fa59344eb3ec",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket2",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5898ba20dde558fc",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket3",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "24aa19a6d7ac43b1",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket4",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "5aa053fda078421f",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket5",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "49c4fad376fa798f",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket6",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "68bba13ff184223f",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket7",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "c429705e89983710",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket8",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0aa5c9544880b80e",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket9",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "2413114f2a168cc7",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket_rail",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8600d5693f47e97b",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_window_back",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "21b4258e5a0d2c36",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_window_plinth",
+   "file": "game/data/orison_v2/laundry_trade.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/cells[0]/replace[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "0fe632271ae46d61",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_laundry_apparatus_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    20
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id==\"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "beb11cd08911c75f",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_laundry_fittings_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    20
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id==\"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ce876e46d0ce02d1",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_laundry_trade_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    20
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id==\"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7658057e0325abf2",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_floor",
+   "file": "game/tests/orison_v2_laundry_trade_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    94
+   ],
+   "count": 1,
+   "context": [
+    "check(str(contact.owner)==\"storm_shop_model_laundry_floor\" and not hit.is_empty() and str(hit.collider.get_parent().name).trim_suffix(\"-col\").ends_with(\"_quarry"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  },
+  {
+   "key": "8960037169c07c8c",
+   "kind": "id_reference",
+   "token": "storm_shop_model_laundry_ticket_rail",
+   "file": "game/tests/orison_v2_laundry_trade_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_trade_details"
+   ],
+   "lines": [
+    121
+   ],
+   "count": 1,
+   "context": [
+    "var tickets: Array=fixture.original_records.filter(func(row):return str(row.id).begins_with(\"storm_shop_model_laundry_ticket\") and str(row.id)!=\"storm_shop_mode"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
   }
  ]
 }

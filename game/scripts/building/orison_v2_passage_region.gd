@@ -10,6 +10,7 @@ const Residency := preload("res://scripts/building/orison_v2_passage_residency.g
 const Seating := preload("res://scripts/building/orison_v2_shop_seating.gd")
 const Laundry := preload("res://scripts/building/orison_v2_laundry_fittings.gd")
 const LaundryApparatus := preload("res://scripts/building/orison_v2_laundry_apparatus.gd")
+const LaundryTrade := preload("res://scripts/building/orison_v2_laundry_trade.gd")
 const CobblerFittings := preload("res://scripts/building/orison_v2_cobbler_fittings.gd")
 const NewsFittings := preload("res://scripts/building/orison_v2_news_fittings.gd")
 const HardwareDrawers := preload("res://scripts/building/orison_v2_hardware_drawers.gd")
@@ -126,6 +127,9 @@ func _ready() -> void:
 			return
 		if not LaundryApparatus.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native laundry apparatus fit refused: "+identity)
+			return
+		if not LaundryTrade.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native laundry trade furniture fit refused: "+identity)
 			return
 		if not LocksmithFittings.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native locksmith fit refused: "+identity)

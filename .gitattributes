@@ -989,3 +989,18 @@ game/tests/fixtures/orison_pawn_fittings.json -text
 game/scripts/building/orison_v2_pawn_fittings.gd -text
 game/tests/orison_v2_pawn_fittings_test.gd -text
 art/renders/orison_v2/pawn_fittings_20261007/** -text -whitespace
+
+# Bound Laundry room batch and shared-world validators.
+art/data/laundry_trade/source_plan.json -text
+art/blender/scripts/build_laundry_trade.py -text
+art/blender/scripts/laundry_trade_geometry.py -text
+art/blender/scripts/inspect_laundry_trade.py -text
+art/blender/laundry_trade_construction.json -text
+game/assets/props/laundry_trade.glb.import -text
+game/data/orison_v2/laundry_trade.json -text
+game/tests/fixtures/orison_laundry_trade.json -text
+game/scripts/building/orison_v2_laundry_trade.gd -text
+game/tests/orison_v2_laundry_trade_test.gd -text
+game/tests/orison_v2_laundry_fittings_test.gd -text
+game/tests/orison_v2_laundry_apparatus_test.gd -text
+art/renders/orison_v2/laundry_trade_20261007/** -text -whitespace

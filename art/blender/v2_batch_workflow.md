@@ -15,7 +15,9 @@ the hash planner inventories registered fixtures, not all unfinished V1.
 
 In Blender, load adjacent accepted geometry and the retained shell. Resolve
 silhouette, joints, hollow interiors, supports, clearances, bevels, normals
-and metre-scaled UV grain before export. Review catalogue albedo, roughness
+and metre-scaled UV grain before export. Contact probes must approach the
+owner from its outward face; verify the hit normal as well as its distance
+so Blender catches back-face probes that Godot collision rays reject. Review catalogue albedo, roughness
 and normal response at player distance in the same batch. Generate new maps
 only for an observed deficiency, register new catalogue keys, keep textures
 unlettered, and use Label3D for lettering. Render room context and selected
@@ -69,7 +71,8 @@ family. Export the complete batch after fit, support, UV and material checks.
 
 ## One composed Godot run
 
-Modules: **pawn_clocks**, **pawn_display** and **pawn_fittings**. The original
+Modules: **pawn_clocks**, **pawn_display**, **pawn_fittings**, **laundry_fittings**,
+**laundry_apparatus** and **laundry_trade**. The original
 clock/display checks remain; display now also checks the fitted safe boundary.
 Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and

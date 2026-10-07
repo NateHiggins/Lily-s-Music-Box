@@ -227,7 +227,7 @@ for item in assemblies:
    assert np.linalg.norm(np.cross(points[1]-points[0],points[2]-points[0]))>0,(name,face.index,points.tolist())
    order=[1,2,0] if grain_axes[face.index]==0 else ([2,0,1] if grain_axes[face.index]==1 else [0,1,2])
    if key in ['wood_dark','timber']:
-    n,u,values,local=chart_for_triangle(points[:,order],origin[order],sets[key]['meters_per_tile']);n=n[np.argsort(order)];u=u[np.argsort(order)]
+    n,u,values,local=chart_for_triangle(points[:,order],origin[order],sets[key]['meters_per_tile'],key=='timber');n=n[np.argsort(order)];u=u[np.argsort(order)]
    else:n,u,values,local=chart_for_triangle(points,origin,sets[key]['meters_per_tile'],key=='timber')
    fallbacks+=local
    for j,loop in enumerate(face.loop_indices):uv.data[loop].uv=tuple(values[j]);guides.data[loop].vector=(float(u[0]),float(u[2]),float(-u[1]));normals[loop]=tuple(mesh.vertices[face.vertices[j]].normal) if key in ['glassish','fabric_warm'] else tuple(n)

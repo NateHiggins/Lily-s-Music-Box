@@ -1,14 +1,36 @@
 extends "res://tests/orison_v2_roof_membrane_test.gd"
 ## Actual laundry boundaries, floor bearings, materials and paired views.
+var batch_mode := false
+var capture_enabled := true
+
+func _ready() -> void:
+	if not batch_mode: call_deferred("_run")
+
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
 	var world:=_world_scene().instantiate() as OrisonV2RuntimeRoot;add_child(world)
 	await get_tree().physics_frame;await get_tree().physics_frame
-	check(not world.startup_failed and not world.passage_region.startup_failed,"composed world fits the original shop laundry")
-	if world.startup_failed or world.passage_region.startup_failed:world.shutdown_for_tests();world.free();get_tree().quit(1);return
+	if world.startup_failed or world.passage_region.startup_failed:check(false,"world startup failed");world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	world.player.set_physics_process(false);world.service_set_carrier.set_capture_hidden(true)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
+	var passage: OrisonV2PassageRegion=world.passage_region
+	for driver: CampaignClockDriver in get_tree().get_nodes_in_group("campaign_time_owner"):driver.set_frozen_for_tests(true)
+	world.shop_simulation.set_process(false)
+	var vestibule: Dictionary=world.layout.spaces.filter(func(row):return row.id=="F01_VESTIBULE")[0]
+	var rect: Array=vestibule.rect
+	world.player.global_position=world.adapter.root.to_global(Vector3((rect[0]+rect[2])*.5,0.,(rect[1]+rect[3])*.5))
+	await get_tree().physics_frame;await get_tree().physics_frame
+	for frame in 600:
+		if passage.residency.state=="RESIDENT":break
+		await get_tree().process_frame
+	if passage.residency.state!="RESIDENT":check(false,"normal prefetch failed");world.shutdown_for_tests();world.free();get_tree().quit(1);return
+	await get_tree().physics_frame;await get_tree().physics_frame
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	check(not world.startup_failed and not world.passage_region.startup_failed,"composed world fits the original shop laundry")
 	var passage: OrisonV2PassageRegion=world.passage_region
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_laundry_fittings.json"))
 	check(FileAccess.get_sha256("res://assets/props/laundry_fittings.glb")==fixture.asset_sha256,"installed mesh binds the native laundry export")
@@ -60,7 +82,7 @@ func _run() -> void:
 	await _laundry_views(world,fixture)
 	await _shirt_detail_views(world,fixture)
 	print("LAUNDRY FITTINGS: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	return {"checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures.duplicate()}
 
 func _ironing_receiver_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var fit: Dictionary=fixture.fitted_receiver_clearance
@@ -115,7 +137,7 @@ func _ironing_receiver_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) ->
 		check(_clear_laundry_station(world,feet),"standing capsule has a clear ironing/receiver observation: "+str(spec.id))
 		world.player.global_position=feet;world.player.velocity=Vector3.ZERO
 		world.player.face_world_point(cell.to_global(_v(spec.target)));world.player.set_lamp_enabled(true)
-		await _settled_optics();await shot(str(spec.id))
+		if capture_enabled:await _settled_optics();await shot(str(spec.id))
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("receiving_clearance.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","measured":measured,"original_hull_triangles":12,"scope":"Actual imported table and pad are separated from the intact original receiver envelope, whose exact hull stays disabled under the current cabinet policy. Standing floor/capsule observations do not establish continuous shop entry, cabinet operation, services or human acceptance."},"\t"))
 
@@ -168,6 +190,7 @@ func _laundry_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 		file.store_string(JSON.stringify({"evidence_class":"INERT","stations":observations,"checks":checks,"failures":failures},"\t")+"\n");file.close()
 
 func _paired_laundry_view(model: Node3D, identity: String) -> void:
+	if not capture_enabled:return
 	await _settled_optics();await shot(identity+"_fitted")
 	var originals: Dictionary=model.get_meta("original_meshes");var fitted: Dictionary={}
 	model.hide()

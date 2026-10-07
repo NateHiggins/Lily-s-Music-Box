@@ -1,0 +1,99 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 26,
+  "groups": [
+    {
+      "kind": "rack",
+      "sources": [
+        "storm_shop_model_laundry_parcel_shelf0",
+        "storm_shop_model_laundry_parcel_shelf1",
+        "storm_shop_model_laundry_parcel_shelf2",
+        "storm_shop_model_laundry_parcel_shelf3",
+        "storm_shop_model_laundry_parcel_shelf4"
+      ]
+    },
+    {
+      "kind": "tickets",
+      "sources": [
+        "storm_shop_model_laundry_ticket_rail",
+        "storm_shop_model_laundry_ticket0",
+        "storm_shop_model_laundry_ticket1",
+        "storm_shop_model_laundry_ticket2",
+        "storm_shop_model_laundry_ticket3",
+        "storm_shop_model_laundry_ticket4",
+        "storm_shop_model_laundry_ticket5",
+        "storm_shop_model_laundry_ticket6",
+        "storm_shop_model_laundry_ticket7",
+        "storm_shop_model_laundry_ticket8",
+        "storm_shop_model_laundry_ticket9",
+        "storm_shop_model_laundry_ticket10",
+        "storm_shop_model_laundry_ticket11",
+        "storm_shop_model_laundry_ticket12"
+      ]
+    },
+    {
+      "kind": "window",
+      "sources": [
+        "storm_shop_model_laundry_window_plinth",
+        "storm_shop_model_laundry_window_back"
+      ]
+    },
+    {
+      "kind": "counter",
+      "sources": [
+        "storm_shop_model_laundry_counter",
+        "storm_shop_model_laundry_counter_top"
+      ]
+    },
+    {
+      "kind": "bench",
+      "sources": [
+        "storm_shop_model_laundry_bench"
+      ]
+    },
+    {
+      "kind": "ledger",
+      "sources": [
+        "storm_shop_model_laundry_ledger"
+      ]
+    },
+    {
+      "kind": "pencil",
+      "sources": [
+        "storm_shop_model_laundry_pencil"
+      ]
+    }
+  ],
+  "runtime_keys": [
+    "timber",
+    "wood_dark",
+    "paper",
+    "countertop",
+    "brass_dull",
+    "iron_blackened",
+    "linen",
+    "plywood",
+    "metal"
+  ],
+  "catalog_variants": {
+    "timber": "timber",
+    "wood_dark": "wood_dark",
+    "paper": "paper",
+    "countertop": "countertop",
+    "brass_dull": "brass",
+    "iron_blackened": "iron_blackened",
+    "linen": "linen"
+  },
+  "material_aliases": {},
+  "material_tints": {},
+  "trim_tolerance_m": 2e-05,
+  "open_work": [
+    "Twenty-six immutable records supply seven assemblies. Five original shelf heights, forty accepted parcel owners and all existing shirt/apparatus positions remain. New posts and bearers support the retained decks from the actual .01m floor.",
+    "The ticket rail receives rack-mounted metal standoffs, wire and individual ties to the thirteen original blank ticket positions. Thin paper replaces thick source boxes; no invented dates or lettering.",
+    "The window stand gains floor feet and framed joinery while retaining its empty source-owned top and plywood back. No new inventory is inferred.",
+    "The counter retains its source top datum, with an 8mm inset at the north wainscot, with framed lower panels and a visibly hinged closed flap at the south end. The original access gap around that end remains. This visual fitting introduces no opening interaction.",
+    "The bench reaches the original floor; its seat datum remains. Ledger and pencil lower to the existing worktop and maintain distinct source owners. No service, custody, purchase or utility owner changes.",
+    "Native fit and rendered QA precede production review; broad finishes, route continuity, functional mechanisms, runtime contracts and human acceptance remain separate."
+  ]
+}

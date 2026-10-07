@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 66.24,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T14:37:26Z",
+  "started_utc": "2026-10-07T14:36:20Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-laundry-grain-runtime.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-laundry-grain-runtime.log",
+  "stdout_sha256": "27a061eee585385bc4171605883faaf18c032cc6a85b23d39304b706b1dfa356"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-laundry-grain-runtime-shots",
+ "source": {
+  "dirty_paths": 337,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  DOCS.md",
+   "AM art/blender/laundry_trade.blend",
+   "A  art/blender/laundry_trade.md",
+   "AM art/blender/laundry_trade_construction.json",
+   " M art/blender/pawn_fittings.blend",
+   " M art/blender/pawn_fittings_construction.json",
+   "AM art/blender/scripts/build_laundry_trade.py",
+   " M art/blender/scripts/build_pawn_fittings.py",
+   "A  art/blender/scripts/inspect_laundry_trade.py",
+   "A  art/blender/scripts/laundry_trade_geometry.py",
+   "M  art/blender/v2_batch_workflow.md",
+   "M  art/blender/v2_fabrication_coverage.md",
+   "A  art/data/laundry_trade/source_plan.json",
+   " M art/renders/insitu/shots.md",
+   "A  art/renders/orison_v2/laundry_trade_20261007/batch.json",
+   "A  art/renders/orison_v2/laundry_trade_20261007/image_manifest.json",
+   "A  art/renders/orison_v2/laundry_trade_20261007/laundry-trade-native7.json",
+   "A  art/renders/orison_v2/laundry_trade_20261007/laundry-trade-native7.log",
+   "A  art/renders/orison_v2/laundry_trade_20261007/laundry-trade-reader.log"
+  ],
+  "repository_head": "939e4e4eebf6aed8705121097d72507ed6b740ce",
+  "repository_tree": "8f745f264c8ea875dd49d8b03ffb63c6c20d4ed5",
+  "runtime_inputs_sha256": "38f6b0d2d06ddb46ad26566014261acf1fa5e3d16676eaf0e03b0d39e12d69bc",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "6e29033023a759e338c7c1539baa3e915d2e372f144c2fcd8a759ef5e0f9174a"
+ },
+ "windowed": true
+}

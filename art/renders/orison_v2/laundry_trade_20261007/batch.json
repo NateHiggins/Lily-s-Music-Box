@@ -1,0 +1,84 @@
+{
+	"batch_checks": 12,
+	"elapsed_ms": 51827,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 3607,
+	"modules": {
+		"laundry_apparatus": {
+			"captured": false,
+			"checks": 284,
+			"elapsed_ms": 108,
+			"failures": [],
+			"fixture_sha256": "f3280a5a4ad2d4dde8188391afed572d69ff4e1523cb39525699011962e009cf",
+			"parts": 18,
+			"removed": 276,
+			"supports": 24,
+			"triangles": 32980,
+			"validator_sha256": "dfc3facfc32367ab823938bde9106de2601abdc1de7398226c84c9077113de6b"
+		},
+		"laundry_fittings": {
+			"captured": false,
+			"checks": 1139,
+			"elapsed_ms": 414,
+			"failures": [],
+			"fixture_sha256": "171e66970e84534226044760a83abbc9bce6c3ed3f0619599fa53bf67e98fc06",
+			"parts": 99,
+			"removed": 636,
+			"supports": 57,
+			"triangles": 83928,
+			"validator_sha256": "47a4d8440eb40a43b72524899f315cdba7b55dc98b82802ba3e282f11f6ad2cd"
+		},
+		"laundry_trade": {
+			"captured": true,
+			"checks": 311,
+			"elapsed_ms": 8229,
+			"failures": [],
+			"fixture_sha256": "599e5781bebdf630076477b5929a7a6c93182e737b2fef7572314b7929206bae",
+			"parts": 14,
+			"removed": 312,
+			"supports": 29,
+			"triangles": 20218,
+			"validator_sha256": "63c594b51a058e832daff67d5d62afe83074f6fe86e56b597002113d5171951f"
+		},
+		"pawn_clocks": {
+			"captured": false,
+			"checks": 1002,
+			"elapsed_ms": 864,
+			"failures": [],
+			"fixture_sha256": "4de79c8e83208dfba29b0e91cd2d763255406efc362989eeaf4dcb33ecb01c86",
+			"parts": 68,
+			"removed": 180,
+			"supports": 30,
+			"triangles": 27816,
+			"validator_sha256": "9dfb99f42c9ceba61b6c77429eda2320356df5777bbad66806dbe83fd7b4e40e"
+		},
+		"pawn_display": {
+			"captured": false,
+			"checks": 312,
+			"elapsed_ms": 264,
+			"failures": [],
+			"fixture_sha256": "75c124e805c39c01aec8d687d60f33d01aa715e4a05b2d1ac9f2a05913d120ef",
+			"parts": 16,
+			"removed": 96,
+			"supports": 14,
+			"triangles": 28296,
+			"validator_sha256": "f798516421cf74e7fb5e3cec9bdf77001d67c4be98f5ebbcf7615fbb843bb75d"
+		},
+		"pawn_fittings": {
+			"captured": true,
+			"checks": 559,
+			"elapsed_ms": 11225,
+			"failures": [],
+			"fixture_sha256": "fdcadf3fe9f1e197b71a8e46cb30c04b5f01c90318d4a63e5c4df89a3ac827dc",
+			"parts": 33,
+			"removed": 480,
+			"supports": 23,
+			"triangles": 44672,
+			"validator_sha256": "afa61ef00d6d9f2daf925948fcdc03ef169ba04b3b26d08a188890bd929399f6"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

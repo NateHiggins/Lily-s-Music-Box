@@ -1,0 +1,73 @@
+{
+  "evidence_class": "INERT",
+  "method": "Expanded indexed float32 POSITION bytes in exported mesh primitive order; UV and tangent data excluded.",
+  "families": [
+    {
+      "family": "pawn_fittings",
+      "before_revision": "939e4e4eebf6aed8705121097d72507ed6b740ce",
+      "before_asset_sha256": "0efb8c1fbfc0960403ffdbbadba20895f40f7cf2416660f7d59b2055376ceb4d",
+      "after_asset_sha256": "3abfb3b0a220215028cf48de5e1508e748c14e467ba3a53b1d6e3aa56e86e190",
+      "part_count": 33,
+      "physical_triangles_unchanged": true,
+      "part_geometry_sha256": {
+        "storm_shop_pawnbroker_balance_base__brass_dull": "bf1abbf0ce15cb17a561d63740bf624f70474ecd48fca1b2e22857328bb5e9f8",
+        "storm_shop_pawnbroker_balance_base__glassish": "6460e0894f43d4552c9a1d91869bb88069f20df0e5f54d48338e08d7b5a74ffb",
+        "storm_shop_pawnbroker_coat__bakelite_black": "acb43639ef2d41f820248cc9f34bcb0104fd90e63095dca05fdbf352f907da77",
+        "storm_shop_pawnbroker_coat__brass_dull": "d96478e5aec3bcef78f2921f8dfa6271869d9a7d87ccaf0e2806d95c8bcb04db",
+        "storm_shop_pawnbroker_coat__fabric_warm": "0eb8e2415818fec0a6e0f9ae5240e48fc9c8a03b1a6f7124df6903430a68158d",
+        "storm_shop_pawnbroker_coat__iron_blackened": "7d5ac159e1ce24964692c0bd733eac4fc8ed5c831054a34b3a5cd4e93068bb78",
+        "storm_shop_pawnbroker_coat__timber": "f1af32265ed06cd233c4666653622f33239b224c1a97399ca106ea37d245c57e",
+        "storm_shop_pawnbroker_grille_counter__brass_dull": "3daf344c3142c6f0ba4ddd687435b60bc55a43755df8842397bbed6d82e9d7ac",
+        "storm_shop_pawnbroker_grille_counter__countertop": "2086ab0ae1d0d667ccc27b18fd8eeec5554367e729710aadc36ae7da99a4c9d0",
+        "storm_shop_pawnbroker_grille_counter__wood_dark": "760b07846e25189b532b7cdb848616e7b79c41ce536b7b45c973ad56caf4306a",
+        "storm_shop_pawnbroker_ledger__bakelite_black": "11fe801e01cd020cbd2359a849e089fd440ecea727760cc36ab49f66ef4d2e3a",
+        "storm_shop_pawnbroker_ledger__fabric_warm": "c3e545c481ebce04e3d18f741415eb27956697c59334b2d7f8a553968c54c608",
+        "storm_shop_pawnbroker_ledger__linen": "4b35993f426a4574d0cf75df764e612f242a42eba7508d8136e7bc41e67c5e27",
+        "storm_shop_pawnbroker_ledger__paper": "3a4dbe9926bec9ba95c1062d730a59996cd1b95f0fa135a8c4a5bc84d8e22c4b",
+        "storm_shop_pawnbroker_ledger__wood_dark": "76f0953d426588db116ff47a5879f395d3a8f062c09b07fc89b4fa127dd7704c",
+        "storm_shop_pawnbroker_loupe__bakelite_black": "dd90cd0270a0d1982f1baf65bbc7ed476deab4b7e41eb77d61b08ea81a4dff8a",
+        "storm_shop_pawnbroker_loupe__glassish": "9c3467a6ad84d277af1b8ffb23a8f05e0056a99b029e7ba3c9091fe2df1cdf0f",
+        "storm_shop_pawnbroker_loupe__linen": "078e3a6f87714e4f1843c2d8b1d90de808bd0aa46ed18ce23504489ea4ecf428",
+        "storm_shop_pawnbroker_pledge_shelf0__iron_blackened": "8266444320bc1ef4feb49669aac4e260fcc9cde2da75a8f36e355f64e4106066",
+        "storm_shop_pawnbroker_pledge_shelf0__linen": "ec0cac70706c83440c17671fa05e53aaefdf4b6055c65450d0bfd28ba69831e7",
+        "storm_shop_pawnbroker_pledge_shelf0__paper": "d6774b97b88298f4220e1264eee4bc3e27882bfde07d473893d632bdcbae2054",
+        "storm_shop_pawnbroker_pledge_shelf0__timber": "e4ce0d6f2ffdb5f20ac9316bbd94c1cc4600d1eeaf7060d5517c1d102220bcc6",
+        "storm_shop_pawnbroker_safe__brass_dull": "fb0eeb4ad6c2ba663fabc231ac0c4fa26c0afa367cf78213006a7f543b8ac63b",
+        "storm_shop_pawnbroker_safe__cast_iron": "8e40cd90bea80eaea18874e8c137d1fc88f38ba21fc6bd8a946bb0136a9d526a",
+        "storm_shop_pawnbroker_safe__iron_blackened": "1a0369dc16edf56ae4563c63c82e321c37660f1ea4b38e4f14739145ddc25de2",
+        "storm_shop_pawnbroker_sewing_case__brass_dull": "7e743f72c379df57e970e0f5df75da95006b1669a374421a69a504ca87f882aa",
+        "storm_shop_pawnbroker_sewing_case__enamel": "182180ac7fab4943de9b1c8d2fe722d9bdbad5f95533be4d7b6d4d87b57aa95b",
+        "storm_shop_pawnbroker_sewing_case__iron_blackened": "e589b2a27c0e6973b3a057f8cfa8584a2413518244835a6b86c1e27ed2a7b4b9",
+        "storm_shop_pawnbroker_sewing_case__linen": "3d7ce46d509d25b69aecadee70310b8611909b6f57f9ddb060bbaea939be9cd4",
+        "storm_shop_pawnbroker_sewing_case__wood_dark": "03caa4a26fe83c3a3a0641917080bcbccc053e6ac4fcfdaf66e633c479bc351d",
+        "storm_shop_pawnbroker_violin_case__bakelite_black": "66621e2c481a71330f76444236c9c256efb0132324703fb00bed3e5aabdd8872",
+        "storm_shop_pawnbroker_violin_case__brass_dull": "69f1ca6574abd4ca9d49e86581c51cc2df83cfa51d8741d6f52b51f9c30760da",
+        "storm_shop_pawnbroker_violin_case__wood_dark": "98592d1393f1f90dd53d2372707d7e4cd2731aab4e66718e5bc42b64770b594e"
+      }
+    },
+    {
+      "family": "laundry_trade",
+      "before_revision": "c97aee2bd840f3d186d3af8665e86520871001f6",
+      "before_asset_sha256": "ecfefd3f11fdc7835479858e70170b1cc7085cc21b2c615be21ca1242e8dbc71",
+      "after_asset_sha256": "3da89cb8af25d34a958c134527f852854099d3fc4a46a7ca30bd21744bc2ff9a",
+      "part_count": 14,
+      "physical_triangles_unchanged": true,
+      "part_geometry_sha256": {
+        "storm_shop_model_laundry_bench__timber": "1a68c925c94682d34b8a1ea72d48d398251ca5d2f23d263756af48aa99a23b42",
+        "storm_shop_model_laundry_counter__brass_dull": "e924303ead09f94e2d5a266319528dc566c88da983d5e0a4fdabc760d0012854",
+        "storm_shop_model_laundry_counter__countertop": "21adc4a343ec4c8fc2ae7eb2946f71f2625d3edcf8aa7c187b0f8a747177fdd4",
+        "storm_shop_model_laundry_counter__wood_dark": "c6cff4603ce50a601bd4789deafcb9ce357540b135468217d4689b968ea1cb20",
+        "storm_shop_model_laundry_ledger__paper": "4adad6b1f5c9ce6e3bf5868beaa000125c21301d7923f137cd53f76224457d77",
+        "storm_shop_model_laundry_ledger__wood_dark": "23df61c43743b1d4d84930a8214587a58a7479ef44342eb8eb9d7d3a37bf33fa",
+        "storm_shop_model_laundry_parcel_shelf0__timber": "b29fc1531bc05e597043b2357f7dd505d6226781c68baf9af33b0afe2397506d",
+        "storm_shop_model_laundry_pencil__iron_blackened": "65f6d09ba962af73d041685d5947dcffcaf74c7d44d6741fc5b664d419114b37",
+        "storm_shop_model_laundry_pencil__timber": "5ae0eb877adfd60722be9aa3919c68f85644413d90ac8e20211692f8b7e0af41",
+        "storm_shop_model_laundry_ticket_rail__iron_blackened": "92f044bdf4975b695981a6aa267eadce3c82c23628f12daf8fcf0931cc04d206",
+        "storm_shop_model_laundry_ticket_rail__linen": "6057e16045d018ed01b097bc41a62205bb2e96fdd77dc586dcacca5c69fac395",
+        "storm_shop_model_laundry_ticket_rail__paper": "689937f9bb6e9d138c390df571412fcd86249718dbac5c3ff7d9afbbf9dd3086",
+        "storm_shop_model_laundry_window_plinth__plywood": "7868e6a1259b1f08f9649293d3406cb509ffeb8ce755d6ab9174d6678dc5cca0",
+        "storm_shop_model_laundry_window_plinth__wood_dark": "1f4e851646248ad28b1101737e6cb07149fed2b50d6174baa071a382045f718e"
+      }
+    }
+  ]
+}

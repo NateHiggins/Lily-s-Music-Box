@@ -101,6 +101,7 @@ func _check_specialist_fittings() -> bool:
 	# Both observed reconstruction cycles must carry the same native owners
 	# as startup, rather than quietly reverting to retired source boxes.
 	for spec: Array in [
+		["shop_model_laundry","LaundryTrade","laundry_trade"],
 		["shop_luncheonette","DinerCounter","diner_counter"],
 		["shop_luncheonette","DinerTill","diner_till"],
 		["shop_luncheonette","DinerBackbar","diner_backbar"],

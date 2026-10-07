@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_pawn_fittings.py",
+      "elapsed_s": 7.114
+    },
+    {
+      "script": "art/blender/scripts/inspect_pawn_fittings.py",
+      "elapsed_s": 36.865
+    },
+    {
+      "script": "art/blender/scripts/build_laundry_trade.py",
+      "elapsed_s": 2.962
+    },
+    {
+      "script": "art/blender/scripts/inspect_laundry_trade.py",
+      "elapsed_s": 29.944
+    }
+  ]
+}
