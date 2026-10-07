@@ -1,0 +1,165 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 24,
+  "groups": [
+    {
+      "kind": "closed_door",
+      "sources": [
+        "storm_shop_funeral_parlour_boh_door",
+        "storm_shop_funeral_parlour_boh_knob"
+      ]
+    },
+    {
+      "kind": "closed_door",
+      "sources": [
+        "storm_shop_hardware_paint_boh_door",
+        "storm_shop_hardware_paint_boh_knob"
+      ]
+    },
+    {
+      "kind": "closed_door",
+      "sources": [
+        "storm_shop_keys_cut_boh_door",
+        "storm_shop_keys_cut_boh_knob"
+      ]
+    },
+    {
+      "kind": "closed_door",
+      "sources": [
+        "storm_shop_luncheonette_boh_door",
+        "storm_shop_luncheonette_boh_knob"
+      ]
+    },
+    {
+      "kind": "closed_door",
+      "sources": [
+        "storm_shop_model_laundry_boh_door",
+        "storm_shop_model_laundry_boh_knob"
+      ]
+    },
+    {
+      "kind": "closed_door",
+      "sources": [
+        "storm_shop_news_cigars_boh_door",
+        "storm_shop_news_cigars_boh_knob"
+      ]
+    },
+    {
+      "kind": "closed_door",
+      "sources": [
+        "storm_shop_otis___son_boh_door",
+        "storm_shop_otis___son_boh_knob"
+      ]
+    },
+    {
+      "kind": "closed_door",
+      "sources": [
+        "storm_shop_pawnbroker_boh_door",
+        "storm_shop_pawnbroker_boh_knob"
+      ]
+    },
+    {
+      "kind": "closed_door",
+      "sources": [
+        "storm_shop_photo_supplies_boh_door",
+        "storm_shop_photo_supplies_boh_knob"
+      ]
+    },
+    {
+      "kind": "closed_door",
+      "sources": [
+        "storm_shop_radio_service_boh_door",
+        "storm_shop_radio_service_boh_knob"
+      ]
+    },
+    {
+      "kind": "closed_door",
+      "sources": [
+        "storm_shop_shoe_rebuilding_boh_door",
+        "storm_shop_shoe_rebuilding_boh_knob"
+      ]
+    },
+    {
+      "kind": "window",
+      "sources": [
+        "storm_shop_funeral_parlour_window_plinth",
+        "storm_shop_funeral_parlour_window_back"
+      ]
+    }
+  ],
+  "runtime_keys": [
+    "wood_dark",
+    "brass_dull",
+    "iron_blackened",
+    "plywood"
+  ],
+  "catalog_variants": {
+    "wood_dark": "wood_dark",
+    "brass_dull": "brass",
+    "iron_blackened": "iron_blackened"
+  },
+  "material_aliases": {},
+  "material_tints": {},
+  "trim_tolerance_m": 2e-05,
+  "open_work": [
+    "Eleven original closed back-of-house doors receive floor-seated frames, six inset panels, hinges, turned knobs and roses. SHOP_INTERIOR_BUILD_GUIDE section II.4 explicitly leaves back rooms unmodelled. No opening, passage, lock or interaction is introduced.",
+    "Original door widths, upper datum and knob centres remain. Frames reach 55mm in front of the retained wainscot, 30mm beyond the original flat leaf; the turned knob reaches 102mm in front of that wall, 47mm beyond its source box. No hidden wall intersection is accepted. A threshold fills the original 40mm floor gap.",
+    "The funeral parlour original empty window plinth gains six floor feet, inset lower panels and a framed plywood back; its top datum and deliberately empty display remain.",
+    "All non-visual owners and original source records remain. Clerestories, architecture, shop operation, routes and independent services remain separate."
+  ],
+  "context_families": [
+    "cobbler_fittings",
+    "diner_apparatus",
+    "diner_backbar",
+    "diner_counter",
+    "diner_overhead",
+    "diner_receiving",
+    "diner_till",
+    "diner_urns",
+    "druggist_carboys",
+    "druggist_counter",
+    "druggist_cupboard",
+    "druggist_dispensary",
+    "druggist_drawers",
+    "druggist_fountain",
+    "druggist_mortar",
+    "funeral_drapes",
+    "funeral_fittings",
+    "funeral_foliage",
+    "hardware_apparatus",
+    "hardware_drawers",
+    "hardware_stock",
+    "hardware_tools",
+    "laundry_apparatus",
+    "laundry_fittings",
+    "laundry_receiving",
+    "laundry_trade",
+    "locksmith_fittings",
+    "news_fittings",
+    "news_receiving",
+    "pawn_clocks",
+    "pawn_display",
+    "pawn_fittings",
+    "pawn_receiving",
+    "photo_cameras",
+    "photo_counter",
+    "photo_enlargers",
+    "photo_glazing",
+    "photo_portraits",
+    "photo_process",
+    "photo_receiving",
+    "photo_stock",
+    "radio_apparatus",
+    "radio_battery",
+    "radio_bench",
+    "radio_display",
+    "radio_receiving",
+    "radio_stock",
+    "radio_wire",
+    "shop_seating"
+  ],
+  "cell_aliases": {
+    "shop_otis___son": "shop_otis_son"
+  }
+}

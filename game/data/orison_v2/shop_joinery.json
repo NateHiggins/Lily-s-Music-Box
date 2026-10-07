@@ -1,0 +1,653 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/shop_joinery.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_funeral_parlour",
+      "parts": [
+        {
+          "name": "storm_shop_funeral_parlour_boh_door__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_funeral_parlour_boh_door__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_funeral_parlour_boh_door__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        },
+        {
+          "name": "storm_shop_funeral_parlour_window_plinth__plywood",
+          "key": "plywood",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_funeral_parlour_window_plinth__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_funeral_parlour_boh_door",
+          "key": "wood_dark",
+          "low": [
+            4.24,
+            0.05,
+            63.825
+          ],
+          "high": [
+            5.08,
+            2.13,
+            63.885
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_boh_knob",
+          "key": "brass_dull",
+          "low": [
+            4.88,
+            0.96,
+            63.795
+          ],
+          "high": [
+            4.9399999999999995,
+            1.03,
+            63.834999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_window_plinth",
+          "key": "wood_dark",
+          "low": [
+            10.46,
+            0.05,
+            59.68000000000001
+          ],
+          "high": [
+            10.82,
+            0.44,
+            62.28
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_funeral_parlour_window_back",
+          "key": "plywood",
+          "low": [
+            10.42,
+            0.42,
+            59.68000000000001
+          ],
+          "high": [
+            10.46,
+            1.5699999999999998,
+            62.28
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_hardware_paint",
+      "parts": [
+        {
+          "name": "storm_shop_hardware_paint_boh_door__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_hardware_paint_boh_door__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_hardware_paint_boh_door__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_hardware_paint_boh_door",
+          "key": "wood_dark",
+          "low": [
+            4.74,
+            0.05,
+            59.225
+          ],
+          "high": [
+            5.58,
+            2.13,
+            59.285
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_hardware_paint_boh_knob",
+          "key": "brass_dull",
+          "low": [
+            5.38,
+            0.96,
+            59.195
+          ],
+          "high": [
+            5.4399999999999995,
+            1.03,
+            59.235
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_keys_cut",
+      "parts": [
+        {
+          "name": "storm_shop_keys_cut_boh_door__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_keys_cut_boh_door__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_keys_cut_boh_door__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_keys_cut_boh_door",
+          "key": "wood_dark",
+          "low": [
+            6.24,
+            0.05,
+            53.825
+          ],
+          "high": [
+            7.08,
+            2.13,
+            53.885000000000005
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_keys_cut_boh_knob",
+          "key": "brass_dull",
+          "low": [
+            6.88,
+            0.96,
+            53.795
+          ],
+          "high": [
+            6.9399999999999995,
+            1.03,
+            53.835
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_luncheonette",
+      "parts": [
+        {
+          "name": "storm_shop_luncheonette_boh_door__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_luncheonette_boh_door__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_luncheonette_boh_door__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_luncheonette_boh_door",
+          "key": "wood_dark",
+          "low": [
+            22.92,
+            0.05,
+            39.315
+          ],
+          "high": [
+            23.759999999999998,
+            2.13,
+            39.375
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_boh_knob",
+          "key": "brass_dull",
+          "low": [
+            23.060000000000002,
+            0.96,
+            39.364999999999995
+          ],
+          "high": [
+            23.12,
+            1.03,
+            39.405
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_model_laundry",
+      "parts": [
+        {
+          "name": "storm_shop_model_laundry_boh_door__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_model_laundry_boh_door__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_model_laundry_boh_door__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_model_laundry_boh_door",
+          "key": "wood_dark",
+          "low": [
+            4.24,
+            0.05,
+            44.625
+          ],
+          "high": [
+            5.08,
+            2.13,
+            44.685
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_model_laundry_boh_knob",
+          "key": "brass_dull",
+          "low": [
+            4.88,
+            0.96,
+            44.595
+          ],
+          "high": [
+            4.9399999999999995,
+            1.03,
+            44.635000000000005
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_news_cigars",
+      "parts": [
+        {
+          "name": "storm_shop_news_cigars_boh_door__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_news_cigars_boh_door__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_news_cigars_boh_door__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_news_cigars_boh_door",
+          "key": "wood_dark",
+          "low": [
+            19.92,
+            0.05,
+            48.815
+          ],
+          "high": [
+            20.759999999999998,
+            2.13,
+            48.87499999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_news_cigars_boh_knob",
+          "key": "brass_dull",
+          "low": [
+            20.06,
+            0.96,
+            48.864999999999995
+          ],
+          "high": [
+            20.12,
+            1.03,
+            48.904999999999994
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_otis_son",
+      "parts": [
+        {
+          "name": "storm_shop_otis___son_boh_door__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_otis___son_boh_door__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_otis___son_boh_door__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_otis___son_boh_door",
+          "key": "wood_dark",
+          "low": [
+            22.92,
+            0.05,
+            44.515
+          ],
+          "high": [
+            23.759999999999998,
+            2.13,
+            44.574999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_otis___son_boh_knob",
+          "key": "brass_dull",
+          "low": [
+            23.060000000000002,
+            0.96,
+            44.565
+          ],
+          "high": [
+            23.12,
+            1.03,
+            44.605
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_pawnbroker",
+      "parts": [
+        {
+          "name": "storm_shop_pawnbroker_boh_door__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_boh_door__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_boh_door__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_pawnbroker_boh_door",
+          "key": "wood_dark",
+          "low": [
+            21.92,
+            0.05,
+            51.114999999999995
+          ],
+          "high": [
+            22.759999999999998,
+            2.13,
+            51.175
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_boh_knob",
+          "key": "brass_dull",
+          "low": [
+            22.060000000000002,
+            0.96,
+            51.16499999999999
+          ],
+          "high": [
+            22.12,
+            1.03,
+            51.205
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_photo_supplies",
+      "parts": [
+        {
+          "name": "storm_shop_photo_supplies_boh_door__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_photo_supplies_boh_door__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_photo_supplies_boh_door__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_photo_supplies_boh_door",
+          "key": "wood_dark",
+          "low": [
+            21.92,
+            0.05,
+            58.91499999999999
+          ],
+          "high": [
+            22.759999999999998,
+            2.13,
+            58.974999999999994
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_photo_supplies_boh_knob",
+          "key": "brass_dull",
+          "low": [
+            22.060000000000002,
+            0.96,
+            58.964999999999996
+          ],
+          "high": [
+            22.12,
+            1.03,
+            59.004999999999995
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_radio_service",
+      "parts": [
+        {
+          "name": "storm_shop_radio_service_boh_door__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_radio_service_boh_door__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_radio_service_boh_door__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_radio_service_boh_door",
+          "key": "wood_dark",
+          "low": [
+            20.92,
+            0.05,
+            55.714999999999996
+          ],
+          "high": [
+            21.759999999999998,
+            2.13,
+            55.77499999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_radio_service_boh_knob",
+          "key": "brass_dull",
+          "low": [
+            21.060000000000002,
+            0.96,
+            55.76499999999999
+          ],
+          "high": [
+            21.12,
+            1.03,
+            55.80499999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    },
+    {
+      "id": "shop_shoe_rebuilding",
+      "parts": [
+        {
+          "name": "storm_shop_shoe_rebuilding_boh_door__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_boh_door__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_shoe_rebuilding_boh_door__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_shoe_rebuilding_boh_door",
+          "key": "wood_dark",
+          "low": [
+            5.24,
+            0.05,
+            50.225
+          ],
+          "high": [
+            6.08,
+            2.13,
+            50.285000000000004
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_shoe_rebuilding_boh_knob",
+          "key": "brass_dull",
+          "low": [
+            5.88,
+            0.96,
+            50.195
+          ],
+          "high": [
+            5.9399999999999995,
+            1.03,
+            50.235
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

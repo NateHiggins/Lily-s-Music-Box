@@ -1008,3 +1008,16 @@ art/renders/orison_v2/laundry_trade_20261007/** -text -whitespace
 # Slender-stock grain helper and retained finish-only comparison/QA bytes.
 art/blender/scripts/fabrication_grain.py -text
 art/renders/orison_v2/wood_grain_20261007/** -text -whitespace
+
+# Closed retail joinery fabrication bindings.
+art/data/shop_joinery/source_plan.json -text
+art/blender/scripts/build_shop_joinery.py -text
+art/blender/scripts/shop_joinery_geometry.py -text
+art/blender/scripts/inspect_shop_joinery.py -text
+art/blender/shop_joinery_construction.json -text
+game/data/orison_v2/shop_joinery.json -text
+game/tests/fixtures/orison_shop_joinery.json -text
+game/scripts/building/orison_v2_shop_joinery.gd -text
+game/assets/props/shop_joinery.glb.import -text
+game/tests/orison_v2_shop_joinery_test.gd -text
+art/renders/orison_v2/shop_joinery_20261007/** -text -whitespace

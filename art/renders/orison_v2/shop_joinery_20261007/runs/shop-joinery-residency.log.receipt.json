@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 117.02,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T15:50:46Z",
+  "started_utc": "2026-10-07T15:48:49Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/shop-joinery-residency.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/shop-joinery-residency.log",
+  "stdout_sha256": "eeda6eefdd3a996e6eb8004c5d95be60d9f96104dac914630cb349ccb5d998b1"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PassageResidencyTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/shop-joinery-residency-shots",
+ "source": {
+  "dirty_paths": 33,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/scripts/build_shop_joinery.py",
+   "?? art/blender/scripts/inspect_shop_joinery.py",
+   "?? art/blender/scripts/shop_joinery_geometry.py",
+   "?? art/blender/shop_joinery.blend",
+   "?? art/blender/shop_joinery.md",
+   "?? art/blender/shop_joinery_construction.json",
+   "?? art/data/shop_joinery/",
+   "?? art/renders/insitu/shot_024.png"
+  ],
+  "repository_head": "0543df751b9be9414e4420b6e7f88d6079437e4a",
+  "repository_tree": "33bcd617ba0869f68da1f45ee55a3aee2c468631",
+  "runtime_inputs_sha256": "a56a79a289e320b577d52a9e2e72e5374f98874238c0bae6952a1cdaa4771f41",
+  "test_path": "game/tests/orison_v2_passage_residency_test.gd",
+  "test_sha256": "d2d261c2e8044f203a9a03cc3dc43dde0080151ffd77bab5eff18d4ab586f648"
+ },
+ "windowed": true
+}

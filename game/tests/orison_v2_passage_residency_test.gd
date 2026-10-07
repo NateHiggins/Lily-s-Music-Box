@@ -100,7 +100,7 @@ func _receiver_values() -> Dictionary:
 func _check_specialist_fittings() -> bool:
 	# Both observed reconstruction cycles must carry the same native owners
 	# as startup, rather than quietly reverting to retired source boxes.
-	for spec: Array in [
+	var specialist_specs: Array=[
 		["shop_model_laundry","LaundryTrade","laundry_trade"],
 		["shop_luncheonette","DinerCounter","diner_counter"],
 		["shop_luncheonette","DinerTill","diner_till"],
@@ -119,7 +119,10 @@ func _check_specialist_fittings() -> bool:
 		["shop_radio_service","RadioStock","radio_stock"],
 		["shop_radio_service","RadioBattery","radio_battery"],
 		["shop_radio_service","RadioWire","radio_wire"],
-		["shop_radio_service","RadioDisplay","radio_display"]]:
+		["shop_radio_service","RadioDisplay","radio_display"]]
+	var joinery: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_shop_joinery.json"))
+	for record: Dictionary in joinery.runtime.cells:specialist_specs.append([str(record.id),"ShopJoinery","shop_joinery"])
+	for spec: Array in specialist_specs:
 		var cell: Node3D=world.passage_region.cell_nodes[spec[0]]
 		var model:=cell.get_node_or_null(str(spec[1])) as Node3D
 		if not _require(model!=null,"reloaded native owner exists: "+str(spec[1])):return false
@@ -134,7 +137,7 @@ func _check_specialist_fittings() -> bool:
 		for box: Dictionary in expected.replace:
 			if not _require(int(retired.get(box.id,-1))==int(box.expected_triangles),"reloaded source boundary stays retired: "+str(box.id)):return false
 		var draws:=model.find_children("*","MeshInstance3D",true,false)
-		if not _require(draws.size()==fixture.parts.size(),"reloaded native partitions remain: "+str(spec[1])):return false
+		if not _require(draws.size()==expected.parts.size(),"reloaded native partitions remain: "+str(spec[1])):return false
 		for draw: MeshInstance3D in draws:
 			var shapes:=draw.find_children("*","CollisionShape3D",true,false)
 			if not _require(shapes.size()==1 and shapes[0].shape is ConcavePolygonShape3D and shapes[0].shape.get_faces()==draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform),"reloaded native visible/physical faces agree: "+str(draw.name)):return false

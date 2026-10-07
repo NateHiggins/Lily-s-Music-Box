@@ -74,7 +74,7 @@ family. Export the complete batch after fit, support, UV and material checks.
 Modules: **pawn_clocks**, **pawn_display**, **pawn_fittings**, **laundry_fittings**,
 **laundry_apparatus**, **laundry_trade**, **diner_counter**, **diner_till**,
 **hardware_tools**, **photo_cameras**, **photo_counter**, **photo_stock**,
-**photo_enlargers**, **photo_portraits** and **radio_wire**. The original
+**photo_enlargers**, **photo_portraits**, **radio_wire** and **shop_joinery**. The original
 clock/display checks remain; display now also checks the fitted safe boundary.
 Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and

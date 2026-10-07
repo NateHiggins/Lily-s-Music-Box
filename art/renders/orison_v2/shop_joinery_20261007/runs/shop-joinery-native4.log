@@ -1,0 +1,489 @@
+FABRICATION STAGE: art/blender/scripts/build_shop_joinery.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_shop_joinery.py:65: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "shop_joinery.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+11:26:45 | INFO: Starting glTF 2.0 export
+11:26:45 | INFO: Extracting primitive: storm_shop_funeral_parlour_boh_door__brass_dull
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_funeral_parlour_boh_door__iron_blackened
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_funeral_parlour_boh_door__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_funeral_parlour_window_plinth__plywood
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_funeral_parlour_window_plinth__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_hardware_paint_boh_door__brass_dull
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_hardware_paint_boh_door__iron_blackened
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_hardware_paint_boh_door__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_keys_cut_boh_door__brass_dull
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_keys_cut_boh_door__iron_blackened
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_keys_cut_boh_door__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_luncheonette_boh_door__brass_dull
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_luncheonette_boh_door__iron_blackened
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_luncheonette_boh_door__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_model_laundry_boh_door__brass_dull
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_model_laundry_boh_door__iron_blackened
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_model_laundry_boh_door__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_news_cigars_boh_door__brass_dull
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_news_cigars_boh_door__iron_blackened
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_news_cigars_boh_door__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_otis___son_boh_door__brass_dull
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_otis___son_boh_door__iron_blackened
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_otis___son_boh_door__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_pawnbroker_boh_door__brass_dull
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_pawnbroker_boh_door__iron_blackened
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_pawnbroker_boh_door__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_photo_supplies_boh_door__brass_dull
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_photo_supplies_boh_door__iron_blackened
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_photo_supplies_boh_door__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_radio_service_boh_door__brass_dull
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_radio_service_boh_door__iron_blackened
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_radio_service_boh_door__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_shoe_rebuilding_boh_door__brass_dull
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_shoe_rebuilding_boh_door__iron_blackened
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Extracting primitive: storm_shop_shoe_rebuilding_boh_door__wood_dark
+11:26:45 | INFO: Primitives created: 1
+11:26:45 | INFO: Finished glTF 2.0 export in 0.2545435428619385 s
+
+SHOP JOINERY 24 original records; 12 assemblies; 595 closed stocks; 35 parts; 120440 triangles; 50 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_shop_joinery.py
+00:21.282  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\shop_joinery.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_shop_joinery.py:55: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True
+11:26:50 | INFO: Data are loaded, start creating Blender stuff
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_bakelite_black-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_brass_dull
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_cast_iron
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_cast_iron-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_common_brick-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_concrete-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_glassish-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_limestone-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_metal
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_milk_glass-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_paper-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_plaster-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_plaster_stained-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_soot-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_terrazzo
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_terrazzo-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_terrazzo_dark
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_trim-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_passage_shell_wood_dark-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_funeral_parlour_limestone-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_hardware_paint_wood_dark-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_keys_cut_common_brick-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_luncheonette_chrome-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_model_laundry_plaster_stained-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_news_cigars_wood_dark-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_otis___son_limestone-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_pawnbroker_common_brick-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_photo_supplies_plaster_stained-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_radio_service_wood_dark-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_PASSAGE_retail_shop_shoe_rebuilding_wood_dark-col
+11:26:50 | INFO: glTF import finished in 0.10s
+11:26:50 | INFO: Data are loaded, start creating Blender stuff
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_awning_vinyl-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_brass_bright-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_brass_dull-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_bronze-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_concrete-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_floor_oak-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_glassish-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_limestone-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_linen-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_metal-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_milk_glass-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_oak_quartered-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_paper-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_plant-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_plaster-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_plaster_stained-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_plywood-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_soot-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_trim-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_vinyl_oxblood-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_wainscot-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_wood_dark-col
+11:26:50 | INFO: Blender create Mesh node F01_OWN_SHOP_FUNERAL_PARLOUR_wear_fx_scuff
+11:26:50 | INFO: glTF import finished in 0.07s
+00:26.907  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_funeral_parlour_door.png'
+00:33.657  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_funeral_parlour_context.png'
+00:35.954  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_funeral_parlour_window_back.png'
+00:38.282  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_funeral_parlour_empty_window.png'
+11:27:04 | INFO: Data are loaded, start creating Blender stuff
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_book_teal-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_brass_bright-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_brass_dull-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_cast_iron-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_concrete-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_countertop-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_fabric_green-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_glassish-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_lacquer_red-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_metal-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_oak_quartered-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_paper-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plaster-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plaster_stained-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plywood-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_safety_orange-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_soot-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_timber-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_trim-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wainscot-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_wood_dark-col
+11:27:04 | INFO: Blender create Mesh node F01_OWN_SHOP_HARDWARE_PAINT_wear_fx_scuff
+11:27:04 | INFO: glTF import finished in 0.07s
+00:41.032  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_hardware_paint_door.png'
+00:48.266  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_hardware_paint_context.png'
+11:27:14 | INFO: Data are loaded, start creating Blender stuff
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_brass-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_brass_bright-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_brass_dull-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_cast_iron-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_chrome-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_common_brick-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_concrete-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_countertop-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_glassish-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_linen-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_metal-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_paper-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_plaster-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_plaster_stained-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_plywood-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_timber-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_trim-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_vinyl_oxblood-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_wainscot-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_wood_dark-col
+11:27:14 | INFO: Blender create Mesh node F01_OWN_SHOP_KEYS_CUT_wear_fx_scuff
+11:27:14 | INFO: glTF import finished in 0.06s
+00:50.704  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_keys_cut_door.png'
+00:57.813  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_keys_cut_context.png'
+11:27:24 | INFO: Data are loaded, start creating Blender stuff
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_awning_vinyl-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_bright-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_dull-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_cast_iron-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_concrete-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_countertop-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fabric_cool
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fx_shadow
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_glassish-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_hull-colonly
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_lacquer_red-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_marble_lobby-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_metal-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_milk_glass
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_nickel_plated-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_paper-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_screen
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terracotta
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_timber-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_trim-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_vinyl_oxblood-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wainscot-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wood_dark-col
+11:27:24 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_wear_fx_scuff
+11:27:24 | INFO: glTF import finished in 0.11s
+01:00.407  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_luncheonette_door.png'
+01:08.735  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_luncheonette_context.png'
+11:27:35 | INFO: Data are loaded, start creating Blender stuff
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_awning_vinyl-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_bakelite
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_bakelite_black
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_book_teal-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_brass
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_brass_bright-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_brass_dull-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_cast_iron-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_chrome-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_concrete-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_countertop-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_enamel
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_fx_shadow
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_glassish-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_hull-colonly
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_linen-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_metal
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_metal-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_milk_glass
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_paper-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster_stained-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plywood-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_quarry_tile-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_rubber_aged-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_screen
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_terracotta
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_timber-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_trim-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_wainscot-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_wood_dark-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_zinc_liner-col
+11:27:35 | INFO: Blender create Mesh node F01_OWN_SHOP_MODEL_LAUNDRY_wear_fx_scuff
+11:27:35 | INFO: glTF import finished in 0.11s
+01:11.422  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_model_laundry_door.png'
+01:19.235  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_model_laundry_context.png'
+11:27:45 | INFO: Data are loaded, start creating Blender stuff
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_bakelite
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_bakelite_black
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_bakelite_black-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_brass
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_brass_bright-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_brass_dull-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_concrete-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_countertop-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_enamel
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_fx_shadow
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_glassish-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_hull-colonly
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_linoleum-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_metal
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_metal-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_milk_glass
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_paper-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_plaster-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_plaster_stained-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_safety_orange-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_screen
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_soot-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_terracotta
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_timber-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_trim-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wainscot-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_wood_dark-col
+11:27:45 | INFO: Blender create Mesh node F01_OWN_SHOP_NEWS_CIGARS_wear_fx_scuff
+11:27:45 | INFO: glTF import finished in 0.10s
+01:21.719  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_news_cigars_door.png'
+01:26.250  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_news_cigars_context.png'
+11:27:52 | INFO: Data are loaded, start creating Blender stuff
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_awning_vinyl-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_bakelite_black-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_book_ochre-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_book_teal-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_brass_bright-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_brass_dull-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_bronze-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_chrome-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_concrete-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_countertop-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_fabric_green-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_glassish-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_lacquer_red-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_limestone-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_marble_lobby-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_metal-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_milk_glass-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_oak_quartered-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_paper-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_plaster-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_plaster_stained-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_plywood-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_porcelain-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_terrazzo-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_timber-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_tin_ceiling-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_trim-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_vinyl_oxblood-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_wainscot-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_wood_dark-col
+11:27:52 | INFO: Blender create Mesh node F01_OWN_SHOP_OTIS_SON_wear_fx_scuff
+11:27:52 | INFO: glTF import finished in 0.13s
+01:29.641  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_otis_son_door.png'
+01:38.985  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_otis_son_context.png'
+11:28:05 | INFO: Data are loaded, start creating Blender stuff
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite_black
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bakelite_black-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_bright-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_dull-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_mesh-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_bronze-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_cast_iron-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_common_brick-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_concrete-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_countertop-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_enamel
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_enamel-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_fabric_cool
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_fabric_warm-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_floor_oak-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_fx_shadow
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_glassish-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_hull-colonly
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_linen-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_metal-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_milk_glass
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_paper-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_plaster-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_plaster_stained-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_plywood-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_screen
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_terracotta
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_timber-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_tin_ceiling-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_trim-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_wainscot-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_wood_dark-col
+11:28:05 | INFO: Blender create Mesh node F01_OWN_SHOP_PAWNBROKER_wear_fx_scuff
+11:28:05 | INFO: glTF import finished in 0.15s
+01:42.141  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_pawnbroker_door.png'
+01:53.579  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_pawnbroker_context.png'
+11:28:20 | INFO: Data are loaded, start creating Blender stuff
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_awning_vinyl-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite_black
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_bakelite_black-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_book_ochre-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_book_teal-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass_bright-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_brass_dull-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_cast_iron-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_chrome
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_concrete-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_enamel
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_enamel-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_felt_violet-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_fx_shadow
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_glassish-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_hull-colonly
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_lacquer_red-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_linoleum-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_metal-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_milk_glass
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_nickel_plated-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_paper-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plaster_stained-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_plywood-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_screen
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_terracotta
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_timber-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_tin_ceiling-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_trim-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_wainscot-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_wood_dark-col
+11:28:20 | INFO: Blender create Mesh node F01_OWN_SHOP_PHOTO_SUPPLIES_wear_fx_scuff
+11:28:20 | INFO: glTF import finished in 0.17s
+01:56.610  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_photo_supplies_door.png'
+02:03.875  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_photo_supplies_context.png'
+11:28:30 | INFO: Data are loaded, start creating Blender stuff
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_awning_vinyl-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_bright-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_dull-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_cast_iron-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_concrete-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_copper_aged-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_countertop-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fabric_warm-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fx_shadow
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_glassish-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull-colonly
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_metal-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_nickel_plated-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_paper-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster_stained-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plywood-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_stairwell_teal-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_timber-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_trim-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wainscot-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col
+11:28:30 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_wear_fx_scuff
+11:28:30 | INFO: glTF import finished in 0.18s
+02:06.954  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_radio_service_door.png'
+02:14.188  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_radio_service_context.png'
+11:28:40 | INFO: Data are loaded, start creating Blender stuff
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_brass_bright-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_brass_dull-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_cast_iron-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_concrete-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_countertop-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_floor_oak-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_glassish-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_lacquer_red-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_metal-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_paper-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_plaster-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_plaster_stained-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_plywood-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_rubber_aged-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_soot-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_timber-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_trim-col
+11:28:40 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_vinyl_oxblood-col
+11:28:41 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wainscot-col
+11:28:41 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_wood_dark-col
+11:28:41 | INFO: Blender create Mesh node F01_OWN_SHOP_SHOE_REBUILDING_wear_fx_scuff
+11:28:41 | INFO: glTF import finished in 0.15s
+02:17.125  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_shoe_rebuilding_door.png'
+02:24.422  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\shop-joinery-native\shop_shoe_rebuilding_context.png'
+SHOP JOINERY NATIVE: 595 closed stocks; 12 joined assemblies; 50 bearings; 24 views
+{"completed_stages": 2, "elapsed_s": 143.228}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
