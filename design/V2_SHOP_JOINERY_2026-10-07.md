@@ -57,7 +57,13 @@ rails. Final plan wording and normalized import provenance were rebound only
 after all other source bindings and the exported mesh were checked unchanged.
 
 Passage residency passes 42 waypoints with zero failures in 117.02 seconds,
-including reload ownership in every shop. Clean static verification follows. Spatial dependencies add 26 exact rows, preserving
+including reload ownership in every shop. Clean candidate **8083df6b9fb9c312c16364ae9cd6e934ed9d1848**
+passes all 49 board entries / 42 tools suites with zero regressions, NEW unread
+fields zero, all 17 protected paths unchanged and all 240 requirement statuses
+unchanged. Tree **b4d6edf09bfbc5e1e9372575100098497548c7d2** is identical to source
+**ddedcebbd31123e009a6b7a3769663800966ddf0**. The verifier reused the clean cached
+**1c319e58** baseline with no Godot and removed its temporary checkout.
+The six ledger blocker counts remain **7 / 8 / 127 / 42 / 151 / 153**. Spatial dependencies add 26 exact rows, preserving
 the previous manifest text and entries. The shared validator supports sixteen
 families. Reload checks use each cell's expected part count, including all
 eleven new joinery owners.
