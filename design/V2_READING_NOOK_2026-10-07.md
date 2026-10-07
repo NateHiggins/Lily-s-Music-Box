@@ -1,8 +1,8 @@
-# V2 reading nook and original lamp installations — 2026-10-07
+# V2 reading nook and original lamp installations â€” 2026-10-07
 
 Evidence class: **INERT**
 
-REPORT — V2-READING-NOOK — 2026-10-07
+REPORT â€” V2-READING-NOOK â€” 2026-10-07
 
 ## Branch and source
 
@@ -61,3 +61,16 @@ External supply cords, fixed light bodies and remaining household furnishings
 are open. Apartment captures still show original low-detail furniture and do
 not certify whole-room photorealism. V2 remains incomplete; blocker counts
 stay **7 / 8 / 127 / 42 / 151 / 153**. Autonomous continuation remains active.
+
+## Verified source binding
+
+Source **90ed6f37509845e58ece31edf7420ab79a79ed56** has the exact tree of verified
+candidate **fff1affd997dc5068d751a58671e31d6d0f8f231**:
+**1a5410801475f4640239258feef5027c382c0bdb**. The clean candidate reports zero gate
+regressions and requirement-status changes, with all 17 protected paths intact.
+The manifest appends 42 classified records while preserving all earlier rows.
+No gate predicate or exception changed. Verification reused the complete cached
+baseline and launched no additional Godot process; its temporary checkout was
+removed. The planner registers 80 families and 26 shared batch modules; only
+the pre-existing front-pavement source drift remains. Three new source UIDs
+are retained and 261 unrelated import-generated UIDs were removed.

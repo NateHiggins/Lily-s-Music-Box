@@ -1,0 +1,136 @@
+{
+  "evidence_class": "INERT",
+  "source_commit": "90ed6f37509845e58ece31edf7420ab79a79ed56",
+  "verified_candidate": "fff1affd997dc5068d751a58671e31d6d0f8f231",
+  "identical_tree": "1a5410801475f4640239258feef5027c382c0bdb",
+  "regressions": [],
+  "requirements_changed": [],
+  "protected": {
+    "status": "PASS",
+    "matched": 17,
+    "authorized_selector_changes": 0,
+    "expected": 17,
+    "recorded_baseline_matches": 7,
+    "files": [
+      {
+        "path": "art/data/building_layout.json",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/data/building_layout.json",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/scripts/building/building_root_selector.gd",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_01.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_01.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_02.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_02.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_03.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_03.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_04.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_04.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_05.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_05.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_06.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_06.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      },
+      {
+        "path": "game/assets/building/floor_b1.gltf",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": false
+      },
+      {
+        "path": "game/assets/building/floor_b1.bin",
+        "unchanged_vs_merge_base": true,
+        "authorized_selector_cutover": false,
+        "matches_recorded_baseline": true
+      }
+    ]
+  },
+  "ledger_before": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "ledger_after": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "note": "Metadata-only binding after exact-tree source commit; native and engine evidence is unchanged."
+}
