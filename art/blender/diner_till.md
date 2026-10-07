@@ -59,3 +59,10 @@ The exact source, actual observations, reconstruction, receivers, counter
 and separate full key authority are retained in
 **art/renders/orison_v2/diner_till_20261006**; report:
 **design/V2_DINER_TILL_2026-10-06.md**. V2 remains incomplete.
+
+Import-provenance correction: Godot normalized the import UID after initial
+native review. The bounded builder refresh regenerates both source-bound
+fixtures without changing the Till blend, GLB or runtime JSON. Fresh native
+checks and all nine renders pass; candidate **7397ba6b** reruns Till
+and the complete Diner/residency/key matrix. See
+**design/V2_DINER_BACKBAR_2026-10-06.md** and its byte-bound packet.

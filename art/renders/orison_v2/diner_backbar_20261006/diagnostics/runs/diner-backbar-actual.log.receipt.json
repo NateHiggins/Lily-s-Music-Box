@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 45.89,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T00:50:05Z",
+  "started_utc": "2026-10-07T00:49:18Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/diner-backbar-actual.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/diner-backbar-actual.log",
+  "stdout_sha256": "ccca206ee798251e4f2a8966b8980d9dc1540ee03ca94245dc0086c2dd0b6a9c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2DinerBackbarTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 283,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/diner_till_construction.json",
+   " M art/blender/scripts/build_diner_till.py",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/fixtures/orison_diner_till.json",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/diner_backbar.blend",
+   "?? art/blender/diner_backbar_construction.json",
+   "?? art/blender/scripts/build_diner_backbar.py",
+   "?? art/blender/scripts/inspect_diner_backbar.py",
+   "?? art/data/diner_backbar/",
+   "?? game/assets/props/diner_backbar.glb",
+   "?? game/data/orison_v2/diner_backbar.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid"
+  ],
+  "repository_head": "f1b8421c3c405ccbfb31d9b07635642c90643b8e",
+  "repository_tree": "bec4749c16a0093a3baf293af573e4387fa3266a",
+  "runtime_inputs_sha256": "20e560f66d320f290277a6eb0364ffa0ca4df427ab26ef8bf9013beeb6dcdc69",
+  "test_path": "game/tests/orison_v2_diner_backbar_test.gd",
+  "test_sha256": "315b8df97f69a8c3541d413a9a781d85f8721300f0a98f125bffbf6d7a4d550c"
+ },
+ "windowed": true
+}

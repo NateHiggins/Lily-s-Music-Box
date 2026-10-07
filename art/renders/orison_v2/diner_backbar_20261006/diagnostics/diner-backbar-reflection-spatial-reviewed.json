@@ -1,0 +1,68 @@
+{
+ "evidence_class": "INERT",
+ "manifest_before_lf_sha256": "15ec074de16df150619740a339f45fb203605593d693dd3899b43e9e8e9853c6",
+ "manifest_after_lf_sha256": "172f979dab8f004cfe2a1f287a68a72e3ab947fabcd0671103b04a1a0b62d07d",
+ "records": [
+  {
+   "key": "ce71adc963294a94",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/scripts/building/orison_v2_diner_backbar.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "var floors: Array=layout.floors.filter(func(row):return row.id==\"F01\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "870f0fd7a02a99f9",
+   "kind": "id_reference",
+   "token": "storm_shop_luncheonette_floor",
+   "file": "game/scripts/building/orison_v2_diner_backbar.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "var floor: Dictionary=floors[0].furniture.filter(func(row):return row.id==\"storm_shop_luncheonette_floor\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/furniture",
+   "target_exists": true
+  }
+ ],
+ "scope": "One-time room reflection derives its centre and extents from the exact original F01 Diner floor; append only those two reviewed lookup identities, preserving every earlier row."
+}

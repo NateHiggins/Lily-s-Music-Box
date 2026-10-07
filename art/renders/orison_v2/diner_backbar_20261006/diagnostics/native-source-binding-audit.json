@@ -1,0 +1,23 @@
+{
+ "evidence_class": "INERT",
+ "scope": "Current source-binding inventory, no automatic rebinding or geometry invalidation from historical dependency drift. Till/backbar must match all current sources.",
+ "drift": [
+  {
+   "report": "art/blender/front_pavement_construction.json",
+   "dependencies": [
+    {
+     "path": "game/data/orison_v2/world_connection.json",
+     "recorded_sha256": "dc5c822ed19d68c6aeb749f0d07eb5ef38533402f16add94106b6b5270925226",
+     "current_sha256": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
+     "exists": true
+    },
+    {
+     "path": "art/blender/exterior_masonry.blend",
+     "recorded_sha256": "27ccd2abf88dde0782f6d842f49a7276d9335ae17ed206550138398afc21a93c",
+     "current_sha256": "3e529ba1738cc26f090fe03107730b208873eabeebca7b89c19cfcc626421ec3",
+     "exists": true
+    }
+   ]
+  }
+ ]
+}

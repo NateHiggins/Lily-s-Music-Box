@@ -51,3 +51,10 @@ Strong original lamp glare remains a separate optical concern. Back bar/urns/she
 No owner decision is needed for bounded local construction. Earlier exact Cobbler publication approval remains pending after automatic approval review; later commits have not been pushed under the Keys Cut approval.
 
 MERGE-CANDIDATE **ff21d436ebef1c435b175251274743209b2d9a95**
+
+Import-provenance correction: Godot normalized the import UID after initial
+native review. The bounded builder refresh regenerates both source-bound
+fixtures without changing the Till blend, GLB or runtime JSON. Fresh native
+checks and all nine renders pass; candidate **7397ba6b** reruns Till
+and the complete Diner/residency/key matrix. See
+**design/V2_DINER_BACKBAR_2026-10-06.md** and its byte-bound packet.

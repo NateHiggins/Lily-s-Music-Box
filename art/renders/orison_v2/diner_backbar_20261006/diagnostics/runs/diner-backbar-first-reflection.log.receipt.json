@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 27.75,
+  "exit_code": 1,
+  "finished_utc": "2026-10-07T00:48:21Z",
+  "started_utc": "2026-10-07T00:47:53Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Invalid assignment of property or key 'resolution' with value of type 'int' on a base object of type 'ReflectionProbe'."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/diner-backbar-actual.log.stderr",
+  "stderr_sha256": "06969bb188431940fbb217107f17087da201bbd0ce7bbfbc6919e3288a3ac976",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/diner-backbar-actual.log",
+  "stdout_sha256": "cbad211971cf564448300fcbd5e69cfb05e508e442a5ba121f7e515ed0f4a21b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2DinerBackbarTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 283,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/diner_till_construction.json",
+   " M art/blender/scripts/build_diner_till.py",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/fixtures/orison_diner_till.json",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/diner_backbar.blend",
+   "?? art/blender/diner_backbar_construction.json",
+   "?? art/blender/scripts/build_diner_backbar.py",
+   "?? art/blender/scripts/inspect_diner_backbar.py",
+   "?? art/data/diner_backbar/",
+   "?? game/assets/props/diner_backbar.glb",
+   "?? game/data/orison_v2/diner_backbar.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid"
+  ],
+  "repository_head": "f1b8421c3c405ccbfb31d9b07635642c90643b8e",
+  "repository_tree": "bec4749c16a0093a3baf293af573e4387fa3266a",
+  "runtime_inputs_sha256": "fa6e047edf9a80934eb411cabd5e5263debccf4e4c29cf04cdd202b5fcc95108",
+  "test_path": "game/tests/orison_v2_diner_backbar_test.gd",
+  "test_sha256": "84b40b11a7a85de834c9d8f8e12ed0aad2c10c0e8e94d6eeaa4c59c11483cf64"
+ },
+ "windowed": true
+}

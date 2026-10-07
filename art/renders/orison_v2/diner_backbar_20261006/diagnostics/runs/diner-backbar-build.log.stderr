@@ -1,0 +1,2 @@
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_diner_backbar.py:63: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat

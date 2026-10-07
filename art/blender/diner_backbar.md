@@ -40,8 +40,7 @@ retention, imported charts, physical faces, hollow inner panels, source
 shelf dimensions, floor/display seats and the bounded reflection owner.
 All six requested standing stations are clear. Initial occluded views,
 black-chrome comparisons, coplanar-joint images and the unsupported
-per-probe-resolution diagnostic remain separate evidence. Wider committed
-verification remains required before production acceptance.
+per-probe-resolution diagnostic remain separate evidence. Committed production verification is recorded below.
 
 Godot normalized the earlier Till import identifier after its initial
 native inspection. The Till builder now has a bounded
@@ -56,3 +55,10 @@ Food/drink service, urns, griddle, fountain/pumps, mixer, pie-case glazing,
 menu, fan, changing reflection content over time, continuous routes,
 utilities/capacity, wider optical glare and human acceptance remain open.
 V2 remains incomplete.
+
+Committed source **7397ba6b** passes **48** gates/tools tests and
+**10** bound Godot runs with zero regressions. All **76** candidate
+frames were directly reviewed. Exact receipts/source and the separate
+resident-key authority are retained in
+**art/renders/orison_v2/diner_backbar_20261006**; report:
+**design/V2_DINER_BACKBAR_2026-10-06.md**. V2 remains incomplete.

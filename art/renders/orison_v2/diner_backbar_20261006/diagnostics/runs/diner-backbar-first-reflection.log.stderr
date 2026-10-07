@@ -1,0 +1,34 @@
+SCRIPT ERROR: Invalid assignment of property or key 'resolution' with value of type 'int' on a base object of type 'ReflectionProbe'.
+   at: mount_cell (res://scripts/building/orison_v2_diner_backbar.gd:16)
+   GDScript backtrace (most recent call first):
+       [0] mount_cell (res://scripts/building/orison_v2_diner_backbar.gd:16)
+       [1] _ready (res://scripts/building/orison_v2_passage_region.gd:151)
+       [2] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:586)
+       [3] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [4] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [5] _run (res://tests/orison_v2_diner_backbar_test.gd:6)
+ERROR: V2 PASSAGE: native Diner rear bench/shelves fit refused: shop_luncheonette
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _fail (res://scripts/building/orison_v2_passage_region.gd:450)
+       [1] _ready (res://scripts/building/orison_v2_passage_region.gd:152)
+       [2] _compose_exterior (res://scripts/building/orison_v2_runtime_root.gd:586)
+       [3] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:308)
+       [4] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [5] _run (res://tests/orison_v2_diner_backbar_test.gd:6)
+ERROR: ORISON V2 RUNTIME: exterior composition failed
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:310)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [2] _run (res://tests/orison_v2_diner_backbar_test.gd:6)
+ERROR: composed world fits the original Diner
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _run (res://tests/orison_v2_diner_backbar_test.gd:8)
+WARNING: Leaked instance dependency: Bug - did not call instance_notify_deleted when freeing.
+   at: ~Dependency (servers/rendering/storage/utilities.cpp:56)
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
