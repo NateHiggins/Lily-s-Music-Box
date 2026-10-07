@@ -214,6 +214,9 @@ func _stage_one() -> void:
 		if not region.PhotoCameras.mount_cell(cell,region.source_layout):
 			_fail("native photography display reload fit refused: "+identity)
 			return
+		if not region.DinerCounter.mount_cell(cell,region.source_layout):
+			_fail("native Diner counter reload fit refused: "+identity)
+			return
 		if not region.PhotoCounter.mount_cell(cell,region.source_layout):
 			_fail("native photography counter reload fit refused: "+identity)
 			return

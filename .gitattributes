@@ -899,3 +899,12 @@ game/data/orison_v2/diner_receiving.json -text
 game/tests/fixtures/orison_diner_receiving.json -text
 game/assets/props/diner_receiving.glb.import -text
 art/renders/orison_v2/diner_receiving_20261006/** -text
+
+# Diner source-bound fabrication and retained byte-exact receipts.
+art/data/diner_counter/source_plan.json -text
+art/blender/scripts/build_diner_counter.py -text
+art/blender/scripts/inspect_diner_counter.py -text
+game/assets/props/diner_counter.glb.import -text
+art/blender/diner_counter_construction.json -text
+game/tests/fixtures/orison_diner_counter.json -text
+art/renders/orison_v2/diner_counter_20261006/** -text

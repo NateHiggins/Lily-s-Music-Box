@@ -34,6 +34,9 @@ static func mount_hardware_tools(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_photo_cameras(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/photo_cameras.json","PhotoCameras","F01_retail_photo_cameras_","photo_cameras_part")
 
+static func mount_diner_counter(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/diner_counter.json","DinerCounter","F01_retail_diner_counter_","diner_counter_part")
+
 static func mount_photo_counter(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/photo_counter.json","PhotoCounter","F01_retail_photo_counter_","photo_counter_part")
 

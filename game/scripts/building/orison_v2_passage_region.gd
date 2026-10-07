@@ -43,6 +43,7 @@ const DinerReceiving := preload("res://scripts/building/orison_v2_diner_receivin
 const Receivers := preload("res://scripts/building/orison_v2_passage_receivers.gd")
 const PhotoEnlargers := preload("res://scripts/building/orison_v2_photo_enlargers.gd")
 const PhotoStock := preload("res://scripts/building/orison_v2_photo_stock.gd")
+const DinerCounter := preload("res://scripts/building/orison_v2_diner_counter.gd")
 const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
 const HardwareStock := preload("res://scripts/building/orison_v2_hardware_stock.gd")
 const HardwareApparatus := preload("res://scripts/building/orison_v2_hardware_apparatus.gd")
@@ -138,6 +139,9 @@ func _ready() -> void:
 			return
 		if not PhotoCameras.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native photography display fit refused: "+identity)
+			return
+		if not DinerCounter.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native Diner counter fit refused: "+identity)
 			return
 		if not PhotoCounter.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native photography counter fit refused: "+identity)
