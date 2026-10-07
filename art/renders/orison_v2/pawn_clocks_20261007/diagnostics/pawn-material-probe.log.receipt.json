@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 1.12,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T10:37:17Z",
+  "started_utc": "2026-10-07T10:37:16Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-material-probe.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-material-probe.log",
+  "stdout_sha256": "8f57f2685c4922be1fa319d9c212f9ef275f6e306342cac96ca76e2c93b45363"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tmp/pawn_material_probe.gd",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 288,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/pawn_clocks.blend",
+   "?? art/blender/pawn_clocks.md",
+   "?? art/blender/pawn_clocks_construction.json",
+   "?? art/blender/scripts/build_pawn_clocks.py",
+   "?? art/blender/scripts/inspect_pawn_clocks.py",
+   "?? art/data/pawn_clocks/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? game/assets/props/pawn_clocks.glb"
+  ],
+  "repository_head": "193cce6fc969c7b0477b6d6c1951d4ead0118991",
+  "repository_tree": "29b54c5394bf0a077c87008865138d0d067b0a5b",
+  "runtime_inputs_sha256": "7633d7974738bc61ae898b83d5304b13f656b3116d2cf12b9c7bcd14ccd17c4c",
+  "test_path": "game/tmp/pawn_material_probe.gd",
+  "test_sha256": "dd98dc54c8f68b30bdf6b2ddd99262dfea599bc7c1054df267c0a7752e8e82fe"
+ },
+ "windowed": false
+}

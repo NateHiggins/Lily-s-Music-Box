@@ -957,3 +957,6 @@ art/blender/pawn_clocks_construction.json -text
 game/assets/props/pawn_clocks.glb.import -text
 game/data/orison_v2/pawn_clocks.json -text
 game/tests/fixtures/orison_pawn_clocks.json -text
+
+# Exact hash-bound clock review diagnostics retain their captured bytes.
+art/renders/orison_v2/pawn_clocks_20261007/** -text -whitespace

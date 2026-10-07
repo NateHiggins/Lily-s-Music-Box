@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 47.26,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T10:38:16Z",
+  "started_utc": "2026-10-07T10:37:28Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-clocks-focused3.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-clocks-focused3.log",
+  "stdout_sha256": "92c2e17d4572cd7cd645c529f10c7d50955d8771e3bae0971b1b4fae0453a801"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PawnClocksTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-clocks-canonical",
+ "source": {
+  "dirty_paths": 288,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   "?? art/blender/pawn_clocks.blend",
+   "?? art/blender/pawn_clocks.md",
+   "?? art/blender/pawn_clocks_construction.json",
+   "?? art/blender/scripts/build_pawn_clocks.py",
+   "?? art/blender/scripts/inspect_pawn_clocks.py",
+   "?? art/data/pawn_clocks/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? game/assets/props/pawn_clocks.glb"
+  ],
+  "repository_head": "193cce6fc969c7b0477b6d6c1951d4ead0118991",
+  "repository_tree": "29b54c5394bf0a077c87008865138d0d067b0a5b",
+  "runtime_inputs_sha256": "45fb7e9f65d985a85162dde7c0e785260c6610256bf4bc012c61cfcccb4d6e1d",
+  "test_path": "game/tests/orison_v2_pawn_clocks_test.gd",
+  "test_sha256": "aa2911d9b7a825da7229de0095a8338c2f3316e9bc8d3106c510dffb5f53bc54"
+ },
+ "windowed": true
+}
