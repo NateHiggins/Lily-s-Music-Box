@@ -62,3 +62,14 @@ remaining source drift is the previously recorded front pavement. Desktop
 stock, the functional terminal cabinet, lamp surface faceting and external
 supply cords, adjacent furnishings and final room material/light balance are
 open. V2 remains incomplete; blocker counts remain **7 / 8 / 127 / 42 / 151 / 153**.
+
+## Verified source binding
+
+Source **8c5972e213d9ca8e604a3ba11f489d4d714991f6** has the identical tree
+**9352f9bda97623957d9921d45ee66f34d909778d** as verified candidate
+**26bc19124082b91ffc68b5e8e0831d3114952c68**. Verification reports zero gate
+regressions and requirement-status changes; all 17 protected paths match.
+The spatial manifest adds 15 classified rows, preserving every earlier row.
+No gate predicate or exception changed. Static verification used the cached
+complete baseline without Godot; its temporary checkout was removed.
+Two new source UIDs remain; 261 unrelated import-generated UIDs were removed.
