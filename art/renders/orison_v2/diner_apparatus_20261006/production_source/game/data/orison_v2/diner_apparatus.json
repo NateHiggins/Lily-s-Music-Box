@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/diner_apparatus.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_luncheonette",
+      "parts": [
+        {
+          "name": "storm_shop_luncheonette_griddle__cast_iron",
+          "key": "cast_iron",
+          "tile": 0.4
+        },
+        {
+          "name": "storm_shop_luncheonette_griddle__metal",
+          "key": "metal",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_luncheonette_soda_fount__marble_lobby",
+          "key": "marble_lobby",
+          "tile": 1.5
+        },
+        {
+          "name": "storm_shop_luncheonette_soda_fount__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "storm_shop_luncheonette_mixer_base__enamel",
+          "key": "enamel",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_luncheonette_mixer_base__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_luncheonette_griddle",
+          "key": "metal",
+          "low": [
+            21.9,
+            0.05,
+            42.8
+          ],
+          "high": [
+            22.45,
+            0.9700000000000001,
+            43.89999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_griddle_top",
+          "key": "cast_iron",
+          "low": [
+            21.87,
+            0.97,
+            42.779999999999994
+          ],
+          "high": [
+            22.48,
+            1.01,
+            43.919999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_soda_fount",
+          "key": "marble_lobby",
+          "low": [
+            21.88,
+            0.05,
+            41.17999999999999
+          ],
+          "high": [
+            22.46,
+            0.9700000000000001,
+            42.42
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_syrup0",
+          "key": "nickel_plated",
+          "low": [
+            22.060000000000002,
+            1.0,
+            42.17999999999999
+          ],
+          "high": [
+            22.32,
+            1.42,
+            42.3
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_syrup1",
+          "key": "nickel_plated",
+          "low": [
+            22.060000000000002,
+            1.0,
+            41.94
+          ],
+          "high": [
+            22.32,
+            1.42,
+            42.06
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_syrup2",
+          "key": "nickel_plated",
+          "low": [
+            22.060000000000002,
+            1.0,
+            41.699999999999996
+          ],
+          "high": [
+            22.32,
+            1.42,
+            41.81999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_syrup3",
+          "key": "nickel_plated",
+          "low": [
+            22.060000000000002,
+            1.0,
+            41.459999999999994
+          ],
+          "high": [
+            22.32,
+            1.42,
+            41.58
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_syrup4",
+          "key": "nickel_plated",
+          "low": [
+            22.060000000000002,
+            1.0,
+            41.22
+          ],
+          "high": [
+            22.32,
+            1.42,
+            41.339999999999996
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_mixer_base",
+          "key": "enamel",
+          "low": [
+            22.1,
+            1.0,
+            40.62
+          ],
+          "high": [
+            22.439999999999998,
+            1.32,
+            40.98
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_mixer_post",
+          "key": "nickel_plated",
+          "low": [
+            22.17,
+            1.32,
+            40.76
+          ],
+          "high": [
+            22.37,
+            1.86,
+            40.839999999999996
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

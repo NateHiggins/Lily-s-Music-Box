@@ -1,0 +1,54 @@
+00:00.047  reports          | WARNING Unable to open 'C:\Users\nate_\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+00:01.562  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\diner_apparatus.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_diner_apparatus.py:57: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+21:58:01 | INFO: Data are loaded, start creating Blender stuff
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_awning_vinyl-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_bright-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_dull-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_cast_iron-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_concrete-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_countertop-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fabric_cool
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fx_shadow
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_glassish-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_hull-colonly
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_lacquer_red-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_marble_lobby-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_metal-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_milk_glass
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_nickel_plated-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_paper-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_screen
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terracotta
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_timber-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_trim-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_vinyl_oxblood-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wainscot-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wood_dark-col
+21:58:01 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_wear_fx_scuff
+21:58:01 | INFO: glTF import finished in 0.16s
+00:06.390  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-apparatus-native\apparatus_context.png'
+00:09.062  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-apparatus-native\griddle_front.png'
+00:12.156  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-apparatus-native\griddle_empty_bed.png'
+00:13.734  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-apparatus-native\griddle_floor_feet.png'
+00:16.515  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-apparatus-native\five_pumps.png'
+00:19.562  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-apparatus-native\pump_open_nozzle.png'
+00:22.328  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-apparatus-native\fountain_floor.png'
+00:23.781  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-apparatus-native\mixer_head.png'
+00:25.765  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\diner-apparatus-native\mixer_floor_stand.png'
+DINER APPARATUS NATIVE QA 76 closed connected stocks; 3 joined assemblies; 32 actual contacts; 9 views
+
+Blender quit

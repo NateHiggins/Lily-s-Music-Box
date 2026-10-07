@@ -37,6 +37,11 @@ Two failed focused runs retained short cap-height probes; diagnostics confirm
 all five imported button maxima at **1.42m** using longer rays through cap
 interiors. The confirmed ray spans retain the same **0.00003m** tolerance.
 
-Full candidate and reconstruction review is pending. Heat, food/drink
+Full candidate and reconstruction checks also pass; see the retained receipts below. Heat, food/drink
 contents, powered operation, service continuity/capacity, continuous routes
 and human acceptance remain open. Captures/fittings/wrappers are inert.
+
+Committed source **fa769b26** has a complete **48**-gate/tools-test comparison
+with zero regressions, **thirteen** bound Godot runs (ten initial, one receiving repeat plus two imports; first receiving output error retained diagnostically) and **81** directly reviewed final
+frames. Byte-bound receipts/source: **art/renders/orison_v2/diner_apparatus_20261006**.
+Report: **design/V2_DINER_APPARATUS_2026-10-06.md**. V2 remains incomplete.

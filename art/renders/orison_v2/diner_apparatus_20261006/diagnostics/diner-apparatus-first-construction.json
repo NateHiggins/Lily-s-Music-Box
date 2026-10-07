@@ -1,0 +1,1451 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_luncheonette_griddle",
+      "rect": [
+        21.9,
+        -43.89999999999999,
+        22.45,
+        -42.8
+      ],
+      "z0": 0.05,
+      "h": 0.92,
+      "mat": "metal",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_griddle_top",
+      "rect": [
+        21.87,
+        -43.919999999999995,
+        22.48,
+        -42.779999999999994
+      ],
+      "z0": 0.97,
+      "h": 0.04,
+      "mat": "cast_iron",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_soda_fount",
+      "rect": [
+        21.88,
+        -42.42,
+        22.46,
+        -41.17999999999999
+      ],
+      "z0": 0.05,
+      "h": 0.92,
+      "mat": "marble_lobby",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_syrup0",
+      "rect": [
+        22.060000000000002,
+        -42.3,
+        22.32,
+        -42.17999999999999
+      ],
+      "z0": 1.0,
+      "h": 0.42,
+      "mat": "nickel_plated",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_syrup1",
+      "rect": [
+        22.060000000000002,
+        -42.06,
+        22.32,
+        -41.94
+      ],
+      "z0": 1.0,
+      "h": 0.42,
+      "mat": "nickel_plated",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_syrup2",
+      "rect": [
+        22.060000000000002,
+        -41.81999999999999,
+        22.32,
+        -41.699999999999996
+      ],
+      "z0": 1.0,
+      "h": 0.42,
+      "mat": "nickel_plated",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_syrup3",
+      "rect": [
+        22.060000000000002,
+        -41.58,
+        22.32,
+        -41.459999999999994
+      ],
+      "z0": 1.0,
+      "h": 0.42,
+      "mat": "nickel_plated",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_syrup4",
+      "rect": [
+        22.060000000000002,
+        -41.339999999999996,
+        22.32,
+        -41.22
+      ],
+      "z0": 1.0,
+      "h": 0.42,
+      "mat": "nickel_plated",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_mixer_base",
+      "rect": [
+        22.1,
+        -40.98,
+        22.439999999999998,
+        -40.62
+      ],
+      "z0": 1.0,
+      "h": 0.32,
+      "mat": "enamel",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_mixer_post",
+      "rect": [
+        22.17,
+        -40.839999999999996,
+        22.37,
+        -40.76
+      ],
+      "z0": 1.32,
+      "h": 0.54,
+      "mat": "nickel_plated",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_luncheonette_griddle",
+      "kind": "griddle",
+      "cell": "shop_luncheonette",
+      "floor": {
+        "id": "storm_shop_luncheonette_floor",
+        "rect": [
+          17.0,
+          -44.3,
+          24.0,
+          -39.3
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_luncheonette",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_luncheonette_soda_fount",
+      "kind": "fountain",
+      "cell": "shop_luncheonette",
+      "floor": {
+        "id": "storm_shop_luncheonette_floor",
+        "rect": [
+          17.0,
+          -44.3,
+          24.0,
+          -39.3
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_luncheonette",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_luncheonette_mixer_base",
+      "kind": "mixer",
+      "cell": "shop_luncheonette",
+      "floor": {
+        "id": "storm_shop_luncheonette_floor",
+        "rect": [
+          17.0,
+          -44.3,
+          24.0,
+          -39.3
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_luncheonette",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_luncheonette_griddle_Foot21.979999999999997-43.80999999999999",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 7.564720094455982e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_Leg21.979999999999997-43.80999999999999",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 0.00037883730124938994
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_Foot21.979999999999997-42.89",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 7.564726260589512e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_Leg21.979999999999997-42.89",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 0.00037883730124938994
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_Foot22.37-43.80999999999999",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 7.564731629274509e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_Leg22.37-43.80999999999999",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 0.00037883730124938994
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_Foot22.37-42.89",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 7.564737798318425e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_Leg22.37-42.89",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 0.00037883730124938994
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_Bottom",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 0.0018145712177941478
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_Roof",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 0.0018146072787394074
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_Side21.9",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 0.0011955906814104524
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_Side22.447",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 0.0011955906814104526
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_End-43.89999999999999",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 0.0005970572101362281
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_End-42.803",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 0.0005970572101362281
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_IronBed",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "cast_iron",
+      "volume_m3": 0.021830236074540307
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_GutterFloor",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "cast_iron",
+      "volume_m3": 0.00019794734053774516
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_GutterOuter",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "cast_iron",
+      "volume_m3": 0.00020243415607499254
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_GutterEnd-43.913999999999994",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "cast_iron",
+      "volume_m3": 7.700948094590764e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_GutterEnd-42.791",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "cast_iron",
+      "volume_m3": 7.700948094590764e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_BedEnd-43.913999999999994",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "cast_iron",
+      "volume_m3": 1.6583540974788657e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_BedEnd-42.791",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "cast_iron",
+      "volume_m3": 1.6583540974788657e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_BedRear",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "cast_iron",
+      "volume_m3": 4.6817708091603157e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_BlankControl-43.63999999999999",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 1.4046847702417136e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_BlankControl-43.349999999999994",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 1.4046847702417136e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle_BlankControl-43.059999999999995",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "key": "metal",
+      "volume_m3": 1.4046847702417136e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_soda_fount_StonePlinth",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "marble_lobby",
+      "volume_m3": 0.053650201674680306
+    },
+    {
+      "name": "storm_shop_luncheonette_soda_fount_Bottom",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "marble_lobby",
+      "volume_m3": 0.01153854693553638
+    },
+    {
+      "name": "storm_shop_luncheonette_soda_fount_Roof",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "marble_lobby",
+      "volume_m3": 0.011538551711764246
+    },
+    {
+      "name": "storm_shop_luncheonette_soda_fount_Side21.901999999999997",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "marble_lobby",
+      "volume_m3": 0.0190841914189588
+    },
+    {
+      "name": "storm_shop_luncheonette_soda_fount_Side22.42",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "marble_lobby",
+      "volume_m3": 0.0190841914189588
+    },
+    {
+      "name": "storm_shop_luncheonette_soda_fount_End-42.398",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "marble_lobby",
+      "volume_m3": 0.00853416099371623
+    },
+    {
+      "name": "storm_shop_luncheonette_soda_fount_End-41.21999999999999",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "marble_lobby",
+      "volume_m3": 0.00853596989333808
+    },
+    {
+      "name": "storm_shop_luncheonette_soda_fount_StoneUpperSlab",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "marble_lobby",
+      "volume_m3": 0.017972626057831193
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup0_HollowPump",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005090870423388785
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup0_Cap",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.00014247726603802978
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup0_Plunger",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 9.43999629402295e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup0_BlankButton",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.00014912894743223114
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup0_OpenNozzle",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 3.534631347538227e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup1_HollowPump",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.000509020685456493
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup1_Cap",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.00014247955146334893
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup1_Plunger",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 9.43999629402295e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup1_BlankButton",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.00014912871034995223
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup1_OpenNozzle",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 3.534631347538227e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup2_HollowPump",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.000509087042317051
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup2_Cap",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.00014247726604166766
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup2_Plunger",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 9.43999629402295e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup2_BlankButton",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.00014912894743223106
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup2_OpenNozzle",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 3.534631347538227e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup3_HollowPump",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005090178768767696
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup3_Cap",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.00014248015241525902
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup3_Plunger",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 9.43999629402295e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup3_BlankButton",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.0001491286349472219
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup3_OpenNozzle",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 3.534631347538227e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup4_HollowPump",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005090493338821685
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup4_Cap",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.00014247725171759456
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup4_Plunger",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 9.43999629402295e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup4_BlankButton",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 0.00014912911453207213
+    },
+    {
+      "name": "storm_shop_luncheonette_syrup4_OpenNozzle",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "key": "nickel_plated",
+      "volume_m3": 3.534631347538227e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_FloorStandFoot",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 0.005252394170855944
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_Bottom",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 3.093142707156837e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_Roof",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 3.093102320080279e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_Side22.226",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 0.00032901112716358287
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_Side22.31",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 0.00032901112716358287
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_End-40.843999999999994",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 0.00032917540677243623
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_End-40.76",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 0.0003288614485473726
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_Bottom",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 3.093142707156837e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_Roof",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 3.093102320080279e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_Side22.105",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 0.0003319133229380282
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_Side22.432",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 0.0003319133229380282
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_End-40.974999999999994",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 0.0003126354957767863
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_End-40.628",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "enamel",
+      "volume_m3": 0.0003126354957767863
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_Column",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "nickel_plated",
+      "volume_m3": 0.00019369171121508613
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_EmptyMotorShell",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "nickel_plated",
+      "volume_m3": 0.00011163020831458199
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_MotorLid",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "nickel_plated",
+      "volume_m3": 4.050658275222931e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_IdleSpindle",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "nickel_plated",
+      "volume_m3": 2.2526944316491465e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base_BlankSpindleEnd",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "key": "nickel_plated",
+      "volume_m3": 5.590637820011846e-07
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_luncheonette_griddle",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        21.979999999999997,
+        0.009999999999999995,
+        43.80999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "integral floor-bearing apparatus foot"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_griddle",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        21.979999999999997,
+        0.009999999999999995,
+        42.89
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "integral floor-bearing apparatus foot"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_griddle",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        22.37,
+        0.009999999999999995,
+        43.80999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "integral floor-bearing apparatus foot"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_griddle",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        22.37,
+        0.009999999999999995,
+        42.89
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "integral floor-bearing apparatus foot"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        21.939999999999998,
+        0.009999999999999995,
+        42.36
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "stone apparatus plinth on actual shop floor"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        21.939999999999998,
+        0.009999999999999995,
+        41.239999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "stone apparatus plinth on actual shop floor"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        22.400000000000002,
+        0.009999999999999995,
+        42.36
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "stone apparatus plinth on actual shop floor"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        22.400000000000002,
+        0.009999999999999995,
+        41.239999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "stone apparatus plinth on actual shop floor"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.240000000000002,
+        0.97,
+        42.239999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.29,
+        0.97,
+        42.239999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.265,
+        0.97,
+        42.26499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.265,
+        0.97,
+        42.214999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.240000000000002,
+        0.97,
+        42.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.29,
+        0.97,
+        42.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.265,
+        0.97,
+        42.025
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.265,
+        0.97,
+        41.975
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.240000000000002,
+        0.97,
+        41.75999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.29,
+        0.97,
+        41.75999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.265,
+        0.97,
+        41.78499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.265,
+        0.97,
+        41.73499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.240000000000002,
+        0.97,
+        41.519999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.29,
+        0.97,
+        41.519999999999996
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.265,
+        0.97,
+        41.544999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.265,
+        0.97,
+        41.495
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.240000000000002,
+        0.97,
+        41.28
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.29,
+        0.97,
+        41.28
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.265,
+        0.97,
+        41.305
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "owner": "storm_shop_luncheonette_soda_fount",
+      "point": [
+        22.265,
+        0.97,
+        41.255
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pump flange on actual fitted stone upper slab"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        22.135,
+        0.009999999999999995,
+        40.945
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "declared integral mixer stand on actual floor"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        22.135,
+        0.009999999999999995,
+        40.654999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "declared integral mixer stand on actual floor"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        22.404999999999998,
+        0.009999999999999995,
+        40.945
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "declared integral mixer stand on actual floor"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        22.404999999999998,
+        0.009999999999999995,
+        40.654999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "declared integral mixer stand on actual floor"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_luncheonette_griddle__cast_iron",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "cell": "shop_luncheonette",
+      "key": "cast_iron",
+      "triangles": 1504
+    },
+    {
+      "name": "storm_shop_luncheonette_griddle__metal",
+      "assembly": "storm_shop_luncheonette_griddle",
+      "cell": "shop_luncheonette",
+      "key": "metal",
+      "triangles": 4172
+    },
+    {
+      "name": "storm_shop_luncheonette_soda_fount__marble_lobby",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "cell": "shop_luncheonette",
+      "key": "marble_lobby",
+      "triangles": 1504
+    },
+    {
+      "name": "storm_shop_luncheonette_soda_fount__nickel_plated",
+      "assembly": "storm_shop_luncheonette_soda_fount",
+      "cell": "shop_luncheonette",
+      "key": "nickel_plated",
+      "triangles": 9420
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base__enamel",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "cell": "shop_luncheonette",
+      "key": "enamel",
+      "triangles": 2444
+    },
+    {
+      "name": "storm_shop_luncheonette_mixer_base__nickel_plated",
+      "assembly": "storm_shop_luncheonette_mixer_base",
+      "cell": "shop_luncheonette",
+      "key": "nickel_plated",
+      "triangles": 2196
+    }
+  ],
+  "triangles": 21240,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/diner_apparatus.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_luncheonette",
+        "parts": [
+          {
+            "name": "storm_shop_luncheonette_griddle__cast_iron",
+            "key": "cast_iron",
+            "tile": 0.4
+          },
+          {
+            "name": "storm_shop_luncheonette_griddle__metal",
+            "key": "metal",
+            "tile": 0.8
+          },
+          {
+            "name": "storm_shop_luncheonette_soda_fount__marble_lobby",
+            "key": "marble_lobby",
+            "tile": 1.5
+          },
+          {
+            "name": "storm_shop_luncheonette_soda_fount__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32
+          },
+          {
+            "name": "storm_shop_luncheonette_mixer_base__enamel",
+            "key": "enamel",
+            "tile": 0.6
+          },
+          {
+            "name": "storm_shop_luncheonette_mixer_base__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_luncheonette_griddle",
+            "key": "metal",
+            "low": [
+              21.9,
+              0.05,
+              42.8
+            ],
+            "high": [
+              22.45,
+              0.9700000000000001,
+              43.89999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_griddle_top",
+            "key": "cast_iron",
+            "low": [
+              21.87,
+              0.97,
+              42.779999999999994
+            ],
+            "high": [
+              22.48,
+              1.01,
+              43.919999999999995
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_soda_fount",
+            "key": "marble_lobby",
+            "low": [
+              21.88,
+              0.05,
+              41.17999999999999
+            ],
+            "high": [
+              22.46,
+              0.9700000000000001,
+              42.42
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_syrup0",
+            "key": "nickel_plated",
+            "low": [
+              22.060000000000002,
+              1.0,
+              42.17999999999999
+            ],
+            "high": [
+              22.32,
+              1.42,
+              42.3
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_syrup1",
+            "key": "nickel_plated",
+            "low": [
+              22.060000000000002,
+              1.0,
+              41.94
+            ],
+            "high": [
+              22.32,
+              1.42,
+              42.06
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_syrup2",
+            "key": "nickel_plated",
+            "low": [
+              22.060000000000002,
+              1.0,
+              41.699999999999996
+            ],
+            "high": [
+              22.32,
+              1.42,
+              41.81999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_syrup3",
+            "key": "nickel_plated",
+            "low": [
+              22.060000000000002,
+              1.0,
+              41.459999999999994
+            ],
+            "high": [
+              22.32,
+              1.42,
+              41.58
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_syrup4",
+            "key": "nickel_plated",
+            "low": [
+              22.060000000000002,
+              1.0,
+              41.22
+            ],
+            "high": [
+              22.32,
+              1.42,
+              41.339999999999996
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_mixer_base",
+            "key": "enamel",
+            "low": [
+              22.1,
+              1.0,
+              40.62
+            ],
+            "high": [
+              22.439999999999998,
+              1.32,
+              40.98
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_mixer_post",
+            "key": "nickel_plated",
+            "low": [
+              22.17,
+              1.32,
+              40.76
+            ],
+            "high": [
+              22.37,
+              1.86,
+              40.839999999999996
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "48b92d7768c2c027cb73d5c5f2f74586f1067c74757fdb153709a7f3b07ddc92",
+  "source_bindings": {
+    "art/data/diner_apparatus/source_plan.json": "d086331766057a532229bdf8d69dda14f980598ba881d6e6debd539c063bce65",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_diner_apparatus.py": "95b28c180fb263b1a69fd86c5b066a13573b1dba48a01503ef64b91724d80bea",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/diner_apparatus.glb.import": "111369ca6c2ecab5fcd8b681c4b83b34f74696c2e0ab3953a9e38874efc906c7",
+    "art/textures/ai_materials/metal_b/material.json": "86a8c2610bb48b4f664db66da265bd38af6249b76489f58ce3492846937a5f89",
+    "art/textures/ai_materials/cast_iron_b/material.json": "bd0b37ab86ec56a9893ba5990b288f109087915566d9e7f664676be3d4a5f91d",
+    "art/textures/ai_materials/marble_lobby_b/material.json": "b373def49a421619f9e32f2ac9a6b2edc5d51dd850af73f3b6dfa74d3f62d929",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
+    "art/textures/ai_materials/enamel_b/material.json": "0a57bbc435c83e6036e7e88b655aefbbdb2898bb5c5048d64ef91d7cbd451ee3",
+    "game/assets/building/textures/T_ai_materials_metal_b_albedo.png": "fba2fee71543d6dfcbbce474a9dec39c5ea9f6b02f1db6752909fac875a7caeb",
+    "game/assets/building/textures/T_ai_materials_metal_b_rough.png": "fcbc3ee2dd0dffe0d7016e0485aca66dcb75b18f994de0620c33830c9ee5cf1f",
+    "game/assets/building/textures/T_ai_materials_metal_b_normal.png": "59c6323194f1146e567e786d25971bcfc68782a21ef412a8e12105278baab380",
+    "game/assets/building/textures/T_ai_materials_cast_iron_b_albedo.png": "e29e8af9ae49ffe16ba718373dea8c95af5f81f621cb756dcab2e37694989ebf",
+    "game/assets/building/textures/T_ai_materials_cast_iron_b_rough.png": "1fa3ea924061c69986f76ac01058b9bc17501305ae3d6eac0bff517f52c35d39",
+    "game/assets/building/textures/T_ai_materials_cast_iron_b_normal.png": "ded797b5a2b7272ede7113ef85a5a51ef70777a7fe73d1e28328c94b064bcee2",
+    "game/assets/building/textures/T_ai_materials_marble_lobby_b_albedo.png": "5e133dc36851f6b2a334d6f2470240d14e3be636d651db03bef5b211e8dbf190",
+    "game/assets/building/textures/T_ai_materials_marble_lobby_b_rough.png": "a395d4d9d21b8d05a49aa2bb82b11c128049d9798eef03cbc1480012b2e7c299",
+    "game/assets/building/textures/T_ai_materials_marble_lobby_b_normal.png": "46aac270087a1a77779c7ddb06a5735f7bcecb4c21912cb9d31e66fce278b28a",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_ai_materials_enamel_b_albedo.png": "e630f3697fdb8b91928e6587fdf85d969dcbeefe95985ca35243cabd5b00022f",
+    "game/assets/building/textures/T_ai_materials_enamel_b_rough.png": "7ccff5f5a38ebac117104a98593f2b4925f6fdf3a3fa8c9b5d38d7c61adc96ca",
+    "game/assets/building/textures/T_ai_materials_enamel_b_normal.png": "167b2236c1b175da053dc0e7445a394b95add74da2c1e1c80aa8fa0a50a74063",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "game/assets/building/floor_01_cells/shop_luncheonette.gltf": "55e327d213c21a453b0040d7f8c8e69105e307f0fb912a2cea259b03f3653c58",
+    "game/assets/building/floor_01_cells/shop_luncheonette.bin": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274",
+    "art/blender/scripts/inspect_diner_apparatus.py": "4f38479bb75154e90c5a1af477c85ca6d4275cea266533845c191a097bd796a7",
+    "art/blender/shop_seating.blend": "5b20a4c4419cd2d15e42dcb6c3784c11674e8e048a5454dada00097152cf0b5a",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/tests/fixtures/orison_shop_seating.json": "18d11054825d788e560a72a6c3f56f290ee5fe1a86ae119d0782df21a6fd4a23",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "art/blender/diner_receiving.blend": "9b6d17c79ebe9aa8e6d10d57b7467632396da8d973e3111f888eee78b152ec68",
+    "game/assets/props/diner_receiving.glb": "893976dd77612880fefb9f1e381574614165eb188372aa31b628c7592d8caa0f",
+    "game/tests/fixtures/orison_diner_receiving.json": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+    "game/data/orison_v2/diner_receiving.json": "1a8afcb2c950401e11cbf51536f0c0a5200fdff482d1c4e47bc18e5540fe52fa",
+    "art/blender/diner_counter.blend": "2e4751ea15af0b1cfadbc4fd42cfe894dc06bcf24616cfafad330a6171fc4d5f",
+    "game/assets/props/diner_counter.glb": "1ab3fe87d12e378627c9fd6a6551f467424d380d3b3e856bf5574786d1e413e3",
+    "game/tests/fixtures/orison_diner_counter.json": "23ac46e9b877b0f0309beeaf50bdc1a653e3aefd0ccddf17f26f41ce63d9c65c",
+    "game/data/orison_v2/diner_counter.json": "8e7085cececed1e6d9f23fd4c3c951d5f58e14eeeac84397751ef85474479ec2",
+    "art/blender/diner_till.blend": "98ccc6fc38d333dcfef74e73523b6e6f35a34fdfe9dabd40c4002eec6c595efb",
+    "game/assets/props/diner_till.glb": "b41b92978366124003d7c9be921b4244e2e6906f8d014e144a24cbab35ae3800",
+    "game/tests/fixtures/orison_diner_till.json": "70643b77a62d2314c7158b182e1a81cd8968473df8e3603f0892a236363457e9",
+    "game/data/orison_v2/diner_till.json": "6e104111994df298f88729ff7b0bf8679c24f66dc82ccc44a08abec7f1a048bc",
+    "art/blender/diner_backbar.blend": "9035bf61fa107b52159996a50ff0b87cf5dee18c5213c1bff652e94a739e3f99",
+    "game/assets/props/diner_backbar.glb": "170bf505d116403c91243c40f369eebc4396ab73a9e83ea6527de5472704f75b",
+    "game/tests/fixtures/orison_diner_backbar.json": "d71a1f63118fef4b29b6270700a6a013f5cd8b86142100c3e83360ede62a711d",
+    "game/data/orison_v2/diner_backbar.json": "32a08d094a95bea3779036c8ad4c0a4f75f90c06d8d81cdfdc3665aadc431a49",
+    "art/blender/diner_urns.blend": "9a0f7fe6cb9afb530e33614cfff1c60d9d3048e2ca116b39a5a4118468776d54",
+    "game/assets/props/diner_urns.glb": "3e54f0f32cf066db65552948edab879d5eff51adbc054f8b85c56fd73d356f20",
+    "game/tests/fixtures/orison_diner_urns.json": "d512dd1317b3b3d8963c3289b8923c11ad20d1f98b162d9d92a97d38d0c1e6af",
+    "game/data/orison_v2/diner_urns.json": "7410cce7fafdf11f7b9011067fc17b3238be2ee546bbf54e8d01d30f990f9a3e"
+  },
+  "open_work": [
+    "Four floor-bearing turned feet and slender posts carry an empty closed sheet-metal carcass, worked iron cooking bed and empty front gutter. Stay inside combined original plans and 1.01m maximum; bridge only authored .04m floor gap. Passive blank controls must stay inside the original top overhang. No heat, fuel, utility or food authority.",
+    "Floor-bearing hollow stone pedestal, worked plinth and 0.97m upper slab carry all five original pump positions. Each pump retains its own plan and 1.42m maximum, with closed hollow nickel body, blank plunger and open nozzle bore. Fitted base flanges bridge original .03m seating gap. No syrup, drink, supply, pressure or operating authority.",
+    "The original base floats at 1.00m outside the backbar and fountain. Resolve with a declared narrow integral floor stand inside its existing plan, then an empty fitted base, slender post, compact upper motor shell and unpowered spindle. Keep original 1.86m maximum and combined source footprint. Floor extension is an explicit passive adaptation; original reference boxes stay exact. No cup, liquid, power route or operating authority.",
+    "Passive original apparatus only. Temperature, food/drink contents, operation, independent utility service/capacity, continuous routes and human acceptance remain open. Exact original reference boxes remain."
+  ]
+}

@@ -1,0 +1,8 @@
+SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+   at: _check_diner_chassis (res://tests/orison_v2_diner_receiving_test.gd:70)
+   GDScript backtrace (most recent call first):
+       [0] _check_diner_chassis (res://tests/orison_v2_diner_receiving_test.gd:70)
+       [1] _retail_detail_views (res://tests/orison_v2_diner_receiving_test.gd:6)
+       [2] _run (res://tests/orison_v2_radio_battery_test.gd:85)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
