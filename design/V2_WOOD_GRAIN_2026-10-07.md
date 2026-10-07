@@ -37,7 +37,12 @@ or fresh dependency runtime proof is claimed.
 
 ## Gates and serialized receipts
 
-The full clean static candidate verification follows this source packet.
+Clean candidate **26036967652e026a757634176e49bc02b3c8b645** passed the full 49-entry board and all
+42 tools suites with zero regressions, all 17 protected paths unchanged and
+all 240 requirement statuses unchanged. Its tree **a94f05c68433d4ed09a6aee6d836d34541d856b0**
+is identical to source **b70a4cda669b1318cb4e89216abfdc3756108761**. Verification reused the clean cached
+**1c319e58** baseline with no Godot; the temporary checkout was removed.
+The retained **verification.json** records that static check.
 The reader gate reports NEW 0. The fabrication planner reports only the
 pre-existing **front_pavement_construction** drift. No gate, baseline, spatial
 manifest, material catalogue or shared UV helper was changed by this batch.
