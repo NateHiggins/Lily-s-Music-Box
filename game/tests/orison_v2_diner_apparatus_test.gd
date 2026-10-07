@@ -139,6 +139,9 @@ func _check_apparatus_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -
 	hit=_isolated_ray(world,model,prefix+"mixer_base__enamel",cell.to_global(Vector3(22.27,1.34,40.8)),cell.to_global(Vector3(22.27,1.31,40.8)))
 	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-1.32)<.00003,"actual supported mixer base keeps original 1.32m upper datum")
 	for name in ["ShopSeating","DinerReceiving","DinerCounter","DinerTill","DinerBackbar","DinerUrns"]:
+		if name == "DinerReceiving" and not world.passage_region.cabinets_enabled:
+			check(not cell.has_node(name),"temporarily removed Diner cabinets remain absent")
+			continue
 		check(cell.has_node(name),"accepted adjacent native fitting retained: "+name)
 
 func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:

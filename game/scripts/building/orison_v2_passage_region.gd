@@ -48,6 +48,7 @@ const DinerTill := preload("res://scripts/building/orison_v2_diner_till.gd")
 const DinerBackbar := preload("res://scripts/building/orison_v2_diner_backbar.gd")
 const DinerUrns := preload("res://scripts/building/orison_v2_diner_urns.gd")
 const DinerApparatus := preload("res://scripts/building/orison_v2_diner_apparatus.gd")
+const DinerOverhead := preload("res://scripts/building/orison_v2_diner_overhead.gd")
 const PhotoCounter := preload("res://scripts/building/orison_v2_photo_counter.gd")
 const HardwareStock := preload("res://scripts/building/orison_v2_hardware_stock.gd")
 const HardwareApparatus := preload("res://scripts/building/orison_v2_hardware_apparatus.gd")
@@ -70,6 +71,8 @@ var _geometry_root: Node3D
 var _actors: Node3D
 var residency: Node
 var receiving_row: Receivers
+## Temporarily absent by owner request. Read once so streaming keeps the same policy.
+var cabinets_enabled := false
 var _acoustic_originals: Dictionary = {}
 
 static func cell_path(identity: String) -> String:
@@ -81,6 +84,7 @@ func configure(service: MaintenanceShopService) -> bool:
 	if is_inside_tree() or service == null:
 		return false
 	shop_service = service
+	cabinets_enabled = OS.get_environment("ORISON_PASSAGE_CABINETS") == "1"
 	var decoded: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/building_layout.json"))
 	if decoded is not Dictionary:
 		return false
@@ -159,6 +163,9 @@ func _ready() -> void:
 		if not DinerApparatus.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native Diner apparatus/pie display fit refused: "+identity)
 			return
+		if not DinerOverhead.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native Diner menu board/fan fit refused: "+identity)
+			return
 		if not PhotoCounter.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native photography counter fit refused: "+identity)
 			return
@@ -225,22 +232,22 @@ func _ready() -> void:
 		if not RadioDisplay.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native fitted counter/display refused: "+identity)
 			return
-		if not RadioReceiving.mount_cell(cell_nodes[identity],source_layout):
+		if not RadioReceiving.mount_cell(cell_nodes[identity],source_layout,cabinets_enabled):
 			_fail("native period receiving chassis refused: "+identity)
 			return
-		if not LaundryReceiving.mount_cell(cell_nodes[identity],source_layout):
+		if not LaundryReceiving.mount_cell(cell_nodes[identity],source_layout,cabinets_enabled):
 			_fail("native Laundry receiving chassis refused: "+identity)
 			return
-		if not PhotoReceiving.mount_cell(cell_nodes[identity],source_layout):
+		if not PhotoReceiving.mount_cell(cell_nodes[identity],source_layout,cabinets_enabled):
 			_fail("native Photo Supplies receiving chassis refused: "+identity)
 			return
-		if not NewsReceiving.mount_cell(cell_nodes[identity],source_layout):
+		if not NewsReceiving.mount_cell(cell_nodes[identity],source_layout,cabinets_enabled):
 			_fail("native News Cigars receiving chassis refused: "+identity)
 			return
-		if not PawnReceiving.mount_cell(cell_nodes[identity],source_layout):
+		if not PawnReceiving.mount_cell(cell_nodes[identity],source_layout,cabinets_enabled):
 			_fail("native Pawn Shop receiving chassis refused: "+identity)
 			return
-		if not DinerReceiving.mount_cell(cell_nodes[identity],source_layout):
+		if not DinerReceiving.mount_cell(cell_nodes[identity],source_layout,cabinets_enabled):
 			_fail("native Diner receiving pair refused: "+identity)
 			return
 	surface_pass.apply(cell_nodes)
@@ -251,7 +258,7 @@ func _ready() -> void:
 	receiving_row = Receivers.new()
 	receiving_row.name = "PassageReceivingRow"
 	_actors.add_child(receiving_row)
-	if not receiving_row.mount(source_layout, _actors, CELLS):
+	if not receiving_row.mount(source_layout, _actors, CELLS, cabinets_enabled):
 		_fail("source-owned passage receivers refused")
 		return
 	finish = Finish.new()

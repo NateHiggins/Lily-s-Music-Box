@@ -229,6 +229,9 @@ func _stage_one() -> void:
 		if not region.DinerApparatus.mount_cell(cell,region.source_layout):
 			_fail("native Diner apparatus/pie display reload fit refused: "+identity)
 			return
+		if not region.DinerOverhead.mount_cell(cell,region.source_layout):
+			_fail("native Diner overhead/pie display reload fit refused: "+identity)
+			return
 		if not region.PhotoCounter.mount_cell(cell,region.source_layout):
 			_fail("native photography counter reload fit refused: "+identity)
 			return
@@ -295,22 +298,22 @@ func _stage_one() -> void:
 		if not region.RadioDisplay.mount_cell(cell,region.source_layout):
 			_fail("native fitted counter/display reload refused: "+identity)
 			return
-		if not region.RadioReceiving.mount_cell(cell,region.source_layout):
+		if not region.RadioReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
 			_fail("native period receiving chassis reload refused: "+identity)
 			return
-		if not region.LaundryReceiving.mount_cell(cell,region.source_layout):
+		if not region.LaundryReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
 			_fail("native Laundry receiving chassis reload refused: "+identity)
 			return
-		if not region.PhotoReceiving.mount_cell(cell,region.source_layout):
+		if not region.PhotoReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
 			_fail("native Photo Supplies receiving chassis reload refused: "+identity)
 			return
-		if not region.NewsReceiving.mount_cell(cell,region.source_layout):
+		if not region.NewsReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
 			_fail("native News Cigars receiving chassis reload refused: "+identity)
 			return
-		if not region.PawnReceiving.mount_cell(cell,region.source_layout):
+		if not region.PawnReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
 			_fail("native Pawn Shop receiving chassis reload refused: "+identity)
 			return
-		if not region.DinerReceiving.mount_cell(cell,region.source_layout):
+		if not region.DinerReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
 			_fail("native Diner receiving pair reload refused: "+identity)
 			return
 		_staged_surface.apply({identity: cell})

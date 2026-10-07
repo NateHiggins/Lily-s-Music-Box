@@ -2,7 +2,7 @@ extends RefCounted
 ## Dedicated assembled-source replacement; the stateful receiver lives in actors.
 const DATA := "res://data/orison_v2/photo_receiving.json"
 
-static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
+static func mount_cell(cell: Node3D, layout: Dictionary, enabled: bool = true) -> bool:
 	if str(cell.name) != "shop_photo_supplies": return true
 	if cell.has_node("PhotoReceiving"): return false
 	var decoded: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))
@@ -47,6 +47,12 @@ static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
 	if hull_bounds.position.distance_to(_v(data.hull_low)) > tolerance or hull_bounds.end.distance_to(_v(data.hull_high)) > tolerance: return false
 	var authored_hull := _source_hull(source)
 	if authored_hull.position.distance_to(hull_bounds.position) > tolerance or authored_hull.end.distance_to(hull_bounds.end) > tolerance: return false
+	# Retire the complete validated source owners without importing a replacement.
+	# The authored records and native assets remain available for reinstatement.
+	if not enabled:
+		for draw: MeshInstance3D in originals: draw.hide()
+		old_shape.disabled = true; hull.collision_layer = 0; hull.collision_mask = 0
+		return true
 	var packed := ResourceLoader.load(str(data.asset), "PackedScene", ResourceLoader.CACHE_MODE_IGNORE_DEEP) as PackedScene
 	if packed == null: return false
 	var model := packed.instantiate() as Node3D

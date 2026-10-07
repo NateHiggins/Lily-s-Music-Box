@@ -109,6 +109,9 @@ func _check_counter_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 	hit=_isolated_ray(world,model,prefix+"ledger__paper__cover",cell.to_global(Vector3(19.32,.99,41.80)),cell.to_global(Vector3(19.32,1.30,41.80)))
 	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-1.12)<.00003 and hit.normal.dot(-cell.global_basis.y)>.99,"actual ledger cover sits on the unchanged serving sheet")
 	for name in ["ShopSeating","DinerReceiving"]:
+		if name == "DinerReceiving" and not world.passage_region.cabinets_enabled:
+			check(not cell.has_node(name),"temporarily removed Diner cabinets remain absent")
+			continue
 		check(cell.has_node(name),"accepted adjacent native fitting retained: "+name)
 
 func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:

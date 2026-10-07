@@ -13,9 +13,13 @@ func check(ok: bool, label: String) -> void:
 	super.check(ok,label)
 
 func _run() -> void:
+	# This suite verifies reinstatement, not the default cabinet-free shops.
+	var previous := OS.get_environment("ORISON_PASSAGE_CABINETS")
+	OS.set_environment("ORISON_PASSAGE_CABINETS", "1")
 	var started := Time.get_ticks_msec()
 	original_graph=AcousticGraphData.nodes.duplicate(true)
 	await super._run()
+	OS.set_environment("ORISON_PASSAGE_CABINETS", previous)
 	var nodes := _retained(owned_nodes)
 	var resources := _retained(owned_resources)
 	var playbacks := _retained(owned_playbacks)
@@ -232,7 +236,8 @@ func _write_receiving_contract(started: int, nodes: int, resources: int, playbac
 	var hash := HashingContext.new();hash.start(HashingContext.HASH_SHA256);hash.update(FileAccess.get_file_as_bytes(path))
 	var passed := failures.is_empty() and exercised;var status := "PASS" if passed else "FAIL"
 	var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Seven passage receiving owners, original catalogue/pose/graph, Radio Service keyboard play/exit, live panel resizing, focused-parent protection and owned teardown. No chassis fit, power capacity, continuous entry route, save/reconstruction or broader completion acceptance.",
+		"scope":"Explicit ORISON_PASSAGE_CABINETS=1 restoration in the production world: seven receiving owners, original catalogue/pose/graph, keyboard play/exit, panel resizing, focused-parent protection and owned teardown. The default cabinet-free configuration, power capacity, continuous entry route and save/reconstruction are not exercised.",
+		"configuration":{"ORISON_PASSAGE_CABINETS":"1","default_configuration_exercised":false},
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-started)/1000.},
 		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":hash.finish().hex_encode(),
 			"repository_head":str(head_output[0]).strip_edges() if not head_output.is_empty() else "",

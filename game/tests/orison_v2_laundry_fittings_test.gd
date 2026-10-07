@@ -70,17 +70,24 @@ func _ironing_receiver_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) ->
 	var source_floor: Dictionary=world.passage_region.source_layout.floors.filter(func(row):return str(row.id)=="F01")[0]
 	var original: Dictionary=source_floor.furniture.filter(func(row):return str(row.id)==str(source.id))[0]
 	var prop:=world.passage_region._actors.get_node_or_null("Arcade_"+str(source.id)) as ArcadeCabinetProp
-	check(original==source and prop!=null,"ironing fit retains the complete original receiving record and actor")
-	if prop==null:return
-	check(prop.variant==int(source.variant) and prop.position.is_equal_approx(GameBoot.b2g([source.at[0],source.at[1],float(source_floor.z)+float(source.get("z0",0.))]))
-		and is_equal_approx(prop.rotation.y,deg_to_rad(float(source.yaw))+PI),"ironing fit preserves cabinet variant, pose and programme owner")
+	check(original==source,"furniture fit retains the complete original optional cabinet record")
+	if world.passage_region.cabinets_enabled:
+		check(prop!=null,"explicitly restored cabinet has its original actor")
+		if prop==null:return
+		check(prop.variant==int(source.variant) and prop.position.is_equal_approx(GameBoot.b2g([source.at[0],source.at[1],float(source_floor.z)+float(source.get("z0",0.))]))
+			and is_equal_approx(prop.rotation.y,deg_to_rad(float(source.yaw))+PI),"ironing fit preserves cabinet variant, pose and programme owner")
+	else:
+		check(prop==null,"temporarily removed cabinet has no play actor")
 	var hull:=cell.get_node_or_null(str(fit.hull_name)) as StaticBody3D
 	check(hull!=null,"exact original receiving hull remains in its source cell")
 	if hull==null:return
 	var shape:=hull.get_child(0) as CollisionShape3D
 	var faces: PackedVector3Array=(shape.shape as ConcavePolygonShape3D).get_faces()
 	check(faces.size()==36 and shape.disabled and hull.collision_layer==0 and hull.collision_mask==0,"complete original twelve-triangle receiving hull stays intact after exact native chassis retirement")
-	check(cell.has_node("LaundryReceiving") and cell.get_node("LaundryReceiving").get_meta("original_hull")==hull,"native receiving physical stock owns the retired source hull")
+	if world.passage_region.cabinets_enabled:
+		check(cell.has_node("LaundryReceiving") and cell.get_node("LaundryReceiving").get_meta("original_hull")==hull,"native receiving physical stock owns the retired source hull")
+	else:
+		check(not cell.has_node("LaundryReceiving"),"removed laundry cabinet has no native replacement")
 	var low:=Vector3(INF,INF,INF);var high:=Vector3(-INF,-INF,-INF)
 	for vertex in faces:
 		var point:=cell.to_local(shape.to_global(vertex));low=low.min(point);high=high.max(point)
@@ -110,7 +117,7 @@ func _ironing_receiver_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) ->
 		world.player.face_world_point(cell.to_global(_v(spec.target)));world.player.set_lamp_enabled(true)
 		await _settled_optics();await shot(str(spec.id))
 	var directory:=OS.get_environment("SHOT_DIR")
-	FileAccess.open(directory.path_join("receiving_clearance.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","measured":measured,"original_hull_triangles":12,"scope":"Actual imported table and pad are separated from the intact original receiver envelope, whose exact hull now retires for native receiving physical stock. Standing floor/capsule observations do not establish continuous shop entry, cabinet operation, services or human acceptance."},"\t"))
+	FileAccess.open(directory.path_join("receiving_clearance.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","measured":measured,"original_hull_triangles":12,"scope":"Actual imported table and pad are separated from the intact original receiver envelope, whose exact hull stays disabled under the current cabinet policy. Standing floor/capsule observations do not establish continuous shop entry, cabinet operation, services or human acceptance."},"\t"))
 
 func _laundry_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var observations: Array=[]

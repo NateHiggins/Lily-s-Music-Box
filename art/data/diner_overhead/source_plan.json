@@ -1,0 +1,47 @@
+{
+  "evidence_class": "INERT",
+  "original_records": 6,
+  "groups": [
+    {
+      "kind": "menu",
+      "sources": [
+        "storm_shop_luncheonette_menu_board"
+      ],
+      "support_owner": "storm_shop_luncheonette_back_lo",
+      "support_extension": {
+        "maximum_x": 23.94,
+        "minimum_z": 2.09,
+        "maximum_z": 2.29
+      }
+    },
+    {
+      "kind": "fan",
+      "sources": [
+        "storm_shop_luncheonette_fan_hub",
+        "storm_shop_luncheonette_fan_blade0",
+        "storm_shop_luncheonette_fan_blade1",
+        "storm_shop_luncheonette_fan_blade2",
+        "storm_shop_luncheonette_fan_blade3"
+      ],
+      "support_owner": "storm_shop_luncheonette_ceil",
+      "support_extension": {
+        "maximum_z": 3.3,
+        "canopy_radius": 0.066
+      }
+    }
+  ],
+  "runtime_keys": [
+    "metal",
+    "bakelite_black"
+  ],
+  "classification": "ADAPTATION",
+  "catalog_variants": {},
+  "material_aliases": {},
+  "material_tints": {},
+  "trim_tolerance_m": 2e-05,
+  "open_work": [
+    "Blank existing Bakelite board keeps original front footprint and upper datum. A recessed face and fitted rim replace its solid block. Four declared short rear standoffs bridge the 0.07m gap to the actual lower plaster back wall below the borrowed-light sill; do not anchor to glass or alter the window. No menu wording or prices invented.",
+    "Original fan hub and four blades become one passive hollow motor housing, connected blade arms and worked thin blades inside their original combined plan and blade datums. An explicit central hanger and narrow fitted canopy bridge the 0.22m gap from original 3.08m hub maximum to the actual 3.30m tin ceiling underside. Four canopy-ring contacts must hit actual unchanged ceiling triangles. No invented power route, internals or animation authority.",
+    "Passive original menu board and fan only. Exact reference boxes remain. Menu wording, powered rotation, power routes, broader glass glare, service capacity/continuity, continuous routes and human acceptance remain open."
+  ]
+}

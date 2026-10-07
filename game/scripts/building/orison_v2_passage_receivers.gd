@@ -2,8 +2,14 @@ extends ArcadeRow
 ## Receiving props retain the catalogue, mechanisms and authored chassis poses.
 ## Their actors persist with doors while the imported shop geometry streams.
 
-func mount(layout: Dictionary, actors: Node3D, batches: Array) -> bool:
-	if actors == null or not cabinets.is_empty(): return false
+var _mounted := false
+var _enabled := true
+
+func mount(layout: Dictionary, actors: Node3D, batches: Array, enabled: bool = true) -> bool:
+	if actors == null or _mounted or not cabinets.is_empty(): return false
+	_mounted = true
+	_enabled = enabled
+	if not enabled: return true
 	_catalog = ArcadeCatalog.load_catalog()
 	if _catalog == null or _catalog.size() == 0: return false
 	var order := _catalog.spread()
@@ -39,6 +45,7 @@ func mount(layout: Dictionary, actors: Node3D, batches: Array) -> bool:
 func bind_registered_graph() -> bool:
 	# The bar registers its retained graph mouths after the passage mounts.
 	# Resolve only after both regions occupy their final shared world frame.
+	if _mounted and not _enabled: return cabinets.is_empty()
 	for prop in cabinets:
 		prop.graph_node_id = _nearest_graph_node(prop.global_position)
 		if prop.graph_node_id.is_empty(): return false

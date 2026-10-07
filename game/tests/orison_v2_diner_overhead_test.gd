@@ -22,11 +22,11 @@ func _run() -> void:
 	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
 	if passage.residency.state!="RESIDENT":world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	await get_tree().physics_frame;await get_tree().physics_frame
-	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_diner_urns.json"))
-	check(FileAccess.get_sha256("res://assets/props/diner_urns.glb")==fixture.asset_sha256,"installed mesh binds the native hollow urn and empty pie-case export")
+	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_diner_overhead.json"))
+	check(FileAccess.get_sha256("res://assets/props/diner_overhead.glb")==fixture.asset_sha256,"installed mesh binds the native blank menu board and ceiling-supported passive fan export")
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
 	for record: Dictionary in fixture.runtime.cells:
-		var cell: Node3D=passage.cell_nodes[record.id];var model: Node3D=cell.get_node("DinerUrns")
+		var cell: Node3D=passage.cell_nodes[record.id];var model: Node3D=cell.get_node("DinerOverhead")
 		var originals: Dictionary=model.get_meta("original_meshes");var counts: Dictionary=model.get_meta("removed_triangles")
 		for box: Dictionary in record.replace:
 			check(counts[box.id]==int(box.expected_triangles),"exact original source boundary removed: "+str(box.id));removed+=int(counts[box.id])
@@ -43,7 +43,7 @@ func _run() -> void:
 			check((shape.disabled and not draw.visible) if retained.get_surface_count()==0 else (shape.shape as ConcavePolygonShape3D).get_faces()==retained.get_faces(),"trimmed physical boundaries match visible boundaries")
 		for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 			parts+=1;var count:=draw.mesh.get_faces().size()/3;triangles+=count
-			var name:=str(draw.get_meta("diner_urns_part"));var expected: Dictionary=fixture.parts.filter(func(row):return row.name==name)[0]
+			var name:=str(draw.get_meta("diner_overhead_part"));var expected: Dictionary=fixture.parts.filter(func(row):return row.name==name)[0]
 			check(count==int(expected.triangles) and expected.cell==record.id,"each fitted partition binds exact native triangles and cell")
 			_check_cap_mapping(draw.mesh,true)
 			var mat:=draw.mesh.surface_get_material(0) as StandardMaterial3D
@@ -72,20 +72,23 @@ func _run() -> void:
 			var at:=_v(contact.point);var direction:=_v(contact.direction);var exclude: Array[RID]=[world.player.get_rid()]
 			for body: CollisionObject3D in model.find_children("*","CollisionObject3D",true,false):
 				var draw:=body.get_parent() as MeshInstance3D
-				if draw!=null and str(draw.get_meta("diner_urns_part")).begins_with(str(contact.assembly)+"__"):exclude.append(body.get_rid())
+				if draw!=null and str(draw.get_meta("diner_overhead_part")).begins_with(str(contact.assembly)+"__"):
+					exclude.append(body.get_rid())
 			var query:=PhysicsRayQueryParameters3D.create(cell.to_global(at+direction*.004),cell.to_global(at-direction*.004),1,exclude)
 			var hit:=world.get_world_3d().direct_space_state.intersect_ray(query)
 			check(not hit.is_empty() and cell.to_local(hit.position).distance_to(at)<.00003,"fitted support contact: "+str(contact.label)+" / "+str(contact.owner));supports+=1
-	check(parts==fixture.parts.size() and triangles==int(fixture.triangles) and removed==fixture.original_records.size()*12 and supports==fixture.contacts.size(),"native counts bind all original boxes, fitted furniture and floor samples")
-	_check_urn_details(world,fixture)
+			var source_key:="plaster_stained" if str(contact.owner)=="storm_shop_luncheonette_back_lo" else "tin_ceiling"
+			check(not hit.is_empty() and str(hit.collider.get_parent().name).trim_suffix("-col").ends_with("_"+source_key),"support ray reaches actual unchanged wall/ceiling owner")
+	check(parts==fixture.parts.size() and triangles==int(fixture.triangles) and removed==fixture.original_records.size()*12 and supports==fixture.contacts.size(),"native counts bind all original boxes, fitted furniture and wall/ceiling samples")
+	_check_overhead_details(world,fixture)
 	await _retail_detail_views(world,fixture)
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
-	print("DINER URNS: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
+	print("DINER OVERHEAD: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
 	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
 
 func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, start: Vector3, finish: Vector3) -> Dictionary:
-	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("diner_urns_part",""))==part)
+	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("diner_overhead_part",""))==part)
 	check(targets.size()==1,"actual installed cavity partition: "+part)
 	if targets.size()!=1:return {}
 	var target: CollisionObject3D=targets[0].find_children("*","CollisionShape3D",true,false)[0].get_parent()
@@ -94,38 +97,29 @@ func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, star
 		if body!=target:exclude.append(body.get_rid())
 	return world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(start,finish,1,exclude))
 
-func _check_urn_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
-	var cell: Node3D=world.passage_region.cell_nodes.shop_luncheonette;var model: Node3D=cell.get_node("DinerUrns")
+func _check_overhead_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
+	var cell: Node3D=world.passage_region.cell_nodes.shop_luncheonette;var model: Node3D=cell.get_node("DinerOverhead")
 	var prefix:="storm_shop_luncheonette_"
-	check(fixture.original_records.size()==9 and fixture.assemblies.size()==3,"original two urn/lid/tap/gauge groups and one pie-case source owner")
-	var hit:=_isolated_ray(world,model,prefix+"urn0__nickel_plated",cell.to_global(Vector3(22.60,1.45,43.45)),cell.to_global(Vector3(22.70,1.45,43.45)))
-	check(not hit.is_empty() and absf(cell.to_local(hit.position).x-22.640)<.00003,"actual urn shell retains original west diameter")
-	hit=_isolated_ray(world,model,prefix+"urn0__nickel_plated",cell.to_global(Vector3(22.70,1.45,43.45)),cell.to_global(Vector3(22.60,1.45,43.45)))
-	check(not hit.is_empty() and absf(cell.to_local(hit.position).x-22.643)<.00003,"actual urn shell has its three millimetre inner wall")
-	var query:=PhysicsRayQueryParameters3D.create(cell.to_global(Vector3(22.70,1.45,43.45)),cell.to_global(Vector3(22.92,1.45,43.45)),1,[world.player.get_rid()])
-	check(world.get_world_3d().direct_space_state.intersect_ray(query).is_empty(),"actual urn chamber is hollow without invented liquid")
-	for i in range(2):
-		var z:=43.45-float(i)*.62
-		hit=_isolated_ray(world,model,prefix+"urn"+str(i)+"__nickel_plated",cell.to_global(Vector3(22.81,1.005,z)),cell.to_global(Vector3(22.81,1.027,z)))
-		check(not hit.is_empty() and absf(cell.to_local(hit.position).y-1.02)<.00003,"actual closed urn base meets original fitted backbar datum")
-	hit=_isolated_ray(world,model,prefix+"urn1__nickel_plated",cell.to_global(Vector3(22.81,1.93,42.83)),cell.to_global(Vector3(22.81,1.82,42.83)))
-	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-1.85)<.00003,"actual lid crown retains original 1.85m maximum")
-	hit=_isolated_ray(world,model,prefix+"urn0__glassish",cell.to_global(Vector3(22.48,1.45,43.295)),cell.to_global(Vector3(22.55,1.45,43.295)))
-	check(not hit.is_empty() and absf(cell.to_local(hit.position).x-22.526)<.00003,"actual empty sight tube keeps glass outer wall")
-	hit=_isolated_ray(world,model,prefix+"urn0__glassish",cell.to_global(Vector3(22.54,1.45,43.295)),cell.to_global(Vector3(22.48,1.45,43.295)))
-	check(not hit.is_empty() and absf(cell.to_local(hit.position).x-22.529)<.00003,"actual glass sight tube has a three millimetre hollow wall")
-	query=PhysicsRayQueryParameters3D.create(cell.to_global(Vector3(22.410,1.23,43.45)),cell.to_global(Vector3(22.410,1.278,43.45)),1,[world.player.get_rid()])
-	check(world.get_world_3d().direct_space_state.intersect_ray(query).is_empty(),"actual passive tap nozzle keeps an open bore")
-	hit=_isolated_ray(world,model,prefix+"piecase__glassish",cell.to_global(Vector3(22.50,1.25,40.20)),cell.to_global(Vector3(22.64,1.25,40.20)))
-	check(not hit.is_empty() and absf(cell.to_local(hit.position).x-22.581)<.00003,"actual pie-case outer pane follows original plan")
-	hit=_isolated_ray(world,model,prefix+"piecase__glassish",cell.to_global(Vector3(22.64,1.25,40.20)),cell.to_global(Vector3(22.50,1.25,40.20)))
-	check(not hit.is_empty() and absf(cell.to_local(hit.position).x-22.585)<.00003,"actual pie-case pane has a four millimetre inner face")
-	query=PhysicsRayQueryParameters3D.create(cell.to_global(Vector3(22.64,1.25,40.20)),cell.to_global(Vector3(22.93,1.25,40.20)),1,[world.player.get_rid()])
-	check(world.get_world_3d().direct_space_state.intersect_ray(query).is_empty(),"actual pie-display chamber is empty without invented stock")
-	for height in [1.180,1.330,1.474]:
-		hit=_isolated_ray(world,model,prefix+"piecase__glassish",cell.to_global(Vector3(22.79,height+.012,40.20)),cell.to_global(Vector3(22.79,height-.012,40.20)))
-		check(not hit.is_empty() and absf(cell.to_local(hit.position).y-height)<.00003,"actual empty pie shelf or roof has the declared upper face")
-	for name in ["ShopSeating","DinerReceiving","DinerCounter","DinerTill","DinerBackbar"]:
+	check(fixture.original_records.size()==6 and fixture.assemblies.size()==2,"original blank menu, fan hub and four blade records bind their two assemblies")
+	var hit:=_isolated_ray(world,model,prefix+"menu_board__bakelite_black",cell.to_global(Vector3(23.70,2.48,43.0)),cell.to_global(Vector3(23.85,2.48,43.0)))
+	check(not hit.is_empty() and absf(cell.to_local(hit.position).x-23.825)<.00003,"actual blank menu face sits five millimetres behind the original rim")
+	hit=_isolated_ray(world,model,prefix+"menu_board__bakelite_black",cell.to_global(Vector3(23.85,2.48,43.0)),cell.to_global(Vector3(23.80,2.48,43.0)))
+	check(not hit.is_empty() and absf(cell.to_local(hit.position).x-23.830)<.00003,"actual menu face is five millimetres thick")
+	var query:=PhysicsRayQueryParameters3D.create(cell.to_global(Vector3(23.845,2.40,42.8)),cell.to_global(Vector3(23.845,2.40,42.4)),1,[world.player.get_rid()])
+	check(world.get_world_3d().direct_space_state.intersect_ray(query).is_empty(),"actual recessed menu cavity stays empty")
+	hit=_isolated_ray(world,model,prefix+"menu_board__bakelite_black",cell.to_global(Vector3(23.840,2.78,42.0)),cell.to_global(Vector3(23.840,2.70,42.0)))
+	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-2.74)<.00003,"actual menu upper rim retains the original maximum")
+	hit=_isolated_ray(world,model,prefix+"fan_hub__metal",cell.to_global(Vector3(19.28,3.12,41.8)),cell.to_global(Vector3(19.28,3.04,41.8)))
+	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-3.08)<.00003,"actual fitted fan motor cap retains the original maximum")
+	hit=_isolated_ray(world,model,prefix+"fan_hub__metal",cell.to_global(Vector3(19.25,2.95,41.8)),cell.to_global(Vector3(19.25,2.91,41.8)))
+	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-2.924)<.00003,"actual hollow motor has a four millimetre inner floor")
+	query=PhysicsRayQueryParameters3D.create(cell.to_global(Vector3(19.20,2.98,41.8)),cell.to_global(Vector3(19.30,2.98,41.8)),1,[world.player.get_rid()])
+	check(world.get_world_3d().direct_space_state.intersect_ray(query).is_empty(),"actual motor chamber stays empty without invented internals")
+	for axis: Vector2 in [Vector2(0,1),Vector2(0,-1),Vector2(1,0),Vector2(-1,0)]:
+		var at:=Vector3(19.25+axis.x*.62,3.04,41.8+axis.y*.62)
+		hit=_isolated_ray(world,model,prefix+"fan_hub__metal",cell.to_global(at),cell.to_global(at-Vector3(0,.12,0)))
+		check(not hit.is_empty() and absf(cell.to_local(hit.position).y-(2.966+.004/cos(deg_to_rad(12.))))<.00003,"actual pitched eight millimetre blade has its measured upper face")
+	for name in ["ShopSeating","DinerReceiving","DinerCounter","DinerTill","DinerBackbar","DinerUrns","DinerApparatus"]:
 		if name == "DinerReceiving" and not world.passage_region.cabinets_enabled:
 			check(not cell.has_node(name),"temporarily removed Diner cabinets remain absent")
 			continue
@@ -134,7 +128,7 @@ func _check_urn_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void
 func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_luncheonette
 	var r: Array=fixture.assemblies[0].floor.rect;var observations: Array=[]
-	for view: Array in [["urn0_clerk",Vector3(20.15,.03,43.47),Vector3(22.81,1.45,43.45)],["urn1_clerk",Vector3(20.15,.03,42.83),Vector3(22.81,1.55,42.83)],["urns_context",Vector3(20.15,.03,43.47),Vector3(22.81,1.75,43.10)],["pie_glazing",Vector3(22.10,.03,40.10),Vector3(22.79,1.28,40.20)],["pie_empty_shelves",Vector3(22.10,.03,40.10),Vector3(22.79,1.43,40.20)],["pie_floor_posts",Vector3(22.10,.03,40.10),Vector3(22.79,1.03,40.20)],["shop_context",Vector3(19.80,.03,40.30),Vector3(22.85,1.35,41.78)]]:
+	for view: Array in [["menu_face",Vector3(20.15,.03,42.0),Vector3(23.85,2.38,41.8)],["menu_mount",Vector3(22.10,.03,40.10),Vector3(23.91,2.19,40.13)],["fan_motor",Vector3(19.80,.03,40.30),Vector3(19.25,2.99,41.8)],["fan_blades",Vector3(19.80,.03,40.30),Vector3(19.25,2.97,41.8)],["fan_canopy",Vector3(19.80,.03,40.30),Vector3(19.25,3.29,41.8)],["shop_context",Vector3(19.80,.03,40.30),Vector3(22.25,2.25,41.78)]]:
 		var preferred: Vector3=view[1];var selected:=preferred;var distance:=INF
 		if not _city_clear_station(world,cell.to_global(preferred)):
 			for u in range(1,25):
@@ -147,4 +141,4 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> vo
 		world.player.face_world_point(cell.to_global(view[2]));world.player.set_lamp_enabled(true)
 		await _settled_optics();await shot(view[0])
 		observations.append({"id":view[0],"requested_feet":[preferred.x,preferred.y,preferred.z],"feet":[selected.x,selected.y,selected.z],"target":[view[2].x,view[2].y,view[2].z],"image":str(view[0])+".png"})
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Standing-capsule passive Diner urns and empty pie-display observations; opening, contents, stock, food/drink service, heat, utilities, capacity, continuous routes and human acceptance remain separate."},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Standing-capsule blank menu board and passive supported fan observations; words, rotation, power routes, utilities, capacity, continuous routes and human acceptance remain separate."},"\t"))

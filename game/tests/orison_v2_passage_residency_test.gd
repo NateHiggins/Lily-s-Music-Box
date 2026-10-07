@@ -17,7 +17,7 @@ func _capture(identity: String, target: Vector3) -> void:
 	var probe:=world.passage_region.cell_nodes.shop_luncheonette.get_node("DinerBackbar/DinerFinishReflection") as ReflectionProbe
 	_diner_probe=weakref(probe);_diner_probe_id=probe.get_instance_id()
 	_receiver_signature = _receiver_values()
-	if not _require(_receiver_signature.size()==7,"all seven passage receiving actors exist before reconstruction"):return
+	if not _require(_receiver_signature.size()==(7 if world.passage_region.cabinets_enabled else 0),"receiving actor count follows the fixed cabinet policy before reconstruction"):return
 	_check_ceiling_detail()
 	_surface_signature = _surface_values()
 	_moved_cart = world.passage_region.finish.pushcarts[0]
@@ -74,7 +74,7 @@ func _route() -> void:
 	if not _require(passage.cell_nodes.shop_luncheonette.get_node("DinerBackbar/DinerFinishReflection").get_instance_id()!=_diner_probe_id,
 			"reconstruction creates a fresh one-time Diner reflection owner"):return
 	_require(_receiver_values()==_receiver_signature,
-			"geometry reconstruction preserves the same seven receiving owners")
+			"geometry reconstruction preserves the chosen receiving actor population")
 	_require(door.get_instance_id() == door_id and door.open == door_open
 			and _moved_cart.get_instance_id() == cart_id
 			and _moved_cart.global_position.distance_to(cart_position) < 0.03
@@ -106,6 +106,7 @@ func _check_specialist_fittings() -> bool:
 		["shop_luncheonette","DinerBackbar","diner_backbar"],
 		["shop_luncheonette","DinerUrns","diner_urns"],
 		["shop_luncheonette","DinerApparatus","diner_apparatus"],
+		["shop_luncheonette","DinerOverhead","diner_overhead"],
 		["shop_funeral_parlour","FuneralFittings","funeral_fittings"],
 		["shop_funeral_parlour","FuneralDrapes","funeral_drapes"],
 		["shop_funeral_parlour","FuneralFoliage","funeral_foliage"],
@@ -133,6 +134,8 @@ func _check_specialist_fittings() -> bool:
 		for draw: MeshInstance3D in draws:
 			var shapes:=draw.find_children("*","CollisionShape3D",true,false)
 			if not _require(shapes.size()==1 and shapes[0].shape is ConcavePolygonShape3D and shapes[0].shape.get_faces()==draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform),"reloaded native visible/physical faces agree: "+str(draw.name)):return false
+	if not world.passage_region.cabinets_enabled:
+		return _check_removed_cabinets()
 	var radio_cell: Node3D = world.passage_region.cell_nodes.shop_radio_service
 	var receiving := radio_cell.get_node_or_null("RadioReceiving") as Node3D
 	if not _require(receiving != null, "reconstructed native receiving chassis exists"): return false
@@ -214,6 +217,38 @@ func _check_specialist_fittings() -> bool:
 		var shapes := draw.find_children("*", "CollisionShape3D", true, false)
 		if not _require(shapes.size() == 1 and shapes[0].shape.get_faces() == draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform), "reconstructed diner_receiving physical faces match visible faces: " + str(draw.name)): return false
 	return true
+
+func _check_removed_cabinets() -> bool:
+	var passage := world.passage_region
+	if not _require(passage.receiving_row.cabinets.is_empty() and passage._actors.find_children("Arcade_*", "", true, false).is_empty(),
+			"cabinet-free shops have no board actors, play prompts or screen owners"): return false
+	var total := 0
+	for spec: Array in [["radio","shop_radio_service","RadioReceiving"],
+		["laundry","shop_model_laundry","LaundryReceiving"],["photo","shop_photo_supplies","PhotoReceiving"],
+		["news","shop_news_cigars","NewsReceiving"],["pawn","shop_pawnbroker","PawnReceiving"],
+		["diner","shop_luncheonette","DinerReceiving"]]:
+		var cell: Node3D = passage.cell_nodes[spec[1]]
+		var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/"+str(spec[0])+"_receiving.json"))
+		if not _require(not cell.has_node(str(spec[2])), "replacement cabinet meshes stay absent: "+str(spec[1])): return false
+		for record: Dictionary in data.original_draws:
+			var draw := cell.get_node(str(record.name)) as MeshInstance3D
+			if not _require(not draw.visible and draw.mesh.get_faces().size()==int(record.expected_triangles)*3,
+					"temporarily hidden original cabinet draw remains intact: "+str(record.name)): return false
+		var hull := cell.get_node(str(data.hull_name)) as StaticBody3D
+		var shapes := hull.find_children("*","CollisionShape3D",true,false)
+		if not _require(hull.collision_layer==0 and hull.collision_mask==0 and shapes.size()==1 and shapes[0].disabled
+				and shapes[0].shape.get_faces().size()==int(data.hull_triangles)*3,
+				"removed cabinets leave no source collision: "+str(spec[1])): return false
+		var sources: Array = data.get("source_records", [data.get("source_record", {})])
+		for source: Dictionary in sources:
+			var matches: Array = passage.source_layout.floors.filter(func(row):return row.id=="F01")[0].furniture.filter(func(row):return row.id==source.id)
+			if not _require(matches.size()==1 and matches[0]==source, "cabinet removal retains its exact authored record: "+str(source.id)): return false
+			var center := GameBoot.b2g([source.at[0],source.at[1],1.0])
+			var ray := PhysicsRayQueryParameters3D.create(cell.to_global(center-Vector3.RIGHT*.02),cell.to_global(center+Vector3.RIGHT*.02),1,[player.get_rid()])
+			if not _require(world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(),
+					"former cabinet centre has no invisible collision: "+str(source.id)): return false
+			total += 1
+	return _require(total==7, "all seven shop cabinets remain removed after geometry reconstruction")
 
 func _check_ceiling_detail() -> void:
 	var cell: Node3D = world.passage_region.cell_nodes.passage

@@ -153,9 +153,13 @@ func _receiving_clearance_views(world: OrisonV2RuntimeRoot, fixture: Dictionary)
 	var floor: Dictionary=world.passage_region.source_layout.floors.filter(func(row):return str(row.id)=="F01")[0]
 	var original: Dictionary=floor.furniture.filter(func(row):return str(row.id)==str(source.id))[0]
 	var prop:=world.passage_region._actors.get_node_or_null("Arcade_"+str(source.id)) as ArcadeCabinetProp
-	check(original==source and prop!=null,"dryer fit preserves complete immutable receiver record and actor")
-	if prop==null:return
-	check(prop.variant==int(source.variant) and prop.position.is_equal_approx(GameBoot.b2g([source.at[0],source.at[1],float(floor.z)+float(source.get("z0",0.))])) and is_equal_approx(prop.rotation.y,deg_to_rad(float(source.yaw))+PI),"dryer fit retains original receiver variant and pose")
+	check(original==source,"furniture fit retains the complete original optional cabinet record")
+	if world.passage_region.cabinets_enabled:
+		check(prop!=null,"explicitly restored cabinet has its original actor")
+		if prop==null:return
+		check(prop.variant==int(source.variant) and prop.position.is_equal_approx(GameBoot.b2g([source.at[0],source.at[1],float(floor.z)+float(source.get("z0",0.))])) and is_equal_approx(prop.rotation.y,deg_to_rad(float(source.yaw))+PI),"dryer fit retains original receiver variant and pose")
+	else:
+		check(prop==null,"temporarily removed cabinet has no play actor")
 	var original_dryer: Dictionary=floor.furniture.filter(func(row):return str(row.id)==str(fit.dryer_source_record.id))[0]
 	check(original_dryer==fit.dryer_source_record,"dryer original rectangle and source record stay intact")
 	var hull:=cell.get_node_or_null(str(fit.hull_name)) as StaticBody3D
@@ -165,7 +169,10 @@ func _receiving_clearance_views(world: OrisonV2RuntimeRoot, fixture: Dictionary)
 	var faces: PackedVector3Array=(shape.shape as ConcavePolygonShape3D).get_faces()
 	check(faces.size()==36 and shape.disabled and hull.collision_layer==0 and hull.collision_mask==0,"original twelve-triangle receiving hull retires disabled and complete")
 	var receiving:=cell.get_node_or_null("PhotoReceiving") as Node3D
-	check(receiving!=null and receiving.get_meta("original_hull")==hull,"native Photo chassis owns exactly the same original retired hull")
+	if world.passage_region.cabinets_enabled:
+		check(receiving!=null and receiving.get_meta("original_hull")==hull,"native Photo chassis owns exactly the same original retired hull")
+	else:
+		check(receiving==null,"removed photographic cabinet has no native replacement")
 	var low:=Vector3(INF,INF,INF);var high:=Vector3(-INF,-INF,-INF)
 	for vertex in faces:
 		var point:=cell.to_local(shape.to_global(vertex));low=low.min(point);high=high.max(point)

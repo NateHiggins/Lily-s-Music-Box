@@ -111,6 +111,9 @@ func _check_till_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> voi
 	query=PhysicsRayQueryParameters3D.create(cell.to_global(Vector3(19.16,1.20,41.13)),cell.to_global(Vector3(19.39,1.20,41.13)),1,[world.player.get_rid()])
 	check(world.get_world_3d().direct_space_state.intersect_ray(query).is_empty(),"actual passive cash-drawer carcass has a hollow interior")
 	for name in ["ShopSeating","DinerReceiving","DinerCounter"]:
+		if name == "DinerReceiving" and not world.passage_region.cabinets_enabled:
+			check(not cell.has_node(name),"temporarily removed Diner cabinets remain absent")
+			continue
 		check(cell.has_node(name),"accepted adjacent native fitting retained: "+name)
 
 func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:

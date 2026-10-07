@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/diner_overhead.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_luncheonette",
+      "parts": [
+        {
+          "name": "storm_shop_luncheonette_menu_board__bakelite_black",
+          "key": "bakelite_black",
+          "tile": 0.3
+        },
+        {
+          "name": "storm_shop_luncheonette_fan_hub__metal",
+          "key": "metal",
+          "tile": 0.8
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_luncheonette_menu_board",
+          "key": "bakelite_black",
+          "low": [
+            23.82,
+            2.02,
+            39.849999999999994
+          ],
+          "high": [
+            23.87,
+            2.74,
+            43.74999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_fan_hub",
+          "key": "metal",
+          "low": [
+            19.13,
+            2.92,
+            41.67999999999999
+          ],
+          "high": [
+            19.37,
+            3.08,
+            41.92
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_fan_blade0",
+          "key": "metal",
+          "low": [
+            19.17,
+            2.94,
+            41.92
+          ],
+          "high": [
+            19.33,
+            2.995,
+            42.9
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_fan_blade1",
+          "key": "metal",
+          "low": [
+            19.17,
+            2.94,
+            40.699999999999996
+          ],
+          "high": [
+            19.33,
+            2.995,
+            41.67999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_fan_blade2",
+          "key": "metal",
+          "low": [
+            19.37,
+            2.94,
+            41.72
+          ],
+          "high": [
+            20.35,
+            2.995,
+            41.879999999999995
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_fan_blade3",
+          "key": "metal",
+          "low": [
+            18.15,
+            2.94,
+            41.72
+          ],
+          "high": [
+            19.13,
+            2.995,
+            41.879999999999995
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

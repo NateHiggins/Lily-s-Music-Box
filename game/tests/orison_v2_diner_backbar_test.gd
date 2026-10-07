@@ -126,6 +126,9 @@ func _check_backbar_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 		var bounds: AABB=shelves[0].transform*shelves[0].mesh.get_aabb()
 		check(absf(bounds.position.x-23.33)<.00003 and absf(bounds.size.x-.05)<.00003,"actual source shelf depth stays five centimetres")
 	for name in ["ShopSeating","DinerReceiving","DinerCounter","DinerTill"]:
+		if name == "DinerReceiving" and not world.passage_region.cabinets_enabled:
+			check(not cell.has_node(name),"temporarily removed Diner cabinets remain absent")
+			continue
 		check(cell.has_node(name),"accepted adjacent native fitting retained: "+name)
 
 func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
