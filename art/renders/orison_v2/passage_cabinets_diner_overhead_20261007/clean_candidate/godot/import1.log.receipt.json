@@ -1,0 +1,72 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 99.67,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T09:37:16Z",
+  "started_utc": "2026-10-07T09:35:36Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 9,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Preload file \"res://assets/ui/telegram/telegram_paper_stock_v1.png\" has no resource loaders (unrecognized file extension).",
+   "SCRIPT ERROR: Parse Error: Preload file \"res://assets/fonts/courier_prime/CourierPrime-Regular.ttf\" has no resource loaders (unrecognized file extension).",
+   "SCRIPT ERROR: Parse Error: Preload file \"res://assets/fonts/courier_prime/CourierPrime-Bold.ttf\" has no resource loaders (unrecognized file extension).",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://scripts/game_boot.gd\" with error \"Parse error\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/cabinet-overhead-candidate-verified/godot/import1.log.stderr",
+  "stderr_sha256": "d7a34f33385e909aa9646e993595bd3339dbc05f50aa4353ba7b0b959d923251",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/cabinet-overhead-candidate-verified/godot/import1.log",
+  "stdout_sha256": "82b96096b7aac37e2b38a12c08686941b06bd27325dd8ebd81607cb89d96a8f5"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\cabinet-overhead-candidate-verified\\godot\\import1_shots",
+ "source": {
+  "dirty_paths": 386,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_normal.png.import"
+  ],
+  "repository_head": "b2cb465c30300cbdfed807fbfe599f2935ceb86b",
+  "repository_tree": "b50fc49f4200df5a65f942c2a89e3ab38e6282b8",
+  "runtime_inputs_sha256": "e0b05fed2d60533a24c2c1a1dbe541d7e9bc639336a1eae7bf9b367b0aa27e4a",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

@@ -1,0 +1,124 @@
+{
+	"checks": 15,
+	"evidence_class": "INERT",
+	"failures": [
+		"sampled floor/capsule station is clear: shop_news_cigars"
+	],
+	"scope": "Six sampled cabinet-free shop views; this temporary capture programme grants no route, utility, human acceptance or ledger proof.",
+	"views": [
+		{
+			"cell": "shop_model_laundry",
+			"feet": [
+				7.59999990463257,
+				0.0299999993294477,
+				42.7999992370605
+			],
+			"image": "shop_model_laundry.png",
+			"requested_feet": [
+				7.59999990463257,
+				0.0299999993294477,
+				42.7999992370605
+			],
+			"target": [
+				7.59999990463257,
+				0.850000023841858,
+				44.25
+			]
+		},
+		{
+			"cell": "shop_photo_supplies",
+			"feet": [
+				20.3500003814697,
+				0.0299999993294477,
+				60.0999984741211
+			],
+			"image": "shop_photo_supplies.png",
+			"requested_feet": [
+				20.3500003814697,
+				0.0299999993294477,
+				60.0999984741211
+			],
+			"target": [
+				21.4500007629395,
+				0.850000023841858,
+				59.3499984741211
+			]
+		},
+		{
+			"cell": "shop_radio_service",
+			"feet": [
+				19.4500007629395,
+				0.0299999993294477,
+				57.5
+			],
+			"image": "shop_radio_service.png",
+			"requested_feet": [
+				19.4500007629395,
+				0.0299999993294477,
+				57.5
+			],
+			"target": [
+				21.4500007629395,
+				0.280000001192093,
+				57.2000007629395
+			]
+		},
+		{
+			"cell": "shop_news_cigars",
+			"feet": [
+				18.1499996185303,
+				0.0299999993294477,
+				49.4000015258789
+			],
+			"image": "shop_news_cigars.png",
+			"requested_feet": [
+				18.1499996185303,
+				0.0299999993294477,
+				49.4000015258789
+			],
+			"target": [
+				19.8999996185303,
+				0.280000001192093,
+				50.0999984741211
+			]
+		},
+		{
+			"cell": "shop_pawnbroker",
+			"feet": [
+				18.5499992370605,
+				0.0299999993294477,
+				53.4000015258789
+			],
+			"image": "shop_pawnbroker.png",
+			"requested_feet": [
+				18.5499992370605,
+				0.0299999993294477,
+				53.4000015258789
+			],
+			"target": [
+				18.5499992370605,
+				0.850000023841858,
+				55.0200004577637
+			]
+		},
+		{
+			"cell": "shop_luncheonette",
+			"feet": [
+				19.7999992370605,
+				0.0299999993294477,
+				40.2999992370605
+			],
+			"image": "shop_luncheonette.png",
+			"requested_feet": [
+				19.7999992370605,
+				0.0299999993294477,
+				40.2999992370605
+			],
+			"target": [
+				18.5499992370605,
+				0.850000023841858,
+				39.75
+			]
+		}
+	]
+}

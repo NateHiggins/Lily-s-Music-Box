@@ -118,6 +118,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Original Diner clerk-facing mechanical register and thin empty cigar display | `design/V2_DINER_TILL_2026-10-06.md` |
 | Original Diner supported serving counter, folded kickplate and seated ledger | `design/V2_DINER_COUNTER_2026-10-06.md` |
 | Diner fitted tall/compact receiving pair and both original keyboard owners | `design/V2_DINER_RECEIVING_2026-10-06.md` |
+| Temporary removal of seven passage shop cabinets, verified reconstruction and fitted Diner overhead | `design/V2_PASSAGE_CABINETS_PAUSED_2026-10-07.md` and `art/blender/diner_overhead.md` |
 | Pawn Shop native period receiving cabinet and ordinary TOWER OF ASH input | `design/V2_PAWN_RECEIVING_2026-10-06.md` |
 | News Cigars native period receiving cabinet and ordinary OUTER RIM input | `design/V2_NEWS_RECEIVING_2026-10-06.md` |
 | Photo Supplies native period receiving cabinet and ordinary COUNTY LEAGUE input | `design/V2_PHOTO_RECEIVING_2026-10-06.md` |

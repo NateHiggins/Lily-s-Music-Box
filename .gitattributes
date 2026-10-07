@@ -946,3 +946,6 @@ art/blender/diner_overhead_construction.json -text
 game/assets/props/diner_overhead.glb.import -text
 game/data/orison_v2/diner_overhead.json -text
 game/tests/fixtures/orison_diner_overhead.json -text
+# Preserve original run logs/diagnostics byte for byte, including CRLF and
+# instrumentation trailing spaces. Source edits outside this packet retain checks.
+art/renders/orison_v2/passage_cabinets_diner_overhead_20261007/** -text -whitespace

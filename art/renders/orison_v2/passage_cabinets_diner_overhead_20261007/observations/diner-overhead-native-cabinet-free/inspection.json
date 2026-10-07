@@ -1,0 +1,2857 @@
+{
+ "evidence_class": "INERT",
+ "native_sha256": "a12c7becd9b8214ec9a5eda41da34a8ee78112ff5c17da77307fab6ac1d6fefe",
+ "closed_volumes": [
+  {
+   "name": "storm_shop_luncheonette_menu_board_BlankFace",
+   "volume_m3": 0.0134816362351639
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_RearPanel",
+   "volume_m3": 0.010785424044181393
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Lower",
+   "volume_m3": 0.004469226403212299
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Upper",
+   "volume_m3": 0.0044692264032123
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_End0",
+   "volume_m3": 0.0007766873597638205
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_End1",
+   "volume_m3": 0.0007768166657428385
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_0_0_Shank",
+   "volume_m3": 2.3410322077303813e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_0_0_RearCollar",
+   "volume_m3": 1.4981637643494278e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_0_0_WallSeat",
+   "volume_m3": 3.7460047708180733e-06
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_0_1_Shank",
+   "volume_m3": 2.3410322077303813e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_0_1_RearCollar",
+   "volume_m3": 1.4981637643494278e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_0_1_WallSeat",
+   "volume_m3": 3.7460047708180733e-06
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_1_0_Shank",
+   "volume_m3": 2.3410322077303813e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_1_0_RearCollar",
+   "volume_m3": 1.4981637643494278e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_1_0_WallSeat",
+   "volume_m3": 3.7460047708180733e-06
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_1_1_Shank",
+   "volume_m3": 2.3410322077303813e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_1_1_RearCollar",
+   "volume_m3": 1.4981637643494278e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_menu_board_Support_1_1_WallSeat",
+   "volume_m3": 3.7460047708180733e-06
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_EmptyMotor",
+   "volume_m3": 0.0005375204564595186
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_MotorCap",
+   "volume_m3": 4.074057198920343e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_Support_Hanger",
+   "volume_m3": 0.00011329785857009872
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_Support_Canopy",
+   "volume_m3": 7.269201287785984e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_Blade0_Arm",
+   "volume_m3": 2.1491235390504182e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_Blade0_WorkedThinBlade",
+   "volume_m3": 0.0009556097346090382
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_Blade1_Arm",
+   "volume_m3": 2.149219990156201e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_Blade1_WorkedThinBlade",
+   "volume_m3": 0.0009556064387037111
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_Blade2_Arm",
+   "volume_m3": 2.1492119724689923e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_Blade2_WorkedThinBlade",
+   "volume_m3": 0.0009555819156760839
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_Blade3_Arm",
+   "volume_m3": 2.1492119724689923e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_fan_hub_Blade3_WorkedThinBlade",
+   "volume_m3": 0.000955581915693516
+  }
+ ],
+ "assembly_stock_joins": [
+  {
+   "assembly": "storm_shop_luncheonette_menu_board",
+   "connected_components": 1,
+   "surface_contact_edges": [
+    [
+     "storm_shop_luncheonette_menu_board_BlankFace",
+     "storm_shop_luncheonette_menu_board_Lower"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_BlankFace",
+     "storm_shop_luncheonette_menu_board_Upper"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_BlankFace",
+     "storm_shop_luncheonette_menu_board_End0"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_BlankFace",
+     "storm_shop_luncheonette_menu_board_End1"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_Lower"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_Upper"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_End0"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_End1"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_Support_0_0_Shank"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_Support_0_0_RearCollar"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_Support_0_1_Shank"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_Support_0_1_RearCollar"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_Support_1_0_Shank"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_Support_1_0_RearCollar"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_Support_1_1_Shank"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_RearPanel",
+     "storm_shop_luncheonette_menu_board_Support_1_1_RearCollar"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Lower",
+     "storm_shop_luncheonette_menu_board_End0"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Lower",
+     "storm_shop_luncheonette_menu_board_End1"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Upper",
+     "storm_shop_luncheonette_menu_board_End0"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Upper",
+     "storm_shop_luncheonette_menu_board_End1"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Support_0_0_Shank",
+     "storm_shop_luncheonette_menu_board_Support_0_0_RearCollar"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Support_0_0_Shank",
+     "storm_shop_luncheonette_menu_board_Support_0_0_WallSeat"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Support_0_1_Shank",
+     "storm_shop_luncheonette_menu_board_Support_0_1_RearCollar"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Support_0_1_Shank",
+     "storm_shop_luncheonette_menu_board_Support_0_1_WallSeat"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Support_1_0_Shank",
+     "storm_shop_luncheonette_menu_board_Support_1_0_RearCollar"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Support_1_0_Shank",
+     "storm_shop_luncheonette_menu_board_Support_1_0_WallSeat"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Support_1_1_Shank",
+     "storm_shop_luncheonette_menu_board_Support_1_1_RearCollar"
+    ],
+    [
+     "storm_shop_luncheonette_menu_board_Support_1_1_Shank",
+     "storm_shop_luncheonette_menu_board_Support_1_1_WallSeat"
+    ]
+   ]
+  },
+  {
+   "assembly": "storm_shop_luncheonette_fan_hub",
+   "connected_components": 1,
+   "surface_contact_edges": [
+    [
+     "storm_shop_luncheonette_fan_hub_EmptyMotor",
+     "storm_shop_luncheonette_fan_hub_MotorCap"
+    ],
+    [
+     "storm_shop_luncheonette_fan_hub_EmptyMotor",
+     "storm_shop_luncheonette_fan_hub_Blade0_Arm"
+    ],
+    [
+     "storm_shop_luncheonette_fan_hub_EmptyMotor",
+     "storm_shop_luncheonette_fan_hub_Blade1_Arm"
+    ],
+    [
+     "storm_shop_luncheonette_fan_hub_EmptyMotor",
+     "storm_shop_luncheonette_fan_hub_Blade2_Arm"
+    ],
+    [
+     "storm_shop_luncheonette_fan_hub_EmptyMotor",
+     "storm_shop_luncheonette_fan_hub_Blade3_Arm"
+    ],
+    [
+     "storm_shop_luncheonette_fan_hub_MotorCap",
+     "storm_shop_luncheonette_fan_hub_Support_Hanger"
+    ],
+    [
+     "storm_shop_luncheonette_fan_hub_Support_Hanger",
+     "storm_shop_luncheonette_fan_hub_Support_Canopy"
+    ],
+    [
+     "storm_shop_luncheonette_fan_hub_Blade0_Arm",
+     "storm_shop_luncheonette_fan_hub_Blade0_WorkedThinBlade"
+    ],
+    [
+     "storm_shop_luncheonette_fan_hub_Blade1_Arm",
+     "storm_shop_luncheonette_fan_hub_Blade1_WorkedThinBlade"
+    ],
+    [
+     "storm_shop_luncheonette_fan_hub_Blade2_Arm",
+     "storm_shop_luncheonette_fan_hub_Blade2_WorkedThinBlade"
+    ],
+    [
+     "storm_shop_luncheonette_fan_hub_Blade3_Arm",
+     "storm_shop_luncheonette_fan_hub_Blade3_WorkedThinBlade"
+    ]
+   ]
+  }
+ ],
+ "actual_native_support_samples": [
+  {
+   "label": "declared rear board mount on actual lower plaster wall",
+   "distance_m": 0.0
+  },
+  {
+   "label": "declared rear board mount on actual lower plaster wall",
+   "distance_m": 0.0
+  },
+  {
+   "label": "declared rear board mount on actual lower plaster wall",
+   "distance_m": 0.0
+  },
+  {
+   "label": "declared rear board mount on actual lower plaster wall",
+   "distance_m": 0.0
+  },
+  {
+   "label": "declared canopy ring on actual tin ceiling underside",
+   "distance_m": 0.0
+  },
+  {
+   "label": "declared canopy ring on actual tin ceiling underside",
+   "distance_m": 0.0
+  },
+  {
+   "label": "declared canopy ring on actual tin ceiling underside",
+   "distance_m": 0.0
+  },
+  {
+   "label": "declared canopy ring on actual tin ceiling underside",
+   "distance_m": 0.0
+  }
+ ],
+ "actual_owner_support_samples": [
+  {
+   "owner": "storm_shop_luncheonette_back_lo",
+   "label": "declared rear board mount on actual lower plaster wall",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_back_lo",
+   "label": "declared rear board mount on actual lower plaster wall",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_back_lo",
+   "label": "declared rear board mount on actual lower plaster wall",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_back_lo",
+   "label": "declared rear board mount on actual lower plaster wall",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_ceil",
+   "label": "declared canopy ring on actual tin ceiling underside",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_ceil",
+   "label": "declared canopy ring on actual tin ceiling underside",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_ceil",
+   "label": "declared canopy ring on actual tin ceiling underside",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_ceil",
+   "label": "declared canopy ring on actual tin ceiling underside",
+   "distance_m": 0.0
+  }
+ ],
+ "parts": 2,
+ "triangles": 6196,
+ "removed_original_triangles": 72,
+ "retired_context_boundaries": {
+  "storm_shop_luncheonette_menu_board": 12,
+  "storm_shop_luncheonette_fan_hub": 12,
+  "storm_shop_luncheonette_fan_blade0": 12,
+  "storm_shop_luncheonette_fan_blade1": 12,
+  "storm_shop_luncheonette_fan_blade2": 12,
+  "storm_shop_luncheonette_fan_blade3": 12,
+  "storm_shop_luncheonette_stool0": 12,
+  "storm_shop_luncheonette_stool0_top": 12,
+  "storm_shop_luncheonette_stool1": 12,
+  "storm_shop_luncheonette_stool1_top": 12,
+  "storm_shop_luncheonette_stool2": 12,
+  "storm_shop_luncheonette_stool2_top": 12,
+  "storm_shop_luncheonette_stool3": 12,
+  "storm_shop_luncheonette_stool3_top": 12,
+  "storm_shop_luncheonette_stool4": 12,
+  "storm_shop_luncheonette_stool4_top": 12,
+  "storm_shop_luncheonette_stool5": 12,
+  "storm_shop_luncheonette_stool5_top": 12,
+  "storm_shop_luncheonette_stool6": 12,
+  "storm_shop_luncheonette_stool6_top": 12,
+  "storm_shop_luncheonette_stool7": 12,
+  "storm_shop_luncheonette_stool7_top": 12,
+  "storm_shop_luncheonette_counter": 12,
+  "storm_shop_luncheonette_counter_top": 12,
+  "storm_shop_luncheonette_counter_kick": 12,
+  "storm_shop_luncheonette_ledger": 12,
+  "storm_shop_luncheonette_register": 12,
+  "storm_shop_luncheonette_cigar_case": 12,
+  "storm_shop_luncheonette_backbar": 12,
+  "storm_shop_luncheonette_backbar_top": 12,
+  "storm_shop_luncheonette_bbshelf0": 12,
+  "storm_shop_luncheonette_bbshelf1": 12,
+  "storm_shop_luncheonette_bbshelf2": 12,
+  "storm_shop_luncheonette_urn0": 12,
+  "storm_shop_luncheonette_urn0_lid": 12,
+  "storm_shop_luncheonette_urn0_tap": 12,
+  "storm_shop_luncheonette_urn0_gauge": 12,
+  "storm_shop_luncheonette_urn1": 12,
+  "storm_shop_luncheonette_urn1_lid": 12,
+  "storm_shop_luncheonette_urn1_tap": 12,
+  "storm_shop_luncheonette_urn1_gauge": 12,
+  "storm_shop_luncheonette_piecase": 12,
+  "storm_shop_luncheonette_griddle": 12,
+  "storm_shop_luncheonette_griddle_top": 12,
+  "storm_shop_luncheonette_soda_fount": 12,
+  "storm_shop_luncheonette_syrup0": 12,
+  "storm_shop_luncheonette_syrup1": 12,
+  "storm_shop_luncheonette_syrup2": 12,
+  "storm_shop_luncheonette_syrup3": 12,
+  "storm_shop_luncheonette_syrup4": 12,
+  "storm_shop_luncheonette_mixer_base": 12,
+  "storm_shop_luncheonette_mixer_post": 12
+ },
+ "retired_receiving_owners": {
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite": 256,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black": 256,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass": 24,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel": 140,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fabric_cool": 12,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_hull-colonly": 24,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_milk_glass": 12,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_screen": 24,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terracotta": 88
+ },
+ "accepted_native_context_objects": 46,
+ "cabinet_context": "explicitly omitted; current default",
+ "render_device": "CPU",
+ "derived_inspector_sha256": "c1b6751048050cb1ab3e1b0cba6b9ad4385383d901888c8f4a0794017f98c675",
+ "production_inspector_lf_sha256": "fcb8ff134c367def8a1b3d619873f978367bf003ce1cfaccd1a829c2bc3c64a9",
+ "context_intersections": [],
+ "declared_wall_ceiling_contact_pairs": [
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col",
+   "owner": "storm_shop_luncheonette_back_lo"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  },
+  {
+   "native": "storm_shop_luncheonette_fan_hub__metal",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+   "owner": "storm_shop_luncheonette_ceil"
+  }
+ ],
+ "declared_countertop_contact_pairs": [],
+ "uv_metrics": [
+  {
+   "part": "storm_shop_luncheonette_menu_board__bakelite_black",
+   "minimum_metres_per_uv": 0.9998807596131749,
+   "maximum_metres_per_uv": 1.0001324465610406,
+   "triangles": 2616
+  },
+  {
+   "part": "storm_shop_luncheonette_fan_hub__metal",
+   "minimum_metres_per_uv": 0.9999688582371342,
+   "maximum_metres_per_uv": 1.0000279295440602,
+   "triangles": 3580
+  }
+ ],
+ "independent_stock_pairs_checked": 216,
+ "views": [
+  {
+   "id": "overhead_context",
+   "eye": [
+    13.939762115478516,
+    -47.019081115722656,
+    0.6656043529510498
+   ],
+   "target": [
+    21.299999237060547,
+    -41.79999923706055,
+    2.7799999713897705
+   ],
+   "file": "overhead_context.png",
+   "scope": "isolated blank menu board and passive four-blade ceiling fan"
+  },
+  {
+   "id": "menu_blank_face",
+   "eye": [
+    19.050912857055664,
+    -45.42597961425781,
+    2.5293049812316895
+   ],
+   "target": [
+    23.850000381469727,
+    -41.79999923706055,
+    2.380000114440918
+   ],
+   "file": "menu_blank_face.png",
+   "scope": "isolated blank menu board and passive four-blade ceiling fan"
+  },
+  {
+   "id": "menu_recess",
+   "eye": [
+    23.610000610351562,
+    -43.720001220703125,
+    2.140000104904175
+   ],
+   "target": [
+    23.82699966430664,
+    -43.72600173950195,
+    2.061000108718872
+   ],
+   "file": "menu_recess.png",
+   "scope": "isolated blank menu board and passive four-blade ceiling fan"
+  },
+  {
+   "id": "menu_rear_mount",
+   "eye": [
+    24.649999618530273,
+    -44.0,
+    2.2300000190734863
+   ],
+   "target": [
+    23.920000076293945,
+    -43.470001220703125,
+    2.190000057220459
+   ],
+   "file": "menu_rear_mount.png",
+   "scope": "isolated blank menu board and passive four-blade ceiling fan"
+  },
+  {
+   "id": "fan_from_below",
+   "eye": [
+    17.34473419189453,
+    -46.11860656738281,
+    -0.9375512599945068
+   ],
+   "target": [
+    19.25,
+    -41.79999923706055,
+    3.0
+   ],
+   "file": "fan_from_below.png",
+   "scope": "isolated blank menu board and passive four-blade ceiling fan"
+  },
+  {
+   "id": "fan_thin_blade",
+   "eye": [
+    18.450000762939453,
+    -43.29999923706055,
+    3.0999999046325684
+   ],
+   "target": [
+    19.25,
+    -42.45000076293945,
+    2.9660000801086426
+   ],
+   "file": "fan_thin_blade.png",
+   "scope": "isolated blank menu board and passive four-blade ceiling fan"
+  },
+  {
+   "id": "fan_motor_shell",
+   "eye": [
+    18.799999237060547,
+    -42.400001525878906,
+    3.1700000762939453
+   ],
+   "target": [
+    19.25,
+    -41.79999923706055,
+    2.984999895095825
+   ],
+   "file": "fan_motor_shell.png",
+   "scope": "isolated blank menu board and passive four-blade ceiling fan"
+  },
+  {
+   "id": "fan_canopy_ring",
+   "eye": [
+    18.889999389648438,
+    -42.220001220703125,
+    3.4200000762939453
+   ],
+   "target": [
+    19.25,
+    -41.79999923706055,
+    3.2799999713897705
+   ],
+   "file": "fan_canopy_ring.png",
+   "scope": "isolated blank menu board and passive four-blade ceiling fan"
+  },
+  {
+   "id": "cleared_room_menu",
+   "eye": [
+    20.149999618530273,
+    -42.0,
+    1.440000057220459
+   ],
+   "target": [
+    23.850000381469727,
+    -41.79999923706055,
+    2.380000114440918
+   ],
+   "file": "cleared_room_menu.png",
+   "scope": "isolated blank menu board and passive four-blade ceiling fan"
+  },
+  {
+   "id": "cleared_room_fan",
+   "eye": [
+    19.799999237060547,
+    -40.29999923706055,
+    1.440000057220459
+   ],
+   "target": [
+    19.25,
+    -41.79999923706055,
+    2.990000009536743
+   ],
+   "file": "cleared_room_fan.png",
+   "scope": "isolated blank menu board and passive four-blade ceiling fan"
+  }
+ ],
+ "limits": "Six original records become two passive assemblies. Fifty-two exact source boxes and nine old receiving owners retire against 46 accepted native context objects; both optional cabinets are omitted. Eight actual wall/ceiling contacts verify declared short support extensions. No wording, power, rotation, utility route/capacity, continuous route or human acceptance is claimed."
+}

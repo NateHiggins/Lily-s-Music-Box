@@ -1,0 +1,120 @@
+{
+ "evidence_class": "INERT",
+ "head": "b2cb465c30300cbdfed807fbfe599f2935ceb86b",
+ "protected": {
+  "status": "PASS",
+  "matched": 17,
+  "authorized_selector_changes": 0,
+  "expected": 17,
+  "recorded_baseline_matches": 7,
+  "files": [
+   {
+    "path": "art/data/building_layout.json",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": false
+   },
+   {
+    "path": "game/data/building_layout.json",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": false
+   },
+   {
+    "path": "game/scripts/building/building_root_selector.gd",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": false
+   },
+   {
+    "path": "game/assets/building/floor_01.gltf",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": false
+   },
+   {
+    "path": "game/assets/building/floor_01.bin",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": true
+   },
+   {
+    "path": "game/assets/building/floor_02.gltf",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": false
+   },
+   {
+    "path": "game/assets/building/floor_02.bin",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": true
+   },
+   {
+    "path": "game/assets/building/floor_03.gltf",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": false
+   },
+   {
+    "path": "game/assets/building/floor_03.bin",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": true
+   },
+   {
+    "path": "game/assets/building/floor_04.gltf",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": false
+   },
+   {
+    "path": "game/assets/building/floor_04.bin",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": true
+   },
+   {
+    "path": "game/assets/building/floor_05.gltf",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": false
+   },
+   {
+    "path": "game/assets/building/floor_05.bin",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": true
+   },
+   {
+    "path": "game/assets/building/floor_06.gltf",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": false
+   },
+   {
+    "path": "game/assets/building/floor_06.bin",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": true
+   },
+   {
+    "path": "game/assets/building/floor_b1.gltf",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": false
+   },
+   {
+    "path": "game/assets/building/floor_b1.bin",
+    "unchanged_vs_merge_base": true,
+    "authorized_selector_cutover": false,
+    "matches_recorded_baseline": true
+   }
+  ]
+ },
+ "selector": {
+  "value": "v2",
+  "status": "PASS"
+ },
+ "scope": "Read-only committed blob comparison; not a candidate verification or runtime test."
+}

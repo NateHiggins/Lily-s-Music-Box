@@ -1,0 +1,18 @@
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui/telegram/telegram_paper_stock_v1.png" has no resource loaders (unrecognized file extension).
+   at: GDScript::reload (res://scripts/ui/telegram_style.gd:7)
+SCRIPT ERROR: Parse Error: Preload file "res://assets/fonts/courier_prime/CourierPrime-Regular.ttf" has no resource loaders (unrecognized file extension).
+   at: GDScript::reload (res://scripts/ui/telegram_style.gd:9)
+SCRIPT ERROR: Parse Error: Preload file "res://assets/fonts/courier_prime/CourierPrime-Bold.ttf" has no resource loaders (unrecognized file extension).
+   at: GDScript::reload (res://scripts/ui/telegram_style.gd:11)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/ui/objective_tracker.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/game/work_orders.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/game/caretaker_economy.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/game/reality_game_state.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/game_boot.gd:0)
+ERROR: Failed to load script "res://scripts/game_boot.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

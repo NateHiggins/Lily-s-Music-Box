@@ -1,0 +1,623 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_luncheonette_menu_board",
+      "rect": [
+        23.82,
+        -43.74999999999999,
+        23.87,
+        -39.849999999999994
+      ],
+      "z0": 2.02,
+      "h": 0.72,
+      "mat": "bakelite_black",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_fan_hub",
+      "rect": [
+        19.13,
+        -41.92,
+        19.37,
+        -41.67999999999999
+      ],
+      "z0": 2.92,
+      "h": 0.16,
+      "mat": "metal",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_fan_blade0",
+      "rect": [
+        19.17,
+        -42.9,
+        19.33,
+        -41.92
+      ],
+      "z0": 2.94,
+      "h": 0.055,
+      "mat": "metal",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_fan_blade1",
+      "rect": [
+        19.17,
+        -41.67999999999999,
+        19.33,
+        -40.699999999999996
+      ],
+      "z0": 2.94,
+      "h": 0.055,
+      "mat": "metal",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_fan_blade2",
+      "rect": [
+        19.37,
+        -41.879999999999995,
+        20.35,
+        -41.72
+      ],
+      "z0": 2.94,
+      "h": 0.055,
+      "mat": "metal",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_fan_blade3",
+      "rect": [
+        18.15,
+        -41.879999999999995,
+        19.13,
+        -41.72
+      ],
+      "z0": 2.94,
+      "h": 0.055,
+      "mat": "metal",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_luncheonette_menu_board",
+      "kind": "menu",
+      "cell": "shop_luncheonette",
+      "floor": {
+        "id": "storm_shop_luncheonette_floor",
+        "rect": [
+          17.0,
+          -44.3,
+          24.0,
+          -39.3
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_luncheonette",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_luncheonette_fan_hub",
+      "kind": "fan",
+      "cell": "shop_luncheonette",
+      "floor": {
+        "id": "storm_shop_luncheonette_floor",
+        "rect": [
+          17.0,
+          -44.3,
+          24.0,
+          -39.3
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_luncheonette",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_luncheonette_menu_board_BlankFace",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 0.0134816362351639
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_RearPanel",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 0.010785424044181393
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Lower",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 0.004469226403212299
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Upper",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 0.0044692264032123
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_End0",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 0.0007766873597638205
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_End1",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 0.0007768166657428385
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_0_0_Shank",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 2.372288836734182e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_0_0_RearCollar",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 1.4981637643494278e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_0_0_WallSeat",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 3.7460047708180733e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_0_1_Shank",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 2.372288836734182e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_0_1_RearCollar",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 1.4981637643494278e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_0_1_WallSeat",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 3.7460047708180733e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_1_0_Shank",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 2.372288836734182e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_1_0_RearCollar",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 1.4981637643494278e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_1_0_WallSeat",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 3.7460047708180733e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_1_1_Shank",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 2.372288836734182e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_1_1_RearCollar",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 1.4981637643494278e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_menu_board_Support_1_1_WallSeat",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "key": "bakelite_black",
+      "volume_m3": 3.7460047708180733e-06
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_EmptyMotor",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 0.0005375204564595186
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_MotorCap",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 4.074057198920343e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_Support_Hanger",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 0.00011329785857009872
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_Support_Canopy",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 7.269201287785984e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_Blade0_Arm",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 2.1491235390504182e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_Blade0_WorkedThinBlade",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 0.0009556097346090382
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_Blade1_Arm",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 2.149219990156201e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_Blade1_WorkedThinBlade",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 0.0009556064387037111
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_Blade2_Arm",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 2.1492119724689923e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_Blade2_WorkedThinBlade",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 0.0009555819156760839
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_Blade3_Arm",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 2.1492119724689923e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub_Blade3_WorkedThinBlade",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "key": "metal",
+      "volume_m3": 0.000955581915693516
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "owner": "storm_shop_luncheonette_back_lo",
+      "point": [
+        23.94,
+        2.12,
+        43.46999999999999
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "declared rear board mount on actual lower plaster wall"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "owner": "storm_shop_luncheonette_back_lo",
+      "point": [
+        23.94,
+        2.26,
+        43.46999999999999
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "declared rear board mount on actual lower plaster wall"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "owner": "storm_shop_luncheonette_back_lo",
+      "point": [
+        23.94,
+        2.12,
+        40.129999999999995
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "declared rear board mount on actual lower plaster wall"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "owner": "storm_shop_luncheonette_back_lo",
+      "point": [
+        23.94,
+        2.26,
+        40.129999999999995
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "declared rear board mount on actual lower plaster wall"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "owner": "storm_shop_luncheonette_ceil",
+      "point": [
+        19.186,
+        3.3,
+        41.8
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "declared canopy ring on actual tin ceiling underside"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "owner": "storm_shop_luncheonette_ceil",
+      "point": [
+        19.314,
+        3.3,
+        41.8
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "declared canopy ring on actual tin ceiling underside"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "owner": "storm_shop_luncheonette_ceil",
+      "point": [
+        19.25,
+        3.3,
+        41.864
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "declared canopy ring on actual tin ceiling underside"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "owner": "storm_shop_luncheonette_ceil",
+      "point": [
+        19.25,
+        3.3,
+        41.736
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "declared canopy ring on actual tin ceiling underside"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_luncheonette_menu_board__bakelite_black",
+      "assembly": "storm_shop_luncheonette_menu_board",
+      "cell": "shop_luncheonette",
+      "key": "bakelite_black",
+      "triangles": 2616
+    },
+    {
+      "name": "storm_shop_luncheonette_fan_hub__metal",
+      "assembly": "storm_shop_luncheonette_fan_hub",
+      "cell": "shop_luncheonette",
+      "key": "metal",
+      "triangles": 3580
+    }
+  ],
+  "triangles": 6196,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/diner_overhead.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_luncheonette",
+        "parts": [
+          {
+            "name": "storm_shop_luncheonette_menu_board__bakelite_black",
+            "key": "bakelite_black",
+            "tile": 0.3
+          },
+          {
+            "name": "storm_shop_luncheonette_fan_hub__metal",
+            "key": "metal",
+            "tile": 0.8
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_luncheonette_menu_board",
+            "key": "bakelite_black",
+            "low": [
+              23.82,
+              2.02,
+              39.849999999999994
+            ],
+            "high": [
+              23.87,
+              2.74,
+              43.74999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_fan_hub",
+            "key": "metal",
+            "low": [
+              19.13,
+              2.92,
+              41.67999999999999
+            ],
+            "high": [
+              19.37,
+              3.08,
+              41.92
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_fan_blade0",
+            "key": "metal",
+            "low": [
+              19.17,
+              2.94,
+              41.92
+            ],
+            "high": [
+              19.33,
+              2.995,
+              42.9
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_fan_blade1",
+            "key": "metal",
+            "low": [
+              19.17,
+              2.94,
+              40.699999999999996
+            ],
+            "high": [
+              19.33,
+              2.995,
+              41.67999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_fan_blade2",
+            "key": "metal",
+            "low": [
+              19.37,
+              2.94,
+              41.72
+            ],
+            "high": [
+              20.35,
+              2.995,
+              41.879999999999995
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_fan_blade3",
+            "key": "metal",
+            "low": [
+              18.15,
+              2.94,
+              41.72
+            ],
+            "high": [
+              19.13,
+              2.995,
+              41.879999999999995
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "1d9bbb63142ff91104466b23924cebfb36da6f8874d34c71d98b08b0b3f3150e",
+  "source_bindings": {
+    "art/data/diner_overhead/source_plan.json": "35945f86aba5cf93deb493e668bbdca7f8938fa7193e3bde8230795ce9250289",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_diner_overhead.py": "afb9378e3d6fdb2c74100739d1e6cd8672d58077cd9820bf7925b9c0a1b8e4dc",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/diner_overhead.glb.import": "87c0a64e74753171e70218aa4c53957e341909a300a779f8814c91e10572486c",
+    "art/textures/ai_materials/metal_b/material.json": "86a8c2610bb48b4f664db66da265bd38af6249b76489f58ce3492846937a5f89",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "game/assets/building/textures/T_ai_materials_metal_b_albedo.png": "fba2fee71543d6dfcbbce474a9dec39c5ea9f6b02f1db6752909fac875a7caeb",
+    "game/assets/building/textures/T_ai_materials_metal_b_rough.png": "fcbc3ee2dd0dffe0d7016e0485aca66dcb75b18f994de0620c33830c9ee5cf1f",
+    "game/assets/building/textures/T_ai_materials_metal_b_normal.png": "59c6323194f1146e567e786d25971bcfc68782a21ef412a8e12105278baab380",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "game/assets/building/floor_01_cells/shop_luncheonette.gltf": "55e327d213c21a453b0040d7f8c8e69105e307f0fb912a2cea259b03f3653c58",
+    "game/assets/building/floor_01_cells/shop_luncheonette.bin": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274",
+    "art/blender/scripts/inspect_diner_overhead.py": "871111af2c97119743046f7a806977c277ac95cdcda960cd76018b2672fae621",
+    "art/blender/shop_seating.blend": "5b20a4c4419cd2d15e42dcb6c3784c11674e8e048a5454dada00097152cf0b5a",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/tests/fixtures/orison_shop_seating.json": "18d11054825d788e560a72a6c3f56f290ee5fe1a86ae119d0782df21a6fd4a23",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "art/blender/diner_receiving.blend": "9b6d17c79ebe9aa8e6d10d57b7467632396da8d973e3111f888eee78b152ec68",
+    "game/assets/props/diner_receiving.glb": "893976dd77612880fefb9f1e381574614165eb188372aa31b628c7592d8caa0f",
+    "game/tests/fixtures/orison_diner_receiving.json": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+    "game/data/orison_v2/diner_receiving.json": "1a8afcb2c950401e11cbf51536f0c0a5200fdff482d1c4e47bc18e5540fe52fa",
+    "art/blender/diner_counter.blend": "2e4751ea15af0b1cfadbc4fd42cfe894dc06bcf24616cfafad330a6171fc4d5f",
+    "game/assets/props/diner_counter.glb": "1ab3fe87d12e378627c9fd6a6551f467424d380d3b3e856bf5574786d1e413e3",
+    "game/tests/fixtures/orison_diner_counter.json": "23ac46e9b877b0f0309beeaf50bdc1a653e3aefd0ccddf17f26f41ce63d9c65c",
+    "game/data/orison_v2/diner_counter.json": "8e7085cececed1e6d9f23fd4c3c951d5f58e14eeeac84397751ef85474479ec2",
+    "art/blender/diner_till.blend": "98ccc6fc38d333dcfef74e73523b6e6f35a34fdfe9dabd40c4002eec6c595efb",
+    "game/assets/props/diner_till.glb": "b41b92978366124003d7c9be921b4244e2e6906f8d014e144a24cbab35ae3800",
+    "game/tests/fixtures/orison_diner_till.json": "70643b77a62d2314c7158b182e1a81cd8968473df8e3603f0892a236363457e9",
+    "game/data/orison_v2/diner_till.json": "6e104111994df298f88729ff7b0bf8679c24f66dc82ccc44a08abec7f1a048bc",
+    "art/blender/diner_backbar.blend": "9035bf61fa107b52159996a50ff0b87cf5dee18c5213c1bff652e94a739e3f99",
+    "game/assets/props/diner_backbar.glb": "170bf505d116403c91243c40f369eebc4396ab73a9e83ea6527de5472704f75b",
+    "game/tests/fixtures/orison_diner_backbar.json": "d71a1f63118fef4b29b6270700a6a013f5cd8b86142100c3e83360ede62a711d",
+    "game/data/orison_v2/diner_backbar.json": "32a08d094a95bea3779036c8ad4c0a4f75f90c06d8d81cdfdc3665aadc431a49",
+    "art/blender/diner_urns.blend": "9a0f7fe6cb9afb530e33614cfff1c60d9d3048e2ca116b39a5a4118468776d54",
+    "game/assets/props/diner_urns.glb": "3e54f0f32cf066db65552948edab879d5eff51adbc054f8b85c56fd73d356f20",
+    "game/tests/fixtures/orison_diner_urns.json": "d512dd1317b3b3d8963c3289b8923c11ad20d1f98b162d9d92a97d38d0c1e6af",
+    "game/data/orison_v2/diner_urns.json": "7410cce7fafdf11f7b9011067fc17b3238be2ee546bbf54e8d01d30f990f9a3e",
+    "art/blender/diner_apparatus.blend": "c1018fa8c0c771dcd5120c0d5cfbd2156ef68fba0594fb5763c041fb2a026471",
+    "game/assets/props/diner_apparatus.glb": "82e070e2d1c907e802e18291e24041899888c98cd3754b8c65443ed6b774e565",
+    "game/tests/fixtures/orison_diner_apparatus.json": "e10207eec7703c8e24eeb7b2e5a004280cf1bbc30dce68b5be15628d5a19fac2",
+    "game/data/orison_v2/diner_apparatus.json": "b7f955b5da29879f4043a138d9884b39abd9596d0635fa5ab55b1727f1c35c7f"
+  },
+  "open_work": [
+    "Blank existing Bakelite board keeps original front footprint and upper datum. A recessed face and fitted rim replace its solid block. Four declared short rear standoffs bridge the 0.07m gap to the actual lower plaster back wall below the borrowed-light sill; do not anchor to glass or alter the window. No menu wording or prices invented.",
+    "Original fan hub and four blades become one passive hollow motor housing, connected blade arms and worked thin blades inside their original combined plan and blade datums. An explicit central hanger and narrow fitted canopy bridge the 0.22m gap from original 3.08m hub maximum to the actual 3.30m tin ceiling underside. Four canopy-ring contacts must hit actual unchanged ceiling triangles. No invented power route, internals or animation authority.",
+    "Passive original menu board and fan only. Exact reference boxes remain. Menu wording, powered rotation, power routes, broader glass glare, service capacity/continuity, continuous routes and human acceptance remain open."
+  ]
+}

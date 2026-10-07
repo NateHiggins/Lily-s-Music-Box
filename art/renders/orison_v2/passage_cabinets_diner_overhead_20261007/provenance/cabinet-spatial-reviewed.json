@@ -1,0 +1,36 @@
+{
+ "evidence_class": "INERT",
+ "rows": [
+  {
+   "key": "7638067c251b5f24",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/tests/orison_v2_passage_residency_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_removed_cabinets"
+   ],
+   "lines": [
+    244
+   ],
+   "count": 1,
+   "context": [
+    "var matches: Array = passage.source_layout.floors.filter(func(row):return row.id==\"F01\")[0].furniture.filter(func(row):return row.id==source.id)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  }
+ ],
+ "review": "The reconstruction test must find the exact retained F01 cabinet source records. It does not move or rename their floor authority. Only this independently reviewed row was appended; all prior manifest records and top-level fields were preserved."
+}
