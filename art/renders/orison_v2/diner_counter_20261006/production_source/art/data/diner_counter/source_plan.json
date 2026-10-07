@@ -1,0 +1,50 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 4,
+  "runtime_keys": [
+    "wood_dark",
+    "timber",
+    "chrome",
+    "countertop",
+    "paper",
+    "paper__cover"
+  ],
+  "catalog_variants": {
+    "timber": "wood_dark"
+  },
+  "material_aliases": {
+    "paper__cover": "paper"
+  },
+  "material_tints": {
+    "paper__cover": [
+      0.18,
+      0.105,
+      0.06,
+      1.0
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "groups": [
+    {
+      "kind": "counter",
+      "sources": [
+        "storm_shop_luncheonette_counter",
+        "storm_shop_luncheonette_counter_top",
+        "storm_shop_luncheonette_counter_kick"
+      ]
+    },
+    {
+      "kind": "ledger",
+      "sources": [
+        "storm_shop_luncheonette_ledger"
+      ]
+    }
+  ],
+  "open_work": [
+    "Original counter plan, 1.12m upper top datum and west kickplate envelope remain. Joined posts bear on the actual .01m floor, filling the original .04m gap. Framed closed lower panels and internal rails replace the solid carcass; the original countertop finish remains locally bound.",
+    "The original solid chrome kick becomes a 2mm folded sheet with supported returns and internal timber rail, inside its original .06m envelope and .15m maximum. No new shared material key or global chrome change.",
+    "The original ledger lowers .01m onto the unchanged actual 1.12m top; paper-map brown covers and a spine enclose an unlettered page stack. Its original hidden source pose remains.",
+    "Passive fitting grants no cabinet opening, till operation, food/drink service, purchase, utility capacity, continuous customer/service routes or human acceptance. Eight stools and two receiving owners retain their existing native meshes and nonvisual authority."
+  ]
+}

@@ -1,0 +1,601 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "storm_shop_luncheonette_counter",
+      "rect": [
+        18.91,
+        -43.94999999999999,
+        19.59,
+        -40.8
+      ],
+      "z0": 0.05,
+      "h": 1.02,
+      "mat": "wood_dark",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_counter_top",
+      "rect": [
+        18.85,
+        -43.99999999999999,
+        19.65,
+        -40.75
+      ],
+      "z0": 1.07,
+      "h": 0.05,
+      "mat": "countertop",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_counter_kick",
+      "rect": [
+        18.85,
+        -43.99999999999999,
+        18.91,
+        -40.75
+      ],
+      "z0": 0.01,
+      "h": 0.14,
+      "mat": "chrome",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    },
+    {
+      "id": "storm_shop_luncheonette_ledger",
+      "rect": [
+        19.13,
+        -41.98,
+        19.509999999999998,
+        -41.62
+      ],
+      "z0": 1.13,
+      "h": 0.05,
+      "mat": "paper",
+      "batch": "shop_luncheonette",
+      "zone": "PASSAGE"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "storm_shop_luncheonette_counter",
+      "kind": "counter",
+      "cell": "shop_luncheonette",
+      "floor": {
+        "id": "storm_shop_luncheonette_floor",
+        "rect": [
+          17.0,
+          -44.3,
+          24.0,
+          -39.3
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_luncheonette",
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "storm_shop_luncheonette_ledger",
+      "kind": "ledger",
+      "cell": "shop_luncheonette",
+      "floor": {
+        "id": "storm_shop_luncheonette_floor",
+        "rect": [
+          17.0,
+          -44.3,
+          24.0,
+          -39.3
+        ],
+        "z0": -0.05,
+        "h": 0.06,
+        "mat": "terrazzo",
+        "batch": "shop_luncheonette",
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "storm_shop_luncheonette_counter_Post18.942-43.91799999999999",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.003566513593054575
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Post18.942-42.37499999999999",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.003566513593054575
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Post18.942-40.831999999999994",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.003566513593054575
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Post19.558-43.91799999999999",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.003566513593054575
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Post19.558-42.37499999999999",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.003566513593054575
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Post19.558-40.831999999999994",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.003566513593054575
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_LongPanel18.919",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.05496210070042633
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_LongRail18.9190.145",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.005831497922622825
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_LongRail18.9191.012",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.005831500973246112
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_LongPanel19.56",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.05496210070042633
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_LongRail19.560.145",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.005831835166438019
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_LongRail19.561.012",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.005831838217237633
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_EndPanel-43.94099999999999",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.010306542111684962
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_EndRail-43.940999999999990.145",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.001188105948995188
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_EndRail-43.940999999999991.012",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.0011881065705404096
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_EndPanel-40.83",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.010306542111684962
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_EndRail-40.830.145",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.001188105948995188
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_EndRail-40.831.012",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.0011881065705404096
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_ServingCore",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.13779569801012553
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_CountertopSheet",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "countertop",
+      "volume_m3": 0.02599735256015149
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_KickSupport",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "timber",
+      "volume_m3": 0.019512149865398756
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_KickFace",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "chrome",
+      "volume_m3": 0.0009095001743446572
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_KickReturn0.01",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "chrome",
+      "volume_m3": 0.00038350016204269366
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_KickReturn0.14800000000000002",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "chrome",
+      "volume_m3": 0.00038350087636729313
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_KickEnd-43.99999999999999",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "chrome",
+      "volume_m3": 1.6510930512063414e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_KickEnd-40.752",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "chrome",
+      "volume_m3": 1.6510930512063414e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_ledger_Pages",
+      "assembly": "storm_shop_luncheonette_ledger",
+      "key": "paper",
+      "volume_m3": 0.005761064666218299
+    },
+    {
+      "name": "storm_shop_luncheonette_ledger_Cover1.12",
+      "assembly": "storm_shop_luncheonette_ledger",
+      "key": "paper__cover",
+      "volume_m3": 0.00041021918106502037
+    },
+    {
+      "name": "storm_shop_luncheonette_ledger_Cover1.1670000000000003",
+      "assembly": "storm_shop_luncheonette_ledger",
+      "key": "paper__cover",
+      "volume_m3": 0.00041020287319052523
+    },
+    {
+      "name": "storm_shop_luncheonette_ledger_Spine",
+      "assembly": "storm_shop_luncheonette_ledger",
+      "key": "paper__cover",
+      "volume_m3": 9.926597931999114e-05
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "storm_shop_luncheonette_counter",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        18.942,
+        0.009999999999999995,
+        43.91799999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Diner counter actual floor post"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_counter",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        18.942,
+        0.009999999999999995,
+        42.37499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Diner counter actual floor post"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_counter",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        18.942,
+        0.009999999999999995,
+        40.831999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Diner counter actual floor post"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_counter",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        19.558,
+        0.009999999999999995,
+        43.91799999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Diner counter actual floor post"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_counter",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        19.558,
+        0.009999999999999995,
+        42.37499999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Diner counter actual floor post"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_counter",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        19.558,
+        0.009999999999999995,
+        40.831999999999994
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Diner counter actual floor post"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_counter",
+      "owner": "storm_shop_luncheonette_floor",
+      "point": [
+        18.880000000000003,
+        0.009999999999999995,
+        43.998999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded kickplate on actual unchanged floor"
+    },
+    {
+      "assembly": "storm_shop_luncheonette_ledger",
+      "owner": "storm_shop_luncheonette_counter_top",
+      "point": [
+        19.32,
+        1.12,
+        41.8
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ledger on actual unchanged Diner serving top"
+    }
+  ],
+  "parts": [
+    {
+      "name": "storm_shop_luncheonette_counter__chrome",
+      "assembly": "storm_shop_luncheonette_counter",
+      "cell": "shop_luncheonette",
+      "key": "chrome",
+      "triangles": 60
+    },
+    {
+      "name": "storm_shop_luncheonette_counter__countertop",
+      "assembly": "storm_shop_luncheonette_counter",
+      "cell": "shop_luncheonette",
+      "key": "countertop",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_luncheonette_counter__timber",
+      "assembly": "storm_shop_luncheonette_counter",
+      "cell": "shop_luncheonette",
+      "key": "timber",
+      "triangles": 3760
+    },
+    {
+      "name": "storm_shop_luncheonette_ledger__paper",
+      "assembly": "storm_shop_luncheonette_ledger",
+      "cell": "shop_luncheonette",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "storm_shop_luncheonette_ledger__paper__cover",
+      "assembly": "storm_shop_luncheonette_ledger",
+      "cell": "shop_luncheonette",
+      "key": "paper__cover",
+      "triangles": 564
+    }
+  ],
+  "triangles": 4760,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/diner_counter.glb",
+    "tolerance": 2e-05,
+    "cells": [
+      {
+        "id": "shop_luncheonette",
+        "parts": [
+          {
+            "name": "storm_shop_luncheonette_counter__chrome",
+            "key": "chrome",
+            "tile": 0.8
+          },
+          {
+            "name": "storm_shop_luncheonette_counter__countertop",
+            "key": "countertop",
+            "tile": 1.2
+          },
+          {
+            "name": "storm_shop_luncheonette_counter__timber",
+            "key": "timber",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          },
+          {
+            "name": "storm_shop_luncheonette_ledger__paper",
+            "key": "paper",
+            "tile": 0.5
+          },
+          {
+            "name": "storm_shop_luncheonette_ledger__paper__cover",
+            "key": "paper",
+            "tile": 0.5,
+            "tint": [
+              0.18,
+              0.105,
+              0.06,
+              1.0
+            ]
+          }
+        ],
+        "replace": [
+          {
+            "id": "storm_shop_luncheonette_counter",
+            "key": "wood_dark",
+            "low": [
+              18.91,
+              0.05,
+              40.8
+            ],
+            "high": [
+              19.59,
+              1.07,
+              43.94999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_counter_top",
+            "key": "countertop",
+            "low": [
+              18.85,
+              1.07,
+              40.75
+            ],
+            "high": [
+              19.65,
+              1.12,
+              43.99999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_counter_kick",
+            "key": "chrome",
+            "low": [
+              18.85,
+              0.01,
+              40.75
+            ],
+            "high": [
+              18.91,
+              0.15000000000000002,
+              43.99999999999999
+            ],
+            "expected_triangles": 12
+          },
+          {
+            "id": "storm_shop_luncheonette_ledger",
+            "key": "paper",
+            "low": [
+              19.13,
+              1.13,
+              41.62
+            ],
+            "high": [
+              19.509999999999998,
+              1.18,
+              41.98
+            ],
+            "expected_triangles": 12
+          }
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "1ab3fe87d12e378627c9fd6a6551f467424d380d3b3e856bf5574786d1e413e3",
+  "source_bindings": {
+    "art/data/diner_counter/source_plan.json": "6649b37ae2043c4e71a7a12ac47b8eb8e91a3ccbe3793b1936712d8e172f4ca8",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_diner_counter.py": "4fed63567e84ed508a34d7493fa286dac5d0e3c70014addc726bac2d0206af24",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/diner_counter.glb.import": "a2137dd7b646ebb44f609d1237c98507bd47a7de084d6b8ef346342e890f7bc8",
+    "art/textures/ai_materials/wood_dark_b/material.json": "ba630389c5d6ce95be9664cbdd0499b2d0c20729709bcf5641a6d3d3bcd202d7",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/ai_materials/chrome_b/material.json": "b7c97dabeaf9646f9fc0a0a3c7f9df0ecdd33e26b361acf706de1c5930278e90",
+    "art/textures/ai_materials/countertop_b/material.json": "7b2179e1d5c659257bda007d0eb005bc31d9028ba8fd70c6918f927dac410a6e",
+    "art/textures/ai_materials/paper_b/material.json": "c9cba1d7029ba0a33771619544c563eb6f16bb4114a9cb4400ac7f3925416623",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
+    "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_chrome_b_albedo.png": "52818b170ec1f66bc9b2d99fa16305a5937491999af53bbe6d723e85fe84d19b",
+    "game/assets/building/textures/T_ai_materials_chrome_b_rough.png": "075253b5fc73139d265a9ee592ff30db94db7866e157a01cba8cfda4073c948f",
+    "game/assets/building/textures/T_ai_materials_chrome_b_normal.png": "dbf7855df40bd0986a80ba2568ccd944a6db0e9400b5c89dab4e6d78ff8d6812",
+    "game/assets/building/textures/T_ai_materials_countertop_b_albedo.png": "4eda532d4505f6142c763273391609e0c62144816d464adb1d688b272d87fe39",
+    "game/assets/building/textures/T_ai_materials_countertop_b_rough.png": "8d3eafa9a0a0af5f7bcd6bd0f7951a05e4fbe18d50d550e32be09c0109b39035",
+    "game/assets/building/textures/T_ai_materials_countertop_b_normal.png": "74e5bd880ac2771681f3dad39151283b9341b44d8d0c2421e221478652a8e540",
+    "game/assets/building/textures/T_ai_materials_paper_b_albedo.png": "896178bf4b28ae55875960aeea630295b1e987e9684206677611df14836b4d61",
+    "game/assets/building/textures/T_ai_materials_paper_b_rough.png": "4800c7312a5c09be6db31794a984c7a4cdc83c4faec6329aba2dab11dad8b7af",
+    "game/assets/building/textures/T_ai_materials_paper_b_normal.png": "f12c529d01af57bd7bce883ec5e6a5078657dd76135f4c639b36acbf3526855a",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "game/assets/building/floor_01_cells/shop_luncheonette.gltf": "55e327d213c21a453b0040d7f8c8e69105e307f0fb912a2cea259b03f3653c58",
+    "game/assets/building/floor_01_cells/shop_luncheonette.bin": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274",
+    "art/blender/scripts/inspect_diner_counter.py": "1827cffc1d8f0188f30a5abfefd70ea31a6d2765726c8e04a432f0e7b7871ac7",
+    "art/blender/shop_seating.blend": "5b20a4c4419cd2d15e42dcb6c3784c11674e8e048a5454dada00097152cf0b5a",
+    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
+    "game/tests/fixtures/orison_shop_seating.json": "18d11054825d788e560a72a6c3f56f290ee5fe1a86ae119d0782df21a6fd4a23",
+    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
+    "art/blender/diner_receiving.blend": "9b6d17c79ebe9aa8e6d10d57b7467632396da8d973e3111f888eee78b152ec68",
+    "game/assets/props/diner_receiving.glb": "893976dd77612880fefb9f1e381574614165eb188372aa31b628c7592d8caa0f",
+    "game/tests/fixtures/orison_diner_receiving.json": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
+    "game/data/orison_v2/diner_receiving.json": "1a8afcb2c950401e11cbf51536f0c0a5200fdff482d1c4e47bc18e5540fe52fa"
+  },
+  "open_work": [
+    "Original counter plan, 1.12m upper top datum and west kickplate envelope remain. Joined posts bear on the actual .01m floor, filling the original .04m gap. Framed closed lower panels and internal rails replace the solid carcass; the original countertop finish remains locally bound.",
+    "The original solid chrome kick becomes a 2mm folded sheet with supported returns and internal timber rail, inside its original .06m envelope and .15m maximum. No new shared material key or global chrome change.",
+    "The original ledger lowers .01m onto the unchanged actual 1.12m top; paper-map brown covers and a spine enclose an unlettered page stack. Its original hidden source pose remains.",
+    "Passive fitting grants no cabinet opening, till operation, food/drink service, purchase, utility capacity, continuous customer/service routes or human acceptance. Eight stools and two receiving owners retain their existing native meshes and nonvisual authority."
+  ]
+}

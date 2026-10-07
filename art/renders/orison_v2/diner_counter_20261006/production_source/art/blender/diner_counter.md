@@ -48,11 +48,3 @@ and material slots, registered metre charts/tangent derivatives, actual
 eight supports pass. Four requested floor stations are clear; the requested
 kickplate station uses a recorded nearest clear sample. Standing observations
 prove no continuous customer/service route. Committed verification remains required.
-
-Committed source **decc2503** passes the complete **48-gate/tools-test** comparison
-and **eight** bound Godot runs, with zero regressions. All **eight** native,
-**five** focused and **64** final production frames were directly reviewed.
-The original source, actual counter observations, reconstruction, receivers
-and complete separate key authority are retained in
-**art/renders/orison_v2/diner_counter_20261006**; report:
-**design/V2_DINER_COUNTER_2026-10-06.md**. V2 remains incomplete.

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_diner_counter.py", line 41, in <module>
+    assert len(seen)==len(stocks),(a['id'],'disconnected',sorted(set(adj)-seen))
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('storm_shop_luncheonette_counter', 'disconnected', ['storm_shop_luncheonette_counter_KickEnd-40.752', 'storm_shop_luncheonette_counter_KickEnd-43.99999999999999', 'storm_shop_luncheonette_counter_KickFace', 'storm_shop_luncheonette_counter_KickReturn0.01', 'storm_shop_luncheonette_counter_KickReturn0.14800000000000002'])
