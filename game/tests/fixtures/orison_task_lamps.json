@@ -1,0 +1,2173 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "kind": "lamp",
+      "id": "B1_NOOK_LAMP",
+      "unit": "ATRIUM",
+      "pos": [
+        -0.94,
+        -0.65,
+        -2.43
+      ],
+      "yaw_deg": 30,
+      "network": "electrical",
+      "variant": "emeralite"
+    },
+    {
+      "kind": "lamp",
+      "id": "F02_A_LAMP_01",
+      "unit": "2A",
+      "pos": [
+        -12.15,
+        -5.45,
+        3.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "variant": "office_green"
+    },
+    {
+      "kind": "lamp",
+      "id": "F03_B_LAMP_01",
+      "unit": "3B",
+      "pos": [
+        -10.4,
+        6.29,
+        7.3100000000000005
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "variant": "bench_friction"
+    },
+    {
+      "kind": "lamp",
+      "id": "F04_B_LAMP_01",
+      "unit": "4B",
+      "pos": [
+        -8.15,
+        6.0,
+        10.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "variant": "landlord_enamel"
+    },
+    {
+      "kind": "lamp",
+      "id": "F05_A_LAMP_01",
+      "unit": "5A",
+      "pos": [
+        -8.98,
+        -4.3,
+        13.63
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "variant": "architect_counterweight"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "TaskLamp_emeralite",
+      "kind": "task_lamp",
+      "cell": "emeralite",
+      "source_marker": "B1_NOOK_LAMP"
+    },
+    {
+      "id": "TaskLamp_office_green",
+      "kind": "task_lamp",
+      "cell": "office_green",
+      "source_marker": "F02_A_LAMP_01"
+    },
+    {
+      "id": "TaskLamp_bench_friction",
+      "kind": "task_lamp",
+      "cell": "bench_friction",
+      "source_marker": "F03_B_LAMP_01"
+    },
+    {
+      "id": "TaskLamp_landlord_enamel",
+      "kind": "task_lamp",
+      "cell": "landlord_enamel",
+      "source_marker": "F04_B_LAMP_01"
+    },
+    {
+      "id": "TaskLamp_architect_counterweight",
+      "kind": "task_lamp",
+      "cell": "architect_counterweight",
+      "source_marker": "F05_A_LAMP_01"
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "TaskLamp_emeralite_WeightedFoot",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 0.0005413775922886333
+    },
+    {
+      "name": "TaskLamp_emeralite_StemCollar",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 5.0372967185021164e-05
+    },
+    {
+      "name": "TaskLamp_emeralite_UprightStem",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 0.00011674679646427139
+    },
+    {
+      "name": "TaskLamp_emeralite_CasedGreenCanopy",
+      "assembly": "TaskLamp_emeralite",
+      "key": "green_glass",
+      "volume_m3": 0.0001658488495598697
+    },
+    {
+      "name": "TaskLamp_emeralite_RolledGlassRim-0.065",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 5.090513443231683e-06
+    },
+    {
+      "name": "TaskLamp_emeralite_RolledGlassRim0.065",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 5.090513443231685e-06
+    },
+    {
+      "name": "TaskLamp_emeralite_GlassCheek-1",
+      "assembly": "TaskLamp_emeralite",
+      "key": "green_glass",
+      "volume_m3": 2.0412042542449734e-05
+    },
+    {
+      "name": "TaskLamp_emeralite_GlassCheek1",
+      "assembly": "TaskLamp_emeralite",
+      "key": "green_glass",
+      "volume_m3": 2.0412042542449734e-05
+    },
+    {
+      "name": "TaskLamp_emeralite_YokeCrossbar-1",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 5.1805878340001335e-06
+    },
+    {
+      "name": "TaskLamp_emeralite_YokeUpright-1",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 2.806835753377375e-06
+    },
+    {
+      "name": "TaskLamp_emeralite_ShadePivot-1",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 4.487352736074919e-06
+    },
+    {
+      "name": "TaskLamp_emeralite_YokeCrossbar1",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 5.1805878340001335e-06
+    },
+    {
+      "name": "TaskLamp_emeralite_YokeUpright1",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 2.806835753377375e-06
+    },
+    {
+      "name": "TaskLamp_emeralite_ShadePivot1",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 4.487352736074919e-06
+    },
+    {
+      "name": "TaskLamp_emeralite_SocketRiser",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 2.8870309442042878e-05
+    },
+    {
+      "name": "TaskLamp_emeralite_PorcelainSocket",
+      "assembly": "TaskLamp_emeralite",
+      "key": "bakelite",
+      "volume_m3": 7.610731367957683e-05
+    },
+    {
+      "name": "TaskLamp_emeralite_IncandescentBulb",
+      "assembly": "TaskLamp_emeralite",
+      "key": "bulb_opal",
+      "volume_m3": 3.66491066854181e-05
+    },
+    {
+      "name": "TaskLamp_emeralite_ClothFlex",
+      "assembly": "TaskLamp_emeralite",
+      "key": "rubber_aged",
+      "volume_m3": 9.45794920780211e-06
+    },
+    {
+      "name": "TaskLamp_emeralite_SwitchSocket",
+      "assembly": "TaskLamp_emeralite",
+      "key": "brass",
+      "volume_m3": 1.2774931546158876e-05
+    },
+    {
+      "name": "TaskLamp_emeralite_SwitchBushing",
+      "assembly": "TaskLamp_emeralite",
+      "key": "nickel_plated",
+      "volume_m3": 6.281462101159941e-06
+    },
+    {
+      "name": "TaskLamp_emeralite_KeySpindle",
+      "assembly": "TaskLamp_emeralite",
+      "key": "switch_bakelite",
+      "volume_m3": 8.458095147604784e-06
+    },
+    {
+      "name": "TaskLamp_emeralite_KeyGrip",
+      "assembly": "TaskLamp_emeralite",
+      "key": "switch_bakelite",
+      "volume_m3": 9.433621330296574e-06
+    },
+    {
+      "name": "TaskLamp_office_green_WeightedFoot",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 0.0003328288134458936
+    },
+    {
+      "name": "TaskLamp_office_green_StemCollar",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 5.037296348491274e-05
+    },
+    {
+      "name": "TaskLamp_office_green_UprightStem",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 7.455655692617524e-05
+    },
+    {
+      "name": "TaskLamp_office_green_CasedGreenCanopy",
+      "assembly": "TaskLamp_office_green",
+      "key": "green_glass",
+      "volume_m3": 0.00011776241737256648
+    },
+    {
+      "name": "TaskLamp_office_green_RolledGlassRim-0.0525",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 3.915780606296955e-06
+    },
+    {
+      "name": "TaskLamp_office_green_RolledGlassRim0.0525",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 3.915780606296955e-06
+    },
+    {
+      "name": "TaskLamp_office_green_GlassCheek-1",
+      "assembly": "TaskLamp_office_green",
+      "key": "green_glass",
+      "volume_m3": 1.6486773656596236e-05
+    },
+    {
+      "name": "TaskLamp_office_green_GlassCheek1",
+      "assembly": "TaskLamp_office_green",
+      "key": "green_glass",
+      "volume_m3": 1.648677365659624e-05
+    },
+    {
+      "name": "TaskLamp_office_green_YokeCrossbar-1",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 4.029345807197249e-06
+    },
+    {
+      "name": "TaskLamp_office_green_YokeUpright-1",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 2.806834295569914e-06
+    },
+    {
+      "name": "TaskLamp_office_green_ShadePivot-1",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 4.48735506519673e-06
+    },
+    {
+      "name": "TaskLamp_office_green_YokeCrossbar1",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 4.029345807197249e-06
+    },
+    {
+      "name": "TaskLamp_office_green_YokeUpright1",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 2.806834295569914e-06
+    },
+    {
+      "name": "TaskLamp_office_green_ShadePivot1",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 4.48735506519673e-06
+    },
+    {
+      "name": "TaskLamp_office_green_SocketRiser",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 2.977250829257963e-05
+    },
+    {
+      "name": "TaskLamp_office_green_PorcelainSocket",
+      "assembly": "TaskLamp_office_green",
+      "key": "bakelite",
+      "volume_m3": 6.086368230182913e-05
+    },
+    {
+      "name": "TaskLamp_office_green_IncandescentBulb",
+      "assembly": "TaskLamp_office_green",
+      "key": "bulb_opal",
+      "volume_m3": 3.278487590816724e-05
+    },
+    {
+      "name": "TaskLamp_office_green_ClothFlex",
+      "assembly": "TaskLamp_office_green",
+      "key": "rubber_aged",
+      "volume_m3": 7.730807932011194e-06
+    },
+    {
+      "name": "TaskLamp_office_green_SwitchSocket",
+      "assembly": "TaskLamp_office_green",
+      "key": "brass",
+      "volume_m3": 1.3396940140331433e-05
+    },
+    {
+      "name": "TaskLamp_office_green_SwitchBushing",
+      "assembly": "TaskLamp_office_green",
+      "key": "nickel_plated",
+      "volume_m3": 6.281462101159941e-06
+    },
+    {
+      "name": "TaskLamp_office_green_KeySpindle",
+      "assembly": "TaskLamp_office_green",
+      "key": "switch_bakelite",
+      "volume_m3": 8.458095147604784e-06
+    },
+    {
+      "name": "TaskLamp_office_green_KeyGrip",
+      "assembly": "TaskLamp_office_green",
+      "key": "switch_bakelite",
+      "volume_m3": 9.433621330296574e-06
+    },
+    {
+      "name": "TaskLamp_bench_friction_WeightedFoot",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "iron_blackened",
+      "volume_m3": 0.000978608549459467
+    },
+    {
+      "name": "TaskLamp_bench_friction_SocketFoot",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "iron_blackened",
+      "volume_m3": 0.0002397995762264215
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipBody",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "iron_blackened",
+      "volume_m3": 5.0437791331161926e-05
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipWasher",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 4.1989440075155905e-06
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipScrew",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 7.716493777053236e-06
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl0",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048822097831613e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl1",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048821322634667e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl2",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048821492897775e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl3",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048820922590088e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl4",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004882092259009e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl5",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048820922590095e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl6",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048820922590088e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl7",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048820922590095e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl8",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048820922590095e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl9",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004882092259009e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl10",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048821492897775e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl11",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048821322634667e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl12",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048822097831616e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl13",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048821322634667e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl14",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048821492897765e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl15",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.00488209225901e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl16",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048820922590098e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl17",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004882092259009e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl18",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048820922590098e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl19",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004882092259009e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl20",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.00488209225901e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl21",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004882092259009e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl22",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048821492897775e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_HipKnurl23",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048821322634667e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_LowerArm",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 0.00011371442276297773
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowBody",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "iron_blackened",
+      "volume_m3": 5.043779570348e-05
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowWasher",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 4.19894419815091e-06
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowScrew",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 7.716495881894326e-06
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl0",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048832652234867e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl1",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004883265223487e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl2",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048832652234867e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl3",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048832652234867e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl4",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048832652234873e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl5",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048832652234867e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl6",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048832652234867e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl7",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048832652234867e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl8",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004883265223487e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl9",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048832652234867e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl10",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048832652234867e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl11",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048832652234863e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl12",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004883265223487e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl13",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004883265223486e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl14",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004877772506218e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl15",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl16",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737508e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl17",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737508e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl18",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737508e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl19",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004879771573751e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl20",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004879771573751e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl21",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl22",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004877772506217e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_ElbowKnurl23",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048832652234863e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_UpperArm",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 8.771359220938774e-05
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristBody",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "iron_blackened",
+      "volume_m3": 5.0437770367103135e-05
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristWasher",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 4.198943246151648e-06
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristScrew",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 7.716493859103962e-06
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl0",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004889759805991e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl1",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048897598059908e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl2",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004889759805991e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl3",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048898391869354e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl4",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048899347771357e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl5",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048899347771364e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl6",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048899347771357e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl7",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048899347771357e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl8",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048899347771357e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl9",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048898391869354e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl10",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048897598059908e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl11",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048897598059904e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl12",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004889759805991e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl13",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048897598059904e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl14",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048908156280636e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl15",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048908156280636e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl16",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048908156280636e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl17",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048908156280636e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl18",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048908156280643e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl19",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048908156280636e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl20",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048908156280636e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl21",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048908156280636e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl22",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048908156280636e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_WristKnurl23",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 2.004889759805991e-08
+    },
+    {
+      "name": "TaskLamp_bench_friction_SpunHollowShade",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "iron_blackened",
+      "volume_m3": 0.00013455809739224163
+    },
+    {
+      "name": "TaskLamp_bench_friction_RolledShadeLip",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 1.0796044907582601e-05
+    },
+    {
+      "name": "TaskLamp_bench_friction_ShadeNeckBearing",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "iron_blackened",
+      "volume_m3": 1.255436267919241e-05
+    },
+    {
+      "name": "TaskLamp_bench_friction_BakeliteSocket",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "bakelite",
+      "volume_m3": 8.799442186930767e-05
+    },
+    {
+      "name": "TaskLamp_bench_friction_IncandescentBulb",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "bulb_opal",
+      "volume_m3": 3.332057843620063e-05
+    },
+    {
+      "name": "TaskLamp_bench_friction_SupportedFlex",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "rubber_aged",
+      "volume_m3": 1.5392172828916476e-05
+    },
+    {
+      "name": "TaskLamp_bench_friction_LowerCordClip",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "iron_blackened",
+      "volume_m3": 1.2029294312205446e-06
+    },
+    {
+      "name": "TaskLamp_bench_friction_UpperCordClip",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "iron_blackened",
+      "volume_m3": 1.2029287832859417e-06
+    },
+    {
+      "name": "TaskLamp_bench_friction_SwitchSocket",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "iron_blackened",
+      "volume_m3": 1.069398566131903e-05
+    },
+    {
+      "name": "TaskLamp_bench_friction_SwitchBushing",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "nickel_plated",
+      "volume_m3": 6.281462101159941e-06
+    },
+    {
+      "name": "TaskLamp_bench_friction_KeySpindle",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "switch_bakelite",
+      "volume_m3": 8.458095147604784e-06
+    },
+    {
+      "name": "TaskLamp_bench_friction_KeyGrip",
+      "assembly": "TaskLamp_bench_friction",
+      "key": "switch_bakelite",
+      "volume_m3": 9.433621330296574e-06
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WeightedFoot",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "enamel",
+      "volume_m3": 0.000613270602126282
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_UprightArm",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "enamel",
+      "volume_m3": 6.816600180571584e-05
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleBody",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "enamel",
+      "volume_m3": 3.50059672260077e-05
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleWasher",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.902143861267748e-06
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleScrew",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 5.346767372832773e-06
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl0",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl1",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.004879771573751e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl2",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl3",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.004879771573751e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl4",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737508e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl5",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737498e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl6",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl7",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.004879771573751e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl8",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737508e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl9",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737508e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl10",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl11",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl12",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl13",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl14",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737508e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl15",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.00487977157375e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl16",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl17",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737508e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl18",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl19",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.00487977157375e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl20",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737508e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl21",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl22",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.004879771573751e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_WornKnuckleKnurl23",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 2.0048797715737505e-08
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_SpunHollowShade",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "enamel",
+      "volume_m3": 8.00949980865227e-05
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_RolledShadeLip",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 8.443594448432227e-06
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_ShadeNeckBearing",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "enamel",
+      "volume_m3": 5.389807889465765e-06
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_BakeliteSocket",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "bakelite",
+      "volume_m3": 6.0025250642502056e-05
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_IncandescentBulb",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "bulb_opal",
+      "volume_m3": 3.332059464169397e-05
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_SupportedFlex",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "rubber_aged",
+      "volume_m3": 8.919585969615864e-06
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_LowerCordClip",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "iron_blackened",
+      "volume_m3": 1.2029295214918636e-06
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_UpperCordClip",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "iron_blackened",
+      "volume_m3": 1.2029285192305052e-06
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_SwitchSocket",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "enamel",
+      "volume_m3": 9.985492711253909e-06
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_SwitchBushing",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "nickel_plated",
+      "volume_m3": 6.281462101159941e-06
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_KeySpindle",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "switch_bakelite",
+      "volume_m3": 8.458095147604784e-06
+    },
+    {
+      "name": "TaskLamp_landlord_enamel_KeyGrip",
+      "assembly": "TaskLamp_landlord_enamel",
+      "key": "switch_bakelite",
+      "volume_m3": 9.433621330296574e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_WeightedFoot",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "wood_dark",
+      "volume_m3": 0.0011453307364343627
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_FulcrumPedestal",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 5.34708395864239e-05
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_LowerBallBall",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 2.850820204213862e-05
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_LowerBallSocket",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 8.055699527090546e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_LowerArm",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 6.822953225300125e-05
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_UpperBallBall",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 2.8508196759845124e-05
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_UpperBallSocket",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 8.055700906799597e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_UpperArm",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 6.014645851231448e-05
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_HeadBallBall",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 2.850820737986753e-05
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_HeadBallSocket",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 8.055688573739173e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_Counterweight",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 0.0001100949441923451
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_CounterweightSpindle",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 5.41318156501406e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_SpunHollowShade",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 6.02468710291486e-05
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_RolledShadeLip",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 7.314436005012447e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_ShadeNeckBearing",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 2.744431821061347e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_BakeliteSocket",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "bakelite",
+      "volume_m3": 5.3688231738954854e-05
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_IncandescentBulb",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "bulb_opal",
+      "volume_m3": 3.332061619831842e-05
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_SupportedFlex",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "rubber_aged",
+      "volume_m3": 1.5997653461969028e-05
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_LowerCordClip",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "iron_blackened",
+      "volume_m3": 1.202929695281393e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_UpperCordClip",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "iron_blackened",
+      "volume_m3": 1.2029287832859417e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_SwitchSocket",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "wood_dark",
+      "volume_m3": 9.985492711253909e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_SwitchBushing",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "nickel_plated",
+      "volume_m3": 6.281462101159941e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_KeySpindle",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "switch_bakelite",
+      "volume_m3": 8.458095147604784e-06
+    },
+    {
+      "name": "TaskLamp_architect_counterweight_KeyGrip",
+      "assembly": "TaskLamp_architect_counterweight",
+      "key": "switch_bakelite",
+      "volume_m3": 9.433621330296574e-06
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "TaskLamp_emeralite",
+      "owner": "external_support",
+      "point": [
+        0.0475,
+        0,
+        0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_emeralite",
+      "owner": "external_support",
+      "point": [
+        -0.02374999999999999,
+        0,
+        0.04113620667976084
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_emeralite",
+      "owner": "external_support",
+      "point": [
+        -0.02375000000000002,
+        0,
+        -0.041136206679760826
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_office_green",
+      "owner": "external_support",
+      "point": [
+        0.039,
+        0,
+        0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_office_green",
+      "owner": "external_support",
+      "point": [
+        -0.019499999999999993,
+        0,
+        0.03377499074759311
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_office_green",
+      "owner": "external_support",
+      "point": [
+        -0.019500000000000017,
+        0,
+        -0.0337749907475931
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_bench_friction",
+      "owner": "external_support",
+      "point": [
+        0.055,
+        0,
+        0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_bench_friction",
+      "owner": "external_support",
+      "point": [
+        -0.027499999999999986,
+        0,
+        0.047631397208144126
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_bench_friction",
+      "owner": "external_support",
+      "point": [
+        -0.027500000000000024,
+        0,
+        -0.04763139720814412
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_landlord_enamel",
+      "owner": "external_support",
+      "point": [
+        0.041,
+        0,
+        0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_landlord_enamel",
+      "owner": "external_support",
+      "point": [
+        -0.02049999999999999,
+        0,
+        0.03550704155516199
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_landlord_enamel",
+      "owner": "external_support",
+      "point": [
+        -0.020500000000000018,
+        0,
+        -0.03550704155516198
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_architect_counterweight",
+      "owner": "external_support",
+      "point": [
+        0.056,
+        0,
+        0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_architect_counterweight",
+      "owner": "external_support",
+      "point": [
+        -0.027999999999999987,
+        0,
+        0.04849742261192857
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_architect_counterweight",
+      "owner": "external_support",
+      "point": [
+        -0.028000000000000025,
+        0,
+        -0.048497422611928555
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    }
+  ],
+  "parts": [
+    {
+      "name": "TaskLamp_emeralite__bakelite",
+      "assembly": "TaskLamp_emeralite",
+      "cell": "emeralite",
+      "key": "bakelite",
+      "triangles": 512
+    },
+    {
+      "name": "TaskLamp_emeralite__brass",
+      "assembly": "TaskLamp_emeralite",
+      "cell": "emeralite",
+      "key": "brass",
+      "triangles": 3868
+    },
+    {
+      "name": "TaskLamp_emeralite__bulb_opal",
+      "assembly": "TaskLamp_emeralite",
+      "cell": "emeralite",
+      "key": "bulb_opal",
+      "triangles": 384
+    },
+    {
+      "name": "TaskLamp_emeralite__green_glass",
+      "assembly": "TaskLamp_emeralite",
+      "cell": "emeralite",
+      "key": "green_glass",
+      "triangles": 1036
+    },
+    {
+      "name": "TaskLamp_emeralite__nickel_plated",
+      "assembly": "TaskLamp_emeralite",
+      "cell": "emeralite",
+      "key": "nickel_plated",
+      "triangles": 512
+    },
+    {
+      "name": "TaskLamp_emeralite__rubber_aged",
+      "assembly": "TaskLamp_emeralite",
+      "cell": "emeralite",
+      "key": "rubber_aged",
+      "triangles": 60
+    },
+    {
+      "name": "TaskLamp_emeralite__switch_bakelite",
+      "assembly": "TaskLamp_emeralite",
+      "cell": "emeralite",
+      "key": "switch_bakelite",
+      "triangles": 376
+    },
+    {
+      "name": "TaskLamp_office_green__bakelite",
+      "assembly": "TaskLamp_office_green",
+      "cell": "office_green",
+      "key": "bakelite",
+      "triangles": 512
+    },
+    {
+      "name": "TaskLamp_office_green__brass",
+      "assembly": "TaskLamp_office_green",
+      "cell": "office_green",
+      "key": "brass",
+      "triangles": 3868
+    },
+    {
+      "name": "TaskLamp_office_green__bulb_opal",
+      "assembly": "TaskLamp_office_green",
+      "cell": "office_green",
+      "key": "bulb_opal",
+      "triangles": 384
+    },
+    {
+      "name": "TaskLamp_office_green__green_glass",
+      "assembly": "TaskLamp_office_green",
+      "cell": "office_green",
+      "key": "green_glass",
+      "triangles": 1036
+    },
+    {
+      "name": "TaskLamp_office_green__nickel_plated",
+      "assembly": "TaskLamp_office_green",
+      "cell": "office_green",
+      "key": "nickel_plated",
+      "triangles": 512
+    },
+    {
+      "name": "TaskLamp_office_green__rubber_aged",
+      "assembly": "TaskLamp_office_green",
+      "cell": "office_green",
+      "key": "rubber_aged",
+      "triangles": 60
+    },
+    {
+      "name": "TaskLamp_office_green__switch_bakelite",
+      "assembly": "TaskLamp_office_green",
+      "cell": "office_green",
+      "key": "switch_bakelite",
+      "triangles": 376
+    },
+    {
+      "name": "TaskLamp_bench_friction__bakelite",
+      "assembly": "TaskLamp_bench_friction",
+      "cell": "bench_friction",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "TaskLamp_bench_friction__bulb_opal",
+      "assembly": "TaskLamp_bench_friction",
+      "cell": "bench_friction",
+      "key": "bulb_opal",
+      "triangles": 384
+    },
+    {
+      "name": "TaskLamp_bench_friction__iron_blackened",
+      "assembly": "TaskLamp_bench_friction",
+      "cell": "bench_friction",
+      "key": "iron_blackened",
+      "triangles": 3696
+    },
+    {
+      "name": "TaskLamp_bench_friction__nickel_plated",
+      "assembly": "TaskLamp_bench_friction",
+      "cell": "bench_friction",
+      "key": "nickel_plated",
+      "triangles": 18136
+    },
+    {
+      "name": "TaskLamp_bench_friction__rubber_aged",
+      "assembly": "TaskLamp_bench_friction",
+      "cell": "bench_friction",
+      "key": "rubber_aged",
+      "triangles": 76
+    },
+    {
+      "name": "TaskLamp_bench_friction__switch_bakelite",
+      "assembly": "TaskLamp_bench_friction",
+      "cell": "bench_friction",
+      "key": "switch_bakelite",
+      "triangles": 376
+    },
+    {
+      "name": "TaskLamp_landlord_enamel__bakelite",
+      "assembly": "TaskLamp_landlord_enamel",
+      "cell": "landlord_enamel",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "TaskLamp_landlord_enamel__bulb_opal",
+      "assembly": "TaskLamp_landlord_enamel",
+      "cell": "landlord_enamel",
+      "key": "bulb_opal",
+      "triangles": 384
+    },
+    {
+      "name": "TaskLamp_landlord_enamel__enamel",
+      "assembly": "TaskLamp_landlord_enamel",
+      "cell": "landlord_enamel",
+      "key": "enamel",
+      "triangles": 2228
+    },
+    {
+      "name": "TaskLamp_landlord_enamel__iron_blackened",
+      "assembly": "TaskLamp_landlord_enamel",
+      "cell": "landlord_enamel",
+      "key": "iron_blackened",
+      "triangles": 376
+    },
+    {
+      "name": "TaskLamp_landlord_enamel__nickel_plated",
+      "assembly": "TaskLamp_landlord_enamel",
+      "cell": "landlord_enamel",
+      "key": "nickel_plated",
+      "triangles": 6688
+    },
+    {
+      "name": "TaskLamp_landlord_enamel__rubber_aged",
+      "assembly": "TaskLamp_landlord_enamel",
+      "cell": "landlord_enamel",
+      "key": "rubber_aged",
+      "triangles": 60
+    },
+    {
+      "name": "TaskLamp_landlord_enamel__switch_bakelite",
+      "assembly": "TaskLamp_landlord_enamel",
+      "cell": "landlord_enamel",
+      "key": "switch_bakelite",
+      "triangles": 376
+    },
+    {
+      "name": "TaskLamp_architect_counterweight__bakelite",
+      "assembly": "TaskLamp_architect_counterweight",
+      "cell": "architect_counterweight",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "TaskLamp_architect_counterweight__bulb_opal",
+      "assembly": "TaskLamp_architect_counterweight",
+      "cell": "architect_counterweight",
+      "key": "bulb_opal",
+      "triangles": 384
+    },
+    {
+      "name": "TaskLamp_architect_counterweight__iron_blackened",
+      "assembly": "TaskLamp_architect_counterweight",
+      "cell": "architect_counterweight",
+      "key": "iron_blackened",
+      "triangles": 376
+    },
+    {
+      "name": "TaskLamp_architect_counterweight__nickel_plated",
+      "assembly": "TaskLamp_architect_counterweight",
+      "cell": "architect_counterweight",
+      "key": "nickel_plated",
+      "triangles": 12716
+    },
+    {
+      "name": "TaskLamp_architect_counterweight__rubber_aged",
+      "assembly": "TaskLamp_architect_counterweight",
+      "cell": "architect_counterweight",
+      "key": "rubber_aged",
+      "triangles": 76
+    },
+    {
+      "name": "TaskLamp_architect_counterweight__switch_bakelite",
+      "assembly": "TaskLamp_architect_counterweight",
+      "cell": "architect_counterweight",
+      "key": "switch_bakelite",
+      "triangles": 376
+    },
+    {
+      "name": "TaskLamp_architect_counterweight__wood_dark",
+      "assembly": "TaskLamp_architect_counterweight",
+      "cell": "architect_counterweight",
+      "key": "wood_dark",
+      "triangles": 828
+    }
+  ],
+  "triangles": 61596,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/task_lamps.glb",
+    "variants": [
+      {
+        "id": "emeralite",
+        "parts": [
+          {
+            "name": "TaskLamp_emeralite__bakelite",
+            "key": "bakelite",
+            "catalog_key": "bakelite",
+            "tile": 0.35
+          },
+          {
+            "name": "TaskLamp_emeralite__brass",
+            "key": "brass",
+            "catalog_key": "brass",
+            "tile": 0.5
+          },
+          {
+            "name": "TaskLamp_emeralite__bulb_opal",
+            "key": "bulb_opal",
+            "catalog_key": "milk_glass",
+            "tile": 0.5
+          },
+          {
+            "name": "TaskLamp_emeralite__green_glass",
+            "key": "green_glass",
+            "catalog_key": "milk_glass",
+            "tile": 0.5,
+            "tint": [
+              0.16,
+              0.34,
+              0.22,
+              1.0
+            ]
+          },
+          {
+            "name": "TaskLamp_emeralite__nickel_plated",
+            "key": "nickel_plated",
+            "catalog_key": "nickel_plated",
+            "tile": 0.32
+          },
+          {
+            "name": "TaskLamp_emeralite__rubber_aged",
+            "key": "rubber_aged",
+            "catalog_key": "rubber_aged",
+            "tile": 0.26
+          },
+          {
+            "name": "TaskLamp_emeralite__switch_bakelite",
+            "key": "switch_bakelite",
+            "catalog_key": "bakelite",
+            "tile": 0.35
+          }
+        ],
+        "emitter": [
+          0.1,
+          0.4,
+          0
+        ],
+        "switch_pivot": [
+          0.06,
+          0.037,
+          -0.045
+        ]
+      },
+      {
+        "id": "office_green",
+        "parts": [
+          {
+            "name": "TaskLamp_office_green__bakelite",
+            "key": "bakelite",
+            "catalog_key": "bakelite",
+            "tile": 0.35
+          },
+          {
+            "name": "TaskLamp_office_green__brass",
+            "key": "brass",
+            "catalog_key": "brass",
+            "tile": 0.5
+          },
+          {
+            "name": "TaskLamp_office_green__bulb_opal",
+            "key": "bulb_opal",
+            "catalog_key": "milk_glass",
+            "tile": 0.5
+          },
+          {
+            "name": "TaskLamp_office_green__green_glass",
+            "key": "green_glass",
+            "catalog_key": "milk_glass",
+            "tile": 0.5,
+            "tint": [
+              0.16,
+              0.34,
+              0.22,
+              1.0
+            ]
+          },
+          {
+            "name": "TaskLamp_office_green__nickel_plated",
+            "key": "nickel_plated",
+            "catalog_key": "nickel_plated",
+            "tile": 0.32
+          },
+          {
+            "name": "TaskLamp_office_green__rubber_aged",
+            "key": "rubber_aged",
+            "catalog_key": "rubber_aged",
+            "tile": 0.26
+          },
+          {
+            "name": "TaskLamp_office_green__switch_bakelite",
+            "key": "switch_bakelite",
+            "catalog_key": "bakelite",
+            "tile": 0.35
+          }
+        ],
+        "emitter": [
+          0.08,
+          0.33,
+          0
+        ],
+        "switch_pivot": [
+          0.06,
+          0.037,
+          -0.045
+        ]
+      },
+      {
+        "id": "bench_friction",
+        "parts": [
+          {
+            "name": "TaskLamp_bench_friction__bakelite",
+            "key": "bakelite",
+            "catalog_key": "bakelite",
+            "tile": 0.35
+          },
+          {
+            "name": "TaskLamp_bench_friction__bulb_opal",
+            "key": "bulb_opal",
+            "catalog_key": "milk_glass",
+            "tile": 0.5
+          },
+          {
+            "name": "TaskLamp_bench_friction__iron_blackened",
+            "key": "iron_blackened",
+            "catalog_key": "iron_blackened",
+            "tile": 0.4
+          },
+          {
+            "name": "TaskLamp_bench_friction__nickel_plated",
+            "key": "nickel_plated",
+            "catalog_key": "nickel_plated",
+            "tile": 0.32
+          },
+          {
+            "name": "TaskLamp_bench_friction__rubber_aged",
+            "key": "rubber_aged",
+            "catalog_key": "rubber_aged",
+            "tile": 0.26
+          },
+          {
+            "name": "TaskLamp_bench_friction__switch_bakelite",
+            "key": "switch_bakelite",
+            "catalog_key": "bakelite",
+            "tile": 0.35
+          }
+        ],
+        "emitter": [
+          -0.009062664583325386,
+          0.48176875710487366,
+          0.0
+        ],
+        "switch_pivot": [
+          0.06,
+          0.037,
+          -0.045
+        ]
+      },
+      {
+        "id": "landlord_enamel",
+        "parts": [
+          {
+            "name": "TaskLamp_landlord_enamel__bakelite",
+            "key": "bakelite",
+            "catalog_key": "bakelite",
+            "tile": 0.35
+          },
+          {
+            "name": "TaskLamp_landlord_enamel__bulb_opal",
+            "key": "bulb_opal",
+            "catalog_key": "milk_glass",
+            "tile": 0.5
+          },
+          {
+            "name": "TaskLamp_landlord_enamel__enamel",
+            "key": "enamel",
+            "catalog_key": "enamel",
+            "tile": 1.0,
+            "tint": [
+              0.34,
+              0.37,
+              0.32,
+              1.0
+            ]
+          },
+          {
+            "name": "TaskLamp_landlord_enamel__iron_blackened",
+            "key": "iron_blackened",
+            "catalog_key": "iron_blackened",
+            "tile": 0.4
+          },
+          {
+            "name": "TaskLamp_landlord_enamel__nickel_plated",
+            "key": "nickel_plated",
+            "catalog_key": "nickel_plated",
+            "tile": 0.32
+          },
+          {
+            "name": "TaskLamp_landlord_enamel__rubber_aged",
+            "key": "rubber_aged",
+            "catalog_key": "rubber_aged",
+            "tile": 0.26
+          },
+          {
+            "name": "TaskLamp_landlord_enamel__switch_bakelite",
+            "key": "switch_bakelite",
+            "catalog_key": "bakelite",
+            "tile": 0.35
+          }
+        ],
+        "emitter": [
+          0.10025344043970108,
+          0.2859005331993103,
+          0.0
+        ],
+        "switch_pivot": [
+          0.06,
+          0.037,
+          -0.045
+        ]
+      },
+      {
+        "id": "architect_counterweight",
+        "parts": [
+          {
+            "name": "TaskLamp_architect_counterweight__bakelite",
+            "key": "bakelite",
+            "catalog_key": "bakelite",
+            "tile": 0.35
+          },
+          {
+            "name": "TaskLamp_architect_counterweight__bulb_opal",
+            "key": "bulb_opal",
+            "catalog_key": "milk_glass",
+            "tile": 0.5
+          },
+          {
+            "name": "TaskLamp_architect_counterweight__iron_blackened",
+            "key": "iron_blackened",
+            "catalog_key": "iron_blackened",
+            "tile": 0.4
+          },
+          {
+            "name": "TaskLamp_architect_counterweight__nickel_plated",
+            "key": "nickel_plated",
+            "catalog_key": "nickel_plated",
+            "tile": 0.32
+          },
+          {
+            "name": "TaskLamp_architect_counterweight__rubber_aged",
+            "key": "rubber_aged",
+            "catalog_key": "rubber_aged",
+            "tile": 0.26
+          },
+          {
+            "name": "TaskLamp_architect_counterweight__switch_bakelite",
+            "key": "switch_bakelite",
+            "catalog_key": "bakelite",
+            "tile": 0.35
+          },
+          {
+            "name": "TaskLamp_architect_counterweight__wood_dark",
+            "key": "wood_dark",
+            "catalog_key": "wood_dark",
+            "tile": 1.2
+          }
+        ],
+        "emitter": [
+          0.0022904593497514725,
+          0.5504130125045776,
+          0.0
+        ],
+        "switch_pivot": [
+          0.06,
+          0.037,
+          -0.045
+        ]
+      }
+    ]
+  },
+  "asset_sha256": "4604b58daaa9a45e792f13e6afc41cc087fbda8b27674dedb4c12d311d8c0aab",
+  "source_bindings": {
+    "art/data/task_lamps/source_plan.json": "57d419611b0a8ac34595504e844aeca6058acb41a80a407ac454cc327b4f5320",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_task_lamps.py": "c169d7a6c3673616bd8cfae6442f8ff490b01d88724763911c88e0b25bf32861",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/task_lamps.glb.import": "78d1a9c8521688f363757944d1242cf9f5cac776e00cddc0912ee47ae63c3ebb",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "art/textures/ai_materials/enamel/material.json": "6e3e01aa44ccc4fa33708e3ef6345c5cac11b16a8c9bee6cedf093bce77e0190",
+    "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
+    "art/textures/ai_materials/rubber_aged/material.json": "356c7af1c52350241145dbd506dc002162024b9a902f595b96be211b091555bd",
+    "art/textures/ai_materials/milk_glass/material.json": "1657b195f2ab90deb87f28db7efe4efebb5058a176e980028f820fa1dc6f6cac",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "game/assets/building/textures/T_library_metals_aged_brass_albedo.png": "be2b06f9feacab2a61d24f7ec1ef5445a75e5e7d6606f5a568af51d2742dcc26",
+    "game/assets/building/textures/T_library_metals_aged_brass_rough.png": "26062b979e1ac5d702e301f40b9af3da7b25fce3dee2582dd7dc08cc78efbb43",
+    "game/assets/building/textures/T_library_metals_aged_brass_normal.png": "813fd89e00153ec79ee706108727fee9586f0c3e979e4efe9e783ca0df0a76f2",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_albedo.png": "21bbb79bfb9001595f53d1870fb0649268f768a2695052ceb8b8369d4313dc95",
+    "game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_rough.png": "4d74144c6ac0907e910e33a8387a294921b4a54481a435a2b8d3db4f1d8e80c0",
+    "game/assets/building/textures/T_library_appliances_aged_enamel_normal.png": "9d82da86ae49cfc79d85bf2fe0fb9de5c32011620254712e6d9846fdda6cbf98",
+    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
+    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
+    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+    "game/assets/building/textures/T_ai_materials_milk_glass_albedo.png": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1",
+    "game/assets/building/textures/T_ai_materials_milk_glass_rough.png": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d",
+    "game/assets/building/textures/T_ai_materials_milk_glass_normal.png": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/blender/scripts/inspect_task_lamps.py": "8e8b9054f6eb833df558439a7839063125e52ae5a68c52fe6abd72edae94e725",
+    "art/blender/scripts/task_lamps_geometry.py": "ec126db19095600bbe840fb893c796c5ee3ea02eef9b84060f47a71ee1de44e2",
+    "game/scripts/props/lamp_prop.gd": "f830306c3302ded03fb44ea6e81f505107dc3b083484e510fe8f88dd5fef840d",
+    "game/scripts/props/functional_prop.gd": "f33126057cad4c7fc00cf132ba523d9e4fa915b6922aa9470ed10be47b2806ee",
+    "game/scripts/props/native_task_lamp.gd": "f194218e925f43009871142287e4a65cbfb7727c30466a55db3c7c57914a6989",
+    "game/scripts/building/orison_v2_room_lighting.gd": "c1dcf2251be23c572d77380afac655b6e19d37bc7d72fbb58496e550e10a2d7e",
+    "game/tests/orison_v2_task_lamps_test.gd": "f3da1b887288ffa5efbbcb203baabdefd507631218c98776d556912f9e3a092f",
+    "art/data/orison_v2/domestic_furniture_source.json": "955345a7fe2133543280ef6c6f917003b8b89867973a9e364af514fb351a55f6",
+    "game/data/orison_v2/domestic_furniture.json": "72a1172197cc139d85c4fc7e6ed5f13317106d370c441322e37bb81d791b47e5"
+  },
+  "open_work": [
+    "Five original marker variants and original switch pivot; native silhouettes preserve the original base datum and emitter locations. No new electrical or interaction owner.",
+    "Only bench_friction is currently mounted by V2 room_lighting. Four additional original marker identities still need source-derived V2 supports and verified adoption. This library alone does not restore their runtime presence.",
+    "Internal cloth flex terminates at lamp head and base; external room supply wiring remains a separate unfinished owner."
+  ]
+}

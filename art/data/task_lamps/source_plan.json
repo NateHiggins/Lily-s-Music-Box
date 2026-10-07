@@ -1,0 +1,59 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "variants": [
+    "emeralite",
+    "office_green",
+    "bench_friction",
+    "landlord_enamel",
+    "architect_counterweight"
+  ],
+  "runtime_keys": [
+    "brass",
+    "nickel_plated",
+    "iron_blackened",
+    "enamel",
+    "bakelite",
+    "rubber_aged",
+    "green_glass",
+    "bulb_opal",
+    "wood_dark",
+    "switch_bakelite"
+  ],
+  "catalog_variants": {
+    "brass": "brass",
+    "nickel_plated": "nickel_plated",
+    "iron_blackened": "iron_blackened",
+    "enamel": "enamel",
+    "bakelite": "bakelite",
+    "rubber_aged": "rubber_aged",
+    "wood_dark": "wood_dark",
+    "green_glass": "milk_glass",
+    "bulb_opal": "milk_glass",
+    "switch_bakelite": "bakelite"
+  },
+  "material_tints": {
+    "green_glass": [
+      0.16,
+      0.34,
+      0.22,
+      1.0
+    ],
+    "enamel": [
+      0.34,
+      0.37,
+      0.32,
+      1.0
+    ]
+  },
+  "material_aliases": {},
+  "open_work": [
+    "Five original marker variants and original switch pivot; native silhouettes preserve the original base datum and emitter locations. No new electrical or interaction owner.",
+    "Only bench_friction is currently mounted by V2 room_lighting. Four additional original marker identities still need source-derived V2 supports and verified adoption. This library alone does not restore their runtime presence.",
+    "Internal cloth flex terminates at lamp head and base; external room supply wiring remains a separate unfinished owner."
+  ],
+  "adaptations": [
+    "Architect lower fulcrum raised 80 mm on a nickel pedestal so its short counterweight clears the worktop. Original elbow, wrist, light emitter and switch pivot remain unchanged.",
+    "Existing bench collision ceiling corrected from 0.92 m to its original visible tabletop at 0.91 m; lamp anchor remains unchanged."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "reason": "Validator waits actual key tween and uses established standing station; opal excludes its own opaque shadow; asset unchanged",
+  "changes": [
+    {
+      "path": "game/scripts/props/native_task_lamp.gd",
+      "before": "ec20e227be89e6f2ce984582deedadeaa11e54a6ed14ad748ef2a65a763fe962",
+      "after": "f194218e925f43009871142287e4a65cbfb7727c30466a55db3c7c57914a6989"
+    },
+    {
+      "path": "game/tests/orison_v2_task_lamps_test.gd",
+      "before": "1cd9263d228e50daf1f3035a44feec4b8c75c0999d6cbdab2ed4bebcaf631f5f",
+      "after": "f3da1b887288ffa5efbbcb203baabdefd507631218c98776d556912f9e3a092f"
+    }
+  ],
+  "asset_sha256": "4604b58daaa9a45e792f13e6afc41cc087fbda8b27674dedb4c12d311d8c0aab"
+}

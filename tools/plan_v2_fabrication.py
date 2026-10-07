@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT = {'.json', '.gd', '.gdshader', '.gdshaderinc', '.py', '.gltf', '.import', '.tscn', '.tres', '.godot'}
-BATCH_MODULES = {'photo_radio_fittings', 'radio_display', 'cobbler_fittings', 'druggist_cupboard', 'locksmith_fittings', 'hardware_stock', 'news_fittings', 'shop_clerestories', 'shop_joinery', 'diner_counter', 'diner_till', 'hardware_tools', 'photo_cameras',
+BATCH_MODULES = {'task_lamps', 'photo_radio_fittings', 'radio_display', 'cobbler_fittings', 'druggist_cupboard', 'locksmith_fittings', 'hardware_stock', 'news_fittings', 'shop_clerestories', 'shop_joinery', 'diner_counter', 'diner_till', 'hardware_tools', 'photo_cameras',
                  'photo_counter', 'photo_enlargers', 'photo_portraits', 'photo_stock', 'radio_wire',
                  'pawn_clocks', 'pawn_display', 'pawn_fittings',
                  'laundry_fittings', 'laundry_apparatus', 'laundry_trade'}

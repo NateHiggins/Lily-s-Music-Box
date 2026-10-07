@@ -1073,3 +1073,49 @@ game/scripts/building/orison_v2_photo_radio_fittings.gd -text
 game/scripts/props/photo_darkroom_light.gd -text
 game/tests/orison_v2_photo_radio_fittings_test.gd -text
 art/renders/orison_v2/photo_radio_fittings_20261007/** -text -whitespace
+
+# Bound five-variant task lamp library and V2 visual adapter.
+art/data/task_lamps/source_plan.json -text
+art/blender/scripts/build_task_lamps.py -text
+art/blender/scripts/task_lamps_geometry.py -text
+art/blender/scripts/inspect_task_lamps.py -text
+art/blender/task_lamps.blend -text
+art/blender/task_lamps_construction.json -text
+game/assets/props/task_lamps.glb -text
+game/assets/props/task_lamps.glb.import -text
+game/data/orison_v2/task_lamps.json -text
+game/tests/fixtures/orison_task_lamps.json -text
+game/scripts/props/native_task_lamp.gd -text
+game/tests/orison_v2_task_lamps_test.gd -text
+art/renders/orison_v2/task_lamps_20261007/** -text -whitespace
+art/textures/ai_materials/brass/material.json -text
+art/textures/ai_materials/nickel_plated/material.json -text
+art/textures/ai_materials/enamel/material.json -text
+art/textures/ai_materials/bakelite/material.json -text
+art/textures/ai_materials/milk_glass/material.json -text
+art/textures/ai_materials/wood_dark/material.json -text
+game/assets/building/textures/T_library_metals_aged_brass_albedo.png -text
+game/assets/building/textures/T_library_metals_aged_brass_rough.png -text
+game/assets/building/textures/T_library_metals_aged_brass_normal.png -text
+game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png -text
+game/assets/building/textures/T_ai_materials_nickel_plated_rough.png -text
+game/assets/building/textures/T_ai_materials_nickel_plated_normal.png -text
+game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_albedo.png -text
+game/assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_rough.png -text
+game/assets/building/textures/T_library_appliances_aged_enamel_normal.png -text
+game/assets/building/textures/T_library_appliances_bakelite_albedo.png -text
+game/assets/building/textures/T_library_appliances_bakelite_rough.png -text
+game/assets/building/textures/T_library_appliances_bakelite_normal.png -text
+game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png -text
+game/assets/building/textures/T_ai_materials_rubber_aged_rough.png -text
+game/assets/building/textures/T_ai_materials_rubber_aged_normal.png -text
+game/assets/building/textures/T_ai_materials_milk_glass_albedo.png -text
+game/assets/building/textures/T_ai_materials_milk_glass_rough.png -text
+game/assets/building/textures/T_ai_materials_milk_glass_normal.png -text
+game/assets/building/textures/T_library_furniture_walnut_albedo.png -text
+game/assets/building/textures/T_library_furniture_walnut_rough.png -text
+game/assets/building/textures/T_library_furniture_walnut_normal.png -text
+game/scripts/props/lamp_prop.gd -text
+game/scripts/props/functional_prop.gd -text
+game/scripts/building/orison_v2_room_lighting.gd -text
+game/data/orison_v2/domestic_furniture.json -text

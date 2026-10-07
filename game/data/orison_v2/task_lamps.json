@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/task_lamps.glb",
+  "variants": [
+    {
+      "id": "emeralite",
+      "parts": [
+        {
+          "name": "TaskLamp_emeralite__bakelite",
+          "key": "bakelite",
+          "catalog_key": "bakelite",
+          "tile": 0.35
+        },
+        {
+          "name": "TaskLamp_emeralite__brass",
+          "key": "brass",
+          "catalog_key": "brass",
+          "tile": 0.5
+        },
+        {
+          "name": "TaskLamp_emeralite__bulb_opal",
+          "key": "bulb_opal",
+          "catalog_key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "TaskLamp_emeralite__green_glass",
+          "key": "green_glass",
+          "catalog_key": "milk_glass",
+          "tile": 0.5,
+          "tint": [
+            0.16,
+            0.34,
+            0.22,
+            1.0
+          ]
+        },
+        {
+          "name": "TaskLamp_emeralite__nickel_plated",
+          "key": "nickel_plated",
+          "catalog_key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "TaskLamp_emeralite__rubber_aged",
+          "key": "rubber_aged",
+          "catalog_key": "rubber_aged",
+          "tile": 0.26
+        },
+        {
+          "name": "TaskLamp_emeralite__switch_bakelite",
+          "key": "switch_bakelite",
+          "catalog_key": "bakelite",
+          "tile": 0.35
+        }
+      ],
+      "emitter": [
+        0.1,
+        0.4,
+        0
+      ],
+      "switch_pivot": [
+        0.06,
+        0.037,
+        -0.045
+      ]
+    },
+    {
+      "id": "office_green",
+      "parts": [
+        {
+          "name": "TaskLamp_office_green__bakelite",
+          "key": "bakelite",
+          "catalog_key": "bakelite",
+          "tile": 0.35
+        },
+        {
+          "name": "TaskLamp_office_green__brass",
+          "key": "brass",
+          "catalog_key": "brass",
+          "tile": 0.5
+        },
+        {
+          "name": "TaskLamp_office_green__bulb_opal",
+          "key": "bulb_opal",
+          "catalog_key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "TaskLamp_office_green__green_glass",
+          "key": "green_glass",
+          "catalog_key": "milk_glass",
+          "tile": 0.5,
+          "tint": [
+            0.16,
+            0.34,
+            0.22,
+            1.0
+          ]
+        },
+        {
+          "name": "TaskLamp_office_green__nickel_plated",
+          "key": "nickel_plated",
+          "catalog_key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "TaskLamp_office_green__rubber_aged",
+          "key": "rubber_aged",
+          "catalog_key": "rubber_aged",
+          "tile": 0.26
+        },
+        {
+          "name": "TaskLamp_office_green__switch_bakelite",
+          "key": "switch_bakelite",
+          "catalog_key": "bakelite",
+          "tile": 0.35
+        }
+      ],
+      "emitter": [
+        0.08,
+        0.33,
+        0
+      ],
+      "switch_pivot": [
+        0.06,
+        0.037,
+        -0.045
+      ]
+    },
+    {
+      "id": "bench_friction",
+      "parts": [
+        {
+          "name": "TaskLamp_bench_friction__bakelite",
+          "key": "bakelite",
+          "catalog_key": "bakelite",
+          "tile": 0.35
+        },
+        {
+          "name": "TaskLamp_bench_friction__bulb_opal",
+          "key": "bulb_opal",
+          "catalog_key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "TaskLamp_bench_friction__iron_blackened",
+          "key": "iron_blackened",
+          "catalog_key": "iron_blackened",
+          "tile": 0.4
+        },
+        {
+          "name": "TaskLamp_bench_friction__nickel_plated",
+          "key": "nickel_plated",
+          "catalog_key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "TaskLamp_bench_friction__rubber_aged",
+          "key": "rubber_aged",
+          "catalog_key": "rubber_aged",
+          "tile": 0.26
+        },
+        {
+          "name": "TaskLamp_bench_friction__switch_bakelite",
+          "key": "switch_bakelite",
+          "catalog_key": "bakelite",
+          "tile": 0.35
+        }
+      ],
+      "emitter": [
+        -0.009062664583325386,
+        0.48176875710487366,
+        0.0
+      ],
+      "switch_pivot": [
+        0.06,
+        0.037,
+        -0.045
+      ]
+    },
+    {
+      "id": "landlord_enamel",
+      "parts": [
+        {
+          "name": "TaskLamp_landlord_enamel__bakelite",
+          "key": "bakelite",
+          "catalog_key": "bakelite",
+          "tile": 0.35
+        },
+        {
+          "name": "TaskLamp_landlord_enamel__bulb_opal",
+          "key": "bulb_opal",
+          "catalog_key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "TaskLamp_landlord_enamel__enamel",
+          "key": "enamel",
+          "catalog_key": "enamel",
+          "tile": 1.0,
+          "tint": [
+            0.34,
+            0.37,
+            0.32,
+            1.0
+          ]
+        },
+        {
+          "name": "TaskLamp_landlord_enamel__iron_blackened",
+          "key": "iron_blackened",
+          "catalog_key": "iron_blackened",
+          "tile": 0.4
+        },
+        {
+          "name": "TaskLamp_landlord_enamel__nickel_plated",
+          "key": "nickel_plated",
+          "catalog_key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "TaskLamp_landlord_enamel__rubber_aged",
+          "key": "rubber_aged",
+          "catalog_key": "rubber_aged",
+          "tile": 0.26
+        },
+        {
+          "name": "TaskLamp_landlord_enamel__switch_bakelite",
+          "key": "switch_bakelite",
+          "catalog_key": "bakelite",
+          "tile": 0.35
+        }
+      ],
+      "emitter": [
+        0.10025344043970108,
+        0.2859005331993103,
+        0.0
+      ],
+      "switch_pivot": [
+        0.06,
+        0.037,
+        -0.045
+      ]
+    },
+    {
+      "id": "architect_counterweight",
+      "parts": [
+        {
+          "name": "TaskLamp_architect_counterweight__bakelite",
+          "key": "bakelite",
+          "catalog_key": "bakelite",
+          "tile": 0.35
+        },
+        {
+          "name": "TaskLamp_architect_counterweight__bulb_opal",
+          "key": "bulb_opal",
+          "catalog_key": "milk_glass",
+          "tile": 0.5
+        },
+        {
+          "name": "TaskLamp_architect_counterweight__iron_blackened",
+          "key": "iron_blackened",
+          "catalog_key": "iron_blackened",
+          "tile": 0.4
+        },
+        {
+          "name": "TaskLamp_architect_counterweight__nickel_plated",
+          "key": "nickel_plated",
+          "catalog_key": "nickel_plated",
+          "tile": 0.32
+        },
+        {
+          "name": "TaskLamp_architect_counterweight__rubber_aged",
+          "key": "rubber_aged",
+          "catalog_key": "rubber_aged",
+          "tile": 0.26
+        },
+        {
+          "name": "TaskLamp_architect_counterweight__switch_bakelite",
+          "key": "switch_bakelite",
+          "catalog_key": "bakelite",
+          "tile": 0.35
+        },
+        {
+          "name": "TaskLamp_architect_counterweight__wood_dark",
+          "key": "wood_dark",
+          "catalog_key": "wood_dark",
+          "tile": 1.2
+        }
+      ],
+      "emitter": [
+        0.0022904593497514725,
+        0.5504130125045776,
+        0.0
+      ],
+      "switch_pivot": [
+        0.06,
+        0.037,
+        -0.045
+      ]
+    }
+  ]
+}

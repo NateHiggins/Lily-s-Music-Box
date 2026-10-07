@@ -1,0 +1,69 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": false,
+  "elapsed_s": 180.12,
+  "exit_code": null,
+  "finished_utc": "2026-10-07T19:06:18Z",
+  "started_utc": "2026-10-07T19:03:17Z",
+  "timed_out": true
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 4,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"feet\" variable because the value doesn't have a set type.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://tests/orison_v2_fabrication_batch.gd\" with error \"Compilation failed\".",
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'."
+  ],
+  "stale_cache_lines": [
+   "SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'."
+  ],
+  "stale_cache_suspect": true,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/task-lamps-batch.log.stderr",
+  "stderr_sha256": "8bd4f087bcffc67a88c34c04d85414ebfb46f18b3f464d20f1b72526858f7431",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/task-lamps-batch.log",
+  "stdout_sha256": "4f54075ffe649e596be34c7fc84eec1e3f7930ca6747c69e96a825114389c32a"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/task-lamps-runtime",
+ "source": {
+  "dirty_paths": 286,
+  "dirty_sample": [
+   "M DOCS.md",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/data/orison_v2/domestic_furniture_source.json",
+   " M art/renders/insitu/shots.md",
+   " M game/data/orison_v2/domestic_furniture.json",
+   " M game/scripts/building/orison_v2_room_lighting.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   "?? art/blender/scripts/build_task_lamps.py",
+   "?? art/blender/scripts/inspect_task_lamps.py",
+   "?? art/blender/scripts/task_lamps_geometry.py",
+   "?? art/blender/task_lamps.blend",
+   "?? art/blender/task_lamps.md",
+   "?? art/blender/task_lamps_construction.json",
+   "?? art/data/task_lamps/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? game/assets/props/task_lamps.glb",
+   "?? game/data/orison_v2/task_lamps.json"
+  ],
+  "repository_head": "67c56bb9add3f07c73c1306a8dc42af809685896",
+  "repository_tree": "d19aa37404c8da1f78d3785fc1df6e172b8c9c0b",
+  "runtime_inputs_sha256": "934b810e1a51eac60ba88f5327da924e37aaf916b9a187bc58ee37b32fbce40a",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "eebaf2e6e01ec97ba3df6b84aee96ac6763a3674954b12f4407b0c3199c25c1d"
+ },
+ "windowed": true
+}

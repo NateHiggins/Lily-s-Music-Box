@@ -1,6 +1,7 @@
 extends RefCounted
 const PATH := "res://data/orison_v2/room_lighting.json"
 const Plate := preload("res://scripts/building/switch_plate.gd")
+const NativeLamp := preload("res://scripts/props/native_task_lamp.gd")
 var errors: Array[String] = []
 
 func mount(adapter: Variant, parent: Node3D) -> bool:
@@ -17,7 +18,7 @@ func mount_source(adapter: Variant, parent: Node3D, source: Variant) -> bool:
 		return false
 	var circuits: Dictionary = {}
 	for record: Dictionary in source.fixtures:
-		var prop: FunctionalProp = LampProp.new() if record.kind == "lamp" else LightFixtureProp.new()
+		var prop: FunctionalProp = NativeLamp.new() if record.kind == "lamp" else LightFixtureProp.new()
 		prop.prop_type = str(record.kind)
 		for key: String in record.properties:
 			prop.set(key, record.properties[key])

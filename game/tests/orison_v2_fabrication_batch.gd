@@ -2,6 +2,7 @@ extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
 const MODULES := {
+	"task_lamps": preload("res://tests/orison_v2_task_lamps_test.gd"),
 	"photo_radio_fittings": preload("res://tests/orison_v2_photo_radio_fittings_test.gd"),
 	"radio_display": preload("res://tests/orison_v2_radio_display_test.gd"),
 	"cobbler_fittings": preload("res://tests/orison_v2_cobbler_fittings_test.gd"),
@@ -37,6 +38,7 @@ func _run() -> void:
 	DirAccess.make_dir_recursive_absolute(directory)
 	for id: String in selected:
 		check(MODULES.has(id), "registered fabrication validator: " + id)
+		if MODULES.has(id): check(MODULES[id].can_instantiate(), "validator compiled before world loading: " + id)
 	for id: String in captures:
 		check(id in selected, "capture must belong to this batch: " + id)
 	check(not selected.is_empty(), "batch must select at least one validator")

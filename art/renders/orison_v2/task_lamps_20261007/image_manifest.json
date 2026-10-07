@@ -1,0 +1,83 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Five native lamp variants and one existing V2 bench installation. Four original V2 placements and external cords remain unfinished.",
+  "images": [
+    {
+      "file": "native/architect_counterweight_front.png",
+      "sha256": "e82c3df23f144e484d04c2b670625255551399826074144af95ded9a8872f392",
+      "reviewed": true
+    },
+    {
+      "file": "native/architect_counterweight_rear.png",
+      "sha256": "7683af48c8f4b3b8b1ffc2ba11aaa11d37293e90babc947ea7ea1e0f192194bc",
+      "reviewed": true
+    },
+    {
+      "file": "native/bench_friction_front.png",
+      "sha256": "0fb89b8a2e9b23a58587443a26efacac6ec5e431fe2320bd2c2dbe18b2240f50",
+      "reviewed": true
+    },
+    {
+      "file": "native/bench_friction_rear.png",
+      "sha256": "43615f9158810d5a1d6750e5db6ea7825b051780314dac4bfb0ab98bf61430b9",
+      "reviewed": true
+    },
+    {
+      "file": "native/emeralite_front.png",
+      "sha256": "01c23acfbbc1211fa2e88799f8972de6c725dc84fea4b7b5bd1a97b724c459c4",
+      "reviewed": true
+    },
+    {
+      "file": "native/emeralite_rear.png",
+      "sha256": "617af4eddf87888531fd2763d8fac5f461c03b71f05de44d149470968dd401d5",
+      "reviewed": true
+    },
+    {
+      "file": "native/landlord_enamel_front.png",
+      "sha256": "962395c847bae076f526af99428d25292fdcc33089db5cea520bb71648773048",
+      "reviewed": true
+    },
+    {
+      "file": "native/landlord_enamel_rear.png",
+      "sha256": "0ca4f1e4dd244bff626ce87e95bdc65dedad4210d6097c24111c034d94d57944",
+      "reviewed": true
+    },
+    {
+      "file": "native/office_green_front.png",
+      "sha256": "2024563d2d0e9bb0a2b5b98c081301a2aad0b2f9601dd71efc0cfd7f694cee4d",
+      "reviewed": true
+    },
+    {
+      "file": "native/office_green_rear.png",
+      "sha256": "d5104c613c649e466a91b2c5e678b44702cf93f614d3c42e90c1b2f3ff90650c",
+      "reviewed": true
+    },
+    {
+      "file": "runtime/bench_context.png",
+      "sha256": "785e72ec2d1c76d192eca39f3962513ed95cadfc62ed3719ed8a40b6f7b7e1c3",
+      "reviewed": true
+    },
+    {
+      "file": "runtime/bench_detail.png",
+      "sha256": "c7f50aedf05dfa72906a97e85a7e3380146bb081d805fd99b6e20b1725aef7f0",
+      "reviewed": true
+    },
+    {
+      "file": "runtime/bench_practical_off.png",
+      "sha256": "16ad7d484e98f5601ccf13b114f9cf0635290fdd057ea14de63c02eefaa923e1",
+      "reviewed": true
+    },
+    {
+      "file": "runtime/bench_practical_on.png",
+      "sha256": "7369958a3b07160d55a79b66ba150fd62aa151af76ce3ac0e72a1d7f83a4c5df",
+      "reviewed": true
+    }
+  ],
+  "bindings": {
+    "art/blender/task_lamps.blend": "f3e13e1e592979b7fbf845b9fa8f8e8046545eb93d7b1f09bd4cbd64816bc722",
+    "game/assets/props/task_lamps.glb": "4604b58daaa9a45e792f13e6afc41cc087fbda8b27674dedb4c12d311d8c0aab",
+    "game/tests/fixtures/orison_task_lamps.json": "c3f60dc4e45e115fffd0f3a296ae393a59e567ecd79b0a7d3e8818d5fd1fa6e4",
+    "game/scripts/props/native_task_lamp.gd": "f194218e925f43009871142287e4a65cbfb7727c30466a55db3c7c57914a6989",
+    "game/tests/orison_v2_task_lamps_test.gd": "f3da1b887288ffa5efbbcb203baabdefd507631218c98776d556912f9e3a092f"
+  }
+}

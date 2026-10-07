@@ -1,0 +1,2349 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 206,
+  "joined_assemblies": [
+    {
+      "assembly": "TaskLamp_emeralite",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "TaskLamp_emeralite_WeightedFoot",
+          "TaskLamp_emeralite_StemCollar"
+        ],
+        [
+          "TaskLamp_emeralite_WeightedFoot",
+          "TaskLamp_emeralite_ClothFlex"
+        ],
+        [
+          "TaskLamp_emeralite_WeightedFoot",
+          "TaskLamp_emeralite_SwitchSocket"
+        ],
+        [
+          "TaskLamp_emeralite_StemCollar",
+          "TaskLamp_emeralite_UprightStem"
+        ],
+        [
+          "TaskLamp_emeralite_UprightStem",
+          "TaskLamp_emeralite_YokeCrossbar-1"
+        ],
+        [
+          "TaskLamp_emeralite_UprightStem",
+          "TaskLamp_emeralite_YokeCrossbar1"
+        ],
+        [
+          "TaskLamp_emeralite_UprightStem",
+          "TaskLamp_emeralite_SocketRiser"
+        ],
+        [
+          "TaskLamp_emeralite_CasedGreenCanopy",
+          "TaskLamp_emeralite_RolledGlassRim-0.065"
+        ],
+        [
+          "TaskLamp_emeralite_CasedGreenCanopy",
+          "TaskLamp_emeralite_RolledGlassRim0.065"
+        ],
+        [
+          "TaskLamp_emeralite_CasedGreenCanopy",
+          "TaskLamp_emeralite_GlassCheek-1"
+        ],
+        [
+          "TaskLamp_emeralite_CasedGreenCanopy",
+          "TaskLamp_emeralite_GlassCheek1"
+        ],
+        [
+          "TaskLamp_emeralite_RolledGlassRim-0.065",
+          "TaskLamp_emeralite_GlassCheek-1"
+        ],
+        [
+          "TaskLamp_emeralite_RolledGlassRim-0.065",
+          "TaskLamp_emeralite_GlassCheek1"
+        ],
+        [
+          "TaskLamp_emeralite_RolledGlassRim0.065",
+          "TaskLamp_emeralite_GlassCheek-1"
+        ],
+        [
+          "TaskLamp_emeralite_RolledGlassRim0.065",
+          "TaskLamp_emeralite_GlassCheek1"
+        ],
+        [
+          "TaskLamp_emeralite_GlassCheek-1",
+          "TaskLamp_emeralite_ShadePivot-1"
+        ],
+        [
+          "TaskLamp_emeralite_GlassCheek1",
+          "TaskLamp_emeralite_ShadePivot1"
+        ],
+        [
+          "TaskLamp_emeralite_YokeCrossbar-1",
+          "TaskLamp_emeralite_YokeUpright-1"
+        ],
+        [
+          "TaskLamp_emeralite_YokeUpright-1",
+          "TaskLamp_emeralite_ShadePivot-1"
+        ],
+        [
+          "TaskLamp_emeralite_YokeCrossbar1",
+          "TaskLamp_emeralite_YokeUpright1"
+        ],
+        [
+          "TaskLamp_emeralite_YokeUpright1",
+          "TaskLamp_emeralite_ShadePivot1"
+        ],
+        [
+          "TaskLamp_emeralite_SocketRiser",
+          "TaskLamp_emeralite_PorcelainSocket"
+        ],
+        [
+          "TaskLamp_emeralite_PorcelainSocket",
+          "TaskLamp_emeralite_IncandescentBulb"
+        ],
+        [
+          "TaskLamp_emeralite_PorcelainSocket",
+          "TaskLamp_emeralite_ClothFlex"
+        ],
+        [
+          "TaskLamp_emeralite_SwitchSocket",
+          "TaskLamp_emeralite_SwitchBushing"
+        ],
+        [
+          "TaskLamp_emeralite_SwitchSocket",
+          "TaskLamp_emeralite_KeySpindle"
+        ],
+        [
+          "TaskLamp_emeralite_SwitchBushing",
+          "TaskLamp_emeralite_KeySpindle"
+        ],
+        [
+          "TaskLamp_emeralite_KeySpindle",
+          "TaskLamp_emeralite_KeyGrip"
+        ]
+      ]
+    },
+    {
+      "assembly": "TaskLamp_office_green",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "TaskLamp_office_green_WeightedFoot",
+          "TaskLamp_office_green_StemCollar"
+        ],
+        [
+          "TaskLamp_office_green_WeightedFoot",
+          "TaskLamp_office_green_ClothFlex"
+        ],
+        [
+          "TaskLamp_office_green_WeightedFoot",
+          "TaskLamp_office_green_SwitchSocket"
+        ],
+        [
+          "TaskLamp_office_green_StemCollar",
+          "TaskLamp_office_green_UprightStem"
+        ],
+        [
+          "TaskLamp_office_green_UprightStem",
+          "TaskLamp_office_green_YokeCrossbar-1"
+        ],
+        [
+          "TaskLamp_office_green_UprightStem",
+          "TaskLamp_office_green_YokeCrossbar1"
+        ],
+        [
+          "TaskLamp_office_green_UprightStem",
+          "TaskLamp_office_green_SocketRiser"
+        ],
+        [
+          "TaskLamp_office_green_CasedGreenCanopy",
+          "TaskLamp_office_green_RolledGlassRim-0.0525"
+        ],
+        [
+          "TaskLamp_office_green_CasedGreenCanopy",
+          "TaskLamp_office_green_RolledGlassRim0.0525"
+        ],
+        [
+          "TaskLamp_office_green_CasedGreenCanopy",
+          "TaskLamp_office_green_GlassCheek-1"
+        ],
+        [
+          "TaskLamp_office_green_CasedGreenCanopy",
+          "TaskLamp_office_green_GlassCheek1"
+        ],
+        [
+          "TaskLamp_office_green_RolledGlassRim-0.0525",
+          "TaskLamp_office_green_GlassCheek-1"
+        ],
+        [
+          "TaskLamp_office_green_RolledGlassRim-0.0525",
+          "TaskLamp_office_green_GlassCheek1"
+        ],
+        [
+          "TaskLamp_office_green_RolledGlassRim0.0525",
+          "TaskLamp_office_green_GlassCheek-1"
+        ],
+        [
+          "TaskLamp_office_green_RolledGlassRim0.0525",
+          "TaskLamp_office_green_GlassCheek1"
+        ],
+        [
+          "TaskLamp_office_green_GlassCheek-1",
+          "TaskLamp_office_green_ShadePivot-1"
+        ],
+        [
+          "TaskLamp_office_green_GlassCheek1",
+          "TaskLamp_office_green_ShadePivot1"
+        ],
+        [
+          "TaskLamp_office_green_GlassCheek1",
+          "TaskLamp_office_green_IncandescentBulb"
+        ],
+        [
+          "TaskLamp_office_green_YokeCrossbar-1",
+          "TaskLamp_office_green_YokeUpright-1"
+        ],
+        [
+          "TaskLamp_office_green_YokeCrossbar-1",
+          "TaskLamp_office_green_SocketRiser"
+        ],
+        [
+          "TaskLamp_office_green_YokeUpright-1",
+          "TaskLamp_office_green_ShadePivot-1"
+        ],
+        [
+          "TaskLamp_office_green_YokeCrossbar1",
+          "TaskLamp_office_green_YokeUpright1"
+        ],
+        [
+          "TaskLamp_office_green_YokeCrossbar1",
+          "TaskLamp_office_green_SocketRiser"
+        ],
+        [
+          "TaskLamp_office_green_YokeUpright1",
+          "TaskLamp_office_green_ShadePivot1"
+        ],
+        [
+          "TaskLamp_office_green_ShadePivot1",
+          "TaskLamp_office_green_IncandescentBulb"
+        ],
+        [
+          "TaskLamp_office_green_SocketRiser",
+          "TaskLamp_office_green_PorcelainSocket"
+        ],
+        [
+          "TaskLamp_office_green_PorcelainSocket",
+          "TaskLamp_office_green_IncandescentBulb"
+        ],
+        [
+          "TaskLamp_office_green_PorcelainSocket",
+          "TaskLamp_office_green_ClothFlex"
+        ],
+        [
+          "TaskLamp_office_green_SwitchSocket",
+          "TaskLamp_office_green_SwitchBushing"
+        ],
+        [
+          "TaskLamp_office_green_SwitchSocket",
+          "TaskLamp_office_green_KeySpindle"
+        ],
+        [
+          "TaskLamp_office_green_SwitchBushing",
+          "TaskLamp_office_green_KeySpindle"
+        ],
+        [
+          "TaskLamp_office_green_KeySpindle",
+          "TaskLamp_office_green_KeyGrip"
+        ]
+      ]
+    },
+    {
+      "assembly": "TaskLamp_bench_friction",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "TaskLamp_bench_friction_WeightedFoot",
+          "TaskLamp_bench_friction_SocketFoot"
+        ],
+        [
+          "TaskLamp_bench_friction_WeightedFoot",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_WeightedFoot",
+          "TaskLamp_bench_friction_SwitchSocket"
+        ],
+        [
+          "TaskLamp_bench_friction_WeightedFoot",
+          "TaskLamp_bench_friction_SwitchBushing"
+        ],
+        [
+          "TaskLamp_bench_friction_WeightedFoot",
+          "TaskLamp_bench_friction_KeySpindle"
+        ],
+        [
+          "TaskLamp_bench_friction_SocketFoot",
+          "TaskLamp_bench_friction_HipBody"
+        ],
+        [
+          "TaskLamp_bench_friction_SocketFoot",
+          "TaskLamp_bench_friction_HipWasher"
+        ],
+        [
+          "TaskLamp_bench_friction_SocketFoot",
+          "TaskLamp_bench_friction_HipScrew"
+        ],
+        [
+          "TaskLamp_bench_friction_SocketFoot",
+          "TaskLamp_bench_friction_LowerArm"
+        ],
+        [
+          "TaskLamp_bench_friction_SocketFoot",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_SocketFoot",
+          "TaskLamp_bench_friction_LowerCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_HipBody",
+          "TaskLamp_bench_friction_HipWasher"
+        ],
+        [
+          "TaskLamp_bench_friction_HipBody",
+          "TaskLamp_bench_friction_LowerArm"
+        ],
+        [
+          "TaskLamp_bench_friction_HipBody",
+          "TaskLamp_bench_friction_LowerCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipScrew"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl0"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl1"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl2"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl3"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl4"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl5"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl6"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl7"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl8"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl9"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl10"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl11"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl12"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl13"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl14"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl15"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl16"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl17"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl18"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl19"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl20"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl21"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl22"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_HipKnurl23"
+        ],
+        [
+          "TaskLamp_bench_friction_HipWasher",
+          "TaskLamp_bench_friction_LowerCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl0"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl1"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl2"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl3"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl4"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl5"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl6"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl7"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl8"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl9"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl10"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl11"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl12"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl13"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl14"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl15"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl16"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl17"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl18"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl19"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl20"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl21"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl22"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_HipKnurl23"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_HipScrew",
+          "TaskLamp_bench_friction_LowerCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_HipKnurl1",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_HipKnurl2",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_HipKnurl11",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_LowerArm",
+          "TaskLamp_bench_friction_ElbowBody"
+        ],
+        [
+          "TaskLamp_bench_friction_LowerArm",
+          "TaskLamp_bench_friction_UpperArm"
+        ],
+        [
+          "TaskLamp_bench_friction_LowerArm",
+          "TaskLamp_bench_friction_LowerCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_LowerArm",
+          "TaskLamp_bench_friction_UpperCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowBody",
+          "TaskLamp_bench_friction_ElbowWasher"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowBody",
+          "TaskLamp_bench_friction_UpperArm"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowBody",
+          "TaskLamp_bench_friction_UpperCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowScrew"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl0"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl1"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl2"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl3"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl4"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl5"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl6"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl7"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl8"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl9"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl10"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl11"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl12"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl13"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl14"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl15"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl16"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl17"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl18"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl19"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl20"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl21"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl22"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_ElbowKnurl23"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowWasher",
+          "TaskLamp_bench_friction_UpperCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl0"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl1"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl2"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl3"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl4"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl5"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl6"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl7"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl8"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl9"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl10"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl11"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl12"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl13"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl14"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl15"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl16"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl17"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl18"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl19"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl20"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl21"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl22"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_ElbowKnurl23"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowScrew",
+          "TaskLamp_bench_friction_UpperCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowKnurl13",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowKnurl14",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_ElbowKnurl22",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_UpperArm",
+          "TaskLamp_bench_friction_WristBody"
+        ],
+        [
+          "TaskLamp_bench_friction_UpperArm",
+          "TaskLamp_bench_friction_ShadeNeckBearing"
+        ],
+        [
+          "TaskLamp_bench_friction_UpperArm",
+          "TaskLamp_bench_friction_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_bench_friction_UpperArm",
+          "TaskLamp_bench_friction_UpperCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_WristBody",
+          "TaskLamp_bench_friction_WristWasher"
+        ],
+        [
+          "TaskLamp_bench_friction_WristBody",
+          "TaskLamp_bench_friction_ShadeNeckBearing"
+        ],
+        [
+          "TaskLamp_bench_friction_WristBody",
+          "TaskLamp_bench_friction_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_bench_friction_WristBody",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristScrew"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl0"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl1"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl2"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl3"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl4"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl5"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl6"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl7"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl8"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl9"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl10"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl11"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl12"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl13"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl14"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl15"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl16"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl17"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl18"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl19"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl20"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl21"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl22"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_WristKnurl23"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_ShadeNeckBearing"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_bench_friction_WristWasher",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl0"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl1"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl2"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl3"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl4"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl5"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl6"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl7"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl8"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl9"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl10"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl11"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl12"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl13"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl14"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl15"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl16"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl17"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl18"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl19"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl20"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl21"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl22"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_WristKnurl23"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_ShadeNeckBearing"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_bench_friction_WristScrew",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_WristKnurl0",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_WristKnurl1",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_WristKnurl9",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_WristKnurl10",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_WristKnurl19",
+          "TaskLamp_bench_friction_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_bench_friction_WristKnurl20",
+          "TaskLamp_bench_friction_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_bench_friction_WristKnurl21",
+          "TaskLamp_bench_friction_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_bench_friction_SpunHollowShade",
+          "TaskLamp_bench_friction_RolledShadeLip"
+        ],
+        [
+          "TaskLamp_bench_friction_ShadeNeckBearing",
+          "TaskLamp_bench_friction_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_bench_friction_ShadeNeckBearing",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_BakeliteSocket",
+          "TaskLamp_bench_friction_IncandescentBulb"
+        ],
+        [
+          "TaskLamp_bench_friction_BakeliteSocket",
+          "TaskLamp_bench_friction_SupportedFlex"
+        ],
+        [
+          "TaskLamp_bench_friction_SupportedFlex",
+          "TaskLamp_bench_friction_LowerCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_SupportedFlex",
+          "TaskLamp_bench_friction_UpperCordClip"
+        ],
+        [
+          "TaskLamp_bench_friction_SwitchSocket",
+          "TaskLamp_bench_friction_SwitchBushing"
+        ],
+        [
+          "TaskLamp_bench_friction_SwitchSocket",
+          "TaskLamp_bench_friction_KeySpindle"
+        ],
+        [
+          "TaskLamp_bench_friction_SwitchBushing",
+          "TaskLamp_bench_friction_KeySpindle"
+        ],
+        [
+          "TaskLamp_bench_friction_KeySpindle",
+          "TaskLamp_bench_friction_KeyGrip"
+        ]
+      ]
+    },
+    {
+      "assembly": "TaskLamp_landlord_enamel",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "TaskLamp_landlord_enamel_WeightedFoot",
+          "TaskLamp_landlord_enamel_UprightArm"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WeightedFoot",
+          "TaskLamp_landlord_enamel_SupportedFlex"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WeightedFoot",
+          "TaskLamp_landlord_enamel_LowerCordClip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WeightedFoot",
+          "TaskLamp_landlord_enamel_SwitchSocket"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WeightedFoot",
+          "TaskLamp_landlord_enamel_SwitchBushing"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WeightedFoot",
+          "TaskLamp_landlord_enamel_KeySpindle"
+        ],
+        [
+          "TaskLamp_landlord_enamel_UprightArm",
+          "TaskLamp_landlord_enamel_WornKnuckleBody"
+        ],
+        [
+          "TaskLamp_landlord_enamel_UprightArm",
+          "TaskLamp_landlord_enamel_ShadeNeckBearing"
+        ],
+        [
+          "TaskLamp_landlord_enamel_UprightArm",
+          "TaskLamp_landlord_enamel_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_landlord_enamel_UprightArm",
+          "TaskLamp_landlord_enamel_LowerCordClip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_UprightArm",
+          "TaskLamp_landlord_enamel_UpperCordClip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleBody",
+          "TaskLamp_landlord_enamel_WornKnuckleWasher"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleBody",
+          "TaskLamp_landlord_enamel_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleBody",
+          "TaskLamp_landlord_enamel_ShadeNeckBearing"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleBody",
+          "TaskLamp_landlord_enamel_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleBody",
+          "TaskLamp_landlord_enamel_SupportedFlex"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleBody",
+          "TaskLamp_landlord_enamel_UpperCordClip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleScrew"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl0"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl1"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl2"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl3"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl4"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl5"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl6"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl7"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl8"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl9"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl10"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl11"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl12"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl13"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl14"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl15"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl16"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl17"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl18"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl19"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl20"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl21"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl22"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl23"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_ShadeNeckBearing"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_SupportedFlex"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleWasher",
+          "TaskLamp_landlord_enamel_UpperCordClip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl0"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl1"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl2"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl3"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl4"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl5"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl6"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl7"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl8"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl9"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl10"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl11"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl12"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl13"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl14"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl15"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl16"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl17"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl18"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl19"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl20"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl21"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl22"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl23"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_ShadeNeckBearing"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_SupportedFlex"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleScrew",
+          "TaskLamp_landlord_enamel_UpperCordClip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl5",
+          "TaskLamp_landlord_enamel_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl6",
+          "TaskLamp_landlord_enamel_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl12",
+          "TaskLamp_landlord_enamel_SupportedFlex"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl13",
+          "TaskLamp_landlord_enamel_SupportedFlex"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl15",
+          "TaskLamp_landlord_enamel_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl16",
+          "TaskLamp_landlord_enamel_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl17",
+          "TaskLamp_landlord_enamel_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_landlord_enamel_WornKnuckleKnurl18",
+          "TaskLamp_landlord_enamel_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_landlord_enamel_SpunHollowShade",
+          "TaskLamp_landlord_enamel_RolledShadeLip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_SpunHollowShade",
+          "TaskLamp_landlord_enamel_SupportedFlex"
+        ],
+        [
+          "TaskLamp_landlord_enamel_SpunHollowShade",
+          "TaskLamp_landlord_enamel_UpperCordClip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_ShadeNeckBearing",
+          "TaskLamp_landlord_enamel_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_landlord_enamel_ShadeNeckBearing",
+          "TaskLamp_landlord_enamel_SupportedFlex"
+        ],
+        [
+          "TaskLamp_landlord_enamel_ShadeNeckBearing",
+          "TaskLamp_landlord_enamel_UpperCordClip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_BakeliteSocket",
+          "TaskLamp_landlord_enamel_IncandescentBulb"
+        ],
+        [
+          "TaskLamp_landlord_enamel_BakeliteSocket",
+          "TaskLamp_landlord_enamel_SupportedFlex"
+        ],
+        [
+          "TaskLamp_landlord_enamel_BakeliteSocket",
+          "TaskLamp_landlord_enamel_UpperCordClip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_SupportedFlex",
+          "TaskLamp_landlord_enamel_LowerCordClip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_SupportedFlex",
+          "TaskLamp_landlord_enamel_UpperCordClip"
+        ],
+        [
+          "TaskLamp_landlord_enamel_SwitchSocket",
+          "TaskLamp_landlord_enamel_SwitchBushing"
+        ],
+        [
+          "TaskLamp_landlord_enamel_SwitchSocket",
+          "TaskLamp_landlord_enamel_KeySpindle"
+        ],
+        [
+          "TaskLamp_landlord_enamel_SwitchBushing",
+          "TaskLamp_landlord_enamel_KeySpindle"
+        ],
+        [
+          "TaskLamp_landlord_enamel_KeySpindle",
+          "TaskLamp_landlord_enamel_KeyGrip"
+        ]
+      ]
+    },
+    {
+      "assembly": "TaskLamp_architect_counterweight",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "TaskLamp_architect_counterweight_WeightedFoot",
+          "TaskLamp_architect_counterweight_FulcrumPedestal"
+        ],
+        [
+          "TaskLamp_architect_counterweight_WeightedFoot",
+          "TaskLamp_architect_counterweight_SupportedFlex"
+        ],
+        [
+          "TaskLamp_architect_counterweight_WeightedFoot",
+          "TaskLamp_architect_counterweight_SwitchSocket"
+        ],
+        [
+          "TaskLamp_architect_counterweight_WeightedFoot",
+          "TaskLamp_architect_counterweight_SwitchBushing"
+        ],
+        [
+          "TaskLamp_architect_counterweight_WeightedFoot",
+          "TaskLamp_architect_counterweight_KeySpindle"
+        ],
+        [
+          "TaskLamp_architect_counterweight_WeightedFoot",
+          "TaskLamp_architect_counterweight_KeyGrip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_FulcrumPedestal",
+          "TaskLamp_architect_counterweight_LowerBallBall"
+        ],
+        [
+          "TaskLamp_architect_counterweight_FulcrumPedestal",
+          "TaskLamp_architect_counterweight_LowerBallSocket"
+        ],
+        [
+          "TaskLamp_architect_counterweight_FulcrumPedestal",
+          "TaskLamp_architect_counterweight_LowerArm"
+        ],
+        [
+          "TaskLamp_architect_counterweight_FulcrumPedestal",
+          "TaskLamp_architect_counterweight_Counterweight"
+        ],
+        [
+          "TaskLamp_architect_counterweight_FulcrumPedestal",
+          "TaskLamp_architect_counterweight_CounterweightSpindle"
+        ],
+        [
+          "TaskLamp_architect_counterweight_FulcrumPedestal",
+          "TaskLamp_architect_counterweight_LowerCordClip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerBallBall",
+          "TaskLamp_architect_counterweight_LowerBallSocket"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerBallBall",
+          "TaskLamp_architect_counterweight_LowerArm"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerBallBall",
+          "TaskLamp_architect_counterweight_CounterweightSpindle"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerBallBall",
+          "TaskLamp_architect_counterweight_LowerCordClip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerBallSocket",
+          "TaskLamp_architect_counterweight_CounterweightSpindle"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerBallSocket",
+          "TaskLamp_architect_counterweight_LowerCordClip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerArm",
+          "TaskLamp_architect_counterweight_UpperBallBall"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerArm",
+          "TaskLamp_architect_counterweight_UpperBallSocket"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerArm",
+          "TaskLamp_architect_counterweight_UpperArm"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerArm",
+          "TaskLamp_architect_counterweight_CounterweightSpindle"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerArm",
+          "TaskLamp_architect_counterweight_LowerCordClip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_LowerArm",
+          "TaskLamp_architect_counterweight_UpperCordClip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_UpperBallBall",
+          "TaskLamp_architect_counterweight_UpperBallSocket"
+        ],
+        [
+          "TaskLamp_architect_counterweight_UpperBallBall",
+          "TaskLamp_architect_counterweight_UpperArm"
+        ],
+        [
+          "TaskLamp_architect_counterweight_UpperBallBall",
+          "TaskLamp_architect_counterweight_UpperCordClip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_UpperBallSocket",
+          "TaskLamp_architect_counterweight_UpperCordClip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_UpperArm",
+          "TaskLamp_architect_counterweight_HeadBallBall"
+        ],
+        [
+          "TaskLamp_architect_counterweight_UpperArm",
+          "TaskLamp_architect_counterweight_HeadBallSocket"
+        ],
+        [
+          "TaskLamp_architect_counterweight_UpperArm",
+          "TaskLamp_architect_counterweight_ShadeNeckBearing"
+        ],
+        [
+          "TaskLamp_architect_counterweight_UpperArm",
+          "TaskLamp_architect_counterweight_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_architect_counterweight_UpperArm",
+          "TaskLamp_architect_counterweight_IncandescentBulb"
+        ],
+        [
+          "TaskLamp_architect_counterweight_UpperArm",
+          "TaskLamp_architect_counterweight_UpperCordClip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_HeadBallBall",
+          "TaskLamp_architect_counterweight_HeadBallSocket"
+        ],
+        [
+          "TaskLamp_architect_counterweight_HeadBallBall",
+          "TaskLamp_architect_counterweight_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_architect_counterweight_HeadBallBall",
+          "TaskLamp_architect_counterweight_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_architect_counterweight_HeadBallBall",
+          "TaskLamp_architect_counterweight_SupportedFlex"
+        ],
+        [
+          "TaskLamp_architect_counterweight_HeadBallSocket",
+          "TaskLamp_architect_counterweight_SpunHollowShade"
+        ],
+        [
+          "TaskLamp_architect_counterweight_HeadBallSocket",
+          "TaskLamp_architect_counterweight_ShadeNeckBearing"
+        ],
+        [
+          "TaskLamp_architect_counterweight_HeadBallSocket",
+          "TaskLamp_architect_counterweight_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_architect_counterweight_HeadBallSocket",
+          "TaskLamp_architect_counterweight_SupportedFlex"
+        ],
+        [
+          "TaskLamp_architect_counterweight_Counterweight",
+          "TaskLamp_architect_counterweight_CounterweightSpindle"
+        ],
+        [
+          "TaskLamp_architect_counterweight_CounterweightSpindle",
+          "TaskLamp_architect_counterweight_LowerCordClip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_SpunHollowShade",
+          "TaskLamp_architect_counterweight_RolledShadeLip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_SpunHollowShade",
+          "TaskLamp_architect_counterweight_SupportedFlex"
+        ],
+        [
+          "TaskLamp_architect_counterweight_ShadeNeckBearing",
+          "TaskLamp_architect_counterweight_BakeliteSocket"
+        ],
+        [
+          "TaskLamp_architect_counterweight_ShadeNeckBearing",
+          "TaskLamp_architect_counterweight_SupportedFlex"
+        ],
+        [
+          "TaskLamp_architect_counterweight_BakeliteSocket",
+          "TaskLamp_architect_counterweight_IncandescentBulb"
+        ],
+        [
+          "TaskLamp_architect_counterweight_BakeliteSocket",
+          "TaskLamp_architect_counterweight_SupportedFlex"
+        ],
+        [
+          "TaskLamp_architect_counterweight_SupportedFlex",
+          "TaskLamp_architect_counterweight_LowerCordClip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_SupportedFlex",
+          "TaskLamp_architect_counterweight_UpperCordClip"
+        ],
+        [
+          "TaskLamp_architect_counterweight_SwitchSocket",
+          "TaskLamp_architect_counterweight_SwitchBushing"
+        ],
+        [
+          "TaskLamp_architect_counterweight_SwitchSocket",
+          "TaskLamp_architect_counterweight_KeySpindle"
+        ],
+        [
+          "TaskLamp_architect_counterweight_SwitchBushing",
+          "TaskLamp_architect_counterweight_KeySpindle"
+        ],
+        [
+          "TaskLamp_architect_counterweight_KeySpindle",
+          "TaskLamp_architect_counterweight_KeyGrip"
+        ]
+      ]
+    }
+  ],
+  "uv": [
+    {
+      "part": "TaskLamp_emeralite__bakelite",
+      "minimum_metres_per_uv": 0.9999746400079929,
+      "maximum_metres_per_uv": 1.00002044179733
+    },
+    {
+      "part": "TaskLamp_emeralite__brass",
+      "minimum_metres_per_uv": 0.9988663856422815,
+      "maximum_metres_per_uv": 1.001176419256883
+    },
+    {
+      "part": "TaskLamp_emeralite__bulb_opal",
+      "minimum_metres_per_uv": 0.9999802481750819,
+      "maximum_metres_per_uv": 1.0000232340724526
+    },
+    {
+      "part": "TaskLamp_emeralite__green_glass",
+      "minimum_metres_per_uv": 0.9999267585506407,
+      "maximum_metres_per_uv": 1.0000776272391723
+    },
+    {
+      "part": "TaskLamp_emeralite__nickel_plated",
+      "minimum_metres_per_uv": 0.9999690604305658,
+      "maximum_metres_per_uv": 1.0000220882086304
+    },
+    {
+      "part": "TaskLamp_emeralite__rubber_aged",
+      "minimum_metres_per_uv": 0.9999871367520068,
+      "maximum_metres_per_uv": 1.0000114377552276
+    },
+    {
+      "part": "TaskLamp_emeralite__switch_bakelite",
+      "minimum_metres_per_uv": 0.9998576013384499,
+      "maximum_metres_per_uv": 1.0002513732648153
+    },
+    {
+      "part": "TaskLamp_office_green__bakelite",
+      "minimum_metres_per_uv": 0.9999738841979635,
+      "maximum_metres_per_uv": 1.0000333847002636
+    },
+    {
+      "part": "TaskLamp_office_green__brass",
+      "minimum_metres_per_uv": 0.9993472584856395,
+      "maximum_metres_per_uv": 1.0010460251046025
+    },
+    {
+      "part": "TaskLamp_office_green__bulb_opal",
+      "minimum_metres_per_uv": 0.9999823535920931,
+      "maximum_metres_per_uv": 1.0000231607586294
+    },
+    {
+      "part": "TaskLamp_office_green__green_glass",
+      "minimum_metres_per_uv": 0.9999769084758321,
+      "maximum_metres_per_uv": 1.000021278543017
+    },
+    {
+      "part": "TaskLamp_office_green__nickel_plated",
+      "minimum_metres_per_uv": 0.9999690604305658,
+      "maximum_metres_per_uv": 1.0000220882086304
+    },
+    {
+      "part": "TaskLamp_office_green__rubber_aged",
+      "minimum_metres_per_uv": 0.9999882101047438,
+      "maximum_metres_per_uv": 1.0000076297377294
+    },
+    {
+      "part": "TaskLamp_office_green__switch_bakelite",
+      "minimum_metres_per_uv": 0.9998576013384499,
+      "maximum_metres_per_uv": 1.0002513732648153
+    },
+    {
+      "part": "TaskLamp_bench_friction__bakelite",
+      "minimum_metres_per_uv": 0.9998483948682183,
+      "maximum_metres_per_uv": 1.0001292716585601
+    },
+    {
+      "part": "TaskLamp_bench_friction__bulb_opal",
+      "minimum_metres_per_uv": 0.9999808913275643,
+      "maximum_metres_per_uv": 1.0000184757453316
+    },
+    {
+      "part": "TaskLamp_bench_friction__iron_blackened",
+      "minimum_metres_per_uv": 0.9998002496787495,
+      "maximum_metres_per_uv": 1.0003276628279527
+    },
+    {
+      "part": "TaskLamp_bench_friction__nickel_plated",
+      "minimum_metres_per_uv": 0.997583057918428,
+      "maximum_metres_per_uv": 1.0033110029925298
+    },
+    {
+      "part": "TaskLamp_bench_friction__rubber_aged",
+      "minimum_metres_per_uv": 0.9999886236294,
+      "maximum_metres_per_uv": 1.0000112783655417
+    },
+    {
+      "part": "TaskLamp_bench_friction__switch_bakelite",
+      "minimum_metres_per_uv": 0.9998576013384499,
+      "maximum_metres_per_uv": 1.0002513732648153
+    },
+    {
+      "part": "TaskLamp_landlord_enamel__bakelite",
+      "minimum_metres_per_uv": 0.9999147991984916,
+      "maximum_metres_per_uv": 1.0000815220342807
+    },
+    {
+      "part": "TaskLamp_landlord_enamel__bulb_opal",
+      "minimum_metres_per_uv": 0.9999763052776793,
+      "maximum_metres_per_uv": 1.0000186661008403
+    },
+    {
+      "part": "TaskLamp_landlord_enamel__enamel",
+      "minimum_metres_per_uv": 0.9992829811951799,
+      "maximum_metres_per_uv": 1.0005792452565996
+    },
+    {
+      "part": "TaskLamp_landlord_enamel__iron_blackened",
+      "minimum_metres_per_uv": 0.9996624722362603,
+      "maximum_metres_per_uv": 1.0002997410962158
+    },
+    {
+      "part": "TaskLamp_landlord_enamel__nickel_plated",
+      "minimum_metres_per_uv": 0.9972972317282804,
+      "maximum_metres_per_uv": 1.0016250769269333
+    },
+    {
+      "part": "TaskLamp_landlord_enamel__rubber_aged",
+      "minimum_metres_per_uv": 0.9999863199158526,
+      "maximum_metres_per_uv": 1.0000248022477405
+    },
+    {
+      "part": "TaskLamp_landlord_enamel__switch_bakelite",
+      "minimum_metres_per_uv": 0.9998576013384499,
+      "maximum_metres_per_uv": 1.0002513732648153
+    },
+    {
+      "part": "TaskLamp_architect_counterweight__bakelite",
+      "minimum_metres_per_uv": 0.9999370737825626,
+      "maximum_metres_per_uv": 1.0001401659272176
+    },
+    {
+      "part": "TaskLamp_architect_counterweight__bulb_opal",
+      "minimum_metres_per_uv": 0.9999711177431423,
+      "maximum_metres_per_uv": 1.0000291514159942
+    },
+    {
+      "part": "TaskLamp_architect_counterweight__iron_blackened",
+      "minimum_metres_per_uv": 0.9996624279842564,
+      "maximum_metres_per_uv": 1.0003276151143201
+    },
+    {
+      "part": "TaskLamp_architect_counterweight__nickel_plated",
+      "minimum_metres_per_uv": 0.9994733615545885,
+      "maximum_metres_per_uv": 1.0003715181857975
+    },
+    {
+      "part": "TaskLamp_architect_counterweight__rubber_aged",
+      "minimum_metres_per_uv": 0.9999728958061209,
+      "maximum_metres_per_uv": 1.0000112180289897
+    },
+    {
+      "part": "TaskLamp_architect_counterweight__switch_bakelite",
+      "minimum_metres_per_uv": 0.9998576013384499,
+      "maximum_metres_per_uv": 1.0002513732648153
+    },
+    {
+      "part": "TaskLamp_architect_counterweight__wood_dark",
+      "minimum_metres_per_uv": 0.9995142640855067,
+      "maximum_metres_per_uv": 1.0004118668344397
+    }
+  ],
+  "supports": [
+    {
+      "assembly": "TaskLamp_emeralite",
+      "owner": "external_support",
+      "point": [
+        0.0475,
+        0,
+        0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_emeralite",
+      "owner": "external_support",
+      "point": [
+        -0.02374999999999999,
+        0,
+        0.04113620667976084
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_emeralite",
+      "owner": "external_support",
+      "point": [
+        -0.02375000000000002,
+        0,
+        -0.041136206679760826
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_office_green",
+      "owner": "external_support",
+      "point": [
+        0.039,
+        0,
+        0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_office_green",
+      "owner": "external_support",
+      "point": [
+        -0.019499999999999993,
+        0,
+        0.03377499074759311
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_office_green",
+      "owner": "external_support",
+      "point": [
+        -0.019500000000000017,
+        0,
+        -0.0337749907475931
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_bench_friction",
+      "owner": "external_support",
+      "point": [
+        0.055,
+        0,
+        0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_bench_friction",
+      "owner": "external_support",
+      "point": [
+        -0.027499999999999986,
+        0,
+        0.047631397208144126
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_bench_friction",
+      "owner": "external_support",
+      "point": [
+        -0.027500000000000024,
+        0,
+        -0.04763139720814412
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_landlord_enamel",
+      "owner": "external_support",
+      "point": [
+        0.041,
+        0,
+        0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_landlord_enamel",
+      "owner": "external_support",
+      "point": [
+        -0.02049999999999999,
+        0,
+        0.03550704155516199
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_landlord_enamel",
+      "owner": "external_support",
+      "point": [
+        -0.020500000000000018,
+        0,
+        -0.03550704155516198
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_architect_counterweight",
+      "owner": "external_support",
+      "point": [
+        0.056,
+        0,
+        0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_architect_counterweight",
+      "owner": "external_support",
+      "point": [
+        -0.027999999999999987,
+        0,
+        0.04849742261192857
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    },
+    {
+      "assembly": "TaskLamp_architect_counterweight",
+      "owner": "external_support",
+      "point": [
+        -0.028000000000000025,
+        0,
+        -0.048497422611928555
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "retained flat lamp base datum"
+    }
+  ],
+  "visible_workbench_bearings": [
+    {
+      "lamp": "TaskLamp_bench_friction",
+      "support": "3B_workbench",
+      "local_point": [
+        0.054999999701976776,
+        -0.0,
+        0.0
+      ],
+      "visible_hit": [
+        0.054999999701976776,
+        0.0,
+        0.0
+      ],
+      "visible_normal": [
+        -0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "lamp": "TaskLamp_bench_friction",
+      "support": "3B_workbench",
+      "local_point": [
+        -0.027499999850988388,
+        -0.0476313978433609,
+        0.0
+      ],
+      "visible_hit": [
+        -0.027499999850988388,
+        -0.0476313978433609,
+        0.0
+      ],
+      "visible_normal": [
+        -0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "lamp": "TaskLamp_bench_friction",
+      "support": "3B_workbench",
+      "local_point": [
+        -0.027499999850988388,
+        0.0476313978433609,
+        0.0
+      ],
+      "visible_hit": [
+        -0.027499999850988388,
+        0.0476313978433609,
+        0.0
+      ],
+      "visible_normal": [
+        -0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "views": [
+    {
+      "id": "emeralite_front",
+      "eye": [
+        0.4862027168273926,
+        -0.7514041662216187,
+        0.5421037673950195
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.21899999678134918
+      ],
+      "file": "emeralite_front.png"
+    },
+    {
+      "id": "emeralite_rear",
+      "eye": [
+        -0.5525031089782715,
+        0.736670732498169,
+        0.5325454473495483
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.21899999678134918
+      ],
+      "file": "emeralite_rear.png"
+    },
+    {
+      "id": "office_green_front",
+      "eye": [
+        0.41295456886291504,
+        -0.6382025480270386,
+        0.4718788266181946
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.18449999392032623
+      ],
+      "file": "office_green_front.png"
+    },
+    {
+      "id": "office_green_rear",
+      "eye": [
+        -0.4504959285259247,
+        0.6006612181663513,
+        0.45310819149017334
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.18449999392032623
+      ],
+      "file": "office_green_rear.png"
+    },
+    {
+      "id": "bench_friction_front",
+      "eye": [
+        0.6739807724952698,
+        -1.0416066646575928,
+        0.6993783712387085
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.30288437008857727
+      ],
+      "file": "bench_friction_front.png"
+    },
+    {
+      "id": "bench_friction_rear",
+      "eye": [
+        -0.7658873200416565,
+        1.0211830139160156,
+        0.6839870810508728
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.30288437008857727
+      ],
+      "file": "bench_friction_rear.png"
+    },
+    {
+      "id": "landlord_enamel_front",
+      "eye": [
+        0.4301610291004181,
+        -0.6647943258285522,
+        0.4883897304534912
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.19195027649402618
+      ],
+      "file": "landlord_enamel_front.png"
+    },
+    {
+      "id": "landlord_enamel_rear",
+      "eye": [
+        -0.46926653385162354,
+        0.6256887316703796,
+        0.4688369631767273
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.19195027649402618
+      ],
+      "file": "landlord_enamel_rear.png"
+    },
+    {
+      "id": "architect_counterweight_front",
+      "eye": [
+        0.7020633220672607,
+        -1.0850069522857666,
+        0.7223463654518127
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.3207065165042877
+      ],
+      "file": "architect_counterweight_front.png"
+    },
+    {
+      "id": "architect_counterweight_rear",
+      "eye": [
+        -0.7977992296218872,
+        1.0637321472167969,
+        0.7058397531509399
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.3207065165042877
+      ],
+      "file": "architect_counterweight_rear.png"
+    }
+  ],
+  "scope": "Native five-variant geometry, base datums and existing visible workbench bearing. Does not prove external room wiring, behavior or final optics."
+}
