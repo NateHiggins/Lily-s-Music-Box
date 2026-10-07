@@ -46,7 +46,13 @@ and budgets are recorded, with a maximum observed budget of 0.190mm. Legacy
 import settings and source geometry remain unchanged.
 
 Passage residency passes 42 waypoints with zero failures in 118.65 seconds.
-Clean static verification follows at the candidate boundary.
+Clean candidate **d33fdeab14651245fb3b2d7d32d7a99788a241d8** passes all 49 board
+entries / 42 tools suites without regression. All 17 protected paths and
+all 240 requirement statuses remain unchanged. Tree
+**c9b81a43ee5aec313a7251eba71296656e08f74a** is identical to source
+**1550ff6aae7d2aadb098ab50bceff608c35e6c68**. Static verification reused the clean
+**1c319e58** baseline, launched no Godot and removed its temporary checkout.
+The six ledger blocker counts remain **7 / 8 / 127 / 42 / 151 / 153**.
 The reader gate reports NEW 0. The spatial manifest adds 91 exact rows while
 preserving prior text and entries; the spatial audit is clean. The fabrication
 planner reports only the pre-existing front-pavement binding drift. The shared
@@ -60,4 +66,6 @@ native inspection, batch results and wrapper receipts are INERT QA. They
 grant no runtime-contract proof or requirement promotion. The native guide
 is **art/blender/shop_clerestories.md**. Photo's door/lamp, remaining shell
 finish, material calibration, continuous routes, services and human acceptance
-remain open. No owner decision is required to continue the visual pass.
+remain open. Earlier inspectors that load linked context without updating
+transforms need a bounded audit before whole-building fit acceptance.
+No owner decision is required to continue the visual pass.
