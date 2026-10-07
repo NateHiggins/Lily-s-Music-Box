@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 8.36,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T23:05:11Z",
+  "started_utc": "2026-10-07T23:05:03Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/apartment-furniture-import-02.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/apartment-furniture-import-02.log",
+  "stdout_sha256": "52d529927c25bbfaeaf91866c80ac53eeff7d48409018216d22d0f7c1a9e63f5"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 301,
+  "dirty_sample": [
+   "M art/blender/reading_nook_construction.json",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_domestic_furniture.gd",
+   " M game/tests/fixtures/orison_reading_nook.json",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/domestic_seating.blend",
+   "?? art/blender/domestic_seating_construction.json",
+   "?? art/blender/domestic_tables.blend",
+   "?? art/blender/domestic_tables_construction.json",
+   "?? art/blender/scripts/build_domestic_seating.py",
+   "?? art/blender/scripts/build_domestic_tables.py",
+   "?? art/blender/scripts/domestic_seating_geometry.py",
+   "?? art/blender/scripts/domestic_tables_geometry.py",
+   "?? art/blender/scripts/inspect_domestic_furniture_context.py",
+   "?? art/blender/scripts/inspect_domestic_seating.py",
+   "?? art/blender/scripts/inspect_domestic_tables.py",
+   "?? art/blender/scripts/render_domestic_seating.py",
+   "?? art/blender/scripts/render_domestic_tables.py"
+  ],
+  "repository_head": "3d525446b95d24bf247cfa3d50d6eb4519c46a84",
+  "repository_tree": "a7a64466019b1cc7422c6bad4942a71d63b5fbc3",
+  "runtime_inputs_sha256": "75d3da60f1e6a4d638508f273384ee228c48892f68711abe79cc4501da67b8d8",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

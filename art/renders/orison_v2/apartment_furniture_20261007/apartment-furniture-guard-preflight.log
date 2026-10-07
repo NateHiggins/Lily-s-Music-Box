@@ -1,0 +1,92 @@
+FABRICATION STAGE: art/blender/scripts/build_domestic_seating.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_seating.py:76: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_seating.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+19:14:20 | INFO: Starting glTF 2.0 export
+19:14:20 | INFO: Extracting primitive: ChairDark__wood_dark
+19:14:20 | INFO: Primitives created: 1
+19:14:20 | INFO: Extracting primitive: ChairOak__oak_quartered
+19:14:20 | INFO: Primitives created: 1
+19:14:20 | INFO: Extracting primitive: Sofa195__fabric_cool
+19:14:20 | INFO: Primitives created: 1
+19:14:20 | INFO: Extracting primitive: Sofa195__linen
+19:14:20 | INFO: Primitives created: 1
+19:14:20 | INFO: Extracting primitive: Sofa195__wood_dark
+19:14:20 | INFO: Primitives created: 1
+19:14:20 | INFO: Extracting primitive: Sofa210__fabric_cool
+19:14:20 | INFO: Primitives created: 1
+19:14:20 | INFO: Extracting primitive: Sofa210__linen
+19:14:20 | INFO: Primitives created: 1
+19:14:20 | INFO: Extracting primitive: Sofa210__wood_dark
+19:14:20 | INFO: Primitives created: 1
+19:14:20 | INFO: Finished glTF 2.0 export in 0.07983899116516113 s
+
+SURFACE STOCK 30 original records; 4 assemblies; 50 closed stocks; 8 parts; 37376 triangles; 16 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_seating.py
+00:02.890  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_seating.blend"
+DOMESTIC SEATING LOCAL: 50 closed stocks; 4 physical groups; 16 local bearings; 8 mapped parts
+FABRICATION STAGE: art/blender/scripts/build_domestic_tables.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_tables.py:76: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_tables.blend"
+19:14:22 | INFO: Starting glTF 2.0 export
+19:14:22 | INFO: Extracting primitive: Coffee06__glassish
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: Coffee06__wood_dark
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: Nightstand01__brass
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: Nightstand01__glassish
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: Nightstand01__oak_quartered
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: Nightstand01__paper
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: Nightstand02__brass
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: Nightstand02__glassish
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: Nightstand02__paper
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: Nightstand02__wood_dark
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRect04__floor_oak
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRect04__wood_dark
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRect05__floor_oak
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRect05__wood_dark
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRect07__wood_dark
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRect08__wood_dark
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRect09__wood_dark
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRect11__wood_dark
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRect12__wood_dark
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRect13__wood_dark
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRound03__trim
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRound03__wood_dark
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRound10__floor_oak
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Extracting primitive: TableRound10__trim
+19:14:22 | INFO: Primitives created: 1
+19:14:22 | INFO: Finished glTF 2.0 export in 0.14161038398742676 s
+
+SURFACE STOCK 27 original records; 13 assemblies; 127 closed stocks; 24 parts; 44424 triangles; 54 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_tables.py
+00:05.125  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_tables.blend"
+DOMESTIC TABLES LOCAL: 127 closed stocks; 13 physical groups; 54 local bearings; 24 mapped parts
+{"completed_stages": 4, "elapsed_s": 4.609}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

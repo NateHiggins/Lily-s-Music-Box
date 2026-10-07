@@ -1,0 +1,549 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 50,
+  "connected_groups": [
+    {
+      "assembly": "Sofa195_JoinedSeat",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "Sofa195_Foot00",
+          "Sofa195_UpholsteredBase"
+        ],
+        [
+          "Sofa195_Foot01",
+          "Sofa195_UpholsteredBase"
+        ],
+        [
+          "Sofa195_Foot10",
+          "Sofa195_UpholsteredBase"
+        ],
+        [
+          "Sofa195_Foot11",
+          "Sofa195_UpholsteredBase"
+        ],
+        [
+          "Sofa195_UpholsteredBase",
+          "Sofa195_BackShell"
+        ],
+        [
+          "Sofa195_UpholsteredBase",
+          "Sofa195_ArmSeat-1"
+        ],
+        [
+          "Sofa195_UpholsteredBase",
+          "Sofa195_Arm-1"
+        ],
+        [
+          "Sofa195_UpholsteredBase",
+          "Sofa195_ArmSeat1"
+        ],
+        [
+          "Sofa195_UpholsteredBase",
+          "Sofa195_Arm1"
+        ],
+        [
+          "Sofa195_UpholsteredBase",
+          "Sofa195_SeatCushion0"
+        ],
+        [
+          "Sofa195_UpholsteredBase",
+          "Sofa195_SeatCushion1"
+        ],
+        [
+          "Sofa195_BackShell",
+          "Sofa195_BackCushion0"
+        ],
+        [
+          "Sofa195_BackShell",
+          "Sofa195_BackCushion1"
+        ],
+        [
+          "Sofa195_ArmSeat-1",
+          "Sofa195_Arm-1"
+        ],
+        [
+          "Sofa195_ArmSeat1",
+          "Sofa195_Arm1"
+        ],
+        [
+          "Sofa195_SeatCushion0",
+          "Sofa195_BackCushion0"
+        ],
+        [
+          "Sofa195_SeatCushion0",
+          "Sofa195_SeatWelt0"
+        ],
+        [
+          "Sofa195_SeatCushion0",
+          "Sofa195_BackWelt0"
+        ],
+        [
+          "Sofa195_SeatCushion1",
+          "Sofa195_BackCushion1"
+        ],
+        [
+          "Sofa195_SeatCushion1",
+          "Sofa195_SeatWelt1"
+        ],
+        [
+          "Sofa195_SeatCushion1",
+          "Sofa195_BackWelt1"
+        ]
+      ]
+    },
+    {
+      "assembly": "Sofa210_JoinedSeat",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "Sofa210_Foot00",
+          "Sofa210_UpholsteredBase"
+        ],
+        [
+          "Sofa210_Foot01",
+          "Sofa210_UpholsteredBase"
+        ],
+        [
+          "Sofa210_Foot10",
+          "Sofa210_UpholsteredBase"
+        ],
+        [
+          "Sofa210_Foot11",
+          "Sofa210_UpholsteredBase"
+        ],
+        [
+          "Sofa210_UpholsteredBase",
+          "Sofa210_BackShell"
+        ],
+        [
+          "Sofa210_UpholsteredBase",
+          "Sofa210_ArmSeat-1"
+        ],
+        [
+          "Sofa210_UpholsteredBase",
+          "Sofa210_Arm-1"
+        ],
+        [
+          "Sofa210_UpholsteredBase",
+          "Sofa210_ArmSeat1"
+        ],
+        [
+          "Sofa210_UpholsteredBase",
+          "Sofa210_Arm1"
+        ],
+        [
+          "Sofa210_UpholsteredBase",
+          "Sofa210_SeatCushion0"
+        ],
+        [
+          "Sofa210_UpholsteredBase",
+          "Sofa210_SeatCushion1"
+        ],
+        [
+          "Sofa210_BackShell",
+          "Sofa210_BackCushion0"
+        ],
+        [
+          "Sofa210_BackShell",
+          "Sofa210_BackCushion1"
+        ],
+        [
+          "Sofa210_ArmSeat-1",
+          "Sofa210_Arm-1"
+        ],
+        [
+          "Sofa210_ArmSeat1",
+          "Sofa210_Arm1"
+        ],
+        [
+          "Sofa210_SeatCushion0",
+          "Sofa210_BackCushion0"
+        ],
+        [
+          "Sofa210_SeatCushion0",
+          "Sofa210_SeatWelt0"
+        ],
+        [
+          "Sofa210_SeatCushion0",
+          "Sofa210_BackWelt0"
+        ],
+        [
+          "Sofa210_SeatCushion1",
+          "Sofa210_BackCushion1"
+        ],
+        [
+          "Sofa210_SeatCushion1",
+          "Sofa210_SeatWelt1"
+        ],
+        [
+          "Sofa210_SeatCushion1",
+          "Sofa210_BackWelt1"
+        ]
+      ]
+    },
+    {
+      "assembly": "ChairDark_JoinedSeat",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "ChairDark_DishedSeat",
+          "ChairDark_SplayedLeg0"
+        ],
+        [
+          "ChairDark_DishedSeat",
+          "ChairDark_SplayedLeg1"
+        ],
+        [
+          "ChairDark_DishedSeat",
+          "ChairDark_SplayedLeg2"
+        ],
+        [
+          "ChairDark_DishedSeat",
+          "ChairDark_SplayedLeg3"
+        ],
+        [
+          "ChairDark_DishedSeat",
+          "ChairDark_SteamBentHoop"
+        ],
+        [
+          "ChairDark_SteamBentHoop",
+          "ChairDark_BackCrossRail"
+        ]
+      ]
+    },
+    {
+      "assembly": "ChairOak_JoinedSeat",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "ChairOak_DishedSeat",
+          "ChairOak_SplayedLeg0"
+        ],
+        [
+          "ChairOak_DishedSeat",
+          "ChairOak_SplayedLeg1"
+        ],
+        [
+          "ChairOak_DishedSeat",
+          "ChairOak_SplayedLeg2"
+        ],
+        [
+          "ChairOak_DishedSeat",
+          "ChairOak_SplayedLeg3"
+        ],
+        [
+          "ChairOak_DishedSeat",
+          "ChairOak_SteamBentHoop"
+        ],
+        [
+          "ChairOak_SteamBentHoop",
+          "ChairOak_BackCrossRail"
+        ]
+      ]
+    }
+  ],
+  "distinct_object_separations": [],
+  "uv": [
+    {
+      "part": "Sofa195__fabric_cool",
+      "minimum_metres_per_uv": 0.999978352462863,
+      "maximum_metres_per_uv": 1.0000236699787508,
+      "maximum_edge_excess_m": 1.0435647634920997e-07,
+      "maximum_edge_ratio": 1.0000155019740888
+    },
+    {
+      "part": "Sofa195__linen",
+      "minimum_metres_per_uv": 0.999921304536174,
+      "maximum_metres_per_uv": 1.0000747662905909,
+      "maximum_edge_excess_m": 6.221789672355982e-08,
+      "maximum_edge_ratio": 1.0000711762766241
+    },
+    {
+      "part": "Sofa195__wood_dark",
+      "minimum_metres_per_uv": 0.9999435643722232,
+      "maximum_metres_per_uv": 1.0000790272543976,
+      "maximum_edge_excess_m": 5.977763151143733e-08,
+      "maximum_edge_ratio": 1.0000280518136
+    },
+    {
+      "part": "Sofa210__fabric_cool",
+      "minimum_metres_per_uv": 0.9999811569908873,
+      "maximum_metres_per_uv": 1.0000234030271173,
+      "maximum_edge_excess_m": 7.323262704757305e-08,
+      "maximum_edge_ratio": 1.0000180675812982
+    },
+    {
+      "part": "Sofa210__linen",
+      "minimum_metres_per_uv": 0.9999248946748416,
+      "maximum_metres_per_uv": 1.000088313550798,
+      "maximum_edge_excess_m": 6.88866420993535e-08,
+      "maximum_edge_ratio": 1.000074231046271
+    },
+    {
+      "part": "Sofa210__wood_dark",
+      "minimum_metres_per_uv": 0.9999435728834725,
+      "maximum_metres_per_uv": 1.0000785310461644,
+      "maximum_edge_excess_m": 5.965872595936617e-08,
+      "maximum_edge_ratio": 1.0000224410830925
+    },
+    {
+      "part": "ChairDark__wood_dark",
+      "minimum_metres_per_uv": 0.9992850749705392,
+      "maximum_metres_per_uv": 1.0001742270383795,
+      "maximum_edge_excess_m": 2.0120467915264034e-05,
+      "maximum_edge_ratio": 1.000715436512931
+    },
+    {
+      "part": "ChairOak__oak_quartered",
+      "minimum_metres_per_uv": 0.9992850749705392,
+      "maximum_metres_per_uv": 1.0001742270383795,
+      "maximum_edge_excess_m": 2.0120467915264034e-05,
+      "maximum_edge_ratio": 1.000715436512931
+    }
+  ],
+  "local_bearings": [
+    {
+      "assembly": "Sofa195",
+      "owner": "support",
+      "point": [
+        -0.875,
+        0,
+        0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot00 horizontal foot"
+    },
+    {
+      "assembly": "Sofa195",
+      "owner": "support",
+      "point": [
+        -0.875,
+        0,
+        -0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot01 horizontal foot"
+    },
+    {
+      "assembly": "Sofa195",
+      "owner": "support",
+      "point": [
+        0.875,
+        0,
+        0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot10 horizontal foot"
+    },
+    {
+      "assembly": "Sofa195",
+      "owner": "support",
+      "point": [
+        0.875,
+        0,
+        -0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot11 horizontal foot"
+    },
+    {
+      "assembly": "Sofa210",
+      "owner": "support",
+      "point": [
+        -0.9500000000000001,
+        0,
+        0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot00 horizontal foot"
+    },
+    {
+      "assembly": "Sofa210",
+      "owner": "support",
+      "point": [
+        -0.9500000000000001,
+        0,
+        -0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot01 horizontal foot"
+    },
+    {
+      "assembly": "Sofa210",
+      "owner": "support",
+      "point": [
+        0.9500000000000001,
+        0,
+        0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot10 horizontal foot"
+    },
+    {
+      "assembly": "Sofa210",
+      "owner": "support",
+      "point": [
+        0.9500000000000001,
+        0,
+        -0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot11 horizontal foot"
+    },
+    {
+      "assembly": "ChairDark",
+      "owner": "support",
+      "point": [
+        -0.18200000000000002,
+        0,
+        -0.174
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "SplayedLeg0 horizontal foot"
+    },
+    {
+      "assembly": "ChairDark",
+      "owner": "support",
+      "point": [
+        0.18200000000000002,
+        0,
+        -0.174
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "SplayedLeg1 horizontal foot"
+    },
+    {
+      "assembly": "ChairDark",
+      "owner": "support",
+      "point": [
+        -0.18200000000000002,
+        0,
+        0.1595
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "SplayedLeg2 horizontal foot"
+    },
+    {
+      "assembly": "ChairDark",
+      "owner": "support",
+      "point": [
+        0.18200000000000002,
+        0,
+        0.1595
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "SplayedLeg3 horizontal foot"
+    },
+    {
+      "assembly": "ChairOak",
+      "owner": "support",
+      "point": [
+        -0.18200000000000002,
+        0,
+        -0.174
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "SplayedLeg0 horizontal foot"
+    },
+    {
+      "assembly": "ChairOak",
+      "owner": "support",
+      "point": [
+        0.18200000000000002,
+        0,
+        -0.174
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "SplayedLeg1 horizontal foot"
+    },
+    {
+      "assembly": "ChairOak",
+      "owner": "support",
+      "point": [
+        -0.18200000000000002,
+        0,
+        0.1595
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "SplayedLeg2 horizontal foot"
+    },
+    {
+      "assembly": "ChairOak",
+      "owner": "support",
+      "point": [
+        0.18200000000000002,
+        0,
+        0.1595
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "SplayedLeg3 horizontal foot"
+    }
+  ],
+  "views": [],
+  "scope": "Local construction and chart preflight only. External support context and rendering are still required."
+}

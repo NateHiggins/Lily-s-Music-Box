@@ -1,0 +1,20 @@
+{
+  "evidence_class": "INERT",
+  "reason": "Add reproducible exact source/template equivalence guards. Rebuild + native inspectors; exports, runtime JSON and all fixture semantics must remain identical. No import/runtime repeat needed.",
+  "families": [
+    {
+      "asset_sha256": "4bda006bb8cf23a271664b1b77bf5fdbb07b93b7006698f49e1b0711da90716f",
+      "runtime_sha256": "77be5983f42ce56999529201c955d8f2fb8d5eec7033d909f301b9f8def97436",
+      "fixture_sha256": "765782b9b0280d61b6b40dc463950dc84e6e98b9648cc609705f8bf8fb6e0fbf",
+      "family": "domestic_seating",
+      "fixture_after": "6e60f3022d08168de29c1443224939c90b6d56d2b325f68d926be782f0a77ded"
+    },
+    {
+      "asset_sha256": "52940ff9e78b863b46b2b9a113b5d270a5dcc8f9515c9c0caca496c3f1b9eb63",
+      "runtime_sha256": "3b4b3248e7caed5cc2a66fc3bed6f0ad0dd8dedad382ea947aa8c9ce3f70ff1f",
+      "fixture_sha256": "7ef9efc0f3e7a5f2cfa586bc09abc422d1e09fa6757f302fd1ca61e6c8b2bb9b",
+      "family": "domestic_tables",
+      "fixture_after": "204d6055cdcc8cc37879307885e247e0ce5552cf8c675adacd81a1e4e19d48dc"
+    }
+  ]
+}

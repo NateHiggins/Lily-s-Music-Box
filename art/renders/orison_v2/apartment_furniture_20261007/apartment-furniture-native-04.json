@@ -1,0 +1,34 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_domestic_seating.py",
+      "elapsed_s": 1.52
+    },
+    {
+      "script": "art/blender/scripts/inspect_domestic_seating.py",
+      "elapsed_s": 0.741
+    },
+    {
+      "script": "art/blender/scripts/build_domestic_tables.py",
+      "elapsed_s": 1.485
+    },
+    {
+      "script": "art/blender/scripts/inspect_domestic_tables.py",
+      "elapsed_s": 0.837
+    },
+    {
+      "script": "art/blender/scripts/inspect_domestic_furniture_context.py",
+      "elapsed_s": 0.767
+    },
+    {
+      "script": "art/blender/scripts/render_domestic_seating.py",
+      "elapsed_s": 27.427
+    },
+    {
+      "script": "art/blender/scripts/render_domestic_tables.py",
+      "elapsed_s": 48.468
+    }
+  ]
+}

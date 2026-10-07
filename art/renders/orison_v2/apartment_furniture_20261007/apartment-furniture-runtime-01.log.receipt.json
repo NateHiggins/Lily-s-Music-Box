@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 76.55,
+  "exit_code": 1,
+  "finished_utc": "2026-10-07T22:59:58Z",
+  "started_utc": "2026-10-07T22:58:41Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/apartment-furniture-runtime-01.log.stderr",
+  "stderr_sha256": "ff6c10608af11b915d9b687dce736f8fc9a572490b33d1e1d97ad45942e1991a",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/apartment-furniture-runtime-01.log",
+  "stdout_sha256": "b4821dddd08f360203b119c28645258897aac3782dd14b48ced9f419ab7c379b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/apartment-furniture-runtime-01",
+ "source": {
+  "dirty_paths": 300,
+  "dirty_sample": [
+   "M art/blender/reading_nook_construction.json",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_domestic_furniture.gd",
+   " M game/tests/fixtures/orison_reading_nook.json",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/domestic_seating.blend",
+   "?? art/blender/domestic_seating_construction.json",
+   "?? art/blender/domestic_tables.blend",
+   "?? art/blender/domestic_tables_construction.json",
+   "?? art/blender/scripts/build_domestic_seating.py",
+   "?? art/blender/scripts/build_domestic_tables.py",
+   "?? art/blender/scripts/domestic_seating_geometry.py",
+   "?? art/blender/scripts/domestic_tables_geometry.py",
+   "?? art/blender/scripts/inspect_domestic_furniture_context.py",
+   "?? art/blender/scripts/inspect_domestic_seating.py",
+   "?? art/blender/scripts/inspect_domestic_tables.py",
+   "?? art/blender/scripts/render_domestic_seating.py",
+   "?? art/blender/scripts/render_domestic_tables.py",
+   "?? art/data/domestic_seating/"
+  ],
+  "repository_head": "3d525446b95d24bf247cfa3d50d6eb4519c46a84",
+  "repository_tree": "a7a64466019b1cc7422c6bad4942a71d63b5fbc3",
+  "runtime_inputs_sha256": "68b9d4c187f9713b6e1beb7214650db050402b33fb2a770faf3e7bec7b3075b8",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "b54e9f9f73bc3aedce4b044ade1082d888322007d19e771bc976b80f66edbee3"
+ },
+ "windowed": true
+}

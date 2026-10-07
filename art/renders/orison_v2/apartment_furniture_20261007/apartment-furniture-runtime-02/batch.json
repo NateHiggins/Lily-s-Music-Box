@@ -1,0 +1,89 @@
+{
+	"batch_checks": 20,
+	"elapsed_ms": 59193,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 5476,
+	"modules": {
+		"domestic_seating": {
+			"actors": 41,
+			"captured": true,
+			"checks": 546,
+			"elapsed_ms": 5778,
+			"failures": [],
+			"fixture_sha256": "418c77c9a49971738bfd7bd01473ebf8bbf68ca315566f80327273fd88db15f4",
+			"parts": 47,
+			"shared_validator_sha256": "ecb725fb1322d9ba56ad1f4c8b02bab3f7aa5de0874b41517872a816ce7c63ff",
+			"unique_triangles": 37376,
+			"validator_sha256": "b075531e93b4cbd387afc38fd9f538a4c1c76b004cbea419fc914d1a1b3829f1",
+			"variants": 4
+		},
+		"domestic_tables": {
+			"actors": 62,
+			"captured": true,
+			"checks": 1180,
+			"elapsed_ms": 16862,
+			"failures": [],
+			"fixture_sha256": "28c8c1dec7775902f3c0e35e235824df5454bf6c2110c10f79002ca5509e2614",
+			"parts": 130,
+			"shared_validator_sha256": "ecb725fb1322d9ba56ad1f4c8b02bab3f7aa5de0874b41517872a816ce7c63ff",
+			"unique_triangles": 44424,
+			"validator_sha256": "50d0993b4c1c1e3b59157f591202428fcd751803249a6c0032e33541f472cc48",
+			"variants": 13
+		},
+		"reading_nook": {
+			"captured": false,
+			"checks": 1434,
+			"elapsed_ms": 1154,
+			"failures": [],
+			"fixture_sha256": "32ceb8d6744abd143c5d705b61da9fdc6593439c987842aaa63142667cfa3de0",
+			"parts": 31,
+			"production_lamps": 5,
+			"triangles": 58596,
+			"validator_sha256": "f64bdf98f0f4255d7604bff0ecd3d8b5e5f5820502298f8642e13dbcd47e32f2"
+		},
+		"signal_terminal": {
+			"captured": false,
+			"checks": 71,
+			"elapsed_ms": 1545,
+			"failures": [],
+			"fixture_sha256": "fde37259494468a62dca732430e044e5d6323e22dd742dfac7ce64fda4eae00b",
+			"validator_sha256": "ee0430d88bd4ba647f7564ed24b32124a0a2f5f8fb142c8c5115b22a9ccdf760"
+		},
+		"surface_stock": {
+			"captured": false,
+			"checks": 1618,
+			"elapsed_ms": 2082,
+			"failures": [],
+			"fixture_sha256": "c6745b20915158a8e1a82d510f187f1977b3889892b8bcbf1adbafecc07e4bd9",
+			"parts": 130,
+			"triangles": 520548,
+			"validator_sha256": "789e736b505b0868b89cf9cf3e8a97eba87709561907bddb2b338ba4fee4a88b"
+		},
+		"task_lamps": {
+			"captured": false,
+			"checks": 416,
+			"elapsed_ms": 712,
+			"failures": [],
+			"fixture_sha256": "39056492316798954ec1795ce99c583caac120bc9dd6dc678ba88e897c715541",
+			"library_variants": 5,
+			"parts": 34,
+			"production_actors": 1,
+			"triangles": 61596,
+			"validator_sha256": "3192db39959f7da70ac0f2a9c9c0c65e2e1a9eb63de88117ba138512c83ac698"
+		},
+		"work_tables": {
+			"captured": false,
+			"checks": 211,
+			"elapsed_ms": 386,
+			"failures": [],
+			"fixture_sha256": "6ed68b5413c5841bc0b4085eac2e5d26fafb4931e7a570becbe8e23d12cf7a98",
+			"parts": 13,
+			"triangles": 21072,
+			"validator_sha256": "429fc9d1cf302d978b3ad77a1ccf9d38aca89598067f77dac60f0b9f3a8b733a"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

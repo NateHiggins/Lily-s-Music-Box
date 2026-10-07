@@ -1,0 +1,9 @@
+{
+  "evidence_class": "INERT",
+  "reason": "Guard first get_meta with has_meta to avoid missing-metadata log error. No prior actor behavior or native geometry changes.",
+  "fixture_before": "c106d0399a9a757bf6c15edbf4b3bb5dc0fdd67c04c7fd3bb58cdd0d579a690d",
+  "fixture_after": "32ceb8d6744abd143c5d705b61da9fdc6593439c987842aaa63142667cfa3de0",
+  "binding_before": "3a72df73312af07052dfe773954b2616eb4720b848d98520b548cdd18ed696b8",
+  "binding_after": "99e97916a0bce63aab7f6cea7e363d9f35563835835942d53af06464ab1695f8",
+  "binding": "game/scripts/building/orison_v2_domestic_furniture.gd"
+}

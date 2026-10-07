@@ -1,0 +1,30 @@
+{
+  "evidence_class": "INERT",
+  "reason": "Status prose only after final runtime; fixture semantics, runtime data and native/export bytes unchanged.",
+  "families": [
+    {
+      "family": "domestic_seating",
+      "fixture_before": "418c77c9a49971738bfd7bd01473ebf8bbf68ca315566f80327273fd88db15f4",
+      "fixture_after": "765782b9b0280d61b6b40dc463950dc84e6e98b9648cc609705f8bf8fb6e0fbf",
+      "old_status": [
+        "Native form, all installed supports/clearances, composed appearance and runtime adoption in progress."
+      ],
+      "new_status": [
+        "Scoped native and all-instance runtime verification complete. Broader room material/light balance, remaining storage/kitchen furniture and whole-building visual acceptance remain open."
+      ],
+      "asset_sha256": "4bda006bb8cf23a271664b1b77bf5fdbb07b93b7006698f49e1b0711da90716f"
+    },
+    {
+      "family": "domestic_tables",
+      "fixture_before": "28c8c1dec7775902f3c0e35e235824df5454bf6c2110c10f79002ca5509e2614",
+      "fixture_after": "7ef9efc0f3e7a5f2cfa586bc09abc422d1e09fa6757f302fd1ca61e6c8b2bb9b",
+      "old_status": [
+        "Native construction, all installed supports/clearances and runtime adoption in progress."
+      ],
+      "new_status": [
+        "Scoped native and all-instance runtime verification complete. Broader room material/light balance, remaining storage/kitchen furniture and whole-building visual acceptance remain open."
+      ],
+      "asset_sha256": "52940ff9e78b863b46b2b9a113b5d270a5dcc8f9515c9c0caca496c3f1b9eb63"
+    }
+  ]
+}

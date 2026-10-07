@@ -1,0 +1,328 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/domestic_seating.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "Sofa195",
+      "parts": [
+        {
+          "name": "Sofa195__fabric_cool",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Sofa195__linen",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Sofa195__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Sofa210",
+      "parts": [
+        {
+          "name": "Sofa210__fabric_cool",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Sofa210__linen",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Sofa210__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "ChairDark",
+      "parts": [
+        {
+          "name": "ChairDark__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "ChairOak",
+      "parts": [
+        {
+          "name": "ChairOak__oak_quartered",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "2A_sofa",
+      "variant": "Sofa195"
+    },
+    {
+      "id": "4B_couch",
+      "variant": "Sofa210"
+    },
+    {
+      "id": "2A_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2A_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2A_desk_dkch",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2B_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2B_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "3B_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3B_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3B_stool",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4B_meal_chair_01",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "4B_meal_chair_02",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "4B_desk_chair",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "3A_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3A_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4A_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "4A_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "5A_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5A_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5B_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5B_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5C_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5C_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "6A_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6A_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6B_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6B_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6C_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6C_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "5A_stool",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "6A_deskchair",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6C_sofa",
+      "variant": "Sofa195"
+    },
+    {
+      "id": "2C_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "2C_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4C_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4C_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "1D_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "1D_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "1A_chair",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3D_chair",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4D_chair",
+      "variant": "ChairOak"
+    }
+  ],
+  "tint_space": "linear"
+}

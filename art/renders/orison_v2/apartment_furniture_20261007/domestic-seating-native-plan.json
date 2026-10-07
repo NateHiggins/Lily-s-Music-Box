@@ -1,0 +1,13 @@
+{
+  "stages": [
+    {
+      "script": "art/blender/scripts/build_domestic_seating.py"
+    },
+    {
+      "script": "art/blender/scripts/inspect_domestic_seating.py"
+    },
+    {
+      "script": "art/blender/scripts/render_domestic_seating.py"
+    }
+  ]
+}

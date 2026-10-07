@@ -1,0 +1,717 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/domestic_tables.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "Nightstand01",
+      "parts": [
+        {
+          "name": "Nightstand01__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "Nightstand01__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "Nightstand01__oak_quartered",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Nightstand01__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.07,
+            "roughness": 0.85
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Nightstand02",
+      "parts": [
+        {
+          "name": "Nightstand02__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "Nightstand02__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "Nightstand02__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.07,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Nightstand02__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "TableRound03",
+      "parts": [
+        {
+          "name": "TableRound03__trim",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "TableRound03__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "TableRect04",
+      "parts": [
+        {
+          "name": "TableRect04__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "TableRect04__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "TableRect05",
+      "parts": [
+        {
+          "name": "TableRect05__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "TableRect05__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Coffee06",
+      "parts": [
+        {
+          "name": "Coffee06__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "Coffee06__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "TableRect07",
+      "parts": [
+        {
+          "name": "TableRect07__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "TableRect08",
+      "parts": [
+        {
+          "name": "TableRect08__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "TableRect09",
+      "parts": [
+        {
+          "name": "TableRect09__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "TableRound10",
+      "parts": [
+        {
+          "name": "TableRound10__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "TableRound10__trim",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "TableRect11",
+      "parts": [
+        {
+          "name": "TableRect11__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "TableRect12",
+      "parts": [
+        {
+          "name": "TableRect12__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "TableRect13",
+      "parts": [
+        {
+          "name": "TableRect13__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "3B_abed_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "4B_wake_nightstand",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "2A_bed0_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "2A_din_t",
+      "variant": "TableRound03"
+    },
+    {
+      "id": "2B_din_t",
+      "variant": "TableRect04"
+    },
+    {
+      "id": "3B_din_t",
+      "variant": "TableRound03"
+    },
+    {
+      "id": "4B_meal_table",
+      "variant": "TableRound03"
+    },
+    {
+      "id": "2B_fabric_worktable",
+      "variant": "TableRect05"
+    },
+    {
+      "id": "2A_cof",
+      "variant": "Coffee06"
+    },
+    {
+      "id": "4B_coffee",
+      "variant": "Coffee06"
+    },
+    {
+      "id": "2A_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "2B_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "3B_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "4B_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "2A_projector_stand",
+      "variant": "TableRect08"
+    },
+    {
+      "id": "3B_projector_stand",
+      "variant": "TableRect08"
+    },
+    {
+      "id": "4B_projector_stand",
+      "variant": "TableRect08"
+    },
+    {
+      "id": "3A_din_t",
+      "variant": "TableRect04"
+    },
+    {
+      "id": "3A_bed0_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "3A_potting_bench",
+      "variant": "TableRect05"
+    },
+    {
+      "id": "4A_din_t",
+      "variant": "TableRound03"
+    },
+    {
+      "id": "4A_bed0_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "4A_writing_table",
+      "variant": "TableRect05"
+    },
+    {
+      "id": "3A_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "4A_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "5A_bed0_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "5A_din_t",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "5B_abed_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "5B_din_t",
+      "variant": "TableRound10"
+    },
+    {
+      "id": "5C_bed0_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "5C_bed1_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "5C_din_t",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "6A_bed0_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "6A_din_t",
+      "variant": "TableRound10"
+    },
+    {
+      "id": "6B_abed_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "6B_din_t",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "6C_bed0_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "6C_bed1_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "6C_din_t",
+      "variant": "TableRound10"
+    },
+    {
+      "id": "5A_modtable",
+      "variant": "TableRect11"
+    },
+    {
+      "id": "6C_cof",
+      "variant": "Coffee06"
+    },
+    {
+      "id": "5A_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "5B_wireless_table",
+      "variant": "TableRect12"
+    },
+    {
+      "id": "5C_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "6A_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "6B_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "6C_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "5B_comparison_table",
+      "variant": "TableRect13"
+    },
+    {
+      "id": "2C_bed0_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "2C_bed1_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "2C_din_t",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "2C_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "4C_bed0_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "4C_bed1_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "4C_din_t",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "4C_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "1D_din_t",
+      "variant": "TableRect04"
+    },
+    {
+      "id": "1D_fabric_worktable",
+      "variant": "TableRect05"
+    },
+    {
+      "id": "1D_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "1A_table",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "3D_table",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "4D_table",
+      "variant": "TableRect09"
+    }
+  ],
+  "tint_space": "linear",
+  "local_materials": {
+    "glassish": {
+      "files": [
+        null,
+        "T_glass_rough.png",
+        "T_glass_normal.png"
+      ],
+      "metallic": 0,
+      "roughness": 1,
+      "normal_scale": 0.550000011920929,
+      "color": [
+        0.7599999904632568,
+        0.8500000238418579,
+        0.8899999856948853,
+        0.1599999964237213
+      ],
+      "alpha": true
+    }
+  },
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06
+  }
+}

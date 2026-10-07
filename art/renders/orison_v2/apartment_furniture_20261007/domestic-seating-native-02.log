@@ -1,0 +1,47 @@
+FABRICATION STAGE: art/blender/scripts/build_domestic_seating.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_seating.py:70: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_seating.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+18:39:06 | INFO: Starting glTF 2.0 export
+18:39:06 | INFO: Extracting primitive: ChairDark__wood_dark
+18:39:06 | INFO: Primitives created: 1
+18:39:06 | INFO: Extracting primitive: ChairOak__oak_quartered
+18:39:06 | INFO: Primitives created: 1
+18:39:06 | INFO: Extracting primitive: Sofa195__fabric_cool
+18:39:06 | INFO: Primitives created: 1
+18:39:06 | INFO: Extracting primitive: Sofa195__linen
+18:39:06 | INFO: Primitives created: 1
+18:39:06 | INFO: Extracting primitive: Sofa195__wood_dark
+18:39:06 | INFO: Primitives created: 1
+18:39:06 | INFO: Extracting primitive: Sofa210__fabric_cool
+18:39:06 | INFO: Primitives created: 1
+18:39:06 | INFO: Extracting primitive: Sofa210__linen
+18:39:06 | INFO: Primitives created: 1
+18:39:06 | INFO: Extracting primitive: Sofa210__wood_dark
+18:39:06 | INFO: Primitives created: 1
+18:39:06 | INFO: Finished glTF 2.0 export in 0.07712697982788086 s
+
+SURFACE STOCK 30 original records; 4 assemblies; 50 closed stocks; 8 parts; 37376 triangles; 16 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_seating.py
+00:03.344  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_seating.blend"
+DOMESTIC SEATING LOCAL: 50 closed stocks; 4 physical groups; 16 local bearings; 8 mapped parts
+FABRICATION STAGE: art/blender/scripts/render_domestic_seating.py
+00:04.000  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_seating.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_domestic_seating.py:10: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.60,.65,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.6
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_domestic_seating.py:13: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=10,location=(0,0,-.00004));plane=bpy.context.object;material=bpy.data.materials.new('Review ground');material.diffuse_color=(.23,.25,.26,1);material.use_nodes=True;material.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.23,.25,.26,1);material.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.75;plane.data.materials.append(material)
+00:07.828  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\ChairDark_front.png'
+00:11.375  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\ChairDark_rear.png'
+00:14.875  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\ChairOak_front.png'
+00:18.266  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\ChairOak_rear.png'
+00:21.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\Sofa195_front.png'
+00:24.875  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\Sofa195_rear.png'
+00:28.125  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\Sofa210_front.png'
+00:31.344  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\Sofa210_rear.png'
+{"completed_stages": 3, "elapsed_s": 30.065}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

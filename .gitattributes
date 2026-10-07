@@ -1301,3 +1301,32 @@ game/tests/fixtures/orison_surface_stock.json -text
 game/tests/orison_v2_signal_terminal_test.gd -text
 game/tests/orison_v2_surface_stock_test.gd -text
 art/renders/orison_v2/desktop_stock_20261007/** -text -whitespace
+
+art/blender/domestic_seating.blend -text
+art/blender/domestic_seating_construction.json -text
+art/blender/domestic_tables.blend -text
+art/blender/domestic_tables_construction.json -text
+art/blender/scripts/build_domestic_seating.py -text
+art/blender/scripts/build_domestic_tables.py -text
+art/blender/scripts/domestic_seating_geometry.py -text
+art/blender/scripts/domestic_tables_geometry.py -text
+art/blender/scripts/inspect_domestic_furniture_context.py -text
+art/blender/scripts/inspect_domestic_seating.py -text
+art/blender/scripts/inspect_domestic_tables.py -text
+art/blender/scripts/render_domestic_seating.py -text
+art/blender/scripts/render_domestic_tables.py -text
+art/data/domestic_seating/source_plan.json -text
+art/data/domestic_tables/source_plan.json -text
+game/assets/props/domestic_seating.glb -text
+game/assets/props/domestic_seating.glb.import -text
+game/assets/props/domestic_tables.glb -text
+game/assets/props/domestic_tables.glb.import -text
+game/data/orison_v2/domestic_seating.json -text
+game/data/orison_v2/domestic_tables.json -text
+game/scripts/building/orison_v2_native_domestic_furniture.gd -text
+game/tests/fixtures/orison_domestic_seating.json -text
+game/tests/fixtures/orison_domestic_tables.json -text
+game/tests/orison_v2_domestic_native_test.gd -text
+game/tests/orison_v2_domestic_seating_test.gd -text
+game/tests/orison_v2_domestic_tables_test.gd -text
+art/renders/orison_v2/apartment_furniture_20261007/** -text -whitespace

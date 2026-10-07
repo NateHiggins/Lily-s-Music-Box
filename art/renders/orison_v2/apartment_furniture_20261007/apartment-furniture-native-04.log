@@ -1,0 +1,127 @@
+FABRICATION STAGE: art/blender/scripts/build_domestic_seating.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_seating.py:70: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_seating.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+19:03:06 | INFO: Starting glTF 2.0 export
+19:03:06 | INFO: Extracting primitive: ChairDark__wood_dark
+19:03:06 | INFO: Primitives created: 1
+19:03:06 | INFO: Extracting primitive: ChairOak__oak_quartered
+19:03:07 | INFO: Primitives created: 1
+19:03:07 | INFO: Extracting primitive: Sofa195__fabric_cool
+19:03:07 | INFO: Primitives created: 1
+19:03:07 | INFO: Extracting primitive: Sofa195__linen
+19:03:07 | INFO: Primitives created: 1
+19:03:07 | INFO: Extracting primitive: Sofa195__wood_dark
+19:03:07 | INFO: Primitives created: 1
+19:03:07 | INFO: Extracting primitive: Sofa210__fabric_cool
+19:03:07 | INFO: Primitives created: 1
+19:03:07 | INFO: Extracting primitive: Sofa210__linen
+19:03:07 | INFO: Primitives created: 1
+19:03:07 | INFO: Extracting primitive: Sofa210__wood_dark
+19:03:07 | INFO: Primitives created: 1
+19:03:07 | INFO: Finished glTF 2.0 export in 0.0783085823059082 s
+
+SURFACE STOCK 30 original records; 4 assemblies; 50 closed stocks; 8 parts; 37376 triangles; 16 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_seating.py
+00:02.906  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_seating.blend"
+DOMESTIC SEATING LOCAL: 50 closed stocks; 4 physical groups; 16 local bearings; 8 mapped parts
+FABRICATION STAGE: art/blender/scripts/build_domestic_tables.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_tables.py:70: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_tables.blend"
+19:03:09 | INFO: Starting glTF 2.0 export
+19:03:09 | INFO: Extracting primitive: Coffee06__glassish
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: Coffee06__wood_dark
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: Nightstand01__brass
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: Nightstand01__glassish
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: Nightstand01__oak_quartered
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: Nightstand01__paper
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: Nightstand02__brass
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: Nightstand02__glassish
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: Nightstand02__paper
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: Nightstand02__wood_dark
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRect04__floor_oak
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRect04__wood_dark
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRect05__floor_oak
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRect05__wood_dark
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRect07__wood_dark
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRect08__wood_dark
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRect09__wood_dark
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRect11__wood_dark
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRect12__wood_dark
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRect13__wood_dark
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRound03__trim
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRound03__wood_dark
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRound10__floor_oak
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Extracting primitive: TableRound10__trim
+19:03:09 | INFO: Primitives created: 1
+19:03:09 | INFO: Finished glTF 2.0 export in 0.1409449577331543 s
+
+SURFACE STOCK 27 original records; 13 assemblies; 127 closed stocks; 24 parts; 44424 triangles; 54 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_tables.py
+00:05.109  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_tables.blend"
+DOMESTIC TABLES LOCAL: 127 closed stocks; 13 physical groups; 54 local bearings; 24 mapped parts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_furniture_context.py
+DOMESTIC CONTEXT: 103 installations; 418 floor bearings; 0 nearby pairs clear
+FABRICATION STAGE: art/blender/scripts/render_domestic_seating.py
+00:06.703  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_seating.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_domestic_seating.py:10: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.60,.65,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.6
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_domestic_seating.py:13: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=10,location=(0,0,-.00004));plane=bpy.context.object;material=bpy.data.materials.new('Review ground');material.diffuse_color=(.23,.25,.26,1);material.use_nodes=True;material.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.23,.25,.26,1);material.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.75;plane.data.materials.append(material)
+00:10.312  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\ChairDark_front.png'
+00:13.844  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\ChairDark_rear.png'
+00:17.375  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\ChairOak_front.png'
+00:20.891  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\ChairOak_rear.png'
+00:24.297  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\Sofa195_front.png'
+00:27.578  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\Sofa195_rear.png'
+00:30.891  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\Sofa210_front.png'
+00:34.109  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-seating-native\Sofa210_rear.png'
+FABRICATION STAGE: art/blender/scripts/render_domestic_tables.py
+00:34.156  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_tables.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_domestic_tables.py:10: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.60,.65,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.6
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_domestic_tables.py:13: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=10,location=(0,0,-.00004));plane=bpy.context.object;material=bpy.data.materials.new('Review ground');material.diffuse_color=(.23,.25,.26,1);material.use_nodes=True;material.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.23,.25,.26,1);material.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.75;plane.data.materials.append(material)
+00:38.125  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\Nightstand01_front.png'
+00:42.125  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\Nightstand02_front.png'
+00:45.781  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\TableRound03_front.png'
+00:49.437  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\TableRect04_front.png'
+00:52.797  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\TableRect05_front.png'
+00:56.984  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\Coffee06_front.png'
+01:00.547  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\TableRect07_front.png'
+01:04.281  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\TableRect08_front.png'
+01:07.937  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\TableRect09_front.png'
+01:11.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\TableRound10_front.png'
+01:15.359  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\TableRect11_front.png'
+01:18.891  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\TableRect12_front.png'
+01:22.578  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-tables-native\TableRect13_front.png'
+{"completed_stages": 7, "elapsed_s": 81.245}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

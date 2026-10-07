@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_domestic_furniture_context.py", line 67, in <module>
+    matrix=pose(identity);anchor=anchors[identity];space=spaces[anchor['space']];rect=space['rect'];level_y=levels[anchor['level']]
+                                                                ~~~~~~^^^^^^^^^
+KeyError: 'space'
+
+Error: script failed, file: 'art/blender/scripts/inspect_domestic_furniture_context.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

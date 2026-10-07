@@ -93,7 +93,7 @@ Modules: **pawn_clocks**, **pawn_display**, **pawn_fittings**, **laundry_fitting
 **shop_clerestories**, **hardware_stock**, **news_fittings**,
 **locksmith_fittings**, **druggist_cupboard**, **cobbler_fittings**,
 **photo_radio_fittings**, **radio_display**, **task_lamps**, **reading_nook**, **work_tables**, **surface_stock** and
-**signal_terminal**. The original
+**signal_terminal**, **domestic_seating** and **domestic_tables**. The original
 clock/display checks remain; display now also checks the fitted safe boundary.
 Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and
@@ -210,3 +210,17 @@ adoption. Run semantic type checks and review dynamic compositions early enough
 to catch invisible needles or primitive child meshes before the final capture.
 When only an inspector output path or status prose changes, record a narrow
 provenance comparison; do not repeat imports or rendered runtime runs.
+
+## Group exact furniture variants before building
+
+Compare original local geometry, bounds and material assignments before grouping
+instances. The apartment batch reduces 103 installations to 17 native variants;
+its two builders take about three seconds together in the recorded run. Preserve
+every actor identity and placement, then validate every installed support. Share
+immutable meshes and collision shapes through a world-owned factory, including
+completion copies. Keep per-actor nodes and release the factory with that world.
+
+For curved UV charts, native preflight must cover the engine absolute edge-length
+budget as well as relative metric/tangent checks. Mark material tint colour space
+explicitly: linear Blender tint values require sRGB encoding when assigned to
+StandardMaterial3D albedo_color. Check one composed image before broad rollout.

@@ -1,0 +1,108 @@
+FABRICATION STAGE: art/blender/scripts/build_domestic_seating.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_seating.py:70: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_seating.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+18:46:16 | INFO: Starting glTF 2.0 export
+18:46:16 | INFO: Extracting primitive: ChairDark__wood_dark
+18:46:16 | INFO: Primitives created: 1
+18:46:16 | INFO: Extracting primitive: ChairOak__oak_quartered
+18:46:16 | INFO: Primitives created: 1
+18:46:16 | INFO: Extracting primitive: Sofa195__fabric_cool
+18:46:16 | INFO: Primitives created: 1
+18:46:16 | INFO: Extracting primitive: Sofa195__linen
+18:46:16 | INFO: Primitives created: 1
+18:46:16 | INFO: Extracting primitive: Sofa195__wood_dark
+18:46:16 | INFO: Primitives created: 1
+18:46:16 | INFO: Extracting primitive: Sofa210__fabric_cool
+18:46:16 | INFO: Primitives created: 1
+18:46:16 | INFO: Extracting primitive: Sofa210__linen
+18:46:16 | INFO: Primitives created: 1
+18:46:16 | INFO: Extracting primitive: Sofa210__wood_dark
+18:46:16 | INFO: Primitives created: 1
+18:46:16 | INFO: Finished glTF 2.0 export in 0.07801389694213867 s
+
+SURFACE STOCK 30 original records; 4 assemblies; 50 closed stocks; 8 parts; 37376 triangles; 16 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_seating.py
+00:02.812  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_seating.blend"
+DOMESTIC SEATING LOCAL: 50 closed stocks; 4 physical groups; 16 local bearings; 8 mapped parts
+FABRICATION STAGE: art/blender/scripts/build_domestic_tables.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_tables.py:70: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_tables.blend"
+18:46:18 | INFO: Starting glTF 2.0 export
+18:46:18 | INFO: Extracting primitive: Coffee06__glassish
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: Coffee06__wood_dark
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: Nightstand01__brass
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: Nightstand01__glassish
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: Nightstand01__oak_quartered
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: Nightstand01__paper
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: Nightstand02__brass
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: Nightstand02__glassish
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: Nightstand02__paper
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: Nightstand02__wood_dark
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRect04__floor_oak
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRect04__wood_dark
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRect05__floor_oak
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRect05__wood_dark
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRect07__wood_dark
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRect08__wood_dark
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRect09__wood_dark
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRect11__wood_dark
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRect12__wood_dark
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRect13__wood_dark
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRound03__trim
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRound03__wood_dark
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRound10__floor_oak
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Extracting primitive: TableRound10__trim
+18:46:18 | INFO: Primitives created: 1
+18:46:18 | INFO: Finished glTF 2.0 export in 0.10640978813171387 s
+
+SURFACE STOCK 27 original records; 13 assemblies; 123 closed stocks; 24 parts; 42520 triangles; 54 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_tables.py
+00:04.859  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_tables.blend"
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 79, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 72, in main
+    results = execute(stages)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 47, in execute
+    runpy.run_path(sys.argv[0], run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_domestic_tables.py", line 57, in <module>
+    assert not join_failures,join_failures
+           ^^^^^^^^^^^^^^^^^
+AssertionError: [('Nightstand01_JoinedTable', 'disconnected', ['Nightstand01_DrawerBack', 'Nightstand01_DrawerBottom', 'Nightstand01_DrawerFace', 'Nightstand01_DrawerKnob', 'Nightstand01_DrawerSide-1', 'Nightstand01_DrawerSide1']), ('Nightstand02_JoinedTable', 'disconnected', ['Nightstand02_DrawerBack', 'Nightstand02_DrawerBottom', 'Nightstand02_DrawerFace', 'Nightstand02_DrawerKnob', 'Nightstand02_DrawerSide-1', 'Nightstand02_DrawerSide1'])]
+
+Error: script failed, file: 'art/blender/scripts/run_fabrication_batch.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

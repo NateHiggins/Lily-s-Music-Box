@@ -1,0 +1,32 @@
+ERROR: The object does not have any 'meta' values with the key 'v2_native_domestic_factory'.
+   at: get_meta (core/object/object.cpp:1053)
+   GDScript backtrace (most recent call first):
+       [0] mount_source (res://scripts/building/orison_v2_domestic_furniture.gd:23)
+       [1] mount (res://scripts/building/orison_v2_completion_interiors.gd:35)
+       [2] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:233)
+       [3] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [4] _run (res://tests/orison_v2_fabrication_batch.gd:59)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] validate_in_world (res://tests/orison_v2_domestic_native_test.gd:58)
+       [4] _run (res://tests/orison_v2_fabrication_batch.gd:96)
+       [5] validate_in_world (res://tests/orison_v2_domestic_native_test.gd:116)
+       [6] _city_capture (res://tests/orison_v2_city_sweep.gd:124)
+       [7] shot (res://tests/orison_v2_floor_surface_test.gd:199)
+ERROR: planar mapping retains one texture metre per model metre
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:157)
+       [3] validate_in_world (res://tests/orison_v2_domestic_native_test.gd:58)
+       [4] _run (res://tests/orison_v2_fabrication_batch.gd:96)
+       [5] validate_in_world (res://tests/orison_v2_domestic_native_test.gd:116)
+       [6] _city_capture (res://tests/orison_v2_city_sweep.gd:124)
+       [7] shot (res://tests/orison_v2_floor_surface_test.gd:199)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

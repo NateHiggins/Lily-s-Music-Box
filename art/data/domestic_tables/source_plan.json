@@ -1,0 +1,512 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_ids": [
+    "3B_abed_ns",
+    "2A_bed0_ns",
+    "2A_din_t",
+    "2B_din_t",
+    "3B_din_t",
+    "2A_cof",
+    "4B_coffee",
+    "3A_din_t",
+    "3A_bed0_ns",
+    "4A_din_t",
+    "4A_bed0_ns",
+    "5A_bed0_ns",
+    "5A_din_t",
+    "5B_abed_ns",
+    "5B_din_t",
+    "5C_bed0_ns",
+    "5C_bed1_ns",
+    "5C_din_t",
+    "6A_bed0_ns",
+    "6A_din_t",
+    "6B_abed_ns",
+    "6B_din_t",
+    "6C_bed0_ns",
+    "6C_bed1_ns",
+    "6C_din_t",
+    "5A_modtable",
+    "6C_cof"
+  ],
+  "interpretation_ids": [
+    "4B_wake_nightstand",
+    "4B_meal_table",
+    "2B_fabric_worktable",
+    "2A_wireless_table",
+    "2B_wireless_table",
+    "3B_wireless_table",
+    "4B_wireless_table",
+    "2A_projector_stand",
+    "3B_projector_stand",
+    "4B_projector_stand",
+    "3A_potting_bench",
+    "4A_writing_table",
+    "3A_wireless_table",
+    "4A_wireless_table",
+    "5A_wireless_table",
+    "5B_wireless_table",
+    "5C_wireless_table",
+    "6A_wireless_table",
+    "6B_wireless_table",
+    "6C_wireless_table",
+    "5B_comparison_table"
+  ],
+  "variants": [
+    {
+      "id": "Nightstand01",
+      "kind": "nightstand",
+      "source_id": "3B_abed_ns",
+      "params": {
+        "wood": "oak_quartered"
+      }
+    },
+    {
+      "id": "Nightstand02",
+      "kind": "nightstand",
+      "source_id": "4B_wake_nightstand",
+      "params": {
+        "wood": "wood_dark"
+      }
+    },
+    {
+      "id": "TableRound03",
+      "kind": "table_round",
+      "source_id": "2A_din_t",
+      "params": {
+        "wood": "wood_dark",
+        "top": "wood_dark"
+      }
+    },
+    {
+      "id": "TableRect04",
+      "kind": "table_rect",
+      "source_id": "2B_din_t",
+      "params": {
+        "wood": "wood_dark",
+        "length": 1.2,
+        "depth": 0.8,
+        "top": "floor_oak"
+      }
+    },
+    {
+      "id": "TableRect05",
+      "kind": "table_rect",
+      "source_id": "2B_fabric_worktable",
+      "params": {
+        "wood": "wood_dark",
+        "length": 1.6,
+        "depth": 0.5,
+        "top": "floor_oak"
+      }
+    },
+    {
+      "id": "Coffee06",
+      "kind": "coffee",
+      "source_id": "2A_cof",
+      "params": {
+        "wood": "wood_dark",
+        "glass_low": 0.3688806653817981,
+        "glass_high": 0.3838806653817981
+      }
+    },
+    {
+      "id": "TableRect07",
+      "kind": "table_rect",
+      "source_id": "2A_wireless_table",
+      "params": {
+        "wood": "wood_dark",
+        "length": 1.1,
+        "depth": 0.46,
+        "top": "wood_dark"
+      }
+    },
+    {
+      "id": "TableRect08",
+      "kind": "table_rect",
+      "source_id": "2A_projector_stand",
+      "params": {
+        "wood": "wood_dark",
+        "length": 0.6,
+        "depth": 0.5,
+        "top": "wood_dark"
+      }
+    },
+    {
+      "id": "TableRect09",
+      "kind": "table_rect",
+      "source_id": "5A_din_t",
+      "params": {
+        "wood": "wood_dark",
+        "length": 1.2,
+        "depth": 0.8,
+        "top": "wood_dark"
+      }
+    },
+    {
+      "id": "TableRound10",
+      "kind": "table_round",
+      "source_id": "5B_din_t",
+      "params": {
+        "wood": "wood_dark",
+        "top": "floor_oak"
+      }
+    },
+    {
+      "id": "TableRect11",
+      "kind": "table_rect",
+      "source_id": "5A_modtable",
+      "params": {
+        "wood": "wood_dark",
+        "length": 0.85,
+        "depth": 0.55,
+        "top": "wood_dark"
+      }
+    },
+    {
+      "id": "TableRect12",
+      "kind": "table_rect",
+      "source_id": "5B_wireless_table",
+      "params": {
+        "wood": "wood_dark",
+        "length": 1.2,
+        "depth": 0.46,
+        "top": "wood_dark"
+      }
+    },
+    {
+      "id": "TableRect13",
+      "kind": "table_rect",
+      "source_id": "5B_comparison_table",
+      "params": {
+        "wood": "wood_dark",
+        "length": 1.15,
+        "depth": 0.46,
+        "top": "wood_dark"
+      }
+    }
+  ],
+  "instances": [
+    {
+      "id": "3B_abed_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "4B_wake_nightstand",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "2A_bed0_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "2A_din_t",
+      "variant": "TableRound03"
+    },
+    {
+      "id": "2B_din_t",
+      "variant": "TableRect04"
+    },
+    {
+      "id": "3B_din_t",
+      "variant": "TableRound03"
+    },
+    {
+      "id": "4B_meal_table",
+      "variant": "TableRound03"
+    },
+    {
+      "id": "2B_fabric_worktable",
+      "variant": "TableRect05"
+    },
+    {
+      "id": "2A_cof",
+      "variant": "Coffee06"
+    },
+    {
+      "id": "4B_coffee",
+      "variant": "Coffee06"
+    },
+    {
+      "id": "2A_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "2B_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "3B_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "4B_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "2A_projector_stand",
+      "variant": "TableRect08"
+    },
+    {
+      "id": "3B_projector_stand",
+      "variant": "TableRect08"
+    },
+    {
+      "id": "4B_projector_stand",
+      "variant": "TableRect08"
+    },
+    {
+      "id": "3A_din_t",
+      "variant": "TableRect04"
+    },
+    {
+      "id": "3A_bed0_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "3A_potting_bench",
+      "variant": "TableRect05"
+    },
+    {
+      "id": "4A_din_t",
+      "variant": "TableRound03"
+    },
+    {
+      "id": "4A_bed0_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "4A_writing_table",
+      "variant": "TableRect05"
+    },
+    {
+      "id": "3A_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "4A_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "5A_bed0_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "5A_din_t",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "5B_abed_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "5B_din_t",
+      "variant": "TableRound10"
+    },
+    {
+      "id": "5C_bed0_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "5C_bed1_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "5C_din_t",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "6A_bed0_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "6A_din_t",
+      "variant": "TableRound10"
+    },
+    {
+      "id": "6B_abed_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "6B_din_t",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "6C_bed0_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "6C_bed1_ns",
+      "variant": "Nightstand02"
+    },
+    {
+      "id": "6C_din_t",
+      "variant": "TableRound10"
+    },
+    {
+      "id": "5A_modtable",
+      "variant": "TableRect11"
+    },
+    {
+      "id": "6C_cof",
+      "variant": "Coffee06"
+    },
+    {
+      "id": "5A_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "5B_wireless_table",
+      "variant": "TableRect12"
+    },
+    {
+      "id": "5C_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "6A_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "6B_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "6C_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "5B_comparison_table",
+      "variant": "TableRect13"
+    },
+    {
+      "id": "2C_bed0_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "2C_bed1_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "2C_din_t",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "2C_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "4C_bed0_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "4C_bed1_ns",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "4C_din_t",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "4C_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "1D_din_t",
+      "variant": "TableRect04"
+    },
+    {
+      "id": "1D_fabric_worktable",
+      "variant": "TableRect05"
+    },
+    {
+      "id": "1D_wireless_table",
+      "variant": "TableRect07"
+    },
+    {
+      "id": "1A_table",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "3D_table",
+      "variant": "TableRect09"
+    },
+    {
+      "id": "4D_table",
+      "variant": "TableRect09"
+    }
+  ],
+  "runtime_keys": [
+    "wood_dark",
+    "floor_oak",
+    "oak_quartered",
+    "paper",
+    "trim",
+    "brass",
+    "glassish"
+  ],
+  "catalog_variants": {
+    "wood_dark": "oak_work_surface",
+    "floor_oak": "oak_work_surface",
+    "oak_quartered": "oak_work_surface",
+    "paper": "paper",
+    "trim": "trim",
+    "brass": "brass_dull"
+  },
+  "material_tints": {
+    "wood_dark": [
+      0.27,
+      0.14,
+      0.065,
+      1
+    ]
+  },
+  "finish_parameters": {
+    "wood_dark": {
+      "normal_scale": 0.04,
+      "roughness": 0.48
+    },
+    "floor_oak": {
+      "normal_scale": 0.04,
+      "roughness": 0.48
+    },
+    "oak_quartered": {
+      "normal_scale": 0.04,
+      "roughness": 0.48
+    },
+    "trim": {
+      "normal_scale": 0.025,
+      "roughness": 0.48
+    },
+    "brass": {
+      "normal_scale": 0.03,
+      "roughness": 0.5
+    },
+    "paper": {
+      "normal_scale": 0.07,
+      "roughness": 0.85
+    }
+  },
+  "placement": {
+    "floor_y": 0,
+    "frame": "Retained furniture local frame. Glass coffee tops keep their existing normalized source height, including its original frame offset."
+  },
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06
+  },
+  "adaptations": [
+    "Thirteen exact source geometry/material variants serve 48 existing and 14 completion actors; all original working heights and actor placements remain. Accepted five work tables are excluded.",
+    "Fitted hollow apron rails and rounded turned feet retain original table dimensions. Nightstands receive a closed drawer/cabinet, axial knob, bound bedside book and thin-walled drinking glass.",
+    "Keep elliptical coffee glass dimensions and actual source top height; saw the original two crossing fins to floor and glass planes so they bear without penetrating the glass.",
+    "Existing fine oak, paper, trim, brass and clear-glass owners provide local finish. No new texture or global material policy.",
+    "Native material tint values are linear light; runtime encodes them to sRGB for StandardMaterial3D albedo_color so the same finish matches Blender."
+  ],
+  "open_work": [
+    "Scoped native and all-instance runtime verification complete. Broader room material/light balance, remaining storage/kitchen furniture and whole-building visual acceptance remain open."
+  ],
+  "tint_space": "linear"
+}

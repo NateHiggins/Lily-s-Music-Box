@@ -1,0 +1,303 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_ids": [
+    "2A_sofa",
+    "4B_couch",
+    "2A_din_dc1",
+    "2A_din_dc2",
+    "2A_desk_dkch",
+    "2B_din_dc1",
+    "2B_din_dc2",
+    "3B_din_dc1",
+    "3B_din_dc2",
+    "3B_stool",
+    "4B_desk_chair",
+    "3A_din_dc1",
+    "3A_din_dc2",
+    "4A_din_dc1",
+    "4A_din_dc2",
+    "5A_din_dc1",
+    "5A_din_dc2",
+    "5B_din_dc1",
+    "5B_din_dc2",
+    "5C_din_dc1",
+    "5C_din_dc2",
+    "6A_din_dc1",
+    "6A_din_dc2",
+    "6B_din_dc1",
+    "6B_din_dc2",
+    "6C_din_dc1",
+    "6C_din_dc2",
+    "5A_stool",
+    "6A_deskchair",
+    "6C_sofa"
+  ],
+  "interpretation_ids": [
+    "4B_meal_chair_01",
+    "4B_meal_chair_02"
+  ],
+  "variants": [
+    {
+      "id": "Sofa195",
+      "kind": "sofa",
+      "source_id": "2A_sofa",
+      "params": {
+        "length": 1.95,
+        "wood": "wood_dark",
+        "cloth": "fabric_cool"
+      }
+    },
+    {
+      "id": "Sofa210",
+      "kind": "sofa",
+      "source_id": "4B_couch",
+      "params": {
+        "length": 2.1,
+        "wood": "wood_dark",
+        "cloth": "fabric_cool"
+      }
+    },
+    {
+      "id": "ChairDark",
+      "kind": "chair",
+      "source_id": "2A_din_dc1",
+      "params": {
+        "wood": "wood_dark"
+      }
+    },
+    {
+      "id": "ChairOak",
+      "kind": "chair",
+      "source_id": "3B_din_dc1",
+      "params": {
+        "wood": "oak_quartered"
+      }
+    }
+  ],
+  "instances": [
+    {
+      "id": "2A_sofa",
+      "variant": "Sofa195"
+    },
+    {
+      "id": "4B_couch",
+      "variant": "Sofa210"
+    },
+    {
+      "id": "2A_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2A_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2A_desk_dkch",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2B_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "2B_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "3B_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3B_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3B_stool",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4B_meal_chair_01",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "4B_meal_chair_02",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "4B_desk_chair",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "3A_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3A_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4A_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "4A_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "5A_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5A_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5B_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5B_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5C_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "5C_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "6A_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6A_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6B_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6B_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6C_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6C_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "5A_stool",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "6A_deskchair",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "6C_sofa",
+      "variant": "Sofa195"
+    },
+    {
+      "id": "2C_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "2C_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4C_din_dc1",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4C_din_dc2",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "1D_din_dc1",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "1D_din_dc2",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "1A_chair",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "3D_chair",
+      "variant": "ChairOak"
+    },
+    {
+      "id": "4D_chair",
+      "variant": "ChairOak"
+    }
+  ],
+  "runtime_keys": [
+    "wood_dark",
+    "oak_quartered",
+    "fabric_cool",
+    "linen"
+  ],
+  "catalog_variants": {
+    "wood_dark": "oak_work_surface",
+    "oak_quartered": "oak_work_surface",
+    "fabric_cool": "linen",
+    "linen": "linen"
+  },
+  "material_tints": {
+    "wood_dark": [
+      0.27,
+      0.14,
+      0.065,
+      1
+    ],
+    "fabric_cool": [
+      0.36,
+      0.42,
+      0.51,
+      1
+    ]
+  },
+  "finish_parameters": {
+    "wood_dark": {
+      "normal_scale": 0.04,
+      "roughness": 0.48
+    },
+    "oak_quartered": {
+      "normal_scale": 0.04,
+      "roughness": 0.48
+    },
+    "fabric_cool": {
+      "normal_scale": 0.16,
+      "roughness": 0.85
+    },
+    "linen": {
+      "normal_scale": 0.12,
+      "roughness": 0.85
+    }
+  },
+  "placement": {
+    "floor_y": 0,
+    "frame": "Retained furniture local frame; native (X,Y,Z) converts to Godot (X,Z,-Y)."
+  },
+  "adaptations": [
+    "Keep all original actor identities, source placements, seat heights and existing nonvisual ownership. Four exact source shape/material variants serve 41 installations, including two existing V2 meal chairs and nine completion copies.",
+    "Replace segmented primitive chair hoop with continuous bentwood; retain seat outline and back control points. Cut splayed feet at the original floor plane, removing source penetration.",
+    "Retain sofa lengths and cushion count; fitted padded shells, softened cushions and fine attached welts replace source blocks and floating stitch marks.",
+    "Use existing fine oak and linen catalogue maps with source dark wood and cool fabric tints. No new global finish or map.",
+    "Native material tint values are linear light; runtime encodes them to sRGB for StandardMaterial3D albedo_color so the same finish matches Blender."
+  ],
+  "open_work": [
+    "Scoped native and all-instance runtime verification complete. Broader room material/light balance, remaining storage/kitchen furniture and whole-building visual acceptance remain open."
+  ],
+  "tint_space": "linear"
+}
