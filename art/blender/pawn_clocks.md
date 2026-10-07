@@ -1,0 +1,13 @@
+# Pawnbroker passive wall-clock fabrication
+
+Evidence class: **INERT**
+
+Fifteen original **storm_shop_pawnbroker_clock0** through **clock14** records become individually fitted passive clocks. Their 0.32m width/height, 0.06m case depth, X centres, alternating wood/brass and 0.52m row spacing remain. The explicit **ADAPTATION** translates the complete grid upward 0.30m: the lower rim is 1.48m, clearing the unchanged 1.45m display-case maxima by 30mm; the upper rim is 2.84m. Original layout and shipping geometry stay immutable.
+
+Octagonal worked wooden cases alternate with turned brass rims, closed backs, pale ceramic dials, twelve geometric hour marks, supported fixed hands and 1.5mm panes seated within the original front lip. Two short rear bearings per case reach the actual brick party wall at plan Y -51.10. The lower decorative wainscot ends at 1.10m and is not their support. No dial numerals, maker text, mechanism, wire or signal association is invented. Fixed hand poses depict stopped stock and have no time authority. Bible VIII.2 and VIII.5.e retain their separate functions and witness-clock owners.
+
+Build with Blender **art/blender/scripts/build_pawn_clocks.py**. The native source keeps 345 closed connected stocks and 15 retained reference boxes; the export has 15 assemblies, 68 bounded material partitions and 27,816 triangles. Export through Blender only. Thirty actual bearing contacts bind the original brick wall. Metre charts and tangent derivatives are authored before export; the local existing library aged-brass finish replaces coarse shipping brass through catalogue key **brass**, while original wood/glass maps and registered porcelain/iron remain. No new map or catalogue key.
+
+Inspect with Blender **art/blender/scripts/inspect_pawn_clocks.py**. The inspector checks manifold positive stocks, continuous assembly joins, size/translated envelopes, actual native and unchanged-wall support samples, exact retirement of 180 original clock triangles, complete conservative original shop/passage context, independent assemblies, metre charts and six native renders. Run **OrisonV2PawnClocksTest.tscn** through the serialized Godot runner with windowed captures for actual mounted material/collision/pane/dial checks. **OrisonV2PassageResidencyTest.tscn** covers reconstruction. Run receipts and images are diagnostic evidence; they grant no runtime-contract or ledger promotion.
+
+Display furniture, window stock, operation/ticking/winding/setting, continuous routes, independent services, capacity, broad texture calibration and human acceptance remain open. Shop cabinets remain temporarily absent under the current default, with the existing restoration option retained.

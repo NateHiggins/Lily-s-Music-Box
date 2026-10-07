@@ -949,3 +949,11 @@ game/tests/fixtures/orison_diner_overhead.json -text
 # Preserve original run logs/diagnostics byte for byte, including CRLF and
 # instrumentation trailing spaces. Source edits outside this packet retain checks.
 art/renders/orison_v2/passage_cabinets_diner_overhead_20261007/** -text -whitespace
+
+art/data/pawn_clocks/source_plan.json -text
+art/blender/scripts/build_pawn_clocks.py -text
+art/blender/scripts/inspect_pawn_clocks.py -text
+art/blender/pawn_clocks_construction.json -text
+game/assets/props/pawn_clocks.glb.import -text
+game/data/orison_v2/pawn_clocks.json -text
+game/tests/fixtures/orison_pawn_clocks.json -text

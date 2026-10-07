@@ -1,0 +1,639 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/pawn_clocks.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_pawnbroker",
+      "parts": [
+        {
+          "name": "storm_shop_pawnbroker_clock0__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock0__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock0__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock0__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock0__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock1__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock1__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock1__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock1__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock2__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock2__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock2__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock2__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock2__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock3__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock3__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock3__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock3__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock4__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock4__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock4__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock4__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock4__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock5__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock5__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock5__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock5__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock6__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock6__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock6__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock6__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock6__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock7__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock7__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock7__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock7__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock8__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock8__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock8__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock8__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock8__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock9__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock9__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock9__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock9__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock10__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock10__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock10__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock10__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock10__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock11__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock11__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock11__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock11__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock12__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock12__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock12__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock12__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock12__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock13__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock13__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock13__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock13__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock14__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock14__glassish",
+          "key": "glassish",
+          "tile": 1.6,
+          "plain_alpha": true
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock14__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock14__porcelain",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain"
+        },
+        {
+          "name": "storm_shop_pawnbroker_clock14__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.6
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_pawnbroker_clock0",
+          "key": "wood_dark",
+          "low": [
+            21.16,
+            1.18,
+            51.169999999999995
+          ],
+          "high": [
+            21.48,
+            1.5,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock1",
+          "key": "brass_dull",
+          "low": [
+            20.46,
+            1.18,
+            51.169999999999995
+          ],
+          "high": [
+            20.78,
+            1.5,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock2",
+          "key": "wood_dark",
+          "low": [
+            19.76,
+            1.18,
+            51.169999999999995
+          ],
+          "high": [
+            20.080000000000002,
+            1.5,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock3",
+          "key": "brass_dull",
+          "low": [
+            19.060000000000002,
+            1.18,
+            51.169999999999995
+          ],
+          "high": [
+            19.380000000000003,
+            1.5,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock4",
+          "key": "wood_dark",
+          "low": [
+            18.36,
+            1.18,
+            51.169999999999995
+          ],
+          "high": [
+            18.68,
+            1.5,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock5",
+          "key": "brass_dull",
+          "low": [
+            21.16,
+            1.7,
+            51.169999999999995
+          ],
+          "high": [
+            21.48,
+            2.02,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock6",
+          "key": "wood_dark",
+          "low": [
+            20.46,
+            1.7,
+            51.169999999999995
+          ],
+          "high": [
+            20.78,
+            2.02,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock7",
+          "key": "brass_dull",
+          "low": [
+            19.76,
+            1.7,
+            51.169999999999995
+          ],
+          "high": [
+            20.080000000000002,
+            2.02,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock8",
+          "key": "wood_dark",
+          "low": [
+            19.060000000000002,
+            1.7,
+            51.169999999999995
+          ],
+          "high": [
+            19.380000000000003,
+            2.02,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock9",
+          "key": "brass_dull",
+          "low": [
+            18.36,
+            1.7,
+            51.169999999999995
+          ],
+          "high": [
+            18.68,
+            2.02,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock10",
+          "key": "wood_dark",
+          "low": [
+            21.16,
+            2.2199999999999998,
+            51.169999999999995
+          ],
+          "high": [
+            21.48,
+            2.5399999999999996,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock11",
+          "key": "brass_dull",
+          "low": [
+            20.46,
+            2.2199999999999998,
+            51.169999999999995
+          ],
+          "high": [
+            20.78,
+            2.5399999999999996,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock12",
+          "key": "wood_dark",
+          "low": [
+            19.76,
+            2.2199999999999998,
+            51.169999999999995
+          ],
+          "high": [
+            20.080000000000002,
+            2.5399999999999996,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock13",
+          "key": "brass_dull",
+          "low": [
+            19.060000000000002,
+            2.2199999999999998,
+            51.169999999999995
+          ],
+          "high": [
+            19.380000000000003,
+            2.5399999999999996,
+            51.23
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_pawnbroker_clock14",
+          "key": "wood_dark",
+          "low": [
+            18.36,
+            2.2199999999999998,
+            51.169999999999995
+          ],
+          "high": [
+            18.68,
+            2.5399999999999996,
+            51.23
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}

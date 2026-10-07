@@ -119,7 +119,7 @@ static func mount_bar_pool(cell: Node3D, layout: Dictionary) -> bool:
 static func mount_bar_stage(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/bar_stage.json","BarStage","F01_retail_bar_stage_","bar_stage_part","shop_bar")
 
-static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, model_name: String, draw_prefix: String, part_meta: String, cell_identity: String = "") -> bool:
+static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, model_name: String, draw_prefix: String, part_meta: String, cell_identity: String = "", borrowed_materials: Dictionary = {}) -> bool:
 	var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(data_path))
 	if data is not Dictionary or int(data.get("schema_version",0))!=1:return false
 	var matches: Array=[]
@@ -133,7 +133,11 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 		if floor.id!="F01":continue
 		for row: Dictionary in floor.furniture:source_rows[str(row.id)]=row
 	var tolerance:=float(data.tolerance)
-	var counts: Dictionary={};var originals: Dictionary={};var materials: Dictionary={}
+	var counts: Dictionary={};var originals: Dictionary={};var materials: Dictionary=borrowed_materials.duplicate()
+	for key: Variant in materials:
+		var mat: StandardMaterial3D=materials[key] as StandardMaterial3D
+		if mat==null or mat.roughness_texture==null or mat.normal_texture==null:return false
+		if mat.albedo_texture==null and (str(key)!="glassish" or mat.transparency not in [BaseMaterial3D.TRANSPARENCY_ALPHA,BaseMaterial3D.TRANSPARENCY_ALPHA_DEPTH_PRE_PASS] or mat.albedo_color.a<=0. or mat.albedo_color.a>=1.):return false
 	for box: Dictionary in record.replace:
 		if not source_rows.has(str(box.id)):return false
 		var source: Dictionary=source_rows[box.id];var r: Array=source.rect

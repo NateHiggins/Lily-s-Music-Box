@@ -36,6 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to knowâ€¦ | Read |
 |---|---|
 | Current room/city geometry and texture review, fitted door motion and honest ledger refresh | `design/V2_BUILDING_SURFACE_FINISH_2026-10-05.md` and `art/blender/building_surface_finish.md` |
+| Pawnbroker original passive clock wall, fitted cases/dials and real party-wall bearings | `art/blender/pawn_clocks.md` |
 | Fitted Keys Cut board, passive machinery, supported display and unchanged copying authority | `art/blender/locksmith_fittings.md` and `design/V2_LOCKSMITH_FITTINGS_2026-10-05.md` |
 | Fitted cobbler machines, open paired shoes, fine dust finish and sampled rear approach | `art/blender/cobbler_fittings.md` and `design/V2_COBBLER_FITTINGS_2026-10-05.md` |
 | Source-owned News/Cigars papers, glazed stock, pipe bowls, counter and seated proprietor stool | `art/blender/news_fittings.md` and `design/V2_NEWS_CIGARS_FITTINGS_2026-10-05.md` |
