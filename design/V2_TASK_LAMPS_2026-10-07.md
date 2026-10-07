@@ -69,3 +69,13 @@ source identities still need fitted V2 supports and verified adoption. External
 supply cords and the wider household furnishings remain unfinished. V2 remains
 incomplete; blocker counts remain **7 / 8 / 127 / 42 / 151 / 153**. The owner's
 autonomous continuation request remains active.
+
+## Verified source binding
+
+Source **6c8b329a249f64657950e2379417fda3a28fcc07** has the exact tree of verified
+candidate **272341103e4adbdab95a28c212d1a60e2e81eb7e**:
+**3db40df6efec0ff1ab274062e47fa81c175475ba**. The clean fresh candidate has zero gate
+regressions, zero requirement-status changes and all 17 protected paths
+unchanged. This batch only appends three spatial-manifest rows; existing rows
+remain intact. No gate predicate or exception changed. Verification reused
+the cached complete baseline and launched no additional Godot process.
