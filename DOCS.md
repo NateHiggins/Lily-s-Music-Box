@@ -41,6 +41,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Fast geometry/texture batches, changed-input planning and one-world validation | `art/blender/v2_batch_workflow.md` |
 | Five native task-lamp variants and the existing V2 bench lamp | `art/blender/task_lamps.md` |
 | Original basement reading nook and all five fitted task lamps | `art/blender/reading_nook.md` |
+| Five fitted apartment work tables and strictly additive material reuse | `art/blender/work_tables.md` and `design/V2_WORK_TABLES_2026-10-07.md` |
 | Pawnbroker parcel racks, grille counter, safe and remaining passive stock | `art/blender/pawn_fittings.md` |
 | Model Laundry parcel shelves, ticket wire and transaction furniture | `art/blender/laundry_trade.md` |
 | Nine-family slender-stock grain repair and proven reuse of unchanged dependencies | `design/V2_WOOD_GRAIN_2026-10-07.md` |

@@ -1,0 +1,49 @@
+{
+	"batch_checks": 11,
+	"elapsed_ms": 40275,
+	"evidence_class": "INERT",
+	"failures": [
+		"work_tables: standing capture station clears table: 6A_deskwall"
+	],
+	"module_checks": 2046,
+	"modules": {
+		"reading_nook": {
+			"captured": false,
+			"checks": 1434,
+			"elapsed_ms": 1140,
+			"failures": [],
+			"fixture_sha256": "1bf0fe4f5d4ff8a24b5f8c4f6200294bc14b9bdde2bf8bc1663554eb058fdadc",
+			"parts": 31,
+			"production_lamps": 5,
+			"triangles": 58596,
+			"validator_sha256": "f64bdf98f0f4255d7604bff0ecd3d8b5e5f5820502298f8642e13dbcd47e32f2"
+		},
+		"task_lamps": {
+			"captured": false,
+			"checks": 408,
+			"elapsed_ms": 729,
+			"failures": [],
+			"fixture_sha256": "37fc23781809dd71b2aadf5aca2dc16866fe2696d4ac3886fda9ad2986777b9c",
+			"library_variants": 5,
+			"parts": 34,
+			"production_actors": 1,
+			"triangles": 61596,
+			"validator_sha256": "f3da1b887288ffa5efbbcb203baabdefd507631218c98776d556912f9e3a092f"
+		},
+		"work_tables": {
+			"captured": true,
+			"checks": 204,
+			"elapsed_ms": 7191,
+			"failures": [
+				"standing capture station clears table: 6A_deskwall"
+			],
+			"fixture_sha256": "c34f46cf71a6622df53121fede21b277a74061c7ae963ecafac5a38b92e7fd89",
+			"parts": 13,
+			"triangles": 21072,
+			"validator_sha256": "7650853ad8102cd1cd21cff2afbe964139059f0ee778d8c6b3f3fa82b9e0d647"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

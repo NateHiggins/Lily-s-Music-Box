@@ -1,0 +1,55 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_ids": [
+    "2A_desk",
+    "3B_workbench",
+    "5A_plantable",
+    "6A_deskwall",
+    "6A_dwleg_s",
+    "6A_dwleg_n"
+  ],
+  "table_ids": [
+    "2A_desk",
+    "3B_workbench",
+    "4B_terminal_desk",
+    "5A_plantable",
+    "6A_deskwall"
+  ],
+  "runtime_keys": [
+    "oak_work_surface",
+    "wood_dark",
+    "iron_blackened",
+    "nickel_plated",
+    "paper",
+    "trim",
+    "rubber_aged",
+    "soot"
+  ],
+  "catalog_variants": {
+    "oak_work_surface": "oak_work_surface",
+    "wood_dark": "wood_dark",
+    "iron_blackened": "iron_blackened",
+    "nickel_plated": "nickel_plated",
+    "paper": "paper",
+    "trim": "trim",
+    "rubber_aged": "rubber_aged",
+    "soot": "soot"
+  },
+  "material_aliases": {},
+  "material_tints": {},
+  "placement": {
+    "floor_y": 0,
+    "frame": "Each export assembly uses its existing furniture actor local frame."
+  },
+  "adaptations": [
+    "Retain all five installed footprints, table heights, semantic identities and child owners. Four tables derive from original V1 geometry; the terminal desk is the existing V2 nine-stock interpretation.",
+    "Replace primitive edge transitions with closed manufactured stock and catalogue metre grain. Flatten the original tilted feet on the floor without changing the top datums.",
+    "Keep the workbench cabinet and vise closed/passive; give their existing forms actual shell thickness and attached supports.",
+    "Preserve original drafting-plan footprints and reconcile their thin-stock contacts before export. All adjacent stock and every lamp bearing must be checked against the new tables."
+  ],
+  "open_work": [
+    "External lamp cords, desktop accessories, the functional Vantry body, lamp normal faceting and remaining household fittings require their passes.",
+    "Final room material/light balance and the seven-texture shutdown warning remain open."
+  ]
+}

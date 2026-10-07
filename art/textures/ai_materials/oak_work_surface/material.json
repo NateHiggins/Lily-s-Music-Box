@@ -1,0 +1,28 @@
+{
+  "material": "oak_work_surface",
+  "source": "art/textures/ai_sources/oak_work_surface_20261007.png",
+  "source_sha256": "94715b263c85285aced41196f29aea6675f866a61180ab90a1f9c719bef4edeb",
+  "generator": "art/blender/scripts/build_work_oak_material.py",
+  "meters_per_tile": 0.9,
+  "resolution": [
+    1254,
+    1254
+  ],
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "height_range_m": [
+    -1.8e-05,
+    1.8e-05
+  ],
+  "roughness_range": [
+    0.39499999999999996,
+    0.455
+  ],
+  "albedo_processing": "Unmodified generated source; no letters, object edges, board seams or baked scene lighting.",
+  "interpretation": "Analytic microrelief proxy, not a measured scan. Physical normal derivatives use the declared metre scale.",
+  "grain_texture_axis": "V"
+}

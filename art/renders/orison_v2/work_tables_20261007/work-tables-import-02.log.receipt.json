@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 9.04,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T20:59:36Z",
+  "started_utc": "2026-10-07T20:59:27Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/work-tables-import-02.log.stderr",
+  "stderr_sha256": "3aafa0d38478985265050f24e22e796d636f727449bfefa4c7abb666707d131b",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/work-tables-import-02.log",
+  "stdout_sha256": "fb6df67e9de686cb11ae28f646a2d03fd4f016bc8e19246bfbd2ac4a73f49f5d"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 486,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  DOCS.md",
+   "M  art/blender/bar_ceiling_finish_construction.json",
+   "M  art/blender/bar_fixture_mounts_construction.json",
+   "M  art/blender/bar_pipe_supports_construction.json",
+   "M  art/blender/bar_pool_construction.json",
+   "M  art/blender/city_aerials_construction.json",
+   "M  art/blender/city_beacons_construction.json",
+   "M  art/blender/city_closure_construction.json",
+   "M  art/blender/city_masts_construction.json",
+   "M  art/blender/city_tanks_construction.json",
+   "M  art/blender/cobbler_fittings_construction.json",
+   "M  art/blender/diner_apparatus_construction.json",
+   "M  art/blender/diner_backbar_construction.json",
+   "M  art/blender/diner_counter_construction.json",
+   "M  art/blender/diner_overhead_construction.json",
+   "M  art/blender/diner_receiving_construction.json",
+   "M  art/blender/diner_till_construction.json",
+   "M  art/blender/diner_urns_construction.json",
+   "M  art/blender/druggist_carboys_construction.json"
+  ],
+  "repository_head": "80944b2844375606f64fcdf3d764c1c374165d7a",
+  "repository_tree": "57c58be430e90b985c3f366051611a76efe53f14",
+  "runtime_inputs_sha256": "befd88e97a6c43ec6b0c988638c09c340fd43a7d16a5dd3928dc5779d39bb70e",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

@@ -1217,3 +1217,32 @@ game/tests/fixtures/orison_reading_nook.json -text
 game/tests/orison_v2_reading_nook_test.gd -text
 tools/build_v2_task_lamp_installations.py -text
 art/renders/orison_v2/reading_nook_20261007/** -text -whitespace
+
+art/blender/scripts/build_work_oak_material.py -text
+art/blender/scripts/build_work_tables.py -text
+art/blender/scripts/inspect_work_tables.py -text
+art/blender/scripts/work_tables_geometry.py -text
+art/blender/work_tables.blend -text
+art/blender/work_tables_construction.json -text
+art/data/work_tables/source_plan.json -text
+art/textures/ai_materials/oak_work_surface/material.json -text
+art/textures/ai_materials/soot/material.json -text
+art/textures/ai_materials/trim/material.json -text
+art/textures/ai_sources/oak_work_surface_20261007.png -text
+game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png -text
+game/assets/building/textures/T_ai_materials_iron_blackened_normal.png -text
+game/assets/building/textures/T_ai_materials_iron_blackened_rough.png -text
+game/assets/building/textures/T_ai_materials_oak_work_surface_albedo.png -text
+game/assets/building/textures/T_ai_materials_oak_work_surface_normal.png -text
+game/assets/building/textures/T_ai_materials_oak_work_surface_rough.png -text
+game/assets/building/textures/T_ai_materials_soot_normal.png -text
+game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png -text
+game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png -text
+game/assets/building/textures/T_library_architectural_painted_trim_albedo.png -text
+game/assets/building/textures/T_library_architectural_painted_trim_normal.png -text
+game/assets/building/textures/T_library_architectural_painted_trim_rough.png -text
+game/assets/props/work_tables.glb -text
+game/assets/props/work_tables.glb.import -text
+game/data/orison_v2/work_tables.json -text
+game/tests/fixtures/orison_work_tables.json -text
+art/renders/orison_v2/work_tables_20261007/** -text -whitespace

@@ -1,0 +1,32 @@
+{
+  "evidence_class": "INERT",
+  "updates": [
+    {
+      "family": "reading_nook",
+      "fixture_before": "1bf0fe4f5d4ff8a24b5f8c4f6200294bc14b9bdde2bf8bc1663554eb058fdadc",
+      "fixture_after": "d22b6a3626fb2ef2655a2459d35c07dc93387fb2bf69ef57986891b86e7c3bf9",
+      "changes": [
+        {
+          "path": "game/scripts/building/orison_v2_domestic_furniture.gd",
+          "before": "404480fa0974dd9c194b9ab91736cfb37c8bfe48482efc8698520c03c4d15ae6",
+          "after": "3aa59e57595c246781055ce9495304e7fd1eeeff94c20492d0db0d062b6629b3"
+        }
+      ],
+      "asset_sha256_unchanged": "0767ba652b36f1f2854de0a5c94a4e9a499b7f299a1a22b01366c956f0643cf9"
+    },
+    {
+      "family": "work_tables",
+      "fixture_before": "c34f46cf71a6622df53121fede21b277a74061c7ae963ecafac5a38b92e7fd89",
+      "fixture_after": "830030f19aba27366260ca0f72f1f2b1dce0174d0bf69964d9f8025802907634",
+      "changes": [
+        {
+          "path": "art/blender/scripts/inspect_work_tables.py",
+          "before": "09124d7bc0c1dcc1c16cd1b4f3250d20ae7dcc811d406feb64d6e772fc0589bd",
+          "after": "0435d88b4d56cefadcbe85177f54fcbffda6a1547333da0b19d7dce2d30dca21"
+        }
+      ],
+      "asset_sha256_unchanged": "db0388a7e77d7ec35f78615ba9bb70d8921b7af2d9e3358c54dcdded76a23a64"
+    }
+  ],
+  "scope": "Inspector camera widened for full 6A framing; the furniture helper routes only the five named tables to native geometry. Shared nook/lamp/terminal checks are rerun with those changed supports."
+}

@@ -20,7 +20,10 @@ owner from its outward face; verify the hit normal as well as its distance
 so Blender catches back-face probes that Godot collision rays reject. Review catalogue albedo, roughness
 and normal response at player distance in the same batch. Generate new maps
 only for an observed deficiency, register new catalogue keys, keep textures
-unlettered, and use Label3D for lettering. Render room context and selected
+unlettered, and use Label3D for lettering. New runtime texture sidecars must
+apply **art/tools/fix_runtime_texture_imports.py** policy before the first
+import: real mipmaps and disabled automatic 3D redetection, retaining lossless
+compression. Check actual loaded mip chains in the shared validator. Render room context and selected
 details. A clean mesh census alone does not certify photorealism. Godot must
 still confirm its final lighting, glass, collisions and composed appearance.
 Preserve source plans and all non-visual owners; never hand-edit generated glTF.
@@ -43,6 +46,14 @@ visual acceptance. Reuse a snapshot only alongside successful receipts and
 reviewed renders. Investigate drift before choosing rebuild stages. Existing
 front-pavement drift in world_connection and exterior_masonry remains open.
 The planner does not rebuild assets, approve appearance or promote the ledger.
+
+For one newly added material, **tools/rebind_additive_material.py** accepts an
+explicit **--base**, **--key** and **--out**. Its default is read-only; **--apply**
+writes only after proving old catalogue values, generated policies, generator
+behavior and shipped texture bytes are unchanged. It updates direct and
+transitive fixture provenance in dependency order and rejects unrelated drift.
+This avoids rebuilding unrelated assets for a catalogue addition. It creates
+INERT comparisons and does not renew their visual acceptance.
 
 ## Batch compatible Blender recipes
 
@@ -81,7 +92,7 @@ Modules: **pawn_clocks**, **pawn_display**, **pawn_fittings**, **laundry_fitting
 **photo_enlargers**, **photo_portraits**, **radio_wire**, **shop_joinery** and
 **shop_clerestories**, **hardware_stock**, **news_fittings**,
 **locksmith_fittings**, **druggist_cupboard**, **cobbler_fittings**,
-**photo_radio_fittings**, **radio_display**, **task_lamps** and **reading_nook**. The original
+**photo_radio_fittings**, **radio_display**, **task_lamps**, **reading_nook** and **work_tables**. The original
 clock/display checks remain; display now also checks the fitted safe boundary.
 Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and

@@ -1,0 +1,45 @@
+FABRICATION STAGE: art/blender/scripts/build_work_tables.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_work_tables.py:67: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "work_tables.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+16:44:08 | INFO: Starting glTF 2.0 export
+16:44:08 | INFO: Extracting primitive: 2A_desk__oak_work_surface
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 2A_desk__soot
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 2A_desk__wood_dark
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 3B_workbench__iron_blackened
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 3B_workbench__nickel_plated
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 3B_workbench__oak_work_surface
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 4B_terminal_desk__oak_work_surface
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 4B_terminal_desk__wood_dark
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 5A_plantable__oak_work_surface
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 5A_plantable__paper
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 5A_plantable__wood_dark
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 6A_deskwall__iron_blackened
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Extracting primitive: 6A_deskwall__trim
+16:44:08 | INFO: Primitives created: 1
+16:44:08 | INFO: Finished glTF 2.0 export in 0.0565185546875 s
+
+WORK TABLES 6 original records; 5 assemblies; 110 closed stocks; 13 parts; 21072 triangles; 22 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_work_tables.py
+00:05.328  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\work_tables.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_work_tables.py:62: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral table inspection');scene.world.use_nodes=True
+WORK TABLES NATIVE 110 closed stocks; 22 floor contacts; 772 lamp samples; 15 stock bearings; 0 views
+{"completed_stages": 2, "elapsed_s": 4.704}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

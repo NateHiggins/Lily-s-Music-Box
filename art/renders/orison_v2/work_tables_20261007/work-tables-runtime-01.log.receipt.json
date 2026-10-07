@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 24.94,
+  "exit_code": 1,
+  "finished_utc": "2026-10-07T20:47:37Z",
+  "started_utc": "2026-10-07T20:47:12Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/work-tables-runtime-01.log.stderr",
+  "stderr_sha256": "f4381e6672ced9876573c264c8b79986a62de54dced3160f0f3f065c79fe6163",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/work-tables-runtime-01.log",
+  "stdout_sha256": "17071d978109db89d412bf20795fc64c2416b16599908e94e3788198156626ee"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/work-tables-runtime-01",
+ "source": {
+  "dirty_paths": 293,
+  "dirty_sample": [
+   "M art/data/material_catalog.json",
+   " M art/data/runtime_material_sets.json",
+   " M art/renders/insitu/shots.md",
+   " M art/textures/catalog_mapping.json",
+   " M art/tools/generate_runtime_materials.py",
+   " M game/data/runtime_material_sets.json",
+   " M game/scripts/building/orison_v2_domestic_furniture.gd",
+   " M game/scripts/generated/material_sets.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   "?? art/blender/scripts/build_work_oak_material.py",
+   "?? art/blender/scripts/build_work_tables.py",
+   "?? art/blender/scripts/inspect_work_tables.py",
+   "?? art/blender/scripts/work_tables_geometry.py",
+   "?? art/blender/work_tables.blend",
+   "?? art/blender/work_tables_construction.json",
+   "?? art/data/work_tables/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png"
+  ],
+  "repository_head": "80944b2844375606f64fcdf3d764c1c374165d7a",
+  "repository_tree": "57c58be430e90b985c3f366051611a76efe53f14",
+  "runtime_inputs_sha256": "570b9fcce06a5807bdf6d517ee2393c8ed18799207c74371a6cc188f242c19a7",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "267def98950e8ef9835a1ee03b391d36bc5dacf26ac9ffb90917d3d989858ffc"
+ },
+ "windowed": true
+}

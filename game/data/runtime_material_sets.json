@@ -574,6 +574,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "oak_work_surface": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.9,
+      "catalog_mapping": "ai_materials/oak_work_surface",
+      "files": [
+        "T_ai_materials_oak_work_surface_albedo.png",
+        "T_ai_materials_oak_work_surface_rough.png",
+        "T_ai_materials_oak_work_surface_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.9,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "paper": {
       "alpha": false,
       "canonical_meters_per_tile": 0.5,

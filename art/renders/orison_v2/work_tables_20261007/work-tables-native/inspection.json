@@ -1,0 +1,1403 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 110,
+  "joined_assemblies": [
+    {
+      "assembly": "2A_desk",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "2A_desk_Top",
+          "2A_desk_CarcassBack"
+        ],
+        [
+          "2A_desk_Top",
+          "2A_desk_CarcassSide-1"
+        ],
+        [
+          "2A_desk_Top",
+          "2A_desk_CarcassSide1"
+        ],
+        [
+          "2A_desk_Top",
+          "2A_desk_Divider"
+        ],
+        [
+          "2A_desk_Top",
+          "2A_desk_FixedFront"
+        ],
+        [
+          "2A_desk_CarcassFloor",
+          "2A_desk_CarcassBack"
+        ],
+        [
+          "2A_desk_CarcassFloor",
+          "2A_desk_CarcassSide-1"
+        ],
+        [
+          "2A_desk_CarcassFloor",
+          "2A_desk_CarcassSide1"
+        ],
+        [
+          "2A_desk_CarcassFloor",
+          "2A_desk_Divider"
+        ],
+        [
+          "2A_desk_CarcassFloor",
+          "2A_desk_FixedFront"
+        ],
+        [
+          "2A_desk_CarcassFloor",
+          "2A_desk_DrawerFace"
+        ],
+        [
+          "2A_desk_CarcassFloor",
+          "2A_desk_Leg(-1, -1)"
+        ],
+        [
+          "2A_desk_CarcassFloor",
+          "2A_desk_Leg(-1, 1)"
+        ],
+        [
+          "2A_desk_CarcassFloor",
+          "2A_desk_Leg(1, -1)"
+        ],
+        [
+          "2A_desk_CarcassFloor",
+          "2A_desk_Leg(1, 1)"
+        ],
+        [
+          "2A_desk_CarcassBack",
+          "2A_desk_CarcassSide-1"
+        ],
+        [
+          "2A_desk_CarcassBack",
+          "2A_desk_CarcassSide1"
+        ],
+        [
+          "2A_desk_CarcassBack",
+          "2A_desk_Divider"
+        ],
+        [
+          "2A_desk_CarcassBack",
+          "2A_desk_Leg(-1, -1)"
+        ],
+        [
+          "2A_desk_CarcassBack",
+          "2A_desk_Leg(1, -1)"
+        ],
+        [
+          "2A_desk_CarcassSide1",
+          "2A_desk_FixedFront"
+        ],
+        [
+          "2A_desk_Divider",
+          "2A_desk_DrawerFace"
+        ],
+        [
+          "2A_desk_FixedFront",
+          "2A_desk_Leg(1, 1)"
+        ],
+        [
+          "2A_desk_DrawerFace",
+          "2A_desk_DrawerBottom"
+        ],
+        [
+          "2A_desk_DrawerFace",
+          "2A_desk_DrawerSide-0.651"
+        ],
+        [
+          "2A_desk_DrawerFace",
+          "2A_desk_DrawerSide-0.036"
+        ],
+        [
+          "2A_desk_DrawerFace",
+          "2A_desk_FingerInset"
+        ],
+        [
+          "2A_desk_DrawerFace",
+          "2A_desk_FingerLip"
+        ],
+        [
+          "2A_desk_DrawerFace",
+          "2A_desk_Leg(-1, 1)"
+        ],
+        [
+          "2A_desk_DrawerBottom",
+          "2A_desk_DrawerBack"
+        ],
+        [
+          "2A_desk_DrawerBottom",
+          "2A_desk_DrawerSide-0.651"
+        ],
+        [
+          "2A_desk_DrawerBottom",
+          "2A_desk_DrawerSide-0.036"
+        ],
+        [
+          "2A_desk_FingerInset",
+          "2A_desk_FingerLip"
+        ],
+        [
+          "2A_desk_Leg(-1, -1)",
+          "2A_desk_Stretcher-1"
+        ],
+        [
+          "2A_desk_Leg(-1, 1)",
+          "2A_desk_Stretcher-1"
+        ],
+        [
+          "2A_desk_Leg(1, -1)",
+          "2A_desk_Stretcher1"
+        ],
+        [
+          "2A_desk_Leg(1, 1)",
+          "2A_desk_Stretcher1"
+        ]
+      ]
+    },
+    {
+      "assembly": "3B_workbench",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "3B_workbench_Top",
+          "3B_workbench_AngleA(-1, -1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_AngleB(-1, -1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBracket(-1, -1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(-1, -1)_Head"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(-1, -1)_SlotLand-1"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(-1, -1)_SlotLand1"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_AngleA(-1, 1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_AngleB(-1, 1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBracket(-1, 1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(-1, 1)_Head"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(-1, 1)_SlotLand-1"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(-1, 1)_SlotLand1"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_AngleA(1, -1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_AngleB(1, -1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBracket(1, -1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(1, -1)_Head"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(1, -1)_SlotLand-1"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(1, -1)_SlotLand1"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_AngleA(1, 1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_AngleB(1, 1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBracket(1, 1)"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(1, 1)_Head"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(1, 1)_SlotLand-1"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_TopBolt(1, 1)_SlotLand1"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_CabinetHanger0"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_CabinetHanger1"
+        ],
+        [
+          "3B_workbench_Top",
+          "3B_workbench_ViseSaddle"
+        ],
+        [
+          "3B_workbench_AngleA(-1, -1)",
+          "3B_workbench_AngleB(-1, -1)"
+        ],
+        [
+          "3B_workbench_AngleA(-1, -1)",
+          "3B_workbench_TopBracket(-1, -1)"
+        ],
+        [
+          "3B_workbench_AngleA(-1, -1)",
+          "3B_workbench_ShelfPan"
+        ],
+        [
+          "3B_workbench_AngleA(-1, -1)",
+          "3B_workbench_ShelfEnd-1"
+        ],
+        [
+          "3B_workbench_AngleB(-1, -1)",
+          "3B_workbench_TopBracket(-1, -1)"
+        ],
+        [
+          "3B_workbench_AngleB(-1, -1)",
+          "3B_workbench_ShelfPan"
+        ],
+        [
+          "3B_workbench_AngleB(-1, -1)",
+          "3B_workbench_ShelfHem-1"
+        ],
+        [
+          "3B_workbench_TopBolt(-1, -1)_Head",
+          "3B_workbench_TopBolt(-1, -1)_SlotLand-1"
+        ],
+        [
+          "3B_workbench_TopBolt(-1, -1)_Head",
+          "3B_workbench_TopBolt(-1, -1)_SlotLand1"
+        ],
+        [
+          "3B_workbench_AngleA(-1, 1)",
+          "3B_workbench_AngleB(-1, 1)"
+        ],
+        [
+          "3B_workbench_AngleA(-1, 1)",
+          "3B_workbench_TopBracket(-1, 1)"
+        ],
+        [
+          "3B_workbench_AngleA(-1, 1)",
+          "3B_workbench_ShelfPan"
+        ],
+        [
+          "3B_workbench_AngleA(-1, 1)",
+          "3B_workbench_ShelfEnd-1"
+        ],
+        [
+          "3B_workbench_AngleB(-1, 1)",
+          "3B_workbench_TopBracket(-1, 1)"
+        ],
+        [
+          "3B_workbench_AngleB(-1, 1)",
+          "3B_workbench_ShelfPan"
+        ],
+        [
+          "3B_workbench_AngleB(-1, 1)",
+          "3B_workbench_ShelfHem1"
+        ],
+        [
+          "3B_workbench_TopBolt(-1, 1)_Head",
+          "3B_workbench_TopBolt(-1, 1)_SlotLand-1"
+        ],
+        [
+          "3B_workbench_TopBolt(-1, 1)_Head",
+          "3B_workbench_TopBolt(-1, 1)_SlotLand1"
+        ],
+        [
+          "3B_workbench_AngleA(1, -1)",
+          "3B_workbench_AngleB(1, -1)"
+        ],
+        [
+          "3B_workbench_AngleA(1, -1)",
+          "3B_workbench_TopBracket(1, -1)"
+        ],
+        [
+          "3B_workbench_AngleA(1, -1)",
+          "3B_workbench_ShelfPan"
+        ],
+        [
+          "3B_workbench_AngleA(1, -1)",
+          "3B_workbench_ShelfEnd1"
+        ],
+        [
+          "3B_workbench_AngleB(1, -1)",
+          "3B_workbench_TopBracket(1, -1)"
+        ],
+        [
+          "3B_workbench_AngleB(1, -1)",
+          "3B_workbench_ShelfPan"
+        ],
+        [
+          "3B_workbench_AngleB(1, -1)",
+          "3B_workbench_ShelfHem-1"
+        ],
+        [
+          "3B_workbench_TopBolt(1, -1)_Head",
+          "3B_workbench_TopBolt(1, -1)_SlotLand-1"
+        ],
+        [
+          "3B_workbench_TopBolt(1, -1)_Head",
+          "3B_workbench_TopBolt(1, -1)_SlotLand1"
+        ],
+        [
+          "3B_workbench_AngleA(1, 1)",
+          "3B_workbench_AngleB(1, 1)"
+        ],
+        [
+          "3B_workbench_AngleA(1, 1)",
+          "3B_workbench_TopBracket(1, 1)"
+        ],
+        [
+          "3B_workbench_AngleA(1, 1)",
+          "3B_workbench_ShelfPan"
+        ],
+        [
+          "3B_workbench_AngleA(1, 1)",
+          "3B_workbench_ShelfEnd1"
+        ],
+        [
+          "3B_workbench_AngleB(1, 1)",
+          "3B_workbench_TopBracket(1, 1)"
+        ],
+        [
+          "3B_workbench_AngleB(1, 1)",
+          "3B_workbench_ShelfPan"
+        ],
+        [
+          "3B_workbench_AngleB(1, 1)",
+          "3B_workbench_ShelfHem1"
+        ],
+        [
+          "3B_workbench_TopBolt(1, 1)_Head",
+          "3B_workbench_TopBolt(1, 1)_SlotLand-1"
+        ],
+        [
+          "3B_workbench_TopBolt(1, 1)_Head",
+          "3B_workbench_TopBolt(1, 1)_SlotLand1"
+        ],
+        [
+          "3B_workbench_ShelfPan",
+          "3B_workbench_ShelfHem-1"
+        ],
+        [
+          "3B_workbench_ShelfPan",
+          "3B_workbench_ShelfHem1"
+        ],
+        [
+          "3B_workbench_ShelfPan",
+          "3B_workbench_ShelfEnd-1"
+        ],
+        [
+          "3B_workbench_ShelfPan",
+          "3B_workbench_ShelfEnd1"
+        ],
+        [
+          "3B_workbench_ShelfHem-1",
+          "3B_workbench_ShelfEnd-1"
+        ],
+        [
+          "3B_workbench_ShelfHem-1",
+          "3B_workbench_ShelfEnd1"
+        ],
+        [
+          "3B_workbench_ShelfHem1",
+          "3B_workbench_ShelfEnd-1"
+        ],
+        [
+          "3B_workbench_ShelfHem1",
+          "3B_workbench_ShelfEnd1"
+        ],
+        [
+          "3B_workbench_CabinetBottom",
+          "3B_workbench_CabinetBack"
+        ],
+        [
+          "3B_workbench_CabinetBottom",
+          "3B_workbench_CabinetSide0"
+        ],
+        [
+          "3B_workbench_CabinetBottom",
+          "3B_workbench_CabinetSide1"
+        ],
+        [
+          "3B_workbench_CabinetBottom",
+          "3B_workbench_CabinetFace"
+        ],
+        [
+          "3B_workbench_CabinetTop",
+          "3B_workbench_CabinetBack"
+        ],
+        [
+          "3B_workbench_CabinetTop",
+          "3B_workbench_CabinetSide0"
+        ],
+        [
+          "3B_workbench_CabinetTop",
+          "3B_workbench_CabinetHanger0"
+        ],
+        [
+          "3B_workbench_CabinetTop",
+          "3B_workbench_CabinetSide1"
+        ],
+        [
+          "3B_workbench_CabinetTop",
+          "3B_workbench_CabinetHanger1"
+        ],
+        [
+          "3B_workbench_CabinetTop",
+          "3B_workbench_CabinetFace"
+        ],
+        [
+          "3B_workbench_CabinetBack",
+          "3B_workbench_CabinetSide0"
+        ],
+        [
+          "3B_workbench_CabinetBack",
+          "3B_workbench_CabinetSide1"
+        ],
+        [
+          "3B_workbench_CabinetSide0",
+          "3B_workbench_CabinetHanger0"
+        ],
+        [
+          "3B_workbench_CabinetSide0",
+          "3B_workbench_CabinetFace"
+        ],
+        [
+          "3B_workbench_CabinetSide1",
+          "3B_workbench_CabinetHanger1"
+        ],
+        [
+          "3B_workbench_CabinetSide1",
+          "3B_workbench_CabinetFace"
+        ],
+        [
+          "3B_workbench_CabinetFace",
+          "3B_workbench_CabinetDoor"
+        ],
+        [
+          "3B_workbench_CabinetDoor",
+          "3B_workbench_PullPost-0.35"
+        ],
+        [
+          "3B_workbench_CabinetDoor",
+          "3B_workbench_PullPost-0.15"
+        ],
+        [
+          "3B_workbench_PullPost-0.35",
+          "3B_workbench_Pull"
+        ],
+        [
+          "3B_workbench_PullPost-0.15",
+          "3B_workbench_Pull"
+        ],
+        [
+          "3B_workbench_ViseSaddle",
+          "3B_workbench_ViseSlide"
+        ],
+        [
+          "3B_workbench_ViseSaddle",
+          "3B_workbench_FixedJaw"
+        ],
+        [
+          "3B_workbench_ViseSlide",
+          "3B_workbench_ViseScrew"
+        ],
+        [
+          "3B_workbench_FixedJaw",
+          "3B_workbench_FixedJawInsert"
+        ],
+        [
+          "3B_workbench_MovingJaw",
+          "3B_workbench_MovingJawInsert"
+        ],
+        [
+          "3B_workbench_MovingJaw",
+          "3B_workbench_ViseScrew"
+        ],
+        [
+          "3B_workbench_ViseScrew",
+          "3B_workbench_ViseHandle"
+        ],
+        [
+          "3B_workbench_ViseHandle",
+          "3B_workbench_HandleStop0.95"
+        ],
+        [
+          "3B_workbench_ViseHandle",
+          "3B_workbench_HandleStop1.07"
+        ]
+      ]
+    },
+    {
+      "assembly": "4B_terminal_desk",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "4B_terminal_desk_Top",
+          "4B_terminal_desk_Leg(-1, -1)"
+        ],
+        [
+          "4B_terminal_desk_Top",
+          "4B_terminal_desk_Leg(-1, 1)"
+        ],
+        [
+          "4B_terminal_desk_Top",
+          "4B_terminal_desk_Leg(1, -1)"
+        ],
+        [
+          "4B_terminal_desk_Top",
+          "4B_terminal_desk_Leg(1, 1)"
+        ],
+        [
+          "4B_terminal_desk_Top",
+          "4B_terminal_desk_LongApron-1"
+        ],
+        [
+          "4B_terminal_desk_Top",
+          "4B_terminal_desk_EndApron-1"
+        ],
+        [
+          "4B_terminal_desk_Top",
+          "4B_terminal_desk_LongApron1"
+        ],
+        [
+          "4B_terminal_desk_Top",
+          "4B_terminal_desk_EndApron1"
+        ],
+        [
+          "4B_terminal_desk_Leg(-1, -1)",
+          "4B_terminal_desk_LongApron-1"
+        ],
+        [
+          "4B_terminal_desk_Leg(-1, -1)",
+          "4B_terminal_desk_EndApron-1"
+        ],
+        [
+          "4B_terminal_desk_Leg(-1, 1)",
+          "4B_terminal_desk_LongApron-1"
+        ],
+        [
+          "4B_terminal_desk_Leg(-1, 1)",
+          "4B_terminal_desk_EndApron1"
+        ],
+        [
+          "4B_terminal_desk_Leg(1, -1)",
+          "4B_terminal_desk_EndApron-1"
+        ],
+        [
+          "4B_terminal_desk_Leg(1, -1)",
+          "4B_terminal_desk_LongApron1"
+        ],
+        [
+          "4B_terminal_desk_Leg(1, 1)",
+          "4B_terminal_desk_LongApron1"
+        ],
+        [
+          "4B_terminal_desk_Leg(1, 1)",
+          "4B_terminal_desk_EndApron1"
+        ],
+        [
+          "4B_terminal_desk_LongApron-1",
+          "4B_terminal_desk_EndApron-1"
+        ],
+        [
+          "4B_terminal_desk_LongApron-1",
+          "4B_terminal_desk_EndApron1"
+        ],
+        [
+          "4B_terminal_desk_EndApron-1",
+          "4B_terminal_desk_LongApron1"
+        ],
+        [
+          "4B_terminal_desk_LongApron1",
+          "4B_terminal_desk_EndApron1"
+        ]
+      ]
+    },
+    {
+      "assembly": "5A_plantable",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "5A_plantable_Top",
+          "5A_plantable_TrestleLeg(-1, -1)"
+        ],
+        [
+          "5A_plantable_Top",
+          "5A_plantable_TrestleLeg(-1, 1)"
+        ],
+        [
+          "5A_plantable_Top",
+          "5A_plantable_TrestleLeg(1, -1)"
+        ],
+        [
+          "5A_plantable_Top",
+          "5A_plantable_TrestleLeg(1, 1)"
+        ],
+        [
+          "5A_plantable_Top",
+          "5A_plantable_Plan0"
+        ],
+        [
+          "5A_plantable_Top",
+          "5A_plantable_Roll6"
+        ],
+        [
+          "5A_plantable_Top",
+          "5A_plantable_Roll7"
+        ],
+        [
+          "5A_plantable_TrestleLeg(-1, -1)",
+          "5A_plantable_UpperCrossbar-1"
+        ],
+        [
+          "5A_plantable_TrestleLeg(-1, 1)",
+          "5A_plantable_UpperCrossbar-1"
+        ],
+        [
+          "5A_plantable_UpperCrossbar-1",
+          "5A_plantable_TrestleUpright-1"
+        ],
+        [
+          "5A_plantable_TrestleUpright-1",
+          "5A_plantable_LongRail"
+        ],
+        [
+          "5A_plantable_TrestleLeg(1, -1)",
+          "5A_plantable_UpperCrossbar1"
+        ],
+        [
+          "5A_plantable_TrestleLeg(1, 1)",
+          "5A_plantable_UpperCrossbar1"
+        ],
+        [
+          "5A_plantable_UpperCrossbar1",
+          "5A_plantable_TrestleUpright1"
+        ],
+        [
+          "5A_plantable_TrestleUpright1",
+          "5A_plantable_LongRail"
+        ],
+        [
+          "5A_plantable_Plan0",
+          "5A_plantable_Plan1"
+        ],
+        [
+          "5A_plantable_Plan1",
+          "5A_plantable_Plan2"
+        ],
+        [
+          "5A_plantable_Plan2",
+          "5A_plantable_Plan3"
+        ],
+        [
+          "5A_plantable_Plan3",
+          "5A_plantable_Plan4"
+        ],
+        [
+          "5A_plantable_Plan4",
+          "5A_plantable_Plan5"
+        ]
+      ]
+    },
+    {
+      "assembly": "6A_deskwall",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "6A_deskwall_Top",
+          "6A_deskwall_PedestalWeb-1"
+        ],
+        [
+          "6A_deskwall_Top",
+          "6A_deskwall_PedestalReturn(-1, -1)"
+        ],
+        [
+          "6A_deskwall_Top",
+          "6A_deskwall_PedestalReturn(1, -1)"
+        ],
+        [
+          "6A_deskwall_Top",
+          "6A_deskwall_PedestalTop-1"
+        ],
+        [
+          "6A_deskwall_Top",
+          "6A_deskwall_PedestalWeb1"
+        ],
+        [
+          "6A_deskwall_Top",
+          "6A_deskwall_PedestalReturn(-1, 1)"
+        ],
+        [
+          "6A_deskwall_Top",
+          "6A_deskwall_PedestalReturn(1, 1)"
+        ],
+        [
+          "6A_deskwall_Top",
+          "6A_deskwall_PedestalTop1"
+        ],
+        [
+          "6A_deskwall_PedestalWeb-1",
+          "6A_deskwall_PedestalReturn(-1, -1)"
+        ],
+        [
+          "6A_deskwall_PedestalWeb-1",
+          "6A_deskwall_PedestalReturn(1, -1)"
+        ],
+        [
+          "6A_deskwall_PedestalWeb-1",
+          "6A_deskwall_PedestalTop-1"
+        ],
+        [
+          "6A_deskwall_PedestalWeb-1",
+          "6A_deskwall_PedestalFoot-1"
+        ],
+        [
+          "6A_deskwall_PedestalReturn(-1, -1)",
+          "6A_deskwall_PedestalTop-1"
+        ],
+        [
+          "6A_deskwall_PedestalReturn(-1, -1)",
+          "6A_deskwall_PedestalFoot-1"
+        ],
+        [
+          "6A_deskwall_PedestalReturn(1, -1)",
+          "6A_deskwall_PedestalTop-1"
+        ],
+        [
+          "6A_deskwall_PedestalReturn(1, -1)",
+          "6A_deskwall_PedestalFoot-1"
+        ],
+        [
+          "6A_deskwall_PedestalWeb1",
+          "6A_deskwall_PedestalReturn(-1, 1)"
+        ],
+        [
+          "6A_deskwall_PedestalWeb1",
+          "6A_deskwall_PedestalReturn(1, 1)"
+        ],
+        [
+          "6A_deskwall_PedestalWeb1",
+          "6A_deskwall_PedestalTop1"
+        ],
+        [
+          "6A_deskwall_PedestalWeb1",
+          "6A_deskwall_PedestalFoot1"
+        ],
+        [
+          "6A_deskwall_PedestalReturn(-1, 1)",
+          "6A_deskwall_PedestalTop1"
+        ],
+        [
+          "6A_deskwall_PedestalReturn(-1, 1)",
+          "6A_deskwall_PedestalFoot1"
+        ],
+        [
+          "6A_deskwall_PedestalReturn(1, 1)",
+          "6A_deskwall_PedestalTop1"
+        ],
+        [
+          "6A_deskwall_PedestalReturn(1, 1)",
+          "6A_deskwall_PedestalFoot1"
+        ]
+      ]
+    }
+  ],
+  "uv": [
+    {
+      "part": "2A_desk__oak_work_surface",
+      "minimum_metres_per_uv": 0.9999521725569006,
+      "maximum_metres_per_uv": 1.0000490611315358
+    },
+    {
+      "part": "2A_desk__soot",
+      "minimum_metres_per_uv": 0.9996795828894358,
+      "maximum_metres_per_uv": 1.0002167893014458
+    },
+    {
+      "part": "2A_desk__wood_dark",
+      "minimum_metres_per_uv": 0.9996010757247132,
+      "maximum_metres_per_uv": 1.0003551772980457
+    },
+    {
+      "part": "3B_workbench__iron_blackened",
+      "minimum_metres_per_uv": 0.9997957553182695,
+      "maximum_metres_per_uv": 1.0001457748630742
+    },
+    {
+      "part": "3B_workbench__nickel_plated",
+      "minimum_metres_per_uv": 0.9992166513344234,
+      "maximum_metres_per_uv": 1.0006721240397205
+    },
+    {
+      "part": "3B_workbench__oak_work_surface",
+      "minimum_metres_per_uv": 0.9999413550622435,
+      "maximum_metres_per_uv": 1.000052259119346
+    },
+    {
+      "part": "4B_terminal_desk__oak_work_surface",
+      "minimum_metres_per_uv": 0.9999544217676486,
+      "maximum_metres_per_uv": 1.0000520249094254
+    },
+    {
+      "part": "4B_terminal_desk__wood_dark",
+      "minimum_metres_per_uv": 0.9996597169920955,
+      "maximum_metres_per_uv": 1.000359700060499
+    },
+    {
+      "part": "5A_plantable__oak_work_surface",
+      "minimum_metres_per_uv": 0.9999313777909588,
+      "maximum_metres_per_uv": 1.000069754015855
+    },
+    {
+      "part": "5A_plantable__paper",
+      "minimum_metres_per_uv": 0.9995340653442698,
+      "maximum_metres_per_uv": 1.0004811377418046
+    },
+    {
+      "part": "5A_plantable__wood_dark",
+      "minimum_metres_per_uv": 0.9995962815632199,
+      "maximum_metres_per_uv": 1.0004236368766666
+    },
+    {
+      "part": "6A_deskwall__iron_blackened",
+      "minimum_metres_per_uv": 0.9998238636267921,
+      "maximum_metres_per_uv": 1.00014625068561
+    },
+    {
+      "part": "6A_deskwall__trim",
+      "minimum_metres_per_uv": 0.99992392543045,
+      "maximum_metres_per_uv": 1.0001012541206098
+    }
+  ],
+  "floor_contacts": [
+    {
+      "assembly": "2A_desk",
+      "owner": "floor",
+      "point": [
+        -0.7149999737739563,
+        0.0,
+        0.3100000023841858
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(-1, -1) sawn foot"
+    },
+    {
+      "assembly": "2A_desk",
+      "owner": "floor",
+      "point": [
+        -0.7149999737739563,
+        0.0,
+        -0.3100000023841858
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(-1, 1) sawn foot"
+    },
+    {
+      "assembly": "2A_desk",
+      "owner": "floor",
+      "point": [
+        0.7149999737739563,
+        0.0,
+        0.3100000023841858
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(1, -1) sawn foot"
+    },
+    {
+      "assembly": "2A_desk",
+      "owner": "floor",
+      "point": [
+        0.7149999737739563,
+        0.0,
+        -0.3100000023841858
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(1, 1) sawn foot"
+    },
+    {
+      "assembly": "3B_workbench",
+      "owner": "floor",
+      "point": [
+        -1.0,
+        0,
+        0.32
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "angle leg (-1, -1)"
+    },
+    {
+      "assembly": "3B_workbench",
+      "owner": "floor",
+      "point": [
+        -1.0,
+        0,
+        -0.32
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "angle leg (-1, 1)"
+    },
+    {
+      "assembly": "3B_workbench",
+      "owner": "floor",
+      "point": [
+        1.0,
+        0,
+        0.32
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "angle leg (1, -1)"
+    },
+    {
+      "assembly": "3B_workbench",
+      "owner": "floor",
+      "point": [
+        1.0,
+        0,
+        -0.32
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "angle leg (1, 1)"
+    },
+    {
+      "assembly": "4B_terminal_desk",
+      "owner": "floor",
+      "point": [
+        -0.23,
+        0,
+        0.565
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(-1, -1)"
+    },
+    {
+      "assembly": "4B_terminal_desk",
+      "owner": "floor",
+      "point": [
+        -0.23,
+        0,
+        -0.565
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(-1, 1)"
+    },
+    {
+      "assembly": "4B_terminal_desk",
+      "owner": "floor",
+      "point": [
+        0.23,
+        0,
+        0.565
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(1, -1)"
+    },
+    {
+      "assembly": "4B_terminal_desk",
+      "owner": "floor",
+      "point": [
+        0.23,
+        0,
+        -0.565
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(1, 1)"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        -0.5799999833106995,
+        0.0,
+        0.23399999737739563
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleLeg(-1, -1) sawn foot"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        -0.5799999833106995,
+        0.0,
+        -0.23399999737739563
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleLeg(-1, 1) sawn foot"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        -0.7200000286102295,
+        0.0,
+        -0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleUpright-1 sawn foot"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        0.5799999833106995,
+        0.0,
+        0.23399999737739563
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleLeg(1, -1) sawn foot"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        0.5799999833106995,
+        0.0,
+        -0.23399999737739563
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleLeg(1, 1) sawn foot"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        0.7200000286102295,
+        0.0,
+        -0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleUpright1 sawn foot"
+    },
+    {
+      "assembly": "6A_deskwall",
+      "owner": "floor",
+      "point": [
+        -0.24,
+        0,
+        1.14
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded pedestal -1"
+    },
+    {
+      "assembly": "6A_deskwall",
+      "owner": "floor",
+      "point": [
+        0.24,
+        0,
+        1.14
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded pedestal -1"
+    },
+    {
+      "assembly": "6A_deskwall",
+      "owner": "floor",
+      "point": [
+        -0.24,
+        0,
+        -1.14
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded pedestal 1"
+    },
+    {
+      "assembly": "6A_deskwall",
+      "owner": "floor",
+      "point": [
+        0.24,
+        0,
+        -1.14
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded pedestal 1"
+    }
+  ],
+  "lamp_bearings": [
+    {
+      "lamp": "F02_A_LAMP_01",
+      "support": "2A_desk",
+      "samples": 193,
+      "maximum_error_m": 3e-05
+    },
+    {
+      "lamp": "F03_B_LAMP_01",
+      "support": "3B_workbench",
+      "samples": 193,
+      "maximum_error_m": 3e-05
+    },
+    {
+      "lamp": "F04_B_LAMP_01",
+      "support": "4B_terminal_desk",
+      "samples": 193,
+      "maximum_error_m": 3e-05
+    },
+    {
+      "lamp": "F05_A_LAMP_01",
+      "support": "5A_plantable",
+      "samples": 193,
+      "maximum_error_m": 3e-05
+    }
+  ],
+  "adjacent_stock": [
+    {
+      "id": "2A_papers",
+      "support": "2A_desk",
+      "lowest_points": 4,
+      "seated_points": 4,
+      "minimum_height": 0.7350000143051147
+    },
+    {
+      "id": "2A_mug",
+      "support": "2A_desk",
+      "lowest_points": 11,
+      "seated_points": 11,
+      "minimum_height": 0.7350000143051147
+    },
+    {
+      "id": "2A_phones",
+      "support": "2A_desk",
+      "lowest_points": 9,
+      "seated_points": 9,
+      "minimum_height": 0.7350000143051147
+    },
+    {
+      "id": "3B_tray1",
+      "support": "3B_workbench",
+      "lowest_points": 24,
+      "seated_points": 24,
+      "minimum_height": 0.9100000262260437
+    },
+    {
+      "id": "3B_tray2",
+      "support": "3B_workbench",
+      "lowest_points": 20,
+      "seated_points": 20,
+      "minimum_height": 0.9100000262260437
+    },
+    {
+      "id": "3B_jars",
+      "support": "3B_workbench",
+      "lowest_points": 45,
+      "seated_points": 45,
+      "minimum_height": 0.9100000262260437
+    },
+    {
+      "id": "3B_manuals",
+      "support": "3B_workbench",
+      "lowest_points": 4,
+      "seated_points": 4,
+      "minimum_height": 0.9100000262260437
+    },
+    {
+      "id": "3B_mug",
+      "support": "3B_workbench",
+      "lowest_points": 11,
+      "seated_points": 11,
+      "minimum_height": 0.9100000262260437
+    },
+    {
+      "id": "5A_papers1",
+      "support": "5A_plantable",
+      "lowest_points": 4,
+      "seated_points": 4,
+      "minimum_height": 0.800000011920929
+    },
+    {
+      "id": "5A_papers2",
+      "support": "5A_plantable",
+      "lowest_points": 4,
+      "seated_points": 4,
+      "minimum_height": 0.800000011920929
+    },
+    {
+      "id": "5A_mug1",
+      "support": "5A_plantable",
+      "lowest_points": 11,
+      "seated_points": 11,
+      "minimum_height": 0.800000011920929
+    },
+    {
+      "id": "6A_phones",
+      "support": "6A_deskwall",
+      "lowest_points": 9,
+      "seated_points": 9,
+      "minimum_height": 0.7699999809265137
+    },
+    {
+      "id": "6A_cans",
+      "support": "6A_deskwall",
+      "lowest_points": 29,
+      "seated_points": 29,
+      "minimum_height": 0.7699999809265137
+    },
+    {
+      "id": "6A_detail_capture_papers",
+      "support": "6A_deskwall",
+      "lowest_points": 4,
+      "seated_points": 4,
+      "minimum_height": 0.7699999809265137
+    },
+    {
+      "id": "6A_detail_capture_mug",
+      "support": "6A_deskwall",
+      "lowest_points": 11,
+      "seated_points": 11,
+      "minimum_height": 0.7699999809265137
+    }
+  ],
+  "views": [
+    {
+      "id": "2A_desk",
+      "file": "2A_desk.png"
+    },
+    {
+      "id": "3B_workbench",
+      "file": "3B_workbench.png"
+    },
+    {
+      "id": "4B_terminal_desk",
+      "file": "4B_terminal_desk.png"
+    },
+    {
+      "id": "5A_plantable",
+      "file": "5A_plantable.png"
+    },
+    {
+      "id": "6A_deskwall",
+      "file": "6A_deskwall.png"
+    },
+    {
+      "id": "3B_workbench_detail",
+      "file": "3B_workbench_detail.png"
+    }
+  ],
+  "scope": "Native local stock, metre charts and actual bearings. Runtime placement, collision and appearance require engine validation."
+}

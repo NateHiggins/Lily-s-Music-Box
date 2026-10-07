@@ -1,0 +1,1583 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "2A_desk",
+      "asm": "desk",
+      "at": [
+        -11.7,
+        -5.425
+      ],
+      "yaw": 0,
+      "L": 1.5
+    },
+    {
+      "id": "3B_workbench",
+      "asm": "workbench",
+      "at": [
+        -11.25,
+        6.04
+      ],
+      "yaw": 180
+    },
+    {
+      "id": "5A_plantable",
+      "asm": "plantable",
+      "at": [
+        -9.58,
+        -4.3
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6A_deskwall",
+      "rect": [
+        -13.25,
+        -6.25,
+        -12.45,
+        -3.65
+      ],
+      "z0": 0.72,
+      "h": 0.05,
+      "mat": "trim"
+    },
+    {
+      "id": "6A_dwleg_s",
+      "rect": [
+        -13.15,
+        -6.15,
+        -12.55,
+        -6.03
+      ],
+      "z0": 0.0,
+      "h": 0.72,
+      "mat": "metal"
+    },
+    {
+      "id": "6A_dwleg_n",
+      "rect": [
+        -13.15,
+        -3.87,
+        -12.55,
+        -3.75
+      ],
+      "z0": 0.0,
+      "h": 0.72,
+      "mat": "metal"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "2A_desk",
+      "kind": "desk",
+      "cell": "2A",
+      "source_record": "2A_desk"
+    },
+    {
+      "id": "3B_workbench",
+      "kind": "workbench",
+      "cell": "3B",
+      "source_record": "3B_workbench"
+    },
+    {
+      "id": "4B_terminal_desk",
+      "kind": "desk",
+      "cell": "4B",
+      "source_record": "4B_terminal_desk"
+    },
+    {
+      "id": "5A_plantable",
+      "kind": "table_rect",
+      "cell": "5A",
+      "source_record": "5A_plantable"
+    },
+    {
+      "id": "6A_deskwall",
+      "kind": "desk",
+      "cell": "6A",
+      "source_record": "6A_deskwall"
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "2A_desk_Top",
+      "assembly": "2A_desk",
+      "key": "oak_work_surface",
+      "volume_m3": 0.034111394687091096
+    },
+    {
+      "name": "2A_desk_CarcassFloor",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.013908448860032535
+    },
+    {
+      "name": "2A_desk_CarcassBack",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0025073423570341953
+    },
+    {
+      "name": "2A_desk_CarcassSide-1",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0010192195545092383
+    },
+    {
+      "name": "2A_desk_CarcassSide1",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0010192195545092383
+    },
+    {
+      "name": "2A_desk_Divider",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.000861038494617043
+    },
+    {
+      "name": "2A_desk_FixedFront",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0011205270243328247
+    },
+    {
+      "name": "2A_desk_DrawerFace",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.001140726910727496
+    },
+    {
+      "name": "2A_desk_DrawerBottom",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.002600502144460365
+    },
+    {
+      "name": "2A_desk_DrawerBack",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0004353989200485219
+    },
+    {
+      "name": "2A_desk_DrawerSide-0.651",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0002878092580697758
+    },
+    {
+      "name": "2A_desk_DrawerSide-0.036",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0002878085866049129
+    },
+    {
+      "name": "2A_desk_FingerInset",
+      "assembly": "2A_desk",
+      "key": "soot",
+      "volume_m3": 1.6747826170863324e-05
+    },
+    {
+      "name": "2A_desk_FingerLip",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 1.2041620398734842e-05
+    },
+    {
+      "name": "2A_desk_Leg(-1, -1)",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.000690276022471879
+    },
+    {
+      "name": "2A_desk_Leg(-1, 1)",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0006902760948638417
+    },
+    {
+      "name": "2A_desk_Stretcher-1",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.000464862450054312
+    },
+    {
+      "name": "2A_desk_Leg(1, -1)",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0006902760949826745
+    },
+    {
+      "name": "2A_desk_Leg(1, 1)",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0006902760216215603
+    },
+    {
+      "name": "2A_desk_Stretcher1",
+      "assembly": "2A_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.000464862450054312
+    },
+    {
+      "name": "3B_workbench_Top",
+      "assembly": "3B_workbench",
+      "key": "oak_work_surface",
+      "volume_m3": 0.10558091083098164
+    },
+    {
+      "name": "3B_workbench_AngleA(-1, -1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0005102709677562039
+    },
+    {
+      "name": "3B_workbench_AngleB(-1, -1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0005102728444955106
+    },
+    {
+      "name": "3B_workbench_TopBracket(-1, -1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 7.762481128724603e-05
+    },
+    {
+      "name": "3B_workbench_TopBolt(-1, -1)_Head",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 7.51835752831148e-08
+    },
+    {
+      "name": "3B_workbench_TopBolt(-1, -1)_SlotLand-1",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 9.459131938320816e-09
+    },
+    {
+      "name": "3B_workbench_TopBolt(-1, -1)_SlotLand1",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 9.459131938320816e-09
+    },
+    {
+      "name": "3B_workbench_AngleA(-1, 1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0005102709677562039
+    },
+    {
+      "name": "3B_workbench_AngleB(-1, 1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0005102728444955106
+    },
+    {
+      "name": "3B_workbench_TopBracket(-1, 1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 7.762481128724625e-05
+    },
+    {
+      "name": "3B_workbench_TopBolt(-1, 1)_Head",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 7.51835752831148e-08
+    },
+    {
+      "name": "3B_workbench_TopBolt(-1, 1)_SlotLand-1",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 9.459131938320816e-09
+    },
+    {
+      "name": "3B_workbench_TopBolt(-1, 1)_SlotLand1",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 9.459131938320816e-09
+    },
+    {
+      "name": "3B_workbench_AngleA(1, -1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0005102709677562039
+    },
+    {
+      "name": "3B_workbench_AngleB(1, -1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0005102728444955105
+    },
+    {
+      "name": "3B_workbench_TopBracket(1, -1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 7.762481128724603e-05
+    },
+    {
+      "name": "3B_workbench_TopBolt(1, -1)_Head",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 7.518357528311649e-08
+    },
+    {
+      "name": "3B_workbench_TopBolt(1, -1)_SlotLand-1",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 9.459131938320816e-09
+    },
+    {
+      "name": "3B_workbench_TopBolt(1, -1)_SlotLand1",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 9.459131938320816e-09
+    },
+    {
+      "name": "3B_workbench_AngleA(1, 1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0005102709677562039
+    },
+    {
+      "name": "3B_workbench_AngleB(1, 1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0005102728444955105
+    },
+    {
+      "name": "3B_workbench_TopBracket(1, 1)",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 7.762481128724625e-05
+    },
+    {
+      "name": "3B_workbench_TopBolt(1, 1)_Head",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 7.518357528311649e-08
+    },
+    {
+      "name": "3B_workbench_TopBolt(1, 1)_SlotLand-1",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 9.459131938320816e-09
+    },
+    {
+      "name": "3B_workbench_TopBolt(1, 1)_SlotLand1",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 9.459131938320816e-09
+    },
+    {
+      "name": "3B_workbench_ShelfPan",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.004160927892451177
+    },
+    {
+      "name": "3B_workbench_ShelfHem-1",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.00023612245058893537
+    },
+    {
+      "name": "3B_workbench_ShelfHem1",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.00023612245058893537
+    },
+    {
+      "name": "3B_workbench_ShelfEnd-1",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 7.870095211520648e-05
+    },
+    {
+      "name": "3B_workbench_ShelfEnd1",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 7.870095211520648e-05
+    },
+    {
+      "name": "3B_workbench_CabinetBottom",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0012956528718366944
+    },
+    {
+      "name": "3B_workbench_CabinetTop",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0012956785939429588
+    },
+    {
+      "name": "3B_workbench_CabinetBack",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.00039039795373437106
+    },
+    {
+      "name": "3B_workbench_CabinetSide0",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.00046783773488672214
+    },
+    {
+      "name": "3B_workbench_CabinetHanger0",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.000264884024743462
+    },
+    {
+      "name": "3B_workbench_CabinetSide1",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.00046783482873638885
+    },
+    {
+      "name": "3B_workbench_CabinetHanger1",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0002648837967609012
+    },
+    {
+      "name": "3B_workbench_CabinetFace",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0005188605346386165
+    },
+    {
+      "name": "3B_workbench_CabinetDoor",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0012943960009878588
+    },
+    {
+      "name": "3B_workbench_PullPost-0.35",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 3.6087785200204564e-06
+    },
+    {
+      "name": "3B_workbench_PullPost-0.15",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 3.6087777276952542e-06
+    },
+    {
+      "name": "3B_workbench_Pull",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 6.891757550708458e-05
+    },
+    {
+      "name": "3B_workbench_ViseSaddle",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0010680313848907895
+    },
+    {
+      "name": "3B_workbench_ViseSlide",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.0004072934885825234
+    },
+    {
+      "name": "3B_workbench_FixedJaw",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.00047101765274421285
+    },
+    {
+      "name": "3B_workbench_MovingJaw",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 0.001417145322863799
+    },
+    {
+      "name": "3B_workbench_FixedJawInsert",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 1.8311754260941053e-05
+    },
+    {
+      "name": "3B_workbench_MovingJawInsert",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 1.8311754260941053e-05
+    },
+    {
+      "name": "3B_workbench_ViseScrew",
+      "assembly": "3B_workbench",
+      "key": "nickel_plated",
+      "volume_m3": 6.139923583105514e-05
+    },
+    {
+      "name": "3B_workbench_ViseHandle",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 3.7591461203581124e-05
+    },
+    {
+      "name": "3B_workbench_HandleStop0.95",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 7.367894020749655e-06
+    },
+    {
+      "name": "3B_workbench_HandleStop1.07",
+      "assembly": "3B_workbench",
+      "key": "iron_blackened",
+      "volume_m3": 7.367894020749657e-06
+    },
+    {
+      "name": "4B_terminal_desk_Top",
+      "assembly": "4B_terminal_desk",
+      "key": "oak_work_surface",
+      "volume_m3": 0.032617524329708186
+    },
+    {
+      "name": "4B_terminal_desk_Leg(-1, -1)",
+      "assembly": "4B_terminal_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0021348332660127223
+    },
+    {
+      "name": "4B_terminal_desk_Leg(-1, 1)",
+      "assembly": "4B_terminal_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0021348332660127223
+    },
+    {
+      "name": "4B_terminal_desk_Leg(1, -1)",
+      "assembly": "4B_terminal_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0021348332660127223
+    },
+    {
+      "name": "4B_terminal_desk_Leg(1, 1)",
+      "assembly": "4B_terminal_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.0021348332660127223
+    },
+    {
+      "name": "4B_terminal_desk_LongApron-1",
+      "assembly": "4B_terminal_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.005124388952348665
+    },
+    {
+      "name": "4B_terminal_desk_EndApron-1",
+      "assembly": "4B_terminal_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.002085940291282128
+    },
+    {
+      "name": "4B_terminal_desk_LongApron1",
+      "assembly": "4B_terminal_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.005124388952348665
+    },
+    {
+      "name": "4B_terminal_desk_EndApron1",
+      "assembly": "4B_terminal_desk",
+      "key": "wood_dark",
+      "volume_m3": 0.002085940291282128
+    },
+    {
+      "name": "5A_plantable_Top",
+      "assembly": "5A_plantable",
+      "key": "oak_work_surface",
+      "volume_m3": 0.0959798324725657
+    },
+    {
+      "name": "5A_plantable_TrestleLeg(-1, -1)",
+      "assembly": "5A_plantable",
+      "key": "wood_dark",
+      "volume_m3": 0.0017544451319496716
+    },
+    {
+      "name": "5A_plantable_TrestleLeg(-1, 1)",
+      "assembly": "5A_plantable",
+      "key": "wood_dark",
+      "volume_m3": 0.0017544447819720153
+    },
+    {
+      "name": "5A_plantable_UpperCrossbar-1",
+      "assembly": "5A_plantable",
+      "key": "wood_dark",
+      "volume_m3": 0.001860299816447323
+    },
+    {
+      "name": "5A_plantable_TrestleUpright-1",
+      "assembly": "5A_plantable",
+      "key": "wood_dark",
+      "volume_m3": 0.0015345425223029152
+    },
+    {
+      "name": "5A_plantable_TrestleLeg(1, -1)",
+      "assembly": "5A_plantable",
+      "key": "wood_dark",
+      "volume_m3": 0.0017544447819720153
+    },
+    {
+      "name": "5A_plantable_TrestleLeg(1, 1)",
+      "assembly": "5A_plantable",
+      "key": "wood_dark",
+      "volume_m3": 0.0017544451319496716
+    },
+    {
+      "name": "5A_plantable_UpperCrossbar1",
+      "assembly": "5A_plantable",
+      "key": "wood_dark",
+      "volume_m3": 0.0018602998164473222
+    },
+    {
+      "name": "5A_plantable_TrestleUpright1",
+      "assembly": "5A_plantable",
+      "key": "wood_dark",
+      "volume_m3": 0.0015345425223029152
+    },
+    {
+      "name": "5A_plantable_LongRail",
+      "assembly": "5A_plantable",
+      "key": "wood_dark",
+      "volume_m3": 0.0028790233577827983
+    },
+    {
+      "name": "5A_plantable_Plan0",
+      "assembly": "5A_plantable",
+      "key": "paper",
+      "volume_m3": 0.0005468639159411162
+    },
+    {
+      "name": "5A_plantable_Plan1",
+      "assembly": "5A_plantable",
+      "key": "paper",
+      "volume_m3": 0.000532522121379643
+    },
+    {
+      "name": "5A_plantable_Plan2",
+      "assembly": "5A_plantable",
+      "key": "paper",
+      "volume_m3": 0.0005183601636259763
+    },
+    {
+      "name": "5A_plantable_Plan3",
+      "assembly": "5A_plantable",
+      "key": "paper",
+      "volume_m3": 0.0005043790792243485
+    },
+    {
+      "name": "5A_plantable_Plan4",
+      "assembly": "5A_plantable",
+      "key": "paper",
+      "volume_m3": 0.0004906088310008827
+    },
+    {
+      "name": "5A_plantable_Plan5",
+      "assembly": "5A_plantable",
+      "key": "paper",
+      "volume_m3": 0.00047701936344222984
+    },
+    {
+      "name": "5A_plantable_Roll6",
+      "assembly": "5A_plantable",
+      "key": "paper",
+      "volume_m3": 2.1709106672746653e-05
+    },
+    {
+      "name": "5A_plantable_Roll7",
+      "assembly": "5A_plantable",
+      "key": "paper",
+      "volume_m3": 3.777946012734703e-05
+    },
+    {
+      "name": "6A_deskwall_Top",
+      "assembly": "6A_deskwall",
+      "key": "trim",
+      "volume_m3": 0.10398611194232549
+    },
+    {
+      "name": "6A_deskwall_PedestalWeb-1",
+      "assembly": "6A_deskwall",
+      "key": "iron_blackened",
+      "volume_m3": 0.0017300467863639755
+    },
+    {
+      "name": "6A_deskwall_PedestalReturn(-1, -1)",
+      "assembly": "6A_deskwall",
+      "key": "iron_blackened",
+      "volume_m3": 0.00034586968327160776
+    },
+    {
+      "name": "6A_deskwall_PedestalReturn(1, -1)",
+      "assembly": "6A_deskwall",
+      "key": "iron_blackened",
+      "volume_m3": 0.00034586968327160776
+    },
+    {
+      "name": "6A_deskwall_PedestalTop-1",
+      "assembly": "6A_deskwall",
+      "key": "iron_blackened",
+      "volume_m3": 0.0006478182366684883
+    },
+    {
+      "name": "6A_deskwall_PedestalFoot-1",
+      "assembly": "6A_deskwall",
+      "key": "iron_blackened",
+      "volume_m3": 0.000431818751173638
+    },
+    {
+      "name": "6A_deskwall_PedestalWeb1",
+      "assembly": "6A_deskwall",
+      "key": "iron_blackened",
+      "volume_m3": 0.0017300467863639755
+    },
+    {
+      "name": "6A_deskwall_PedestalReturn(-1, 1)",
+      "assembly": "6A_deskwall",
+      "key": "iron_blackened",
+      "volume_m3": 0.00034586968327160776
+    },
+    {
+      "name": "6A_deskwall_PedestalReturn(1, 1)",
+      "assembly": "6A_deskwall",
+      "key": "iron_blackened",
+      "volume_m3": 0.00034586968327160776
+    },
+    {
+      "name": "6A_deskwall_PedestalTop1",
+      "assembly": "6A_deskwall",
+      "key": "iron_blackened",
+      "volume_m3": 0.0006478182366684883
+    },
+    {
+      "name": "6A_deskwall_PedestalFoot1",
+      "assembly": "6A_deskwall",
+      "key": "iron_blackened",
+      "volume_m3": 0.000431818751173638
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "2A_desk",
+      "owner": "floor",
+      "point": [
+        -0.7149999737739563,
+        0.0,
+        0.3100000023841858
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(-1, -1) sawn foot"
+    },
+    {
+      "assembly": "2A_desk",
+      "owner": "floor",
+      "point": [
+        -0.7149999737739563,
+        0.0,
+        -0.3100000023841858
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(-1, 1) sawn foot"
+    },
+    {
+      "assembly": "2A_desk",
+      "owner": "floor",
+      "point": [
+        0.7149999737739563,
+        0.0,
+        0.3100000023841858
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(1, -1) sawn foot"
+    },
+    {
+      "assembly": "2A_desk",
+      "owner": "floor",
+      "point": [
+        0.7149999737739563,
+        0.0,
+        -0.3100000023841858
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(1, 1) sawn foot"
+    },
+    {
+      "assembly": "3B_workbench",
+      "owner": "floor",
+      "point": [
+        -1.0,
+        0,
+        0.32
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "angle leg (-1, -1)"
+    },
+    {
+      "assembly": "3B_workbench",
+      "owner": "floor",
+      "point": [
+        -1.0,
+        0,
+        -0.32
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "angle leg (-1, 1)"
+    },
+    {
+      "assembly": "3B_workbench",
+      "owner": "floor",
+      "point": [
+        1.0,
+        0,
+        0.32
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "angle leg (1, -1)"
+    },
+    {
+      "assembly": "3B_workbench",
+      "owner": "floor",
+      "point": [
+        1.0,
+        0,
+        -0.32
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "angle leg (1, 1)"
+    },
+    {
+      "assembly": "4B_terminal_desk",
+      "owner": "floor",
+      "point": [
+        -0.23,
+        0,
+        0.565
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(-1, -1)"
+    },
+    {
+      "assembly": "4B_terminal_desk",
+      "owner": "floor",
+      "point": [
+        -0.23,
+        0,
+        -0.565
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(-1, 1)"
+    },
+    {
+      "assembly": "4B_terminal_desk",
+      "owner": "floor",
+      "point": [
+        0.23,
+        0,
+        0.565
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(1, -1)"
+    },
+    {
+      "assembly": "4B_terminal_desk",
+      "owner": "floor",
+      "point": [
+        0.23,
+        0,
+        -0.565
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Leg(1, 1)"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        -0.5799999833106995,
+        0.0,
+        0.23399999737739563
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleLeg(-1, -1) sawn foot"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        -0.5799999833106995,
+        0.0,
+        -0.23399999737739563
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleLeg(-1, 1) sawn foot"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        -0.7200000286102295,
+        0.0,
+        -0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleUpright-1 sawn foot"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        0.5799999833106995,
+        0.0,
+        0.23399999737739563
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleLeg(1, -1) sawn foot"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        0.5799999833106995,
+        0.0,
+        -0.23399999737739563
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleLeg(1, 1) sawn foot"
+    },
+    {
+      "assembly": "5A_plantable",
+      "owner": "floor",
+      "point": [
+        0.7200000286102295,
+        0.0,
+        -0.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "TrestleUpright1 sawn foot"
+    },
+    {
+      "assembly": "6A_deskwall",
+      "owner": "floor",
+      "point": [
+        -0.24,
+        0,
+        1.14
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded pedestal -1"
+    },
+    {
+      "assembly": "6A_deskwall",
+      "owner": "floor",
+      "point": [
+        0.24,
+        0,
+        1.14
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded pedestal -1"
+    },
+    {
+      "assembly": "6A_deskwall",
+      "owner": "floor",
+      "point": [
+        -0.24,
+        0,
+        -1.14
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded pedestal 1"
+    },
+    {
+      "assembly": "6A_deskwall",
+      "owner": "floor",
+      "point": [
+        0.24,
+        0,
+        -1.14
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "folded pedestal 1"
+    }
+  ],
+  "parts": [
+    {
+      "name": "2A_desk__oak_work_surface",
+      "assembly": "2A_desk",
+      "cell": "2A",
+      "key": "oak_work_surface",
+      "triangles": 188
+    },
+    {
+      "name": "2A_desk__soot",
+      "assembly": "2A_desk",
+      "cell": "2A",
+      "key": "soot",
+      "triangles": 188
+    },
+    {
+      "name": "2A_desk__wood_dark",
+      "assembly": "2A_desk",
+      "cell": "2A",
+      "key": "wood_dark",
+      "triangles": 3384
+    },
+    {
+      "name": "3B_workbench__iron_blackened",
+      "assembly": "3B_workbench",
+      "cell": "3B",
+      "key": "iron_blackened",
+      "triangles": 6768
+    },
+    {
+      "name": "3B_workbench__nickel_plated",
+      "assembly": "3B_workbench",
+      "cell": "3B",
+      "key": "nickel_plated",
+      "triangles": 2820
+    },
+    {
+      "name": "3B_workbench__oak_work_surface",
+      "assembly": "3B_workbench",
+      "cell": "3B",
+      "key": "oak_work_surface",
+      "triangles": 188
+    },
+    {
+      "name": "4B_terminal_desk__oak_work_surface",
+      "assembly": "4B_terminal_desk",
+      "cell": "4B",
+      "key": "oak_work_surface",
+      "triangles": 188
+    },
+    {
+      "name": "4B_terminal_desk__wood_dark",
+      "assembly": "4B_terminal_desk",
+      "cell": "4B",
+      "key": "wood_dark",
+      "triangles": 1504
+    },
+    {
+      "name": "5A_plantable__oak_work_surface",
+      "assembly": "5A_plantable",
+      "cell": "5A",
+      "key": "oak_work_surface",
+      "triangles": 188
+    },
+    {
+      "name": "5A_plantable__paper",
+      "assembly": "5A_plantable",
+      "cell": "5A",
+      "key": "paper",
+      "triangles": 1896
+    },
+    {
+      "name": "5A_plantable__wood_dark",
+      "assembly": "5A_plantable",
+      "cell": "5A",
+      "key": "wood_dark",
+      "triangles": 1692
+    },
+    {
+      "name": "6A_deskwall__iron_blackened",
+      "assembly": "6A_deskwall",
+      "cell": "6A",
+      "key": "iron_blackened",
+      "triangles": 1880
+    },
+    {
+      "name": "6A_deskwall__trim",
+      "assembly": "6A_deskwall",
+      "cell": "6A",
+      "key": "trim",
+      "triangles": 188
+    }
+  ],
+  "triangles": 21072,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/work_tables.glb",
+    "floor_y": 0,
+    "assemblies": [
+      {
+        "id": "2A_desk",
+        "parts": [
+          {
+            "name": "2A_desk__oak_work_surface",
+            "key": "oak_work_surface",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface"
+          },
+          {
+            "name": "2A_desk__soot",
+            "key": "soot",
+            "tile": 0.55,
+            "catalog_key": "soot"
+          },
+          {
+            "name": "2A_desk__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3B_workbench",
+        "parts": [
+          {
+            "name": "3B_workbench__iron_blackened",
+            "key": "iron_blackened",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "3B_workbench__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated"
+          },
+          {
+            "name": "3B_workbench__oak_work_surface",
+            "key": "oak_work_surface",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4B_terminal_desk",
+        "parts": [
+          {
+            "name": "4B_terminal_desk__oak_work_surface",
+            "key": "oak_work_surface",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface"
+          },
+          {
+            "name": "4B_terminal_desk__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5A_plantable",
+        "parts": [
+          {
+            "name": "5A_plantable__oak_work_surface",
+            "key": "oak_work_surface",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface"
+          },
+          {
+            "name": "5A_plantable__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          },
+          {
+            "name": "5A_plantable__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6A_deskwall",
+        "parts": [
+          {
+            "name": "6A_deskwall__iron_blackened",
+            "key": "iron_blackened",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "6A_deskwall__trim",
+            "key": "trim",
+            "tile": 1.2,
+            "catalog_key": "trim"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      }
+    ],
+    "local_materials": {}
+  },
+  "asset_sha256": "db0388a7e77d7ec35f78615ba9bb70d8921b7af2d9e3358c54dcdded76a23a64",
+  "source_bindings": {
+    "art/data/work_tables/source_plan.json": "ce02556542533e3ca0054d02f82842e70d366be6397141835c8258160b596a05",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_work_tables.py": "d99856727fe7adc9f09f9876feb157778c5ab26f7ae2f555880959aa5307bd22",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "game/data/runtime_material_sets.json": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73",
+    "game/scripts/generated/material_sets.gd": "51b0c6cf899b87bb34cd49191413be9f930b12d0a11db0b009616a0a1c8fee65",
+    "game/assets/props/work_tables.glb.import": "47addef4213d773cf757cdaa92f1fc60854a1b01b5c7f00921dbee31017cec14",
+    "art/textures/ai_materials/oak_work_surface/material.json": "e6f67c0a42f610648b57189f1f2d8ed7e567742ef8c4af32e104fd73acbe7f89",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/ai_materials/trim/material.json": "7f7ce266fc6d291f2c15ea67ce60be610579f45ba215460e77aa2e671b5feecf",
+    "art/textures/ai_materials/rubber_aged/material.json": "356c7af1c52350241145dbd506dc002162024b9a902f595b96be211b091555bd",
+    "art/textures/ai_materials/soot/material.json": "9815f25071c75361fb2b6bcd4c1dce3582c99494e34ec03051940c77eeeb4051",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_albedo.png": "94715b263c85285aced41196f29aea6675f866a61180ab90a1f9c719bef4edeb",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_rough.png": "ebf613454bbd3e6a6909cbe3d1aa4fe89b45fd8229516aafb31146761cf63ee5",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_normal.png": "8aa1987fad72d117f836ac0d18922e94b71a03a009206401f440768ac6ad91e1",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "game/assets/building/textures/T_library_architectural_painted_trim_albedo.png": "f4beb89801df323f60c42c30dfad97af0d5243fc8846296903b2b1ebee3e6be7",
+    "game/assets/building/textures/T_library_architectural_painted_trim_rough.png": "e7e87c348ac238fff6c31ba35f0b4ed7663e3a68ab9f83d1d781a5bd3f8cd9c4",
+    "game/assets/building/textures/T_library_architectural_painted_trim_normal.png": "416bbfb7fe054518f7e23a0701085bceae724bb318182aca2437c10e33022ee7",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png": "599ccf878c2fb74c6462a8e961addfe12fb5f90e9c85b68b0601edb0921ee547",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png": "23e9482180b08d41394fcbf259e5cc69c813da4e1f3c6a0b1b82755e39e2b1ca",
+    "game/assets/building/textures/T_ai_materials_soot_normal.png": "87975ab4abf0d0c6629b3c43078a83ddc9721afabf4a808bdfdfc3112aa33444",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_albedo.png.import": "bb1b7379e7aa9d1b0dcc37f4ae0ba8388c478f1fcb761a50ca961227b3b8f09e",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_rough.png.import": "6d0d9a8cd4c9e9ae41f2213a5f95c051efefae2aca0ae3b7382fa5c850bb4c98",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_normal.png.import": "ebeceb32bb00eede123fc046ecd30804b85d8e9894a6eb936f65d79f8e3c0101",
+    "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
+    "art/data/material_catalog.json": "562d8c15879f12404d443d227a2ccda373c68a6af810e63cc214ce23c79ee1e1",
+    "art/textures/catalog_mapping.json": "d4f3e411ac9b1f942bed184b34a4cf19f4418a4220044c86ed917513c2421686",
+    "art/tools/generate_runtime_materials.py": "4156d34f776a3cd57c2dcdc016f0f147a0741530ef20a16d0b610e28dd8198a6",
+    "art/blender/scripts/inspect_work_tables.py": "47ead8c3d0cf8925d7c19ec78e4890c7ff2e746839d2601e82916766635e8add",
+    "art/blender/scripts/work_tables_geometry.py": "393e3c6ab3d405e3a74d4094ac2d2565a39ca9569363227c8b5fac09e83d07e9",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "art/data/orison_v2/domestic_furniture_source.json": "8c0859cbdb214488e59e97ec6027f50972feb7fae1ec944dd5a45dbaf43265aa",
+    "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e",
+    "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
+    "art/blender/task_lamps.blend": "f3e13e1e592979b7fbf845b9fa8f8e8046545eb93d7b1f09bd4cbd64816bc722",
+    "art/blender/scripts/build_work_oak_material.py": "3117c53086f9f435e7756f062b031452c78c3a27c31681e1962e861087974457",
+    "art/textures/ai_sources/oak_work_surface_20261007.png": "94715b263c85285aced41196f29aea6675f866a61180ab90a1f9c719bef4edeb"
+  },
+  "retained_paper_stock": [
+    {
+      "name": "Plan0",
+      "source_args": [
+        "paper",
+        -0.2614114114114114,
+        -0.3295295295295295,
+        0.8,
+        0.26846846846846845,
+        0.01451451451451452,
+        0.803
+      ],
+      "bounds": [
+        [
+          -0.2614114114114114,
+          -0.3295295295295295,
+          0.8
+        ],
+        [
+          0.26846846846846845,
+          0.01451451451451452,
+          0.803
+        ]
+      ]
+    },
+    {
+      "name": "Plan1",
+      "source_args": [
+        "paper",
+        -0.2878878878878879,
+        -0.3421921921921922,
+        0.8035,
+        0.23508508508508508,
+        -0.002752752752752774,
+        0.8065
+      ],
+      "bounds": [
+        [
+          -0.2878878878878879,
+          -0.3421921921921922,
+          0.803
+        ],
+        [
+          0.23508508508508508,
+          -0.002752752752752774,
+          0.806
+        ]
+      ]
+    },
+    {
+      "name": "Plan2",
+      "source_args": [
+        "paper",
+        -0.3143643643643644,
+        -0.3548548548548549,
+        0.807,
+        0.2017017017017017,
+        -0.02002002002002007,
+        0.81
+      ],
+      "bounds": [
+        [
+          -0.3143643643643644,
+          -0.3548548548548549,
+          0.806
+        ],
+        [
+          0.2017017017017017,
+          -0.02002002002002007,
+          0.809
+        ]
+      ]
+    },
+    {
+      "name": "Plan3",
+      "source_args": [
+        "paper",
+        -0.3408408408408408,
+        -0.36751751751751754,
+        0.8105,
+        0.1683183183183184,
+        -0.03728728728728731,
+        0.8135
+      ],
+      "bounds": [
+        [
+          -0.3408408408408408,
+          -0.36751751751751754,
+          0.809
+        ],
+        [
+          0.1683183183183184,
+          -0.03728728728728731,
+          0.812
+        ]
+      ]
+    },
+    {
+      "name": "Plan4",
+      "source_args": [
+        "paper",
+        -0.3673173173173173,
+        -0.3801801801801802,
+        0.8140000000000001,
+        0.1349349349349349,
+        -0.054554554554554546,
+        0.8170000000000001
+      ],
+      "bounds": [
+        [
+          -0.3673173173173173,
+          -0.3801801801801802,
+          0.812
+        ],
+        [
+          0.1349349349349349,
+          -0.054554554554554546,
+          0.8150000000000001
+        ]
+      ]
+    },
+    {
+      "name": "Plan5",
+      "source_args": [
+        "paper",
+        -0.39379379379379376,
+        -0.3928428428428429,
+        0.8175,
+        0.1015515515515516,
+        -0.07182182182182184,
+        0.8205
+      ],
+      "bounds": [
+        [
+          -0.39379379379379376,
+          -0.3928428428428429,
+          0.8150000000000001
+        ],
+        [
+          0.1015515515515516,
+          -0.07182182182182184,
+          0.8180000000000001
+        ]
+      ]
+    },
+    {
+      "name": "Roll6",
+      "source_args": [
+        "paper",
+        [
+          0.75,
+          -0.45,
+          0.8
+        ],
+        [
+          0.75,
+          -0.45,
+          0.83
+        ],
+        0.04,
+        8
+      ],
+      "hollow_wall_m": 0.003
+    },
+    {
+      "name": "Roll7",
+      "source_args": [
+        "paper",
+        [
+          0.82,
+          -0.38,
+          0.8
+        ],
+        [
+          0.82,
+          -0.38,
+          0.86
+        ],
+        0.035,
+        8
+      ],
+      "hollow_wall_m": 0.003
+    }
+  ],
+  "placement": {
+    "floor_y": 0,
+    "frame": "Each export assembly uses its existing furniture actor local frame."
+  },
+  "open_work": [
+    "External lamp cords, desktop accessories, the functional Vantry body, lamp normal faceting and remaining household fittings require their passes.",
+    "Final room material/light balance and the seven-texture shutdown warning remain open."
+  ]
+}

@@ -57,6 +57,7 @@ const SETS := {
 	'beacon_lacquer': ["T_ai_materials_beacon_lacquer_albedo.png", "T_ai_materials_beacon_lacquer_rough.png", "T_ai_materials_beacon_lacquer_normal.png", 0.5, 0],
 	'car_paint': ["T_ai_materials_car_paint_albedo.png", "T_ai_materials_car_paint_rough.png", "T_ai_materials_car_paint_normal.png", 1, 0],
 	'oak_quartered': ["T_ai_materials_oak_quartered_albedo.png", "T_ai_materials_oak_quartered_rough.png", "T_ai_materials_oak_quartered_normal.png", 0.9, 0],
+	'oak_work_surface': ["T_ai_materials_oak_work_surface_albedo.png", "T_ai_materials_oak_work_surface_rough.png", "T_ai_materials_oak_work_surface_normal.png", 0.9, 0],
 	'milk_glass': ["T_ai_materials_milk_glass_albedo.png", "T_ai_materials_milk_glass_rough.png", "T_ai_materials_milk_glass_normal.png", 0.5, 0],
 	'bakelite_black': ["T_ai_materials_bakelite_black_albedo.png", "T_ai_materials_bakelite_black_rough.png", "T_ai_materials_bakelite_black_normal.png", 0.3, 0],
 	'terrazzo_dark': ["T_ai_materials_terrazzo_dark_albedo.png", "T_ai_materials_terrazzo_dark_rough.png", "T_ai_materials_terrazzo_dark_normal.png", 1.2, 0],

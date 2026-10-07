@@ -57,7 +57,7 @@ RUNTIME_POLICY = {
     "shower_duck": {"roughness_multiplier": 0.62,
                     "runtime_alias": "linen"},
     "paper": {}, "trim": {}, "plant": {}, "terracotta": {}, "soil": {}, "brass_bright": {},
-    "bronze": {}, "bronze_sheet": {}, "galvanized_roof": {}, "beacon_lacquer": {}, "car_paint": {}, "oak_quartered": {},
+    "bronze": {}, "bronze_sheet": {}, "galvanized_roof": {}, "beacon_lacquer": {}, "car_paint": {}, "oak_quartered": {}, "oak_work_surface": {},
     "milk_glass": {}, "bakelite_black": {}, "terrazzo_dark": {},
     "brass_mesh": {}, "indicator_enamel": {},
     "iron_blackened": {}, "billiard_resin": {}, "smoked_plaster": {},

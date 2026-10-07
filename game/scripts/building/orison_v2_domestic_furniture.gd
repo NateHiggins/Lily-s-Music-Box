@@ -6,6 +6,7 @@ const WaterCloset := preload("res://scripts/building/orison_v2_water_closet.gd")
 const Wardrobe := preload("res://scripts/building/orison_v2_wardrobe.gd")
 const PrepCabinet := preload("res://scripts/building/orison_v2_prep_cabinet.gd")
 const SpecialistRadio := preload("res://scripts/building/orison_v2_specialist_radio.gd")
+const WorkTables := preload("res://scripts/building/orison_v2_work_tables.gd")
 const MATERIAL_ALIASES := {"floor_oak": "oak_quartered", "fabric_cool": "linen", "fabric_green": "linen"}
 const GARMENT_TINTS := {"fabric_cool": Color(0.36, 0.42, 0.51), "fabric_green": Color(0.38, 0.46, 0.36)}
 var errors: Array[String] = []
@@ -18,6 +19,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 	if not validate(source, adapter):
 		return false
 	for record: Dictionary in source.furniture:
+		var native_table: bool = str(record.id) in WorkTables.IDS
 		var body: StaticBody3D
 		if record.kind == "toilet":
 			body = WaterCloset.new()
@@ -32,7 +34,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 		else:
 			body = PrepCabinet.new() if record.kind == "prep_cabinet" else StaticBody3D.new()
 			if record.kind == "prep_cabinet": body.call("setup", str(record.mechanism.unit))
-			if record.kind != "bed" and not record.get("collision_from_surfaces", false):
+			if not native_table and record.kind != "bed" and not record.get("collision_from_surfaces", false):
 				for box: Array in record.get("collision_boxes", [record.bounds]):
 					var collision := CollisionShape3D.new()
 					var shape := BoxShape3D.new()
@@ -43,9 +45,14 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 					collision.position = (high + low) * 0.5
 					body.add_child(collision)
 		body.set_meta("v2_furniture_id", str(record.id))
-		if record.kind == "bed": _add_bed(body,record)
+		if native_table:
+			if not WorkTables.mount_on(body, str(record.id)):
+				body.free()
+				errors.append("native work table mount refused: " + str(record.id))
+				return false
+		elif record.kind == "bed": _add_bed(body,record)
 		elif record.kind != "toilet": _add_surfaces(body, record.surfaces)
-		if record.get("collision_from_surfaces", false):
+		if not native_table and record.get("collision_from_surfaces", false):
 			# Separate tabletop/paper/leg triangles preserve the actual bearings;
 			# one enclosing box would fill the space above a desk up to its stock.
 			for child: Node in body.get_children():

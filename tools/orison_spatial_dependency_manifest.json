@@ -229399,6 +229399,443 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "440f75d299806ed8",
+   "kind": "id_reference",
+   "token": "2A_desk",
+   "file": "game/data/orison_v2/work_tables.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/assemblies[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "35c2aad8e76ebe61",
+   "kind": "id_reference",
+   "token": "3B_workbench",
+   "file": "game/data/orison_v2/work_tables.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/assemblies[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3f7c603345260f8d",
+   "kind": "id_reference",
+   "token": "4B_terminal_desk",
+   "file": "game/data/orison_v2/work_tables.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/assemblies[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d8f40885bc7405ca",
+   "kind": "id_reference",
+   "token": "5A_plantable",
+   "file": "game/data/orison_v2/work_tables.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/assemblies[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e8b6279823b793d7",
+   "kind": "id_reference",
+   "token": "6A_deskwall",
+   "file": "game/data/orison_v2/work_tables.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/assemblies[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "34f6c9d7cd0fb4d0",
+   "kind": "id_reference",
+   "token": "2A_desk",
+   "file": "game/scripts/building/orison_v2_work_tables.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const IDS := [\"2A_desk\", \"3B_workbench\", \"4B_terminal_desk\", \"5A_plantable\", \"6A_deskwall\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3366a8907fe4b005",
+   "kind": "id_reference",
+   "token": "3B_workbench",
+   "file": "game/scripts/building/orison_v2_work_tables.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const IDS := [\"2A_desk\", \"3B_workbench\", \"4B_terminal_desk\", \"5A_plantable\", \"6A_deskwall\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bf0d0cc221b46db8",
+   "kind": "id_reference",
+   "token": "4B_terminal_desk",
+   "file": "game/scripts/building/orison_v2_work_tables.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const IDS := [\"2A_desk\", \"3B_workbench\", \"4B_terminal_desk\", \"5A_plantable\", \"6A_deskwall\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c3d561219f995862",
+   "kind": "id_reference",
+   "token": "5A_plantable",
+   "file": "game/scripts/building/orison_v2_work_tables.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const IDS := [\"2A_desk\", \"3B_workbench\", \"4B_terminal_desk\", \"5A_plantable\", \"6A_deskwall\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1bbe5a79c07b4672",
+   "kind": "id_reference",
+   "token": "6A_deskwall",
+   "file": "game/scripts/building/orison_v2_work_tables.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "const IDS := [\"2A_desk\", \"3B_workbench\", \"4B_terminal_desk\", \"5A_plantable\", \"6A_deskwall\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F06/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "dcdc1a5cf1eadbb3",
+   "kind": "id_reference",
+   "token": "2A_desk",
+   "file": "game/tests/orison_v2_work_tables_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    53
+   ],
+   "count": 1,
+   "context": [
+    "var stations := {\"2A_desk\":Vector3(-12.3,3.22,6.75),\"3B_workbench\":Vector3(13.65,6.42,-1.35),\"4B_terminal_desk\":Vector3(-9.9,9.62,.7),\"5A_plantable\":Vector3(-11"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "68dca114dc2a5ea5",
+   "kind": "id_reference",
+   "token": "3B_workbench",
+   "file": "game/tests/orison_v2_work_tables_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    53
+   ],
+   "count": 1,
+   "context": [
+    "var stations := {\"2A_desk\":Vector3(-12.3,3.22,6.75),\"3B_workbench\":Vector3(13.65,6.42,-1.35),\"4B_terminal_desk\":Vector3(-9.9,9.62,.7),\"5A_plantable\":Vector3(-11"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bdefba031c34e2f6",
+   "kind": "id_reference",
+   "token": "4B_terminal_desk",
+   "file": "game/tests/orison_v2_work_tables_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    53
+   ],
+   "count": 1,
+   "context": [
+    "var stations := {\"2A_desk\":Vector3(-12.3,3.22,6.75),\"3B_workbench\":Vector3(13.65,6.42,-1.35),\"4B_terminal_desk\":Vector3(-9.9,9.62,.7),\"5A_plantable\":Vector3(-11"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f3b128de41d8f78c",
+   "kind": "id_reference",
+   "token": "5A_plantable",
+   "file": "game/tests/orison_v2_work_tables_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    53
+   ],
+   "count": 1,
+   "context": [
+    "var stations := {\"2A_desk\":Vector3(-12.3,3.22,6.75),\"3B_workbench\":Vector3(13.65,6.42,-1.35),\"4B_terminal_desk\":Vector3(-9.9,9.62,.7),\"5A_plantable\":Vector3(-11"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "17cda454f8149b1f",
+   "kind": "vector3_coordinate",
+   "token": "validate_in_world",
+   "file": "game/tests/orison_v2_work_tables_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    53,
+    53,
+    53
+   ],
+   "count": 3,
+   "context": [
+    "var stations := {\"2A_desk\":Vector3(-12.3,3.22,6.75),\"3B_workbench\":Vector3(13.65,6.42,-1.35),\"4B_terminal_desk\":Vector3(-9.9,9.62,.7),\"5A_plantable\":Vector3(-11"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

@@ -1,0 +1,1522 @@
+{
+  "evidence_class": "INERT",
+  "base": "80944b2844375606f64fcdf3d764c1c374165d7a",
+  "new_key": "oak_work_surface",
+  "applied": true,
+  "existing_runtime_texture_files_unchanged": 185,
+  "shared_sources": {
+    "art/data/material_catalog.json": {
+      "before": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+      "after": "562d8c15879f12404d443d227a2ccda373c68a6af810e63cc214ce23c79ee1e1"
+    },
+    "art/textures/catalog_mapping.json": {
+      "before": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+      "after": "d4f3e411ac9b1f942bed184b34a4cf19f4418a4220044c86ed917513c2421686"
+    },
+    "art/data/runtime_material_sets.json": {
+      "before": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+      "after": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73"
+    },
+    "game/data/runtime_material_sets.json": {
+      "before": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+      "after": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73"
+    },
+    "game/scripts/generated/material_sets.gd": {
+      "before": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+      "after": "51b0c6cf899b87bb34cd49191413be9f930b12d0a11db0b009616a0a1c8fee65"
+    },
+    "art/tools/generate_runtime_materials.py": {
+      "before": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+      "after": "4156d34f776a3cd57c2dcdc016f0f147a0741530ef20a16d0b610e28dd8198a6"
+    }
+  },
+  "updates": [
+    {
+      "path": "game/tests/fixtures/orison_bar_ceiling_finish.json",
+      "before_sha256": "d2dcd72e9beec7bb6f9108726528b761e2f7f069ba8041ae490c0de9653202b3",
+      "after_sha256": "e019840b7c3f916f6ac35652db8933c6b3fd22eaf3ace61d12c038b58d520648",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "cdfddab2b0da3a6026db8e1021a69da354eeb9e900d97169306af9ff9e9d1167"
+    },
+    {
+      "path": "game/tests/fixtures/orison_bar_fixture_mounts.json",
+      "before_sha256": "65a48e00e535880bcab02308ab50abd1c76498f7f3af85ffc4004872ca19f4d6",
+      "after_sha256": "a060863ced49708ae82136502099f06e75dd0012b7b453d2be752653dbfbd559",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "fb2423cd1194a9fa75c4dc37e9dc228269a10eecc8cf4a75414da599b41b7820"
+    },
+    {
+      "path": "game/tests/fixtures/orison_bar_gallery.json",
+      "before_sha256": "18a7385179d9d3358a4aa8e6c3fa55773ed1e0b25939ff39e3b4ae6f4291b1f7",
+      "after_sha256": "9b168e57eadf30002c6d4b84bee7ec5de1a7d14558f325c5d845211177060c46",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "c42c710069a9e746bb0b3018d32e5cc03347d1b7966766f1819b564b655b5532"
+    },
+    {
+      "path": "game/tests/fixtures/orison_bar_pipe_supports.json",
+      "before_sha256": "1f278b7ca6e60044d5cf44e50abbad8f4f8d42d0521489047a2a6a180a05baaa",
+      "after_sha256": "2dba4eae0626938f1c07e6bee94496990119f29599f84e0356ad624cd8c3c215",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "26a2b9f8b2d82e05a47acd9573cb0969bc01f23786c99c663c37cf9b9279d7d3"
+    },
+    {
+      "path": "game/tests/fixtures/orison_bar_pool.json",
+      "before_sha256": "cc8740259f57cf3c5ca555e584c091c8d0c59dafed80faeffc1a32b7033785bb",
+      "after_sha256": "72b0a7bddfadd30e080e34f997d2fb434e24219210d150071df8f77ac42d8aa8",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "d83d46cbd7175149157ef7214af95cf24d1c526b7adb10bd3e3dae4f3bda785f"
+    },
+    {
+      "path": "game/tests/fixtures/orison_bar_stage.json",
+      "before_sha256": "2e6dbbbe39553318c72d51897cc6809ae764f9d3f8ff9062233b7ad307d0aed0",
+      "after_sha256": "4218da4f081c5eaedad1fb44e906ac42e54fbad2987aaf101ffc4140bc6eccce",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "ebfb759e5491eb4203488be4fb2eaa00c145338d01c0ac33a1c650580b25c51a"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_aerials.json",
+      "before_sha256": "bd781f727f457e9fae76dba5c494041bf2233f278e2bfe27f34eda85aa389ba8",
+      "after_sha256": "551d20a530da53f9fd54dab2ded7b663b332a1c0f1918c1abbee1901801f2a67",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "092ae72b844bd96c75f6d1b4b214879dbd274840b3f3245f17577fd4fb67c3f0"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_beacons.json",
+      "before_sha256": "97eba0c73fbe7a32f1cae6de4bb93737e51af289f5fc5390eed30460af920ea4",
+      "after_sha256": "3c543910a8ba34d016a8279b2073a29d9247e6d4d42f51e77195beb22deb031c",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "64faf094b5cd30c11f817aff3e0b9baf2ec3de31b14e9704ff1e609ab92738fe"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_closure.json",
+      "before_sha256": "6760b27d6edef68727e3c7c32e569ee13be461db5d575883b61ac8e6b3568353",
+      "after_sha256": "8701516032ae288660e1670d669acd0d8570ae454887f06ce29047dd37626554",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_masts.json",
+      "before_sha256": "0c91be276cc784a948864da5dd5dcf01d1ab38db412693ed22961c30a98535b6",
+      "after_sha256": "60e8aa315ba20709903c0806b30af6a7d02f5b9ec5000aa6709c7a6ac96ae20d",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "37ab64c754f28adc3e5a307d82c3b0cf6155d1b3ae4ca88887dadc8f749a126b"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_tanks.json",
+      "before_sha256": "88d4311a107ad2187a51d0a6f6ff3623c656f2b51e2f5693a3633ee609d5380a",
+      "after_sha256": "cf7ab34258461bc709196d5bf098d4f583b1706dd84c02a0d6bdaf9bc25bb0c5",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "d0ab1ddbd28af3af4bcf22034c60d37b17b6993ba7b37410c0c1791efc2f0f36"
+    },
+    {
+      "path": "game/tests/fixtures/orison_cobbler_fittings.json",
+      "before_sha256": "a0d3f886a80b61e577ef080fb7c02dda80997f3bcc4870bf42030def78c3585a",
+      "after_sha256": "46e9b9816aa077737ce863c7b4c672a93243327eb1d1c120193765c9a50935ac",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "3e65a3f089a84d459144f2f849d5b074651faffd68750b4e6d03e3c3bd5c72ef"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_apparatus.json",
+      "before_sha256": "a709848b32e4173d44383ab3baa7e24da7b8d23ea1732935f096f3275df06b90",
+      "after_sha256": "1a8fcb7c2cef517212f77d81f7d2f95d37767963575b3c516ea5757b9c0ded71",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "82e070e2d1c907e802e18291e24041899888c98cd3754b8c65443ed6b774e565"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_backbar.json",
+      "before_sha256": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090",
+      "after_sha256": "bba80445fe0c656fa88638fd4fc0cc2d62db42db7b30a65473c6c5149a9d1b5f",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "170bf505d116403c91243c40f369eebc4396ab73a9e83ea6527de5472704f75b"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_counter.json",
+      "before_sha256": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9",
+      "after_sha256": "c377be8234071e27aec14915ffb6335314ee961932cccce296cf322f01cdf0b0",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_overhead.json",
+      "before_sha256": "7a35b5ad5c1e49d91cecd62582c797ac596a49348384d12e16fdeeacebd3aa62",
+      "after_sha256": "c2aa856e70613d1f8c6b3ae1b6005cd26ad8dac764ec8f593a6a3e8330e92cdd",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "5212183cf1f149f27e3137e42dd9df0514e52a206c15cb4114fa491ab97dd065"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_receiving.json",
+      "before_sha256": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772",
+      "after_sha256": "6e729e16aebe4eb376ab195d9560a52156eb52131660499e1bfc58deb9f64fa2",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "893976dd77612880fefb9f1e381574614165eb188372aa31b628c7592d8caa0f"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_till.json",
+      "before_sha256": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49",
+      "after_sha256": "6274d73c7a5c1fee936d2190f89a77aaeacc7b96fef606c8a01daf90cbded5df",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "9bfefeab432ae364893259506745fdd87593c1fb3c41923d5178091c141fcc54"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_urns.json",
+      "before_sha256": "4f65c3532fde3fa044054c062b6fe691c3df3f72e9e02f918397eb459989dee7",
+      "after_sha256": "ca343224faddcaed3471e1612113f4eafbd9ee149b88fc662747eae1d38be696",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "3e54f0f32cf066db65552948edab879d5eff51adbc054f8b85c56fd73d356f20"
+    },
+    {
+      "path": "game/tests/fixtures/orison_druggist_carboys.json",
+      "before_sha256": "fe3fcaed9e00f52b4e4a58c44bb1b369ce56403465db700c20511551e82e33e6",
+      "after_sha256": "6f674b0f97a510b19a08d129d49c6f94cb2094344b4e670c6fb6d5cbed28111a",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "f3d19a4930d258df28ec589cf133d776c3194b687369200ccb9727d46e5537a2"
+    },
+    {
+      "path": "game/tests/fixtures/orison_druggist_counter.json",
+      "before_sha256": "0b81e71e305f28ca8fe05cca06811b800bcd570e7d35edbdb9e546ba4f36f15a",
+      "after_sha256": "d05521e0f0d923d9b817bfa6fce09d8a4ec5ecb38d0047ca68fe8e62d8cbc485",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "1750d4a42c920fb0a4dba7b98a49d19bdfadd72c95eddd27497a557c8937dea1"
+    },
+    {
+      "path": "game/tests/fixtures/orison_druggist_cupboard.json",
+      "before_sha256": "4d96856d922a7725b62db6b363b70710ac5ea65154f97e908bfb41fe035d6364",
+      "after_sha256": "8a13438f80a99b07d0049572b03be3e87d376adce09fd05b6799d10cc6c92c7f",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "bae0c56b94e772c06580325e17cf49ff927262554120324168cc56a7c71950f7"
+    },
+    {
+      "path": "game/tests/fixtures/orison_druggist_dispensary.json",
+      "before_sha256": "5d6a5c975d00ae2b467881ca6c1ff4a0bbd72b860d6aaba7e97238c081dcbbf6",
+      "after_sha256": "f260082332dc8d743e83b050b565bd595f2d2901c88f2d06b766584b663ca086",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "4ddd7a7c68db66a4704ca5a163b25324630f72df9b12110b2e98768488ec2546"
+    },
+    {
+      "path": "game/tests/fixtures/orison_druggist_drawers.json",
+      "before_sha256": "bd8f2752b93e384b713363a68759bc983bff20986a3a73d69937603342e3efd8",
+      "after_sha256": "26f430dd952b50efda3bb776503d2f6f723a1f28231fb1664b92de4aa8c77312",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "04f8c468edcd478d709ed8390034499e7dd07c500787ad469e047b414d9c5dd9"
+    },
+    {
+      "path": "game/tests/fixtures/orison_druggist_fountain.json",
+      "before_sha256": "466f80868c435a7ef1bc42197e2007b13bd0e2d6abfe122bd08847b7a3b6f886",
+      "after_sha256": "3a65f0de4281a9439c826f7a04d5e9a2aa192b2ca04ee158e5008dc978459728",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "1645197ffd0eb41ed11595e489394595f6fbe04c0c16bbe0a09b08733eb1a7a8"
+    },
+    {
+      "path": "game/tests/fixtures/orison_druggist_mortar.json",
+      "before_sha256": "b79c77b41b48bcc90016f76790a06e5a2963ee743f6d15e190cc08592c6a1bea",
+      "after_sha256": "190deee4e232884886114da287d1cdc4c7a6a237ef60ad23cf1068bbd17f08f4",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "0c69f1f4d3514453dec6720ea2880676eff9a8db309f1d09134ca50b4204baae"
+    },
+    {
+      "path": "game/tests/fixtures/orison_funeral_drapes.json",
+      "before_sha256": "473dc478bdef9bfa0f19c1bfe7279f1dfd7e8695cfca9eddd445b4a0de2b5b4c",
+      "after_sha256": "72657ece1cc57037deba874d178f0e2f2c45ff57fe802f16593428e14ea55261",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "d0c328fa87393c3c9bec5cd084d6ad8e77a40e4bd2a220534cb82ec73826a54b"
+    },
+    {
+      "path": "game/tests/fixtures/orison_funeral_fittings.json",
+      "before_sha256": "5540c710f73ede335f3e4b8b41635fe9306d78cb36f6e3fd390b99d22040e78e",
+      "after_sha256": "57632473537e314b91ccab064f45ff6f464b9b2a20e441d69d3b91d5ef8660ce",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "1ff08377281c02f8ddd6f7f91376a3ae3560b01cd2dbbbc1697808dd57cad236"
+    },
+    {
+      "path": "game/tests/fixtures/orison_funeral_foliage.json",
+      "before_sha256": "b88830edc2c381f99996d47b6d922ffc0822a76739dd7a1632dbfb4f21c021f4",
+      "after_sha256": "59e1ae45bfd0102132ed5f86b574872d4bc19d13e11783e029257835467c4d14",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "eafe453b54c0a54bb8ad6af4baf669b01e6ad2107826da03259dc8e39c672b36"
+    },
+    {
+      "path": "game/tests/fixtures/orison_hardware_apparatus.json",
+      "before_sha256": "58f07011db80530511004bb9ae223358813eeac1ae80a4743db53579c323de10",
+      "after_sha256": "6878719c7a3746c222b95500b50f5d1d6a548e140c2d25c97a55c829bbc5aada",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "7d31f486a6c456e944a49bfbcdb72c43f735cc0638a524f0aa27c7166e112f5b"
+    },
+    {
+      "path": "game/tests/fixtures/orison_hardware_drawers.json",
+      "before_sha256": "b88d4d434224cb3ea07bca5e573e121c3c89b0821efd428d268f82b12cab1647",
+      "after_sha256": "b469ceef9690554710e1ec21176a79ce317ccb5c8fba9cf1095e211233e244d1",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "e1c032477c4e06a01363454f4ca7f671b81cfaac5ef0f2b3b504231619ab4e1f"
+    },
+    {
+      "path": "game/tests/fixtures/orison_hardware_stock.json",
+      "before_sha256": "94f55a309cbf7cbaa8d6dbed084c8e977a346d8426f0830e8db8d625a55d6d32",
+      "after_sha256": "06b9ca12de0cc610d2a462beb718b960e608a68862f56d18a7f969cdf4fd266c",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "6a21275d7f7417fea1c27277ac3d12522876206db23ff78042d52a9a161fade1"
+    },
+    {
+      "path": "game/tests/fixtures/orison_hardware_tools.json",
+      "before_sha256": "1af72789bbab5b8f4def51e9058f3171fca65b4d07c75d0aca34caf53bfbd833",
+      "after_sha256": "db7088ce8b990a6cb4700354a7eb6d87cca2c9e0eb4c61763d4a06a1d4ff1b54",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "f397f9566c79473e6a5be9cf7daab354291adc96da00417f1a00669076aa2411"
+    },
+    {
+      "path": "game/tests/fixtures/orison_laundry_apparatus.json",
+      "before_sha256": "f3280a5a4ad2d4dde8188391afed572d69ff4e1523cb39525699011962e009cf",
+      "after_sha256": "abaa4f5887bf8749b6f11470104c782b96f3bbfff34fad3c256d9f8bcc544c05",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "440ae013219b936d5915d6eb01f728eee963d14a12bc8c8758f682d1fc2d7a8b"
+    },
+    {
+      "path": "game/tests/fixtures/orison_laundry_fittings.json",
+      "before_sha256": "d3677e5ddeff45d0f902f0f88f398c69f24b4330972036ce740cb2330d46d0b0",
+      "after_sha256": "76e66d6bde8d7c461df7973a316f11f28a00ade37163d0e033dae95490afcdfe",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "e77b3104cca11b7bbaa435a67a6111763015b637ff1d05276a3b5c815842a2bc"
+    },
+    {
+      "path": "game/tests/fixtures/orison_laundry_receiving.json",
+      "before_sha256": "fedf303941cb93eff8c65cdc5a0b53eb9845435dc1aded76439277932813aeee",
+      "after_sha256": "279f8f5aad97098cd08d2e34581c4abfc414effd56138109e466c22d6b4583fb",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "ecd104db9019c3964522828d57d538b611801bfbcf5d12d6b9a48ef841f81f35"
+    },
+    {
+      "path": "game/tests/fixtures/orison_laundry_trade.json",
+      "before_sha256": "e850b5958c8c985ef2d0d4be84701f75887ce770743feecb2cd6391027a52c54",
+      "after_sha256": "646f89423d08d8369c239c1dd4c84cf21b9202333b7d7fc600133a45e009aad5",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "3da89cb8af25d34a958c134527f852854099d3fc4a46a7ca30bd21744bc2ff9a"
+    },
+    {
+      "path": "game/tests/fixtures/orison_locksmith_fittings.json",
+      "before_sha256": "5066e9de18bcef9a3984919d837bedf446d64d955a7c97efe6f69c3ee7f60559",
+      "after_sha256": "a5c9b86b2d740e2de89dea3b0ad3c975efcbca36249b7b40b5b42672a79ee511",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "ac37de64795969094124a36a5a86cb364faf6660e998c097bb09972c9a3d1d1f"
+    },
+    {
+      "path": "game/tests/fixtures/orison_news_fittings.json",
+      "before_sha256": "70d70cf87b7e1c0ba8ccdc13cb647cf3896ccde2457f330742df4a63ae5b7cab",
+      "after_sha256": "696fd63ab9e4ccde53bc5253326bb896b8670a8fbd25e7bd0e2a01154cf3e9b1",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "8c8b63d14ab7f6e3f8b284f171971edf7e7e8c7fd1842f5ae77b03f05a84ab0f"
+    },
+    {
+      "path": "game/tests/fixtures/orison_news_receiving.json",
+      "before_sha256": "87067069edf25775cc3aa8b6873ac2470346be92ab36b90e561a131db8070224",
+      "after_sha256": "d82a4bfaf64c1160e9652d83b94cd61cf835fa0e6cebacd7af8e9caae08ab7b4",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "9a36a750e5754e6a40cddf80581a2480281dd3558a881f22b75d77901c582c2c"
+    },
+    {
+      "path": "game/tests/fixtures/orison_pawn_clocks.json",
+      "before_sha256": "4de79c8e83208dfba29b0e91cd2d763255406efc362989eeaf4dcb33ecb01c86",
+      "after_sha256": "d7b041c52b12c28fc4dc4284a7efcc03db51b40efdeae55894dcf7736589c002",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "fad1381b3a1b0d6d3f7208516d266cd490828ba7c1182dd14f9e0fd10eb55ee7"
+    },
+    {
+      "path": "game/tests/fixtures/orison_pawn_display.json",
+      "before_sha256": "75c124e805c39c01aec8d687d60f33d01aa715e4a05b2d1ac9f2a05913d120ef",
+      "after_sha256": "ba82ccb49b6c6b22f805dd72b6697de7608796a39a9bd647e16a0022f1f0f1a0",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "981aea401fbf4a645e78cf2c1a0dd8b79e9b9532572ce32adc4b41997c6c8657"
+    },
+    {
+      "path": "game/tests/fixtures/orison_pawn_fittings.json",
+      "before_sha256": "656f60c2414c8d620f4b4ee87a776a02d0f8579e9147880fe2388eab0f207b54",
+      "after_sha256": "bc6364f06d7fbf3c227f3f4abc41d5c5dc61c4e0d3663c7374c86fdae20579b4",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "3abfb3b0a220215028cf48de5e1508e748c14e467ba3a53b1d6e3aa56e86e190"
+    },
+    {
+      "path": "game/tests/fixtures/orison_pawn_receiving.json",
+      "before_sha256": "d87ef81f426ab3937f35517efa29d4c4f0490721646378f2bec4c53cfb40e207",
+      "after_sha256": "6c15f418409eaa0d675b700197615540eda836277bcb81ce600ac453976e5f6d",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "9f963737dbad1bc150a1f28447262d06d1a0d13fca0b5d4745ba5c2eb5f1ad25"
+    },
+    {
+      "path": "game/tests/fixtures/orison_photo_cameras.json",
+      "before_sha256": "f5f3a5a94c7f4cafa7878d9a9435adc1e44c305c9b30c410e620e9a508035ebf",
+      "after_sha256": "f8b9d4a73bb2b2866ac8a38c2228c0a50581f0dbf9946361c38d81f7e7ba1ace",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "f2fdbfce2370967d0cc4772b757ea31dfc7ef888e1149097d90992c5cda158de"
+    },
+    {
+      "path": "game/tests/fixtures/orison_photo_counter.json",
+      "before_sha256": "517863a03cd211637e3f6ac177087fd29b17f3b26b6e66e0443f6e56c693972b",
+      "after_sha256": "3fd36e45f09bb7871eb6d12c1e58cfbf0b454f55e3ef61c20640ccd2f85c795a",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "208a4194d79b044ee3fb47f4e4ad250613f2bd648b437dd384bb1289813fc802"
+    },
+    {
+      "path": "game/tests/fixtures/orison_photo_enlargers.json",
+      "before_sha256": "626fc562e378ccff57cce3b0fb1dcd7de1137260ea37fe718cfad8c3aab1ce60",
+      "after_sha256": "82b3f9bd271f2644be1373f5be0d42bd26c832b17e6174f7207fab340c72ee93",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "969f352a40d134e278c789c1cd4c607b730a339630315def7272f5d5843cd741"
+    },
+    {
+      "path": "game/tests/fixtures/orison_photo_glazing.json",
+      "before_sha256": "7b2485d12307461b645273e0e760b31e2a886fd43b0ad2581215a2969415f2b9",
+      "after_sha256": "c3452ae76ca069eade4326960d88428da0423843946cb37612c4408d9d36f3a0",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "d4637a76f86a5010a8cb2ce2b60abb1d72c53b6a47ef8d1426fed4eaf6382c60"
+    },
+    {
+      "path": "game/tests/fixtures/orison_photo_portraits.json",
+      "before_sha256": "1c6d7ab2cfcd0d03d5335a9e95572211e494739241445579919b5de3ddee812b",
+      "after_sha256": "9c1b7caf6d086495ec88afcf98c71df84688c1658911bf16e00805abfae6b215",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "0b6aca61e68d665ba1b201b272d587d789db71be22b20f565ac02c6218f14053"
+    },
+    {
+      "path": "game/tests/fixtures/orison_photo_process.json",
+      "before_sha256": "5cbc003d3fb8f6ea77a9d96eb352d25baef032a12f5937723c77d4df36becda5",
+      "after_sha256": "5b95567c44053e0e14f5bfd152cc8e0eebd570d9ed999b488a8ab263652b7200",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "8e8c31e48c8d3a7362e1567e06e562f5721ce6046b18e57c20cfc60ca8e1c032"
+    },
+    {
+      "path": "game/tests/fixtures/orison_photo_radio_fittings.json",
+      "before_sha256": "462763c8c279e888ee37dfb53a1ab9f4a88471994b02497ec0a0354f580591a5",
+      "after_sha256": "d377aa8ea6426095d987e6d54774d4e155bc338f187f21eee8530c9ea6a93878",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "ddc6615cb1c9de85f0cd889f4c6f257c1e8d8b8bca9ef6e9d84a775d6633d4e6"
+    },
+    {
+      "path": "game/tests/fixtures/orison_photo_receiving.json",
+      "before_sha256": "8d0850c174ce6448a9a7b23ebe3ddc7eb14f4e831b89e44b3d60b1a819af3c8f",
+      "after_sha256": "2d40800fa4907eb07bd039e4ac7687bc51aad85190db48c06ca33f210c264c64",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "9c8411b41d3ac3e5c69b0e71ba19667d3e3306bde7b90ba8cc4d93c149a02622"
+    },
+    {
+      "path": "game/tests/fixtures/orison_photo_stock.json",
+      "before_sha256": "116cafb9a1579ec2b7ae0a9a93ced0f3087d82254369a143ffbe6ff5ea48a838",
+      "after_sha256": "51dcb90e7a66499c7e50a6f34c3ce4f1edef6d7de75ffa37fd8c2f2d6acbaf69",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "cf5bb93649d39119d52f861472607b05a19235870a11dce62e2f8810510d84d6"
+    },
+    {
+      "path": "game/tests/fixtures/orison_radio_apparatus.json",
+      "before_sha256": "37b78c9b83ae3e6ecedcdc4cc8d68f236bf87048057c412796aee2fecd1794be",
+      "after_sha256": "0045ee38e6792de95e0162d59750f9e2ba267eb9d46babdad5622e003e9e4b40",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "2b54a33db7ace8706584cff3ea2b1ddbb8758781e7e3113f31d64024552e541d"
+    },
+    {
+      "path": "game/tests/fixtures/orison_radio_battery.json",
+      "before_sha256": "3dab9b6f4a79e344706d2c7bff5c4809852b526e2093786f48506e72dd3b8857",
+      "after_sha256": "77ae116f1270f595cc1b1ca36d99bf9db9eb13e8f78cfa24a6703ac77549e251",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "24d6d69902a4acd42ee7330638fce4dc228e5086c8804616a6acdcbeda922966"
+    },
+    {
+      "path": "game/tests/fixtures/orison_radio_bench.json",
+      "before_sha256": "7dbce7b31e57f697d022ddc3e8f234c0e621679f0b1c33b56fdfa7cf13746159",
+      "after_sha256": "abacc1802696fd05a7ef0dd4ac4c61ee0d69b138548246b2749d816ba3c623b2",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "baa2a2f2cb86061b7b3b0401c9528d3d48d77f42ee8ff964ca5c227cce0623e8"
+    },
+    {
+      "path": "game/tests/fixtures/orison_radio_display.json",
+      "before_sha256": "bffcbd092d4bd082662c2d1652c90677c62c0704049876f9e3c4bd4e936af819",
+      "after_sha256": "de01c980ee3804a93a20811154eb0cbf810bae55e58432cabf7ffb445e8183dd",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "3d10edef5b0acd087e053e5a2d4970aa1382e3c3f274e4966d87e98c8bcb42d7"
+    },
+    {
+      "path": "game/tests/fixtures/orison_radio_receiving.json",
+      "before_sha256": "ee57ab12f836081faa76f38709c226ff842ecbf4afa99789d71a5a4823116327",
+      "after_sha256": "e2a7552bf0b29675d117decb359c4321bf979fdf52e79a165b6f440572b11455",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "3430a78a621c7aba367e22c9cc489bc9eec0fd775f6c52b0488e586d8dccec01"
+    },
+    {
+      "path": "game/tests/fixtures/orison_radio_stock.json",
+      "before_sha256": "6849c5e3fea71f13186cd453159c21515ee30420b649bf3d9523d535f4c88d0e",
+      "after_sha256": "e3b49fdd39dccf0dd6b5fa46b092885b384f784fdec90cec9fc94f0a6deaaa93",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "f3f23b82856e3fba92f3be8869ce9e0ea542245896ac2dd89baa9b9aef1d8fbf"
+    },
+    {
+      "path": "game/tests/fixtures/orison_radio_wire.json",
+      "before_sha256": "0f31ffdab2d4ec8051c743690b4c5b7ebb87e5980d72c50860cd7e80f9c8de55",
+      "after_sha256": "21de9764c98dcd244864dce12e379843c60dedd18418e1bcc6f3368afc19c691",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "b4972672d9ccebfa0ca66274c53645c95fe8dc36482059f829c74eca41782893"
+    },
+    {
+      "path": "game/tests/fixtures/orison_reading_nook.json",
+      "before_sha256": "5fa3f0f59d66f64166c77eee4843ea443958b2fd26265c4d9050732b1f336040",
+      "after_sha256": "1bf0fe4f5d4ff8a24b5f8c4f6200294bc14b9bdde2bf8bc1663554eb058fdadc",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "0767ba652b36f1f2854de0a5c94a4e9a499b7f299a1a22b01366c956f0643cf9"
+    },
+    {
+      "path": "game/tests/fixtures/orison_shop_clerestories.json",
+      "before_sha256": "425b523890be677213cbdeeba491be31b759939bbed90e456105f40f23223a4d",
+      "after_sha256": "70abdfa0d9bf4dbbd59b851525ead0f1709685104656bc81371478bf9ad54791",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "8b60520552d45ccdbd3250f4a76b304a1143f53a6f246e92f6b25511b690374d"
+    },
+    {
+      "path": "game/tests/fixtures/orison_shop_joinery.json",
+      "before_sha256": "4e796256d19a18dead73828b0da63ab79b3ed1f33788cbf3623e160dc03a4cb7",
+      "after_sha256": "88ee24671fafb9054c8b0ae978526fdb48ce723f28d9ca3f53b31689a82893fc",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "b86a4760076dd0389fe50abf2d23906f759e11108562ceb0622ff90d61cce24e"
+    },
+    {
+      "path": "game/tests/fixtures/orison_shop_seating.json",
+      "before_sha256": "18d11054825d788e560a72a6c3f56f290ee5fe1a86ae119d0782df21a6fd4a23",
+      "after_sha256": "497249e3731070e322580c020681933540ef6dba49ec7fb2ba0f39ac98e16621",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72"
+    },
+    {
+      "path": "game/tests/fixtures/orison_task_lamps.json",
+      "before_sha256": "d2ebbaeec4a81f504734ad929aabcd9d6e5cbc6e0ff90a5eccab1dce6839346a",
+      "after_sha256": "37fc23781809dd71b2aadf5aca2dc16866fe2696d4ac3886fda9ad2986777b9c",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "4604b58daaa9a45e792f13e6afc41cc087fbda8b27674dedb4c12d311d8c0aab"
+    },
+    {
+      "path": "art/blender/bar_ceiling_finish_construction.json",
+      "before_sha256": "d2dcd72e9beec7bb6f9108726528b761e2f7f069ba8041ae490c0de9653202b3",
+      "after_sha256": "e019840b7c3f916f6ac35652db8933c6b3fd22eaf3ace61d12c038b58d520648",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "cdfddab2b0da3a6026db8e1021a69da354eeb9e900d97169306af9ff9e9d1167"
+    },
+    {
+      "path": "art/blender/bar_fixture_mounts_construction.json",
+      "before_sha256": "65a48e00e535880bcab02308ab50abd1c76498f7f3af85ffc4004872ca19f4d6",
+      "after_sha256": "a060863ced49708ae82136502099f06e75dd0012b7b453d2be752653dbfbd559",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "fb2423cd1194a9fa75c4dc37e9dc228269a10eecc8cf4a75414da599b41b7820"
+    },
+    {
+      "path": "art/blender/bar_pipe_supports_construction.json",
+      "before_sha256": "1f278b7ca6e60044d5cf44e50abbad8f4f8d42d0521489047a2a6a180a05baaa",
+      "after_sha256": "2dba4eae0626938f1c07e6bee94496990119f29599f84e0356ad624cd8c3c215",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "26a2b9f8b2d82e05a47acd9573cb0969bc01f23786c99c663c37cf9b9279d7d3"
+    },
+    {
+      "path": "art/blender/bar_pool_construction.json",
+      "before_sha256": "cc8740259f57cf3c5ca555e584c091c8d0c59dafed80faeffc1a32b7033785bb",
+      "after_sha256": "72b0a7bddfadd30e080e34f997d2fb434e24219210d150071df8f77ac42d8aa8",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "d83d46cbd7175149157ef7214af95cf24d1c526b7adb10bd3e3dae4f3bda785f"
+    },
+    {
+      "path": "art/blender/city_aerials_construction.json",
+      "before_sha256": "bd781f727f457e9fae76dba5c494041bf2233f278e2bfe27f34eda85aa389ba8",
+      "after_sha256": "551d20a530da53f9fd54dab2ded7b663b332a1c0f1918c1abbee1901801f2a67",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "092ae72b844bd96c75f6d1b4b214879dbd274840b3f3245f17577fd4fb67c3f0"
+    },
+    {
+      "path": "art/blender/city_beacons_construction.json",
+      "before_sha256": "97eba0c73fbe7a32f1cae6de4bb93737e51af289f5fc5390eed30460af920ea4",
+      "after_sha256": "3c543910a8ba34d016a8279b2073a29d9247e6d4d42f51e77195beb22deb031c",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "64faf094b5cd30c11f817aff3e0b9baf2ec3de31b14e9704ff1e609ab92738fe"
+    },
+    {
+      "path": "art/blender/city_closure_construction.json",
+      "before_sha256": "6760b27d6edef68727e3c7c32e569ee13be461db5d575883b61ac8e6b3568353",
+      "after_sha256": "8701516032ae288660e1670d669acd0d8570ae454887f06ce29047dd37626554",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e"
+    },
+    {
+      "path": "art/blender/city_masts_construction.json",
+      "before_sha256": "0c91be276cc784a948864da5dd5dcf01d1ab38db412693ed22961c30a98535b6",
+      "after_sha256": "60e8aa315ba20709903c0806b30af6a7d02f5b9ec5000aa6709c7a6ac96ae20d",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "37ab64c754f28adc3e5a307d82c3b0cf6155d1b3ae4ca88887dadc8f749a126b"
+    },
+    {
+      "path": "art/blender/city_tanks_construction.json",
+      "before_sha256": "88d4311a107ad2187a51d0a6f6ff3623c656f2b51e2f5693a3633ee609d5380a",
+      "after_sha256": "cf7ab34258461bc709196d5bf098d4f583b1706dd84c02a0d6bdaf9bc25bb0c5",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "d0ab1ddbd28af3af4bcf22034c60d37b17b6993ba7b37410c0c1791efc2f0f36"
+    },
+    {
+      "path": "art/blender/cobbler_fittings_construction.json",
+      "before_sha256": "a0d3f886a80b61e577ef080fb7c02dda80997f3bcc4870bf42030def78c3585a",
+      "after_sha256": "46e9b9816aa077737ce863c7b4c672a93243327eb1d1c120193765c9a50935ac",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "3e65a3f089a84d459144f2f849d5b074651faffd68750b4e6d03e3c3bd5c72ef"
+    },
+    {
+      "path": "art/blender/diner_apparatus_construction.json",
+      "before_sha256": "a709848b32e4173d44383ab3baa7e24da7b8d23ea1732935f096f3275df06b90",
+      "after_sha256": "1a8fcb7c2cef517212f77d81f7d2f95d37767963575b3c516ea5757b9c0ded71",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "82e070e2d1c907e802e18291e24041899888c98cd3754b8c65443ed6b774e565"
+    },
+    {
+      "path": "art/blender/diner_backbar_construction.json",
+      "before_sha256": "aa18bfd4920fa887d0d535373f7b9aa53ea76e78e6fd670d63ac2e24fdc06090",
+      "after_sha256": "bba80445fe0c656fa88638fd4fc0cc2d62db42db7b30a65473c6c5149a9d1b5f",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "170bf505d116403c91243c40f369eebc4396ab73a9e83ea6527de5472704f75b"
+    },
+    {
+      "path": "art/blender/diner_counter_construction.json",
+      "before_sha256": "d211551ae8ba8f642574e5d9c8e26755b23e5f2a3bdf986f7ef852dbfe88d6f9",
+      "after_sha256": "c377be8234071e27aec14915ffb6335314ee961932cccce296cf322f01cdf0b0",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8"
+    },
+    {
+      "path": "art/blender/diner_overhead_construction.json",
+      "before_sha256": "7a35b5ad5c1e49d91cecd62582c797ac596a49348384d12e16fdeeacebd3aa62",
+      "after_sha256": "c2aa856e70613d1f8c6b3ae1b6005cd26ad8dac764ec8f593a6a3e8330e92cdd",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "5212183cf1f149f27e3137e42dd9df0514e52a206c15cb4114fa491ab97dd065"
+    },
+    {
+      "path": "art/blender/diner_receiving_construction.json",
+      "before_sha256": "ed70c49359b498e27bebb0e107fcf6c849dfd32f3b4c28e10a17534aad530772",
+      "after_sha256": "6e729e16aebe4eb376ab195d9560a52156eb52131660499e1bfc58deb9f64fa2",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "893976dd77612880fefb9f1e381574614165eb188372aa31b628c7592d8caa0f"
+    },
+    {
+      "path": "art/blender/diner_till_construction.json",
+      "before_sha256": "daac557ea3a31f147456758622a495b683b276843091f42b220e4aec56ba7b49",
+      "after_sha256": "6274d73c7a5c1fee936d2190f89a77aaeacc7b96fef606c8a01daf90cbded5df",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "9bfefeab432ae364893259506745fdd87593c1fb3c41923d5178091c141fcc54"
+    },
+    {
+      "path": "art/blender/diner_urns_construction.json",
+      "before_sha256": "4f65c3532fde3fa044054c062b6fe691c3df3f72e9e02f918397eb459989dee7",
+      "after_sha256": "ca343224faddcaed3471e1612113f4eafbd9ee149b88fc662747eae1d38be696",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "3e54f0f32cf066db65552948edab879d5eff51adbc054f8b85c56fd73d356f20"
+    },
+    {
+      "path": "art/blender/druggist_carboys_construction.json",
+      "before_sha256": "fe3fcaed9e00f52b4e4a58c44bb1b369ce56403465db700c20511551e82e33e6",
+      "after_sha256": "6f674b0f97a510b19a08d129d49c6f94cb2094344b4e670c6fb6d5cbed28111a",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "f3d19a4930d258df28ec589cf133d776c3194b687369200ccb9727d46e5537a2"
+    },
+    {
+      "path": "art/blender/druggist_counter_construction.json",
+      "before_sha256": "0b81e71e305f28ca8fe05cca06811b800bcd570e7d35edbdb9e546ba4f36f15a",
+      "after_sha256": "d05521e0f0d923d9b817bfa6fce09d8a4ec5ecb38d0047ca68fe8e62d8cbc485",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "1750d4a42c920fb0a4dba7b98a49d19bdfadd72c95eddd27497a557c8937dea1"
+    },
+    {
+      "path": "art/blender/druggist_cupboard_construction.json",
+      "before_sha256": "4d96856d922a7725b62db6b363b70710ac5ea65154f97e908bfb41fe035d6364",
+      "after_sha256": "8a13438f80a99b07d0049572b03be3e87d376adce09fd05b6799d10cc6c92c7f",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "bae0c56b94e772c06580325e17cf49ff927262554120324168cc56a7c71950f7"
+    },
+    {
+      "path": "art/blender/druggist_dispensary_construction.json",
+      "before_sha256": "5d6a5c975d00ae2b467881ca6c1ff4a0bbd72b860d6aaba7e97238c081dcbbf6",
+      "after_sha256": "f260082332dc8d743e83b050b565bd595f2d2901c88f2d06b766584b663ca086",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "4ddd7a7c68db66a4704ca5a163b25324630f72df9b12110b2e98768488ec2546"
+    },
+    {
+      "path": "art/blender/druggist_drawers_construction.json",
+      "before_sha256": "bd8f2752b93e384b713363a68759bc983bff20986a3a73d69937603342e3efd8",
+      "after_sha256": "26f430dd952b50efda3bb776503d2f6f723a1f28231fb1664b92de4aa8c77312",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "04f8c468edcd478d709ed8390034499e7dd07c500787ad469e047b414d9c5dd9"
+    },
+    {
+      "path": "art/blender/druggist_fountain_construction.json",
+      "before_sha256": "466f80868c435a7ef1bc42197e2007b13bd0e2d6abfe122bd08847b7a3b6f886",
+      "after_sha256": "3a65f0de4281a9439c826f7a04d5e9a2aa192b2ca04ee158e5008dc978459728",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "1645197ffd0eb41ed11595e489394595f6fbe04c0c16bbe0a09b08733eb1a7a8"
+    },
+    {
+      "path": "art/blender/druggist_mortar_construction.json",
+      "before_sha256": "b79c77b41b48bcc90016f76790a06e5a2963ee743f6d15e190cc08592c6a1bea",
+      "after_sha256": "190deee4e232884886114da287d1cdc4c7a6a237ef60ad23cf1068bbd17f08f4",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "0c69f1f4d3514453dec6720ea2880676eff9a8db309f1d09134ca50b4204baae"
+    },
+    {
+      "path": "art/blender/funeral_drapes_construction.json",
+      "before_sha256": "473dc478bdef9bfa0f19c1bfe7279f1dfd7e8695cfca9eddd445b4a0de2b5b4c",
+      "after_sha256": "72657ece1cc57037deba874d178f0e2f2c45ff57fe802f16593428e14ea55261",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "d0c328fa87393c3c9bec5cd084d6ad8e77a40e4bd2a220534cb82ec73826a54b"
+    },
+    {
+      "path": "art/blender/funeral_fittings_construction.json",
+      "before_sha256": "5540c710f73ede335f3e4b8b41635fe9306d78cb36f6e3fd390b99d22040e78e",
+      "after_sha256": "57632473537e314b91ccab064f45ff6f464b9b2a20e441d69d3b91d5ef8660ce",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "1ff08377281c02f8ddd6f7f91376a3ae3560b01cd2dbbbc1697808dd57cad236"
+    },
+    {
+      "path": "art/blender/funeral_foliage_construction.json",
+      "before_sha256": "b88830edc2c381f99996d47b6d922ffc0822a76739dd7a1632dbfb4f21c021f4",
+      "after_sha256": "59e1ae45bfd0102132ed5f86b574872d4bc19d13e11783e029257835467c4d14",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "eafe453b54c0a54bb8ad6af4baf669b01e6ad2107826da03259dc8e39c672b36"
+    },
+    {
+      "path": "art/blender/hardware_apparatus_construction.json",
+      "before_sha256": "58f07011db80530511004bb9ae223358813eeac1ae80a4743db53579c323de10",
+      "after_sha256": "6878719c7a3746c222b95500b50f5d1d6a548e140c2d25c97a55c829bbc5aada",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "7d31f486a6c456e944a49bfbcdb72c43f735cc0638a524f0aa27c7166e112f5b"
+    },
+    {
+      "path": "art/blender/hardware_drawers_construction.json",
+      "before_sha256": "b88d4d434224cb3ea07bca5e573e121c3c89b0821efd428d268f82b12cab1647",
+      "after_sha256": "b469ceef9690554710e1ec21176a79ce317ccb5c8fba9cf1095e211233e244d1",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "e1c032477c4e06a01363454f4ca7f671b81cfaac5ef0f2b3b504231619ab4e1f"
+    },
+    {
+      "path": "art/blender/hardware_stock_construction.json",
+      "before_sha256": "94f55a309cbf7cbaa8d6dbed084c8e977a346d8426f0830e8db8d625a55d6d32",
+      "after_sha256": "06b9ca12de0cc610d2a462beb718b960e608a68862f56d18a7f969cdf4fd266c",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "6a21275d7f7417fea1c27277ac3d12522876206db23ff78042d52a9a161fade1"
+    },
+    {
+      "path": "art/blender/hardware_tools_construction.json",
+      "before_sha256": "1af72789bbab5b8f4def51e9058f3171fca65b4d07c75d0aca34caf53bfbd833",
+      "after_sha256": "db7088ce8b990a6cb4700354a7eb6d87cca2c9e0eb4c61763d4a06a1d4ff1b54",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "f397f9566c79473e6a5be9cf7daab354291adc96da00417f1a00669076aa2411"
+    },
+    {
+      "path": "art/blender/laundry_apparatus_construction.json",
+      "before_sha256": "f3280a5a4ad2d4dde8188391afed572d69ff4e1523cb39525699011962e009cf",
+      "after_sha256": "abaa4f5887bf8749b6f11470104c782b96f3bbfff34fad3c256d9f8bcc544c05",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "440ae013219b936d5915d6eb01f728eee963d14a12bc8c8758f682d1fc2d7a8b"
+    },
+    {
+      "path": "art/blender/laundry_fittings_construction.json",
+      "before_sha256": "d3677e5ddeff45d0f902f0f88f398c69f24b4330972036ce740cb2330d46d0b0",
+      "after_sha256": "76e66d6bde8d7c461df7973a316f11f28a00ade37163d0e033dae95490afcdfe",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "e77b3104cca11b7bbaa435a67a6111763015b637ff1d05276a3b5c815842a2bc"
+    },
+    {
+      "path": "art/blender/laundry_receiving_construction.json",
+      "before_sha256": "fedf303941cb93eff8c65cdc5a0b53eb9845435dc1aded76439277932813aeee",
+      "after_sha256": "279f8f5aad97098cd08d2e34581c4abfc414effd56138109e466c22d6b4583fb",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "ecd104db9019c3964522828d57d538b611801bfbcf5d12d6b9a48ef841f81f35"
+    },
+    {
+      "path": "art/blender/laundry_trade_construction.json",
+      "before_sha256": "e850b5958c8c985ef2d0d4be84701f75887ce770743feecb2cd6391027a52c54",
+      "after_sha256": "646f89423d08d8369c239c1dd4c84cf21b9202333b7d7fc600133a45e009aad5",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "3da89cb8af25d34a958c134527f852854099d3fc4a46a7ca30bd21744bc2ff9a"
+    },
+    {
+      "path": "art/blender/locksmith_fittings_construction.json",
+      "before_sha256": "5066e9de18bcef9a3984919d837bedf446d64d955a7c97efe6f69c3ee7f60559",
+      "after_sha256": "a5c9b86b2d740e2de89dea3b0ad3c975efcbca36249b7b40b5b42672a79ee511",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "ac37de64795969094124a36a5a86cb364faf6660e998c097bb09972c9a3d1d1f"
+    },
+    {
+      "path": "art/blender/news_fittings_construction.json",
+      "before_sha256": "70d70cf87b7e1c0ba8ccdc13cb647cf3896ccde2457f330742df4a63ae5b7cab",
+      "after_sha256": "696fd63ab9e4ccde53bc5253326bb896b8670a8fbd25e7bd0e2a01154cf3e9b1",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "8c8b63d14ab7f6e3f8b284f171971edf7e7e8c7fd1842f5ae77b03f05a84ab0f"
+    },
+    {
+      "path": "art/blender/news_receiving_construction.json",
+      "before_sha256": "87067069edf25775cc3aa8b6873ac2470346be92ab36b90e561a131db8070224",
+      "after_sha256": "d82a4bfaf64c1160e9652d83b94cd61cf835fa0e6cebacd7af8e9caae08ab7b4",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "9a36a750e5754e6a40cddf80581a2480281dd3558a881f22b75d77901c582c2c"
+    },
+    {
+      "path": "art/blender/pawn_clocks_construction.json",
+      "before_sha256": "4de79c8e83208dfba29b0e91cd2d763255406efc362989eeaf4dcb33ecb01c86",
+      "after_sha256": "d7b041c52b12c28fc4dc4284a7efcc03db51b40efdeae55894dcf7736589c002",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "fad1381b3a1b0d6d3f7208516d266cd490828ba7c1182dd14f9e0fd10eb55ee7"
+    },
+    {
+      "path": "art/blender/pawn_display_construction.json",
+      "before_sha256": "75c124e805c39c01aec8d687d60f33d01aa715e4a05b2d1ac9f2a05913d120ef",
+      "after_sha256": "ba82ccb49b6c6b22f805dd72b6697de7608796a39a9bd647e16a0022f1f0f1a0",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "981aea401fbf4a645e78cf2c1a0dd8b79e9b9532572ce32adc4b41997c6c8657"
+    },
+    {
+      "path": "art/blender/pawn_fittings_construction.json",
+      "before_sha256": "656f60c2414c8d620f4b4ee87a776a02d0f8579e9147880fe2388eab0f207b54",
+      "after_sha256": "bc6364f06d7fbf3c227f3f4abc41d5c5dc61c4e0d3663c7374c86fdae20579b4",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "3abfb3b0a220215028cf48de5e1508e748c14e467ba3a53b1d6e3aa56e86e190"
+    },
+    {
+      "path": "art/blender/pawn_receiving_construction.json",
+      "before_sha256": "d87ef81f426ab3937f35517efa29d4c4f0490721646378f2bec4c53cfb40e207",
+      "after_sha256": "6c15f418409eaa0d675b700197615540eda836277bcb81ce600ac453976e5f6d",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "9f963737dbad1bc150a1f28447262d06d1a0d13fca0b5d4745ba5c2eb5f1ad25"
+    },
+    {
+      "path": "art/blender/photo_cameras_construction.json",
+      "before_sha256": "f5f3a5a94c7f4cafa7878d9a9435adc1e44c305c9b30c410e620e9a508035ebf",
+      "after_sha256": "f8b9d4a73bb2b2866ac8a38c2228c0a50581f0dbf9946361c38d81f7e7ba1ace",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "f2fdbfce2370967d0cc4772b757ea31dfc7ef888e1149097d90992c5cda158de"
+    },
+    {
+      "path": "art/blender/photo_counter_construction.json",
+      "before_sha256": "517863a03cd211637e3f6ac177087fd29b17f3b26b6e66e0443f6e56c693972b",
+      "after_sha256": "3fd36e45f09bb7871eb6d12c1e58cfbf0b454f55e3ef61c20640ccd2f85c795a",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "208a4194d79b044ee3fb47f4e4ad250613f2bd648b437dd384bb1289813fc802"
+    },
+    {
+      "path": "art/blender/photo_enlargers_construction.json",
+      "before_sha256": "626fc562e378ccff57cce3b0fb1dcd7de1137260ea37fe718cfad8c3aab1ce60",
+      "after_sha256": "82b3f9bd271f2644be1373f5be0d42bd26c832b17e6174f7207fab340c72ee93",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "969f352a40d134e278c789c1cd4c607b730a339630315def7272f5d5843cd741"
+    },
+    {
+      "path": "art/blender/photo_glazing_construction.json",
+      "before_sha256": "7b2485d12307461b645273e0e760b31e2a886fd43b0ad2581215a2969415f2b9",
+      "after_sha256": "c3452ae76ca069eade4326960d88428da0423843946cb37612c4408d9d36f3a0",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "d4637a76f86a5010a8cb2ce2b60abb1d72c53b6a47ef8d1426fed4eaf6382c60"
+    },
+    {
+      "path": "art/blender/photo_portraits_construction.json",
+      "before_sha256": "1c6d7ab2cfcd0d03d5335a9e95572211e494739241445579919b5de3ddee812b",
+      "after_sha256": "9c1b7caf6d086495ec88afcf98c71df84688c1658911bf16e00805abfae6b215",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "0b6aca61e68d665ba1b201b272d587d789db71be22b20f565ac02c6218f14053"
+    },
+    {
+      "path": "art/blender/photo_process_construction.json",
+      "before_sha256": "5cbc003d3fb8f6ea77a9d96eb352d25baef032a12f5937723c77d4df36becda5",
+      "after_sha256": "5b95567c44053e0e14f5bfd152cc8e0eebd570d9ed999b488a8ab263652b7200",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "8e8c31e48c8d3a7362e1567e06e562f5721ce6046b18e57c20cfc60ca8e1c032"
+    },
+    {
+      "path": "art/blender/photo_radio_fittings_construction.json",
+      "before_sha256": "462763c8c279e888ee37dfb53a1ab9f4a88471994b02497ec0a0354f580591a5",
+      "after_sha256": "d377aa8ea6426095d987e6d54774d4e155bc338f187f21eee8530c9ea6a93878",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "ddc6615cb1c9de85f0cd889f4c6f257c1e8d8b8bca9ef6e9d84a775d6633d4e6"
+    },
+    {
+      "path": "art/blender/photo_receiving_construction.json",
+      "before_sha256": "8d0850c174ce6448a9a7b23ebe3ddc7eb14f4e831b89e44b3d60b1a819af3c8f",
+      "after_sha256": "2d40800fa4907eb07bd039e4ac7687bc51aad85190db48c06ca33f210c264c64",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "9c8411b41d3ac3e5c69b0e71ba19667d3e3306bde7b90ba8cc4d93c149a02622"
+    },
+    {
+      "path": "art/blender/photo_stock_construction.json",
+      "before_sha256": "116cafb9a1579ec2b7ae0a9a93ced0f3087d82254369a143ffbe6ff5ea48a838",
+      "after_sha256": "51dcb90e7a66499c7e50a6f34c3ce4f1edef6d7de75ffa37fd8c2f2d6acbaf69",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "cf5bb93649d39119d52f861472607b05a19235870a11dce62e2f8810510d84d6"
+    },
+    {
+      "path": "art/blender/radio_apparatus_construction.json",
+      "before_sha256": "37b78c9b83ae3e6ecedcdc4cc8d68f236bf87048057c412796aee2fecd1794be",
+      "after_sha256": "0045ee38e6792de95e0162d59750f9e2ba267eb9d46babdad5622e003e9e4b40",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "2b54a33db7ace8706584cff3ea2b1ddbb8758781e7e3113f31d64024552e541d"
+    },
+    {
+      "path": "art/blender/radio_battery_construction.json",
+      "before_sha256": "3dab9b6f4a79e344706d2c7bff5c4809852b526e2093786f48506e72dd3b8857",
+      "after_sha256": "77ae116f1270f595cc1b1ca36d99bf9db9eb13e8f78cfa24a6703ac77549e251",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "24d6d69902a4acd42ee7330638fce4dc228e5086c8804616a6acdcbeda922966"
+    },
+    {
+      "path": "art/blender/radio_bench_construction.json",
+      "before_sha256": "7dbce7b31e57f697d022ddc3e8f234c0e621679f0b1c33b56fdfa7cf13746159",
+      "after_sha256": "abacc1802696fd05a7ef0dd4ac4c61ee0d69b138548246b2749d816ba3c623b2",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "baa2a2f2cb86061b7b3b0401c9528d3d48d77f42ee8ff964ca5c227cce0623e8"
+    },
+    {
+      "path": "art/blender/radio_display_construction.json",
+      "before_sha256": "bffcbd092d4bd082662c2d1652c90677c62c0704049876f9e3c4bd4e936af819",
+      "after_sha256": "de01c980ee3804a93a20811154eb0cbf810bae55e58432cabf7ffb445e8183dd",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "3d10edef5b0acd087e053e5a2d4970aa1382e3c3f274e4966d87e98c8bcb42d7"
+    },
+    {
+      "path": "art/blender/radio_receiving_construction.json",
+      "before_sha256": "ee57ab12f836081faa76f38709c226ff842ecbf4afa99789d71a5a4823116327",
+      "after_sha256": "e2a7552bf0b29675d117decb359c4321bf979fdf52e79a165b6f440572b11455",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "3430a78a621c7aba367e22c9cc489bc9eec0fd775f6c52b0488e586d8dccec01"
+    },
+    {
+      "path": "art/blender/radio_stock_construction.json",
+      "before_sha256": "6849c5e3fea71f13186cd453159c21515ee30420b649bf3d9523d535f4c88d0e",
+      "after_sha256": "e3b49fdd39dccf0dd6b5fa46b092885b384f784fdec90cec9fc94f0a6deaaa93",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "f3f23b82856e3fba92f3be8869ce9e0ea542245896ac2dd89baa9b9aef1d8fbf"
+    },
+    {
+      "path": "art/blender/radio_wire_construction.json",
+      "before_sha256": "0f31ffdab2d4ec8051c743690b4c5b7ebb87e5980d72c50860cd7e80f9c8de55",
+      "after_sha256": "21de9764c98dcd244864dce12e379843c60dedd18418e1bcc6f3368afc19c691",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "asset_sha256_unchanged": "b4972672d9ccebfa0ca66274c53645c95fe8dc36482059f829c74eca41782893"
+    },
+    {
+      "path": "art/blender/reading_nook_construction.json",
+      "before_sha256": "5fa3f0f59d66f64166c77eee4843ea443958b2fd26265c4d9050732b1f336040",
+      "after_sha256": "1bf0fe4f5d4ff8a24b5f8c4f6200294bc14b9bdde2bf8bc1663554eb058fdadc",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "0767ba652b36f1f2854de0a5c94a4e9a499b7f299a1a22b01366c956f0643cf9"
+    },
+    {
+      "path": "art/blender/shop_clerestories_construction.json",
+      "before_sha256": "425b523890be677213cbdeeba491be31b759939bbed90e456105f40f23223a4d",
+      "after_sha256": "70abdfa0d9bf4dbbd59b851525ead0f1709685104656bc81371478bf9ad54791",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "8b60520552d45ccdbd3250f4a76b304a1143f53a6f246e92f6b25511b690374d"
+    },
+    {
+      "path": "art/blender/shop_joinery_construction.json",
+      "before_sha256": "4e796256d19a18dead73828b0da63ab79b3ed1f33788cbf3623e160dc03a4cb7",
+      "after_sha256": "88ee24671fafb9054c8b0ae978526fdb48ce723f28d9ca3f53b31689a82893fc",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "b86a4760076dd0389fe50abf2d23906f759e11108562ceb0622ff90d61cce24e"
+    },
+    {
+      "path": "art/blender/shop_seating_construction.json",
+      "before_sha256": "18d11054825d788e560a72a6c3f56f290ee5fe1a86ae119d0782df21a6fd4a23",
+      "after_sha256": "497249e3731070e322580c020681933540ef6dba49ec7fb2ba0f39ac98e16621",
+      "bindings_only": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72"
+    },
+    {
+      "path": "art/blender/task_lamps_construction.json",
+      "before_sha256": "d2ebbaeec4a81f504734ad929aabcd9d6e5cbc6e0ff90a5eccab1dce6839346a",
+      "after_sha256": "37fc23781809dd71b2aadf5aca2dc16866fe2696d4ac3886fda9ad2986777b9c",
+      "bindings_only": [
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "asset_sha256_unchanged": "4604b58daaa9a45e792f13e6afc41cc087fbda8b27674dedb4c12d311d8c0aab"
+    }
+  ],
+  "scope": "Strictly additive material catalogue provenance. Existing geometry and evidence are unchanged; this does not grant fresh visual/runtime acceptance."
+}

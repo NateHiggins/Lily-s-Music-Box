@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "unchanged_export_and_map_bytes": [
+    {
+      "path": "game/assets/props/work_tables.glb",
+      "sha256": "db0388a7e77d7ec35f78615ba9bb70d8921b7af2d9e3358c54dcdded76a23a64"
+    },
+    {
+      "path": "game/assets/building/textures/T_ai_materials_oak_work_surface_albedo.png",
+      "sha256": "94715b263c85285aced41196f29aea6675f866a61180ab90a1f9c719bef4edeb"
+    },
+    {
+      "path": "game/assets/building/textures/T_ai_materials_oak_work_surface_normal.png",
+      "sha256": "8aa1987fad72d117f836ac0d18922e94b71a03a009206401f440768ac6ad91e1"
+    },
+    {
+      "path": "game/assets/building/textures/T_ai_materials_oak_work_surface_rough.png",
+      "sha256": "ebf613454bbd3e6a6909cbe3d1aa4fe89b45fd8229516aafb31146761cf63ee5"
+    }
+  ],
+  "scope": "Only the three new texture import policies enable mipmaps and disable automatic 3D redetection. Builder now writes this policy up front. Native geometry and map bytes are identical; final Godot run tests actual mip chains. The earlier seven-texture shutdown warning reproduces.",
+  "older_import_defaults_pending": [
+    "billiard_resin",
+    "smoked_plaster"
+  ]
+}

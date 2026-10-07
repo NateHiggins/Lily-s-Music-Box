@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/work_tables.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "2A_desk",
+      "parts": [
+        {
+          "name": "2A_desk__oak_work_surface",
+          "key": "oak_work_surface",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface"
+        },
+        {
+          "name": "2A_desk__soot",
+          "key": "soot",
+          "tile": 0.55,
+          "catalog_key": "soot"
+        },
+        {
+          "name": "2A_desk__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "3B_workbench",
+      "parts": [
+        {
+          "name": "3B_workbench__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "3B_workbench__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated"
+        },
+        {
+          "name": "3B_workbench__oak_work_surface",
+          "key": "oak_work_surface",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4B_terminal_desk",
+      "parts": [
+        {
+          "name": "4B_terminal_desk__oak_work_surface",
+          "key": "oak_work_surface",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface"
+        },
+        {
+          "name": "4B_terminal_desk__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "5A_plantable",
+      "parts": [
+        {
+          "name": "5A_plantable__oak_work_surface",
+          "key": "oak_work_surface",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface"
+        },
+        {
+          "name": "5A_plantable__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "5A_plantable__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6A_deskwall",
+      "parts": [
+        {
+          "name": "6A_deskwall__iron_blackened",
+          "key": "iron_blackened",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened"
+        },
+        {
+          "name": "6A_deskwall__trim",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "local_materials": {}
+}

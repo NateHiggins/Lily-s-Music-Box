@@ -1,0 +1,610 @@
+{
+  "evidence_class": "INERT",
+  "base": "80944b2844375606f64fcdf3d764c1c374165d7a",
+  "new_key": "oak_work_surface",
+  "applied": true,
+  "existing_runtime_texture_files_unchanged": 185,
+  "shared_sources": {
+    "art/data/material_catalog.json": {
+      "before": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+      "after": "562d8c15879f12404d443d227a2ccda373c68a6af810e63cc214ce23c79ee1e1"
+    },
+    "art/textures/catalog_mapping.json": {
+      "before": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+      "after": "d4f3e411ac9b1f942bed184b34a4cf19f4418a4220044c86ed917513c2421686"
+    },
+    "art/data/runtime_material_sets.json": {
+      "before": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+      "after": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73"
+    },
+    "game/data/runtime_material_sets.json": {
+      "before": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+      "after": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73"
+    },
+    "game/scripts/generated/material_sets.gd": {
+      "before": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+      "after": "51b0c6cf899b87bb34cd49191413be9f930b12d0a11db0b009616a0a1c8fee65"
+    },
+    "art/tools/generate_runtime_materials.py": {
+      "before": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+      "after": "4156d34f776a3cd57c2dcdc016f0f147a0741530ef20a16d0b610e28dd8198a6"
+    }
+  },
+  "updates": [
+    {
+      "path": "game/tests/fixtures/orison_city_closure.json",
+      "before_sha256": "8701516032ae288660e1670d669acd0d8570ae454887f06ce29047dd37626554",
+      "after_sha256": "244becb77ddad89c300e4f3bb37e3e3675f2edf1fd8fb207dfc7852c948e1fd0",
+      "bindings_only": [
+        "game/tests/fixtures/orison_city_masts.json",
+        "game/tests/fixtures/orison_city_aerials.json",
+        "game/tests/fixtures/orison_city_tanks.json"
+      ],
+      "asset_sha256_unchanged": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_counter.json",
+      "before_sha256": "c377be8234071e27aec14915ffb6335314ee961932cccce296cf322f01cdf0b0",
+      "after_sha256": "c4ed3e8b08978cf9c78b7d4df5c95d27b9074831fd8a9d2696a1a22ac6a125fc",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json"
+      ],
+      "asset_sha256_unchanged": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_till.json",
+      "before_sha256": "6274d73c7a5c1fee936d2190f89a77aaeacc7b96fef606c8a01daf90cbded5df",
+      "after_sha256": "9e5efa174ccb82dd560f1253b5fed0c9bbaaa99d68c41afd1aade0e5e3e92e8d",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_counter.json"
+      ],
+      "asset_sha256_unchanged": "9bfefeab432ae364893259506745fdd87593c1fb3c41923d5178091c141fcc54"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_backbar.json",
+      "before_sha256": "bba80445fe0c656fa88638fd4fc0cc2d62db42db7b30a65473c6c5149a9d1b5f",
+      "after_sha256": "d1f7d0e4419e55e660ce127838f915aa6af37bedcaae1f9689454ab7073587d4",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_till.json"
+      ],
+      "asset_sha256_unchanged": "170bf505d116403c91243c40f369eebc4396ab73a9e83ea6527de5472704f75b"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_urns.json",
+      "before_sha256": "ca343224faddcaed3471e1612113f4eafbd9ee149b88fc662747eae1d38be696",
+      "after_sha256": "2b3df95ad81639147a61298436ad7d3d1f5f00f984af55dae6e574b626212e3b",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_till.json",
+        "game/tests/fixtures/orison_diner_backbar.json"
+      ],
+      "asset_sha256_unchanged": "3e54f0f32cf066db65552948edab879d5eff51adbc054f8b85c56fd73d356f20"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_apparatus.json",
+      "before_sha256": "1a8fcb7c2cef517212f77d81f7d2f95d37767963575b3c516ea5757b9c0ded71",
+      "after_sha256": "ba7dfbc9c4870ba04a599edc573db06441576da09f6e25b34d39c91aba705783",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_till.json",
+        "game/tests/fixtures/orison_diner_backbar.json",
+        "game/tests/fixtures/orison_diner_urns.json"
+      ],
+      "asset_sha256_unchanged": "82e070e2d1c907e802e18291e24041899888c98cd3754b8c65443ed6b774e565"
+    },
+    {
+      "path": "game/tests/fixtures/orison_diner_overhead.json",
+      "before_sha256": "c2aa856e70613d1f8c6b3ae1b6005cd26ad8dac764ec8f593a6a3e8330e92cdd",
+      "after_sha256": "54d69d4a5132aa314bc785c102951fd7d588c54d8aeb70e677cddb74d1bd931e",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_till.json",
+        "game/tests/fixtures/orison_diner_backbar.json",
+        "game/tests/fixtures/orison_diner_urns.json",
+        "game/tests/fixtures/orison_diner_apparatus.json"
+      ],
+      "asset_sha256_unchanged": "5212183cf1f149f27e3137e42dd9df0514e52a206c15cb4114fa491ab97dd065"
+    },
+    {
+      "path": "game/tests/fixtures/orison_hardware_tools.json",
+      "before_sha256": "db7088ce8b990a6cb4700354a7eb6d87cca2c9e0eb4c61763d4a06a1d4ff1b54",
+      "after_sha256": "79726517635711739caade680c6c5c6543828d0bebc5c9c72d943f7e95c498e0",
+      "bindings_only": [
+        "game/tests/fixtures/orison_hardware_stock.json"
+      ],
+      "asset_sha256_unchanged": "f397f9566c79473e6a5be9cf7daab354291adc96da00417f1a00669076aa2411"
+    },
+    {
+      "path": "game/tests/fixtures/orison_laundry_trade.json",
+      "before_sha256": "646f89423d08d8369c239c1dd4c84cf21b9202333b7d7fc600133a45e009aad5",
+      "after_sha256": "8403536b160a17215eee7f50759b30b6708cb2bc54321c6251358a40da266e42",
+      "bindings_only": [
+        "game/tests/fixtures/orison_laundry_receiving.json",
+        "game/tests/fixtures/orison_laundry_fittings.json",
+        "game/tests/fixtures/orison_laundry_apparatus.json",
+        "game/tests/fixtures/orison_shop_seating.json"
+      ],
+      "asset_sha256_unchanged": "3da89cb8af25d34a958c134527f852854099d3fc4a46a7ca30bd21744bc2ff9a"
+    },
+    {
+      "path": "game/tests/fixtures/orison_pawn_clocks.json",
+      "before_sha256": "d7b041c52b12c28fc4dc4284a7efcc03db51b40efdeae55894dcf7736589c002",
+      "after_sha256": "699f22fdce7aea357c1866a45da48918597f570e1e3ff4a9af44f75d9d63c0fe",
+      "bindings_only": [
+        "game/tests/fixtures/orison_pawn_receiving.json"
+      ],
+      "asset_sha256_unchanged": "fad1381b3a1b0d6d3f7208516d266cd490828ba7c1182dd14f9e0fd10eb55ee7"
+    },
+    {
+      "path": "game/tests/fixtures/orison_pawn_display.json",
+      "before_sha256": "ba82ccb49b6c6b22f805dd72b6697de7608796a39a9bd647e16a0022f1f0f1a0",
+      "after_sha256": "ff3cdac3dc09a872ed6d178730cc2f9801bbc027cf0d5146cd153588842e5411",
+      "bindings_only": [
+        "game/tests/fixtures/orison_pawn_receiving.json",
+        "game/tests/fixtures/orison_pawn_clocks.json"
+      ],
+      "asset_sha256_unchanged": "981aea401fbf4a645e78cf2c1a0dd8b79e9b9532572ce32adc4b41997c6c8657"
+    },
+    {
+      "path": "game/tests/fixtures/orison_pawn_fittings.json",
+      "before_sha256": "bc6364f06d7fbf3c227f3f4abc41d5c5dc61c4e0d3663c7374c86fdae20579b4",
+      "after_sha256": "977a0c1312e03f42736f21275876648e1dcd0ec00a38013ffbaaeb7340b95635",
+      "bindings_only": [
+        "game/tests/fixtures/orison_pawn_receiving.json",
+        "game/tests/fixtures/orison_pawn_clocks.json",
+        "game/tests/fixtures/orison_pawn_display.json"
+      ],
+      "asset_sha256_unchanged": "3abfb3b0a220215028cf48de5e1508e748c14e467ba3a53b1d6e3aa56e86e190"
+    },
+    {
+      "path": "game/tests/fixtures/orison_shop_joinery.json",
+      "before_sha256": "88ee24671fafb9054c8b0ae978526fdb48ce723f28d9ca3f53b31689a82893fc",
+      "after_sha256": "78edeefac7b72eb426a872e08a732655c69e4303da31e2b84f25f2f4771e9a19",
+      "bindings_only": [
+        "game/tests/fixtures/orison_cobbler_fittings.json",
+        "game/tests/fixtures/orison_diner_apparatus.json",
+        "game/tests/fixtures/orison_diner_backbar.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_overhead.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_till.json",
+        "game/tests/fixtures/orison_diner_urns.json",
+        "game/tests/fixtures/orison_druggist_carboys.json",
+        "game/tests/fixtures/orison_druggist_counter.json",
+        "game/tests/fixtures/orison_druggist_cupboard.json",
+        "game/tests/fixtures/orison_druggist_dispensary.json",
+        "game/tests/fixtures/orison_druggist_drawers.json",
+        "game/tests/fixtures/orison_druggist_fountain.json",
+        "game/tests/fixtures/orison_druggist_mortar.json",
+        "game/tests/fixtures/orison_funeral_drapes.json",
+        "game/tests/fixtures/orison_funeral_fittings.json",
+        "game/tests/fixtures/orison_funeral_foliage.json",
+        "game/tests/fixtures/orison_hardware_apparatus.json",
+        "game/tests/fixtures/orison_hardware_drawers.json",
+        "game/tests/fixtures/orison_hardware_stock.json",
+        "game/tests/fixtures/orison_hardware_tools.json",
+        "game/tests/fixtures/orison_laundry_apparatus.json",
+        "game/tests/fixtures/orison_laundry_fittings.json",
+        "game/tests/fixtures/orison_laundry_receiving.json",
+        "game/tests/fixtures/orison_laundry_trade.json",
+        "game/tests/fixtures/orison_locksmith_fittings.json",
+        "game/tests/fixtures/orison_news_fittings.json",
+        "game/tests/fixtures/orison_news_receiving.json",
+        "game/tests/fixtures/orison_pawn_clocks.json",
+        "game/tests/fixtures/orison_pawn_display.json",
+        "game/tests/fixtures/orison_pawn_fittings.json",
+        "game/tests/fixtures/orison_pawn_receiving.json",
+        "game/tests/fixtures/orison_photo_cameras.json",
+        "game/tests/fixtures/orison_photo_counter.json",
+        "game/tests/fixtures/orison_photo_enlargers.json",
+        "game/tests/fixtures/orison_photo_glazing.json",
+        "game/tests/fixtures/orison_photo_portraits.json",
+        "game/tests/fixtures/orison_photo_process.json",
+        "game/tests/fixtures/orison_photo_receiving.json",
+        "game/tests/fixtures/orison_photo_stock.json",
+        "game/tests/fixtures/orison_radio_apparatus.json",
+        "game/tests/fixtures/orison_radio_battery.json",
+        "game/tests/fixtures/orison_radio_bench.json",
+        "game/tests/fixtures/orison_radio_display.json",
+        "game/tests/fixtures/orison_radio_receiving.json",
+        "game/tests/fixtures/orison_radio_stock.json",
+        "game/tests/fixtures/orison_radio_wire.json",
+        "game/tests/fixtures/orison_shop_seating.json"
+      ],
+      "asset_sha256_unchanged": "b86a4760076dd0389fe50abf2d23906f759e11108562ceb0622ff90d61cce24e"
+    },
+    {
+      "path": "game/tests/fixtures/orison_shop_clerestories.json",
+      "before_sha256": "70abdfa0d9bf4dbbd59b851525ead0f1709685104656bc81371478bf9ad54791",
+      "after_sha256": "5b1708bbc84825769ed012381f5827b691a4e10268eeb1a4ef630bbff16745ea",
+      "bindings_only": [
+        "game/tests/fixtures/orison_cobbler_fittings.json",
+        "game/tests/fixtures/orison_diner_apparatus.json",
+        "game/tests/fixtures/orison_diner_backbar.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_overhead.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_till.json",
+        "game/tests/fixtures/orison_diner_urns.json",
+        "game/tests/fixtures/orison_druggist_carboys.json",
+        "game/tests/fixtures/orison_druggist_counter.json",
+        "game/tests/fixtures/orison_druggist_cupboard.json",
+        "game/tests/fixtures/orison_druggist_dispensary.json",
+        "game/tests/fixtures/orison_druggist_drawers.json",
+        "game/tests/fixtures/orison_druggist_fountain.json",
+        "game/tests/fixtures/orison_druggist_mortar.json",
+        "game/tests/fixtures/orison_funeral_drapes.json",
+        "game/tests/fixtures/orison_funeral_fittings.json",
+        "game/tests/fixtures/orison_funeral_foliage.json",
+        "game/tests/fixtures/orison_hardware_apparatus.json",
+        "game/tests/fixtures/orison_hardware_drawers.json",
+        "game/tests/fixtures/orison_hardware_stock.json",
+        "game/tests/fixtures/orison_hardware_tools.json",
+        "game/tests/fixtures/orison_laundry_apparatus.json",
+        "game/tests/fixtures/orison_laundry_fittings.json",
+        "game/tests/fixtures/orison_laundry_receiving.json",
+        "game/tests/fixtures/orison_laundry_trade.json",
+        "game/tests/fixtures/orison_locksmith_fittings.json",
+        "game/tests/fixtures/orison_news_fittings.json",
+        "game/tests/fixtures/orison_news_receiving.json",
+        "game/tests/fixtures/orison_pawn_clocks.json",
+        "game/tests/fixtures/orison_pawn_display.json",
+        "game/tests/fixtures/orison_pawn_fittings.json",
+        "game/tests/fixtures/orison_pawn_receiving.json",
+        "game/tests/fixtures/orison_photo_cameras.json",
+        "game/tests/fixtures/orison_photo_counter.json",
+        "game/tests/fixtures/orison_photo_enlargers.json",
+        "game/tests/fixtures/orison_photo_glazing.json",
+        "game/tests/fixtures/orison_photo_portraits.json",
+        "game/tests/fixtures/orison_photo_process.json",
+        "game/tests/fixtures/orison_photo_receiving.json",
+        "game/tests/fixtures/orison_photo_stock.json",
+        "game/tests/fixtures/orison_radio_apparatus.json",
+        "game/tests/fixtures/orison_radio_battery.json",
+        "game/tests/fixtures/orison_radio_bench.json",
+        "game/tests/fixtures/orison_radio_display.json",
+        "game/tests/fixtures/orison_radio_receiving.json",
+        "game/tests/fixtures/orison_radio_stock.json",
+        "game/tests/fixtures/orison_radio_wire.json",
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_shop_joinery.json"
+      ],
+      "asset_sha256_unchanged": "8b60520552d45ccdbd3250f4a76b304a1143f53a6f246e92f6b25511b690374d"
+    },
+    {
+      "path": "game/tests/fixtures/orison_photo_radio_fittings.json",
+      "before_sha256": "d377aa8ea6426095d987e6d54774d4e155bc338f187f21eee8530c9ea6a93878",
+      "after_sha256": "e621c590bf78d92747f4f915db2974d234721b7c25930f7fb6d06544546374f7",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_joinery.json",
+        "game/tests/fixtures/orison_shop_clerestories.json",
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_photo_cameras.json",
+        "game/tests/fixtures/orison_photo_counter.json",
+        "game/tests/fixtures/orison_photo_stock.json",
+        "game/tests/fixtures/orison_photo_enlargers.json",
+        "game/tests/fixtures/orison_photo_process.json",
+        "game/tests/fixtures/orison_photo_portraits.json",
+        "game/tests/fixtures/orison_photo_glazing.json",
+        "game/tests/fixtures/orison_photo_receiving.json",
+        "game/tests/fixtures/orison_radio_display.json",
+        "game/tests/fixtures/orison_radio_wire.json",
+        "game/tests/fixtures/orison_radio_battery.json",
+        "game/tests/fixtures/orison_radio_stock.json",
+        "game/tests/fixtures/orison_radio_apparatus.json",
+        "game/tests/fixtures/orison_radio_bench.json",
+        "game/tests/fixtures/orison_radio_receiving.json"
+      ],
+      "asset_sha256_unchanged": "ddc6615cb1c9de85f0cd889f4c6f257c1e8d8b8bca9ef6e9d84a775d6633d4e6"
+    },
+    {
+      "path": "game/tests/fixtures/orison_roof_public_weathering.json",
+      "before_sha256": "26b88c63e1aec4545be680167ba0625eef60a73f180090c3b6921f3656820ea9",
+      "after_sha256": "9cd87c56fa1f569abae13a8288b538326d580fe5780ef641ba0715d28bfae0e8",
+      "bindings_only": [
+        "art\\data\\runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "69207288d64ccb4117de511f684b1b8558f89d067390c47c60486fd6bded1fff"
+    },
+    {
+      "path": "art/blender/city_closure_construction.json",
+      "before_sha256": "8701516032ae288660e1670d669acd0d8570ae454887f06ce29047dd37626554",
+      "after_sha256": "244becb77ddad89c300e4f3bb37e3e3675f2edf1fd8fb207dfc7852c948e1fd0",
+      "bindings_only": [
+        "game/tests/fixtures/orison_city_masts.json",
+        "game/tests/fixtures/orison_city_aerials.json",
+        "game/tests/fixtures/orison_city_tanks.json"
+      ],
+      "asset_sha256_unchanged": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e"
+    },
+    {
+      "path": "art/blender/diner_apparatus_construction.json",
+      "before_sha256": "1a8fcb7c2cef517212f77d81f7d2f95d37767963575b3c516ea5757b9c0ded71",
+      "after_sha256": "ba7dfbc9c4870ba04a599edc573db06441576da09f6e25b34d39c91aba705783",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_till.json",
+        "game/tests/fixtures/orison_diner_backbar.json",
+        "game/tests/fixtures/orison_diner_urns.json"
+      ],
+      "asset_sha256_unchanged": "82e070e2d1c907e802e18291e24041899888c98cd3754b8c65443ed6b774e565"
+    },
+    {
+      "path": "art/blender/diner_backbar_construction.json",
+      "before_sha256": "bba80445fe0c656fa88638fd4fc0cc2d62db42db7b30a65473c6c5149a9d1b5f",
+      "after_sha256": "d1f7d0e4419e55e660ce127838f915aa6af37bedcaae1f9689454ab7073587d4",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_till.json"
+      ],
+      "asset_sha256_unchanged": "170bf505d116403c91243c40f369eebc4396ab73a9e83ea6527de5472704f75b"
+    },
+    {
+      "path": "art/blender/diner_counter_construction.json",
+      "before_sha256": "c377be8234071e27aec14915ffb6335314ee961932cccce296cf322f01cdf0b0",
+      "after_sha256": "c4ed3e8b08978cf9c78b7d4df5c95d27b9074831fd8a9d2696a1a22ac6a125fc",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json"
+      ],
+      "asset_sha256_unchanged": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8"
+    },
+    {
+      "path": "art/blender/diner_overhead_construction.json",
+      "before_sha256": "c2aa856e70613d1f8c6b3ae1b6005cd26ad8dac764ec8f593a6a3e8330e92cdd",
+      "after_sha256": "54d69d4a5132aa314bc785c102951fd7d588c54d8aeb70e677cddb74d1bd931e",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_till.json",
+        "game/tests/fixtures/orison_diner_backbar.json",
+        "game/tests/fixtures/orison_diner_urns.json",
+        "game/tests/fixtures/orison_diner_apparatus.json"
+      ],
+      "asset_sha256_unchanged": "5212183cf1f149f27e3137e42dd9df0514e52a206c15cb4114fa491ab97dd065"
+    },
+    {
+      "path": "art/blender/diner_till_construction.json",
+      "before_sha256": "6274d73c7a5c1fee936d2190f89a77aaeacc7b96fef606c8a01daf90cbded5df",
+      "after_sha256": "9e5efa174ccb82dd560f1253b5fed0c9bbaaa99d68c41afd1aade0e5e3e92e8d",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_counter.json"
+      ],
+      "asset_sha256_unchanged": "9bfefeab432ae364893259506745fdd87593c1fb3c41923d5178091c141fcc54"
+    },
+    {
+      "path": "art/blender/diner_urns_construction.json",
+      "before_sha256": "ca343224faddcaed3471e1612113f4eafbd9ee149b88fc662747eae1d38be696",
+      "after_sha256": "2b3df95ad81639147a61298436ad7d3d1f5f00f984af55dae6e574b626212e3b",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_till.json",
+        "game/tests/fixtures/orison_diner_backbar.json"
+      ],
+      "asset_sha256_unchanged": "3e54f0f32cf066db65552948edab879d5eff51adbc054f8b85c56fd73d356f20"
+    },
+    {
+      "path": "art/blender/hardware_tools_construction.json",
+      "before_sha256": "db7088ce8b990a6cb4700354a7eb6d87cca2c9e0eb4c61763d4a06a1d4ff1b54",
+      "after_sha256": "79726517635711739caade680c6c5c6543828d0bebc5c9c72d943f7e95c498e0",
+      "bindings_only": [
+        "game/tests/fixtures/orison_hardware_stock.json"
+      ],
+      "asset_sha256_unchanged": "f397f9566c79473e6a5be9cf7daab354291adc96da00417f1a00669076aa2411"
+    },
+    {
+      "path": "art/blender/laundry_trade_construction.json",
+      "before_sha256": "646f89423d08d8369c239c1dd4c84cf21b9202333b7d7fc600133a45e009aad5",
+      "after_sha256": "8403536b160a17215eee7f50759b30b6708cb2bc54321c6251358a40da266e42",
+      "bindings_only": [
+        "game/tests/fixtures/orison_laundry_receiving.json",
+        "game/tests/fixtures/orison_laundry_fittings.json",
+        "game/tests/fixtures/orison_laundry_apparatus.json",
+        "game/tests/fixtures/orison_shop_seating.json"
+      ],
+      "asset_sha256_unchanged": "3da89cb8af25d34a958c134527f852854099d3fc4a46a7ca30bd21744bc2ff9a"
+    },
+    {
+      "path": "art/blender/pawn_clocks_construction.json",
+      "before_sha256": "d7b041c52b12c28fc4dc4284a7efcc03db51b40efdeae55894dcf7736589c002",
+      "after_sha256": "699f22fdce7aea357c1866a45da48918597f570e1e3ff4a9af44f75d9d63c0fe",
+      "bindings_only": [
+        "game/tests/fixtures/orison_pawn_receiving.json"
+      ],
+      "asset_sha256_unchanged": "fad1381b3a1b0d6d3f7208516d266cd490828ba7c1182dd14f9e0fd10eb55ee7"
+    },
+    {
+      "path": "art/blender/pawn_display_construction.json",
+      "before_sha256": "ba82ccb49b6c6b22f805dd72b6697de7608796a39a9bd647e16a0022f1f0f1a0",
+      "after_sha256": "ff3cdac3dc09a872ed6d178730cc2f9801bbc027cf0d5146cd153588842e5411",
+      "bindings_only": [
+        "game/tests/fixtures/orison_pawn_receiving.json",
+        "game/tests/fixtures/orison_pawn_clocks.json"
+      ],
+      "asset_sha256_unchanged": "981aea401fbf4a645e78cf2c1a0dd8b79e9b9532572ce32adc4b41997c6c8657"
+    },
+    {
+      "path": "art/blender/pawn_fittings_construction.json",
+      "before_sha256": "bc6364f06d7fbf3c227f3f4abc41d5c5dc61c4e0d3663c7374c86fdae20579b4",
+      "after_sha256": "977a0c1312e03f42736f21275876648e1dcd0ec00a38013ffbaaeb7340b95635",
+      "bindings_only": [
+        "game/tests/fixtures/orison_pawn_receiving.json",
+        "game/tests/fixtures/orison_pawn_clocks.json",
+        "game/tests/fixtures/orison_pawn_display.json"
+      ],
+      "asset_sha256_unchanged": "3abfb3b0a220215028cf48de5e1508e748c14e467ba3a53b1d6e3aa56e86e190"
+    },
+    {
+      "path": "art/blender/photo_radio_fittings_construction.json",
+      "before_sha256": "d377aa8ea6426095d987e6d54774d4e155bc338f187f21eee8530c9ea6a93878",
+      "after_sha256": "e621c590bf78d92747f4f915db2974d234721b7c25930f7fb6d06544546374f7",
+      "bindings_only": [
+        "game/tests/fixtures/orison_shop_joinery.json",
+        "game/tests/fixtures/orison_shop_clerestories.json",
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_photo_cameras.json",
+        "game/tests/fixtures/orison_photo_counter.json",
+        "game/tests/fixtures/orison_photo_stock.json",
+        "game/tests/fixtures/orison_photo_enlargers.json",
+        "game/tests/fixtures/orison_photo_process.json",
+        "game/tests/fixtures/orison_photo_portraits.json",
+        "game/tests/fixtures/orison_photo_glazing.json",
+        "game/tests/fixtures/orison_photo_receiving.json",
+        "game/tests/fixtures/orison_radio_display.json",
+        "game/tests/fixtures/orison_radio_wire.json",
+        "game/tests/fixtures/orison_radio_battery.json",
+        "game/tests/fixtures/orison_radio_stock.json",
+        "game/tests/fixtures/orison_radio_apparatus.json",
+        "game/tests/fixtures/orison_radio_bench.json",
+        "game/tests/fixtures/orison_radio_receiving.json"
+      ],
+      "asset_sha256_unchanged": "ddc6615cb1c9de85f0cd889f4c6f257c1e8d8b8bca9ef6e9d84a775d6633d4e6"
+    },
+    {
+      "path": "art/blender/roof_public_weathering_construction.json",
+      "before_sha256": "26b88c63e1aec4545be680167ba0625eef60a73f180090c3b6921f3656820ea9",
+      "after_sha256": "9cd87c56fa1f569abae13a8288b538326d580fe5780ef641ba0715d28bfae0e8",
+      "bindings_only": [
+        "art\\data\\runtime_material_sets.json"
+      ],
+      "asset_sha256_unchanged": "69207288d64ccb4117de511f684b1b8558f89d067390c47c60486fd6bded1fff"
+    },
+    {
+      "path": "art/blender/shop_clerestories_construction.json",
+      "before_sha256": "70abdfa0d9bf4dbbd59b851525ead0f1709685104656bc81371478bf9ad54791",
+      "after_sha256": "5b1708bbc84825769ed012381f5827b691a4e10268eeb1a4ef630bbff16745ea",
+      "bindings_only": [
+        "game/tests/fixtures/orison_cobbler_fittings.json",
+        "game/tests/fixtures/orison_diner_apparatus.json",
+        "game/tests/fixtures/orison_diner_backbar.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_overhead.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_till.json",
+        "game/tests/fixtures/orison_diner_urns.json",
+        "game/tests/fixtures/orison_druggist_carboys.json",
+        "game/tests/fixtures/orison_druggist_counter.json",
+        "game/tests/fixtures/orison_druggist_cupboard.json",
+        "game/tests/fixtures/orison_druggist_dispensary.json",
+        "game/tests/fixtures/orison_druggist_drawers.json",
+        "game/tests/fixtures/orison_druggist_fountain.json",
+        "game/tests/fixtures/orison_druggist_mortar.json",
+        "game/tests/fixtures/orison_funeral_drapes.json",
+        "game/tests/fixtures/orison_funeral_fittings.json",
+        "game/tests/fixtures/orison_funeral_foliage.json",
+        "game/tests/fixtures/orison_hardware_apparatus.json",
+        "game/tests/fixtures/orison_hardware_drawers.json",
+        "game/tests/fixtures/orison_hardware_stock.json",
+        "game/tests/fixtures/orison_hardware_tools.json",
+        "game/tests/fixtures/orison_laundry_apparatus.json",
+        "game/tests/fixtures/orison_laundry_fittings.json",
+        "game/tests/fixtures/orison_laundry_receiving.json",
+        "game/tests/fixtures/orison_laundry_trade.json",
+        "game/tests/fixtures/orison_locksmith_fittings.json",
+        "game/tests/fixtures/orison_news_fittings.json",
+        "game/tests/fixtures/orison_news_receiving.json",
+        "game/tests/fixtures/orison_pawn_clocks.json",
+        "game/tests/fixtures/orison_pawn_display.json",
+        "game/tests/fixtures/orison_pawn_fittings.json",
+        "game/tests/fixtures/orison_pawn_receiving.json",
+        "game/tests/fixtures/orison_photo_cameras.json",
+        "game/tests/fixtures/orison_photo_counter.json",
+        "game/tests/fixtures/orison_photo_enlargers.json",
+        "game/tests/fixtures/orison_photo_glazing.json",
+        "game/tests/fixtures/orison_photo_portraits.json",
+        "game/tests/fixtures/orison_photo_process.json",
+        "game/tests/fixtures/orison_photo_receiving.json",
+        "game/tests/fixtures/orison_photo_stock.json",
+        "game/tests/fixtures/orison_radio_apparatus.json",
+        "game/tests/fixtures/orison_radio_battery.json",
+        "game/tests/fixtures/orison_radio_bench.json",
+        "game/tests/fixtures/orison_radio_display.json",
+        "game/tests/fixtures/orison_radio_receiving.json",
+        "game/tests/fixtures/orison_radio_stock.json",
+        "game/tests/fixtures/orison_radio_wire.json",
+        "game/tests/fixtures/orison_shop_seating.json",
+        "game/tests/fixtures/orison_shop_joinery.json"
+      ],
+      "asset_sha256_unchanged": "8b60520552d45ccdbd3250f4a76b304a1143f53a6f246e92f6b25511b690374d"
+    },
+    {
+      "path": "art/blender/shop_joinery_construction.json",
+      "before_sha256": "88ee24671fafb9054c8b0ae978526fdb48ce723f28d9ca3f53b31689a82893fc",
+      "after_sha256": "78edeefac7b72eb426a872e08a732655c69e4303da31e2b84f25f2f4771e9a19",
+      "bindings_only": [
+        "game/tests/fixtures/orison_cobbler_fittings.json",
+        "game/tests/fixtures/orison_diner_apparatus.json",
+        "game/tests/fixtures/orison_diner_backbar.json",
+        "game/tests/fixtures/orison_diner_counter.json",
+        "game/tests/fixtures/orison_diner_overhead.json",
+        "game/tests/fixtures/orison_diner_receiving.json",
+        "game/tests/fixtures/orison_diner_till.json",
+        "game/tests/fixtures/orison_diner_urns.json",
+        "game/tests/fixtures/orison_druggist_carboys.json",
+        "game/tests/fixtures/orison_druggist_counter.json",
+        "game/tests/fixtures/orison_druggist_cupboard.json",
+        "game/tests/fixtures/orison_druggist_dispensary.json",
+        "game/tests/fixtures/orison_druggist_drawers.json",
+        "game/tests/fixtures/orison_druggist_fountain.json",
+        "game/tests/fixtures/orison_druggist_mortar.json",
+        "game/tests/fixtures/orison_funeral_drapes.json",
+        "game/tests/fixtures/orison_funeral_fittings.json",
+        "game/tests/fixtures/orison_funeral_foliage.json",
+        "game/tests/fixtures/orison_hardware_apparatus.json",
+        "game/tests/fixtures/orison_hardware_drawers.json",
+        "game/tests/fixtures/orison_hardware_stock.json",
+        "game/tests/fixtures/orison_hardware_tools.json",
+        "game/tests/fixtures/orison_laundry_apparatus.json",
+        "game/tests/fixtures/orison_laundry_fittings.json",
+        "game/tests/fixtures/orison_laundry_receiving.json",
+        "game/tests/fixtures/orison_laundry_trade.json",
+        "game/tests/fixtures/orison_locksmith_fittings.json",
+        "game/tests/fixtures/orison_news_fittings.json",
+        "game/tests/fixtures/orison_news_receiving.json",
+        "game/tests/fixtures/orison_pawn_clocks.json",
+        "game/tests/fixtures/orison_pawn_display.json",
+        "game/tests/fixtures/orison_pawn_fittings.json",
+        "game/tests/fixtures/orison_pawn_receiving.json",
+        "game/tests/fixtures/orison_photo_cameras.json",
+        "game/tests/fixtures/orison_photo_counter.json",
+        "game/tests/fixtures/orison_photo_enlargers.json",
+        "game/tests/fixtures/orison_photo_glazing.json",
+        "game/tests/fixtures/orison_photo_portraits.json",
+        "game/tests/fixtures/orison_photo_process.json",
+        "game/tests/fixtures/orison_photo_receiving.json",
+        "game/tests/fixtures/orison_photo_stock.json",
+        "game/tests/fixtures/orison_radio_apparatus.json",
+        "game/tests/fixtures/orison_radio_battery.json",
+        "game/tests/fixtures/orison_radio_bench.json",
+        "game/tests/fixtures/orison_radio_display.json",
+        "game/tests/fixtures/orison_radio_receiving.json",
+        "game/tests/fixtures/orison_radio_stock.json",
+        "game/tests/fixtures/orison_radio_wire.json",
+        "game/tests/fixtures/orison_shop_seating.json"
+      ],
+      "asset_sha256_unchanged": "b86a4760076dd0389fe50abf2d23906f759e11108562ceb0622ff90d61cce24e"
+    }
+  ],
+  "scope": "Strictly additive material catalogue provenance. Existing geometry and evidence are unchanged; this does not grant fresh visual/runtime acceptance."
+}
