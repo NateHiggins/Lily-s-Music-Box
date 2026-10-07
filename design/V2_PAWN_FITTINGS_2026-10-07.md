@@ -34,8 +34,15 @@ broad material calibration remain; this is not final photorealistic acceptance.
 
 ## Gates and serialized receipts
 
-Final clean static verification is recorded in the accompanying verification
-packet after candidate checking. The canonical preliminary board found one
+[Clean static verification](../art/renders/orison_v2/pawn_fittings_20261007/verification/verification.json)
+passed with zero regressions across 49 board entries and all 42 tools suites.
+The staged candidate **5d6d3e79a722cd9ab5dbbc96854e5f5e180cdf9b** has the exact
+same Git tree as committed source **9d2bb3acdfcf7a3847e54a67de00b658b462acf8**.
+All 17 protected paths and 240 requirement statuses are unchanged; reader NEW 0,
+selector V2. No Godot process ran in verification; canonical receipts supply
+the stated runtime observations. Temporary verification checkouts were removed.
+The final metadata update restores the manifest's original one-space formatting
+with JSON equality checked; no dependency or source behavior changes. The canonical preliminary board found one
 new glazing-owner dependency, now registered against the actual shipping node,
 and the existing canonical protected-file byte mismatch in the historical
 rehearsal test. No auditor or debt baseline is relaxed. The manifest appends
