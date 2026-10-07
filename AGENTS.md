@@ -97,6 +97,10 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
 - Props are being regenerated in Blender (RUL-006). The prop script keeps
   every non-visual authority; generated glTF is never hand-edited.
 - Verify by rendering, never by reading code.
+- For the owner's V2 geometry/texture speed pass, follow
+  `art/blender/v2_batch_workflow.md`: batch rooms or related fittings, finish
+  Blender review before a combined Godot capture, reuse unchanged verification,
+  and avoid repeating runtime suites for report-only changes.
 
 ## Tools
 

@@ -1,0 +1,51 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 48.73,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T12:24:06Z",
+  "started_utc": "2026-10-07T12:23:16Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fabrication-batch.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fabrication-batch.log",
+  "stdout_sha256": "ea61af3a5a07f03353d759196d2b4f462481156ebfd1b7fe044b6acad836fe5e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fabrication-batch-shots",
+ "source": {
+  "dirty_paths": 9,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M game/tests/orison_v2_pawn_clocks_test.gd",
+   " M game/tests/orison_v2_pawn_display_test.gd",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? game/tests/OrisonV2FabricationBatch.tscn",
+   "?? game/tests/orison_v2_fabrication_batch.gd"
+  ],
+  "repository_head": "ce6ae9395ff017a03919136fca2ecb741f2c78eb",
+  "repository_tree": "ffa8985f9f22ca1f5188b847371d53cd2d9267cc",
+  "runtime_inputs_sha256": "6865a290e8fdfe8c774e74fcaf2fc8300d3ea663c5d846b633e2ed7571d4e9e7",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "4de0c3ddf029d3b41ba10eb040f2b3763f9e6e63570d200f4a1f571e8c972909"
+ },
+ "windowed": true
+}
