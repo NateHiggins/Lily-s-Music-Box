@@ -35,6 +35,9 @@ func _mount_native() -> void:
 		if row.has("tint"):
 			var tint: Array = row.tint
 			material.albedo_color = Color(tint[0], tint[1], tint[2], tint[3])
+		if row.has("finish"):
+			material.normal_scale = float(row.finish.normal_scale)
+			material.roughness = float(row.finish.roughness)
 		draw.mesh.surface_set_material(0, material)
 		draw.set_meta("task_lamps_part", str(row.name))
 		draw.set_meta("material_key", str(row.key))

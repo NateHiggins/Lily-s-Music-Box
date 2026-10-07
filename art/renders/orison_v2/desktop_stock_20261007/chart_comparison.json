@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "passed": true,
+  "comparisons": [
+    {
+      "rotated": false,
+      "triangles": 2048,
+      "maximum_absolute_error": 3.552713678800501e-15,
+      "fallbacks": 0
+    },
+    {
+      "rotated": true,
+      "triangles": 2048,
+      "maximum_absolute_error": 8.393286066166183e-14,
+      "fallbacks": 0
+    }
+  ]
+}

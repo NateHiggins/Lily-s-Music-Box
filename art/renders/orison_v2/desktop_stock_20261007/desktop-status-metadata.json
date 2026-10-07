@@ -1,0 +1,30 @@
+{
+  "evidence_class": "INERT",
+  "changes": [
+    {
+      "family": "surface_stock",
+      "before_open_work": [
+        "Native construction, support survey and runtime adoption in progress.",
+        "Vantry cabinet and lamp surface normal refinement are grouped into the same planned engine batch."
+      ],
+      "after_open_work": [
+        "Final room lighting and adjacent furniture remain in the wider V2 pass; this family has scoped native and composed runtime verification."
+      ],
+      "adaptations_changed": false,
+      "asset_sha256_unchanged": "b62b87daf0e6b5a2f4bcebfdcf944df34930574812840ba362a7398293d7dd95",
+      "plan_sha256": "655a0a023ecc3598afcac7e919667899dfdb6acd8609ee132493b237564c4b91"
+    },
+    {
+      "family": "signal_terminal",
+      "before_open_work": [
+        "Native/runtime composed validation in progress. Dynamic scope, meter needles, valve bank and annunciator remain original actor-owned geometry."
+      ],
+      "after_open_work": [
+        "Final room lighting and adjacent furniture remain in the wider V2 pass; this family has scoped native and composed runtime verification."
+      ],
+      "adaptations_changed": true,
+      "asset_sha256_unchanged": "0b8f01928222bc41e2b045308c92bd67bab93220a76037b03350fa2812225f43",
+      "plan_sha256": "16e81b62f3fb1733c77612b76cf924607ee125357d9cbe94047878692cdfe92d"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+FABRICATION STAGE: art/blender/scripts/build_signal_terminal.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_signal_terminal.py:73: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "signal_terminal.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+18:08:06 | INFO: Starting glTF 2.0 export
+18:08:06 | INFO: Extracting primitive: VantryFixed__bakelite
+18:08:06 | INFO: Primitives created: 1
+18:08:06 | INFO: Extracting primitive: VantryFixed__brass_dull
+18:08:06 | INFO: Primitives created: 1
+18:08:06 | INFO: Extracting primitive: VantryFixed__copper_aged
+18:08:06 | INFO: Primitives created: 1
+18:08:06 | INFO: Extracting primitive: VantryFixed__glassish
+18:08:06 | INFO: Primitives created: 1
+18:08:06 | INFO: Extracting primitive: VantryFixed__nickel_plated
+18:08:06 | INFO: Primitives created: 1
+18:08:06 | INFO: Extracting primitive: VantryFixed__wood_dark
+18:08:06 | INFO: Primitives created: 1
+18:08:06 | INFO: Finished glTF 2.0 export in 0.049803733825683594 s
+
+SURFACE STOCK 1 original records; 1 assemblies; 107 closed stocks; 6 parts; 25644 triangles; 4 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_signal_terminal.py
+00:02.719  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\signal_terminal.blend"
+SURFACE STOCK LOCAL: 107 closed stocks; 1 physical groups; 4 local bearings; 6 mapped parts
+FABRICATION STAGE: art/blender/scripts/inspect_signal_terminal_context.py
+00:04.110  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\signal_terminal.blend"
+SIGNAL TERMINAL CONTEXT: 4 desktop bearings; native lamp clear
+FABRICATION STAGE: art/blender/scripts/render_signal_terminal.py
+00:04.313  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\signal_terminal.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_signal_terminal.py:10: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.60,.65,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.6
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_signal_terminal.py:13: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=10,location=(0,0,-.00004));plane=bpy.context.object;material=bpy.data.materials.new('Review ground');material.diffuse_color=(.23,.25,.26,1);material.use_nodes=True;material.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.23,.25,.26,1);material.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.75;plane.data.materials.append(material)
+00:17.422  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\signal-terminal-native\VantryFixed.png'
+{"completed_stages": 4, "elapsed_s": 16.117}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

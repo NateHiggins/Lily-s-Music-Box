@@ -1,0 +1,68 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_ids": [
+    "F04_B_MONITOR_01"
+  ],
+  "prop_ids": [
+    "VantryFixed"
+  ],
+  "runtime_keys": [
+    "wood_dark",
+    "brass_dull",
+    "bakelite",
+    "nickel_plated",
+    "copper_aged",
+    "rubber_aged",
+    "glassish"
+  ],
+  "catalog_variants": {
+    "wood_dark": "oak_work_surface",
+    "brass_dull": "brass_dull",
+    "bakelite": "bakelite",
+    "nickel_plated": "nickel_plated",
+    "copper_aged": "copper_aged",
+    "rubber_aged": "rubber_aged"
+  },
+  "material_aliases": {},
+  "material_tints": {
+    "wood_dark": [
+      0.27,
+      0.14,
+      0.065,
+      1
+    ]
+  },
+  "finish_parameters": {
+    "bakelite": {
+      "normal_scale": 0.025,
+      "roughness": 0.32
+    },
+    "nickel_plated": {
+      "normal_scale": 0.025,
+      "roughness": 0.32
+    },
+    "brass_dull": {
+      "normal_scale": 0.04,
+      "roughness": 0.55
+    },
+    "rubber_aged": {
+      "normal_scale": 0.06,
+      "roughness": 0.68
+    }
+  },
+  "placement": {
+    "floor_y": 0,
+    "frame": "Original SignalTerminalProp local frame: +X operator, native (X,Y,Z) converts to Godot (X,Z,-Y)."
+  },
+  "adaptations": [
+    "Preserve the unique terminal actor, scope, needle pivots, ValveBank, annunciator, dynamic materials, call stages, lights and interaction authority. Replace fixed geometry and the ValveBank glass mesh; seat the original needle meshes on their original pivots.",
+    "Retain cabinet, panel, control, handset and bridge datums. Hollow cabinetry, fitted posts, closed knob/jack stock, screws and guard rail seats replace source primitives.",
+    "Seat original base at zero rather than the source half-millimetre air gap. Add real bridge/cradle supports across the original 17.5mm gap.",
+    "Keep the original ValveBank and its actor-owned emission material, replacing only its primitive glass mesh with hollow domed envelopes and fixed sockets/internal plates.",
+    "Seat the two original needle meshes at their intended local pivot offset. The original keep-global reparent placed them at the actor origin; pivot identity and all stage targets remain unchanged."
+  ],
+  "open_work": [
+    "Final room lighting and adjacent furniture remain in the wider V2 pass; this family has scoped native and composed runtime verification."
+  ]
+}

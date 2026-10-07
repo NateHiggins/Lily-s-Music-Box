@@ -24,6 +24,8 @@ from mathutils import Vector
 sys.path.insert(0,str(next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())/'art/blender/scripts'))
 from fabrication_uvs import chart_for_triangle
 from fabrication_grain import stock_grain_frame, stock_grain_chart
+from fabrication_normals import stock_corner_normals
+from fabrication_chart_batch import triangle_charts, revolved_charts
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
 import os
 OUT=Path(os.environ.get('TASK_LAMPS_OUT',str(ROOT)))
@@ -47,6 +49,7 @@ for key in plan['runtime_keys']:
    definition=ROOT/f'art/textures/{mapping}/material.json';tile=json.loads(definition.read_text(encoding='utf-8'))['meters_per_tile']
   sets[key]={'files':files,'meters_per_tile':tile,'metallic':pbr.get('metallicFactor',1),'roughness':pbr.get('roughnessFactor',1),'normal_scale':shipping['normalTexture'].get('scale',1),'source_color':pbr.get('baseColorFactor',[1,1,1,1]),'alpha':shipping.get('alphaMode')=='BLEND'}
  material_definitions.append(definition)
+ sets[key].update(plan.get('finish_parameters',{}).get(key,{}))
 
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n')).hexdigest()
@@ -104,7 +107,7 @@ def box(name,low,high,identity,key='timber',bevel=.003,collection=closed):
 def rod(name,a,b,r,identity,key='timber',n=48):
  a=Vector(a);b=Vector(b);axis=(b-a).normalized();seed=Vector((0,0,1)) if abs(axis.z)<.9 else Vector((1,0,0));u=axis.cross(seed).normalized();v=axis.cross(u)
  verts=[p+r*(u*math.cos(i*math.tau/n)+v*math.sin(i*math.tau/n)) for p in [a,b] for i in range(n)]
- return solid(name,verts,[tuple(reversed(range(n)))]+[(i,(i+1)%n,n+(i+1)%n,n+i) for i in range(n)]+[tuple(range(n,2*n))],identity,key)
+ obj=solid(name,verts,[tuple(reversed(range(n)))]+[(i,(i+1)%n,n+(i+1)%n,n+i) for i in range(n)]+[tuple(range(n,2*n))],identity,key)
 def torus(name,center,rx,ry,r,identity,key):
  n=64;m=12;verts=[]
  for i in range(n):
@@ -207,24 +210,28 @@ draws=[];inventory=[];fallbacks=0;total_triangles=0
 for item in assemblies:
  identity=item['id'];keys=sorted({partition_of(obj,key) for obj,key in pieces[identity]});rect=item['body']['rect'];origin=np.array(((rect[0]+rect[2])*.5,(rect[1]+rect[3])*.5,item['body']['z0']))
  for part_key in keys:
-  key=part_key;vertices=[];faces=[];grain_frames=[]
+  key=part_key;vertices=[];faces=[];grain_frames=[];uv_axes=[];uv_centers=[]
   for obj,material_key in pieces[identity]:
    if partition_of(obj,material_key)!=part_key:continue
    # Sum in doubles before rebasing the assembled draw. World-coordinate
    # float32 addition otherwise collapses tiny bevel faces fifty metres out.
    offset=len(vertices);vertices.extend(tuple(np.asarray(obj.location,dtype=np.float64)+np.asarray(v.co,dtype=np.float64)) for v in obj.data.vertices)
+   uv_axes.extend([obj.get('uv_axis',(0,0,0))]*len(obj.data.vertices));uv_centers.extend([obj.get('uv_center',(0,0,0))]*len(obj.data.vertices))
    frame=stock_grain_frame([v.co[:] for v in obj.data.vertices],sets[key]['files'][0]);grain_frames.extend([frame]*len(obj.data.vertices))
    faces.extend(tuple(offset+i for i in face.vertices) for face in obj.data.polygons)
   name=identity+'__'+part_key;mesh=bpy.data.meshes.new(name);mesh.from_pydata([tuple(np.asarray(p)-origin) for p in vertices],[],faces);mesh.update();mesh.materials.append(materials[key])
   bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.triangulate(bm,faces=list(bm.faces));bm.to_mesh(mesh);bm.free()
   uv=mesh.uv_layers.new(name='Metres');uv.active_render=True;guides=mesh.attributes.new(name='_tangent_guide',type='FLOAT_VECTOR',domain='CORNER');normals=[None]*len(mesh.loops)
-  for face in mesh.polygons:
-   points=np.asarray([mesh.vertices[i].co[:] for i in face.vertices],dtype=np.float64)
-   assert np.linalg.norm(np.cross(points[1]-points[0],points[2]-points[0]))>0,(name,face.index,points.tolist())
-   n,u,values,local=stock_grain_chart(points,origin,sets[key]['meters_per_tile'],grain_frames[face.vertices[0]])
-   fallbacks+=local
-   for j,loop in enumerate(face.loop_indices):uv.data[loop].uv=tuple(values[j]);guides.data[loop].vector=(float(u[0]),float(u[2]),float(-u[1]));normals[loop]=tuple(mesh.vertices[face.vertices[j]].normal) if key in ['glassish','fabric_warm','milk_glass','green_glass','bulb_opal'] else tuple(n)
-  mesh.normals_split_custom_set(normals);obj=bpy.data.objects.new(name,mesh);bpy.context.scene.collection.objects.link(obj);obj.location=origin;draws.append(obj)
+  coordinates=np.empty(len(mesh.vertices)*3);mesh.vertices.foreach_get('co',coordinates);coordinates=coordinates.reshape((-1,3))
+  indices=np.empty(len(mesh.loops),dtype=np.int32);mesh.loops.foreach_get('vertex_index',indices);indices=indices.reshape((-1,3));points=coordinates[indices]
+  frames_for_faces=[grain_frames[i] for i in indices[:,0]]
+  rotations=np.stack([frame[0] if frame is not None else np.eye(3) for frame in frames_for_faces])
+  long_grain=np.asarray([frame is not None and frame[1]==0 for frame in frames_for_faces])
+  ns,us,values,local=triangle_charts(points,origin,sets[key]['meters_per_tile'],rotations,long_grain);fallbacks+=local
+  revolved_charts(points,ns,us,values,np.asarray(uv_axes)[indices[:,0]],np.asarray(uv_centers)[indices[:,0]]-origin,sets[key]['meters_per_tile'])
+  uv.data.foreach_set('uv',values.astype(np.float32).ravel())
+  guide=np.repeat(us[:,[0,2,1]],3,axis=0);guide[:,2]*=-1;guides.data.foreach_set('vector',guide.astype(np.float32).ravel())
+  mesh.normals_split_custom_set(stock_corner_normals(mesh));obj=bpy.data.objects.new(name,mesh);bpy.context.scene.collection.objects.link(obj);obj.location=origin;draws.append(obj)
   mesh.calc_loop_triangles();total_triangles+=len(mesh.loop_triangles);inventory.append({'name':name,'assembly':identity,'cell':item['cell'],'key':key,'triangles':len(mesh.loop_triangles)})
 bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'art/blender/task_lamps.blend'))
 bpy.ops.object.select_all(action='DESELECT')
@@ -256,11 +263,11 @@ for variant in plan['variants']:
  parts=[]
  for part in inventory:
   if part['cell']!=variant:continue
-  key=part['key'];parts.append({'name':part['name'],'key':key,'catalog_key':plan['catalog_variants'][key],'tile':sets[key]['meters_per_tile'],**({'tint':plan['material_tints'][key]} if key in plan['material_tints'] else {})})
+  key=part['key'];parts.append({'name':part['name'],'key':key,'catalog_key':plan['catalog_variants'][key],'tile':sets[key]['meters_per_tile'],**({'tint':plan['material_tints'][key]} if key in plan['material_tints'] else {}),**({'finish':plan['finish_parameters'][key]} if key in plan.get('finish_parameters',{}) else {})})
  variants.append({'id':variant,'parts':parts,'emitter':emitters[variant],'switch_pivot':[.060,.037,-.045]})
 runtime={'schema_version':1,'asset':'res://assets/props/task_lamps.glb','variants':variants}
 (OUT/'game/data/orison_v2/task_lamps.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
-bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',ROOT/'art/blender/scripts/fabrication_grain.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/task_lamps.glb.import',*material_definitions]
+bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',ROOT/'art/blender/scripts/fabrication_grain.py',ROOT/'art/blender/scripts/fabrication_normals.py',ROOT/'art/blender/scripts/fabrication_chart_batch.py',ROOT/'art/blender/scripts/inspect_task_lamps.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/task_lamps.glb.import',*material_definitions]
 for key in plan['runtime_keys']:bindings.extend(ROOT/'game/assets/building/textures'/f for f in sets[key]['files'] if f is not None)
 bindings.extend([ROOT/'art/data/material_catalog.json',ROOT/'art/textures/catalog_mapping.json',ROOT/'art/tools/generate_runtime_materials.py'])
 bindings.extend(ROOT/name for name in ['art/blender/scripts/inspect_task_lamps.py','art/blender/scripts/task_lamps_geometry.py','game/scripts/props/lamp_prop.gd','game/scripts/props/functional_prop.gd','game/scripts/props/native_task_lamp.gd','game/scripts/building/orison_v2_room_lighting.gd','game/tests/orison_v2_task_lamps_test.gd','art/data/orison_v2/domestic_furniture_source.json','game/data/orison_v2/domestic_furniture.json'])

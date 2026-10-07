@@ -1,0 +1,1029 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "kind": "signal_terminal",
+      "id": "F04_B_MONITOR_01",
+      "unit": "4B",
+      "pos": [
+        -8.05,
+        5.5,
+        10.36
+      ],
+      "yaw_deg": 180,
+      "network": "electrical"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "VantryFixed",
+      "kind": "fixed_signal_terminal",
+      "cell": "4B",
+      "source_record": "F04_B_MONITOR_01"
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "VantryFixed_Foot",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 0.014826589750730933
+    },
+    {
+      "name": "VantryFixed_Floor",
+      "assembly": "VantryFixed",
+      "key": "wood_dark",
+      "volume_m3": 0.005812586822805155
+    },
+    {
+      "name": "VantryFixed_Top",
+      "assembly": "VantryFixed",
+      "key": "wood_dark",
+      "volume_m3": 0.0058083593330592875
+    },
+    {
+      "name": "VantryFixed_Cheek-0.51",
+      "assembly": "VantryFixed",
+      "key": "wood_dark",
+      "volume_m3": 0.001189945637034992
+    },
+    {
+      "name": "VantryFixed_Cheek0.495",
+      "assembly": "VantryFixed",
+      "key": "wood_dark",
+      "volume_m3": 0.001189945637034992
+    },
+    {
+      "name": "VantryFixed_Back",
+      "assembly": "VantryFixed",
+      "key": "wood_dark",
+      "volume_m3": 0.003078947710331826
+    },
+    {
+      "name": "VantryFixed_Front",
+      "assembly": "VantryFixed",
+      "key": "brass_dull",
+      "volume_m3": 0.004861833078461848
+    },
+    {
+      "name": "VantryFixed_BridgePost(-0.16, -0.285)",
+      "assembly": "VantryFixed",
+      "key": "wood_dark",
+      "volume_m3": 1.9707095696296383e-05
+    },
+    {
+      "name": "VantryFixed_BridgePost(-0.16, 0.285)",
+      "assembly": "VantryFixed",
+      "key": "wood_dark",
+      "volume_m3": 1.970709569629638e-05
+    },
+    {
+      "name": "VantryFixed_BridgePost(0.05, -0.285)",
+      "assembly": "VantryFixed",
+      "key": "wood_dark",
+      "volume_m3": 1.9707099374496787e-05
+    },
+    {
+      "name": "VantryFixed_BridgePost(0.05, 0.285)",
+      "assembly": "VantryFixed",
+      "key": "wood_dark",
+      "volume_m3": 1.970709937449679e-05
+    },
+    {
+      "name": "VantryFixed_Bridge",
+      "assembly": "VantryFixed",
+      "key": "wood_dark",
+      "volume_m3": 0.00852131465813216
+    },
+    {
+      "name": "VantryFixed_GuardRoof-0.27",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 3.8373778043165986e-05
+    },
+    {
+      "name": "VantryFixed_GuardPost(-0.17, -0.27)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 2.2717850962572132e-05
+    },
+    {
+      "name": "VantryFixed_GuardPost(0.08, -0.27)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 2.2717855372273235e-05
+    },
+    {
+      "name": "VantryFixed_GuardRoof-0.18",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 3.837372197013072e-05
+    },
+    {
+      "name": "VantryFixed_GuardPost(-0.17, -0.18)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 2.2717817768846613e-05
+    },
+    {
+      "name": "VantryFixed_GuardPost(0.08, -0.18)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 2.2717822178547706e-05
+    },
+    {
+      "name": "VantryFixed_GuardRoof0.18",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 3.837372197013072e-05
+    },
+    {
+      "name": "VantryFixed_GuardPost(-0.17, 0.18)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 2.2717817768846613e-05
+    },
+    {
+      "name": "VantryFixed_GuardPost(0.08, 0.18)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 2.2717822178547706e-05
+    },
+    {
+      "name": "VantryFixed_GuardRoof0.27",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 3.8373778043165986e-05
+    },
+    {
+      "name": "VantryFixed_GuardPost(-0.17, 0.27)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 2.2717850962572132e-05
+    },
+    {
+      "name": "VantryFixed_GuardPost(0.08, 0.27)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 2.2717855372273235e-05
+    },
+    {
+      "name": "VantryFixed_GuardSpine-0.17",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 8.503617095987655e-05
+    },
+    {
+      "name": "VantryFixed_GuardSpine0.08",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 8.50361874703968e-05
+    },
+    {
+      "name": "VantryFixed_ValveSocket-0.2",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 4.093717327686652e-05
+    },
+    {
+      "name": "VantryFixed_ValveGlass-0.2",
+      "assembly": "VantryFixed",
+      "key": "glassish",
+      "volume_m3": 3.703813154622316e-05
+    },
+    {
+      "name": "VantryFixed_ValveCathode-0.2",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.2126407798701214e-05
+    },
+    {
+      "name": "VantryFixed_ValvePlate(-0.2, -0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 3.7564611535293435e-06
+    },
+    {
+      "name": "VantryFixed_ValvePlateLeg(-0.2, -0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 7.753267143655584e-08
+    },
+    {
+      "name": "VantryFixed_ValvePlate(-0.2, 0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 3.7564629134960593e-06
+    },
+    {
+      "name": "VantryFixed_ValvePlateLeg(-0.2, 0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 7.75326741050549e-08
+    },
+    {
+      "name": "VantryFixed_ValveSocket0",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 4.0937172276460903e-05
+    },
+    {
+      "name": "VantryFixed_ValveGlass0",
+      "assembly": "VantryFixed",
+      "key": "glassish",
+      "volume_m3": 3.7038126087005494e-05
+    },
+    {
+      "name": "VantryFixed_ValveCathode0",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.2126409428088653e-05
+    },
+    {
+      "name": "VantryFixed_ValvePlate(0, -0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 3.7564610007899306e-06
+    },
+    {
+      "name": "VantryFixed_ValvePlateLeg(0, -0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 7.753260406008333e-08
+    },
+    {
+      "name": "VantryFixed_ValvePlate(0, 0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 3.7564627607565385e-06
+    },
+    {
+      "name": "VantryFixed_ValvePlateLeg(0, 0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 7.753260672855052e-08
+    },
+    {
+      "name": "VantryFixed_ValveSocket0.2",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 4.093717327686663e-05
+    },
+    {
+      "name": "VantryFixed_ValveGlass0.2",
+      "assembly": "VantryFixed",
+      "key": "glassish",
+      "volume_m3": 3.70381315462229e-05
+    },
+    {
+      "name": "VantryFixed_ValveCathode0.2",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.2126407798701214e-05
+    },
+    {
+      "name": "VantryFixed_ValvePlate(0.2, -0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 3.7564611535293435e-06
+    },
+    {
+      "name": "VantryFixed_ValvePlateLeg(0.2, -0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 7.753267143655584e-08
+    },
+    {
+      "name": "VantryFixed_ValvePlate(0.2, 0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 3.7564629134960593e-06
+    },
+    {
+      "name": "VantryFixed_ValvePlateLeg(0.2, 0.012)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 7.75326741050549e-08
+    },
+    {
+      "name": "VantryFixed_ScopeBezel",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 0.0005177328457342697
+    },
+    {
+      "name": "VantryFixed_ScopeSeat",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 2.1764847742521476e-05
+    },
+    {
+      "name": "VantryFixed_MeterCase-0.045",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 0.00031072901872690543
+    },
+    {
+      "name": "VantryFixed_MeterFace-0.045",
+      "assembly": "VantryFixed",
+      "key": "brass_dull",
+      "volume_m3": 0.0001041587233180057
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.045, 0)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428706860382666e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.045, 1)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428709027363632e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.045, 2)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428704747902295e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.045, 3)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428696188979383e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.045, 4)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.4287254495992444e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.045, 5)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.4286961889793966e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.045, 6)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.4287140425088835e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.045, 7)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428709027363625e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.045, 8)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.4287086946822765e-09
+    },
+    {
+      "name": "VantryFixed_MeterCase-0.265",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 0.00031072901734791405
+    },
+    {
+      "name": "VantryFixed_MeterFace-0.265",
+      "assembly": "VantryFixed",
+      "key": "brass_dull",
+      "volume_m3": 0.00010415872769709665
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.265, 0)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428744038815849e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.265, 1)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428597492039267e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.265, 2)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428741926328603e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.265, 3)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428584653791629e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.265, 4)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428744038815836e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.265, 5)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.4285846537916156e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.265, 6)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428667569476007e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.265, 7)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.4287462058051e-09
+    },
+    {
+      "name": "VantryFixed_MeterTick(-0.265, 8)",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 6.428744038815856e-09
+    },
+    {
+      "name": "VantryFixed_Knob-0.405",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 0.00010171499550367088
+    },
+    {
+      "name": "VantryFixed_KnobHub-0.405",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.0024524634054494e-07
+    },
+    {
+      "name": "VantryFixed_Knob-0.035",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 0.0001899801141711572
+    },
+    {
+      "name": "VantryFixed_KnobHub-0.035",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.0024524634054494e-07
+    },
+    {
+      "name": "VantryFixed_Knob0.42",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 0.00010171499550367088
+    },
+    {
+      "name": "VantryFixed_KnobHub0.42",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.0024524634054494e-07
+    },
+    {
+      "name": "VantryFixed_PatchField",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 0.0004399841880074113
+    },
+    {
+      "name": "VantryFixed_Jack0",
+      "assembly": "VantryFixed",
+      "key": "copper_aged",
+      "volume_m3": 7.158941064901078e-06
+    },
+    {
+      "name": "VantryFixed_Jack1",
+      "assembly": "VantryFixed",
+      "key": "copper_aged",
+      "volume_m3": 7.158941064901078e-06
+    },
+    {
+      "name": "VantryFixed_Jack2",
+      "assembly": "VantryFixed",
+      "key": "copper_aged",
+      "volume_m3": 7.158941064901078e-06
+    },
+    {
+      "name": "VantryFixed_Jack3",
+      "assembly": "VantryFixed",
+      "key": "copper_aged",
+      "volume_m3": 7.158941064901078e-06
+    },
+    {
+      "name": "VantryFixed_Jack4",
+      "assembly": "VantryFixed",
+      "key": "copper_aged",
+      "volume_m3": 7.158941064901078e-06
+    },
+    {
+      "name": "VantryFixed_Jack5",
+      "assembly": "VantryFixed",
+      "key": "copper_aged",
+      "volume_m3": 7.158941064901078e-06
+    },
+    {
+      "name": "VantryFixed_CradleSeat-0.32",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 3.1899725007143514e-05
+    },
+    {
+      "name": "VantryFixed_CradleSeat-0.48",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 3.1899725007143514e-05
+    },
+    {
+      "name": "VantryFixed_HandsetGrip",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 0.0012610677806071846
+    },
+    {
+      "name": "VantryFixed_HandsetCup-0.31",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 0.00042968186130750823
+    },
+    {
+      "name": "VantryFixed_HandsetGrille(-0.31, -0.02)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.3770931551189783e-07
+    },
+    {
+      "name": "VantryFixed_HandsetGrille(-0.31, -0.01)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.377093155118979e-07
+    },
+    {
+      "name": "VantryFixed_HandsetGrille(-0.31, 0)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.377093155118979e-07
+    },
+    {
+      "name": "VantryFixed_HandsetGrille(-0.31, 0.01)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.377093155118979e-07
+    },
+    {
+      "name": "VantryFixed_HandsetGrille(-0.31, 0.02)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.3770929642591103e-07
+    },
+    {
+      "name": "VantryFixed_HandsetCup-0.55",
+      "assembly": "VantryFixed",
+      "key": "bakelite",
+      "volume_m3": 0.0004296816899962019
+    },
+    {
+      "name": "VantryFixed_HandsetGrille(-0.55, -0.02)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.377071745119897e-07
+    },
+    {
+      "name": "VantryFixed_HandsetGrille(-0.55, -0.01)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.377071745119898e-07
+    },
+    {
+      "name": "VantryFixed_HandsetGrille(-0.55, 0)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.377071745119898e-07
+    },
+    {
+      "name": "VantryFixed_HandsetGrille(-0.55, 0.01)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.377071745119898e-07
+    },
+    {
+      "name": "VantryFixed_HandsetGrille(-0.55, 0.02)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 1.377071554262546e-07
+    },
+    {
+      "name": "VantryFixed_PanelScrew(-0.445, 0.046, -0.0023)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 6.343196445425494e-08
+    },
+    {
+      "name": "VantryFixed_PanelScrew(-0.445, 0.046, 0.0023)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 6.343197792200034e-08
+    },
+    {
+      "name": "VantryFixed_PanelScrew(-0.445, 0.238, -0.0023)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 6.343200554063302e-08
+    },
+    {
+      "name": "VantryFixed_PanelScrew(-0.445, 0.238, 0.0023)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 6.343200554063376e-08
+    },
+    {
+      "name": "VantryFixed_PanelScrew(0.445, 0.046, -0.0023)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 6.343196445425495e-08
+    },
+    {
+      "name": "VantryFixed_PanelScrew(0.445, 0.046, 0.0023)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 6.343197792200034e-08
+    },
+    {
+      "name": "VantryFixed_PanelScrew(0.445, 0.238, -0.0023)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 6.343200554063281e-08
+    },
+    {
+      "name": "VantryFixed_PanelScrew(0.445, 0.238, 0.0023)",
+      "assembly": "VantryFixed",
+      "key": "nickel_plated",
+      "volume_m3": 6.343200554063376e-08
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "VantryFixed",
+      "owner": "support",
+      "point": [
+        -0.15,
+        0,
+        0.45
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cabinet foot"
+    },
+    {
+      "assembly": "VantryFixed",
+      "owner": "support",
+      "point": [
+        -0.15,
+        0,
+        -0.45
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cabinet foot"
+    },
+    {
+      "assembly": "VantryFixed",
+      "owner": "support",
+      "point": [
+        0.13,
+        0,
+        0.45
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cabinet foot"
+    },
+    {
+      "assembly": "VantryFixed",
+      "owner": "support",
+      "point": [
+        0.13,
+        0,
+        -0.45
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cabinet foot"
+    }
+  ],
+  "parts": [
+    {
+      "name": "VantryFixed__bakelite",
+      "assembly": "VantryFixed",
+      "cell": "4B",
+      "key": "bakelite",
+      "triangles": 7836
+    },
+    {
+      "name": "VantryFixed__brass_dull",
+      "assembly": "VantryFixed",
+      "cell": "4B",
+      "key": "brass_dull",
+      "triangles": 564
+    },
+    {
+      "name": "VantryFixed__copper_aged",
+      "assembly": "VantryFixed",
+      "cell": "4B",
+      "key": "copper_aged",
+      "triangles": 2880
+    },
+    {
+      "name": "VantryFixed__glassish",
+      "assembly": "VantryFixed",
+      "cell": "4B",
+      "key": "glassish",
+      "triangles": 2304
+    },
+    {
+      "name": "VantryFixed__nickel_plated",
+      "assembly": "VantryFixed",
+      "cell": "4B",
+      "key": "nickel_plated",
+      "triangles": 10180
+    },
+    {
+      "name": "VantryFixed__wood_dark",
+      "assembly": "VantryFixed",
+      "cell": "4B",
+      "key": "wood_dark",
+      "triangles": 1880
+    }
+  ],
+  "triangles": 25644,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/signal_terminal.glb",
+    "floor_y": 0,
+    "assemblies": [
+      {
+        "id": "VantryFixed",
+        "parts": [
+          {
+            "name": "VantryFixed__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "VantryFixed__brass_dull",
+            "key": "brass_dull",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.55
+            }
+          },
+          {
+            "name": "VantryFixed__copper_aged",
+            "key": "copper_aged",
+            "tile": 0.4,
+            "catalog_key": "copper_aged"
+          },
+          {
+            "name": "VantryFixed__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "VantryFixed__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "VantryFixed__wood_dark",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ]
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      }
+    ]
+  },
+  "asset_sha256": "0b8f01928222bc41e2b045308c92bd67bab93220a76037b03350fa2812225f43",
+  "source_bindings": {
+    "art/data/signal_terminal/source_plan.json": "16e81b62f3fb1733c77612b76cf924607ee125357d9cbe94047878692cdfe92d",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_signal_terminal.py": "cf7c67f2f36b909a275592519ecf0abe9dba6ee6ea36b8e8c8b4979801cd237f",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "game/data/runtime_material_sets.json": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73",
+    "game/scripts/generated/material_sets.gd": "51b0c6cf899b87bb34cd49191413be9f930b12d0a11db0b009616a0a1c8fee65",
+    "game/assets/props/signal_terminal.glb.import": "d659959e4fea06d4885902864b2894a6693b4db6ac1e81746b88fdd090dbc388",
+    "art/textures/ai_materials/oak_work_surface/material.json": "e6f67c0a42f610648b57189f1f2d8ed7e567742ef8c4af32e104fd73acbe7f89",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
+    "art/textures/ai_materials/copper_aged/material.json": "2fbceb6f6f8579eca621d8e4e7db430af9d4840fffc5d0132e5b996c67960668",
+    "art/textures/ai_materials/rubber_aged/material.json": "356c7af1c52350241145dbd506dc002162024b9a902f595b96be211b091555bd",
+    "art/tools/build_glass_maps.py": "63e2357d85a1fc7520c3af5592d0d8248b16519e10d1a25b28a43cb1380a7ead",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_albedo.png": "94715b263c85285aced41196f29aea6675f866a61180ab90a1f9c719bef4edeb",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_rough.png": "ebf613454bbd3e6a6909cbe3d1aa4fe89b45fd8229516aafb31146761cf63ee5",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_normal.png": "8aa1987fad72d117f836ac0d18922e94b71a03a009206401f440768ac6ad91e1",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
+    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
+    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_ai_materials_copper_aged_albedo.png": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272",
+    "game/assets/building/textures/T_ai_materials_copper_aged_rough.png": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79",
+    "game/assets/building/textures/T_ai_materials_copper_aged_normal.png": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+    "game/assets/building/textures/T_glass_rough.png": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
+    "game/assets/building/textures/T_glass_normal.png": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
+    "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
+    "art/data/material_catalog.json": "562d8c15879f12404d443d227a2ccda373c68a6af810e63cc214ce23c79ee1e1",
+    "art/textures/catalog_mapping.json": "d4f3e411ac9b1f942bed184b34a4cf19f4418a4220044c86ed917513c2421686",
+    "art/tools/generate_runtime_materials.py": "4156d34f776a3cd57c2dcdc016f0f147a0741530ef20a16d0b610e28dd8198a6",
+    "art/blender/scripts/inspect_signal_terminal_context.py": "ab9d2981112321bbb9c6fa2ab1062a0eeb8c4c0124149c6a6048992831bcfb3a",
+    "game/scripts/props/tap_prop.gd": "6d969b3e6f293167b3de04e9463eee6bb9bcd5b02109bc88df370dd6c365d7d4",
+    "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
+    "game/scripts/props/signal_terminal_prop.gd": "0f6fe798ae35c1243208c90668cf7f45724abeda6fb67046f3b34a63b9d68326",
+    "art/blender/scripts/render_signal_terminal.py": "2c979cc9c45dd98e6a6b60f129522be6254603c7c59a918161d24552f33d5273",
+    "art/blender/scripts/inspect_signal_terminal.py": "4c6fc06532dd38a51c46a87df6fdce1be5909e591af430227528536b86a6836c",
+    "art/blender/scripts/signal_terminal_geometry.py": "6751b80e1bd6ccca906d545fae8cc8b644ddd1e8057f7d9f434d5a89f05c4943",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e",
+    "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
+    "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
+    "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
+    "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707"
+  },
+  "retained_stock": [],
+  "construction_groups": [
+    {
+      "assembly": "VantryFixed",
+      "id": "FixedInstrument",
+      "stocks": [
+        "VantryFixed_Foot",
+        "VantryFixed_Floor",
+        "VantryFixed_Top",
+        "VantryFixed_Cheek-0.51",
+        "VantryFixed_Cheek0.495",
+        "VantryFixed_Back",
+        "VantryFixed_Front",
+        "VantryFixed_BridgePost(-0.16, -0.285)",
+        "VantryFixed_BridgePost(-0.16, 0.285)",
+        "VantryFixed_BridgePost(0.05, -0.285)",
+        "VantryFixed_BridgePost(0.05, 0.285)",
+        "VantryFixed_Bridge",
+        "VantryFixed_GuardRoof-0.27",
+        "VantryFixed_GuardPost(-0.17, -0.27)",
+        "VantryFixed_GuardPost(0.08, -0.27)",
+        "VantryFixed_GuardRoof-0.18",
+        "VantryFixed_GuardPost(-0.17, -0.18)",
+        "VantryFixed_GuardPost(0.08, -0.18)",
+        "VantryFixed_GuardRoof0.18",
+        "VantryFixed_GuardPost(-0.17, 0.18)",
+        "VantryFixed_GuardPost(0.08, 0.18)",
+        "VantryFixed_GuardRoof0.27",
+        "VantryFixed_GuardPost(-0.17, 0.27)",
+        "VantryFixed_GuardPost(0.08, 0.27)",
+        "VantryFixed_GuardSpine-0.17",
+        "VantryFixed_GuardSpine0.08",
+        "VantryFixed_ValveSocket-0.2",
+        "VantryFixed_ValveGlass-0.2",
+        "VantryFixed_ValveCathode-0.2",
+        "VantryFixed_ValvePlate(-0.2, -0.012)",
+        "VantryFixed_ValvePlateLeg(-0.2, -0.012)",
+        "VantryFixed_ValvePlate(-0.2, 0.012)",
+        "VantryFixed_ValvePlateLeg(-0.2, 0.012)",
+        "VantryFixed_ValveSocket0",
+        "VantryFixed_ValveGlass0",
+        "VantryFixed_ValveCathode0",
+        "VantryFixed_ValvePlate(0, -0.012)",
+        "VantryFixed_ValvePlateLeg(0, -0.012)",
+        "VantryFixed_ValvePlate(0, 0.012)",
+        "VantryFixed_ValvePlateLeg(0, 0.012)",
+        "VantryFixed_ValveSocket0.2",
+        "VantryFixed_ValveGlass0.2",
+        "VantryFixed_ValveCathode0.2",
+        "VantryFixed_ValvePlate(0.2, -0.012)",
+        "VantryFixed_ValvePlateLeg(0.2, -0.012)",
+        "VantryFixed_ValvePlate(0.2, 0.012)",
+        "VantryFixed_ValvePlateLeg(0.2, 0.012)",
+        "VantryFixed_ScopeBezel",
+        "VantryFixed_ScopeSeat",
+        "VantryFixed_MeterCase-0.045",
+        "VantryFixed_MeterFace-0.045",
+        "VantryFixed_MeterTick(-0.045, 0)",
+        "VantryFixed_MeterTick(-0.045, 1)",
+        "VantryFixed_MeterTick(-0.045, 2)",
+        "VantryFixed_MeterTick(-0.045, 3)",
+        "VantryFixed_MeterTick(-0.045, 4)",
+        "VantryFixed_MeterTick(-0.045, 5)",
+        "VantryFixed_MeterTick(-0.045, 6)",
+        "VantryFixed_MeterTick(-0.045, 7)",
+        "VantryFixed_MeterTick(-0.045, 8)",
+        "VantryFixed_MeterCase-0.265",
+        "VantryFixed_MeterFace-0.265",
+        "VantryFixed_MeterTick(-0.265, 0)",
+        "VantryFixed_MeterTick(-0.265, 1)",
+        "VantryFixed_MeterTick(-0.265, 2)",
+        "VantryFixed_MeterTick(-0.265, 3)",
+        "VantryFixed_MeterTick(-0.265, 4)",
+        "VantryFixed_MeterTick(-0.265, 5)",
+        "VantryFixed_MeterTick(-0.265, 6)",
+        "VantryFixed_MeterTick(-0.265, 7)",
+        "VantryFixed_MeterTick(-0.265, 8)",
+        "VantryFixed_Knob-0.405",
+        "VantryFixed_KnobHub-0.405",
+        "VantryFixed_Knob-0.035",
+        "VantryFixed_KnobHub-0.035",
+        "VantryFixed_Knob0.42",
+        "VantryFixed_KnobHub0.42",
+        "VantryFixed_PatchField",
+        "VantryFixed_Jack0",
+        "VantryFixed_Jack1",
+        "VantryFixed_Jack2",
+        "VantryFixed_Jack3",
+        "VantryFixed_Jack4",
+        "VantryFixed_Jack5",
+        "VantryFixed_CradleSeat-0.32",
+        "VantryFixed_CradleSeat-0.48",
+        "VantryFixed_HandsetGrip",
+        "VantryFixed_HandsetCup-0.31",
+        "VantryFixed_HandsetGrille(-0.31, -0.02)",
+        "VantryFixed_HandsetGrille(-0.31, -0.01)",
+        "VantryFixed_HandsetGrille(-0.31, 0)",
+        "VantryFixed_HandsetGrille(-0.31, 0.01)",
+        "VantryFixed_HandsetGrille(-0.31, 0.02)",
+        "VantryFixed_HandsetCup-0.55",
+        "VantryFixed_HandsetGrille(-0.55, -0.02)",
+        "VantryFixed_HandsetGrille(-0.55, -0.01)",
+        "VantryFixed_HandsetGrille(-0.55, 0)",
+        "VantryFixed_HandsetGrille(-0.55, 0.01)",
+        "VantryFixed_HandsetGrille(-0.55, 0.02)",
+        "VantryFixed_PanelScrew(-0.445, 0.046, -0.0023)",
+        "VantryFixed_PanelScrew(-0.445, 0.046, 0.0023)",
+        "VantryFixed_PanelScrew(-0.445, 0.238, -0.0023)",
+        "VantryFixed_PanelScrew(-0.445, 0.238, 0.0023)",
+        "VantryFixed_PanelScrew(0.445, 0.046, -0.0023)",
+        "VantryFixed_PanelScrew(0.445, 0.046, 0.0023)",
+        "VantryFixed_PanelScrew(0.445, 0.238, -0.0023)",
+        "VantryFixed_PanelScrew(0.445, 0.238, 0.0023)"
+      ]
+    }
+  ],
+  "placement": {
+    "floor_y": 0,
+    "frame": "Original SignalTerminalProp local frame: +X operator, native (X,Y,Z) converts to Godot (X,Z,-Y)."
+  },
+  "open_work": [
+    "Final room lighting and adjacent furniture remain in the wider V2 pass; this family has scoped native and composed runtime verification."
+  ]
+}

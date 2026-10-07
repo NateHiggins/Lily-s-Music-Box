@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "reason": "Strip trailing blank line from two new inspectors. Only whitespace and corresponding provenance binding change.",
+  "changes": [
+    {
+      "family": "surface_stock",
+      "fixture_before": "b06c8207d981e25b4ea4b56d2bfebd43fca70246865d2579dbc8b71ecaab7e23",
+      "fixture_after": "c6745b20915158a8e1a82d510f187f1977b3889892b8bcbf1adbafecc07e4bd9",
+      "binding": "art/blender/scripts/inspect_surface_stock.py"
+    },
+    {
+      "family": "signal_terminal",
+      "fixture_before": "fece912fb6609b297b6ba64a832a24f1e8bb8faf7a0253ba7a3c146996fe763e",
+      "fixture_after": "fde37259494468a62dca732430e044e5d6323e22dd742dfac7ce64fda4eae00b",
+      "binding": "art/blender/scripts/inspect_signal_terminal.py"
+    }
+  ]
+}

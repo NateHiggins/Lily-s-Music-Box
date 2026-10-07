@@ -1824,7 +1824,11 @@
             "name": "TaskLamp_emeralite__brass",
             "key": "brass",
             "catalog_key": "brass",
-            "tile": 0.5
+            "tile": 0.5,
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.55
+            }
           },
           {
             "name": "TaskLamp_emeralite__bulb_opal",
@@ -1848,7 +1852,11 @@
             "name": "TaskLamp_emeralite__nickel_plated",
             "key": "nickel_plated",
             "catalog_key": "nickel_plated",
-            "tile": 0.32
+            "tile": 0.32,
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
           },
           {
             "name": "TaskLamp_emeralite__rubber_aged",
@@ -1887,7 +1895,11 @@
             "name": "TaskLamp_office_green__brass",
             "key": "brass",
             "catalog_key": "brass",
-            "tile": 0.5
+            "tile": 0.5,
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.55
+            }
           },
           {
             "name": "TaskLamp_office_green__bulb_opal",
@@ -1911,7 +1923,11 @@
             "name": "TaskLamp_office_green__nickel_plated",
             "key": "nickel_plated",
             "catalog_key": "nickel_plated",
-            "tile": 0.32
+            "tile": 0.32,
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
           },
           {
             "name": "TaskLamp_office_green__rubber_aged",
@@ -1962,7 +1978,11 @@
             "name": "TaskLamp_bench_friction__nickel_plated",
             "key": "nickel_plated",
             "catalog_key": "nickel_plated",
-            "tile": 0.32
+            "tile": 0.32,
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
           },
           {
             "name": "TaskLamp_bench_friction__rubber_aged",
@@ -2013,7 +2033,11 @@
               0.37,
               0.32,
               1.0
-            ]
+            ],
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.4
+            }
           },
           {
             "name": "TaskLamp_landlord_enamel__iron_blackened",
@@ -2025,7 +2049,11 @@
             "name": "TaskLamp_landlord_enamel__nickel_plated",
             "key": "nickel_plated",
             "catalog_key": "nickel_plated",
-            "tile": 0.32
+            "tile": 0.32,
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
           },
           {
             "name": "TaskLamp_landlord_enamel__rubber_aged",
@@ -2076,7 +2104,11 @@
             "name": "TaskLamp_architect_counterweight__nickel_plated",
             "key": "nickel_plated",
             "catalog_key": "nickel_plated",
-            "tile": 0.32
+            "tile": 0.32,
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
           },
           {
             "name": "TaskLamp_architect_counterweight__rubber_aged",
@@ -2110,13 +2142,16 @@
       }
     ]
   },
-  "asset_sha256": "4604b58daaa9a45e792f13e6afc41cc087fbda8b27674dedb4c12d311d8c0aab",
+  "asset_sha256": "ddb00a84790a3076a034e9dcdd2cf6db73487da2d217b977944bc5a3ec25dc04",
   "source_bindings": {
-    "art/data/task_lamps/source_plan.json": "57d419611b0a8ac34595504e844aeca6058acb41a80a407ac454cc327b4f5320",
+    "art/data/task_lamps/source_plan.json": "cf32fe2298be63118257eaeed477c596f362bce09bb86bcd5123ac1bd659a314",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_task_lamps.py": "c169d7a6c3673616bd8cfae6442f8ff490b01d88724763911c88e0b25bf32861",
+    "art/blender/scripts/build_task_lamps.py": "92f217ab92d24e42bfe931a3601b7ede63ad2f04dffa0520101fd93af25f18f5",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "art/blender/scripts/inspect_task_lamps.py": "2fb862ac89d5515346405ebb9f6021aff1c948cab32ba20f98317b6508db6b74",
     "game/data/runtime_material_sets.json": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73",
     "game/scripts/generated/material_sets.gd": "51b0c6cf899b87bb34cd49191413be9f930b12d0a11db0b009616a0a1c8fee65",
     "game/assets/props/task_lamps.glb.import": "78d1a9c8521688f363757944d1242cf9f5cac776e00cddc0912ee47ae63c3ebb",
@@ -2155,13 +2190,12 @@
     "art/data/material_catalog.json": "562d8c15879f12404d443d227a2ccda373c68a6af810e63cc214ce23c79ee1e1",
     "art/textures/catalog_mapping.json": "d4f3e411ac9b1f942bed184b34a4cf19f4418a4220044c86ed917513c2421686",
     "art/tools/generate_runtime_materials.py": "4156d34f776a3cd57c2dcdc016f0f147a0741530ef20a16d0b610e28dd8198a6",
-    "art/blender/scripts/inspect_task_lamps.py": "8e8b9054f6eb833df558439a7839063125e52ae5a68c52fe6abd72edae94e725",
-    "art/blender/scripts/task_lamps_geometry.py": "ec126db19095600bbe840fb893c796c5ee3ea02eef9b84060f47a71ee1de44e2",
+    "art/blender/scripts/task_lamps_geometry.py": "16168b03d8b2fde48ab58dac2e120add3a64671867f5beff8bcab82dc9608f50",
     "game/scripts/props/lamp_prop.gd": "f830306c3302ded03fb44ea6e81f505107dc3b083484e510fe8f88dd5fef840d",
     "game/scripts/props/functional_prop.gd": "f33126057cad4c7fc00cf132ba523d9e4fa915b6922aa9470ed10be47b2806ee",
-    "game/scripts/props/native_task_lamp.gd": "f194218e925f43009871142287e4a65cbfb7727c30466a55db3c7c57914a6989",
+    "game/scripts/props/native_task_lamp.gd": "463d618eade8d646f6f4b09abfbd38d11516991c4a7d4b2d504059e893839198",
     "game/scripts/building/orison_v2_room_lighting.gd": "c1dcf2251be23c572d77380afac655b6e19d37bc7d72fbb58496e550e10a2d7e",
-    "game/tests/orison_v2_task_lamps_test.gd": "f3da1b887288ffa5efbbcb203baabdefd507631218c98776d556912f9e3a092f",
+    "game/tests/orison_v2_task_lamps_test.gd": "3192db39959f7da70ac0f2a9c9c0c65e2e1a9eb63de88117ba138512c83ac698",
     "art/data/orison_v2/domestic_furniture_source.json": "8c0859cbdb214488e59e97ec6027f50972feb7fae1ec944dd5a45dbaf43265aa",
     "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707"
   },

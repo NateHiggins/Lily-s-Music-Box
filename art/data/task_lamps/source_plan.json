@@ -55,5 +55,19 @@
   "adaptations": [
     "Architect lower fulcrum raised 80 mm on a nickel pedestal so its short counterweight clears the worktop. Original elbow, wrist, light emitter and switch pivot remain unchanged.",
     "Existing bench collision ceiling corrected from 0.92 m to its original visible tabletop at 0.91 m; lamp anchor remains unchanged."
-  ]
+  ],
+  "finish_parameters": {
+    "enamel": {
+      "normal_scale": 0.03,
+      "roughness": 0.4
+    },
+    "nickel_plated": {
+      "normal_scale": 0.025,
+      "roughness": 0.32
+    },
+    "brass": {
+      "normal_scale": 0.04,
+      "roughness": 0.55
+    }
+  }
 }

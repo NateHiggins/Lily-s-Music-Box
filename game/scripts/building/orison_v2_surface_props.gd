@@ -7,6 +7,8 @@ const KINDS := ["mug", "dishrack", "papers", "headphones", "partstray", "jarrow"
 func mount(adapter: Variant) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(SURFACE_PATH))
 	if not validate(source, adapter): return false
+	var native := preload("res://scripts/building/orison_v2_surface_stock.gd").new()
+	if not native.prepare(): return false
 	for record: Dictionary in source.props:
 		var support := adapter.resolve(record.support) as Node3D
 		var prop := Node3D.new()
@@ -15,8 +17,10 @@ func mount(adapter: Variant) -> bool:
 		prop.rotation.y = float(record.yaw)
 		prop.set_meta("v2_surface_prop", str(record.kind))
 		prop.set_meta("support_id", str(record.support))
-		_add_surfaces(prop, record.surfaces)
+		if not native.mount_on(prop,str(record.id)):
+			prop.free(); native.finish(); return false
 		support.add_child(prop)
+	native.finish()
 	return true
 
 func validate(source: Variant, adapter: Variant) -> bool:
@@ -47,5 +51,16 @@ func validate(source: Variant, adapter: Variant) -> bool:
 			for axis in 3:
 				if bounds[0][axis] >= bounds[1][axis]: errors.append("inverted surface prop bounds")
 		_validate_surfaces(record.get("surfaces"))
+		# The preserved source bounds are the authority for the native actor
+		# frame. Refuse drift between those bounds and its original triangles.
+		if errors.is_empty():
+			var low := Vector3.INF
+			var high := -Vector3.INF
+			for surface: Dictionary in record.surfaces:
+				if str(surface.material).is_empty() or surface.normals.size() != surface.vertices.size(): errors.append("incomplete source surface")
+				for offset in range(0,surface.vertices.size(),3):
+					var point := Vector3(surface.vertices[offset],surface.vertices[offset+1],surface.vertices[offset+2])
+					low = low.min(point); high = high.max(point)
+			if low.distance_to(_vector(bounds[0])) > .00003 or high.distance_to(_vector(bounds[1])) > .00003: errors.append("source geometry differs from its retained native frame bounds")
 	if seen.is_empty(): errors.append("empty surface prop source")
 	return errors.is_empty()

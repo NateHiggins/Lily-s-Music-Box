@@ -1,0 +1,649 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 107,
+  "connected_groups": [
+    {
+      "assembly": "FixedInstrument",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "VantryFixed_Foot",
+          "VantryFixed_Floor"
+        ],
+        [
+          "VantryFixed_Foot",
+          "VantryFixed_Front"
+        ],
+        [
+          "VantryFixed_Floor",
+          "VantryFixed_Cheek-0.51"
+        ],
+        [
+          "VantryFixed_Floor",
+          "VantryFixed_Cheek0.495"
+        ],
+        [
+          "VantryFixed_Floor",
+          "VantryFixed_Back"
+        ],
+        [
+          "VantryFixed_Floor",
+          "VantryFixed_Front"
+        ],
+        [
+          "VantryFixed_Top",
+          "VantryFixed_Cheek-0.51"
+        ],
+        [
+          "VantryFixed_Top",
+          "VantryFixed_Cheek0.495"
+        ],
+        [
+          "VantryFixed_Top",
+          "VantryFixed_Back"
+        ],
+        [
+          "VantryFixed_Top",
+          "VantryFixed_BridgePost(-0.16, -0.285)"
+        ],
+        [
+          "VantryFixed_Top",
+          "VantryFixed_BridgePost(-0.16, 0.285)"
+        ],
+        [
+          "VantryFixed_Top",
+          "VantryFixed_BridgePost(0.05, -0.285)"
+        ],
+        [
+          "VantryFixed_Top",
+          "VantryFixed_BridgePost(0.05, 0.285)"
+        ],
+        [
+          "VantryFixed_Top",
+          "VantryFixed_CradleSeat-0.32"
+        ],
+        [
+          "VantryFixed_Top",
+          "VantryFixed_CradleSeat-0.48"
+        ],
+        [
+          "VantryFixed_Top",
+          "VantryFixed_HandsetCup-0.31"
+        ],
+        [
+          "VantryFixed_Cheek-0.51",
+          "VantryFixed_Back"
+        ],
+        [
+          "VantryFixed_Cheek0.495",
+          "VantryFixed_Back"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_ScopeBezel"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_MeterCase-0.045"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_MeterCase-0.265"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_Knob-0.405"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_Knob-0.035"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_Knob0.42"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_PatchField"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_PanelScrew(-0.445, 0.046, -0.0023)"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_PanelScrew(-0.445, 0.046, 0.0023)"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_PanelScrew(-0.445, 0.238, -0.0023)"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_PanelScrew(-0.445, 0.238, 0.0023)"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_PanelScrew(0.445, 0.046, -0.0023)"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_PanelScrew(0.445, 0.046, 0.0023)"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_PanelScrew(0.445, 0.238, -0.0023)"
+        ],
+        [
+          "VantryFixed_Front",
+          "VantryFixed_PanelScrew(0.445, 0.238, 0.0023)"
+        ],
+        [
+          "VantryFixed_BridgePost(-0.16, -0.285)",
+          "VantryFixed_Bridge"
+        ],
+        [
+          "VantryFixed_BridgePost(-0.16, 0.285)",
+          "VantryFixed_Bridge"
+        ],
+        [
+          "VantryFixed_BridgePost(0.05, -0.285)",
+          "VantryFixed_Bridge"
+        ],
+        [
+          "VantryFixed_BridgePost(0.05, 0.285)",
+          "VantryFixed_Bridge"
+        ],
+        [
+          "VantryFixed_Bridge",
+          "VantryFixed_GuardPost(-0.17, -0.27)"
+        ],
+        [
+          "VantryFixed_Bridge",
+          "VantryFixed_GuardPost(-0.17, -0.18)"
+        ],
+        [
+          "VantryFixed_Bridge",
+          "VantryFixed_GuardPost(-0.17, 0.18)"
+        ],
+        [
+          "VantryFixed_Bridge",
+          "VantryFixed_GuardPost(-0.17, 0.27)"
+        ],
+        [
+          "VantryFixed_Bridge",
+          "VantryFixed_ValveSocket-0.2"
+        ],
+        [
+          "VantryFixed_Bridge",
+          "VantryFixed_ValveSocket0"
+        ],
+        [
+          "VantryFixed_Bridge",
+          "VantryFixed_ValveSocket0.2"
+        ],
+        [
+          "VantryFixed_Bridge",
+          "VantryFixed_CradleSeat-0.32"
+        ],
+        [
+          "VantryFixed_Bridge",
+          "VantryFixed_HandsetGrip"
+        ],
+        [
+          "VantryFixed_Bridge",
+          "VantryFixed_HandsetCup-0.31"
+        ],
+        [
+          "VantryFixed_GuardRoof-0.27",
+          "VantryFixed_GuardPost(-0.17, -0.27)"
+        ],
+        [
+          "VantryFixed_GuardRoof-0.27",
+          "VantryFixed_GuardPost(0.08, -0.27)"
+        ],
+        [
+          "VantryFixed_GuardRoof-0.27",
+          "VantryFixed_GuardSpine-0.17"
+        ],
+        [
+          "VantryFixed_GuardRoof-0.27",
+          "VantryFixed_GuardSpine0.08"
+        ],
+        [
+          "VantryFixed_GuardPost(-0.17, -0.27)",
+          "VantryFixed_GuardSpine-0.17"
+        ],
+        [
+          "VantryFixed_GuardPost(0.08, -0.27)",
+          "VantryFixed_GuardSpine0.08"
+        ],
+        [
+          "VantryFixed_GuardRoof-0.18",
+          "VantryFixed_GuardPost(-0.17, -0.18)"
+        ],
+        [
+          "VantryFixed_GuardRoof-0.18",
+          "VantryFixed_GuardPost(0.08, -0.18)"
+        ],
+        [
+          "VantryFixed_GuardRoof-0.18",
+          "VantryFixed_GuardSpine-0.17"
+        ],
+        [
+          "VantryFixed_GuardRoof-0.18",
+          "VantryFixed_GuardSpine0.08"
+        ],
+        [
+          "VantryFixed_GuardPost(-0.17, -0.18)",
+          "VantryFixed_GuardSpine-0.17"
+        ],
+        [
+          "VantryFixed_GuardPost(0.08, -0.18)",
+          "VantryFixed_GuardSpine0.08"
+        ],
+        [
+          "VantryFixed_GuardRoof0.18",
+          "VantryFixed_GuardPost(-0.17, 0.18)"
+        ],
+        [
+          "VantryFixed_GuardRoof0.18",
+          "VantryFixed_GuardPost(0.08, 0.18)"
+        ],
+        [
+          "VantryFixed_GuardRoof0.18",
+          "VantryFixed_GuardSpine-0.17"
+        ],
+        [
+          "VantryFixed_GuardRoof0.18",
+          "VantryFixed_GuardSpine0.08"
+        ],
+        [
+          "VantryFixed_GuardPost(-0.17, 0.18)",
+          "VantryFixed_GuardSpine-0.17"
+        ],
+        [
+          "VantryFixed_GuardPost(0.08, 0.18)",
+          "VantryFixed_GuardSpine0.08"
+        ],
+        [
+          "VantryFixed_GuardRoof0.27",
+          "VantryFixed_GuardPost(-0.17, 0.27)"
+        ],
+        [
+          "VantryFixed_GuardRoof0.27",
+          "VantryFixed_GuardPost(0.08, 0.27)"
+        ],
+        [
+          "VantryFixed_GuardRoof0.27",
+          "VantryFixed_GuardSpine-0.17"
+        ],
+        [
+          "VantryFixed_GuardRoof0.27",
+          "VantryFixed_GuardSpine0.08"
+        ],
+        [
+          "VantryFixed_GuardPost(-0.17, 0.27)",
+          "VantryFixed_GuardSpine-0.17"
+        ],
+        [
+          "VantryFixed_GuardPost(0.08, 0.27)",
+          "VantryFixed_GuardSpine0.08"
+        ],
+        [
+          "VantryFixed_ValveSocket-0.2",
+          "VantryFixed_ValveGlass-0.2"
+        ],
+        [
+          "VantryFixed_ValveSocket-0.2",
+          "VantryFixed_ValveCathode-0.2"
+        ],
+        [
+          "VantryFixed_ValveSocket-0.2",
+          "VantryFixed_ValvePlateLeg(-0.2, -0.012)"
+        ],
+        [
+          "VantryFixed_ValveSocket-0.2",
+          "VantryFixed_ValvePlateLeg(-0.2, 0.012)"
+        ],
+        [
+          "VantryFixed_ValvePlate(-0.2, -0.012)",
+          "VantryFixed_ValvePlateLeg(-0.2, -0.012)"
+        ],
+        [
+          "VantryFixed_ValvePlate(-0.2, 0.012)",
+          "VantryFixed_ValvePlateLeg(-0.2, 0.012)"
+        ],
+        [
+          "VantryFixed_ValveSocket0",
+          "VantryFixed_ValveGlass0"
+        ],
+        [
+          "VantryFixed_ValveSocket0",
+          "VantryFixed_ValveCathode0"
+        ],
+        [
+          "VantryFixed_ValveSocket0",
+          "VantryFixed_ValvePlateLeg(0, -0.012)"
+        ],
+        [
+          "VantryFixed_ValveSocket0",
+          "VantryFixed_ValvePlateLeg(0, 0.012)"
+        ],
+        [
+          "VantryFixed_ValvePlate(0, -0.012)",
+          "VantryFixed_ValvePlateLeg(0, -0.012)"
+        ],
+        [
+          "VantryFixed_ValvePlate(0, 0.012)",
+          "VantryFixed_ValvePlateLeg(0, 0.012)"
+        ],
+        [
+          "VantryFixed_ValveSocket0.2",
+          "VantryFixed_ValveGlass0.2"
+        ],
+        [
+          "VantryFixed_ValveSocket0.2",
+          "VantryFixed_ValveCathode0.2"
+        ],
+        [
+          "VantryFixed_ValveSocket0.2",
+          "VantryFixed_ValvePlateLeg(0.2, -0.012)"
+        ],
+        [
+          "VantryFixed_ValveSocket0.2",
+          "VantryFixed_ValvePlateLeg(0.2, 0.012)"
+        ],
+        [
+          "VantryFixed_ValvePlate(0.2, -0.012)",
+          "VantryFixed_ValvePlateLeg(0.2, -0.012)"
+        ],
+        [
+          "VantryFixed_ValvePlate(0.2, 0.012)",
+          "VantryFixed_ValvePlateLeg(0.2, 0.012)"
+        ],
+        [
+          "VantryFixed_ScopeBezel",
+          "VantryFixed_ScopeSeat"
+        ],
+        [
+          "VantryFixed_MeterCase-0.045",
+          "VantryFixed_MeterFace-0.045"
+        ],
+        [
+          "VantryFixed_MeterFace-0.045",
+          "VantryFixed_MeterTick(-0.045, 0)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.045",
+          "VantryFixed_MeterTick(-0.045, 1)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.045",
+          "VantryFixed_MeterTick(-0.045, 2)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.045",
+          "VantryFixed_MeterTick(-0.045, 3)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.045",
+          "VantryFixed_MeterTick(-0.045, 4)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.045",
+          "VantryFixed_MeterTick(-0.045, 5)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.045",
+          "VantryFixed_MeterTick(-0.045, 6)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.045",
+          "VantryFixed_MeterTick(-0.045, 7)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.045",
+          "VantryFixed_MeterTick(-0.045, 8)"
+        ],
+        [
+          "VantryFixed_MeterCase-0.265",
+          "VantryFixed_MeterFace-0.265"
+        ],
+        [
+          "VantryFixed_MeterFace-0.265",
+          "VantryFixed_MeterTick(-0.265, 0)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.265",
+          "VantryFixed_MeterTick(-0.265, 1)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.265",
+          "VantryFixed_MeterTick(-0.265, 2)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.265",
+          "VantryFixed_MeterTick(-0.265, 3)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.265",
+          "VantryFixed_MeterTick(-0.265, 4)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.265",
+          "VantryFixed_MeterTick(-0.265, 5)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.265",
+          "VantryFixed_MeterTick(-0.265, 6)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.265",
+          "VantryFixed_MeterTick(-0.265, 7)"
+        ],
+        [
+          "VantryFixed_MeterFace-0.265",
+          "VantryFixed_MeterTick(-0.265, 8)"
+        ],
+        [
+          "VantryFixed_Knob-0.405",
+          "VantryFixed_KnobHub-0.405"
+        ],
+        [
+          "VantryFixed_Knob-0.035",
+          "VantryFixed_KnobHub-0.035"
+        ],
+        [
+          "VantryFixed_Knob0.42",
+          "VantryFixed_KnobHub0.42"
+        ],
+        [
+          "VantryFixed_Knob0.42",
+          "VantryFixed_PatchField"
+        ],
+        [
+          "VantryFixed_PatchField",
+          "VantryFixed_Jack0"
+        ],
+        [
+          "VantryFixed_PatchField",
+          "VantryFixed_Jack1"
+        ],
+        [
+          "VantryFixed_PatchField",
+          "VantryFixed_Jack2"
+        ],
+        [
+          "VantryFixed_PatchField",
+          "VantryFixed_Jack3"
+        ],
+        [
+          "VantryFixed_PatchField",
+          "VantryFixed_Jack4"
+        ],
+        [
+          "VantryFixed_PatchField",
+          "VantryFixed_Jack5"
+        ],
+        [
+          "VantryFixed_CradleSeat-0.32",
+          "VantryFixed_HandsetGrip"
+        ],
+        [
+          "VantryFixed_CradleSeat-0.32",
+          "VantryFixed_HandsetCup-0.31"
+        ],
+        [
+          "VantryFixed_CradleSeat-0.48",
+          "VantryFixed_HandsetGrip"
+        ],
+        [
+          "VantryFixed_HandsetGrip",
+          "VantryFixed_HandsetCup-0.31"
+        ],
+        [
+          "VantryFixed_HandsetGrip",
+          "VantryFixed_HandsetCup-0.55"
+        ],
+        [
+          "VantryFixed_HandsetCup-0.31",
+          "VantryFixed_HandsetGrille(-0.31, -0.02)"
+        ],
+        [
+          "VantryFixed_HandsetCup-0.31",
+          "VantryFixed_HandsetGrille(-0.31, -0.01)"
+        ],
+        [
+          "VantryFixed_HandsetCup-0.31",
+          "VantryFixed_HandsetGrille(-0.31, 0)"
+        ],
+        [
+          "VantryFixed_HandsetCup-0.31",
+          "VantryFixed_HandsetGrille(-0.31, 0.01)"
+        ],
+        [
+          "VantryFixed_HandsetCup-0.31",
+          "VantryFixed_HandsetGrille(-0.31, 0.02)"
+        ],
+        [
+          "VantryFixed_HandsetCup-0.55",
+          "VantryFixed_HandsetGrille(-0.55, -0.02)"
+        ],
+        [
+          "VantryFixed_HandsetCup-0.55",
+          "VantryFixed_HandsetGrille(-0.55, -0.01)"
+        ],
+        [
+          "VantryFixed_HandsetCup-0.55",
+          "VantryFixed_HandsetGrille(-0.55, 0)"
+        ],
+        [
+          "VantryFixed_HandsetCup-0.55",
+          "VantryFixed_HandsetGrille(-0.55, 0.01)"
+        ],
+        [
+          "VantryFixed_HandsetCup-0.55",
+          "VantryFixed_HandsetGrille(-0.55, 0.02)"
+        ]
+      ]
+    }
+  ],
+  "distinct_object_separations": [],
+  "uv": [
+    {
+      "part": "VantryFixed__bakelite",
+      "minimum_metres_per_uv": 0.9991861170562366,
+      "maximum_metres_per_uv": 1.0008863172013136
+    },
+    {
+      "part": "VantryFixed__brass_dull",
+      "minimum_metres_per_uv": 0.9999304757518563,
+      "maximum_metres_per_uv": 1.000065371264927
+    },
+    {
+      "part": "VantryFixed__copper_aged",
+      "minimum_metres_per_uv": 0.9991475606729623,
+      "maximum_metres_per_uv": 1.0002716395297044
+    },
+    {
+      "part": "VantryFixed__glassish",
+      "minimum_metres_per_uv": 0.9992796605754384,
+      "maximum_metres_per_uv": 1.0000597164596177
+    },
+    {
+      "part": "VantryFixed__nickel_plated",
+      "minimum_metres_per_uv": 0.9983535262724954,
+      "maximum_metres_per_uv": 1.0015707964664153
+    },
+    {
+      "part": "VantryFixed__wood_dark",
+      "minimum_metres_per_uv": 0.9997972393264115,
+      "maximum_metres_per_uv": 1.0001731655569015
+    }
+  ],
+  "local_bearings": [
+    {
+      "assembly": "VantryFixed",
+      "owner": "support",
+      "point": [
+        -0.15,
+        0,
+        0.45
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cabinet foot"
+    },
+    {
+      "assembly": "VantryFixed",
+      "owner": "support",
+      "point": [
+        -0.15,
+        0,
+        -0.45
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cabinet foot"
+    },
+    {
+      "assembly": "VantryFixed",
+      "owner": "support",
+      "point": [
+        0.13,
+        0,
+        0.45
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cabinet foot"
+    },
+    {
+      "assembly": "VantryFixed",
+      "owner": "support",
+      "point": [
+        0.13,
+        0,
+        -0.45
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cabinet foot"
+    }
+  ],
+  "views": [],
+  "scope": "Local construction and chart preflight only. External support context and rendering are still required."
+}

@@ -2,6 +2,8 @@ extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
 const MODULES := {
+	"signal_terminal": preload("res://tests/orison_v2_signal_terminal_test.gd"),
+	"surface_stock": preload("res://tests/orison_v2_surface_stock_test.gd"),
 	"work_tables": preload("res://tests/orison_v2_work_tables_test.gd"),
 	"reading_nook": preload("res://tests/orison_v2_reading_nook_test.gd"),
 	"task_lamps": preload("res://tests/orison_v2_task_lamps_test.gd"),
@@ -120,6 +122,10 @@ func _run() -> void:
 		for message: String in post.failures:
 			if not (id+": "+message) in failures: failures.append(id+": "+message)
 		module.free()
+	# Validators retain native meshes/materials until their retirement checks.
+	# Allow the rendering queue to retire those final references before exit.
+	await get_tree().process_frame
+	await get_tree().process_frame
 	var receipt := {"schema":"orison.fabrication-batch.v1", "evidence_class":"INERT", "world_loads":1,
 		"modules":results, "module_checks":total, "batch_checks":checks, "failures":failures,
 		"elapsed_ms":Time.get_ticks_msec()-started, "scope":"Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate."}

@@ -1,0 +1,293 @@
+FABRICATION STAGE: art/blender/scripts/build_surface_stock.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_surface_stock.py:68: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "surface_stock.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+17:29:11 | INFO: Starting glTF 2.0 export
+17:29:11 | INFO: Extracting primitive: 2A_k_kdishrack__nickel_plated
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2A_k_kdishrack__porcelain
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2A_k_kdishrack__rubber_aged
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2A_k_kmug__porcelain
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2A_mug__porcelain
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2A_papers__paper
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2A_phones__nickel_plated
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2A_phones__rubber_aged
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2A_phones__soot
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2A_phones__wood_dark
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2B_k_kdishrack__nickel_plated
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2B_k_kdishrack__porcelain
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2B_k_kdishrack__rubber_aged
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2B_k_kmug__porcelain
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2B_story_notions__bakelite
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2B_story_notions__brass
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2B_story_notions__chrome
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2B_story_notions__glassish
+17:29:11 | INFO: Primitives created: 1
+17:29:11 | INFO: Extracting primitive: 2B_story_notions__metal
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 2B_story_patterns__paper
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3A_k_kdishrack__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3A_k_kdishrack__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3A_k_kdishrack__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3A_k_kmug__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3A_story_cuttings__glassish
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3A_story_seed_jars__bakelite
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3A_story_seed_jars__brass
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3A_story_seed_jars__chrome
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3A_story_seed_jars__glassish
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3A_story_seed_jars__metal
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_coil__soot
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_jars__bakelite
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_jars__brass
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_jars__chrome
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_jars__glassish
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_jars__metal
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_k_kdishrack__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_k_kdishrack__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_k_kdishrack__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_k_kmug__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_manuals__book_brown
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_manuals__book_navy
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_manuals__book_ochre
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_manuals__book_teal
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_manuals__paper
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_mug__enamel
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_tray1__bakelite
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_tray1__brass
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_tray1__chrome
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_tray1__glassish
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_tray1__metal
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_tray1__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_tray2__bakelite
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_tray2__brass
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_tray2__chrome
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 3B_tray2__metal
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 4A_k_kdishrack__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 4A_k_kdishrack__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 4A_k_kdishrack__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 4A_k_kmug__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 4A_story_briefs__paper
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 4B_dishrack__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 4B_dishrack__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 4B_dishrack__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 4B_mug__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_k_kdishrack__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_k_kdishrack__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_k_kdishrack__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_k_kmug__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_model__paper
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_model__plywood
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_model__timber
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_model__trim
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_mug1__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_mug2__enamel
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_papers1__paper
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5A_papers2__paper
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5B_k_kdishrack__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5B_k_kdishrack__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5B_k_kdishrack__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5B_k_kmug__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5B_story_headphones__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5B_story_headphones__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5B_story_headphones__soot
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5B_story_headphones__wood_dark
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5B_story_lead__soot
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5C_k_kdishrack__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5C_k_kdishrack__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5C_k_kdishrack__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5C_k_kmug__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5C_story_solvents__glassish
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 5C_story_studies__paper
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6A_cans__metal
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6A_detail_capture_mug__ceramic
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6A_detail_capture_papers__paper
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6A_k_kdishrack__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6A_k_kdishrack__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6A_k_kdishrack__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6A_k_kmug__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6A_phones__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6A_phones__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6A_phones__soot
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6A_phones__wood_dark
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_k_kdishrack__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_k_kdishrack__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_k_kdishrack__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_k_kmug__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_story_cold_coffee__ceramic
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_story_draft__paper
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_story_references__book_brown
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_story_references__book_burgundy
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_story_references__book_green
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_story_references__book_navy
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_story_references__book_ochre
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_story_references__book_teal
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6B_story_references__paper
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_k_kdishrack__nickel_plated
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_k_kdishrack__porcelain
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_k_kdishrack__rubber_aged
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_story_catalogues__book_brown
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_story_catalogues__book_green
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_story_catalogues__book_navy
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_story_catalogues__book_ochre
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_story_catalogues__book_teal
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_story_catalogues__paper
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_story_oddments__bakelite
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_story_oddments__brass
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_story_oddments__chrome
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_story_oddments__glassish
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Extracting primitive: 6C_story_oddments__metal
+17:29:12 | INFO: Primitives created: 1
+17:29:12 | INFO: Finished glTF 2.0 export in 0.8033962249755859 s
+
+SURFACE STOCK 55 original records; 55 assemblies; 1171 closed stocks; 130 parts; 388980 triangles; 129 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_surface_stock.py
+00:55.141  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\surface_stock.blend"
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 79, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 72, in main
+    results = execute(stages)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 47, in execute
+    runpy.run_path(sys.argv[0], run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_surface_stock.py", line 76, in <module>
+    assert any(hit is not None and (hit-at).length<.00004 and normal.z<-.9 for hit,normal,_,_ in hits),(c,'missing prop underside')
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ({'assembly': '3B_coil', 'owner': 'support', 'point': [0.30189189189189186, 0, 0.12717717717717716], 'direction': [0, 1, 0], 'label': 'cable tail'}, 'missing prop underside')
+
+Error: script failed, file: 'art/blender/scripts/run_fabrication_batch.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

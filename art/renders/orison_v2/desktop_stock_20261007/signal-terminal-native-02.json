@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_signal_terminal.py",
+      "elapsed_s": 1.288
+    },
+    {
+      "script": "art/blender/scripts/inspect_signal_terminal.py",
+      "elapsed_s": 0.688
+    },
+    {
+      "script": "art/blender/scripts/render_signal_terminal.py",
+      "elapsed_s": 3.961
+    }
+  ]
+}

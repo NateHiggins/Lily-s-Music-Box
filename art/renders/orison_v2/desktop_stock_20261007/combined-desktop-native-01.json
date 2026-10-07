@@ -1,0 +1,38 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_signal_terminal.py",
+      "elapsed_s": 1.247
+    },
+    {
+      "script": "art/blender/scripts/inspect_signal_terminal.py",
+      "elapsed_s": 0.709
+    },
+    {
+      "script": "art/blender/scripts/inspect_signal_terminal_context.py",
+      "elapsed_s": 0.107
+    },
+    {
+      "script": "art/blender/scripts/render_signal_terminal.py",
+      "elapsed_s": 3.869
+    },
+    {
+      "script": "art/blender/scripts/build_surface_stock.py",
+      "elapsed_s": 22.153
+    },
+    {
+      "script": "art/blender/scripts/inspect_surface_stock.py",
+      "elapsed_s": 8.082
+    },
+    {
+      "script": "art/blender/scripts/inspect_surface_stock_context.py",
+      "elapsed_s": 1.225
+    },
+    {
+      "script": "art/blender/scripts/inspect_task_lamps.py",
+      "elapsed_s": 22.314
+    }
+  ]
+}

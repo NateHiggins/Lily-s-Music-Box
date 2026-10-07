@@ -1,0 +1,7 @@
+{
+  "evidence_class": "INERT",
+  "reason": "Correct terminal inspector output directory; it previously overwrote the surface-stock inspection report. No geometry, runtime data, fixture semantic fields or tests change.",
+  "fixture_before": "02edaad0f10d19cf1c2b3d62e7e8231abff703601e75344c47896dc1087bc252",
+  "fixture_after": "fece912fb6609b297b6ba64a832a24f1e8bb8faf7a0253ba7a3c146996fe763e",
+  "only_changed_binding": "art/blender/scripts/inspect_signal_terminal.py"
+}

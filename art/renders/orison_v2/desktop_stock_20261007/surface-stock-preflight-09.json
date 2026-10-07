@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_surface_stock.py",
+      "elapsed_s": 22.237
+    },
+    {
+      "script": "art/blender/scripts/inspect_surface_stock.py",
+      "elapsed_s": 8.04
+    },
+    {
+      "script": "art/blender/scripts/inspect_surface_stock_context.py",
+      "elapsed_s": 1.259
+    }
+  ]
+}

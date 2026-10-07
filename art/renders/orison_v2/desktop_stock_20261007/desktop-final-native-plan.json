@@ -1,0 +1,16 @@
+{
+  "stages": [
+    {
+      "script": "art/blender/scripts/inspect_surface_stock.py"
+    },
+    {
+      "script": "art/blender/scripts/inspect_surface_stock_context.py"
+    },
+    {
+      "script": "art/blender/scripts/inspect_signal_terminal.py"
+    },
+    {
+      "script": "art/blender/scripts/inspect_signal_terminal_context.py"
+    }
+  ]
+}

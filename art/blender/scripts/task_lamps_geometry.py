@@ -21,7 +21,7 @@ def lathe(label,at,axis,profile,key,segments=64):
    if len(a)==1:faces.append((a[0],b[j],b[k]))
    elif len(b)==1:faces.append((a[j],b[0],a[k]))
    else:faces.append((a[j],b[j],b[k],a[k]))
- return solid(identity+'_'+label,verts,faces,identity,key)
+ obj=solid(identity+'_'+label,verts,faces,identity,key);obj['uv_axis']=direction;obj['uv_center']=origin;return obj
 def disc(label,at,axis,radius,depth,key):
  return lathe(label,at,axis,[(0,0),(0,radius-.001),(.001,radius),(depth-.001,radius),(depth,radius-.001),(depth,0)],key)
 def wire(label,points,radius=.003):return curved_wire(identity+'_'+label,[gp(p) for p in points],radius,identity,'rubber_aged')

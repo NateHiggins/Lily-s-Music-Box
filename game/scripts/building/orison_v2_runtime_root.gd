@@ -307,9 +307,13 @@ func _compose_authorities() -> void:
 	telephone.bind_line(line)
 	_mount("F01_HOUSE_TELEPHONE_BOARD", telephone)
 	_mount("LobbyServiceDumbwaiter", DumbwaiterProp.new())
-	var terminal := SignalTerminalProp.new()
+	var terminal := preload("res://scripts/building/orison_v2_native_signal_terminal.gd").new()
 	terminal.prop_type = "signal_terminal"
 	_mount("F04_B_MONITOR_01", terminal)
+	if not terminal.native_ready:
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: native signal terminal refused")
+		return
 	if not preload("res://scripts/building/orison_v2_task_lamp_installations.gd").fit_terminal(adapter, terminal):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: task lamp/terminal fit refused")

@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 56.21,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T22:04:03Z",
+  "started_utc": "2026-10-07T22:03:06Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/desktop-runtime-02.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/desktop-runtime-02.log",
+  "stdout_sha256": "8f5cf912c94d07255ddb71bfecc2e996c7f97ff7c3d30383dc5e9073c601f95e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/desktop-runtime-02",
+ "source": {
+  "dirty_paths": 317,
+  "dirty_sample": [
+   "M art/blender/reading_nook_construction.json",
+   " M art/blender/scripts/build_task_lamps.py",
+   " M art/blender/scripts/inspect_task_lamps.py",
+   " M art/blender/scripts/task_lamps_geometry.py",
+   " M art/blender/task_lamps.blend",
+   " M art/blender/task_lamps_construction.json",
+   " M art/blender/work_tables_construction.json",
+   " M art/data/task_lamps/source_plan.json",
+   " M art/renders/insitu/shots.md",
+   " M game/assets/props/task_lamps.glb",
+   " M game/data/orison_v2/task_lamps.json",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/scripts/building/orison_v2_surface_props.gd",
+   " M game/scripts/props/native_task_lamp.gd",
+   " M game/tests/fixtures/orison_reading_nook.json",
+   " M game/tests/fixtures/orison_task_lamps.json",
+   " M game/tests/fixtures/orison_work_tables.json",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_task_lamps_test.gd",
+   " M tools/plan_v2_fabrication.py"
+  ],
+  "repository_head": "d39e533354354f5713f1fc5f16c44ed41c474068",
+  "repository_tree": "243a1f359c86eb20dd5106d3cef986b37864a09c",
+  "runtime_inputs_sha256": "84787a1f137c6a856a3c69e8eedf836a507646c58af3943e0e1acc8a06a33f48",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "5fb68ccc128c4fe585fa3bac89e9242a0ef612567560102d7a1d7ed260fa45dd"
+ },
+ "windowed": true
+}

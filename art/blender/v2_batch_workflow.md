@@ -92,7 +92,8 @@ Modules: **pawn_clocks**, **pawn_display**, **pawn_fittings**, **laundry_fitting
 **photo_enlargers**, **photo_portraits**, **radio_wire**, **shop_joinery** and
 **shop_clerestories**, **hardware_stock**, **news_fittings**,
 **locksmith_fittings**, **druggist_cupboard**, **cobbler_fittings**,
-**photo_radio_fittings**, **radio_display**, **task_lamps**, **reading_nook** and **work_tables**. The original
+**photo_radio_fittings**, **radio_display**, **task_lamps**, **reading_nook**, **work_tables**, **surface_stock** and
+**signal_terminal**. The original
 clock/display checks remain; display now also checks the fitted safe boundary.
 Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and
@@ -193,3 +194,19 @@ bound. This catches attachments left behind when a provider moves or shrinks.
 Its JSON retains hashes, every sample and failures; it grants no runtime proof.
 The support audit regression deliberately replays the four old Hardware
 spacer points against the fitted rack and requires all four to fail.
+
+## Reuse chart and assembly work
+
+**fabrication_chart_batch.py** computes a complete draw in NumPy, retaining the
+scalar float32 precision fallback. Its turned-stock bands use continuous metre
+charts instead of a separate chart on every radial facet. Keep the existing
+UV/tangent metric gates. **fabrication_normals.py** averages curved corner fans
+while preserving sharp boundaries. Prefer these helpers for new recipes; do
+not rebuild accepted families merely to adopt the optimization. The desktop
+batch builds 55 props together and prepares one imported model for all actors.
+
+Validate retained source bounds and required material fields before native
+adoption. Run semantic type checks and review dynamic compositions early enough
+to catch invisible needles or primitive child meshes before the final capture.
+When only an inspector output path or status prose changes, record a narrow
+provenance comparison; do not repeat imports or rendered runtime runs.

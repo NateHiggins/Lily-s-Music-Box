@@ -42,6 +42,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			check(material != null and material != library and not material.uv1_triplanar and library.uv1_triplanar, "per-actor catalogue material keeps metre UVs without changing library")
 			if material != null:
 				check(material.albedo_texture == library.albedo_texture and material.roughness_texture == library.roughness_texture and material.normal_texture == library.normal_texture and material.uv1_scale.is_equal_approx(library.uv1_scale), "registered maps and metre scale reach every partition")
+			if part.has("finish"): check(is_equal_approx(material.normal_scale,float(part.finish.normal_scale)) and is_equal_approx(material.roughness,float(part.finish.roughness)),"native/runtime lamp finishing agrees")
 			check(draw.get_parent() == lamp._switch_key if part.key == "switch_bakelite" else draw.get_parent() == lamp, "only the original switch key moves")
 			if part.key == "bulb_opal": check(draw.cast_shadow == GeometryInstance3D.SHADOW_CASTING_SETTING_OFF, "opal bulb cannot block its own internal source")
 		check(lamp._switch_key.position.is_equal_approx(reference._switch_key.position), "source switch pivot retained")

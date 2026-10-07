@@ -15,7 +15,11 @@
           "name": "TaskLamp_emeralite__brass",
           "key": "brass",
           "catalog_key": "brass",
-          "tile": 0.5
+          "tile": 0.5,
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.55
+          }
         },
         {
           "name": "TaskLamp_emeralite__bulb_opal",
@@ -39,7 +43,11 @@
           "name": "TaskLamp_emeralite__nickel_plated",
           "key": "nickel_plated",
           "catalog_key": "nickel_plated",
-          "tile": 0.32
+          "tile": 0.32,
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
         },
         {
           "name": "TaskLamp_emeralite__rubber_aged",
@@ -78,7 +86,11 @@
           "name": "TaskLamp_office_green__brass",
           "key": "brass",
           "catalog_key": "brass",
-          "tile": 0.5
+          "tile": 0.5,
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.55
+          }
         },
         {
           "name": "TaskLamp_office_green__bulb_opal",
@@ -102,7 +114,11 @@
           "name": "TaskLamp_office_green__nickel_plated",
           "key": "nickel_plated",
           "catalog_key": "nickel_plated",
-          "tile": 0.32
+          "tile": 0.32,
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
         },
         {
           "name": "TaskLamp_office_green__rubber_aged",
@@ -153,7 +169,11 @@
           "name": "TaskLamp_bench_friction__nickel_plated",
           "key": "nickel_plated",
           "catalog_key": "nickel_plated",
-          "tile": 0.32
+          "tile": 0.32,
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
         },
         {
           "name": "TaskLamp_bench_friction__rubber_aged",
@@ -204,7 +224,11 @@
             0.37,
             0.32,
             1.0
-          ]
+          ],
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.4
+          }
         },
         {
           "name": "TaskLamp_landlord_enamel__iron_blackened",
@@ -216,7 +240,11 @@
           "name": "TaskLamp_landlord_enamel__nickel_plated",
           "key": "nickel_plated",
           "catalog_key": "nickel_plated",
-          "tile": 0.32
+          "tile": 0.32,
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
         },
         {
           "name": "TaskLamp_landlord_enamel__rubber_aged",
@@ -267,7 +295,11 @@
           "name": "TaskLamp_architect_counterweight__nickel_plated",
           "key": "nickel_plated",
           "catalog_key": "nickel_plated",
-          "tile": 0.32
+          "tile": 0.32,
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
         },
         {
           "name": "TaskLamp_architect_counterweight__rubber_aged",

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/signal_terminal.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "VantryFixed",
+      "parts": [
+        {
+          "name": "VantryFixed__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "VantryFixed__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.55
+          }
+        },
+        {
+          "name": "VantryFixed__copper_aged",
+          "key": "copper_aged",
+          "tile": 0.4,
+          "catalog_key": "copper_aged"
+        },
+        {
+          "name": "VantryFixed__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "VantryFixed__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "VantryFixed__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ]
+}

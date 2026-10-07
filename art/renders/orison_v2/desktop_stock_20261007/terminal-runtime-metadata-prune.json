@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "removed_unused_runtime_fields": {
+    "local_materials": {
+      "glassish": {
+        "files": [
+          null,
+          "T_glass_rough.png",
+          "T_glass_normal.png"
+        ],
+        "metallic": 0,
+        "roughness": 1,
+        "normal_scale": 0.550000011920929,
+        "color": [
+          0.7599999904632568,
+          0.8500000238418579,
+          0.8899999856948853,
+          0.1599999964237213
+        ],
+        "alpha": true
+      }
+    }
+  },
+  "asset_sha256": "0b8f01928222bc41e2b045308c92bd67bab93220a76037b03350fa2812225f43",
+  "reason": "Original actor material owns native ValveBank; shipped recipe was unused."
+}
