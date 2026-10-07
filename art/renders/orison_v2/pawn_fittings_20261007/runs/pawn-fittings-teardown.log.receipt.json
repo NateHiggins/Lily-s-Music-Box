@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 24.26,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T13:49:29Z",
+  "started_utc": "2026-10-07T13:49:05Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-fittings-teardown.log.stderr",
+  "stderr_sha256": "c7867b76330ab015480520e2652dc154c51005c43e1ba38f4617f37b09afa3b7",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-fittings-teardown.log",
+  "stdout_sha256": "55544809a3f28864c0e0af338c2a63f67fd4477a1b7597a8eef26ecca1a1f878"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PassageLoadTeardownTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 294,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/pawn_display.md",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M game/tests/orison_v2_pawn_display_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/pawn_fittings.blend",
+   "?? art/blender/pawn_fittings.md",
+   "?? art/blender/pawn_fittings_construction.json",
+   "?? art/blender/scripts/build_pawn_fittings.py",
+   "?? art/blender/scripts/inspect_pawn_fittings.py",
+   "?? art/blender/scripts/pawn_fittings_geometry.py"
+  ],
+  "repository_head": "76f4c7eb920ef065fab981ba5394e13bb4218f88",
+  "repository_tree": "c5ed2b305659c98ec40b451c0bd090b5cfb1e701",
+  "runtime_inputs_sha256": "f6f34280d6ce39a53c2e2c61a5674627de2ab92080ac2c3c42f2354bb86f3697",
+  "test_path": "game/tests/orison_v2_passage_load_teardown_test.gd",
+  "test_sha256": "62f0dfa67922b43e0ef6e5d719678be26cc59f06e1d1576df38587a94c987c75"
+ },
+ "windowed": false
+}

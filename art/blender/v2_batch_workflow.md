@@ -69,8 +69,9 @@ family. Export the complete batch after fit, support, UV and material checks.
 
 ## One composed Godot run
 
-Initial modules: **pawn_clocks** and **pawn_display**, retaining all 1,002 and
-311 original assertions. Their standalone scenes still work. As another family
+Modules: **pawn_clocks**, **pawn_display** and **pawn_fittings**. The original
+clock/display checks remain; display now also checks the fitted safe boundary.
+Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and
 register it in `orison_v2_fabrication_batch.gd`. Keep its specific checks.
 

@@ -2,6 +2,7 @@ extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
 const MODULES := {
+	"pawn_fittings": preload("res://tests/orison_v2_pawn_fittings_test.gd"),
 	"pawn_clocks": preload("res://tests/orison_v2_pawn_clocks_test.gd"),
 	"pawn_display": preload("res://tests/orison_v2_pawn_display_test.gd"),
 }

@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 9.04,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T13:45:40Z",
+  "started_utc": "2026-10-07T13:45:30Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-fittings-import3.log.stderr",
+  "stderr_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-fittings-import3.log",
+  "stdout_sha256": "e1175e581e028a9d95ad70a057e6f0d47e45b4029415466e6104fba2e4abf785"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 289,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M game/tests/orison_v2_pawn_display_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/pawn_fittings.blend",
+   "?? art/blender/pawn_fittings_construction.json",
+   "?? art/blender/scripts/build_pawn_fittings.py",
+   "?? art/blender/scripts/inspect_pawn_fittings.py",
+   "?? art/blender/scripts/pawn_fittings_geometry.py",
+   "?? art/data/pawn_fittings/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png"
+  ],
+  "repository_head": "76f4c7eb920ef065fab981ba5394e13bb4218f88",
+  "repository_tree": "c5ed2b305659c98ec40b451c0bd090b5cfb1e701",
+  "runtime_inputs_sha256": "f6f34280d6ce39a53c2e2c61a5674627de2ab92080ac2c3c42f2354bb86f3697",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

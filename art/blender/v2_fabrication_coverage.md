@@ -15,8 +15,8 @@ The all-space overview now has 400 captures across all 200 spaces. See
 **v2_space_sweep.md** and **v2_space_review.json** for the reviewed overviews,
 obstructed landing views and remaining detail/route work. This is a coverage
 advance, not acceptance of every installation. A separate 100-station city survey now has 100 images and seven inspected
-contact sheets; discovery limits and specific route/detail work remain. Several arcade
-apparatus and stock groups still use primitive boxes. Keys Cut, Shoe Rebuilding
+contact sheets; discovery limits and specific route/detail work remain. Remaining arcade
+source boxes still require a source-by-source review. Keys Cut, Shoe Rebuilding
 and News/Cigars now have source-owned native fittings; their rear stores, services and the
 remaining retail trades remain open in the fabrication queue.
 
@@ -40,7 +40,8 @@ has yet been demonstrated; none is silently marked complete.
 
 | Family / installation | Existing authority | Current disposition and next check |
 |---|---|---|
-| Pawnbroker cases and window stock | build_pawn_display / eight immutable source boxes / existing catalogue and shipping maps | Two hollow glazed cases and one supported window stand; 161 closed stocks, 16 partitions, 28,296 triangles and fourteen floor contacts. East-case rear end shortens 0.15m for safe clearance; deck rises 0.20m above the sill. Three explicitly inferred passive window arrangements and a scoped existing clear-glass finish; see pawn_display.md. Pledge shelving, grille/counter, safe, balance, ledger, loupe, continuous routes and independent services remain open. |
+| Pawnbroker remaining furnishings | build_pawn_fittings / forty immutable source boxes / existing catalogue maps | Nine assemblies, 308 closed stocks, 33 partitions, 44,672 triangles and 23 contacts. Joined parcel racks, counter/wicket, safe, machine, coat, violin case, covered balance, ledger and loupe; see pawn_fittings.md. All 63 Pawn furnishing boxes are covered; services, continuous routes and final surface calibration remain open. |
+| Pawnbroker cases and window stock | build_pawn_display / eight immutable source boxes / existing catalogue and shipping maps | Two hollow glazed cases and one supported window stand; 161 closed stocks, 16 partitions, 28,296 triangles and fourteen floor contacts. East-case rear end shortens 0.15m for safe clearance; deck rises 0.20m above the sill. Three explicitly inferred passive window arrangements and a scoped existing clear-glass finish; see pawn_display.md. Remaining furnishings are fitted in pawn_fittings.md; continuous routes and independent services remain open. |
 | Pawnbroker passive clock wall | build_pawn_clocks / fifteen immutable source clocks / original woods and glass plus registered ceramic, iron and aged brass | Fifteen joined cases with fixed panes, geometric dials and supported stopped hands; 345 stocks, 68 partitions, 27,816 triangles and thirty real brick-wall bearings. Explicit 0.30m upward adaptation clears the display-case upper datum; see pawn_clocks.md. Clock behavior, remaining pledge furniture, continuous routes, independent services and human acceptance remain open. |
 | Original shop seating | build_shop_seating / sixty immutable source boxes / existing shipping maps | Thirty fitted chairs, benches and pedestal stools; 416 closed stocks, 42 draws, 55,200 triangles and 420 floor samples. Paired native/production review in shop_seating.md. Other counters, apparatus, cloth and broad finishes remain open. |
 | Shoe Rebuilding machinery and stock | build_cobbler_fittings / 49 immutable source records / existing shipping and catalogue maps | Eleven assemblies, 408 closed stocks, 46 partitions and 117,708 triangles; twenty-two hollow shoes, supported finisher/sewing frames, fitted rear approach and locally finished dust cover. Native and production detail in cobbler_fittings.md. Rear-store access, live machinery and utility continuity remain open. |

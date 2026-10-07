@@ -40,6 +40,7 @@ const PhotoReceiving := preload("res://scripts/building/orison_v2_photo_receivin
 const NewsReceiving := preload("res://scripts/building/orison_v2_news_receiving.gd")
 const PawnReceiving := preload("res://scripts/building/orison_v2_pawn_receiving.gd")
 const PawnClocks := preload("res://scripts/building/orison_v2_pawn_clocks.gd")
+const PawnFittings := preload("res://scripts/building/orison_v2_pawn_fittings.gd")
 const PawnDisplay := preload("res://scripts/building/orison_v2_pawn_display.gd")
 const DinerReceiving := preload("res://scripts/building/orison_v2_diner_receiving.gd")
 const Receivers := preload("res://scripts/building/orison_v2_passage_receivers.gd")
@@ -254,6 +255,9 @@ func _ready() -> void:
 			return
 		if not PawnClocks.mount_cell(cell_nodes[identity],source_layout):
 			_fail("native Pawn Shop clocks refused: "+identity)
+			return
+		if not PawnFittings.mount_cell(cell_nodes[identity],source_layout):
+			_fail("native Pawn Shop fittings refused: "+identity)
 			return
 		if not DinerReceiving.mount_cell(cell_nodes[identity],source_layout,cabinets_enabled):
 			_fail("native Diner receiving pair refused: "+identity)

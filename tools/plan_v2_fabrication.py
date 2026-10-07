@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT = {'.json', '.gd', '.gdshader', '.gdshaderinc', '.py', '.gltf', '.import', '.tscn', '.tres', '.godot'}
-BATCH_MODULES = {'pawn_clocks', 'pawn_display'}
+BATCH_MODULES = {'pawn_clocks', 'pawn_display', 'pawn_fittings'}
 # These older fixtures precede the common filename/runtime.asset convention.
 ALIASES = {'front_pavement_construction': 'front_pavement'}
 ASSETS = {'city_closure': 'res://assets/props/city_shells.glb'}

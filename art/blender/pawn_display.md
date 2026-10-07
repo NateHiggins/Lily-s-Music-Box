@@ -52,7 +52,7 @@ scoped optical ownership. Both passage mount paths use the same fitting;
 images remain INERT observations and grant no ledger promotion.
 
 The grille/counter, pledge shelving and parcels, specific pledged objects,
-safe, balance, ledger and loupe remain blockouts. Continuous routes, shop
+safe, balance, ledger and loupe are now fitted in **pawn_fittings.md**. Continuous routes, shop
 operation, independent services/capacity, broad brick/glass calibration and
 human acceptance remain open. The seven passage cabinets retain their
 temporary default omission and existing restoration option.

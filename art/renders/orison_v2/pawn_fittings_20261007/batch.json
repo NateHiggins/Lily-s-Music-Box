@@ -1,0 +1,48 @@
+{
+	"batch_checks": 8,
+	"elapsed_ms": 43101,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 1873,
+	"modules": {
+		"pawn_clocks": {
+			"captured": false,
+			"checks": 1002,
+			"elapsed_ms": 940,
+			"failures": [],
+			"fixture_sha256": "4de79c8e83208dfba29b0e91cd2d763255406efc362989eeaf4dcb33ecb01c86",
+			"parts": 68,
+			"removed": 180,
+			"supports": 30,
+			"triangles": 27816,
+			"validator_sha256": "9dfb99f42c9ceba61b6c77429eda2320356df5777bbad66806dbe83fd7b4e40e"
+		},
+		"pawn_display": {
+			"captured": false,
+			"checks": 312,
+			"elapsed_ms": 281,
+			"failures": [],
+			"fixture_sha256": "75c124e805c39c01aec8d687d60f33d01aa715e4a05b2d1ac9f2a05913d120ef",
+			"parts": 16,
+			"removed": 96,
+			"supports": 14,
+			"triangles": 28296,
+			"validator_sha256": "f798516421cf74e7fb5e3cec9bdf77001d67c4be98f5ebbcf7615fbb843bb75d"
+		},
+		"pawn_fittings": {
+			"captured": true,
+			"checks": 559,
+			"elapsed_ms": 11748,
+			"failures": [],
+			"fixture_sha256": "d3c06a8e7d5e85ee0e30d352f62df94e6e1570f7856a3fac70645e32e412b711",
+			"parts": 33,
+			"removed": 480,
+			"supports": 23,
+			"triangles": 44672,
+			"validator_sha256": "afa61ef00d6d9f2daf925948fcdc03ef169ba04b3b26d08a188890bd929399f6"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

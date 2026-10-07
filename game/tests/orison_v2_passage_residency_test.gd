@@ -109,6 +109,7 @@ func _check_specialist_fittings() -> bool:
 		["shop_luncheonette","DinerOverhead","diner_overhead"],
 		["shop_pawnbroker","PawnClocks","pawn_clocks"],
 		["shop_pawnbroker","PawnDisplay","pawn_display"],
+		["shop_pawnbroker","PawnFittings","pawn_fittings"],
 		["shop_funeral_parlour","FuneralFittings","funeral_fittings"],
 		["shop_funeral_parlour","FuneralDrapes","funeral_drapes"],
 		["shop_funeral_parlour","FuneralFoliage","funeral_foliage"],

@@ -976,3 +976,16 @@ art/renders/orison_v2/pawn_display_20261007/** -text -whitespace
 game/tests/orison_v2_pawn_clocks_test.gd -text
 game/tests/orison_v2_pawn_display_test.gd -text
 art/renders/orison_v2/fabrication_batch_20261007/** -text -whitespace
+
+# Source-bound composed Pawnbroker furnishing batch.
+art/data/pawn_fittings/source_plan.json -text
+art/blender/scripts/build_pawn_fittings.py -text
+art/blender/scripts/pawn_fittings_geometry.py -text
+art/blender/scripts/inspect_pawn_fittings.py -text
+art/blender/pawn_fittings_construction.json -text
+game/assets/props/pawn_fittings.glb.import -text
+game/data/orison_v2/pawn_fittings.json -text
+game/tests/fixtures/orison_pawn_fittings.json -text
+game/scripts/building/orison_v2_pawn_fittings.gd -text
+game/tests/orison_v2_pawn_fittings_test.gd -text
+art/renders/orison_v2/pawn_fittings_20261007/** -text -whitespace

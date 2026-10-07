@@ -1,0 +1,175 @@
+ERROR: Initializing already initialized RID
+   at: get_or_null (./core/templates/rid_owner.h:236)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "material" is null.
+   at: material_set_next_pass (servers/rendering/dummy/storage/material_storage.cpp:257)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "material" is null.
+   at: material_set_shader (servers/rendering/dummy/storage/material_storage.cpp:250)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Attempting to initialize the wrong RID
+   at: get_or_null (./core/templates/rid_owner.h:240)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Attempting to use an uninitialized RID
+   at: get_or_null (./core/templates/rid_owner.h:247)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "material" is null.
+   at: material_set_next_pass (servers/rendering/dummy/storage/material_storage.cpp:257)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Attempting to use an uninitialized RID
+   at: get_or_null (./core/templates/rid_owner.h:247)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "material" is null.
+   at: material_set_shader (servers/rendering/dummy/storage/material_storage.cpp:250)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Initializing already initialized RID
+   at: get_or_null (./core/templates/rid_owner.h:236)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_count (servers/rendering/dummy/storage/mesh_storage.h:74)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_add_surface (servers/rendering/dummy/storage/mesh_storage.h:81)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "m" is null.
+   at: mesh_set_blend_shape_mode (servers/rendering/dummy/storage/mesh_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Attempting to initialize the wrong RID
+   at: get_or_null (./core/templates/rid_owner.h:240)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "mem" is null.
+   at: initialize_rid (./core/templates/rid_owner.h:284)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Attempting to use an uninitialized RID
+   at: get_or_null (./core/templates/rid_owner.h:247)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "material" is null.
+   at: material_set_next_pass (servers/rendering/dummy/storage/material_storage.cpp:257)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Attempting to use an uninitialized RID
+   at: get_or_null (./core/templates/rid_owner.h:247)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "material" is null.
+   at: material_set_shader (servers/rendering/dummy/storage/material_storage.cpp:250)
+   GDScript backtrace (most recent call first):
+       [0] _sleep (res://scripts/building/planar_mirror_renderer.gd:151)
+       [1] shutdown (res://scripts/building/planar_mirror_renderer.gd:165)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:815)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "material" is null.
+   at: material_set_shader (servers/rendering/dummy/storage/material_storage.cpp:250)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:379)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:415)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:822)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "material" is null.
+   at: material_set_shader (servers/rendering/dummy/storage/material_storage.cpp:250)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:379)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:415)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:822)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)
+ERROR: Parameter "material" is null.
+   at: material_set_shader (servers/rendering/dummy/storage/material_storage.cpp:250)
+   GDScript backtrace (most recent call first):
+       [0] shutdown (res://scripts/building/orison_v2_passage_residency.gd:379)
+       [1] shutdown (res://scripts/building/orison_v2_passage_region.gd:415)
+       [2] shutdown_for_tests (res://scripts/building/orison_v2_runtime_root.gd:822)
+       [3] _run (res://tests/orison_v2_passage_load_teardown_test.gd:36)

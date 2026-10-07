@@ -33,11 +33,11 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var passage: OrisonV2PassageRegion=world.passage_region
 	check(not world.startup_failed and not passage.startup_failed,"composed world fits the original Pawnbroker")
 	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
-	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_pawn_display.json"))
-	check(FileAccess.get_sha256("res://assets/props/pawn_display.glb")==fixture.asset_sha256,"installed mesh binds the native cases and supported window export")
+	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_pawn_fittings.json"))
+	check(FileAccess.get_sha256("res://assets/props/pawn_fittings.glb")==fixture.asset_sha256,"installed mesh binds the native composed furnishing export")
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
 	for record: Dictionary in fixture.runtime.cells:
-		var cell: Node3D=passage.cell_nodes[record.id];var model: Node3D=cell.get_node("PawnDisplay")
+		var cell: Node3D=passage.cell_nodes[record.id];var model: Node3D=cell.get_node("PawnFittings")
 		var originals: Dictionary=model.get_meta("original_meshes");var counts: Dictionary=model.get_meta("removed_triangles")
 		for box: Dictionary in record.replace:
 			check(counts[box.id]==int(box.expected_triangles),"exact original source boundary removed: "+str(box.id));removed+=int(counts[box.id])
@@ -54,7 +54,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			check((shape.disabled and not draw.visible) if retained.get_surface_count()==0 else (shape.shape as ConcavePolygonShape3D).get_faces()==retained.get_faces(),"trimmed physical boundaries match visible boundaries")
 		for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 			parts+=1;var count:=draw.mesh.get_faces().size()/3;triangles+=count
-			var name:=str(draw.get_meta("pawn_display_part"));var expected: Dictionary=fixture.parts.filter(func(row):return row.name==name)[0]
+			var name:=str(draw.get_meta("pawn_fittings_part"));var expected: Dictionary=fixture.parts.filter(func(row):return row.name==name)[0]
 			check(count==int(expected.triangles) and expected.cell==record.id,"each fitted partition binds exact native triangles and cell")
 			_check_cap_mapping(draw.mesh,true)
 			var mat:=draw.mesh.surface_get_material(0) as StandardMaterial3D
@@ -63,6 +63,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			var runtime_part: Dictionary=record.parts.filter(func(row):return row.name==name)[0]
 			for original_draw: MeshInstance3D in originals:
 				if str(original_draw.name).trim_suffix("-col").ends_with("_"+str(runtime_part.key)):source=originals[original_draw].surface_get_material(0)
+			if str(runtime_part.key)=="glassish":source=model.get_meta("borrowed_glazing_owner").material
 			if runtime_part.has("catalog_key"):
 				var library:=MatLib.get_mat(str(runtime_part.catalog_key))
 				check(library!=mat and library.uv1_triplanar and library.albedo_texture==mat.albedo_texture and library.roughness_texture==mat.roughness_texture and library.normal_texture==mat.normal_texture and mat.uv1_scale.is_equal_approx(library.uv1_scale),"local registered finishes use their catalogue owner without changing shared materials")
@@ -83,22 +84,25 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			var at:=_v(contact.point);var direction:=_v(contact.direction);var exclude: Array[RID]=[world.player.get_rid()]
 			for body: CollisionObject3D in model.find_children("*","CollisionObject3D",true,false):
 				var draw:=body.get_parent() as MeshInstance3D
-				if draw!=null and str(draw.get_meta("pawn_display_part")).begins_with(str(contact.assembly)+"__"):
+				if draw!=null and str(draw.get_meta("pawn_fittings_part")).begins_with(str(contact.assembly)+"__"):
 					exclude.append(body.get_rid())
 			var query:=PhysicsRayQueryParameters3D.create(cell.to_global(at+direction*.004),cell.to_global(at-direction*.004),1,exclude)
 			var hit:=world.get_world_3d().direct_space_state.intersect_ray(query)
 			check(not hit.is_empty() and cell.to_local(hit.position).distance_to(at)<.00003,"fitted support contact: "+str(contact.label)+" / "+str(contact.owner));supports+=1
-			check(str(contact.owner)=="storm_shop_pawnbroker_floor" and not hit.is_empty() and str(hit.collider.get_parent().name).trim_suffix("-col").ends_with("_floor_oak"),"actual feet reach the retained oak floor")
+			if contact.native_owner:
+				check(not hit.is_empty() and str(hit.collider.get_parent().get_meta("pawn_fittings_part","")).begins_with(str(contact.owner)+"__"),"actual native bearing reaches its declared fitted owner")
+			else:
+				check(str(contact.owner)=="storm_shop_pawnbroker_floor" and not hit.is_empty() and str(hit.collider.get_parent().name).trim_suffix("-col").ends_with("_floor_oak"),"actual feet reach the retained oak floor")
 	check(parts==fixture.parts.size() and triangles==int(fixture.triangles) and removed==fixture.original_records.size()*12 and supports==fixture.contacts.size(),"native counts bind all original boxes, fitted furniture and wall/ceiling samples")
-	_check_display_details(world,fixture)
+	_check_fittings_details(world,fixture)
 	await _retail_detail_views(world,fixture)
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
-	print("PAWN DISPLAY: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
+	print("PAWN FITTINGS: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
 	return {"checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures.duplicate()}
 
 func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, start: Vector3, finish: Vector3) -> Dictionary:
-	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("pawn_display_part",""))==part)
+	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("pawn_fittings_part",""))==part)
 	check(targets.size()==1,"actual installed cavity partition: "+part)
 	if targets.size()!=1:return {}
 	var target: CollisionObject3D=targets[0].find_children("*","CollisionShape3D",true,false)[0].get_parent()
@@ -107,59 +111,37 @@ func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, star
 		if body!=target:exclude.append(body.get_rid())
 	return world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(start,finish,1,exclude))
 
-func _check_display_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
-	var cell: Node3D=world.passage_region.cell_nodes.shop_pawnbroker;var model: Node3D=cell.get_node("PawnDisplay")
-	check(fixture.original_records.size()==8 and fixture.assemblies.size()==3,"two original three-box cases and two-box window stand")
-	var glass: ShaderMaterial=model.get_meta("optical_material")
-	check(glass.shader.resource_path=="res://shaders/lamp_glass_surface.gdshader" and is_equal_approx(float(glass.get_shader_parameter("surface_roughness")),.06),"local glazing uses the existing clear dielectric owner")
-	var optical_count:=0
-	for draw: MeshInstance3D in cell.find_children("*","MeshInstance3D",true,false):
-		if not draw.has_meta("pawn_display_optical_owner"):continue
-		optical_count+=1
-		check(draw.material_override==glass and draw.mesh.surface_get_material(0)==draw.get_meta("pawn_display_source_material"),"optical override retains original material resource and mapped surface")
-	check(optical_count==4,"two case panes, paired lenses and remaining original fixed glazing share only this shop's optical instance")
-	var retained: Dictionary=model.get_meta("retained_glazing");var glazing: MeshInstance3D=retained.draw
-	check(glazing.mesh==retained.mesh and glazing.transform==retained.pose and glazing.mesh.get_faces()==retained.faces,"remaining original fixed glazing mesh and pose are unchanged")
-	var shape: CollisionShape3D=glazing.find_children("*","CollisionShape3D",true,false)[0]
-	check(not shape.disabled and shape.shape.get_faces()==retained.faces,"remaining original fixed glazing collision remains exact")
-	for side: String in ["w","e"]:
-		var name:="storm_shop_pawnbroker_case_"+side
-		var cy:=55.165 if side=="w" else 51.435
-		# Broad rays verify real physical faces and the empty display chamber.
-		var top:=_isolated_ray(world,model,name+"__glassish",cell.to_global(Vector3(20.3,1.8,cy)),cell.to_global(Vector3(20.3,1.0,cy)))
-		var underside:=_isolated_ray(world,model,name+"__glassish",cell.to_global(Vector3(20.3,1.0,cy)),cell.to_global(Vector3(20.3,1.8,cy)))
-		check(not top.is_empty() and absf(cell.to_local(top.position).y-1.445)<.00003,"5mm top pane upper face at declared rebate: "+side)
-		check(not underside.is_empty() and absf(cell.to_local(underside.position).y-1.440)<.00003,"5mm top pane underside leaves the chamber hollow: "+side)
-		var yfront:=54.898 if side=="w" else 51.702
-		var first:=_isolated_ray(world,model,name+"__glassish",cell.to_global(Vector3(20.3,1.2,yfront-.5)),cell.to_global(Vector3(20.3,1.2,yfront+.5)))
-		var second:=_isolated_ray(world,model,name+"__glassish",cell.to_global(Vector3(20.3,1.2,yfront+.20)),cell.to_global(Vector3(20.3,1.2,yfront-.20)))
-		check(not first.is_empty() and not second.is_empty() and absf(first.position.distance_to(second.position)-.004)<.00003,"actual side pane is 4mm rather than a solid glass box: "+side)
-		var chamber:=_isolated_ray(world,model,name+"__wood_dark",cell.to_global(Vector3(20.3,1.2,cy-.10)),cell.to_global(Vector3(20.3,1.2,cy+.10)))
-		check(chamber.is_empty(),"display cavity remains clear of timber: "+side)
-	var east_max:=-INF
+func _check_fittings_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
+	var cell: Node3D=world.passage_region.cell_nodes.shop_pawnbroker;var model: Node3D=cell.get_node("PawnFittings")
+	var borrowed: Dictionary=model.get_meta("borrowed_glazing_owner");var glazing: MeshInstance3D=borrowed.draw
+	var glazing_shape: CollisionShape3D=glazing.find_children("*","CollisionShape3D",true,false)[0]
+	check(glazing.mesh==borrowed.mesh and glazing.transform==borrowed.pose and glazing.mesh.surface_get_material(0)==borrowed.material and glazing_shape.disabled==borrowed.disabled and glazing_shape.shape.get_faces()==borrowed.faces,"borrowed shipping glass retains its mesh, maps, pose and collision")
+	check(fixture.original_records.size()==40 and fixture.assemblies.size()==9,"all remaining forty furnishing records have nine source-owned assemblies")
+	var counter:="storm_shop_pawnbroker_grille_counter"
+	var opening:=_isolated_ray(world,model,counter+"__brass_dull",cell.to_global(Vector3(21.30,1.45,53.32)),cell.to_global(Vector3(21.90,1.45,53.32)))
+	check(opening.is_empty(),"actual wicket passage is open between the modelled bars")
+	var counter_hit:=_isolated_ray(world,model,counter+"__countertop",cell.to_global(Vector3(21.05,1.40,54.42)),cell.to_global(Vector3(21.05,1.0,54.42)))
+	check(not counter_hit.is_empty() and absf(cell.to_local(counter_hit.position).y-1.18)<.00003,"original counter upper datum is retained")
+	var bell:="storm_shop_pawnbroker_balance_base__glassish"
+	var upper:=_isolated_ray(world,model,bell,cell.to_global(Vector3(21.23,2.0,52.87)),cell.to_global(Vector3(21.23,1.65,52.87)))
+	var lower:=_isolated_ray(world,model,bell,cell.to_global(Vector3(21.23,1.65,52.87)),cell.to_global(Vector3(21.23,2.0,52.87)))
+	check(not upper.is_empty() and not lower.is_empty() and absf(upper.position.distance_to(lower.position)-.004)<.00003,"closed balance bell has a real four-millimetre crown")
+	var cavity:=_isolated_ray(world,model,bell,cell.to_global(Vector3(21.13,1.42,52.87)),cell.to_global(Vector3(21.33,1.42,52.87)))
+	check(cavity.is_empty(),"balance bell interior is hollow")
+	var glass_count:=0
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		if str(draw.get_meta("pawn_display_part")).begins_with("storm_shop_pawnbroker_case_e__"):
-			east_max=maxf(east_max,(draw.transform*draw.mesh.get_aabb()).end.x)
-	var safe_bounds:=AABB(Vector3(21.72,.05,51.38),Vector3(.78,1.08,.84))
-	if cell.has_node("PawnFittings"):
-		var safe_parts:=cell.get_node("PawnFittings").find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("pawn_fittings_part","")).begins_with("storm_shop_pawnbroker_safe__"))
-		check(not safe_parts.is_empty(),"relocated safe retains installed physical geometry")
-		if not safe_parts.is_empty():
-			safe_bounds=safe_parts[0].transform*safe_parts[0].mesh.get_aabb()
-			for draw: MeshInstance3D in safe_parts:safe_bounds=safe_bounds.merge(draw.transform*draw.mesh.get_aabb())
-	var east_case_bounds:=AABB(Vector3(19.57,.01,51.12),Vector3(east_max-19.57,1.44,.63))
-	check(absf(east_max-21.68)<.00003 and not east_case_bounds.intersects(safe_bounds),"declared case end clears the currently installed safe")
-	var stand:="storm_shop_pawnbroker_window_plinth"
-	var deck:=_isolated_ray(world,model,stand+"__wood_dark",cell.to_global(Vector3(17.22,.95,53.6)),cell.to_global(Vector3(17.22,.3,53.6)))
-	check(not deck.is_empty() and absf(cell.to_local(deck.position).y-.64)<.00003,"window stock deck is raised above the original sill")
-	var clock: Node3D=cell.get_node("PawnClocks")
-	check(clock.get_meta("removed_triangles").size()==15,"all fifteen passive wall clocks retain their own fitting")
+		if str(draw.get_meta("pawn_fittings_part")).ends_with("__glassish"):
+			glass_count+=1;check(draw.material_override==cell.get_node("PawnDisplay").get_meta("optical_material"),"bell and loupe reuse local clear dielectric without changing source maps")
+	check(glass_count==2,"only the balance bell and loupe need new fitted glazing")
+	for at: Vector3 in [Vector3(22.08,.03,52.08),Vector3(22.09,.03,53.15),Vector3(22.10,.03,54.1)]:
+		check(_city_clear_station(world,cell.to_global(at)),"sampled operator aisle is floor-supported and clears the player capsule")
+	check(cell.has_node("PawnClocks") and cell.has_node("PawnDisplay"),"accepted clocks and display fit alongside new furniture")
 	check(not cell.has_node("PawnReceiving") if not world.passage_region.cabinets_enabled else cell.has_node("PawnReceiving"),"temporary cabinet policy remains consistent")
 
 func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_pawnbroker
 	var observations: Array=[]
-	for view: Array in [["west_case",Vector3(20.,.03,53.5),Vector3(20.6,1.,55.16),60.],["east_case",Vector3(20.,.03,53.5),Vector3(20.6,1.,51.43),60.],["east_safe_clearance",Vector3(20.9,.03,52.6),Vector3(21.66,.75,51.5),40.],["window_street",Vector3(15.8,.03,54.02),Vector3(17.36,.84,54.02),65.],["window_watch",Vector3(15.95,.03,54.02),Vector3(17.34,.79,54.02),20.],["window_optics",Vector3(15.95,.03,53.10),Vector3(17.35,.76,53.15),20.],["shop_context",Vector3(18.4,.03,53.2),Vector3(20.8,1.5,53.3),75.]]:
+	for view: Array in [["counter",Vector3(20.,.03,53.3),Vector3(21.55,1.35,53.30),65.],["safe",Vector3(20.,.03,54.2),Vector3(21.02,.65,54.2),40.],["parcel_wall",Vector3(22.08,.03,53.55),Vector3(22.65,1.48,53.55),75.],["machine",Vector3(19.8,.03,53.97),Vector3(22.56,2.63,53.97),24.],["coat",Vector3(20.,.03,54.38),Vector3(22.65,1.98,55.26),28.],["violin",Vector3(22.08,.03,54.0),Vector3(22.37,.42,54.68),45.],["balance",Vector3(20.20,.03,52.87),Vector3(21.23,1.47,52.87),28.],["ledger_loupe",Vector3(20.35,.03,53.98),Vector3(21.21,1.22,53.90),35.],["operator_aisle",Vector3(22.08,.03,52.08),Vector3(22.12,1.3,54.22),65.]]:
 		var preferred: Vector3=view[1];var selected:=preferred;var distance:=INF
 		if not _city_clear_station(world,cell.to_global(preferred)):
 			for u in range(-5,6):
@@ -174,4 +156,4 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> vo
 		if capture_enabled:
 			await _settled_optics();await shot(view[0])
 		observations.append({"id":view[0],"requested_feet":[preferred.x,preferred.y,preferred.z],"feet":[selected.x,selected.y,selected.z],"target":[view[2].x,view[2].y,view[2].z],"image":str(view[0])+".png" if capture_enabled else null,"field_of_view_deg":world.player.camera.fov})
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Standing-capsule case and window-stock observations; no inventory, time, optical gameplay, continuous route or human acceptance."},"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Standing-capsule composed furnishing observations; sampled aisle positions do not prove a continuous route, inventory, custody, gameplay or human acceptance."},"\t"))

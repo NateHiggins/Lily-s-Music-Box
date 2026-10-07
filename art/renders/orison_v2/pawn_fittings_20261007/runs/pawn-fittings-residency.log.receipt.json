@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 115.55,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T13:43:24Z",
+  "started_utc": "2026-10-07T13:41:28Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-fittings-residency.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-fittings-residency.log",
+  "stdout_sha256": "10de9b3e560bd1fd381b3edb7fc29fb2c44b9011ebe01b928050b4896e0aef07"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2PassageResidencyTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/pawn-fittings-residency-shots",
+ "source": {
+  "dirty_paths": 28,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_passage_region.gd",
+   " M game/scripts/building/orison_v2_passage_residency.gd",
+   " M game/scripts/building/orison_v2_shop_seating.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_passage_residency_test.gd",
+   " M game/tests/orison_v2_pawn_display_test.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/pawn_fittings.blend",
+   "?? art/blender/pawn_fittings_construction.json",
+   "?? art/blender/scripts/build_pawn_fittings.py",
+   "?? art/blender/scripts/inspect_pawn_fittings.py",
+   "?? art/blender/scripts/pawn_fittings_geometry.py",
+   "?? art/data/pawn_fittings/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png"
+  ],
+  "repository_head": "76f4c7eb920ef065fab981ba5394e13bb4218f88",
+  "repository_tree": "c5ed2b305659c98ec40b451c0bd090b5cfb1e701",
+  "runtime_inputs_sha256": "f6f34280d6ce39a53c2e2c61a5674627de2ab92080ac2c3c42f2354bb86f3697",
+  "test_path": "game/tests/orison_v2_passage_residency_test.gd",
+  "test_sha256": "7c609319186173df624870bbd1e0c28e382d9eab4f1d23a990594f728ab72b16"
+ },
+ "windowed": true
+}

@@ -1,0 +1,166 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": 40,
+  "groups": [
+    {
+      "kind": "rack",
+      "sources": [
+        "storm_shop_pawnbroker_pledge_shelf0",
+        "storm_shop_pawnbroker_pledge0_0",
+        "storm_shop_pawnbroker_pledge0_1",
+        "storm_shop_pawnbroker_pledge0_2",
+        "storm_shop_pawnbroker_pledge0_3",
+        "storm_shop_pawnbroker_pledge0_4",
+        "storm_shop_pawnbroker_pledge0_5",
+        "storm_shop_pawnbroker_pledge_shelf1",
+        "storm_shop_pawnbroker_pledge1_0",
+        "storm_shop_pawnbroker_pledge1_1",
+        "storm_shop_pawnbroker_pledge1_2",
+        "storm_shop_pawnbroker_pledge1_3",
+        "storm_shop_pawnbroker_pledge1_4",
+        "storm_shop_pawnbroker_pledge1_5",
+        "storm_shop_pawnbroker_pledge_shelf2",
+        "storm_shop_pawnbroker_pledge2_0",
+        "storm_shop_pawnbroker_pledge2_1",
+        "storm_shop_pawnbroker_pledge2_2",
+        "storm_shop_pawnbroker_pledge2_3",
+        "storm_shop_pawnbroker_pledge2_4",
+        "storm_shop_pawnbroker_pledge2_5",
+        "storm_shop_pawnbroker_pledge_shelf3",
+        "storm_shop_pawnbroker_pledge3_0",
+        "storm_shop_pawnbroker_pledge3_1",
+        "storm_shop_pawnbroker_pledge3_2",
+        "storm_shop_pawnbroker_pledge3_3",
+        "storm_shop_pawnbroker_pledge3_4",
+        "storm_shop_pawnbroker_pledge3_5"
+      ]
+    },
+    {
+      "kind": "violin",
+      "sources": [
+        "storm_shop_pawnbroker_violin_case"
+      ]
+    },
+    {
+      "kind": "sewing",
+      "sources": [
+        "storm_shop_pawnbroker_sewing_case"
+      ]
+    },
+    {
+      "kind": "coat",
+      "sources": [
+        "storm_shop_pawnbroker_coat"
+      ]
+    },
+    {
+      "kind": "counter",
+      "sources": [
+        "storm_shop_pawnbroker_grille_counter",
+        "storm_shop_pawnbroker_grille_top",
+        "storm_shop_pawnbroker_grille",
+        "storm_shop_pawnbroker_wicket"
+      ]
+    },
+    {
+      "kind": "balance",
+      "sources": [
+        "storm_shop_pawnbroker_balance_base",
+        "storm_shop_pawnbroker_balance_beam"
+      ]
+    },
+    {
+      "kind": "safe",
+      "sources": [
+        "storm_shop_pawnbroker_safe"
+      ]
+    },
+    {
+      "kind": "ledger",
+      "sources": [
+        "storm_shop_pawnbroker_ledger"
+      ]
+    },
+    {
+      "kind": "loupe",
+      "sources": [
+        "storm_shop_pawnbroker_loupe"
+      ]
+    }
+  ],
+  "runtime_keys": [
+    "bakelite_black",
+    "brass_dull",
+    "brass_mesh",
+    "cast_iron",
+    "countertop",
+    "enamel",
+    "fabric_warm",
+    "glassish",
+    "iron_blackened",
+    "linen",
+    "paper",
+    "porcelain",
+    "timber",
+    "wood_dark"
+  ],
+  "catalog_variants": {
+    "bakelite_black": "bakelite_black",
+    "brass_dull": "brass",
+    "brass_mesh": "brass_mesh",
+    "cast_iron": "iron_blackened",
+    "countertop": "countertop",
+    "enamel": "enamel",
+    "fabric_warm": "fabric_warm",
+    "iron_blackened": "iron_blackened",
+    "linen": "linen",
+    "paper": "paper",
+    "porcelain": "porcelain",
+    "timber": "timber",
+    "wood_dark": "wood_dark"
+  },
+  "material_aliases": {},
+  "material_tints": {
+    "paper": [
+      0.57,
+      0.4,
+      0.22,
+      1.0
+    ],
+    "linen": [
+      0.52,
+      0.46,
+      0.35,
+      1.0
+    ],
+    "fabric_warm": [
+      0.17,
+      0.2,
+      0.18,
+      1.0
+    ],
+    "enamel": [
+      0.045,
+      0.045,
+      0.04,
+      1.0
+    ],
+    "bakelite_black": [
+      0.18,
+      0.18,
+      0.16,
+      1.0
+    ]
+  },
+  "trim_tolerance_m": 2e-05,
+  "open_work": [
+    "Forty immutable source records become one composed furnishing batch. Shelf plans and four deck heights remain, with six real floor posts; parcels are lowered 5mm onto their actual decks and keep their original twenty-four owners. Ties and blank tags add construction only.",
+    "The grille counter moves 0.65m toward the shop front and its east end shortens to Y=-52.30m, keeping its original 1.18m worktop height. Its grille moves to the new rear edge; actual bars frame a clear fixed wicket. This resolves the original counter/safe/stock intersections without editing source rows.",
+    "The unchanged-size safe moves into an open bay under the southwest counter end: X=20.90..21.68, Y=-54.72..-53.88. Original upper datum 1.13m remains; feet meet the original .01m floor. A closed panel, hinge barrels, handle and unlettered combination dial have no new opening, custody or lock owner.",
+    "The violin case stands in a floor cradle next to the shelf; sewing machine sits on a bracketed extra upper shelf, and the coat hangs outside the shelf west end. Their original records remain, with explicit display relocations to avoid floating stock inside the counter. Passive poses do not imply shop inventory mechanics.",
+    "The balance, thin closed glass bell, ledger and corded loupe are seated on separate clear worktop stations. Balance and hands remain static; no new financial, optical, clock, inventory, shop-service or interaction authority.",
+    "New material maps and lettering are not generated. Existing catalogue finishes are applied to native metre UVs. Continuous routes, operations, independent services, runtime contracts and human acceptance remain separate requirements.",
+    "The safe uses the existing blackened-iron catalogue finish; the machine retains enamel maps with a local dark paint multiplier. No global material values or source-key identities change."
+  ]
+}
