@@ -220,6 +220,9 @@ func _stage_one() -> void:
 		if not region.DinerTill.mount_cell(cell,region.source_layout):
 			_fail("native Diner register/display reload fit refused: "+identity)
 			return
+		if not region.DinerBackbar.mount_cell(cell,region.source_layout):
+			_fail("native Diner rear bench/shelves reload fit refused: "+identity)
+			return
 		if not region.PhotoCounter.mount_cell(cell,region.source_layout):
 			_fail("native photography counter reload fit refused: "+identity)
 			return

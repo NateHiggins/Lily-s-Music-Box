@@ -1,21 +1,21 @@
-"""Original Diner plated register and framed thin-pane cigar display."""
+"""Original Diner rear serving bench and source-depth shelf runs."""
 from pathlib import Path
 import collections,hashlib,json,math,re,sys
 # Godot may normalize a provisional import UID without changing any geometry.
 # Refresh only that import provenance after import; other drift still refuses.
 if '--refresh-import-binding' in sys.argv:
  root=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
- paths=[root/'art/blender/diner_till_construction.json',root/'game/tests/fixtures/orison_diner_till.json']
+ paths=[root/'art/blender/diner_backbar_construction.json',root/'game/tests/fixtures/orison_diner_backbar.json']
  reports=[json.loads(p.read_text(encoding='utf-8')) for p in paths];assert reports[0]==reports[1]
- report=reports[0];assert hashlib.sha256((root/'game/assets/props/diner_till.glb').read_bytes()).hexdigest()==report['asset_sha256']
- permitted={'art/blender/scripts/build_diner_till.py','game/assets/props/diner_till.glb.import'}
+ report=reports[0];assert hashlib.sha256((root/'game/assets/props/diner_backbar.glb').read_bytes()).hexdigest()==report['asset_sha256']
+ permitted={'art/blender/scripts/build_diner_backbar.py','game/assets/props/diner_backbar.glb.import'}
  changed=[]
  for relative,expected in report['source_bindings'].items():
   path=root/relative;data=path.read_bytes();actual=hashlib.sha256(data if path.suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n')).hexdigest()
   if actual!=expected:
    assert relative in permitted,('unexpected source drift',relative)
    report['source_bindings'][relative]=actual;changed.append(relative)
- assert 'game/assets/props/diner_till.glb.import' in changed,'no normalized import binding to refresh'
+ assert 'game/assets/props/diner_backbar.glb.import' in changed,'no normalized import binding to refresh'
  for path in paths:path.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
  print('Refreshed normalized import provenance:',changed,'; mesh and every other source binding unchanged.')
  raise SystemExit(0)
@@ -25,12 +25,12 @@ sys.path.insert(0,str(next(p for p in Path(__file__).resolve().parents if (p/'ga
 from fabrication_uvs import chart_for_triangle
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
 import os
-OUT=Path(os.environ.get('DINER_TILL_OUT',str(ROOT)))
-plan_path=Path(os.environ.get('DINER_TILL_PLAN',str(ROOT/'art/data/diner_till/source_plan.json')));layout_path=ROOT/'art/data/building_layout.json'
+OUT=Path(os.environ.get('DINER_BACKBAR_OUT',str(ROOT)))
+plan_path=Path(os.environ.get('DINER_BACKBAR_PLAN',str(ROOT/'art/data/diner_backbar/source_plan.json')));layout_path=ROOT/'art/data/building_layout.json'
 plan=json.loads(plan_path.read_text(encoding='utf-8'));layout=json.loads(layout_path.read_text(encoding='utf-8'));assert plan['classification']=='ADAPTATION'
 rows={r['id']:r for f in layout['floors'] if f['id']=='F01' for r in f['furniture']}
 source_gltf_path=ROOT/'game/assets/building/floor_01_cells/shop_luncheonette.gltf';source_gltf=json.loads(source_gltf_path.read_text(encoding='utf-8'));sets={};material_definitions=[]
-catalog_path=Path(os.environ.get('DINER_TILL_CATALOG',str(ROOT/'game/data/runtime_material_sets.json')));catalog=json.loads(catalog_path.read_text(encoding='utf-8'))['materials']
+catalog_path=Path(os.environ.get('DINER_BACKBAR_CATALOG',str(ROOT/'game/data/runtime_material_sets.json')));catalog=json.loads(catalog_path.read_text(encoding='utf-8'))['materials']
 for key in plan['runtime_keys']:
  if key in plan['catalog_variants']:
   spec=catalog[plan['catalog_variants'][key]];sets[key]={'files':spec['files'],'meters_per_tile':spec['meters_per_tile'],'metallic':spec['metallic'],'normal_scale':.35,'roughness':spec['roughness_multiplier']};definition=ROOT/f'art/textures/{spec["catalog_mapping"]}/material.json'
@@ -150,59 +150,31 @@ def vessel(name,cx,cy,z,profile,identity,key):
  return solid(name,verts,faces,identity,key)
 
 prefix='storm_shop_luncheonette_'
-top=rows[prefix+'counter_top'];seat=top['z0']+top['h']
+ground=floor['z0']+floor['h']
 for item in assemblies:
- identity=item['id'];row=item['body'];x0,y0,x1,y1=row['rect'];maximum=row['z0']+row['h'];cx=(x0+x1)*.5;cy=(y0+y1)*.5
- if item['kind']=='register':
-  # Local negative Y faces the clerk's positive-X side after a quarter turn.
-  def transform(obj):
-   for v in obj.data.vertices:
-    p=obj.location+v.co;v.co=Vector((cx-p.y,cy+p.x,p.z))-obj.location
-   return obj
-  def rb(name,low,high,key='nickel_plated',bevel=.001):return transform(box(identity+'_'+name,low,high,identity,key,bevel))
-  def rr(name,a,b,r,key='bakelite_black'):return transform(rod(identity+'_'+name,a,b,r,identity,key))
-  width=y1-y0;depth=x1-x0;hw=width*.5;hd=depth*.5
-  rb('BottomPlate',(-hw+.006,-hd+.006,seat+.022),(hw-.006,hd-.006,seat+.031),'timber')
-  for xx in [-hw+.040,hw-.040]:
-   for yy in [-hd+.040,hd-.040]:
-    rr('Foot'+str(xx)+str(yy),(xx,yy,seat),(xx,yy,seat+.032),.021)
-    support(identity,top['id'],(cx-yy,cy+xx,seat),(0,0,1),'register foot on actual fitted serving sheet')
-  rb('ClosedDrawerFace',(-hw+.012,-hd+.003,seat+.035),(hw-.012,-hd+.011,seat+.131))
-  rb('DrawerBack',(-hw+.012,hd-.014,seat+.027),(hw-.012,hd-.003,seat+.135))
-  for xx in [-hw+.003,hw-.014]:rb('LowerSide'+str(xx),(xx,-hd+.004,seat+.027),(xx+.011,hd-.004,seat+.137))
-  rb('DrawerTop',(-hw+.004,-hd+.004,seat+.130),(hw-.004,hd-.004,seat+.139))
-  # Actual closed sloped top stock, joined to the lower case and raised back.
-  outline=[(-hd+.008,seat+.134),(.083,seat+.134),(.083,seat+.313),(-hd+.008,seat+.148)]
-  vertices=[(xx,y,z) for xx in [-hw+.004,hw-.004] for y,z in outline];faces=[(3,2,1,0),(4,5,6,7)]+[(i,(i+1)%4,4+(i+1)%4,4+i) for i in range(4)]
-  transform(solid(identity+'_SlopedKeyBed',vertices,faces,identity,'nickel_plated'))
-  for row_index,yy in enumerate([-.195,-.105,-.015]):
-   zz=seat+.148+(yy-(-hd+.008))*(.165/(.083-(-hd+.008)))
-   for col in range(9):
-    xx=-.176+col*.044
-    rr('KeyStem'+str(row_index)+'_'+str(col),(xx,yy,zz-.005),(xx,yy,zz+.016),.006,'brass_dull')
-    rr('BlankKey'+str(row_index)+'_'+str(col),(xx,yy,zz+.011),(xx,yy,zz+.020),.015)
-  # Raised hollow case with a clipped crown, keeping the original maximum.
-  rb('RaisedBack',(-hw+.012,hd-.014,seat+.129),(hw-.012,hd-.003,maximum-.018))
-  for xx in [-hw+.003,hw-.014]:rb('RaisedSide'+str(xx),(xx,.074,seat+.130),(xx+.011,hd-.004,maximum-.018))
-  rb('IndicatorBack',(-hw+.012,.071,seat+.283),(hw-.012,.084,maximum-.018),'bakelite_black')
-  rb('Crown',(-hw+.003,.071,maximum-.023),(hw-.003,hd-.003,maximum),bevel=.0015)
-  for xx in [-.155,-.0775,0.,.0775,.155]:
-   rb('BlankIndicator'+str(xx),(xx-.027,.067,maximum-.079),(xx+.027,.073,maximum-.035),'nickel_plated',.0007)
-  rr('DrawerHandleRail',(-.076,-hd+.007,seat+.084),(.076,-hd+.007,seat+.084),.006,'brass_dull')
-  for xx in [-.076,.076]:rr('DrawerHandleSeat'+str(xx),(xx,-hd+.009,seat+.084),(xx,-hd+.007,seat+.084),.005,'brass_dull')
- elif item['kind']=='cigar_case':
-  # Closed thin sheets, supported rails and posts, with no invented stock.
-  for xx in [x0+.012,x1-.012]:
-   for yy in [y0+.012,y1-.012]:
-    box(identity+'_Post'+str(xx)+str(yy),(xx-.011,yy-.011,seat),(xx+.011,yy+.011,maximum),identity,'timber',.001)
-    support(identity,top['id'],(xx,yy,seat),(0,0,1),'display post on actual fitted serving sheet')
-  box(identity+'_DisplayFloor',(x0+.002,y0+.002,seat+.010),(x1-.002,y1-.002,seat+.022),identity,'timber',.0008)
-  for xx in [x0+.001,x1-.005]:box(identity+'_LongPane'+str(xx),(xx,y0+.020,seat+.019),(xx+.004,y1-.020,maximum-.019),identity,'glassish',0)
-  for yy in [y0+.001,y1-.005]:box(identity+'_EndPane'+str(yy),(x0+.020,yy,seat+.019),(x1-.020,yy+.004,maximum-.019),identity,'glassish',0)
-  box(identity+'_GlassLid',(x0+.020,y0+.020,maximum-.006),(x1-.020,y1-.020,maximum-.002),identity,'glassish',0)
-  for zz in [seat+.014,maximum-.023]:
-   for xx in [x0+.001,x1-.024]:box(identity+'_LongFrame'+str(xx)+str(zz),(xx,y0+.001,zz),(xx+.023,y1-.001,zz+.023),identity,'brass_dull',.0007)
-   for yy in [y0+.001,y1-.024]:box(identity+'_EndFrame'+str(yy)+str(zz),(x0+.001,yy,zz),(x1-.001,yy+.023,zz+.023),identity,'brass_dull',.0007)
+ identity=item['id'];row=item['body'];x0,y0,x1,y1=row['rect'];z0=row['z0'];z1=z0+row['h']
+ if item['kind']=='backbar':
+  top=rows[prefix+'backbar_top'];q=top['rect'];seat=top['z0']+top['h']
+  # Actual floor-bearing metal posts, lower rails and hollow thin infill.
+  for xx in [x0+.030,x1-.030]:
+   for yy in [y0+.030,(y0+y1)*.5,y1-.030]:
+    box(identity+'_Post'+str(xx)+str(yy),(xx-.026,yy-.026,ground),(xx+.026,yy+.026,z1+.002),identity,'chrome',.001)
+    support(identity,floor['id'],(xx,yy,ground),(0,0,1),'rear bench floor post')
+  for xx in [x0+.012,x1-.015]:
+   box(identity+'_ThinSide'+str(xx),(xx,y0+.044,ground+.090),(xx+.003,y1-.044,z1-.020),identity,'chrome',.0005)
+   for zz in [ground+.069,z1-.039]:box(identity+'_SideRail'+str(xx)+str(zz),(xx-.007,y0+.020,zz),(xx+.023,y1-.020,zz+.042),identity,'chrome',.001)
+  for yy in [y0+.012,y1-.015]:
+   box(identity+'_ThinEnd'+str(yy),(x0+.044,yy,ground+.090),(x1-.044,yy+.003,z1-.020),identity,'chrome',.0005)
+   for zz in [ground+.069,z1-.039]:box(identity+'_EndRail'+str(yy)+str(zz),(x0+.020,yy-.007,zz),(x1-.020,yy+.023,zz+.042),identity,'chrome',.001)
+  box(identity+'_ServingCore',(q[0],q[1],top['z0']-.010),(q[2],q[3],seat-.006),identity,'chrome',.001)
+  box(identity+'_CountertopSheet',(q[0],q[1],seat-.007),(q[2],q[3],seat),identity,'countertop',.0007)
+ elif item['kind']=='shelves':
+  highest=max(member['z0']+member['h'] for member in item['members'])
+  for yy in [y0+.022,(y0+y1)*.5,y1-.022]:
+   box(identity+'_Upright'+str(yy),(x0+.001,yy-.016,ground),(x0+.017,yy+.016,highest),identity,'timber',.0007)
+   support(identity,floor['id'],(x0+.009,yy,ground),(0,0,1),'literal narrow shelf upright floor seat')
+  for shelf in item['members']:
+   q=shelf['rect'];box(identity+'_Shelf'+shelf['id'][-1],(q[0],q[1],shelf['z0']),(q[2],q[3],shelf['z0']+shelf['h']),identity,'timber',.0007)
  else:raise AssertionError(item['kind'])
 
 for row in selected:
@@ -236,7 +208,7 @@ for item in assemblies:
    for j,loop in enumerate(face.loop_indices):uv.data[loop].uv=tuple(values[j]);guides.data[loop].vector=(float(u[0]),float(u[2]),float(-u[1]));normals[loop]=tuple(n)
   mesh.normals_split_custom_set(normals);obj=bpy.data.objects.new(name,mesh);bpy.context.scene.collection.objects.link(obj);obj.location=origin;draws.append(obj)
   mesh.calc_loop_triangles();total_triangles+=len(mesh.loop_triangles);inventory.append({'name':name,'assembly':identity,'cell':item['cell'],'key':key,'triangles':len(mesh.loop_triangles)})
-bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'art/blender/diner_till.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(OUT/'art/blender/diner_backbar.blend'))
 bpy.ops.object.select_all(action='DESELECT')
 for obj in draws:obj.select_set(True)
 class ExportUVHandedness:
@@ -258,7 +230,7 @@ class ExportUVHandedness:
     if key.upper()=='_TANGENT_GUIDE':del primitive.attributes[key]
 import io_scene_gltf2
 io_scene_gltf2.glTF2ExportUserExtension=ExportUVHandedness
-asset=OUT/'game/assets/props/diner_till.glb'
+asset=OUT/'game/assets/props/diner_backbar.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True,export_attributes=True,export_materials='NONE')
 assert ExportUVHandedness.corrected==len(draws)
 cells=[]
@@ -268,14 +240,14 @@ for identity in sorted({a['cell'] for a in assemblies}):
   for row in item['members']:
    x0,y0,x1,y1=row['rect'];z0=row['z0'];replace.append({'id':row['id'],'key':row['mat'],'low':[x0,z0,-y1],'high':[x1,z0+row['h'],-y0],'expected_triangles':12})
  cells.append({'id':identity,'parts':[{'name':p['name'],'key':plan.get('material_aliases',{}).get(p['key'],p['key']),'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan['catalog_variants'] else {}),**({'tint':plan['material_tints'][p['key']]} if p['key'] in plan.get('material_tints',{}) else {}),**({'plain_alpha':True} if p['key']=='glassish' else {}),} for p in inventory if p['cell']==identity],'replace':replace})
-runtime={'schema_version':1,'asset':'res://assets/props/diner_till.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
-(OUT/'game/data/orison_v2/diner_till.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
-bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/diner_till.glb.import',*material_definitions]
+runtime={'schema_version':1,'asset':'res://assets/props/diner_backbar.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
+(OUT/'game/data/orison_v2/diner_backbar.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
+bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/diner_backbar.glb.import',*material_definitions]
 for key in plan['runtime_keys']:bindings.extend(ROOT/'game/assets/building/textures'/f for f in sets[key]['files'] if f is not None)
 bindings.extend([ROOT/'art/data/material_catalog.json',ROOT/'art/textures/catalog_mapping.json',ROOT/'art/tools/generate_runtime_materials.py'])
 bindings.extend(ROOT/f'game/assets/building/floor_01_cells/{identity}.{suffix}' for identity in sorted({a['cell'] for a in assemblies}) for suffix in ['gltf','bin'])
-bindings.append(OUT/'art/blender/scripts/inspect_diner_till.py')
-for stem in ['shop_seating','diner_receiving','diner_counter']:bindings.extend(ROOT/name for name in [f'art/blender/{stem}.blend',f'game/assets/props/{stem}.glb',f'game/tests/fixtures/orison_{stem}.json',f'game/data/orison_v2/{stem}.json'])
+bindings.append(OUT/'art/blender/scripts/inspect_diner_backbar.py')
+for stem in ['shop_seating','diner_receiving','diner_counter','diner_till']:bindings.extend(ROOT/name for name in [f'art/blender/{stem}.blend',f'game/assets/props/{stem}.glb',f'game/tests/fixtures/orison_{stem}.json',f'game/data/orison_v2/{stem}.json'])
 report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
-for name in ['art/blender/diner_till_construction.json','game/tests/fixtures/orison_diner_till.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
-print('DINER TILL',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'foot contacts')
+for name in ['art/blender/diner_backbar_construction.json','game/tests/fixtures/orison_diner_backbar.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
+print('DINER BACKBAR',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'foot contacts')

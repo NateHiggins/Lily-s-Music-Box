@@ -4,6 +4,8 @@ var _moved_cart: PassagePushcart
 var _initial_cart_position: Vector3
 var _surface_signature: Dictionary = {}
 var _receiver_signature: Dictionary = {}
+var _diner_probe: WeakRef
+var _diner_probe_id: int
 
 func _init() -> void:
 	route_label = "V2 PASSAGE RESIDENCY"
@@ -12,6 +14,8 @@ func _capture(identity: String, target: Vector3) -> void:
 	await super._capture(identity, target)
 	if identity != "nave": return
 	if not _check_specialist_fittings():return
+	var probe:=world.passage_region.cell_nodes.shop_luncheonette.get_node("DinerBackbar/DinerFinishReflection") as ReflectionProbe
+	_diner_probe=weakref(probe);_diner_probe_id=probe.get_instance_id()
 	_receiver_signature = _receiver_values()
 	if not _require(_receiver_signature.size()==7,"all seven passage receiving actors exist before reconstruction"):return
 	_check_ceiling_detail()
@@ -45,6 +49,8 @@ func _route() -> void:
 			and dormant.pending_requests == 0 and dormant.retired_geometry_roots_alive == 0
 			and dormant.retired_mesh_resources_alive == 0,
 			"dormancy releases imported nodes and mesh resources"): return
+	if not _require(_diner_probe!=null and _diner_probe.get_ref()==null,
+			"dormancy releases the Diner room reflection owner"):return
 	if not _require(world.shop_service.counter("hardware_paint") == null
 			and _moved_cart.freeze and _moved_cart.collision_layer == 0,
 			"dormancy unregisters counter and suspends cart physics"): return
@@ -65,6 +71,8 @@ func _route() -> void:
 			and resumed.load_cycles >= 2 and resumed.unload_cycles >= 2,
 			"vestibule prefetch reconstructs a second geometry cycle"): return
 	if not _check_specialist_fittings():return
+	if not _require(passage.cell_nodes.shop_luncheonette.get_node("DinerBackbar/DinerFinishReflection").get_instance_id()!=_diner_probe_id,
+			"reconstruction creates a fresh one-time Diner reflection owner"):return
 	_require(_receiver_values()==_receiver_signature,
 			"geometry reconstruction preserves the same seven receiving owners")
 	_require(door.get_instance_id() == door_id and door.open == door_open
@@ -95,6 +103,7 @@ func _check_specialist_fittings() -> bool:
 	for spec: Array in [
 		["shop_luncheonette","DinerCounter","diner_counter"],
 		["shop_luncheonette","DinerTill","diner_till"],
+		["shop_luncheonette","DinerBackbar","diner_backbar"],
 		["shop_funeral_parlour","FuneralFittings","funeral_fittings"],
 		["shop_funeral_parlour","FuneralDrapes","funeral_drapes"],
 		["shop_funeral_parlour","FuneralFoliage","funeral_foliage"],
@@ -107,6 +116,10 @@ func _check_specialist_fittings() -> bool:
 		var cell: Node3D=world.passage_region.cell_nodes[spec[0]]
 		var model:=cell.get_node_or_null(str(spec[1])) as Node3D
 		if not _require(model!=null,"reloaded native owner exists: "+str(spec[1])):return false
+		if spec[1]=="DinerBackbar":
+			var probe:=model.get_node_or_null("DinerFinishReflection") as ReflectionProbe
+			if not _require(probe!=null and probe.update_mode==ReflectionProbe.UPDATE_ONCE and probe.box_projection and probe.interior,
+					"reloaded Diner fitting owns one bounded room reflection"):return false
 		var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_"+str(spec[2])+".json"))
 		if not _require(FileAccess.get_sha256(str(fixture.runtime.asset))==fixture.asset_sha256,"reloaded native source export binds: "+str(spec[1])):return false
 		var retired: Dictionary=model.get_meta("removed_triangles")

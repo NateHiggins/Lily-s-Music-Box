@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/diner_backbar.glb",
+  "tolerance": 2e-05,
+  "cells": [
+    {
+      "id": "shop_luncheonette",
+      "parts": [
+        {
+          "name": "storm_shop_luncheonette_backbar__chrome",
+          "key": "chrome",
+          "tile": 0.8
+        },
+        {
+          "name": "storm_shop_luncheonette_backbar__countertop",
+          "key": "countertop",
+          "tile": 1.2
+        },
+        {
+          "name": "storm_shop_luncheonette_bbshelf0__timber",
+          "key": "timber",
+          "tile": 1.0
+        }
+      ],
+      "replace": [
+        {
+          "id": "storm_shop_luncheonette_backbar",
+          "key": "chrome",
+          "low": [
+            22.55,
+            0.05,
+            39.599999999999994
+          ],
+          "high": [
+            23.1,
+            0.9700000000000001,
+            43.94999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_backbar_top",
+          "key": "countertop",
+          "low": [
+            22.5,
+            0.97,
+            39.55
+          ],
+          "high": [
+            23.15,
+            1.02,
+            43.99999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_bbshelf0",
+          "key": "timber",
+          "low": [
+            23.33,
+            1.32,
+            39.599999999999994
+          ],
+          "high": [
+            23.38,
+            1.36,
+            43.94999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_bbshelf1",
+          "key": "timber",
+          "low": [
+            23.33,
+            1.7200000000000002,
+            39.599999999999994
+          ],
+          "high": [
+            23.38,
+            1.7600000000000002,
+            43.94999999999999
+          ],
+          "expected_triangles": 12
+        },
+        {
+          "id": "storm_shop_luncheonette_bbshelf2",
+          "key": "timber",
+          "low": [
+            23.33,
+            2.12,
+            39.599999999999994
+          ],
+          "high": [
+            23.38,
+            2.16,
+            43.94999999999999
+          ],
+          "expected_triangles": 12
+        }
+      ]
+    }
+  ]
+}
