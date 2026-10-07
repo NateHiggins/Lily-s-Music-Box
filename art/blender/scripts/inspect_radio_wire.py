@@ -5,7 +5,7 @@ import bpy,bmesh
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 from bpy_extras.object_utils import world_to_camera_view
-r=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file());out=r/'tmp/v2-finish-review/radio-wire-native';out.mkdir(parents=True,exist_ok=True)
+r=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file());out=Path(__import__('os').environ.get('RADIO_WIRE_REVIEW',str(r/'tmp/v2-finish-review/radio-wire-native')));out.mkdir(parents=True,exist_ok=True)
 import os
 source=Path(os.environ.get('RADIO_WIRE_OUT',str(r)));asset=source/'art/blender/radio_wire.blend';bpy.ops.wm.open_mainfile(filepath=str(asset))
 f=json.loads((source/'art/blender/radio_wire_construction.json').read_text(encoding='utf-8'));assert f==json.loads((source/'game/tests/fixtures/orison_radio_wire.json').read_text(encoding='utf-8'))

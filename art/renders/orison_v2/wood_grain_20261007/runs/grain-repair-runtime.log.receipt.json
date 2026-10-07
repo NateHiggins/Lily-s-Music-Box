@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 110.32,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T15:02:56Z",
+  "started_utc": "2026-10-07T15:01:05Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/grain-repair-runtime.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/grain-repair-runtime.log",
+  "stdout_sha256": "635d9e3592912263e6c4a4a3d74a82bd3ba9b473dd7783dd76fd2532c271e57e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/grain-repair-runtime-shots",
+ "source": {
+  "dirty_paths": 87,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/diner_apparatus_construction.json",
+   " M art/blender/diner_backbar_construction.json",
+   " M art/blender/diner_counter.blend",
+   " M art/blender/diner_counter_construction.json",
+   " M art/blender/diner_overhead_construction.json",
+   " M art/blender/diner_till.blend",
+   " M art/blender/diner_till_construction.json",
+   " M art/blender/diner_urns_construction.json",
+   " M art/blender/hardware_tools.blend",
+   " M art/blender/hardware_tools_construction.json",
+   " M art/blender/photo_cameras.blend",
+   " M art/blender/photo_cameras_construction.json",
+   " M art/blender/photo_counter.blend",
+   " M art/blender/photo_counter_construction.json",
+   " M art/blender/photo_enlargers.blend",
+   " M art/blender/photo_enlargers_construction.json",
+   " M art/blender/photo_portraits.blend",
+   " M art/blender/photo_portraits_construction.json",
+   " M art/blender/photo_receiving_construction.json"
+  ],
+  "repository_head": "d1de58c1c1e3a7bd690d9a5991da3aed1cfd0d7d",
+  "repository_tree": "b5e5c973ea9e5398a577fba37f96d22b441f9bab",
+  "runtime_inputs_sha256": "38f6b0d2d06ddb46ad26566014261acf1fa5e3d16676eaf0e03b0d39e12d69bc",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "9b43cc0c240ad3e5854a16e46ed89c5b45579ff5363334cbcc3ee130a6cfe725"
+ },
+ "windowed": true
+}

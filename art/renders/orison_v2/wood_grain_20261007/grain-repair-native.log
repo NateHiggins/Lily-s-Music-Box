@@ -1,0 +1,517 @@
+FABRICATION STAGE: art/blender/scripts/build_diner_counter.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_diner_counter.py:46: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "diner_counter.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+10:54:18 | INFO: Starting glTF 2.0 export
+10:54:18 | INFO: Extracting primitive: storm_shop_luncheonette_counter__chrome
+10:54:18 | INFO: Primitives created: 1
+10:54:18 | INFO: Extracting primitive: storm_shop_luncheonette_counter__countertop
+10:54:18 | INFO: Primitives created: 1
+10:54:18 | INFO: Extracting primitive: storm_shop_luncheonette_counter__timber
+10:54:18 | INFO: Primitives created: 1
+10:54:18 | INFO: Extracting primitive: storm_shop_luncheonette_ledger__paper
+10:54:18 | INFO: Primitives created: 1
+10:54:18 | INFO: Extracting primitive: storm_shop_luncheonette_ledger__paper__cover
+10:54:18 | INFO: Primitives created: 1
+10:54:18 | INFO: Finished glTF 2.0 export in 0.02273702621459961 s
+
+DINER COUNTER 4 original records; 2 assemblies; 30 closed stocks; 5 parts; 4760 triangles; 8 foot contacts
+FABRICATION STAGE: art/blender/scripts/build_diner_till.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_diner_till.py:64: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "diner_till.blend"
+10:54:20 | INFO: Starting glTF 2.0 export
+10:54:20 | INFO: Extracting primitive: storm_shop_luncheonette_cigar_case__brass_dull
+10:54:20 | INFO: Primitives created: 1
+10:54:20 | INFO: Extracting primitive: storm_shop_luncheonette_cigar_case__glassish
+10:54:20 | INFO: Primitives created: 1
+10:54:20 | INFO: Extracting primitive: storm_shop_luncheonette_cigar_case__timber
+10:54:20 | INFO: Primitives created: 1
+10:54:20 | INFO: Extracting primitive: storm_shop_luncheonette_register__bakelite_black
+10:54:20 | INFO: Primitives created: 1
+10:54:20 | INFO: Extracting primitive: storm_shop_luncheonette_register__brass_dull
+10:54:20 | INFO: Primitives created: 1
+10:54:20 | INFO: Extracting primitive: storm_shop_luncheonette_register__nickel_plated
+10:54:20 | INFO: Primitives created: 1
+10:54:20 | INFO: Extracting primitive: storm_shop_luncheonette_register__timber
+10:54:20 | INFO: Primitives created: 1
+10:54:20 | INFO: Finished glTF 2.0 export in 0.03785085678100586 s
+
+DINER TILL 2 original records; 2 assemblies; 96 closed stocks; 7 parts; 16992 triangles; 8 foot contacts
+FABRICATION STAGE: art/blender/scripts/build_hardware_tools.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_hardware_tools.py:46: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "hardware_tools.blend"
+10:54:22 | INFO: Starting glTF 2.0 export
+10:54:22 | INFO: Extracting primitive: storm_shop_hardware_paint_glass_rack__brass_dull
+10:54:22 | INFO: Primitives created: 1
+10:54:22 | INFO: Extracting primitive: storm_shop_hardware_paint_glass_rack__glassish
+10:54:22 | INFO: Primitives created: 1
+10:54:22 | INFO: Extracting primitive: storm_shop_hardware_paint_glass_rack__metal
+10:54:22 | INFO: Primitives created: 1
+10:54:22 | INFO: Extracting primitive: storm_shop_hardware_paint_glass_rack__timber
+10:54:22 | INFO: Primitives created: 1
+10:54:22 | INFO: Extracting primitive: storm_shop_hardware_paint_ladder_r0__timber
+10:54:22 | INFO: Primitives created: 1
+10:54:22 | INFO: Extracting primitive: storm_shop_hardware_paint_tool_board__brass_dull
+10:54:22 | INFO: Primitives created: 1
+10:54:22 | INFO: Extracting primitive: storm_shop_hardware_paint_tool_board__metal
+10:54:22 | INFO: Primitives created: 1
+10:54:22 | INFO: Extracting primitive: storm_shop_hardware_paint_tool_board__plywood
+10:54:22 | INFO: Primitives created: 1
+10:54:22 | INFO: Extracting primitive: storm_shop_hardware_paint_tool_board__soot
+10:54:22 | INFO: Primitives created: 1
+10:54:22 | INFO: Extracting primitive: storm_shop_hardware_paint_tool_board__soot__vacant
+10:54:22 | INFO: Primitives created: 1
+10:54:22 | INFO: Extracting primitive: storm_shop_hardware_paint_tool_board__timber
+10:54:22 | INFO: Primitives created: 1
+10:54:22 | INFO: Finished glTF 2.0 export in 0.03144550323486328 s
+
+HARDWARE TOOLS 34 original records; 3 assemblies; 100 closed stocks; 11 parts; 10976 triangles; 12 foot contacts
+FABRICATION STAGE: art/blender/scripts/build_photo_cameras.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_photo_cameras.py:46: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "photo_cameras.blend"
+10:54:23 | INFO: Starting glTF 2.0 export
+10:54:23 | INFO: Extracting primitive: storm_shop_photo_supplies_camera_body0__bakelite_black
+10:54:23 | INFO: Primitives created: 1
+10:54:23 | INFO: Extracting primitive: storm_shop_photo_supplies_camera_body0__brass_dull
+10:54:23 | INFO: Primitives created: 1
+10:54:23 | INFO: Extracting primitive: storm_shop_photo_supplies_camera_body1__bakelite_black
+10:54:23 | INFO: Primitives created: 1
+10:54:23 | INFO: Extracting primitive: storm_shop_photo_supplies_camera_body1__brass_dull
+10:54:23 | INFO: Primitives created: 1
+10:54:23 | INFO: Extracting primitive: storm_shop_photo_supplies_camera_body2__bakelite_black
+10:54:23 | INFO: Primitives created: 1
+10:54:23 | INFO: Extracting primitive: storm_shop_photo_supplies_camera_body2__brass_dull
+10:54:23 | INFO: Primitives created: 1
+10:54:23 | INFO: Extracting primitive: storm_shop_photo_supplies_window_plinth__plywood
+10:54:23 | INFO: Primitives created: 1
+10:54:23 | INFO: Extracting primitive: storm_shop_photo_supplies_window_plinth__timber
+10:54:23 | INFO: Primitives created: 1
+10:54:23 | INFO: Finished glTF 2.0 export in 0.027513504028320312 s
+
+PHOTO CAMERAS 8 original records; 4 assemblies; 50 closed stocks; 8 parts; 10016 triangles; 7 foot contacts
+FABRICATION STAGE: art/blender/scripts/build_photo_counter.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_photo_counter.py:46: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "photo_counter.blend"
+10:54:24 | INFO: Starting glTF 2.0 export
+10:54:24 | INFO: Extracting primitive: storm_shop_photo_supplies_counter__brass_dull
+10:54:24 | INFO: Primitives created: 1
+10:54:24 | INFO: Extracting primitive: storm_shop_photo_supplies_counter__glassish
+10:54:24 | INFO: Primitives created: 1
+10:54:24 | INFO: Extracting primitive: storm_shop_photo_supplies_counter__timber
+10:54:24 | INFO: Primitives created: 1
+10:54:24 | INFO: Extracting primitive: storm_shop_photo_supplies_ledger__paper
+10:54:24 | INFO: Primitives created: 1
+10:54:24 | INFO: Extracting primitive: storm_shop_photo_supplies_ledger__paper__cover
+10:54:24 | INFO: Primitives created: 1
+10:54:24 | INFO: Finished glTF 2.0 export in 0.014097452163696289 s
+
+PHOTO COUNTER 4 original records; 2 assemblies; 31 closed stocks; 5 parts; 5124 triangles; 5 foot contacts
+FABRICATION STAGE: art/blender/scripts/build_photo_enlargers.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_photo_enlargers.py:46: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "photo_enlargers.blend"
+10:54:25 | INFO: Starting glTF 2.0 export
+10:54:25 | INFO: Extracting primitive: storm_shop_photo_supplies_enl0__dark
+10:54:25 | INFO: Primitives created: 1
+10:54:25 | INFO: Extracting primitive: storm_shop_photo_supplies_enl0__metal
+10:54:25 | INFO: Primitives created: 1
+10:54:25 | INFO: Extracting primitive: storm_shop_photo_supplies_enl0__trim
+10:54:25 | INFO: Primitives created: 1
+10:54:25 | INFO: Extracting primitive: storm_shop_photo_supplies_enl1__dark
+10:54:25 | INFO: Primitives created: 1
+10:54:25 | INFO: Extracting primitive: storm_shop_photo_supplies_enl1__metal
+10:54:25 | INFO: Primitives created: 1
+10:54:25 | INFO: Extracting primitive: storm_shop_photo_supplies_enl1__trim
+10:54:25 | INFO: Primitives created: 1
+10:54:25 | INFO: Extracting primitive: storm_shop_photo_supplies_enl2__dark
+10:54:25 | INFO: Primitives created: 1
+10:54:25 | INFO: Extracting primitive: storm_shop_photo_supplies_enl2__metal
+10:54:25 | INFO: Primitives created: 1
+10:54:25 | INFO: Extracting primitive: storm_shop_photo_supplies_enl2__trim
+10:54:25 | INFO: Primitives created: 1
+10:54:25 | INFO: Extracting primitive: storm_shop_photo_supplies_enl_shelf__timber
+10:54:25 | INFO: Primitives created: 1
+10:54:25 | INFO: Finished glTF 2.0 export in 0.02494025230407715 s
+
+PHOTO ENLARGERS 4 original records; 4 assemblies; 34 closed stocks; 10 parts; 8732 triangles; 9 foot contacts
+FABRICATION STAGE: art/blender/scripts/build_photo_portraits.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_photo_portraits.py:46: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "photo_portraits.blend"
+10:54:26 | INFO: Starting glTF 2.0 export
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait0__image
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait0__iron
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait0__paper
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait1__image
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait1__iron
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait1__paper
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait2__image
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait2__iron
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait2__paper
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait3__image
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait3__iron
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait3__paper
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait4__image
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait4__iron
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait4__paper
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait5__image
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait5__iron
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait5__paper
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait6__image
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait6__iron
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait6__paper
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait_rail__iron
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Extracting primitive: storm_shop_photo_supplies_portrait_rail__wood
+10:54:26 | INFO: Primitives created: 1
+10:54:26 | INFO: Finished glTF 2.0 export in 0.02982163429260254 s
+
+PHOTO PORTRAITS 8 original records; 8 assemblies; 30 closed stocks; 23 parts; 3896 triangles; 25 foot contacts
+FABRICATION STAGE: art/blender/scripts/build_photo_stock.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_photo_stock.py:49: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "photo_stock.blend"
+10:54:28 | INFO: Starting glTF 2.0 export
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box0__paper__book_ochre
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box1__paper__book_teal
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box2__paper__lacquer_red
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box3__paper__book_ochre
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box4__paper__book_teal
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box5__paper__lacquer_red
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box6__paper__book_ochre
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box7__paper__book_teal
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box8__paper__lacquer_red
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box9__paper__book_ochre
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box10__paper__book_teal
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box11__paper__lacquer_red
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box12__paper__book_ochre
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box13__paper__book_teal
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_box14__paper__lacquer_red
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Extracting primitive: storm_shop_photo_supplies_cab_sh0__timber
+10:54:28 | INFO: Primitives created: 1
+10:54:28 | INFO: Finished glTF 2.0 export in 0.051596641540527344 s
+
+PHOTO STOCK 20 original records; 16 assemblies; 101 closed stocks; 16 parts; 18988 triangles; 19 foot contacts
+FABRICATION STAGE: art/blender/scripts/build_radio_wire.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_radio_wire.py:49: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "radio_wire.blend"
+10:54:32 | INFO: Starting glTF 2.0 export
+10:54:32 | INFO: Extracting primitive: storm_shop_radio_service_aerial_spools__cast_iron
+10:54:32 | INFO: Primitives created: 1
+10:54:32 | INFO: Extracting primitive: storm_shop_radio_service_aerial_spools__copper_aged
+10:54:32 | INFO: Primitives created: 1
+10:54:32 | INFO: Extracting primitive: storm_shop_radio_service_aerial_spools__timber
+10:54:32 | INFO: Primitives created: 1
+10:54:32 | INFO: Extracting primitive: storm_shop_radio_service_solder_ring__cast_iron
+10:54:32 | INFO: Primitives created: 1
+10:54:32 | INFO: Finished glTF 2.0 export in 0.056470394134521484 s
+
+RADIO WIRE 2 original records; 2 assemblies; 29 closed stocks; 4 parts; 30108 triangles; 8 floor/instrument contacts
+FABRICATION STAGE: art/blender/scripts/inspect_diner_counter.py
+00:16.828  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\diner_counter.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_diner_counter.py:59: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+10:54:33 | INFO: Data are loaded, start creating Blender stuff
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_awning_vinyl-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_bright-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_dull-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_cast_iron-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_concrete-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_countertop-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fabric_cool
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fx_shadow
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_glassish-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_hull-colonly
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_lacquer_red-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_marble_lobby-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_metal-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_milk_glass
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_nickel_plated-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_paper-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_screen
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terracotta
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_timber-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_trim-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_vinyl_oxblood-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wainscot-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wood_dark-col
+10:54:33 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_wear_fx_scuff
+10:54:33 | INFO: glTF import finished in 0.18s
+00:20.156  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_counter\customer_front.png'
+00:21.937  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_counter\service_rear.png'
+00:23.468  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_counter\front_end.png'
+00:25.046  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_counter\back_end.png'
+00:27.515  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_counter\folded_kick.png'
+00:29.593  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_counter\framed_floor_feet.png'
+00:31.765  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_counter\serving_edge.png'
+00:34.750  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_counter\ledger_seat.png'
+DINER COUNTER NATIVE QA 30 closed connected stocks; 2 joined assemblies; 8 actual contacts; 8 views
+FABRICATION STAGE: art/blender/scripts/inspect_diner_till.py
+00:34.812  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\diner_till.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_diner_till.py:57: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+10:54:51 | INFO: Data are loaded, start creating Blender stuff
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_awning_vinyl-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_bright-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass_dull-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_cast_iron-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_chrome-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_concrete-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_countertop-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fabric_cool
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fx_shadow
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_glassish-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_hull-colonly
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_lacquer_red-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_marble_lobby-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_metal-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_milk_glass
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_nickel_plated-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_paper-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_plaster_stained-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_screen
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terracotta
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_timber-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_trim-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_vinyl_oxblood-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wainscot-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_wood_dark-col
+10:54:51 | INFO: Blender create Mesh node F01_OWN_SHOP_LUNCHEONETTE_wear_fx_scuff
+10:54:51 | INFO: glTF import finished in 0.09s
+00:38.453  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_till\countertop_customer.png'
+00:40.062  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_till\countertop_clerk.png'
+00:42.578  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_till\register_clerk.png'
+00:45.093  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_till\register_back.png'
+00:48.843  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_till\register_keys.png'
+00:51.156  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_till\register_feet.png'
+00:56.437  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_till\display_glazing.png'
+01:02.406  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_till\display_empty.png'
+01:08.109  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\diner_till\display_posts.png'
+DINER TILL NATIVE QA 96 closed connected stocks; 2 joined assemblies; 8 actual contacts; 9 views
+FABRICATION STAGE: art/blender/scripts/inspect_hardware_tools.py
+01:08.171  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\hardware_tools.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_hardware_tools.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+01:11.843  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\hardware_tools\storm_shop_hardware_paint_glass_rack_front.png'
+01:14.875  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\hardware_tools\storm_shop_hardware_paint_glass_rack_rear.png'
+01:16.453  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\hardware_tools\storm_shop_hardware_paint_tool_board_front.png'
+01:17.984  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\hardware_tools\storm_shop_hardware_paint_tool_board_rear.png'
+01:19.328  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\hardware_tools\storm_shop_hardware_paint_ladder_r0_front.png'
+01:20.671  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\hardware_tools\storm_shop_hardware_paint_ladder_r0_rear.png'
+01:23.406  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\hardware_tools\tool_forms_detail.png'
+01:26.093  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\hardware_tools\empty_tool_slot_detail.png'
+HARDWARE TOOLS NATIVE QA 100 closed connected stocks; 3 joined assemblies; 8 views
+FABRICATION STAGE: art/blender/scripts/inspect_photo_cameras.py
+01:26.140  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\photo_cameras.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_photo_cameras.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+01:28.031  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_cameras\storm_shop_photo_supplies_window_plinth_front.png'
+01:29.609  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_cameras\storm_shop_photo_supplies_window_plinth_rear.png'
+01:31.750  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_cameras\storm_shop_photo_supplies_camera_body0_front.png'
+01:33.546  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_cameras\storm_shop_photo_supplies_camera_body0_rear.png'
+01:35.562  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_cameras\storm_shop_photo_supplies_camera_body1_front.png'
+01:37.531  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_cameras\storm_shop_photo_supplies_camera_body1_rear.png'
+01:39.750  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_cameras\storm_shop_photo_supplies_camera_body2_front.png'
+01:41.609  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_cameras\storm_shop_photo_supplies_camera_body2_rear.png'
+PHOTO CAMERAS NATIVE QA 50 closed connected stocks; 4 joined assemblies; 8 views
+FABRICATION STAGE: art/blender/scripts/inspect_photo_counter.py
+01:41.656  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\photo_counter.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_photo_counter.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+01:44.250  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_counter\storm_shop_photo_supplies_counter_front.png'
+01:46.531  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_counter\storm_shop_photo_supplies_counter_rear.png'
+01:48.093  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_counter\storm_shop_photo_supplies_ledger_front.png'
+01:49.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_counter\storm_shop_photo_supplies_ledger_rear.png'
+PHOTO COUNTER NATIVE QA 31 closed connected stocks; 2 joined assemblies; 4 views
+FABRICATION STAGE: art/blender/scripts/inspect_photo_enlargers.py
+01:49.656  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\photo_enlargers.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_photo_enlargers.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+01:51.187  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_enlargers\storm_shop_photo_supplies_enl_shelf_front.png'
+01:52.609  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_enlargers\storm_shop_photo_supplies_enl_shelf_rear.png'
+01:54.125  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_enlargers\storm_shop_photo_supplies_enl0_front.png'
+01:55.609  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_enlargers\storm_shop_photo_supplies_enl0_rear.png'
+01:57.140  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_enlargers\storm_shop_photo_supplies_enl1_front.png'
+01:58.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_enlargers\storm_shop_photo_supplies_enl1_rear.png'
+02:00.140  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_enlargers\storm_shop_photo_supplies_enl2_front.png'
+02:01.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_enlargers\storm_shop_photo_supplies_enl2_rear.png'
+PHOTO ENLARGERS NATIVE QA 34 closed connected stocks; 4 joined assemblies; 8 views
+FABRICATION STAGE: art/blender/scripts/inspect_photo_portraits.py
+02:01.671  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\photo_portraits.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_photo_portraits.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+02:03.109  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait_rail_front.png'
+02:04.406  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait_rail_rear.png'
+02:05.750  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait0_front.png'
+02:07.093  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait0_rear.png'
+02:08.437  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait1_front.png'
+02:09.765  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait1_rear.png'
+02:11.109  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait2_front.png'
+02:12.437  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait2_rear.png'
+02:13.765  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait3_front.png'
+02:15.078  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait3_rear.png'
+02:16.421  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait4_front.png'
+02:17.765  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait4_rear.png'
+02:19.093  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait5_front.png'
+02:20.437  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait5_rear.png'
+02:21.796  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait6_front.png'
+02:23.171  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_portraits\storm_shop_photo_supplies_portrait6_rear.png'
+PHOTO PORTRAITS NATIVE QA 30 closed connected stocks; 8 joined assemblies; 16 views
+FABRICATION STAGE: art/blender/scripts/inspect_photo_stock.py
+02:23.218  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\photo_stock.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_photo_stock.py:44: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+02:24.968  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_cab_sh0_front.png'
+02:26.578  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_cab_sh0_rear.png'
+02:28.156  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box0_front.png'
+02:29.687  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box0_rear.png'
+02:31.218  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box1_front.png'
+02:32.703  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box1_rear.png'
+02:34.265  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box2_front.png'
+02:35.812  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box2_rear.png'
+02:37.375  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box3_front.png'
+02:38.890  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box3_rear.png'
+02:40.437  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box4_front.png'
+02:41.937  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box4_rear.png'
+02:43.437  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box5_front.png'
+02:44.906  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box5_rear.png'
+02:46.406  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box6_front.png'
+02:47.875  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box6_rear.png'
+02:49.359  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box7_front.png'
+02:50.828  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box7_rear.png'
+02:52.328  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box8_front.png'
+02:53.781  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box8_rear.png'
+02:55.281  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box9_front.png'
+02:56.734  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box9_rear.png'
+02:58.250  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box10_front.png'
+02:59.718  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box10_rear.png'
+03:01.203  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box11_front.png'
+03:02.656  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box11_rear.png'
+03:04.171  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box12_front.png'
+03:05.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box12_rear.png'
+03:07.125  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box13_front.png'
+03:08.593  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box13_rear.png'
+03:10.078  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box14_front.png'
+03:11.531  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\photo_stock\storm_shop_photo_supplies_box14_rear.png'
+PHOTO STOCK NATIVE QA 101 closed connected stocks; 16 joined assemblies; 32 views
+FABRICATION STAGE: art/blender/scripts/inspect_radio_wire.py
+03:11.593  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\radio_wire.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_radio_wire.py:53: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.5,.55,.6,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.7
+10:57:27 | INFO: Data are loaded, start creating Blender stuff
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_appliance-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_awning_vinyl-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_bakelite_black-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_bright-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_brass_dull-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_cast_iron-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_chrome
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_concrete-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_copper_aged-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_countertop-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_enamel
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fabric_warm-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_fx_shadow
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_glassish-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_hull-colonly
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_linoleum-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_metal-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_milk_glass-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_nickel_plated-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_paper-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster_stained-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plywood-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_screen-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_stairwell_teal-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_terracotta
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_timber-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_trim-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wainscot-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_wood_dark-col
+10:57:27 | INFO: Blender create Mesh node F01_OWN_SHOP_RADIO_SERVICE_wear_fx_scuff
+10:57:27 | INFO: glTF import finished in 0.10s
+03:15.531  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\radio_wire\stock_front.png'
+03:17.250  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\radio_wire\stock_rear.png'
+03:18.953  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\radio_wire\stock_side.png'
+03:21.093  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\radio_wire\floor_feet.png'
+03:24.109  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\radio_wire\two_closed_reels.png'
+03:28.078  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\radio_wire\copper_winding.png'
+03:31.343  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\radio_wire\fixed_spindle_bearing.png'
+03:34.171  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\radio_wire\finite_iron_ring.png'
+03:36.656  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\radio_wire\open_ring_centre.png'
+03:39.093  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\grain-repair-native\radio_wire\native_floor_bearings.png'
+RADIO WIRE NATIVE QA 29 closed connected stocks; 2 joined assembly; 8 retained owner contacts; 10 views
+{"completed_stages": 18, "elapsed_s": 217.668}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit
+Error: Not freed memory blocks: 2, total unfreed memory 0.000046 MB

@@ -1004,3 +1004,7 @@ game/tests/orison_v2_laundry_trade_test.gd -text
 game/tests/orison_v2_laundry_fittings_test.gd -text
 game/tests/orison_v2_laundry_apparatus_test.gd -text
 art/renders/orison_v2/laundry_trade_20261007/** -text -whitespace
+
+# Slender-stock grain helper and retained finish-only comparison/QA bytes.
+art/blender/scripts/fabrication_grain.py -text
+art/renders/orison_v2/wood_grain_20261007/** -text -whitespace

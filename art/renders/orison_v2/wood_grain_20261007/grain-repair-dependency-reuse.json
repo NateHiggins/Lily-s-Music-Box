@@ -1,0 +1,2027 @@
+{
+  "evidence_class": "INERT",
+  "baseline": "d1de58c1",
+  "method": "Exact expanded physical triangle bytes, glTF scene graph, fixture semantics and runtime data unchanged; only declared finish dependency bindings refreshed. Existing geometry proofs retain their original scope and date.",
+  "changed_exports": [
+    {
+      "family": "diner_counter",
+      "before_asset_sha256": "1ab3fe87d12e378627c9fd6a6551f467424d380d3b3e856bf5574786d1e413e3",
+      "after_asset_sha256": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8",
+      "geometry": {
+        "parts": {
+          "storm_shop_luncheonette_counter__chrome": [
+            {
+              "triangles": 60,
+              "positions_sha256": "7c984849887ba7c466f9b2ff60d3e67d64684fda739e3c86a01d783c55c337b5",
+              "material": null
+            }
+          ],
+          "storm_shop_luncheonette_counter__countertop": [
+            {
+              "triangles": 188,
+              "positions_sha256": "42d4134f9cee3353c63e63b88f31c4789dc962e2232b1def221e95fa2a76d414",
+              "material": null
+            }
+          ],
+          "storm_shop_luncheonette_counter__timber": [
+            {
+              "triangles": 3760,
+              "positions_sha256": "c6db0815e8b1c194d554228c94d1edb413bd378c0796aca075d88e5f5f7a433f",
+              "material": null
+            }
+          ],
+          "storm_shop_luncheonette_ledger__paper": [
+            {
+              "triangles": 188,
+              "positions_sha256": "b187cbbafdfaf8284386c76b4aa9a4f21890a4ccd402a0a77ecb8b6cf7e107d8",
+              "material": null
+            }
+          ],
+          "storm_shop_luncheonette_ledger__paper__cover": [
+            {
+              "triangles": 564,
+              "positions_sha256": "a84be3d516c38262a9cb06c540f5c415534b9eb833538a965e82375f05f27264",
+              "material": null
+            }
+          ]
+        },
+        "graph": {
+          "nodes": [
+            {
+              "mesh": 0,
+              "name": "storm_shop_luncheonette_counter__chrome",
+              "translation": [
+                19.25,
+                0.05000000074505806,
+                42.375
+              ]
+            },
+            {
+              "mesh": 1,
+              "name": "storm_shop_luncheonette_counter__countertop",
+              "translation": [
+                19.25,
+                0.05000000074505806,
+                42.375
+              ]
+            },
+            {
+              "mesh": 2,
+              "name": "storm_shop_luncheonette_counter__timber",
+              "translation": [
+                19.25,
+                0.05000000074505806,
+                42.375
+              ]
+            },
+            {
+              "mesh": 3,
+              "name": "storm_shop_luncheonette_ledger__paper",
+              "translation": [
+                19.31999969482422,
+                1.1299999952316284,
+                41.79999923706055
+              ]
+            },
+            {
+              "mesh": 4,
+              "name": "storm_shop_luncheonette_ledger__paper__cover",
+              "translation": [
+                19.31999969482422,
+                1.1299999952316284,
+                41.79999923706055
+              ]
+            }
+          ],
+          "scenes": [
+            {
+              "name": "Scene",
+              "nodes": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          ],
+          "scene": 0,
+          "skins": null,
+          "animations": null,
+          "materials": null,
+          "cameras": null
+        }
+      },
+      "fixture_semantics_unchanged": true,
+      "runtime_data_unchanged": true
+    },
+    {
+      "family": "diner_till",
+      "before_asset_sha256": "b41b92978366124003d7c9be921b4244e2e6906f8d014e144a24cbab35ae3800",
+      "after_asset_sha256": "9bfefeab432ae364893259506745fdd87593c1fb3c41923d5178091c141fcc54",
+      "geometry": {
+        "parts": {
+          "storm_shop_luncheonette_cigar_case__brass_dull": [
+            {
+              "triangles": 1504,
+              "positions_sha256": "9f7a380a576f702a0c889be349c7ec8432d44e9c4abbde4c56f65cd27fc7a8dc",
+              "material": null
+            }
+          ],
+          "storm_shop_luncheonette_cigar_case__glassish": [
+            {
+              "triangles": 60,
+              "positions_sha256": "44ad19de2d8149d8d087a8c1de318632eac6c621ea61ebbec52cad157cc57a9d",
+              "material": null
+            }
+          ],
+          "storm_shop_luncheonette_cigar_case__timber": [
+            {
+              "triangles": 940,
+              "positions_sha256": "35f459e713e3eeeed7d4ff95ff6d9eb7d087fcaf04f2a849b639461125a493c9",
+              "material": null
+            }
+          ],
+          "storm_shop_luncheonette_register__bakelite_black": [
+            {
+              "triangles": 6016,
+              "positions_sha256": "bcf5d6b3a7b1e4b4c3449e0f9ad2193c5f6455c167727e7bb6f69f52aea9a229",
+              "material": null
+            }
+          ],
+          "storm_shop_luncheonette_register__brass_dull": [
+            {
+              "triangles": 5640,
+              "positions_sha256": "556511c8616726375f58c08b539f1dda5102c869af9fb233a8f86430e9cf96a7",
+              "material": null
+            }
+          ],
+          "storm_shop_luncheonette_register__nickel_plated": [
+            {
+              "triangles": 2644,
+              "positions_sha256": "190faf9f00d8bb65d2c16cdfca2e5b84ab3db370557c37627d46100fd74ec8d0",
+              "material": null
+            }
+          ],
+          "storm_shop_luncheonette_register__timber": [
+            {
+              "triangles": 188,
+              "positions_sha256": "17864619d270b8965f2ec3161bc4c656173713a2103a536d945d27cb2a451fc1",
+              "material": null
+            }
+          ]
+        },
+        "graph": {
+          "nodes": [
+            {
+              "mesh": 0,
+              "name": "storm_shop_luncheonette_cigar_case__brass_dull",
+              "translation": [
+                19.25,
+                1.1299999952316284,
+                43.470001220703125
+              ]
+            },
+            {
+              "mesh": 1,
+              "name": "storm_shop_luncheonette_cigar_case__glassish",
+              "translation": [
+                19.25,
+                1.1299999952316284,
+                43.470001220703125
+              ]
+            },
+            {
+              "mesh": 2,
+              "name": "storm_shop_luncheonette_cigar_case__timber",
+              "translation": [
+                19.25,
+                1.1299999952316284,
+                43.470001220703125
+              ]
+            },
+            {
+              "mesh": 3,
+              "name": "storm_shop_luncheonette_register__bakelite_black",
+              "translation": [
+                19.280000686645508,
+                1.1299999952316284,
+                41.130001068115234
+              ]
+            },
+            {
+              "mesh": 4,
+              "name": "storm_shop_luncheonette_register__brass_dull",
+              "translation": [
+                19.280000686645508,
+                1.1299999952316284,
+                41.130001068115234
+              ]
+            },
+            {
+              "mesh": 5,
+              "name": "storm_shop_luncheonette_register__nickel_plated",
+              "translation": [
+                19.280000686645508,
+                1.1299999952316284,
+                41.130001068115234
+              ]
+            },
+            {
+              "mesh": 6,
+              "name": "storm_shop_luncheonette_register__timber",
+              "translation": [
+                19.280000686645508,
+                1.1299999952316284,
+                41.130001068115234
+              ]
+            }
+          ],
+          "scenes": [
+            {
+              "name": "Scene",
+              "nodes": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ]
+            }
+          ],
+          "scene": 0,
+          "skins": null,
+          "animations": null,
+          "materials": null,
+          "cameras": null
+        }
+      },
+      "fixture_semantics_unchanged": true,
+      "runtime_data_unchanged": true
+    },
+    {
+      "family": "hardware_tools",
+      "before_asset_sha256": "02cdfbb052c28b2fe874cb7e7e0b2d2e390859620242433086a33eaeb308a8f1",
+      "after_asset_sha256": "275816d67d9fe1aef3e1c846ff65ab78ff8e1cad1940db78c4f8df804ce8e64c",
+      "geometry": {
+        "parts": {
+          "storm_shop_hardware_paint_glass_rack__brass_dull": [
+            {
+              "triangles": 188,
+              "positions_sha256": "5f08e280d5d7d533e4dd5f19c94d19761ea53f65e56a4d4ddfd8be72836ccf70",
+              "material": null
+            }
+          ],
+          "storm_shop_hardware_paint_glass_rack__glassish": [
+            {
+              "triangles": 60,
+              "positions_sha256": "d51f47936a3dfdc76cb2d42345313872055ccb9bf4ac4426242dc9ad0529cc52",
+              "material": null
+            }
+          ],
+          "storm_shop_hardware_paint_glass_rack__metal": [
+            {
+              "triangles": 280,
+              "positions_sha256": "36d557b43b7dafd0ecd5aa622485c37969f5b2c9d414a446819d9006565d40d6",
+              "material": null
+            }
+          ],
+          "storm_shop_hardware_paint_glass_rack__timber": [
+            {
+              "triangles": 4888,
+              "positions_sha256": "49b9e27f7bc08a308596c66130f7296e1b8ae976fea30ac60172c12b39e7cc0e",
+              "material": null
+            }
+          ],
+          "storm_shop_hardware_paint_ladder_r0__timber": [
+            {
+              "triangles": 852,
+              "positions_sha256": "d726b95f20c0c1426a71de0c5922aaee14bb377f70b916b1044238c6be8e55f4",
+              "material": null
+            }
+          ],
+          "storm_shop_hardware_paint_tool_board__brass_dull": [
+            {
+              "triangles": 184,
+              "positions_sha256": "7ef08b166308dbbf5d653ac9f1ae7ee0bde061d4ba52858c44413903f7f43013",
+              "material": null
+            }
+          ],
+          "storm_shop_hardware_paint_tool_board__metal": [
+            {
+              "triangles": 1976,
+              "positions_sha256": "0bca1a09e2246879cdaf01185ca9e0305d18d2dbe6890af3aca0c7931094c564",
+              "material": null
+            }
+          ],
+          "storm_shop_hardware_paint_tool_board__plywood": [
+            {
+              "triangles": 188,
+              "positions_sha256": "55e5da18e9740556b8e13b994a67a4ffd5c126c6a66388410e35bd860db7c3a5",
+              "material": null
+            }
+          ],
+          "storm_shop_hardware_paint_tool_board__soot": [
+            {
+              "triangles": 252,
+              "positions_sha256": "485bd3593c297f82b8d25915675e6450e6c84c8c9a370d1d90c314f9422f1a7e",
+              "material": null
+            }
+          ],
+          "storm_shop_hardware_paint_tool_board__soot__vacant": [
+            {
+              "triangles": 44,
+              "positions_sha256": "f79bfa5e4167e42a24a29c1fd4d19211c350469886d0efbeda4498aae258fe27",
+              "material": null
+            }
+          ],
+          "storm_shop_hardware_paint_tool_board__timber": [
+            {
+              "triangles": 2064,
+              "positions_sha256": "7c31c424b15fb529396808dcc72be6a9009c87e33b317e9a5551e72c50759dcb",
+              "material": null
+            }
+          ]
+        },
+        "graph": {
+          "nodes": [
+            {
+              "mesh": 0,
+              "name": "storm_shop_hardware_paint_glass_rack__brass_dull",
+              "translation": [
+                5.599999904632568,
+                0.05000000074505806,
+                55.130001068115234
+              ]
+            },
+            {
+              "mesh": 1,
+              "name": "storm_shop_hardware_paint_glass_rack__glassish",
+              "translation": [
+                5.599999904632568,
+                0.05000000074505806,
+                55.130001068115234
+              ]
+            },
+            {
+              "mesh": 2,
+              "name": "storm_shop_hardware_paint_glass_rack__metal",
+              "translation": [
+                5.599999904632568,
+                0.05000000074505806,
+                55.130001068115234
+              ]
+            },
+            {
+              "mesh": 3,
+              "name": "storm_shop_hardware_paint_glass_rack__timber",
+              "translation": [
+                5.599999904632568,
+                0.05000000074505806,
+                55.130001068115234
+              ]
+            },
+            {
+              "mesh": 4,
+              "name": "storm_shop_hardware_paint_ladder_r0__timber",
+              "translation": [
+                8.300000190734863,
+                0.05000000074505806,
+                58.38999938964844
+              ]
+            },
+            {
+              "mesh": 5,
+              "name": "storm_shop_hardware_paint_tool_board__brass_dull",
+              "translation": [
+                6.050000190734863,
+                1.100000023841858,
+                59.025001525878906
+              ]
+            },
+            {
+              "mesh": 6,
+              "name": "storm_shop_hardware_paint_tool_board__metal",
+              "translation": [
+                6.050000190734863,
+                1.100000023841858,
+                59.025001525878906
+              ]
+            },
+            {
+              "mesh": 7,
+              "name": "storm_shop_hardware_paint_tool_board__plywood",
+              "translation": [
+                6.050000190734863,
+                1.100000023841858,
+                59.025001525878906
+              ]
+            },
+            {
+              "mesh": 8,
+              "name": "storm_shop_hardware_paint_tool_board__soot",
+              "translation": [
+                6.050000190734863,
+                1.100000023841858,
+                59.025001525878906
+              ]
+            },
+            {
+              "mesh": 9,
+              "name": "storm_shop_hardware_paint_tool_board__soot__vacant",
+              "translation": [
+                6.050000190734863,
+                1.100000023841858,
+                59.025001525878906
+              ]
+            },
+            {
+              "mesh": 10,
+              "name": "storm_shop_hardware_paint_tool_board__timber",
+              "translation": [
+                6.050000190734863,
+                1.100000023841858,
+                59.025001525878906
+              ]
+            }
+          ],
+          "scenes": [
+            {
+              "name": "Scene",
+              "nodes": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            }
+          ],
+          "scene": 0,
+          "skins": null,
+          "animations": null,
+          "materials": null,
+          "cameras": null
+        }
+      },
+      "fixture_semantics_unchanged": true,
+      "runtime_data_unchanged": true
+    },
+    {
+      "family": "photo_cameras",
+      "before_asset_sha256": "796c35815a286732d25fecf73790fd2ed3a187c8b835461880dab85a3b305baf",
+      "after_asset_sha256": "f2fdbfce2370967d0cc4772b757ea31dfc7ef888e1149097d90992c5cda158de",
+      "geometry": {
+        "parts": {
+          "storm_shop_photo_supplies_camera_body0__bakelite_black": [
+            {
+              "triangles": 1012,
+              "positions_sha256": "46dbbef8ddfdbc717f3a7c04618de48e0a35c1f746047e827977ddc6f3bd1e88",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_camera_body0__brass_dull": [
+            {
+              "triangles": 1640,
+              "positions_sha256": "fc56da77530069c5c16edb33a58d81ae0ccd2342ab9206ac2735b301d6650461",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_camera_body1__bakelite_black": [
+            {
+              "triangles": 816,
+              "positions_sha256": "7cadcde0ce87940593836a158231938b7f28de7dc4fb61fd7f6aca15cbfda511",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_camera_body1__brass_dull": [
+            {
+              "triangles": 1076,
+              "positions_sha256": "4ef83cba72c6372113d53a1030526cc1bb45bd7faf647a485da8b70e8d1dfb93",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_camera_body2__bakelite_black": [
+            {
+              "triangles": 1200,
+              "positions_sha256": "5b4c33fde1c8ad9c860c625576a997c92abbc29b02e9e83700ac50adf9a06e41",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_camera_body2__brass_dull": [
+            {
+              "triangles": 1828,
+              "positions_sha256": "1673f0a042947605adf059e9fdaa3a19706a0f54eb88d922ca8cc31f2fa1992d",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_window_plinth__plywood": [
+            {
+              "triangles": 188,
+              "positions_sha256": "4f87e3d0b28e83f376e6c679fcd77b99daf5d68b568c137688a212ce74b227e8",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_window_plinth__timber": [
+            {
+              "triangles": 2256,
+              "positions_sha256": "8f433db04ce7cb74a485b79744dd0190a9faf7bd7d3c829a45ca0c11870daff2",
+              "material": null
+            }
+          ]
+        },
+        "graph": {
+          "nodes": [
+            {
+              "mesh": 0,
+              "name": "storm_shop_photo_supplies_camera_body0__bakelite_black",
+              "translation": [
+                17.530000686645508,
+                0.47999998927116394,
+                61.869998931884766
+              ]
+            },
+            {
+              "mesh": 1,
+              "name": "storm_shop_photo_supplies_camera_body0__brass_dull",
+              "translation": [
+                17.530000686645508,
+                0.47999998927116394,
+                61.869998931884766
+              ]
+            },
+            {
+              "mesh": 2,
+              "name": "storm_shop_photo_supplies_camera_body1__bakelite_black",
+              "translation": [
+                17.530000686645508,
+                0.47999998927116394,
+                61.189998626708984
+              ]
+            },
+            {
+              "mesh": 3,
+              "name": "storm_shop_photo_supplies_camera_body1__brass_dull",
+              "translation": [
+                17.530000686645508,
+                0.47999998927116394,
+                61.189998626708984
+              ]
+            },
+            {
+              "mesh": 4,
+              "name": "storm_shop_photo_supplies_camera_body2__bakelite_black",
+              "translation": [
+                17.530000686645508,
+                0.47999998927116394,
+                60.5099983215332
+              ]
+            },
+            {
+              "mesh": 5,
+              "name": "storm_shop_photo_supplies_camera_body2__brass_dull",
+              "translation": [
+                17.530000686645508,
+                0.47999998927116394,
+                60.5099983215332
+              ]
+            },
+            {
+              "mesh": 6,
+              "name": "storm_shop_photo_supplies_window_plinth__plywood",
+              "translation": [
+                17.360000610351562,
+                0.05000000074505806,
+                60.68000030517578
+              ]
+            },
+            {
+              "mesh": 7,
+              "name": "storm_shop_photo_supplies_window_plinth__timber",
+              "translation": [
+                17.360000610351562,
+                0.05000000074505806,
+                60.68000030517578
+              ]
+            }
+          ],
+          "scenes": [
+            {
+              "name": "Scene",
+              "nodes": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            }
+          ],
+          "scene": 0,
+          "skins": null,
+          "animations": null,
+          "materials": null,
+          "cameras": null
+        }
+      },
+      "fixture_semantics_unchanged": true,
+      "runtime_data_unchanged": true
+    },
+    {
+      "family": "photo_counter",
+      "before_asset_sha256": "ed21b0516bc65f1fa780465009bac294226299940134d1ac2e08dbc961c3333f",
+      "after_asset_sha256": "208a4194d79b044ee3fb47f4e4ad250613f2bd648b437dd384bb1289813fc802",
+      "geometry": {
+        "parts": {
+          "storm_shop_photo_supplies_counter__brass_dull": [
+            {
+              "triangles": 188,
+              "positions_sha256": "c7cfc6e1fb697823431678682bc0b8cd47c02e4e966d6e5c125696aa670dc39b",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_counter__glassish": [
+            {
+              "triangles": 48,
+              "positions_sha256": "e341cc1bd7f05f1555dffe84a15272514f5ca7608d640b4d6bbc2445d40c2f9e",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_counter__timber": [
+            {
+              "triangles": 4136,
+              "positions_sha256": "d6594fccdc6ab69317ee1b1ba8aae6de5ceb2bfca2d836f98617f2ee786f82fc",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_ledger__paper": [
+            {
+              "triangles": 188,
+              "positions_sha256": "6a100cab3a89013a49ce70a59dabf25353e91a9b3baa8d5e0ac7337148f0af6f",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_ledger__paper__cover": [
+            {
+              "triangles": 564,
+              "positions_sha256": "8be2d83b32bbd073457faf36660c0417f26019caca0e28240ab1ee9cb3d9ee69",
+              "material": null
+            }
+          ]
+        },
+        "graph": {
+          "nodes": [
+            {
+              "mesh": 0,
+              "name": "storm_shop_photo_supplies_counter__brass_dull",
+              "translation": [
+                18.299999237060547,
+                0.05000000074505806,
+                61.349998474121094
+              ]
+            },
+            {
+              "mesh": 1,
+              "name": "storm_shop_photo_supplies_counter__glassish",
+              "translation": [
+                18.299999237060547,
+                0.05000000074505806,
+                61.349998474121094
+              ]
+            },
+            {
+              "mesh": 2,
+              "name": "storm_shop_photo_supplies_counter__timber",
+              "translation": [
+                18.299999237060547,
+                0.05000000074505806,
+                61.349998474121094
+              ]
+            },
+            {
+              "mesh": 3,
+              "name": "storm_shop_photo_supplies_ledger__paper",
+              "translation": [
+                18.31999969482422,
+                1.4600000381469727,
+                61.400001525878906
+              ]
+            },
+            {
+              "mesh": 4,
+              "name": "storm_shop_photo_supplies_ledger__paper__cover",
+              "translation": [
+                18.31999969482422,
+                1.4600000381469727,
+                61.400001525878906
+              ]
+            }
+          ],
+          "scenes": [
+            {
+              "name": "Scene",
+              "nodes": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          ],
+          "scene": 0,
+          "skins": null,
+          "animations": null,
+          "materials": null,
+          "cameras": null
+        }
+      },
+      "fixture_semantics_unchanged": true,
+      "runtime_data_unchanged": true
+    },
+    {
+      "family": "photo_stock",
+      "before_asset_sha256": "6ab3dd06c096437f37566087ff6dab293b16cd3086848e8bcb149f1e02472965",
+      "after_asset_sha256": "cf5bb93649d39119d52f861472607b05a19235870a11dce62e2f8810510d84d6",
+      "geometry": {
+        "parts": {
+          "storm_shop_photo_supplies_box0__paper__book_ochre": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "65c2909a36ad10bc1bb076db4a8041f3b079b68f29192e63abc302c8686bd78a",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box1__paper__book_teal": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "45c521e09dfa5244f10a071663a7f728da4d61700f4d0abdb98aae3497c4050c",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box2__paper__lacquer_red": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "43f37584e60b6b337f1315edbcef44cdf84127e830b521e7445d03c893b70619",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box3__paper__book_ochre": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "b142ab4c5508b601ed40d7c5a2572ceb7e30c97c7337dacd8c9d79f21f1b0a9c",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box4__paper__book_teal": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "50bce279aaf5343b5a32372fbdbcbda26cf8f31515cea947d20e5917a7146c3c",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box5__paper__lacquer_red": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "f2b13d53bf3c84e37c72246934a66ceafe61b2f581a7bfc3c134657e5caca33e",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box6__paper__book_ochre": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "5b140aa44c338af385b7400a06958981bdaf96cde001b0c646efade9057f9f3e",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box7__paper__book_teal": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "00110a41e6c51206f1858efc92b39798b2f367b28c11440229258f2cc5d9e96f",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box8__paper__lacquer_red": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "1cb9276f9b53c9b434834494a4faa80b388325ec3301e9805dddcaabc5d3a4da",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box9__paper__book_ochre": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "18f61dd3603ca6675f355fe14f5a991668f56c2169b3c9cc6052648a8d68a02b",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box10__paper__book_teal": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "3f241c54e8513532c34fb0960b4f145e2bf34707594190a74ada2e2d252a11f8",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box11__paper__lacquer_red": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "2b976e7b7dddcd3de403a9a9456e41f6fd70d278d029f87942f66c9dc21d142c",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box12__paper__book_ochre": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "5e1762aa8db8f18244c8d2cf6dc37eec5614d1350093a119a5b92a1359371e09",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box13__paper__book_teal": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "b22012673b702a543bb1c539da4d0b1a022bf4fbbc84726bd9852be44ccb1be4",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_box14__paper__lacquer_red": [
+            {
+              "triangles": 1128,
+              "positions_sha256": "5e75167e5443b59c2b5a98d21befdb73137b4833b2d434d3a47d2c4319476cb8",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_cab_sh0__timber": [
+            {
+              "triangles": 2068,
+              "positions_sha256": "59e9ab79f267d9492507d9fdc713eb496688f4e1c2dd01007adfc0e2c36a3e24",
+              "material": null
+            }
+          ]
+        },
+        "graph": {
+          "nodes": [
+            {
+              "mesh": 0,
+              "name": "storm_shop_photo_supplies_box0__paper__book_ochre",
+              "translation": [
+                21.399999618530273,
+                0.5899999737739563,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 1,
+              "name": "storm_shop_photo_supplies_box1__paper__book_teal",
+              "translation": [
+                20.8799991607666,
+                0.5899999737739563,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 2,
+              "name": "storm_shop_photo_supplies_box2__paper__lacquer_red",
+              "translation": [
+                20.360000610351562,
+                0.5899999737739563,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 3,
+              "name": "storm_shop_photo_supplies_box3__paper__book_ochre",
+              "translation": [
+                19.84000015258789,
+                0.5899999737739563,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 4,
+              "name": "storm_shop_photo_supplies_box4__paper__book_teal",
+              "translation": [
+                19.31999969482422,
+                0.5899999737739563,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 5,
+              "name": "storm_shop_photo_supplies_box5__paper__lacquer_red",
+              "translation": [
+                21.399999618530273,
+                1.0299999713897705,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 6,
+              "name": "storm_shop_photo_supplies_box6__paper__book_ochre",
+              "translation": [
+                20.8799991607666,
+                1.0299999713897705,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 7,
+              "name": "storm_shop_photo_supplies_box7__paper__book_teal",
+              "translation": [
+                20.360000610351562,
+                1.0299999713897705,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 8,
+              "name": "storm_shop_photo_supplies_box8__paper__lacquer_red",
+              "translation": [
+                19.84000015258789,
+                1.0299999713897705,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 9,
+              "name": "storm_shop_photo_supplies_box9__paper__book_ochre",
+              "translation": [
+                19.31999969482422,
+                1.0299999713897705,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 10,
+              "name": "storm_shop_photo_supplies_box10__paper__book_teal",
+              "translation": [
+                21.399999618530273,
+                1.4700000286102295,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 11,
+              "name": "storm_shop_photo_supplies_box11__paper__lacquer_red",
+              "translation": [
+                20.8799991607666,
+                1.4700000286102295,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 12,
+              "name": "storm_shop_photo_supplies_box12__paper__book_ochre",
+              "translation": [
+                20.360000610351562,
+                1.4700000286102295,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 13,
+              "name": "storm_shop_photo_supplies_box13__paper__book_teal",
+              "translation": [
+                19.84000015258789,
+                1.4700000286102295,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 14,
+              "name": "storm_shop_photo_supplies_box14__paper__lacquer_red",
+              "translation": [
+                19.31999969482422,
+                1.4700000286102295,
+                63.67499923706055
+              ]
+            },
+            {
+              "mesh": 15,
+              "name": "storm_shop_photo_supplies_cab_sh0__timber",
+              "translation": [
+                20.450000762939453,
+                0.550000011920929,
+                63.67499923706055
+              ]
+            }
+          ],
+          "scenes": [
+            {
+              "name": "Scene",
+              "nodes": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+              ]
+            }
+          ],
+          "scene": 0,
+          "skins": null,
+          "animations": null,
+          "materials": null,
+          "cameras": null
+        }
+      },
+      "fixture_semantics_unchanged": true,
+      "runtime_data_unchanged": true
+    },
+    {
+      "family": "photo_enlargers",
+      "before_asset_sha256": "67609f1168c0942bfef6571580af201f5dc000def2958a38916e71e5a4e84b32",
+      "after_asset_sha256": "969f352a40d134e278c789c1cd4c607b730a339630315def7272f5d5843cd741",
+      "geometry": {
+        "parts": {
+          "storm_shop_photo_supplies_enl0__dark": [
+            {
+              "triangles": 380,
+              "positions_sha256": "d5d4b8df4dfaafa73ec7865fe1ec839539aa761a1c21ff678983721ac356045c",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_enl0__metal": [
+            {
+              "triangles": 1708,
+              "positions_sha256": "16a4e1fab10af32277cbc748a741e6702a50e6f79529d3805e72884f3bf4a818",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_enl0__trim": [
+            {
+              "triangles": 384,
+              "positions_sha256": "b1c41432ce683ff6eecf8f71d883d38c3b6bf99b4402d8a8faacfa45ca5f275d",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_enl1__dark": [
+            {
+              "triangles": 380,
+              "positions_sha256": "2675545d62af597345e999ecd4f25dda244e3604acaa67a21ead4b999d02a876",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_enl1__metal": [
+            {
+              "triangles": 1708,
+              "positions_sha256": "f933a8a65465652450b31425666f4873f464e3e047e9795bbf599c91b0235033",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_enl1__trim": [
+            {
+              "triangles": 384,
+              "positions_sha256": "57c217a1798e1a8a8eb6ed0e6e4a32c2c4791b335ccf8bd46621e046d22ce458",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_enl2__dark": [
+            {
+              "triangles": 380,
+              "positions_sha256": "decde4b52911193a4624a69b6b5331f3b9615f6c5aa96a4128923ec112772591",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_enl2__metal": [
+            {
+              "triangles": 1708,
+              "positions_sha256": "a31b215761ed09e5e411f5a47157d0145e7e4c886e796d626b75d31a985f007e",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_enl2__trim": [
+            {
+              "triangles": 384,
+              "positions_sha256": "2b387f21c2345a3bec678748788ba2b56de810e25ba90ac1a80d1f0be9b560cf",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_enl_shelf__timber": [
+            {
+              "triangles": 1316,
+              "positions_sha256": "21145a464eb3a5dd784d017c7ef20a51e8f8855aba9e0b833e52f6dc40041794",
+              "material": null
+            }
+          ]
+        },
+        "graph": {
+          "nodes": [
+            {
+              "mesh": 0,
+              "name": "storm_shop_photo_supplies_enl0__dark",
+              "translation": [
+                22.43000030517578,
+                1.6200000047683716,
+                62.099998474121094
+              ]
+            },
+            {
+              "mesh": 1,
+              "name": "storm_shop_photo_supplies_enl0__metal",
+              "translation": [
+                22.43000030517578,
+                1.6200000047683716,
+                62.099998474121094
+              ]
+            },
+            {
+              "mesh": 2,
+              "name": "storm_shop_photo_supplies_enl0__trim",
+              "translation": [
+                22.43000030517578,
+                1.6200000047683716,
+                62.099998474121094
+              ]
+            },
+            {
+              "mesh": 3,
+              "name": "storm_shop_photo_supplies_enl1__dark",
+              "translation": [
+                22.43000030517578,
+                1.6200000047683716,
+                61.400001525878906
+              ]
+            },
+            {
+              "mesh": 4,
+              "name": "storm_shop_photo_supplies_enl1__metal",
+              "translation": [
+                22.43000030517578,
+                1.6200000047683716,
+                61.400001525878906
+              ]
+            },
+            {
+              "mesh": 5,
+              "name": "storm_shop_photo_supplies_enl1__trim",
+              "translation": [
+                22.43000030517578,
+                1.6200000047683716,
+                61.400001525878906
+              ]
+            },
+            {
+              "mesh": 6,
+              "name": "storm_shop_photo_supplies_enl2__dark",
+              "translation": [
+                22.43000030517578,
+                1.6200000047683716,
+                60.70000076293945
+              ]
+            },
+            {
+              "mesh": 7,
+              "name": "storm_shop_photo_supplies_enl2__metal",
+              "translation": [
+                22.43000030517578,
+                1.6200000047683716,
+                60.70000076293945
+              ]
+            },
+            {
+              "mesh": 8,
+              "name": "storm_shop_photo_supplies_enl2__trim",
+              "translation": [
+                22.43000030517578,
+                1.6200000047683716,
+                60.70000076293945
+              ]
+            },
+            {
+              "mesh": 9,
+              "name": "storm_shop_photo_supplies_enl_shelf__timber",
+              "translation": [
+                22.424999237060547,
+                1.559999942779541,
+                61.400001525878906
+              ]
+            }
+          ],
+          "scenes": [
+            {
+              "name": "Scene",
+              "nodes": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9
+              ]
+            }
+          ],
+          "scene": 0,
+          "skins": null,
+          "animations": null,
+          "materials": null,
+          "cameras": null
+        }
+      },
+      "fixture_semantics_unchanged": true,
+      "runtime_data_unchanged": true
+    },
+    {
+      "family": "photo_portraits",
+      "before_asset_sha256": "30a5b098566666d650ac658504ce1559b6199c1482ea57caa0faf47632961472",
+      "after_asset_sha256": "0b6aca61e68d665ba1b201b272d587d789db71be22b20f565ac02c6218f14053",
+      "geometry": {
+        "parts": {
+          "storm_shop_photo_supplies_portrait0__image": [
+            {
+              "triangles": 2,
+              "positions_sha256": "c470bae2f249f3878ce01d5a37122af9747cbe61b31b8cc4bcacde87eb544fab",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait0__iron": [
+            {
+              "triangles": 376,
+              "positions_sha256": "b9c5f8b85369938212421d7b12d6a4c428fc8fb2714144acbba358298974a9e8",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait0__paper": [
+            {
+              "triangles": 10,
+              "positions_sha256": "4e01e91354954f1a682931a59013eebad1cde94446a1a051450469685ddbc208",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait1__image": [
+            {
+              "triangles": 2,
+              "positions_sha256": "93610d8f474047284172c4bdad0f535edb7785146c93319305698e5e03a1d61d",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait1__iron": [
+            {
+              "triangles": 376,
+              "positions_sha256": "565dcb1b303780e65657823c47ab7a5c51561a5e64cebadb5552fe4d2305068a",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait1__paper": [
+            {
+              "triangles": 10,
+              "positions_sha256": "f40445e05e77c7511af47561866d88741c7e5a8ea0ed7f637879da102bcd2e9c",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait2__image": [
+            {
+              "triangles": 2,
+              "positions_sha256": "e03de69dae88a4df257bfdfaa710b4dbeeba5a6ceb32fd8a101972e79644b9fc",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait2__iron": [
+            {
+              "triangles": 376,
+              "positions_sha256": "9f9fb02be7ed7c6b3fe5e2316482d7fcdda4a1d0dc5ba0c3b788d95f2897dd98",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait2__paper": [
+            {
+              "triangles": 10,
+              "positions_sha256": "c258cfaaf7e6b3c5192ff762e8ff6f5111a46423c1796b145c63c13245fa8b4d",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait3__image": [
+            {
+              "triangles": 2,
+              "positions_sha256": "0f4760134b5e8af5687b7427a468ee388607a03b80cd64d3437fd822436134dc",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait3__iron": [
+            {
+              "triangles": 376,
+              "positions_sha256": "2db14acd3cebaf8209c16e18c782fdfbc8558bbe11f8ed2e675395932bac2d7f",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait3__paper": [
+            {
+              "triangles": 10,
+              "positions_sha256": "f0366a341ea186b7a3d215552fb4778fd1f8bafa2d9a1894674cf65f1a7e942f",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait4__image": [
+            {
+              "triangles": 2,
+              "positions_sha256": "049d4d8cc41165d16507f838bf80bd92b79bbd2fe13afdc7d94d4e5c56837359",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait4__iron": [
+            {
+              "triangles": 376,
+              "positions_sha256": "00be89756532eda41a1287cbf13de4dbdb151ba53d3fb9f115c0f8263b8180b0",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait4__paper": [
+            {
+              "triangles": 10,
+              "positions_sha256": "1f40b5e92b5ed4891ee804c0cfe6ecf2482807a70595f927000c3aa4938ddb5f",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait5__image": [
+            {
+              "triangles": 2,
+              "positions_sha256": "72024eaac801167185a5a434c66f22cdb7f73b5455dfd51f9d6a7b98b8d8f598",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait5__iron": [
+            {
+              "triangles": 376,
+              "positions_sha256": "8f9543af03236f1cebe786e49c623d52abe15864d64d8cb2e5e770bd8fa60662",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait5__paper": [
+            {
+              "triangles": 10,
+              "positions_sha256": "50066cc3d6a478b939faf703485cb78f10e748078bff2fc852b037bdf4e159fe",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait6__image": [
+            {
+              "triangles": 2,
+              "positions_sha256": "133f378164f5834fc46281014a1027a9e7762ddb7fa53963bf222e7300059d5c",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait6__iron": [
+            {
+              "triangles": 376,
+              "positions_sha256": "346069599b141cf3dc4aeb5a414c550b60d7372396028480c2cb61731b1f8ca2",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait6__paper": [
+            {
+              "triangles": 10,
+              "positions_sha256": "0cd7e72d20d735dae4849f364d1265cadd028e2205a1ac43fb5b9b083fb59971",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait_rail__iron": [
+            {
+              "triangles": 240,
+              "positions_sha256": "0f3445b9ef4e46fd84ff34a514b31baa54566a4d6a26025039b010841bbed6bb",
+              "material": null
+            }
+          ],
+          "storm_shop_photo_supplies_portrait_rail__wood": [
+            {
+              "triangles": 940,
+              "positions_sha256": "41233ae5640e16fc107832d415205b3f15515667f4260753dfc14b13d0ef7ee7",
+              "material": null
+            }
+          ]
+        },
+        "graph": {
+          "nodes": [
+            {
+              "mesh": 0,
+              "name": "storm_shop_photo_supplies_portrait0__image",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                63.212501525878906
+              ]
+            },
+            {
+              "mesh": 1,
+              "name": "storm_shop_photo_supplies_portrait0__iron",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                63.212501525878906
+              ]
+            },
+            {
+              "mesh": 2,
+              "name": "storm_shop_photo_supplies_portrait0__paper",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                63.212501525878906
+              ]
+            },
+            {
+              "mesh": 3,
+              "name": "storm_shop_photo_supplies_portrait1__image",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                62.86249923706055
+              ]
+            },
+            {
+              "mesh": 4,
+              "name": "storm_shop_photo_supplies_portrait1__iron",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                62.86249923706055
+              ]
+            },
+            {
+              "mesh": 5,
+              "name": "storm_shop_photo_supplies_portrait1__paper",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                62.86249923706055
+              ]
+            },
+            {
+              "mesh": 6,
+              "name": "storm_shop_photo_supplies_portrait2__image",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                62.51250076293945
+              ]
+            },
+            {
+              "mesh": 7,
+              "name": "storm_shop_photo_supplies_portrait2__iron",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                62.51250076293945
+              ]
+            },
+            {
+              "mesh": 8,
+              "name": "storm_shop_photo_supplies_portrait2__paper",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                62.51250076293945
+              ]
+            },
+            {
+              "mesh": 9,
+              "name": "storm_shop_photo_supplies_portrait3__image",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                62.162498474121094
+              ]
+            },
+            {
+              "mesh": 10,
+              "name": "storm_shop_photo_supplies_portrait3__iron",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                62.162498474121094
+              ]
+            },
+            {
+              "mesh": 11,
+              "name": "storm_shop_photo_supplies_portrait3__paper",
+              "translation": [
+                22.84000015258789,
+                1.2999999523162842,
+                62.162498474121094
+              ]
+            },
+            {
+              "mesh": 12,
+              "name": "storm_shop_photo_supplies_portrait4__image",
+              "translation": [
+                22.84000015258789,
+                1.840000033378601,
+                63.212501525878906
+              ]
+            },
+            {
+              "mesh": 13,
+              "name": "storm_shop_photo_supplies_portrait4__iron",
+              "translation": [
+                22.84000015258789,
+                1.840000033378601,
+                63.212501525878906
+              ]
+            },
+            {
+              "mesh": 14,
+              "name": "storm_shop_photo_supplies_portrait4__paper",
+              "translation": [
+                22.84000015258789,
+                1.840000033378601,
+                63.212501525878906
+              ]
+            },
+            {
+              "mesh": 15,
+              "name": "storm_shop_photo_supplies_portrait5__image",
+              "translation": [
+                22.84000015258789,
+                1.840000033378601,
+                62.86249923706055
+              ]
+            },
+            {
+              "mesh": 16,
+              "name": "storm_shop_photo_supplies_portrait5__iron",
+              "translation": [
+                22.84000015258789,
+                1.840000033378601,
+                62.86249923706055
+              ]
+            },
+            {
+              "mesh": 17,
+              "name": "storm_shop_photo_supplies_portrait5__paper",
+              "translation": [
+                22.84000015258789,
+                1.840000033378601,
+                62.86249923706055
+              ]
+            },
+            {
+              "mesh": 18,
+              "name": "storm_shop_photo_supplies_portrait6__image",
+              "translation": [
+                22.84000015258789,
+                1.840000033378601,
+                62.51250076293945
+              ]
+            },
+            {
+              "mesh": 19,
+              "name": "storm_shop_photo_supplies_portrait6__iron",
+              "translation": [
+                22.84000015258789,
+                1.840000033378601,
+                62.51250076293945
+              ]
+            },
+            {
+              "mesh": 20,
+              "name": "storm_shop_photo_supplies_portrait6__paper",
+              "translation": [
+                22.84000015258789,
+                1.840000033378601,
+                62.51250076293945
+              ]
+            },
+            {
+              "mesh": 21,
+              "name": "storm_shop_photo_supplies_portrait_rail__iron",
+              "translation": [
+                22.850000381469727,
+                1.2000000476837158,
+                62.599998474121094
+              ]
+            },
+            {
+              "mesh": 22,
+              "name": "storm_shop_photo_supplies_portrait_rail__wood",
+              "translation": [
+                22.850000381469727,
+                1.2000000476837158,
+                62.599998474121094
+              ]
+            }
+          ],
+          "scenes": [
+            {
+              "name": "Scene",
+              "nodes": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22
+              ]
+            }
+          ],
+          "scene": 0,
+          "skins": null,
+          "animations": null,
+          "materials": null,
+          "cameras": null
+        }
+      },
+      "fixture_semantics_unchanged": true,
+      "runtime_data_unchanged": true
+    },
+    {
+      "family": "radio_wire",
+      "before_asset_sha256": "10decc6c1cbc49cf3c009f126ac2e69d27e74dc85595c4f50e059cfae220e855",
+      "after_asset_sha256": "b4972672d9ccebfa0ca66274c53645c95fe8dc36482059f829c74eca41782893",
+      "geometry": {
+        "parts": {
+          "storm_shop_radio_service_aerial_spools__cast_iron": [
+            {
+              "triangles": 376,
+              "positions_sha256": "f5ccd3a02e6b8e190cb505b4c430055a538f9b1f9ad090ad0f5c352e18a3aa00",
+              "material": null
+            }
+          ],
+          "storm_shop_radio_service_aerial_spools__copper_aged": [
+            {
+              "triangles": 20768,
+              "positions_sha256": "840c699ac91b979711a31c80407b8f26fe9da34bf9a354ea3c5fa64e1ac4169a",
+              "material": null
+            }
+          ],
+          "storm_shop_radio_service_aerial_spools__timber": [
+            {
+              "triangles": 5908,
+              "positions_sha256": "fb9f21f9750129b2afd2741efee3b442ee4e495068decfd80fd6ea2c0edb6d65",
+              "material": null
+            }
+          ],
+          "storm_shop_radio_service_solder_ring__cast_iron": [
+            {
+              "triangles": 3056,
+              "positions_sha256": "1f00cc542c854e768a2313862853b9f9e51d4ca2674731413eb8e06c65993439",
+              "material": null
+            }
+          ]
+        },
+        "graph": {
+          "nodes": [
+            {
+              "mesh": 0,
+              "name": "storm_shop_radio_service_aerial_spools__cast_iron",
+              "translation": [
+                20.770000457763672,
+                0.07999999821186066,
+                57.20000076293945
+              ]
+            },
+            {
+              "mesh": 1,
+              "name": "storm_shop_radio_service_aerial_spools__copper_aged",
+              "translation": [
+                20.770000457763672,
+                0.07999999821186066,
+                57.20000076293945
+              ]
+            },
+            {
+              "mesh": 2,
+              "name": "storm_shop_radio_service_aerial_spools__timber",
+              "translation": [
+                20.770000457763672,
+                0.07999999821186066,
+                57.20000076293945
+              ]
+            },
+            {
+              "mesh": 3,
+              "name": "storm_shop_radio_service_solder_ring__cast_iron",
+              "translation": [
+                20.270000457763672,
+                0.07999999821186066,
+                57.20000076293945
+              ]
+            }
+          ],
+          "scenes": [
+            {
+              "name": "Scene",
+              "nodes": [
+                0,
+                1,
+                2,
+                3
+              ]
+            }
+          ],
+          "scene": 0,
+          "skins": null,
+          "animations": null,
+          "materials": null,
+          "cameras": null
+        }
+      },
+      "fixture_semantics_unchanged": true,
+      "runtime_data_unchanged": true
+    }
+  ],
+  "reused_dependents": [
+    {
+      "family": "diner_backbar",
+      "updates": [
+        {
+          "path": "art/blender/diner_counter.blend",
+          "before": "2e4751ea15af0b1cfadbc4fd42cfe894dc06bcf24616cfafad330a6171fc4d5f",
+          "after": "65a932bfebc8feefea006ff4c4f4d79d80c5d34d6b31ada4972115dda4028840"
+        },
+        {
+          "path": "game/assets/props/diner_counter.glb",
+          "before": "1ab3fe87d12e378627c9fd6a6551f467424d380d3b3e856bf5574786d1e413e3",
+          "after": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "23ac46e9b877b0f0309beeaf50bdc1a653e3aefd0ccddf17f26f41ce63d9c65c",
+          "after": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063"
+        },
+        {
+          "path": "art/blender/diner_till.blend",
+          "before": "98ccc6fc38d333dcfef74e73523b6e6f35a34fdfe9dabd40c4002eec6c595efb",
+          "after": "24f70da0e5b0278f91fbb0f280bed586aae94a6b3b0d9948e87d00f78d93408e"
+        },
+        {
+          "path": "game/assets/props/diner_till.glb",
+          "before": "b41b92978366124003d7c9be921b4244e2e6906f8d014e144a24cbab35ae3800",
+          "after": "9bfefeab432ae364893259506745fdd87593c1fb3c41923d5178091c141fcc54"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "70643b77a62d2314c7158b182e1a81cd8968473df8e3603f0892a236363457e9",
+          "after": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4"
+        }
+      ],
+      "native_and_export_unchanged": true
+    },
+    {
+      "family": "diner_urns",
+      "updates": [
+        {
+          "path": "art/blender/diner_counter.blend",
+          "before": "2e4751ea15af0b1cfadbc4fd42cfe894dc06bcf24616cfafad330a6171fc4d5f",
+          "after": "65a932bfebc8feefea006ff4c4f4d79d80c5d34d6b31ada4972115dda4028840"
+        },
+        {
+          "path": "game/assets/props/diner_counter.glb",
+          "before": "1ab3fe87d12e378627c9fd6a6551f467424d380d3b3e856bf5574786d1e413e3",
+          "after": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "23ac46e9b877b0f0309beeaf50bdc1a653e3aefd0ccddf17f26f41ce63d9c65c",
+          "after": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063"
+        },
+        {
+          "path": "art/blender/diner_till.blend",
+          "before": "98ccc6fc38d333dcfef74e73523b6e6f35a34fdfe9dabd40c4002eec6c595efb",
+          "after": "24f70da0e5b0278f91fbb0f280bed586aae94a6b3b0d9948e87d00f78d93408e"
+        },
+        {
+          "path": "game/assets/props/diner_till.glb",
+          "before": "b41b92978366124003d7c9be921b4244e2e6906f8d014e144a24cbab35ae3800",
+          "after": "9bfefeab432ae364893259506745fdd87593c1fb3c41923d5178091c141fcc54"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "70643b77a62d2314c7158b182e1a81cd8968473df8e3603f0892a236363457e9",
+          "after": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "d71a1f63118fef4b29b6270700a6a013f5cd8b86142100c3e83360ede62a711d",
+          "after": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8"
+        }
+      ],
+      "native_and_export_unchanged": true
+    },
+    {
+      "family": "diner_apparatus",
+      "updates": [
+        {
+          "path": "art/blender/diner_counter.blend",
+          "before": "2e4751ea15af0b1cfadbc4fd42cfe894dc06bcf24616cfafad330a6171fc4d5f",
+          "after": "65a932bfebc8feefea006ff4c4f4d79d80c5d34d6b31ada4972115dda4028840"
+        },
+        {
+          "path": "game/assets/props/diner_counter.glb",
+          "before": "1ab3fe87d12e378627c9fd6a6551f467424d380d3b3e856bf5574786d1e413e3",
+          "after": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "23ac46e9b877b0f0309beeaf50bdc1a653e3aefd0ccddf17f26f41ce63d9c65c",
+          "after": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063"
+        },
+        {
+          "path": "art/blender/diner_till.blend",
+          "before": "98ccc6fc38d333dcfef74e73523b6e6f35a34fdfe9dabd40c4002eec6c595efb",
+          "after": "24f70da0e5b0278f91fbb0f280bed586aae94a6b3b0d9948e87d00f78d93408e"
+        },
+        {
+          "path": "game/assets/props/diner_till.glb",
+          "before": "b41b92978366124003d7c9be921b4244e2e6906f8d014e144a24cbab35ae3800",
+          "after": "9bfefeab432ae364893259506745fdd87593c1fb3c41923d5178091c141fcc54"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "70643b77a62d2314c7158b182e1a81cd8968473df8e3603f0892a236363457e9",
+          "after": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "d71a1f63118fef4b29b6270700a6a013f5cd8b86142100c3e83360ede62a711d",
+          "after": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "d512dd1317b3b3d8963c3289b8923c11ad20d1f98b162d9d92a97d38d0c1e6af",
+          "after": "19e9a5dd2be6e8ce3c8f8a5699f9b4bd5fb6b497b92cde80be403fd8d5f2a09e"
+        }
+      ],
+      "native_and_export_unchanged": true
+    },
+    {
+      "family": "diner_overhead",
+      "updates": [
+        {
+          "path": "art/blender/diner_counter.blend",
+          "before": "2e4751ea15af0b1cfadbc4fd42cfe894dc06bcf24616cfafad330a6171fc4d5f",
+          "after": "65a932bfebc8feefea006ff4c4f4d79d80c5d34d6b31ada4972115dda4028840"
+        },
+        {
+          "path": "game/assets/props/diner_counter.glb",
+          "before": "1ab3fe87d12e378627c9fd6a6551f467424d380d3b3e856bf5574786d1e413e3",
+          "after": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_counter.json",
+          "before": "23ac46e9b877b0f0309beeaf50bdc1a653e3aefd0ccddf17f26f41ce63d9c65c",
+          "after": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063"
+        },
+        {
+          "path": "art/blender/diner_till.blend",
+          "before": "98ccc6fc38d333dcfef74e73523b6e6f35a34fdfe9dabd40c4002eec6c595efb",
+          "after": "24f70da0e5b0278f91fbb0f280bed586aae94a6b3b0d9948e87d00f78d93408e"
+        },
+        {
+          "path": "game/assets/props/diner_till.glb",
+          "before": "b41b92978366124003d7c9be921b4244e2e6906f8d014e144a24cbab35ae3800",
+          "after": "9bfefeab432ae364893259506745fdd87593c1fb3c41923d5178091c141fcc54"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_till.json",
+          "before": "70643b77a62d2314c7158b182e1a81cd8968473df8e3603f0892a236363457e9",
+          "after": "1fdb0dd3525ce17bd6fe58269c99f09f5724a5c2df9c04716137b9aa162007c4"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_backbar.json",
+          "before": "d71a1f63118fef4b29b6270700a6a013f5cd8b86142100c3e83360ede62a711d",
+          "after": "7d7c633ced2a58c9026fb4686582fb10a13016ff49c95d4961c7e634b55a59e8"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_urns.json",
+          "before": "d512dd1317b3b3d8963c3289b8923c11ad20d1f98b162d9d92a97d38d0c1e6af",
+          "after": "19e9a5dd2be6e8ce3c8f8a5699f9b4bd5fb6b497b92cde80be403fd8d5f2a09e"
+        },
+        {
+          "path": "game/tests/fixtures/orison_diner_apparatus.json",
+          "before": "e10207eec7703c8e24eeb7b2e5a004280cf1bbc30dce68b5be15628d5a19fac2",
+          "after": "5bcd0d49cdf933de05cd1cffbe478f6f54710792739ede91e40eb2acf7ecf38d"
+        }
+      ],
+      "native_and_export_unchanged": true
+    },
+    {
+      "family": "photo_receiving",
+      "updates": [
+        {
+          "path": "game/assets/props/photo_stock.glb",
+          "before": "6ab3dd06c096437f37566087ff6dab293b16cd3086848e8bcb149f1e02472965",
+          "after": "cf5bb93649d39119d52f861472607b05a19235870a11dce62e2f8810510d84d6"
+        },
+        {
+          "path": "art/blender/photo_stock.blend",
+          "before": "e64c09c63263ff8ba43dc9eb3280a75cab2fd8af937cd430cad902a3955ecc4a",
+          "after": "6e941179295c73cea9dd8f43d83b10ed7bf958d65da2fc1a724a185db0d4dfc4"
+        },
+        {
+          "path": "game/assets/props/photo_counter.glb",
+          "before": "ed21b0516bc65f1fa780465009bac294226299940134d1ac2e08dbc961c3333f",
+          "after": "208a4194d79b044ee3fb47f4e4ad250613f2bd648b437dd384bb1289813fc802"
+        },
+        {
+          "path": "art/blender/photo_counter.blend",
+          "before": "f234607b8c07c97d3cf26f278d9ba869a9add0d260ef21a994764854a62b5022",
+          "after": "11a1ba46d34ee16103ebd170b02ea199fb474d6d25eceb7aa783cc048f4a5eac"
+        },
+        {
+          "path": "game/assets/props/photo_portraits.glb",
+          "before": "30a5b098566666d650ac658504ce1559b6199c1482ea57caa0faf47632961472",
+          "after": "0b6aca61e68d665ba1b201b272d587d789db71be22b20f565ac02c6218f14053"
+        },
+        {
+          "path": "art/blender/photo_portraits.blend",
+          "before": "74bb89c3c5d42324fa061c423ec2af3869a660e727217e08dfba6c4e7ab46444",
+          "after": "9c2cc57bb6667fd7552f8e8d291b7ff9f3201556ffe61e647c2e29edf22fa777"
+        },
+        {
+          "path": "game/assets/props/photo_cameras.glb",
+          "before": "796c35815a286732d25fecf73790fd2ed3a187c8b835461880dab85a3b305baf",
+          "after": "f2fdbfce2370967d0cc4772b757ea31dfc7ef888e1149097d90992c5cda158de"
+        },
+        {
+          "path": "art/blender/photo_cameras.blend",
+          "before": "240ac9ea5b749ab03babcd214cba6a59ec04875d9a1c963ac9e8578a47d864f7",
+          "after": "471ad2ee4ecc6460156c2df3823a7abcb770ffdd615736d3de4378925a4018ce"
+        },
+        {
+          "path": "game/assets/props/photo_enlargers.glb",
+          "before": "67609f1168c0942bfef6571580af201f5dc000def2958a38916e71e5a4e84b32",
+          "after": "969f352a40d134e278c789c1cd4c607b730a339630315def7272f5d5843cd741"
+        },
+        {
+          "path": "art/blender/photo_enlargers.blend",
+          "before": "a2a1c9ab896e093a308472ea7e9778d9b73b918fb72bc4f74c709179f4ece74d",
+          "after": "dec2bbc3d525ed74d519e1cbb152335cb012304d25cc5ef6ccaece442f4485f4"
+        }
+      ],
+      "native_and_export_unchanged": true
+    },
+    {
+      "family": "radio_display",
+      "updates": [
+        {
+          "path": "game/assets/props/radio_wire.glb",
+          "before": "10decc6c1cbc49cf3c009f126ac2e69d27e74dc85595c4f50e059cfae220e855",
+          "after": "b4972672d9ccebfa0ca66274c53645c95fe8dc36482059f829c74eca41782893"
+        },
+        {
+          "path": "art/blender/radio_wire.blend",
+          "before": "a48e218d6073e9bc63a5af943f40ada04a5e2fd083da09f2f6b3b09b192fd95c",
+          "after": "920ce2e6ec150d8f72a64fbf9c186afdcb30f6677d643655437185c1a4e6aa3f"
+        }
+      ],
+      "native_and_export_unchanged": true
+    },
+    {
+      "family": "radio_receiving",
+      "updates": [
+        {
+          "path": "game/assets/props/radio_wire.glb",
+          "before": "10decc6c1cbc49cf3c009f126ac2e69d27e74dc85595c4f50e059cfae220e855",
+          "after": "b4972672d9ccebfa0ca66274c53645c95fe8dc36482059f829c74eca41782893"
+        },
+        {
+          "path": "art/blender/radio_wire.blend",
+          "before": "a48e218d6073e9bc63a5af943f40ada04a5e2fd083da09f2f6b3b09b192fd95c",
+          "after": "920ce2e6ec150d8f72a64fbf9c186afdcb30f6677d643655437185c1a4e6aa3f"
+        }
+      ],
+      "native_and_export_unchanged": true
+    }
+  ]
+}

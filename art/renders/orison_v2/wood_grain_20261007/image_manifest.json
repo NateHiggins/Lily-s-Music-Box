@@ -1,0 +1,935 @@
+{
+  "evidence_class": "INERT",
+  "images": [
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_counter/back_end.png",
+      "source_sha256": "009678c1b65eb936be172bbcc2cd579572cb15654f45d2f2fc97836dd9469e4a",
+      "retained": "native/diner_counter/back_end.jpg",
+      "retained_sha256": "d259b4e11618463458728f2faaba77347778febd9a50689bf1d7ade7addfdd69"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_counter/customer_front.png",
+      "source_sha256": "638a8fdf4e3a9968376db7fb13a850d51d47e0ad97ae9f7ca6b689390b9ba08d",
+      "retained": "native/diner_counter/customer_front.jpg",
+      "retained_sha256": "541fb26c6abd5528d7da59e21242a06d61b4589d0e9c21614bf79ed778e040b1"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_counter/folded_kick.png",
+      "source_sha256": "6efd60f77ca00dd1bec2e0a5e5b9ebafc8e253f1bb4ff1fb4be21308e3ada82b",
+      "retained": "native/diner_counter/folded_kick.jpg",
+      "retained_sha256": "1c13098687c7273a83899e30a8e1df140d40e41cbd38ecc269ce9293380cbf6e"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_counter/framed_floor_feet.png",
+      "source_sha256": "5ec5cc7da16147a3fa1e2c8a89e53c2584206eee13386971a1f72d8c9d656bf2",
+      "retained": "native/diner_counter/framed_floor_feet.jpg",
+      "retained_sha256": "39c577f298d6b3d3d1059cc625effb62f30c485b65f2884ff3bde98932d18335"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_counter/front_end.png",
+      "source_sha256": "a7e2e9669e9e3ea69c4cf0017ce59639ff54029950ca51beebfa02f5df2df894",
+      "retained": "native/diner_counter/front_end.jpg",
+      "retained_sha256": "60034c404199632411248d776e465d24c8a008ffd47276122c4ed9c40424d3e3"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_counter/ledger_seat.png",
+      "source_sha256": "cbe2d0d119228128a5b5bdae4c07ebefb11aa59ff57f081213bf82300c6d48f7",
+      "retained": "native/diner_counter/ledger_seat.jpg",
+      "retained_sha256": "9c4894ec8361d7911e4fb5c6ef795e9c5d47f139f897a0ca6963c36981a24ec6"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_counter/service_rear.png",
+      "source_sha256": "1804d8e184041c7bcd67cb76c6a8e2f7ea22c90ded4d110e8b88987ce92deb03",
+      "retained": "native/diner_counter/service_rear.jpg",
+      "retained_sha256": "63fcfe3139b11fb26351d1308207f2150ea67787d5e6a79f25ad1f4e46c538b8"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_counter/serving_edge.png",
+      "source_sha256": "ea7409e2a307db310613fb8438dcc5db14164d619e8ea4cce59c5be12384ba63",
+      "retained": "native/diner_counter/serving_edge.jpg",
+      "retained_sha256": "35d2622474bc552fc2e3a6247c6ec0141c0829b729d6b63eb35a24dd73ccd895"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_till/countertop_clerk.png",
+      "source_sha256": "e05a082f081b95e8eb9e43d6b98a2d2d8c77b916a54795be569a3b5da3a39ef9",
+      "retained": "native/diner_till/countertop_clerk.jpg",
+      "retained_sha256": "31e9564a3a101de417afaebe614556c4f8305aa180b3a589ae12fa6265f0cc8b"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_till/countertop_customer.png",
+      "source_sha256": "8279d84729eb168bea38eb8bc075342bb1b10196e3d48825151112923fc67e23",
+      "retained": "native/diner_till/countertop_customer.jpg",
+      "retained_sha256": "02660530edadc31f384d67711b3c6bc74086de851b7d6937b07bf0d8425014a3"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_till/display_empty.png",
+      "source_sha256": "7da6c230762e29f826a33c81aa93fe542f668ca8037793b041686a1cc2b5f6c7",
+      "retained": "native/diner_till/display_empty.jpg",
+      "retained_sha256": "9e56e6db708bc921ca85a5dff017173982eccaece1e5839439bdaba55711a7f7"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_till/display_glazing.png",
+      "source_sha256": "696d93e63c474f1e12a9d461e08dfc969d9d3c68c7ed355ad6757088e79b771b",
+      "retained": "native/diner_till/display_glazing.jpg",
+      "retained_sha256": "25a765c2e9b7a59670044583f7894da1d8fdd3986dd09843364691837cbd97af"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_till/display_posts.png",
+      "source_sha256": "166b68fc80c755a006fbd8e25c6f2c985e1b68828086293e0288c7bc9a7c9c4c",
+      "retained": "native/diner_till/display_posts.jpg",
+      "retained_sha256": "83c4db7ce75f6d342bb717f82ba49d6b5f9966a002839124b5296f7bd1a41346"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_till/register_back.png",
+      "source_sha256": "4ad0257d43228eb6d3773f02211e5e59391aee6aa0cdf7e10c244cb4c9a4001b",
+      "retained": "native/diner_till/register_back.jpg",
+      "retained_sha256": "21259b8fac5055ab1428058e7275b25098c70e02101ed98eff6185d02e9a6a38"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_till/register_clerk.png",
+      "source_sha256": "73f2559617bb19386174718f4f447cf81b39a768ef943f0610e56270cb16e310",
+      "retained": "native/diner_till/register_clerk.jpg",
+      "retained_sha256": "295e284e2ebc87597ca9e1bbd87b9ff826002bd535cf5f54a32ce9a0e2c6be7a"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_till/register_feet.png",
+      "source_sha256": "d5f9a7028dba70e7b815eed51c6ed1ef5ca5de101f4f2be533667bd2e818bc8c",
+      "retained": "native/diner_till/register_feet.jpg",
+      "retained_sha256": "5da4ec3f2706210632def122b89708f2ff6f5d0537c03594b14b8304ba6b6c17"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/diner_till/register_keys.png",
+      "source_sha256": "49e3bbbb1618d60293a12ed2a88bf692591c40a6b097ef09721a2c8dd4f7e158",
+      "retained": "native/diner_till/register_keys.jpg",
+      "retained_sha256": "5fbb378f7742ecd81014ab6a9daa5d6b2bca1bdd69f7949216cbc4843fa93017"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/hardware_tools/empty_tool_slot_detail.png",
+      "source_sha256": "b5fe577c49e1f5cafa1bd76500db6058e82cb7d51619ae04e3304bec5d60bdd1",
+      "retained": "native/hardware_tools/empty_tool_slot_detail.jpg",
+      "retained_sha256": "883ad7fad2cf5df9ce62cbd7d3210ddb4729438d01f45c9e1a857a458e3242a3"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/hardware_tools/storm_shop_hardware_paint_glass_rack_front.png",
+      "source_sha256": "a47dc336f636cf992a8c025a5d4ebc5a9b810d4a93364d43a742d06991e4a723",
+      "retained": "native/hardware_tools/storm_shop_hardware_paint_glass_rack_front.jpg",
+      "retained_sha256": "fb192a7a6a9b5f08ab1d2d87f40cfe4cee11408dd96e91ebc0069eb056931632"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/hardware_tools/storm_shop_hardware_paint_glass_rack_rear.png",
+      "source_sha256": "678e10103dd16e2977e7e87cfd7ae4680b03e70e42d16211e9fc8826c8449974",
+      "retained": "native/hardware_tools/storm_shop_hardware_paint_glass_rack_rear.jpg",
+      "retained_sha256": "241f8581fb0876b5d2fc61d73e20d6172dbebb5c871f52d56b1d362768d1eb1b"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/hardware_tools/storm_shop_hardware_paint_ladder_r0_front.png",
+      "source_sha256": "55ef286bce06dfdf76236f8b1e1b39f8c88a0bb68474bf91546ae384d85b1919",
+      "retained": "native/hardware_tools/storm_shop_hardware_paint_ladder_r0_front.jpg",
+      "retained_sha256": "23309e19dcab19e50f2c48e10ea62a1b94741bbb23735348b11707af5fcc16dc"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/hardware_tools/storm_shop_hardware_paint_ladder_r0_rear.png",
+      "source_sha256": "ea294665192307e617bc903478b5a87b9b472ef4beb225ffee9ab48ae57e3450",
+      "retained": "native/hardware_tools/storm_shop_hardware_paint_ladder_r0_rear.jpg",
+      "retained_sha256": "780bcdc961a8313c773eb62487000dff75aaabf4c14fef24f583d3ac2bfc2b79"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/hardware_tools/storm_shop_hardware_paint_tool_board_front.png",
+      "source_sha256": "1cd8ea87904650520d4fd4374a17e4ddf3d2b5bd8fd1123058ec802a2fe46612",
+      "retained": "native/hardware_tools/storm_shop_hardware_paint_tool_board_front.jpg",
+      "retained_sha256": "4f0d18afd6e759ecd147217c285f2daf3cd7c8cadfed297fc513c47e6d201cb0"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/hardware_tools/storm_shop_hardware_paint_tool_board_rear.png",
+      "source_sha256": "9988ba92a8f046e598cf12c9bb8c082afa906a90290fc05b43f77cc1d5a78e7b",
+      "retained": "native/hardware_tools/storm_shop_hardware_paint_tool_board_rear.jpg",
+      "retained_sha256": "9dd9f0639236a53271b40a70b73991ae43796d65dcc706577c6c67243d370658"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/hardware_tools/tool_forms_detail.png",
+      "source_sha256": "7ac4417596cef50cf730c15fa2e5aece2290c23bbb5ce4001e8e4d3126880a58",
+      "retained": "native/hardware_tools/tool_forms_detail.jpg",
+      "retained_sha256": "37031d853abb32359bd2a8f93e130077bae1a3d3a35138d171bc51721e7e43c5"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_cameras/storm_shop_photo_supplies_camera_body0_front.png",
+      "source_sha256": "6b15916ac9d2a7e236cac08d59e5d8dc7a6c6796a88ca7bd241c6fd4992746cf",
+      "retained": "native/photo_cameras/storm_shop_photo_supplies_camera_body0_front.jpg",
+      "retained_sha256": "1c9c0e9fdc22b0286565b054ad64c5f479ea09e9dd4a8629245d585d4f399083"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_cameras/storm_shop_photo_supplies_camera_body0_rear.png",
+      "source_sha256": "df4791cdd0dfd04de060507f2199c92f93fa9c5fcc8df01c1f362b0a337bd576",
+      "retained": "native/photo_cameras/storm_shop_photo_supplies_camera_body0_rear.jpg",
+      "retained_sha256": "6fe48c84bd3b4f2a12b6d4c097d73928b53a565d039b74bb855e364f13866af5"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_cameras/storm_shop_photo_supplies_camera_body1_front.png",
+      "source_sha256": "8b184ec22a32a6d42f4dc479548b840e99b865119a7a5eb1242100dba11a3a2f",
+      "retained": "native/photo_cameras/storm_shop_photo_supplies_camera_body1_front.jpg",
+      "retained_sha256": "deeb24e604c4ff5e7e44da3720349a9f73715f17e80e48eaf217c16a914d8db8"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_cameras/storm_shop_photo_supplies_camera_body1_rear.png",
+      "source_sha256": "359bdf25a216bab48922b506413cbf766669a3d2b41741472e89b153947d9a90",
+      "retained": "native/photo_cameras/storm_shop_photo_supplies_camera_body1_rear.jpg",
+      "retained_sha256": "2aa3c5826bd9f73ade5da07cc6441eaccbad72ddf5e3a1951fcafab99c089604"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_cameras/storm_shop_photo_supplies_camera_body2_front.png",
+      "source_sha256": "19f97065b56db87c68ddf55bc6d0035d9b5ffae505a705b2dd80eac9f5b9f321",
+      "retained": "native/photo_cameras/storm_shop_photo_supplies_camera_body2_front.jpg",
+      "retained_sha256": "27d519f7cd49fd6622d84d7dadc91552e0dfcab4f9420a9700ae025f6c171ecd"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_cameras/storm_shop_photo_supplies_camera_body2_rear.png",
+      "source_sha256": "64b10dbc62b867259ada70b967a73c7f186041afd136c0658189d52f63c76221",
+      "retained": "native/photo_cameras/storm_shop_photo_supplies_camera_body2_rear.jpg",
+      "retained_sha256": "8c9e67e6d77b09079c9c4842da0e989e2c80414cd82451cbe86299720699b16b"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_cameras/storm_shop_photo_supplies_window_plinth_front.png",
+      "source_sha256": "6f2f694c7a66c4b48ab24ed30207e569807fb00a6b77ffaec29c4f4d09bcf8f8",
+      "retained": "native/photo_cameras/storm_shop_photo_supplies_window_plinth_front.jpg",
+      "retained_sha256": "41bd83d8f49352b082b3719262fecd45b59fcea74863aa17454155b6c905dc6f"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_cameras/storm_shop_photo_supplies_window_plinth_rear.png",
+      "source_sha256": "2b29b55770588ad00839fd56f909aa775253582a3cdba7ae9368c467e92837af",
+      "retained": "native/photo_cameras/storm_shop_photo_supplies_window_plinth_rear.jpg",
+      "retained_sha256": "2e73f196d1dc105cf83c8a16766fb07fa54129db46f20e665af0d7822c7f0fa3"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_counter/storm_shop_photo_supplies_counter_front.png",
+      "source_sha256": "ea3a075c4416315da30fcac44a2648345ef3ed59179be0204144d15036966bec",
+      "retained": "native/photo_counter/storm_shop_photo_supplies_counter_front.jpg",
+      "retained_sha256": "9f5d3cb9dc030799b922c6720906c89ee8b64cceeb5f115f0808b4028214439f"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_counter/storm_shop_photo_supplies_counter_rear.png",
+      "source_sha256": "4289030993ced57dad6eacd58a668ac1cf698b4bddb27363b9bd7c9c4b8d8366",
+      "retained": "native/photo_counter/storm_shop_photo_supplies_counter_rear.jpg",
+      "retained_sha256": "4a5d923bb6fcb6a99e9a92e2ceb16c55c320c84ba7b4c7d8f3d4c5e954869bd5"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_counter/storm_shop_photo_supplies_ledger_front.png",
+      "source_sha256": "7e8166479edd63fb8fc2d0b7bddb25593b4ad4c60911a6c12f2a37805176cea1",
+      "retained": "native/photo_counter/storm_shop_photo_supplies_ledger_front.jpg",
+      "retained_sha256": "81b64d05234e259eb5dd0b08a9afeb540cab45c4a340d28ef001ca769b2e9124"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_counter/storm_shop_photo_supplies_ledger_rear.png",
+      "source_sha256": "8d9c8b6b674ccd43be2f3e4517e9af2937dc2c62ad1d84d430dfea44ec3ec8ea",
+      "retained": "native/photo_counter/storm_shop_photo_supplies_ledger_rear.jpg",
+      "retained_sha256": "1fa85f4dc2963506ad785ce002cc97fd9214e634dd637351c4e99375f747b83b"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_enlargers/storm_shop_photo_supplies_enl0_front.png",
+      "source_sha256": "d529b75afc1ea20bb7d7a0d913c5f948520ace18fb2f26a98d3aed0383ad940a",
+      "retained": "native/photo_enlargers/storm_shop_photo_supplies_enl0_front.jpg",
+      "retained_sha256": "e0d218678e8cad997868638ef0106ddb885b8fa5a9f51baf854b3f4976e54a80"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_enlargers/storm_shop_photo_supplies_enl0_rear.png",
+      "source_sha256": "020201e2924b978345c83b5124088581af8dc1416ada0f10a2f571df62d3e8dc",
+      "retained": "native/photo_enlargers/storm_shop_photo_supplies_enl0_rear.jpg",
+      "retained_sha256": "067c14990acfa8b857a576efd4e2afe794dda02bae50cd34860581acc7d59bfa"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_enlargers/storm_shop_photo_supplies_enl1_front.png",
+      "source_sha256": "2d1a66119d27d7007bf944d4185498804fbb662ff54cc843d4617e6d7a2ed904",
+      "retained": "native/photo_enlargers/storm_shop_photo_supplies_enl1_front.jpg",
+      "retained_sha256": "970d0d09518a908518b5b2f140d62c4f1f327f60566d230a3f8c254477f9996f"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_enlargers/storm_shop_photo_supplies_enl1_rear.png",
+      "source_sha256": "56e8a948d8bd042d38222755986984c46ba3a369762962409b488a8252830ca9",
+      "retained": "native/photo_enlargers/storm_shop_photo_supplies_enl1_rear.jpg",
+      "retained_sha256": "bb3ad5a6b2d31964335191eb073c852b2c946957113210ee37c23e0ccfab041c"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_enlargers/storm_shop_photo_supplies_enl2_front.png",
+      "source_sha256": "30a4d4b109b866d993ee58266790e84eea9e35752e850b2b2e6b39d779ae92d6",
+      "retained": "native/photo_enlargers/storm_shop_photo_supplies_enl2_front.jpg",
+      "retained_sha256": "6c5d6e8168bcf646227668ebaa2de415c9938ea4e2f437aff28068a0647e9627"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_enlargers/storm_shop_photo_supplies_enl2_rear.png",
+      "source_sha256": "8840190f825d6117e7b5e124068090fcfd60cebcbbc7aadf37d1f8b4e2274de8",
+      "retained": "native/photo_enlargers/storm_shop_photo_supplies_enl2_rear.jpg",
+      "retained_sha256": "e9c948749cdc2ad15bf7805ec9d71e2f08ba9432bf66595ee93890df63fc8da4"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_enlargers/storm_shop_photo_supplies_enl_shelf_front.png",
+      "source_sha256": "3ad43313415f341980ec27614f7eba571ab339c3293f70fd1b71b4bd6e910c59",
+      "retained": "native/photo_enlargers/storm_shop_photo_supplies_enl_shelf_front.jpg",
+      "retained_sha256": "1f5f8773763da6d8dcfe2e7930bd985425afe505f58c76f91302ec4cc64f967e"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_enlargers/storm_shop_photo_supplies_enl_shelf_rear.png",
+      "source_sha256": "87a34e5c898d731c7554dff1fe590850721e01fae82971f6e5de67192b804e7d",
+      "retained": "native/photo_enlargers/storm_shop_photo_supplies_enl_shelf_rear.jpg",
+      "retained_sha256": "822046944c834b61240a8d902d407e98695c575769ab618b3a5b6f0c970f564f"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait0_front.png",
+      "source_sha256": "e7575e35325446de092dfab9c757bc8df69869dafe9847a276af4f19a27c9b47",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait0_front.jpg",
+      "retained_sha256": "289b4b86ed46932fa8bef6205d10d916529a879b71ceabea699e87d4bffb6315"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait0_rear.png",
+      "source_sha256": "c4e81b5ef096b6c585ddfad659f53d8c423a2b5fe8f8623bceba63e4f6aa032b",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait0_rear.jpg",
+      "retained_sha256": "46b0313cf89f2278a44f8c98130505295311cb10d195a78d27ab4297d45eda2d"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait1_front.png",
+      "source_sha256": "2a677efc8f9a40b771e187660ec4bf4975521d89822d6e67dab9bc031b45396b",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait1_front.jpg",
+      "retained_sha256": "fc03685be56a86ac26ca1fa0510f65295af630e1a9774aab2dc58ab4515dbb73"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait1_rear.png",
+      "source_sha256": "529435c1d8f31f8c6adbf3b4022060807195ec79345dd656538a979484420904",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait1_rear.jpg",
+      "retained_sha256": "d809d18bb490e56b38fafa089605ae5d2b4bc430959b63586e90f06b09e2b37e"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait2_front.png",
+      "source_sha256": "b372ace253fdaf550f266d80cce7095071aef72b9f98b85058514de7b4168ce2",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait2_front.jpg",
+      "retained_sha256": "7043dd4c721365e7ed154b96a496a2200ce7bf4194bb4937db1adbb9ded7269d"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait2_rear.png",
+      "source_sha256": "985ec46c75d532ad56dc7c517d69ed9d4ce6cfd414f2b20db3d36ff444eb63f1",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait2_rear.jpg",
+      "retained_sha256": "99a3b9f7a46e2fffb0df7dfccf51164cc1ba956055fbeedf725f97c2fc4057da"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait3_front.png",
+      "source_sha256": "7f8ee4d87b3d3ab275e514589ccd104eb3152eeb590b006da5063f6f8a248155",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait3_front.jpg",
+      "retained_sha256": "e320d991039c244288ec45a1f5fdf03fb199a1173a40e5f59e66b8975738ffc4"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait3_rear.png",
+      "source_sha256": "f9140114e0546cf9204c97109c476856bed4957c40f43e23559d0535948dd665",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait3_rear.jpg",
+      "retained_sha256": "058e4568adfc66cc643d88a89f611e761282f293a04927fb869f0632c7c49fc3"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait4_front.png",
+      "source_sha256": "b281250760662735d3a443d77a0df3f2f187724793456190ec8f6cc53023a191",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait4_front.jpg",
+      "retained_sha256": "b87209431ecfb092c17121585b91a4974345ad4588895fe3a72024566885cca2"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait4_rear.png",
+      "source_sha256": "93166e3eb5a92d5e81c482e01f4e840553468936a662fe6935d93aec9fe31bdf",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait4_rear.jpg",
+      "retained_sha256": "06e31a6a2fbece16fa9850567267f62360d51525829fe2cb4807faa711e8e218"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait5_front.png",
+      "source_sha256": "c7b662fec1491f249ff4f0aa9313532a487bd2734f7555499da7738b4f0273cb",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait5_front.jpg",
+      "retained_sha256": "8be94fb7e7730b5dd51dee3ce261fbf21bb37dc94367cc0638da25f6cbaa3494"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait5_rear.png",
+      "source_sha256": "844644a90439a03097ecfd02b40864caf1ea0a4d2f28e5019171f3fcb723a81b",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait5_rear.jpg",
+      "retained_sha256": "fe3576bced5a26fc17178fe47d831ae713d27fa1f21b678dc7665619d4d50b3f"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait6_front.png",
+      "source_sha256": "54d9837d98c2a5954c1f5398c6e78ab1c1446aa27ba1f42ac993a17f90973e25",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait6_front.jpg",
+      "retained_sha256": "6fbc791aa43e50f464d5e60683e108e826c03ec290605af05181f5ed4bf0e692"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait6_rear.png",
+      "source_sha256": "b3733473d14778df1aa405a99372de83cfa9cc0b1f9bf883de556310d8ce1776",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait6_rear.jpg",
+      "retained_sha256": "d588618aa7c644ace27932e561d094826964fd8b3c7ff59cf622b4c213adfc4b"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait_rail_front.png",
+      "source_sha256": "730e7487cc2567d59e6c6c0cb9515c1a4d387358a3a16e6ab061c1537b6e6b1e",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait_rail_front.jpg",
+      "retained_sha256": "45d08a7ceebc02ead437c8ad8492cbc0c99b3dc6b0b5f7287800208b75d94cae"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_portraits/storm_shop_photo_supplies_portrait_rail_rear.png",
+      "source_sha256": "3eecc6ff3d2bf28497717ee4e254bed60dcab9221651f3594631ddc5ef21fb6f",
+      "retained": "native/photo_portraits/storm_shop_photo_supplies_portrait_rail_rear.jpg",
+      "retained_sha256": "66ff1c890f3387d67883d237e241aee387d74591332d4e96098189a70dc17278"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box0_front.png",
+      "source_sha256": "2d2b90887d80d9f21457220de41190b8810af4f96340cfac7c937372ad814b62",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box0_front.jpg",
+      "retained_sha256": "c56a1a7656893470a303943235f6c79df80aff9596779ddfee89a0afa99a3298"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box0_rear.png",
+      "source_sha256": "a1ebfadb5b084c09a05347b872861e1c1a85fc627653111269036b7ecedb1ad8",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box0_rear.jpg",
+      "retained_sha256": "dee67097e48013b40181f7715f73e122dcd8e0ca3127d9f9b92a2fe41c87297f"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box10_front.png",
+      "source_sha256": "5d817ea5839b958c0c66c3cb396689e9a6a8bbe3ab8ed8dfce6091cce17b849f",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box10_front.jpg",
+      "retained_sha256": "7b669fe86d8224758b258c3afcad34f3a492e42716e551075c891dc4351b613d"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box10_rear.png",
+      "source_sha256": "d757384c73646d2a3bff5c57e88044a804cd4e4f56a6fe0b225093a862eba93e",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box10_rear.jpg",
+      "retained_sha256": "87fd0c3a541cda9f51c9fe5c9933ccb15b3777671ffe66695e9d73447722b1f8"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box11_front.png",
+      "source_sha256": "b4e686204a5ced11abce6a95d939fc25c45ff174521846d7c2c89e79bc640729",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box11_front.jpg",
+      "retained_sha256": "cde021f2a861e9579be37d42e71e3f7dcac444a1786b26a8fae281e1fdc1c514"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box11_rear.png",
+      "source_sha256": "0a2b852856c11b947e18bd1ea7c05d55e72835cb94610c0e16f62cad3a1f3d0e",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box11_rear.jpg",
+      "retained_sha256": "4219dbd3b82bd1e8611bb52309e88c52858621553957f333da6d9406c6a9cafe"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box12_front.png",
+      "source_sha256": "6f9173eddce83438c7c244bdeef534d3db26ba4436c57219d55a657960e63ae0",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box12_front.jpg",
+      "retained_sha256": "a2a38ef815a3e4f67ec1dda86ba76f9709491aed521a68c8568af30ba1c3b42e"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box12_rear.png",
+      "source_sha256": "1f932bea4e0fa14486d9e317000e4fccf76d568473bcb6ab4f127da13d15b834",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box12_rear.jpg",
+      "retained_sha256": "392a0b66c7bff435829cd9a98917528294c91128b4d53bd3960553e9721670be"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box13_front.png",
+      "source_sha256": "6c751fbb1b61d37b70f03665d7a3d431dc5747a990c93c22c29f73cc6b02ad8b",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box13_front.jpg",
+      "retained_sha256": "c59f865cc354e6d9e3918ab4b43e4b42496ac68f8be7d38a84a899f2fdd69563"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box13_rear.png",
+      "source_sha256": "6a3006c56b5f2a05ce570829292a39388a6eba70f1ddbce36982586ffc182f42",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box13_rear.jpg",
+      "retained_sha256": "9d45118fccf04e0d2570b081fbf1fb113461beb5c63e1906ae96320d542e0168"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box14_front.png",
+      "source_sha256": "cdc6a6cf9cd54eb77254a83892793383ee7d5a2b4b16f2aa087325a750675c03",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box14_front.jpg",
+      "retained_sha256": "d3efe31e5e3e48c17c6b3bc5ddfb1dc22e1a1ae6451f7b7c1d9890a727363187"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box14_rear.png",
+      "source_sha256": "32a9bfe2db20eb43d2e00bdaded28202fc189032ddb9791d8954e1210a7c5e92",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box14_rear.jpg",
+      "retained_sha256": "2cefbe7114c38ead0da24389e78dc08e218b401e787cf7db6f28ed60f7286992"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box1_front.png",
+      "source_sha256": "b64df42b2890cac7d03bf8bdff17744fd0247f58f01908e66a37f4685914375b",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box1_front.jpg",
+      "retained_sha256": "ae9c95ccba8cffd858447419937ecc513c98dabf39b82a219d5a212bc8180646"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box1_rear.png",
+      "source_sha256": "dcecbabff7e3d36a76ce39b164d9b90b113befedeab1e630f1d230a1e8071f5e",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box1_rear.jpg",
+      "retained_sha256": "e74150f161585cfe70902a415886641e8e433c8ca1aa701f665697ff3e63aaa8"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box2_front.png",
+      "source_sha256": "0349f4e8c885ec54769fa8adcc11e888c8aaf99d7080b30ac383754219e402d5",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box2_front.jpg",
+      "retained_sha256": "55f436f5e2e76cb2c119c37b61223d2b4ff1529b4a3ff83a2a38937b10d4bc61"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box2_rear.png",
+      "source_sha256": "3ed6f4db6307e44b83e1c084bd9635255d750a68927cbf9dee9b18ef0fc5d064",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box2_rear.jpg",
+      "retained_sha256": "62cd4724ead3b8abdaa29bedef05f5bd1f7803b47d931c1d0b4927d6215282d3"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box3_front.png",
+      "source_sha256": "af727686632d33dfdb4a141ff033ec2b8771655bcbeecb0347f01d3bcde11d5b",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box3_front.jpg",
+      "retained_sha256": "b860b5c361ff2394850141784ae5025601ad3bf49aab2a3fd1b146e80e97e197"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box3_rear.png",
+      "source_sha256": "b2193171a7a5d6b81bcb0cd02cf727e1b127219e621fe9db3430cf4d6194e114",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box3_rear.jpg",
+      "retained_sha256": "a3ef159c3bd75d28e368b55b064820a799142b95053ffe1fa3706246d4541ce5"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box4_front.png",
+      "source_sha256": "878da2c6fb0f1d844644d2417b3109480598d7ca5cdd7365354209b8b707d8dc",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box4_front.jpg",
+      "retained_sha256": "dad2db302672de88ccd669f8c96619699d73948c913d92f82c921d57c6a18d10"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box4_rear.png",
+      "source_sha256": "2f04f77492ef5706f685932aa2229c6c7ee5065ea32d0f0308f7500939bfdafe",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box4_rear.jpg",
+      "retained_sha256": "c5405250d706dbe47caf6fcad5525db52ea65a7cf1702e1e2b0029587441d010"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box5_front.png",
+      "source_sha256": "a6e0bc2ff4cff2b4c20c218c1d4045e5a733149330af179d321d6396946ca8ea",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box5_front.jpg",
+      "retained_sha256": "86a7c807e68708bea3cd9e8d1f63d807164a21835f1d7c5be7a736cf5d58549e"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box5_rear.png",
+      "source_sha256": "3e194c9e6eba69fd5fa762577faec6a26e31879f0733ae8eef5183a417a52401",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box5_rear.jpg",
+      "retained_sha256": "de9c302481ded4977538074d136b28f1b39a055f705907bd876802e53df26d30"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box6_front.png",
+      "source_sha256": "33fcf29ff37f9de9cf416512ba7f0db0b3ef2be9a3ea40e5247b2ed6d3100a2b",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box6_front.jpg",
+      "retained_sha256": "09d063c0e4976bd8cc4131de1c454596e65e1c1a0b1a9205f7e32a5ced0d23ce"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box6_rear.png",
+      "source_sha256": "c6105f28b5ee7781cad4030258b68ae324dfcd0cb0b5edde8b62c0c7f0447744",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box6_rear.jpg",
+      "retained_sha256": "d0b2584558e5b501e02494e136302b8321b073344e7635c77c49dd03f9c4f97e"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box7_front.png",
+      "source_sha256": "19b05bf1bfb99763ab310900c69aeb65590092ba5ab3afd84593f82c3ca06ba1",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box7_front.jpg",
+      "retained_sha256": "ec0f0aec51900637531011bd6fce137e1d96c19bf6285834ed8376d4e70fb9fa"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box7_rear.png",
+      "source_sha256": "789e6747d5150ba7eedf4a01d5d64e53caa6015428c8fa9d8a919302d1cbaeef",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box7_rear.jpg",
+      "retained_sha256": "b8c285f2d35330946ebdbd11b790373a6d6719d19d2b22c59f5447c8d13d3d0b"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box8_front.png",
+      "source_sha256": "11d86800a9ab425e86a71ad24720cf2c51b124e688156c160274c1c93af2ec19",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box8_front.jpg",
+      "retained_sha256": "8d72e90a67e6ffc6cd445d743b04941e156c264d04eaa3fecfd06005a7eeab16"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box8_rear.png",
+      "source_sha256": "91cde59f069cf80ffb401ae3fd38a1267a93073908d86d5b1a523a0f25174f08",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box8_rear.jpg",
+      "retained_sha256": "88ade2cd2d8c55606c11617e5ccfbf5ef0a1558ef3832905292f9c744e82ea3b"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box9_front.png",
+      "source_sha256": "2db2f734ad5190cdf9d17a70b5702f4913f39ea7f2e28ee751466c48c888c8dc",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box9_front.jpg",
+      "retained_sha256": "07ac96f2bca4c82242f5248ce396759acd5e5810a772ce40a5b152fe9a934e60"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_box9_rear.png",
+      "source_sha256": "e2bb2664cd3071273c49991970d298220f941b8b26f57a2cff1c6b7ea54a7544",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_box9_rear.jpg",
+      "retained_sha256": "dbe303ebf8cbc05fe9902534679e3f729a26a1ce241e033bb48599026e8b0533"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_cab_sh0_front.png",
+      "source_sha256": "637f576a42003c4c4f9bd520c6aadcd0d6d42a7d31f34ef66fbd69159b8788c7",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_cab_sh0_front.jpg",
+      "retained_sha256": "2c6720deabdb2fb8bbc2d2afa305a2afb19bd44b542e2e560e85a66a76d2d9e2"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/photo_stock/storm_shop_photo_supplies_cab_sh0_rear.png",
+      "source_sha256": "a599c56cc0b10c1fcc8f69d81871158ae2979ea4bf923c90436cf159a0d8ee22",
+      "retained": "native/photo_stock/storm_shop_photo_supplies_cab_sh0_rear.jpg",
+      "retained_sha256": "54bb0ca14e08eecc50aa7d60eebe0086b232ac01769e2b83a46f614c4f14e62c"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/radio_wire/copper_winding.png",
+      "source_sha256": "a216b5a4493b804ca3b7f5600b9092b2c5992649c02074b319ec75763ad67217",
+      "retained": "native/radio_wire/copper_winding.jpg",
+      "retained_sha256": "fc778cad23ccc1042dddf68732f7c6b569292ad4ec935a003d6b6d5908295f9d"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/radio_wire/finite_iron_ring.png",
+      "source_sha256": "69407561868f2ccdd77c265476ce61b1c82c8990d95509cc3d11a15384c24d47",
+      "retained": "native/radio_wire/finite_iron_ring.jpg",
+      "retained_sha256": "d918a52c037f56867213d8658bec90f1b5e7e319577bd2b367467c61354f22dd"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/radio_wire/fixed_spindle_bearing.png",
+      "source_sha256": "a1d1ba020255b2fcd0ff8caff57fe25f3c1c8f97d0c783b8ea05cf9f7af7e966",
+      "retained": "native/radio_wire/fixed_spindle_bearing.jpg",
+      "retained_sha256": "6f226b0e294a8caf75183c1d379a339b07cd0085e7d5fb8658663d89792956ec"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/radio_wire/floor_feet.png",
+      "source_sha256": "bcde09aee9c26a7455544a26b37ad4f5a7079b44a37561ad559798b80fa35b8f",
+      "retained": "native/radio_wire/floor_feet.jpg",
+      "retained_sha256": "c82447862d581f0f6fe1f28c9a9805527a7bff44ba94066cea26107972effea1"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/radio_wire/native_floor_bearings.png",
+      "source_sha256": "9396b4c651b703c2e852796cdafb3ab97001e8f17dc72afbf76f582800ab0bd4",
+      "retained": "native/radio_wire/native_floor_bearings.jpg",
+      "retained_sha256": "f6d31071057f610192ca2f0fabedaabdfa50977c6c515af151cf789a6d33c845"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/radio_wire/open_ring_centre.png",
+      "source_sha256": "0cb139f133e4c3ed3055d3f6ed936d699c6a244a6d077f8be8359436aedf87cb",
+      "retained": "native/radio_wire/open_ring_centre.jpg",
+      "retained_sha256": "4f5970eee13bdb4ae8ab6280d3610f31cee224d9c920673db9bc7c80826f206e"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/radio_wire/stock_front.png",
+      "source_sha256": "d74fe3915b6b4727b312c32fdc12f6c8012c906b0020eb9f548dc5ef2812b510",
+      "retained": "native/radio_wire/stock_front.jpg",
+      "retained_sha256": "78f651b92e4f162451c57a437179f7b58caa51f96de51d23863918e7bd0cba05"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/radio_wire/stock_rear.png",
+      "source_sha256": "aab5f027a8744a31d106a4ccc501f95165a205e3572932766ff6087ac773cc51",
+      "retained": "native/radio_wire/stock_rear.jpg",
+      "retained_sha256": "68e1f7bf0539e3c4ef01e4d930ed9cc4312184eca2128754755f3322229dbc1b"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/radio_wire/stock_side.png",
+      "source_sha256": "9bfcc994a9e52a18d6d6f2b2e84d811d3bab9660531a1b7bdc86f2ffb90c0fed",
+      "retained": "native/radio_wire/stock_side.jpg",
+      "retained_sha256": "b6da9f83065bd239d66315924338edb1ff50da664e891e4a1a9ab94c6ce4c676"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-native/radio_wire/two_closed_reels.png",
+      "source_sha256": "e5dc1b2bf63501d68a3b0b161e9818d071d37e156473c9e50331c61137fb3007",
+      "retained": "native/radio_wire/two_closed_reels.jpg",
+      "retained_sha256": "f5131511f353fe34d53c41c3b2fc715a6b1ea78763dcc952afc81b7b7475772d"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/diner_counter/counter_customer.png",
+      "source_sha256": "b7a77143aec8e6e58de35540954932166b032cc0e9aa0dd11a7b1931d46f6a89",
+      "retained": "runtime/diner_counter/counter_customer.jpg",
+      "retained_sha256": "69e38ff3eae02c4c454ab94b369e57b756d0eb88b7b41484ad97b36cf6786b2c"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/diner_counter/counter_service.png",
+      "source_sha256": "8e83af96c6b6ffd62324a0609282243d5c759fe5e0a4f21e705dfc870e791af4",
+      "retained": "runtime/diner_counter/counter_service.jpg",
+      "retained_sha256": "7d021c780af312c3383d85db149e49e182ba85a8186e237ecbcea0776c08ef9a"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/diner_counter/folded_kick.png",
+      "source_sha256": "e5e2107526c8d2e6ccbbeef4b02f4552a1d19f7db5255a9d444de6d7f2ea0e13",
+      "retained": "runtime/diner_counter/folded_kick.jpg",
+      "retained_sha256": "d6b53d23452ee798aff0a25d6373beebf801d69e436f8b5b06a4cf8106d0b578"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/diner_counter/ledger.png",
+      "source_sha256": "bd067f4568b8228ec0dba4fdb2a1b498e0d7af26985aa1fe6717aa79194045d9",
+      "retained": "runtime/diner_counter/ledger.jpg",
+      "retained_sha256": "1dc1ec0ca11e4a6b0c6a02f90271c00d675a2f313e83c561df1dc86a28a843eb"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/diner_counter/shop_context.png",
+      "source_sha256": "b55825e807f6545dff3599f427ef45d00c2114018500579a765e9ebbfe03c534",
+      "retained": "runtime/diner_counter/shop_context.jpg",
+      "retained_sha256": "c4787bc24ffbf2ee66ecd1cc612d71f0d3c20019360a7e958bda5bdb9456fe47"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/diner_till/display_clerk.png",
+      "source_sha256": "c84e47c22989b940a81a7e9ea195177ca9f2c8906d855ca5295c5f9eb8ead5c8",
+      "retained": "runtime/diner_till/display_clerk.jpg",
+      "retained_sha256": "431075fa7371c02e6775d95127ffd989a58355636222cd02ff4c841422071bad"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/diner_till/display_customer.png",
+      "source_sha256": "1815c2e73cfd1a606462d97b11964566cd45643d3c18cbac80ba1f28b2dbba86",
+      "retained": "runtime/diner_till/display_customer.jpg",
+      "retained_sha256": "85d866308005838d57b43ccc260460d86201001220c73897655656ee44490fe7"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/diner_till/register_clerk.png",
+      "source_sha256": "47da7fd6c9d215acce469602d87b643b0cb49c8067ce0e9069db9a8cc75a1132",
+      "retained": "runtime/diner_till/register_clerk.jpg",
+      "retained_sha256": "2922fa0ac3f3370e5f2ddc3bae09fd12d86cc39b943dce5e830dc4ae0c397c84"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/diner_till/register_customer.png",
+      "source_sha256": "0ff4d93cac1ef97b71fc3baab977b585fe4cd675679a01857237d9b447ef5165",
+      "retained": "runtime/diner_till/register_customer.jpg",
+      "retained_sha256": "94d25b5ba731663ebe16d696c09f742b0416367718527b561201f169c327de1d"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/diner_till/register_seat.png",
+      "source_sha256": "f6f908a6ced5da922ba860cdcec040f36dc6992990288cd7811b7c6b26efe20d",
+      "retained": "runtime/diner_till/register_seat.jpg",
+      "retained_sha256": "6699d6358d7a71f198e686a790ca5b41194e594a422526255d1f6057db5d03bf"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/diner_till/shop_context.png",
+      "source_sha256": "f076357575465a7b258ba18a4c2b07e11273dafbd3def0b7a8b369b6b82712f5",
+      "retained": "runtime/diner_till/shop_context.jpg",
+      "retained_sha256": "e6ac3594f51a9b550981cc4300dab1bcec2b38b843aaa9e9ee3c90062a1ee254"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/hardware_tools/east_stock.png",
+      "source_sha256": "88fd0f71a805571c51d4a03d9fc4af91da95918d6287caf3c62c02b664f359b9",
+      "retained": "runtime/hardware_tools/east_stock.jpg",
+      "retained_sha256": "be1a085f6601cc123d15e417a8ec4c0afe1d24269e189e9a2e0b5e6bc09d183e"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/hardware_tools/empty_tool_slot.png",
+      "source_sha256": "7535d227e8bd375908da9f37afc514610f2e40e325593b2e96a544872e5a8365",
+      "retained": "runtime/hardware_tools/empty_tool_slot.jpg",
+      "retained_sha256": "a955410f309007b50c691152c360d2a061a0ce50e854268a52d255092d97f862"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/hardware_tools/glass_cutter.png",
+      "source_sha256": "c0fae743a2dbb7282c4322fe410523ce40f889541100fa328f59540ef431172d",
+      "retained": "runtime/hardware_tools/glass_cutter.jpg",
+      "retained_sha256": "a85bd5f94207253f7ff26eae86fb5ea39998e6ff4883168724e8ae5b7abb7924"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/hardware_tools/glass_stand.png",
+      "source_sha256": "ce8987766c01f7c6f019a3787f6c3b9031a9f907e43bb7fdc4f56c6c18dab4df",
+      "retained": "runtime/hardware_tools/glass_stand.jpg",
+      "retained_sha256": "cb5be464ffdf56122183ffb92041a4431b3fc095d4eec87ba664b8a28d3111a5"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/hardware_tools/ladder.png",
+      "source_sha256": "ec570ea3c18a1efe7b1df2b1952dbf54134dfad9cd7b00a001b5f3fc53d608f3",
+      "retained": "runtime/hardware_tools/ladder.jpg",
+      "retained_sha256": "96e60f4e3a16ba715b3ae4dd4ff9aac318a04a117b6f31f6147c70b014acea19"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/hardware_tools/shop_context.png",
+      "source_sha256": "eea0b0b5a3554d6593b6a07841d2506e1ef976fca7545554056970c7b735b1ce",
+      "retained": "runtime/hardware_tools/shop_context.jpg",
+      "retained_sha256": "91d0ca3a0c9bdf7da448de8010587331033c5c812b7a6cbf91f081fff2707c49"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/hardware_tools/tool_board.png",
+      "source_sha256": "3d4bcfb70a1b95cb26a6fce047bf4652f743aa1a2c494a8154d82f30c2110a7e",
+      "retained": "runtime/hardware_tools/tool_board.jpg",
+      "retained_sha256": "5aa5e84c8250248d2a57abf231ffb194f534fb0883e48fe478bf25298235580b"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_cameras/box_camera.png",
+      "source_sha256": "654a680ff811bb2c46c3ab35d96f87d069d8089f995f83289c2910c21c1233e6",
+      "retained": "runtime/photo_cameras/box_camera.jpg",
+      "retained_sha256": "4c898dff601308cd1d631849a3d29a6bc54f58d79af7025a9c0201454bc7371d"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_cameras/camera_forms_detail.png",
+      "source_sha256": "ee45f939a2136e83efa10411f447365c105fce4200d1aaa9102468d409463658",
+      "retained": "runtime/photo_cameras/camera_forms_detail.jpg",
+      "retained_sha256": "6bdcec090caca2bcf4abeae0c9857e4fb29a0444fd9c8faf234be359280e063f"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_cameras/display_back.png",
+      "source_sha256": "c3cfd672fcdafc4db584fa540963b85f5fce5a1634ecd46b946b799f5423fe63",
+      "retained": "runtime/photo_cameras/display_back.jpg",
+      "retained_sha256": "f2735b8da9f80388ad105a7d6c7b03f76271009c55c7ca54bd0fdd31b94a4f88"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_cameras/folding_camera.png",
+      "source_sha256": "666419fafe58f8b26951432dd3b06c6c4bd900ee2b9a504b909fea210579e227",
+      "retained": "runtime/photo_cameras/folding_camera.jpg",
+      "retained_sha256": "50c70004b2a29c4fe267dda5f65cbcab2ae24c9c1dba3aaf25cf39dfa322d710"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_cameras/press_camera.png",
+      "source_sha256": "3766d2cc825ded24bb0a46535b8df7061819cff3584d05a9428135f0f2b69282",
+      "retained": "runtime/photo_cameras/press_camera.jpg",
+      "retained_sha256": "294dce4c731826d5a8a15768c321e20cbda804f8e0acd401831fc793524202c9"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_cameras/shop_context.png",
+      "source_sha256": "fdb1e2f6f8507cf0e53ced760b60925cf268405b23892457938b39068aedc5e2",
+      "retained": "runtime/photo_cameras/shop_context.jpg",
+      "retained_sha256": "1643ae8b0d8607f99898ec931e9b182d1d350ffbcc63066922753cbb20613b45"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_cameras/window_display.png",
+      "source_sha256": "04ee035f404233a98c28017c91851eef4a3abc649908afc2665521f3066900e0",
+      "retained": "runtime/photo_cameras/window_display.jpg",
+      "retained_sha256": "3b9cc4df92d5926166ab824253847ba2145b8c341a2a7f2a35c3d35d8dcdde39"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_counter/counter_back.png",
+      "source_sha256": "e131346bc47b26021fd983086c2085c219df8da5de9b9919889c0647b0058602",
+      "retained": "runtime/photo_counter/counter_back.jpg",
+      "retained_sha256": "87f66f07d3674823029ad3e83e9e218fc517cb8efe84a71ca23036c94e964815"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_counter/counter_front.png",
+      "source_sha256": "422ec47eda8963d5ccfbc28490a1d6eee6c3b0afccf37bd5be9be54e02b27cef",
+      "retained": "runtime/photo_counter/counter_front.jpg",
+      "retained_sha256": "14909928cf836added54e6ffb177491a33a7b4883a6ac72808c6edbda2714de2"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_counter/glazed_tier.png",
+      "source_sha256": "b1804034e1918ee2b861f909d381df91a2d10fdb0a205d580fb9664e6f1c089d",
+      "retained": "runtime/photo_counter/glazed_tier.jpg",
+      "retained_sha256": "65563b64f57d768d99cc1d84eee0cfed97a7a47fb430bf7f266ef1e8f43784fe"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_counter/ledger.png",
+      "source_sha256": "259069dd7b904fb4655366d129848d47f0d19128f1a9ccc7f9c9bc8ee1eeac88",
+      "retained": "runtime/photo_counter/ledger.jpg",
+      "retained_sha256": "c5f906f9fb9814c22787c0b5b755062008f9503df9d7fb7f310f0ab2132b6846"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_counter/shop_context.png",
+      "source_sha256": "e68012a5b527975241086a28331cea321d47ffff8611b6eaec0ac48bb1e6dce7",
+      "retained": "runtime/photo_counter/shop_context.jpg",
+      "retained_sha256": "f63d079da5d9605c0f4781ca08bf2ee216368ec7ef419adaf0e5c0e5a2c8f995"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_enlargers/downward_mouths.png",
+      "source_sha256": "a8cd0a04c85f77e4b9f3d76b835f8212a6ee11de2cf8c6002df6915135f7bee0",
+      "retained": "runtime/photo_enlargers/downward_mouths.jpg",
+      "retained_sha256": "cb0ed99f7f8cd3166f831956134bc557db9fe9e50ae9f2595187a557f3756b0d"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_enlargers/enlarger_heads.png",
+      "source_sha256": "3ad76e5172b43ee273469f9be0eec0f2dbd5fa297c000fc0a49cc3ddc6dfcb30",
+      "retained": "runtime/photo_enlargers/enlarger_heads.jpg",
+      "retained_sha256": "6dfd2ddf8abf5c5d7d4ac5d7b7092b82253db0d3ba4296d45348448647264bf3"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_enlargers/high_shelf.png",
+      "source_sha256": "940618d368551fee7fad8e27947b98dcb672a10372474388103ead6ab7bd7b32",
+      "retained": "runtime/photo_enlargers/high_shelf.jpg",
+      "retained_sha256": "15fec9e8cc6f56064b967bb4975ccfc8022f9bd3c422edc49a0f32f45206be87"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_enlargers/shelf_supports.png",
+      "source_sha256": "6d7f2ffaffbfc775f5cf53701fcac293c6ac10b8541e19f48fa7b9529f783649",
+      "retained": "runtime/photo_enlargers/shelf_supports.jpg",
+      "retained_sha256": "f8f6e48427a4aee8d31f87bcfd314d44762b913800abfd1a54ad66b413d74178"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_portraits/portrait0.png",
+      "source_sha256": "1be037a2e15c910ad14a1a3dc1d64cf5f4eb8b53f06ab6198cdb622bab47601a",
+      "retained": "runtime/photo_portraits/portrait0.jpg",
+      "retained_sha256": "7b332b6531b0d2f245b2c51a917f033435f3038eef76fdc2b06472a08bb71701"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_portraits/portrait1.png",
+      "source_sha256": "86c2f74acb03a849685c487f7ef54aea0f06edacc8cc945fc1b30266dc7cd824",
+      "retained": "runtime/photo_portraits/portrait1.jpg",
+      "retained_sha256": "e0c70af6a2bd7a5d154e20ee4e6536bdc2bd52b1a1aaad8dbe7c5afee3390f15"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_portraits/portrait2.png",
+      "source_sha256": "fd2ec414520d73b7fdde70047a6240fa03167033faf8700b6dc2f03421cf6150",
+      "retained": "runtime/photo_portraits/portrait2.jpg",
+      "retained_sha256": "9fe184dcb39a2feae9a84ea926bc69cd3d25dbf6b2b7fd3982c30e11059d1344"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_portraits/portrait3.png",
+      "source_sha256": "8cf6cce7c67a1e4311a58a4ce6a1199bfcd91b5bb96643ddcadacec3cb1c5d43",
+      "retained": "runtime/photo_portraits/portrait3.jpg",
+      "retained_sha256": "432761f0df7716a309a7eff72dcae71e5fffe0d9149874acf663b2423de8297d"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_portraits/portrait4.png",
+      "source_sha256": "435ce81cbcac27c9d1c1593470c119270a1164df6cab5f13dee218c9dfd0e82f",
+      "retained": "runtime/photo_portraits/portrait4.jpg",
+      "retained_sha256": "7db633c003b56c905d8dd6d775f3beb394672e026091a31fc2f1f5e4db6f494b"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_portraits/portrait5.png",
+      "source_sha256": "8c0c8fee9c791f0b87714a9702d8ed597acb725dc3a4df8fa1f559372f153a8d",
+      "retained": "runtime/photo_portraits/portrait5.jpg",
+      "retained_sha256": "3b6f340ea860b1444fa687a5799b1e0f5306f58a8fca88213c600c21f8632ef3"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_portraits/portrait6.png",
+      "source_sha256": "1dbeacf3e3a587ead204c5bdac2e379299762a61fd2a8ccd6e1078b412e0c3db",
+      "retained": "runtime/photo_portraits/portrait6.jpg",
+      "retained_sha256": "e8a16c74c086459e96e0c80c0b67153fe13d2f6a6cb229e7859ea3dd0c9f803f"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_portraits/portrait_context.png",
+      "source_sha256": "99670ac11aa34325c8ae6d291c70508c0b1eb4923047e8ce387016bb5c1716c2",
+      "retained": "runtime/photo_portraits/portrait_context.jpg",
+      "retained_sha256": "923ce9305a77c82920f4757654aa4b8cb9d764602999c5e375aded4c37017027"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_stock/left_column.png",
+      "source_sha256": "0dc3dd21edacdad4ab0f0d533d07c7abbd7103a2cedf22a47d29eda19fb1baf0",
+      "retained": "runtime/photo_stock/left_column.jpg",
+      "retained_sha256": "a2daf9e9f11590e58f111fd735a401315676d904a3f7ad34c258c881b6cac163"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_stock/lower_cartons.png",
+      "source_sha256": "e708ec2ad8c510bc9887c657a78b54a62f5d2d2b2ba412712b882e6942ee9b09",
+      "retained": "runtime/photo_stock/lower_cartons.jpg",
+      "retained_sha256": "493d408b34cf94724db01fce42bc30ee65f4cc853d1b301ba13020511ef3946a"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_stock/rear_shelf_wall.png",
+      "source_sha256": "faaf40b8821c9d0294591d2c436954f66741e0f48ea5a52a431e26b46bc6db4a",
+      "retained": "runtime/photo_stock/rear_shelf_wall.jpg",
+      "retained_sha256": "6e699b02b825a818f883e70b5d5edd8275a869ce7a17a544278a04e25b17daf9"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/photo_stock/upper_empty_shelves.png",
+      "source_sha256": "d479f0bfd7634eaefb7c44f6e8cb4442d24d937d4867328c4bd665a03039cdca",
+      "retained": "runtime/photo_stock/upper_empty_shelves.jpg",
+      "retained_sha256": "e2d969251358dd34b1276031210683efea62b6d6efaf50de2865b88370ed9d0d"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/radio_wire/finite_open_iron_ring.png",
+      "source_sha256": "99e7b82a89a57e94f472d5798a6ea69a69c462af800cdfba8de5b6e6bec21ec2",
+      "retained": "runtime/radio_wire/finite_open_iron_ring.jpg",
+      "retained_sha256": "4a5004308864d7790119de3b6c5d4629bdfa12120fc695b100df05cf2ab8b3ab"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/radio_wire/fixed_spindle_bearing.png",
+      "source_sha256": "eaa8ead601d4f9843def819c79325b41a4368a025e0ce3c6cf542d01dcbb77c4",
+      "retained": "runtime/radio_wire/fixed_spindle_bearing.jpg",
+      "retained_sha256": "b252eef59bb9de6f5d4ead4ef719a739bccc804bf71ea638583aba7c0f49e641"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/radio_wire/passive_copper_winding.png",
+      "source_sha256": "358e5f6c026d7a697bef72474c96d0fa467af07dc3ccbeabd314b6bc68dba72a",
+      "retained": "runtime/radio_wire/passive_copper_winding.jpg",
+      "retained_sha256": "e7615ee5d5600d09214f4aa5997565890081dbe456b1276d247e0dd0e5653cbd"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/radio_wire/radio_wire_room.png",
+      "source_sha256": "6323abf0eefbe7ca80cd2b9ef8572751b6b2ee13879ca28fd1d85972d7857f54",
+      "retained": "runtime/radio_wire/radio_wire_room.jpg",
+      "retained_sha256": "d91898a0e58b9d95c245ce55549fc29510eade9e695df88582513ea8cbb00eb2"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/radio_wire/two_fixed_reels.png",
+      "source_sha256": "f4d0b2003ae0ee693ece3733cb8993a34697ab0b94581d037fab04243abed0b8",
+      "retained": "runtime/radio_wire/two_fixed_reels.jpg",
+      "retained_sha256": "115730fe6d9de56dccfc69e918d2c80b35ed9aebdcbb86181e651e02b733073d"
+    },
+    {
+      "source": "tmp/v2-finish-review/grain-repair-runtime-shots/radio_wire/wire_and_ring_floor_feet.png",
+      "source_sha256": "f6433d39c69b14fbd7ee1aeeb297346bd8902874d6a8e68f1f4caed2cefab5fa",
+      "retained": "runtime/radio_wire/wire_and_ring_floor_feet.jpg",
+      "retained_sha256": "ff690e7a7d3149292344308a5874a76caadcc2cf18137fa25c057fd5108fcede"
+    }
+  ]
+}

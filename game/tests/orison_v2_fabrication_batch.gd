@@ -2,6 +2,15 @@ extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
 const MODULES := {
+	"diner_counter": preload("res://tests/orison_v2_diner_counter_test.gd"),
+	"diner_till": preload("res://tests/orison_v2_diner_till_test.gd"),
+	"hardware_tools": preload("res://tests/orison_v2_hardware_tools_test.gd"),
+	"photo_cameras": preload("res://tests/orison_v2_photo_cameras_test.gd"),
+	"photo_counter": preload("res://tests/orison_v2_photo_counter_test.gd"),
+	"photo_enlargers": preload("res://tests/orison_v2_photo_enlargers_test.gd"),
+	"photo_portraits": preload("res://tests/orison_v2_photo_portraits_test.gd"),
+	"photo_stock": preload("res://tests/orison_v2_photo_stock_test.gd"),
+	"radio_wire": preload("res://tests/orison_v2_radio_wire_test.gd"),
 	"laundry_trade": preload("res://tests/orison_v2_laundry_trade_test.gd"),
 	"laundry_fittings": preload("res://tests/orison_v2_laundry_fittings_test.gd"),
 	"laundry_apparatus": preload("res://tests/orison_v2_laundry_apparatus_test.gd"),

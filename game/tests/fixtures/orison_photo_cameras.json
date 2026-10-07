@@ -840,12 +840,13 @@
       }
     ]
   },
-  "asset_sha256": "796c35815a286732d25fecf73790fd2ed3a187c8b835461880dab85a3b305baf",
+  "asset_sha256": "f2fdbfce2370967d0cc4772b757ea31dfc7ef888e1149097d90992c5cda158de",
   "source_bindings": {
     "art/data/photo_cameras/source_plan.json": "8ac065cc9911f413126c2254cbb7cdba6889530d30bdef3ac4b99d8a6fa369d5",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_photo_cameras.py": "f8c8e7c019b4ef09b2b2db6e03491008054b77f5269f79382b96392656415ea0",
+    "art/blender/scripts/build_photo_cameras.py": "7d9bedffc7c33bde2305b0d90dabf9544a254a1493ea48e141a42b6d6cabf7b8",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
     "game/assets/props/photo_cameras.glb.import": "6431db2934540852fb2d517e8eb5924103701bd061d8cb802c55a5c40805e2c4",
@@ -879,7 +880,7 @@
     "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
     "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
     "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
-    "art/blender/scripts/inspect_photo_cameras.py": "ca39a5fd0d7667362c390cd0ed6dbbf11c2ab338e7812e8121c0c051ab7f5164"
+    "art/blender/scripts/inspect_photo_cameras.py": "10bf213de1d5e54c8f6211ad2cd185f99e0b4bea946d81d1cc6791a7f5a7a987"
   },
   "open_work": [
     "The original window stand gains joined floor-bearing feet and a .48m upper deck, seating the three original .48m camera bodies. Its back moves .20m inward and its deck extends to x17.76 to clear the original camera bodies that intersected the old back. The deck raise is .04m; hidden source references retain poses.",

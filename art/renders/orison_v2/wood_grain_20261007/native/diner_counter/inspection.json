@@ -1,0 +1,1240 @@
+{
+ "evidence_class": "INERT",
+ "native_sha256": "65a932bfebc8feefea006ff4c4f4d79d80c5d34d6b31ada4972115dda4028840",
+ "closed_volumes": [
+  {
+   "name": "storm_shop_luncheonette_counter_Post18.942-43.91799999999999",
+   "volume_m3": 0.003566513593054575
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_Post18.942-42.37499999999999",
+   "volume_m3": 0.003566513593054575
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_Post18.942-40.831999999999994",
+   "volume_m3": 0.003566513593054575
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_Post19.558-43.91799999999999",
+   "volume_m3": 0.003566513593054575
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_Post19.558-42.37499999999999",
+   "volume_m3": 0.003566513593054575
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_Post19.558-40.831999999999994",
+   "volume_m3": 0.003566513593054575
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_LongPanel18.919",
+   "volume_m3": 0.05496210070042633
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_LongRail18.9190.145",
+   "volume_m3": 0.005831497922622825
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_LongRail18.9191.012",
+   "volume_m3": 0.005831500973246112
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_LongPanel19.56",
+   "volume_m3": 0.05496210070042633
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_LongRail19.560.145",
+   "volume_m3": 0.005831835166438019
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_LongRail19.561.012",
+   "volume_m3": 0.005831838217237633
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_EndPanel-43.94099999999999",
+   "volume_m3": 0.010306542111684962
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_EndRail-43.940999999999990.145",
+   "volume_m3": 0.001188105948995188
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_EndRail-43.940999999999991.012",
+   "volume_m3": 0.0011881065705404096
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_EndPanel-40.83",
+   "volume_m3": 0.010306542111684962
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_EndRail-40.830.145",
+   "volume_m3": 0.001188105948995188
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_EndRail-40.831.012",
+   "volume_m3": 0.0011881065705404096
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_ServingCore",
+   "volume_m3": 0.13779569801012553
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_CountertopSheet",
+   "volume_m3": 0.02599735256015149
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_KickSupport",
+   "volume_m3": 0.019512149865398756
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_KickFace",
+   "volume_m3": 0.0009095001743446572
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_KickReturn0.01",
+   "volume_m3": 0.00038350016204269366
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_KickReturn0.14800000000000002",
+   "volume_m3": 0.00038350087636729313
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_KickEnd-43.99999999999999",
+   "volume_m3": 1.6510930512063414e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_counter_KickEnd-40.752",
+   "volume_m3": 1.6510930512063414e-05
+  },
+  {
+   "name": "storm_shop_luncheonette_ledger_Pages",
+   "volume_m3": 0.005761064666218299
+  },
+  {
+   "name": "storm_shop_luncheonette_ledger_Cover1.12",
+   "volume_m3": 0.00041021918106502037
+  },
+  {
+   "name": "storm_shop_luncheonette_ledger_Cover1.1670000000000003",
+   "volume_m3": 0.00041020287319052523
+  },
+  {
+   "name": "storm_shop_luncheonette_ledger_Spine",
+   "volume_m3": 9.926597931999114e-05
+  }
+ ],
+ "assembly_stock_joins": [
+  {
+   "assembly": "storm_shop_luncheonette_counter",
+   "connected_components": 1,
+   "surface_contact_edges": [
+    [
+     "storm_shop_luncheonette_counter_Post18.942-43.91799999999999",
+     "storm_shop_luncheonette_counter_LongPanel18.919"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-43.91799999999999",
+     "storm_shop_luncheonette_counter_LongRail18.9190.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-43.91799999999999",
+     "storm_shop_luncheonette_counter_LongRail18.9191.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-43.91799999999999",
+     "storm_shop_luncheonette_counter_EndPanel-43.94099999999999"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-43.91799999999999",
+     "storm_shop_luncheonette_counter_EndRail-43.940999999999990.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-43.91799999999999",
+     "storm_shop_luncheonette_counter_EndRail-43.940999999999991.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-43.91799999999999",
+     "storm_shop_luncheonette_counter_ServingCore"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-43.91799999999999",
+     "storm_shop_luncheonette_counter_KickSupport"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-42.37499999999999",
+     "storm_shop_luncheonette_counter_LongPanel18.919"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-42.37499999999999",
+     "storm_shop_luncheonette_counter_LongRail18.9190.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-42.37499999999999",
+     "storm_shop_luncheonette_counter_LongRail18.9191.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-42.37499999999999",
+     "storm_shop_luncheonette_counter_ServingCore"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-42.37499999999999",
+     "storm_shop_luncheonette_counter_KickSupport"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-40.831999999999994",
+     "storm_shop_luncheonette_counter_LongPanel18.919"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-40.831999999999994",
+     "storm_shop_luncheonette_counter_LongRail18.9190.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-40.831999999999994",
+     "storm_shop_luncheonette_counter_LongRail18.9191.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-40.831999999999994",
+     "storm_shop_luncheonette_counter_EndPanel-40.83"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-40.831999999999994",
+     "storm_shop_luncheonette_counter_EndRail-40.830.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-40.831999999999994",
+     "storm_shop_luncheonette_counter_EndRail-40.831.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-40.831999999999994",
+     "storm_shop_luncheonette_counter_ServingCore"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post18.942-40.831999999999994",
+     "storm_shop_luncheonette_counter_KickSupport"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-43.91799999999999",
+     "storm_shop_luncheonette_counter_LongPanel19.56"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-43.91799999999999",
+     "storm_shop_luncheonette_counter_LongRail19.560.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-43.91799999999999",
+     "storm_shop_luncheonette_counter_LongRail19.561.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-43.91799999999999",
+     "storm_shop_luncheonette_counter_EndPanel-43.94099999999999"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-43.91799999999999",
+     "storm_shop_luncheonette_counter_EndRail-43.940999999999990.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-43.91799999999999",
+     "storm_shop_luncheonette_counter_EndRail-43.940999999999991.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-43.91799999999999",
+     "storm_shop_luncheonette_counter_ServingCore"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-42.37499999999999",
+     "storm_shop_luncheonette_counter_LongPanel19.56"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-42.37499999999999",
+     "storm_shop_luncheonette_counter_LongRail19.560.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-42.37499999999999",
+     "storm_shop_luncheonette_counter_LongRail19.561.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-42.37499999999999",
+     "storm_shop_luncheonette_counter_ServingCore"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-40.831999999999994",
+     "storm_shop_luncheonette_counter_LongPanel19.56"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-40.831999999999994",
+     "storm_shop_luncheonette_counter_LongRail19.560.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-40.831999999999994",
+     "storm_shop_luncheonette_counter_LongRail19.561.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-40.831999999999994",
+     "storm_shop_luncheonette_counter_EndPanel-40.83"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-40.831999999999994",
+     "storm_shop_luncheonette_counter_EndRail-40.830.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-40.831999999999994",
+     "storm_shop_luncheonette_counter_EndRail-40.831.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_Post19.558-40.831999999999994",
+     "storm_shop_luncheonette_counter_ServingCore"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongPanel18.919",
+     "storm_shop_luncheonette_counter_LongRail18.9190.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongPanel18.919",
+     "storm_shop_luncheonette_counter_LongRail18.9191.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongRail18.9190.145",
+     "storm_shop_luncheonette_counter_EndRail-43.940999999999990.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongRail18.9190.145",
+     "storm_shop_luncheonette_counter_EndRail-40.830.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongRail18.9191.012",
+     "storm_shop_luncheonette_counter_EndRail-43.940999999999991.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongRail18.9191.012",
+     "storm_shop_luncheonette_counter_EndRail-40.831.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongRail18.9191.012",
+     "storm_shop_luncheonette_counter_ServingCore"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongPanel19.56",
+     "storm_shop_luncheonette_counter_LongRail19.560.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongPanel19.56",
+     "storm_shop_luncheonette_counter_LongRail19.561.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongRail19.560.145",
+     "storm_shop_luncheonette_counter_EndRail-43.940999999999990.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongRail19.560.145",
+     "storm_shop_luncheonette_counter_EndRail-40.830.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongRail19.561.012",
+     "storm_shop_luncheonette_counter_EndRail-43.940999999999991.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongRail19.561.012",
+     "storm_shop_luncheonette_counter_EndRail-40.831.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_LongRail19.561.012",
+     "storm_shop_luncheonette_counter_ServingCore"
+    ],
+    [
+     "storm_shop_luncheonette_counter_EndPanel-43.94099999999999",
+     "storm_shop_luncheonette_counter_EndRail-43.940999999999990.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_EndPanel-43.94099999999999",
+     "storm_shop_luncheonette_counter_EndRail-43.940999999999991.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_EndRail-43.940999999999991.012",
+     "storm_shop_luncheonette_counter_ServingCore"
+    ],
+    [
+     "storm_shop_luncheonette_counter_EndPanel-40.83",
+     "storm_shop_luncheonette_counter_EndRail-40.830.145"
+    ],
+    [
+     "storm_shop_luncheonette_counter_EndPanel-40.83",
+     "storm_shop_luncheonette_counter_EndRail-40.831.012"
+    ],
+    [
+     "storm_shop_luncheonette_counter_EndRail-40.831.012",
+     "storm_shop_luncheonette_counter_ServingCore"
+    ],
+    [
+     "storm_shop_luncheonette_counter_ServingCore",
+     "storm_shop_luncheonette_counter_CountertopSheet"
+    ],
+    [
+     "storm_shop_luncheonette_counter_KickSupport",
+     "storm_shop_luncheonette_counter_KickFace"
+    ],
+    [
+     "storm_shop_luncheonette_counter_KickFace",
+     "storm_shop_luncheonette_counter_KickReturn0.01"
+    ],
+    [
+     "storm_shop_luncheonette_counter_KickFace",
+     "storm_shop_luncheonette_counter_KickReturn0.14800000000000002"
+    ],
+    [
+     "storm_shop_luncheonette_counter_KickFace",
+     "storm_shop_luncheonette_counter_KickEnd-43.99999999999999"
+    ],
+    [
+     "storm_shop_luncheonette_counter_KickFace",
+     "storm_shop_luncheonette_counter_KickEnd-40.752"
+    ],
+    [
+     "storm_shop_luncheonette_counter_KickReturn0.01",
+     "storm_shop_luncheonette_counter_KickEnd-43.99999999999999"
+    ],
+    [
+     "storm_shop_luncheonette_counter_KickReturn0.01",
+     "storm_shop_luncheonette_counter_KickEnd-40.752"
+    ],
+    [
+     "storm_shop_luncheonette_counter_KickReturn0.14800000000000002",
+     "storm_shop_luncheonette_counter_KickEnd-43.99999999999999"
+    ],
+    [
+     "storm_shop_luncheonette_counter_KickReturn0.14800000000000002",
+     "storm_shop_luncheonette_counter_KickEnd-40.752"
+    ]
+   ]
+  },
+  {
+   "assembly": "storm_shop_luncheonette_ledger",
+   "connected_components": 1,
+   "surface_contact_edges": [
+    [
+     "storm_shop_luncheonette_ledger_Pages",
+     "storm_shop_luncheonette_ledger_Cover1.12"
+    ],
+    [
+     "storm_shop_luncheonette_ledger_Pages",
+     "storm_shop_luncheonette_ledger_Cover1.1670000000000003"
+    ],
+    [
+     "storm_shop_luncheonette_ledger_Pages",
+     "storm_shop_luncheonette_ledger_Spine"
+    ],
+    [
+     "storm_shop_luncheonette_ledger_Cover1.12",
+     "storm_shop_luncheonette_ledger_Spine"
+    ],
+    [
+     "storm_shop_luncheonette_ledger_Cover1.1670000000000003",
+     "storm_shop_luncheonette_ledger_Spine"
+    ]
+   ]
+  }
+ ],
+ "actual_native_support_samples": [
+  {
+   "label": "Diner counter actual floor post",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "Diner counter actual floor post",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "Diner counter actual floor post",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "Diner counter actual floor post",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "Diner counter actual floor post",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "Diner counter actual floor post",
+   "distance_m": 9.313225746154785e-09
+  },
+  {
+   "label": "folded kickplate on actual unchanged floor",
+   "distance_m": 0.0
+  },
+  {
+   "label": "ledger on actual unchanged Diner serving top",
+   "distance_m": 0.0
+  }
+ ],
+ "actual_owner_support_samples": [
+  {
+   "owner": "storm_shop_luncheonette_floor",
+   "label": "Diner counter actual floor post",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_floor",
+   "label": "Diner counter actual floor post",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_floor",
+   "label": "Diner counter actual floor post",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_floor",
+   "label": "Diner counter actual floor post",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_floor",
+   "label": "Diner counter actual floor post",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_floor",
+   "label": "Diner counter actual floor post",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_floor",
+   "label": "folded kickplate on actual unchanged floor",
+   "distance_m": 0.0
+  },
+  {
+   "owner": "storm_shop_luncheonette_counter_top",
+   "label": "ledger on actual unchanged Diner serving top",
+   "distance_m": 0.0
+  }
+ ],
+ "parts": 5,
+ "triangles": 4760,
+ "removed_original_triangles": 48,
+ "retired_context_boundaries": {
+  "storm_shop_luncheonette_counter": 12,
+  "storm_shop_luncheonette_counter_top": 12,
+  "storm_shop_luncheonette_counter_kick": 12,
+  "storm_shop_luncheonette_ledger": 12,
+  "storm_shop_luncheonette_stool0": 12,
+  "storm_shop_luncheonette_stool0_top": 12,
+  "storm_shop_luncheonette_stool1": 12,
+  "storm_shop_luncheonette_stool1_top": 12,
+  "storm_shop_luncheonette_stool2": 12,
+  "storm_shop_luncheonette_stool2_top": 12,
+  "storm_shop_luncheonette_stool3": 12,
+  "storm_shop_luncheonette_stool3_top": 12,
+  "storm_shop_luncheonette_stool4": 12,
+  "storm_shop_luncheonette_stool4_top": 12,
+  "storm_shop_luncheonette_stool5": 12,
+  "storm_shop_luncheonette_stool5_top": 12,
+  "storm_shop_luncheonette_stool6": 12,
+  "storm_shop_luncheonette_stool6_top": 12,
+  "storm_shop_luncheonette_stool7": 12,
+  "storm_shop_luncheonette_stool7_top": 12
+ },
+ "retired_receiving_owners": {
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite": 256,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_bakelite_black": 256,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_brass": 24,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_enamel": 140,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_fabric_cool": 12,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_hull-colonly": 24,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_milk_glass": 12,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_screen": 24,
+  "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terracotta": 88
+ },
+ "accepted_native_context_objects": 38,
+ "context_intersections": [],
+ "declared_floor_contact_pairs": [
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__chrome",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  },
+  {
+   "native": "storm_shop_luncheonette_counter__timber",
+   "context": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_terrazzo-col",
+   "owner": "storm_shop_luncheonette_floor"
+  }
+ ],
+ "ledger_contact_pairs": [
+  {
+   "counter": "storm_shop_luncheonette_counter_CountertopSheet",
+   "ledger": "storm_shop_luncheonette_ledger_Cover1.12",
+   "plane_m": 1.12
+  },
+  {
+   "counter": "storm_shop_luncheonette_counter_CountertopSheet",
+   "ledger": "storm_shop_luncheonette_ledger_Cover1.12",
+   "plane_m": 1.12
+  },
+  {
+   "counter": "storm_shop_luncheonette_counter_CountertopSheet",
+   "ledger": "storm_shop_luncheonette_ledger_Cover1.12",
+   "plane_m": 1.12
+  },
+  {
+   "counter": "storm_shop_luncheonette_counter_CountertopSheet",
+   "ledger": "storm_shop_luncheonette_ledger_Cover1.12",
+   "plane_m": 1.12
+  },
+  {
+   "counter": "storm_shop_luncheonette_counter_CountertopSheet",
+   "ledger": "storm_shop_luncheonette_ledger_Cover1.12",
+   "plane_m": 1.12
+  },
+  {
+   "counter": "storm_shop_luncheonette_counter_CountertopSheet",
+   "ledger": "storm_shop_luncheonette_ledger_Cover1.12",
+   "plane_m": 1.12
+  },
+  {
+   "counter": "storm_shop_luncheonette_counter_CountertopSheet",
+   "ledger": "storm_shop_luncheonette_ledger_Cover1.12",
+   "plane_m": 1.12
+  },
+  {
+   "counter": "storm_shop_luncheonette_counter_CountertopSheet",
+   "ledger": "storm_shop_luncheonette_ledger_Cover1.12",
+   "plane_m": 1.12
+  }
+ ],
+ "uv_metrics": [
+  {
+   "part": "storm_shop_luncheonette_counter__chrome",
+   "minimum_metres_per_uv": 0.9999994948762775,
+   "maximum_metres_per_uv": 1.0000000199569112,
+   "triangles": 60
+  },
+  {
+   "part": "storm_shop_luncheonette_counter__countertop",
+   "minimum_metres_per_uv": 0.999600809007926,
+   "maximum_metres_per_uv": 1.0002475206574228,
+   "triangles": 188
+  },
+  {
+   "part": "storm_shop_luncheonette_counter__timber",
+   "minimum_metres_per_uv": 0.99969287803708,
+   "maximum_metres_per_uv": 1.0003151793725573,
+   "triangles": 3760
+  },
+  {
+   "part": "storm_shop_luncheonette_ledger__paper",
+   "minimum_metres_per_uv": 0.9999100807937795,
+   "maximum_metres_per_uv": 1.0001170995218105,
+   "triangles": 188
+  },
+  {
+   "part": "storm_shop_luncheonette_ledger__paper__cover",
+   "minimum_metres_per_uv": 0.9998477267582465,
+   "maximum_metres_per_uv": 1.000160810679353,
+   "triangles": 564
+  }
+ ],
+ "independent_stock_pairs_checked": 104,
+ "views": [
+  {
+   "id": "customer_front",
+   "eye": [
+    15.11501693725586,
+    -38.03947067260742,
+    2.8353004455566406
+   ],
+   "target": [
+    19.25,
+    -42.400001525878906,
+    0.6399999856948853
+   ],
+   "file": "customer_front.png",
+   "scope": "isolated passive Diner serving counter and ledger"
+  },
+  {
+   "id": "service_rear",
+   "eye": [
+    23.38498306274414,
+    -46.00871276855469,
+    2.985663414001465
+   ],
+   "target": [
+    19.25,
+    -42.400001525878906,
+    0.6399999856948853
+   ],
+   "file": "service_rear.png",
+   "scope": "isolated passive Diner serving counter and ledger"
+  },
+  {
+   "id": "front_end",
+   "eye": [
+    19.30954933166504,
+    -36.802223205566406,
+    1.4260706901550293
+   ],
+   "target": [
+    19.25,
+    -42.400001525878906,
+    0.6399999856948853
+   ],
+   "file": "front_end.png",
+   "scope": "isolated passive Diner serving counter and ledger"
+  },
+  {
+   "id": "back_end",
+   "eye": [
+    19.30617904663086,
+    -47.793277740478516,
+    1.4939357042312622
+   ],
+   "target": [
+    19.25,
+    -42.400001525878906,
+    0.6399999856948853
+   ],
+   "file": "back_end.png",
+   "scope": "isolated passive Diner serving counter and ledger"
+  },
+  {
+   "id": "folded_kick",
+   "eye": [
+    17.799999237060547,
+    -42.099998474121094,
+    0.2800000011920929
+   ],
+   "target": [
+    18.8799991607666,
+    -42.400001525878906,
+    0.09000000357627869
+   ],
+   "file": "folded_kick.png",
+   "scope": "isolated passive Diner serving counter and ledger"
+  },
+  {
+   "id": "framed_floor_feet",
+   "eye": [
+    20.899999618530273,
+    -41.70000076293945,
+    0.2800000011920929
+   ],
+   "target": [
+    19.5,
+    -42.400001525878906,
+    0.12999999523162842
+   ],
+   "file": "framed_floor_feet.png",
+   "scope": "isolated passive Diner serving counter and ledger"
+  },
+  {
+   "id": "serving_edge",
+   "eye": [
+    20.5,
+    -40.400001525878906,
+    1.2999999523162842
+   ],
+   "target": [
+    19.5,
+    -41.79999923706055,
+    1.1100000143051147
+   ],
+   "file": "serving_edge.png",
+   "scope": "isolated passive Diner serving counter and ledger"
+  },
+  {
+   "id": "ledger_seat",
+   "eye": [
+    19.700000762939453,
+    -41.20000076293945,
+    1.399999976158142
+   ],
+   "target": [
+    19.31999969482422,
+    -41.79999923706055,
+    1.1449999809265137
+   ],
+   "file": "ledger_seat.png",
+   "scope": "isolated passive Diner serving counter and ledger"
+  }
+ ],
+ "limits": "Exact original four counter/kick/top/ledger boundaries retire only in temporary inspection context. All sixteen original stool boundaries retire against accepted native stools; nine original receiving owners retire against the accepted two native chassis. All other original context remains. Passive supports establish physical bearing only, not service operation/capacity, routes or human acceptance."
+}

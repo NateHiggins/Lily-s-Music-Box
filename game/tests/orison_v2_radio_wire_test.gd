@@ -1,12 +1,17 @@
 extends "res://tests/orison_v2_city_sweep.gd"
 ## Actual retained shop boundaries, fitted supports, imported charts and standing detail views.
+var batch_mode := false
+var capture_enabled := true
+
+func _ready() -> void:
+	if not batch_mode: call_deferred("_run")
+
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
 	var world:=_world_scene().instantiate() as OrisonV2RuntimeRoot;add_child(world)
 	await get_tree().physics_frame;await get_tree().physics_frame
-	check(not world.startup_failed and not world.passage_region.startup_failed,"source-owned passive wire and iron stock fits Radio Service")
-	if world.startup_failed or world.passage_region.startup_failed:world.shutdown_for_tests();world.free();get_tree().quit(1);return
+	if world.startup_failed or world.passage_region.startup_failed:check(false,"world startup failed");world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	world.player.set_physics_process(false);world.service_set_carrier.set_capture_hidden(true)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
 	var passage: OrisonV2PassageRegion=world.passage_region
@@ -19,13 +24,19 @@ func _run() -> void:
 	for frame in 600:
 		if passage.residency.state=="RESIDENT":break
 		await get_tree().process_frame
-	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
-	if passage.residency.state!="RESIDENT":world.shutdown_for_tests();world.free();get_tree().quit(1);return
+	if passage.residency.state!="RESIDENT":check(false,"normal prefetch failed");world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	await get_tree().physics_frame;await get_tree().physics_frame
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var passage: OrisonV2PassageRegion=world.passage_region
+	check(not world.startup_failed and not world.passage_region.startup_failed,"source-owned passive wire and iron stock fits Radio Service")
+	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_radio_wire.json"))
 	var installed: bool=passage.cell_nodes.has("shop_radio_service") and passage.cell_nodes.shop_radio_service.has_node("RadioWire")
 	check(installed,"actual retained radio cell and native fittings exist before their contracts")
-	if not installed:world.shutdown_for_tests();world.free();get_tree().quit(1);return
+	if not installed:return {"checks":checks,"failures":failures.duplicate()}
 	check(FileAccess.get_sha256("res://assets/props/radio_wire.glb")==fixture.asset_sha256,"installed mesh binds the native passive wire/ring export")
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
 	for record: Dictionary in fixture.runtime.cells:
@@ -82,7 +93,7 @@ func _run() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
 	print("RADIO WIRE: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	return {"checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures.duplicate()}
 
 func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, start: Vector3, finish: Vector3) -> Dictionary:
 	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("radio_wire_part",""))==part)
@@ -136,7 +147,8 @@ func _retail_detail_views(world: OrisonV2RuntimeRoot, _fixture: Dictionary) -> v
 		check(_city_clear_station(world,cell.to_global(feet)),"same retained floor/capsule radio wire/ring observation: "+str(view.id))
 		world.player.global_position=cell.to_global(feet);world.player.velocity=Vector3.ZERO
 		world.player.face_world_point(cell.to_global(target));world.player.set_lamp_enabled(true)
-		await _settled_optics();await shot(view.id)
+		if capture_enabled:
+			await _settled_optics();await shot(view.id)
 		observations.append(view.duplicate(true))
 	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("views.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","views":observations,"scope":"Same retained standing floor/capsule samples before and after passive wire/ring fitting. No continuous route, sightline, alignment procedure, instrument operation or engineering capacity."},"\t"))
 

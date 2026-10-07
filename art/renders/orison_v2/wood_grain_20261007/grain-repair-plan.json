@@ -1,0 +1,85 @@
+{
+  "stages": [
+    {
+      "script": "art/blender/scripts/build_diner_counter.py"
+    },
+    {
+      "script": "art/blender/scripts/build_diner_till.py"
+    },
+    {
+      "script": "art/blender/scripts/build_hardware_tools.py"
+    },
+    {
+      "script": "art/blender/scripts/build_photo_cameras.py"
+    },
+    {
+      "script": "art/blender/scripts/build_photo_counter.py"
+    },
+    {
+      "script": "art/blender/scripts/build_photo_enlargers.py"
+    },
+    {
+      "script": "art/blender/scripts/build_photo_portraits.py"
+    },
+    {
+      "script": "art/blender/scripts/build_photo_stock.py"
+    },
+    {
+      "script": "art/blender/scripts/build_radio_wire.py"
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_counter.py",
+      "env": {
+        "DINER_COUNTER_REVIEW": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\grain-repair-native\\diner_counter"
+      }
+    },
+    {
+      "script": "art/blender/scripts/inspect_diner_till.py",
+      "env": {
+        "DINER_TILL_REVIEW": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\grain-repair-native\\diner_till"
+      }
+    },
+    {
+      "script": "art/blender/scripts/inspect_hardware_tools.py",
+      "env": {
+        "HARDWARE_TOOLS_REVIEW": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\grain-repair-native\\hardware_tools"
+      }
+    },
+    {
+      "script": "art/blender/scripts/inspect_photo_cameras.py",
+      "env": {
+        "PHOTO_CAMERAS_REVIEW": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\grain-repair-native\\photo_cameras"
+      }
+    },
+    {
+      "script": "art/blender/scripts/inspect_photo_counter.py",
+      "env": {
+        "PHOTO_COUNTER_REVIEW": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\grain-repair-native\\photo_counter"
+      }
+    },
+    {
+      "script": "art/blender/scripts/inspect_photo_enlargers.py",
+      "env": {
+        "PHOTO_ENLARGERS_REVIEW": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\grain-repair-native\\photo_enlargers"
+      }
+    },
+    {
+      "script": "art/blender/scripts/inspect_photo_portraits.py",
+      "env": {
+        "PHOTO_PORTRAITS_REVIEW": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\grain-repair-native\\photo_portraits"
+      }
+    },
+    {
+      "script": "art/blender/scripts/inspect_photo_stock.py",
+      "env": {
+        "PHOTO_STOCK_REVIEW": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\grain-repair-native\\photo_stock"
+      }
+    },
+    {
+      "script": "art/blender/scripts/inspect_radio_wire.py",
+      "env": {
+        "RADIO_WIRE_REVIEW": "C:\\PleaseRemainOnTheLine\\tmp\\v2-finish-review\\grain-repair-native\\radio_wire"
+      }
+    }
+  ]
+}

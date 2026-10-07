@@ -511,12 +511,13 @@
       }
     ]
   },
-  "asset_sha256": "ed21b0516bc65f1fa780465009bac294226299940134d1ac2e08dbc961c3333f",
+  "asset_sha256": "208a4194d79b044ee3fb47f4e4ad250613f2bd648b437dd384bb1289813fc802",
   "source_bindings": {
     "art/data/photo_counter/source_plan.json": "0d33b0c2f0a340951e0e891f2b350d23981544694d1d927373aa07eb82700c4c",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_photo_counter.py": "a9557a36c424b4a964b47f7504b47e70befbf996b7e7e60f01ab8e7928427105",
+    "art/blender/scripts/build_photo_counter.py": "79e176110b48b58385fdddc8314e5b52302e9af732c733ed2775748252c131b8",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
     "game/assets/props/photo_counter.glb.import": "b1802d6321b86484e88e1e2bdd4867d79e5146536365efcb9486a487e465796c",
@@ -549,7 +550,7 @@
     "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
     "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
     "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
-    "art/blender/scripts/inspect_photo_counter.py": "1dfc8356f806d8eb7569eb2d8a3a373e062fabde99bf46292d62c2380b1ad018"
+    "art/blender/scripts/inspect_photo_counter.py": "115ca6459d84dee9c09ab40a2c6825e3ac25f76383eeba0c265de0133c26eae0"
   },
   "open_work": [
     "The original counter retains its plan rectangle and 1.45m top. Joined feet fill the original .04m gap to the actual floor; panels and rails enclose the lower cabinet, and four posts support a thin-pane glazed display tier. No storage or display operation is added.",

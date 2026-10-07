@@ -4,7 +4,7 @@ import hashlib,json
 import bpy,bmesh
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
-r=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file());out=r/'tmp/v2-finish-review/hardware-tools-native';out.mkdir(parents=True,exist_ok=True)
+r=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file());out=Path(__import__('os').environ.get('HARDWARE_TOOLS_REVIEW',str(r/'tmp/v2-finish-review/hardware-tools-native')));out.mkdir(parents=True,exist_ok=True)
 import os
 source=Path(os.environ.get('HARDWARE_TOOLS_OUT',str(r)));asset=source/'art/blender/hardware_tools.blend';bpy.ops.wm.open_mainfile(filepath=str(asset))
 f=json.loads((source/'art/blender/hardware_tools_construction.json').read_text());assert f==json.loads((source/'game/tests/fixtures/orison_hardware_tools.json').read_text())

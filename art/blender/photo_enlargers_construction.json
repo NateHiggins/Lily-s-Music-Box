@@ -688,12 +688,13 @@
       }
     ]
   },
-  "asset_sha256": "67609f1168c0942bfef6571580af201f5dc000def2958a38916e71e5a4e84b32",
+  "asset_sha256": "969f352a40d134e278c789c1cd4c607b730a339630315def7272f5d5843cd741",
   "source_bindings": {
     "art/data/photo_enlargers/source_plan.json": "40d993fcf3d65cca44885f0b14b293bc1d988deade167a6e8576aaa008b2f079",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_photo_enlargers.py": "cd8bd870e5fc5f93e1bf8ef01a8b3f15a41afd432cf429c30d0c3f548ba1a53c",
+    "art/blender/scripts/build_photo_enlargers.py": "a596f7002f7c67f0df49a9e553b5859b705c3727ce5275f832b686dca4eb3c0d",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
     "game/assets/props/photo_enlargers.glb.import": "a2f2096f6b5ad40a5f78b50cb01689ffd1c68602fea4d12b29a8c8d54f219d2f",
@@ -727,7 +728,7 @@
     "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
     "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
     "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
-    "art/blender/scripts/inspect_photo_enlargers.py": "714bf3d66f41fd5d91d165c48fe5ba23906f72bf9f615d5add412ebe7c9459b0"
+    "art/blender/scripts/inspect_photo_enlargers.py": "f03383c72b170299c35a2d4ebcb66d088f8ca1bb832245f9756797bcd1880c7f"
   },
   "open_work": [
     "Exactly three second-hand enlargers retain original source identities, centres, 1.62m base seats and 2.24m upper envelopes. Passive base plates, columns, focusing spindles and hollow downward lamp housings refine the original blocks. No working optics, lamp output or control logic is added.",

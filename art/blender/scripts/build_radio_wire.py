@@ -5,6 +5,7 @@ import bpy,bmesh,numpy as np
 from mathutils import Vector
 sys.path.insert(0,str(next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())/'art/blender/scripts'))
 from fabrication_uvs import chart_for_triangle
+from fabrication_grain import stock_grain_frame, stock_grain_chart
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
 import os
 OUT=Path(os.environ.get('RADIO_WIRE_OUT',str(ROOT)))
@@ -170,12 +171,13 @@ draws=[];inventory=[];fallbacks=0;total_triangles=0
 for item in assemblies:
  identity=item['id'];keys=sorted({partition_of(obj,key) for obj,key in pieces[identity]});rect=item['body']['rect'];origin=np.array(((rect[0]+rect[2])*.5,(rect[1]+rect[3])*.5,item['body']['z0']))
  for part_key in keys:
-  key=part_key.split('__',1)[0];vertices=[];faces=[]
+  key=part_key.split('__',1)[0];vertices=[];faces=[];grain_frames=[]
   cx=(rect[0]+rect[2])*.5;cy=(rect[1]+rect[3])*.5
   for obj,material_key in pieces[identity]:
    if partition_of(obj,material_key)!=part_key:continue
    # Sum in doubles before rebasing the assembled draw. World-coordinate
    # float32 addition otherwise collapses tiny bevel faces fifty metres out.
+   frame=stock_grain_frame([v.co[:] for v in obj.data.vertices],sets[key]['files'][0]);grain_frames.extend([frame]*len(obj.data.vertices))
    offset=len(vertices);vertices.extend(tuple(np.asarray(obj.location,dtype=np.float64)+np.asarray(v.co,dtype=np.float64)) for v in obj.data.vertices);faces.extend(tuple(offset+i for i in face.vertices) for face in obj.data.polygons)
   name=identity+'__'+part_key;mesh=bpy.data.meshes.new(name);mesh.from_pydata([tuple(np.asarray(p)-origin) for p in vertices],[],faces);mesh.update();mesh.materials.append(materials[key])
   bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.triangulate(bm,faces=list(bm.faces));bm.to_mesh(mesh);bm.free()
@@ -183,7 +185,7 @@ for item in assemblies:
   for face in mesh.polygons:
    points=np.asarray([mesh.vertices[i].co[:] for i in face.vertices],dtype=np.float64)
    assert np.linalg.norm(np.cross(points[1]-points[0],points[2]-points[0]))>0,(name,face.index,points.tolist())
-   n,u,values,local=chart_for_triangle(points,origin,sets[key]['meters_per_tile'],plan.get('material_aliases',{}).get(key,key) in ['timber','wood_dark','oak_quartered']);fallbacks+=local;smooth=[n,n,n]
+   n,u,values,local=stock_grain_chart(points,origin,sets[key]['meters_per_tile'],grain_frames[face.vertices[0]],plan.get('material_aliases',{}).get(key,key) in ['timber','wood_dark','oak_quartered']);fallbacks+=local;smooth=[n,n,n]
    for j,loop in enumerate(face.loop_indices):uv.data[loop].uv=tuple(values[j]);guides.data[loop].vector=(float(u[0]),float(u[2]),float(-u[1]));normals[loop]=tuple(smooth[j])
   mesh.normals_split_custom_set(normals);obj=bpy.data.objects.new(name,mesh);bpy.context.scene.collection.objects.link(obj);obj.location=origin;draws.append(obj)
   mesh.calc_loop_triangles();total_triangles+=len(mesh.loop_triangles);inventory.append({'name':name,'assembly':identity,'cell':item['cell'],'key':key,'triangles':len(mesh.loop_triangles)})
@@ -221,7 +223,7 @@ for identity in sorted({a['cell'] for a in assemblies}):
  cells.append({'id':identity,'parts':[{'name':p['name'],'key':plan.get('material_aliases',{}).get(p['key'],p['key']),'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan['catalog_variants'] else {}),**({'tint':plan['material_tints'][p['key']]} if p['key'] in plan.get('material_tints',{}) else {}),} for p in inventory if p['cell']==identity],'replace':replace})
 runtime={'schema_version':1,'asset':'res://assets/props/radio_wire.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
 (OUT/'game/data/orison_v2/radio_wire.json').write_text(json.dumps(runtime,indent=2)+'\n',encoding='utf-8',newline='\n')
-bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/radio_wire.glb.import',*material_definitions]
+bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',ROOT/'art/blender/scripts/fabrication_grain.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/radio_wire.glb.import',*material_definitions]
 for key in plan['runtime_keys']:bindings.extend(ROOT/'game/assets/building/textures'/f for f in sets[key]['files'] if f is not None)
 bindings.extend(ROOT/f'game/assets/building/floor_01_cells/{identity}.{suffix}' for identity in sorted({a['cell'] for a in assemblies}) for suffix in ['gltf','bin'])
 bindings.append(OUT/'art/blender/scripts/inspect_radio_wire.py')

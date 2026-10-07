@@ -1991,12 +1991,13 @@
       }
     ]
   },
-  "asset_sha256": "02cdfbb052c28b2fe874cb7e7e0b2d2e390859620242433086a33eaeb308a8f1",
+  "asset_sha256": "275816d67d9fe1aef3e1c846ff65ab78ff8e1cad1940db78c4f8df804ce8e64c",
   "source_bindings": {
     "art/data/hardware_tools/source_plan.json": "77077779f29a658f9b91da98bf5a7512d478a26ded1dbab0e3a2a54e4c5db2c2",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_hardware_tools.py": "8eef9d8948511d021040b611428b06ce092f2e359aa9122e7a1e0353bc4d845f",
+    "art/blender/scripts/build_hardware_tools.py": "544a9e329f640975c4c64f211a03950f68ceb8fb10f3d1f197099356413dd5a1",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
     "game/assets/props/hardware_tools.glb.import": "81bbe6f2f3bf9d096c811358e1d26ffd9532f314eee5d1f824e37717eb1db2a1",
@@ -2037,7 +2038,7 @@
     "art/textures/procedural/iron_blackened/height.png": "d50edf11dd55062da6b7f0b2fec76dc7eadec40364bd70cffc0dc3b166f79d79",
     "game/assets/building/floor_01_cells/shop_hardware_paint.gltf": "c4c7573c3dbec95bec3b1c30a3858915f21cd1e0953ca77b10705a0fefc37fec",
     "game/assets/building/floor_01_cells/shop_hardware_paint.bin": "8d3c8326480aa5714fe085ddd33cc1e71ea674c69185a5b6d13631b8ff7c98eb",
-    "art/blender/scripts/inspect_hardware_tools.py": "79f0a06022540830cc1957270c9138c83b0313ac7e7f381203fb1afb891908e9"
+    "art/blender/scripts/inspect_hardware_tools.py": "327e0843a328b8a2dfcb4e3221a607ba4e2ecf3b9760954c5251106d24f5a429"
   },
   "open_work": [
     "The glass stand and its five original sheet identities shift +0.15m along X to clear drawer-wall pulls. Fitted glass is 6mm thick within the original 25mm reference blocks, retaining each original front plane. The cutter gains an actual timber rail at its original .92m seat.",

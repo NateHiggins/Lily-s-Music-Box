@@ -548,12 +548,13 @@
       }
     ]
   },
-  "asset_sha256": "1ab3fe87d12e378627c9fd6a6551f467424d380d3b3e856bf5574786d1e413e3",
+  "asset_sha256": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8",
   "source_bindings": {
     "art/data/diner_counter/source_plan.json": "6649b37ae2043c4e71a7a12ac47b8eb8e91a3ccbe3793b1936712d8e172f4ca8",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_diner_counter.py": "4fed63567e84ed508a34d7493fa286dac5d0e3c70014addc726bac2d0206af24",
+    "art/blender/scripts/build_diner_counter.py": "0b709502074f033138a58ba445a0ac01917347cfe925c1b85443c03f807529f2",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
     "game/assets/props/diner_counter.glb.import": "a2137dd7b646ebb44f609d1237c98507bd47a7de084d6b8ef346342e890f7bc8",
@@ -582,7 +583,7 @@
     "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
     "game/assets/building/floor_01_cells/shop_luncheonette.gltf": "55e327d213c21a453b0040d7f8c8e69105e307f0fb912a2cea259b03f3653c58",
     "game/assets/building/floor_01_cells/shop_luncheonette.bin": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274",
-    "art/blender/scripts/inspect_diner_counter.py": "1827cffc1d8f0188f30a5abfefd70ea31a6d2765726c8e04a432f0e7b7871ac7",
+    "art/blender/scripts/inspect_diner_counter.py": "57f56815dffcc58161ca78a406285bdf10a260e1faf26b715b5231096bcf1a5d",
     "art/blender/shop_seating.blend": "5b20a4c4419cd2d15e42dcb6c3784c11674e8e048a5454dada00097152cf0b5a",
     "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
     "game/tests/fixtures/orison_shop_seating.json": "18d11054825d788e560a72a6c3f56f290ee5fe1a86ae119d0782df21a6fd4a23",

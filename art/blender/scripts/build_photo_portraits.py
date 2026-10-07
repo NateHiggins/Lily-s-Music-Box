@@ -5,6 +5,7 @@ import bpy,bmesh,numpy as np
 from mathutils import Vector
 sys.path.insert(0,str(next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())/'art/blender/scripts'))
 from fabrication_uvs import chart_for_triangle
+from fabrication_grain import stock_grain_frame, stock_grain_chart
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'game/project.godot').is_file())
 import os
 OUT=Path(os.environ.get('PHOTO_PORTRAITS_OUT',str(ROOT)))
@@ -180,11 +181,12 @@ draws=[];inventory=[];fallbacks=0;total_triangles=0
 for item in assemblies:
  identity=item['id'];keys=sorted({partition_of(obj,key) for obj,key in pieces[identity]});rect=item['body']['rect'];origin=np.array(((rect[0]+rect[2])*.5,(rect[1]+rect[3])*.5,item['body']['z0']))
  for part_key in keys:
-  key=part_key;vertices=[];faces=[]
+  key=part_key;vertices=[];faces=[];grain_frames=[]
   for obj,material_key in pieces[identity]:
    if partition_of(obj,material_key)!=part_key:continue
    # Sum in doubles before rebasing the assembled draw. World-coordinate
    # float32 addition otherwise collapses tiny bevel faces fifty metres out.
+   frame=stock_grain_frame([v.co[:] for v in obj.data.vertices],sets[key]['files'][0]);grain_frames.extend([frame]*len(obj.data.vertices))
    offset=len(vertices);vertices.extend(tuple(np.asarray(obj.location,dtype=np.float64)+np.asarray(v.co,dtype=np.float64)) for v in obj.data.vertices);faces.extend(tuple(offset+i for i in face.vertices) for face in obj.data.polygons)
   name=identity+'__'+part_key;mesh=bpy.data.meshes.new(name);mesh.from_pydata([tuple(np.asarray(p)-origin) for p in vertices],[],faces);mesh.update();mesh.materials.append(materials[key])
   bm=bmesh.new();bm.from_mesh(mesh);bmesh.ops.triangulate(bm,faces=list(bm.faces));bm.to_mesh(mesh);bm.free()
@@ -192,7 +194,7 @@ for item in assemblies:
   for face in mesh.polygons:
    points=np.asarray([mesh.vertices[i].co[:] for i in face.vertices],dtype=np.float64)
    assert np.linalg.norm(np.cross(points[1]-points[0],points[2]-points[0]))>0,(name,face.index,points.tolist())
-   n,u,values,local=chart_for_triangle(points,origin,sets[key]['meters_per_tile'],key=='timber');fallbacks+=local
+   n,u,values,local=stock_grain_chart(points,origin,sets[key]['meters_per_tile'],grain_frames[face.vertices[0]],key=='timber');fallbacks+=local
    if key=='image':
     pose=poses[identity];col=pose['atlas_cell']%2;row_index=pose['atlas_cell']//2;world=points+origin
     values=[(col*.5+.005+((pose['position'][1]-p[1])/pose['width']+.5)*.49,(1-(row_index+1)*.5)+.005+((p[2]-(pose['position'][2]-pose['height']/2))/pose['height'])*.49) for p in world]
@@ -238,7 +240,7 @@ for identity in sorted({a['cell'] for a in assemblies}):
 runtime={'schema_version':1,'asset':'res://assets/props/photo_portraits.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
 runtime['portraits']=plan['poses'];runtime['image_content']=plan['image_content'];runtime['image_parts']=[p['name'] for p in inventory if p['key']=='image']
 (OUT/'game/data/orison_v2/photo_portraits.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
-bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/photo_portraits.glb.import',*material_definitions]
+bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',ROOT/'art/blender/scripts/fabrication_grain.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/photo_portraits.glb.import',*material_definitions]
 for key in plan['runtime_keys']:bindings.extend(ROOT/'game/assets/building/textures'/f for f in sets[key]['files'] if f is not None)
 bindings.extend([ROOT/'art/tools/build_iron_blackened.py',ROOT/'art/data/material_catalog.json',ROOT/'art/textures/catalog_mapping.json',ROOT/'art/tools/generate_runtime_materials.py'])
 bindings.extend(ROOT/f'art/textures/procedural/iron_blackened/{name}.png' for name in ['albedo','roughness','normal','height'])

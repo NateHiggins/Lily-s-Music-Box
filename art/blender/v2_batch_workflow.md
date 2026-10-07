@@ -72,7 +72,9 @@ family. Export the complete batch after fit, support, UV and material checks.
 ## One composed Godot run
 
 Modules: **pawn_clocks**, **pawn_display**, **pawn_fittings**, **laundry_fittings**,
-**laundry_apparatus** and **laundry_trade**. The original
+**laundry_apparatus**, **laundry_trade**, **diner_counter**, **diner_till**,
+**hardware_tools**, **photo_cameras**, **photo_counter**, **photo_stock**,
+**photo_enlargers**, **photo_portraits** and **radio_wire**. The original
 clock/display checks remain; display now also checks the fitted safe boundary.
 Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and
@@ -126,3 +128,20 @@ Initial observation: the two separate Pawn runs took 49.01 s and 48.93 s;
 the combined run took 48.73 s with 1,313 checks and seven new-display frames.
 Two launches became one. This is an observed comparison, not a controlled
 benchmark. Other families need incremental adapters. V2 remains incomplete.
+
+## Check known grain directions once per finish batch
+
+Run **art/blender/scripts/audit_fabrication_grain.py** in Blender to identify
+slender stocks whose UV grain crosses their actual length. It reads native
+construction only and covers two visually checked albedos: timber U and walnut
+V. Unknown maps, broad panels and end grain are excluded. Inspect the renders
+before acting. **fabrication_grain.py** can orient those known maps along a
+stock’s principal length, including angled rails, without moving geometry.
+
+When only UV/tangent data changes, compare expanded indexed physical triangle
+bytes, the exported scene graph, all semantic fixture fields and runtime data.
+A dependent asset with unchanged geometry, maps and behavior need not be
+rebuilt just because a context hash changed. Refresh only explicitly reviewed
+dependency hashes, retain the comparison and keep prior proofs’ dates/scope.
+Unexpected source drift still requires investigation. The bounded example is
+**art/renders/orison_v2/wood_grain_20261007/rebind-grain-dependencies.py**.

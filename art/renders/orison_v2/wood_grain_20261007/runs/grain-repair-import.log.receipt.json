@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 18.09,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T14:59:51Z",
+  "started_utc": "2026-10-07T14:59:32Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/grain-repair-import.log.stderr",
+  "stderr_sha256": "bfd3c4a523d561e55b622ab6ca74089acaeea3dc592b0f49d283f8785a5f0330",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/grain-repair-import.log",
+  "stdout_sha256": "c5d43ec2dc375622a71dfe7ce0c6bb6d67910ff6eacdb35b48da5488759d26cc"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 332,
+  "dirty_sample": [
+   "M art/blender/diner_counter.blend",
+   " M art/blender/diner_counter_construction.json",
+   " M art/blender/diner_till.blend",
+   " M art/blender/diner_till_construction.json",
+   " M art/blender/hardware_tools.blend",
+   " M art/blender/hardware_tools_construction.json",
+   " M art/blender/photo_cameras.blend",
+   " M art/blender/photo_cameras_construction.json",
+   " M art/blender/photo_counter.blend",
+   " M art/blender/photo_counter_construction.json",
+   " M art/blender/photo_enlargers.blend",
+   " M art/blender/photo_enlargers_construction.json",
+   " M art/blender/photo_portraits.blend",
+   " M art/blender/photo_portraits_construction.json",
+   " M art/blender/photo_stock.blend",
+   " M art/blender/photo_stock_construction.json",
+   " M art/blender/radio_wire.blend",
+   " M art/blender/radio_wire_construction.json",
+   " M art/blender/scripts/build_diner_counter.py",
+   " M art/blender/scripts/build_diner_till.py"
+  ],
+  "repository_head": "d1de58c1c1e3a7bd690d9a5991da3aed1cfd0d7d",
+  "repository_tree": "b5e5c973ea9e5398a577fba37f96d22b441f9bab",
+  "runtime_inputs_sha256": "38f6b0d2d06ddb46ad26566014261acf1fa5e3d16676eaf0e03b0d39e12d69bc",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

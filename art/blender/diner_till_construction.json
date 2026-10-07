@@ -909,12 +909,13 @@
       }
     ]
   },
-  "asset_sha256": "b41b92978366124003d7c9be921b4244e2e6906f8d014e144a24cbab35ae3800",
+  "asset_sha256": "9bfefeab432ae364893259506745fdd87593c1fb3c41923d5178091c141fcc54",
   "source_bindings": {
     "art/data/diner_till/source_plan.json": "4a3d0572c426f5f2a865f107f680ebd49b876f0ac4555030e1a1a9e425a2a599",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_diner_till.py": "504e9a8365245437ca8bacfbe9a9c3a1928f02d9b19b691149b9f940c3ac1bee",
+    "art/blender/scripts/build_diner_till.py": "c5c42b5bf14671a7c62a996135b31b889453203e85e03afdaa05c08c99b5c7f8",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
     "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
     "game/assets/props/diner_till.glb.import": "c328b18580c206e47194ca3b1d70cc7332887332da98bdf0fc59e853601b8bb3",
@@ -942,7 +943,7 @@
     "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
     "game/assets/building/floor_01_cells/shop_luncheonette.gltf": "55e327d213c21a453b0040d7f8c8e69105e307f0fb912a2cea259b03f3653c58",
     "game/assets/building/floor_01_cells/shop_luncheonette.bin": "6c452bffc072137581e636c16ded29daa203bf1320b4ff42eac5f71a8f0e9274",
-    "art/blender/scripts/inspect_diner_till.py": "f2ef2dda5c9c5bde8b898c526dbf71ce58d60681abf0423efbc3de0972f76797",
+    "art/blender/scripts/inspect_diner_till.py": "a0bb275af191b149878f8fb010fe4f08bb5e8f60246a0ec023bc19f85afbfdbe",
     "art/blender/shop_seating.blend": "5b20a4c4419cd2d15e42dcb6c3784c11674e8e048a5454dada00097152cf0b5a",
     "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
     "game/tests/fixtures/orison_shop_seating.json": "18d11054825d788e560a72a6c3f56f290ee5fe1a86ae119d0782df21a6fd4a23",
@@ -951,9 +952,9 @@
     "game/assets/props/diner_receiving.glb": "893976dd77612880fefb9f1e381574614165eb188372aa31b628c7592d8caa0f",
     "game/tests/fixtures/orison_diner_receiving.json": "52c0edfacc3b67d671dba77bdd1cf9398ca962038d0255efce7cddd39084870e",
     "game/data/orison_v2/diner_receiving.json": "1a8afcb2c950401e11cbf51536f0c0a5200fdff482d1c4e47bc18e5540fe52fa",
-    "art/blender/diner_counter.blend": "2e4751ea15af0b1cfadbc4fd42cfe894dc06bcf24616cfafad330a6171fc4d5f",
-    "game/assets/props/diner_counter.glb": "1ab3fe87d12e378627c9fd6a6551f467424d380d3b3e856bf5574786d1e413e3",
-    "game/tests/fixtures/orison_diner_counter.json": "23ac46e9b877b0f0309beeaf50bdc1a653e3aefd0ccddf17f26f41ce63d9c65c",
+    "art/blender/diner_counter.blend": "65a932bfebc8feefea006ff4c4f4d79d80c5d34d6b31ada4972115dda4028840",
+    "game/assets/props/diner_counter.glb": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8",
+    "game/tests/fixtures/orison_diner_counter.json": "6294ce66fe630d702a1f47ec7c379fe2a4528b4c6cd85bbe14c0791e9f156063",
     "game/data/orison_v2/diner_counter.json": "8e7085cececed1e6d9f23fd4c3c951d5f58e14eeeac84397751ef85474479ec2"
   },
   "open_work": [
