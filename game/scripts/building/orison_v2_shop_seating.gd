@@ -40,6 +40,8 @@ static func mount_diner_till(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/diner_till.json","DinerTill","F01_retail_diner_till_","diner_till_part")
 static func mount_diner_backbar(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/diner_backbar.json","DinerBackbar","F01_retail_diner_backbar_","diner_backbar_part")
+static func mount_diner_urns(cell: Node3D, layout: Dictionary) -> bool:
+	return mount_records(cell,layout,"res://data/orison_v2/diner_urns.json","DinerUrns","F01_retail_diner_urns_","diner_urns_part")
 
 static func mount_photo_counter(cell: Node3D, layout: Dictionary) -> bool:
 	return mount_records(cell,layout,"res://data/orison_v2/photo_counter.json","PhotoCounter","F01_retail_photo_counter_","photo_counter_part")
