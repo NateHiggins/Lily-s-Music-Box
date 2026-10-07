@@ -76,8 +76,8 @@ func _ready() -> void:
 	var authored_basis := Basis(Vector3.UP, -1.5707963)
 	_check("original semantic terminal transform remains exact", semantic.global_position.is_equal_approx(Vector3(-9.05, 10.35, 1.25))
 			and semantic.global_basis.is_equal_approx(authored_basis))
-	_check("mounted terminal keeps semantic position scale and stable identity", terminal.name == &"F04_B_MONITOR_01"
-			and terminal.global_position.is_equal_approx(semantic.global_position)
+	_check("mounted terminal retains the fitted desk offset, scale and stable identity", terminal.name == &"F04_B_MONITOR_01"
+			and terminal.global_position.is_equal_approx(semantic.global_position + Vector3(.075, 0, 0))
 			and terminal.global_basis.get_scale().is_equal_approx(semantic.global_basis.get_scale()))
 	_check("operator anchor remains the authored stance", operator.global_position.is_equal_approx(Vector3(-9.9, 9.6, 1.25))
 			and operator.global_basis.is_equal_approx(Basis(Vector3.UP, 1.5707963)))

@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 55.62,
+  "exit_code": 1,
+  "finished_utc": "2026-10-07T20:08:37Z",
+  "started_utc": "2026-10-07T20:07:41Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/reading-nook-runtime-01.log.stderr",
+  "stderr_sha256": "b2f3f5a3b3983f13a82d1b273092e0ad8fe0aaee154bace6a5e31dc330cb82a6",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/reading-nook-runtime-01.log",
+  "stdout_sha256": "c22f54565c9ba0c3803a093a99acc51c08c36368cd521fe1b0ff0973c547dc0b"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/reading-nook-runtime-01",
+ "source": {
+  "dirty_paths": 290,
+  "dirty_sample": [
+   "M art/data/orison_v2/domestic_furniture_source.json",
+   " M art/renders/insitu/shots.md",
+   " M game/data/orison_v2/domestic_furniture.json",
+   " M game/scripts/building/orison_v2_domestic_furniture.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   "?? art/blender/reading_nook.blend",
+   "?? art/blender/reading_nook_construction.json",
+   "?? art/blender/scripts/build_reading_nook.py",
+   "?? art/blender/scripts/inspect_reading_nook.py",
+   "?? art/blender/scripts/inspect_task_lamp_installations.py",
+   "?? art/blender/scripts/reading_nook_geometry.py",
+   "?? art/data/reading_nook/",
+   "?? art/data/task_lamp_installations/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? game/assets/props/reading_nook.glb",
+   "?? game/data/orison_v2/reading_nook.json"
+  ],
+  "repository_head": "6c9abf4391d700ef99a504b81a6d7290ae1a400b",
+  "repository_tree": "c22414c47fb97fdeb9b9a7583555392ebf9824c4",
+  "runtime_inputs_sha256": "749bf39827f4dc68b6c25113b04032bfdf044388eae4d690dfd1bdde6a2bb709",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "217279acdc1708a629c2aa7aa0da4027090d5ad8d39c68ef77e1a089a9fad884"
+ },
+ "windowed": true
+}

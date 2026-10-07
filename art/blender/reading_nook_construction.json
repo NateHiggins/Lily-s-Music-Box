@@ -1,0 +1,5035 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "nook_rug",
+      "rect": [
+        -1.72,
+        -0.99,
+        0.76,
+        1.49
+      ],
+      "z0": 0.014,
+      "h": 0.008,
+      "mat": "rug_warm"
+    },
+    {
+      "id": "nook_seat_n",
+      "rect": [
+        -1.3,
+        0.69,
+        0.34,
+        1.07
+      ],
+      "z0": 0.4,
+      "h": 0.065,
+      "mat": "floor_oak"
+    },
+    {
+      "id": "nook_apron_n",
+      "rect": [
+        -1.25,
+        0.74,
+        0.29,
+        1.02
+      ],
+      "z0": 0.0,
+      "h": 0.4,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "nook_seat_w",
+      "rect": [
+        -1.3,
+        -0.19,
+        -0.92,
+        0.69
+      ],
+      "z0": 0.4,
+      "h": 0.065,
+      "mat": "floor_oak"
+    },
+    {
+      "id": "nook_apron_w",
+      "rect": [
+        -1.25,
+        -0.14,
+        -0.97,
+        0.64
+      ],
+      "z0": 0.0,
+      "h": 0.4,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "nook_seat_e",
+      "rect": [
+        -0.04,
+        -0.19,
+        0.34,
+        0.69
+      ],
+      "z0": 0.4,
+      "h": 0.065,
+      "mat": "floor_oak"
+    },
+    {
+      "id": "nook_apron_e",
+      "rect": [
+        0.01,
+        -0.14,
+        0.29,
+        0.64
+      ],
+      "z0": 0.0,
+      "h": 0.4,
+      "mat": "wood_dark"
+    },
+    {
+      "id": "nook_cush1",
+      "rect": [
+        -1.22,
+        0.75,
+        -0.64,
+        1.11
+      ],
+      "z0": 0.465,
+      "h": 0.085,
+      "mat": "fabric_warm"
+    },
+    {
+      "id": "nook_cush2",
+      "rect": [
+        0.02,
+        -0.05,
+        0.32,
+        0.51
+      ],
+      "z0": 0.465,
+      "h": 0.075,
+      "mat": "fabric_green"
+    },
+    {
+      "id": "nook_throw",
+      "rect": [
+        -1.28,
+        -0.09,
+        -0.96,
+        0.55
+      ],
+      "z0": 0.465,
+      "h": 0.055,
+      "mat": "linen"
+    },
+    {
+      "id": "nook_books",
+      "asm": "shelf",
+      "at": [
+        -0.475,
+        1.2398
+      ],
+      "yaw": 180,
+      "W": 1.25,
+      "H": 0.92,
+      "books": true
+    },
+    {
+      "id": "nook_table",
+      "asm": "coffee",
+      "at": [
+        -0.46,
+        -0.6102
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "nook_mug",
+      "asm": "mug",
+      "at": [
+        -0.28,
+        -0.5502
+      ],
+      "yaw": 35,
+      "z0": 0.37,
+      "mat": "ceramic"
+    },
+    {
+      "id": "nook_pile",
+      "asm": "bookpile",
+      "at": [
+        -0.68,
+        -0.6702
+      ],
+      "yaw": 12,
+      "z0": 0.37,
+      "n": 3
+    },
+    {
+      "id": "nook_plant",
+      "asm": "plant",
+      "at": [
+        0.46,
+        1.1698
+      ],
+      "yaw": 0,
+      "big": false
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "nook_rug",
+      "kind": "box",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_rug"
+    },
+    {
+      "id": "nook_seat_n",
+      "kind": "box",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_seat_n"
+    },
+    {
+      "id": "nook_apron_n",
+      "kind": "box",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_apron_n"
+    },
+    {
+      "id": "nook_seat_w",
+      "kind": "box",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_seat_w"
+    },
+    {
+      "id": "nook_apron_w",
+      "kind": "box",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_apron_w"
+    },
+    {
+      "id": "nook_seat_e",
+      "kind": "box",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_seat_e"
+    },
+    {
+      "id": "nook_apron_e",
+      "kind": "box",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_apron_e"
+    },
+    {
+      "id": "nook_cush1",
+      "kind": "box",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_cush1"
+    },
+    {
+      "id": "nook_cush2",
+      "kind": "box",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_cush2"
+    },
+    {
+      "id": "nook_throw",
+      "kind": "box",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_throw"
+    },
+    {
+      "id": "nook_books",
+      "kind": "shelf",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_books"
+    },
+    {
+      "id": "nook_table",
+      "kind": "coffee",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_table"
+    },
+    {
+      "id": "nook_mug",
+      "kind": "mug",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_mug"
+    },
+    {
+      "id": "nook_pile",
+      "kind": "bookpile",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_pile"
+    },
+    {
+      "id": "nook_plant",
+      "kind": "plant",
+      "cell": "B1_PUBLIC_CORE",
+      "source_record": "nook_plant"
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "nook_rug_Body",
+      "assembly": "nook_rug",
+      "key": "rug_warm",
+      "volume_m3": 0.04918334504824933
+    },
+    {
+      "name": "nook_seat_n_Body",
+      "assembly": "nook_seat_n",
+      "key": "floor_oak",
+      "volume_m3": 0.040499676020969086
+    },
+    {
+      "name": "nook_apron_n_Body",
+      "assembly": "nook_apron_n",
+      "key": "wood_dark",
+      "volume_m3": 0.16902154645795336
+    },
+    {
+      "name": "nook_seat_w_Body",
+      "assembly": "nook_seat_w",
+      "key": "floor_oak",
+      "volume_m3": 0.021730708860927
+    },
+    {
+      "name": "nook_apron_w_Body",
+      "assembly": "nook_apron_w",
+      "key": "wood_dark",
+      "volume_m3": 0.08560699491300125
+    },
+    {
+      "name": "nook_seat_e_Body",
+      "assembly": "nook_seat_e",
+      "key": "floor_oak",
+      "volume_m3": 0.02173071227007412
+    },
+    {
+      "name": "nook_apron_e_Body",
+      "assembly": "nook_apron_e",
+      "key": "wood_dark",
+      "volume_m3": 0.08560699951670736
+    },
+    {
+      "name": "nook_cush1_Body",
+      "assembly": "nook_cush1",
+      "key": "fabric_warm",
+      "volume_m3": 0.01742583480391325
+    },
+    {
+      "name": "nook_cush1_Welt",
+      "assembly": "nook_cush1",
+      "key": "fabric_warm",
+      "volume_m3": 1.3381626635371792e-05
+    },
+    {
+      "name": "nook_cush2_Body",
+      "assembly": "nook_cush2",
+      "key": "fabric_green",
+      "volume_m3": 0.012306993459256397
+    },
+    {
+      "name": "nook_cush2_Welt",
+      "assembly": "nook_cush2",
+      "key": "fabric_green",
+      "volume_m3": 1.222307502580494e-05
+    },
+    {
+      "name": "nook_throw_Fold0",
+      "assembly": "nook_throw",
+      "key": "linen",
+      "volume_m3": 0.00410158270828186
+    },
+    {
+      "name": "nook_throw_Fold1",
+      "assembly": "nook_throw",
+      "key": "linen",
+      "volume_m3": 0.003958452953469246
+    },
+    {
+      "name": "nook_throw_Fold2",
+      "assembly": "nook_throw",
+      "key": "linen",
+      "volume_m3": 0.0038831284819266752
+    },
+    {
+      "name": "nook_books_Upright0",
+      "assembly": "nook_books",
+      "key": "metal",
+      "volume_m3": 0.0007606909898271542
+    },
+    {
+      "name": "nook_books_Upright1",
+      "assembly": "nook_books",
+      "key": "metal",
+      "volume_m3": 0.0007606909898271542
+    },
+    {
+      "name": "nook_books_Upright2",
+      "assembly": "nook_books",
+      "key": "metal",
+      "volume_m3": 0.0007606909898271542
+    },
+    {
+      "name": "nook_books_Upright3",
+      "assembly": "nook_books",
+      "key": "metal",
+      "volume_m3": 0.0007606909898271542
+    },
+    {
+      "name": "nook_books_Shelf0",
+      "assembly": "nook_books",
+      "key": "floor_oak",
+      "volume_m3": 0.0119936877720601
+    },
+    {
+      "name": "nook_books_Shelf1",
+      "assembly": "nook_books",
+      "key": "floor_oak",
+      "volume_m3": 0.011993665420425612
+    },
+    {
+      "name": "nook_books_Shelf2",
+      "assembly": "nook_books",
+      "key": "floor_oak",
+      "volume_m3": 0.011993710509967392
+    },
+    {
+      "name": "nook_books_Volume0_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 5.467063504293689e-05
+    },
+    {
+      "name": "nook_books_Volume0_RightCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 5.4670635042936155e-05
+    },
+    {
+      "name": "nook_books_Volume0_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0012431864299002667
+    },
+    {
+      "name": "nook_books_Volume0_Spine",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 1.5517232691224952e-05
+    },
+    {
+      "name": "nook_books_Volume1_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 5.387509655957682e-05
+    },
+    {
+      "name": "nook_books_Volume1_RightCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 5.387509655957682e-05
+    },
+    {
+      "name": "nook_books_Volume1_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0011871516812780583
+    },
+    {
+      "name": "nook_books_Volume1_Spine",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 1.4795935910660586e-05
+    },
+    {
+      "name": "nook_books_Volume2_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 5.3071520683032633e-05
+    },
+    {
+      "name": "nook_books_Volume2_RightCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 5.307152068303264e-05
+    },
+    {
+      "name": "nook_books_Volume2_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0011320654513891112
+    },
+    {
+      "name": "nook_books_Volume2_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 1.4090875161455097e-05
+    },
+    {
+      "name": "nook_books_Volume3_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 5.226040954102788e-05
+    },
+    {
+      "name": "nook_books_Volume3_RightCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 5.226040954102788e-05
+    },
+    {
+      "name": "nook_books_Volume3_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0010779577486038478
+    },
+    {
+      "name": "nook_books_Volume3_Spine",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 1.3402197236852313e-05
+    },
+    {
+      "name": "nook_books_Volume4_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 5.144149323517488e-05
+    },
+    {
+      "name": "nook_books_Volume4_RightCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 5.1441493235174876e-05
+    },
+    {
+      "name": "nook_books_Volume4_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.001024840572462459
+    },
+    {
+      "name": "nook_books_Volume4_Spine",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 1.2729853351580818e-05
+    },
+    {
+      "name": "nook_books_Volume5_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 5.061479803466591e-05
+    },
+    {
+      "name": "nook_books_Volume5_RightCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 5.061479803466591e-05
+    },
+    {
+      "name": "nook_books_Volume5_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0009727303178067514
+    },
+    {
+      "name": "nook_books_Volume5_Spine",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 1.2073839206982912e-05
+    },
+    {
+      "name": "nook_books_Volume6_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 4.978028725945811e-05
+    },
+    {
+      "name": "nook_books_Volume6_RightCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 4.97802872594581e-05
+    },
+    {
+      "name": "nook_books_Volume6_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0009216426499459734
+    },
+    {
+      "name": "nook_books_Volume6_Spine",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 1.1434137400539947e-05
+    },
+    {
+      "name": "nook_books_Volume7_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.893801224507286e-05
+    },
+    {
+      "name": "nook_books_Volume7_RightCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.893801224507286e-05
+    },
+    {
+      "name": "nook_books_Volume7_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0008715972366040335
+    },
+    {
+      "name": "nook_books_Volume7_Spine",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 1.0810784879183344e-05
+    },
+    {
+      "name": "nook_books_Volume8_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.8087945084466004e-05
+    },
+    {
+      "name": "nook_books_Volume8_RightCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.808794508446636e-05
+    },
+    {
+      "name": "nook_books_Volume8_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0008226084788890112
+    },
+    {
+      "name": "nook_books_Volume8_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 1.0203747570456568e-05
+    },
+    {
+      "name": "nook_books_Volume9_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 4.7230068029400425e-05
+    },
+    {
+      "name": "nook_books_Volume9_RightCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 4.7230068029400154e-05
+    },
+    {
+      "name": "nook_books_Volume9_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0007746932806169061
+    },
+    {
+      "name": "nook_books_Volume9_Spine",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 9.613027233270768e-06
+    },
+    {
+      "name": "nook_books_Volume10_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 4.6364416007393334e-05
+    },
+    {
+      "name": "nook_books_Volume10_RightCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 4.636441600739335e-05
+    },
+    {
+      "name": "nook_books_Volume10_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0007278700748840478
+    },
+    {
+      "name": "nook_books_Volume10_Spine",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 9.038641278033483e-06
+    },
+    {
+      "name": "nook_books_Volume11_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 4.5490955652646616e-05
+    },
+    {
+      "name": "nook_books_Volume11_RightCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 4.5491198058228755e-05
+    },
+    {
+      "name": "nook_books_Volume11_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.000682155028996527
+    },
+    {
+      "name": "nook_books_Volume11_Spine",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 8.48057480685802e-06
+    },
+    {
+      "name": "nook_books_Volume12_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 4.4609961002983834e-05
+    },
+    {
+      "name": "nook_books_Volume12_RightCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 4.4609961002983834e-05
+    },
+    {
+      "name": "nook_books_Volume12_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0006375652345234418
+    },
+    {
+      "name": "nook_books_Volume12_Spine",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 7.938842783751855e-06
+    },
+    {
+      "name": "nook_books_Volume13_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.372092484973614e-05
+    },
+    {
+      "name": "nook_books_Volume13_RightCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.372092484973566e-05
+    },
+    {
+      "name": "nook_books_Volume13_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0005941169507478652
+    },
+    {
+      "name": "nook_books_Volume13_Spine",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 7.413431594575569e-06
+    },
+    {
+      "name": "nook_books_Volume14_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.282408003566848e-05
+    },
+    {
+      "name": "nook_books_Volume14_RightCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.2824022977082925e-05
+    },
+    {
+      "name": "nook_books_Volume14_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0005518274337987758
+    },
+    {
+      "name": "nook_books_Volume14_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 6.904344497126194e-06
+    },
+    {
+      "name": "nook_books_Volume18_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 3.7666848423809115e-05
+    },
+    {
+      "name": "nook_books_Volume18_RightCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 3.766683587233659e-05
+    },
+    {
+      "name": "nook_books_Volume18_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0006676579435166823
+    },
+    {
+      "name": "nook_books_Volume18_Spine",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 9.444009795103186e-06
+    },
+    {
+      "name": "nook_books_Volume19_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 3.691600977022097e-05
+    },
+    {
+      "name": "nook_books_Volume19_RightCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 3.691605895458934e-05
+    },
+    {
+      "name": "nook_books_Volume19_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.000628436040423591
+    },
+    {
+      "name": "nook_books_Volume19_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 8.885956080285437e-06
+    },
+    {
+      "name": "nook_books_Volume20_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 3.6157451317107356e-05
+    },
+    {
+      "name": "nook_books_Volume20_RightCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 3.615745131710735e-05
+    },
+    {
+      "name": "nook_books_Volume20_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0005901441878899557
+    },
+    {
+      "name": "nook_books_Volume20_Spine",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 8.344221299380918e-06
+    },
+    {
+      "name": "nook_books_Volume21_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 3.5391040963410595e-05
+    },
+    {
+      "name": "nook_books_Volume21_RightCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 3.5391040963410595e-05
+    },
+    {
+      "name": "nook_books_Volume21_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0005527992169438181
+    },
+    {
+      "name": "nook_books_Volume21_Spine",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 7.818799892275666e-06
+    },
+    {
+      "name": "nook_books_Volume22_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 3.461666749552817e-05
+    },
+    {
+      "name": "nook_books_Volume22_RightCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 3.461666749552818e-05
+    },
+    {
+      "name": "nook_books_Volume22_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0005164196208848866
+    },
+    {
+      "name": "nook_books_Volume22_Spine",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 7.3097256400553616e-06
+    },
+    {
+      "name": "nook_books_Volume23_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 7.41798459453366e-05
+    },
+    {
+      "name": "nook_books_Volume23_RightCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 7.417984594533658e-05
+    },
+    {
+      "name": "nook_books_Volume23_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0010660999195406412
+    },
+    {
+      "name": "nook_books_Volume23_Spine",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 1.494659382607508e-05
+    },
+    {
+      "name": "nook_books_Volume24_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 7.355945966685909e-05
+    },
+    {
+      "name": "nook_books_Volume24_RightCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 7.3559459665385e-05
+    },
+    {
+      "name": "nook_books_Volume24_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0010054929415920036
+    },
+    {
+      "name": "nook_books_Volume24_Spine",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 1.411525433869424e-05
+    },
+    {
+      "name": "nook_books_Volume25_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 7.293128557919114e-05
+    },
+    {
+      "name": "nook_books_Volume25_RightCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 7.293128557919114e-05
+    },
+    {
+      "name": "nook_books_Volume25_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0009456555554924373
+    },
+    {
+      "name": "nook_books_Volume25_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 1.3300230546082086e-05
+    },
+    {
+      "name": "nook_books_Volume26_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 7.22953070336704e-05
+    },
+    {
+      "name": "nook_books_Volume26_RightCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 7.229530703367042e-05
+    },
+    {
+      "name": "nook_books_Volume26_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0008866035400756422
+    },
+    {
+      "name": "nook_books_Volume26_Spine",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 1.2501511671510555e-05
+    },
+    {
+      "name": "nook_books_Volume27_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 7.165154614187835e-05
+    },
+    {
+      "name": "nook_books_Volume27_RightCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 7.165154614187838e-05
+    },
+    {
+      "name": "nook_books_Volume27_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.000828359332104907
+    },
+    {
+      "name": "nook_books_Volume27_Spine",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 1.1719166755385387e-05
+    },
+    {
+      "name": "nook_books_Volume28_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 7.099998836394512e-05
+    },
+    {
+      "name": "nook_books_Volume28_RightCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 7.099998836394512e-05
+    },
+    {
+      "name": "nook_books_Volume28_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0007709345117608938
+    },
+    {
+      "name": "nook_books_Volume28_Spine",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 1.0953127601292073e-05
+    },
+    {
+      "name": "nook_books_Volume29_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 7.034064284182084e-05
+    },
+    {
+      "name": "nook_books_Volume29_RightCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 7.034064284182084e-05
+    },
+    {
+      "name": "nook_books_Volume29_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0028618487695081006
+    },
+    {
+      "name": "nook_books_Volume29_Spine",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 3.644463882204381e-05
+    },
+    {
+      "name": "nook_books_Volume30_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 6.96735166176701e-05
+    },
+    {
+      "name": "nook_books_Volume30_RightCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 6.967351661767013e-05
+    },
+    {
+      "name": "nook_books_Volume30_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0027856400125558477
+    },
+    {
+      "name": "nook_books_Volume30_Spine",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 3.535632835875864e-05
+    },
+    {
+      "name": "nook_books_Volume31_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 6.899858028878282e-05
+    },
+    {
+      "name": "nook_books_Volume31_RightCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 6.899858028878284e-05
+    },
+    {
+      "name": "nook_books_Volume31_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0027100598975407283
+    },
+    {
+      "name": "nook_books_Volume31_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 3.428435671713768e-05
+    },
+    {
+      "name": "nook_books_Volume35_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 7.068022846256745e-05
+    },
+    {
+      "name": "nook_books_Volume35_RightCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 7.068022846256745e-05
+    },
+    {
+      "name": "nook_books_Volume35_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0009166686856081344
+    },
+    {
+      "name": "nook_books_Volume35_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 1.2276293265782903e-05
+    },
+    {
+      "name": "nook_books_Volume36_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 6.997414528499122e-05
+    },
+    {
+      "name": "nook_books_Volume36_RightCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 6.997414528499125e-05
+    },
+    {
+      "name": "nook_books_Volume36_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0008583045316166863
+    },
+    {
+      "name": "nook_books_Volume36_Spine",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 1.1526598003414407e-05
+    },
+    {
+      "name": "nook_books_Volume37_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 6.926027773423329e-05
+    },
+    {
+      "name": "nook_books_Volume37_RightCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 6.926027773295138e-05
+    },
+    {
+      "name": "nook_books_Volume37_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0008008430796728145
+    },
+    {
+      "name": "nook_books_Volume37_Spine",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 1.0793198878090848e-05
+    },
+    {
+      "name": "nook_books_Volume38_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 6.853858915574941e-05
+    },
+    {
+      "name": "nook_books_Volume38_RightCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 6.853858915574967e-05
+    },
+    {
+      "name": "nook_books_Volume38_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0007443050220459716
+    },
+    {
+      "name": "nook_books_Volume38_Spine",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 1.0076149487490244e-05
+    },
+    {
+      "name": "nook_books_Volume39_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 6.780910473795601e-05
+    },
+    {
+      "name": "nook_books_Volume39_RightCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 6.780910473795602e-05
+    },
+    {
+      "name": "nook_books_Volume39_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.002759111946576822
+    },
+    {
+      "name": "nook_books_Volume39_Spine",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 3.348716953442784e-05
+    },
+    {
+      "name": "nook_books_Volume40_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 6.707183358529276e-05
+    },
+    {
+      "name": "nook_books_Volume40_RightCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 6.707183358306332e-05
+    },
+    {
+      "name": "nook_books_Volume40_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.002681790304785626
+    },
+    {
+      "name": "nook_books_Volume40_Spine",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 3.244785516834926e-05
+    },
+    {
+      "name": "nook_books_Volume41_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 6.632680091141584e-05
+    },
+    {
+      "name": "nook_books_Volume41_RightCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 6.632680091141587e-05
+    },
+    {
+      "name": "nook_books_Volume41_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0026051927202673953
+    },
+    {
+      "name": "nook_books_Volume41_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 3.142486361859323e-05
+    },
+    {
+      "name": "nook_books_Volume42_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 6.55739391319826e-05
+    },
+    {
+      "name": "nook_books_Volume42_RightCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 6.557393913198299e-05
+    },
+    {
+      "name": "nook_books_Volume42_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0025293419840180225
+    },
+    {
+      "name": "nook_books_Volume42_Spine",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 3.0418202373101085e-05
+    },
+    {
+      "name": "nook_books_Volume43_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 6.481329984140253e-05
+    },
+    {
+      "name": "nook_books_Volume43_RightCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 6.48132998379837e-05
+    },
+    {
+      "name": "nook_books_Volume43_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.002454252312235662
+    },
+    {
+      "name": "nook_books_Volume43_Spine",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 2.942785903671435e-05
+    },
+    {
+      "name": "nook_books_Volume44_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 6.404488878573275e-05
+    },
+    {
+      "name": "nook_books_Volume44_RightCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 6.40452299873006e-05
+    },
+    {
+      "name": "nook_books_Volume44_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.002379942824796325
+    },
+    {
+      "name": "nook_books_Volume44_Spine",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 2.845385970486745e-05
+    },
+    {
+      "name": "nook_books_Volume48_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 6.22713413135045e-05
+    },
+    {
+      "name": "nook_books_Volume48_RightCover",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 6.227125836859032e-05
+    },
+    {
+      "name": "nook_books_Volume48_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0024012609919334183
+    },
+    {
+      "name": "nook_books_Volume48_Spine",
+      "assembly": "nook_books",
+      "key": "book_green",
+      "volume_m3": 2.7607688021148387e-05
+    },
+    {
+      "name": "nook_books_Volume49_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 6.144052172203833e-05
+    },
+    {
+      "name": "nook_books_Volume49_RightCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 6.144056264147709e-05
+    },
+    {
+      "name": "nook_books_Volume49_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0023257642218297283
+    },
+    {
+      "name": "nook_books_Volume49_Spine",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 2.666630750282144e-05
+    },
+    {
+      "name": "nook_books_Volume50_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 6.060199349685816e-05
+    },
+    {
+      "name": "nook_books_Volume50_RightCover",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 6.060199349685814e-05
+    },
+    {
+      "name": "nook_books_Volume50_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0022511488861369933
+    },
+    {
+      "name": "nook_books_Volume50_Spine",
+      "assembly": "nook_books",
+      "key": "book_ochre",
+      "volume_m3": 2.5741266531754888e-05
+    },
+    {
+      "name": "nook_books_Volume51_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 5.975566304919248e-05
+    },
+    {
+      "name": "nook_books_Volume51_RightCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 5.975534469025583e-05
+    },
+    {
+      "name": "nook_books_Volume51_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.002177432144933459
+    },
+    {
+      "name": "nook_books_Volume51_Spine",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 2.483257608214594e-05
+    },
+    {
+      "name": "nook_books_Volume52_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.9594903980700875e-05
+    },
+    {
+      "name": "nook_books_Volume52_RightCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.959490398070088e-05
+    },
+    {
+      "name": "nook_books_Volume52_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0017660679443088933
+    },
+    {
+      "name": "nook_books_Volume52_Spine",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 2.394017771571986e-05
+    },
+    {
+      "name": "nook_books_Volume53_LeftCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.890213594866009e-05
+    },
+    {
+      "name": "nook_books_Volume53_RightCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.8902135948660085e-05
+    },
+    {
+      "name": "nook_books_Volume53_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0017069538400252605
+    },
+    {
+      "name": "nook_books_Volume53_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 2.3064015494457325e-05
+    },
+    {
+      "name": "nook_books_Volume15_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 4.13195294935928e-05
+    },
+    {
+      "name": "nook_books_Volume15_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 4.131951831250029e-05
+    },
+    {
+      "name": "nook_books_Volume15_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0008807720502556141
+    },
+    {
+      "name": "nook_books_Volume15_Spine",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 1.1617611561725415e-05
+    },
+    {
+      "name": "nook_books_Volume16_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.0994475606107375e-05
+    },
+    {
+      "name": "nook_books_Volume16_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.09909861378583e-05
+    },
+    {
+      "name": "nook_books_Volume16_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0008645352694664522
+    },
+    {
+      "name": "nook_books_Volume16_Spine",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 1.1413934569687664e-05
+    },
+    {
+      "name": "nook_books_Volume17_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 4.066243632777286e-05
+    },
+    {
+      "name": "nook_books_Volume17_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 4.066243632777286e-05
+    },
+    {
+      "name": "nook_books_Volume17_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0008484802823377335
+    },
+    {
+      "name": "nook_books_Volume17_Spine",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 1.1212337618485686e-05
+    },
+    {
+      "name": "nook_books_Volume32_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.804760355234597e-05
+    },
+    {
+      "name": "nook_books_Volume32_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.80476035523425e-05
+    },
+    {
+      "name": "nook_books_Volume32_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.001181313945080257
+    },
+    {
+      "name": "nook_books_Volume32_Spine",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 1.539460277646559e-05
+    },
+    {
+      "name": "nook_books_Volume33_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 4.7719053376318876e-05
+    },
+    {
+      "name": "nook_books_Volume33_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 4.771906534492207e-05
+    },
+    {
+      "name": "nook_books_Volume33_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0011625175177801678
+    },
+    {
+      "name": "nook_books_Volume33_Spine",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 1.516011389140119e-05
+    },
+    {
+      "name": "nook_books_Volume34_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.7390522216039094e-05
+    },
+    {
+      "name": "nook_books_Volume34_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.7390498189962826e-05
+    },
+    {
+      "name": "nook_books_Volume34_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0011438654928618668
+    },
+    {
+      "name": "nook_books_Volume34_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 1.4927470470153911e-05
+    },
+    {
+      "name": "nook_books_Volume45_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 4.049103456157423e-05
+    },
+    {
+      "name": "nook_books_Volume45_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 4.049103456157596e-05
+    },
+    {
+      "name": "nook_books_Volume45_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.000732375239138593
+    },
+    {
+      "name": "nook_books_Volume45_Spine",
+      "assembly": "nook_books",
+      "key": "book_teal",
+      "volume_m3": 9.790920799241596e-06
+    },
+    {
+      "name": "nook_books_Volume46_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.016248406865652e-05
+    },
+    {
+      "name": "nook_books_Volume46_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.0162495094106174e-05
+    },
+    {
+      "name": "nook_books_Volume46_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0007174319357533369
+    },
+    {
+      "name": "nook_books_Volume46_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 9.602718291529765e-06
+    },
+    {
+      "name": "nook_books_Volume47_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 3.983395196521973e-05
+    },
+    {
+      "name": "nook_books_Volume47_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 3.983394098077894e-05
+    },
+    {
+      "name": "nook_books_Volume47_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0007026074708981443
+    },
+    {
+      "name": "nook_books_Volume47_Spine",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 9.415978559701197e-06
+    },
+    {
+      "name": "nook_books_Volume54_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.721909742027783e-05
+    },
+    {
+      "name": "nook_books_Volume54_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 4.7219085347535716e-05
+    },
+    {
+      "name": "nook_books_Volume54_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0010081944262329712
+    },
+    {
+      "name": "nook_books_Volume54_Spine",
+      "assembly": "nook_books",
+      "key": "book_burgundy",
+      "volume_m3": 1.3270933484390277e-05
+    },
+    {
+      "name": "nook_books_Volume55_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 4.6890534911230713e-05
+    },
+    {
+      "name": "nook_books_Volume55_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 4.689054677647214e-05
+    },
+    {
+      "name": "nook_books_Volume55_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0009906265810679764
+    },
+    {
+      "name": "nook_books_Volume55_Spine",
+      "assembly": "nook_books",
+      "key": "book_navy",
+      "volume_m3": 1.3051274272382998e-05
+    },
+    {
+      "name": "nook_books_Volume56_LowerCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.6562001164502514e-05
+    },
+    {
+      "name": "nook_books_Volume56_UpperCover",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 4.656198934027342e-05
+    },
+    {
+      "name": "nook_books_Volume56_Pages",
+      "assembly": "nook_books",
+      "key": "paper",
+      "volume_m3": 0.0009732455999192247
+    },
+    {
+      "name": "nook_books_Volume56_Spine",
+      "assembly": "nook_books",
+      "key": "book_brown",
+      "volume_m3": 1.283374283361869e-05
+    },
+    {
+      "name": "nook_table_Keel0",
+      "assembly": "nook_table",
+      "key": "wood_dark",
+      "volume_m3": 0.004562998486641847
+    },
+    {
+      "name": "nook_table_GlassPad0",
+      "assembly": "nook_table",
+      "key": "rubber_aged",
+      "volume_m3": 5.338061053649528e-05
+    },
+    {
+      "name": "nook_table_Keel1",
+      "assembly": "nook_table",
+      "key": "wood_dark",
+      "volume_m3": 0.003954600126370034
+    },
+    {
+      "name": "nook_table_GlassPad1",
+      "assembly": "nook_table",
+      "key": "rubber_aged",
+      "volume_m3": 4.626160893738611e-05
+    },
+    {
+      "name": "nook_table_PolishedGlass",
+      "assembly": "nook_table",
+      "key": "glassish",
+      "volume_m3": 0.00883127563882069
+    },
+    {
+      "name": "nook_mug_ThrownCup",
+      "assembly": "nook_mug",
+      "key": "ceramic",
+      "volume_m3": 0.0001812559858477999
+    },
+    {
+      "name": "nook_mug_Handle",
+      "assembly": "nook_mug",
+      "key": "ceramic",
+      "volume_m3": 7.379078987706584e-06
+    },
+    {
+      "name": "nook_pile_Volume0_LowerCover",
+      "assembly": "nook_pile",
+      "key": "book_navy",
+      "volume_m3": 5.415871066530165e-05
+    },
+    {
+      "name": "nook_pile_Volume0_UpperCover",
+      "assembly": "nook_pile",
+      "key": "book_navy",
+      "volume_m3": 5.415876326463005e-05
+    },
+    {
+      "name": "nook_pile_Volume0_Pages",
+      "assembly": "nook_pile",
+      "key": "paper",
+      "volume_m3": 0.001145691537538089
+    },
+    {
+      "name": "nook_pile_Volume0_Spine",
+      "assembly": "nook_pile",
+      "key": "book_navy",
+      "volume_m3": 1.0942608365674328e-05
+    },
+    {
+      "name": "nook_pile_Volume1_LowerCover",
+      "assembly": "nook_pile",
+      "key": "book_ochre",
+      "volume_m3": 5.34640816321234e-05
+    },
+    {
+      "name": "nook_pile_Volume1_UpperCover",
+      "assembly": "nook_pile",
+      "key": "book_ochre",
+      "volume_m3": 5.346393882512605e-05
+    },
+    {
+      "name": "nook_pile_Volume1_Pages",
+      "assembly": "nook_pile",
+      "key": "paper",
+      "volume_m3": 0.001113752352450806
+    },
+    {
+      "name": "nook_pile_Volume1_Spine",
+      "assembly": "nook_pile",
+      "key": "book_ochre",
+      "volume_m3": 1.0715291205067369e-05
+    },
+    {
+      "name": "nook_pile_Volume2_LowerCover",
+      "assembly": "nook_pile",
+      "key": "book_teal",
+      "volume_m3": 5.2774132781782754e-05
+    },
+    {
+      "name": "nook_pile_Volume2_UpperCover",
+      "assembly": "nook_pile",
+      "key": "book_teal",
+      "volume_m3": 5.2774132781782754e-05
+    },
+    {
+      "name": "nook_pile_Volume2_Pages",
+      "assembly": "nook_pile",
+      "key": "paper",
+      "volume_m3": 0.0010823204661868254
+    },
+    {
+      "name": "nook_pile_Volume2_Spine",
+      "assembly": "nook_pile",
+      "key": "book_teal",
+      "volume_m3": 1.0489763794032505e-05
+    },
+    {
+      "name": "nook_plant_Saucer",
+      "assembly": "nook_plant",
+      "key": "terracotta",
+      "volume_m3": 0.0012930154878209286
+    },
+    {
+      "name": "nook_plant_ThrownPot",
+      "assembly": "nook_plant",
+      "key": "terracotta",
+      "volume_m3": 0.0071182319922304125
+    },
+    {
+      "name": "nook_plant_Soil",
+      "assembly": "nook_plant",
+      "key": "soil",
+      "volume_m3": 0.01827766292771484
+    },
+    {
+      "name": "nook_plant_Branch0",
+      "assembly": "nook_plant",
+      "key": "timber",
+      "volume_m3": 6.438249986748059e-05
+    },
+    {
+      "name": "nook_plant_Petiole0_0",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.9464385359240997e-07
+    },
+    {
+      "name": "nook_plant_Leaf0_0",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 3.0076876288971223e-06
+    },
+    {
+      "name": "nook_plant_Petiole0_1",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.9465614641655838e-07
+    },
+    {
+      "name": "nook_plant_Leaf0_1",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 2.920655157203792e-06
+    },
+    {
+      "name": "nook_plant_Petiole0_2",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.9464340070120426e-07
+    },
+    {
+      "name": "nook_plant_Leaf0_2",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 2.8350296312341042e-06
+    },
+    {
+      "name": "nook_plant_Petiole0_3",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.9464423254750172e-07
+    },
+    {
+      "name": "nook_plant_Leaf0_3",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 2.750238569453238e-06
+    },
+    {
+      "name": "nook_plant_Petiole0_4",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.946493126578979e-07
+    },
+    {
+      "name": "nook_plant_Leaf0_4",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 2.666783844298079e-06
+    },
+    {
+      "name": "nook_plant_Branch1",
+      "assembly": "nook_plant",
+      "key": "timber",
+      "volume_m3": 6.344970433059701e-05
+    },
+    {
+      "name": "nook_plant_Petiole1_0",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.9464381342115607e-07
+    },
+    {
+      "name": "nook_plant_Leaf1_0",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 3.22944440661192e-06
+    },
+    {
+      "name": "nook_plant_Petiole1_1",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.9464403065380097e-07
+    },
+    {
+      "name": "nook_plant_Leaf1_1",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 3.138927329309602e-06
+    },
+    {
+      "name": "nook_plant_Petiole1_2",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.946562068555422e-07
+    },
+    {
+      "name": "nook_plant_Leaf1_2",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 3.0498592992781496e-06
+    },
+    {
+      "name": "nook_plant_Petiole1_3",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.9464911674976454e-07
+    },
+    {
+      "name": "nook_plant_Leaf1_3",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 2.9622526031881837e-06
+    },
+    {
+      "name": "nook_plant_Petiole1_4",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.9464471234579082e-07
+    },
+    {
+      "name": "nook_plant_Leaf1_4",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 2.8757724722545535e-06
+    },
+    {
+      "name": "nook_plant_Branch2",
+      "assembly": "nook_plant",
+      "key": "timber",
+      "volume_m3": 6.253530608365771e-05
+    },
+    {
+      "name": "nook_plant_Petiole2_0",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.9465780818595313e-07
+    },
+    {
+      "name": "nook_plant_Leaf2_0",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 3.4588569604456124e-06
+    },
+    {
+      "name": "nook_plant_Petiole2_1",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.946443211326666e-07
+    },
+    {
+      "name": "nook_plant_Leaf2_1",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 3.3653621643419078e-06
+    },
+    {
+      "name": "nook_plant_Petiole2_2",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.946441008523647e-07
+    },
+    {
+      "name": "nook_plant_Leaf2_2",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 3.272838569038496e-06
+    },
+    {
+      "name": "nook_plant_Petiole2_3",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.946535841917656e-07
+    },
+    {
+      "name": "nook_plant_Leaf2_3",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 3.1823629854337915e-06
+    },
+    {
+      "name": "nook_plant_Petiole2_4",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 1.9464223006247285e-07
+    },
+    {
+      "name": "nook_plant_Leaf2_4",
+      "assembly": "nook_plant",
+      "key": "plant",
+      "volume_m3": 3.092304551892559e-06
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "nook_rug",
+      "owner": "floor",
+      "point": [
+        0.016000000000000014,
+        0.0,
+        1.854
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_rug",
+      "owner": "floor",
+      "point": [
+        -0.976,
+        0.0,
+        2.846
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_seat_n",
+      "owner": "nook_apron_n",
+      "point": [
+        -0.1519999999999999,
+        0.4,
+        2.904
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_seat_n",
+      "owner": "nook_apron_n",
+      "point": [
+        -0.8079999999999998,
+        0.4,
+        3.056
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_apron_n",
+      "owner": "nook_rug",
+      "point": [
+        -0.17199999999999993,
+        0.008,
+        2.924
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_apron_n",
+      "owner": "nook_rug",
+      "point": [
+        -0.7879999999999998,
+        0.008,
+        3.036
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_seat_w",
+      "owner": "nook_apron_w",
+      "point": [
+        0.22599999999999998,
+        0.4,
+        2.174
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_seat_w",
+      "owner": "nook_apron_w",
+      "point": [
+        0.07400000000000007,
+        0.4,
+        2.526
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_apron_w",
+      "owner": "nook_rug",
+      "point": [
+        0.20599999999999996,
+        0.008,
+        2.194
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_apron_w",
+      "owner": "nook_rug",
+      "point": [
+        0.09400000000000008,
+        0.008,
+        2.5060000000000002
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_seat_e",
+      "owner": "nook_apron_e",
+      "point": [
+        -1.034,
+        0.4,
+        2.174
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_seat_e",
+      "owner": "nook_apron_e",
+      "point": [
+        -1.186,
+        0.4,
+        2.526
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_apron_e",
+      "owner": "nook_rug",
+      "point": [
+        -1.054,
+        0.008,
+        2.194
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_apron_e",
+      "owner": "nook_rug",
+      "point": [
+        -1.166,
+        0.008,
+        2.5060000000000002
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_cush1",
+      "owner": "nook_seat_n",
+      "point": [
+        0.08600000000000008,
+        0.465,
+        2.958
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_cush1",
+      "owner": "nook_seat_n",
+      "point": [
+        -0.1459999999999999,
+        0.465,
+        3.1020000000000003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_cush2",
+      "owner": "nook_seat_e",
+      "point": [
+        -1.07,
+        0.465,
+        2.218
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_cush2",
+      "owner": "nook_seat_e",
+      "point": [
+        -1.19,
+        0.465,
+        2.442
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_throw",
+      "owner": "nook_seat_w",
+      "point": [
+        0.22399999999999998,
+        0.465,
+        2.202
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_throw",
+      "owner": "nook_seat_w",
+      "point": [
+        0.09600000000000009,
+        0.465,
+        2.458
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum"
+    },
+    {
+      "assembly": "nook_books",
+      "owner": "nook_rug",
+      "point": [
+        -1.0899999952316284,
+        0.00800000037997961,
+        3.4697999715805055
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "rack foot on rug"
+    },
+    {
+      "assembly": "nook_books",
+      "owner": "nook_rug",
+      "point": [
+        -1.0899999952316284,
+        0.00800000037997961,
+        3.2097999811172486
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "rack foot on rug"
+    },
+    {
+      "assembly": "nook_books",
+      "owner": "nook_rug",
+      "point": [
+        0.12000004291534427,
+        0.00800000037997961,
+        3.4697999715805055
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "rack foot on rug"
+    },
+    {
+      "assembly": "nook_books",
+      "owner": "nook_rug",
+      "point": [
+        0.12000004291534427,
+        0.00800000037997961,
+        3.2097999811172486
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "rack foot on rug"
+    },
+    {
+      "assembly": "nook_table",
+      "owner": "nook_rug",
+      "point": [
+        -0.20000000953674313,
+        0.00800000037997961,
+        1.389799988269806
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "table keel floor bearing"
+    },
+    {
+      "assembly": "nook_table",
+      "owner": "nook_rug",
+      "point": [
+        -0.7799999928474426,
+        0.00800000037997961,
+        1.4198000192642213
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "table keel floor bearing"
+    },
+    {
+      "assembly": "nook_mug",
+      "owner": "nook_table",
+      "point": [
+        -0.6799999988079071,
+        0.36500000953674316,
+        1.5498000144958497
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "mug foot on actual glass"
+    },
+    {
+      "assembly": "nook_pile",
+      "owner": "nook_table",
+      "point": [
+        -0.2799999928474426,
+        0.36500000953674316,
+        1.4298000097274781
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "book pile on actual glass"
+    },
+    {
+      "assembly": "nook_plant",
+      "owner": "nook_rug",
+      "point": [
+        -1.4200000083446502,
+        0.00800000037997961,
+        3.269800043106079
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "saucer on rug"
+    }
+  ],
+  "parts": [
+    {
+      "name": "nook_rug__rug_warm",
+      "assembly": "nook_rug",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "rug_warm",
+      "triangles": 188
+    },
+    {
+      "name": "nook_seat_n__floor_oak",
+      "assembly": "nook_seat_n",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "floor_oak",
+      "triangles": 188
+    },
+    {
+      "name": "nook_apron_n__wood_dark",
+      "assembly": "nook_apron_n",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "wood_dark",
+      "triangles": 188
+    },
+    {
+      "name": "nook_seat_w__floor_oak",
+      "assembly": "nook_seat_w",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "floor_oak",
+      "triangles": 188
+    },
+    {
+      "name": "nook_apron_w__wood_dark",
+      "assembly": "nook_apron_w",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "wood_dark",
+      "triangles": 188
+    },
+    {
+      "name": "nook_seat_e__floor_oak",
+      "assembly": "nook_seat_e",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "floor_oak",
+      "triangles": 188
+    },
+    {
+      "name": "nook_apron_e__wood_dark",
+      "assembly": "nook_apron_e",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "wood_dark",
+      "triangles": 188
+    },
+    {
+      "name": "nook_cush1__fabric_warm",
+      "assembly": "nook_cush1",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "fabric_warm",
+      "triangles": 764
+    },
+    {
+      "name": "nook_cush2__fabric_green",
+      "assembly": "nook_cush2",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "fabric_green",
+      "triangles": 764
+    },
+    {
+      "name": "nook_throw__linen",
+      "assembly": "nook_throw",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "linen",
+      "triangles": 564
+    },
+    {
+      "name": "nook_books__book_brown",
+      "assembly": "nook_books",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "book_brown",
+      "triangles": 6204
+    },
+    {
+      "name": "nook_books__book_burgundy",
+      "assembly": "nook_books",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "book_burgundy",
+      "triangles": 6768
+    },
+    {
+      "name": "nook_books__book_green",
+      "assembly": "nook_books",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "book_green",
+      "triangles": 3948
+    },
+    {
+      "name": "nook_books__book_navy",
+      "assembly": "nook_books",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "book_navy",
+      "triangles": 5640
+    },
+    {
+      "name": "nook_books__book_ochre",
+      "assembly": "nook_books",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "book_ochre",
+      "triangles": 3948
+    },
+    {
+      "name": "nook_books__book_teal",
+      "assembly": "nook_books",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "book_teal",
+      "triangles": 5640
+    },
+    {
+      "name": "nook_books__floor_oak",
+      "assembly": "nook_books",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "floor_oak",
+      "triangles": 564
+    },
+    {
+      "name": "nook_books__metal",
+      "assembly": "nook_books",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "metal",
+      "triangles": 496
+    },
+    {
+      "name": "nook_books__paper",
+      "assembly": "nook_books",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "paper",
+      "triangles": 10716
+    },
+    {
+      "name": "nook_table__glassish",
+      "assembly": "nook_table",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "glassish",
+      "triangles": 1532
+    },
+    {
+      "name": "nook_table__rubber_aged",
+      "assembly": "nook_table",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "rubber_aged",
+      "triangles": 376
+    },
+    {
+      "name": "nook_table__wood_dark",
+      "assembly": "nook_table",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "wood_dark",
+      "triangles": 24
+    },
+    {
+      "name": "nook_mug__ceramic",
+      "assembly": "nook_mug",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "ceramic",
+      "triangles": 764
+    },
+    {
+      "name": "nook_pile__book_navy",
+      "assembly": "nook_pile",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "book_navy",
+      "triangles": 564
+    },
+    {
+      "name": "nook_pile__book_ochre",
+      "assembly": "nook_pile",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "book_ochre",
+      "triangles": 564
+    },
+    {
+      "name": "nook_pile__book_teal",
+      "assembly": "nook_pile",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "book_teal",
+      "triangles": 564
+    },
+    {
+      "name": "nook_pile__paper",
+      "assembly": "nook_pile",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "paper",
+      "triangles": 564
+    },
+    {
+      "name": "nook_plant__plant",
+      "assembly": "nook_plant",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "plant",
+      "triangles": 4260
+    },
+    {
+      "name": "nook_plant__soil",
+      "assembly": "nook_plant",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "soil",
+      "triangles": 384
+    },
+    {
+      "name": "nook_plant__terracotta",
+      "assembly": "nook_plant",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "terracotta",
+      "triangles": 1536
+    },
+    {
+      "name": "nook_plant__timber",
+      "assembly": "nook_plant",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "timber",
+      "triangles": 132
+    }
+  ],
+  "triangles": 58596,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/reading_nook.glb",
+    "floor_y": -3.2,
+    "assemblies": [
+      {
+        "id": "nook_rug",
+        "parts": [
+          {
+            "name": "nook_rug__rug_warm",
+            "key": "rug_warm",
+            "tile": 1.5
+          }
+        ],
+        "position": [
+          -0.48,
+          0,
+          2.35
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "id": "nook_seat_n",
+        "parts": [
+          {
+            "name": "nook_seat_n__floor_oak",
+            "key": "floor_oak",
+            "tile": 2.7,
+            "catalog_key": "floor_oak"
+          }
+        ],
+        "position": [
+          -0.48,
+          0,
+          2.98
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "id": "nook_apron_n",
+        "parts": [
+          {
+            "name": "nook_apron_n__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          }
+        ],
+        "position": [
+          -0.48,
+          0,
+          2.98
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "id": "nook_seat_w",
+        "parts": [
+          {
+            "name": "nook_seat_w__floor_oak",
+            "key": "floor_oak",
+            "tile": 2.7,
+            "catalog_key": "floor_oak"
+          }
+        ],
+        "position": [
+          0.15000000000000013,
+          0,
+          2.35
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "id": "nook_apron_w",
+        "parts": [
+          {
+            "name": "nook_apron_w__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          }
+        ],
+        "position": [
+          0.1499999999999999,
+          0,
+          2.35
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "id": "nook_seat_e",
+        "parts": [
+          {
+            "name": "nook_seat_e__floor_oak",
+            "key": "floor_oak",
+            "tile": 2.7,
+            "catalog_key": "floor_oak"
+          }
+        ],
+        "position": [
+          -1.1099999999999999,
+          0,
+          2.35
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "id": "nook_apron_e",
+        "parts": [
+          {
+            "name": "nook_apron_e__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          }
+        ],
+        "position": [
+          -1.1099999999999999,
+          0,
+          2.35
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "id": "nook_cush1",
+        "parts": [
+          {
+            "name": "nook_cush1__fabric_warm",
+            "key": "fabric_warm",
+            "tile": 0.7,
+            "catalog_key": "fabric_warm"
+          }
+        ],
+        "position": [
+          -0.030000000000000027,
+          0,
+          3.0300000000000002
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "id": "nook_cush2",
+        "parts": [
+          {
+            "name": "nook_cush2__fabric_green",
+            "key": "fabric_green",
+            "tile": 0.7
+          }
+        ],
+        "position": [
+          -1.13,
+          0,
+          2.33
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "id": "nook_throw",
+        "parts": [
+          {
+            "name": "nook_throw__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen"
+          }
+        ],
+        "position": [
+          0.16000000000000014,
+          0,
+          2.33
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "id": "nook_books",
+        "parts": [
+          {
+            "name": "nook_books__book_brown",
+            "key": "book_brown",
+            "tile": 0.32,
+            "catalog_key": "book_brown"
+          },
+          {
+            "name": "nook_books__book_burgundy",
+            "key": "book_burgundy",
+            "tile": 0.32,
+            "catalog_key": "book_burgundy"
+          },
+          {
+            "name": "nook_books__book_green",
+            "key": "book_green",
+            "tile": 0.32,
+            "catalog_key": "book_green"
+          },
+          {
+            "name": "nook_books__book_navy",
+            "key": "book_navy",
+            "tile": 0.32,
+            "catalog_key": "book_navy"
+          },
+          {
+            "name": "nook_books__book_ochre",
+            "key": "book_ochre",
+            "tile": 0.32,
+            "catalog_key": "book_ochre"
+          },
+          {
+            "name": "nook_books__book_teal",
+            "key": "book_teal",
+            "tile": 0.32,
+            "catalog_key": "book_teal"
+          },
+          {
+            "name": "nook_books__floor_oak",
+            "key": "floor_oak",
+            "tile": 2.7,
+            "catalog_key": "floor_oak"
+          },
+          {
+            "name": "nook_books__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal"
+          },
+          {
+            "name": "nook_books__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          -0.485,
+          0,
+          3.3398000000000003
+        ],
+        "yaw": 0.0
+      },
+      {
+        "id": "nook_table",
+        "parts": [
+          {
+            "name": "nook_table__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "nook_table__rubber_aged",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged"
+          },
+          {
+            "name": "nook_table__wood_dark",
+            "key": "wood_dark",
+            "tile": 1.2,
+            "catalog_key": "wood_dark"
+          }
+        ],
+        "position": [
+          -0.49999999999999994,
+          0,
+          1.4898000000000002
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "id": "nook_mug",
+        "parts": [
+          {
+            "name": "nook_mug__ceramic",
+            "key": "ceramic",
+            "tile": 0.65,
+            "catalog_key": "ceramic"
+          }
+        ],
+        "position": [
+          -0.6799999999999999,
+          0,
+          1.5498
+        ],
+        "yaw": 2.5307274153917776
+      },
+      {
+        "id": "nook_pile",
+        "parts": [
+          {
+            "name": "nook_pile__book_navy",
+            "key": "book_navy",
+            "tile": 0.32,
+            "catalog_key": "book_navy"
+          },
+          {
+            "name": "nook_pile__book_ochre",
+            "key": "book_ochre",
+            "tile": 0.32,
+            "catalog_key": "book_ochre"
+          },
+          {
+            "name": "nook_pile__book_teal",
+            "key": "book_teal",
+            "tile": 0.32,
+            "catalog_key": "book_teal"
+          },
+          {
+            "name": "nook_pile__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          -0.2799999999999999,
+          0,
+          1.4298000000000002
+        ],
+        "yaw": 2.9321531433504737
+      },
+      {
+        "id": "nook_plant",
+        "parts": [
+          {
+            "name": "nook_plant__plant",
+            "key": "plant",
+            "tile": 0.5,
+            "catalog_key": "plant"
+          },
+          {
+            "name": "nook_plant__soil",
+            "key": "soil",
+            "tile": 0.35,
+            "catalog_key": "soil"
+          },
+          {
+            "name": "nook_plant__terracotta",
+            "key": "terracotta",
+            "tile": 0.4,
+            "catalog_key": "terracotta"
+          },
+          {
+            "name": "nook_plant__timber",
+            "key": "timber",
+            "tile": 1.0,
+            "catalog_key": "timber"
+          }
+        ],
+        "position": [
+          -1.42,
+          0,
+          3.2698
+        ],
+        "yaw": 3.141592653589793
+      }
+    ],
+    "local_materials": {
+      "fabric_green": {
+        "files": [
+          "T_ai_materials_fabric_green_albedo.png",
+          "T_ai_materials_fabric_green_rough.png",
+          "T_ai_materials_fabric_green_normal.png"
+        ],
+        "metallic": 0,
+        "roughness": 1,
+        "normal_scale": 0.3499999940395355,
+        "color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "alpha": false
+      },
+      "rug_warm": {
+        "files": [
+          "T_ai_materials_rug_warm_albedo.png",
+          "T_ai_materials_rug_warm_rough.png",
+          "T_ai_materials_rug_warm_normal.png"
+        ],
+        "metallic": 0,
+        "roughness": 1,
+        "normal_scale": 0.3499999940395355,
+        "color": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "alpha": false
+      },
+      "glassish": {
+        "files": [
+          null,
+          "T_glass_rough.png",
+          "T_glass_normal.png"
+        ],
+        "metallic": 0,
+        "roughness": 1,
+        "normal_scale": 0.550000011920929,
+        "color": [
+          0.7599999904632568,
+          0.8500000238418579,
+          0.8899999856948853,
+          0.1599999964237213
+        ],
+        "alpha": true
+      }
+    }
+  },
+  "asset_sha256": "0767ba652b36f1f2854de0a5c94a4e9a499b7f299a1a22b01366c956f0643cf9",
+  "source_bindings": {
+    "art/data/reading_nook/source_plan.json": "ad192ffb27065d704b1f74792217230d09ba2a5c1cda3083b9db18a2ccd45b16",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_reading_nook.py": "b39b8678f2ae24d081cbdf20f5cedcd1cfac54a22df09cb06fa3c367417a83f3",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198",
+    "game/scripts/generated/material_sets.gd": "460f0ae59f0698e17d291c8b41d24c65145aa925184114104f9a2ebdea31d15f",
+    "game/assets/props/reading_nook.glb.import": "785c5bcee18216210114b3290db0894c652cfe26288f928c6d282544e8a5746e",
+    "art/textures/ai_materials/wood_dark/material.json": "85a2c9b05d36e920d6ea4006bd0dac78cf68de4e271c765386a3e97c8a76ab34",
+    "art/textures/ai_materials/floor_oak/material.json": "8aeb952b6d6c65ba9532f6dc3f6c639d7e9cab2c86e31e93b10d696927aa44fb",
+    "art/textures/ai_materials/metal/material.json": "068d94125da30962359281c99868ebf22999f50e10397310a878e70af43fbc13",
+    "art/textures/ai_materials/fabric_warm/material.json": "1abddc7e2663a99577a3cb76c7e53344f6d30f4951c33cc70a07d281af6ed115",
+    "art/textures/ai_materials/fabric_green/material.json": "35790b1dd265698ac3d3a0404fea75e2629dcce8a24d85fd1ad4dfea34876fb6",
+    "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
+    "art/textures/ai_materials/rug_warm/material.json": "6940c4686f4958b8cdcee7a21be9e60a908d5c5de6f2c71a1104072dc1e5b317",
+    "art/tools/build_glass_maps.py": "63e2357d85a1fc7520c3af5592d0d8248b16519e10d1a25b28a43cb1380a7ead",
+    "art/textures/ai_materials/ceramic/material.json": "e81c15195269416622b894d44fef5c76d46c76d2cade3b976e7b55ce9966d43e",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/library/furniture/book_burgundy/asset.json": "024b83b9c4020e4aa5ed30e0bb261e98c107f9b6d44cf80995f146401a70d6d7",
+    "art/textures/library/furniture/book_green/asset.json": "7681fe779cc7f45eb81685383f78f4131d7719e900c9dd8bcc6dc6fd02c17bbe",
+    "art/textures/library/furniture/book_navy/asset.json": "11f094b4e664f707aec80674a03e39e29ac5d44fcc4fb8eff87f5999d70ad0d8",
+    "art/textures/library/furniture/book_ochre/asset.json": "e1c80801e311182515fe74344fc36c335e82da86f6694dd517c10a2d6afe0cfd",
+    "art/textures/library/furniture/book_teal/asset.json": "78667524c82a3549885a89db5d81ab73c1f4f7d002282417d4c3f34bf97d1be3",
+    "art/textures/library/furniture/book_brown/asset.json": "79a749706b6867089cebcdca24c8c1cf127ef7e58f796e71cf99b70bfe6162ff",
+    "art/textures/ai_materials/plant/material.json": "d954507b80ab2ec6f26e16d34512f28de4caa89a37cc2790423adf8641faedd6",
+    "art/textures/ai_materials/timber/material.json": "9907e5ee46912baec3d11557d194cd7cc8c280d49da757e3820d2fab803bf2e3",
+    "art/textures/ai_materials/terracotta/material.json": "13bc7f107bad6e33ed641ba2b6c80d4447c385ef55ed072902a2009ccbd38327",
+    "art/textures/ai_materials/soil/material.json": "293b060f211eacfd06ed4b2a2189495823f4d83b98e2648158326ae38b0559c3",
+    "art/textures/ai_materials/rubber_aged/material.json": "356c7af1c52350241145dbd506dc002162024b9a902f595b96be211b091555bd",
+    "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
+    "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
+    "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
+    "game/assets/building/textures/T_ai_materials_floor_oak_albedo.png": "12b6132757b8862733266b3dc464d67a3c7f86e112ebeba1181c66e42f5d26be",
+    "game/assets/building/textures/T_ai_materials_floor_oak_rough.png": "7c6c38b89e883e31f9352a25e0a32ac5214b3393f791caf1a3ab7457f31cb1e3",
+    "game/assets/building/textures/T_ai_materials_floor_oak_normal.png": "44753deea6b1843e88c9700b3834d754ccdb74d8296e80bf3945a164838cb248",
+    "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png": "e239eaae1e43e714c9a768c7300ef5027f0995f42c673ba2f2b3d142e82b4eaa",
+    "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png": "9c7839b01d4836a072dc4857c0f8dc646d77c834558130e9568273646e0e99fa",
+    "game/assets/building/textures/T_library_appliances_galvanized_metal_normal.png": "f354e23c04f3bb9ff4612b875ef4735f8f7b4edca266ebe795a6dc189611a788",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_albedo.png": "17e3c8f6683826d45e8c7cdf3b5e31325085aefe24e7f48de75e5a7410d3ec51",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_rough.png": "decd1f03f1899b1789622f188fa212d65cd8fe36a2785799dadf505ae6e6ea2c",
+    "game/assets/building/textures/T_library_furniture_upholstery_rust_normal.png": "39cede434d791aa75e1404f398e84b152933923f33323b04c4d2adcc909980ef",
+    "game/assets/building/textures/T_ai_materials_fabric_green_albedo.png": "c27cf7d8fd02497d8b55dbdae0a849755e34807c3119cba5763dd94e20d2ef3f",
+    "game/assets/building/textures/T_ai_materials_fabric_green_rough.png": "4fef5e1864f807e42de961c1a0070925fedcc253b6cf74c6e739e15a1215ab0b",
+    "game/assets/building/textures/T_ai_materials_fabric_green_normal.png": "39f7db28bb7da66c5976c77124087a187861c22ed9823607d575eb1233b7396d",
+    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+    "game/assets/building/textures/T_ai_materials_rug_warm_albedo.png": "126b688d66581cc29c651a16e40eb4db0223ecf649de592952580885c2da3050",
+    "game/assets/building/textures/T_ai_materials_rug_warm_rough.png": "1e72a2bf6178428467ab86824ee826ee7239d4f9dcdf7bf9e5cc2198837e9e15",
+    "game/assets/building/textures/T_ai_materials_rug_warm_normal.png": "a8a7cae9b4a1f3836026d7c284a6b9ce948bf09cc1976d08792895e30ea9ccd7",
+    "game/assets/building/textures/T_glass_rough.png": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
+    "game/assets/building/textures/T_glass_normal.png": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
+    "game/assets/building/textures/T_ai_materials_ceramic_albedo.png": "92f1be15dc5609e2cf64544447d869721b6a6be16af829338a1c76da1ba9bea7",
+    "game/assets/building/textures/T_ai_materials_ceramic_rough.png": "5518d4af9507d7e60b928b76cc9b3d7f1243885f58a15b078fb4f01660161398",
+    "game/assets/building/textures/T_ai_materials_ceramic_normal.png": "0662343b568808c82eb7803e9fca3bd34d5773d26b8b9dcddb8e3038ad88b5ef",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "game/assets/building/textures/T_library_furniture_book_burgundy_albedo.png": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9",
+    "game/assets/building/textures/T_library_furniture_book_burgundy_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_burgundy_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_green_albedo.png": "090beba64471030a0995a1d07a917884d90b85de20895e0eae2b99ed899d197f",
+    "game/assets/building/textures/T_library_furniture_book_green_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_green_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_navy_albedo.png": "ab6a0fc5e8122699113a933e9ca30c0b0378dbdaba0eef2bb1840879cf8900c1",
+    "game/assets/building/textures/T_library_furniture_book_navy_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_navy_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_ochre_albedo.png": "ca059ff78b62b4093d01a62b07583b05e8ef88d6e0248d56e094a2965020e983",
+    "game/assets/building/textures/T_library_furniture_book_ochre_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_ochre_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_teal_albedo.png": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef",
+    "game/assets/building/textures/T_library_furniture_book_teal_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_teal_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_brown_albedo.png": "c46d6e88f528786d6986576cc9e34279d343d3ecc8435f4617fe0cef8a44ce0e",
+    "game/assets/building/textures/T_library_furniture_book_brown_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_brown_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_organic_leaf_surface_albedo.png": "acb3efc14d7ee028576415bd902320c6815c105fae6f086f005829bd34f9db3e",
+    "game/assets/building/textures/T_library_organic_leaf_surface_rough.png": "98502306cc9fd85e64d7a701e1973675f7caa13f2eda74e66edc9251352e941a",
+    "game/assets/building/textures/T_library_organic_leaf_surface_normal.png": "91f2054374460063854bbf31eb2eb62e323d23e48114f4b34086563360352d2b",
+    "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
+    "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
+    "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
+    "game/assets/building/textures/T_ai_materials_terracotta_albedo.png": "b347747cd57b9720ef6cd7f187356d4a4f8f619c4def3dcc71b37302826f09ef",
+    "game/assets/building/textures/T_ai_materials_terracotta_rough.png": "a79208b2b89bd63d199c89f6d756853c9f54e054b67fedc987b6d03ae52c318c",
+    "game/assets/building/textures/T_ai_materials_terracotta_normal.png": "3f506e18a888f232658bc2a741d74768de9497eca813dd7c43546853034113da",
+    "game/assets/building/textures/T_ai_materials_soil_albedo.png": "0a4e2ed4d7ec6229a7340fa39b203cf70d847c2d0e4f7a6329f426cc228015e0",
+    "game/assets/building/textures/T_ai_materials_soil_rough.png": "e29884dd5f10beb17db26aa5996845f6041884f9ec31975419ff1145cfbc33ae",
+    "game/assets/building/textures/T_ai_materials_soil_normal.png": "946fbd61cd42445375570d2b1951214a13c811d83a1edc99f282487b8afa1aed",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
+    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
+    "art/tools/generate_runtime_materials.py": "87570ac4f8b7621a43a86b6e630f7fbfe38e9de98193f1ba1bf56aa4b6548577",
+    "art/blender/scripts/inspect_reading_nook.py": "18b2d95c887458f0ff82d61d4555a63a94ddf4ee0cfaa828999d1917e7717611",
+    "art/blender/scripts/reading_nook_geometry.py": "39047252812d657712fc4312f80ce0bdf96d9e453671c1d4edc7bef93c2c85fe",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
+    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "game/scripts/building/orison_v2_reading_nook.gd": "2d9ed98f9d2f9faec0429b21e09d2e4460d948041b89a0904a639f809b11f2bb",
+    "game/scripts/building/orison_v2_task_lamp_installations.gd": "e8996e63c666a265a3fc69196172254515db6810b2a3b59065ab02ddbe8ce784",
+    "game/scripts/building/orison_v2_domestic_furniture.gd": "404480fa0974dd9c194b9ab91736cfb37c8bfe48482efc8698520c03c4d15ae6",
+    "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707",
+    "game/scripts/props/signal_terminal_prop.gd": "0f6fe798ae35c1243208c90668cf7f45724abeda6fb67046f3b34a63b9d68326",
+    "game/tests/orison_v2_reading_nook_test.gd": "f64bdf98f0f4255d7604bff0ecd3d8b5e5f5820502298f8642e13dbcd47e32f2",
+    "art/data/task_lamp_installations/source_plan.json": "f96e6d39173cbd7977ae464f4ec58d6b044ec4105570cb6cffe250d3993a40c4",
+    "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
+    "tools/build_v2_task_lamp_installations.py": "f2f50a891d431f0bf69501e9a4990a55f78f55f2ee9930164f8d0feee84ffb29",
+    "art/blender/scripts/inspect_task_lamp_installations.py": "41fcaf242831300e45f31f960c848be581624f654bba3bf6917770a1ef8a3234",
+    "art/blender/task_lamps.blend": "f3e13e1e592979b7fbf845b9fa8f8e8046545eb93d7b1f09bd4cbd64816bc722",
+    "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e"
+  },
+  "book_stock": [
+    {
+      "assembly": "nook_books",
+      "label": "Volume0",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_teal",
+          -0.4506256256256256,
+          -0.08013013013013012,
+          0.092,
+          -0.4151401401401401,
+          0.09794794794794795,
+          0.3115445445445445
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.5699999928474426,
+          -0.08013013005256653,
+          0.5820000171661377
+        ],
+        [
+          -0.5345145463943481,
+          0.09794794768095016,
+          0.8015445470809937
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume1",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_brown",
+          -0.4111401401401401,
+          -0.08128128128128127,
+          0.092,
+          -0.3766676676676676,
+          0.09748748748748748,
+          0.3075155155155155
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.525514543056488,
+          -0.08128128200769424,
+          0.5820000171661377
+        ],
+        [
+          -0.49104204773902893,
+          0.09748748689889908,
+          0.7975155115127563
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume2",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          -0.3726676676676676,
+          -0.08243243243243242,
+          0.092,
+          -0.3392082082082082,
+          0.09702702702702702,
+          0.30348648648648646
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.4820420742034912,
+          -0.08243243396282196,
+          0.5820000171661377
+        ],
+        [
+          -0.44858258962631226,
+          0.09702702611684799,
+          0.793486475944519
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume3",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_green",
+          -0.3352082082082082,
+          -0.08358358358358357,
+          0.092,
+          -0.3027617617617617,
+          0.09656656656656656,
+          0.29945745745745744
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.43958258628845215,
+          -0.08358358591794968,
+          0.5820000171661377
+        ],
+        [
+          -0.40713614225387573,
+          0.0965665653347969,
+          0.7894574403762817
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume4",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_navy",
+          -0.2987617617617617,
+          -0.08473473473473472,
+          0.092,
+          -0.2673283283283283,
+          0.0961061061061061,
+          0.2954284284284284
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.398136168718338,
+          -0.08473473787307739,
+          0.5820000171661377
+        ],
+        [
+          -0.36670273542404175,
+          0.09610610455274582,
+          0.7854284048080444
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume5",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_ochre",
+          -0.2633283283283283,
+          -0.08588588588588587,
+          0.092,
+          -0.23290790790790789,
+          0.09564564564564565,
+          0.2913993993993994
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.35770273208618164,
+          -0.08588588237762451,
+          0.5820000171661377
+        ],
+        [
+          -0.3272823095321655,
+          0.09564564377069473,
+          0.7813993692398071
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume6",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_teal",
+          -0.22890790790790788,
+          -0.08703703703703702,
+          0.092,
+          -0.19950050050050047,
+          0.09518518518518518,
+          0.2873703703703704
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.3182823061943054,
+          -0.08703703433275223,
+          0.5820000171661377
+        ],
+        [
+          -0.28887492418289185,
+          0.09518518298864365,
+          0.7773703932762146
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume7",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_brown",
+          -0.1955005005005005,
+          -0.08818818818818817,
+          0.092,
+          -0.1671061061061061,
+          0.09472472472472472,
+          0.28334134134134137
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.27987492084503174,
+          -0.08818818628787994,
+          0.5820000171661377
+        ],
+        [
+          -0.2514805197715759,
+          0.09472472220659256,
+          0.7733413577079773
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume8",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          -0.1631061061061061,
+          -0.08933933933933932,
+          0.092,
+          -0.13572472472472472,
+          0.09426426426426426,
+          0.27931231231231235
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.24248051643371582,
+          -0.08933933824300766,
+          0.5820000171661377
+        ],
+        [
+          -0.21509912610054016,
+          0.09426426142454147,
+          0.76931232213974
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume9",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_green",
+          -0.1317247247247247,
+          -0.09049049049049049,
+          0.092,
+          -0.10535635635635635,
+          0.0938038038038038,
+          0.2752832832832833
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.20609912276268005,
+          -0.09049049019813538,
+          0.5820000171661377
+        ],
+        [
+          -0.17973075807094574,
+          0.09380380064249039,
+          0.7652832865715027
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume10",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_navy",
+          -0.10135635635635634,
+          -0.09164164164164164,
+          0.092,
+          -0.07600100100100099,
+          0.09334334334334334,
+          0.27125425425425426
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.17073075473308563,
+          -0.09164164215326309,
+          0.5820000171661377
+        ],
+        [
+          -0.14537540078163147,
+          0.0933433398604393,
+          0.7612542510032654
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume11",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_ochre",
+          -0.07200100100100099,
+          -0.09279279279279279,
+          0.092,
+          -0.04765865865865865,
+          0.09288288288288288,
+          0.2672252252252252
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.13637539744377136,
+          -0.09279279410839081,
+          0.5820000171661377
+        ],
+        [
+          -0.11203306168317795,
+          0.09288288652896881,
+          0.7572252750396729
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume12",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_teal",
+          -0.043658658658658644,
+          -0.09394394394394394,
+          0.092,
+          -0.020329329329329317,
+          0.09242242242242242,
+          0.26319619619619616
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.10303306579589844,
+          -0.09394394606351852,
+          0.5820000171661377
+        ],
+        [
+          -0.07970373332500458,
+          0.09242242574691772,
+          0.7531962394714355
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume13",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_brown",
+          -0.016329329329329317,
+          -0.09509509509509509,
+          0.092,
+          0.005986986986986999,
+          0.09196196196196196,
+          0.25916716716716715
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.07070372998714447,
+          -0.09509509801864624,
+          0.5820000171661377
+        ],
+        [
+          -0.04838741570711136,
+          0.09196196496486664,
+          0.7491672039031982
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume14",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          0.009986986986986999,
+          -0.09624624624624624,
+          0.092,
+          0.031290290290290304,
+          0.09150150150150149,
+          0.2551381381381381
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.03938741236925125,
+          -0.09624624252319336,
+          0.5820000171661377
+        ],
+        [
+          -0.01808411255478859,
+          0.09150150418281555,
+          0.7451381683349609
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume18",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_brown",
+          -0.45350350350350344,
+          -0.051951951951951944,
+          0.532,
+          -0.42510910910910904,
+          0.10921921921921922,
+          0.6991671671671672
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.009084105491638184,
+          -0.051951952278614044,
+          0.5820000171661377
+        ],
+        [
+          0.01931026577949524,
+          0.10921921581029892,
+          0.7491672039031982
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume19",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          -0.42110910910910904,
+          -0.053103103103103094,
+          0.532,
+          -0.3937277277277277,
+          0.10875875875875876,
+          0.6951381381381382
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.028310269117355347,
+          -0.05310310423374176,
+          0.5820000171661377
+        ],
+        [
+          0.055691659450531006,
+          0.10875876247882843,
+          0.7451381683349609
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume20",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_green",
+          -0.3897277277277277,
+          -0.054254254254254244,
+          0.532,
+          -0.3633593593593593,
+          0.10829829829829829,
+          0.6911091091091092
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.06469163298606873,
+          -0.05425425246357918,
+          0.5820000171661377
+        ],
+        [
+          0.09106001257896423,
+          0.10829830169677734,
+          0.7411091327667236
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume21",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_navy",
+          -0.3593593593593593,
+          -0.055405405405405395,
+          0.532,
+          -0.334004004004004,
+          0.10783783783783783,
+          0.68708008008008
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.10006001591682434,
+          -0.055405404418706894,
+          0.5820000171661377
+        ],
+        [
+          0.1254153549671173,
+          0.10783784091472626,
+          0.7370800971984863
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume22",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_ochre",
+          -0.330004004004004,
+          -0.056556556556556545,
+          0.532,
+          -0.30566166166166164,
+          0.10737737737737738,
+          0.683051051051051
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.13441535830497742,
+          -0.05655655637383461,
+          0.5820000171661377
+        ],
+        [
+          0.15875771641731262,
+          0.10737738013267517,
+          0.733051061630249
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume23",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_teal",
+          -0.30166166166166164,
+          -0.057707707707707695,
+          0.532,
+          -0.2783323323323323,
+          0.10691691691691692,
+          0.8541971971971972
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.16775771975517273,
+          -0.057707708328962326,
+          0.5820000171661377
+        ],
+        [
+          0.19108706712722778,
+          0.10691691935062408,
+          0.9041972160339355
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume24",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_brown",
+          -0.27433233233233234,
+          -0.058858858858858845,
+          0.532,
+          -0.25201601601601603,
+          0.10645645645645646,
+          0.8501681681681682
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.2000870704650879,
+          -0.05885886028409004,
+          0.5820000171661377
+        ],
+        [
+          0.2224034070968628,
+          0.106456458568573,
+          0.9001681804656982
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume25",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          -0.24801601601601603,
+          -0.06001001001001,
+          0.532,
+          -0.22671271271271273,
+          0.10599599599599599,
+          0.8461391391391392
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.2314033955335617,
+          -0.06001000851392746,
+          0.5820000171661377
+        ],
+        [
+          0.25270670652389526,
+          0.10599599778652191,
+          0.8961391448974609
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume26",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_green",
+          -0.22271271271271273,
+          -0.061161161161161146,
+          0.532,
+          -0.20242242242242245,
+          0.10553553553553553,
+          0.8421101101101102
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.26170670986175537,
+          -0.061161160469055176,
+          0.5820000171661377
+        ],
+        [
+          0.2819969654083252,
+          0.10553553700447083,
+          0.8921101093292236
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume27",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_navy",
+          -0.19842242242242245,
+          -0.0623123123123123,
+          0.532,
+          -0.17914514514514518,
+          0.10507507507507508,
+          0.8380810810810811
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.2909969687461853,
+          -0.06231231242418289,
+          0.5820000171661377
+        ],
+        [
+          0.31027424335479736,
+          0.10507507622241974,
+          0.8880810737609863
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume28",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_ochre",
+          -0.17514514514514518,
+          -0.06346346346346346,
+          0.532,
+          -0.15688088088088092,
+          0.10461461461461462,
+          0.834052052052052
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.31927427649497986,
+          -0.06346346437931061,
+          0.5820000171661377
+        ],
+        [
+          0.33753854036331177,
+          0.10461461544036865,
+          0.884052038192749
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume29",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_teal",
+          -0.15288088088088092,
+          -0.0646146146146146,
+          0.532,
+          -0.09158558558558563,
+          0.10415415415415416,
+          0.830023023023023
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.3465385138988495,
+          -0.06461461633443832,
+          0.5820000171661377
+        ],
+        [
+          0.4078338146209717,
+          0.10415415465831757,
+          0.8800230622291565
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume30",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_brown",
+          -0.08758558558558563,
+          -0.06576576576576576,
+          0.532,
+          -0.027303303303303356,
+          0.10369369369369369,
+          0.825993993993994
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.4168338179588318,
+          -0.06576576828956604,
+          0.5820000171661377
+        ],
+        [
+          0.47711607813835144,
+          0.10369369387626648,
+          0.8759940266609192
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume31",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          0.00843843843843839,
+          -0.06691691691691691,
+          0.532,
+          0.06770770770770765,
+          0.10323323323323323,
+          0.821964964964965
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.48611611127853394,
+          -0.06691692024469376,
+          0.5820000171661377
+        ],
+        [
+          0.5453853607177734,
+          0.1032332330942154,
+          0.8719649910926819
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume35",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          -0.45638138138138135,
+          -0.07382382382382381,
+          0.972,
+          -0.435078078078078,
+          0.10047047047047047,
+          1.261964964964965
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.5543853640556335,
+          -0.07382382452487946,
+          0.5820000171661377
+        ],
+        [
+          0.5756886601448059,
+          0.10047046840190887,
+          0.8719649314880371
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume36",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_green",
+          -0.431078078078078,
+          -0.07497497497497496,
+          0.972,
+          -0.41078778778778774,
+          0.10001001001001,
+          1.257935935935936
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.5699999928474426,
+          -0.07497497648000717,
+          1.0019999742507935
+        ],
+        [
+          -0.549709677696228,
+          0.10001000761985779,
+          1.2879358530044556
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume37",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_navy",
+          -0.40678778778778774,
+          -0.07612612612612611,
+          0.972,
+          -0.38751051051051044,
+          0.09954954954954955,
+          1.2539069069069069
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.5407097339630127,
+          -0.07612612843513489,
+          1.0019999742507935
+        ],
+        [
+          -0.5214324593544006,
+          0.0995495468378067,
+          1.2839069366455078
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume38",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_ochre",
+          -0.38351051051051044,
+          -0.07727727727727726,
+          0.972,
+          -0.3652462462462462,
+          0.09908908908908909,
+          1.2498778778778779
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.5124324560165405,
+          -0.0772772803902626,
+          1.0019999742507935
+        ],
+        [
+          -0.49416816234588623,
+          0.09908908605575562,
+          1.2798779010772705
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume39",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_teal",
+          -0.3612462462462462,
+          -0.07842842842842843,
+          0.972,
+          -0.2999509509509509,
+          0.09862862862862863,
+          1.2458488488488488
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.4851681590080261,
+          -0.07842842489480972,
+          1.0019999742507935
+        ],
+        [
+          -0.4238728880882263,
+          0.09862862527370453,
+          1.2758488655090332
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume40",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_brown",
+          -0.2959509509509509,
+          -0.07957957957957956,
+          0.972,
+          -0.23566866866866865,
+          0.09816816816816816,
+          1.2418198198198198
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.4148728847503662,
+          -0.07957957684993744,
+          1.0019999742507935
+        ],
+        [
+          -0.35459059476852417,
+          0.09816816449165344,
+          1.271819829940796
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume41",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          -0.23166866866866864,
+          -0.08073073073073073,
+          0.972,
+          -0.17239939939939938,
+          0.0977077077077077,
+          1.2377907907907908
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.34559059143066406,
+          -0.08073072880506516,
+          1.0019999742507935
+        ],
+        [
+          -0.28632134199142456,
+          0.09770771116018295,
+          1.2677907943725586
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume42",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_green",
+          -0.16839939939939938,
+          -0.08188188188188188,
+          0.972,
+          -0.11014314314314312,
+          0.09724724724724725,
+          1.2337617617617618
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.27732133865356445,
+          -0.08188188076019287,
+          1.0019999742507935
+        ],
+        [
+          -0.2190650850534439,
+          0.09724725037813187,
+          1.2637617588043213
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume43",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_navy",
+          -0.07163863863863862,
+          -0.08303303303303303,
+          0.972,
+          -0.014395395395395374,
+          0.09678678678678679,
+          1.2297327327327328
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.210065096616745,
+          -0.08303303271532059,
+          1.0019999742507935
+        ],
+        [
+          -0.1528218537569046,
+          0.09678678959608078,
+          1.259732723236084
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume44",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_ochre",
+          0.02272772772772775,
+          -0.08418418418418418,
+          0.972,
+          0.07895795795795799,
+          0.09632632632632632,
+          1.2257037037037037
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.1438218355178833,
+          -0.0841841846704483,
+          1.0019999742507935
+        ],
+        [
+          -0.08759160339832306,
+          0.0963263288140297,
+          1.2557036876678467
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume48",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_green",
+          -0.4592592592592592,
+          -0.09569569569569569,
+          1.412,
+          -0.40100300300300296,
+          0.09172172172172172,
+          1.6495875875875874
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.07859161496162415,
+          -0.09569569677114487,
+          1.0019999742507935
+        ],
+        [
+          -0.020335346460342407,
+          0.09172172099351883,
+          1.239587664604187
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume49",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_navy",
+          -0.39700300300300295,
+          -0.09684684684684684,
+          1.412,
+          -0.3397597597597597,
+          0.09126126126126126,
+          1.6455585585585584
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.0113353431224823,
+          -0.09684684872627258,
+          1.0019999742507935
+        ],
+        [
+          0.0459078848361969,
+          0.09126126021146774,
+          1.2355586290359497
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume50",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_ochre",
+          -0.3357597597597597,
+          -0.097997997997998,
+          1.412,
+          -0.2795295295295295,
+          0.0908008008008008,
+          1.6415295295295294
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.05490788817405701,
+          -0.0979980006814003,
+          1.0019999742507935
+        ],
+        [
+          0.11113810539245605,
+          0.09080079942941666,
+          1.2315295934677124
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume51",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_teal",
+          -0.23826226226226221,
+          -0.09914914914914914,
+          1.412,
+          -0.18304504504504499,
+          0.09034034034034033,
+          1.6375005005005003
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.12013810873031616,
+          -0.09914915263652802,
+          1.0019999742507935
+        ],
+        [
+          0.17535533010959625,
+          0.09034033864736557,
+          1.227500557899475
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume52",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_brown",
+          -0.1431591591591591,
+          -0.05025025025025024,
+          1.412,
+          -0.08895495495495491,
+          0.1098998998998999,
+          1.6334714714714713
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.18435533344745636,
+          -0.05025025084614754,
+          1.0019999742507935
+        ],
+        [
+          0.2385595440864563,
+          0.10989990085363388,
+          1.2234715223312378
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume53",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          -0.0504504504504504,
+          -0.05140140140140139,
+          1.412,
+          0.0027407407407407866,
+          0.10943943943943944,
+          1.6294424424424423
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.2475595474243164,
+          -0.05140140280127525,
+          1.0019999742507935
+        ],
+        [
+          0.300750732421875,
+          0.1094394400715828,
+          1.2194424867630005
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume15",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_navy",
+          0.061596596596596595,
+          -0.095,
+          0.092,
+          0.23544044044044043,
+          0.075,
+          0.12556356356356357
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.3114084005355835,
+          -0.0949999988079071,
+          1.0019999742507935
+        ],
+        [
+          0.4852522313594818,
+          0.07500000298023224,
+          1.035563588142395
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume16",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_brown",
+          0.060767767767767766,
+          -0.095,
+          0.12556356356356357,
+          0.23323023023023023,
+          0.075,
+          0.1588048048048048
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.3105795681476593,
+          -0.0949999988079071,
+          1.035563588142395
+        ],
+        [
+          0.48304203152656555,
+          0.07500000298023224,
+          1.0688048601150513
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume17",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_teal",
+          0.059938938938938945,
+          -0.095,
+          0.1588048048048048,
+          0.23102002002002003,
+          0.075,
+          0.1917237237237237
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          0.3097507357597351,
+          -0.0949999988079071,
+          1.0688048601150513
+        ],
+        [
+          0.4808318018913269,
+          0.07500000298023224,
+          1.1017237901687622
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume32",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_brown",
+          0.10669869869869864,
+          -0.095,
+          0.532,
+          0.30883083083083074,
+          0.075,
+          0.5702302302302302
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.5683423280715942,
+          -0.0949999988079071,
+          1.4219999313354492
+        ],
+        [
+          -0.3662101924419403,
+          0.07500000298023224,
+          1.4602302312850952
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume33",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_teal",
+          0.10586986986986982,
+          -0.095,
+          0.5702302302302302,
+          0.30662062062062057,
+          0.075,
+          0.6081381381381381
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.569171130657196,
+          -0.0949999988079071,
+          1.4602302312850952
+        ],
+        [
+          -0.36842039227485657,
+          0.07500000298023224,
+          1.498138189315796
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume34",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          0.10504104104104098,
+          -0.095,
+          0.6081381381381381,
+          0.30441041041041034,
+          0.075,
+          0.6457237237237237
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.5699999928474426,
+          -0.0949999988079071,
+          1.498138189315796
+        ],
+        [
+          -0.3706306219100952,
+          0.07500000298023224,
+          1.5357236862182617
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume45",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_teal",
+          0.12663363363363367,
+          -0.095,
+          0.972,
+          0.296993993993994,
+          0.075,
+          1.0008828828828829
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.3555525541305542,
+          -0.0949999988079071,
+          1.4219999313354492
+        ],
+        [
+          -0.18519219756126404,
+          0.07500000298023224,
+          1.450882911682129
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume46",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          0.12580480480480483,
+          -0.095,
+          1.0008828828828829,
+          0.2947837837837838,
+          0.075,
+          1.0294434434434434
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.3563813865184784,
+          -0.0949999988079071,
+          1.450882911682129
+        ],
+        [
+          -0.18740242719650269,
+          0.07500000298023224,
+          1.4794435501098633
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume47",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_navy",
+          0.12497597597597601,
+          -0.095,
+          1.0294434434434434,
+          0.2925735735735736,
+          0.075,
+          1.0576816816816816
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.3572102189064026,
+          -0.0949999988079071,
+          1.4794435501098633
+        ],
+        [
+          -0.18961262702941895,
+          0.07500000298023224,
+          1.5076816082000732
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume54",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_burgundy",
+          0.023065065065065116,
+          -0.095,
+          1.412,
+          0.22171371371371376,
+          0.075,
+          1.4455495495495494
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.17453454434871674,
+          -0.0949999988079071,
+          1.4220000505447388
+        ],
+        [
+          0.024114102125167847,
+          0.07500000298023224,
+          1.455549716949463
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume55",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_navy",
+          0.022236236236236287,
+          -0.095,
+          1.4455495495495494,
+          0.21950350350350356,
+          0.075,
+          1.4787767767767765
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.17536336183547974,
+          -0.0949999988079071,
+          1.455549716949463
+        ],
+        [
+          0.021903902292251587,
+          0.07500000298023224,
+          1.4887769222259521
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "label": "Volume56",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_brown",
+          0.02140740740740746,
+          -0.095,
+          1.4787767767767765,
+          0.21729329329329333,
+          0.075,
+          1.5116816816816814
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.17619219422340393,
+          -0.0949999988079071,
+          1.4887769222259521
+        ],
+        [
+          0.019693687558174133,
+          0.07500000298023224,
+          1.521681785583496
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_pile",
+      "label": "Volume0",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_navy",
+          -0.09796796796796797,
+          -0.09756256256256257,
+          0.0,
+          0.06765765765765766,
+          0.13628128128128128,
+          0.033185185185185186
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.0979679673910141,
+          -0.09756255894899368,
+          0.0
+        ],
+        [
+          0.06765765696763992,
+          0.13628128170967102,
+          0.03318518400192261
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_pile",
+      "label": "Volume1",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_ochre",
+          -0.09831331331331333,
+          -0.0977927927927928,
+          0.033185185185185186,
+          0.06616116116116116,
+          0.13466966966966967,
+          0.06590990990990991
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.09831331670284271,
+          -0.09779278934001923,
+          0.03318518400192261
+        ],
+        [
+          0.06616116315126419,
+          0.13466967642307281,
+          0.06590990722179413
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_pile",
+      "label": "Volume2",
+      "source": {
+        "shape": "box",
+        "args": [
+          "book_teal",
+          -0.09865865865865867,
+          -0.09802302302302303,
+          0.06590990990990991,
+          0.06466466466466467,
+          0.13305805805805807,
+          0.09817417417417418
+        ],
+        "kwargs": {}
+      },
+      "bounds": [
+        [
+          -0.09865865856409073,
+          -0.09802301973104477,
+          0.06590990722179413
+        ],
+        [
+          0.06466466188430786,
+          0.13305805623531342,
+          0.09817417711019516
+        ]
+      ]
+    }
+  ],
+  "placement": {
+    "level": "B1",
+    "space": "B1_PUBLIC_CORE",
+    "floor_y": -3.2,
+    "source_to_v2_x": [
+      -1,
+      -0.96
+    ],
+    "source_godot_z_to_v2_z": [
+      -1,
+      2.1
+    ]
+  },
+  "open_work": [
+    "External lamp supply cords and the wider household furniture/material pass remain unfinished."
+  ]
+}

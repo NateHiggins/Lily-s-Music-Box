@@ -1,0 +1,95 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_level": "B1",
+  "source_ids": [
+    "nook_rug",
+    "nook_seat_n",
+    "nook_apron_n",
+    "nook_seat_w",
+    "nook_apron_w",
+    "nook_seat_e",
+    "nook_apron_e",
+    "nook_cush1",
+    "nook_cush2",
+    "nook_throw",
+    "nook_books",
+    "nook_table",
+    "nook_mug",
+    "nook_pile",
+    "nook_plant"
+  ],
+  "runtime_keys": [
+    "wood_dark",
+    "floor_oak",
+    "metal",
+    "fabric_warm",
+    "fabric_green",
+    "linen",
+    "rug_warm",
+    "glassish",
+    "ceramic",
+    "paper",
+    "book_burgundy",
+    "book_green",
+    "book_navy",
+    "book_ochre",
+    "book_teal",
+    "book_brown",
+    "plant",
+    "timber",
+    "terracotta",
+    "soil",
+    "rubber_aged"
+  ],
+  "catalog_variants": {
+    "wood_dark": "wood_dark",
+    "floor_oak": "floor_oak",
+    "metal": "metal",
+    "fabric_warm": "fabric_warm",
+    "linen": "linen",
+    "ceramic": "ceramic",
+    "paper": "paper",
+    "book_burgundy": "book_burgundy",
+    "book_green": "book_green",
+    "book_navy": "book_navy",
+    "book_ochre": "book_ochre",
+    "book_teal": "book_teal",
+    "book_brown": "book_brown",
+    "plant": "plant",
+    "timber": "timber",
+    "terracotta": "terracotta",
+    "soil": "soil",
+    "rubber_aged": "rubber_aged"
+  },
+  "material_aliases": {},
+  "material_tints": {},
+  "placement": {
+    "level": "B1",
+    "space": "B1_PUBLIC_CORE",
+    "floor_y": -3.2,
+    "source_to_v2_x": [
+      -1,
+      -0.96
+    ],
+    "source_godot_z_to_v2_z": [
+      -1,
+      2.1
+    ]
+  },
+  "adaptations": [
+    "Restore the original fifteen-record reading nook on the north side of the existing basement landing; rotate the complete composition 180 degrees, with explicit horizontal translation and the V2 floor datum.",
+    "The source 0.92 m shelf recipe had two boards above its uprights and buried its low stock behind the seat. Retain all 57 books on three supported boards at 0.55, 0.97 and 1.39 m, extending the four legs to 1.45 m. Original books already extended above the declared 0.92 m rack. No stock is discarded.",
+    "Coffee glass retains its 365 mm visible top; original marker/mug/bookpile used a 370 mm collision hull. Lower their bearings to the actual glass and move the lamp foot inward enough to eliminate its elliptical-edge overhang.",
+    "Rug lies on the actual floor; seat aprons and table fins terminate on its top. Retained visible seat/cushion heights do not change.",
+    "Both table fins end on flat bearings beneath the glass, with thin rubber pads closing the original five-millimetre gap.",
+    "The visually inspected floor-oak map has vertical V grain. Its native boards follow their longest dimension; shared grain helpers and other families remain unchanged."
+  ],
+  "open_work": [
+    "External lamp supply cords and the wider household furniture/material pass remain unfinished."
+  ],
+  "retained_stock": {
+    "nook_books": 57,
+    "nook_pile": 3
+  }
+}

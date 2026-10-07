@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 8.04,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T20:14:19Z",
+  "started_utc": "2026-10-07T20:14:10Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/reading-nook-import-02.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/reading-nook-import-02.log",
+  "stdout_sha256": "c5bc2ec69f116c3b92cc7943a3a2b982b2423b3fdc0a90f7de4050c52630c4dc"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 291,
+  "dirty_sample": [
+   "M art/data/orison_v2/domestic_furniture_source.json",
+   " M art/renders/insitu/shots.md",
+   " M game/data/orison_v2/domestic_furniture.json",
+   " M game/scripts/building/orison_v2_domestic_furniture.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_terminal_access_test.gd",
+   "?? art/blender/reading_nook.blend",
+   "?? art/blender/reading_nook_construction.json",
+   "?? art/blender/scripts/build_reading_nook.py",
+   "?? art/blender/scripts/inspect_reading_nook.py",
+   "?? art/blender/scripts/inspect_task_lamp_installations.py",
+   "?? art/blender/scripts/reading_nook_geometry.py",
+   "?? art/data/reading_nook/",
+   "?? art/data/task_lamp_installations/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? game/assets/props/reading_nook.glb"
+  ],
+  "repository_head": "6c9abf4391d700ef99a504b81a6d7290ae1a400b",
+  "repository_tree": "c22414c47fb97fdeb9b9a7583555392ebf9824c4",
+  "runtime_inputs_sha256": "e5fa80510902ef913aa4974b88b6b53004ff05aca25b641ad7a78818dffa5487",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

@@ -1,0 +1,248 @@
+{
+  "evidence_class": "INERT",
+  "bearings": [
+    {
+      "id": "B1_NOOK_LAMP",
+      "support": "nook_table",
+      "radius": 0.095,
+      "samples": 193,
+      "maximum_allowed_error_m": 3e-05
+    },
+    {
+      "id": "F02_A_LAMP_01",
+      "support": "2A_desk",
+      "radius": 0.078,
+      "samples": 193,
+      "maximum_allowed_error_m": 3e-05
+    },
+    {
+      "id": "F03_B_LAMP_01",
+      "support": "3B_workbench",
+      "radius": 0.11,
+      "samples": 193,
+      "maximum_allowed_error_m": 3e-05
+    },
+    {
+      "id": "F04_B_LAMP_01",
+      "support": "4B_terminal_desk",
+      "radius": 0.082,
+      "samples": 193,
+      "maximum_allowed_error_m": 3e-05
+    },
+    {
+      "id": "F05_A_LAMP_01",
+      "support": "5A_plantable",
+      "radius": 0.112,
+      "samples": 193,
+      "maximum_allowed_error_m": 3e-05
+    }
+  ],
+  "neighbours": [
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_seat_n__floor_oak",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_apron_n__wood_dark",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_seat_w__floor_oak",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_apron_w__wood_dark",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_seat_e__floor_oak",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_apron_e__wood_dark",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_cush1__fabric_warm",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_cush2__fabric_green",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_throw__linen",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_books__book_brown",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_books__book_burgundy",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_books__book_green",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_books__book_navy",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_books__book_ochre",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_books__book_teal",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_books__floor_oak",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_books__metal",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_books__paper",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_mug__ceramic",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_pile__book_navy",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_pile__book_ochre",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_pile__book_teal",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_pile__paper",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_plant__plant",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_plant__soil",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_plant__terracotta",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "B1_NOOK_LAMP",
+      "neighbour": "nook_plant__timber",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "F02_A_LAMP_01",
+      "neighbour": "2A_papers",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "F02_A_LAMP_01",
+      "neighbour": "2A_mug",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "F02_A_LAMP_01",
+      "neighbour": "2A_phones",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "F03_B_LAMP_01",
+      "neighbour": "3B_tray1",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "F03_B_LAMP_01",
+      "neighbour": "3B_tray2",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "F03_B_LAMP_01",
+      "neighbour": "3B_jars",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "F03_B_LAMP_01",
+      "neighbour": "3B_manuals",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "F03_B_LAMP_01",
+      "neighbour": "3B_mug",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "F05_A_LAMP_01",
+      "neighbour": "5A_papers1",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "F05_A_LAMP_01",
+      "neighbour": "5A_papers2",
+      "surface_crossings": 0
+    },
+    {
+      "lamp": "F05_A_LAMP_01",
+      "neighbour": "5A_mug1",
+      "surface_crossings": 0
+    }
+  ],
+  "terminal_clear_envelopes": [
+    "cabinet",
+    "foot",
+    "bridge",
+    "valve_guard",
+    "handset",
+    "front_skin",
+    "scope_bezel",
+    "knob_-0.405",
+    "knob_-0.035",
+    "knob_0.42",
+    "meter_0.045",
+    "meter_0.265",
+    "patch_field"
+  ],
+  "scope": "Complete circular foot samples, actual tabletop neighbours and conservative native terminal clearance; engine rendering and physical input remain required."
+}

@@ -32,7 +32,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 		else:
 			body = PrepCabinet.new() if record.kind == "prep_cabinet" else StaticBody3D.new()
 			if record.kind == "prep_cabinet": body.call("setup", str(record.mechanism.unit))
-			if record.kind != "bed":
+			if record.kind != "bed" and not record.get("collision_from_surfaces", false):
 				for box: Array in record.get("collision_boxes", [record.bounds]):
 					var collision := CollisionShape3D.new()
 					var shape := BoxShape3D.new()
@@ -45,6 +45,16 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 		body.set_meta("v2_furniture_id", str(record.id))
 		if record.kind == "bed": _add_bed(body,record)
 		elif record.kind != "toilet": _add_surfaces(body, record.surfaces)
+		if record.get("collision_from_surfaces", false):
+			# Separate tabletop/paper/leg triangles preserve the actual bearings;
+			# one enclosing box would fill the space above a desk up to its stock.
+			for child: Node in body.get_children():
+				if not child is MeshInstance3D: continue
+				var visual := child as MeshInstance3D
+				var collision := CollisionShape3D.new()
+				collision.shape = visual.mesh.create_trimesh_shape()
+				collision.transform = visual.transform
+				body.add_child(collision)
 		if not adapter.mount_consumer(str(record.id), body):
 			body.free()
 			errors.append("furniture mount refused: " + str(record.id))
@@ -117,6 +127,10 @@ func validate(source: Variant, adapter: Variant) -> bool:
 							or box[0][axis] < bounds[0][axis] \
 							or box[1][axis] > bounds[1][axis]:
 						errors.append("furniture collision box exceeds its bounds")
+		if record.has("collision_from_surfaces") and (record.collision_from_surfaces != true \
+				or typeof(record.collision_from_surfaces) != TYPE_BOOL \
+				or record.kind not in ["desk", "table_rect"] or record.has("collision_boxes")):
+			errors.append("invalid explicit furniture surface collision")
 		if record.kind == "toilet":
 			if record.get("model") != WaterCloset.MODEL or record.has("surfaces"):
 				errors.append("water closet must use its Blender assembly")

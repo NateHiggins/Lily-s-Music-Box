@@ -1,0 +1,56 @@
+{
+  "evidence_class": "INERT",
+  "classification": "NONVISUAL_BINDING_REFRESH",
+  "changes": [
+    {
+      "family": "task_lamps",
+      "before_fixture": "c3f60dc4e45e115fffd0f3a296ae393a59e567ecd79b0a7d3e8818d5fd1fa6e4",
+      "after_fixture": "d2ebbaeec4a81f504734ad929aabcd9d6e5cbc6e0ff90a5eccab1dce6839346a",
+      "source_changes": [
+        {
+          "path": "art/data/orison_v2/domestic_furniture_source.json",
+          "old": "955345a7fe2133543280ef6c6f917003b8b89867973a9e364af514fb351a55f6",
+          "new": "8c0859cbdb214488e59e97ec6027f50972feb7fae1ec944dd5a45dbaf43265aa"
+        },
+        {
+          "path": "game/data/orison_v2/domestic_furniture.json",
+          "old": "72a1172197cc139d85c4fc7e6ed5f13317106d370c441322e37bb81d791b47e5",
+          "new": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707"
+        }
+      ],
+      "reason": "Only collision_from_surfaces=true added to 2A_desk and 5A_plantable; every prior record value and the native lamp export remains identical. Final shared runtime checks all five installations and original library parity."
+    },
+    {
+      "family": "reading_nook",
+      "before_fixture": "9c230a1063b2347815980e5ef703ca3a3da28ff5bb0e07e4c3d4ca8f8248a264",
+      "after_fixture": "5fa3f0f59d66f64166c77eee4843ea443958b2fd26265c4d9050732b1f336040",
+      "source_changes": [
+        {
+          "path": "art/data/reading_nook/source_plan.json",
+          "old": "607bf1d653371312e071fe5f530411f84a343fdaa5bf100ce38b69f2efec18a2",
+          "new": "ad192ffb27065d704b1f74792217230d09ba2a5c1cda3083b9db18a2ccd45b16",
+          "old_open_work": [
+            "Draft source plan; native geometry and route/capsule/door-clearance verification are not complete.",
+            "Restore missing apartment lamps against surveyed actual desk surfaces (2A 735 mm, 4B 750 mm, 5A 800 mm) and bind all five original electrical identities.",
+            "External supply cords remain unfinished."
+          ],
+          "new_open_work": [
+            "External lamp supply cords and the wider household furniture/material pass remain unfinished."
+          ]
+        },
+        {
+          "path": "art/data/task_lamp_installations/source_plan.json",
+          "old": "2eb24fc6305c90bc38361335a247fdae7807cd12dab5e80e245231cb1cedc1b7",
+          "new": "f96e6d39173cbd7977ae464f4ec58d6b044ec4105570cb6cffe250d3993a40c4",
+          "old_open_work": [
+            "External room supply cords, complete room-fit and interaction validation remain unfinished."
+          ],
+          "new_open_work": [
+            "External room supply cords and the wider apartment furniture/material conversion remain unfinished."
+          ]
+        }
+      ],
+      "reason": "Planning open_work prose updated after native and engine QA. Asset, runtime projection, geometry, poses, maps, test scripts and source records unchanged."
+    }
+  ]
+}

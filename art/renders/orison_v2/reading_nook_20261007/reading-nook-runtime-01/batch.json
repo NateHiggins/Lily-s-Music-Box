@@ -1,0 +1,43 @@
+{
+	"batch_checks": 9,
+	"elapsed_ms": 40239,
+	"evidence_class": "INERT",
+	"failures": [
+		"reading_nook: tangent direction and handedness match actual imported UV derivatives",
+		"reading_nook: actual reciprocal nook bearing: book pile on actual glass",
+		"reading_nook: nook leaves sampled basement approach clear: (-1.55, -3.18, -1.5)"
+	],
+	"module_checks": 1840,
+	"modules": {
+		"reading_nook": {
+			"captured": true,
+			"checks": 1432,
+			"elapsed_ms": 7090,
+			"failures": [
+				"tangent direction and handedness match actual imported UV derivatives",
+				"actual reciprocal nook bearing: book pile on actual glass",
+				"nook leaves sampled basement approach clear: (-1.55, -3.18, -1.5)"
+			],
+			"fixture_sha256": "66697f6b4da4410011d60c429168b175bdefbb5ae5e38787258cf387cd412161",
+			"parts": 31,
+			"production_lamps": 5,
+			"triangles": 58596,
+			"validator_sha256": "207f2178f169ac8614ef86484d0a76412534ddb7f458771cdd01ba1b5b287d42"
+		},
+		"task_lamps": {
+			"captured": false,
+			"checks": 408,
+			"elapsed_ms": 624,
+			"failures": [],
+			"fixture_sha256": "c3f60dc4e45e115fffd0f3a296ae393a59e567ecd79b0a7d3e8818d5fd1fa6e4",
+			"library_variants": 5,
+			"parts": 34,
+			"production_actors": 1,
+			"triangles": 61596,
+			"validator_sha256": "f3da1b887288ffa5efbbcb203baabdefd507631218c98776d556912f9e3a092f"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

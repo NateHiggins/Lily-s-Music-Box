@@ -2,6 +2,7 @@ extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
 const MODULES := {
+	"reading_nook": preload("res://tests/orison_v2_reading_nook_test.gd"),
 	"task_lamps": preload("res://tests/orison_v2_task_lamps_test.gd"),
 	"photo_radio_fittings": preload("res://tests/orison_v2_photo_radio_fittings_test.gd"),
 	"radio_display": preload("res://tests/orison_v2_radio_display_test.gd"),
@@ -75,6 +76,7 @@ func _run() -> void:
 	await get_tree().physics_frame
 	await get_tree().physics_frame
 	var results: Dictionary = {}
+	var teardown_validators := {}
 	var total := 0
 	var previous_directory := OS.get_environment("SHOT_DIR")
 	for id: String in selected:
@@ -101,11 +103,22 @@ func _run() -> void:
 		results[id] = result
 		total += int(result.checks)
 		for message: String in result.failures: failures.append(id + ": " + message)
-		module.free()
+		if module.has_method("validate_after_teardown"): teardown_validators[id] = module
+		else: module.free()
 	OS.set_environment("SHOT_DIR", previous_directory)
 	world.shutdown_for_tests()
 	world.free()
 	await _retired_audio()
+	for id: String in teardown_validators:
+		var module: Node = teardown_validators[id]
+		var before: int = int(results[id].checks)
+		var post: Dictionary = module.validate_after_teardown()
+		results[id].checks = post.checks
+		results[id].failures = post.failures
+		total += int(post.checks)-before
+		for message: String in post.failures:
+			if not (id+": "+message) in failures: failures.append(id+": "+message)
+		module.free()
 	var receipt := {"schema":"orison.fabrication-batch.v1", "evidence_class":"INERT", "world_loads":1,
 		"modules":results, "module_checks":total, "batch_checks":checks, "failures":failures,
 		"elapsed_ms":Time.get_ticks_msec()-started, "scope":"Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate."}

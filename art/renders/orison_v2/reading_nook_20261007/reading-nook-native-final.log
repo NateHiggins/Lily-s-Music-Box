@@ -1,0 +1,88 @@
+FABRICATION STAGE: art/blender/scripts/build_reading_nook.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_reading_nook.py:66: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "reading_nook.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+16:13:20 | INFO: Starting glTF 2.0 export
+16:13:20 | INFO: Extracting primitive: nook_apron_e__wood_dark
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_apron_n__wood_dark
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_apron_w__wood_dark
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_books__book_brown
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_books__book_burgundy
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_books__book_green
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_books__book_navy
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_books__book_ochre
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_books__book_teal
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_books__floor_oak
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_books__metal
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_books__paper
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_cush1__fabric_warm
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_cush2__fabric_green
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_mug__ceramic
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_pile__book_navy
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_pile__book_ochre
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_pile__book_teal
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_pile__paper
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_plant__plant
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_plant__soil
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_plant__terracotta
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_plant__timber
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_rug__rug_warm
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_seat_e__floor_oak
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_seat_n__floor_oak
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_seat_w__floor_oak
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_table__glassish
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_table__rubber_aged
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_table__wood_dark
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Extracting primitive: nook_throw__linen
+16:13:20 | INFO: Primitives created: 1
+16:13:20 | INFO: Finished glTF 2.0 export in 0.1435098648071289 s
+
+READING NOOK 15 original records; 15 assemblies; 304 closed stocks; 31 parts; 58596 triangles; 29 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_task_lamp_installations.py
+00:09.687  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\reading_nook.blend"
+TASK LAMP INSTALLATIONS: 965 foot samples; 13 terminal envelopes clear
+FABRICATION STAGE: art/blender/scripts/inspect_reading_nook.py
+00:09.984  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\reading_nook.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_reading_nook.py:60: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True
+00:14.375  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\reading-nook-native\context_front.png'
+00:17.812  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\reading-nook-native\context_rear.png'
+00:21.640  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\reading-nook-native\shelf.png'
+00:26.015  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\reading-nook-native\table.png'
+READING NOOK NATIVE 304 closed stocks; 29 supports; 60 retained books; 4 views
+{"completed_stages": 3, "elapsed_s": 24.649}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

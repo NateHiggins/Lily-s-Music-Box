@@ -1,0 +1,17 @@
+FABRICATION STAGE: art/blender/scripts/inspect_reading_nook.py
+00:01.625  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\reading_nook.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_reading_nook.py:60: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True
+READING NOOK NATIVE 304 closed stocks; 29 supports; 60 retained books; 0 views
+FABRICATION STAGE: art/blender/scripts/inspect_task_lamp_installations.py
+00:02.953  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\reading_nook.blend"
+TASK LAMP INSTALLATIONS: 965 foot samples; 13 terminal envelopes clear
+FABRICATION STAGE: art/blender/scripts/inspect_task_lamps.py
+00:03.281  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\task_lamps.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_task_lamps.py:72: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True
+TASK LAMPS NATIVE 206 closed stocks; 5 joined variants; 15 base probes; 0 views
+{"completed_stages": 3, "elapsed_s": 2.884}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

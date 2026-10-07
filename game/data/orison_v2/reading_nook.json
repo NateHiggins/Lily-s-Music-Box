@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/reading_nook.glb",
+  "floor_y": -3.2,
+  "assemblies": [
+    {
+      "id": "nook_rug",
+      "parts": [
+        {
+          "name": "nook_rug__rug_warm",
+          "key": "rug_warm",
+          "tile": 1.5
+        }
+      ],
+      "position": [
+        -0.48,
+        0,
+        2.35
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "nook_seat_n",
+      "parts": [
+        {
+          "name": "nook_seat_n__floor_oak",
+          "key": "floor_oak",
+          "tile": 2.7,
+          "catalog_key": "floor_oak"
+        }
+      ],
+      "position": [
+        -0.48,
+        0,
+        2.98
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "nook_apron_n",
+      "parts": [
+        {
+          "name": "nook_apron_n__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "position": [
+        -0.48,
+        0,
+        2.98
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "nook_seat_w",
+      "parts": [
+        {
+          "name": "nook_seat_w__floor_oak",
+          "key": "floor_oak",
+          "tile": 2.7,
+          "catalog_key": "floor_oak"
+        }
+      ],
+      "position": [
+        0.15000000000000013,
+        0,
+        2.35
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "nook_apron_w",
+      "parts": [
+        {
+          "name": "nook_apron_w__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "position": [
+        0.1499999999999999,
+        0,
+        2.35
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "nook_seat_e",
+      "parts": [
+        {
+          "name": "nook_seat_e__floor_oak",
+          "key": "floor_oak",
+          "tile": 2.7,
+          "catalog_key": "floor_oak"
+        }
+      ],
+      "position": [
+        -1.1099999999999999,
+        0,
+        2.35
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "nook_apron_e",
+      "parts": [
+        {
+          "name": "nook_apron_e__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "position": [
+        -1.1099999999999999,
+        0,
+        2.35
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "nook_cush1",
+      "parts": [
+        {
+          "name": "nook_cush1__fabric_warm",
+          "key": "fabric_warm",
+          "tile": 0.7,
+          "catalog_key": "fabric_warm"
+        }
+      ],
+      "position": [
+        -0.030000000000000027,
+        0,
+        3.0300000000000002
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "nook_cush2",
+      "parts": [
+        {
+          "name": "nook_cush2__fabric_green",
+          "key": "fabric_green",
+          "tile": 0.7
+        }
+      ],
+      "position": [
+        -1.13,
+        0,
+        2.33
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "nook_throw",
+      "parts": [
+        {
+          "name": "nook_throw__linen",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen"
+        }
+      ],
+      "position": [
+        0.16000000000000014,
+        0,
+        2.33
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "nook_books",
+      "parts": [
+        {
+          "name": "nook_books__book_brown",
+          "key": "book_brown",
+          "tile": 0.32,
+          "catalog_key": "book_brown"
+        },
+        {
+          "name": "nook_books__book_burgundy",
+          "key": "book_burgundy",
+          "tile": 0.32,
+          "catalog_key": "book_burgundy"
+        },
+        {
+          "name": "nook_books__book_green",
+          "key": "book_green",
+          "tile": 0.32,
+          "catalog_key": "book_green"
+        },
+        {
+          "name": "nook_books__book_navy",
+          "key": "book_navy",
+          "tile": 0.32,
+          "catalog_key": "book_navy"
+        },
+        {
+          "name": "nook_books__book_ochre",
+          "key": "book_ochre",
+          "tile": 0.32,
+          "catalog_key": "book_ochre"
+        },
+        {
+          "name": "nook_books__book_teal",
+          "key": "book_teal",
+          "tile": 0.32,
+          "catalog_key": "book_teal"
+        },
+        {
+          "name": "nook_books__floor_oak",
+          "key": "floor_oak",
+          "tile": 2.7,
+          "catalog_key": "floor_oak"
+        },
+        {
+          "name": "nook_books__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal"
+        },
+        {
+          "name": "nook_books__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        -0.485,
+        0,
+        3.3398000000000003
+      ],
+      "yaw": 0.0
+    },
+    {
+      "id": "nook_table",
+      "parts": [
+        {
+          "name": "nook_table__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "nook_table__rubber_aged",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged"
+        },
+        {
+          "name": "nook_table__wood_dark",
+          "key": "wood_dark",
+          "tile": 1.2,
+          "catalog_key": "wood_dark"
+        }
+      ],
+      "position": [
+        -0.49999999999999994,
+        0,
+        1.4898000000000002
+      ],
+      "yaw": 3.141592653589793
+    },
+    {
+      "id": "nook_mug",
+      "parts": [
+        {
+          "name": "nook_mug__ceramic",
+          "key": "ceramic",
+          "tile": 0.65,
+          "catalog_key": "ceramic"
+        }
+      ],
+      "position": [
+        -0.6799999999999999,
+        0,
+        1.5498
+      ],
+      "yaw": 2.5307274153917776
+    },
+    {
+      "id": "nook_pile",
+      "parts": [
+        {
+          "name": "nook_pile__book_navy",
+          "key": "book_navy",
+          "tile": 0.32,
+          "catalog_key": "book_navy"
+        },
+        {
+          "name": "nook_pile__book_ochre",
+          "key": "book_ochre",
+          "tile": 0.32,
+          "catalog_key": "book_ochre"
+        },
+        {
+          "name": "nook_pile__book_teal",
+          "key": "book_teal",
+          "tile": 0.32,
+          "catalog_key": "book_teal"
+        },
+        {
+          "name": "nook_pile__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        -0.2799999999999999,
+        0,
+        1.4298000000000002
+      ],
+      "yaw": 2.9321531433504737
+    },
+    {
+      "id": "nook_plant",
+      "parts": [
+        {
+          "name": "nook_plant__plant",
+          "key": "plant",
+          "tile": 0.5,
+          "catalog_key": "plant"
+        },
+        {
+          "name": "nook_plant__soil",
+          "key": "soil",
+          "tile": 0.35,
+          "catalog_key": "soil"
+        },
+        {
+          "name": "nook_plant__terracotta",
+          "key": "terracotta",
+          "tile": 0.4,
+          "catalog_key": "terracotta"
+        },
+        {
+          "name": "nook_plant__timber",
+          "key": "timber",
+          "tile": 1.0,
+          "catalog_key": "timber"
+        }
+      ],
+      "position": [
+        -1.42,
+        0,
+        3.2698
+      ],
+      "yaw": 3.141592653589793
+    }
+  ],
+  "local_materials": {
+    "fabric_green": {
+      "files": [
+        "T_ai_materials_fabric_green_albedo.png",
+        "T_ai_materials_fabric_green_rough.png",
+        "T_ai_materials_fabric_green_normal.png"
+      ],
+      "metallic": 0,
+      "roughness": 1,
+      "normal_scale": 0.3499999940395355,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "alpha": false
+    },
+    "rug_warm": {
+      "files": [
+        "T_ai_materials_rug_warm_albedo.png",
+        "T_ai_materials_rug_warm_rough.png",
+        "T_ai_materials_rug_warm_normal.png"
+      ],
+      "metallic": 0,
+      "roughness": 1,
+      "normal_scale": 0.3499999940395355,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "alpha": false
+    },
+    "glassish": {
+      "files": [
+        null,
+        "T_glass_rough.png",
+        "T_glass_normal.png"
+      ],
+      "metallic": 0,
+      "roughness": 1,
+      "normal_scale": 0.550000011920929,
+      "color": [
+        0.7599999904632568,
+        0.8500000238418579,
+        0.8899999856948853,
+        0.1599999964237213
+      ],
+      "alpha": true
+    }
+  }
+}

@@ -1,0 +1,2868 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 304,
+  "joined_assemblies": [
+    {
+      "assembly": "nook_rug",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    },
+    {
+      "assembly": "nook_seat_n",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    },
+    {
+      "assembly": "nook_apron_n",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    },
+    {
+      "assembly": "nook_seat_w",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    },
+    {
+      "assembly": "nook_apron_w",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    },
+    {
+      "assembly": "nook_seat_e",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    },
+    {
+      "assembly": "nook_apron_e",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    },
+    {
+      "assembly": "nook_cush1",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "nook_cush1_Body",
+          "nook_cush1_Welt"
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_cush2",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "nook_cush2_Body",
+          "nook_cush2_Welt"
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_throw",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "nook_throw_Fold0",
+          "nook_throw_Fold1"
+        ],
+        [
+          "nook_throw_Fold1",
+          "nook_throw_Fold2"
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_books",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "nook_books_Upright0",
+          "nook_books_Shelf0"
+        ],
+        [
+          "nook_books_Upright0",
+          "nook_books_Shelf1"
+        ],
+        [
+          "nook_books_Upright0",
+          "nook_books_Shelf2"
+        ],
+        [
+          "nook_books_Upright1",
+          "nook_books_Shelf0"
+        ],
+        [
+          "nook_books_Upright1",
+          "nook_books_Shelf1"
+        ],
+        [
+          "nook_books_Upright1",
+          "nook_books_Shelf2"
+        ],
+        [
+          "nook_books_Upright2",
+          "nook_books_Shelf0"
+        ],
+        [
+          "nook_books_Upright2",
+          "nook_books_Shelf1"
+        ],
+        [
+          "nook_books_Upright2",
+          "nook_books_Shelf2"
+        ],
+        [
+          "nook_books_Upright3",
+          "nook_books_Shelf0"
+        ],
+        [
+          "nook_books_Upright3",
+          "nook_books_Shelf1"
+        ],
+        [
+          "nook_books_Upright3",
+          "nook_books_Shelf2"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume0_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume0_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume0_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume1_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume1_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume1_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume2_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume2_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume2_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume3_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume3_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume3_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume4_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume4_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume4_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume5_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume5_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume5_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume6_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume6_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume6_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume7_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume7_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume7_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume8_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume8_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume8_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume9_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume9_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume9_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume10_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume10_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume10_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume11_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume11_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume11_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume12_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume12_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume12_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume13_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume13_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume13_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume14_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume14_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume14_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume18_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume18_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume18_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume19_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume19_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume19_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume20_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume20_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume20_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume21_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume21_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume21_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume22_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume22_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume22_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume23_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume23_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume23_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume24_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume24_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume24_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume25_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume25_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume25_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume26_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume26_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume26_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume27_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume27_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume27_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume28_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume28_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume28_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume29_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume29_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume29_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume30_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume30_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume30_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume31_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume31_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume31_Spine"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume35_LeftCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume35_RightCover"
+        ],
+        [
+          "nook_books_Shelf0",
+          "nook_books_Volume35_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume36_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume36_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume36_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume37_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume37_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume37_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume38_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume38_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume38_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume39_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume39_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume39_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume40_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume40_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume40_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume41_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume41_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume41_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume42_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume42_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume42_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume43_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume43_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume43_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume44_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume44_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume44_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume48_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume48_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume48_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume49_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume49_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume49_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume50_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume50_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume50_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume51_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume51_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume51_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume52_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume52_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume52_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume53_LeftCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume53_RightCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume53_Spine"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume15_LowerCover"
+        ],
+        [
+          "nook_books_Shelf1",
+          "nook_books_Volume15_Spine"
+        ],
+        [
+          "nook_books_Shelf2",
+          "nook_books_Volume32_LowerCover"
+        ],
+        [
+          "nook_books_Shelf2",
+          "nook_books_Volume32_Spine"
+        ],
+        [
+          "nook_books_Shelf2",
+          "nook_books_Volume45_LowerCover"
+        ],
+        [
+          "nook_books_Shelf2",
+          "nook_books_Volume45_Spine"
+        ],
+        [
+          "nook_books_Shelf2",
+          "nook_books_Volume54_LowerCover"
+        ],
+        [
+          "nook_books_Shelf2",
+          "nook_books_Volume54_Spine"
+        ],
+        [
+          "nook_books_Volume0_LeftCover",
+          "nook_books_Volume0_Pages"
+        ],
+        [
+          "nook_books_Volume0_LeftCover",
+          "nook_books_Volume0_Spine"
+        ],
+        [
+          "nook_books_Volume0_RightCover",
+          "nook_books_Volume0_Pages"
+        ],
+        [
+          "nook_books_Volume0_RightCover",
+          "nook_books_Volume0_Spine"
+        ],
+        [
+          "nook_books_Volume0_Pages",
+          "nook_books_Volume0_Spine"
+        ],
+        [
+          "nook_books_Volume1_LeftCover",
+          "nook_books_Volume1_Pages"
+        ],
+        [
+          "nook_books_Volume1_LeftCover",
+          "nook_books_Volume1_Spine"
+        ],
+        [
+          "nook_books_Volume1_RightCover",
+          "nook_books_Volume1_Pages"
+        ],
+        [
+          "nook_books_Volume1_RightCover",
+          "nook_books_Volume1_Spine"
+        ],
+        [
+          "nook_books_Volume1_Pages",
+          "nook_books_Volume1_Spine"
+        ],
+        [
+          "nook_books_Volume2_LeftCover",
+          "nook_books_Volume2_Pages"
+        ],
+        [
+          "nook_books_Volume2_LeftCover",
+          "nook_books_Volume2_Spine"
+        ],
+        [
+          "nook_books_Volume2_RightCover",
+          "nook_books_Volume2_Pages"
+        ],
+        [
+          "nook_books_Volume2_RightCover",
+          "nook_books_Volume2_Spine"
+        ],
+        [
+          "nook_books_Volume2_Pages",
+          "nook_books_Volume2_Spine"
+        ],
+        [
+          "nook_books_Volume3_LeftCover",
+          "nook_books_Volume3_Pages"
+        ],
+        [
+          "nook_books_Volume3_LeftCover",
+          "nook_books_Volume3_Spine"
+        ],
+        [
+          "nook_books_Volume3_RightCover",
+          "nook_books_Volume3_Pages"
+        ],
+        [
+          "nook_books_Volume3_RightCover",
+          "nook_books_Volume3_Spine"
+        ],
+        [
+          "nook_books_Volume3_Pages",
+          "nook_books_Volume3_Spine"
+        ],
+        [
+          "nook_books_Volume4_LeftCover",
+          "nook_books_Volume4_Pages"
+        ],
+        [
+          "nook_books_Volume4_LeftCover",
+          "nook_books_Volume4_Spine"
+        ],
+        [
+          "nook_books_Volume4_RightCover",
+          "nook_books_Volume4_Pages"
+        ],
+        [
+          "nook_books_Volume4_RightCover",
+          "nook_books_Volume4_Spine"
+        ],
+        [
+          "nook_books_Volume4_Pages",
+          "nook_books_Volume4_Spine"
+        ],
+        [
+          "nook_books_Volume5_LeftCover",
+          "nook_books_Volume5_Pages"
+        ],
+        [
+          "nook_books_Volume5_LeftCover",
+          "nook_books_Volume5_Spine"
+        ],
+        [
+          "nook_books_Volume5_RightCover",
+          "nook_books_Volume5_Pages"
+        ],
+        [
+          "nook_books_Volume5_RightCover",
+          "nook_books_Volume5_Spine"
+        ],
+        [
+          "nook_books_Volume5_Pages",
+          "nook_books_Volume5_Spine"
+        ],
+        [
+          "nook_books_Volume6_LeftCover",
+          "nook_books_Volume6_Pages"
+        ],
+        [
+          "nook_books_Volume6_LeftCover",
+          "nook_books_Volume6_Spine"
+        ],
+        [
+          "nook_books_Volume6_RightCover",
+          "nook_books_Volume6_Pages"
+        ],
+        [
+          "nook_books_Volume6_RightCover",
+          "nook_books_Volume6_Spine"
+        ],
+        [
+          "nook_books_Volume6_Pages",
+          "nook_books_Volume6_Spine"
+        ],
+        [
+          "nook_books_Volume7_LeftCover",
+          "nook_books_Volume7_Pages"
+        ],
+        [
+          "nook_books_Volume7_LeftCover",
+          "nook_books_Volume7_Spine"
+        ],
+        [
+          "nook_books_Volume7_RightCover",
+          "nook_books_Volume7_Pages"
+        ],
+        [
+          "nook_books_Volume7_RightCover",
+          "nook_books_Volume7_Spine"
+        ],
+        [
+          "nook_books_Volume7_Pages",
+          "nook_books_Volume7_Spine"
+        ],
+        [
+          "nook_books_Volume8_LeftCover",
+          "nook_books_Volume8_Pages"
+        ],
+        [
+          "nook_books_Volume8_LeftCover",
+          "nook_books_Volume8_Spine"
+        ],
+        [
+          "nook_books_Volume8_RightCover",
+          "nook_books_Volume8_Pages"
+        ],
+        [
+          "nook_books_Volume8_RightCover",
+          "nook_books_Volume8_Spine"
+        ],
+        [
+          "nook_books_Volume8_Pages",
+          "nook_books_Volume8_Spine"
+        ],
+        [
+          "nook_books_Volume9_LeftCover",
+          "nook_books_Volume9_Pages"
+        ],
+        [
+          "nook_books_Volume9_LeftCover",
+          "nook_books_Volume9_Spine"
+        ],
+        [
+          "nook_books_Volume9_RightCover",
+          "nook_books_Volume9_Pages"
+        ],
+        [
+          "nook_books_Volume9_RightCover",
+          "nook_books_Volume9_Spine"
+        ],
+        [
+          "nook_books_Volume9_Pages",
+          "nook_books_Volume9_Spine"
+        ],
+        [
+          "nook_books_Volume10_LeftCover",
+          "nook_books_Volume10_Pages"
+        ],
+        [
+          "nook_books_Volume10_LeftCover",
+          "nook_books_Volume10_Spine"
+        ],
+        [
+          "nook_books_Volume10_RightCover",
+          "nook_books_Volume10_Pages"
+        ],
+        [
+          "nook_books_Volume10_RightCover",
+          "nook_books_Volume10_Spine"
+        ],
+        [
+          "nook_books_Volume10_Pages",
+          "nook_books_Volume10_Spine"
+        ],
+        [
+          "nook_books_Volume11_LeftCover",
+          "nook_books_Volume11_Pages"
+        ],
+        [
+          "nook_books_Volume11_LeftCover",
+          "nook_books_Volume11_Spine"
+        ],
+        [
+          "nook_books_Volume11_RightCover",
+          "nook_books_Volume11_Pages"
+        ],
+        [
+          "nook_books_Volume11_RightCover",
+          "nook_books_Volume11_Spine"
+        ],
+        [
+          "nook_books_Volume11_Pages",
+          "nook_books_Volume11_Spine"
+        ],
+        [
+          "nook_books_Volume12_LeftCover",
+          "nook_books_Volume12_Pages"
+        ],
+        [
+          "nook_books_Volume12_LeftCover",
+          "nook_books_Volume12_Spine"
+        ],
+        [
+          "nook_books_Volume12_RightCover",
+          "nook_books_Volume12_Pages"
+        ],
+        [
+          "nook_books_Volume12_RightCover",
+          "nook_books_Volume12_Spine"
+        ],
+        [
+          "nook_books_Volume12_Pages",
+          "nook_books_Volume12_Spine"
+        ],
+        [
+          "nook_books_Volume13_LeftCover",
+          "nook_books_Volume13_Pages"
+        ],
+        [
+          "nook_books_Volume13_LeftCover",
+          "nook_books_Volume13_Spine"
+        ],
+        [
+          "nook_books_Volume13_RightCover",
+          "nook_books_Volume13_Pages"
+        ],
+        [
+          "nook_books_Volume13_RightCover",
+          "nook_books_Volume13_Spine"
+        ],
+        [
+          "nook_books_Volume13_Pages",
+          "nook_books_Volume13_Spine"
+        ],
+        [
+          "nook_books_Volume14_LeftCover",
+          "nook_books_Volume14_Pages"
+        ],
+        [
+          "nook_books_Volume14_LeftCover",
+          "nook_books_Volume14_Spine"
+        ],
+        [
+          "nook_books_Volume14_RightCover",
+          "nook_books_Volume14_Pages"
+        ],
+        [
+          "nook_books_Volume14_RightCover",
+          "nook_books_Volume14_Spine"
+        ],
+        [
+          "nook_books_Volume14_Pages",
+          "nook_books_Volume14_Spine"
+        ],
+        [
+          "nook_books_Volume18_LeftCover",
+          "nook_books_Volume18_Pages"
+        ],
+        [
+          "nook_books_Volume18_LeftCover",
+          "nook_books_Volume18_Spine"
+        ],
+        [
+          "nook_books_Volume18_RightCover",
+          "nook_books_Volume18_Pages"
+        ],
+        [
+          "nook_books_Volume18_RightCover",
+          "nook_books_Volume18_Spine"
+        ],
+        [
+          "nook_books_Volume18_Pages",
+          "nook_books_Volume18_Spine"
+        ],
+        [
+          "nook_books_Volume19_LeftCover",
+          "nook_books_Volume19_Pages"
+        ],
+        [
+          "nook_books_Volume19_LeftCover",
+          "nook_books_Volume19_Spine"
+        ],
+        [
+          "nook_books_Volume19_RightCover",
+          "nook_books_Volume19_Pages"
+        ],
+        [
+          "nook_books_Volume19_RightCover",
+          "nook_books_Volume19_Spine"
+        ],
+        [
+          "nook_books_Volume19_Pages",
+          "nook_books_Volume19_Spine"
+        ],
+        [
+          "nook_books_Volume20_LeftCover",
+          "nook_books_Volume20_Pages"
+        ],
+        [
+          "nook_books_Volume20_LeftCover",
+          "nook_books_Volume20_Spine"
+        ],
+        [
+          "nook_books_Volume20_RightCover",
+          "nook_books_Volume20_Pages"
+        ],
+        [
+          "nook_books_Volume20_RightCover",
+          "nook_books_Volume20_Spine"
+        ],
+        [
+          "nook_books_Volume20_Pages",
+          "nook_books_Volume20_Spine"
+        ],
+        [
+          "nook_books_Volume21_LeftCover",
+          "nook_books_Volume21_Pages"
+        ],
+        [
+          "nook_books_Volume21_LeftCover",
+          "nook_books_Volume21_Spine"
+        ],
+        [
+          "nook_books_Volume21_RightCover",
+          "nook_books_Volume21_Pages"
+        ],
+        [
+          "nook_books_Volume21_RightCover",
+          "nook_books_Volume21_Spine"
+        ],
+        [
+          "nook_books_Volume21_Pages",
+          "nook_books_Volume21_Spine"
+        ],
+        [
+          "nook_books_Volume22_LeftCover",
+          "nook_books_Volume22_Pages"
+        ],
+        [
+          "nook_books_Volume22_LeftCover",
+          "nook_books_Volume22_Spine"
+        ],
+        [
+          "nook_books_Volume22_RightCover",
+          "nook_books_Volume22_Pages"
+        ],
+        [
+          "nook_books_Volume22_RightCover",
+          "nook_books_Volume22_Spine"
+        ],
+        [
+          "nook_books_Volume22_Pages",
+          "nook_books_Volume22_Spine"
+        ],
+        [
+          "nook_books_Volume23_LeftCover",
+          "nook_books_Volume23_Pages"
+        ],
+        [
+          "nook_books_Volume23_LeftCover",
+          "nook_books_Volume23_Spine"
+        ],
+        [
+          "nook_books_Volume23_RightCover",
+          "nook_books_Volume23_Pages"
+        ],
+        [
+          "nook_books_Volume23_RightCover",
+          "nook_books_Volume23_Spine"
+        ],
+        [
+          "nook_books_Volume23_Pages",
+          "nook_books_Volume23_Spine"
+        ],
+        [
+          "nook_books_Volume24_LeftCover",
+          "nook_books_Volume24_Pages"
+        ],
+        [
+          "nook_books_Volume24_LeftCover",
+          "nook_books_Volume24_Spine"
+        ],
+        [
+          "nook_books_Volume24_RightCover",
+          "nook_books_Volume24_Pages"
+        ],
+        [
+          "nook_books_Volume24_RightCover",
+          "nook_books_Volume24_Spine"
+        ],
+        [
+          "nook_books_Volume24_Pages",
+          "nook_books_Volume24_Spine"
+        ],
+        [
+          "nook_books_Volume25_LeftCover",
+          "nook_books_Volume25_Pages"
+        ],
+        [
+          "nook_books_Volume25_LeftCover",
+          "nook_books_Volume25_Spine"
+        ],
+        [
+          "nook_books_Volume25_RightCover",
+          "nook_books_Volume25_Pages"
+        ],
+        [
+          "nook_books_Volume25_RightCover",
+          "nook_books_Volume25_Spine"
+        ],
+        [
+          "nook_books_Volume25_Pages",
+          "nook_books_Volume25_Spine"
+        ],
+        [
+          "nook_books_Volume26_LeftCover",
+          "nook_books_Volume26_Pages"
+        ],
+        [
+          "nook_books_Volume26_LeftCover",
+          "nook_books_Volume26_Spine"
+        ],
+        [
+          "nook_books_Volume26_RightCover",
+          "nook_books_Volume26_Pages"
+        ],
+        [
+          "nook_books_Volume26_RightCover",
+          "nook_books_Volume26_Spine"
+        ],
+        [
+          "nook_books_Volume26_Pages",
+          "nook_books_Volume26_Spine"
+        ],
+        [
+          "nook_books_Volume27_LeftCover",
+          "nook_books_Volume27_Pages"
+        ],
+        [
+          "nook_books_Volume27_LeftCover",
+          "nook_books_Volume27_Spine"
+        ],
+        [
+          "nook_books_Volume27_RightCover",
+          "nook_books_Volume27_Pages"
+        ],
+        [
+          "nook_books_Volume27_RightCover",
+          "nook_books_Volume27_Spine"
+        ],
+        [
+          "nook_books_Volume27_Pages",
+          "nook_books_Volume27_Spine"
+        ],
+        [
+          "nook_books_Volume28_LeftCover",
+          "nook_books_Volume28_Pages"
+        ],
+        [
+          "nook_books_Volume28_LeftCover",
+          "nook_books_Volume28_Spine"
+        ],
+        [
+          "nook_books_Volume28_RightCover",
+          "nook_books_Volume28_Pages"
+        ],
+        [
+          "nook_books_Volume28_RightCover",
+          "nook_books_Volume28_Spine"
+        ],
+        [
+          "nook_books_Volume28_Pages",
+          "nook_books_Volume28_Spine"
+        ],
+        [
+          "nook_books_Volume29_LeftCover",
+          "nook_books_Volume29_Pages"
+        ],
+        [
+          "nook_books_Volume29_LeftCover",
+          "nook_books_Volume29_Spine"
+        ],
+        [
+          "nook_books_Volume29_RightCover",
+          "nook_books_Volume29_Pages"
+        ],
+        [
+          "nook_books_Volume29_RightCover",
+          "nook_books_Volume29_Spine"
+        ],
+        [
+          "nook_books_Volume29_Pages",
+          "nook_books_Volume29_Spine"
+        ],
+        [
+          "nook_books_Volume30_LeftCover",
+          "nook_books_Volume30_Pages"
+        ],
+        [
+          "nook_books_Volume30_LeftCover",
+          "nook_books_Volume30_Spine"
+        ],
+        [
+          "nook_books_Volume30_RightCover",
+          "nook_books_Volume30_Pages"
+        ],
+        [
+          "nook_books_Volume30_RightCover",
+          "nook_books_Volume30_Spine"
+        ],
+        [
+          "nook_books_Volume30_Pages",
+          "nook_books_Volume30_Spine"
+        ],
+        [
+          "nook_books_Volume31_LeftCover",
+          "nook_books_Volume31_Pages"
+        ],
+        [
+          "nook_books_Volume31_LeftCover",
+          "nook_books_Volume31_Spine"
+        ],
+        [
+          "nook_books_Volume31_RightCover",
+          "nook_books_Volume31_Pages"
+        ],
+        [
+          "nook_books_Volume31_RightCover",
+          "nook_books_Volume31_Spine"
+        ],
+        [
+          "nook_books_Volume31_Pages",
+          "nook_books_Volume31_Spine"
+        ],
+        [
+          "nook_books_Volume35_LeftCover",
+          "nook_books_Volume35_Pages"
+        ],
+        [
+          "nook_books_Volume35_LeftCover",
+          "nook_books_Volume35_Spine"
+        ],
+        [
+          "nook_books_Volume35_RightCover",
+          "nook_books_Volume35_Pages"
+        ],
+        [
+          "nook_books_Volume35_RightCover",
+          "nook_books_Volume35_Spine"
+        ],
+        [
+          "nook_books_Volume35_Pages",
+          "nook_books_Volume35_Spine"
+        ],
+        [
+          "nook_books_Volume36_LeftCover",
+          "nook_books_Volume36_Pages"
+        ],
+        [
+          "nook_books_Volume36_LeftCover",
+          "nook_books_Volume36_Spine"
+        ],
+        [
+          "nook_books_Volume36_RightCover",
+          "nook_books_Volume36_Pages"
+        ],
+        [
+          "nook_books_Volume36_RightCover",
+          "nook_books_Volume36_Spine"
+        ],
+        [
+          "nook_books_Volume36_Pages",
+          "nook_books_Volume36_Spine"
+        ],
+        [
+          "nook_books_Volume37_LeftCover",
+          "nook_books_Volume37_Pages"
+        ],
+        [
+          "nook_books_Volume37_LeftCover",
+          "nook_books_Volume37_Spine"
+        ],
+        [
+          "nook_books_Volume37_RightCover",
+          "nook_books_Volume37_Pages"
+        ],
+        [
+          "nook_books_Volume37_RightCover",
+          "nook_books_Volume37_Spine"
+        ],
+        [
+          "nook_books_Volume37_Pages",
+          "nook_books_Volume37_Spine"
+        ],
+        [
+          "nook_books_Volume38_LeftCover",
+          "nook_books_Volume38_Pages"
+        ],
+        [
+          "nook_books_Volume38_LeftCover",
+          "nook_books_Volume38_Spine"
+        ],
+        [
+          "nook_books_Volume38_RightCover",
+          "nook_books_Volume38_Pages"
+        ],
+        [
+          "nook_books_Volume38_RightCover",
+          "nook_books_Volume38_Spine"
+        ],
+        [
+          "nook_books_Volume38_Pages",
+          "nook_books_Volume38_Spine"
+        ],
+        [
+          "nook_books_Volume39_LeftCover",
+          "nook_books_Volume39_Pages"
+        ],
+        [
+          "nook_books_Volume39_LeftCover",
+          "nook_books_Volume39_Spine"
+        ],
+        [
+          "nook_books_Volume39_RightCover",
+          "nook_books_Volume39_Pages"
+        ],
+        [
+          "nook_books_Volume39_RightCover",
+          "nook_books_Volume39_Spine"
+        ],
+        [
+          "nook_books_Volume39_Pages",
+          "nook_books_Volume39_Spine"
+        ],
+        [
+          "nook_books_Volume40_LeftCover",
+          "nook_books_Volume40_Pages"
+        ],
+        [
+          "nook_books_Volume40_LeftCover",
+          "nook_books_Volume40_Spine"
+        ],
+        [
+          "nook_books_Volume40_RightCover",
+          "nook_books_Volume40_Pages"
+        ],
+        [
+          "nook_books_Volume40_RightCover",
+          "nook_books_Volume40_Spine"
+        ],
+        [
+          "nook_books_Volume40_Pages",
+          "nook_books_Volume40_Spine"
+        ],
+        [
+          "nook_books_Volume41_LeftCover",
+          "nook_books_Volume41_Pages"
+        ],
+        [
+          "nook_books_Volume41_LeftCover",
+          "nook_books_Volume41_Spine"
+        ],
+        [
+          "nook_books_Volume41_RightCover",
+          "nook_books_Volume41_Pages"
+        ],
+        [
+          "nook_books_Volume41_RightCover",
+          "nook_books_Volume41_Spine"
+        ],
+        [
+          "nook_books_Volume41_Pages",
+          "nook_books_Volume41_Spine"
+        ],
+        [
+          "nook_books_Volume42_LeftCover",
+          "nook_books_Volume42_Pages"
+        ],
+        [
+          "nook_books_Volume42_LeftCover",
+          "nook_books_Volume42_Spine"
+        ],
+        [
+          "nook_books_Volume42_RightCover",
+          "nook_books_Volume42_Pages"
+        ],
+        [
+          "nook_books_Volume42_RightCover",
+          "nook_books_Volume42_Spine"
+        ],
+        [
+          "nook_books_Volume42_Pages",
+          "nook_books_Volume42_Spine"
+        ],
+        [
+          "nook_books_Volume43_LeftCover",
+          "nook_books_Volume43_Pages"
+        ],
+        [
+          "nook_books_Volume43_LeftCover",
+          "nook_books_Volume43_Spine"
+        ],
+        [
+          "nook_books_Volume43_RightCover",
+          "nook_books_Volume43_Pages"
+        ],
+        [
+          "nook_books_Volume43_RightCover",
+          "nook_books_Volume43_Spine"
+        ],
+        [
+          "nook_books_Volume43_Pages",
+          "nook_books_Volume43_Spine"
+        ],
+        [
+          "nook_books_Volume44_LeftCover",
+          "nook_books_Volume44_Pages"
+        ],
+        [
+          "nook_books_Volume44_LeftCover",
+          "nook_books_Volume44_Spine"
+        ],
+        [
+          "nook_books_Volume44_RightCover",
+          "nook_books_Volume44_Pages"
+        ],
+        [
+          "nook_books_Volume44_RightCover",
+          "nook_books_Volume44_Spine"
+        ],
+        [
+          "nook_books_Volume44_Pages",
+          "nook_books_Volume44_Spine"
+        ],
+        [
+          "nook_books_Volume48_LeftCover",
+          "nook_books_Volume48_Pages"
+        ],
+        [
+          "nook_books_Volume48_LeftCover",
+          "nook_books_Volume48_Spine"
+        ],
+        [
+          "nook_books_Volume48_RightCover",
+          "nook_books_Volume48_Pages"
+        ],
+        [
+          "nook_books_Volume48_RightCover",
+          "nook_books_Volume48_Spine"
+        ],
+        [
+          "nook_books_Volume48_Pages",
+          "nook_books_Volume48_Spine"
+        ],
+        [
+          "nook_books_Volume49_LeftCover",
+          "nook_books_Volume49_Pages"
+        ],
+        [
+          "nook_books_Volume49_LeftCover",
+          "nook_books_Volume49_Spine"
+        ],
+        [
+          "nook_books_Volume49_RightCover",
+          "nook_books_Volume49_Pages"
+        ],
+        [
+          "nook_books_Volume49_RightCover",
+          "nook_books_Volume49_Spine"
+        ],
+        [
+          "nook_books_Volume49_Pages",
+          "nook_books_Volume49_Spine"
+        ],
+        [
+          "nook_books_Volume50_LeftCover",
+          "nook_books_Volume50_Pages"
+        ],
+        [
+          "nook_books_Volume50_LeftCover",
+          "nook_books_Volume50_Spine"
+        ],
+        [
+          "nook_books_Volume50_RightCover",
+          "nook_books_Volume50_Pages"
+        ],
+        [
+          "nook_books_Volume50_RightCover",
+          "nook_books_Volume50_Spine"
+        ],
+        [
+          "nook_books_Volume50_Pages",
+          "nook_books_Volume50_Spine"
+        ],
+        [
+          "nook_books_Volume51_LeftCover",
+          "nook_books_Volume51_Pages"
+        ],
+        [
+          "nook_books_Volume51_LeftCover",
+          "nook_books_Volume51_Spine"
+        ],
+        [
+          "nook_books_Volume51_RightCover",
+          "nook_books_Volume51_Pages"
+        ],
+        [
+          "nook_books_Volume51_RightCover",
+          "nook_books_Volume51_Spine"
+        ],
+        [
+          "nook_books_Volume51_Pages",
+          "nook_books_Volume51_Spine"
+        ],
+        [
+          "nook_books_Volume52_LeftCover",
+          "nook_books_Volume52_Pages"
+        ],
+        [
+          "nook_books_Volume52_LeftCover",
+          "nook_books_Volume52_Spine"
+        ],
+        [
+          "nook_books_Volume52_RightCover",
+          "nook_books_Volume52_Pages"
+        ],
+        [
+          "nook_books_Volume52_RightCover",
+          "nook_books_Volume52_Spine"
+        ],
+        [
+          "nook_books_Volume52_Pages",
+          "nook_books_Volume52_Spine"
+        ],
+        [
+          "nook_books_Volume53_LeftCover",
+          "nook_books_Volume53_Pages"
+        ],
+        [
+          "nook_books_Volume53_LeftCover",
+          "nook_books_Volume53_Spine"
+        ],
+        [
+          "nook_books_Volume53_RightCover",
+          "nook_books_Volume53_Pages"
+        ],
+        [
+          "nook_books_Volume53_RightCover",
+          "nook_books_Volume53_Spine"
+        ],
+        [
+          "nook_books_Volume53_Pages",
+          "nook_books_Volume53_Spine"
+        ],
+        [
+          "nook_books_Volume15_LowerCover",
+          "nook_books_Volume15_Pages"
+        ],
+        [
+          "nook_books_Volume15_LowerCover",
+          "nook_books_Volume15_Spine"
+        ],
+        [
+          "nook_books_Volume15_UpperCover",
+          "nook_books_Volume15_Pages"
+        ],
+        [
+          "nook_books_Volume15_UpperCover",
+          "nook_books_Volume15_Spine"
+        ],
+        [
+          "nook_books_Volume15_UpperCover",
+          "nook_books_Volume16_LowerCover"
+        ],
+        [
+          "nook_books_Volume15_UpperCover",
+          "nook_books_Volume16_Spine"
+        ],
+        [
+          "nook_books_Volume15_Pages",
+          "nook_books_Volume15_Spine"
+        ],
+        [
+          "nook_books_Volume15_Spine",
+          "nook_books_Volume16_LowerCover"
+        ],
+        [
+          "nook_books_Volume16_LowerCover",
+          "nook_books_Volume16_Pages"
+        ],
+        [
+          "nook_books_Volume16_LowerCover",
+          "nook_books_Volume16_Spine"
+        ],
+        [
+          "nook_books_Volume16_UpperCover",
+          "nook_books_Volume16_Pages"
+        ],
+        [
+          "nook_books_Volume16_UpperCover",
+          "nook_books_Volume16_Spine"
+        ],
+        [
+          "nook_books_Volume16_UpperCover",
+          "nook_books_Volume17_Spine"
+        ],
+        [
+          "nook_books_Volume16_Pages",
+          "nook_books_Volume16_Spine"
+        ],
+        [
+          "nook_books_Volume16_Spine",
+          "nook_books_Volume17_LowerCover"
+        ],
+        [
+          "nook_books_Volume17_LowerCover",
+          "nook_books_Volume17_Pages"
+        ],
+        [
+          "nook_books_Volume17_LowerCover",
+          "nook_books_Volume17_Spine"
+        ],
+        [
+          "nook_books_Volume17_UpperCover",
+          "nook_books_Volume17_Pages"
+        ],
+        [
+          "nook_books_Volume17_UpperCover",
+          "nook_books_Volume17_Spine"
+        ],
+        [
+          "nook_books_Volume17_Pages",
+          "nook_books_Volume17_Spine"
+        ],
+        [
+          "nook_books_Volume32_LowerCover",
+          "nook_books_Volume32_Pages"
+        ],
+        [
+          "nook_books_Volume32_LowerCover",
+          "nook_books_Volume32_Spine"
+        ],
+        [
+          "nook_books_Volume32_UpperCover",
+          "nook_books_Volume32_Pages"
+        ],
+        [
+          "nook_books_Volume32_UpperCover",
+          "nook_books_Volume32_Spine"
+        ],
+        [
+          "nook_books_Volume32_UpperCover",
+          "nook_books_Volume33_Spine"
+        ],
+        [
+          "nook_books_Volume32_Pages",
+          "nook_books_Volume32_Spine"
+        ],
+        [
+          "nook_books_Volume32_Spine",
+          "nook_books_Volume33_LowerCover"
+        ],
+        [
+          "nook_books_Volume32_Spine",
+          "nook_books_Volume33_Spine"
+        ],
+        [
+          "nook_books_Volume33_LowerCover",
+          "nook_books_Volume33_Pages"
+        ],
+        [
+          "nook_books_Volume33_LowerCover",
+          "nook_books_Volume33_Spine"
+        ],
+        [
+          "nook_books_Volume33_UpperCover",
+          "nook_books_Volume33_Pages"
+        ],
+        [
+          "nook_books_Volume33_UpperCover",
+          "nook_books_Volume33_Spine"
+        ],
+        [
+          "nook_books_Volume33_UpperCover",
+          "nook_books_Volume34_LowerCover"
+        ],
+        [
+          "nook_books_Volume33_UpperCover",
+          "nook_books_Volume34_Spine"
+        ],
+        [
+          "nook_books_Volume33_Pages",
+          "nook_books_Volume33_Spine"
+        ],
+        [
+          "nook_books_Volume33_Spine",
+          "nook_books_Volume34_LowerCover"
+        ],
+        [
+          "nook_books_Volume34_LowerCover",
+          "nook_books_Volume34_Pages"
+        ],
+        [
+          "nook_books_Volume34_LowerCover",
+          "nook_books_Volume34_Spine"
+        ],
+        [
+          "nook_books_Volume34_UpperCover",
+          "nook_books_Volume34_Pages"
+        ],
+        [
+          "nook_books_Volume34_UpperCover",
+          "nook_books_Volume34_Spine"
+        ],
+        [
+          "nook_books_Volume34_Pages",
+          "nook_books_Volume34_Spine"
+        ],
+        [
+          "nook_books_Volume45_LowerCover",
+          "nook_books_Volume45_Pages"
+        ],
+        [
+          "nook_books_Volume45_LowerCover",
+          "nook_books_Volume45_Spine"
+        ],
+        [
+          "nook_books_Volume45_UpperCover",
+          "nook_books_Volume45_Pages"
+        ],
+        [
+          "nook_books_Volume45_UpperCover",
+          "nook_books_Volume45_Spine"
+        ],
+        [
+          "nook_books_Volume45_UpperCover",
+          "nook_books_Volume46_Spine"
+        ],
+        [
+          "nook_books_Volume45_Pages",
+          "nook_books_Volume45_Spine"
+        ],
+        [
+          "nook_books_Volume45_Spine",
+          "nook_books_Volume46_LowerCover"
+        ],
+        [
+          "nook_books_Volume46_LowerCover",
+          "nook_books_Volume46_Pages"
+        ],
+        [
+          "nook_books_Volume46_LowerCover",
+          "nook_books_Volume46_Spine"
+        ],
+        [
+          "nook_books_Volume46_UpperCover",
+          "nook_books_Volume46_Pages"
+        ],
+        [
+          "nook_books_Volume46_UpperCover",
+          "nook_books_Volume46_Spine"
+        ],
+        [
+          "nook_books_Volume46_UpperCover",
+          "nook_books_Volume47_Spine"
+        ],
+        [
+          "nook_books_Volume46_Pages",
+          "nook_books_Volume46_Spine"
+        ],
+        [
+          "nook_books_Volume46_Spine",
+          "nook_books_Volume47_LowerCover"
+        ],
+        [
+          "nook_books_Volume47_LowerCover",
+          "nook_books_Volume47_Pages"
+        ],
+        [
+          "nook_books_Volume47_LowerCover",
+          "nook_books_Volume47_Spine"
+        ],
+        [
+          "nook_books_Volume47_UpperCover",
+          "nook_books_Volume47_Pages"
+        ],
+        [
+          "nook_books_Volume47_UpperCover",
+          "nook_books_Volume47_Spine"
+        ],
+        [
+          "nook_books_Volume47_Pages",
+          "nook_books_Volume47_Spine"
+        ],
+        [
+          "nook_books_Volume54_LowerCover",
+          "nook_books_Volume54_Pages"
+        ],
+        [
+          "nook_books_Volume54_LowerCover",
+          "nook_books_Volume54_Spine"
+        ],
+        [
+          "nook_books_Volume54_UpperCover",
+          "nook_books_Volume54_Pages"
+        ],
+        [
+          "nook_books_Volume54_UpperCover",
+          "nook_books_Volume54_Spine"
+        ],
+        [
+          "nook_books_Volume54_UpperCover",
+          "nook_books_Volume55_Spine"
+        ],
+        [
+          "nook_books_Volume54_Pages",
+          "nook_books_Volume54_Spine"
+        ],
+        [
+          "nook_books_Volume54_Spine",
+          "nook_books_Volume55_LowerCover"
+        ],
+        [
+          "nook_books_Volume54_Spine",
+          "nook_books_Volume55_Spine"
+        ],
+        [
+          "nook_books_Volume55_LowerCover",
+          "nook_books_Volume55_Pages"
+        ],
+        [
+          "nook_books_Volume55_LowerCover",
+          "nook_books_Volume55_Spine"
+        ],
+        [
+          "nook_books_Volume55_UpperCover",
+          "nook_books_Volume55_Pages"
+        ],
+        [
+          "nook_books_Volume55_UpperCover",
+          "nook_books_Volume55_Spine"
+        ],
+        [
+          "nook_books_Volume55_UpperCover",
+          "nook_books_Volume56_Spine"
+        ],
+        [
+          "nook_books_Volume55_Pages",
+          "nook_books_Volume55_Spine"
+        ],
+        [
+          "nook_books_Volume55_Spine",
+          "nook_books_Volume56_LowerCover"
+        ],
+        [
+          "nook_books_Volume55_Spine",
+          "nook_books_Volume56_Spine"
+        ],
+        [
+          "nook_books_Volume56_LowerCover",
+          "nook_books_Volume56_Pages"
+        ],
+        [
+          "nook_books_Volume56_LowerCover",
+          "nook_books_Volume56_Spine"
+        ],
+        [
+          "nook_books_Volume56_UpperCover",
+          "nook_books_Volume56_Pages"
+        ],
+        [
+          "nook_books_Volume56_UpperCover",
+          "nook_books_Volume56_Spine"
+        ],
+        [
+          "nook_books_Volume56_Pages",
+          "nook_books_Volume56_Spine"
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_table",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "nook_table_Keel0",
+          "nook_table_GlassPad0"
+        ],
+        [
+          "nook_table_Keel0",
+          "nook_table_Keel1"
+        ],
+        [
+          "nook_table_GlassPad0",
+          "nook_table_PolishedGlass"
+        ],
+        [
+          "nook_table_Keel1",
+          "nook_table_GlassPad1"
+        ],
+        [
+          "nook_table_GlassPad1",
+          "nook_table_PolishedGlass"
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_mug",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "nook_mug_ThrownCup",
+          "nook_mug_Handle"
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_pile",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "nook_pile_Volume0_LowerCover",
+          "nook_pile_Volume0_Pages"
+        ],
+        [
+          "nook_pile_Volume0_LowerCover",
+          "nook_pile_Volume0_Spine"
+        ],
+        [
+          "nook_pile_Volume0_UpperCover",
+          "nook_pile_Volume0_Pages"
+        ],
+        [
+          "nook_pile_Volume0_UpperCover",
+          "nook_pile_Volume0_Spine"
+        ],
+        [
+          "nook_pile_Volume0_UpperCover",
+          "nook_pile_Volume1_LowerCover"
+        ],
+        [
+          "nook_pile_Volume0_UpperCover",
+          "nook_pile_Volume1_Spine"
+        ],
+        [
+          "nook_pile_Volume0_Pages",
+          "nook_pile_Volume0_Spine"
+        ],
+        [
+          "nook_pile_Volume1_LowerCover",
+          "nook_pile_Volume1_Pages"
+        ],
+        [
+          "nook_pile_Volume1_LowerCover",
+          "nook_pile_Volume1_Spine"
+        ],
+        [
+          "nook_pile_Volume1_UpperCover",
+          "nook_pile_Volume1_Pages"
+        ],
+        [
+          "nook_pile_Volume1_UpperCover",
+          "nook_pile_Volume1_Spine"
+        ],
+        [
+          "nook_pile_Volume1_UpperCover",
+          "nook_pile_Volume2_LowerCover"
+        ],
+        [
+          "nook_pile_Volume1_UpperCover",
+          "nook_pile_Volume2_Spine"
+        ],
+        [
+          "nook_pile_Volume1_Pages",
+          "nook_pile_Volume1_Spine"
+        ],
+        [
+          "nook_pile_Volume2_LowerCover",
+          "nook_pile_Volume2_Pages"
+        ],
+        [
+          "nook_pile_Volume2_LowerCover",
+          "nook_pile_Volume2_Spine"
+        ],
+        [
+          "nook_pile_Volume2_UpperCover",
+          "nook_pile_Volume2_Pages"
+        ],
+        [
+          "nook_pile_Volume2_UpperCover",
+          "nook_pile_Volume2_Spine"
+        ],
+        [
+          "nook_pile_Volume2_Pages",
+          "nook_pile_Volume2_Spine"
+        ]
+      ]
+    },
+    {
+      "assembly": "nook_plant",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "nook_plant_Saucer",
+          "nook_plant_ThrownPot"
+        ],
+        [
+          "nook_plant_ThrownPot",
+          "nook_plant_Soil"
+        ],
+        [
+          "nook_plant_Soil",
+          "nook_plant_Branch0"
+        ],
+        [
+          "nook_plant_Soil",
+          "nook_plant_Branch1"
+        ],
+        [
+          "nook_plant_Soil",
+          "nook_plant_Branch2"
+        ],
+        [
+          "nook_plant_Branch0",
+          "nook_plant_Petiole0_0"
+        ],
+        [
+          "nook_plant_Branch0",
+          "nook_plant_Petiole0_1"
+        ],
+        [
+          "nook_plant_Branch0",
+          "nook_plant_Petiole0_2"
+        ],
+        [
+          "nook_plant_Branch0",
+          "nook_plant_Petiole0_3"
+        ],
+        [
+          "nook_plant_Branch0",
+          "nook_plant_Petiole0_4"
+        ],
+        [
+          "nook_plant_Branch0",
+          "nook_plant_Branch1"
+        ],
+        [
+          "nook_plant_Branch0",
+          "nook_plant_Branch2"
+        ],
+        [
+          "nook_plant_Petiole0_0",
+          "nook_plant_Leaf0_0"
+        ],
+        [
+          "nook_plant_Petiole0_1",
+          "nook_plant_Leaf0_1"
+        ],
+        [
+          "nook_plant_Petiole0_2",
+          "nook_plant_Leaf0_2"
+        ],
+        [
+          "nook_plant_Leaf0_2",
+          "nook_plant_Branch1"
+        ],
+        [
+          "nook_plant_Leaf0_2",
+          "nook_plant_Leaf1_2"
+        ],
+        [
+          "nook_plant_Leaf0_2",
+          "nook_plant_Branch2"
+        ],
+        [
+          "nook_plant_Petiole0_3",
+          "nook_plant_Leaf0_3"
+        ],
+        [
+          "nook_plant_Petiole0_4",
+          "nook_plant_Leaf0_4"
+        ],
+        [
+          "nook_plant_Branch1",
+          "nook_plant_Petiole1_0"
+        ],
+        [
+          "nook_plant_Branch1",
+          "nook_plant_Petiole1_1"
+        ],
+        [
+          "nook_plant_Branch1",
+          "nook_plant_Petiole1_2"
+        ],
+        [
+          "nook_plant_Branch1",
+          "nook_plant_Petiole1_3"
+        ],
+        [
+          "nook_plant_Branch1",
+          "nook_plant_Petiole1_4"
+        ],
+        [
+          "nook_plant_Branch1",
+          "nook_plant_Branch2"
+        ],
+        [
+          "nook_plant_Petiole1_0",
+          "nook_plant_Leaf1_0"
+        ],
+        [
+          "nook_plant_Petiole1_1",
+          "nook_plant_Leaf1_1"
+        ],
+        [
+          "nook_plant_Petiole1_2",
+          "nook_plant_Leaf1_2"
+        ],
+        [
+          "nook_plant_Petiole1_2",
+          "nook_plant_Branch2"
+        ],
+        [
+          "nook_plant_Leaf1_2",
+          "nook_plant_Branch2"
+        ],
+        [
+          "nook_plant_Leaf1_2",
+          "nook_plant_Leaf2_2"
+        ],
+        [
+          "nook_plant_Petiole1_3",
+          "nook_plant_Leaf1_3"
+        ],
+        [
+          "nook_plant_Petiole1_4",
+          "nook_plant_Leaf1_4"
+        ],
+        [
+          "nook_plant_Branch2",
+          "nook_plant_Petiole2_0"
+        ],
+        [
+          "nook_plant_Branch2",
+          "nook_plant_Petiole2_1"
+        ],
+        [
+          "nook_plant_Branch2",
+          "nook_plant_Petiole2_2"
+        ],
+        [
+          "nook_plant_Branch2",
+          "nook_plant_Petiole2_3"
+        ],
+        [
+          "nook_plant_Branch2",
+          "nook_plant_Petiole2_4"
+        ],
+        [
+          "nook_plant_Petiole2_0",
+          "nook_plant_Leaf2_0"
+        ],
+        [
+          "nook_plant_Petiole2_1",
+          "nook_plant_Leaf2_1"
+        ],
+        [
+          "nook_plant_Petiole2_2",
+          "nook_plant_Leaf2_2"
+        ],
+        [
+          "nook_plant_Petiole2_3",
+          "nook_plant_Leaf2_3"
+        ],
+        [
+          "nook_plant_Petiole2_4",
+          "nook_plant_Leaf2_4"
+        ]
+      ]
+    }
+  ],
+  "uv": [
+    {
+      "part": "nook_rug__rug_warm",
+      "minimum_metres_per_uv": 0.9998759633160413,
+      "maximum_metres_per_uv": 1.0001639938078144
+    },
+    {
+      "part": "nook_seat_n__floor_oak",
+      "minimum_metres_per_uv": 0.9996584226310562,
+      "maximum_metres_per_uv": 1.0002933975028532
+    },
+    {
+      "part": "nook_apron_n__wood_dark",
+      "minimum_metres_per_uv": 0.9999048582944915,
+      "maximum_metres_per_uv": 1.0001056446328893
+    },
+    {
+      "part": "nook_seat_w__floor_oak",
+      "minimum_metres_per_uv": 0.9997988472315152,
+      "maximum_metres_per_uv": 1.0002268193111366
+    },
+    {
+      "part": "nook_apron_w__wood_dark",
+      "minimum_metres_per_uv": 0.999846506993679,
+      "maximum_metres_per_uv": 1.0000790305600524
+    },
+    {
+      "part": "nook_seat_e__floor_oak",
+      "minimum_metres_per_uv": 0.9997555063210608,
+      "maximum_metres_per_uv": 1.0002788042906645
+    },
+    {
+      "part": "nook_apron_e__wood_dark",
+      "minimum_metres_per_uv": 0.9998917448090453,
+      "maximum_metres_per_uv": 1.00013918034972
+    },
+    {
+      "part": "nook_cush1__fabric_warm",
+      "minimum_metres_per_uv": 0.9999510259250545,
+      "maximum_metres_per_uv": 1.0000382363411946
+    },
+    {
+      "part": "nook_cush2__fabric_green",
+      "minimum_metres_per_uv": 0.999952601843832,
+      "maximum_metres_per_uv": 1.0000474417093304
+    },
+    {
+      "part": "nook_throw__linen",
+      "minimum_metres_per_uv": 0.9999846369472953,
+      "maximum_metres_per_uv": 1.0000152662397213
+    },
+    {
+      "part": "nook_books__book_brown",
+      "minimum_metres_per_uv": 0.9997894411616841,
+      "maximum_metres_per_uv": 1.0002282634130644
+    },
+    {
+      "part": "nook_books__book_burgundy",
+      "minimum_metres_per_uv": 0.9997799599088614,
+      "maximum_metres_per_uv": 1.0002034814412109
+    },
+    {
+      "part": "nook_books__book_green",
+      "minimum_metres_per_uv": 0.9997766875734706,
+      "maximum_metres_per_uv": 1.0002053675616447
+    },
+    {
+      "part": "nook_books__book_navy",
+      "minimum_metres_per_uv": 0.9998037897204796,
+      "maximum_metres_per_uv": 1.0001942069619048
+    },
+    {
+      "part": "nook_books__book_ochre",
+      "minimum_metres_per_uv": 0.999818466326081,
+      "maximum_metres_per_uv": 1.0002349643910515
+    },
+    {
+      "part": "nook_books__book_teal",
+      "minimum_metres_per_uv": 0.999778629323543,
+      "maximum_metres_per_uv": 1.0001973235179662
+    },
+    {
+      "part": "nook_books__floor_oak",
+      "minimum_metres_per_uv": 0.9996966709076429,
+      "maximum_metres_per_uv": 1.0002694540146024
+    },
+    {
+      "part": "nook_books__metal",
+      "minimum_metres_per_uv": 0.9999809203345661,
+      "maximum_metres_per_uv": 1.0000192944213915
+    },
+    {
+      "part": "nook_books__paper",
+      "minimum_metres_per_uv": 0.9995187199081331,
+      "maximum_metres_per_uv": 1.000553517882803
+    },
+    {
+      "part": "nook_table__glassish",
+      "minimum_metres_per_uv": 0.9996668778864904,
+      "maximum_metres_per_uv": 1.0003928125455621
+    },
+    {
+      "part": "nook_table__rubber_aged",
+      "minimum_metres_per_uv": 0.9999013635706605,
+      "maximum_metres_per_uv": 1.0001198586250801
+    },
+    {
+      "part": "nook_table__wood_dark",
+      "minimum_metres_per_uv": 0.9999991926376225,
+      "maximum_metres_per_uv": 1.0000008117633459
+    },
+    {
+      "part": "nook_mug__ceramic",
+      "minimum_metres_per_uv": 0.9999765395918173,
+      "maximum_metres_per_uv": 1.0000109660360206
+    },
+    {
+      "part": "nook_pile__book_navy",
+      "minimum_metres_per_uv": 0.9997893869846651,
+      "maximum_metres_per_uv": 1.0001545760459694
+    },
+    {
+      "part": "nook_pile__book_ochre",
+      "minimum_metres_per_uv": 0.9998020466181727,
+      "maximum_metres_per_uv": 1.0001545760459694
+    },
+    {
+      "part": "nook_pile__book_teal",
+      "minimum_metres_per_uv": 0.999864819966191,
+      "maximum_metres_per_uv": 1.000213071527468
+    },
+    {
+      "part": "nook_pile__paper",
+      "minimum_metres_per_uv": 0.9994955195417459,
+      "maximum_metres_per_uv": 1.0003731842508288
+    },
+    {
+      "part": "nook_plant__plant",
+      "minimum_metres_per_uv": 0.9997969353263313,
+      "maximum_metres_per_uv": 1.0001804740585076
+    },
+    {
+      "part": "nook_plant__soil",
+      "minimum_metres_per_uv": 0.9999954439762684,
+      "maximum_metres_per_uv": 1.0000033323457602
+    },
+    {
+      "part": "nook_plant__terracotta",
+      "minimum_metres_per_uv": 0.9999978605876763,
+      "maximum_metres_per_uv": 1.0000020327168395
+    },
+    {
+      "part": "nook_plant__timber",
+      "minimum_metres_per_uv": 0.9999743696206849,
+      "maximum_metres_per_uv": 1.0000225772932738
+    }
+  ],
+  "supports": [
+    {
+      "assembly": "nook_rug",
+      "owner": "floor",
+      "point": [
+        0.016000000000000014,
+        0.0,
+        1.854
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_rug",
+      "owner": "floor",
+      "point": [
+        -0.976,
+        0.0,
+        2.846
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_seat_n",
+      "owner": "nook_apron_n",
+      "point": [
+        -0.1519999999999999,
+        0.4,
+        2.904
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_seat_n",
+      "owner": "nook_apron_n",
+      "point": [
+        -0.8079999999999998,
+        0.4,
+        3.056
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_apron_n",
+      "owner": "nook_rug",
+      "point": [
+        -0.17199999999999993,
+        0.008,
+        2.924
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_apron_n",
+      "owner": "nook_rug",
+      "point": [
+        -0.7879999999999998,
+        0.008,
+        3.036
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_seat_w",
+      "owner": "nook_apron_w",
+      "point": [
+        0.22599999999999998,
+        0.4,
+        2.174
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_seat_w",
+      "owner": "nook_apron_w",
+      "point": [
+        0.07400000000000007,
+        0.4,
+        2.526
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_apron_w",
+      "owner": "nook_rug",
+      "point": [
+        0.20599999999999996,
+        0.008,
+        2.194
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_apron_w",
+      "owner": "nook_rug",
+      "point": [
+        0.09400000000000008,
+        0.008,
+        2.5060000000000002
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_seat_e",
+      "owner": "nook_apron_e",
+      "point": [
+        -1.034,
+        0.4,
+        2.174
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_seat_e",
+      "owner": "nook_apron_e",
+      "point": [
+        -1.186,
+        0.4,
+        2.526
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_apron_e",
+      "owner": "nook_rug",
+      "point": [
+        -1.054,
+        0.008,
+        2.194
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_apron_e",
+      "owner": "nook_rug",
+      "point": [
+        -1.166,
+        0.008,
+        2.5060000000000002
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_cush1",
+      "owner": "nook_seat_n",
+      "point": [
+        0.08600000000000008,
+        0.465,
+        2.958
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_cush1",
+      "owner": "nook_seat_n",
+      "point": [
+        -0.1459999999999999,
+        0.465,
+        3.1020000000000003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_cush2",
+      "owner": "nook_seat_e",
+      "point": [
+        -1.07,
+        0.465,
+        2.218
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_cush2",
+      "owner": "nook_seat_e",
+      "point": [
+        -1.19,
+        0.465,
+        2.442
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_throw",
+      "owner": "nook_seat_w",
+      "point": [
+        0.22399999999999998,
+        0.465,
+        2.202
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_throw",
+      "owner": "nook_seat_w",
+      "point": [
+        0.09600000000000009,
+        0.465,
+        2.458
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "flat seated stock datum",
+      "valid": true
+    },
+    {
+      "assembly": "nook_books",
+      "owner": "nook_rug",
+      "point": [
+        -1.0899999952316284,
+        0.00800000037997961,
+        3.4697999715805055
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "rack foot on rug",
+      "valid": true
+    },
+    {
+      "assembly": "nook_books",
+      "owner": "nook_rug",
+      "point": [
+        -1.0899999952316284,
+        0.00800000037997961,
+        3.2097999811172486
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "rack foot on rug",
+      "valid": true
+    },
+    {
+      "assembly": "nook_books",
+      "owner": "nook_rug",
+      "point": [
+        0.12000004291534427,
+        0.00800000037997961,
+        3.4697999715805055
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "rack foot on rug",
+      "valid": true
+    },
+    {
+      "assembly": "nook_books",
+      "owner": "nook_rug",
+      "point": [
+        0.12000004291534427,
+        0.00800000037997961,
+        3.2097999811172486
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "rack foot on rug",
+      "valid": true
+    },
+    {
+      "assembly": "nook_table",
+      "owner": "nook_rug",
+      "point": [
+        -0.20000000953674313,
+        0.00800000037997961,
+        1.389799988269806
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "table keel floor bearing",
+      "valid": true
+    },
+    {
+      "assembly": "nook_table",
+      "owner": "nook_rug",
+      "point": [
+        -0.7799999928474426,
+        0.00800000037997961,
+        1.4198000192642213
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "table keel floor bearing",
+      "valid": true
+    },
+    {
+      "assembly": "nook_mug",
+      "owner": "nook_table",
+      "point": [
+        -0.6799999988079071,
+        0.36500000953674316,
+        1.5498000144958497
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "mug foot on actual glass",
+      "valid": true
+    },
+    {
+      "assembly": "nook_pile",
+      "owner": "nook_table",
+      "point": [
+        -0.2799999928474426,
+        0.36500000953674316,
+        1.4298000097274781
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "book pile on actual glass",
+      "valid": true
+    },
+    {
+      "assembly": "nook_plant",
+      "owner": "nook_rug",
+      "point": [
+        -1.4200000083446502,
+        0.00800000037997961,
+        3.269800043106079
+      ],
+      "direction": [
+        -0.0,
+        1.0,
+        0.0
+      ],
+      "label": "saucer on rug",
+      "valid": true
+    }
+  ],
+  "views": [
+    {
+      "id": "context_front",
+      "file": "context_front.png"
+    },
+    {
+      "id": "context_rear",
+      "file": "context_rear.png"
+    },
+    {
+      "id": "shelf",
+      "file": "shelf.png"
+    },
+    {
+      "id": "table",
+      "file": "table.png"
+    }
+  ],
+  "book_count": 60,
+  "scope": "Native nook geometry and reciprocal bearings; runtime clearance, lamp and wiring adoption remain unverified."
+}

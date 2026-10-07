@@ -1,0 +1,23 @@
+ERROR: tangent direction and handedness match actual imported UV derivatives
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _check_cap_mapping (res://tests/orison_v2_roof_bulkhead_caps_test.gd:158)
+       [3] validate_in_world (res://tests/orison_v2_reading_nook_test.gd:31)
+       [4] _run (res://tests/orison_v2_fabrication_batch.gd:91)
+ERROR: actual reciprocal nook bearing: book pile on actual glass
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_reading_nook_test.gd:51)
+       [3] _run (res://tests/orison_v2_fabrication_batch.gd:91)
+ERROR: nook leaves sampled basement approach clear: (-1.55, -3.18, -1.5)
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_reading_nook_test.gd:99)
+       [3] _city_capture (res://tests/orison_v2_city_sweep.gd:124)
+       [4] shot (res://tests/orison_v2_floor_surface_test.gd:199)

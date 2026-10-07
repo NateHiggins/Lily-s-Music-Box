@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "lamps": [
+    {
+      "id": "B1_NOOK_LAMP",
+      "support": "nook_table",
+      "position": [
+        -0.44,
+        0.365,
+        0.0398
+      ],
+      "yaw": -0.5235987755982988,
+      "existing": false,
+      "variant": "emeralite",
+      "unit": "ATRIUM"
+    },
+    {
+      "id": "F02_A_LAMP_01",
+      "support": "2A_desk",
+      "position": [
+        -0.45,
+        0.735,
+        -0.2
+      ],
+      "yaw": 0,
+      "existing": false,
+      "variant": "office_green",
+      "unit": "2A"
+    },
+    {
+      "id": "F03_B_LAMP_01",
+      "support": "3B_workbench",
+      "position": [
+        0.6,
+        0.91,
+        0.18
+      ],
+      "yaw": 0,
+      "existing": true,
+      "variant": "bench_friction",
+      "unit": "3B"
+    },
+    {
+      "id": "F04_B_LAMP_01",
+      "support": "4B_terminal_desk",
+      "position": [
+        -0.2,
+        0.75,
+        -0.51
+      ],
+      "yaw": 1.5707963267948966,
+      "existing": false,
+      "variant": "landlord_enamel",
+      "unit": "4B"
+    },
+    {
+      "id": "F05_A_LAMP_01",
+      "support": "5A_plantable",
+      "position": [
+        0.6,
+        0.8,
+        0
+      ],
+      "yaw": 0,
+      "existing": false,
+      "variant": "architect_counterweight",
+      "unit": "5A"
+    }
+  ],
+  "terminal_fit": {
+    "id": "F04_B_MONITOR_01",
+    "support": "4B_terminal_desk",
+    "offset": [
+      0.075,
+      0,
+      0
+    ]
+  }
+}

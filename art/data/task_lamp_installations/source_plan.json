@@ -1,0 +1,82 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "schema_version": 1,
+  "placements": [
+    {
+      "id": "B1_NOOK_LAMP",
+      "support": "nook_table",
+      "position": [
+        -0.44,
+        0.365,
+        0.0398
+      ],
+      "yaw": -0.5235987755982988,
+      "existing": false
+    },
+    {
+      "id": "F02_A_LAMP_01",
+      "support": "2A_desk",
+      "position": [
+        -0.45,
+        0.735,
+        -0.2
+      ],
+      "yaw": 0,
+      "existing": false
+    },
+    {
+      "id": "F03_B_LAMP_01",
+      "support": "3B_workbench",
+      "position": [
+        0.6,
+        0.91,
+        0.18
+      ],
+      "yaw": 0,
+      "existing": true
+    },
+    {
+      "id": "F04_B_LAMP_01",
+      "support": "4B_terminal_desk",
+      "position": [
+        -0.2,
+        0.75,
+        -0.51
+      ],
+      "yaw": 1.5707963267948966,
+      "existing": false
+    },
+    {
+      "id": "F05_A_LAMP_01",
+      "support": "5A_plantable",
+      "position": [
+        0.6,
+        0.8,
+        0
+      ],
+      "yaw": 0,
+      "existing": false
+    }
+  ],
+  "adaptations": [
+    "Original lamp identities and variants derive from immutable V1 markers. Preserve furniture-local placement except the nook foot correction and the terminal desk corner fit.",
+    "All feet terminate on actual visible supports: nook glass 365 mm, 2A desk 735 mm, existing bench 910 mm, 4B terminal desk 750 mm, 5A drafting table 800 mm.",
+    "2A and 5A furniture opt into exact visible surface collisions; their broad old bounds would otherwise bury lamp bases beneath invisible ceilings.",
+    "The existing bench actor remains in place; all five original electrical graph identities are rebound to their installed positions and restored during teardown.",
+    "The terminal cabinet occupies the old lamp datum. Move its mounted body 75 mm toward the back edge, retain its stance and face direction, and fit the lamp at (-200, -510) mm facing the free short end. The original semantic marker is retained; graph position follows the actual mounted terminal.",
+    "Move the 2A lamp 225 mm across the same desk to clear the retained source headphones. Their original position and geometry stay fixed. Check all existing tabletop props against the complete native lamp silhouettes."
+  ],
+  "open_work": [
+    "External room supply cords and the wider apartment furniture/material conversion remain unfinished."
+  ],
+  "terminal_fit": {
+    "id": "F04_B_MONITOR_01",
+    "support": "4B_terminal_desk",
+    "offset": [
+      0.075,
+      0,
+      0
+    ]
+  }
+}

@@ -34,14 +34,14 @@ construction only, imports actor-local meshes, duplicates material owners and
 keeps the original moving key. The inherited script still owns personality,
 spotlight, budgeting, switch state, interaction, service card and audio. The
 native opal bulb follows the existing light's delivered output. V1 keeps its
-procedural bodies. Only the existing V2 bench lamp currently uses this library.
+procedural bodies. All five original V2 identities now use this library;
+**reading_nook.md** records their supports and graph adoption.
 
 Run the **task_lamps** module in **OrisonV2FabricationBatch** to compare all five
 native variants against their original LampProp behavior in one world load,
 then check the installed lamp's physical support and capture its room/detail.
 Use one warm import after asset changes; script-only changes need no import.
 
-Four original lamps still need source-derived V2 supports and electrical
-identity placement. The external supply cords also remain unfinished. The
-library, one installed actor and these bounded checks do not complete V2 or
+The external supply cords remain unfinished. The
+library, installed actors and these bounded checks do not complete V2 or
 certify the wider household furniture pass.

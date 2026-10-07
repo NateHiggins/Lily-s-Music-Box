@@ -286,6 +286,15 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: room lighting refused: %s" % [lighting.errors])
 		return
+	if not preload("res://scripts/building/orison_v2_reading_nook.gd").mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: original reading nook refused")
+		return
+	var task_lamps := preload("res://scripts/building/orison_v2_task_lamp_installations.gd").new()
+	if not task_lamps.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: fitted task lamps refused: %s" % [task_lamps.errors])
+		return
 	light_rig = LightRig.new()
 	light_rig.name = "LightRig"
 	light_rig.glow_intensity = get_node("WakingAtmosphere").environment.glow_intensity
@@ -301,6 +310,10 @@ func _compose_authorities() -> void:
 	var terminal := SignalTerminalProp.new()
 	terminal.prop_type = "signal_terminal"
 	_mount("F04_B_MONITOR_01", terminal)
+	if not preload("res://scripts/building/orison_v2_task_lamp_installations.gd").fit_terminal(adapter, terminal):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: task lamp/terminal fit refused")
+		return
 	player = PlayerController.new()
 	player.name = "Player"
 	player.position = _connection.arrival.position

@@ -81,7 +81,7 @@ Modules: **pawn_clocks**, **pawn_display**, **pawn_fittings**, **laundry_fitting
 **photo_enlargers**, **photo_portraits**, **radio_wire**, **shop_joinery** and
 **shop_clerestories**, **hardware_stock**, **news_fittings**,
 **locksmith_fittings**, **druggist_cupboard**, **cobbler_fittings**,
-**photo_radio_fittings**, **radio_display** and **task_lamps**. The original
+**photo_radio_fittings**, **radio_display**, **task_lamps** and **reading_nook**. The original
 clock/display checks remain; display now also checks the fitted safe boundary.
 Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and
