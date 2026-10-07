@@ -30,8 +30,13 @@ back-facing probes before Godot, matching its collision-side convention.
 
 ## Gates and serialized receipts
 
-Clean static verification follows the staged source candidate. The reader gate
-reports NEW 0. The spatial manifest appends 26 resolved source dependencies and five normal
+Clean candidate **53edf3861740db27be88df41a8bc375decf05996** passed the full
+49-entry board and all 42 tools suites with zero regressions, zero NEW reader
+fields and all 17 protected paths unchanged. Its tree **4672ccc29c1e631236c042d0fb1b0c14e00fa0ca**
+is identical to source commit **289bfe75**. Verification used the cached clean
+**1c319e58** baseline and no Godot; the temporary checkout was removed. All
+240 requirement statuses remain unchanged. The retained **verification.json**
+records the check, not a new runtime claim. The spatial manifest appends 26 resolved source dependencies and five normal
 prefetch/test anchors,
 preserving the prior entries and text; no auditor or debt baseline changes.
 
