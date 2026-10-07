@@ -5,10 +5,9 @@ Evidence class: **INERT**
 REPORT - V2-DESKTOP-STOCK - 2026-10-07
 
 Branch / HEAD / origin/main / merge-base: canonical **main**, source parent
-**d39e533354354f5713f1fc5f16c44ed41c474068**. Exact verified source follows in
-the metadata record. No push. Owner in-situ images and index are excluded.
+**d39e533354354f5713f1fc5f16c44ed41c474068**. Verified source is recorded below. No push. Owner in-situ images and index are excluded.
 Worktree clean at end: no; the owner's **shots.md** and **shot_024..027.png**
-remain. Protected 17/17 and final static comparison await candidate verification.
+remain. New seating work started after this source snapshot. Protected 17/17: yes; static comparison has zero regressions.
 Selector: V2, retaining explicit V1 rollback.
 
 Ledger before -> after: **7 / 8 / 127 / 42 / 151 / 153** unchanged;
@@ -34,7 +33,7 @@ native inspection stages pass; native views cover eleven stock examples, the
 terminal and ten lamp views. Final nine composed views were reviewed. The
 shared production world passes **3,759 module checks and 16 batch checks** with
 zero failures, wrapper **58.13 s**, internal **47.976 s**. See raw batch and
-wrapper receipts in the packet. Full static candidate results follow below.
+wrapper receipts in the packet. All 49 static gates, including 42 tools tests, were compared against the cached complete baseline; no regression or requirement-status change.
 
 This batch used two imports and five runtime starts. The first runtime refused
 a GDScript type inference before world creation. Later visual reviews exposed
@@ -61,4 +60,12 @@ Evidence: [packet](../art/renders/orison_v2/desktop_stock_20261007/image_manifes
 All entries are INERT geometry/visual QA. No schema-2 runtime-contract or ledger
 promotion is claimed. Decision needed from owner: none.
 
-BLOCKED pending static candidate verification
+Verified source **534215dfdee3cca3ab5c6e1ac3788e0cd596b732** has exactly tree
+**9181eec65f6246573ed45cb8851523f1584898d1**, matching candidate
+**cd5ced7e1eab409c92a1a078456974a84b7b0c0a**. The verifier used the cached complete baseline
+**1c319e582f57bc9a505093f1a89146c78562756e**, with no repeated Godot runs,
+and removed its temporary checkout. Inspector output-path/whitespace metadata
+refreshes after the final runtime alter no geometry, runtime data, test or
+fixture semantics; their binding chains remain in the packet.
+
+MERGE-CANDIDATE 534215dfdee3cca3ab5c6e1ac3788e0cd596b732
