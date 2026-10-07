@@ -1,0 +1,49 @@
+{
+  "evidence_class": "INERT",
+  "original_records": 10,
+  "groups": [
+    {
+      "kind": "griddle",
+      "sources": [
+        "storm_shop_luncheonette_griddle",
+        "storm_shop_luncheonette_griddle_top"
+      ]
+    },
+    {
+      "kind": "fountain",
+      "sources": [
+        "storm_shop_luncheonette_soda_fount",
+        "storm_shop_luncheonette_syrup0",
+        "storm_shop_luncheonette_syrup1",
+        "storm_shop_luncheonette_syrup2",
+        "storm_shop_luncheonette_syrup3",
+        "storm_shop_luncheonette_syrup4"
+      ]
+    },
+    {
+      "kind": "mixer",
+      "sources": [
+        "storm_shop_luncheonette_mixer_base",
+        "storm_shop_luncheonette_mixer_post"
+      ]
+    }
+  ],
+  "runtime_keys": [
+    "metal",
+    "cast_iron",
+    "marble_lobby",
+    "nickel_plated",
+    "enamel"
+  ],
+  "classification": "ADAPTATION",
+  "catalog_variants": {},
+  "material_aliases": {},
+  "material_tints": {},
+  "trim_tolerance_m": 2e-05,
+  "open_work": [
+    "Four floor-bearing turned feet and slender posts carry an empty closed sheet-metal carcass, worked iron cooking bed and empty front gutter. Stay inside combined original plans and 1.01m maximum; bridge only authored .04m floor gap. Passive blank controls must stay inside the original top overhang. No heat, fuel, utility or food authority.",
+    "Floor-bearing hollow stone pedestal, worked plinth and 0.97m upper slab carry all five original pump positions. Each pump retains its own plan and 1.42m maximum, with closed hollow nickel body, blank plunger and open nozzle bore. Fitted base flanges bridge original .03m seating gap. No syrup, drink, supply, pressure or operating authority.",
+    "The original base floats at 1.00m outside the backbar and fountain. Resolve with a declared narrow integral floor stand inside its existing plan, then an empty fitted base, slender post, compact upper motor shell and unpowered spindle. Keep original 1.86m maximum and combined source footprint. Floor extension is an explicit passive adaptation; original reference boxes stay exact. No cup, liquid, power route or operating authority.",
+    "Passive original apparatus only. Temperature, food/drink contents, operation, independent utility service/capacity, continuous routes and human acceptance remain open. Exact original reference boxes remain."
+  ]
+}
