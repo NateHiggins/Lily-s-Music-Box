@@ -971,3 +971,8 @@ game/data/orison_v2/pawn_display.json -text
 game/tests/fixtures/orison_pawn_display.json -text
 game/scripts/building/orison_v2_pawn_display.gd -text
 art/renders/orison_v2/pawn_display_20261007/** -text -whitespace
+
+# Shared-world module hashes and exact captured execution diagnostics.
+game/tests/orison_v2_pawn_clocks_test.gd -text
+game/tests/orison_v2_pawn_display_test.gd -text
+art/renders/orison_v2/fabrication_batch_20261007/** -text -whitespace
