@@ -1,0 +1,24 @@
+{
+  "evidence_class": "INERT",
+  "source_commit": "ca866ba7f02003d4748334b4f8374ede4ae8fedb",
+  "source_tree": "5b2341fd9016e448174332f17b9761c76d23754b",
+  "candidate_commit": "d6bc0320dee789faf9778f806ef508e212c0fb6b",
+  "candidate_tree": "5b2341fd9016e448174332f17b9761c76d23754b",
+  "base": "1c319e582f57bc9a505093f1a89146c78562756e",
+  "verified_tree_matches_source": true,
+  "board_entries": 49,
+  "protected_unchanged": 17,
+  "regressions": [],
+  "requirement_changes": [],
+  "ledger_blockers": {
+    "FIRST_SLICE_TECHNICAL": 7,
+    "GOLDEN_SHIFT_V2": 8,
+    "FULL_BUILDING_STRUCTURAL": 127,
+    "FULL_BUILDING_RUNTIME": 42,
+    "PRODUCTION_CUTOVER": 151,
+    "V1_RETIREMENT": 153
+  },
+  "gate_review": "Planner change only registers five existing validators in the shared batch; no gate predicate or baseline relaxation.",
+  "verification_sha256": "6fae1226ca7d328f66122a942ceb3a2d1b0ef5dd2f6f32b2b972b4763d61199e",
+  "godot_in_verifier": false
+}

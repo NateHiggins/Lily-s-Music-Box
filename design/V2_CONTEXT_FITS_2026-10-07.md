@@ -69,3 +69,13 @@ binding updates. These INERT receipts grant no requirement promotion. Whole-V2
 material calibration, remaining source geometry, services, routes and human
 acceptance remain open. Photo darkroom door/lamp and Radio window furniture
 remain next in the geometry queue. No owner decision is needed to continue.
+
+## Verified source binding
+
+Source **ca866ba7f02003d4748334b4f8374ede4ae8fedb** has tree **5b2341fd9016e448174332f17b9761c76d23754b**, exactly matching clean candidate
+**d6bc0320dee789faf9778f806ef508e212c0fb6b**. All 49 board entries and 42 tools suites compare
+without regressions; all 17 protected paths and all 240 requirement statuses
+remain unchanged. Blockers remain **7 / 8 / 127 / 42 / 151 / 153**. The planner
+gate change only registers five shared validators and was reviewed directly.
+The verifier used the cached clean **1c319e58** baseline without Godot and
+removed its temporary checkout. This binding update changes no runtime source.
