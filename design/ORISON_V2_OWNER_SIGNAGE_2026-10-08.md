@@ -66,7 +66,12 @@ signage, bodega frontage or the refreshed bar contracts; exported signage
 tangents pass. The global planner still identifies 36 older drifting families,
 mostly earlier architectural/blockout pins; this batch does not bless them.
 The spatial inventory appends four records with all previous entries intact.
-Fresh static candidate verification is recorded in a follow-up commit.
+Fresh [static candidate verification](../art/renders/orison_v2/signage_20261008/verification.json)
+passed for **a3def648** against **64711852**: zero regressions, no fresh-checkout
+dirt, protected 17/17, selector V2 and no lint errors. The only flagged gate
+file appends four spatial records without changing prior entries. An initial
+verifier invocation used the sidecar-input option for an output path; the
+corrected invocation passed. No extra Godot run was required.
 This INERT report changes no ledger requirement status.
 
 Worktree clean at report time: no. Owner dossier inputs, unrelated in-situ
