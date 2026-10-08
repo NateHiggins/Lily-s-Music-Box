@@ -3,6 +3,7 @@ extends RefCounted
 ## child lettering, sounds, reach areas and every gameplay reference.
 const PATH := "res://data/orison_v2/service_instruments.json"
 const BAR_PATH := "res://data/orison_v2/bar_instruments.json"
+const SIGNAGE_PATH := "res://data/orison_v2/signage.json"
 var installed: Dictionary = {}
 var errors: Array[String] = []
 var _meshes: Dictionary = {}
@@ -26,7 +27,7 @@ func mount(world: Node, data_path: String = PATH) -> bool:
 		material.albedo_color = Color(spec.tint[0],spec.tint[1],spec.tint[2],spec.tint[3])
 		_materials[key] = material
 	for spec: Dictionary in data.source_materials:
-		var owner:=world.find_child(str(spec.actor),true,false)
+		var owner:=_find_actor(world,str(spec.actor))
 		var draws:=owner.find_children("*","MeshInstance3D",true,false).filter(func(n):return n.mesh!=null)
 		_materials[str(spec.key)]=draws[int(spec.index)].get_active_material(0)
 	var prepared: Array[Dictionary] = []
@@ -35,7 +36,7 @@ func mount(world: Node, data_path: String = PATH) -> bool:
 		_prepare_mesh(model,part,false)
 		work_light_parts[str(part.variant)]={"mesh":_meshes[str(part.mesh)],"seat":Vector3(part.seat[0],part.seat[1],part.seat[2]),"normal":Vector3(part.normal[0],part.normal[1],part.normal[2])}
 	for row: Dictionary in data.actors:
-		var actor := world.find_child(str(row.id),true,false) as Node3D
+		var actor := _find_actor(world,str(row.id))
 		if actor==null or actor.get_script().resource_path!=str(row.script):
 			errors.append("source owner: "+str(row.id)); continue
 		var draws := actor.find_children("*","MeshInstance3D",true,false).filter(func(n):return n.mesh!=null)
@@ -77,6 +78,9 @@ func mount(world: Node, data_path: String = PATH) -> bool:
 			actor.add_child(ropes)
 			ropes.configure(actor,_meshes["DumbwaiterRopeUnit"],_meshes["DumbwaiterHandReturn"])
 	return true
+
+func _find_actor(world: Node, identity: String) -> Node3D:
+	return world.find_child(identity,true,false) as Node3D
 
 func _prepare_mesh(model: Node, part: Dictionary, preserve_material: bool) -> void:
 	var name := str(part.mesh)

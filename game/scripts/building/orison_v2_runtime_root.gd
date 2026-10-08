@@ -649,6 +649,11 @@ func _compose_exterior() -> bool:
 	city_shells.name = "CityShells"
 	add_child(city_shells)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
+	var signage := preload("res://scripts/building/orison_v2_native_signage.gd").new()
+	if not signage.install(self):
+		push_error("V2 SIGNAGE: %s" % [signage.errors])
+		return false
+	adapter.root.set_meta("v2_native_signage",signage)
 	return bool(exterior_cell.set_route_guides_visible(false).get("ok", false))
 
 func _compose_call_station(terminal: SignalTerminalProp) -> bool:

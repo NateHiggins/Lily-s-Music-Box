@@ -5,12 +5,12 @@
     {
       "name": "Frontage__glass",
       "key": "glass",
-      "triangles": 32
+      "triangles": 48
     },
     {
       "name": "Frontage__oak_quartered",
       "key": "oak_quartered",
-      "triangles": 1204
+      "triangles": 1520
     },
     {
       "name": "LeafPanel__oak_quartered",
@@ -19,8 +19,8 @@
       "owner": "original_hinged_leaf"
     }
   ],
-  "triangles": 1280,
-  "closed_native_pieces": 68,
+  "triangles": 1612,
+  "closed_native_pieces": 71,
   "closed_pieces": [
     {
       "id": "DoorJamb-1__0",
@@ -418,7 +418,46 @@
         -1.98,
         2.65,
         -0.015,
+        1.6765,
+        2.7,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "ContinuousHeader__1",
+      "bounds": [
+        1.6985,
+        2.65,
+        -0.015,
         1.98,
+        2.7,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "ContinuousHeader__2",
+      "bounds": [
+        1.6765,
+        2.65,
+        -0.015,
+        1.6985,
+        2.6639999999999997,
+        0.085
+      ],
+      "key": "wood",
+      "grain_axis": 0
+    },
+    {
+      "id": "ContinuousHeader__3",
+      "bounds": [
+        1.6765,
+        2.686,
+        -0.015,
+        1.6985,
         2.7,
         0.085
       ],
@@ -1019,7 +1058,16 @@
       ]
     }
   ],
-  "omitted_contact_cells": 1590,
+  "omitted_contact_cells": 1742,
+  "sign_service_port": {
+    "center": [
+      1.6875,
+      2.675
+    ],
+    "width": 0.022,
+    "height": 0.022,
+    "owner": "Existing independent BodegaPower front lighting junction; fixed sign branch only"
+  },
   "door_clear_width": 0.975,
   "door_clear_height": 2.1,
   "leaf_panel_bounds": [
@@ -1040,9 +1088,9 @@
     1.0
   ],
   "wood_scale_multiplier": 0.8,
-  "asset_sha256": "95e7ed02ad1751abeebe40cc741de5bf3a03b553580fe7837656eaac9a3ff4ce",
+  "asset_sha256": "a780cffaed39caf71a51e0ad2cb985256060455f6e75464d59dadc40692d140a",
   "source_bindings": {
-    "art/data/bodega_frontage/source_plan.json": "daad533b0444c78240c449ecfec907391a6b37b12ee9d3e36e9587f4695c0981",
+    "art/data/bodega_frontage/source_plan.json": "d55f4df463243faa2bfcfbe5162c5395ac14fbdea94a77fd46118c583e1de498",
     "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
     "game/data/orison_v2/exterior/regions.json": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
     "game/scripts/props/door_prop.gd": "99352c10d2fae9e6a7dc020813e00bf0b67a674c0e92fa469a22e5b14a07d47c"

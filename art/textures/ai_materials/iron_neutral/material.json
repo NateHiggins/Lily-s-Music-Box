@@ -1,0 +1,18 @@
+{
+  "material": "iron_neutral",
+  "source": "art/textures/ai_sources/iron_neutral_20261008.png",
+  "source_sha256": "98493bc86242ee82fd70bb4a0c9a20e648447269bfaff65a72162f2f596b248d",
+  "generator": "art/tools/build_neutral_iron.py",
+  "meters_per_tile": 0.4,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "relief_mm": 0.035,
+  "height_model": "independent_periodic_worked_iron_microrelief_v1",
+  "base_color_policy": "Generated pixels retained byte-exact; no relighting, painted hardware or pigment-to-height conversion.",
+  "roughness_mean": 0.6799999999999999,
+  "maximum_normal_slope": 0.009777742978089627
+}

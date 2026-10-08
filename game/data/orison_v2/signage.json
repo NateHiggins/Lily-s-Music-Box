@@ -1,0 +1,422 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/signage.glb",
+  "actors": [
+    {
+      "id": "F01_BAR_SIGNAGE",
+      "script": "res://scripts/props/harukiya_signage_prop.gd",
+      "source_mesh_count": 45,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M14_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            2.34999990463257,
+            0.550000011920929,
+            0.0500000007450581
+          ],
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 24,
+          "mesh": "M14_P024",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral"
+          ]
+        },
+        {
+          "index": 25,
+          "mesh": "M14_P025",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral"
+          ]
+        },
+        {
+          "index": 26,
+          "mesh": "M14_P026",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral",
+            "porcelain"
+          ]
+        },
+        {
+          "index": 28,
+          "mesh": "M14_P028",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral"
+          ]
+        },
+        {
+          "index": 29,
+          "mesh": "M14_P029",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral"
+          ]
+        },
+        {
+          "index": 30,
+          "mesh": "M14_P030",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral",
+            "porcelain"
+          ]
+        },
+        {
+          "index": 32,
+          "mesh": "M14_P032",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral"
+          ]
+        },
+        {
+          "index": 33,
+          "mesh": "M14_P033",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral",
+            "rubber_aged"
+          ]
+        },
+        {
+          "index": 34,
+          "mesh": "M14_P034",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral",
+            "porcelain"
+          ]
+        },
+        {
+          "index": 35,
+          "mesh": "M14_P035",
+          "source_type": "CapsuleMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 36,
+          "mesh": "M14_P036",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral"
+          ]
+        },
+        {
+          "index": 37,
+          "mesh": "M14_P037",
+          "source_type": "BoxMesh",
+          "size": [
+            0.300000011920929,
+            0.850000023841858,
+            0.0299999993294477
+          ],
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "iron_neutral"
+          ]
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M14_Fixed",
+          "materials": [
+            "brass",
+            "iron_neutral",
+            "rubber_aged"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "FittedBodegaSignage",
+      "script": "res://scripts/props/bodega_signage_prop.gd",
+      "source_mesh_count": 7,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M17_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            4.34999990463257,
+            0.550000011920929,
+            0.0500000007450581
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 1,
+          "mesh": "M17_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0500000007450581,
+            0.550000011920929,
+            1.01999998092651
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 2,
+          "mesh": "M17_P002",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0500000007450581,
+            0.550000011920929,
+            1.01999998092651
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 3,
+          "mesh": "M17_P003",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0500000007450581,
+            0.100000001490116,
+            0.600000023841858
+          ],
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "iron_neutral"
+          ]
+        },
+        {
+          "index": 4,
+          "mesh": "M17_P004",
+          "source_type": "BoxMesh",
+          "size": [
+            0.150000005960464,
+            1.5,
+            0.600000023841858
+          ],
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "iron_neutral"
+          ]
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M17_Fixed",
+          "materials": [
+            "brass",
+            "iron_neutral",
+            "rubber_aged"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_NEON_BLADE",
+      "script": "res://scripts/props/neon_sign_prop.gd",
+      "source_mesh_count": 46,
+      "replacements": [
+        {
+          "index": 36,
+          "mesh": "M26_P036",
+          "source_type": "ArrayMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "iron_neutral"
+          ]
+        },
+        {
+          "index": 37,
+          "mesh": "M26_P037",
+          "source_type": "ArrayMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "iron_neutral",
+            "metal"
+          ]
+        },
+        {
+          "index": 41,
+          "mesh": "M26_P041",
+          "source_type": "ArrayMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "metal"
+          ]
+        },
+        {
+          "index": 42,
+          "mesh": "M26_P042",
+          "source_type": "ArrayMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        }
+      ],
+      "additions": []
+    }
+  ],
+  "materials": [
+    {
+      "key": "wood_dark",
+      "catalog": "wood_dark",
+      "tile": 1.2,
+      "normal": 0.02,
+      "roughness": 0.76,
+      "metallic": 0.0,
+      "pigment": 0.14,
+      "tint": [
+        0.55,
+        0.53,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "key": "brass",
+      "catalog": "brass",
+      "tile": 0.5,
+      "normal": 0.12,
+      "roughness": 1.0,
+      "metallic": 0.85,
+      "pigment": 0.1,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "iron_neutral",
+      "catalog": "iron_neutral",
+      "tile": 0.4,
+      "normal": 0.65,
+      "roughness": 1.0,
+      "metallic": 0.35,
+      "pigment": 0.85,
+      "tint": [
+        0.42,
+        0.42,
+        0.42,
+        1.0
+      ]
+    },
+    {
+      "key": "porcelain",
+      "catalog": "porcelain",
+      "tile": 0.9,
+      "normal": 0.12,
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "pigment": 0.1,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "rubber_aged",
+      "catalog": "rubber_aged",
+      "tile": 0.26,
+      "normal": 0.12,
+      "roughness": 0.82,
+      "metallic": 0.0,
+      "pigment": 0.1,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "metal",
+      "catalog": "metal",
+      "tile": 0.9,
+      "normal": 0.015,
+      "roughness": 1.0,
+      "metallic": 0.9,
+      "pigment": 0.1,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "source_materials": [],
+  "work_lights": [],
+  "dumbwaiter_ropes": [],
+  "source_finishes": [
+    {
+      "actor": "F01_BAR_SIGNAGE",
+      "index": 35,
+      "roughness": 0.93,
+      "color": [
+        0.72,
+        0.14,
+        0.08,
+        1.0
+      ],
+      "emission": []
+    },
+    {
+      "actor": "FittedBodegaSignage",
+      "index": 0,
+      "roughness": 0.79,
+      "color": [
+        0.84,
+        0.73,
+        0.42,
+        1.0
+      ],
+      "emission": [
+        1.0,
+        0.88,
+        0.55
+      ]
+    }
+  ]
+}

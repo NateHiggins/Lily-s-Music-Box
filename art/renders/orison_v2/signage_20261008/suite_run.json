@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 59.07,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T15:08:14Z",
+  "started_utc": "2026-10-08T15:07:14Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/signage-runtime-04.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/signage-runtime-04.log",
+  "stdout_sha256": "acafabd1a71d80f815029881ff0d1ffb09a719234e9ea3efce0a5c60a3ab29bf"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/signage-runtime-04",
+ "source": {
+  "dirty_paths": 483,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/bar_ceiling_finish_construction.json",
+   " M art/blender/bar_fixture_mounts_construction.json",
+   " M art/blender/bar_furniture_construction.json",
+   " M art/blender/bar_instruments_construction.json",
+   " M art/blender/bar_pipe_supports_construction.json",
+   " M art/blender/bar_pool_construction.json",
+   " M art/blender/bar_receiving_construction.json",
+   " M art/blender/bodega_frontage.blend",
+   " M art/blender/bodega_frontage_construction.json",
+   " M art/blender/city_aerials_construction.json",
+   " M art/blender/city_beacons_construction.json",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_masts_construction.json",
+   " M art/blender/city_tanks_construction.json",
+   " M art/blender/cobbler_fittings_construction.json",
+   " M art/blender/diner_apparatus_construction.json",
+   " M art/blender/diner_backbar_construction.json",
+   " M art/blender/diner_counter_construction.json",
+   " M art/blender/diner_overhead_construction.json"
+  ],
+  "repository_head": "647118521824a80c75006b1d99358c7b6665066b",
+  "repository_tree": "1f5d6e8f237272788aca4e395e42ad133f6c6cfe",
+  "runtime_inputs_sha256": "89f02a1242c3796ea31803b25bcf6560a221b10c33e13998a38bb9e0d126ac04",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "3ff99a39608e16aaa3f62bad66a883be59d45e63f87b9019609e5aa233203223"
+ },
+ "windowed": true
+}

@@ -248234,6 +248234,124 @@
    "rationale": "Node-path lookup embeds spatial identity.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "01335c7eeb5d52ea",
+   "kind": "id_reference",
+   "token": "F01_BAR_SIGNAGE",
+   "file": "game/data/orison_v2/signage.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/actors[0]/id",
+    "/source_finishes[0]/actor"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "fdd3caaad06f6c45",
+   "kind": "id_reference",
+   "token": "F01_NEON_BLADE",
+   "file": "game/data/orison_v2/signage.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/actors[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "5d26632a28ceafe0",
+   "kind": "id_reference",
+   "token": "F01_BAR_SIGNAGE",
+   "file": "game/scripts/building/orison_v2_native_signage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "install"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "for identity in [\"F01_BAR_SIGNAGE\",\"FittedBodegaSignage\",\"F01_NEON_BLADE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker",
+   "target_exists": true
+  },
+  {
+   "key": "cc244962e3bb7216",
+   "kind": "id_reference",
+   "token": "F01_NEON_BLADE",
+   "file": "game/scripts/building/orison_v2_native_signage.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "install"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "for identity in [\"F01_BAR_SIGNAGE\",\"FittedBodegaSignage\",\"F01_NEON_BLADE\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker+acoustic_node",
+   "target_exists": true
   }
  ]
 }

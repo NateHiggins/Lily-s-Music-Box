@@ -1,0 +1,140 @@
+{
+	"batch_checks": 13,
+	"elapsed_ms": 47871,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 4851,
+	"modules": {
+		"bar_instruments": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 364,
+			"elapsed_ms": 266,
+			"failures": [],
+			"fixture_sha256": "b8fd41bf818fd4fea80360b1e5a9ee17ff966fe48dda26b8d7985b14e1bf60db",
+			"validator_sha256": "a707296c3d4a7f1f51f74706cfd192eb343fde77ffe3e1b247b7a1a621461536",
+			"views": []
+		},
+		"bodega_frontage": {
+			"captured": false,
+			"checks": 1791,
+			"elapsed_ms": 71,
+			"failures": [],
+			"fixture_sha256": "213accda1f4a7c70b6a3f5ca6c44ce6d7c85a5106275afa88e89f11ca6df68ca",
+			"validator_sha256": "bfade6293256847b7026413e0cf657cdf6c3da8c70076d4bbc9e022f06e9506d"
+		},
+		"service_instruments": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 2337,
+			"elapsed_ms": 714,
+			"failures": [],
+			"fixture_sha256": "b10e1c6d7bb0309f4ec3b4526bc45405cfa3c2a867cce8a2995ec368f27b9d68",
+			"validator_sha256": "55dd709331229495844a653be264024a404020066bff32fe37cddc2544328da4"
+		},
+		"signage": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 359,
+			"elapsed_ms": 11799,
+			"failures": [],
+			"fixture_sha256": "e887f3fbdd2a5e54dd64dc0ec1fb24a63c587d0cb15259bd2dfcb4e56f87641f",
+			"validator_sha256": "b884a5e7e4c0df76702b087c6e2fd45c1ce82b21fd21e284b77209b66a2307b0",
+			"views": [
+				{
+					"feet": [
+						6.07500028610229,
+						0.0300000440329313,
+						16.7649993896484
+					],
+					"id": "harukiya_state_0",
+					"image": "harukiya_state_0.png",
+					"status": "standing_station_pending_visual_review"
+				},
+				{
+					"feet": [
+						6.07500028610229,
+						0.0300000440329313,
+						16.7649993896484
+					],
+					"id": "harukiya_state_1",
+					"image": "harukiya_state_1.png",
+					"status": "standing_station_pending_visual_review"
+				},
+				{
+					"feet": [
+						6.07500028610229,
+						0.0300000440329313,
+						16.7649993896484
+					],
+					"id": "harukiya_state_2",
+					"image": "harukiya_state_2.png",
+					"status": "standing_station_pending_visual_review"
+				},
+				{
+					"feet": [
+						19.6550006866455,
+						0.00999999977648258,
+						6.7049994468689
+					],
+					"id": "bodega_dropout",
+					"image": "bodega_dropout.png",
+					"status": "standing_station_pending_visual_review"
+				},
+				{
+					"feet": [
+						16.6550006866455,
+						0.00999999977648258,
+						6.70499992370605
+					],
+					"id": "bodega_lit",
+					"image": "bodega_lit.png",
+					"status": "standing_station_pending_visual_review"
+				},
+				{
+					"feet": [
+						20.1550006866455,
+						0.0300000514835119,
+						0.804999828338623
+					],
+					"id": "bodega_inside_service",
+					"image": "bodega_inside_service.png",
+					"status": "standing_station_pending_visual_review"
+				},
+				{
+					"feet": [
+						4.875,
+						0.049999862909317,
+						19.9650001525879
+					],
+					"id": "harukiya_inside_approach",
+					"image": "harukiya_inside_approach.png",
+					"status": "standing_station_pending_visual_review"
+				},
+				{
+					"feet": [
+						8.85000038146973,
+						0.00999999977648258,
+						6.98000144958496
+					],
+					"id": "orison_dark",
+					"image": "orison_dark.png",
+					"status": "standing_station_pending_visual_review"
+				},
+				{
+					"feet": [
+						8.85000038146973,
+						0.00999999977648258,
+						6.98000144958496
+					],
+					"id": "orison_lit",
+					"image": "orison_lit.png",
+					"status": "standing_station_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

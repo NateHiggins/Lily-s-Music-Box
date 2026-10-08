@@ -1619,3 +1619,27 @@ game/tests/orison_v2_bar_receiving_test.gd -text
 game/tests/orison_v2_bar_receiving_preflight.gd -text
 game/scripts/building/orison_v2_bar_receiving.gd -text
 art/renders/orison_v2/bar_receiving_20261008/** -text -whitespace
+
+# Native source-owned signage housings.
+art/blender/scripts/prepare_signage.py -text
+art/blender/scripts/build_signage.py -text
+art/blender/scripts/signage_geometry.py -text
+art/blender/scripts/render_signage.py -text
+art/data/signage/source_plan.json -text
+art/blender/signage.blend -text
+art/blender/signage_construction.json -text
+game/assets/props/signage.glb -text
+game/assets/props/signage.glb.import -text
+game/data/orison_v2/signage.json -text
+game/tests/fixtures/orison_signage.json -text
+game/tests/orison_v2_signage_test.gd -text
+game/scripts/building/orison_v2_native_signage.gd -text
+art/renders/orison_v2/signage_20261008/** -text -whitespace
+
+# Generated neutral iron provenance and deterministic material data.
+art/tools/build_neutral_iron.py -text
+art/textures/ai_sources/iron_neutral_20261008* -text
+art/textures/ai_materials/iron_neutral/* -text
+art/blender/scripts/render_neutral_iron.py -text
+art/renders/orison_v2/iron_neutral_20261008/** -text -whitespace
+game/assets/building/textures/T_ai_materials_iron_neutral_*.png.import -text

@@ -84,6 +84,12 @@ for row in source_pieces:
     clipped=[row['bounds']]
     for mask in retained:
         clipped=[piece for box in clipped for piece in subtract(box,mask['bounds'])]
+    if row['id']=='ContinuousHeader':
+        port=plan['sign_service_port'];x,y=port['center'];w,h=port['width'],port['height']
+        assert row['bounds'][0]<x-w/2<x+w/2<row['bounds'][3]
+        assert row['bounds'][1]<y-h/2<y+h/2<row['bounds'][4]
+        mask=[x-w/2,y-h/2,back-.001,x+w/2,y+h/2,front+.001]
+        clipped=[piece for box in clipped for piece in subtract(box,mask)]
     pieces.extend({**row,'id':row['id']+'__'+str(index),'bounds':box} for index,box in enumerate(clipped))
 for index,a in enumerate(pieces):
     for b in pieces[index+1:]:
@@ -230,7 +236,7 @@ asset=ROOT/'game/assets/props/bodega_frontage.glb'
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',use_selection=True,export_yup=True,export_tangents=True)
 manifest={'evidence_class':'INERT','classification':'ADAPTATION','parts':inventory,'triangles':triangles,
           'closed_native_pieces':len(pieces)+1,
-          'closed_pieces':pieces,'retained':retained,'new_glass':new_glass,'omitted_contact_cells':omitted,
+          'closed_pieces':pieces,'retained':retained,'new_glass':new_glass,'omitted_contact_cells':omitted,'sign_service_port':plan['sign_service_port'],
           'door_clear_width':inner*2,'door_clear_height':door['height_m'],
           'leaf_panel_bounds':panel,'leaf_panel_triangles':leaf_triangles,'leaf_panel_raise':plan['leaf_panel_raise'],
           'wood_key':plan['wood_key'],'wood_tint':plan['wood_tint'],'wood_scale_multiplier':plan['wood_scale_multiplier'],

@@ -1,0 +1,41 @@
+{
+	"checks": 359,
+	"contracts": {
+		"premature_action_denial": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 13.808,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Three original sign owners, fabricated payloads, retained lettering/areas/material and practical-light owners, original hours/dropout/neon states, persistent-fact stability, physical bearings, independent bodega branch route and teardown. Captures use real player standing stations. No disk-save reconstruction, keyboard route or residency proof.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "647118521824a80c75006b1d99358c7b6665066b",
+		"runtime_inputs_sha256": "89f02a1242c3796ea31803b25bcf6560a221b10c33e13998a38bb9e0d126ac04",
+		"test_path": "game/tests/orison_v2_signage_test.gd",
+		"test_sha256": "b884a5e7e4c0df76702b087c6e2fd45c1ce82b21fd21e284b77209b66a2307b0"
+	}
+}

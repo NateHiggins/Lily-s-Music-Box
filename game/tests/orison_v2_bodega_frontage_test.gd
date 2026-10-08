@@ -1,5 +1,10 @@
 extends "res://tests/orison_v2_roof_membrane_test.gd"
 ## Production joinery, retained owners, actual moving envelope and map checks.
+var batch_mode := false
+var capture_enabled := true
+func _ready() -> void:
+	if not batch_mode:call_deferred("_run")
+
 func _run() -> void:
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
@@ -11,6 +16,11 @@ func _run() -> void:
 	await get_tree().physics_frame
 	check(not world.startup_failed,"fitted frontage starts in actual production")
 	if world.startup_failed:world.free();get_tree().quit(1);return
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio()
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	world.player.set_physics_process(false)
 	world.service_set_carrier.set_capture_hidden(true)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
@@ -100,6 +110,7 @@ func _run() -> void:
 		["transom",Vector3(0,1.61,.8),Vector3(0,2.35,0)],
 		["inside",Vector3(0,1.61,-1.5),Vector3(0,2.4,0)],
 		["oblique",Vector3(-1.55,1.61,1),Vector3(.8,1.7,0)]]:
+		if not capture_enabled:break
 		world.player.global_position=shop.to_global(view[1])-Vector3.UP*world.player.STANDING_EYE
 		world.player.face_world_point(shop.to_global(view[2]));world.player.set_lamp_enabled(true)
 		await _settled_optics();await shot(view[0])
@@ -119,5 +130,4 @@ func _run() -> void:
 	var file:=FileAccess.open(OS.get_environment("SHOT_DIR").path_join("bodega-frontage-inspection.json"),FileAccess.WRITE)
 	file.store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"contacts":contacts,"extended_probes":extended_probes,"longest_probe_m":longest_probe,"moving_samples":samples,"failures":failures,"observations":observations},"\t"))
 	print("BODEGA FRONTAGE: checks=",checks," contacts=",contacts," moving_samples=",samples," parts=",parts," triangles=",triangles," extended_probes=",extended_probes," longest_probe=",longest_probe," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio()
-	get_tree().quit(0 if failures.is_empty() else 1)
+	return {"checks":checks,"failures":failures}
