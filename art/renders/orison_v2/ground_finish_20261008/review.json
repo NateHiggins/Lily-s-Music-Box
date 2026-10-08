@@ -1,0 +1,29 @@
+{
+  "evidence_class": "INERT",
+  "starting_head": "03118dd742820413eb8ffa33adc660b4ddfcd95e",
+  "asphalt_groups": 1876,
+  "ground_parts": 2112,
+  "triangles": 9060,
+  "checks": 28732,
+  "original_stations": 48,
+  "failures": [],
+  "runtime_inputs_sha256": "92b2197f17f3ccf60a8fb7e48b367bfe463137e4dc8c926fe5fa664767e98b7e",
+  "reused_captures_runtime_inputs_match": true,
+  "images": {
+    "installed/courtyard_city_plinth_after.png": "b109a24c2cfb0bedbcac19c825d09c646453bac62de4fa245afec9033d3c1511",
+    "installed/courtyard_city_plinth_before.png": "48918919c874ac08a3e1fafbf9f606cfd240c83602b29a522930b71484bed6d7",
+    "installed/west_city_bedding_after.png": "92768e88af407ad341c90a5e3071c898bd2bf6160568902e76e49020dc0c52f5",
+    "installed/west_city_bedding_before.png": "80a9b0badb06b6280f72b19aaf3f884ded8a494be7017b158a49ee5db2c2bed4",
+    "native/courtyard_city_plinth_after.png": "0ad4d04d6051fc46dccf9c083f90fccf466f6fd423485a1749f743a3b1007ae0",
+    "native/courtyard_city_plinth_before.png": "7297af22c2d52d5450e7e8807fe4b65d74126b47668df992a72adafd203572e4",
+    "native/west_city_bedding_after.png": "98edeafceb732b4c14e8917e91e1ac3d90225b8f9cfaa13cc16cf9fd7ef16ea4",
+    "native/west_city_bedding_before.png": "a75edcac9941c8c5cc354235e020838daa6936008fbd54be2b329213c5769708"
+  },
+  "restrictions": [
+    "Run01 uncaptured-view counters did not settle; use final runtime03 inspection instead.",
+    "Run02 report directory error and timeout: no verdict.",
+    "Old west_front_seam view now faces an interior counter and is excluded from ground image evidence.",
+    "Native neutral lighting and installed warm carried lamp are distinct review contexts.",
+    "Canonical wrapper/inspection only, not a schema-2 runtime contract or fresh-checkout runtime proof."
+  ]
+}

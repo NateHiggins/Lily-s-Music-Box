@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Courtyard and city-ground asphalt finish, retained native geometry and collision | `design/V2_GROUND_FINISH_2026-10-08.md` |
 | Neighboring city galvanized roof finish and retained parapet/hardware checks | `design/V2_CITY_ROOF_FINISH_2026-10-08.md` |
 | Rear service alley coping, neutral iron and retained geometry | `design/V2_ALLEY_FINISH_2026-10-08.md` |
 | Native street paving detail, fitted curb endpoint and original street crossing | `design/V2_STREET_PAVING_2026-10-08.md` and `art/blender/street_paving_details.md` |

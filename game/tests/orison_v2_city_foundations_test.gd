@@ -2,6 +2,33 @@ extends "res://tests/orison_v2_ceiling_top_closures_test.gd"
 ## INERT installed native ground, original ownership and mapped surface checks.
 const SOURCE := "res://tests/fixtures/orison_ground_source.json"
 const CONSTRUCTION := "res://tests/fixtures/orison_ground_construction.json"
+var finish_draws: Array[MeshInstance3D] = []
+var finish_materials: Array[Material] = []
+
+func _ground_finish(draw: MeshInstance3D) -> void:
+	if not draw.has_meta("v2_ground_source"):return
+	var already_checked:=finish_materials.has(draw.material_override)
+	finish_draws.append(draw);finish_materials.append(draw.material_override)
+	if already_checked:return # Shared texture readback once, not per terrain tile.
+	var mat := draw.material_override as StandardMaterial3D
+	var shared := MatLib.get_mat("asphalt")
+	var recipe: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/ground_finish.json"))
+	var tint: Array=recipe.tint
+	check(mat!=shared and mat!=draw.get_meta("v2_ground_source"),"local court finish preserves originals")
+	check(mat.albedo_color.is_equal_approx(Color(tint[0],tint[1],tint[2],tint[3])) and is_equal_approx(mat.normal_scale,float(recipe.normal)) and is_equal_approx(mat.roughness,float(recipe.roughness)),"exact court finish response")
+	check(not mat.uv1_triplanar and mat.uv1_scale.is_equal_approx(shared.uv1_scale),"retained physical asphalt tile size")
+	for pair: Array in [[mat.albedo_texture,shared.albedo_texture],[mat.normal_texture,shared.normal_texture],[mat.roughness_texture,shared.roughness_texture]]:
+		check(pair[0]==pair[1] and pair[0].get_image().has_mipmaps(),"original asphalt map and real mip chain")
+	check(shared.albedo_color==Color.WHITE and is_equal_approx(shared.normal_scale,.35),"shared asphalt remains unchanged")
+
+func _ground_shot(label: String) -> void:
+	var selected:=OS.get_environment("ORISON_GROUND_FINISH_VIEWS")
+	if not selected.is_empty() and label not in selected.split(",",false):
+		await _settled_optics() # Preserve the following stationary render observations.
+		return
+	for before: bool in [true,false]:
+		for i in finish_draws.size():finish_draws[i].material_override=finish_draws[i].get_meta("v2_ground_source") if before else finish_materials[i]
+		await _settled_optics();await shot(label+("_before" if before else "_after"))
 
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
@@ -72,8 +99,13 @@ func _run() -> void:
 		native.append_array(pose*draw.mesh.get_faces())
 		var material:=draw.material_override as StandardMaterial3D
 		check(material!=null and not material.uv1_triplanar,"installed ground uses the verified metre UV channel")
+		_ground_finish(draw)
 		new_bodies.append(draw.get_node("GroundCollision").get_rid())
 	check(parts==construction.parts.size() and triangles==construction.native_faces*2,"production imports the complete bound native ground export")
+	var expected_finish:=0
+	for row: Dictionary in construction.parts:
+		if str(row.material)=="asphalt":expected_finish+=1
+	check(finish_draws.size()==expected_finish and expected_finish>0,"exact asphalt partition roster refined")
 	check(FileAccess.get_sha256("res://assets/props/orison_ground.glb")==construction.source_native_sha256,"installed ground binds its exact native export")
 	await get_tree().physics_frame;await get_tree().physics_frame
 	var old_exclude: Array[RID]=[world.player.get_rid()]
@@ -151,12 +183,17 @@ func _run() -> void:
 		world.player.face_world_point(root.to_global(view[2]))
 		camera.basis=camera.basis.orthonormalized();world.player._hand.basis=world.player._hand.basis.orthonormalized()
 		world.player.set_lamp_enabled(true)
-		await _settled_optics();await shot(str(view[0]))
+		await _ground_shot(str(view[0]))
 		var shown:=_ground_render_stats()
 		owner.hide();await _settled_optics();var hidden:=_ground_render_stats()
 		owner.show();await _settled_optics()
 		observations.append({"view":view[0],"shown":shown,"hidden":hidden,"note":"Matched stationary native ground visibility; collision stays enabled. No timing verdict."})
-	var file:=FileAccess.open(OS.get_environment("SHOT_DIR").path_join("ground-inspection.json"),FileAccess.WRITE)
+	var report_dir:=OS.get_environment("SHOT_DIR")
+	DirAccess.make_dir_recursive_absolute(report_dir)
+	var file:=FileAccess.open(report_dir.path_join("ground-inspection.json"),FileAccess.WRITE)
+	if file==null:
+		push_error("Cannot write ground inspection: "+report_dir)
+		world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(1);return
 	file.store_string(JSON.stringify({"evidence_class":"INERT","parts":parts,"triangles":triangles,"terrain_contacts":contacts,"embedded_stations":embedded,"original_reproduced":reproduced,"results":results,"render_observations":observations,"checks":checks,"failures":failures,"note":"Installed bounded ground only. Drainage, air-well, broader city and weather closure remain open."},"\t")+"\n");file.close()
 	print("INERT V2 GROUND: parts=%d triangles=%d contacts=%d embedded=%d reproduced=%d checks=%d failures=%d" % [parts,triangles,contacts,embedded,reproduced,checks,failures.size()])
 	for failure: String in failures:print("COURTYARD TRIAL FAIL: ",failure)
