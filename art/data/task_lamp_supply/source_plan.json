@@ -1,0 +1,295 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "schema_version": 1,
+  "authorization": "Owner reply on 2026-10-08: Design and add outlet placements. These are newly designed visual installations, not recovered legacy electrical services.",
+  "intent": "Five fixed cloth-covered supply leads to new low-profile floor receptacles underneath the source furniture. Preserve all original lamp bodies, switch controls, light output and acoustic graph identities. No cord collision or new circuit owner.",
+  "references": [
+    {
+      "url": "https://collections.ingenium.ca/en/id/1992.1931.001/",
+      "basis": "1914 single flush receptacle and plug: metal cover and porcelain housing; form reference only."
+    },
+    {
+      "url": "https://patents.google.com/patent/US776326",
+      "basis": "1904 multiple attachment plug specification explicitly names floor, wall and ceiling receptacles. The five locations and dimensions here are an authorized adaptation."
+    }
+  ],
+  "cord_radius": 0.0033,
+  "installations": [
+    {
+      "id": "B1_NOOK_LAMP",
+      "support": "nook_table",
+      "position": [
+        -0.44,
+        0.365,
+        0.0398
+      ],
+      "yaw": -0.5235987755982988,
+      "existing": false,
+      "variant": "emeralite",
+      "unit": "ATRIUM",
+      "exit": [
+        -1,
+        0,
+        0
+      ],
+      "radius": 0.095,
+      "entry_height": 0.007,
+      "floor_y": 0.008,
+      "outlet": [
+        -0.43,
+        0.008,
+        0.04
+      ],
+      "waypoints": [
+        [
+          -0.55,
+          0.3683,
+          -0.01
+        ],
+        [
+          -0.575,
+          0.3683,
+          -0.01
+        ],
+        [
+          -0.575,
+          0.08,
+          -0.01
+        ],
+        [
+          -0.49,
+          0.065,
+          0.04
+        ],
+        [
+          -0.43,
+          0.082,
+          0.04
+        ]
+      ],
+      "floor_owner": "nook_rug"
+    },
+    {
+      "id": "F02_A_LAMP_01",
+      "support": "2A_desk",
+      "position": [
+        -0.45,
+        0.735,
+        -0.2
+      ],
+      "yaw": 0,
+      "existing": false,
+      "variant": "office_green",
+      "unit": "2A",
+      "exit": [
+        -1,
+        0,
+        0
+      ],
+      "radius": 0.078,
+      "entry_height": 0.007,
+      "floor_y": 0.0,
+      "outlet": [
+        -0.52,
+        0,
+        -0.15
+      ],
+      "waypoints": [
+        [
+          -0.58,
+          0.7383,
+          -0.2
+        ],
+        [
+          -0.785,
+          0.7383,
+          -0.2
+        ],
+        [
+          -0.785,
+          0.07,
+          -0.2
+        ],
+        [
+          -0.62,
+          0.055,
+          -0.15
+        ],
+        [
+          -0.52,
+          0.074,
+          -0.15
+        ]
+      ],
+      "floor_owner": "F02_A_BED"
+    },
+    {
+      "id": "F03_B_LAMP_01",
+      "support": "3B_workbench",
+      "position": [
+        0.6,
+        0.91,
+        0.18
+      ],
+      "yaw": 0,
+      "existing": true,
+      "variant": "bench_friction",
+      "unit": "3B",
+      "exit": [
+        0,
+        0,
+        1
+      ],
+      "radius": 0.11,
+      "entry_height": 0.008,
+      "floor_y": 0.0,
+      "outlet": [
+        0.86,
+        0,
+        0.05
+      ],
+      "waypoints": [
+        [
+          0.6,
+          0.918,
+          0.318
+        ],
+        [
+          0.66,
+          0.9133,
+          0.325
+        ],
+        [
+          0.89,
+          0.9133,
+          0.1
+        ],
+        [
+          1.14,
+          0.9133,
+          0.05
+        ],
+        [
+          1.14,
+          0.064,
+          0.05
+        ],
+        [
+          0.95,
+          0.055,
+          0.05
+        ],
+        [
+          0.86,
+          0.074,
+          0.05
+        ]
+      ],
+      "floor_owner": "F03_B_MAIN"
+    },
+    {
+      "id": "F04_B_LAMP_01",
+      "support": "4B_terminal_desk",
+      "position": [
+        -0.2,
+        0.75,
+        -0.51
+      ],
+      "yaw": 1.5707963267948966,
+      "existing": false,
+      "variant": "landlord_enamel",
+      "unit": "4B",
+      "exit": [
+        0,
+        0,
+        -1
+      ],
+      "radius": 0.082,
+      "entry_height": 0.008,
+      "floor_y": 0.0,
+      "outlet": [
+        -0.16,
+        0,
+        -0.42
+      ],
+      "waypoints": [
+        [
+          -0.33,
+          0.7533,
+          -0.51
+        ],
+        [
+          -0.33,
+          0.064,
+          -0.51
+        ],
+        [
+          -0.22,
+          0.061,
+          -0.42
+        ],
+        [
+          -0.16,
+          0.074,
+          -0.42
+        ]
+      ],
+      "floor_owner": "F04_B_MAIN"
+    },
+    {
+      "id": "F05_A_LAMP_01",
+      "support": "5A_plantable",
+      "position": [
+        0.6,
+        0.8,
+        0
+      ],
+      "yaw": 0,
+      "existing": false,
+      "variant": "architect_counterweight",
+      "unit": "5A",
+      "exit": [
+        1,
+        0,
+        0
+      ],
+      "radius": 0.112,
+      "entry_height": 0.008,
+      "floor_y": 0.0,
+      "outlet": [
+        0.86,
+        0,
+        0.0
+      ],
+      "waypoints": [
+        [
+          0.82,
+          0.8033,
+          0
+        ],
+        [
+          1.035,
+          0.8033,
+          0
+        ],
+        [
+          1.035,
+          0.064,
+          0
+        ],
+        [
+          0.93,
+          0.057,
+          0
+        ],
+        [
+          0.86,
+          0.074,
+          0
+        ]
+      ],
+      "floor_owner": "F05_A_MAIN"
+    }
+  ]
+}

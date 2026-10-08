@@ -2,14 +2,15 @@ extends RefCounted
 ## Visual payloads only. Original mesh nodes retain animation, material state,
 ## child lettering, sounds, reach areas and every gameplay reference.
 const PATH := "res://data/orison_v2/service_instruments.json"
+const BAR_PATH := "res://data/orison_v2/bar_instruments.json"
 var installed: Dictionary = {}
 var errors: Array[String] = []
 var _meshes: Dictionary = {}
 var _materials: Dictionary = {}
 var work_light_parts: Dictionary = {}
 
-func mount(world: Node) -> bool:
-	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
+func mount(world: Node, data_path: String = PATH) -> bool:
+	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(data_path))
 	if data is not Dictionary or data.get("schema_version")!=1: return false
 	var scene := load(str(data.asset)) as PackedScene
 	if scene==null: return false
@@ -49,7 +50,7 @@ func mount(world: Node) -> bool:
 				errors.append("source size: "+str(row.id)); continue
 			if not str(part.mesh).is_empty(): _prepare_mesh(model,part,bool(part.preserve_material))
 		for part: Dictionary in row.additions: _prepare_mesh(model,part,false)
-		prepared.append({"actor":actor,"row":row,"draws":draws})
+		prepared.append({"actor":actor,"row":row,"draws":draws,"areas":actor.find_children("*","Area3D",true,false).map(func(n):return n.get_instance_id())})
 	model.free()
 	if not errors.is_empty(): return false
 	# Preflight the whole batch before replacing any payload.
@@ -68,7 +69,7 @@ func mount(world: Node) -> bool:
 			draw.name = str(part.mesh)
 			draw.mesh = _meshes[str(part.mesh)]
 			actor.add_child(draw)
-		installed[str(entry.row.id)] = {"actor":weakref(actor),"source":snapshots,"script":entry.row.script}
+		installed[str(entry.row.id)] = {"actor":weakref(actor),"source":snapshots,"script":entry.row.script,"areas":entry.areas}
 		actor.set_meta("v2_native_service_instrument",true)
 		if actor is DumbwaiterProp:
 			var ropes:=preload("res://scripts/building/orison_v2_dumbwaiter_rope_visual.gd").new()

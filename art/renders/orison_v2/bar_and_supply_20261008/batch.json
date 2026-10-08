@@ -1,0 +1,148 @@
+{
+	"batch_checks": 12,
+	"elapsed_ms": 55565,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 2946,
+	"modules": {
+		"bar_instruments": {
+			"captured": true,
+			"checks": 364,
+			"elapsed_ms": 6363,
+			"failures": [],
+			"fixture_sha256": "707dbacf584532f18004fe65cf5229c7ba61ed13c4cb48eb2095ce5ba40146bd",
+			"validator_sha256": "a707296c3d4a7f1f51f74706cfd192eb343fde77ffe3e1b247b7a1a621461536",
+			"views": [
+				{
+					"bucket": "bar",
+					"feet": [
+						-3.20000004768372,
+						-2.76999998092651,
+						26.4049968719482
+					],
+					"id": "F01_KARAOKE_SPK_0_native",
+					"image": "F01_KARAOKE_SPK_0_native.png",
+					"owner": "F01_KARAOKE_SPK_0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "bar",
+					"feet": [
+						-9.17999935150146,
+						-2.76999998092651,
+						25.1750011444092
+					],
+					"id": "F01_BAR_DARTS_native",
+					"image": "F01_BAR_DARTS_native.png",
+					"owner": "F01_BAR_DARTS",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "bar",
+					"feet": [
+						-10.2399997711182,
+						-2.76999998092651,
+						25.1550006866455
+					],
+					"id": "F01_BAR_SONGBOOK_native",
+					"image": "F01_BAR_SONGBOOK_native.png",
+					"owner": "F01_BAR_SONGBOOK",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "bar",
+					"feet": [
+						2.00000023841858,
+						-2.54999995231628,
+						26.8049983978271
+					],
+					"id": "F01_KARAOKE_SPK_1_native",
+					"image": "F01_KARAOKE_SPK_1_native.png",
+					"owner": "F01_KARAOKE_SPK_1",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"service_instruments": {
+			"captured": false,
+			"checks": 2337,
+			"elapsed_ms": 767,
+			"failures": [],
+			"fixture_sha256": "8e37b77cfbf4d9fec3b3f326ac347264695ae68b03a3d898d53d6ffc3c81810f",
+			"validator_sha256": "55dd709331229495844a653be264024a404020066bff32fe37cddc2544328da4"
+		},
+		"task_lamp_supply": {
+			"captured": true,
+			"checks": 245,
+			"elapsed_ms": 14188,
+			"failures": [],
+			"fixture_sha256": "7bc922d6aa8531605d899a5b1c379ee9ed019955783cb0a831568af6ee1ee4ec",
+			"validator_sha256": "b0aa36a531b8920e85034759b3c6b8b0fdea2dc52c4d55388fadb8ca894a8b00",
+			"views": [
+				{
+					"bucket": "task lamp supply",
+					"feet": [
+						1.65000104904175,
+						-3.17000007629395,
+						-13.139799118042
+					],
+					"id": "B1_NOOK_LAMP_supply",
+					"image": "B1_NOOK_LAMP_supply.png",
+					"owner": "B1_NOOK_LAMP",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "task lamp supply",
+					"feet": [
+						14.5131740570068,
+						3.23000001907349,
+						-19.213171005249
+					],
+					"id": "F02_A_LAMP_01_supply",
+					"image": "F02_A_LAMP_01_supply.png",
+					"owner": "F02_A_LAMP_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "task lamp supply",
+					"feet": [
+						-13.649998664856,
+						6.43000030517578,
+						-10.3000011444092
+					],
+					"id": "F03_B_LAMP_01_supply",
+					"image": "F03_B_LAMP_01_supply.png",
+					"owner": "F03_B_LAMP_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "task lamp supply",
+					"feet": [
+						9.05000114440918,
+						9.63000011444092,
+						-11.7499990463257
+					],
+					"id": "F04_B_LAMP_01_supply",
+					"image": "F04_B_LAMP_01_supply.png",
+					"owner": "F04_B_LAMP_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "task lamp supply",
+					"feet": [
+						12.5000009536743,
+						12.8299999237061,
+						-5.89999866485596
+					],
+					"id": "F05_A_LAMP_01_supply",
+					"image": "F05_A_LAMP_01_supply.png",
+					"owner": "F05_A_LAMP_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

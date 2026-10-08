@@ -1,0 +1,1747 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "actors": [
+    {
+      "actor": "F01_KARAOKE_SPK_0",
+      "id": "M11",
+      "meshes": [
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 0,
+          "materials": [
+            {
+              "albedo": "res://assets/building/textures/T_library_furniture_walnut_albedo.png",
+              "class": "StandardMaterial3D",
+              "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 1.0
+            }
+          ],
+          "name": "@MeshInstance3D@20629",
+          "path": "@MeshInstance3D@20629",
+          "position": [
+            0.0,
+            0.274999976158142,
+            0.0
+          ],
+          "size": [
+            0.340000003576279,
+            0.550000011920929,
+            0.300000011920929
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 1,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.100000001490116,
+                0.0949999988079071,
+                0.0900000035762787,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20630",
+          "path": "@MeshInstance3D@20630",
+          "position": [
+            0.0,
+            0.274999976158142,
+            0.148000717163086
+          ],
+          "size": [
+            0.300000011920929,
+            0.509999990463257,
+            0.0149999996647239
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -4.37113882867379e-08,
+              1.0
+            ],
+            [
+              0.0,
+              -1.0,
+              -4.37113882867379e-08
+            ]
+          ],
+          "index": 2,
+          "inner_radius": 0.090999998152256,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.159999996423721,
+                0.150000005960464,
+                0.140000000596046,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.800000011920929
+            }
+          ],
+          "name": "@MeshInstance3D@20631",
+          "outer_radius": 0.119000002741814,
+          "path": "@MeshInstance3D@20631",
+          "position": [
+            0.0,
+            0.360000014305115,
+            0.155000686645508
+          ],
+          "type": "TorusMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -4.37113882867379e-08,
+              -1.0
+            ],
+            [
+              0.0,
+              1.0,
+              -4.37113882867379e-08
+            ]
+          ],
+          "bottom_radius": 0.0280000008642673,
+          "height": 0.0500000007450581,
+          "index": 3,
+          "materials": [
+            {
+              "albedo": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.579999983310699,
+                0.550000011920929,
+                0.5,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 1.0
+            }
+          ],
+          "name": "@MeshInstance3D@20632",
+          "path": "@MeshInstance3D@20632",
+          "position": [
+            0.0,
+            0.360000014305115,
+            0.135000228881836
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.100000001490116,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -4.37113882867379e-08,
+              -1.0
+            ],
+            [
+              0.0,
+              1.0,
+              -4.37113882867379e-08
+            ]
+          ],
+          "bottom_radius": 0.0199999995529652,
+          "height": 0.0179999992251396,
+          "index": 4,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.300000011920929,
+                0.28999999165535,
+                0.270000010728836,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.5
+            }
+          ],
+          "name": "@MeshInstance3D@20633",
+          "path": "@MeshInstance3D@20633",
+          "position": [
+            0.0,
+            0.360000014305115,
+            0.158000946044922
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.0260000005364418,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -4.37113882867379e-08,
+              -1.0
+            ],
+            [
+              0.0,
+              1.0,
+              -4.37113882867379e-08
+            ]
+          ],
+          "bottom_radius": 0.0160000007599592,
+          "height": 0.0350000001490116,
+          "index": 5,
+          "materials": [
+            {
+              "albedo": "res://assets/building/textures/T_library_appliances_bakelite_albedo.png",
+              "class": "StandardMaterial3D",
+              "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 1.0
+            }
+          ],
+          "name": "@MeshInstance3D@20634",
+          "path": "@MeshInstance3D@20634",
+          "position": [
+            0.0,
+            0.115000009536743,
+            0.152000427246094
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.0520000010728836,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -4.37113882867379e-08,
+              -1.0
+            ],
+            [
+              0.0,
+              1.0,
+              -4.37113882867379e-08
+            ]
+          ],
+          "bottom_radius": 0.0299999993294477,
+          "height": 0.0199999995529652,
+          "index": 6,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.0500000007450581,
+                0.0500000007450581,
+                0.0500000007450581,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.899999976158142
+            }
+          ],
+          "name": "@MeshInstance3D@20635",
+          "path": "@MeshInstance3D@20635",
+          "position": [
+            0.0899999141693115,
+            0.115000009536743,
+            0.152000427246094
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.0299999993294477,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "bottom_radius": 0.00600000005215406,
+          "height": 0.0120000001043081,
+          "index": 7,
+          "materials": [
+            {
+              "albedo": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png",
+              "class": "StandardMaterial3D",
+              "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "metallic": 0.850000023841858,
+              "name": "",
+              "roughness": 1.0
+            }
+          ],
+          "name": "@MeshInstance3D@20636",
+          "path": "@MeshInstance3D@20636",
+          "position": [
+            -0.130000114440918,
+            0.0800000429153442,
+            0.152000427246094
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.00600000005215406,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "bottom_radius": 0.00600000005215406,
+          "height": 0.0120000001043081,
+          "index": 8,
+          "materials": [
+            {
+              "albedo": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png",
+              "class": "StandardMaterial3D",
+              "color": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "metallic": 0.850000023841858,
+              "name": "",
+              "roughness": 1.0
+            }
+          ],
+          "name": "@MeshInstance3D@20637",
+          "path": "@MeshInstance3D@20637",
+          "position": [
+            -0.130000114440918,
+            0.550000071525574,
+            0.152000427246094
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.00600000005215406,
+          "type": "CylinderMesh",
+          "visible": true
+        }
+      ],
+      "script": "res://scripts/props/speaker_prop.gd",
+      "source_sha256": "d47e226188b8f0f31be70535d5b0afb7b710b25de8b5d461986c79b3c5813efd"
+    },
+    {
+      "actor": "F01_BAR_DARTS",
+      "id": "M12",
+      "meshes": [
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 0,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.720000028610229,
+                0.759999990463257,
+                0.740000009536743,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.180000007152557
+            }
+          ],
+          "name": "@MeshInstance3D@20831",
+          "path": "@MeshInstance3D@20831",
+          "position": [
+            0.0,
+            0.0499999523162842,
+            0.0
+          ],
+          "size": [
+            0.0750000029802322,
+            0.100000001490116,
+            0.0750000029802322
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              0.992546141147614,
+              -0.121869347989559,
+              0.0
+            ],
+            [
+              0.121869347989559,
+              0.992546141147614,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 1,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.550000011920929,
+                0.550000011920929,
+                0.600000023841858,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20832",
+          "path": "@MeshInstance3D@20832",
+          "position": [
+            -0.0179996490478516,
+            0.120000004768372,
+            0.0
+          ],
+          "size": [
+            0.00800000037997961,
+            0.159999996423721,
+            0.00800000037997961
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              0.999847710132599,
+              -0.0174524057656527,
+              0.0
+            ],
+            [
+              0.0174524057656527,
+              0.999847710132599,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 2,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.720000028610229,
+                0.620000004768372,
+                0.280000001192093,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20833",
+          "path": "@MeshInstance3D@20833",
+          "position": [
+            0.0,
+            0.120000004768372,
+            0.00399971008300781
+          ],
+          "size": [
+            0.00800000037997961,
+            0.159999996423721,
+            0.00800000037997961
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              0.99619472026825,
+              0.0871557369828224,
+              0.0
+            ],
+            [
+              -0.0871557369828224,
+              0.99619472026825,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 3,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.550000011920929,
+                0.550000011920929,
+                0.600000023841858,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20834",
+          "path": "@MeshInstance3D@20834",
+          "position": [
+            0.0179996490478516,
+            0.120000004768372,
+            0.00799942016601563
+          ],
+          "size": [
+            0.00800000037997961,
+            0.159999996423721,
+            0.00800000037997961
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 4,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.7843137383461,
+                0.207843139767647,
+                0.168627455830574,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20835",
+          "path": "@MeshInstance3D@20835",
+          "position": [
+            -0.0179996490478516,
+            0.195999979972839,
+            0.0
+          ],
+          "size": [
+            0.0260000005364418,
+            0.0299999993294477,
+            0.0020000000949949
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 5,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.184313729405403,
+                0.560784339904785,
+                0.52549022436142,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20836",
+          "path": "@MeshInstance3D@20836",
+          "position": [
+            0.0,
+            0.195999979972839,
+            0.00399971008300781
+          ],
+          "size": [
+            0.0260000005364418,
+            0.0299999993294477,
+            0.0020000000949949
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 6,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.890196084976196,
+                0.690196096897125,
+                0.184313729405403,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20837",
+          "path": "@MeshInstance3D@20837",
+          "position": [
+            0.0179996490478516,
+            0.195999979972839,
+            0.00799942016601563
+          ],
+          "size": [
+            0.0260000005364418,
+            0.0299999993294477,
+            0.0020000000949949
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        }
+      ],
+      "script": "res://scripts/props/darts_prop.gd",
+      "source_sha256": "27e80effabd88945efe518ef65b91a789685a46a8ea07a21989005718afa931b"
+    },
+    {
+      "actor": "F01_BAR_SONGBOOK",
+      "id": "M13",
+      "meshes": [
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 0,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.234999999403954,
+                0.150000005960464,
+                0.0900000035762787,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.550000011920929
+            }
+          ],
+          "name": "@MeshInstance3D@20916",
+          "path": "@MeshInstance3D@20916",
+          "position": [
+            0.0,
+            0.0499999523162842,
+            0.0
+          ],
+          "size": [
+            0.620000004768372,
+            0.100000001490116,
+            0.340000003576279
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 1,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.311500012874603,
+                0.235000014305115,
+                0.180999994277954,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20917",
+          "path": "@MeshInstance3D@20917",
+          "position": [
+            0.0,
+            0.103999972343445,
+            0.0
+          ],
+          "size": [
+            0.660000026226044,
+            0.0219999998807907,
+            0.379999995231628
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "bottom_radius": 0.0280000008642673,
+          "height": 0.0500000007450581,
+          "index": 2,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.174999997019768,
+                0.180000007152557,
+                0.186000004410744,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20918",
+          "path": "@MeshInstance3D@20918",
+          "position": [
+            -0.260000228881836,
+            0.0199999809265137,
+            0.0
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.0280000008642673,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "bottom_radius": 0.0280000008642673,
+          "height": 0.0500000007450581,
+          "index": 3,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.174999997019768,
+                0.180000007152557,
+                0.186000004410744,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20919",
+          "path": "@MeshInstance3D@20919",
+          "position": [
+            0.260000228881836,
+            0.0199999809265137,
+            0.0
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.0280000008642673,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              -4.37113882867379e-08,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              -4.37113882867379e-08,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "bottom_radius": 0.0520000010728836,
+          "height": 0.300000011920929,
+          "index": 4,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.211499989032745,
+                0.135000005364418,
+                0.0810000002384186,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.620000004768372
+            }
+          ],
+          "name": "@MeshInstance3D@20920",
+          "path": "@MeshInstance3D@20920",
+          "position": [
+            -0.159999847412109,
+            0.300000071525574,
+            0.0
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.144999995827675,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              -4.37113882867379e-08,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              -4.37113882867379e-08,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "bottom_radius": 0.112999998033047,
+          "height": 0.0120000001043081,
+          "index": 5,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.174999997019768,
+                0.180000007152557,
+                0.186000004410744,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.5
+            }
+          ],
+          "name": "@MeshInstance3D@20921",
+          "path": "@MeshInstance3D@20921",
+          "position": [
+            -0.270000457763672,
+            0.300000071525574,
+            0.0
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.112999998033047,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              -4.37113882867379e-08,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              -4.37113882867379e-08,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "bottom_radius": 0.140000000596046,
+          "height": 0.0120000001043081,
+          "index": 6,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.174999997019768,
+                0.180000007152557,
+                0.186000004410744,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.5
+            }
+          ],
+          "name": "@MeshInstance3D@20922",
+          "path": "@MeshInstance3D@20922",
+          "position": [
+            -0.180000305175781,
+            0.300000071525574,
+            0.0
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.140000000596046,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              -4.37113882867379e-08,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              -4.37113882867379e-08,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "bottom_radius": 0.122000001370907,
+          "height": 0.0120000001043081,
+          "index": 7,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.174999997019768,
+                0.180000007152557,
+                0.186000004410744,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.5
+            }
+          ],
+          "name": "@MeshInstance3D@20923",
+          "path": "@MeshInstance3D@20923",
+          "position": [
+            -0.0799999237060547,
+            0.300000071525574,
+            0.0
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.122000001370907,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "bottom_radius": 0.0549999997019768,
+          "height": 0.0299999993294477,
+          "index": 8,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.519999980926514,
+                0.409999996423721,
+                0.189999997615814,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.319999992847443
+            }
+          ],
+          "name": "@MeshInstance3D@20924",
+          "path": "@MeshInstance3D@20924",
+          "position": [
+            -0.00799942016601563,
+            0.300000071525574,
+            0.0
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.0549999997019768,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              -4.37113882867379e-08,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              -4.37113882867379e-08,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "bottom_radius": 0.0469999983906746,
+          "height": 0.00400000018998981,
+          "index": 9,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.720000028610229,
+                0.680000007152557,
+                0.579999983310699,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.449999988079071
+            }
+          ],
+          "name": "@MeshInstance3D@20925",
+          "path": "@MeshInstance3D@20925",
+          "position": [
+            0.0100002288818359,
+            0.300000071525574,
+            0.0
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.0469999983906746,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 10,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.620000004768372,
+                0.579999983310699,
+                0.439999997615814,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20926",
+          "path": "@MeshInstance3D@20926",
+          "position": [
+            0.0550003051757813,
+            0.297999978065491,
+            0.0
+          ],
+          "size": [
+            0.0750000029802322,
+            0.00400000018998981,
+            0.00400000018998981
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -4.37113882867379e-08,
+              1.0
+            ],
+            [
+              0.0,
+              -1.0,
+              -4.37113882867379e-08
+            ]
+          ],
+          "bottom_radius": 0.0750000029802322,
+          "height": 0.219999998807907,
+          "index": 11,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.0350000001490116,
+                0.0329999998211861,
+                0.0320000015199184,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.920000016689301
+            }
+          ],
+          "name": "@MeshInstance3D@20927",
+          "path": "@MeshInstance3D@20927",
+          "position": [
+            0.155000686645508,
+            0.300000071525574,
+            0.0
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.0750000029802322,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -4.37113882867379e-08,
+              1.0
+            ],
+            [
+              0.0,
+              -1.0,
+              -4.37113882867379e-08
+            ]
+          ],
+          "bottom_radius": 0.0199999995529652,
+          "height": 0.300000011920929,
+          "index": 12,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.519999980926514,
+                0.409999996423721,
+                0.189999997615814,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.349999994039536
+            }
+          ],
+          "name": "@MeshInstance3D@20928",
+          "path": "@MeshInstance3D@20928",
+          "position": [
+            0.155000686645508,
+            0.300000071525574,
+            0.0
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.0199999995529652,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 13,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.174999997019768,
+                0.180000007152557,
+                0.186000004410744,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20929",
+          "path": "@MeshInstance3D@20929",
+          "position": [
+            0.155000686645508,
+            0.174999952316284,
+            0.0900001525878906
+          ],
+          "size": [
+            0.300000011920929,
+            0.0199999995529652,
+            0.0199999995529652
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              -4.37113882867379e-08,
+              1.0,
+              0.0
+            ],
+            [
+              -1.0,
+              -4.37113882867379e-08,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "bottom_radius": 0.00999999977648258,
+          "height": 0.280000001192093,
+          "index": 14,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.519999980926514,
+                0.409999996423721,
+                0.189999997615814,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.400000005960464
+            }
+          ],
+          "name": "@MeshInstance3D@20930",
+          "path": "@MeshInstance3D@20930",
+          "position": [
+            0.155000686645508,
+            0.174999952316284,
+            -0.0900001525878906
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.00999999977648258,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -4.37113882867379e-08,
+              1.0
+            ],
+            [
+              0.0,
+              -1.0,
+              -4.37113882867379e-08
+            ]
+          ],
+          "bottom_radius": 0.0219999998807907,
+          "height": 0.0299999993294477,
+          "index": 15,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.519999980926514,
+                0.409999996423721,
+                0.189999997615814,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.349999994039536
+            }
+          ],
+          "name": "@MeshInstance3D@20931",
+          "path": "@MeshInstance3D@20931",
+          "position": [
+            0.155000686645508,
+            0.300000071525574,
+            0.175000190734863
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.0219999998807907,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 16,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.174999997019768,
+                0.180000007152557,
+                0.186000004410744,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20932",
+          "path": "@MeshInstance3D@20932",
+          "position": [
+            0.155000686645508,
+            0.345000028610229,
+            0.189999580383301
+          ],
+          "size": [
+            0.0160000007599592,
+            0.0900000035762787,
+            0.0160000007599592
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -4.37113882867379e-08,
+              1.0
+            ],
+            [
+              0.0,
+              -1.0,
+              -4.37113882867379e-08
+            ]
+          ],
+          "bottom_radius": 0.0140000004321337,
+          "height": 0.0399999991059303,
+          "index": 17,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.234999999403954,
+                0.150000005960464,
+                0.0900000035762787,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.5
+            }
+          ],
+          "name": "@MeshInstance3D@20933",
+          "path": "@MeshInstance3D@20933",
+          "position": [
+            0.155000686645508,
+            0.389999985694885,
+            0.189999580383301
+          ],
+          "radial_segments": 14,
+          "top_radius": 0.0140000004321337,
+          "type": "CylinderMesh",
+          "visible": true
+        },
+        {
+          "basis": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "index": 18,
+          "materials": [
+            {
+              "albedo": "",
+              "class": "StandardMaterial3D",
+              "color": [
+                0.519999980926514,
+                0.409999996423721,
+                0.189999997615814,
+                1.0
+              ],
+              "metallic": 0.0,
+              "name": "",
+              "roughness": 0.600000023841858
+            }
+          ],
+          "name": "@MeshInstance3D@20934",
+          "path": "@MeshInstance3D@20934",
+          "position": [
+            -0.159999847412109,
+            0.134999990463257,
+            0.171999931335449
+          ],
+          "size": [
+            0.100000001490116,
+            0.0350000001490116,
+            0.00400000018998981
+          ],
+          "type": "BoxMesh",
+          "visible": true
+        }
+      ],
+      "script": "res://scripts/props/songbook_terminal_prop.gd",
+      "source_sha256": "ef1325354fdb34e84e3df760bdc7b56ef5ae11981b44466ee45caa85bb7471c7"
+    }
+  ],
+  "aliases": [
+    {
+      "source": "F01_KARAOKE_SPK_0",
+      "id": "F01_KARAOKE_SPK_1"
+    }
+  ],
+  "scope": "G08 speakers, G10 recording-only apparatus, G11 loose darts only. Piano, target case, cabinets and signage remain separate.",
+  "speaker_support": {
+    "source_wall": "retail_bar_dado_s",
+    "wall_inner_source_y": -37.84,
+    "local_wall_z": -0.54,
+    "basis": "Original south dado face, 60 mm proud of the structural wall. Shortened mounting plates and termination stay below the dado top. Retained speaker markers and audio owners unchanged."
+  },
+  "recorder_support": {
+    "source_wall": "retail_bar_dado_w",
+    "wall_inner_source_x": -11.44,
+    "local_wall_z": -0.1,
+    "basis": "Original west dado face. Move visual stock 100 mm along the common cylinder/crank axis to clear the cladding, preserving every node, transform, interaction and motion axis. Braced shelf arms carry the original feet.",
+    "visual_standoff": [
+      0,
+      0,
+      0.1
+    ]
+  }
+}

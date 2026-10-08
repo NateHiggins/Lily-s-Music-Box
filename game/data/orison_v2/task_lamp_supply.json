@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/task_lamp_supply.glb",
+  "materials": [
+    {
+      "key": "brass",
+      "catalog": "brass",
+      "tile": 0.5,
+      "normal": 0.12,
+      "roughness": 1.0,
+      "metallic": 0.85,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "porcelain",
+      "catalog": "porcelain",
+      "tile": 0.9,
+      "normal": 0.025,
+      "roughness": 0.35,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "bakelite",
+      "catalog": "bakelite",
+      "tile": 0.35,
+      "normal": 0.035,
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "rubber_aged",
+      "catalog": "rubber_aged",
+      "tile": 0.26,
+      "normal": 0.12,
+      "roughness": 0.82,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "linen",
+      "catalog": "linen",
+      "tile": 0.16,
+      "normal": 0.14,
+      "roughness": 0.84,
+      "metallic": 0.0,
+      "tint": [
+        0.32,
+        0.26,
+        0.2,
+        1.0
+      ]
+    }
+  ],
+  "outlet": {
+    "mesh": "SupplyOutlet",
+    "materials": [
+      "bakelite",
+      "brass",
+      "porcelain",
+      "rubber_aged"
+    ]
+  },
+  "installations": [
+    {
+      "id": "B1_NOOK_LAMP",
+      "support": "nook_table",
+      "parts": [
+        {
+          "mesh": "B1_NOOK_LAMP_Entry",
+          "materials": [
+            "rubber_aged"
+          ]
+        },
+        {
+          "mesh": "B1_NOOK_LAMP_ClothFlex",
+          "materials": [
+            "linen"
+          ]
+        }
+      ],
+      "outlet": [
+        -0.43,
+        0.008,
+        0.04
+      ]
+    },
+    {
+      "id": "F02_A_LAMP_01",
+      "support": "2A_desk",
+      "parts": [
+        {
+          "mesh": "F02_A_LAMP_01_Entry",
+          "materials": [
+            "rubber_aged"
+          ]
+        },
+        {
+          "mesh": "F02_A_LAMP_01_ClothFlex",
+          "materials": [
+            "linen"
+          ]
+        }
+      ],
+      "outlet": [
+        -0.52,
+        0,
+        -0.15
+      ]
+    },
+    {
+      "id": "F03_B_LAMP_01",
+      "support": "3B_workbench",
+      "parts": [
+        {
+          "mesh": "F03_B_LAMP_01_Entry",
+          "materials": [
+            "rubber_aged"
+          ]
+        },
+        {
+          "mesh": "F03_B_LAMP_01_ClothFlex",
+          "materials": [
+            "linen"
+          ]
+        }
+      ],
+      "outlet": [
+        0.86,
+        0,
+        0.05
+      ]
+    },
+    {
+      "id": "F04_B_LAMP_01",
+      "support": "4B_terminal_desk",
+      "parts": [
+        {
+          "mesh": "F04_B_LAMP_01_Entry",
+          "materials": [
+            "rubber_aged"
+          ]
+        },
+        {
+          "mesh": "F04_B_LAMP_01_ClothFlex",
+          "materials": [
+            "linen"
+          ]
+        }
+      ],
+      "outlet": [
+        -0.16,
+        0,
+        -0.42
+      ]
+    },
+    {
+      "id": "F05_A_LAMP_01",
+      "support": "5A_plantable",
+      "parts": [
+        {
+          "mesh": "F05_A_LAMP_01_Entry",
+          "materials": [
+            "rubber_aged"
+          ]
+        },
+        {
+          "mesh": "F05_A_LAMP_01_ClothFlex",
+          "materials": [
+            "linen"
+          ]
+        }
+      ],
+      "outlet": [
+        0.86,
+        0,
+        0.0
+      ]
+    }
+  ]
+}

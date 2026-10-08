@@ -1,0 +1,99 @@
+{
+  "evidence_class": "INERT",
+  "routes": [
+    {
+      "id": "B1_NOOK_LAMP",
+      "length_m": 0.5173921968820778,
+      "tested_blockers": 16,
+      "crossing_samples": 0,
+      "outlet_clashes": [],
+      "minimum_surface_clearance_m": 0.003610013984143734
+    },
+    {
+      "id": "F02_A_LAMP_01",
+      "length_m": 1.2082173300417127,
+      "tested_blockers": 13,
+      "crossing_samples": 0,
+      "outlet_clashes": [],
+      "minimum_surface_clearance_m": 0.003300011157989502
+    },
+    {
+      "id": "F03_B_LAMP_01",
+      "length_m": 1.799386790046064,
+      "tested_blockers": 14,
+      "crossing_samples": 0,
+      "outlet_clashes": [],
+      "minimum_surface_clearance_m": 0.003299891948699951
+    },
+    {
+      "id": "F04_B_LAMP_01",
+      "length_m": 0.9521629501425672,
+      "tested_blockers": 15,
+      "crossing_samples": 0,
+      "outlet_clashes": [],
+      "minimum_surface_clearance_m": 0.016488710418343544
+    },
+    {
+      "id": "F05_A_LAMP_01",
+      "length_m": 1.2475465753456203,
+      "tested_blockers": 13,
+      "crossing_samples": 0,
+      "outlet_clashes": [],
+      "minimum_surface_clearance_m": 0.003300011157989502
+    }
+  ],
+  "failures": [],
+  "views": [
+    {
+      "id": "B1_NOOK_LAMP",
+      "view": "complete",
+      "file": "B1_NOOK_LAMP_complete.png"
+    },
+    {
+      "id": "B1_NOOK_LAMP",
+      "view": "underside",
+      "file": "B1_NOOK_LAMP_underside.png"
+    },
+    {
+      "id": "F02_A_LAMP_01",
+      "view": "complete",
+      "file": "F02_A_LAMP_01_complete.png"
+    },
+    {
+      "id": "F02_A_LAMP_01",
+      "view": "underside",
+      "file": "F02_A_LAMP_01_underside.png"
+    },
+    {
+      "id": "F03_B_LAMP_01",
+      "view": "complete",
+      "file": "F03_B_LAMP_01_complete.png"
+    },
+    {
+      "id": "F03_B_LAMP_01",
+      "view": "underside",
+      "file": "F03_B_LAMP_01_underside.png"
+    },
+    {
+      "id": "F04_B_LAMP_01",
+      "view": "complete",
+      "file": "F04_B_LAMP_01_complete.png"
+    },
+    {
+      "id": "F04_B_LAMP_01",
+      "view": "underside",
+      "file": "F04_B_LAMP_01_underside.png"
+    },
+    {
+      "id": "F05_A_LAMP_01",
+      "view": "complete",
+      "file": "F05_A_LAMP_01_complete.png"
+    },
+    {
+      "id": "F05_A_LAMP_01",
+      "view": "underside",
+      "file": "F05_A_LAMP_01_underside.png"
+    }
+  ],
+  "scope": "Dense centerline clearance samples against native furniture, lamps and retained tabletop stock; installed floor contacts and original switches require runtime validation."
+}

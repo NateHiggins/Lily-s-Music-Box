@@ -1558,3 +1558,29 @@ game/scripts/building/orison_v2_native_service_instruments.gd -text
 game/scripts/building/orison_v2_native_service_work_lights.gd -text
 game/scripts/building/orison_v2_dumbwaiter_rope_visual.gd -text
 art/renders/orison_v2/service_instruments_20261008/** -text -whitespace
+
+# Source-bound Harukiya apparatus and authorized lamp supply routes.
+art/blender/scripts/check_exported_tangents.py -text
+art/blender/scripts/build_bar_instruments.py -text
+art/blender/scripts/bar_instruments_geometry.py -text
+art/blender/scripts/render_bar_instruments.py -text
+art/data/bar_instruments/source_plan.json -text
+art/blender/bar_instruments.blend -text
+art/blender/bar_instruments_construction.json -text
+game/assets/props/bar_instruments.glb -text
+game/assets/props/bar_instruments.glb.import -text
+game/data/orison_v2/bar_instruments.json -text
+game/tests/fixtures/orison_bar_instruments.json -text
+game/tests/orison_v2_bar_instruments_test.gd -text
+art/blender/scripts/build_task_lamp_supply.py -text
+art/blender/scripts/inspect_task_lamp_supply.py -text
+art/data/task_lamp_supply/source_plan.json -text
+art/blender/task_lamp_supply.blend -text
+art/blender/task_lamp_supply_construction.json -text
+game/assets/props/task_lamp_supply.glb -text
+game/assets/props/task_lamp_supply.glb.import -text
+game/data/orison_v2/task_lamp_supply.json -text
+game/tests/fixtures/orison_task_lamp_supply.json -text
+game/tests/orison_v2_task_lamp_supply_test.gd -text
+game/scripts/building/orison_v2_task_lamp_supply.gd -text
+art/renders/orison_v2/bar_and_supply_20261008/** -text -whitespace

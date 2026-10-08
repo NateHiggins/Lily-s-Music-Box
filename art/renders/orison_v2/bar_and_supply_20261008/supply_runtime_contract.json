@@ -1,0 +1,41 @@
+{
+	"checks": 245,
+	"contracts": {
+		"premature_action_denial": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 16.14,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Five original task lamps with authorized passive supply routes: retained optical/control/graph ownership, actual outlet-floor contacts, cord collision clearance, original switch motion and restored power state, retirement. No new electrical service capacity, player approach route or save reconstruction is claimed.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "b17512c5284a4f0ebe08e610c05251e0ab2fb6ca",
+		"runtime_inputs_sha256": "e5357ffe6f54fb4744312408d72f9650a7d82cb7091c32e230940a788809e9c6",
+		"test_path": "game/tests/orison_v2_task_lamp_supply_test.gd",
+		"test_sha256": "b0aa36a531b8920e85034759b3c6b8b0fdea2dc52c4d55388fadb8ca894a8b00"
+	}
+}

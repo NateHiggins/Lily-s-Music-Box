@@ -307,6 +307,12 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: fitted task lamps refused: %s" % [task_lamps.errors])
 		return
+	var lamp_supply := preload("res://scripts/building/orison_v2_task_lamp_supply.gd").new()
+	if not lamp_supply.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: task-lamp supply refused: %s" % [lamp_supply.errors])
+		return
+	adapter.root.set_meta("v2_task_lamp_supply",lamp_supply)
 	light_rig = LightRig.new()
 	light_rig.name = "LightRig"
 	light_rig.glow_intensity = get_node("WakingAtmosphere").environment.glow_intensity
@@ -405,6 +411,12 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: service instrument fabrication refused: %s" % [service_instruments.errors])
 		return
 	adapter.root.set_meta("v2_native_service_instruments",service_instruments)
+	var bar_instruments := preload("res://scripts/building/orison_v2_native_service_instruments.gd").new()
+	if not bar_instruments.mount(self,bar_instruments.BAR_PATH):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: bar instrument fabrication refused: %s" % [bar_instruments.errors])
+		return
+	adapter.root.set_meta("v2_native_bar_instruments",bar_instruments)
 	for identity in ["F01_WATCHMAN_DETECTOR_BODY","F01_NIGHT_REGISTER_BODY",
 			"F01_SIGNAL_REGISTER_BODY","F01_TOUR_KEY_GUARD_BODY"]:
 		_retire_blockout_fixture(identity)

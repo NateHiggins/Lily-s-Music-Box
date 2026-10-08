@@ -1,0 +1,41 @@
+{
+	"checks": 364,
+	"contracts": {
+		"premature_action_denial": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 22.293,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Four original Harukiya actors: native geometry, source motion frames, speaker Conductor event, Songbook and Rainbow Round panel cancellation, saved-state stability and retirement. No microphone capture, take publication, PA DSP change, played darts round or save reconstruction is exercised.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "b17512c5284a4f0ebe08e610c05251e0ab2fb6ca",
+		"runtime_inputs_sha256": "e5357ffe6f54fb4744312408d72f9650a7d82cb7091c32e230940a788809e9c6",
+		"test_path": "game/tests/orison_v2_bar_instruments_test.gd",
+		"test_sha256": "a707296c3d4a7f1f51f74706cfd192eb343fde77ffe3e1b247b7a1a621461536"
+	}
+}

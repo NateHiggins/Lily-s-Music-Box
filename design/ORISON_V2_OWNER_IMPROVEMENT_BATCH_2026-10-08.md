@@ -66,9 +66,10 @@ batch registration, source identity inventory, and the reusable calibration scen
 
 Open findings: **G08–G14, T01–T17, A01–A08** remain subject to the per-item
 inventory; **G15** remains conditional and uninstalled. Broader V2 completion is
-not claimed. Task-lamp supply routing awaits owner direction on outlet placement.
+not claimed. See the later bar/supply report for subsequent item closures.
 
-Decision needed from owner: existing source plans specify no outlets for the
-five task lamps; the pending question offers designed placements or deferred routes.
+Owner direction subsequently received: design and add outlet placements for
+the five task lamps. Implementation is recorded in
+[the later bar/supply report](ORISON_V2_OWNER_BAR_SUPPLY_2026-10-08.md).
 
 Last line: MERGE-CANDIDATE 1d351fd9c856190a5aceb8c079e18a0d1f2a5c49 — remaining dossier work continues.

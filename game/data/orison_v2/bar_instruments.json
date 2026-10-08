@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/bar_instruments.glb",
+  "actors": [
+    {
+      "id": "F01_KARAOKE_SPK_0",
+      "script": "res://scripts/props/speaker_prop.gd",
+      "source_mesh_count": 9,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M11_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.340000003576279,
+            0.550000011920929,
+            0.300000011920929
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 1,
+          "mesh": "M11_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.300000011920929,
+            0.509999990463257,
+            0.0149999996647239
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 2,
+          "mesh": "M11_P002",
+          "source_type": "TorusMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 3,
+          "mesh": "M11_P003",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "paper"
+          ]
+        },
+        {
+          "index": 4,
+          "mesh": "M11_P004",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 5,
+          "mesh": "M11_P005",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite"
+          ]
+        },
+        {
+          "index": 6,
+          "mesh": "M11_P006",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 7,
+          "mesh": "M11_P007",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
+        },
+        {
+          "index": 8,
+          "mesh": "M11_P008",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M11_Fixed",
+          "materials": [
+            "bakelite",
+            "brass",
+            "cast_iron",
+            "rubber_aged"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_DARTS",
+      "script": "res://scripts/props/darts_prop.gd",
+      "source_mesh_count": 7,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M12_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0750000029802322,
+            0.100000001490116,
+            0.0750000029802322
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 1,
+          "mesh": "M12_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00800000037997961,
+            0.159999996423721,
+            0.00800000037997961
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 2,
+          "mesh": "M12_P002",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00800000037997961,
+            0.159999996423721,
+            0.00800000037997961
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 3,
+          "mesh": "M12_P003",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00800000037997961,
+            0.159999996423721,
+            0.00800000037997961
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 4,
+          "mesh": "M12_P004",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0260000005364418,
+            0.0299999993294477,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 5,
+          "mesh": "M12_P005",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0260000005364418,
+            0.0299999993294477,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 6,
+          "mesh": "M12_P006",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0260000005364418,
+            0.0299999993294477,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        }
+      ],
+      "additions": []
+    },
+    {
+      "id": "F01_BAR_SONGBOOK",
+      "script": "res://scripts/props/songbook_terminal_prop.gd",
+      "source_mesh_count": 19,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M13_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.620000004768372,
+            0.100000001490116,
+            0.340000003576279
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 1,
+          "mesh": "M13_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.660000026226044,
+            0.0219999998807907,
+            0.379999995231628
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 2,
+          "mesh": "M13_P002",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "cast_iron"
+          ]
+        },
+        {
+          "index": 3,
+          "mesh": "M13_P003",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "cast_iron"
+          ]
+        },
+        {
+          "index": 4,
+          "mesh": "M13_P004",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 5,
+          "mesh": "M13_P005",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "cast_iron"
+          ]
+        },
+        {
+          "index": 6,
+          "mesh": "M13_P006",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "cast_iron"
+          ]
+        },
+        {
+          "index": 7,
+          "mesh": "M13_P007",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "cast_iron"
+          ]
+        },
+        {
+          "index": 8,
+          "mesh": "M13_P008",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
+        },
+        {
+          "index": 9,
+          "mesh": "M13_P009",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 10,
+          "mesh": "M13_P010",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0750000029802322,
+            0.00400000018998981,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 11,
+          "mesh": "M13_P011",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 12,
+          "mesh": "M13_P012",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
+        },
+        {
+          "index": 13,
+          "mesh": "M13_P013",
+          "source_type": "BoxMesh",
+          "size": [
+            0.300000011920929,
+            0.0199999995529652,
+            0.0199999995529652
+          ],
+          "preserve_material": false,
+          "materials": [
+            "cast_iron"
+          ]
+        },
+        {
+          "index": 14,
+          "mesh": "M13_P014",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
+        },
+        {
+          "index": 15,
+          "mesh": "M13_P015",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
+        },
+        {
+          "index": 16,
+          "mesh": "M13_P016",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0160000007599592,
+            0.0900000035762787,
+            0.0160000007599592
+          ],
+          "preserve_material": false,
+          "materials": [
+            "cast_iron"
+          ]
+        },
+        {
+          "index": 17,
+          "mesh": "M13_P017",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 18,
+          "mesh": "M13_P018",
+          "source_type": "BoxMesh",
+          "size": [
+            0.100000001490116,
+            0.0350000001490116,
+            0.00400000018998981
+          ],
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M13_Fixed",
+          "materials": [
+            "brass",
+            "cast_iron"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_KARAOKE_SPK_1",
+      "script": "res://scripts/props/speaker_prop.gd",
+      "source_mesh_count": 9,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M11_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.340000003576279,
+            0.550000011920929,
+            0.300000011920929
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 1,
+          "mesh": "M11_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.300000011920929,
+            0.509999990463257,
+            0.0149999996647239
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 2,
+          "mesh": "M11_P002",
+          "source_type": "TorusMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 3,
+          "mesh": "M11_P003",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "paper"
+          ]
+        },
+        {
+          "index": 4,
+          "mesh": "M11_P004",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 5,
+          "mesh": "M11_P005",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite"
+          ]
+        },
+        {
+          "index": 6,
+          "mesh": "M11_P006",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 7,
+          "mesh": "M11_P007",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
+        },
+        {
+          "index": 8,
+          "mesh": "M11_P008",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M11_Fixed",
+          "materials": [
+            "bakelite",
+            "brass",
+            "cast_iron",
+            "rubber_aged"
+          ]
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "key": "wood_dark",
+      "catalog": "wood_dark",
+      "tile": 1.2,
+      "normal": 0.035,
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "tint": [
+        0.55,
+        0.53,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "key": "paper",
+      "catalog": "paper",
+      "tile": 0.5,
+      "normal": 0.035,
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "tint": [
+        0.58,
+        0.55,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "key": "bakelite",
+      "catalog": "bakelite",
+      "tile": 0.35,
+      "normal": 0.035,
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "brass",
+      "catalog": "brass",
+      "tile": 0.5,
+      "normal": 0.12,
+      "roughness": 1.0,
+      "metallic": 0.85,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "cast_iron",
+      "catalog": "cast_iron",
+      "tile": 0.4,
+      "normal": 0.035,
+      "roughness": 0.6,
+      "metallic": 0.0,
+      "tint": [
+        0.3,
+        0.28,
+        0.25,
+        1.0
+      ]
+    },
+    {
+      "key": "rubber_aged",
+      "catalog": "rubber_aged",
+      "tile": 0.26,
+      "normal": 0.12,
+      "roughness": 0.82,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "source_materials": [],
+  "work_lights": [],
+  "dumbwaiter_ropes": []
+}
