@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 81.41,
+  "exit_code": 1,
+  "finished_utc": "2026-10-08T00:24:08Z",
+  "started_utc": "2026-10-08T00:22:46Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/wardrobes-runtime-01.log.stderr",
+  "stderr_sha256": "edb17f1310d717deb754b187c397e747edf3f5d73f1959e07cab46bda69d1213",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/wardrobes-runtime-01.log",
+  "stdout_sha256": "e145a0c71424794b8d60ca90078a7f43c98e9b3ee30935289b7506382dabbbcd"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/wardrobes-runtime-01",
+ "source": {
+  "dirty_paths": 289,
+  "dirty_sample": [
+   "M art/blender/reading_nook_construction.json",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_domestic_furniture.gd",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/scripts/building/orison_v2_wardrobe.gd",
+   " M game/scripts/building/orison_v2_work_tables.gd",
+   " M game/tests/fixtures/orison_reading_nook.json",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/household_wardrobes.blend",
+   "?? art/blender/household_wardrobes_construction.json",
+   "?? art/blender/scripts/build_household_wardrobes.py",
+   "?? art/blender/scripts/household_wardrobes_geometry.py",
+   "?? art/blender/scripts/inspect_household_wardrobes.py",
+   "?? art/blender/scripts/inspect_household_wardrobes_context.py",
+   "?? art/blender/scripts/render_household_wardrobes.py",
+   "?? art/data/household_wardrobes/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png"
+  ],
+  "repository_head": "836f315132b2f06c12de0d1233b191852b74455b",
+  "repository_tree": "d76eddaebee80031a0c4c4b0b95d07156451ee93",
+  "runtime_inputs_sha256": "af8c15a565318482a4dd38ef3da3be61880ad34881e14a8dc6d8a49dc2234771",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "2b5f4a2d77e8ca6dcfaa2b1dca9a716722d8698a5c59d3b10785c581e076d309"
+ },
+ "windowed": true
+}

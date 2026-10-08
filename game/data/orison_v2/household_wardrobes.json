@@ -1,0 +1,2170 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/household_wardrobes.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "Wardrobe00",
+      "parts": [
+        {
+          "name": "Wardrobe00__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe00__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe00__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe00__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe00__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe00__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe00__Body_ON_oak_quartered",
+          "component": "Body",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe00__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe00__LeftLeaf_ON_oak_quartered",
+          "component": "LeftLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe00__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe00__RightLeaf_ON_oak_quartered",
+          "component": "RightLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe01",
+      "parts": [
+        {
+          "name": "Wardrobe01__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe01__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe01__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe01__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe01__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe01__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe01__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe01__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe01__LeftLeaf_ON_wood_dark",
+          "component": "LeftLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe01__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe01__RightLeaf_ON_wood_dark",
+          "component": "RightLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe02",
+      "parts": [
+        {
+          "name": "Wardrobe02__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe02__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe02__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe02__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe02__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe02__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe02__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe02__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe02__LeftLeaf_ON_wood_dark",
+          "component": "LeftLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe02__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe02__RightLeaf_ON_wood_dark",
+          "component": "RightLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe03",
+      "parts": [
+        {
+          "name": "Wardrobe03__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe03__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe03__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe03__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe03__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe03__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe03__Body_ON_oak_quartered",
+          "component": "Body",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe03__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe03__LeftLeaf_ON_oak_quartered",
+          "component": "LeftLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe03__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe03__RightLeaf_ON_oak_quartered",
+          "component": "RightLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe04",
+      "parts": [
+        {
+          "name": "Wardrobe04__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe04__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe04__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe04__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe04__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe04__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe04__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe04__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe04__LeftLeaf_ON_wood_dark",
+          "component": "LeftLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe04__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe04__RightLeaf_ON_wood_dark",
+          "component": "RightLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe05",
+      "parts": [
+        {
+          "name": "Wardrobe05__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe05__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe05__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe05__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe05__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe05__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe05__Body_ON_oak_quartered",
+          "component": "Body",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe05__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe05__LeftLeaf_ON_oak_quartered",
+          "component": "LeftLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe05__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe05__RightLeaf_ON_oak_quartered",
+          "component": "RightLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe06",
+      "parts": [
+        {
+          "name": "Wardrobe06__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe06__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe06__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe06__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe06__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe06__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe06__Body_ON_oak_quartered",
+          "component": "Body",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe06__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe06__LeftLeaf_ON_oak_quartered",
+          "component": "LeftLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe06__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe06__RightLeaf_ON_oak_quartered",
+          "component": "RightLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe07",
+      "parts": [
+        {
+          "name": "Wardrobe07__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe07__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe07__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe07__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe07__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe07__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe07__Body_ON_oak_quartered",
+          "component": "Body",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe07__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe07__LeftLeaf_ON_oak_quartered",
+          "component": "LeftLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe07__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe07__RightLeaf_ON_oak_quartered",
+          "component": "RightLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe08",
+      "parts": [
+        {
+          "name": "Wardrobe08__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe08__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe08__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe08__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe08__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe08__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe08__Body_ON_oak_quartered",
+          "component": "Body",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe08__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe08__LeftLeaf_ON_oak_quartered",
+          "component": "LeftLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe08__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe08__RightLeaf_ON_oak_quartered",
+          "component": "RightLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe09",
+      "parts": [
+        {
+          "name": "Wardrobe09__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe09__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe09__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe09__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe09__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe09__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe09__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe09__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe09__LeftLeaf_ON_wood_dark",
+          "component": "LeftLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe09__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe09__RightLeaf_ON_wood_dark",
+          "component": "RightLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe10",
+      "parts": [
+        {
+          "name": "Wardrobe10__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe10__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe10__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe10__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe10__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe10__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe10__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe10__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe10__LeftLeaf_ON_wood_dark",
+          "component": "LeftLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe10__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe10__RightLeaf_ON_wood_dark",
+          "component": "RightLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe11",
+      "parts": [
+        {
+          "name": "Wardrobe11__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe11__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe11__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe11__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe11__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe11__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe11__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe11__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe11__LeftLeaf_ON_wood_dark",
+          "component": "LeftLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe11__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe11__RightLeaf_ON_wood_dark",
+          "component": "RightLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Wardrobe12",
+      "parts": [
+        {
+          "name": "Wardrobe12__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe12__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe12__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe12__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe12__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe12__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe12__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe12__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe12__LeftLeaf_ON_wood_dark",
+          "component": "LeftLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe12__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe12__RightLeaf_ON_wood_dark",
+          "component": "RightLeaf",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "3B_aw_wardrobe",
+      "variant": "Wardrobe00"
+    },
+    {
+      "id": "2A_w0_wardrobe",
+      "variant": "Wardrobe01"
+    },
+    {
+      "id": "2B_aw_wardrobe",
+      "variant": "Wardrobe02"
+    },
+    {
+      "id": "1D_aw_wardrobe",
+      "variant": "Wardrobe02"
+    },
+    {
+      "id": "3A_w0_wardrobe",
+      "variant": "Wardrobe03"
+    },
+    {
+      "id": "4A_w0_wardrobe",
+      "variant": "Wardrobe04"
+    },
+    {
+      "id": "5A_w0_wardrobe",
+      "variant": "Wardrobe05"
+    },
+    {
+      "id": "5B_aw_wardrobe",
+      "variant": "Wardrobe06"
+    },
+    {
+      "id": "5C_w0_wardrobe",
+      "variant": "Wardrobe07"
+    },
+    {
+      "id": "2C_w0_wardrobe",
+      "variant": "Wardrobe07"
+    },
+    {
+      "id": "4C_w0_wardrobe",
+      "variant": "Wardrobe07"
+    },
+    {
+      "id": "1A_wardrobe",
+      "variant": "Wardrobe07"
+    },
+    {
+      "id": "3D_wardrobe",
+      "variant": "Wardrobe07"
+    },
+    {
+      "id": "4D_wardrobe",
+      "variant": "Wardrobe07"
+    },
+    {
+      "id": "5C_w1_wardrobe",
+      "variant": "Wardrobe08"
+    },
+    {
+      "id": "2C_w1_wardrobe",
+      "variant": "Wardrobe08"
+    },
+    {
+      "id": "4C_w1_wardrobe",
+      "variant": "Wardrobe08"
+    },
+    {
+      "id": "6A_w0_wardrobe",
+      "variant": "Wardrobe09"
+    },
+    {
+      "id": "6B_aw_wardrobe",
+      "variant": "Wardrobe10"
+    },
+    {
+      "id": "6C_w0_wardrobe",
+      "variant": "Wardrobe11"
+    },
+    {
+      "id": "6C_w1_wardrobe",
+      "variant": "Wardrobe12"
+    }
+  ],
+  "tint_space": "linear"
+}

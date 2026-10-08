@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_household_wardrobes.py",
+      "elapsed_s": 17.602
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_wardrobes.py",
+      "elapsed_s": 7.516
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_wardrobes_context.py",
+      "elapsed_s": 1.886
+    },
+    {
+      "script": "art/blender/scripts/render_household_wardrobes.py",
+      "elapsed_s": 6.888
+    }
+  ]
+}

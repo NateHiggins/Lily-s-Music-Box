@@ -1,0 +1,326 @@
+FABRICATION STAGE: art/blender/scripts/build_household_wardrobes.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_household_wardrobes.py:76: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "household_wardrobes.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+20:18:43 | INFO: Starting glTF 2.0 export
+20:18:43 | INFO: Extracting primitive: Wardrobe00__Body_ON_brass
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe00__Body_ON_fabric_cool
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe00__Body_ON_fabric_green
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe00__Body_ON_fabric_warm
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe00__Body_ON_linen
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe00__Body_ON_metal
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe00__Body_ON_oak_quartered
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe00__LeftLeaf_ON_brass
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe00__LeftLeaf_ON_oak_quartered
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe00__RightLeaf_ON_brass
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe00__RightLeaf_ON_oak_quartered
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe01__Body_ON_brass
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe01__Body_ON_fabric_cool
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe01__Body_ON_fabric_green
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe01__Body_ON_fabric_warm
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe01__Body_ON_linen
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe01__Body_ON_metal
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe01__Body_ON_wood_dark
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe01__LeftLeaf_ON_brass
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe01__LeftLeaf_ON_wood_dark
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe01__RightLeaf_ON_brass
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe01__RightLeaf_ON_wood_dark
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe02__Body_ON_brass
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe02__Body_ON_fabric_cool
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe02__Body_ON_fabric_green
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe02__Body_ON_fabric_warm
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe02__Body_ON_linen
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe02__Body_ON_metal
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe02__Body_ON_wood_dark
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe02__LeftLeaf_ON_brass
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe02__LeftLeaf_ON_wood_dark
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe02__RightLeaf_ON_brass
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe02__RightLeaf_ON_wood_dark
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe03__Body_ON_brass
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe03__Body_ON_fabric_cool
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe03__Body_ON_fabric_green
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe03__Body_ON_fabric_warm
+20:18:43 | INFO: Primitives created: 1
+20:18:43 | INFO: Extracting primitive: Wardrobe03__Body_ON_linen
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe03__Body_ON_metal
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe03__Body_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe03__LeftLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe03__LeftLeaf_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe03__RightLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe03__RightLeaf_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe04__Body_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe04__Body_ON_fabric_cool
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe04__Body_ON_fabric_green
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe04__Body_ON_fabric_warm
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe04__Body_ON_linen
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe04__Body_ON_metal
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe04__Body_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe04__LeftLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe04__LeftLeaf_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe04__RightLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe04__RightLeaf_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe05__Body_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe05__Body_ON_fabric_cool
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe05__Body_ON_fabric_green
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe05__Body_ON_fabric_warm
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe05__Body_ON_linen
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe05__Body_ON_metal
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe05__Body_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe05__LeftLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe05__LeftLeaf_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe05__RightLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe05__RightLeaf_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe06__Body_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe06__Body_ON_fabric_cool
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe06__Body_ON_fabric_green
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe06__Body_ON_fabric_warm
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe06__Body_ON_linen
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe06__Body_ON_metal
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe06__Body_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe06__LeftLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe06__LeftLeaf_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe06__RightLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe06__RightLeaf_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe07__Body_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe07__Body_ON_fabric_cool
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe07__Body_ON_fabric_green
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe07__Body_ON_fabric_warm
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe07__Body_ON_linen
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe07__Body_ON_metal
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe07__Body_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe07__LeftLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe07__LeftLeaf_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe07__RightLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe07__RightLeaf_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe08__Body_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe08__Body_ON_fabric_cool
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe08__Body_ON_fabric_green
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe08__Body_ON_fabric_warm
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe08__Body_ON_linen
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe08__Body_ON_metal
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe08__Body_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe08__LeftLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe08__LeftLeaf_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe08__RightLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe08__RightLeaf_ON_oak_quartered
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe09__Body_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe09__Body_ON_fabric_cool
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe09__Body_ON_fabric_green
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe09__Body_ON_fabric_warm
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe09__Body_ON_linen
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe09__Body_ON_metal
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe09__Body_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe09__LeftLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe09__LeftLeaf_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe09__RightLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe09__RightLeaf_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe10__Body_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe10__Body_ON_fabric_cool
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe10__Body_ON_fabric_green
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe10__Body_ON_fabric_warm
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe10__Body_ON_linen
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe10__Body_ON_metal
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe10__Body_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe10__LeftLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe10__LeftLeaf_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe10__RightLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe10__RightLeaf_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe11__Body_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe11__Body_ON_fabric_cool
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe11__Body_ON_fabric_green
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe11__Body_ON_fabric_warm
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe11__Body_ON_linen
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe11__Body_ON_metal
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe11__Body_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe11__LeftLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe11__LeftLeaf_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe11__RightLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe11__RightLeaf_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe12__Body_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe12__Body_ON_fabric_cool
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe12__Body_ON_fabric_green
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe12__Body_ON_fabric_warm
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe12__Body_ON_linen
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe12__Body_ON_metal
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe12__Body_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe12__LeftLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe12__LeftLeaf_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe12__RightLeaf_ON_brass
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Extracting primitive: Wardrobe12__RightLeaf_ON_wood_dark
+20:18:44 | INFO: Primitives created: 1
+20:18:44 | INFO: Finished glTF 2.0 export in 0.9578418731689453 s
+
+SURFACE STOCK 13 original records; 13 assemblies; 884 closed stocks; 143 parts; 447616 triangles; 52 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_household_wardrobes.py
+00:18.688  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\household_wardrobes.blend"
+HOUSEHOLD WARDROBES LOCAL: 884 closed stocks; 13 physical groups; 52 local bearings; 143 mapped parts
+FABRICATION STAGE: art/blender/scripts/inspect_household_wardrobes_context.py
+STORAGE CONTEXT: 21 installations; 84 floor bearings; 0 nearby pairs clear
+FABRICATION STAGE: art/blender/scripts/render_household_wardrobes.py
+00:28.547  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\household_wardrobes.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_household_wardrobes.py:10: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.60,.65,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.65
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_household_wardrobes.py:13: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=10,location=(0,0,-.00004));plane=bpy.context.object;mat=bpy.data.materials.new('Review ground');mat.use_nodes=True;mat.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.23,.25,.26,1);mat.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.75;plane.data.materials.append(mat)
+00:33.141  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe00_closed.png'
+00:37.297  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe01_closed.png'
+00:42.500  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe00_open.png'
+00:47.516  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe01_open.png'
+00:52.531  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe02_open.png'
+00:57.719  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe03_open.png'
+01:02.703  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe04_open.png'
+01:08.219  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe05_open.png'
+01:13.563  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe06_open.png'
+01:18.735  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe07_open.png'
+01:23.938  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe08_open.png'
+01:29.047  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe09_open.png'
+01:34.078  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe10_open.png'
+01:39.078  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe11_open.png'
+01:44.110  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-wardrobes-native\Wardrobe12_open.png'
+{"completed_stages": 4, "elapsed_s": 102.75}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

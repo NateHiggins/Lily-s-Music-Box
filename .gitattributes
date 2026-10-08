@@ -1362,3 +1362,25 @@ game/tests/fixtures/orison_prep_cabinets.json -text
 game/tests/orison_v2_domestic_storage_test.gd -text
 game/tests/orison_v2_prep_cabinets_test.gd -text
 art/renders/orison_v2/domestic_storage_20261007/** -text -whitespace
+
+art/blender/household_wardrobes.blend -text
+art/blender/household_wardrobes_construction.json -text
+art/blender/scripts/build_household_wardrobes.py -text
+art/blender/scripts/household_wardrobes_geometry.py -text
+art/blender/scripts/inspect_household_wardrobes.py -text
+art/blender/scripts/inspect_household_wardrobes_context.py -text
+art/blender/scripts/render_household_wardrobes.py -text
+art/data/household_wardrobes/source_plan.json -text
+game/assets/props/household_wardrobes.glb -text
+game/assets/props/household_wardrobes.glb.import -text
+game/data/orison_v2/household_wardrobes.json -text
+game/scripts/building/orison_v2_native_household_wardrobes.gd -text
+game/scripts/building/orison_v2_wardrobe.gd -text
+game/scripts/building/orison_v2_work_tables.gd -text
+game/scripts/props/baked_furniture_interaction.gd -text
+game/tests/fixtures/orison_household_wardrobes.json -text
+game/tests/orison_v2_fabrication_batch.gd -text
+game/tests/orison_v2_household_wardrobes_test.gd -text
+tools/orison_spatial_dependency_manifest.json -text
+tools/plan_v2_fabrication.py -text
+art/renders/orison_v2/household_wardrobes_20261007/** -text -whitespace

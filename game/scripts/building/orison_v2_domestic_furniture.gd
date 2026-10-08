@@ -10,6 +10,7 @@ const WorkTables := preload("res://scripts/building/orison_v2_work_tables.gd")
 const NativeFurniture := preload("res://scripts/building/orison_v2_native_domestic_furniture.gd")
 const NativeStorage := preload("res://scripts/building/orison_v2_native_domestic_storage.gd")
 const NativePrep := preload("res://scripts/building/orison_v2_native_prep_cabinets.gd")
+const NativeWardrobes := preload("res://scripts/building/orison_v2_native_household_wardrobes.gd")
 const NATIVE_KINDS := ["chair", "sofa", "nightstand", "table_round", "table_rect", "coffee"]
 const STORAGE_KINDS := ["shelf", "cupboard", "counter"]
 const MATERIAL_ALIASES := {"floor_oak": "oak_quartered", "fabric_cool": "linen", "fabric_green": "linen"}
@@ -50,6 +51,15 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 			errors.append("native preparation cabinet refused")
 			return false
 		adapter.root.set_meta("v2_native_prep_factory",prep)
+	var wardrobes: NativeWardrobes
+	if adapter.root.has_meta("v2_native_wardrobe_factory"):
+		wardrobes = adapter.root.get_meta("v2_native_wardrobe_factory") as NativeWardrobes
+	if wardrobes == null:
+		wardrobes = NativeWardrobes.new()
+		if not wardrobes.prepare():
+			errors.append("native household wardrobes refused")
+			return false
+		adapter.root.set_meta("v2_native_wardrobe_factory",wardrobes)
 	for record: Dictionary in source.furniture:
 		var native_table: bool = str(record.id) in WorkTables.IDS
 		var native_furniture: bool = record.kind in NATIVE_KINDS and not native_table
@@ -62,6 +72,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 		elif record.kind == "wardrobe":
 			body = Wardrobe.new()
 			body.call("setup", record.mechanism)
+			body.set_meta("v2_wardrobe_factory",wardrobes)
 		elif record.kind == "radio":
 			body = SpecialistRadio.new()
 			body.call("setup", record.mechanism)
@@ -80,7 +91,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 					body.add_child(collision)
 		body.set_meta("v2_furniture_id", str(record.id))
 		if native_table:
-			if not WorkTables.mount_on(body, str(record.id)):
+			if not WorkTables.mount_on(body, str(record.id), record):
 				body.free()
 				errors.append("native work table mount refused: " + str(record.id))
 				return false
@@ -100,7 +111,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 				errors.append("native preparation cabinet mount refused: " + str(record.id))
 				return false
 		elif record.kind == "bed": _add_bed(body,record)
-		elif record.kind != "toilet": _add_surfaces(body, record.surfaces)
+		elif record.kind not in ["toilet","wardrobe"]: _add_surfaces(body, record.surfaces)
 		if not native_table and not native_furniture and not native_storage and record.get("collision_from_surfaces", false):
 			# Separate tabletop/paper/leg triangles preserve the actual bearings;
 			# one enclosing box would fill the space above a desk up to its stock.
@@ -114,6 +125,9 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 		if not adapter.mount_consumer(str(record.id), body):
 			body.free()
 			errors.append("furniture mount refused: " + str(record.id))
+			return false
+		if record.kind == "wardrobe" and not body.get("native_ready"):
+			errors.append("native wardrobe hinge mount refused: " + str(record.id))
 			return false
 	return true
 

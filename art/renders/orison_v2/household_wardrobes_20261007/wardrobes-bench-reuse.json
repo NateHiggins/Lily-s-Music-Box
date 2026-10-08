@@ -1,0 +1,12 @@
+{
+  "evidence_class": "INERT",
+  "base": "836f315132b2f06c12de0d1233b191852b74455b",
+  "unchanged": {
+    "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
+    "game/assets/props/work_tables.glb": "db0388a7e77d7ec35f78615ba9bb70d8921b7af2d9e3358c54dcdded76a23a64",
+    "game/data/orison_v2/work_tables.json": "937c2986f1284eec987bfb207f7cc00f97dd430512198c16729794b4ed90ed6c"
+  },
+  "source_template": "3B_workbench",
+  "completion_actor": "b1_repair_bench",
+  "guard": "Exact kind/bounds/surfaces equivalence before native mount; all four new installed foot contacts and room context checked."
+}

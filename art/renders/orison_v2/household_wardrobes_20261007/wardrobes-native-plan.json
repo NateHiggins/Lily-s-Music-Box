@@ -1,0 +1,16 @@
+{
+  "stages": [
+    {
+      "script": "art/blender/scripts/build_household_wardrobes.py"
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_wardrobes.py"
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_wardrobes_context.py"
+    },
+    {
+      "script": "art/blender/scripts/render_household_wardrobes.py"
+    }
+  ]
+}

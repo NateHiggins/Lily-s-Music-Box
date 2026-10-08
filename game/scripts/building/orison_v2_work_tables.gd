@@ -1,13 +1,21 @@
 extends RefCounted
 ## Native visuals and exact collision attach to the existing furniture owner.
 const PATH := "res://data/orison_v2/work_tables.json"
-const IDS := ["2A_desk", "3B_workbench", "4B_terminal_desk", "5A_plantable", "6A_deskwall"]
+const IDS := ["2A_desk", "3B_workbench", "4B_terminal_desk", "5A_plantable", "6A_deskwall", "b1_repair_bench"]
+const COPIES := {"b1_repair_bench":"3B_workbench"}
 
-static func mount_on(body: StaticBody3D, identity: String) -> bool:
+static func mount_on(body: StaticBody3D, identity: String, source_record: Dictionary = {}) -> bool:
+	var source_id: String = COPIES.get(identity,identity)
+	if source_id != identity:
+		var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/domestic_furniture.json"))
+		var templates: Array = source.furniture.filter(func(record):return record.id==source_id)
+		if templates.size()!=1:return false
+		for key: String in ["kind","bounds","surfaces"]:
+			if source_record.get(key)!=templates[0][key]:return false
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(PATH))
 	if data.get("schema_version") != 1 or data.get("assemblies") is not Array: return false
 	if data.get("floor_y") != 0 or data.get("local_materials") != {}: return false
-	var rows: Array = data.assemblies.filter(func(row): return row.id == identity)
+	var rows: Array = data.assemblies.filter(func(row): return row.id == source_id)
 	if rows.size() != 1: return false
 	var row: Dictionary = rows[0]
 	var origin := Vector3(row.position[0],row.position[1],row.position[2])

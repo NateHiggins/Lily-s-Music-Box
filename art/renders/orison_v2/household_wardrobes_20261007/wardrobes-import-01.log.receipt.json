@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 15.72,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T00:22:16Z",
+  "started_utc": "2026-10-08T00:22:00Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/wardrobes-import-01.log.stderr",
+  "stderr_sha256": "4cf0efaa09910deee9fd364ee54897e4be130da81315820cedcc5b93c5e59107",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/wardrobes-import-01.log",
+  "stdout_sha256": "01889e854022bf4a375e46ac642025ac7e247c18e6db0d43af3e5308a2c3ecf3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 287,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_domestic_furniture.gd",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/scripts/building/orison_v2_wardrobe.gd",
+   " M game/scripts/building/orison_v2_work_tables.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/household_wardrobes.blend",
+   "?? art/blender/household_wardrobes_construction.json",
+   "?? art/blender/scripts/build_household_wardrobes.py",
+   "?? art/blender/scripts/household_wardrobes_geometry.py",
+   "?? art/blender/scripts/inspect_household_wardrobes.py",
+   "?? art/blender/scripts/inspect_household_wardrobes_context.py",
+   "?? art/blender/scripts/render_household_wardrobes.py",
+   "?? art/data/household_wardrobes/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? game/assets/props/household_wardrobes.glb"
+  ],
+  "repository_head": "836f315132b2f06c12de0d1233b191852b74455b",
+  "repository_tree": "d76eddaebee80031a0c4c4b0b95d07156451ee93",
+  "runtime_inputs_sha256": "af8c15a565318482a4dd38ef3da3be61880ad34881e14a8dc6d8a49dc2234771",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

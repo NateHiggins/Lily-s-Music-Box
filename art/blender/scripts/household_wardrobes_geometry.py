@@ -1,0 +1,106 @@
+"""Fitted timber cases, rebated original hinges and source-owned hanging cloth."""
+frames={a['id']:{'position':[0,0,0],'yaw':0} for a in assemblies}
+retained_stock=[];construction_groups=[]
+
+def source_boxes(surface):
+ for vertices in np.asarray(surface['vertices'],dtype=float).reshape((-1,36,3)):
+  vertices=vertices[:,[0,2,1]];vertices[:,1]*=-1
+  yield vertices.min(0),vertices.max(0)
+
+def tag(obj):obj['component']=component;return obj
+def stock(label,lo,hi,key,edge=.001):return tag(box(identity+'_'+label,lo,hi,identity,key,edge))
+
+def folded_cloth(label,lo,hi):
+ # A closed 1.2mm cloth skin folds over the real hanger crossbar. Top/hem
+ # and source colour remain; soft widening folds replace the solid cuboid.
+ nx=24;nz=18;cx=(lo[0]+hi[0])/2;half=(hi[0]-lo[0])/2
+ half=min(half,abs(cx)-.023) if abs(cx)<.2 else half
+ hem=lo[2];top=hi[2];bar=top-.0027
+ # Outer drape runs up the back, over a 2.1mm crown, down the front.
+ path=[(-.0027,hem+(bar-hem)*i/nz) for i in range(nz)]
+ path.extend((.0027*math.cos(a),bar+.0027*math.sin(a)) for a in np.linspace(math.pi,0,9))
+ path.extend((.0027,bar-(bar-hem)*i/nz) for i in range(1,nz+1))
+ verts=[];nr=len(path)
+ for skin in [0,1]:
+  for i in range(nx+1):
+   u=-1+2*i/nx;x=cx+half*u
+   for j,(y,z) in enumerate(path):
+    t=(top-z)/(top-hem);sgn=-1 if j<nr/2 else 1
+    fold=(.015*math.sin(u*math.pi*3+.2)+.009*math.sin(u*math.pi*5+1.1))*t
+    spread=.019*t+.011*t*t
+    yy=.02+sgn*spread+y+fold
+    # Inner skin shrinks toward the interior along the profile normal.
+    a=Vector(path[max(0,j-1)]);b=Vector(path[min(nr-1,j+1)]);tangent=(b-a).normalized()
+    yy+=skin*.0012*tangent.y;zz=z-skin*.0012*tangent.x
+    if key in ['fabric_cool','fabric_green']:
+     # Paired legs on trousers folded over the hanger; a rounded crotch
+     # opening replaces a curtain-like straight hem without changing its low.
+     zz+=.18*math.exp(-((u/.115)**4))*t**4
+    verts.append((x,yy,zz))
+ faces=[];stride=(nx+1)*nr
+ for k in [0,1]:
+  offset=k*stride
+  for i in range(nx):
+   for j in range(nr-1):
+    q=(offset+i*nr+j,offset+(i+1)*nr+j,offset+(i+1)*nr+j+1,offset+i*nr+j+1)
+    faces.append(q if k==0 else tuple(reversed(q)))
+ boundary=list(range(nr))+[i*nr+nr-1 for i in range(1,nx+1)]+[nx*nr+j for j in range(nr-2,-1,-1)]+[i*nr for i in range(nx-1,0,-1)]
+ faces.extend((a,b,b+stride,a+stride) for a,b in zip(boundary,boundary[1:]+boundary[:1]))
+ tag(solid(identity+'_'+label,verts,faces,identity,key))
+ # Hanger width fits the source silhouette; its crossbar carries the fold.
+ hw=half*.94
+ tag(curved_wire(identity+'_'+label+'Hanger',[(cx-hw,.02,bar),(cx,.02,1.58),(cx+hw,.02,bar),(cx-hw,.02,bar)],.0015,identity,'metal'))
+ path=[(cx,.02,1.58),(cx,.02,1.5965)]
+ path.extend((cx,.02+.0135*math.cos(a),1.61+.0135*math.sin(a)) for a in np.linspace(-math.pi/2,math.pi*.90,35))
+ tag(curved_wire(identity+'_'+label+'Hook',path,.0015,identity,'metal'))
+
+for assembly in assemblies:
+ identity=assembly['id'];component='Body';start=len(stock_checks);member=assembly['members'][0]
+ wood=variants[identity]['params']['case_wood']
+ for surface in member['surfaces']:
+  if surface['material']!=wood:continue
+  for i,(lo,hi) in enumerate(source_boxes(surface)):stock('Case'+str(i),lo,hi,wood,.0011)
+ # Source rail ends stop 30mm short of the cheeks: fitted sockets close it.
+ tag(rod(identity+'_Rail',(-.55,.02,1.61),(.55,.02,1.61),.012,identity,'metal'))
+ for side in [-1,1]:
+  tag(rod(identity+'_RailSocket'+str(side),(side*.545,.02,1.61),(side*.582,.02,1.61),.017,identity,'metal'))
+ stock('CentreStop',(-.018,.259,.12),(.018,.2925,1.81),wood,.0005)
+ for x in [-.63,.595]:stock('RebatedJamb'+str(x),(x,.258,.07),(x+.035,.287,1.86),wood,.0005)
+ for z in [.10,1.795]:stock('FrontStop'+str(z),(-.58,.26,z),(.58,.2925,z+.025),wood,.0005)
+ for surface in member['surfaces']:
+  key=surface['material']
+  if key not in ['fabric_cool','fabric_green','fabric_warm','linen']:continue
+  for i,(lo,hi) in enumerate(source_boxes(surface)):folded_cloth('Cloth'+key+str(i),lo,hi)
+ for side in [-1,1]:
+  hx=side*.615;inward=-side
+  component='Body'
+  for z in [.34,1.57]:
+   stock('HingeNeck'+str(side)+str(z),(hx-.003,.26,z-.004),(hx+.003,.305,z+.004),'brass',.0002)
+   tag(rod(identity+'_HingePin'+str(side)+str(z),(hx,.305,z-.04),(hx,.305,z+.04),.004,identity,'brass'))
+  component='LeftLeaf' if side<0 else 'RightLeaf'
+  x0=min(hx,hx+inward*.603);x1=max(hx,hx+inward*.603)
+  for i,x in enumerate([x0,x1-.05]):
+   obj=stock(component+'Stile'+str(i),(x,.2925,.1),(x+.05,.3175,1.82),wood,.0008)
+   if (side<0 and i==0) or (side>0 and i==1):
+    # Applied circular rebate leaves the fixed pin and neck clear throughout
+    # the original 92 degree swing. The cutter never ships in the export.
+    bpy.ops.mesh.primitive_cylinder_add(vertices=64,radius=.015,depth=1.8,location=(hx,.305,.96))
+    cutter=bpy.context.object;bpy.context.view_layer.objects.active=obj
+    mod=obj.modifiers.new('Continuous hinge clearance','BOOLEAN');mod.operation='DIFFERENCE';mod.object=cutter
+    bpy.ops.object.modifier_apply(modifier=mod.name);bpy.data.objects.remove(cutter,do_unlink=True)
+  for z in [.10,1.77]:stock(component+'Rail'+str(z),(x0+.049,.2925,z),(x1-.049,.3175,z+.05),wood,.0008)
+  stock(component+'Field',(x0+.048,.296,.148),(x1-.048,.3135,1.772),wood,.0006)
+  stock(component+'RaisedPanel',(x0+.05,.312,.22),(x1-.05,.331,1.68),wood,.0014)
+  # Three completion placements are close to a side wall. A shallow turned
+  # button retains the source axis while clearing that wall at the full 92°.
+  tag(axial(identity+'_'+component+'Knob',side*.075,.945,[(0,.320),(.007,.320),(.007,.332),(.012,.336),(.014,.340),(.012,.345),(0,.347)],identity,'brass',48))
+  for z in [.34,1.57]:
+   for dz in [-.018,.018]:
+    center=z+dz
+    tag(vessel(identity+'_'+component+'Knuckle'+str(center),hx,.305,center-.010,[(.004,0),(.009,0),(.009,.020),(.004,.020),(.004,0)],identity,'brass'))
+    ends=sorted([hx+inward*.007,hx+inward*.055])
+    stock(component+'Strap'+str(center),(ends[0],.301,center-.010),(ends[1],.309,center+.010),'brass',.0003)
+ for x in [-.5,.5]:
+  for y in [-.20,.20]:support(identity,'support',(x,y,0),(0,0,1),'retained plinth underside')
+ construction_groups.append({'assembly':identity,'id':identity+'_JoinedWardrobe','stocks':[x['name'] for x in stock_checks[start:]]})
+ retained_stock.append({'assembly':identity,'source_id':member['id'],'garment_count':4,'source_hems_and_colours':True,'hinges_godot':[[-.615,.10,-.305],[.615,.10,-.305]],'angle_degrees':92,'moving_components':['LeftLeaf','RightLeaf']})

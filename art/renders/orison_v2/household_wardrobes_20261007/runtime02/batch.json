@@ -1,0 +1,77 @@
+{
+	"batch_checks": 7,
+	"elapsed_ms": 39522,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 2077,
+	"modules": {
+		"household_wardrobes": {
+			"actors": 21,
+			"captured": true,
+			"checks": 2077,
+			"elapsed_ms": 8854,
+			"failures": [],
+			"fixture_sha256": "2c002b9c15176c4b3d8c7c2239933d55518d7970cb9e52bd620df51a194e2d2f",
+			"parts": 231,
+			"unique_triangles": 447616,
+			"validator_sha256": "24b178789f4404b90636cd8cbd25915371403c635627cf93ad8cead61fe1c267",
+			"views": [
+				{
+					"bucket": "native private wardrobe",
+					"feet": [
+						-11.7614994049072,
+						6.42000007629395,
+						-0.791813373565674
+					],
+					"id": "3B_aw_wardrobe_closed",
+					"image": "3B_aw_wardrobe_closed.png",
+					"inspection_fov": 72.0,
+					"owner": "3B_aw_wardrobe",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native private wardrobe",
+					"feet": [
+						-11.8002481460571,
+						6.42000007629395,
+						-1.48124945163727
+					],
+					"id": "3B_aw_wardrobe_open",
+					"image": "3B_aw_wardrobe_open.png",
+					"inspection_fov": 90.0,
+					"owner": "3B_aw_wardrobe",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native private wardrobe",
+					"feet": [
+						-12.1583995819092,
+						3.22000002861023,
+						-2.5000011920929
+					],
+					"id": "2B_aw_wardrobe_open",
+					"image": "2B_aw_wardrobe_open.png",
+					"inspection_fov": 90.0,
+					"owner": "2B_aw_wardrobe",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native private wardrobe",
+					"feet": [
+						-12.1583995819092,
+						9.6200008392334,
+						-2.5000011920929
+					],
+					"id": "4A_w0_wardrobe_open",
+					"image": "4A_w0_wardrobe_open.png",
+					"inspection_fov": 90.0,
+					"owner": "4A_w0_wardrobe",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

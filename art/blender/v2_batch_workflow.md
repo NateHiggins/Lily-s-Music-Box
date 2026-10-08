@@ -93,7 +93,8 @@ Modules: **pawn_clocks**, **pawn_display**, **pawn_fittings**, **laundry_fitting
 **shop_clerestories**, **hardware_stock**, **news_fittings**,
 **locksmith_fittings**, **druggist_cupboard**, **cobbler_fittings**,
 **photo_radio_fittings**, **radio_display**, **task_lamps**, **reading_nook**, **work_tables**, **surface_stock** and
-**signal_terminal**, **domestic_seating** and **domestic_tables**. The original
+**signal_terminal**, **domestic_seating**, **domestic_tables**, **domestic_storage**,
+**prep_cabinets** and **household_wardrobes**. The original
 clock/display checks remain; display now also checks the fitted safe boundary.
 Their standalone scenes still work. As another family
 is touched, extract its detailed checks to `validate_in_world(world)` and

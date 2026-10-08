@@ -1,0 +1,18 @@
+ERROR: clear full wardrobe camera station: 2B_aw_wardrobe open
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _wardrobe_captures (res://tests/orison_v2_household_wardrobes_test.gd:144)
+       [3] _city_capture (res://tests/orison_v2_city_sweep.gd:124)
+       [4] shot (res://tests/orison_v2_floor_surface_test.gd:199)
+ERROR: clear full wardrobe camera station: 4A_w0_wardrobe open
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _wardrobe_captures (res://tests/orison_v2_household_wardrobes_test.gd:144)
+       [3] _city_capture (res://tests/orison_v2_city_sweep.gd:124)
+       [4] shot (res://tests/orison_v2_floor_surface_test.gd:199)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
