@@ -246,3 +246,9 @@ frame. For high-mounted cabinets, require the full projected bounding box and
 visible front controls. Do not require visibility through its actual shelf to
 rear underside corners. Preserve failed frames and receipts when improving
 these checks. Review occluding piers and noncollision trim visually as well.
+
+For animatable collision under a rotating parent, verify the physics body
+actually reaches the parent target. Record rejected camera collider paths and
+local hit/target positions, so a blocked camera cannot conceal a stale body.
+After a local prototype repair, compare all unchanged glTF accessors exactly
+before reusing their native views; review changed views before shared import.

@@ -1,0 +1,106 @@
+FABRICATION STAGE: art/blender/scripts/build_medicine_cabinets.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_medicine_cabinets.py:74: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "medicine_cabinets.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+22:06:20 | INFO: Starting glTF 2.0 export
+22:06:20 | INFO: Extracting primitive: MedicineItem_aspirin__Body_ON_bakelite
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_aspirin__Body_ON_bottle
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_brown_bottle__Body_ON_bakelite
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_brown_bottle__Body_ON_bottle
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_cold_cream__Body_ON_porcelain
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_iodine__Body_ON_bakelite
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_iodine__Body_ON_bottle
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_plasters__Body_ON_paper
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_QUELL_TONIC__Body_ON_bakelite
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_QUELL_TONIC__Body_ON_bottle
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_QUELL_TONIC__Body_ON_paper
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_razor__Body_ON_bakelite
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_razor__Body_ON_nickel
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_shaving_stick__Body_ON_bakelite
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_shaving_stick__Body_ON_bottle
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_shaving_stick__Body_ON_paper
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_thimble_tin__Body_ON_nickel
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_turpentine__Body_ON_bakelite
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineItem_turpentine__Body_ON_bottle
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineLeft__Body_ON_enamel
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineLeft__Body_ON_glassish
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineLeft__Body_ON_nickel
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineLeft__CabinetDoor_ON_bakelite
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineLeft__CabinetDoor_ON_enamel
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineLeft__CabinetDoor_ON_nickel
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineLeft__Mirror_ON_mirror
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineRight__Body_ON_enamel
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineRight__Body_ON_glassish
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineRight__Body_ON_nickel
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineRight__CabinetDoor_ON_bakelite
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineRight__CabinetDoor_ON_enamel
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineRight__CabinetDoor_ON_nickel
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Extracting primitive: MedicineRight__Mirror_ON_mirror
+22:06:20 | INFO: Primitives created: 1
+22:06:20 | INFO: Finished glTF 2.0 export in 0.11737585067749023 s
+
+MEDICINE CABINETS 12 original records; 12 assemblies; 189 closed stocks; 33 parts; 46516 triangles; 8 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_medicine_cabinets.py
+00:03.578  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\medicine_cabinets.blend"
+MEDICINE CABINETS LOCAL: 189 closed stocks; 12 physical groups; 8 local bearings; 33 mapped parts
+FABRICATION STAGE: art/blender/scripts/inspect_medicine_cabinet_motion.py
+00:04.875  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\medicine_cabinets.blend"
+MEDICINE MOTION: 46 nearby native door pairs clear
+FABRICATION STAGE: art/blender/scripts/inspect_medicine_cabinets_context.py
+TOASTERS CONTEXT: 12 installations; 48 bearings; 0 nearby pairs clear
+FABRICATION STAGE: art/blender/scripts/render_medicine_cabinets.py
+00:18.766  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\medicine_cabinets.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_medicine_cabinets.py:9: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.60,.65,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.65
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_medicine_cabinets.py:12: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=10,location=(0,0,-.00004));ground=bpy.context.object;mat=bpy.data.materials.new('Review neutral');mat.use_nodes=True;mat.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.23,.25,.26,1);mat.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.75;ground.data.materials.append(mat)
+00:23.297  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineLeft.png'
+00:27.688  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineRight.png'
+00:32.094  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineItem_aspirin.png'
+00:36.781  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineItem_cold_cream.png'
+00:41.703  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineItem_thimble_tin.png'
+00:45.922  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineItem_iodine.png'
+00:50.063  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineItem_razor.png'
+00:54.313  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineItem_shaving_stick.png'
+00:59.672  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineItem_plasters.png'
+01:03.859  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineItem_brown_bottle.png'
+01:08.031  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineItem_turpentine.png'
+01:12.172  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\medicine-cabinets-native\MedicineItem_QUELL_TONIC.png'
+{"completed_stages": 5, "elapsed_s": 70.822}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

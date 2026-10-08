@@ -1,0 +1,118 @@
+{
+  "evidence_class": "INERT",
+  "views": [
+    {
+      "unit": "2A",
+      "file": "2A_cabinet_open.png",
+      "items": [
+        "aspirin",
+        "cold cream"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    },
+    {
+      "unit": "2B",
+      "file": "2B_cabinet_open.png",
+      "items": [
+        "thimble tin",
+        "aspirin",
+        "iodine"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    },
+    {
+      "unit": "3A",
+      "file": "3A_cabinet_open.png",
+      "items": [
+        "razor",
+        "shaving stick"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    },
+    {
+      "unit": "3B",
+      "file": "3B_cabinet_open.png",
+      "items": [
+        "iodine",
+        "plasters"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    },
+    {
+      "unit": "4A",
+      "file": "4A_cabinet_open.png",
+      "items": [
+        "brown bottle",
+        "brown bottle",
+        "brown bottle"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    },
+    {
+      "unit": "4B",
+      "file": "4B_cabinet_open.png",
+      "items": [
+        "aspirin",
+        "iodine",
+        "razor"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    },
+    {
+      "unit": "5A",
+      "file": "5A_cabinet_open.png",
+      "items": [
+        "cold cream",
+        "aspirin"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    },
+    {
+      "unit": "5B",
+      "file": "5B_cabinet_open.png",
+      "items": [
+        "brown bottle",
+        "razor"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    },
+    {
+      "unit": "5C",
+      "file": "5C_cabinet_open.png",
+      "items": [
+        "turpentine",
+        "cold cream"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    },
+    {
+      "unit": "6A",
+      "file": "6A_cabinet_open.png",
+      "items": [
+        "aspirin",
+        "shaving stick"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    },
+    {
+      "unit": "6B",
+      "file": "6B_cabinet_open.png",
+      "items": [
+        "QUELL TONIC",
+        "brown bottle"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    },
+    {
+      "unit": "6C",
+      "file": "6C_cabinet_open.png",
+      "items": [
+        "iodine",
+        "thimble tin",
+        "aspirin"
+      ],
+      "layout": "source shelf/count; midpoint jitter, zero yaw for native inspection; actual seeded layout remains runtime-owned"
+    }
+  ],
+  "scope": "Native open case, shelf hardware and original household contents. Midpoint layout only; actual source RNG and live mirror require production validation."
+}

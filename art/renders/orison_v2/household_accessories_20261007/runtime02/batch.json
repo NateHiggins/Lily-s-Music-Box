@@ -1,0 +1,28 @@
+{
+	"batch_checks": 7,
+	"elapsed_ms": 37670,
+	"evidence_class": "INERT",
+	"failures": [
+		"medicine_cabinets: clear view of installed cabinet contents: F02_2A_MIRROR_01"
+	],
+	"module_checks": 1011,
+	"modules": {
+		"medicine_cabinets": {
+			"actors": 12,
+			"captured": true,
+			"checks": 1011,
+			"elapsed_ms": 5942,
+			"failures": [
+				"clear view of installed cabinet contents: F02_2A_MIRROR_01"
+			],
+			"fixture_sha256": "b6aa348aad04bc2aa272a8963b8114278eb44ab5b481aeafcfaf35755b808b5f",
+			"kept_items": 28,
+			"unique_triangles": 48260,
+			"validator_sha256": "2aee899ca63d6f398feb538dfbca0951846046f43086b883636e0e29e844ce14",
+			"views": []
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

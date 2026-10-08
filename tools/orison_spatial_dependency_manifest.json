@@ -237421,6 +237421,652 @@
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F06/furniture+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "f998e515000e5c65",
+   "kind": "id_reference",
+   "token": "F02_2A_TOASTER_01",
+   "file": "game/data/orison_v2/household_toasters.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "697f33561572b571",
+   "kind": "id_reference",
+   "token": "F02_2B_TOASTER_01",
+   "file": "game/data/orison_v2/household_toasters.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "42c381489a4c9f8f",
+   "kind": "id_reference",
+   "token": "F03_3A_TOASTER_01",
+   "file": "game/data/orison_v2/household_toasters.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "b9ca731479c35d8e",
+   "kind": "id_reference",
+   "token": "F03_3B_TOASTER_01",
+   "file": "game/data/orison_v2/household_toasters.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "b12b675c14405484",
+   "kind": "id_reference",
+   "token": "F04_4A_TOASTER_01",
+   "file": "game/data/orison_v2/household_toasters.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "34aaefa42bb1cfb7",
+   "kind": "id_reference",
+   "token": "F04_B_TOASTER_01",
+   "file": "game/data/orison_v2/household_toasters.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "b397bded45c79f5e",
+   "kind": "id_reference",
+   "token": "F05_5A_TOASTER_01",
+   "file": "game/data/orison_v2/household_toasters.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "2df91cf2973c96c1",
+   "kind": "id_reference",
+   "token": "F06_6A_TOASTER_01",
+   "file": "game/data/orison_v2/household_toasters.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "aac5b2e66a20cf48",
+   "kind": "id_reference",
+   "token": "F06_6B_TOASTER_01",
+   "file": "game/data/orison_v2/household_toasters.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "f70329d5bf48a10b",
+   "kind": "id_reference",
+   "token": "F06_6C_TOASTER_01",
+   "file": "game/data/orison_v2/household_toasters.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "cc319a5270cd2a4e",
+   "kind": "id_reference",
+   "token": "F02_2A_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/marker",
+   "target_exists": true
+  },
+  {
+   "key": "d19e1a8d24b06a4f",
+   "kind": "id_reference",
+   "token": "F02_2B_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/marker",
+   "target_exists": true
+  },
+  {
+   "key": "b8c26cd5641f44ec",
+   "kind": "id_reference",
+   "token": "F03_3A_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/marker",
+   "target_exists": true
+  },
+  {
+   "key": "cea255fca1e63bc9",
+   "kind": "id_reference",
+   "token": "F03_3B_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/marker",
+   "target_exists": true
+  },
+  {
+   "key": "d6bfde3af5c6db15",
+   "kind": "id_reference",
+   "token": "F04_4A_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/marker",
+   "target_exists": true
+  },
+  {
+   "key": "cae5d9182d5e706b",
+   "kind": "id_reference",
+   "token": "F04_4B_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/marker",
+   "target_exists": true
+  },
+  {
+   "key": "2e8e4b662c78185a",
+   "kind": "id_reference",
+   "token": "F05_5A_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/marker",
+   "target_exists": true
+  },
+  {
+   "key": "028e3854bc2b74e5",
+   "kind": "id_reference",
+   "token": "F05_5B_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/marker",
+   "target_exists": true
+  },
+  {
+   "key": "4fac8f0088586b01",
+   "kind": "id_reference",
+   "token": "F05_5C_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/marker",
+   "target_exists": true
+  },
+  {
+   "key": "b7ea2d119819b89d",
+   "kind": "id_reference",
+   "token": "F06_6A_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/marker",
+   "target_exists": true
+  },
+  {
+   "key": "bdfd0248c6b887d4",
+   "kind": "id_reference",
+   "token": "F06_6B_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/marker",
+   "target_exists": true
+  },
+  {
+   "key": "26291171faf91b26",
+   "kind": "id_reference",
+   "token": "F06_6C_MIRROR_01",
+   "file": "game/data/orison_v2/medicine_cabinets.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/marker",
+   "target_exists": true
+  },
+  {
+   "key": "4c920633bd134909",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/orison_v2_household_toasters_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    25
+   ],
+   "count": 1,
+   "context": [
+    "check(prop.unit == record.unit and prop.prop_type == \"toaster\" and prop.tray_axis == (Vector3.LEFT if record.unit == \"4B\" else Vector3.FORWARD), \"original house"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
   }
  ]
 }

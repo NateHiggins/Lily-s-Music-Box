@@ -1,0 +1,48 @@
+{
+  "evidence_class": "INERT",
+  "views": [
+    {
+      "id": "ToasterFront",
+      "source": "F02_2A_TOASTER_01",
+      "file": "ToasterFront.png",
+      "state": "closed"
+    },
+    {
+      "id": "ToasterFront",
+      "source": "F02_2A_TOASTER_01",
+      "file": "ToasterFront_latched_open.png",
+      "state": "latched_open"
+    },
+    {
+      "id": "ToasterFront",
+      "source": "F02_2A_TOASTER_01",
+      "file": "ToasterFront_release_peak.png",
+      "state": "release_peak"
+    },
+    {
+      "id": "ToasterEnd",
+      "source": "F04_B_TOASTER_01",
+      "file": "ToasterEnd.png",
+      "state": "closed"
+    },
+    {
+      "id": "ToasterEnd",
+      "source": "F04_B_TOASTER_01",
+      "file": "ToasterEnd_latched_open.png",
+      "state": "latched_open"
+    },
+    {
+      "id": "ToasterEnd",
+      "source": "F04_B_TOASTER_01",
+      "file": "ToasterEnd_release_peak.png",
+      "state": "release_peak"
+    },
+    {
+      "id": "ToasterCrumb",
+      "source": "F02_2A_TOASTER_01",
+      "file": "ToasterCrumb.png",
+      "state": "closed"
+    }
+  ],
+  "scope": "Native isolated form/material views. Production review remains required."
+}

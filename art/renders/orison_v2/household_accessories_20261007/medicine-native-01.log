@@ -1,0 +1,98 @@
+FABRICATION STAGE: art/blender/scripts/build_medicine_cabinets.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_medicine_cabinets.py:74: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "medicine_cabinets.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+21:59:22 | INFO: Starting glTF 2.0 export
+21:59:22 | INFO: Extracting primitive: MedicineItem_aspirin__Body_ON_bakelite
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_aspirin__Body_ON_bottle
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_brown_bottle__Body_ON_bakelite
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_brown_bottle__Body_ON_bottle
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_cold_cream__Body_ON_porcelain
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_iodine__Body_ON_bakelite
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_iodine__Body_ON_bottle
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_plasters__Body_ON_paper
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_QUELL_TONIC__Body_ON_bakelite
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_QUELL_TONIC__Body_ON_bottle
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_razor__Body_ON_bakelite
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_razor__Body_ON_nickel
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_shaving_stick__Body_ON_bakelite
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_shaving_stick__Body_ON_bottle
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_shaving_stick__Body_ON_paper
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_thimble_tin__Body_ON_nickel
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_turpentine__Body_ON_bakelite
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineItem_turpentine__Body_ON_bottle
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineLeft__Body_ON_enamel
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineLeft__Body_ON_glassish
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineLeft__Body_ON_nickel
+21:59:22 | INFO: Primitives created: 1
+21:59:22 | INFO: Extracting primitive: MedicineLeft__CabinetDoor_ON_bakelite
+21:59:23 | INFO: Primitives created: 1
+21:59:23 | INFO: Extracting primitive: MedicineLeft__CabinetDoor_ON_enamel
+21:59:23 | INFO: Primitives created: 1
+21:59:23 | INFO: Extracting primitive: MedicineLeft__CabinetDoor_ON_nickel
+21:59:23 | INFO: Primitives created: 1
+21:59:23 | INFO: Extracting primitive: MedicineLeft__Mirror_ON_mirror
+21:59:23 | INFO: Primitives created: 1
+21:59:23 | INFO: Extracting primitive: MedicineRight__Body_ON_enamel
+21:59:23 | INFO: Primitives created: 1
+21:59:23 | INFO: Extracting primitive: MedicineRight__Body_ON_glassish
+21:59:23 | INFO: Primitives created: 1
+21:59:23 | INFO: Extracting primitive: MedicineRight__Body_ON_nickel
+21:59:23 | INFO: Primitives created: 1
+21:59:23 | INFO: Extracting primitive: MedicineRight__CabinetDoor_ON_bakelite
+21:59:23 | INFO: Primitives created: 1
+21:59:23 | INFO: Extracting primitive: MedicineRight__CabinetDoor_ON_enamel
+21:59:23 | INFO: Primitives created: 1
+21:59:23 | INFO: Extracting primitive: MedicineRight__CabinetDoor_ON_nickel
+21:59:23 | INFO: Primitives created: 1
+21:59:23 | INFO: Extracting primitive: MedicineRight__Mirror_ON_mirror
+21:59:23 | INFO: Primitives created: 1
+21:59:23 | INFO: Finished glTF 2.0 export in 0.10749244689941406 s
+
+MEDICINE CABINETS 12 original records; 12 assemblies; 169 closed stocks; 32 parts; 42616 triangles; 8 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_medicine_cabinets.py
+00:03.531  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\medicine_cabinets.blend"
+MEDICINE CABINETS LOCAL: 169 closed stocks; 12 physical groups; 8 local bearings; 32 mapped parts
+FABRICATION STAGE: art/blender/scripts/inspect_medicine_cabinet_motion.py
+00:04.734  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\medicine_cabinets.blend"
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 79, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 72, in main
+    results = execute(stages)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 47, in execute
+    runpy.run_path(sys.argv[0], run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_medicine_cabinet_motion.py", line 63, in <module>
+    assert not failures,failures
+           ^^^^^^^^^^^^
+AssertionError: [['MedicineLeft_FrameStile0.206', 'MedicineLeft_FixedKnuckle(1.3219999999999998, 1.287)', 1, 77], ['MedicineLeft_FrameStile0.206', 'MedicineLeft_FixedKnuckle(1.3219999999999998, 1.3429999999999997)', 1, 77], ['MedicineLeft_FrameStile0.206', 'MedicineLeft_HingePin1.3219999999999998', 1, 18], ['MedicineLeft_FrameStile0.206', 'MedicineLeft_FixedKnuckle(1.688, 1.653)', 1, 77], ['MedicineLeft_FrameStile0.206', 'MedicineLeft_FixedKnuckle(1.688, 1.7089999999999999)', 1, 77], ['MedicineLeft_FrameStile0.206', 'MedicineLeft_HingePin1.688', 1, 18], ['MedicineLeft_FrameBead0.206', 'MedicineLeft_FixedKnuckle(1.3219999999999998, 1.287)', 1, 155], ['MedicineLeft_FrameBead0.206', 'MedicineLeft_FixedKnuckle(1.3219999999999998, 1.3429999999999997)', 1, 155], ['MedicineLeft_FrameBead0.206', 'MedicineLeft_HingePin1.3219999999999998', 1, 150], ['MedicineLeft_FrameBead0.206', 'MedicineLeft_FixedKnuckle(1.688, 1.653)', 1, 155], ['MedicineLeft_FrameBead0.206', 'MedicineLeft_FixedKnuckle(1.688, 1.7089999999999999)', 1, 155], ['MedicineLeft_FrameBead0.206', 'MedicineLeft_HingePin1.688', 1, 150], ['MedicineLeft_MovingHingeLeaf1.3219999999999998', 'MedicineLeft_HingePin1.3219999999999998', 1, 30], ['MedicineLeft_MovingHingeLeaf1.688', 'MedicineLeft_HingePin1.688', 1, 30], ['MedicineRight_FrameStile-0.23', 'MedicineRight_FixedKnuckle(1.3219999999999998, 1.287)', 1, 80], ['MedicineRight_FrameStile-0.23', 'MedicineRight_FixedKnuckle(1.3219999999999998, 1.3429999999999997)', 1, 80], ['MedicineRight_FrameStile-0.23', 'MedicineRight_HingePin1.3219999999999998', 1, 20], ['MedicineRight_FrameStile-0.23', 'MedicineRight_FixedKnuckle(1.688, 1.653)', 1, 80], ['MedicineRight_FrameStile-0.23', 'MedicineRight_FixedKnuckle(1.688, 1.7089999999999999)', 1, 80], ['MedicineRight_FrameStile-0.23', 'MedicineRight_HingePin1.688', 1, 20], ['MedicineRight_FrameBead-0.23', 'MedicineRight_FixedKnuckle(1.3219999999999998, 1.287)', 1, 152], ['MedicineRight_FrameBead-0.23', 'MedicineRight_FixedKnuckle(1.3219999999999998, 1.3429999999999997)', 1, 152], ['MedicineRight_FrameBead-0.23', 'MedicineRight_HingePin1.3219999999999998', 1, 149], ['MedicineRight_FrameBead-0.23', 'MedicineRight_FixedKnuckle(1.688, 1.653)', 1, 152], ['MedicineRight_FrameBead-0.23', 'MedicineRight_FixedKnuckle(1.688, 1.7089999999999999)', 1, 152], ['MedicineRight_FrameBead-0.23', 'MedicineRight_HingePin1.688', 1, 149], ['MedicineRight_MovingHingeLeaf1.3219999999999998', 'MedicineRight_HingePin1.3219999999999998', 1, 31], ['MedicineRight_MovingHingeLeaf1.688', 'MedicineRight_HingePin1.688', 1, 31]]
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

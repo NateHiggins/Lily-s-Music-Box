@@ -1,0 +1,2203 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "F02_2A_TOASTER_01",
+      "unit": "2A",
+      "kind": "toaster",
+      "support": "2A_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z"
+    },
+    {
+      "id": "F02_2B_TOASTER_01",
+      "unit": "2B",
+      "kind": "toaster",
+      "support": "2B_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z"
+    },
+    {
+      "id": "F03_3A_TOASTER_01",
+      "unit": "3A",
+      "kind": "toaster",
+      "support": "3A_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z"
+    },
+    {
+      "id": "F03_3B_TOASTER_01",
+      "unit": "3B",
+      "kind": "toaster",
+      "support": "3B_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z"
+    },
+    {
+      "id": "F04_4A_TOASTER_01",
+      "unit": "4A",
+      "kind": "toaster",
+      "support": "4A_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z"
+    },
+    {
+      "id": "F04_B_TOASTER_01",
+      "unit": "4B",
+      "kind": "toaster",
+      "support": "4B_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-x"
+    },
+    {
+      "id": "F05_5A_TOASTER_01",
+      "unit": "5A",
+      "kind": "toaster",
+      "support": "5A_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z"
+    },
+    {
+      "id": "F06_6A_TOASTER_01",
+      "unit": "6A",
+      "kind": "toaster",
+      "support": "6A_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z"
+    },
+    {
+      "id": "F06_6B_TOASTER_01",
+      "unit": "6B",
+      "kind": "toaster",
+      "support": "6B_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z"
+    },
+    {
+      "id": "F06_6C_TOASTER_01",
+      "unit": "6C",
+      "kind": "toaster",
+      "support": "6C_prep_cabinet",
+      "position": [
+        0,
+        0.9,
+        0
+      ],
+      "yaw": 0,
+      "tray_axis": "-z"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "ToasterFront",
+      "kind": "toaster",
+      "cell": "shared",
+      "source_record": "F02_2A_TOASTER_01"
+    },
+    {
+      "id": "ToasterEnd",
+      "kind": "toaster",
+      "cell": "shared",
+      "source_record": "F04_B_TOASTER_01"
+    },
+    {
+      "id": "ToasterCrumb",
+      "kind": "crumb_prototype",
+      "cell": "shared",
+      "source_record": "F02_2A_TOASTER_01"
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "ToasterFront_Foot(-0.105, -0.045)",
+      "assembly": "ToasterFront",
+      "key": "bakelite",
+      "volume_m3": 6.3114639914883196e-06
+    },
+    {
+      "name": "ToasterFront_Foot(-0.105, 0.045)",
+      "assembly": "ToasterFront",
+      "key": "bakelite",
+      "volume_m3": 6.311463991488317e-06
+    },
+    {
+      "name": "ToasterFront_Foot(0.105, -0.045)",
+      "assembly": "ToasterFront",
+      "key": "bakelite",
+      "volume_m3": 6.311463991488317e-06
+    },
+    {
+      "name": "ToasterFront_Foot(0.105, 0.045)",
+      "assembly": "ToasterFront",
+      "key": "bakelite",
+      "volume_m3": 6.311463991488318e-06
+    },
+    {
+      "name": "ToasterFront_PressedBase",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 0.0003729734878192846
+    },
+    {
+      "name": "ToasterFront_VentWall-1",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 3.3061834986484497e-05
+    },
+    {
+      "name": "ToasterFront_VentWall1",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.8468735780422666e-05
+    },
+    {
+      "name": "ToasterFront_EndWall-1",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.8778060088369395e-05
+    },
+    {
+      "name": "ToasterFront_EndWall1",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.7599243120119396e-05
+    },
+    {
+      "name": "ToasterFront_PressedShoulder",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.5359528915661e-05
+    },
+    {
+      "name": "ToasterFront_SingleSlotLip_Near",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.1858705855394432e-05
+    },
+    {
+      "name": "ToasterFront_SingleSlotLip_Far",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.1858705855394432e-05
+    },
+    {
+      "name": "ToasterFront_SingleSlotLip_Left",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.1527036255278276e-06
+    },
+    {
+      "name": "ToasterFront_SingleSlotLip_Right",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.1527036255278276e-06
+    },
+    {
+      "name": "ToasterFront_Screw(-1, -0.104, -1)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 5.3938365191619833e-08
+    },
+    {
+      "name": "ToasterFront_Screw(-1, -0.104, 1)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 5.3938297691811706e-08
+    },
+    {
+      "name": "ToasterFront_Screw(-1, 0.104, -1)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 5.393836519161978e-08
+    },
+    {
+      "name": "ToasterFront_Screw(-1, 0.104, 1)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 5.39382976918116e-08
+    },
+    {
+      "name": "ToasterFront_Screw(1, -0.104, -1)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 5.3938365191619833e-08
+    },
+    {
+      "name": "ToasterFront_Screw(1, -0.104, 1)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 5.3938297691811706e-08
+    },
+    {
+      "name": "ToasterFront_Screw(1, 0.104, -1)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 5.393836519161978e-08
+    },
+    {
+      "name": "ToasterFront_Screw(1, 0.104, 1)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 5.393829769181176e-08
+    },
+    {
+      "name": "ToasterFront_BraidedSupply",
+      "assembly": "ToasterFront",
+      "key": "braid",
+      "volume_m3": 1.3997786204352394e-05
+    },
+    {
+      "name": "ToasterFront_Plug",
+      "assembly": "ToasterFront",
+      "key": "bakelite",
+      "volume_m3": 1.4049963911001487e-05
+    },
+    {
+      "name": "ToasterFront_PlugPin-0.167",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.3723847822398686e-07
+    },
+    {
+      "name": "ToasterFront_PlugPin-0.153",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.3723864894684817e-07
+    },
+    {
+      "name": "ToasterFront_MicaCard-0.034",
+      "assembly": "ToasterFront",
+      "key": "mica",
+      "volume_m3": 7.446827970257221e-05
+    },
+    {
+      "name": "ToasterFront_CardSaddle(-0.0934, -0.034)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.382459912587783e-07
+    },
+    {
+      "name": "ToasterFront_CardSaddle(0.0934, -0.034)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.3824599125877827e-07
+    },
+    {
+      "name": "ToasterFront_MicaCard0.034",
+      "assembly": "ToasterFront",
+      "key": "mica",
+      "volume_m3": 7.446827970257221e-05
+    },
+    {
+      "name": "ToasterFront_CardSaddle(-0.0934, 0.034)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.3824599125877827e-07
+    },
+    {
+      "name": "ToasterFront_CardSaddle(0.0934, 0.034)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.3824599125877822e-07
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(-0.037, 0)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405441904076926e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(-0.037, 1)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405426605292569e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(-0.037, 2)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405441904076886e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(-0.037, 3)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405441245337237e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(-0.037, 4)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405432069290664e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(-0.037, 5)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405438943436315e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(-0.037, 6)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405438613016136e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(0.037, 0)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405441904076926e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(0.037, 1)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405426605292569e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(0.037, 2)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405441904076886e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(0.037, 3)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405441245337237e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(0.037, 4)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405432069290664e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(0.037, 5)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405438943436315e-06
+    },
+    {
+      "name": "ToasterFront_ResistanceWire(0.037, 6)",
+      "assembly": "ToasterFront",
+      "key": "coil",
+      "volume_m3": 1.2405438613016136e-06
+    },
+    {
+      "name": "ToasterFront_TimerTrack",
+      "assembly": "ToasterFront",
+      "key": "bakelite",
+      "volume_m3": 4.967722734790746e-06
+    },
+    {
+      "name": "ToasterFront_TimerLever",
+      "assembly": "ToasterFront",
+      "key": "bakelite",
+      "volume_m3": 8.853624742104254e-06
+    },
+    {
+      "name": "ToasterFront_TimerNotch0",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.949883475692651e-07
+    },
+    {
+      "name": "ToasterFront_TimerNotch1",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.949882326653251e-07
+    },
+    {
+      "name": "ToasterFront_TimerNotch2",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.949883475692649e-07
+    },
+    {
+      "name": "ToasterFront_TimerNotch3",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.949882326653319e-07
+    },
+    {
+      "name": "ToasterFront_TimerNotch4",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.9498921317427393e-07
+    },
+    {
+      "name": "ToasterFront_CarriageGrip",
+      "assembly": "ToasterFront",
+      "key": "bakelite",
+      "volume_m3": 9.306617279215722e-06
+    },
+    {
+      "name": "ToasterFront_CarriageSpindle",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.593870849080101e-06
+    },
+    {
+      "name": "ToasterFront_LeverGuideSide-0.014",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 4.814094715972071e-06
+    },
+    {
+      "name": "ToasterFront_LeverGuideSide0.007",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 4.81409322030515e-06
+    },
+    {
+      "name": "ToasterFront_LeverSlider",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.2585341704197239e-06
+    },
+    {
+      "name": "ToasterFront_BreadPlate",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.9123456122107897e-05
+    },
+    {
+      "name": "ToasterFront_CarrierWire-0.084",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.7767979222732445e-07
+    },
+    {
+      "name": "ToasterFront_CarrierWire-0.042",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.776798292075651e-07
+    },
+    {
+      "name": "ToasterFront_CarrierWire0",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.776797699278438e-07
+    },
+    {
+      "name": "ToasterFront_CarrierWire0.042",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.776798292075651e-07
+    },
+    {
+      "name": "ToasterFront_CarrierWire0.084",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.7767979222732445e-07
+    },
+    {
+      "name": "ToasterFront_CarrierGuideBridge-0.097",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 9.549738127437674e-07
+    },
+    {
+      "name": "ToasterFront_CarrierGuide-0.097",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 5.0203980044353014e-06
+    },
+    {
+      "name": "ToasterFront_CarrierYoke(-0.097, -0.01)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterFront_CarrierYoke(-0.097, 0.009)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterFront_CarrierLink-0.097",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.1575213524101076e-07
+    },
+    {
+      "name": "ToasterFront_CarrierGuideBridge0.097",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 9.549738127437674e-07
+    },
+    {
+      "name": "ToasterFront_CarrierGuide0.097",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 5.020398004435301e-06
+    },
+    {
+      "name": "ToasterFront_CarrierYoke(0.097, -0.01)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterFront_CarrierYoke(0.097, 0.009)",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterFront_CarrierLink0.097",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.1575213524101118e-07
+    },
+    {
+      "name": "ToasterFront_PanRail-0.095",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.9973868420160835e-07
+    },
+    {
+      "name": "ToasterFront_PanRail0.095",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.9973868420160835e-07
+    },
+    {
+      "name": "ToasterFront_Pan",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 2.7077160838133717e-05
+    },
+    {
+      "name": "ToasterFront_PanFold-0.0525",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 3.4996158573394105e-06
+    },
+    {
+      "name": "ToasterFront_PanFold0.0513",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 3.4996158573394105e-06
+    },
+    {
+      "name": "ToasterFront_PanEnd-0.1075",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.692549393250269e-06
+    },
+    {
+      "name": "ToasterFront_PanEnd0.1063",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.692549393250269e-06
+    },
+    {
+      "name": "ToasterFront_PanPullStrip",
+      "assembly": "ToasterFront",
+      "key": "nickel",
+      "volume_m3": 1.4675488178701794e-05
+    },
+    {
+      "name": "ToasterFront_PanPull",
+      "assembly": "ToasterFront",
+      "key": "bakelite",
+      "volume_m3": 8.857620672350834e-06
+    },
+    {
+      "name": "ToasterFront_GreaseFilm",
+      "assembly": "ToasterFront",
+      "key": "grease",
+      "volume_m3": 1.0799328211173886e-06
+    },
+    {
+      "name": "ToasterEnd_Foot(-0.105, -0.045)",
+      "assembly": "ToasterEnd",
+      "key": "bakelite",
+      "volume_m3": 6.3114639914883196e-06
+    },
+    {
+      "name": "ToasterEnd_Foot(-0.105, 0.045)",
+      "assembly": "ToasterEnd",
+      "key": "bakelite",
+      "volume_m3": 6.311463991488317e-06
+    },
+    {
+      "name": "ToasterEnd_Foot(0.105, -0.045)",
+      "assembly": "ToasterEnd",
+      "key": "bakelite",
+      "volume_m3": 6.311463991488317e-06
+    },
+    {
+      "name": "ToasterEnd_Foot(0.105, 0.045)",
+      "assembly": "ToasterEnd",
+      "key": "bakelite",
+      "volume_m3": 6.311463991488318e-06
+    },
+    {
+      "name": "ToasterEnd_PressedBase",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 0.0003729734878192846
+    },
+    {
+      "name": "ToasterEnd_VentWall-1",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 3.3061834986484497e-05
+    },
+    {
+      "name": "ToasterEnd_VentWall1",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 3.3061834986484497e-05
+    },
+    {
+      "name": "ToasterEnd_EndWall-1",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.646854477112138e-05
+    },
+    {
+      "name": "ToasterEnd_EndWall1",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.7599243120119396e-05
+    },
+    {
+      "name": "ToasterEnd_PressedShoulder",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.5359528915661e-05
+    },
+    {
+      "name": "ToasterEnd_SingleSlotLip_Near",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.1858705855394432e-05
+    },
+    {
+      "name": "ToasterEnd_SingleSlotLip_Far",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.1858705855394432e-05
+    },
+    {
+      "name": "ToasterEnd_SingleSlotLip_Left",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.1527036255278276e-06
+    },
+    {
+      "name": "ToasterEnd_SingleSlotLip_Right",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.1527036255278276e-06
+    },
+    {
+      "name": "ToasterEnd_Screw(-1, -0.104, -1)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 5.3938365191619833e-08
+    },
+    {
+      "name": "ToasterEnd_Screw(-1, -0.104, 1)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 5.3938297691811706e-08
+    },
+    {
+      "name": "ToasterEnd_Screw(-1, 0.104, -1)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 5.393836519161978e-08
+    },
+    {
+      "name": "ToasterEnd_Screw(-1, 0.104, 1)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 5.39382976918116e-08
+    },
+    {
+      "name": "ToasterEnd_Screw(1, -0.104, -1)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 5.3938365191619833e-08
+    },
+    {
+      "name": "ToasterEnd_Screw(1, -0.104, 1)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 5.3938297691811706e-08
+    },
+    {
+      "name": "ToasterEnd_Screw(1, 0.104, -1)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 5.393836519161978e-08
+    },
+    {
+      "name": "ToasterEnd_Screw(1, 0.104, 1)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 5.393829769181176e-08
+    },
+    {
+      "name": "ToasterEnd_BraidedSupply",
+      "assembly": "ToasterEnd",
+      "key": "braid",
+      "volume_m3": 1.3997786204352394e-05
+    },
+    {
+      "name": "ToasterEnd_Plug",
+      "assembly": "ToasterEnd",
+      "key": "bakelite",
+      "volume_m3": 1.4049963911001487e-05
+    },
+    {
+      "name": "ToasterEnd_PlugPin-0.167",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.3723847822398686e-07
+    },
+    {
+      "name": "ToasterEnd_PlugPin-0.153",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.3723864894684817e-07
+    },
+    {
+      "name": "ToasterEnd_MicaCard-0.034",
+      "assembly": "ToasterEnd",
+      "key": "mica",
+      "volume_m3": 7.446827970257221e-05
+    },
+    {
+      "name": "ToasterEnd_CardSaddle(-0.0934, -0.034)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.382459912587783e-07
+    },
+    {
+      "name": "ToasterEnd_CardSaddle(0.0934, -0.034)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.3824599125877827e-07
+    },
+    {
+      "name": "ToasterEnd_MicaCard0.034",
+      "assembly": "ToasterEnd",
+      "key": "mica",
+      "volume_m3": 7.446827970257221e-05
+    },
+    {
+      "name": "ToasterEnd_CardSaddle(-0.0934, 0.034)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.3824599125877827e-07
+    },
+    {
+      "name": "ToasterEnd_CardSaddle(0.0934, 0.034)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.3824599125877822e-07
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(-0.037, 0)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405441904076926e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(-0.037, 1)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405426605292569e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(-0.037, 2)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405441904076886e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(-0.037, 3)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405441245337237e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(-0.037, 4)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405432069290664e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(-0.037, 5)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405438943436315e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(-0.037, 6)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405438613016136e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(0.037, 0)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405441904076926e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(0.037, 1)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405426605292569e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(0.037, 2)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405441904076886e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(0.037, 3)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405441245337237e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(0.037, 4)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405432069290664e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(0.037, 5)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405438943436315e-06
+    },
+    {
+      "name": "ToasterEnd_ResistanceWire(0.037, 6)",
+      "assembly": "ToasterEnd",
+      "key": "coil",
+      "volume_m3": 1.2405438613016136e-06
+    },
+    {
+      "name": "ToasterEnd_TimerTrack",
+      "assembly": "ToasterEnd",
+      "key": "bakelite",
+      "volume_m3": 4.967722734790746e-06
+    },
+    {
+      "name": "ToasterEnd_TimerLever",
+      "assembly": "ToasterEnd",
+      "key": "bakelite",
+      "volume_m3": 8.853624742104254e-06
+    },
+    {
+      "name": "ToasterEnd_TimerNotch0",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.949883475692651e-07
+    },
+    {
+      "name": "ToasterEnd_TimerNotch1",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.949882326653251e-07
+    },
+    {
+      "name": "ToasterEnd_TimerNotch2",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.949883475692649e-07
+    },
+    {
+      "name": "ToasterEnd_TimerNotch3",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.949882326653319e-07
+    },
+    {
+      "name": "ToasterEnd_TimerNotch4",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.9498921317427393e-07
+    },
+    {
+      "name": "ToasterEnd_CarriageGrip",
+      "assembly": "ToasterEnd",
+      "key": "bakelite",
+      "volume_m3": 9.306617279215722e-06
+    },
+    {
+      "name": "ToasterEnd_CarriageSpindle",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.593870849080101e-06
+    },
+    {
+      "name": "ToasterEnd_LeverGuideSide-0.014",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 4.814094715972071e-06
+    },
+    {
+      "name": "ToasterEnd_LeverGuideSide0.007",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 4.81409322030515e-06
+    },
+    {
+      "name": "ToasterEnd_LeverSlider",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.2585341704197239e-06
+    },
+    {
+      "name": "ToasterEnd_BreadPlate",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.9123456122107897e-05
+    },
+    {
+      "name": "ToasterEnd_CarrierWire-0.084",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.7767979222732445e-07
+    },
+    {
+      "name": "ToasterEnd_CarrierWire-0.042",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.776798292075651e-07
+    },
+    {
+      "name": "ToasterEnd_CarrierWire0",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.776797699278438e-07
+    },
+    {
+      "name": "ToasterEnd_CarrierWire0.042",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.776798292075651e-07
+    },
+    {
+      "name": "ToasterEnd_CarrierWire0.084",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.7767979222732445e-07
+    },
+    {
+      "name": "ToasterEnd_CarrierGuideBridge-0.097",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 9.549738127437674e-07
+    },
+    {
+      "name": "ToasterEnd_CarrierGuide-0.097",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 5.0203980044353014e-06
+    },
+    {
+      "name": "ToasterEnd_CarrierYoke(-0.097, -0.01)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterEnd_CarrierYoke(-0.097, 0.009)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterEnd_CarrierLink-0.097",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.1575213524101076e-07
+    },
+    {
+      "name": "ToasterEnd_CarrierGuideBridge0.097",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 9.549738127437674e-07
+    },
+    {
+      "name": "ToasterEnd_CarrierGuide0.097",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 5.020398004435301e-06
+    },
+    {
+      "name": "ToasterEnd_CarrierYoke(0.097, -0.01)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterEnd_CarrierYoke(0.097, 0.009)",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterEnd_CarrierLink0.097",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.1575213524101118e-07
+    },
+    {
+      "name": "ToasterEnd_PanRail-0.04",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 3.994883990180241e-07
+    },
+    {
+      "name": "ToasterEnd_PanRail0.04",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 3.994883990180241e-07
+    },
+    {
+      "name": "ToasterEnd_Pan",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 2.7077160838133717e-05
+    },
+    {
+      "name": "ToasterEnd_PanFold-0.0525",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 3.4996158573394105e-06
+    },
+    {
+      "name": "ToasterEnd_PanFold0.0513",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 3.4996158573394105e-06
+    },
+    {
+      "name": "ToasterEnd_PanEnd-0.1075",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.692549393250269e-06
+    },
+    {
+      "name": "ToasterEnd_PanEnd0.1063",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.692549393250269e-06
+    },
+    {
+      "name": "ToasterEnd_PanPullStrip",
+      "assembly": "ToasterEnd",
+      "key": "nickel",
+      "volume_m3": 1.333913541539822e-05
+    },
+    {
+      "name": "ToasterEnd_PanPull",
+      "assembly": "ToasterEnd",
+      "key": "bakelite",
+      "volume_m3": 8.857616455322824e-06
+    },
+    {
+      "name": "ToasterEnd_GreaseFilm",
+      "assembly": "ToasterEnd",
+      "key": "grease",
+      "volume_m3": 1.0799328211173886e-06
+    },
+    {
+      "name": "ToasterCrumb_Crumb",
+      "assembly": "ToasterCrumb",
+      "key": "crumb",
+      "volume_m3": 4.0674449337700864e-07
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "ToasterFront",
+      "owner": "support",
+      "point": [
+        -0.105,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterFront",
+      "owner": "support",
+      "point": [
+        -0.105,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterFront",
+      "owner": "support",
+      "point": [
+        0.105,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterFront",
+      "owner": "support",
+      "point": [
+        0.105,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterFront",
+      "owner": "support",
+      "point": [
+        -0.16,
+        0,
+        -0.12
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "loose plug"
+    },
+    {
+      "assembly": "ToasterEnd",
+      "owner": "support",
+      "point": [
+        -0.105,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterEnd",
+      "owner": "support",
+      "point": [
+        -0.105,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterEnd",
+      "owner": "support",
+      "point": [
+        0.105,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterEnd",
+      "owner": "support",
+      "point": [
+        0.105,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterEnd",
+      "owner": "support",
+      "point": [
+        -0.16,
+        0,
+        -0.12
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "loose plug"
+    }
+  ],
+  "parts": [
+    {
+      "name": "ToasterFront__Body_ON_bakelite",
+      "assembly": "ToasterFront",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 2100
+    },
+    {
+      "name": "ToasterFront__Body_ON_braid",
+      "assembly": "ToasterFront",
+      "cell": "shared",
+      "key": "braid",
+      "triangles": 1172
+    },
+    {
+      "name": "ToasterFront__Body_ON_mica",
+      "assembly": "ToasterFront",
+      "cell": "shared",
+      "key": "mica",
+      "triangles": 376
+    },
+    {
+      "name": "ToasterFront__Body_ON_nickel",
+      "assembly": "ToasterFront",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 10004
+    },
+    {
+      "name": "ToasterFront__BreadCarrier_ON_nickel",
+      "assembly": "ToasterFront",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 2256
+    },
+    {
+      "name": "ToasterFront__CarriageLever_ON_bakelite",
+      "assembly": "ToasterFront",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "ToasterFront__CarriageLever_ON_nickel",
+      "assembly": "ToasterFront",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 380
+    },
+    {
+      "name": "ToasterFront__OrisonRetrofitCrumbTray_ON_bakelite",
+      "assembly": "ToasterFront",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "ToasterFront__OrisonRetrofitCrumbTray_ON_grease",
+      "assembly": "ToasterFront",
+      "cell": "shared",
+      "key": "grease",
+      "triangles": 188
+    },
+    {
+      "name": "ToasterFront__OrisonRetrofitCrumbTray_ON_nickel",
+      "assembly": "ToasterFront",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 1128
+    },
+    {
+      "name": "ToasterFront__ResistanceWire_ON_coil",
+      "assembly": "ToasterFront",
+      "cell": "shared",
+      "key": "coil",
+      "triangles": 2632
+    },
+    {
+      "name": "ToasterEnd__Body_ON_bakelite",
+      "assembly": "ToasterEnd",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 2100
+    },
+    {
+      "name": "ToasterEnd__Body_ON_braid",
+      "assembly": "ToasterEnd",
+      "cell": "shared",
+      "key": "braid",
+      "triangles": 1172
+    },
+    {
+      "name": "ToasterEnd__Body_ON_mica",
+      "assembly": "ToasterEnd",
+      "cell": "shared",
+      "key": "mica",
+      "triangles": 376
+    },
+    {
+      "name": "ToasterEnd__Body_ON_nickel",
+      "assembly": "ToasterEnd",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 9596
+    },
+    {
+      "name": "ToasterEnd__BreadCarrier_ON_nickel",
+      "assembly": "ToasterEnd",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 2256
+    },
+    {
+      "name": "ToasterEnd__CarriageLever_ON_bakelite",
+      "assembly": "ToasterEnd",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "ToasterEnd__CarriageLever_ON_nickel",
+      "assembly": "ToasterEnd",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 380
+    },
+    {
+      "name": "ToasterEnd__OrisonRetrofitCrumbTray_ON_bakelite",
+      "assembly": "ToasterEnd",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "ToasterEnd__OrisonRetrofitCrumbTray_ON_grease",
+      "assembly": "ToasterEnd",
+      "cell": "shared",
+      "key": "grease",
+      "triangles": 188
+    },
+    {
+      "name": "ToasterEnd__OrisonRetrofitCrumbTray_ON_nickel",
+      "assembly": "ToasterEnd",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 1128
+    },
+    {
+      "name": "ToasterEnd__ResistanceWire_ON_coil",
+      "assembly": "ToasterEnd",
+      "cell": "shared",
+      "key": "coil",
+      "triangles": 2632
+    },
+    {
+      "name": "ToasterCrumb__Body_ON_crumb",
+      "assembly": "ToasterCrumb",
+      "cell": "shared",
+      "key": "crumb",
+      "triangles": 328
+    }
+  ],
+  "triangles": 41144,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/household_toasters.glb",
+    "floor_y": 0,
+    "assemblies": [
+      {
+        "id": "ToasterFront",
+        "parts": [
+          {
+            "name": "ToasterFront__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterFront__Body_ON_braid",
+            "component": "Body",
+            "key": "braid",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.32,
+              0.17,
+              0.08,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "ToasterFront__Body_ON_mica",
+            "component": "Body",
+            "key": "mica",
+            "tile": 0.18,
+            "catalog_key": "mica_heater",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "ToasterFront__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterFront__BreadCarrier_ON_nickel",
+            "component": "BreadCarrier",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterFront__CarriageLever_ON_bakelite",
+            "component": "CarriageLever",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterFront__CarriageLever_ON_nickel",
+            "component": "CarriageLever",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterFront__OrisonRetrofitCrumbTray_ON_bakelite",
+            "component": "OrisonRetrofitCrumbTray",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterFront__OrisonRetrofitCrumbTray_ON_grease",
+            "component": "OrisonRetrofitCrumbTray",
+            "key": "grease",
+            "tile": 0.7,
+            "catalog_key": "fx_grease",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "ToasterFront__OrisonRetrofitCrumbTray_ON_nickel",
+            "component": "OrisonRetrofitCrumbTray",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterFront__ResistanceWire_ON_coil",
+            "component": "ResistanceWire",
+            "key": "coil",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.1,
+              0.03,
+              0.01,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "ToasterEnd",
+        "parts": [
+          {
+            "name": "ToasterEnd__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterEnd__Body_ON_braid",
+            "component": "Body",
+            "key": "braid",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.32,
+              0.17,
+              0.08,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "ToasterEnd__Body_ON_mica",
+            "component": "Body",
+            "key": "mica",
+            "tile": 0.18,
+            "catalog_key": "mica_heater",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "ToasterEnd__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterEnd__BreadCarrier_ON_nickel",
+            "component": "BreadCarrier",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterEnd__CarriageLever_ON_bakelite",
+            "component": "CarriageLever",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterEnd__CarriageLever_ON_nickel",
+            "component": "CarriageLever",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterEnd__OrisonRetrofitCrumbTray_ON_bakelite",
+            "component": "OrisonRetrofitCrumbTray",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterEnd__OrisonRetrofitCrumbTray_ON_grease",
+            "component": "OrisonRetrofitCrumbTray",
+            "key": "grease",
+            "tile": 0.7,
+            "catalog_key": "fx_grease",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "ToasterEnd__OrisonRetrofitCrumbTray_ON_nickel",
+            "component": "OrisonRetrofitCrumbTray",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterEnd__ResistanceWire_ON_coil",
+            "component": "ResistanceWire",
+            "key": "coil",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.1,
+              0.03,
+              0.01,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "ToasterCrumb",
+        "parts": [
+          {
+            "name": "ToasterCrumb__Body_ON_crumb",
+            "component": "Body",
+            "key": "crumb",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.3,
+              0.13,
+              0.035,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      }
+    ],
+    "instances": [
+      {
+        "id": "F02_2A_TOASTER_01",
+        "variant": "ToasterFront"
+      },
+      {
+        "id": "F02_2B_TOASTER_01",
+        "variant": "ToasterFront"
+      },
+      {
+        "id": "F03_3A_TOASTER_01",
+        "variant": "ToasterFront"
+      },
+      {
+        "id": "F03_3B_TOASTER_01",
+        "variant": "ToasterFront"
+      },
+      {
+        "id": "F04_4A_TOASTER_01",
+        "variant": "ToasterFront"
+      },
+      {
+        "id": "F04_B_TOASTER_01",
+        "variant": "ToasterEnd"
+      },
+      {
+        "id": "F05_5A_TOASTER_01",
+        "variant": "ToasterFront"
+      },
+      {
+        "id": "F06_6A_TOASTER_01",
+        "variant": "ToasterFront"
+      },
+      {
+        "id": "F06_6B_TOASTER_01",
+        "variant": "ToasterFront"
+      },
+      {
+        "id": "F06_6C_TOASTER_01",
+        "variant": "ToasterFront"
+      }
+    ],
+    "tint_space": "linear"
+  },
+  "asset_sha256": "8ef87e80828fb4e0e1eba1af8938250a4c1a062d50bf00eb8efbe0ddb7927e9b",
+  "source_bindings": {
+    "art/data/household_toasters/source_plan.json": "8be1d6819fca9614f560288d4fd85f4f3b8b0717695dfb6c5a8303d067b6c8fe",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_household_toasters.py": "f31c69178fd233228ae171500b14291b53751e4c4691d8a256d50594ba20f60e",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "game/data/runtime_material_sets.json": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73",
+    "game/scripts/generated/material_sets.gd": "51b0c6cf899b87bb34cd49191413be9f930b12d0a11db0b009616a0a1c8fee65",
+    "game/assets/props/household_toasters.glb.import": "49cdcd56f03b18761c2633b2790e36e3e1737f5d6db7a78763389067f2e763bf",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
+    "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
+    "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
+    "art/textures/ai_materials/mica_heater/material.json": "3eb6411c660d6eb260c6532256ed5a0d1fa9996dea53f62ae293a5a416910517",
+    "art/data/material_catalog.json": "562d8c15879f12404d443d227a2ccda373c68a6af810e63cc214ce23c79ee1e1",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
+    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
+    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+    "game/assets/building/textures/T_ai_materials_mica_heater_albedo.png": "bfedafa312322de2df1127b0074cf9576841c4b9492d5023951850f070914453",
+    "game/assets/building/textures/T_ai_materials_mica_heater_rough.png": "d10093c45590ca11df7e362437bd194f37aec5ad9510aa452691e842830cc03b",
+    "game/assets/building/textures/T_ai_materials_mica_heater_normal.png": "bfa142410e69a9b27b3187a06d879beceeae11250ab84361d408984a005b030c",
+    "game/assets/building/textures/T_ai_materials_fx_grease_albedo.png": "4c1563a125a5cc8d3564584390dd0b0b123c54795acd6970ed481dd9ee2e27e8",
+    "game/assets/building/textures/T_ai_materials_fx_grease_rough.png": "92b4079bd2b641267d02b09b2cb8e485573f3e3c63570ce6768bf793b7c9601a",
+    "game/assets/building/textures/T_ai_materials_fx_grease_normal.png": "76944f0bc81a92b281cd35587ae86667b41849efc89093db9fa79cc271e8edfd",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
+    "art/textures/catalog_mapping.json": "d4f3e411ac9b1f942bed184b34a4cf19f4418a4220044c86ed917513c2421686",
+    "art/tools/generate_runtime_materials.py": "4156d34f776a3cd57c2dcdc016f0f147a0741530ef20a16d0b610e28dd8198a6",
+    "art/blender/scripts/inspect_household_toasters.py": "29c3abeef6541c9ab654a81f818b91d6546c92f7048008ed935f75a1e624d244",
+    "art/blender/scripts/render_household_toasters.py": "408e18aac98c1f86f34abdbf1b35b9e5cf4902f66e90cf35b5fb004f3482bd7c",
+    "art/blender/scripts/household_toasters_geometry.py": "3fa6e1a60fa8d9694b0b6fe123def8551086a5a8f73436e7d4ea89b4a2d4dab4",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707",
+    "game/data/orison_v2/completion_interiors.json": "5fa82dc7867693816be370e8a6cea7a5bc71787cb51bdac1892c637e6746505f",
+    "art/data/orison_v2/completion_interiors_source.json": "5cee5bdc91d9ad58add1379f33e3efe195062af948db8ceadefa9ccf316ed719",
+    "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
+    "art/blender/scripts/inspect_household_toaster_motion.py": "9019c8b4a08f01cd6e80f582ad5d76813eb11452db98a74c1a9782ad25553bb8",
+    "art/blender/scripts/inspect_household_toasters_context.py": "005ede3728a2e9e80e77ddc92df79502e470ce15760d8046b800f5885cb616f9",
+    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
+    "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e",
+    "game/tests/fixtures/orison_surface_stock.json": "c6745b20915158a8e1a82d510f187f1977b3889892b8bcbf1adbafecc07e4bd9",
+    "art/blender/domestic_storage.blend": "2ecf3c03e229cb313a07fd549e6d21f9421a7305c6b349f2c68d2387cfc07684",
+    "art/blender/prep_cabinets.blend": "6c3cfa636a09f138a4b5f1939939149ee2ac98dc7eea068d8bd118b97e4062b3",
+    "art/blender/household_wardrobes.blend": "ed34e76d54efba76a5e2ef7e862d2b432c199ae8856b29f63793b69a04e77ad7",
+    "art/blender/domestic_objects.blend": "99a7d3e1f3f6ecb06d740608bb6ec5556a540ab8653b925b19041fe3ba9d2fe0",
+    "game/scripts/props/toaster_prop.gd": "b10f8d9da4cf4b1ff15a26ee1853fddcaf18179f474d77992f0b260a9f73b69e",
+    "game/scripts/props/functional_prop.gd": "f33126057cad4c7fc00cf132ba523d9e4fa915b6922aa9470ed10be47b2806ee",
+    "game/data/orison_v2/household_accessories.json": "cb5a8580d11fedac2fe7a0b1ae6dfaa82421803b9b7d3c2abc666e81c0ff1a32",
+    "art/blender/scripts/surface_stock_geometry.py": "aa8245d785858c296761d420ec6302e18da3646d386c0b37c4d164c94c8beb12",
+    "art/blender/domestic_seating.blend": "b38976cbf3603ee75878320139027f17d6d732b6c27111d99c83719243b46efe",
+    "art/blender/domestic_tables.blend": "c408c7b2e9d545f519e0b269ca8691ced4bec2373d98d831228653f7e476b3ea"
+  },
+  "retained_stock": [
+    {
+      "assembly": "ToasterFront",
+      "tray_axis": "-z",
+      "lever_pivot_godot": [
+        0.137,
+        0.137,
+        0.002
+      ],
+      "carrier_pivot_godot": [
+        0,
+        0.151,
+        0
+      ],
+      "tray_pivot_godot": [
+        0,
+        0.027,
+        0
+      ],
+      "lever_travel": 0.046,
+      "carrier_travel": 0.087,
+      "tray_travel": 0.16,
+      "original_crumb_count": 18,
+      "native_pan_top": 0.0257
+    },
+    {
+      "assembly": "ToasterEnd",
+      "tray_axis": "-x",
+      "lever_pivot_godot": [
+        0.137,
+        0.137,
+        0.002
+      ],
+      "carrier_pivot_godot": [
+        0,
+        0.151,
+        0
+      ],
+      "tray_pivot_godot": [
+        0,
+        0.027,
+        0
+      ],
+      "lever_travel": 0.046,
+      "carrier_travel": 0.087,
+      "tray_travel": 0.16,
+      "original_crumb_count": 18,
+      "native_pan_top": 0.0257
+    }
+  ],
+  "construction_groups": [
+    {
+      "assembly": "ToasterFront",
+      "id": "ToasterFront_SupportedSingleSlotMechanism",
+      "stocks": [
+        "ToasterFront_Foot(-0.105, -0.045)",
+        "ToasterFront_Foot(-0.105, 0.045)",
+        "ToasterFront_Foot(0.105, -0.045)",
+        "ToasterFront_Foot(0.105, 0.045)",
+        "ToasterFront_PressedBase",
+        "ToasterFront_VentWall-1",
+        "ToasterFront_VentWall1",
+        "ToasterFront_EndWall-1",
+        "ToasterFront_EndWall1",
+        "ToasterFront_PressedShoulder",
+        "ToasterFront_SingleSlotLip_Near",
+        "ToasterFront_SingleSlotLip_Far",
+        "ToasterFront_SingleSlotLip_Left",
+        "ToasterFront_SingleSlotLip_Right",
+        "ToasterFront_Screw(-1, -0.104, -1)",
+        "ToasterFront_Screw(-1, -0.104, 1)",
+        "ToasterFront_Screw(-1, 0.104, -1)",
+        "ToasterFront_Screw(-1, 0.104, 1)",
+        "ToasterFront_Screw(1, -0.104, -1)",
+        "ToasterFront_Screw(1, -0.104, 1)",
+        "ToasterFront_Screw(1, 0.104, -1)",
+        "ToasterFront_Screw(1, 0.104, 1)",
+        "ToasterFront_BraidedSupply",
+        "ToasterFront_Plug",
+        "ToasterFront_PlugPin-0.167",
+        "ToasterFront_PlugPin-0.153",
+        "ToasterFront_MicaCard-0.034",
+        "ToasterFront_CardSaddle(-0.0934, -0.034)",
+        "ToasterFront_CardSaddle(0.0934, -0.034)",
+        "ToasterFront_MicaCard0.034",
+        "ToasterFront_CardSaddle(-0.0934, 0.034)",
+        "ToasterFront_CardSaddle(0.0934, 0.034)",
+        "ToasterFront_ResistanceWire(-0.037, 0)",
+        "ToasterFront_ResistanceWire(-0.037, 1)",
+        "ToasterFront_ResistanceWire(-0.037, 2)",
+        "ToasterFront_ResistanceWire(-0.037, 3)",
+        "ToasterFront_ResistanceWire(-0.037, 4)",
+        "ToasterFront_ResistanceWire(-0.037, 5)",
+        "ToasterFront_ResistanceWire(-0.037, 6)",
+        "ToasterFront_ResistanceWire(0.037, 0)",
+        "ToasterFront_ResistanceWire(0.037, 1)",
+        "ToasterFront_ResistanceWire(0.037, 2)",
+        "ToasterFront_ResistanceWire(0.037, 3)",
+        "ToasterFront_ResistanceWire(0.037, 4)",
+        "ToasterFront_ResistanceWire(0.037, 5)",
+        "ToasterFront_ResistanceWire(0.037, 6)",
+        "ToasterFront_TimerTrack",
+        "ToasterFront_TimerLever",
+        "ToasterFront_TimerNotch0",
+        "ToasterFront_TimerNotch1",
+        "ToasterFront_TimerNotch2",
+        "ToasterFront_TimerNotch3",
+        "ToasterFront_TimerNotch4",
+        "ToasterFront_CarriageGrip",
+        "ToasterFront_CarriageSpindle",
+        "ToasterFront_LeverGuideSide-0.014",
+        "ToasterFront_LeverGuideSide0.007",
+        "ToasterFront_LeverSlider",
+        "ToasterFront_BreadPlate",
+        "ToasterFront_CarrierWire-0.084",
+        "ToasterFront_CarrierWire-0.042",
+        "ToasterFront_CarrierWire0",
+        "ToasterFront_CarrierWire0.042",
+        "ToasterFront_CarrierWire0.084",
+        "ToasterFront_CarrierGuideBridge-0.097",
+        "ToasterFront_CarrierGuide-0.097",
+        "ToasterFront_CarrierYoke(-0.097, -0.01)",
+        "ToasterFront_CarrierYoke(-0.097, 0.009)",
+        "ToasterFront_CarrierLink-0.097",
+        "ToasterFront_CarrierGuideBridge0.097",
+        "ToasterFront_CarrierGuide0.097",
+        "ToasterFront_CarrierYoke(0.097, -0.01)",
+        "ToasterFront_CarrierYoke(0.097, 0.009)",
+        "ToasterFront_CarrierLink0.097",
+        "ToasterFront_PanRail-0.095",
+        "ToasterFront_PanRail0.095",
+        "ToasterFront_Pan",
+        "ToasterFront_PanFold-0.0525",
+        "ToasterFront_PanFold0.0513",
+        "ToasterFront_PanEnd-0.1075",
+        "ToasterFront_PanEnd0.1063",
+        "ToasterFront_PanPullStrip",
+        "ToasterFront_PanPull",
+        "ToasterFront_GreaseFilm"
+      ]
+    },
+    {
+      "assembly": "ToasterEnd",
+      "id": "ToasterEnd_SupportedSingleSlotMechanism",
+      "stocks": [
+        "ToasterEnd_Foot(-0.105, -0.045)",
+        "ToasterEnd_Foot(-0.105, 0.045)",
+        "ToasterEnd_Foot(0.105, -0.045)",
+        "ToasterEnd_Foot(0.105, 0.045)",
+        "ToasterEnd_PressedBase",
+        "ToasterEnd_VentWall-1",
+        "ToasterEnd_VentWall1",
+        "ToasterEnd_EndWall-1",
+        "ToasterEnd_EndWall1",
+        "ToasterEnd_PressedShoulder",
+        "ToasterEnd_SingleSlotLip_Near",
+        "ToasterEnd_SingleSlotLip_Far",
+        "ToasterEnd_SingleSlotLip_Left",
+        "ToasterEnd_SingleSlotLip_Right",
+        "ToasterEnd_Screw(-1, -0.104, -1)",
+        "ToasterEnd_Screw(-1, -0.104, 1)",
+        "ToasterEnd_Screw(-1, 0.104, -1)",
+        "ToasterEnd_Screw(-1, 0.104, 1)",
+        "ToasterEnd_Screw(1, -0.104, -1)",
+        "ToasterEnd_Screw(1, -0.104, 1)",
+        "ToasterEnd_Screw(1, 0.104, -1)",
+        "ToasterEnd_Screw(1, 0.104, 1)",
+        "ToasterEnd_BraidedSupply",
+        "ToasterEnd_Plug",
+        "ToasterEnd_PlugPin-0.167",
+        "ToasterEnd_PlugPin-0.153",
+        "ToasterEnd_MicaCard-0.034",
+        "ToasterEnd_CardSaddle(-0.0934, -0.034)",
+        "ToasterEnd_CardSaddle(0.0934, -0.034)",
+        "ToasterEnd_MicaCard0.034",
+        "ToasterEnd_CardSaddle(-0.0934, 0.034)",
+        "ToasterEnd_CardSaddle(0.0934, 0.034)",
+        "ToasterEnd_ResistanceWire(-0.037, 0)",
+        "ToasterEnd_ResistanceWire(-0.037, 1)",
+        "ToasterEnd_ResistanceWire(-0.037, 2)",
+        "ToasterEnd_ResistanceWire(-0.037, 3)",
+        "ToasterEnd_ResistanceWire(-0.037, 4)",
+        "ToasterEnd_ResistanceWire(-0.037, 5)",
+        "ToasterEnd_ResistanceWire(-0.037, 6)",
+        "ToasterEnd_ResistanceWire(0.037, 0)",
+        "ToasterEnd_ResistanceWire(0.037, 1)",
+        "ToasterEnd_ResistanceWire(0.037, 2)",
+        "ToasterEnd_ResistanceWire(0.037, 3)",
+        "ToasterEnd_ResistanceWire(0.037, 4)",
+        "ToasterEnd_ResistanceWire(0.037, 5)",
+        "ToasterEnd_ResistanceWire(0.037, 6)",
+        "ToasterEnd_TimerTrack",
+        "ToasterEnd_TimerLever",
+        "ToasterEnd_TimerNotch0",
+        "ToasterEnd_TimerNotch1",
+        "ToasterEnd_TimerNotch2",
+        "ToasterEnd_TimerNotch3",
+        "ToasterEnd_TimerNotch4",
+        "ToasterEnd_CarriageGrip",
+        "ToasterEnd_CarriageSpindle",
+        "ToasterEnd_LeverGuideSide-0.014",
+        "ToasterEnd_LeverGuideSide0.007",
+        "ToasterEnd_LeverSlider",
+        "ToasterEnd_BreadPlate",
+        "ToasterEnd_CarrierWire-0.084",
+        "ToasterEnd_CarrierWire-0.042",
+        "ToasterEnd_CarrierWire0",
+        "ToasterEnd_CarrierWire0.042",
+        "ToasterEnd_CarrierWire0.084",
+        "ToasterEnd_CarrierGuideBridge-0.097",
+        "ToasterEnd_CarrierGuide-0.097",
+        "ToasterEnd_CarrierYoke(-0.097, -0.01)",
+        "ToasterEnd_CarrierYoke(-0.097, 0.009)",
+        "ToasterEnd_CarrierLink-0.097",
+        "ToasterEnd_CarrierGuideBridge0.097",
+        "ToasterEnd_CarrierGuide0.097",
+        "ToasterEnd_CarrierYoke(0.097, -0.01)",
+        "ToasterEnd_CarrierYoke(0.097, 0.009)",
+        "ToasterEnd_CarrierLink0.097",
+        "ToasterEnd_PanRail-0.04",
+        "ToasterEnd_PanRail0.04",
+        "ToasterEnd_Pan",
+        "ToasterEnd_PanFold-0.0525",
+        "ToasterEnd_PanFold0.0513",
+        "ToasterEnd_PanEnd-0.1075",
+        "ToasterEnd_PanEnd0.1063",
+        "ToasterEnd_PanPullStrip",
+        "ToasterEnd_PanPull",
+        "ToasterEnd_GreaseFilm"
+      ]
+    },
+    {
+      "assembly": "ToasterCrumb",
+      "id": "ToasterCrumb_CrumbPrototype",
+      "stocks": [
+        "ToasterCrumb_Crumb"
+      ]
+    }
+  ],
+  "placement": {
+    "floor_y": 0,
+    "frame": "Original toaster under its prep-cabinet support, original carriage/lever/tray/glow owners."
+  },
+  "open_work": [
+    "Native recipe and validation in progress; no acceptance claimed."
+  ]
+}

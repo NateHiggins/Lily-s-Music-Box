@@ -1,0 +1,313 @@
+{
+	"batch_checks": 7,
+	"elapsed_ms": 68126,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 1082,
+	"modules": {
+		"medicine_cabinets": {
+			"actors": 12,
+			"captured": true,
+			"checks": 1082,
+			"elapsed_ms": 37189,
+			"failures": [],
+			"fixture_sha256": "b6aa348aad04bc2aa272a8963b8114278eb44ab5b481aeafcfaf35755b808b5f",
+			"kept_items": 28,
+			"unique_triangles": 48260,
+			"validator_sha256": "5d62f1ef3069e6fb5c77e04d38a6965a96fdb5fdefd1a4e9fc3ce4d352be7796",
+			"views": [
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						7.85000133514404,
+						3.22000002861023,
+						-16.0779991149902
+					],
+					"id": "F02_2A_MIRROR_01_native_open",
+					"image": "F02_2A_MIRROR_01_native_open.png",
+					"owner": "F02_2A_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						7.85000133514404,
+						3.22000002861023,
+						-16.0779991149902
+					],
+					"id": "F02_2A_MIRROR_01_native_mirror",
+					"image": "F02_2A_MIRROR_01_native_mirror.png",
+					"owner": "F02_2A_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						-14.3219995498657,
+						3.22000002861023,
+						-1.60000038146973
+					],
+					"id": "F02_2B_MIRROR_01_native_open",
+					"image": "F02_2B_MIRROR_01_native_open.png",
+					"owner": "F02_2B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						-14.3219995498657,
+						3.22000002861023,
+						-1.60000038146973
+					],
+					"id": "F02_2B_MIRROR_01_native_mirror",
+					"image": "F02_2B_MIRROR_01_native_mirror.png",
+					"owner": "F02_2B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						7.85000133514404,
+						6.42000007629395,
+						-16.0779991149902
+					],
+					"id": "F03_3A_MIRROR_01_native_open",
+					"image": "F03_3A_MIRROR_01_native_open.png",
+					"owner": "F03_3A_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						7.85000133514404,
+						6.42000007629395,
+						-16.0779991149902
+					],
+					"id": "F03_3A_MIRROR_01_native_mirror",
+					"image": "F03_3A_MIRROR_01_native_mirror.png",
+					"owner": "F03_3A_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						-15.1499996185303,
+						6.42000007629395,
+						-0.522000789642334
+					],
+					"id": "F03_3B_MIRROR_01_native_open",
+					"image": "F03_3B_MIRROR_01_native_open.png",
+					"owner": "F03_3B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						-15.1499996185303,
+						6.42000007629395,
+						-0.522000789642334
+					],
+					"id": "F03_3B_MIRROR_01_native_mirror",
+					"image": "F03_3B_MIRROR_01_native_mirror.png",
+					"owner": "F03_3B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						-14.3219995498657,
+						9.61999988555908,
+						-1.60000038146973
+					],
+					"id": "F04_4A_MIRROR_01_native_open",
+					"image": "F04_4A_MIRROR_01_native_open.png",
+					"owner": "F04_4A_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						-14.3219995498657,
+						9.61999988555908,
+						-1.60000038146973
+					],
+					"id": "F04_4A_MIRROR_01_native_mirror",
+					"image": "F04_4A_MIRROR_01_native_mirror.png",
+					"owner": "F04_4A_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						7.60000133514404,
+						9.61999988555908,
+						-16.42799949646
+					],
+					"id": "F04_4B_MIRROR_01_native_open",
+					"image": "F04_4B_MIRROR_01_native_open.png",
+					"owner": "F04_4B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						7.60000133514404,
+						9.61999988555908,
+						-16.42799949646
+					],
+					"id": "F04_4B_MIRROR_01_native_mirror",
+					"image": "F04_4B_MIRROR_01_native_mirror.png",
+					"owner": "F04_4B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						6.97200012207031,
+						12.8199996948242,
+						-1.34999859333038
+					],
+					"id": "F05_5A_MIRROR_01_native_open",
+					"image": "F05_5A_MIRROR_01_native_open.png",
+					"owner": "F05_5A_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						6.97200012207031,
+						12.8199996948242,
+						-1.34999859333038
+					],
+					"id": "F05_5A_MIRROR_01_native_mirror",
+					"image": "F05_5A_MIRROR_01_native_mirror.png",
+					"owner": "F05_5A_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						7.97200107574463,
+						12.8199996948242,
+						-16.0499992370605
+					],
+					"id": "F05_5B_MIRROR_01_native_open",
+					"image": "F05_5B_MIRROR_01_native_open.png",
+					"owner": "F05_5B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						7.97200107574463,
+						12.8199996948242,
+						-16.0499992370605
+					],
+					"id": "F05_5B_MIRROR_01_native_mirror",
+					"image": "F05_5B_MIRROR_01_native_mirror.png",
+					"owner": "F05_5B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						-1.04999852180481,
+						12.8199996948242,
+						-16.8279991149902
+					],
+					"id": "F05_5C_MIRROR_01_native_open",
+					"image": "F05_5C_MIRROR_01_native_open.png",
+					"owner": "F05_5C_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						-1.04999852180481,
+						12.8199996948242,
+						-16.8279991149902
+					],
+					"id": "F05_5C_MIRROR_01_native_mirror",
+					"image": "F05_5C_MIRROR_01_native_mirror.png",
+					"owner": "F05_5C_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						6.97200012207031,
+						16.0200004577637,
+						-1.34999859333038
+					],
+					"id": "F06_6A_MIRROR_01_native_open",
+					"image": "F06_6A_MIRROR_01_native_open.png",
+					"owner": "F06_6A_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						6.97200012207031,
+						16.0200004577637,
+						-1.34999859333038
+					],
+					"id": "F06_6A_MIRROR_01_native_mirror",
+					"image": "F06_6A_MIRROR_01_native_mirror.png",
+					"owner": "F06_6A_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						7.97200107574463,
+						16.0200004577637,
+						-16.0499992370605
+					],
+					"id": "F06_6B_MIRROR_01_native_open",
+					"image": "F06_6B_MIRROR_01_native_open.png",
+					"owner": "F06_6B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						7.97200107574463,
+						16.0200004577637,
+						-16.0499992370605
+					],
+					"id": "F06_6B_MIRROR_01_native_mirror",
+					"image": "F06_6B_MIRROR_01_native_mirror.png",
+					"owner": "F06_6B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						-1.04999852180481,
+						16.0200004577637,
+						-16.8279991149902
+					],
+					"id": "F06_6C_MIRROR_01_native_open",
+					"image": "F06_6C_MIRROR_01_native_open.png",
+					"owner": "F06_6C_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						-1.04999852180481,
+						16.0200004577637,
+						-16.8279991149902
+					],
+					"id": "F06_6C_MIRROR_01_native_mirror",
+					"image": "F06_6C_MIRROR_01_native_mirror.png",
+					"owner": "F06_6C_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

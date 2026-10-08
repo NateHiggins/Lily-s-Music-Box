@@ -94,6 +94,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Fitted steel beneath the front-court roof and calibrated exterior soffit finish | `art/blender/front_court_roof.md` |
 | Verified front-court roof contacts, strict landing envelopes and current ledger provenance | `design/V2_FRONT_COURT_ROOF_PROGRESS_2026-10-05.md` |
 | Equal-output lamp comparison, waking V2 surface detail balance and current scoped contract | `design/V2_LAMP_SURFACE_BALANCE_2026-10-05.md` |
+| Fitted household toasters, medicine cabinets and source-owned moving stock | `art/blender/household_accessories.md` |
 | Source-fitted bar gallery, original atlas, seated picture attachments and retained observations | `art/blender/bar_gallery.md` |
 | Fitted Harukiya curtain folds, cloth-covered fascia and wall-supported rail | `art/blender/bar_stage.md` |
 | Quiet trowelled concrete/slab maps, physical height calibration and retained city geometry | `art/blender/concrete_trowelled.md` |

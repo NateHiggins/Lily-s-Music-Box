@@ -1,0 +1,77 @@
+FABRICATION STAGE: art/blender/scripts/build_household_toasters.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_household_toasters.py:74: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "household_toasters.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+21:43:07 | INFO: Starting glTF 2.0 export
+21:43:07 | INFO: Extracting primitive: ToasterCrumb__Body_ON_crumb
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterEnd__Body_ON_bakelite
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterEnd__Body_ON_braid
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterEnd__Body_ON_mica
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterEnd__Body_ON_nickel
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterEnd__BreadCarrier_ON_nickel
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterEnd__CarriageLever_ON_bakelite
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterEnd__CarriageLever_ON_nickel
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterEnd__OrisonRetrofitCrumbTray_ON_bakelite
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterEnd__OrisonRetrofitCrumbTray_ON_grease
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterEnd__OrisonRetrofitCrumbTray_ON_nickel
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterEnd__ResistanceWire_ON_coil
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterFront__Body_ON_bakelite
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterFront__Body_ON_braid
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterFront__Body_ON_mica
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterFront__Body_ON_nickel
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterFront__BreadCarrier_ON_nickel
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterFront__CarriageLever_ON_bakelite
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterFront__CarriageLever_ON_nickel
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterFront__OrisonRetrofitCrumbTray_ON_bakelite
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterFront__OrisonRetrofitCrumbTray_ON_grease
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterFront__OrisonRetrofitCrumbTray_ON_nickel
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Extracting primitive: ToasterFront__ResistanceWire_ON_coil
+21:43:07 | INFO: Primitives created: 1
+21:43:07 | INFO: Finished glTF 2.0 export in 0.09523439407348633 s
+
+HOUSEHOLD TOASTERS 10 original records; 3 assemblies; 169 closed stocks; 23 parts; 40288 triangles; 8 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_household_toasters.py
+00:03.390  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\household_toasters.blend"
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 79, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 72, in main
+    results = execute(stages)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 47, in execute
+    runpy.run_path(sys.argv[0], run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_household_toasters.py", line 57, in <module>
+    assert not join_failures,join_failures
+           ^^^^^^^^^^^^^^^^^
+AssertionError: [('ToasterFront_SupportedSingleSlotMechanism', 'disconnected', ['ToasterFront_Screw(1, -0.104, -1)', 'ToasterFront_Screw(1, 0.104, -1)'])]
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

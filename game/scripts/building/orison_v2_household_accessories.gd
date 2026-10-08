@@ -12,16 +12,28 @@ var errors: Array[String] = []
 func mount(adapter: Variant) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string(PATH))
 	if not validate(source, adapter): return false
+	var native := preload("res://scripts/building/orison_v2_native_household_toasters.gd").new()
+	if not native.prepare():
+		errors.append("native household toaster stock refused")
+		return false
+	adapter.root.set_meta("v2_native_toaster_factory", native)
+	var cabinets := preload("res://scripts/building/orison_v2_native_medicine_cabinets.gd").new()
+	if not cabinets.prepare():
+		errors.append("native medicine cabinet stock refused")
+		return false
+	adapter.root.set_meta("v2_native_medicine_factory", cabinets)
 	var acoustic_ids: Array[String] = []
 	for record: Dictionary in source.accessories:
 		var prop: FunctionalProp
 		if record.kind == "toaster":
 			var toaster := Toaster.new()
 			toaster.tray_axis = Vector3.LEFT if record.unit == "4B" else Vector3.FORWARD
+			toaster.set_meta("native_toaster_factory", native)
 			prop = toaster
 		else:
 			var cabinet := Cabinet.new()
 			cabinet.hinge_side = str(record.hinge_side)
+			cabinet.set_meta("native_medicine_factory", cabinets)
 			prop = cabinet
 		prop.prop_type = str(record.kind)
 		prop.set("unit", str(record.unit))
@@ -33,6 +45,12 @@ func mount(adapter: Variant) -> bool:
 			prop.graph_node_id = str(record.id)
 			acoustic_ids.append(str(record.id))
 		adapter.resolve(str(record.support)).add_child(prop)
+		if record.kind == "toaster" and not prop.get("native_ready"):
+			errors.append("native household toaster installation refused: " + str(record.id))
+			return false
+		if record.kind == "mirror" and not prop.get("native_ready"):
+			errors.append("native medicine cabinet installation refused: " + str(record.id))
+			return false
 	if not acoustic_ids.is_empty() and not adapter.install_acoustic_overrides(acoustic_ids):
 		errors.append("accessory acoustic positions could not be rebound")
 		return false

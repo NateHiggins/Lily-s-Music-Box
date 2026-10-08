@@ -1,0 +1,1536 @@
+{
+  "evidence_class": "INERT",
+  "installations": 12,
+  "bearings": [
+    {
+      "id": "F02_2A_MIRROR_01",
+      "point": [
+        -7.699999809265137,
+        4.539999961853027,
+        3.169999837875366
+      ],
+      "space": "F02_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_A_MAIN",
+          "side": "north",
+          "face": 3.17
+        }
+      ]
+    },
+    {
+      "id": "F02_2A_MIRROR_01",
+      "point": [
+        -7.699999809265137,
+        4.940000057220459,
+        3.169999837875366
+      ],
+      "space": "F02_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_A_MAIN",
+          "side": "north",
+          "face": 3.17
+        }
+      ]
+    },
+    {
+      "id": "F02_2A_MIRROR_01",
+      "point": [
+        -8.0,
+        4.539999961853027,
+        3.169999837875366
+      ],
+      "space": "F02_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_A_MAIN",
+          "side": "north",
+          "face": 3.17
+        }
+      ]
+    },
+    {
+      "id": "F02_2A_MIRROR_01",
+      "point": [
+        -8.0,
+        4.940000057220459,
+        3.169999837875366
+      ],
+      "space": "F02_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_A_MAIN",
+          "side": "north",
+          "face": 3.17
+        }
+      ]
+    },
+    {
+      "id": "F02_2B_MIRROR_01",
+      "point": [
+        15.579998970031738,
+        4.539999961853027,
+        -9.90000057220459
+      ],
+      "space": "F02_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_B_BATH",
+          "side": "east",
+          "face": 15.58
+        }
+      ]
+    },
+    {
+      "id": "F02_2B_MIRROR_01",
+      "point": [
+        15.579998970031738,
+        4.940000057220459,
+        -9.90000057220459
+      ],
+      "space": "F02_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_B_BATH",
+          "side": "east",
+          "face": 15.58
+        }
+      ]
+    },
+    {
+      "id": "F02_2B_MIRROR_01",
+      "point": [
+        15.579998970031738,
+        4.539999961853027,
+        -10.199999809265137
+      ],
+      "space": "F02_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_B_BATH",
+          "side": "east",
+          "face": 15.58
+        }
+      ]
+    },
+    {
+      "id": "F02_2B_MIRROR_01",
+      "point": [
+        15.579998970031738,
+        4.940000057220459,
+        -10.199999809265137
+      ],
+      "space": "F02_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_B_BATH",
+          "side": "east",
+          "face": 15.58
+        }
+      ]
+    },
+    {
+      "id": "F03_3A_MIRROR_01",
+      "point": [
+        -7.699999809265137,
+        7.739999771118164,
+        3.169999837875366
+      ],
+      "space": "F03_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_A_MAIN",
+          "side": "north",
+          "face": 3.17
+        }
+      ]
+    },
+    {
+      "id": "F03_3A_MIRROR_01",
+      "point": [
+        -7.699999809265137,
+        8.140000343322754,
+        3.169999837875366
+      ],
+      "space": "F03_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_A_MAIN",
+          "side": "north",
+          "face": 3.17
+        }
+      ]
+    },
+    {
+      "id": "F03_3A_MIRROR_01",
+      "point": [
+        -8.0,
+        7.739999771118164,
+        3.169999837875366
+      ],
+      "space": "F03_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_A_MAIN",
+          "side": "north",
+          "face": 3.17
+        }
+      ]
+    },
+    {
+      "id": "F03_3A_MIRROR_01",
+      "point": [
+        -8.0,
+        8.140000343322754,
+        3.169999837875366
+      ],
+      "space": "F03_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_A_MAIN",
+          "side": "north",
+          "face": 3.17
+        }
+      ]
+    },
+    {
+      "id": "F03_3B_MIRROR_01",
+      "point": [
+        15.0,
+        7.739999771118164,
+        -9.869999885559082
+      ],
+      "space": "F03_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_B_PRIVATE_HALL",
+          "side": "south",
+          "face": -9.870000000000001
+        },
+        {
+          "space": "F03_B_BATH",
+          "side": "north",
+          "face": -9.870000000000001
+        }
+      ]
+    },
+    {
+      "id": "F03_3B_MIRROR_01",
+      "point": [
+        15.0,
+        8.140000343322754,
+        -9.869999885559082
+      ],
+      "space": "F03_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_B_PRIVATE_HALL",
+          "side": "south",
+          "face": -9.870000000000001
+        },
+        {
+          "space": "F03_B_BATH",
+          "side": "north",
+          "face": -9.870000000000001
+        }
+      ]
+    },
+    {
+      "id": "F03_3B_MIRROR_01",
+      "point": [
+        15.299999237060547,
+        7.739999771118164,
+        -9.869999885559082
+      ],
+      "space": "F03_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_B_PRIVATE_HALL",
+          "side": "south",
+          "face": -9.870000000000001
+        },
+        {
+          "space": "F03_B_BATH",
+          "side": "north",
+          "face": -9.870000000000001
+        }
+      ]
+    },
+    {
+      "id": "F03_3B_MIRROR_01",
+      "point": [
+        15.299999237060547,
+        8.140000343322754,
+        -9.869999885559082
+      ],
+      "space": "F03_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_B_PRIVATE_HALL",
+          "side": "south",
+          "face": -9.870000000000001
+        },
+        {
+          "space": "F03_B_BATH",
+          "side": "north",
+          "face": -9.870000000000001
+        }
+      ]
+    },
+    {
+      "id": "F04_4A_MIRROR_01",
+      "point": [
+        15.579998970031738,
+        10.940000534057617,
+        -9.90000057220459
+      ],
+      "space": "F04_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F04_A_BATH",
+          "side": "east",
+          "face": 15.58
+        }
+      ]
+    },
+    {
+      "id": "F04_4A_MIRROR_01",
+      "point": [
+        15.579998970031738,
+        11.34000015258789,
+        -9.90000057220459
+      ],
+      "space": "F04_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F04_A_BATH",
+          "side": "east",
+          "face": 15.58
+        }
+      ]
+    },
+    {
+      "id": "F04_4A_MIRROR_01",
+      "point": [
+        15.579998970031738,
+        10.940000534057617,
+        -10.199999809265137
+      ],
+      "space": "F04_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F04_A_BATH",
+          "side": "east",
+          "face": 15.58
+        }
+      ]
+    },
+    {
+      "id": "F04_4A_MIRROR_01",
+      "point": [
+        15.579998970031738,
+        11.34000015258789,
+        -10.199999809265137
+      ],
+      "space": "F04_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F04_A_BATH",
+          "side": "east",
+          "face": 15.58
+        }
+      ]
+    },
+    {
+      "id": "F04_4B_MIRROR_01",
+      "point": [
+        -7.449999809265137,
+        10.940000534057617,
+        3.5199999809265137
+      ],
+      "space": "F04_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F04_B_BATH",
+          "side": "south",
+          "face": 3.52
+        }
+      ]
+    },
+    {
+      "id": "F04_4B_MIRROR_01",
+      "point": [
+        -7.449999809265137,
+        11.34000015258789,
+        3.5199999809265137
+      ],
+      "space": "F04_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F04_B_BATH",
+          "side": "south",
+          "face": 3.52
+        }
+      ]
+    },
+    {
+      "id": "F04_4B_MIRROR_01",
+      "point": [
+        -7.75,
+        10.940000534057617,
+        3.5199999809265137
+      ],
+      "space": "F04_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F04_B_MAIN",
+          "side": "north",
+          "face": 3.52
+        }
+      ]
+    },
+    {
+      "id": "F04_4B_MIRROR_01",
+      "point": [
+        -7.75,
+        11.34000015258789,
+        3.5199999809265137
+      ],
+      "space": "F04_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F04_B_MAIN",
+          "side": "north",
+          "face": 3.52
+        }
+      ]
+    },
+    {
+      "id": "F05_5A_MIRROR_01",
+      "point": [
+        -8.229999542236328,
+        14.140000343322754,
+        -10.449999809265137
+      ],
+      "space": "F05_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_BATH",
+          "side": "west",
+          "face": -8.23
+        }
+      ]
+    },
+    {
+      "id": "F05_5A_MIRROR_01",
+      "point": [
+        -8.229999542236328,
+        14.539999961853027,
+        -10.449999809265137
+      ],
+      "space": "F05_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_BATH",
+          "side": "west",
+          "face": -8.23
+        }
+      ]
+    },
+    {
+      "id": "F05_5A_MIRROR_01",
+      "point": [
+        -8.229999542236328,
+        14.140000343322754,
+        -10.15000057220459
+      ],
+      "space": "F05_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_BATH",
+          "side": "west",
+          "face": -8.23
+        }
+      ]
+    },
+    {
+      "id": "F05_5A_MIRROR_01",
+      "point": [
+        -8.229999542236328,
+        14.539999961853027,
+        -10.15000057220459
+      ],
+      "space": "F05_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_BATH",
+          "side": "west",
+          "face": -8.23
+        }
+      ]
+    },
+    {
+      "id": "F05_5B_MIRROR_01",
+      "point": [
+        -9.229999542236328,
+        14.140000343322754,
+        4.25
+      ],
+      "space": "F05_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_B_BATH",
+          "side": "west",
+          "face": -9.23
+        }
+      ]
+    },
+    {
+      "id": "F05_5B_MIRROR_01",
+      "point": [
+        -9.229999542236328,
+        14.539999961853027,
+        4.25
+      ],
+      "space": "F05_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_B_BATH",
+          "side": "west",
+          "face": -9.23
+        }
+      ]
+    },
+    {
+      "id": "F05_5B_MIRROR_01",
+      "point": [
+        -9.229999542236328,
+        14.140000343322754,
+        4.550000190734863
+      ],
+      "space": "F05_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_B_BATH",
+          "side": "west",
+          "face": -9.23
+        }
+      ]
+    },
+    {
+      "id": "F05_5B_MIRROR_01",
+      "point": [
+        -9.229999542236328,
+        14.539999961853027,
+        4.550000190734863
+      ],
+      "space": "F05_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_B_BATH",
+          "side": "west",
+          "face": -9.23
+        }
+      ]
+    },
+    {
+      "id": "F05_5C_MIRROR_01",
+      "point": [
+        1.1999999284744263,
+        14.140000343322754,
+        3.919999599456787
+      ],
+      "space": "F05_C_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_PUBLIC_CORE",
+          "side": "north",
+          "face": 3.92
+        }
+      ]
+    },
+    {
+      "id": "F05_5C_MIRROR_01",
+      "point": [
+        1.1999999284744263,
+        14.539999961853027,
+        3.919999599456787
+      ],
+      "space": "F05_C_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_PUBLIC_CORE",
+          "side": "north",
+          "face": 3.92
+        }
+      ]
+    },
+    {
+      "id": "F05_5C_MIRROR_01",
+      "point": [
+        0.8999999761581421,
+        14.140000343322754,
+        3.919999599456787
+      ],
+      "space": "F05_C_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_PUBLIC_CORE",
+          "side": "north",
+          "face": 3.92
+        }
+      ]
+    },
+    {
+      "id": "F05_5C_MIRROR_01",
+      "point": [
+        0.8999999761581421,
+        14.539999961853027,
+        3.919999599456787
+      ],
+      "space": "F05_C_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_PUBLIC_CORE",
+          "side": "north",
+          "face": 3.92
+        }
+      ]
+    },
+    {
+      "id": "F06_6A_MIRROR_01",
+      "point": [
+        -8.229999542236328,
+        17.34000015258789,
+        -10.449999809265137
+      ],
+      "space": "F06_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_A_BATH",
+          "side": "west",
+          "face": -8.23
+        }
+      ]
+    },
+    {
+      "id": "F06_6A_MIRROR_01",
+      "point": [
+        -8.229999542236328,
+        17.740001678466797,
+        -10.449999809265137
+      ],
+      "space": "F06_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_A_BATH",
+          "side": "west",
+          "face": -8.23
+        }
+      ]
+    },
+    {
+      "id": "F06_6A_MIRROR_01",
+      "point": [
+        -8.229999542236328,
+        17.34000015258789,
+        -10.15000057220459
+      ],
+      "space": "F06_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_A_BATH",
+          "side": "west",
+          "face": -8.23
+        }
+      ]
+    },
+    {
+      "id": "F06_6A_MIRROR_01",
+      "point": [
+        -8.229999542236328,
+        17.740001678466797,
+        -10.15000057220459
+      ],
+      "space": "F06_A_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_A_BATH",
+          "side": "west",
+          "face": -8.23
+        }
+      ]
+    },
+    {
+      "id": "F06_6B_MIRROR_01",
+      "point": [
+        -9.229999542236328,
+        17.34000015258789,
+        4.25
+      ],
+      "space": "F06_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_B_BATH",
+          "side": "west",
+          "face": -9.23
+        }
+      ]
+    },
+    {
+      "id": "F06_6B_MIRROR_01",
+      "point": [
+        -9.229999542236328,
+        17.740001678466797,
+        4.25
+      ],
+      "space": "F06_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_B_BATH",
+          "side": "west",
+          "face": -9.23
+        }
+      ]
+    },
+    {
+      "id": "F06_6B_MIRROR_01",
+      "point": [
+        -9.229999542236328,
+        17.34000015258789,
+        4.550000190734863
+      ],
+      "space": "F06_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_B_BATH",
+          "side": "west",
+          "face": -9.23
+        }
+      ]
+    },
+    {
+      "id": "F06_6B_MIRROR_01",
+      "point": [
+        -9.229999542236328,
+        17.740001678466797,
+        4.550000190734863
+      ],
+      "space": "F06_B_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_B_BATH",
+          "side": "west",
+          "face": -9.23
+        }
+      ]
+    },
+    {
+      "id": "F06_6C_MIRROR_01",
+      "point": [
+        1.1999999284744263,
+        17.34000015258789,
+        3.919999599456787
+      ],
+      "space": "F06_C_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_PUBLIC_CORE",
+          "side": "north",
+          "face": 3.92
+        }
+      ]
+    },
+    {
+      "id": "F06_6C_MIRROR_01",
+      "point": [
+        1.1999999284744263,
+        17.740001678466797,
+        3.919999599456787
+      ],
+      "space": "F06_C_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_PUBLIC_CORE",
+          "side": "north",
+          "face": 3.92
+        }
+      ]
+    },
+    {
+      "id": "F06_6C_MIRROR_01",
+      "point": [
+        0.8999999761581421,
+        17.34000015258789,
+        3.919999599456787
+      ],
+      "space": "F06_C_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_PUBLIC_CORE",
+          "side": "north",
+          "face": 3.92
+        }
+      ]
+    },
+    {
+      "id": "F06_6C_MIRROR_01",
+      "point": [
+        0.8999999761581421,
+        17.740001678466797,
+        3.919999599456787
+      ],
+      "space": "F06_C_BATH",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F06_PUBLIC_CORE",
+          "side": "north",
+          "face": 3.92
+        }
+      ]
+    }
+  ],
+  "nearby_pairs": [],
+  "continuous_external_sweeps": [
+    {
+      "id": "F02_2A_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        -8.080069541931152,
+        -3.748488426208496,
+        4.440000057220459
+      ],
+      "high_blender": [
+        -7.541230911994752,
+        -3.2730000019073486,
+        5.050000190734863
+      ],
+      "nearby_furniture": []
+    },
+    {
+      "id": "F02_2B_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        15.001510620117188,
+        9.741232233075047,
+        4.440000057220459
+      ],
+      "high_blender": [
+        15.476999282836914,
+        10.280069351196289,
+        5.050000190734863
+      ],
+      "nearby_furniture": []
+    },
+    {
+      "id": "F03_3A_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        -8.080069541931152,
+        -3.748488426208496,
+        7.640000343322754
+      ],
+      "high_blender": [
+        -7.541230911994752,
+        -3.2730000019073486,
+        8.25
+      ],
+      "nearby_furniture": []
+    },
+    {
+      "id": "F03_3B_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        14.841231660870458,
+        9.972999572753906,
+        7.640000343322754
+      ],
+      "high_blender": [
+        15.3800687789917,
+        10.448488235473633,
+        8.25
+      ],
+      "nearby_furniture": []
+    },
+    {
+      "id": "F04_4A_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        15.001510620117188,
+        9.741232233075047,
+        10.84000015258789
+      ],
+      "high_blender": [
+        15.476999282836914,
+        10.280069351196289,
+        11.450000762939453
+      ],
+      "nearby_furniture": []
+    },
+    {
+      "id": "F04_4B_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        -7.9087688972703845,
+        -4.098488807678223,
+        10.84000015258789
+      ],
+      "high_blender": [
+        -7.369930267333984,
+        -3.623000144958496,
+        11.450000762939453
+      ],
+      "nearby_furniture": []
+    },
+    {
+      "id": "F05_5A_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        -8.126999855041504,
+        10.069931030273438,
+        14.039999961853027
+      ],
+      "high_blender": [
+        -7.651511192321777,
+        10.60876814839468,
+        14.649999618530273
+      ],
+      "nearby_furniture": []
+    },
+    {
+      "id": "F05_5B_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        -9.126999855041504,
+        -4.630069732666016,
+        14.039999961853027
+      ],
+      "high_blender": [
+        -8.651510238647461,
+        -4.091231577752265,
+        14.649999618530273
+      ],
+      "nearby_furniture": []
+    },
+    {
+      "id": "F05_5C_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        0.7412309700682427,
+        -4.498488426208496,
+        14.039999961853027
+      ],
+      "high_blender": [
+        1.2800695896148682,
+        -4.0229997634887695,
+        14.649999618530273
+      ],
+      "nearby_furniture": []
+    },
+    {
+      "id": "F06_6A_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        -8.126999855041504,
+        10.069931030273438,
+        17.240001678466797
+      ],
+      "high_blender": [
+        -7.651511192321777,
+        10.60876814839468,
+        17.850000381469727
+      ],
+      "nearby_furniture": []
+    },
+    {
+      "id": "F06_6B_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        -9.126999855041504,
+        -4.630069732666016,
+        17.240001678466797
+      ],
+      "high_blender": [
+        -8.651510238647461,
+        -4.091231577752265,
+        17.850000381469727
+      ],
+      "nearby_furniture": []
+    },
+    {
+      "id": "F06_6C_MIRROR_01",
+      "angle_degrees": 95,
+      "low_blender": [
+        0.7412309700682427,
+        -4.498488426208496,
+        17.240001678466797
+      ],
+      "high_blender": [
+        1.2800695896148682,
+        -4.0229997634887695,
+        17.850000381469727
+      ],
+      "nearby_furniture": []
+    }
+  ],
+  "kept_item_envelopes": [
+    {
+      "unit": "2A",
+      "name": "aspirin",
+      "shelf": 0,
+      "low_blender": [
+        -0.17799999966472388,
+        -0.029999999664723873,
+        1.404
+      ],
+      "high_blender": [
+        -0.13200000033527612,
+        0.019999999664723874,
+        1.454000000745058
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "2A",
+      "name": "cold cream",
+      "shelf": 1,
+      "low_blender": [
+        -0.18700000020861626,
+        -0.03202868040445129,
+        1.594
+      ],
+      "high_blender": [
+        -0.12299999979138374,
+        0.02202868040445129,
+        1.6339999991059304
+      ],
+      "native_bearings": [
+        "kept container"
+      ]
+    },
+    {
+      "unit": "2B",
+      "name": "thimble tin",
+      "shelf": 0,
+      "low_blender": [
+        -0.18399999971687794,
+        -0.029900095704905098,
+        1.404
+      ],
+      "high_blender": [
+        -0.12600000028312205,
+        0.0199000957049051,
+        1.4339999993294477
+      ],
+      "native_bearings": [
+        "kept container"
+      ]
+    },
+    {
+      "unit": "2B",
+      "name": "aspirin",
+      "shelf": 1,
+      "low_blender": [
+        -0.17799999966472388,
+        -0.029999999664723873,
+        1.594
+      ],
+      "high_blender": [
+        -0.13200000033527612,
+        0.019999999664723874,
+        1.6440000007450581
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "2B",
+      "name": "iodine",
+      "shelf": 0,
+      "low_blender": [
+        -0.08700000043213368,
+        -0.029000000432133674,
+        1.404
+      ],
+      "high_blender": [
+        -0.04299999956786633,
+        0.019000000432133676,
+        1.4740000002980231
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "3A",
+      "name": "razor",
+      "shelf": 0,
+      "low_blender": [
+        -0.20807219418883324,
+        -0.05554687593507905,
+        1.404
+      ],
+      "high_blender": [
+        -0.09566910092761037,
+        0.04554687593507905,
+        1.423999999552965
+      ],
+      "native_bearings": [
+        "razor handle",
+        "razor guard"
+      ]
+    },
+    {
+      "unit": "3A",
+      "name": "shaving stick",
+      "shelf": 1,
+      "low_blender": [
+        -0.18001699942350388,
+        -0.032016999423503875,
+        1.594
+      ],
+      "high_blender": [
+        -0.12998300057649612,
+        0.022016999423503877,
+        1.6739999982118607
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "3B",
+      "name": "iodine",
+      "shelf": 0,
+      "low_blender": [
+        -0.17700000043213368,
+        -0.029000000432133674,
+        1.404
+      ],
+      "high_blender": [
+        -0.13299999956786632,
+        0.019000000432133676,
+        1.4740000002980231
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "3B",
+      "name": "plasters",
+      "shelf": 1,
+      "low_blender": [
+        -0.1943301222043205,
+        -0.04039284661995119,
+        1.594
+      ],
+      "high_blender": [
+        -0.1156698777956795,
+        0.030392846619951192,
+        1.6239999993294478
+      ],
+      "native_bearings": [
+        "kept container"
+      ]
+    },
+    {
+      "unit": "4A",
+      "name": "brown bottle",
+      "shelf": 0,
+      "low_blender": [
+        -0.180000000923872,
+        -0.03200000092387199,
+        1.404
+      ],
+      "high_blender": [
+        -0.129999999076128,
+        0.022000000923871995,
+        1.4940000035762786
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "4A",
+      "name": "brown bottle",
+      "shelf": 1,
+      "low_blender": [
+        -0.180000000923872,
+        -0.03200000092387199,
+        1.594
+      ],
+      "high_blender": [
+        -0.129999999076128,
+        0.022000000923871995,
+        1.6840000035762788
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "4A",
+      "name": "brown bottle",
+      "shelf": 0,
+      "low_blender": [
+        -0.090000000923872,
+        -0.03200000092387199,
+        1.404
+      ],
+      "high_blender": [
+        -0.03999999907612801,
+        0.022000000923871995,
+        1.4940000035762786
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "4B",
+      "name": "aspirin",
+      "shelf": 0,
+      "low_blender": [
+        -0.17799999966472388,
+        -0.029999999664723873,
+        1.404
+      ],
+      "high_blender": [
+        -0.13200000033527612,
+        0.019999999664723874,
+        1.454000000745058
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "4B",
+      "name": "iodine",
+      "shelf": 1,
+      "low_blender": [
+        -0.17700000043213368,
+        -0.029000000432133674,
+        1.594
+      ],
+      "high_blender": [
+        -0.13299999956786632,
+        0.019000000432133676,
+        1.6640000002980233
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "4B",
+      "name": "razor",
+      "shelf": 0,
+      "low_blender": [
+        -0.11807219418883325,
+        -0.05554687593507905,
+        1.404
+      ],
+      "high_blender": [
+        -0.005669100927610381,
+        0.04554687593507905,
+        1.423999999552965
+      ],
+      "native_bearings": [
+        "razor handle",
+        "razor guard"
+      ]
+    },
+    {
+      "unit": "5A",
+      "name": "cold cream",
+      "shelf": 0,
+      "low_blender": [
+        -0.18700000020861626,
+        -0.03202868040445129,
+        1.404
+      ],
+      "high_blender": [
+        -0.12299999979138374,
+        0.02202868040445129,
+        1.4439999991059302
+      ],
+      "native_bearings": [
+        "kept container"
+      ]
+    },
+    {
+      "unit": "5A",
+      "name": "aspirin",
+      "shelf": 1,
+      "low_blender": [
+        -0.17799999966472388,
+        -0.029999999664723873,
+        1.594
+      ],
+      "high_blender": [
+        -0.13200000033527612,
+        0.019999999664723874,
+        1.6440000007450581
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "5B",
+      "name": "brown bottle",
+      "shelf": 0,
+      "low_blender": [
+        -0.180000000923872,
+        -0.03200000092387199,
+        1.404
+      ],
+      "high_blender": [
+        -0.129999999076128,
+        0.022000000923871995,
+        1.4940000035762786
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "5B",
+      "name": "razor",
+      "shelf": 1,
+      "low_blender": [
+        -0.20807219418883324,
+        -0.05554687593507905,
+        1.594
+      ],
+      "high_blender": [
+        -0.09566910092761037,
+        0.04554687593507905,
+        1.6139999995529652
+      ],
+      "native_bearings": [
+        "razor handle",
+        "razor guard"
+      ]
+    },
+    {
+      "unit": "5C",
+      "name": "turpentine",
+      "shelf": 0,
+      "low_blender": [
+        -0.18100000108778477,
+        -0.03300000108778477,
+        1.404
+      ],
+      "high_blender": [
+        -0.12899999891221522,
+        0.023000001087784768,
+        1.504000001490116
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "5C",
+      "name": "cold cream",
+      "shelf": 1,
+      "low_blender": [
+        -0.18700000020861626,
+        -0.03202868040445129,
+        1.594
+      ],
+      "high_blender": [
+        -0.12299999979138374,
+        0.02202868040445129,
+        1.6339999991059304
+      ],
+      "native_bearings": [
+        "kept container"
+      ]
+    },
+    {
+      "unit": "6A",
+      "name": "aspirin",
+      "shelf": 0,
+      "low_blender": [
+        -0.17799999966472388,
+        -0.029999999664723873,
+        1.404
+      ],
+      "high_blender": [
+        -0.13200000033527612,
+        0.019999999664723874,
+        1.454000000745058
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "6A",
+      "name": "shaving stick",
+      "shelf": 1,
+      "low_blender": [
+        -0.18001699942350388,
+        -0.032016999423503875,
+        1.594
+      ],
+      "high_blender": [
+        -0.12998300057649612,
+        0.022016999423503877,
+        1.6739999982118607
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "6B",
+      "name": "QUELL TONIC",
+      "shelf": 0,
+      "low_blender": [
+        -0.1810179998278618,
+        -0.033017999827861785,
+        1.404
+      ],
+      "high_blender": [
+        -0.1289820001721382,
+        0.023017999827861787,
+        1.5139999994039535
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "6B",
+      "name": "brown bottle",
+      "shelf": 1,
+      "low_blender": [
+        -0.180000000923872,
+        -0.03200000092387199,
+        1.594
+      ],
+      "high_blender": [
+        -0.129999999076128,
+        0.022000000923871995,
+        1.6840000035762788
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "6C",
+      "name": "iodine",
+      "shelf": 0,
+      "low_blender": [
+        -0.17700000043213368,
+        -0.029000000432133674,
+        1.404
+      ],
+      "high_blender": [
+        -0.13299999956786632,
+        0.019000000432133676,
+        1.4740000002980231
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    },
+    {
+      "unit": "6C",
+      "name": "thimble tin",
+      "shelf": 1,
+      "low_blender": [
+        -0.18399999971687794,
+        -0.029900095704905098,
+        1.594
+      ],
+      "high_blender": [
+        -0.12600000028312205,
+        0.0199000957049051,
+        1.6239999993294478
+      ],
+      "native_bearings": [
+        "kept container"
+      ]
+    },
+    {
+      "unit": "6C",
+      "name": "aspirin",
+      "shelf": 0,
+      "low_blender": [
+        -0.08799999966472388,
+        -0.029999999664723873,
+        1.404
+      ],
+      "high_blender": [
+        -0.04200000033527613,
+        0.019999999664723874,
+        1.454000000745058
+      ],
+      "native_bearings": [
+        "bottle heel"
+      ]
+    }
+  ],
+  "failures": [],
+  "scope": "Original cabinet accessory poses, native back contact against the actual bath wall, and native furniture clearance. Full swing and contents need separate inspection."
+}

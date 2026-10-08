@@ -1,0 +1,1265 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 169,
+  "connected_groups": [
+    {
+      "assembly": "ToasterFront_SupportedSingleSlotMechanism",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "ToasterFront_Foot(-0.105, -0.045)",
+          "ToasterFront_PressedBase"
+        ],
+        [
+          "ToasterFront_Foot(-0.105, 0.045)",
+          "ToasterFront_PressedBase"
+        ],
+        [
+          "ToasterFront_Foot(0.105, -0.045)",
+          "ToasterFront_PressedBase"
+        ],
+        [
+          "ToasterFront_Foot(0.105, 0.045)",
+          "ToasterFront_PressedBase"
+        ],
+        [
+          "ToasterFront_PressedBase",
+          "ToasterFront_VentWall-1"
+        ],
+        [
+          "ToasterFront_PressedBase",
+          "ToasterFront_VentWall1"
+        ],
+        [
+          "ToasterFront_PressedBase",
+          "ToasterFront_EndWall-1"
+        ],
+        [
+          "ToasterFront_PressedBase",
+          "ToasterFront_EndWall1"
+        ],
+        [
+          "ToasterFront_PressedBase",
+          "ToasterFront_PanRail-0.095"
+        ],
+        [
+          "ToasterFront_PressedBase",
+          "ToasterFront_PanRail0.095"
+        ],
+        [
+          "ToasterFront_VentWall-1",
+          "ToasterFront_EndWall-1"
+        ],
+        [
+          "ToasterFront_VentWall-1",
+          "ToasterFront_EndWall1"
+        ],
+        [
+          "ToasterFront_VentWall-1",
+          "ToasterFront_PressedShoulder"
+        ],
+        [
+          "ToasterFront_VentWall-1",
+          "ToasterFront_Screw(-1, -0.104, -1)"
+        ],
+        [
+          "ToasterFront_VentWall-1",
+          "ToasterFront_Screw(-1, -0.104, 1)"
+        ],
+        [
+          "ToasterFront_VentWall-1",
+          "ToasterFront_Screw(-1, 0.104, -1)"
+        ],
+        [
+          "ToasterFront_VentWall-1",
+          "ToasterFront_Screw(-1, 0.104, 1)"
+        ],
+        [
+          "ToasterFront_VentWall-1",
+          "ToasterFront_CarrierGuideBridge-0.097"
+        ],
+        [
+          "ToasterFront_VentWall-1",
+          "ToasterFront_CarrierGuideBridge0.097"
+        ],
+        [
+          "ToasterFront_VentWall1",
+          "ToasterFront_EndWall-1"
+        ],
+        [
+          "ToasterFront_VentWall1",
+          "ToasterFront_EndWall1"
+        ],
+        [
+          "ToasterFront_VentWall1",
+          "ToasterFront_PressedShoulder"
+        ],
+        [
+          "ToasterFront_VentWall1",
+          "ToasterFront_Screw(1, -0.104, -1)"
+        ],
+        [
+          "ToasterFront_VentWall1",
+          "ToasterFront_Screw(1, -0.104, 1)"
+        ],
+        [
+          "ToasterFront_VentWall1",
+          "ToasterFront_Screw(1, 0.104, -1)"
+        ],
+        [
+          "ToasterFront_VentWall1",
+          "ToasterFront_Screw(1, 0.104, 1)"
+        ],
+        [
+          "ToasterFront_VentWall1",
+          "ToasterFront_BraidedSupply"
+        ],
+        [
+          "ToasterFront_VentWall1",
+          "ToasterFront_CarrierGuideBridge-0.097"
+        ],
+        [
+          "ToasterFront_VentWall1",
+          "ToasterFront_CarrierGuideBridge0.097"
+        ],
+        [
+          "ToasterFront_VentWall1",
+          "ToasterFront_PanPullStrip"
+        ],
+        [
+          "ToasterFront_EndWall-1",
+          "ToasterFront_PressedShoulder"
+        ],
+        [
+          "ToasterFront_EndWall-1",
+          "ToasterFront_BraidedSupply"
+        ],
+        [
+          "ToasterFront_EndWall-1",
+          "ToasterFront_TimerTrack"
+        ],
+        [
+          "ToasterFront_EndWall-1",
+          "ToasterFront_TimerLever"
+        ],
+        [
+          "ToasterFront_EndWall1",
+          "ToasterFront_PressedShoulder"
+        ],
+        [
+          "ToasterFront_EndWall1",
+          "ToasterFront_LeverGuideSide-0.014"
+        ],
+        [
+          "ToasterFront_EndWall1",
+          "ToasterFront_LeverGuideSide0.007"
+        ],
+        [
+          "ToasterFront_PressedShoulder",
+          "ToasterFront_SingleSlotLip_Near"
+        ],
+        [
+          "ToasterFront_PressedShoulder",
+          "ToasterFront_SingleSlotLip_Far"
+        ],
+        [
+          "ToasterFront_PressedShoulder",
+          "ToasterFront_SingleSlotLip_Left"
+        ],
+        [
+          "ToasterFront_PressedShoulder",
+          "ToasterFront_SingleSlotLip_Right"
+        ],
+        [
+          "ToasterFront_PressedShoulder",
+          "ToasterFront_LeverGuideSide-0.014"
+        ],
+        [
+          "ToasterFront_PressedShoulder",
+          "ToasterFront_LeverGuideSide0.007"
+        ],
+        [
+          "ToasterFront_SingleSlotLip_Near",
+          "ToasterFront_SingleSlotLip_Left"
+        ],
+        [
+          "ToasterFront_SingleSlotLip_Near",
+          "ToasterFront_SingleSlotLip_Right"
+        ],
+        [
+          "ToasterFront_SingleSlotLip_Far",
+          "ToasterFront_SingleSlotLip_Left"
+        ],
+        [
+          "ToasterFront_SingleSlotLip_Far",
+          "ToasterFront_SingleSlotLip_Right"
+        ],
+        [
+          "ToasterFront_Screw(1, -0.104, 1)",
+          "ToasterFront_BraidedSupply"
+        ],
+        [
+          "ToasterFront_BraidedSupply",
+          "ToasterFront_Plug"
+        ],
+        [
+          "ToasterFront_Plug",
+          "ToasterFront_PlugPin-0.167"
+        ],
+        [
+          "ToasterFront_Plug",
+          "ToasterFront_PlugPin-0.153"
+        ],
+        [
+          "ToasterFront_MicaCard-0.034",
+          "ToasterFront_CardSaddle(-0.0934, -0.034)"
+        ],
+        [
+          "ToasterFront_MicaCard-0.034",
+          "ToasterFront_CardSaddle(0.0934, -0.034)"
+        ],
+        [
+          "ToasterFront_MicaCard-0.034",
+          "ToasterFront_ResistanceWire(-0.037, 0)"
+        ],
+        [
+          "ToasterFront_MicaCard-0.034",
+          "ToasterFront_ResistanceWire(-0.037, 1)"
+        ],
+        [
+          "ToasterFront_MicaCard-0.034",
+          "ToasterFront_ResistanceWire(-0.037, 2)"
+        ],
+        [
+          "ToasterFront_MicaCard-0.034",
+          "ToasterFront_ResistanceWire(-0.037, 3)"
+        ],
+        [
+          "ToasterFront_MicaCard-0.034",
+          "ToasterFront_ResistanceWire(-0.037, 4)"
+        ],
+        [
+          "ToasterFront_MicaCard-0.034",
+          "ToasterFront_ResistanceWire(-0.037, 5)"
+        ],
+        [
+          "ToasterFront_MicaCard-0.034",
+          "ToasterFront_ResistanceWire(-0.037, 6)"
+        ],
+        [
+          "ToasterFront_CardSaddle(-0.0934, -0.034)",
+          "ToasterFront_CarrierGuideBridge-0.097"
+        ],
+        [
+          "ToasterFront_CardSaddle(0.0934, -0.034)",
+          "ToasterFront_CarrierGuideBridge0.097"
+        ],
+        [
+          "ToasterFront_MicaCard0.034",
+          "ToasterFront_CardSaddle(-0.0934, 0.034)"
+        ],
+        [
+          "ToasterFront_MicaCard0.034",
+          "ToasterFront_CardSaddle(0.0934, 0.034)"
+        ],
+        [
+          "ToasterFront_MicaCard0.034",
+          "ToasterFront_ResistanceWire(0.037, 0)"
+        ],
+        [
+          "ToasterFront_MicaCard0.034",
+          "ToasterFront_ResistanceWire(0.037, 1)"
+        ],
+        [
+          "ToasterFront_MicaCard0.034",
+          "ToasterFront_ResistanceWire(0.037, 2)"
+        ],
+        [
+          "ToasterFront_MicaCard0.034",
+          "ToasterFront_ResistanceWire(0.037, 3)"
+        ],
+        [
+          "ToasterFront_MicaCard0.034",
+          "ToasterFront_ResistanceWire(0.037, 4)"
+        ],
+        [
+          "ToasterFront_MicaCard0.034",
+          "ToasterFront_ResistanceWire(0.037, 5)"
+        ],
+        [
+          "ToasterFront_MicaCard0.034",
+          "ToasterFront_ResistanceWire(0.037, 6)"
+        ],
+        [
+          "ToasterFront_CardSaddle(-0.0934, 0.034)",
+          "ToasterFront_CarrierGuideBridge-0.097"
+        ],
+        [
+          "ToasterFront_CardSaddle(0.0934, 0.034)",
+          "ToasterFront_CarrierGuideBridge0.097"
+        ],
+        [
+          "ToasterFront_TimerTrack",
+          "ToasterFront_TimerLever"
+        ],
+        [
+          "ToasterFront_TimerTrack",
+          "ToasterFront_TimerNotch0"
+        ],
+        [
+          "ToasterFront_TimerTrack",
+          "ToasterFront_TimerNotch1"
+        ],
+        [
+          "ToasterFront_TimerTrack",
+          "ToasterFront_TimerNotch2"
+        ],
+        [
+          "ToasterFront_TimerTrack",
+          "ToasterFront_TimerNotch3"
+        ],
+        [
+          "ToasterFront_TimerTrack",
+          "ToasterFront_TimerNotch4"
+        ],
+        [
+          "ToasterFront_TimerLever",
+          "ToasterFront_TimerNotch3"
+        ],
+        [
+          "ToasterFront_TimerLever",
+          "ToasterFront_TimerNotch4"
+        ],
+        [
+          "ToasterFront_CarriageGrip",
+          "ToasterFront_CarriageSpindle"
+        ],
+        [
+          "ToasterFront_CarriageSpindle",
+          "ToasterFront_LeverSlider"
+        ],
+        [
+          "ToasterFront_LeverGuideSide-0.014",
+          "ToasterFront_LeverSlider"
+        ],
+        [
+          "ToasterFront_LeverGuideSide0.007",
+          "ToasterFront_LeverSlider"
+        ],
+        [
+          "ToasterFront_BreadPlate",
+          "ToasterFront_CarrierWire-0.084"
+        ],
+        [
+          "ToasterFront_BreadPlate",
+          "ToasterFront_CarrierWire-0.042"
+        ],
+        [
+          "ToasterFront_BreadPlate",
+          "ToasterFront_CarrierWire0"
+        ],
+        [
+          "ToasterFront_BreadPlate",
+          "ToasterFront_CarrierWire0.042"
+        ],
+        [
+          "ToasterFront_BreadPlate",
+          "ToasterFront_CarrierWire0.084"
+        ],
+        [
+          "ToasterFront_BreadPlate",
+          "ToasterFront_CarrierLink-0.097"
+        ],
+        [
+          "ToasterFront_BreadPlate",
+          "ToasterFront_CarrierLink0.097"
+        ],
+        [
+          "ToasterFront_CarrierGuideBridge-0.097",
+          "ToasterFront_CarrierGuide-0.097"
+        ],
+        [
+          "ToasterFront_CarrierGuide-0.097",
+          "ToasterFront_CarrierYoke(-0.097, -0.01)"
+        ],
+        [
+          "ToasterFront_CarrierGuide-0.097",
+          "ToasterFront_CarrierYoke(-0.097, 0.009)"
+        ],
+        [
+          "ToasterFront_CarrierYoke(-0.097, -0.01)",
+          "ToasterFront_CarrierLink-0.097"
+        ],
+        [
+          "ToasterFront_CarrierYoke(-0.097, 0.009)",
+          "ToasterFront_CarrierLink-0.097"
+        ],
+        [
+          "ToasterFront_CarrierGuideBridge0.097",
+          "ToasterFront_CarrierGuide0.097"
+        ],
+        [
+          "ToasterFront_CarrierGuide0.097",
+          "ToasterFront_CarrierYoke(0.097, -0.01)"
+        ],
+        [
+          "ToasterFront_CarrierGuide0.097",
+          "ToasterFront_CarrierYoke(0.097, 0.009)"
+        ],
+        [
+          "ToasterFront_CarrierYoke(0.097, -0.01)",
+          "ToasterFront_CarrierLink0.097"
+        ],
+        [
+          "ToasterFront_CarrierYoke(0.097, 0.009)",
+          "ToasterFront_CarrierLink0.097"
+        ],
+        [
+          "ToasterFront_PanRail-0.095",
+          "ToasterFront_Pan"
+        ],
+        [
+          "ToasterFront_PanRail0.095",
+          "ToasterFront_Pan"
+        ],
+        [
+          "ToasterFront_Pan",
+          "ToasterFront_PanFold-0.0525"
+        ],
+        [
+          "ToasterFront_Pan",
+          "ToasterFront_PanFold0.0513"
+        ],
+        [
+          "ToasterFront_Pan",
+          "ToasterFront_PanEnd-0.1075"
+        ],
+        [
+          "ToasterFront_Pan",
+          "ToasterFront_PanEnd0.1063"
+        ],
+        [
+          "ToasterFront_Pan",
+          "ToasterFront_PanPullStrip"
+        ],
+        [
+          "ToasterFront_Pan",
+          "ToasterFront_GreaseFilm"
+        ],
+        [
+          "ToasterFront_PanFold-0.0525",
+          "ToasterFront_PanEnd-0.1075"
+        ],
+        [
+          "ToasterFront_PanFold-0.0525",
+          "ToasterFront_PanEnd0.1063"
+        ],
+        [
+          "ToasterFront_PanFold0.0513",
+          "ToasterFront_PanEnd-0.1075"
+        ],
+        [
+          "ToasterFront_PanFold0.0513",
+          "ToasterFront_PanEnd0.1063"
+        ],
+        [
+          "ToasterFront_PanFold0.0513",
+          "ToasterFront_PanPullStrip"
+        ],
+        [
+          "ToasterFront_PanPullStrip",
+          "ToasterFront_PanPull"
+        ]
+      ]
+    },
+    {
+      "assembly": "ToasterEnd_SupportedSingleSlotMechanism",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "ToasterEnd_Foot(-0.105, -0.045)",
+          "ToasterEnd_PressedBase"
+        ],
+        [
+          "ToasterEnd_Foot(-0.105, 0.045)",
+          "ToasterEnd_PressedBase"
+        ],
+        [
+          "ToasterEnd_Foot(0.105, -0.045)",
+          "ToasterEnd_PressedBase"
+        ],
+        [
+          "ToasterEnd_Foot(0.105, 0.045)",
+          "ToasterEnd_PressedBase"
+        ],
+        [
+          "ToasterEnd_PressedBase",
+          "ToasterEnd_VentWall-1"
+        ],
+        [
+          "ToasterEnd_PressedBase",
+          "ToasterEnd_VentWall1"
+        ],
+        [
+          "ToasterEnd_PressedBase",
+          "ToasterEnd_EndWall-1"
+        ],
+        [
+          "ToasterEnd_PressedBase",
+          "ToasterEnd_EndWall1"
+        ],
+        [
+          "ToasterEnd_PressedBase",
+          "ToasterEnd_PanRail-0.04"
+        ],
+        [
+          "ToasterEnd_PressedBase",
+          "ToasterEnd_PanRail0.04"
+        ],
+        [
+          "ToasterEnd_VentWall-1",
+          "ToasterEnd_EndWall-1"
+        ],
+        [
+          "ToasterEnd_VentWall-1",
+          "ToasterEnd_EndWall1"
+        ],
+        [
+          "ToasterEnd_VentWall-1",
+          "ToasterEnd_PressedShoulder"
+        ],
+        [
+          "ToasterEnd_VentWall-1",
+          "ToasterEnd_Screw(-1, -0.104, -1)"
+        ],
+        [
+          "ToasterEnd_VentWall-1",
+          "ToasterEnd_Screw(-1, -0.104, 1)"
+        ],
+        [
+          "ToasterEnd_VentWall-1",
+          "ToasterEnd_Screw(-1, 0.104, -1)"
+        ],
+        [
+          "ToasterEnd_VentWall-1",
+          "ToasterEnd_Screw(-1, 0.104, 1)"
+        ],
+        [
+          "ToasterEnd_VentWall-1",
+          "ToasterEnd_CarrierGuideBridge-0.097"
+        ],
+        [
+          "ToasterEnd_VentWall-1",
+          "ToasterEnd_CarrierGuideBridge0.097"
+        ],
+        [
+          "ToasterEnd_VentWall1",
+          "ToasterEnd_EndWall-1"
+        ],
+        [
+          "ToasterEnd_VentWall1",
+          "ToasterEnd_EndWall1"
+        ],
+        [
+          "ToasterEnd_VentWall1",
+          "ToasterEnd_PressedShoulder"
+        ],
+        [
+          "ToasterEnd_VentWall1",
+          "ToasterEnd_Screw(1, -0.104, -1)"
+        ],
+        [
+          "ToasterEnd_VentWall1",
+          "ToasterEnd_Screw(1, -0.104, 1)"
+        ],
+        [
+          "ToasterEnd_VentWall1",
+          "ToasterEnd_Screw(1, 0.104, -1)"
+        ],
+        [
+          "ToasterEnd_VentWall1",
+          "ToasterEnd_Screw(1, 0.104, 1)"
+        ],
+        [
+          "ToasterEnd_VentWall1",
+          "ToasterEnd_BraidedSupply"
+        ],
+        [
+          "ToasterEnd_VentWall1",
+          "ToasterEnd_CarrierGuideBridge-0.097"
+        ],
+        [
+          "ToasterEnd_VentWall1",
+          "ToasterEnd_CarrierGuideBridge0.097"
+        ],
+        [
+          "ToasterEnd_EndWall-1",
+          "ToasterEnd_PressedShoulder"
+        ],
+        [
+          "ToasterEnd_EndWall-1",
+          "ToasterEnd_BraidedSupply"
+        ],
+        [
+          "ToasterEnd_EndWall-1",
+          "ToasterEnd_TimerTrack"
+        ],
+        [
+          "ToasterEnd_EndWall-1",
+          "ToasterEnd_TimerLever"
+        ],
+        [
+          "ToasterEnd_EndWall1",
+          "ToasterEnd_PressedShoulder"
+        ],
+        [
+          "ToasterEnd_EndWall1",
+          "ToasterEnd_LeverGuideSide-0.014"
+        ],
+        [
+          "ToasterEnd_EndWall1",
+          "ToasterEnd_LeverGuideSide0.007"
+        ],
+        [
+          "ToasterEnd_PressedShoulder",
+          "ToasterEnd_SingleSlotLip_Near"
+        ],
+        [
+          "ToasterEnd_PressedShoulder",
+          "ToasterEnd_SingleSlotLip_Far"
+        ],
+        [
+          "ToasterEnd_PressedShoulder",
+          "ToasterEnd_SingleSlotLip_Left"
+        ],
+        [
+          "ToasterEnd_PressedShoulder",
+          "ToasterEnd_SingleSlotLip_Right"
+        ],
+        [
+          "ToasterEnd_PressedShoulder",
+          "ToasterEnd_LeverGuideSide-0.014"
+        ],
+        [
+          "ToasterEnd_PressedShoulder",
+          "ToasterEnd_LeverGuideSide0.007"
+        ],
+        [
+          "ToasterEnd_SingleSlotLip_Near",
+          "ToasterEnd_SingleSlotLip_Left"
+        ],
+        [
+          "ToasterEnd_SingleSlotLip_Near",
+          "ToasterEnd_SingleSlotLip_Right"
+        ],
+        [
+          "ToasterEnd_SingleSlotLip_Far",
+          "ToasterEnd_SingleSlotLip_Left"
+        ],
+        [
+          "ToasterEnd_SingleSlotLip_Far",
+          "ToasterEnd_SingleSlotLip_Right"
+        ],
+        [
+          "ToasterEnd_Screw(1, -0.104, 1)",
+          "ToasterEnd_BraidedSupply"
+        ],
+        [
+          "ToasterEnd_BraidedSupply",
+          "ToasterEnd_Plug"
+        ],
+        [
+          "ToasterEnd_Plug",
+          "ToasterEnd_PlugPin-0.167"
+        ],
+        [
+          "ToasterEnd_Plug",
+          "ToasterEnd_PlugPin-0.153"
+        ],
+        [
+          "ToasterEnd_MicaCard-0.034",
+          "ToasterEnd_CardSaddle(-0.0934, -0.034)"
+        ],
+        [
+          "ToasterEnd_MicaCard-0.034",
+          "ToasterEnd_CardSaddle(0.0934, -0.034)"
+        ],
+        [
+          "ToasterEnd_MicaCard-0.034",
+          "ToasterEnd_ResistanceWire(-0.037, 0)"
+        ],
+        [
+          "ToasterEnd_MicaCard-0.034",
+          "ToasterEnd_ResistanceWire(-0.037, 1)"
+        ],
+        [
+          "ToasterEnd_MicaCard-0.034",
+          "ToasterEnd_ResistanceWire(-0.037, 2)"
+        ],
+        [
+          "ToasterEnd_MicaCard-0.034",
+          "ToasterEnd_ResistanceWire(-0.037, 3)"
+        ],
+        [
+          "ToasterEnd_MicaCard-0.034",
+          "ToasterEnd_ResistanceWire(-0.037, 4)"
+        ],
+        [
+          "ToasterEnd_MicaCard-0.034",
+          "ToasterEnd_ResistanceWire(-0.037, 5)"
+        ],
+        [
+          "ToasterEnd_MicaCard-0.034",
+          "ToasterEnd_ResistanceWire(-0.037, 6)"
+        ],
+        [
+          "ToasterEnd_CardSaddle(-0.0934, -0.034)",
+          "ToasterEnd_CarrierGuideBridge-0.097"
+        ],
+        [
+          "ToasterEnd_CardSaddle(0.0934, -0.034)",
+          "ToasterEnd_CarrierGuideBridge0.097"
+        ],
+        [
+          "ToasterEnd_MicaCard0.034",
+          "ToasterEnd_CardSaddle(-0.0934, 0.034)"
+        ],
+        [
+          "ToasterEnd_MicaCard0.034",
+          "ToasterEnd_CardSaddle(0.0934, 0.034)"
+        ],
+        [
+          "ToasterEnd_MicaCard0.034",
+          "ToasterEnd_ResistanceWire(0.037, 0)"
+        ],
+        [
+          "ToasterEnd_MicaCard0.034",
+          "ToasterEnd_ResistanceWire(0.037, 1)"
+        ],
+        [
+          "ToasterEnd_MicaCard0.034",
+          "ToasterEnd_ResistanceWire(0.037, 2)"
+        ],
+        [
+          "ToasterEnd_MicaCard0.034",
+          "ToasterEnd_ResistanceWire(0.037, 3)"
+        ],
+        [
+          "ToasterEnd_MicaCard0.034",
+          "ToasterEnd_ResistanceWire(0.037, 4)"
+        ],
+        [
+          "ToasterEnd_MicaCard0.034",
+          "ToasterEnd_ResistanceWire(0.037, 5)"
+        ],
+        [
+          "ToasterEnd_MicaCard0.034",
+          "ToasterEnd_ResistanceWire(0.037, 6)"
+        ],
+        [
+          "ToasterEnd_CardSaddle(-0.0934, 0.034)",
+          "ToasterEnd_CarrierGuideBridge-0.097"
+        ],
+        [
+          "ToasterEnd_CardSaddle(0.0934, 0.034)",
+          "ToasterEnd_CarrierGuideBridge0.097"
+        ],
+        [
+          "ToasterEnd_TimerTrack",
+          "ToasterEnd_TimerLever"
+        ],
+        [
+          "ToasterEnd_TimerTrack",
+          "ToasterEnd_TimerNotch0"
+        ],
+        [
+          "ToasterEnd_TimerTrack",
+          "ToasterEnd_TimerNotch1"
+        ],
+        [
+          "ToasterEnd_TimerTrack",
+          "ToasterEnd_TimerNotch2"
+        ],
+        [
+          "ToasterEnd_TimerTrack",
+          "ToasterEnd_TimerNotch3"
+        ],
+        [
+          "ToasterEnd_TimerTrack",
+          "ToasterEnd_TimerNotch4"
+        ],
+        [
+          "ToasterEnd_TimerLever",
+          "ToasterEnd_TimerNotch3"
+        ],
+        [
+          "ToasterEnd_TimerLever",
+          "ToasterEnd_TimerNotch4"
+        ],
+        [
+          "ToasterEnd_CarriageGrip",
+          "ToasterEnd_CarriageSpindle"
+        ],
+        [
+          "ToasterEnd_CarriageSpindle",
+          "ToasterEnd_LeverSlider"
+        ],
+        [
+          "ToasterEnd_LeverGuideSide-0.014",
+          "ToasterEnd_LeverSlider"
+        ],
+        [
+          "ToasterEnd_LeverGuideSide0.007",
+          "ToasterEnd_LeverSlider"
+        ],
+        [
+          "ToasterEnd_BreadPlate",
+          "ToasterEnd_CarrierWire-0.084"
+        ],
+        [
+          "ToasterEnd_BreadPlate",
+          "ToasterEnd_CarrierWire-0.042"
+        ],
+        [
+          "ToasterEnd_BreadPlate",
+          "ToasterEnd_CarrierWire0"
+        ],
+        [
+          "ToasterEnd_BreadPlate",
+          "ToasterEnd_CarrierWire0.042"
+        ],
+        [
+          "ToasterEnd_BreadPlate",
+          "ToasterEnd_CarrierWire0.084"
+        ],
+        [
+          "ToasterEnd_BreadPlate",
+          "ToasterEnd_CarrierLink-0.097"
+        ],
+        [
+          "ToasterEnd_BreadPlate",
+          "ToasterEnd_CarrierLink0.097"
+        ],
+        [
+          "ToasterEnd_CarrierGuideBridge-0.097",
+          "ToasterEnd_CarrierGuide-0.097"
+        ],
+        [
+          "ToasterEnd_CarrierGuide-0.097",
+          "ToasterEnd_CarrierYoke(-0.097, -0.01)"
+        ],
+        [
+          "ToasterEnd_CarrierGuide-0.097",
+          "ToasterEnd_CarrierYoke(-0.097, 0.009)"
+        ],
+        [
+          "ToasterEnd_CarrierYoke(-0.097, -0.01)",
+          "ToasterEnd_CarrierLink-0.097"
+        ],
+        [
+          "ToasterEnd_CarrierYoke(-0.097, 0.009)",
+          "ToasterEnd_CarrierLink-0.097"
+        ],
+        [
+          "ToasterEnd_CarrierGuideBridge0.097",
+          "ToasterEnd_CarrierGuide0.097"
+        ],
+        [
+          "ToasterEnd_CarrierGuide0.097",
+          "ToasterEnd_CarrierYoke(0.097, -0.01)"
+        ],
+        [
+          "ToasterEnd_CarrierGuide0.097",
+          "ToasterEnd_CarrierYoke(0.097, 0.009)"
+        ],
+        [
+          "ToasterEnd_CarrierYoke(0.097, -0.01)",
+          "ToasterEnd_CarrierLink0.097"
+        ],
+        [
+          "ToasterEnd_CarrierYoke(0.097, 0.009)",
+          "ToasterEnd_CarrierLink0.097"
+        ],
+        [
+          "ToasterEnd_PanRail-0.04",
+          "ToasterEnd_Pan"
+        ],
+        [
+          "ToasterEnd_PanRail0.04",
+          "ToasterEnd_Pan"
+        ],
+        [
+          "ToasterEnd_Pan",
+          "ToasterEnd_PanFold-0.0525"
+        ],
+        [
+          "ToasterEnd_Pan",
+          "ToasterEnd_PanFold0.0513"
+        ],
+        [
+          "ToasterEnd_Pan",
+          "ToasterEnd_PanEnd-0.1075"
+        ],
+        [
+          "ToasterEnd_Pan",
+          "ToasterEnd_PanEnd0.1063"
+        ],
+        [
+          "ToasterEnd_Pan",
+          "ToasterEnd_PanPullStrip"
+        ],
+        [
+          "ToasterEnd_Pan",
+          "ToasterEnd_GreaseFilm"
+        ],
+        [
+          "ToasterEnd_PanFold-0.0525",
+          "ToasterEnd_PanEnd-0.1075"
+        ],
+        [
+          "ToasterEnd_PanFold-0.0525",
+          "ToasterEnd_PanEnd0.1063"
+        ],
+        [
+          "ToasterEnd_PanFold0.0513",
+          "ToasterEnd_PanEnd-0.1075"
+        ],
+        [
+          "ToasterEnd_PanFold0.0513",
+          "ToasterEnd_PanEnd0.1063"
+        ],
+        [
+          "ToasterEnd_PanEnd-0.1075",
+          "ToasterEnd_PanPullStrip"
+        ],
+        [
+          "ToasterEnd_PanPullStrip",
+          "ToasterEnd_PanPull"
+        ]
+      ]
+    },
+    {
+      "assembly": "ToasterCrumb_CrumbPrototype",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    }
+  ],
+  "distinct_object_separations": [],
+  "uv": [
+    {
+      "part": "ToasterFront__Body_ON_bakelite",
+      "minimum_metres_per_uv": 0.9992977509853241,
+      "maximum_metres_per_uv": 1.0001051019499672,
+      "maximum_edge_excess_m": 1.2815731460051605e-06,
+      "maximum_edge_ratio": 1.0007025568540429
+    },
+    {
+      "part": "ToasterFront__Body_ON_braid",
+      "minimum_metres_per_uv": 0.9998230597602032,
+      "maximum_metres_per_uv": 1.000045026605114,
+      "maximum_edge_excess_m": 5.697378215692092e-08,
+      "maximum_edge_ratio": 1.0001326348845576
+    },
+    {
+      "part": "ToasterFront__Body_ON_mica",
+      "minimum_metres_per_uv": 0.9998699809183969,
+      "maximum_metres_per_uv": 1.000093791784046,
+      "maximum_edge_excess_m": 1.164156511345067e-08,
+      "maximum_edge_ratio": 1.0001173631037323
+    },
+    {
+      "part": "ToasterFront__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9981337806511347,
+      "maximum_metres_per_uv": 1.0018376845154162,
+      "maximum_edge_excess_m": 6.57313651816478e-07,
+      "maximum_edge_ratio": 1.0016767431786326
+    },
+    {
+      "part": "ToasterFront__BreadCarrier_ON_nickel",
+      "minimum_metres_per_uv": 0.9986924153098742,
+      "maximum_metres_per_uv": 1.0021302545877133,
+      "maximum_edge_excess_m": 2.7398154613003482e-08,
+      "maximum_edge_ratio": 1.0003318159529768
+    },
+    {
+      "part": "ToasterFront__CarriageLever_ON_bakelite",
+      "minimum_metres_per_uv": 0.9999789528269584,
+      "maximum_metres_per_uv": 1.000028285499351,
+      "maximum_edge_excess_m": 2.018565128892799e-08,
+      "maximum_edge_ratio": 1.0000194428691493
+    },
+    {
+      "part": "ToasterFront__CarriageLever_ON_nickel",
+      "minimum_metres_per_uv": 0.9992559948116889,
+      "maximum_metres_per_uv": 1.0002622137436334,
+      "maximum_edge_excess_m": 5.842385502699034e-07,
+      "maximum_edge_ratio": 1.0007445591441775
+    },
+    {
+      "part": "ToasterFront__OrisonRetrofitCrumbTray_ON_bakelite",
+      "minimum_metres_per_uv": 0.9999700397457421,
+      "maximum_metres_per_uv": 1.0000410257631536,
+      "maximum_edge_excess_m": 2.6279822714020754e-08,
+      "maximum_edge_ratio": 1.0000254202058194
+    },
+    {
+      "part": "ToasterFront__OrisonRetrofitCrumbTray_ON_grease",
+      "minimum_metres_per_uv": 0.9922436545678351,
+      "maximum_metres_per_uv": 1.003397038736249,
+      "maximum_edge_excess_m": 5.3409334592962416e-08,
+      "maximum_edge_ratio": 1.000027741830138
+    },
+    {
+      "part": "ToasterFront__OrisonRetrofitCrumbTray_ON_nickel",
+      "minimum_metres_per_uv": 0.9997156523388271,
+      "maximum_metres_per_uv": 1.000434276436651,
+      "maximum_edge_excess_m": 2.7398154613003482e-08,
+      "maximum_edge_ratio": 1.0002638663223302
+    },
+    {
+      "part": "ToasterFront__ResistanceWire_ON_coil",
+      "minimum_metres_per_uv": 0.9985614016398299,
+      "maximum_metres_per_uv": 1.001453488372093,
+      "maximum_edge_excess_m": 2.751048869050897e-08,
+      "maximum_edge_ratio": 1.000140201707226
+    },
+    {
+      "part": "ToasterEnd__Body_ON_bakelite",
+      "minimum_metres_per_uv": 0.9992977509853241,
+      "maximum_metres_per_uv": 1.0001051019499672,
+      "maximum_edge_excess_m": 1.2815731460051605e-06,
+      "maximum_edge_ratio": 1.0007025568540429
+    },
+    {
+      "part": "ToasterEnd__Body_ON_braid",
+      "minimum_metres_per_uv": 0.9998230597602032,
+      "maximum_metres_per_uv": 1.000045026605114,
+      "maximum_edge_excess_m": 5.697378215692092e-08,
+      "maximum_edge_ratio": 1.0001326348845576
+    },
+    {
+      "part": "ToasterEnd__Body_ON_mica",
+      "minimum_metres_per_uv": 0.9998699809183969,
+      "maximum_metres_per_uv": 1.000093791784046,
+      "maximum_edge_excess_m": 1.164156511345067e-08,
+      "maximum_edge_ratio": 1.0001173631037323
+    },
+    {
+      "part": "ToasterEnd__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9983260635828365,
+      "maximum_metres_per_uv": 1.0010129743596052,
+      "maximum_edge_excess_m": 6.57313651816478e-07,
+      "maximum_edge_ratio": 1.0016767431786326
+    },
+    {
+      "part": "ToasterEnd__BreadCarrier_ON_nickel",
+      "minimum_metres_per_uv": 0.9986924153098742,
+      "maximum_metres_per_uv": 1.0021302545877133,
+      "maximum_edge_excess_m": 2.7398154613003482e-08,
+      "maximum_edge_ratio": 1.0003318159529768
+    },
+    {
+      "part": "ToasterEnd__CarriageLever_ON_bakelite",
+      "minimum_metres_per_uv": 0.9999789528269584,
+      "maximum_metres_per_uv": 1.000028285499351,
+      "maximum_edge_excess_m": 2.018565128892799e-08,
+      "maximum_edge_ratio": 1.0000194428691493
+    },
+    {
+      "part": "ToasterEnd__CarriageLever_ON_nickel",
+      "minimum_metres_per_uv": 0.9992559948116889,
+      "maximum_metres_per_uv": 1.0002622137436334,
+      "maximum_edge_excess_m": 5.842385502699034e-07,
+      "maximum_edge_ratio": 1.0007445591441775
+    },
+    {
+      "part": "ToasterEnd__OrisonRetrofitCrumbTray_ON_bakelite",
+      "minimum_metres_per_uv": 0.9999480172016194,
+      "maximum_metres_per_uv": 1.000025663177721,
+      "maximum_edge_excess_m": 2.1502739469417623e-08,
+      "maximum_edge_ratio": 1.0000254684869079
+    },
+    {
+      "part": "ToasterEnd__OrisonRetrofitCrumbTray_ON_grease",
+      "minimum_metres_per_uv": 0.9922436545678351,
+      "maximum_metres_per_uv": 1.003397038736249,
+      "maximum_edge_excess_m": 5.3409334592962416e-08,
+      "maximum_edge_ratio": 1.000027741830138
+    },
+    {
+      "part": "ToasterEnd__OrisonRetrofitCrumbTray_ON_nickel",
+      "minimum_metres_per_uv": 0.9997156523388271,
+      "maximum_metres_per_uv": 1.000434276436651,
+      "maximum_edge_excess_m": 2.7398154613003482e-08,
+      "maximum_edge_ratio": 1.0002638663223302
+    },
+    {
+      "part": "ToasterEnd__ResistanceWire_ON_coil",
+      "minimum_metres_per_uv": 0.9985614016398299,
+      "maximum_metres_per_uv": 1.001453488372093,
+      "maximum_edge_excess_m": 2.751048869050897e-08,
+      "maximum_edge_ratio": 1.000140201707226
+    },
+    {
+      "part": "ToasterCrumb__Body_ON_crumb",
+      "minimum_metres_per_uv": 0.999884505394607,
+      "maximum_metres_per_uv": 1.0000804542333,
+      "maximum_edge_excess_m": 3.940793145322877e-08,
+      "maximum_edge_ratio": 1.000087492243674
+    }
+  ],
+  "local_bearings": [
+    {
+      "assembly": "ToasterFront",
+      "owner": "support",
+      "point": [
+        -0.105,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterFront",
+      "owner": "support",
+      "point": [
+        -0.105,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterFront",
+      "owner": "support",
+      "point": [
+        0.105,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterFront",
+      "owner": "support",
+      "point": [
+        0.105,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterFront",
+      "owner": "support",
+      "point": [
+        -0.16,
+        0,
+        -0.12
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "loose plug"
+    },
+    {
+      "assembly": "ToasterEnd",
+      "owner": "support",
+      "point": [
+        -0.105,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterEnd",
+      "owner": "support",
+      "point": [
+        -0.105,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterEnd",
+      "owner": "support",
+      "point": [
+        0.105,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterEnd",
+      "owner": "support",
+      "point": [
+        0.105,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterEnd",
+      "owner": "support",
+      "point": [
+        -0.16,
+        0,
+        -0.12
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "loose plug"
+    }
+  ],
+  "views": [],
+  "scope": "Local construction and chart preflight only. External support context and rendering are still required."
+}

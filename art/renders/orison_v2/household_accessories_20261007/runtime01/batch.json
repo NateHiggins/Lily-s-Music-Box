@@ -1,0 +1,325 @@
+{
+	"batch_checks": 34,
+	"elapsed_ms": 72762,
+	"evidence_class": "INERT",
+	"failures": [
+		"medicine_cabinets: clear view of installed cabinet contents: F02_2A_MIRROR_01",
+		"medicine_cabinets: clear view of installed cabinet contents: F02_2B_MIRROR_01",
+		"medicine_cabinets: clear view of installed cabinet contents: F03_3A_MIRROR_01",
+		"medicine_cabinets: clear view of installed cabinet contents: F03_3B_MIRROR_01",
+		"medicine_cabinets: clear view of installed cabinet contents: F04_4A_MIRROR_01",
+		"medicine_cabinets: clear view of installed cabinet contents: F04_4B_MIRROR_01",
+		"medicine_cabinets: clear view of installed cabinet contents: F05_5A_MIRROR_01",
+		"medicine_cabinets: clear view of installed cabinet contents: F05_5B_MIRROR_01",
+		"medicine_cabinets: clear view of installed cabinet contents: F05_5C_MIRROR_01",
+		"medicine_cabinets: clear view of installed cabinet contents: F06_6A_MIRROR_01",
+		"medicine_cabinets: clear view of installed cabinet contents: F06_6B_MIRROR_01",
+		"medicine_cabinets: clear view of installed cabinet contents: F06_6C_MIRROR_01"
+	],
+	"module_checks": 12601,
+	"modules": {
+		"domestic_objects": {
+			"actors": 17,
+			"captured": false,
+			"checks": 847,
+			"elapsed_ms": 535,
+			"failures": [],
+			"fixture_sha256": "8ab7b787b443c028f6ba0a55cf283eb0035282d8bce4da5e3558a0d3a0cacb3d",
+			"parts": 66,
+			"shared_validator_sha256": "1710f1b37e028ca36c821175317ef7c3efb8164cd9764fd60df6f29b7bfe7bfc",
+			"unique_triangles": 134772,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 16,
+			"views": []
+		},
+		"domestic_seating": {
+			"actors": 41,
+			"captured": false,
+			"checks": 542,
+			"elapsed_ms": 310,
+			"failures": [],
+			"fixture_sha256": "6e60f3022d08168de29c1443224939c90b6d56d2b325f68d926be782f0a77ded",
+			"parts": 47,
+			"shared_validator_sha256": "1710f1b37e028ca36c821175317ef7c3efb8164cd9764fd60df6f29b7bfe7bfc",
+			"unique_triangles": 37376,
+			"validator_sha256": "b075531e93b4cbd387afc38fd9f538a4c1c76b004cbea419fc914d1a1b3829f1",
+			"variants": 4,
+			"views": []
+		},
+		"domestic_storage": {
+			"actors": 43,
+			"captured": false,
+			"checks": 820,
+			"elapsed_ms": 561,
+			"failures": [],
+			"fixture_sha256": "5902907a646cc5adca3cef72a9b1c233409a3b158e5d507aa88f39ae1acc7f50",
+			"parts": 87,
+			"shared_validator_sha256": "1710f1b37e028ca36c821175317ef7c3efb8164cd9764fd60df6f29b7bfe7bfc",
+			"unique_triangles": 79344,
+			"validator_sha256": "a85a8676f999707509246faefe9178fda39e4d9cbd57b27239cc08dccd1f2675",
+			"variants": 8,
+			"views": []
+		},
+		"domestic_tables": {
+			"actors": 62,
+			"captured": false,
+			"checks": 1167,
+			"elapsed_ms": 601,
+			"failures": [],
+			"fixture_sha256": "204d6055cdcc8cc37879307885e247e0ce5552cf8c675adacd81a1e4e19d48dc",
+			"parts": 130,
+			"shared_validator_sha256": "1710f1b37e028ca36c821175317ef7c3efb8164cd9764fd60df6f29b7bfe7bfc",
+			"unique_triangles": 44424,
+			"validator_sha256": "50d0993b4c1c1e3b59157f591202428fcd751803249a6c0032e33541f472cc48",
+			"variants": 13,
+			"views": []
+		},
+		"household_radios": {
+			"actors": 5,
+			"captured": false,
+			"checks": 316,
+			"elapsed_ms": 315,
+			"failures": [],
+			"fixture_sha256": "bb947e24b2ea297557f54912425b514a78f3258798bf982d69f753ee675f1264",
+			"parts": 50,
+			"unique_triangles": 11916,
+			"validator_sha256": "87f9f305211be89df5c6016a5335a0f158e0ce46488cf50ddebc9a090230b517",
+			"views": []
+		},
+		"household_toasters": {
+			"actors": 10,
+			"captured": true,
+			"checks": 1475,
+			"elapsed_ms": 20173,
+			"failures": [],
+			"fixture_sha256": "2c8c7f157be25bf3592ab2a1c8818825c35d7ca6a94a02a3f41d1938daa6c994",
+			"parts": 110,
+			"unique_triangles": 41144,
+			"validator_sha256": "873ad096d72233edbea28da6f32b98aa033d6e8a8ac8c42f7178dae8f1816b75",
+			"views": [
+				{
+					"bucket": "native single-slot toaster and original service pan",
+					"feet": [
+						14.2000007629395,
+						3.21999979019165,
+						-15.8499984741211
+					],
+					"id": "F02_2A_TOASTER_01_native_open",
+					"image": "F02_2A_TOASTER_01_native_open.png",
+					"owner": "F02_2A_TOASTER_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native single-slot toaster and original service pan",
+					"feet": [
+						-11.8500003814697,
+						3.21999979019165,
+						-4.35000038146973
+					],
+					"id": "F02_2B_TOASTER_01_native_open",
+					"image": "F02_2B_TOASTER_01_native_open.png",
+					"owner": "F02_2B_TOASTER_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native single-slot toaster and original service pan",
+					"feet": [
+						14.2000007629395,
+						6.42000007629395,
+						-15.8499984741211
+					],
+					"id": "F03_3A_TOASTER_01_native_open",
+					"image": "F03_3A_TOASTER_01_native_open.png",
+					"owner": "F03_3A_TOASTER_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native single-slot toaster and original service pan",
+					"feet": [
+						-11.3000001907349,
+						6.42000007629395,
+						-4.66000032424927
+					],
+					"id": "F03_3B_TOASTER_01_native_open",
+					"image": "F03_3B_TOASTER_01_native_open.png",
+					"owner": "F03_3B_TOASTER_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native single-slot toaster and original service pan",
+					"feet": [
+						-11.8500003814697,
+						9.61999988555908,
+						-4.35000038146973
+					],
+					"id": "F04_4A_TOASTER_01_native_open",
+					"image": "F04_4A_TOASTER_01_native_open.png",
+					"owner": "F04_4A_TOASTER_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native single-slot toaster and original service pan",
+					"feet": [
+						14.4500007629395,
+						9.61999988555908,
+						-16.1699981689453
+					],
+					"id": "F04_B_TOASTER_01_native_open",
+					"image": "F04_B_TOASTER_01_native_open.png",
+					"owner": "F04_B_TOASTER_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native single-slot toaster and original service pan",
+					"feet": [
+						9.94999980926514,
+						12.8199996948242,
+						-4.28499889373779
+					],
+					"id": "F05_5A_TOASTER_01_native_open",
+					"image": "F05_5A_TOASTER_01_native_open.png",
+					"owner": "F05_5A_TOASTER_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native single-slot toaster and original service pan",
+					"feet": [
+						9.94999980926514,
+						16.0200004577637,
+						-4.28499889373779
+					],
+					"id": "F06_6A_TOASTER_01_native_open",
+					"image": "F06_6A_TOASTER_01_native_open.png",
+					"owner": "F06_6A_TOASTER_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native single-slot toaster and original service pan",
+					"feet": [
+						8.28500175476074,
+						16.0200004577637,
+						-18.7499961853027
+					],
+					"id": "F06_6B_TOASTER_01_native_open",
+					"image": "F06_6B_TOASTER_01_native_open.png",
+					"owner": "F06_6B_TOASTER_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native single-slot toaster and original service pan",
+					"feet": [
+						-4.81499814987183,
+						16.0200004577637,
+						-16.5900001525879
+					],
+					"id": "F06_6C_TOASTER_01_native_open",
+					"image": "F06_6C_TOASTER_01_native_open.png",
+					"owner": "F06_6C_TOASTER_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"household_wardrobes": {
+			"actors": 21,
+			"captured": false,
+			"checks": 2073,
+			"elapsed_ms": 2667,
+			"failures": [],
+			"fixture_sha256": "4e0dcf6a7328eff4a0666595bb76174cb096aa1a7c7c04676a063a74f2ef3f16",
+			"parts": 231,
+			"unique_triangles": 447616,
+			"validator_sha256": "24b178789f4404b90636cd8cbd25915371403c635627cf93ad8cead61fe1c267",
+			"views": []
+		},
+		"medicine_cabinets": {
+			"actors": 12,
+			"captured": true,
+			"checks": 1022,
+			"elapsed_ms": 5170,
+			"failures": [
+				"clear view of installed cabinet contents: F02_2A_MIRROR_01",
+				"clear view of installed cabinet contents: F02_2B_MIRROR_01",
+				"clear view of installed cabinet contents: F03_3A_MIRROR_01",
+				"clear view of installed cabinet contents: F03_3B_MIRROR_01",
+				"clear view of installed cabinet contents: F04_4A_MIRROR_01",
+				"clear view of installed cabinet contents: F04_4B_MIRROR_01",
+				"clear view of installed cabinet contents: F05_5A_MIRROR_01",
+				"clear view of installed cabinet contents: F05_5B_MIRROR_01",
+				"clear view of installed cabinet contents: F05_5C_MIRROR_01",
+				"clear view of installed cabinet contents: F06_6A_MIRROR_01",
+				"clear view of installed cabinet contents: F06_6B_MIRROR_01",
+				"clear view of installed cabinet contents: F06_6C_MIRROR_01"
+			],
+			"fixture_sha256": "b6aa348aad04bc2aa272a8963b8114278eb44ab5b481aeafcfaf35755b808b5f",
+			"kept_items": 28,
+			"unique_triangles": 48260,
+			"validator_sha256": "2a0d40f1e13f4c1cd214df8e2ea569dacebf1d3265c1effba831b1c1397e7ada",
+			"views": []
+		},
+		"prep_cabinets": {
+			"actors": 12,
+			"captured": false,
+			"checks": 589,
+			"elapsed_ms": 1486,
+			"failures": [],
+			"fixture_sha256": "db202fdd3dcf7c5bb32212ab9fc324837d2594c7c7454b7aa0afdc45b334ffcb",
+			"parts": 96,
+			"unique_triangles": 7096,
+			"validator_sha256": "fe33c7c901bda8430752c72d705df4c73c5dd8cbe33533f7150acd027f3660e4"
+		},
+		"reading_nook": {
+			"captured": false,
+			"checks": 1434,
+			"elapsed_ms": 1268,
+			"failures": [],
+			"fixture_sha256": "229392d24e010bed208b6da9f27e05c09754345f52b652c9db4b4a17e5fc33b6",
+			"parts": 31,
+			"production_lamps": 5,
+			"triangles": 58596,
+			"validator_sha256": "f64bdf98f0f4255d7604bff0ecd3d8b5e5f5820502298f8642e13dbcd47e32f2"
+		},
+		"signal_terminal": {
+			"captured": false,
+			"checks": 71,
+			"elapsed_ms": 1588,
+			"failures": [],
+			"fixture_sha256": "fde37259494468a62dca732430e044e5d6323e22dd742dfac7ce64fda4eae00b",
+			"validator_sha256": "ee0430d88bd4ba647f7564ed24b32124a0a2f5f8fb142c8c5115b22a9ccdf760"
+		},
+		"surface_stock": {
+			"captured": false,
+			"checks": 1618,
+			"elapsed_ms": 2118,
+			"failures": [],
+			"fixture_sha256": "c6745b20915158a8e1a82d510f187f1977b3889892b8bcbf1adbafecc07e4bd9",
+			"parts": 130,
+			"triangles": 520548,
+			"validator_sha256": "789e736b505b0868b89cf9cf3e8a97eba87709561907bddb2b338ba4fee4a88b"
+		},
+		"task_lamps": {
+			"captured": false,
+			"checks": 416,
+			"elapsed_ms": 715,
+			"failures": [],
+			"fixture_sha256": "39056492316798954ec1795ce99c583caac120bc9dd6dc678ba88e897c715541",
+			"library_variants": 5,
+			"parts": 34,
+			"production_actors": 1,
+			"triangles": 61596,
+			"validator_sha256": "3192db39959f7da70ac0f2a9c9c0c65e2e1a9eb63de88117ba138512c83ac698"
+		},
+		"work_tables": {
+			"captured": false,
+			"checks": 211,
+			"elapsed_ms": 445,
+			"failures": [],
+			"fixture_sha256": "6ed68b5413c5841bc0b4085eac2e5d26fafb4931e7a570becbe8e23d12cf7a98",
+			"parts": 13,
+			"triangles": 21072,
+			"validator_sha256": "429fc9d1cf302d978b3ad77a1ccf9d38aca89598067f77dac60f0b9f3a8b733a"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

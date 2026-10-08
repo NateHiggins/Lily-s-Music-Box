@@ -1,0 +1,27 @@
+FABRICATION STAGE: art/blender/scripts/build_household_toasters.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_household_toasters.py:74: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 79, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 72, in main
+    results = execute(stages)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 47, in execute
+    runpy.run_path(sys.argv[0], run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_household_toasters.py", line 259, in <module>
+    ns,us,values,local=triangle_charts(points,origin,sets[key]['meters_per_tile'],rotations,long_grain);fallbacks+=local
+                       ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\fabrication_chart_batch.py", line 31, in triangle_charts
+    n[i],u[i],values[i],_=chart_for_triangle(points[i],origins[i],tile,bool(long_grain[i]) if long_grain is not None else False)
+                          ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\fabrication_uvs.py", line 36, in chart_for_triangle
+    raise AssertionError(('no representable metre chart',points.tolist()))
+AssertionError: ('no representable metre chart', [[-0.0033686370588839054, -0.0032636255491524935, 0.00040750447078607976], [-0.003449999960139394, -0.0034000000450760126, 0.0008139411802403629], [-0.0034500001929700375, -0.0034000000450760126, 0.000813941122032702]])
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

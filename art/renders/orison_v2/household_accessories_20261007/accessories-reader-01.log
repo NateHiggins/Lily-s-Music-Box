@@ -1,0 +1,9 @@
+data consumption audit
+  DURABLE_NUMERIC_MONOTONIC_ONLY: 2
+  FIELD_UNREAD: 1113
+  FILE_UNREAD: 11
+  known (in baseline): 1124
+  resolved since baseline: 184
+  NEW: 2
+  - FIELD_UNREAD game/data/orison_v2/household_toasters.json:finish (zero production token readers)
+  - FIELD_UNREAD game/data/orison_v2/medicine_cabinets.json:finish (zero production token readers)

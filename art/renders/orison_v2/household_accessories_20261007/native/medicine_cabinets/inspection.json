@@ -1,0 +1,1929 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 189,
+  "connected_groups": [
+    {
+      "assembly": "MedicineLeft_FittedCabinet",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineLeft_FoldedBack",
+          "MedicineLeft_FoldedSide-0.23"
+        ],
+        [
+          "MedicineLeft_FoldedBack",
+          "MedicineLeft_FoldedSide0.2288"
+        ],
+        [
+          "MedicineLeft_FoldedBack",
+          "MedicineLeft_FoldedEnd1.2"
+        ],
+        [
+          "MedicineLeft_FoldedBack",
+          "MedicineLeft_FoldedEnd1.8088"
+        ],
+        [
+          "MedicineLeft_FoldedSide-0.23",
+          "MedicineLeft_FoldedEnd1.2"
+        ],
+        [
+          "MedicineLeft_FoldedSide-0.23",
+          "MedicineLeft_FoldedEnd1.8088"
+        ],
+        [
+          "MedicineLeft_FoldedSide-0.23",
+          "MedicineLeft_SideReturn-1"
+        ],
+        [
+          "MedicineLeft_FoldedSide-0.23",
+          "MedicineLeft_EndReturn1.188"
+        ],
+        [
+          "MedicineLeft_FoldedSide-0.23",
+          "MedicineLeft_EndReturn1.822"
+        ],
+        [
+          "MedicineLeft_FoldedSide-0.23",
+          "MedicineLeft_ShelfClip(1.4, -1, -0.036)"
+        ],
+        [
+          "MedicineLeft_FoldedSide-0.23",
+          "MedicineLeft_ShelfClip(1.4, -1, 0.02)"
+        ],
+        [
+          "MedicineLeft_FoldedSide-0.23",
+          "MedicineLeft_ShelfClip(1.59, -1, -0.036)"
+        ],
+        [
+          "MedicineLeft_FoldedSide-0.23",
+          "MedicineLeft_ShelfClip(1.59, -1, 0.02)"
+        ],
+        [
+          "MedicineLeft_FoldedSide0.2288",
+          "MedicineLeft_FoldedEnd1.2"
+        ],
+        [
+          "MedicineLeft_FoldedSide0.2288",
+          "MedicineLeft_FoldedEnd1.8088"
+        ],
+        [
+          "MedicineLeft_FoldedSide0.2288",
+          "MedicineLeft_SideReturn1"
+        ],
+        [
+          "MedicineLeft_FoldedSide0.2288",
+          "MedicineLeft_EndReturn1.188"
+        ],
+        [
+          "MedicineLeft_FoldedSide0.2288",
+          "MedicineLeft_EndReturn1.822"
+        ],
+        [
+          "MedicineLeft_FoldedSide0.2288",
+          "MedicineLeft_ShelfClip(1.4, 1, -0.036)"
+        ],
+        [
+          "MedicineLeft_FoldedSide0.2288",
+          "MedicineLeft_ShelfClip(1.4, 1, 0.02)"
+        ],
+        [
+          "MedicineLeft_FoldedSide0.2288",
+          "MedicineLeft_ShelfClip(1.59, 1, -0.036)"
+        ],
+        [
+          "MedicineLeft_FoldedSide0.2288",
+          "MedicineLeft_ShelfClip(1.59, 1, 0.02)"
+        ],
+        [
+          "MedicineLeft_FoldedEnd1.2",
+          "MedicineLeft_SideReturn-1"
+        ],
+        [
+          "MedicineLeft_FoldedEnd1.2",
+          "MedicineLeft_SideReturn1"
+        ],
+        [
+          "MedicineLeft_FoldedEnd1.2",
+          "MedicineLeft_EndReturn1.188"
+        ],
+        [
+          "MedicineLeft_FoldedEnd1.8088",
+          "MedicineLeft_SideReturn-1"
+        ],
+        [
+          "MedicineLeft_FoldedEnd1.8088",
+          "MedicineLeft_SideReturn1"
+        ],
+        [
+          "MedicineLeft_FoldedEnd1.8088",
+          "MedicineLeft_EndReturn1.822"
+        ],
+        [
+          "MedicineLeft_SideFlange-1",
+          "MedicineLeft_SideReturn-1"
+        ],
+        [
+          "MedicineLeft_SideFlange-1",
+          "MedicineLeft_EndFlange1.188"
+        ],
+        [
+          "MedicineLeft_SideFlange-1",
+          "MedicineLeft_EndReturn1.188"
+        ],
+        [
+          "MedicineLeft_SideFlange-1",
+          "MedicineLeft_EndFlange1.822"
+        ],
+        [
+          "MedicineLeft_SideFlange-1",
+          "MedicineLeft_EndReturn1.822"
+        ],
+        [
+          "MedicineLeft_SideReturn-1",
+          "MedicineLeft_EndFlange1.188"
+        ],
+        [
+          "MedicineLeft_SideReturn-1",
+          "MedicineLeft_EndReturn1.188"
+        ],
+        [
+          "MedicineLeft_SideReturn-1",
+          "MedicineLeft_EndFlange1.822"
+        ],
+        [
+          "MedicineLeft_SideReturn-1",
+          "MedicineLeft_EndReturn1.822"
+        ],
+        [
+          "MedicineLeft_SideFlange1",
+          "MedicineLeft_SideReturn1"
+        ],
+        [
+          "MedicineLeft_SideFlange1",
+          "MedicineLeft_EndFlange1.188"
+        ],
+        [
+          "MedicineLeft_SideFlange1",
+          "MedicineLeft_EndReturn1.188"
+        ],
+        [
+          "MedicineLeft_SideFlange1",
+          "MedicineLeft_EndFlange1.822"
+        ],
+        [
+          "MedicineLeft_SideFlange1",
+          "MedicineLeft_EndReturn1.822"
+        ],
+        [
+          "MedicineLeft_SideFlange1",
+          "MedicineLeft_FixedHingeLeaf1.3219999999999998"
+        ],
+        [
+          "MedicineLeft_SideFlange1",
+          "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.287)"
+        ],
+        [
+          "MedicineLeft_SideFlange1",
+          "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.3429999999999997)"
+        ],
+        [
+          "MedicineLeft_SideFlange1",
+          "MedicineLeft_FixedHingeLeaf1.688"
+        ],
+        [
+          "MedicineLeft_SideFlange1",
+          "MedicineLeft_FixedHingeTab(1.688, 1.653)"
+        ],
+        [
+          "MedicineLeft_SideFlange1",
+          "MedicineLeft_FixedHingeTab(1.688, 1.7089999999999999)"
+        ],
+        [
+          "MedicineLeft_SideReturn1",
+          "MedicineLeft_EndFlange1.188"
+        ],
+        [
+          "MedicineLeft_SideReturn1",
+          "MedicineLeft_EndReturn1.188"
+        ],
+        [
+          "MedicineLeft_SideReturn1",
+          "MedicineLeft_EndFlange1.822"
+        ],
+        [
+          "MedicineLeft_SideReturn1",
+          "MedicineLeft_EndReturn1.822"
+        ],
+        [
+          "MedicineLeft_SideReturn1",
+          "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.287)"
+        ],
+        [
+          "MedicineLeft_SideReturn1",
+          "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.3429999999999997)"
+        ],
+        [
+          "MedicineLeft_SideReturn1",
+          "MedicineLeft_FixedHingeTab(1.688, 1.653)"
+        ],
+        [
+          "MedicineLeft_SideReturn1",
+          "MedicineLeft_FixedHingeTab(1.688, 1.7089999999999999)"
+        ],
+        [
+          "MedicineLeft_EndFlange1.188",
+          "MedicineLeft_EndReturn1.188"
+        ],
+        [
+          "MedicineLeft_EndFlange1.188",
+          "MedicineLeft_ScrewSeat(-0.242, 1.188)"
+        ],
+        [
+          "MedicineLeft_EndFlange1.188",
+          "MedicineLeft_ScrewSeat(0.242, 1.188)"
+        ],
+        [
+          "MedicineLeft_EndFlange1.822",
+          "MedicineLeft_EndReturn1.822"
+        ],
+        [
+          "MedicineLeft_EndFlange1.822",
+          "MedicineLeft_ScrewSeat(-0.242, 1.822)"
+        ],
+        [
+          "MedicineLeft_EndFlange1.822",
+          "MedicineLeft_ScrewSeat(0.242, 1.822)"
+        ],
+        [
+          "MedicineLeft_ScrewSeat(-0.242, 1.188)",
+          "MedicineLeft_SlottedHead(-0.242, 1.188, -1)"
+        ],
+        [
+          "MedicineLeft_ScrewSeat(-0.242, 1.188)",
+          "MedicineLeft_SlottedHead(-0.242, 1.188, 1)"
+        ],
+        [
+          "MedicineLeft_ScrewSeat(-0.242, 1.822)",
+          "MedicineLeft_SlottedHead(-0.242, 1.822, -1)"
+        ],
+        [
+          "MedicineLeft_ScrewSeat(-0.242, 1.822)",
+          "MedicineLeft_SlottedHead(-0.242, 1.822, 1)"
+        ],
+        [
+          "MedicineLeft_ScrewSeat(0.242, 1.188)",
+          "MedicineLeft_SlottedHead(0.242, 1.188, -1)"
+        ],
+        [
+          "MedicineLeft_ScrewSeat(0.242, 1.188)",
+          "MedicineLeft_SlottedHead(0.242, 1.188, 1)"
+        ],
+        [
+          "MedicineLeft_ScrewSeat(0.242, 1.822)",
+          "MedicineLeft_SlottedHead(0.242, 1.822, -1)"
+        ],
+        [
+          "MedicineLeft_ScrewSeat(0.242, 1.822)",
+          "MedicineLeft_SlottedHead(0.242, 1.822, 1)"
+        ],
+        [
+          "MedicineLeft_GlassShelf1.4",
+          "MedicineLeft_ShelfLip1.4"
+        ],
+        [
+          "MedicineLeft_GlassShelf1.4",
+          "MedicineLeft_ShelfClip(1.4, -1, -0.036)"
+        ],
+        [
+          "MedicineLeft_GlassShelf1.4",
+          "MedicineLeft_ShelfClip(1.4, -1, 0.02)"
+        ],
+        [
+          "MedicineLeft_GlassShelf1.4",
+          "MedicineLeft_ShelfClip(1.4, 1, -0.036)"
+        ],
+        [
+          "MedicineLeft_GlassShelf1.4",
+          "MedicineLeft_ShelfClip(1.4, 1, 0.02)"
+        ],
+        [
+          "MedicineLeft_GlassShelf1.59",
+          "MedicineLeft_ShelfLip1.59"
+        ],
+        [
+          "MedicineLeft_GlassShelf1.59",
+          "MedicineLeft_ShelfClip(1.59, -1, -0.036)"
+        ],
+        [
+          "MedicineLeft_GlassShelf1.59",
+          "MedicineLeft_ShelfClip(1.59, -1, 0.02)"
+        ],
+        [
+          "MedicineLeft_GlassShelf1.59",
+          "MedicineLeft_ShelfClip(1.59, 1, -0.036)"
+        ],
+        [
+          "MedicineLeft_GlassShelf1.59",
+          "MedicineLeft_ShelfClip(1.59, 1, 0.02)"
+        ],
+        [
+          "MedicineLeft_FixedHingeLeaf1.3219999999999998",
+          "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.287)"
+        ],
+        [
+          "MedicineLeft_FixedHingeLeaf1.3219999999999998",
+          "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.3429999999999997)"
+        ],
+        [
+          "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.287)",
+          "MedicineLeft_FixedKnuckle(1.3219999999999998, 1.287)"
+        ],
+        [
+          "MedicineLeft_FixedKnuckle(1.3219999999999998, 1.287)",
+          "MedicineLeft_HingePin1.3219999999999998"
+        ],
+        [
+          "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.3429999999999997)",
+          "MedicineLeft_FixedKnuckle(1.3219999999999998, 1.3429999999999997)"
+        ],
+        [
+          "MedicineLeft_FixedKnuckle(1.3219999999999998, 1.3429999999999997)",
+          "MedicineLeft_HingePin1.3219999999999998"
+        ],
+        [
+          "MedicineLeft_HingePin1.3219999999999998",
+          "MedicineLeft_MovingKnuckle1.3219999999999998"
+        ],
+        [
+          "MedicineLeft_FixedHingeLeaf1.688",
+          "MedicineLeft_FixedHingeTab(1.688, 1.653)"
+        ],
+        [
+          "MedicineLeft_FixedHingeLeaf1.688",
+          "MedicineLeft_FixedHingeTab(1.688, 1.7089999999999999)"
+        ],
+        [
+          "MedicineLeft_FixedHingeTab(1.688, 1.653)",
+          "MedicineLeft_FixedKnuckle(1.688, 1.653)"
+        ],
+        [
+          "MedicineLeft_FixedKnuckle(1.688, 1.653)",
+          "MedicineLeft_HingePin1.688"
+        ],
+        [
+          "MedicineLeft_FixedHingeTab(1.688, 1.7089999999999999)",
+          "MedicineLeft_FixedKnuckle(1.688, 1.7089999999999999)"
+        ],
+        [
+          "MedicineLeft_FixedKnuckle(1.688, 1.7089999999999999)",
+          "MedicineLeft_HingePin1.688"
+        ],
+        [
+          "MedicineLeft_HingePin1.688",
+          "MedicineLeft_MovingKnuckle1.688"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_FrameStile(-0.23, 0)"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_FrameStile(0.206, 0)"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_FrameStile(0.206, 1)"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_FrameStile(0.206, 2)"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_FrameStile(0.206, 3)"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_FrameStile(0.206, 4)"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_FrameRail1.2"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_FrameRail1.786"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_MirrorBed(-0.196, 1.2399999999999998)"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_MirrorBed(-0.196, 1.77)"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_MirrorBed(0.196, 1.2399999999999998)"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_MirrorBed(0.196, 1.77)"
+        ],
+        [
+          "MedicineLeft_LeafBacking",
+          "MedicineLeft_FrictionCatch"
+        ],
+        [
+          "MedicineLeft_FrameStile(-0.23, 0)",
+          "MedicineLeft_FrameBead(-0.23, 0)"
+        ],
+        [
+          "MedicineLeft_FrameStile(-0.23, 0)",
+          "MedicineLeft_FrameRail1.2"
+        ],
+        [
+          "MedicineLeft_FrameStile(-0.23, 0)",
+          "MedicineLeft_FrameRail1.786"
+        ],
+        [
+          "MedicineLeft_FrameStile(-0.23, 0)",
+          "MedicineLeft_FrictionCatch"
+        ],
+        [
+          "MedicineLeft_FrameBead(-0.23, 0)",
+          "MedicineLeft_FrameRail1.2"
+        ],
+        [
+          "MedicineLeft_FrameBead(-0.23, 0)",
+          "MedicineLeft_FrameRail1.786"
+        ],
+        [
+          "MedicineLeft_FrameBead(-0.23, 0)",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_FrameBead(-0.23, 0)",
+          "MedicineLeft_Pull"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 0)",
+          "MedicineLeft_FrameBead(0.206, 0)"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 0)",
+          "MedicineLeft_FrameStile(0.206, 1)"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 0)",
+          "MedicineLeft_FrameRail1.2"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 0)",
+          "MedicineLeft_FrameBead(0.206, 1)"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 0)",
+          "MedicineLeft_FrameRail1.2"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 0)",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 1)",
+          "MedicineLeft_FrameBead(0.206, 1)"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 1)",
+          "MedicineLeft_FrameStile(0.206, 2)"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 1)",
+          "MedicineLeft_MovingHingeLeaf1.3219999999999998"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 1)",
+          "MedicineLeft_FrameBead(0.206, 2)"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 1)",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 1)",
+          "MedicineLeft_MovingHingeLeaf1.3219999999999998"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 2)",
+          "MedicineLeft_FrameBead(0.206, 2)"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 2)",
+          "MedicineLeft_FrameStile(0.206, 3)"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 2)",
+          "MedicineLeft_FrameBead(0.206, 3)"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 2)",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 3)",
+          "MedicineLeft_FrameBead(0.206, 3)"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 3)",
+          "MedicineLeft_FrameStile(0.206, 4)"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 3)",
+          "MedicineLeft_MovingHingeLeaf1.688"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 3)",
+          "MedicineLeft_FrameBead(0.206, 4)"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 3)",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 3)",
+          "MedicineLeft_MovingHingeLeaf1.688"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 4)",
+          "MedicineLeft_FrameBead(0.206, 4)"
+        ],
+        [
+          "MedicineLeft_FrameStile(0.206, 4)",
+          "MedicineLeft_FrameRail1.786"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 4)",
+          "MedicineLeft_FrameRail1.786"
+        ],
+        [
+          "MedicineLeft_FrameBead(0.206, 4)",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_FrameRail1.2",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_FrameRail1.786",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_MirrorBed(-0.196, 1.2399999999999998)",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_MirrorBed(-0.196, 1.77)",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_MirrorBed(0.196, 1.2399999999999998)",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_MirrorBed(0.196, 1.77)",
+          "MedicineLeft_MirrorGlass"
+        ],
+        [
+          "MedicineLeft_MirrorGlass",
+          "MedicineLeft_Pull"
+        ],
+        [
+          "MedicineLeft_MovingHingeLeaf1.3219999999999998",
+          "MedicineLeft_MovingKnuckle1.3219999999999998"
+        ],
+        [
+          "MedicineLeft_MovingHingeLeaf1.688",
+          "MedicineLeft_MovingKnuckle1.688"
+        ]
+      ]
+    },
+    {
+      "assembly": "MedicineRight_FittedCabinet",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineRight_FoldedBack",
+          "MedicineRight_FoldedSide-0.23"
+        ],
+        [
+          "MedicineRight_FoldedBack",
+          "MedicineRight_FoldedSide0.2288"
+        ],
+        [
+          "MedicineRight_FoldedBack",
+          "MedicineRight_FoldedEnd1.2"
+        ],
+        [
+          "MedicineRight_FoldedBack",
+          "MedicineRight_FoldedEnd1.8088"
+        ],
+        [
+          "MedicineRight_FoldedSide-0.23",
+          "MedicineRight_FoldedEnd1.2"
+        ],
+        [
+          "MedicineRight_FoldedSide-0.23",
+          "MedicineRight_FoldedEnd1.8088"
+        ],
+        [
+          "MedicineRight_FoldedSide-0.23",
+          "MedicineRight_SideReturn-1"
+        ],
+        [
+          "MedicineRight_FoldedSide-0.23",
+          "MedicineRight_EndReturn1.188"
+        ],
+        [
+          "MedicineRight_FoldedSide-0.23",
+          "MedicineRight_EndReturn1.822"
+        ],
+        [
+          "MedicineRight_FoldedSide-0.23",
+          "MedicineRight_ShelfClip(1.4, -1, -0.036)"
+        ],
+        [
+          "MedicineRight_FoldedSide-0.23",
+          "MedicineRight_ShelfClip(1.4, -1, 0.02)"
+        ],
+        [
+          "MedicineRight_FoldedSide-0.23",
+          "MedicineRight_ShelfClip(1.59, -1, -0.036)"
+        ],
+        [
+          "MedicineRight_FoldedSide-0.23",
+          "MedicineRight_ShelfClip(1.59, -1, 0.02)"
+        ],
+        [
+          "MedicineRight_FoldedSide0.2288",
+          "MedicineRight_FoldedEnd1.2"
+        ],
+        [
+          "MedicineRight_FoldedSide0.2288",
+          "MedicineRight_FoldedEnd1.8088"
+        ],
+        [
+          "MedicineRight_FoldedSide0.2288",
+          "MedicineRight_SideReturn1"
+        ],
+        [
+          "MedicineRight_FoldedSide0.2288",
+          "MedicineRight_EndReturn1.188"
+        ],
+        [
+          "MedicineRight_FoldedSide0.2288",
+          "MedicineRight_EndReturn1.822"
+        ],
+        [
+          "MedicineRight_FoldedSide0.2288",
+          "MedicineRight_ShelfClip(1.4, 1, -0.036)"
+        ],
+        [
+          "MedicineRight_FoldedSide0.2288",
+          "MedicineRight_ShelfClip(1.4, 1, 0.02)"
+        ],
+        [
+          "MedicineRight_FoldedSide0.2288",
+          "MedicineRight_ShelfClip(1.59, 1, -0.036)"
+        ],
+        [
+          "MedicineRight_FoldedSide0.2288",
+          "MedicineRight_ShelfClip(1.59, 1, 0.02)"
+        ],
+        [
+          "MedicineRight_FoldedEnd1.2",
+          "MedicineRight_SideReturn-1"
+        ],
+        [
+          "MedicineRight_FoldedEnd1.2",
+          "MedicineRight_SideReturn1"
+        ],
+        [
+          "MedicineRight_FoldedEnd1.2",
+          "MedicineRight_EndReturn1.188"
+        ],
+        [
+          "MedicineRight_FoldedEnd1.8088",
+          "MedicineRight_SideReturn-1"
+        ],
+        [
+          "MedicineRight_FoldedEnd1.8088",
+          "MedicineRight_SideReturn1"
+        ],
+        [
+          "MedicineRight_FoldedEnd1.8088",
+          "MedicineRight_EndReturn1.822"
+        ],
+        [
+          "MedicineRight_SideFlange-1",
+          "MedicineRight_SideReturn-1"
+        ],
+        [
+          "MedicineRight_SideFlange-1",
+          "MedicineRight_EndFlange1.188"
+        ],
+        [
+          "MedicineRight_SideFlange-1",
+          "MedicineRight_EndReturn1.188"
+        ],
+        [
+          "MedicineRight_SideFlange-1",
+          "MedicineRight_EndFlange1.822"
+        ],
+        [
+          "MedicineRight_SideFlange-1",
+          "MedicineRight_EndReturn1.822"
+        ],
+        [
+          "MedicineRight_SideFlange-1",
+          "MedicineRight_FixedHingeLeaf1.3219999999999998"
+        ],
+        [
+          "MedicineRight_SideFlange-1",
+          "MedicineRight_FixedHingeTab(1.3219999999999998, 1.287)"
+        ],
+        [
+          "MedicineRight_SideFlange-1",
+          "MedicineRight_FixedHingeTab(1.3219999999999998, 1.3429999999999997)"
+        ],
+        [
+          "MedicineRight_SideFlange-1",
+          "MedicineRight_FixedHingeLeaf1.688"
+        ],
+        [
+          "MedicineRight_SideFlange-1",
+          "MedicineRight_FixedHingeTab(1.688, 1.653)"
+        ],
+        [
+          "MedicineRight_SideFlange-1",
+          "MedicineRight_FixedHingeTab(1.688, 1.7089999999999999)"
+        ],
+        [
+          "MedicineRight_SideReturn-1",
+          "MedicineRight_EndFlange1.188"
+        ],
+        [
+          "MedicineRight_SideReturn-1",
+          "MedicineRight_EndReturn1.188"
+        ],
+        [
+          "MedicineRight_SideReturn-1",
+          "MedicineRight_EndFlange1.822"
+        ],
+        [
+          "MedicineRight_SideReturn-1",
+          "MedicineRight_EndReturn1.822"
+        ],
+        [
+          "MedicineRight_SideReturn-1",
+          "MedicineRight_FixedHingeTab(1.3219999999999998, 1.287)"
+        ],
+        [
+          "MedicineRight_SideReturn-1",
+          "MedicineRight_FixedHingeTab(1.3219999999999998, 1.3429999999999997)"
+        ],
+        [
+          "MedicineRight_SideReturn-1",
+          "MedicineRight_FixedHingeTab(1.688, 1.653)"
+        ],
+        [
+          "MedicineRight_SideReturn-1",
+          "MedicineRight_FixedHingeTab(1.688, 1.7089999999999999)"
+        ],
+        [
+          "MedicineRight_SideFlange1",
+          "MedicineRight_SideReturn1"
+        ],
+        [
+          "MedicineRight_SideFlange1",
+          "MedicineRight_EndFlange1.188"
+        ],
+        [
+          "MedicineRight_SideFlange1",
+          "MedicineRight_EndReturn1.188"
+        ],
+        [
+          "MedicineRight_SideFlange1",
+          "MedicineRight_EndFlange1.822"
+        ],
+        [
+          "MedicineRight_SideFlange1",
+          "MedicineRight_EndReturn1.822"
+        ],
+        [
+          "MedicineRight_SideReturn1",
+          "MedicineRight_EndFlange1.188"
+        ],
+        [
+          "MedicineRight_SideReturn1",
+          "MedicineRight_EndReturn1.188"
+        ],
+        [
+          "MedicineRight_SideReturn1",
+          "MedicineRight_EndFlange1.822"
+        ],
+        [
+          "MedicineRight_SideReturn1",
+          "MedicineRight_EndReturn1.822"
+        ],
+        [
+          "MedicineRight_EndFlange1.188",
+          "MedicineRight_EndReturn1.188"
+        ],
+        [
+          "MedicineRight_EndFlange1.188",
+          "MedicineRight_ScrewSeat(-0.242, 1.188)"
+        ],
+        [
+          "MedicineRight_EndFlange1.188",
+          "MedicineRight_ScrewSeat(0.242, 1.188)"
+        ],
+        [
+          "MedicineRight_EndFlange1.822",
+          "MedicineRight_EndReturn1.822"
+        ],
+        [
+          "MedicineRight_EndFlange1.822",
+          "MedicineRight_ScrewSeat(-0.242, 1.822)"
+        ],
+        [
+          "MedicineRight_EndFlange1.822",
+          "MedicineRight_ScrewSeat(0.242, 1.822)"
+        ],
+        [
+          "MedicineRight_ScrewSeat(-0.242, 1.188)",
+          "MedicineRight_SlottedHead(-0.242, 1.188, -1)"
+        ],
+        [
+          "MedicineRight_ScrewSeat(-0.242, 1.188)",
+          "MedicineRight_SlottedHead(-0.242, 1.188, 1)"
+        ],
+        [
+          "MedicineRight_ScrewSeat(-0.242, 1.822)",
+          "MedicineRight_SlottedHead(-0.242, 1.822, -1)"
+        ],
+        [
+          "MedicineRight_ScrewSeat(-0.242, 1.822)",
+          "MedicineRight_SlottedHead(-0.242, 1.822, 1)"
+        ],
+        [
+          "MedicineRight_ScrewSeat(0.242, 1.188)",
+          "MedicineRight_SlottedHead(0.242, 1.188, -1)"
+        ],
+        [
+          "MedicineRight_ScrewSeat(0.242, 1.188)",
+          "MedicineRight_SlottedHead(0.242, 1.188, 1)"
+        ],
+        [
+          "MedicineRight_ScrewSeat(0.242, 1.822)",
+          "MedicineRight_SlottedHead(0.242, 1.822, -1)"
+        ],
+        [
+          "MedicineRight_ScrewSeat(0.242, 1.822)",
+          "MedicineRight_SlottedHead(0.242, 1.822, 1)"
+        ],
+        [
+          "MedicineRight_GlassShelf1.4",
+          "MedicineRight_ShelfLip1.4"
+        ],
+        [
+          "MedicineRight_GlassShelf1.4",
+          "MedicineRight_ShelfClip(1.4, -1, -0.036)"
+        ],
+        [
+          "MedicineRight_GlassShelf1.4",
+          "MedicineRight_ShelfClip(1.4, -1, 0.02)"
+        ],
+        [
+          "MedicineRight_GlassShelf1.4",
+          "MedicineRight_ShelfClip(1.4, 1, -0.036)"
+        ],
+        [
+          "MedicineRight_GlassShelf1.4",
+          "MedicineRight_ShelfClip(1.4, 1, 0.02)"
+        ],
+        [
+          "MedicineRight_GlassShelf1.59",
+          "MedicineRight_ShelfLip1.59"
+        ],
+        [
+          "MedicineRight_GlassShelf1.59",
+          "MedicineRight_ShelfClip(1.59, -1, -0.036)"
+        ],
+        [
+          "MedicineRight_GlassShelf1.59",
+          "MedicineRight_ShelfClip(1.59, -1, 0.02)"
+        ],
+        [
+          "MedicineRight_GlassShelf1.59",
+          "MedicineRight_ShelfClip(1.59, 1, -0.036)"
+        ],
+        [
+          "MedicineRight_GlassShelf1.59",
+          "MedicineRight_ShelfClip(1.59, 1, 0.02)"
+        ],
+        [
+          "MedicineRight_FixedHingeLeaf1.3219999999999998",
+          "MedicineRight_FixedHingeTab(1.3219999999999998, 1.287)"
+        ],
+        [
+          "MedicineRight_FixedHingeLeaf1.3219999999999998",
+          "MedicineRight_FixedHingeTab(1.3219999999999998, 1.3429999999999997)"
+        ],
+        [
+          "MedicineRight_FixedHingeTab(1.3219999999999998, 1.287)",
+          "MedicineRight_FixedKnuckle(1.3219999999999998, 1.287)"
+        ],
+        [
+          "MedicineRight_FixedKnuckle(1.3219999999999998, 1.287)",
+          "MedicineRight_HingePin1.3219999999999998"
+        ],
+        [
+          "MedicineRight_FixedHingeTab(1.3219999999999998, 1.3429999999999997)",
+          "MedicineRight_FixedKnuckle(1.3219999999999998, 1.3429999999999997)"
+        ],
+        [
+          "MedicineRight_FixedKnuckle(1.3219999999999998, 1.3429999999999997)",
+          "MedicineRight_HingePin1.3219999999999998"
+        ],
+        [
+          "MedicineRight_HingePin1.3219999999999998",
+          "MedicineRight_MovingKnuckle1.3219999999999998"
+        ],
+        [
+          "MedicineRight_FixedHingeLeaf1.688",
+          "MedicineRight_FixedHingeTab(1.688, 1.653)"
+        ],
+        [
+          "MedicineRight_FixedHingeLeaf1.688",
+          "MedicineRight_FixedHingeTab(1.688, 1.7089999999999999)"
+        ],
+        [
+          "MedicineRight_FixedHingeTab(1.688, 1.653)",
+          "MedicineRight_FixedKnuckle(1.688, 1.653)"
+        ],
+        [
+          "MedicineRight_FixedKnuckle(1.688, 1.653)",
+          "MedicineRight_HingePin1.688"
+        ],
+        [
+          "MedicineRight_FixedHingeTab(1.688, 1.7089999999999999)",
+          "MedicineRight_FixedKnuckle(1.688, 1.7089999999999999)"
+        ],
+        [
+          "MedicineRight_FixedKnuckle(1.688, 1.7089999999999999)",
+          "MedicineRight_HingePin1.688"
+        ],
+        [
+          "MedicineRight_HingePin1.688",
+          "MedicineRight_MovingKnuckle1.688"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_FrameStile(-0.23, 0)"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_FrameStile(-0.23, 1)"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_FrameStile(-0.23, 2)"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_FrameStile(-0.23, 3)"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_FrameStile(-0.23, 4)"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_FrameStile(0.206, 0)"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_FrameRail1.2"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_FrameRail1.786"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_MirrorBed(-0.196, 1.2399999999999998)"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_MirrorBed(-0.196, 1.77)"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_MirrorBed(0.196, 1.2399999999999998)"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_MirrorBed(0.196, 1.77)"
+        ],
+        [
+          "MedicineRight_LeafBacking",
+          "MedicineRight_FrictionCatch"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 0)",
+          "MedicineRight_FrameBead(-0.23, 0)"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 0)",
+          "MedicineRight_FrameStile(-0.23, 1)"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 0)",
+          "MedicineRight_FrameRail1.2"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 0)",
+          "MedicineRight_FrameBead(-0.23, 1)"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 0)",
+          "MedicineRight_FrameRail1.2"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 0)",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 1)",
+          "MedicineRight_FrameBead(-0.23, 1)"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 1)",
+          "MedicineRight_FrameStile(-0.23, 2)"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 1)",
+          "MedicineRight_MovingHingeLeaf1.3219999999999998"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 1)",
+          "MedicineRight_FrameBead(-0.23, 2)"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 1)",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 1)",
+          "MedicineRight_MovingHingeLeaf1.3219999999999998"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 2)",
+          "MedicineRight_FrameBead(-0.23, 2)"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 2)",
+          "MedicineRight_FrameStile(-0.23, 3)"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 2)",
+          "MedicineRight_FrameBead(-0.23, 3)"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 2)",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 3)",
+          "MedicineRight_FrameBead(-0.23, 3)"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 3)",
+          "MedicineRight_FrameStile(-0.23, 4)"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 3)",
+          "MedicineRight_MovingHingeLeaf1.688"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 3)",
+          "MedicineRight_FrameBead(-0.23, 4)"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 3)",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 3)",
+          "MedicineRight_MovingHingeLeaf1.688"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 4)",
+          "MedicineRight_FrameBead(-0.23, 4)"
+        ],
+        [
+          "MedicineRight_FrameStile(-0.23, 4)",
+          "MedicineRight_FrameRail1.786"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 4)",
+          "MedicineRight_FrameRail1.786"
+        ],
+        [
+          "MedicineRight_FrameBead(-0.23, 4)",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_FrameStile(0.206, 0)",
+          "MedicineRight_FrameBead(0.206, 0)"
+        ],
+        [
+          "MedicineRight_FrameStile(0.206, 0)",
+          "MedicineRight_FrameRail1.2"
+        ],
+        [
+          "MedicineRight_FrameStile(0.206, 0)",
+          "MedicineRight_FrameRail1.786"
+        ],
+        [
+          "MedicineRight_FrameStile(0.206, 0)",
+          "MedicineRight_FrictionCatch"
+        ],
+        [
+          "MedicineRight_FrameBead(0.206, 0)",
+          "MedicineRight_FrameRail1.2"
+        ],
+        [
+          "MedicineRight_FrameBead(0.206, 0)",
+          "MedicineRight_FrameRail1.786"
+        ],
+        [
+          "MedicineRight_FrameBead(0.206, 0)",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_FrameBead(0.206, 0)",
+          "MedicineRight_Pull"
+        ],
+        [
+          "MedicineRight_FrameRail1.2",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_FrameRail1.786",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_MirrorBed(-0.196, 1.2399999999999998)",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_MirrorBed(-0.196, 1.77)",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_MirrorBed(0.196, 1.2399999999999998)",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_MirrorBed(0.196, 1.77)",
+          "MedicineRight_MirrorGlass"
+        ],
+        [
+          "MedicineRight_MirrorGlass",
+          "MedicineRight_Pull"
+        ],
+        [
+          "MedicineRight_MovingHingeLeaf1.3219999999999998",
+          "MedicineRight_MovingKnuckle1.3219999999999998"
+        ],
+        [
+          "MedicineRight_MovingHingeLeaf1.688",
+          "MedicineRight_MovingKnuckle1.688"
+        ]
+      ]
+    },
+    {
+      "assembly": "MedicineItem_aspirin_KeptItem",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineItem_aspirin_Bottle",
+          "MedicineItem_aspirin_Stopper"
+        ]
+      ]
+    },
+    {
+      "assembly": "MedicineItem_cold_cream_KeptItem",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineItem_cold_cream_Container",
+          "MedicineItem_cold_cream_Lid"
+        ]
+      ]
+    },
+    {
+      "assembly": "MedicineItem_thimble_tin_KeptItem",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineItem_thimble_tin_Container",
+          "MedicineItem_thimble_tin_Lid"
+        ]
+      ]
+    },
+    {
+      "assembly": "MedicineItem_iodine_KeptItem",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineItem_iodine_Bottle",
+          "MedicineItem_iodine_Stopper"
+        ]
+      ]
+    },
+    {
+      "assembly": "MedicineItem_razor_KeptItem",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineItem_razor_Handle",
+          "MedicineItem_razor_Neck"
+        ],
+        [
+          "MedicineItem_razor_Handle",
+          "MedicineItem_razor_GuardTooth6"
+        ],
+        [
+          "MedicineItem_razor_Neck",
+          "MedicineItem_razor_GuardPlate"
+        ],
+        [
+          "MedicineItem_razor_Neck",
+          "MedicineItem_razor_GuardTooth6"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_HeadPost-0.0225"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_HeadPost0.0225"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth0"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth1"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth2"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth3"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth4"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth5"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth6"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth7"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth8"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth9"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth10"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth11"
+        ],
+        [
+          "MedicineItem_razor_GuardPlate",
+          "MedicineItem_razor_GuardTooth12"
+        ],
+        [
+          "MedicineItem_razor_CamberedCap",
+          "MedicineItem_razor_HeadPost-0.0225"
+        ],
+        [
+          "MedicineItem_razor_CamberedCap",
+          "MedicineItem_razor_HeadPost0.0225"
+        ]
+      ]
+    },
+    {
+      "assembly": "MedicineItem_shaving_stick_KeptItem",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineItem_shaving_stick_Bottle",
+          "MedicineItem_shaving_stick_Stopper"
+        ],
+        [
+          "MedicineItem_shaving_stick_Bottle",
+          "MedicineItem_shaving_stick_PaperSleeve"
+        ]
+      ]
+    },
+    {
+      "assembly": "MedicineItem_plasters_KeptItem",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineItem_plasters_Carton",
+          "MedicineItem_plasters_CartonSeam"
+        ]
+      ]
+    },
+    {
+      "assembly": "MedicineItem_brown_bottle_KeptItem",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineItem_brown_bottle_Bottle",
+          "MedicineItem_brown_bottle_Stopper"
+        ]
+      ]
+    },
+    {
+      "assembly": "MedicineItem_turpentine_KeptItem",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineItem_turpentine_Bottle",
+          "MedicineItem_turpentine_Stopper"
+        ]
+      ]
+    },
+    {
+      "assembly": "MedicineItem_QUELL_TONIC_KeptItem",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "MedicineItem_QUELL_TONIC_Bottle",
+          "MedicineItem_QUELL_TONIC_Stopper"
+        ],
+        [
+          "MedicineItem_QUELL_TONIC_Bottle",
+          "MedicineItem_QUELL_TONIC_PaperSleeve"
+        ]
+      ]
+    }
+  ],
+  "distinct_object_separations": [],
+  "uv": [
+    {
+      "part": "MedicineLeft__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9994062384308461,
+      "maximum_metres_per_uv": 1.000669603380469,
+      "maximum_edge_excess_m": 5.858377748896044e-08,
+      "maximum_edge_ratio": 1.0004899563340364
+    },
+    {
+      "part": "MedicineLeft__Body_ON_glassish",
+      "minimum_metres_per_uv": 0.99939964151258,
+      "maximum_metres_per_uv": 1.0006188902359043,
+      "maximum_edge_excess_m": 1.1028788446338983e-07,
+      "maximum_edge_ratio": 1.0005548601679188
+    },
+    {
+      "part": "MedicineLeft__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9975321156197338,
+      "maximum_metres_per_uv": 1.0017726249881613,
+      "maximum_edge_excess_m": 2.3609781283598537e-06,
+      "maximum_edge_ratio": 1.0011140726089898
+    },
+    {
+      "part": "MedicineLeft__CabinetDoor_ON_bakelite",
+      "minimum_metres_per_uv": 0.9998444004729852,
+      "maximum_metres_per_uv": 1.0001181352545279,
+      "maximum_edge_excess_m": 2.737744809284612e-08,
+      "maximum_edge_ratio": 1.0001030300199896
+    },
+    {
+      "part": "MedicineLeft__CabinetDoor_ON_enamel",
+      "minimum_metres_per_uv": 0.9996205322573408,
+      "maximum_metres_per_uv": 1.000325603499199,
+      "maximum_edge_excess_m": 4.6052629272080826e-08,
+      "maximum_edge_ratio": 1.0003087072073646
+    },
+    {
+      "part": "MedicineLeft__CabinetDoor_ON_nickel",
+      "minimum_metres_per_uv": 0.9984169035280286,
+      "maximum_metres_per_uv": 1.000798352811269,
+      "maximum_edge_excess_m": 2.227324318713423e-06,
+      "maximum_edge_ratio": 1.0007451353561303
+    },
+    {
+      "part": "MedicineLeft__Mirror_ON_mirror",
+      "minimum_metres_per_uv": 0.9997872077901651,
+      "maximum_metres_per_uv": 1.0002759047779002,
+      "maximum_edge_excess_m": 3.6811803548426674e-08,
+      "maximum_edge_ratio": 1.0002120677998518
+    },
+    {
+      "part": "MedicineRight__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9994062384308461,
+      "maximum_metres_per_uv": 1.000669603380469,
+      "maximum_edge_excess_m": 5.858377748896044e-08,
+      "maximum_edge_ratio": 1.0004899563340364
+    },
+    {
+      "part": "MedicineRight__Body_ON_glassish",
+      "minimum_metres_per_uv": 0.99939964151258,
+      "maximum_metres_per_uv": 1.0006188902359043,
+      "maximum_edge_excess_m": 1.1028788446338983e-07,
+      "maximum_edge_ratio": 1.0005548601679188
+    },
+    {
+      "part": "MedicineRight__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9975321156197338,
+      "maximum_metres_per_uv": 1.0017726249881613,
+      "maximum_edge_excess_m": 2.3609781283598537e-06,
+      "maximum_edge_ratio": 1.0011140726089898
+    },
+    {
+      "part": "MedicineRight__CabinetDoor_ON_bakelite",
+      "minimum_metres_per_uv": 0.9998444004729852,
+      "maximum_metres_per_uv": 1.0001181352545279,
+      "maximum_edge_excess_m": 2.737744809284612e-08,
+      "maximum_edge_ratio": 1.0001030300199896
+    },
+    {
+      "part": "MedicineRight__CabinetDoor_ON_enamel",
+      "minimum_metres_per_uv": 0.9996205322573408,
+      "maximum_metres_per_uv": 1.000325603499199,
+      "maximum_edge_excess_m": 4.6052629272080826e-08,
+      "maximum_edge_ratio": 1.0003087072073646
+    },
+    {
+      "part": "MedicineRight__CabinetDoor_ON_nickel",
+      "minimum_metres_per_uv": 0.9984169035280286,
+      "maximum_metres_per_uv": 1.000798352811269,
+      "maximum_edge_excess_m": 2.227324318713423e-06,
+      "maximum_edge_ratio": 1.0007773284332604
+    },
+    {
+      "part": "MedicineRight__Mirror_ON_mirror",
+      "minimum_metres_per_uv": 0.9997872077901651,
+      "maximum_metres_per_uv": 1.0002759047779002,
+      "maximum_edge_excess_m": 3.6811803548426674e-08,
+      "maximum_edge_ratio": 1.0002120677998518
+    },
+    {
+      "part": "MedicineItem_aspirin__Body_ON_bakelite",
+      "minimum_metres_per_uv": 0.9992693578714292,
+      "maximum_metres_per_uv": 1.0000214994428989,
+      "maximum_edge_excess_m": 8.36393082157905e-07,
+      "maximum_edge_ratio": 1.0007311763568207
+    },
+    {
+      "part": "MedicineItem_aspirin__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992546835919083,
+      "maximum_metres_per_uv": 1.000025208551228,
+      "maximum_edge_excess_m": 1.4025390736552464e-06,
+      "maximum_edge_ratio": 1.0007458723189693
+    },
+    {
+      "part": "MedicineItem_cold_cream__Body_ON_porcelain",
+      "minimum_metres_per_uv": 0.9998609588226772,
+      "maximum_metres_per_uv": 1.0000823561482952,
+      "maximum_edge_excess_m": 5.790974163524462e-08,
+      "maximum_edge_ratio": 1.0001307304125362
+    },
+    {
+      "part": "MedicineItem_thimble_tin__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9998981595890313,
+      "maximum_metres_per_uv": 1.0000607445958287,
+      "maximum_edge_excess_m": 2.8478431945489543e-08,
+      "maximum_edge_ratio": 1.0000987416159812
+    },
+    {
+      "part": "MedicineItem_iodine__Body_ON_bakelite",
+      "minimum_metres_per_uv": 0.9992768490415035,
+      "maximum_metres_per_uv": 1.0000273037547442,
+      "maximum_edge_excess_m": 7.726240713031105e-07,
+      "maximum_edge_ratio": 1.000723674284249
+    },
+    {
+      "part": "MedicineItem_iodine__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992557392364156,
+      "maximum_metres_per_uv": 1.0000212202790362,
+      "maximum_edge_excess_m": 1.3172885881965538e-06,
+      "maximum_edge_ratio": 1.0007448151002396
+    },
+    {
+      "part": "MedicineItem_razor__Body_ON_bakelite",
+      "minimum_metres_per_uv": 0.9999577718705913,
+      "maximum_metres_per_uv": 1.0000621501842415,
+      "maximum_edge_excess_m": 2.919914627121968e-08,
+      "maximum_edge_ratio": 1.000039249580452
+    },
+    {
+      "part": "MedicineItem_razor__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.998601055069149,
+      "maximum_metres_per_uv": 1.0018301288478932,
+      "maximum_edge_excess_m": 3.59168958884062e-08,
+      "maximum_edge_ratio": 1.0003060481281394
+    },
+    {
+      "part": "MedicineItem_shaving_stick__Body_ON_bakelite",
+      "minimum_metres_per_uv": 0.9992799759822918,
+      "maximum_metres_per_uv": 1.000020527271322,
+      "maximum_edge_excess_m": 9.341265421768715e-07,
+      "maximum_edge_ratio": 1.0007205428258485
+    },
+    {
+      "part": "MedicineItem_shaving_stick__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992685965849821,
+      "maximum_metres_per_uv": 1.0000297822597948,
+      "maximum_edge_excess_m": 1.6036315485293794e-06,
+      "maximum_edge_ratio": 1.0007319387575249
+    },
+    {
+      "part": "MedicineItem_shaving_stick__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9992749982708243,
+      "maximum_metres_per_uv": 1.000472960019367,
+      "maximum_edge_excess_m": 1.614973820612299e-06,
+      "maximum_edge_ratio": 1.0007255277380405
+    },
+    {
+      "part": "MedicineItem_plasters__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9994561318403488,
+      "maximum_metres_per_uv": 1.0003673865620122,
+      "maximum_edge_excess_m": 2.0297070679135137e-08,
+      "maximum_edge_ratio": 1.0003318159529768
+    },
+    {
+      "part": "MedicineItem_brown_bottle__Body_ON_bakelite",
+      "minimum_metres_per_uv": 0.9992799759822918,
+      "maximum_metres_per_uv": 1.0000206943718706,
+      "maximum_edge_excess_m": 9.341265421768715e-07,
+      "maximum_edge_ratio": 1.0007205428258485
+    },
+    {
+      "part": "MedicineItem_brown_bottle__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992685965849821,
+      "maximum_metres_per_uv": 1.0000297822597948,
+      "maximum_edge_excess_m": 1.6036315485293794e-06,
+      "maximum_edge_ratio": 1.0007319387575249
+    },
+    {
+      "part": "MedicineItem_turpentine__Body_ON_bakelite",
+      "minimum_metres_per_uv": 0.9992737977283335,
+      "maximum_metres_per_uv": 1.0000281810626943,
+      "maximum_edge_excess_m": 9.975684078910446e-07,
+      "maximum_edge_ratio": 1.0007267300246614
+    },
+    {
+      "part": "MedicineItem_turpentine__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.999267287421629,
+      "maximum_metres_per_uv": 1.0000288480204005,
+      "maximum_edge_excess_m": 1.688996384414769e-06,
+      "maximum_edge_ratio": 1.0007332498397516
+    },
+    {
+      "part": "MedicineItem_QUELL_TONIC__Body_ON_bakelite",
+      "minimum_metres_per_uv": 0.9992737977283335,
+      "maximum_metres_per_uv": 1.0000281810626943,
+      "maximum_edge_excess_m": 9.975684078910446e-07,
+      "maximum_edge_ratio": 1.0007267300246614
+    },
+    {
+      "part": "MedicineItem_QUELL_TONIC__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.999267287421629,
+      "maximum_metres_per_uv": 1.0000288480204005,
+      "maximum_edge_excess_m": 1.688996384414769e-06,
+      "maximum_edge_ratio": 1.0007332498397516
+    },
+    {
+      "part": "MedicineItem_QUELL_TONIC__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9992823418429779,
+      "maximum_metres_per_uv": 1.0005431988325844,
+      "maximum_edge_excess_m": 1.6892575191835256e-06,
+      "maximum_edge_ratio": 1.0007181735601358
+    }
+  ],
+  "local_bearings": [
+    {
+      "assembly": "MedicineLeft",
+      "owner": "wall",
+      "point": [
+        -0.15,
+        1.3,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineLeft",
+      "owner": "wall",
+      "point": [
+        -0.15,
+        1.7,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineLeft",
+      "owner": "wall",
+      "point": [
+        0.15,
+        1.3,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineLeft",
+      "owner": "wall",
+      "point": [
+        0.15,
+        1.7,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineRight",
+      "owner": "wall",
+      "point": [
+        -0.15,
+        1.3,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineRight",
+      "owner": "wall",
+      "point": [
+        -0.15,
+        1.7,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineRight",
+      "owner": "wall",
+      "point": [
+        0.15,
+        1.3,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineRight",
+      "owner": "wall",
+      "point": [
+        0.15,
+        1.7,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineItem_aspirin",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.013349999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    },
+    {
+      "assembly": "MedicineItem_cold_cream",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "kept container"
+    },
+    {
+      "assembly": "MedicineItem_thimble_tin",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "kept container"
+    },
+    {
+      "assembly": "MedicineItem_iodine",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.01246
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    },
+    {
+      "assembly": "MedicineItem_razor",
+      "owner": "support",
+      "point": [
+        -0.0144,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "razor handle"
+    },
+    {
+      "assembly": "MedicineItem_razor",
+      "owner": "support",
+      "point": [
+        0.03285,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "razor guard"
+    },
+    {
+      "assembly": "MedicineItem_shaving_stick",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.015130000000000001
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    },
+    {
+      "assembly": "MedicineItem_plasters",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "kept container"
+    },
+    {
+      "assembly": "MedicineItem_brown_bottle",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.015130000000000001
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    },
+    {
+      "assembly": "MedicineItem_turpentine",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.01602
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    },
+    {
+      "assembly": "MedicineItem_QUELL_TONIC",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.01602
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    }
+  ],
+  "views": [],
+  "scope": "Local construction and chart preflight only. External support context and rendering are still required."
+}

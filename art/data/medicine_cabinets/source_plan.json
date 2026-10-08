@@ -1,0 +1,792 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_ids": [
+    "F02_2A_MIRROR_01",
+    "F02_2B_MIRROR_01",
+    "F03_3A_MIRROR_01",
+    "F03_3B_MIRROR_01",
+    "F04_4A_MIRROR_01",
+    "F04_4B_MIRROR_01",
+    "F05_5A_MIRROR_01",
+    "F05_5B_MIRROR_01",
+    "F05_5C_MIRROR_01",
+    "F06_6A_MIRROR_01",
+    "F06_6B_MIRROR_01",
+    "F06_6C_MIRROR_01"
+  ],
+  "original_accessories": [
+    {
+      "id": "F02_2A_MIRROR_01",
+      "unit": "2A",
+      "kind": "mirror",
+      "support": "F02_2A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.242
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F02_2B_MIRROR_01",
+      "unit": "2B",
+      "kind": "mirror",
+      "support": "F02_2B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.202
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F03_3A_MIRROR_01",
+      "unit": "3A",
+      "kind": "mirror",
+      "support": "F03_3A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.242
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F03_3B_MIRROR_01",
+      "unit": "3B",
+      "kind": "mirror",
+      "support": "F03_3B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.392
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F04_4A_MIRROR_01",
+      "unit": "4A",
+      "kind": "mirror",
+      "support": "F04_4A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.202
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F04_4B_MIRROR_01",
+      "unit": "4B",
+      "kind": "mirror",
+      "support": "F04_4B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.222
+      ],
+      "yaw": 0,
+      "hinge_side": "left"
+    },
+    {
+      "id": "F05_5A_MIRROR_01",
+      "unit": "5A",
+      "kind": "mirror",
+      "support": "F05_5A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.232
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F05_5B_MIRROR_01",
+      "unit": "5B",
+      "kind": "mirror",
+      "support": "F05_5B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.292
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F05_5C_MIRROR_01",
+      "unit": "5C",
+      "kind": "mirror",
+      "support": "F05_5C_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.222
+      ],
+      "yaw": 0,
+      "hinge_side": "left"
+    },
+    {
+      "id": "F06_6A_MIRROR_01",
+      "unit": "6A",
+      "kind": "mirror",
+      "support": "F06_6A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.232
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F06_6B_MIRROR_01",
+      "unit": "6B",
+      "kind": "mirror",
+      "support": "F06_6B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.292
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F06_6C_MIRROR_01",
+      "unit": "6C",
+      "kind": "mirror",
+      "support": "F06_6C_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.222
+      ],
+      "yaw": 0,
+      "hinge_side": "left"
+    }
+  ],
+  "mechanism_source": "game/scripts/props/medicine_cabinet_prop.gd",
+  "original_kept": {
+    "2A": [
+      [
+        "aspirin",
+        [
+          0.86,
+          0.84,
+          0.78
+        ],
+        0.03,
+        0.05
+      ],
+      [
+        "cold cream",
+        [
+          0.9,
+          0.88,
+          0.8
+        ],
+        0.048,
+        0.04
+      ]
+    ],
+    "2B": [
+      [
+        "thimble tin",
+        [
+          0.62,
+          0.56,
+          0.34
+        ],
+        0.042,
+        0.03
+      ],
+      [
+        "aspirin",
+        [
+          0.86,
+          0.84,
+          0.78
+        ],
+        0.03,
+        0.05
+      ],
+      [
+        "iodine",
+        [
+          0.38,
+          0.18,
+          0.1
+        ],
+        0.028,
+        0.07
+      ]
+    ],
+    "3A": [
+      [
+        "razor",
+        [
+          0.72,
+          0.74,
+          0.76
+        ],
+        0.09,
+        0.02
+      ],
+      [
+        "shaving stick",
+        [
+          0.88,
+          0.86,
+          0.78
+        ],
+        0.034,
+        0.08
+      ]
+    ],
+    "3B": [
+      [
+        "iodine",
+        [
+          0.38,
+          0.18,
+          0.1
+        ],
+        0.028,
+        0.07
+      ],
+      [
+        "plasters",
+        [
+          0.8,
+          0.72,
+          0.56
+        ],
+        0.055,
+        0.03
+      ]
+    ],
+    "4A": [
+      [
+        "brown bottle",
+        [
+          0.35,
+          0.22,
+          0.12
+        ],
+        0.034,
+        0.09
+      ],
+      [
+        "brown bottle",
+        [
+          0.35,
+          0.22,
+          0.12
+        ],
+        0.034,
+        0.09
+      ],
+      [
+        "brown bottle",
+        [
+          0.35,
+          0.22,
+          0.12
+        ],
+        0.034,
+        0.09
+      ]
+    ],
+    "4B": [
+      [
+        "aspirin",
+        [
+          0.86,
+          0.84,
+          0.78
+        ],
+        0.03,
+        0.05
+      ],
+      [
+        "iodine",
+        [
+          0.38,
+          0.18,
+          0.1
+        ],
+        0.028,
+        0.07
+      ],
+      [
+        "razor",
+        [
+          0.72,
+          0.74,
+          0.76
+        ],
+        0.09,
+        0.02
+      ]
+    ],
+    "5A": [
+      [
+        "cold cream",
+        [
+          0.9,
+          0.88,
+          0.8
+        ],
+        0.048,
+        0.04
+      ],
+      [
+        "aspirin",
+        [
+          0.86,
+          0.84,
+          0.78
+        ],
+        0.03,
+        0.05
+      ]
+    ],
+    "5B": [
+      [
+        "brown bottle",
+        [
+          0.35,
+          0.22,
+          0.12
+        ],
+        0.034,
+        0.09
+      ],
+      [
+        "razor",
+        [
+          0.72,
+          0.74,
+          0.76
+        ],
+        0.09,
+        0.02
+      ]
+    ],
+    "5C": [
+      [
+        "turpentine",
+        [
+          0.62,
+          0.58,
+          0.34
+        ],
+        0.036,
+        0.1
+      ],
+      [
+        "cold cream",
+        [
+          0.9,
+          0.88,
+          0.8
+        ],
+        0.048,
+        0.04
+      ]
+    ],
+    "6A": [
+      [
+        "aspirin",
+        [
+          0.86,
+          0.84,
+          0.78
+        ],
+        0.03,
+        0.05
+      ],
+      [
+        "shaving stick",
+        [
+          0.88,
+          0.86,
+          0.78
+        ],
+        0.034,
+        0.08
+      ]
+    ],
+    "6B": [
+      [
+        "QUELL TONIC",
+        [
+          0.24,
+          0.46,
+          0.5
+        ],
+        0.036,
+        0.11
+      ],
+      [
+        "brown bottle",
+        [
+          0.35,
+          0.22,
+          0.12
+        ],
+        0.034,
+        0.09
+      ]
+    ],
+    "6C": [
+      [
+        "iodine",
+        [
+          0.38,
+          0.18,
+          0.1
+        ],
+        0.028,
+        0.07
+      ],
+      [
+        "thimble tin",
+        [
+          0.62,
+          0.56,
+          0.34
+        ],
+        0.042,
+        0.03
+      ],
+      [
+        "aspirin",
+        [
+          0.86,
+          0.84,
+          0.78
+        ],
+        0.03,
+        0.05
+      ]
+    ]
+  },
+  "variants": [
+    {
+      "id": "MedicineLeft",
+      "kind": "medicine_cabinet",
+      "hinge_side": "left",
+      "source_id": "F04_4B_MIRROR_01"
+    },
+    {
+      "id": "MedicineRight",
+      "kind": "medicine_cabinet",
+      "hinge_side": "right",
+      "source_id": "F02_2A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_aspirin",
+      "kind": "cabinet_item",
+      "source_name": "aspirin",
+      "source_item": [
+        "aspirin",
+        [
+          0.86,
+          0.84,
+          0.78
+        ],
+        0.03,
+        0.05
+      ],
+      "source_id": "F02_2A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_cold_cream",
+      "kind": "cabinet_item",
+      "source_name": "cold cream",
+      "source_item": [
+        "cold cream",
+        [
+          0.9,
+          0.88,
+          0.8
+        ],
+        0.048,
+        0.04
+      ],
+      "source_id": "F02_2A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_thimble_tin",
+      "kind": "cabinet_item",
+      "source_name": "thimble tin",
+      "source_item": [
+        "thimble tin",
+        [
+          0.62,
+          0.56,
+          0.34
+        ],
+        0.042,
+        0.03
+      ],
+      "source_id": "F02_2B_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_iodine",
+      "kind": "cabinet_item",
+      "source_name": "iodine",
+      "source_item": [
+        "iodine",
+        [
+          0.38,
+          0.18,
+          0.1
+        ],
+        0.028,
+        0.07
+      ],
+      "source_id": "F02_2B_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_razor",
+      "kind": "cabinet_item",
+      "source_name": "razor",
+      "source_item": [
+        "razor",
+        [
+          0.72,
+          0.74,
+          0.76
+        ],
+        0.09,
+        0.02
+      ],
+      "source_id": "F03_3A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_shaving_stick",
+      "kind": "cabinet_item",
+      "source_name": "shaving stick",
+      "source_item": [
+        "shaving stick",
+        [
+          0.88,
+          0.86,
+          0.78
+        ],
+        0.034,
+        0.08
+      ],
+      "source_id": "F03_3A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_plasters",
+      "kind": "cabinet_item",
+      "source_name": "plasters",
+      "source_item": [
+        "plasters",
+        [
+          0.8,
+          0.72,
+          0.56
+        ],
+        0.055,
+        0.03
+      ],
+      "source_id": "F03_3B_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_brown_bottle",
+      "kind": "cabinet_item",
+      "source_name": "brown bottle",
+      "source_item": [
+        "brown bottle",
+        [
+          0.35,
+          0.22,
+          0.12
+        ],
+        0.034,
+        0.09
+      ],
+      "source_id": "F04_4A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_turpentine",
+      "kind": "cabinet_item",
+      "source_name": "turpentine",
+      "source_item": [
+        "turpentine",
+        [
+          0.62,
+          0.58,
+          0.34
+        ],
+        0.036,
+        0.1
+      ],
+      "source_id": "F05_5C_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_QUELL_TONIC",
+      "kind": "cabinet_item",
+      "source_name": "QUELL TONIC",
+      "source_item": [
+        "QUELL TONIC",
+        [
+          0.24,
+          0.46,
+          0.5
+        ],
+        0.036,
+        0.11
+      ],
+      "source_id": "F06_6B_MIRROR_01"
+    }
+  ],
+  "instances": [
+    {
+      "id": "F02_2A_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F02_2B_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F03_3A_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F03_3B_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F04_4A_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F04_4B_MIRROR_01",
+      "variant": "MedicineLeft"
+    },
+    {
+      "id": "F05_5A_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F05_5B_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F05_5C_MIRROR_01",
+      "variant": "MedicineLeft"
+    },
+    {
+      "id": "F06_6A_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F06_6B_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F06_6C_MIRROR_01",
+      "variant": "MedicineLeft"
+    }
+  ],
+  "runtime_keys": [
+    "enamel",
+    "nickel",
+    "mirror",
+    "bottle",
+    "paper",
+    "bakelite",
+    "porcelain",
+    "glassish"
+  ],
+  "catalog_variants": {
+    "enamel": "enamel_appliance",
+    "nickel": "nickel_plated",
+    "mirror": "mirror_aged",
+    "bottle": "milk_glass",
+    "paper": "paper",
+    "bakelite": "bakelite",
+    "porcelain": "porcelain"
+  },
+  "material_tints": {
+    "bakelite": [
+      0.3,
+      0.32,
+      0.34,
+      1
+    ],
+    "bottle": [
+      0.34,
+      0.2,
+      0.095,
+      1
+    ]
+  },
+  "finish_parameters": {
+    "enamel": {
+      "normal_scale": 0.025,
+      "roughness": 0.35
+    },
+    "nickel": {
+      "normal_scale": 0.025,
+      "roughness": 0.35
+    },
+    "mirror": {
+      "normal_scale": 0.025,
+      "roughness": 0.35
+    },
+    "bottle": {
+      "normal_scale": 0.025,
+      "roughness": 0.35
+    },
+    "paper": {
+      "normal_scale": 0.025,
+      "roughness": 0.8
+    },
+    "bakelite": {
+      "normal_scale": 0.025,
+      "roughness": 0.35
+    },
+    "porcelain": {
+      "normal_scale": 0.025,
+      "roughness": 0.35
+    },
+    "glassish": {
+      "normal_scale": 0.025,
+      "roughness": 0.8
+    }
+  },
+  "placement": {
+    "floor_y": 0,
+    "frame": "Original sink-owned accessory poses and mirror hinge. Cabinet stock remains at original local Y 1.505m; kept item prototypes seat on original shelf heights."
+  },
+  "adaptations": [
+    "Folded enamel sheet, rolled flange, actual shelf clips, segmented pinned hinges and closed mirror leaf. Original MirrorGlass node, reflection owner, 95-degree hinge, collision and household inventory remain.",
+    "Kept household items retain the original names, counts, deterministic shelf allocation, X/Z jitter and yaw. Native prototypes seat the source stock on the actual glass shelves."
+  ],
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06
+  },
+  "open_work": [
+    "Native geometry and integration in progress; no acceptance claimed."
+  ],
+  "tint_space": "linear"
+}

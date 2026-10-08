@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_household_toasters.py",
+      "elapsed_s": 2.025
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_toasters.py",
+      "elapsed_s": 1.234
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_toaster_motion.py",
+      "elapsed_s": 0.853
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_toasters_context.py",
+      "elapsed_s": 2.287
+    },
+    {
+      "script": "art/blender/scripts/render_household_toasters.py",
+      "elapsed_s": 30.952
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 88.39,
+  "exit_code": 1,
+  "finished_utc": "2026-10-08T02:28:50Z",
+  "started_utc": "2026-10-08T02:27:21Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/accessories-runtime-01.log.stderr",
+  "stderr_sha256": "b22df9654b69d091c634de34381f8b8600cb0b8f3b059097686a76906b5eeb94",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/accessories-runtime-01.log",
+  "stdout_sha256": "795e91766cb7bbe93af0605404527cc597c71d91e1d54901dfce07b937f06631"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/accessories-runtime01",
+ "source": {
+  "dirty_paths": 307,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/scripts/building/orison_v2_household_accessories.gd",
+   " M game/scripts/building/orison_v2_medicine_cabinet.gd",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/scripts/building/orison_v2_toaster.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/household_toasters.blend",
+   "?? art/blender/household_toasters_construction.json",
+   "?? art/blender/medicine_cabinets.blend",
+   "?? art/blender/medicine_cabinets_construction.json",
+   "?? art/blender/scripts/build_household_toasters.py",
+   "?? art/blender/scripts/build_medicine_cabinets.py",
+   "?? art/blender/scripts/household_toasters_geometry.py",
+   "?? art/blender/scripts/inspect_household_toaster_motion.py",
+   "?? art/blender/scripts/inspect_household_toasters.py",
+   "?? art/blender/scripts/inspect_household_toasters_context.py",
+   "?? art/blender/scripts/inspect_medicine_cabinet_motion.py"
+  ],
+  "repository_head": "934b8c07b1458c1b5d397c4e32e93a87f74e7708",
+  "repository_tree": "2fc2cc64cd45cd811b05fa2c3483683f374b2949",
+  "runtime_inputs_sha256": "da54382a982e642cf8b4614392c23f55179af14cbadfcc9f7bf317197cbe5b2e",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "f13b5e8ce06b2a8461a2ebb485dd8150d804111bcbf363e16f5caccf55a935d8"
+ },
+ "windowed": true
+}

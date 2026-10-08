@@ -1,0 +1,81 @@
+FABRICATION STAGE: art/blender/scripts/build_household_toasters.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_household_toasters.py:74: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "household_toasters.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+21:49:44 | INFO: Starting glTF 2.0 export
+21:49:44 | INFO: Extracting primitive: ToasterCrumb__Body_ON_crumb
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterEnd__Body_ON_bakelite
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterEnd__Body_ON_braid
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterEnd__Body_ON_mica
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterEnd__Body_ON_nickel
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterEnd__BreadCarrier_ON_nickel
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterEnd__CarriageLever_ON_bakelite
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterEnd__CarriageLever_ON_nickel
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterEnd__OrisonRetrofitCrumbTray_ON_bakelite
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterEnd__OrisonRetrofitCrumbTray_ON_grease
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterEnd__OrisonRetrofitCrumbTray_ON_nickel
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterEnd__ResistanceWire_ON_coil
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterFront__Body_ON_bakelite
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterFront__Body_ON_braid
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterFront__Body_ON_mica
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterFront__Body_ON_nickel
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterFront__BreadCarrier_ON_nickel
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterFront__CarriageLever_ON_bakelite
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterFront__CarriageLever_ON_nickel
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterFront__OrisonRetrofitCrumbTray_ON_bakelite
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterFront__OrisonRetrofitCrumbTray_ON_grease
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterFront__OrisonRetrofitCrumbTray_ON_nickel
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Extracting primitive: ToasterFront__ResistanceWire_ON_coil
+21:49:44 | INFO: Primitives created: 1
+21:49:44 | INFO: Finished glTF 2.0 export in 0.09742856025695801 s
+
+HOUSEHOLD TOASTERS 10 original records; 3 assemblies; 169 closed stocks; 23 parts; 41144 triangles; 10 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_household_toasters.py
+00:03.453  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\household_toasters.blend"
+HOUSEHOLD TOASTERS LOCAL: 169 closed stocks; 3 physical groups; 10 local bearings; 23 mapped parts
+FABRICATION STAGE: art/blender/scripts/inspect_household_toaster_motion.py
+00:04.687  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\household_toasters.blend"
+TOASTER MOTION: 53 continuous candidate pairs clear
+FABRICATION STAGE: art/blender/scripts/inspect_household_toasters_context.py
+TOASTERS CONTEXT: 10 installations; 50 bearings; 0 nearby pairs clear
+FABRICATION STAGE: art/blender/scripts/render_household_toasters.py
+00:07.828  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\household_toasters.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_household_toasters.py:9: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.60,.65,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.65
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_household_toasters.py:12: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=10,location=(0,0,-.00004));ground=bpy.context.object;mat=bpy.data.materials.new('Review neutral');mat.use_nodes=True;mat.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.23,.25,.26,1);mat.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.75;ground.data.materials.append(mat)
+00:12.578  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-toasters-native\ToasterFront.png'
+00:17.453  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-toasters-native\ToasterFront_latched_open.png'
+00:21.828  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-toasters-native\ToasterFront_release_peak.png'
+00:26.203  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-toasters-native\ToasterEnd.png'
+00:30.578  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-toasters-native\ToasterEnd_latched_open.png'
+00:34.953  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-toasters-native\ToasterEnd_release_peak.png'
+00:38.734  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-toasters-native\ToasterCrumb.png'
+{"completed_stages": 5, "elapsed_s": 37.351}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

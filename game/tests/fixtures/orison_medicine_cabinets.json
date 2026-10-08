@@ -1,0 +1,3074 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "F02_2A_MIRROR_01",
+      "unit": "2A",
+      "kind": "mirror",
+      "support": "F02_2A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.242
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F02_2B_MIRROR_01",
+      "unit": "2B",
+      "kind": "mirror",
+      "support": "F02_2B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.202
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F03_3A_MIRROR_01",
+      "unit": "3A",
+      "kind": "mirror",
+      "support": "F03_3A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.242
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F03_3B_MIRROR_01",
+      "unit": "3B",
+      "kind": "mirror",
+      "support": "F03_3B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.392
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F04_4A_MIRROR_01",
+      "unit": "4A",
+      "kind": "mirror",
+      "support": "F04_4A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.202
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F04_4B_MIRROR_01",
+      "unit": "4B",
+      "kind": "mirror",
+      "support": "F04_4B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.222
+      ],
+      "yaw": 0,
+      "hinge_side": "left"
+    },
+    {
+      "id": "F05_5A_MIRROR_01",
+      "unit": "5A",
+      "kind": "mirror",
+      "support": "F05_5A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.232
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F05_5B_MIRROR_01",
+      "unit": "5B",
+      "kind": "mirror",
+      "support": "F05_5B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.292
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F05_5C_MIRROR_01",
+      "unit": "5C",
+      "kind": "mirror",
+      "support": "F05_5C_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.222
+      ],
+      "yaw": 0,
+      "hinge_side": "left"
+    },
+    {
+      "id": "F06_6A_MIRROR_01",
+      "unit": "6A",
+      "kind": "mirror",
+      "support": "F06_6A_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.232
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F06_6B_MIRROR_01",
+      "unit": "6B",
+      "kind": "mirror",
+      "support": "F06_6B_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.292
+      ],
+      "yaw": 0,
+      "hinge_side": "right"
+    },
+    {
+      "id": "F06_6C_MIRROR_01",
+      "unit": "6C",
+      "kind": "mirror",
+      "support": "F06_6C_SINK_01",
+      "position": [
+        0,
+        0.04,
+        0.222
+      ],
+      "yaw": 0,
+      "hinge_side": "left"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "MedicineLeft",
+      "kind": "medicine_cabinet",
+      "cell": "shared",
+      "source_record": "F04_4B_MIRROR_01"
+    },
+    {
+      "id": "MedicineRight",
+      "kind": "medicine_cabinet",
+      "cell": "shared",
+      "source_record": "F02_2A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_aspirin",
+      "kind": "cabinet_item",
+      "cell": "shared",
+      "source_record": "F02_2A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_cold_cream",
+      "kind": "cabinet_item",
+      "cell": "shared",
+      "source_record": "F02_2A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_thimble_tin",
+      "kind": "cabinet_item",
+      "cell": "shared",
+      "source_record": "F02_2B_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_iodine",
+      "kind": "cabinet_item",
+      "cell": "shared",
+      "source_record": "F02_2B_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_razor",
+      "kind": "cabinet_item",
+      "cell": "shared",
+      "source_record": "F03_3A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_shaving_stick",
+      "kind": "cabinet_item",
+      "cell": "shared",
+      "source_record": "F03_3A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_plasters",
+      "kind": "cabinet_item",
+      "cell": "shared",
+      "source_record": "F03_3B_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_brown_bottle",
+      "kind": "cabinet_item",
+      "cell": "shared",
+      "source_record": "F04_4A_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_turpentine",
+      "kind": "cabinet_item",
+      "cell": "shared",
+      "source_record": "F05_5C_MIRROR_01"
+    },
+    {
+      "id": "MedicineItem_QUELL_TONIC",
+      "kind": "cabinet_item",
+      "cell": "shared",
+      "source_record": "F06_6B_MIRROR_01"
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "MedicineLeft_FoldedBack",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 0.0005610275626446477
+    },
+    {
+      "name": "MedicineLeft_FoldedSide-0.23",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 7.242395082169766e-05
+    },
+    {
+      "name": "MedicineLeft_FoldedSide0.2288",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 7.242395082169766e-05
+    },
+    {
+      "name": "MedicineLeft_FoldedEnd1.2",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 5.461123393619635e-05
+    },
+    {
+      "name": "MedicineLeft_FoldedEnd1.8088",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 5.461121719838036e-05
+    },
+    {
+      "name": "MedicineLeft_SideFlange-1",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 2.190283985005697e-05
+    },
+    {
+      "name": "MedicineLeft_SideReturn-1",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 8.01317353929898e-06
+    },
+    {
+      "name": "MedicineLeft_SideFlange1",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 2.1902839850056966e-05
+    },
+    {
+      "name": "MedicineLeft_SideReturn1",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 8.013173539298979e-06
+    },
+    {
+      "name": "MedicineLeft_EndFlange1.188",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 1.8240063503709766e-05
+    },
+    {
+      "name": "MedicineLeft_EndReturn1.188",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 6.0429265821065545e-06
+    },
+    {
+      "name": "MedicineLeft_EndFlange1.822",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 1.8240049959438918e-05
+    },
+    {
+      "name": "MedicineLeft_EndReturn1.822",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 6.042922197704859e-06
+    },
+    {
+      "name": "MedicineLeft_ScrewSeat(-0.242, 1.188)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 3.558301826401292e-07
+    },
+    {
+      "name": "MedicineLeft_SlottedHead(-0.242, 1.188, -1)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 8.938543634153517e-08
+    },
+    {
+      "name": "MedicineLeft_SlottedHead(-0.242, 1.188, 1)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 8.93846960340464e-08
+    },
+    {
+      "name": "MedicineLeft_ScrewSeat(-0.242, 1.822)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 3.558301826410224e-07
+    },
+    {
+      "name": "MedicineLeft_SlottedHead(-0.242, 1.822, -1)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 8.938437218282529e-08
+    },
+    {
+      "name": "MedicineLeft_SlottedHead(-0.242, 1.822, 1)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 8.938543634153347e-08
+    },
+    {
+      "name": "MedicineLeft_ScrewSeat(0.242, 1.188)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 3.558301826410215e-07
+    },
+    {
+      "name": "MedicineLeft_SlottedHead(0.242, 1.188, -1)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 8.938543634153686e-08
+    },
+    {
+      "name": "MedicineLeft_SlottedHead(0.242, 1.188, 1)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 8.938469603404809e-08
+    },
+    {
+      "name": "MedicineLeft_ScrewSeat(0.242, 1.822)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 3.558301826401324e-07
+    },
+    {
+      "name": "MedicineLeft_SlottedHead(0.242, 1.822, -1)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 8.93843721828219e-08
+    },
+    {
+      "name": "MedicineLeft_SlottedHead(0.242, 1.822, 1)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 8.938543634153856e-08
+    },
+    {
+      "name": "MedicineLeft_GlassShelf1.4",
+      "assembly": "MedicineLeft",
+      "key": "glassish",
+      "volume_m3": 0.00022667994367997837
+    },
+    {
+      "name": "MedicineLeft_ShelfLip1.4",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 3.719415046060941e-05
+    },
+    {
+      "name": "MedicineLeft_ShelfClip(1.4, -1, -0.036)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 4.775221431273485e-07
+    },
+    {
+      "name": "MedicineLeft_ShelfClip(1.4, -1, 0.02)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 4.775223664092991e-07
+    },
+    {
+      "name": "MedicineLeft_ShelfClip(1.4, 1, -0.036)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 4.775221431273485e-07
+    },
+    {
+      "name": "MedicineLeft_ShelfClip(1.4, 1, 0.02)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 4.775223664092991e-07
+    },
+    {
+      "name": "MedicineLeft_GlassShelf1.59",
+      "assembly": "MedicineLeft",
+      "key": "glassish",
+      "volume_m3": 0.0002266799823032479
+    },
+    {
+      "name": "MedicineLeft_ShelfLip1.59",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 3.7194109118882275e-05
+    },
+    {
+      "name": "MedicineLeft_ShelfClip(1.59, -1, -0.036)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 4.77519891263763e-07
+    },
+    {
+      "name": "MedicineLeft_ShelfClip(1.59, -1, 0.02)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 4.775201145453884e-07
+    },
+    {
+      "name": "MedicineLeft_ShelfClip(1.59, 1, -0.036)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 4.77519891263763e-07
+    },
+    {
+      "name": "MedicineLeft_ShelfClip(1.59, 1, 0.02)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 4.775201145453884e-07
+    },
+    {
+      "name": "MedicineLeft_FixedHingeLeaf1.3219999999999998",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.4369972575978073e-06
+    },
+    {
+      "name": "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.287)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 1.114514866072387e-06
+    },
+    {
+      "name": "MedicineLeft_FixedKnuckle(1.3219999999999998, 1.287)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.7945772301821956e-06
+    },
+    {
+      "name": "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.3429999999999997)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 1.1145053483960603e-06
+    },
+    {
+      "name": "MedicineLeft_FixedKnuckle(1.3219999999999998, 1.3429999999999997)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.7945547927529977e-06
+    },
+    {
+      "name": "MedicineLeft_HingePin1.3219999999999998",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.141674736973032e-06
+    },
+    {
+      "name": "MedicineLeft_FixedHingeLeaf1.688",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.4369976169312792e-06
+    },
+    {
+      "name": "MedicineLeft_FixedHingeTab(1.688, 1.653)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 1.1145148660723803e-06
+    },
+    {
+      "name": "MedicineLeft_FixedKnuckle(1.688, 1.653)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.7945772301821486e-06
+    },
+    {
+      "name": "MedicineLeft_FixedHingeTab(1.688, 1.7089999999999999)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 1.1145154925843926e-06
+    },
+    {
+      "name": "MedicineLeft_FixedKnuckle(1.688, 1.7089999999999999)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.7945772301821706e-06
+    },
+    {
+      "name": "MedicineLeft_HingePin1.688",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.141672122903771e-06
+    },
+    {
+      "name": "MedicineLeft_LeafBacking",
+      "assembly": "MedicineLeft",
+      "key": "enamel",
+      "volume_m3": 0.0005356406127810283
+    },
+    {
+      "name": "MedicineLeft_FrameStile(-0.23, 0)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 8.033773155014369e-05
+    },
+    {
+      "name": "MedicineLeft_FrameBead(-0.23, 0)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 0.0002691557043693502
+    },
+    {
+      "name": "MedicineLeft_FrameStile(0.206, 0)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 7.836712965898306e-06
+    },
+    {
+      "name": "MedicineLeft_FrameBead(0.206, 0)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.6302730820096138e-05
+    },
+    {
+      "name": "MedicineLeft_FrameStile(0.206, 1)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 7.634699090522161e-06
+    },
+    {
+      "name": "MedicineLeft_FrameBead(0.206, 1)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.5680684521341517e-05
+    },
+    {
+      "name": "MedicineLeft_FrameStile(0.206, 2)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 4.0011706285443996e-05
+    },
+    {
+      "name": "MedicineLeft_FrameBead(0.206, 2)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 0.0001340776747970528
+    },
+    {
+      "name": "MedicineLeft_FrameStile(0.206, 3)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 7.63470057393887e-06
+    },
+    {
+      "name": "MedicineLeft_FrameBead(0.206, 3)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.5680687247255467e-05
+    },
+    {
+      "name": "MedicineLeft_FrameStile(0.206, 4)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 7.83671645454807e-06
+    },
+    {
+      "name": "MedicineLeft_FrameBead(0.206, 4)",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.6302735969021667e-05
+    },
+    {
+      "name": "MedicineLeft_FrameRail1.2",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 0.0002754918472621824
+    },
+    {
+      "name": "MedicineLeft_FrameRail1.786",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 0.00027549178980725963
+    },
+    {
+      "name": "MedicineLeft_MirrorBed(-0.196, 1.2399999999999998)",
+      "assembly": "MedicineLeft",
+      "key": "bakelite",
+      "volume_m3": 1.4877682540314849e-06
+    },
+    {
+      "name": "MedicineLeft_MirrorBed(-0.196, 1.77)",
+      "assembly": "MedicineLeft",
+      "key": "bakelite",
+      "volume_m3": 1.4877682540315255e-06
+    },
+    {
+      "name": "MedicineLeft_MirrorBed(0.196, 1.2399999999999998)",
+      "assembly": "MedicineLeft",
+      "key": "bakelite",
+      "volume_m3": 1.4877682540314916e-06
+    },
+    {
+      "name": "MedicineLeft_MirrorBed(0.196, 1.77)",
+      "assembly": "MedicineLeft",
+      "key": "bakelite",
+      "volume_m3": 1.487768254031539e-06
+    },
+    {
+      "name": "MedicineLeft_MirrorGlass",
+      "assembly": "MedicineLeft",
+      "key": "mirror",
+      "volume_m3": 0.0019150778633567163
+    },
+    {
+      "name": "MedicineLeft_MovingHingeLeaf1.3219999999999998",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.2910655906186693e-06
+    },
+    {
+      "name": "MedicineLeft_MovingKnuckle1.3219999999999998",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 6.879508649885071e-06
+    },
+    {
+      "name": "MedicineLeft_MovingHingeLeaf1.688",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 2.2910668607118952e-06
+    },
+    {
+      "name": "MedicineLeft_MovingKnuckle1.688",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 6.879508649885136e-06
+    },
+    {
+      "name": "MedicineLeft_Pull",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 5.023696968604392e-06
+    },
+    {
+      "name": "MedicineLeft_FrictionCatch",
+      "assembly": "MedicineLeft",
+      "key": "nickel",
+      "volume_m3": 3.7605662561258357e-06
+    },
+    {
+      "name": "MedicineRight_FoldedBack",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 0.0005610275626446477
+    },
+    {
+      "name": "MedicineRight_FoldedSide-0.23",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 7.242395082169766e-05
+    },
+    {
+      "name": "MedicineRight_FoldedSide0.2288",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 7.242395082169766e-05
+    },
+    {
+      "name": "MedicineRight_FoldedEnd1.2",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 5.461123393619635e-05
+    },
+    {
+      "name": "MedicineRight_FoldedEnd1.8088",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 5.461121719838036e-05
+    },
+    {
+      "name": "MedicineRight_SideFlange-1",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 2.190283985005697e-05
+    },
+    {
+      "name": "MedicineRight_SideReturn-1",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 8.01317353929898e-06
+    },
+    {
+      "name": "MedicineRight_SideFlange1",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 2.1902839850056966e-05
+    },
+    {
+      "name": "MedicineRight_SideReturn1",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 8.013173539298979e-06
+    },
+    {
+      "name": "MedicineRight_EndFlange1.188",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 1.8240063503709766e-05
+    },
+    {
+      "name": "MedicineRight_EndReturn1.188",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 6.0429265821065545e-06
+    },
+    {
+      "name": "MedicineRight_EndFlange1.822",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 1.8240049959438918e-05
+    },
+    {
+      "name": "MedicineRight_EndReturn1.822",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 6.042922197704859e-06
+    },
+    {
+      "name": "MedicineRight_ScrewSeat(-0.242, 1.188)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 3.558301826401292e-07
+    },
+    {
+      "name": "MedicineRight_SlottedHead(-0.242, 1.188, -1)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 8.938543634153517e-08
+    },
+    {
+      "name": "MedicineRight_SlottedHead(-0.242, 1.188, 1)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 8.93846960340464e-08
+    },
+    {
+      "name": "MedicineRight_ScrewSeat(-0.242, 1.822)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 3.558301826410224e-07
+    },
+    {
+      "name": "MedicineRight_SlottedHead(-0.242, 1.822, -1)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 8.938437218282529e-08
+    },
+    {
+      "name": "MedicineRight_SlottedHead(-0.242, 1.822, 1)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 8.938543634153347e-08
+    },
+    {
+      "name": "MedicineRight_ScrewSeat(0.242, 1.188)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 3.558301826410215e-07
+    },
+    {
+      "name": "MedicineRight_SlottedHead(0.242, 1.188, -1)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 8.938543634153686e-08
+    },
+    {
+      "name": "MedicineRight_SlottedHead(0.242, 1.188, 1)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 8.938469603404809e-08
+    },
+    {
+      "name": "MedicineRight_ScrewSeat(0.242, 1.822)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 3.558301826401324e-07
+    },
+    {
+      "name": "MedicineRight_SlottedHead(0.242, 1.822, -1)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 8.93843721828219e-08
+    },
+    {
+      "name": "MedicineRight_SlottedHead(0.242, 1.822, 1)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 8.938543634153856e-08
+    },
+    {
+      "name": "MedicineRight_GlassShelf1.4",
+      "assembly": "MedicineRight",
+      "key": "glassish",
+      "volume_m3": 0.00022667994367997837
+    },
+    {
+      "name": "MedicineRight_ShelfLip1.4",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 3.719415046060941e-05
+    },
+    {
+      "name": "MedicineRight_ShelfClip(1.4, -1, -0.036)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 4.775221431273485e-07
+    },
+    {
+      "name": "MedicineRight_ShelfClip(1.4, -1, 0.02)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 4.775223664092991e-07
+    },
+    {
+      "name": "MedicineRight_ShelfClip(1.4, 1, -0.036)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 4.775221431273485e-07
+    },
+    {
+      "name": "MedicineRight_ShelfClip(1.4, 1, 0.02)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 4.775223664092991e-07
+    },
+    {
+      "name": "MedicineRight_GlassShelf1.59",
+      "assembly": "MedicineRight",
+      "key": "glassish",
+      "volume_m3": 0.0002266799823032479
+    },
+    {
+      "name": "MedicineRight_ShelfLip1.59",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 3.7194109118882275e-05
+    },
+    {
+      "name": "MedicineRight_ShelfClip(1.59, -1, -0.036)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 4.77519891263763e-07
+    },
+    {
+      "name": "MedicineRight_ShelfClip(1.59, -1, 0.02)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 4.775201145453884e-07
+    },
+    {
+      "name": "MedicineRight_ShelfClip(1.59, 1, -0.036)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 4.77519891263763e-07
+    },
+    {
+      "name": "MedicineRight_ShelfClip(1.59, 1, 0.02)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 4.775201145453884e-07
+    },
+    {
+      "name": "MedicineRight_FixedHingeLeaf1.3219999999999998",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.4369972575978056e-06
+    },
+    {
+      "name": "MedicineRight_FixedHingeTab(1.3219999999999998, 1.287)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 1.114514866072387e-06
+    },
+    {
+      "name": "MedicineRight_FixedKnuckle(1.3219999999999998, 1.287)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.794577230182131e-06
+    },
+    {
+      "name": "MedicineRight_FixedHingeTab(1.3219999999999998, 1.3429999999999997)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 1.1145053483960603e-06
+    },
+    {
+      "name": "MedicineRight_FixedKnuckle(1.3219999999999998, 1.3429999999999997)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.7945547927530138e-06
+    },
+    {
+      "name": "MedicineRight_HingePin1.3219999999999998",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.1416747369730664e-06
+    },
+    {
+      "name": "MedicineRight_FixedHingeLeaf1.688",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.436997616931281e-06
+    },
+    {
+      "name": "MedicineRight_FixedHingeTab(1.688, 1.653)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 1.1145148660723803e-06
+    },
+    {
+      "name": "MedicineRight_FixedKnuckle(1.688, 1.653)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.794577230182144e-06
+    },
+    {
+      "name": "MedicineRight_FixedHingeTab(1.688, 1.7089999999999999)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 1.1145154925843926e-06
+    },
+    {
+      "name": "MedicineRight_FixedKnuckle(1.688, 1.7089999999999999)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.7945772301821804e-06
+    },
+    {
+      "name": "MedicineRight_HingePin1.688",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.1416721229037846e-06
+    },
+    {
+      "name": "MedicineRight_LeafBacking",
+      "assembly": "MedicineRight",
+      "key": "enamel",
+      "volume_m3": 0.0005356406127810283
+    },
+    {
+      "name": "MedicineRight_FrameStile(-0.23, 0)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 7.836712965898313e-06
+    },
+    {
+      "name": "MedicineRight_FrameBead(-0.23, 0)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.630273082009611e-05
+    },
+    {
+      "name": "MedicineRight_FrameStile(-0.23, 1)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 7.634699090522161e-06
+    },
+    {
+      "name": "MedicineRight_FrameBead(-0.23, 1)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.5680684521341517e-05
+    },
+    {
+      "name": "MedicineRight_FrameStile(-0.23, 2)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 4.0011706285443996e-05
+    },
+    {
+      "name": "MedicineRight_FrameBead(-0.23, 2)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 0.00013407767479705284
+    },
+    {
+      "name": "MedicineRight_FrameStile(-0.23, 3)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 7.634700573938876e-06
+    },
+    {
+      "name": "MedicineRight_FrameBead(-0.23, 3)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.5680687247255494e-05
+    },
+    {
+      "name": "MedicineRight_FrameStile(-0.23, 4)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 7.83671645454807e-06
+    },
+    {
+      "name": "MedicineRight_FrameBead(-0.23, 4)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.6302735969021667e-05
+    },
+    {
+      "name": "MedicineRight_FrameStile(0.206, 0)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 8.033773155014369e-05
+    },
+    {
+      "name": "MedicineRight_FrameBead(0.206, 0)",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 0.0002691557043693502
+    },
+    {
+      "name": "MedicineRight_FrameRail1.2",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 0.0002754918472621824
+    },
+    {
+      "name": "MedicineRight_FrameRail1.786",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 0.00027549178980725963
+    },
+    {
+      "name": "MedicineRight_MirrorBed(-0.196, 1.2399999999999998)",
+      "assembly": "MedicineRight",
+      "key": "bakelite",
+      "volume_m3": 1.4877682540314849e-06
+    },
+    {
+      "name": "MedicineRight_MirrorBed(-0.196, 1.77)",
+      "assembly": "MedicineRight",
+      "key": "bakelite",
+      "volume_m3": 1.4877682540315255e-06
+    },
+    {
+      "name": "MedicineRight_MirrorBed(0.196, 1.2399999999999998)",
+      "assembly": "MedicineRight",
+      "key": "bakelite",
+      "volume_m3": 1.4877682540314916e-06
+    },
+    {
+      "name": "MedicineRight_MirrorBed(0.196, 1.77)",
+      "assembly": "MedicineRight",
+      "key": "bakelite",
+      "volume_m3": 1.487768254031539e-06
+    },
+    {
+      "name": "MedicineRight_MirrorGlass",
+      "assembly": "MedicineRight",
+      "key": "mirror",
+      "volume_m3": 0.0019150778633567163
+    },
+    {
+      "name": "MedicineRight_MovingHingeLeaf1.3219999999999998",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.2910655906186693e-06
+    },
+    {
+      "name": "MedicineRight_MovingKnuckle1.3219999999999998",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 6.879508649885108e-06
+    },
+    {
+      "name": "MedicineRight_MovingHingeLeaf1.688",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 2.2910668607118952e-06
+    },
+    {
+      "name": "MedicineRight_MovingKnuckle1.688",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 6.879508649885125e-06
+    },
+    {
+      "name": "MedicineRight_Pull",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 5.023696968604708e-06
+    },
+    {
+      "name": "MedicineRight_FrictionCatch",
+      "assembly": "MedicineRight",
+      "key": "nickel",
+      "volume_m3": 3.7605662561258357e-06
+    },
+    {
+      "name": "MedicineItem_aspirin_Bottle",
+      "assembly": "MedicineItem_aspirin",
+      "key": "bottle",
+      "volume_m3": 6.6452443608591365e-06
+    },
+    {
+      "name": "MedicineItem_aspirin_Stopper",
+      "assembly": "MedicineItem_aspirin",
+      "key": "bakelite",
+      "volume_m3": 1.1508163941096478e-06
+    },
+    {
+      "name": "MedicineItem_cold_cream_Container",
+      "assembly": "MedicineItem_cold_cream",
+      "key": "porcelain",
+      "volume_m3": 3.947799595068134e-05
+    },
+    {
+      "name": "MedicineItem_cold_cream_Lid",
+      "assembly": "MedicineItem_cold_cream",
+      "key": "porcelain",
+      "volume_m3": 2.9034796155571542e-06
+    },
+    {
+      "name": "MedicineItem_thimble_tin_Container",
+      "assembly": "MedicineItem_thimble_tin",
+      "key": "nickel",
+      "volume_m3": 2.262926761920404e-05
+    },
+    {
+      "name": "MedicineItem_thimble_tin_Lid",
+      "assembly": "MedicineItem_thimble_tin",
+      "key": "nickel",
+      "volume_m3": 1.6672314484370712e-06
+    },
+    {
+      "name": "MedicineItem_iodine_Bottle",
+      "assembly": "MedicineItem_iodine",
+      "key": "bottle",
+      "volume_m3": 8.130127435246439e-06
+    },
+    {
+      "name": "MedicineItem_iodine_Stopper",
+      "assembly": "MedicineItem_iodine",
+      "key": "bakelite",
+      "volume_m3": 1.403484762500612e-06
+    },
+    {
+      "name": "MedicineItem_razor_Handle",
+      "assembly": "MedicineItem_razor",
+      "key": "bakelite",
+      "volume_m3": 4.29105098326827e-06
+    },
+    {
+      "name": "MedicineItem_razor_Neck",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 2.7603964596057587e-07
+    },
+    {
+      "name": "MedicineItem_razor_GuardPlate",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 4.251031307020077e-06
+    },
+    {
+      "name": "MedicineItem_razor_CamberedCap",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 1.7058600887875358e-06
+    },
+    {
+      "name": "MedicineItem_razor_HeadPost-0.0225",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 1.1841334351009056e-07
+    },
+    {
+      "name": "MedicineItem_razor_HeadPost0.0225",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 1.1841334351009056e-07
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth0",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.71095707819724e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth1",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.71095707819724e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth2",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.710957078197238e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth3",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.710961097785547e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth4",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.710961097785549e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth5",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.710963107579704e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth6",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.710962057097709e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth7",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.710963107579703e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth8",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.710961097785547e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth9",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.710961097785549e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth10",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.71095707819724e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth11",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.710957078197238e-08
+    },
+    {
+      "name": "MedicineItem_razor_GuardTooth12",
+      "assembly": "MedicineItem_razor",
+      "key": "nickel",
+      "volume_m3": 7.710957078197238e-08
+    },
+    {
+      "name": "MedicineItem_shaving_stick_Bottle",
+      "assembly": "MedicineItem_shaving_stick",
+      "key": "bottle",
+      "volume_m3": 1.1486470751396858e-05
+    },
+    {
+      "name": "MedicineItem_shaving_stick_Stopper",
+      "assembly": "MedicineItem_shaving_stick",
+      "key": "bakelite",
+      "volume_m3": 2.3650564210397375e-06
+    },
+    {
+      "name": "MedicineItem_shaving_stick_PaperSleeve",
+      "assembly": "MedicineItem_shaving_stick",
+      "key": "paper",
+      "volume_m3": 1.5933654836355334e-07
+    },
+    {
+      "name": "MedicineItem_plasters_Carton",
+      "assembly": "MedicineItem_plasters",
+      "key": "paper",
+      "volume_m3": 6.0355702268103086e-05
+    },
+    {
+      "name": "MedicineItem_plasters_CartonSeam",
+      "assembly": "MedicineItem_plasters",
+      "key": "paper",
+      "volume_m3": 1.2085966491886052e-06
+    },
+    {
+      "name": "MedicineItem_brown_bottle_Bottle",
+      "assembly": "MedicineItem_brown_bottle",
+      "key": "bottle",
+      "volume_m3": 1.2723253337877321e-05
+    },
+    {
+      "name": "MedicineItem_brown_bottle_Stopper",
+      "assembly": "MedicineItem_brown_bottle",
+      "key": "bakelite",
+      "volume_m3": 2.6606890491956292e-06
+    },
+    {
+      "name": "MedicineItem_turpentine_Bottle",
+      "assembly": "MedicineItem_turpentine",
+      "key": "bottle",
+      "volume_m3": 1.4906788466284634e-05
+    },
+    {
+      "name": "MedicineItem_turpentine_Stopper",
+      "assembly": "MedicineItem_turpentine",
+      "key": "bakelite",
+      "volume_m3": 3.3143511766675186e-06
+    },
+    {
+      "name": "MedicineItem_QUELL_TONIC_Bottle",
+      "assembly": "MedicineItem_QUELL_TONIC",
+      "key": "bottle",
+      "volume_m3": 1.6216234441241094e-05
+    },
+    {
+      "name": "MedicineItem_QUELL_TONIC_Stopper",
+      "assembly": "MedicineItem_QUELL_TONIC",
+      "key": "bakelite",
+      "volume_m3": 3.645787175524011e-06
+    },
+    {
+      "name": "MedicineItem_QUELL_TONIC_PaperSleeve",
+      "assembly": "MedicineItem_QUELL_TONIC",
+      "key": "paper",
+      "volume_m3": 2.456225081818411e-07
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "MedicineLeft",
+      "owner": "wall",
+      "point": [
+        -0.15,
+        1.3,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineLeft",
+      "owner": "wall",
+      "point": [
+        -0.15,
+        1.7,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineLeft",
+      "owner": "wall",
+      "point": [
+        0.15,
+        1.3,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineLeft",
+      "owner": "wall",
+      "point": [
+        0.15,
+        1.7,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineRight",
+      "owner": "wall",
+      "point": [
+        -0.15,
+        1.3,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineRight",
+      "owner": "wall",
+      "point": [
+        -0.15,
+        1.7,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineRight",
+      "owner": "wall",
+      "point": [
+        0.15,
+        1.3,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineRight",
+      "owner": "wall",
+      "point": [
+        0.15,
+        1.7,
+        0.058
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "original cabinet back"
+    },
+    {
+      "assembly": "MedicineItem_aspirin",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.013349999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    },
+    {
+      "assembly": "MedicineItem_cold_cream",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "kept container"
+    },
+    {
+      "assembly": "MedicineItem_thimble_tin",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "kept container"
+    },
+    {
+      "assembly": "MedicineItem_iodine",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.01246
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    },
+    {
+      "assembly": "MedicineItem_razor",
+      "owner": "support",
+      "point": [
+        -0.0144,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "razor handle"
+    },
+    {
+      "assembly": "MedicineItem_razor",
+      "owner": "support",
+      "point": [
+        0.03285,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "razor guard"
+    },
+    {
+      "assembly": "MedicineItem_shaving_stick",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.015130000000000001
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    },
+    {
+      "assembly": "MedicineItem_plasters",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "kept container"
+    },
+    {
+      "assembly": "MedicineItem_brown_bottle",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.015130000000000001
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    },
+    {
+      "assembly": "MedicineItem_turpentine",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.01602
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    },
+    {
+      "assembly": "MedicineItem_QUELL_TONIC",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.01602
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bottle heel"
+    }
+  ],
+  "parts": [
+    {
+      "name": "MedicineLeft__Body_ON_enamel",
+      "assembly": "MedicineLeft",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 2820
+    },
+    {
+      "name": "MedicineLeft__Body_ON_glassish",
+      "assembly": "MedicineLeft",
+      "cell": "shared",
+      "key": "glassish",
+      "triangles": 376
+    },
+    {
+      "name": "MedicineLeft__Body_ON_nickel",
+      "assembly": "MedicineLeft",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 6664
+    },
+    {
+      "name": "MedicineLeft__CabinetDoor_ON_bakelite",
+      "assembly": "MedicineLeft",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 752
+    },
+    {
+      "name": "MedicineLeft__CabinetDoor_ON_enamel",
+      "assembly": "MedicineLeft",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 188
+    },
+    {
+      "name": "MedicineLeft__CabinetDoor_ON_nickel",
+      "assembly": "MedicineLeft",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 5244
+    },
+    {
+      "name": "MedicineLeft__Mirror_ON_mirror",
+      "assembly": "MedicineLeft",
+      "cell": "shared",
+      "key": "mirror",
+      "triangles": 188
+    },
+    {
+      "name": "MedicineRight__Body_ON_enamel",
+      "assembly": "MedicineRight",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 2820
+    },
+    {
+      "name": "MedicineRight__Body_ON_glassish",
+      "assembly": "MedicineRight",
+      "cell": "shared",
+      "key": "glassish",
+      "triangles": 376
+    },
+    {
+      "name": "MedicineRight__Body_ON_nickel",
+      "assembly": "MedicineRight",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 6664
+    },
+    {
+      "name": "MedicineRight__CabinetDoor_ON_bakelite",
+      "assembly": "MedicineRight",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 752
+    },
+    {
+      "name": "MedicineRight__CabinetDoor_ON_enamel",
+      "assembly": "MedicineRight",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 188
+    },
+    {
+      "name": "MedicineRight__CabinetDoor_ON_nickel",
+      "assembly": "MedicineRight",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 5244
+    },
+    {
+      "name": "MedicineRight__Mirror_ON_mirror",
+      "assembly": "MedicineRight",
+      "cell": "shared",
+      "key": "mirror",
+      "triangles": 188
+    },
+    {
+      "name": "MedicineItem_aspirin__Body_ON_bakelite",
+      "assembly": "MedicineItem_aspirin",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 384
+    },
+    {
+      "name": "MedicineItem_aspirin__Body_ON_bottle",
+      "assembly": "MedicineItem_aspirin",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1152
+    },
+    {
+      "name": "MedicineItem_cold_cream__Body_ON_porcelain",
+      "assembly": "MedicineItem_cold_cream",
+      "cell": "shared",
+      "key": "porcelain",
+      "triangles": 960
+    },
+    {
+      "name": "MedicineItem_thimble_tin__Body_ON_nickel",
+      "assembly": "MedicineItem_thimble_tin",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 960
+    },
+    {
+      "name": "MedicineItem_iodine__Body_ON_bakelite",
+      "assembly": "MedicineItem_iodine",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 384
+    },
+    {
+      "name": "MedicineItem_iodine__Body_ON_bottle",
+      "assembly": "MedicineItem_iodine",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1152
+    },
+    {
+      "name": "MedicineItem_razor__Body_ON_bakelite",
+      "assembly": "MedicineItem_razor",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "MedicineItem_razor__Body_ON_nickel",
+      "assembly": "MedicineItem_razor",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 3328
+    },
+    {
+      "name": "MedicineItem_shaving_stick__Body_ON_bakelite",
+      "assembly": "MedicineItem_shaving_stick",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 384
+    },
+    {
+      "name": "MedicineItem_shaving_stick__Body_ON_bottle",
+      "assembly": "MedicineItem_shaving_stick",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1152
+    },
+    {
+      "name": "MedicineItem_shaving_stick__Body_ON_paper",
+      "assembly": "MedicineItem_shaving_stick",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 384
+    },
+    {
+      "name": "MedicineItem_plasters__Body_ON_paper",
+      "assembly": "MedicineItem_plasters",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 376
+    },
+    {
+      "name": "MedicineItem_brown_bottle__Body_ON_bakelite",
+      "assembly": "MedicineItem_brown_bottle",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 384
+    },
+    {
+      "name": "MedicineItem_brown_bottle__Body_ON_bottle",
+      "assembly": "MedicineItem_brown_bottle",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1152
+    },
+    {
+      "name": "MedicineItem_turpentine__Body_ON_bakelite",
+      "assembly": "MedicineItem_turpentine",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 384
+    },
+    {
+      "name": "MedicineItem_turpentine__Body_ON_bottle",
+      "assembly": "MedicineItem_turpentine",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1152
+    },
+    {
+      "name": "MedicineItem_QUELL_TONIC__Body_ON_bakelite",
+      "assembly": "MedicineItem_QUELL_TONIC",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 384
+    },
+    {
+      "name": "MedicineItem_QUELL_TONIC__Body_ON_bottle",
+      "assembly": "MedicineItem_QUELL_TONIC",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1152
+    },
+    {
+      "name": "MedicineItem_QUELL_TONIC__Body_ON_paper",
+      "assembly": "MedicineItem_QUELL_TONIC",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 384
+    }
+  ],
+  "triangles": 48260,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/medicine_cabinets.glb",
+    "floor_y": 0,
+    "assemblies": [
+      {
+        "id": "MedicineLeft",
+        "parts": [
+          {
+            "name": "MedicineLeft__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineLeft__Body_ON_glassish",
+            "component": "Body",
+            "key": "glassish",
+            "tile": 1.6,
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "MedicineLeft__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineLeft__CabinetDoor_ON_bakelite",
+            "component": "CabinetDoor",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineLeft__CabinetDoor_ON_enamel",
+            "component": "CabinetDoor",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineLeft__CabinetDoor_ON_nickel",
+            "component": "CabinetDoor",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineLeft__Mirror_ON_mirror",
+            "component": "Mirror",
+            "key": "mirror",
+            "tile": 0.55,
+            "catalog_key": "mirror_aged",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineRight",
+        "parts": [
+          {
+            "name": "MedicineRight__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineRight__Body_ON_glassish",
+            "component": "Body",
+            "key": "glassish",
+            "tile": 1.6,
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "MedicineRight__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineRight__CabinetDoor_ON_bakelite",
+            "component": "CabinetDoor",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineRight__CabinetDoor_ON_enamel",
+            "component": "CabinetDoor",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineRight__CabinetDoor_ON_nickel",
+            "component": "CabinetDoor",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineRight__Mirror_ON_mirror",
+            "component": "Mirror",
+            "key": "mirror",
+            "tile": 0.55,
+            "catalog_key": "mirror_aged",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineItem_aspirin",
+        "parts": [
+          {
+            "name": "MedicineItem_aspirin__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineItem_aspirin__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.34,
+              0.2,
+              0.095,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineItem_cold_cream",
+        "parts": [
+          {
+            "name": "MedicineItem_cold_cream__Body_ON_porcelain",
+            "component": "Body",
+            "key": "porcelain",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineItem_thimble_tin",
+        "parts": [
+          {
+            "name": "MedicineItem_thimble_tin__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineItem_iodine",
+        "parts": [
+          {
+            "name": "MedicineItem_iodine__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineItem_iodine__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.34,
+              0.2,
+              0.095,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineItem_razor",
+        "parts": [
+          {
+            "name": "MedicineItem_razor__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineItem_razor__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineItem_shaving_stick",
+        "parts": [
+          {
+            "name": "MedicineItem_shaving_stick__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineItem_shaving_stick__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.34,
+              0.2,
+              0.095,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineItem_shaving_stick__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineItem_plasters",
+        "parts": [
+          {
+            "name": "MedicineItem_plasters__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineItem_brown_bottle",
+        "parts": [
+          {
+            "name": "MedicineItem_brown_bottle__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineItem_brown_bottle__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.34,
+              0.2,
+              0.095,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineItem_turpentine",
+        "parts": [
+          {
+            "name": "MedicineItem_turpentine__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineItem_turpentine__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.34,
+              0.2,
+              0.095,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "MedicineItem_QUELL_TONIC",
+        "parts": [
+          {
+            "name": "MedicineItem_QUELL_TONIC__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineItem_QUELL_TONIC__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.24,
+              0.46,
+              0.5,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "MedicineItem_QUELL_TONIC__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      }
+    ],
+    "instances": [
+      {
+        "id": "F02_2A_MIRROR_01",
+        "variant": "MedicineRight"
+      },
+      {
+        "id": "F02_2B_MIRROR_01",
+        "variant": "MedicineRight"
+      },
+      {
+        "id": "F03_3A_MIRROR_01",
+        "variant": "MedicineRight"
+      },
+      {
+        "id": "F03_3B_MIRROR_01",
+        "variant": "MedicineRight"
+      },
+      {
+        "id": "F04_4A_MIRROR_01",
+        "variant": "MedicineRight"
+      },
+      {
+        "id": "F04_4B_MIRROR_01",
+        "variant": "MedicineLeft"
+      },
+      {
+        "id": "F05_5A_MIRROR_01",
+        "variant": "MedicineRight"
+      },
+      {
+        "id": "F05_5B_MIRROR_01",
+        "variant": "MedicineRight"
+      },
+      {
+        "id": "F05_5C_MIRROR_01",
+        "variant": "MedicineLeft"
+      },
+      {
+        "id": "F06_6A_MIRROR_01",
+        "variant": "MedicineRight"
+      },
+      {
+        "id": "F06_6B_MIRROR_01",
+        "variant": "MedicineRight"
+      },
+      {
+        "id": "F06_6C_MIRROR_01",
+        "variant": "MedicineLeft"
+      }
+    ],
+    "tint_space": "linear",
+    "local_materials": {
+      "glassish": {
+        "files": [
+          null,
+          "T_glass_rough.png",
+          "T_glass_normal.png"
+        ],
+        "metallic": 0,
+        "roughness": 0.8,
+        "normal_scale": 0.025,
+        "color": [
+          0.7599999904632568,
+          0.8500000238418579,
+          0.8899999856948853,
+          0.1599999964237213
+        ],
+        "alpha": true
+      }
+    },
+    "optics": {
+      "role": "Glazing",
+      "room_class": "public",
+      "shader": "res://shaders/lamp_glass_surface.gdshader",
+      "surface_roughness": 0.06
+    }
+  },
+  "asset_sha256": "2c3c377d417b508ddf92da8200296a646295befdc5e2cb21afc46107cfd4a87e",
+  "source_bindings": {
+    "art/data/medicine_cabinets/source_plan.json": "eb791cfd48c387b9cb3b11f2df3f150d3c9526ee664ca6047cd7844322cd25ee",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_medicine_cabinets.py": "eeeefaf5c8c99cb30cf38ac3ab3418ff3bc8e152b9f691475f681f31d4d654b6",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "game/data/runtime_material_sets.json": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73",
+    "game/scripts/generated/material_sets.gd": "51b0c6cf899b87bb34cd49191413be9f930b12d0a11db0b009616a0a1c8fee65",
+    "game/assets/props/medicine_cabinets.glb.import": "537d80d39f99973a02f436e34ab9929d0cbafa2ec486ad20ef3d263c54ff7f9f",
+    "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
+    "art/textures/ai_materials/mirror_aged/material.json": "ffc53891c6652bc5e002efcb0ed23ea6b5850bbd1f5fdab498ca78c1981dcc21",
+    "art/textures/ai_materials/milk_glass/material.json": "1657b195f2ab90deb87f28db7efe4efebb5058a176e980028f820fa1dc6f6cac",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
+    "art/textures/ai_materials/porcelain/material.json": "899a0a9636c14284da209f449d586f15bd8766e29436333087603d1a8e52c6d5",
+    "art/tools/build_glass_maps.py": "63e2357d85a1fc7520c3af5592d0d8248b16519e10d1a25b28a43cb1380a7ead",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_albedo.png": "10338ada0e24529e8ba0efa45e87607c1d5a51cdbe74285815a90a518c100e95",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_rough.png": "379412b367ed15d1b1afc467953c9dc0fd56961ee5fe750ff43a09a0a9922e17",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_normal.png": "576f07029fd6bb414d96db93b82f1e88a2fb8fb50bd1c90e33b5da202f6112ef",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_albedo.png": "60478f22e661943bc8db07de88673c03d96f731e52c176020d7a8b7f2eebc1b7",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_rough.png": "9793a1cb92bda6bca7ac64afe57a23ee3d9a791449ac4c28f7d30d5d89559198",
+    "game/assets/building/textures/T_ai_materials_mirror_aged_normal.png": "4a9d2daafb3e65bb6dc3eb146ca0d595023b6929eef5f24fd525730de3bd5d53",
+    "game/assets/building/textures/T_ai_materials_milk_glass_albedo.png": "551d76bb68692ee9e8e635d8503f557ea79e9be0dfb2f128f85c3f40c914abb1",
+    "game/assets/building/textures/T_ai_materials_milk_glass_rough.png": "dd4118b176c3634fe3a4c66f2e124391aecf3cd86ff24dfe5a50a4e8f2a9064d",
+    "game/assets/building/textures/T_ai_materials_milk_glass_normal.png": "0973d35f0aecf67bfd8813c881214f2556ba89b7a0f7af000e0bdc41bc1be286",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
+    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
+    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_library_furniture_porcelain_albedo.png": "e85e5384e87a545a1cf3b368fc466a8611b87932ea7ad2ee7557a4a291263b5c",
+    "game/assets/building/textures/T_library_furniture_porcelain_rough.png": "9c0c46ffaca87f8aa08c408000d2bf16c722e775b030ff0b5832bf434a1f51cc",
+    "game/assets/building/textures/T_library_furniture_porcelain_normal.png": "800359566e5913a649d47b0d243cd872d6810b9c75f7311611965bf422092559",
+    "game/assets/building/textures/T_glass_rough.png": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
+    "game/assets/building/textures/T_glass_normal.png": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
+    "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
+    "art/data/material_catalog.json": "562d8c15879f12404d443d227a2ccda373c68a6af810e63cc214ce23c79ee1e1",
+    "art/textures/catalog_mapping.json": "d4f3e411ac9b1f942bed184b34a4cf19f4418a4220044c86ed917513c2421686",
+    "art/tools/generate_runtime_materials.py": "4156d34f776a3cd57c2dcdc016f0f147a0741530ef20a16d0b610e28dd8198a6",
+    "art/blender/scripts/inspect_medicine_cabinets.py": "ca2895c7295eb8075d4e525db635bb23f692540083bf64188d212076f122debe",
+    "art/blender/scripts/render_medicine_cabinets.py": "e2672c4422c6168500211bb127dc78f3e16033480b20869cd7e6c8485fc4c07a",
+    "art/blender/scripts/medicine_cabinets_geometry.py": "591e5c615c2b1144763f92dba160f6fca0d469817049f7ea0331026dc860d7ba",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707",
+    "game/data/orison_v2/completion_interiors.json": "5fa82dc7867693816be370e8a6cea7a5bc71787cb51bdac1892c637e6746505f",
+    "art/data/orison_v2/completion_interiors_source.json": "5cee5bdc91d9ad58add1379f33e3efe195062af948db8ceadefa9ccf316ed719",
+    "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
+    "art/blender/scripts/inspect_household_toaster_motion.py": "9019c8b4a08f01cd6e80f582ad5d76813eb11452db98a74c1a9782ad25553bb8",
+    "art/blender/scripts/render_medicine_cabinet_interiors.py": "1a5f7d76c7bb7a660fa5a74aaf589ea3a560d805e5221f94588d7e0b1af43e2a",
+    "art/blender/scripts/inspect_medicine_cabinet_motion.py": "43161df45bf2ed3b3dec753c00ba592bc523b281d997837135dfd9f5d02b90cc",
+    "art/blender/scripts/inspect_medicine_cabinets_context.py": "6b426ed36fa3d7e5d275f2ad81164e01e5ee0b3f0910fc22bd70fcf0f11f7295",
+    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
+    "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e",
+    "game/tests/fixtures/orison_surface_stock.json": "c6745b20915158a8e1a82d510f187f1977b3889892b8bcbf1adbafecc07e4bd9",
+    "art/blender/domestic_storage.blend": "2ecf3c03e229cb313a07fd549e6d21f9421a7305c6b349f2c68d2387cfc07684",
+    "art/blender/prep_cabinets.blend": "6c3cfa636a09f138a4b5f1939939149ee2ac98dc7eea068d8bd118b97e4062b3",
+    "art/blender/household_wardrobes.blend": "ed34e76d54efba76a5e2ef7e862d2b432c199ae8856b29f63793b69a04e77ad7",
+    "art/blender/domestic_objects.blend": "99a7d3e1f3f6ecb06d740608bb6ec5556a540ab8653b925b19041fe3ba9d2fe0",
+    "game/scripts/props/medicine_cabinet_prop.gd": "25953c2d2d4a01f9492169e6fef7097f0215ce635304e83fe651fcc60ad61b1f",
+    "game/scripts/props/functional_prop.gd": "f33126057cad4c7fc00cf132ba523d9e4fa915b6922aa9470ed10be47b2806ee",
+    "game/data/orison_v2/household_accessories.json": "cb5a8580d11fedac2fe7a0b1ae6dfaa82421803b9b7d3c2abc666e81c0ff1a32",
+    "art/blender/scripts/surface_stock_geometry.py": "aa8245d785858c296761d420ec6302e18da3646d386c0b37c4d164c94c8beb12",
+    "art/blender/domestic_seating.blend": "b38976cbf3603ee75878320139027f17d6d732b6c27111d99c83719243b46efe",
+    "art/blender/domestic_tables.blend": "c408c7b2e9d545f519e0b269ca8691ced4bec2373d98d831228653f7e476b3ea"
+  },
+  "retained_stock": [
+    {
+      "assembly": "MedicineLeft",
+      "hinge_side": "left",
+      "hinge_pivot_godot": [
+        0.23,
+        1.505,
+        -0.06
+      ],
+      "angle_degrees": 95,
+      "mirror_center_godot": [
+        0,
+        1.505,
+        -0.07
+      ],
+      "mirror_size": [
+        0.42,
+        0.57
+      ],
+      "shelf_top_y": [
+        1.404,
+        1.594
+      ]
+    },
+    {
+      "assembly": "MedicineRight",
+      "hinge_side": "right",
+      "hinge_pivot_godot": [
+        -0.23,
+        1.505,
+        -0.06
+      ],
+      "angle_degrees": 95,
+      "mirror_center_godot": [
+        0,
+        1.505,
+        -0.07
+      ],
+      "mirror_size": [
+        0.42,
+        0.57
+      ],
+      "shelf_top_y": [
+        1.404,
+        1.594
+      ]
+    },
+    {
+      "assembly": "MedicineItem_aspirin",
+      "source_name": "aspirin",
+      "source_width": 0.03,
+      "source_height": 0.05,
+      "source_colour": [
+        0.86,
+        0.84,
+        0.78
+      ],
+      "native_bottom": 0
+    },
+    {
+      "assembly": "MedicineItem_cold_cream",
+      "source_name": "cold cream",
+      "source_width": 0.048,
+      "source_height": 0.04,
+      "source_colour": [
+        0.9,
+        0.88,
+        0.8
+      ],
+      "native_bottom": 0
+    },
+    {
+      "assembly": "MedicineItem_thimble_tin",
+      "source_name": "thimble tin",
+      "source_width": 0.042,
+      "source_height": 0.03,
+      "source_colour": [
+        0.62,
+        0.56,
+        0.34
+      ],
+      "native_bottom": 0
+    },
+    {
+      "assembly": "MedicineItem_iodine",
+      "source_name": "iodine",
+      "source_width": 0.028,
+      "source_height": 0.07,
+      "source_colour": [
+        0.38,
+        0.18,
+        0.1
+      ],
+      "native_bottom": 0
+    },
+    {
+      "assembly": "MedicineItem_razor",
+      "source_name": "razor",
+      "source_width": 0.09,
+      "source_height": 0.02,
+      "source_colour": [
+        0.72,
+        0.74,
+        0.76
+      ],
+      "native_bottom": 0
+    },
+    {
+      "assembly": "MedicineItem_shaving_stick",
+      "source_name": "shaving stick",
+      "source_width": 0.034,
+      "source_height": 0.08,
+      "source_colour": [
+        0.88,
+        0.86,
+        0.78
+      ],
+      "native_bottom": 0
+    },
+    {
+      "assembly": "MedicineItem_plasters",
+      "source_name": "plasters",
+      "source_width": 0.055,
+      "source_height": 0.03,
+      "source_colour": [
+        0.8,
+        0.72,
+        0.56
+      ],
+      "native_bottom": 0
+    },
+    {
+      "assembly": "MedicineItem_brown_bottle",
+      "source_name": "brown bottle",
+      "source_width": 0.034,
+      "source_height": 0.09,
+      "source_colour": [
+        0.35,
+        0.22,
+        0.12
+      ],
+      "native_bottom": 0
+    },
+    {
+      "assembly": "MedicineItem_turpentine",
+      "source_name": "turpentine",
+      "source_width": 0.036,
+      "source_height": 0.1,
+      "source_colour": [
+        0.62,
+        0.58,
+        0.34
+      ],
+      "native_bottom": 0
+    },
+    {
+      "assembly": "MedicineItem_QUELL_TONIC",
+      "source_name": "QUELL TONIC",
+      "source_width": 0.036,
+      "source_height": 0.11,
+      "source_colour": [
+        0.24,
+        0.46,
+        0.5
+      ],
+      "native_bottom": 0
+    }
+  ],
+  "construction_groups": [
+    {
+      "assembly": "MedicineLeft",
+      "id": "MedicineLeft_FittedCabinet",
+      "stocks": [
+        "MedicineLeft_FoldedBack",
+        "MedicineLeft_FoldedSide-0.23",
+        "MedicineLeft_FoldedSide0.2288",
+        "MedicineLeft_FoldedEnd1.2",
+        "MedicineLeft_FoldedEnd1.8088",
+        "MedicineLeft_SideFlange-1",
+        "MedicineLeft_SideReturn-1",
+        "MedicineLeft_SideFlange1",
+        "MedicineLeft_SideReturn1",
+        "MedicineLeft_EndFlange1.188",
+        "MedicineLeft_EndReturn1.188",
+        "MedicineLeft_EndFlange1.822",
+        "MedicineLeft_EndReturn1.822",
+        "MedicineLeft_ScrewSeat(-0.242, 1.188)",
+        "MedicineLeft_SlottedHead(-0.242, 1.188, -1)",
+        "MedicineLeft_SlottedHead(-0.242, 1.188, 1)",
+        "MedicineLeft_ScrewSeat(-0.242, 1.822)",
+        "MedicineLeft_SlottedHead(-0.242, 1.822, -1)",
+        "MedicineLeft_SlottedHead(-0.242, 1.822, 1)",
+        "MedicineLeft_ScrewSeat(0.242, 1.188)",
+        "MedicineLeft_SlottedHead(0.242, 1.188, -1)",
+        "MedicineLeft_SlottedHead(0.242, 1.188, 1)",
+        "MedicineLeft_ScrewSeat(0.242, 1.822)",
+        "MedicineLeft_SlottedHead(0.242, 1.822, -1)",
+        "MedicineLeft_SlottedHead(0.242, 1.822, 1)",
+        "MedicineLeft_GlassShelf1.4",
+        "MedicineLeft_ShelfLip1.4",
+        "MedicineLeft_ShelfClip(1.4, -1, -0.036)",
+        "MedicineLeft_ShelfClip(1.4, -1, 0.02)",
+        "MedicineLeft_ShelfClip(1.4, 1, -0.036)",
+        "MedicineLeft_ShelfClip(1.4, 1, 0.02)",
+        "MedicineLeft_GlassShelf1.59",
+        "MedicineLeft_ShelfLip1.59",
+        "MedicineLeft_ShelfClip(1.59, -1, -0.036)",
+        "MedicineLeft_ShelfClip(1.59, -1, 0.02)",
+        "MedicineLeft_ShelfClip(1.59, 1, -0.036)",
+        "MedicineLeft_ShelfClip(1.59, 1, 0.02)",
+        "MedicineLeft_FixedHingeLeaf1.3219999999999998",
+        "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.287)",
+        "MedicineLeft_FixedKnuckle(1.3219999999999998, 1.287)",
+        "MedicineLeft_FixedHingeTab(1.3219999999999998, 1.3429999999999997)",
+        "MedicineLeft_FixedKnuckle(1.3219999999999998, 1.3429999999999997)",
+        "MedicineLeft_HingePin1.3219999999999998",
+        "MedicineLeft_FixedHingeLeaf1.688",
+        "MedicineLeft_FixedHingeTab(1.688, 1.653)",
+        "MedicineLeft_FixedKnuckle(1.688, 1.653)",
+        "MedicineLeft_FixedHingeTab(1.688, 1.7089999999999999)",
+        "MedicineLeft_FixedKnuckle(1.688, 1.7089999999999999)",
+        "MedicineLeft_HingePin1.688",
+        "MedicineLeft_LeafBacking",
+        "MedicineLeft_FrameStile(-0.23, 0)",
+        "MedicineLeft_FrameBead(-0.23, 0)",
+        "MedicineLeft_FrameStile(0.206, 0)",
+        "MedicineLeft_FrameBead(0.206, 0)",
+        "MedicineLeft_FrameStile(0.206, 1)",
+        "MedicineLeft_FrameBead(0.206, 1)",
+        "MedicineLeft_FrameStile(0.206, 2)",
+        "MedicineLeft_FrameBead(0.206, 2)",
+        "MedicineLeft_FrameStile(0.206, 3)",
+        "MedicineLeft_FrameBead(0.206, 3)",
+        "MedicineLeft_FrameStile(0.206, 4)",
+        "MedicineLeft_FrameBead(0.206, 4)",
+        "MedicineLeft_FrameRail1.2",
+        "MedicineLeft_FrameRail1.786",
+        "MedicineLeft_MirrorBed(-0.196, 1.2399999999999998)",
+        "MedicineLeft_MirrorBed(-0.196, 1.77)",
+        "MedicineLeft_MirrorBed(0.196, 1.2399999999999998)",
+        "MedicineLeft_MirrorBed(0.196, 1.77)",
+        "MedicineLeft_MirrorGlass",
+        "MedicineLeft_MovingHingeLeaf1.3219999999999998",
+        "MedicineLeft_MovingKnuckle1.3219999999999998",
+        "MedicineLeft_MovingHingeLeaf1.688",
+        "MedicineLeft_MovingKnuckle1.688",
+        "MedicineLeft_Pull",
+        "MedicineLeft_FrictionCatch"
+      ]
+    },
+    {
+      "assembly": "MedicineRight",
+      "id": "MedicineRight_FittedCabinet",
+      "stocks": [
+        "MedicineRight_FoldedBack",
+        "MedicineRight_FoldedSide-0.23",
+        "MedicineRight_FoldedSide0.2288",
+        "MedicineRight_FoldedEnd1.2",
+        "MedicineRight_FoldedEnd1.8088",
+        "MedicineRight_SideFlange-1",
+        "MedicineRight_SideReturn-1",
+        "MedicineRight_SideFlange1",
+        "MedicineRight_SideReturn1",
+        "MedicineRight_EndFlange1.188",
+        "MedicineRight_EndReturn1.188",
+        "MedicineRight_EndFlange1.822",
+        "MedicineRight_EndReturn1.822",
+        "MedicineRight_ScrewSeat(-0.242, 1.188)",
+        "MedicineRight_SlottedHead(-0.242, 1.188, -1)",
+        "MedicineRight_SlottedHead(-0.242, 1.188, 1)",
+        "MedicineRight_ScrewSeat(-0.242, 1.822)",
+        "MedicineRight_SlottedHead(-0.242, 1.822, -1)",
+        "MedicineRight_SlottedHead(-0.242, 1.822, 1)",
+        "MedicineRight_ScrewSeat(0.242, 1.188)",
+        "MedicineRight_SlottedHead(0.242, 1.188, -1)",
+        "MedicineRight_SlottedHead(0.242, 1.188, 1)",
+        "MedicineRight_ScrewSeat(0.242, 1.822)",
+        "MedicineRight_SlottedHead(0.242, 1.822, -1)",
+        "MedicineRight_SlottedHead(0.242, 1.822, 1)",
+        "MedicineRight_GlassShelf1.4",
+        "MedicineRight_ShelfLip1.4",
+        "MedicineRight_ShelfClip(1.4, -1, -0.036)",
+        "MedicineRight_ShelfClip(1.4, -1, 0.02)",
+        "MedicineRight_ShelfClip(1.4, 1, -0.036)",
+        "MedicineRight_ShelfClip(1.4, 1, 0.02)",
+        "MedicineRight_GlassShelf1.59",
+        "MedicineRight_ShelfLip1.59",
+        "MedicineRight_ShelfClip(1.59, -1, -0.036)",
+        "MedicineRight_ShelfClip(1.59, -1, 0.02)",
+        "MedicineRight_ShelfClip(1.59, 1, -0.036)",
+        "MedicineRight_ShelfClip(1.59, 1, 0.02)",
+        "MedicineRight_FixedHingeLeaf1.3219999999999998",
+        "MedicineRight_FixedHingeTab(1.3219999999999998, 1.287)",
+        "MedicineRight_FixedKnuckle(1.3219999999999998, 1.287)",
+        "MedicineRight_FixedHingeTab(1.3219999999999998, 1.3429999999999997)",
+        "MedicineRight_FixedKnuckle(1.3219999999999998, 1.3429999999999997)",
+        "MedicineRight_HingePin1.3219999999999998",
+        "MedicineRight_FixedHingeLeaf1.688",
+        "MedicineRight_FixedHingeTab(1.688, 1.653)",
+        "MedicineRight_FixedKnuckle(1.688, 1.653)",
+        "MedicineRight_FixedHingeTab(1.688, 1.7089999999999999)",
+        "MedicineRight_FixedKnuckle(1.688, 1.7089999999999999)",
+        "MedicineRight_HingePin1.688",
+        "MedicineRight_LeafBacking",
+        "MedicineRight_FrameStile(-0.23, 0)",
+        "MedicineRight_FrameBead(-0.23, 0)",
+        "MedicineRight_FrameStile(-0.23, 1)",
+        "MedicineRight_FrameBead(-0.23, 1)",
+        "MedicineRight_FrameStile(-0.23, 2)",
+        "MedicineRight_FrameBead(-0.23, 2)",
+        "MedicineRight_FrameStile(-0.23, 3)",
+        "MedicineRight_FrameBead(-0.23, 3)",
+        "MedicineRight_FrameStile(-0.23, 4)",
+        "MedicineRight_FrameBead(-0.23, 4)",
+        "MedicineRight_FrameStile(0.206, 0)",
+        "MedicineRight_FrameBead(0.206, 0)",
+        "MedicineRight_FrameRail1.2",
+        "MedicineRight_FrameRail1.786",
+        "MedicineRight_MirrorBed(-0.196, 1.2399999999999998)",
+        "MedicineRight_MirrorBed(-0.196, 1.77)",
+        "MedicineRight_MirrorBed(0.196, 1.2399999999999998)",
+        "MedicineRight_MirrorBed(0.196, 1.77)",
+        "MedicineRight_MirrorGlass",
+        "MedicineRight_MovingHingeLeaf1.3219999999999998",
+        "MedicineRight_MovingKnuckle1.3219999999999998",
+        "MedicineRight_MovingHingeLeaf1.688",
+        "MedicineRight_MovingKnuckle1.688",
+        "MedicineRight_Pull",
+        "MedicineRight_FrictionCatch"
+      ]
+    },
+    {
+      "assembly": "MedicineItem_aspirin",
+      "id": "MedicineItem_aspirin_KeptItem",
+      "stocks": [
+        "MedicineItem_aspirin_Bottle",
+        "MedicineItem_aspirin_Stopper"
+      ]
+    },
+    {
+      "assembly": "MedicineItem_cold_cream",
+      "id": "MedicineItem_cold_cream_KeptItem",
+      "stocks": [
+        "MedicineItem_cold_cream_Container",
+        "MedicineItem_cold_cream_Lid"
+      ]
+    },
+    {
+      "assembly": "MedicineItem_thimble_tin",
+      "id": "MedicineItem_thimble_tin_KeptItem",
+      "stocks": [
+        "MedicineItem_thimble_tin_Container",
+        "MedicineItem_thimble_tin_Lid"
+      ]
+    },
+    {
+      "assembly": "MedicineItem_iodine",
+      "id": "MedicineItem_iodine_KeptItem",
+      "stocks": [
+        "MedicineItem_iodine_Bottle",
+        "MedicineItem_iodine_Stopper"
+      ]
+    },
+    {
+      "assembly": "MedicineItem_razor",
+      "id": "MedicineItem_razor_KeptItem",
+      "stocks": [
+        "MedicineItem_razor_Handle",
+        "MedicineItem_razor_Neck",
+        "MedicineItem_razor_GuardPlate",
+        "MedicineItem_razor_CamberedCap",
+        "MedicineItem_razor_HeadPost-0.0225",
+        "MedicineItem_razor_HeadPost0.0225",
+        "MedicineItem_razor_GuardTooth0",
+        "MedicineItem_razor_GuardTooth1",
+        "MedicineItem_razor_GuardTooth2",
+        "MedicineItem_razor_GuardTooth3",
+        "MedicineItem_razor_GuardTooth4",
+        "MedicineItem_razor_GuardTooth5",
+        "MedicineItem_razor_GuardTooth6",
+        "MedicineItem_razor_GuardTooth7",
+        "MedicineItem_razor_GuardTooth8",
+        "MedicineItem_razor_GuardTooth9",
+        "MedicineItem_razor_GuardTooth10",
+        "MedicineItem_razor_GuardTooth11",
+        "MedicineItem_razor_GuardTooth12"
+      ]
+    },
+    {
+      "assembly": "MedicineItem_shaving_stick",
+      "id": "MedicineItem_shaving_stick_KeptItem",
+      "stocks": [
+        "MedicineItem_shaving_stick_Bottle",
+        "MedicineItem_shaving_stick_Stopper",
+        "MedicineItem_shaving_stick_PaperSleeve"
+      ]
+    },
+    {
+      "assembly": "MedicineItem_plasters",
+      "id": "MedicineItem_plasters_KeptItem",
+      "stocks": [
+        "MedicineItem_plasters_Carton",
+        "MedicineItem_plasters_CartonSeam"
+      ]
+    },
+    {
+      "assembly": "MedicineItem_brown_bottle",
+      "id": "MedicineItem_brown_bottle_KeptItem",
+      "stocks": [
+        "MedicineItem_brown_bottle_Bottle",
+        "MedicineItem_brown_bottle_Stopper"
+      ]
+    },
+    {
+      "assembly": "MedicineItem_turpentine",
+      "id": "MedicineItem_turpentine_KeptItem",
+      "stocks": [
+        "MedicineItem_turpentine_Bottle",
+        "MedicineItem_turpentine_Stopper"
+      ]
+    },
+    {
+      "assembly": "MedicineItem_QUELL_TONIC",
+      "id": "MedicineItem_QUELL_TONIC_KeptItem",
+      "stocks": [
+        "MedicineItem_QUELL_TONIC_Bottle",
+        "MedicineItem_QUELL_TONIC_Stopper",
+        "MedicineItem_QUELL_TONIC_PaperSleeve"
+      ]
+    }
+  ],
+  "placement": {
+    "floor_y": 0,
+    "frame": "Original sink-owned accessory poses and mirror hinge. Cabinet stock remains at original local Y 1.505m; kept item prototypes seat on original shelf heights."
+  },
+  "open_work": [
+    "Native geometry and integration in progress; no acceptance claimed."
+  ]
+}

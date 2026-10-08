@@ -1,0 +1,30 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_medicine_cabinets.py",
+      "elapsed_s": 2.253
+    },
+    {
+      "script": "art/blender/scripts/inspect_medicine_cabinets.py",
+      "elapsed_s": 1.302
+    },
+    {
+      "script": "art/blender/scripts/inspect_medicine_cabinet_motion.py",
+      "elapsed_s": 11.614
+    },
+    {
+      "script": "art/blender/scripts/inspect_medicine_cabinets_context.py",
+      "elapsed_s": 2.245
+    },
+    {
+      "script": "art/blender/scripts/render_medicine_cabinets.py",
+      "elapsed_s": 53.525
+    },
+    {
+      "script": "art/blender/scripts/render_medicine_cabinet_interiors.py",
+      "elapsed_s": 63.869
+    }
+  ]
+}

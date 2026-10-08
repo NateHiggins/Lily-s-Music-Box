@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Only CRLF to LF normalization after runtime; program text unchanged",
+  "files": [
+    {
+      "file": "game/scripts/building/orison_v2_household_accessories.gd",
+      "normalized_sha256": "01c49b58d06a63930ab48469539a979338b4ada7ff67096069ef1c8d988c75f8"
+    },
+    {
+      "file": "game/scripts/building/orison_v2_medicine_cabinet.gd",
+      "normalized_sha256": "d2b1be1f9b8c34c3c04ca24cf56821e242e1927339c8510222877f6f51680e11"
+    },
+    {
+      "file": "game/scripts/building/orison_v2_toaster.gd",
+      "normalized_sha256": "0f7205a2e84def76094680bbcc9450e198707db2ec25771d783ddb7092ad8a3d"
+    }
+  ]
+}

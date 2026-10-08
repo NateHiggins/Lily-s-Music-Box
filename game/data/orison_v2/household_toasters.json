@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/household_toasters.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "ToasterFront",
+      "parts": [
+        {
+          "name": "ToasterFront__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterFront__Body_ON_braid",
+          "component": "Body",
+          "key": "braid",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.32,
+            0.17,
+            0.08,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "ToasterFront__Body_ON_mica",
+          "component": "Body",
+          "key": "mica",
+          "tile": 0.18,
+          "catalog_key": "mica_heater",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "ToasterFront__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterFront__BreadCarrier_ON_nickel",
+          "component": "BreadCarrier",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterFront__CarriageLever_ON_bakelite",
+          "component": "CarriageLever",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterFront__CarriageLever_ON_nickel",
+          "component": "CarriageLever",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterFront__OrisonRetrofitCrumbTray_ON_bakelite",
+          "component": "OrisonRetrofitCrumbTray",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterFront__OrisonRetrofitCrumbTray_ON_grease",
+          "component": "OrisonRetrofitCrumbTray",
+          "key": "grease",
+          "tile": 0.7,
+          "catalog_key": "fx_grease",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "ToasterFront__OrisonRetrofitCrumbTray_ON_nickel",
+          "component": "OrisonRetrofitCrumbTray",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterFront__ResistanceWire_ON_coil",
+          "component": "ResistanceWire",
+          "key": "coil",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.1,
+            0.03,
+            0.01,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "ToasterEnd",
+      "parts": [
+        {
+          "name": "ToasterEnd__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterEnd__Body_ON_braid",
+          "component": "Body",
+          "key": "braid",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.32,
+            0.17,
+            0.08,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "ToasterEnd__Body_ON_mica",
+          "component": "Body",
+          "key": "mica",
+          "tile": 0.18,
+          "catalog_key": "mica_heater",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "ToasterEnd__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterEnd__BreadCarrier_ON_nickel",
+          "component": "BreadCarrier",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterEnd__CarriageLever_ON_bakelite",
+          "component": "CarriageLever",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterEnd__CarriageLever_ON_nickel",
+          "component": "CarriageLever",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterEnd__OrisonRetrofitCrumbTray_ON_bakelite",
+          "component": "OrisonRetrofitCrumbTray",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterEnd__OrisonRetrofitCrumbTray_ON_grease",
+          "component": "OrisonRetrofitCrumbTray",
+          "key": "grease",
+          "tile": 0.7,
+          "catalog_key": "fx_grease",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "ToasterEnd__OrisonRetrofitCrumbTray_ON_nickel",
+          "component": "OrisonRetrofitCrumbTray",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "ToasterEnd__ResistanceWire_ON_coil",
+          "component": "ResistanceWire",
+          "key": "coil",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.1,
+            0.03,
+            0.01,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "ToasterCrumb",
+      "parts": [
+        {
+          "name": "ToasterCrumb__Body_ON_crumb",
+          "component": "Body",
+          "key": "crumb",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.3,
+            0.13,
+            0.035,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "F02_2A_TOASTER_01",
+      "variant": "ToasterFront"
+    },
+    {
+      "id": "F02_2B_TOASTER_01",
+      "variant": "ToasterFront"
+    },
+    {
+      "id": "F03_3A_TOASTER_01",
+      "variant": "ToasterFront"
+    },
+    {
+      "id": "F03_3B_TOASTER_01",
+      "variant": "ToasterFront"
+    },
+    {
+      "id": "F04_4A_TOASTER_01",
+      "variant": "ToasterFront"
+    },
+    {
+      "id": "F04_B_TOASTER_01",
+      "variant": "ToasterEnd"
+    },
+    {
+      "id": "F05_5A_TOASTER_01",
+      "variant": "ToasterFront"
+    },
+    {
+      "id": "F06_6A_TOASTER_01",
+      "variant": "ToasterFront"
+    },
+    {
+      "id": "F06_6B_TOASTER_01",
+      "variant": "ToasterFront"
+    },
+    {
+      "id": "F06_6C_TOASTER_01",
+      "variant": "ToasterFront"
+    }
+  ],
+  "tint_space": "linear"
+}

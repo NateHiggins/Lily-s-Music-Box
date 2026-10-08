@@ -1,0 +1,666 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/medicine_cabinets.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "MedicineLeft",
+      "parts": [
+        {
+          "name": "MedicineLeft__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineLeft__Body_ON_glassish",
+          "component": "Body",
+          "key": "glassish",
+          "tile": 1.6,
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "MedicineLeft__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineLeft__CabinetDoor_ON_bakelite",
+          "component": "CabinetDoor",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineLeft__CabinetDoor_ON_enamel",
+          "component": "CabinetDoor",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineLeft__CabinetDoor_ON_nickel",
+          "component": "CabinetDoor",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineLeft__Mirror_ON_mirror",
+          "component": "Mirror",
+          "key": "mirror",
+          "tile": 0.55,
+          "catalog_key": "mirror_aged",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "MedicineRight",
+      "parts": [
+        {
+          "name": "MedicineRight__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineRight__Body_ON_glassish",
+          "component": "Body",
+          "key": "glassish",
+          "tile": 1.6,
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "MedicineRight__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineRight__CabinetDoor_ON_bakelite",
+          "component": "CabinetDoor",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineRight__CabinetDoor_ON_enamel",
+          "component": "CabinetDoor",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineRight__CabinetDoor_ON_nickel",
+          "component": "CabinetDoor",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineRight__Mirror_ON_mirror",
+          "component": "Mirror",
+          "key": "mirror",
+          "tile": 0.55,
+          "catalog_key": "mirror_aged",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "MedicineItem_aspirin",
+      "parts": [
+        {
+          "name": "MedicineItem_aspirin__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineItem_aspirin__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.34,
+            0.2,
+            0.095,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "MedicineItem_cold_cream",
+      "parts": [
+        {
+          "name": "MedicineItem_cold_cream__Body_ON_porcelain",
+          "component": "Body",
+          "key": "porcelain",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "MedicineItem_thimble_tin",
+      "parts": [
+        {
+          "name": "MedicineItem_thimble_tin__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "MedicineItem_iodine",
+      "parts": [
+        {
+          "name": "MedicineItem_iodine__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineItem_iodine__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.34,
+            0.2,
+            0.095,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "MedicineItem_razor",
+      "parts": [
+        {
+          "name": "MedicineItem_razor__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineItem_razor__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "MedicineItem_shaving_stick",
+      "parts": [
+        {
+          "name": "MedicineItem_shaving_stick__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineItem_shaving_stick__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.34,
+            0.2,
+            0.095,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineItem_shaving_stick__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "MedicineItem_plasters",
+      "parts": [
+        {
+          "name": "MedicineItem_plasters__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "MedicineItem_brown_bottle",
+      "parts": [
+        {
+          "name": "MedicineItem_brown_bottle__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineItem_brown_bottle__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.34,
+            0.2,
+            0.095,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "MedicineItem_turpentine",
+      "parts": [
+        {
+          "name": "MedicineItem_turpentine__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineItem_turpentine__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.34,
+            0.2,
+            0.095,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "MedicineItem_QUELL_TONIC",
+      "parts": [
+        {
+          "name": "MedicineItem_QUELL_TONIC__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineItem_QUELL_TONIC__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.24,
+            0.46,
+            0.5,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        },
+        {
+          "name": "MedicineItem_QUELL_TONIC__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "F02_2A_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F02_2B_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F03_3A_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F03_3B_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F04_4A_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F04_4B_MIRROR_01",
+      "variant": "MedicineLeft"
+    },
+    {
+      "id": "F05_5A_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F05_5B_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F05_5C_MIRROR_01",
+      "variant": "MedicineLeft"
+    },
+    {
+      "id": "F06_6A_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F06_6B_MIRROR_01",
+      "variant": "MedicineRight"
+    },
+    {
+      "id": "F06_6C_MIRROR_01",
+      "variant": "MedicineLeft"
+    }
+  ],
+  "tint_space": "linear",
+  "local_materials": {
+    "glassish": {
+      "files": [
+        null,
+        "T_glass_rough.png",
+        "T_glass_normal.png"
+      ],
+      "metallic": 0,
+      "roughness": 0.8,
+      "normal_scale": 0.025,
+      "color": [
+        0.7599999904632568,
+        0.8500000238418579,
+        0.8899999856948853,
+        0.1599999964237213
+      ],
+      "alpha": true
+    }
+  },
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06
+  }
+}

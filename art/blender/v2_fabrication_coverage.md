@@ -132,6 +132,8 @@ has yet been demonstrated; none is silently marked complete.
 
 The four original Harukiya ceiling pipes now have fitted split collars, bolted joints and ceiling bearings; see **bar_pipe_supports.md**. Their endpoints and utility function remain source-owned and open to service review.
 
+Ten toasters and twelve medicine cabinets now use native stock, retaining original mechanisms and 28 household kept items; see **household_accessories.md**. Broad nickel, bottle finish and room lighting acceptance remain open.
+
 ## Materials and mapping
 
 Production V2 architecture uses **orison_v2_architectural_materials.gd**:
