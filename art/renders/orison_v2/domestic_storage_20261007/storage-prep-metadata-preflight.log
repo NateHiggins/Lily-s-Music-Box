@@ -1,0 +1,99 @@
+FABRICATION STAGE: art/blender/scripts/build_domestic_storage.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_storage.py:76: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_storage.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+19:49:39 | INFO: Starting glTF 2.0 export
+19:49:39 | INFO: Extracting primitive: Counter03__countertop
+19:49:39 | INFO: Primitives created: 1
+19:49:39 | INFO: Extracting primitive: Counter03__wood_dark
+19:49:39 | INFO: Primitives created: 1
+19:49:39 | INFO: Extracting primitive: Counter05__metal
+19:49:39 | INFO: Primitives created: 1
+19:49:39 | INFO: Extracting primitive: Cupboard06__soot
+19:49:39 | INFO: Primitives created: 1
+19:49:39 | INFO: Extracting primitive: Cupboard06__trim
+19:49:39 | INFO: Primitives created: 1
+19:49:39 | INFO: Extracting primitive: Cupboard08__soot
+19:49:39 | INFO: Primitives created: 1
+19:49:39 | INFO: Extracting primitive: Cupboard08__trim
+19:49:39 | INFO: Primitives created: 1
+19:49:39 | INFO: Extracting primitive: Shelf01__floor_oak
+19:49:39 | INFO: Primitives created: 1
+19:49:39 | INFO: Extracting primitive: Shelf01__metal
+19:49:39 | INFO: Primitives created: 1
+19:49:39 | INFO: Extracting primitive: Shelf01__trim
+19:49:39 | INFO: Primitives created: 1
+19:49:39 | INFO: Extracting primitive: Shelf02__book_brown
+19:49:39 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf02__book_burgundy
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf02__book_green
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf02__book_navy
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf02__book_ochre
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf02__book_teal
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf02__floor_oak
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf02__metal
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf02__paper
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf04__floor_oak
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf04__metal
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf04__trim
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf07__floor_oak
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf07__metal
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Extracting primitive: Shelf07__trim
+19:49:40 | INFO: Primitives created: 1
+19:49:40 | INFO: Finished glTF 2.0 export in 0.20004630088806152 s
+
+SURFACE STOCK 7 original records; 8 assemblies; 421 closed stocks; 25 parts; 79344 triangles; 32 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_storage.py
+00:06.281  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_storage.blend"
+DOMESTIC STORAGE LOCAL: 421 closed stocks; 8 physical groups; 32 local bearings; 25 mapped parts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_storage_context.py
+STORAGE CONTEXT: 43 installations; 172 floor bearings; 1 nearby pairs clear
+FABRICATION STAGE: art/blender/scripts/build_prep_cabinets.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_prep_cabinets.py:76: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "prep_cabinets.blend"
+19:49:44 | INFO: Starting glTF 2.0 export
+19:49:44 | INFO: Extracting primitive: PrepCabinet__Body_ON_brass
+19:49:44 | INFO: Primitives created: 1
+19:49:44 | INFO: Extracting primitive: PrepCabinet__Body_ON_countertop
+19:49:44 | INFO: Primitives created: 1
+19:49:44 | INFO: Extracting primitive: PrepCabinet__Body_ON_metal
+19:49:44 | INFO: Primitives created: 1
+19:49:44 | INFO: Extracting primitive: PrepCabinet__Body_ON_plywood
+19:49:44 | INFO: Primitives created: 1
+19:49:44 | INFO: Extracting primitive: PrepCabinet__Body_ON_trim
+19:49:44 | INFO: Primitives created: 1
+19:49:44 | INFO: Extracting primitive: PrepCabinet__Body_ON_wood_dark
+19:49:44 | INFO: Primitives created: 1
+19:49:44 | INFO: Extracting primitive: PrepCabinet__SlidingPanel_ON_brass
+19:49:44 | INFO: Primitives created: 1
+19:49:44 | INFO: Extracting primitive: PrepCabinet__SlidingPanel_ON_trim
+19:49:44 | INFO: Primitives created: 1
+19:49:44 | INFO: Finished glTF 2.0 export in 0.02152252197265625 s
+
+SURFACE STOCK 0 original records; 1 assemblies; 38 closed stocks; 8 parts; 7096 triangles; 4 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_prep_cabinets.py
+00:10.375  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\prep_cabinets.blend"
+PREP CABINETS LOCAL: 38 closed stocks; 1 physical groups; 4 local bearings; 8 mapped parts
+PREP SLIDE: 8 moving stocks clear 30 fixed stocks throughout 382mm travel
+FABRICATION STAGE: art/blender/scripts/inspect_prep_cabinets_context.py
+STORAGE CONTEXT: 12 installations; 48 floor bearings; 0 nearby pairs clear
+{"completed_stages": 6, "elapsed_s": 10.459}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_prep_cabinets.py",
+      "elapsed_s": 1.135
+    },
+    {
+      "script": "art/blender/scripts/inspect_prep_cabinets.py",
+      "elapsed_s": 0.494
+    },
+    {
+      "script": "art/blender/scripts/inspect_prep_cabinets_context.py",
+      "elapsed_s": 0.982
+    },
+    {
+      "script": "art/blender/scripts/render_prep_cabinets.py",
+      "elapsed_s": 8.556
+    }
+  ]
+}

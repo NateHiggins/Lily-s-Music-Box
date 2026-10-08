@@ -224,3 +224,17 @@ For curved UV charts, native preflight must cover the engine absolute edge-lengt
 budget as well as relative metric/tangent checks. Mark material tint colour space
 explicitly: linear Blender tint values require sRGB encoding when assigned to
 StandardMaterial3D albedo_color. Check one composed image before broad rollout.
+
+## Check capture framing and moving-stock sweeps before repeating a world
+
+For a translating mechanism, compare each moving stock swept bound against
+fixed stock across its full travel before import. Review every changed native
+state, including closed leaves, before starting the editor import. Preserve
+the existing mechanism and collision owner when replacing only visuals.
+
+Storage captures check the complete assembly and retained stock against the
+camera frame, then cast visibility rays to reject obstructed stations. Fifteen-
+degree candidate angles fit around nearby furniture. A corrective capture can
+set **ORISON_FABRICATION_ACTORS** to one known representative ID; all actor
+geometry checks still run, but unchanged screenshots and other modules need
+not repeat. Actual capture feet are recorded in the module result.

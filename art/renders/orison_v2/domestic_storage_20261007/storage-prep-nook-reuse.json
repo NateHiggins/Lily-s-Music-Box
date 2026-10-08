@@ -1,0 +1,20 @@
+{
+  "evidence_class": "INERT",
+  "base": "9e08a579a3f7a08f219b82ff46691b97fe6a71a0",
+  "reason": "Storage and preparation mesh adoption inside mount_source; other nine functions and nook export unchanged.",
+  "unchanged_functions": [
+    "mount",
+    "validate",
+    "_bed_variant",
+    "_add_bed",
+    "_add_surfaces",
+    "_validate_surfaces",
+    "_numbers",
+    "_vector",
+    "_material"
+  ],
+  "fixture_before": "32ceb8d6744abd143c5d705b61da9fdc6593439c987842aaa63142667cfa3de0",
+  "fixture_after": "18f9568cdcfba05fb347b68b1f9af7684c1e010f0bdcd9ede4c039d12822b7b9",
+  "binding": "game/scripts/building/orison_v2_domestic_furniture.gd",
+  "asset_sha256": "0767ba652b36f1f2854de0a5c94a4e9a499b7f299a1a22b01366c956f0643cf9"
+}

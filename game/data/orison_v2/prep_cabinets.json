@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/prep_cabinets.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "PrepCabinet",
+      "parts": [
+        {
+          "name": "PrepCabinet__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "PrepCabinet__Body_ON_countertop",
+          "component": "Body",
+          "key": "countertop",
+          "tile": 1.2,
+          "catalog_key": "countertop",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "PrepCabinet__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "PrepCabinet__Body_ON_plywood",
+          "component": "Body",
+          "key": "plywood",
+          "tile": 1.2,
+          "catalog_key": "plywood",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "PrepCabinet__Body_ON_trim",
+          "component": "Body",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "PrepCabinet__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "PrepCabinet__SlidingPanel_ON_brass",
+          "component": "SlidingPanel",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "PrepCabinet__SlidingPanel_ON_trim",
+          "component": "SlidingPanel",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "2A_prep_cabinet",
+      "variant": "PrepCabinet"
+    },
+    {
+      "id": "2B_prep_cabinet",
+      "variant": "PrepCabinet"
+    },
+    {
+      "id": "3B_prep_cabinet",
+      "variant": "PrepCabinet"
+    },
+    {
+      "id": "4B_prep_cabinet",
+      "variant": "PrepCabinet"
+    },
+    {
+      "id": "3A_prep_cabinet",
+      "variant": "PrepCabinet"
+    },
+    {
+      "id": "4A_prep_cabinet",
+      "variant": "PrepCabinet"
+    },
+    {
+      "id": "5A_prep_cabinet",
+      "variant": "PrepCabinet"
+    },
+    {
+      "id": "5B_prep_cabinet",
+      "variant": "PrepCabinet"
+    },
+    {
+      "id": "5C_prep_cabinet",
+      "variant": "PrepCabinet"
+    },
+    {
+      "id": "6A_prep_cabinet",
+      "variant": "PrepCabinet"
+    },
+    {
+      "id": "6B_prep_cabinet",
+      "variant": "PrepCabinet"
+    },
+    {
+      "id": "6C_prep_cabinet",
+      "variant": "PrepCabinet"
+    }
+  ],
+  "tint_space": "linear"
+}

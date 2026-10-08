@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 15.16,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T23:37:59Z",
+  "started_utc": "2026-10-07T23:37:44Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/storage-prep-import-01.log.stderr",
+  "stderr_sha256": "3aafa0d38478985265050f24e22e796d636f727449bfefa4c7abb666707d131b",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/storage-prep-import-01.log",
+  "stdout_sha256": "39326d54ac9deb062cfc95a50fbaa3a204bb22b69986356e02d9239e4e805b99"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 299,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_domestic_furniture.gd",
+   " M game/tests/orison_v2_domestic_native_test.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   "?? art/blender/domestic_storage.blend",
+   "?? art/blender/domestic_storage_construction.json",
+   "?? art/blender/prep_cabinets.blend",
+   "?? art/blender/prep_cabinets_construction.json",
+   "?? art/blender/scripts/build_domestic_storage.py",
+   "?? art/blender/scripts/build_prep_cabinets.py",
+   "?? art/blender/scripts/domestic_storage_geometry.py",
+   "?? art/blender/scripts/inspect_domestic_storage.py",
+   "?? art/blender/scripts/inspect_domestic_storage_context.py",
+   "?? art/blender/scripts/inspect_prep_cabinets.py",
+   "?? art/blender/scripts/inspect_prep_cabinets_context.py",
+   "?? art/blender/scripts/prep_cabinets_geometry.py",
+   "?? art/blender/scripts/render_domestic_storage.py",
+   "?? art/blender/scripts/render_prep_cabinets.py",
+   "?? art/data/domestic_storage/",
+   "?? art/data/prep_cabinets/"
+  ],
+  "repository_head": "9e08a579a3f7a08f219b82ff46691b97fe6a71a0",
+  "repository_tree": "5ae89d23769a955474fe819e718719b64a21e09d",
+  "runtime_inputs_sha256": "ea43bc64918571134599bdc671fb133971076ba342295af6ed9f02bedfc10052",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

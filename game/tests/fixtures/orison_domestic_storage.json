@@ -1,0 +1,4591 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "3B_tools0",
+      "asm": "shelf",
+      "at": [
+        -10.3,
+        9.4
+      ],
+      "yaw": 180,
+      "W": 1.0,
+      "H": 1.85,
+      "books": false
+    },
+    {
+      "id": "3B_tools1",
+      "asm": "shelf",
+      "at": [
+        -9.2,
+        9.4
+      ],
+      "yaw": 180,
+      "W": 1.0,
+      "H": 1.85,
+      "books": false
+    },
+    {
+      "id": "4B_shelf",
+      "asm": "shelf",
+      "at": [
+        -8.7,
+        2.9
+      ],
+      "yaw": 0,
+      "W": 1.1,
+      "H": 1.85,
+      "books": true
+    },
+    {
+      "id": "2A_shelf0",
+      "asm": "shelf",
+      "at": [
+        -12.375,
+        -5.95
+      ],
+      "yaw": 0,
+      "W": 0.95,
+      "H": 1.6,
+      "books": false
+    },
+    {
+      "id": "2A_shelf1",
+      "asm": "shelf",
+      "at": [
+        -11.225,
+        -5.95
+      ],
+      "yaw": 0,
+      "W": 0.95,
+      "H": 1.6,
+      "books": false
+    },
+    {
+      "id": "2A_shelf2",
+      "asm": "shelf",
+      "at": [
+        -10.075,
+        -5.95
+      ],
+      "yaw": 0,
+      "W": 0.95,
+      "H": 1.6,
+      "books": false
+    },
+    {
+      "id": "5A_planshelf",
+      "asm": "shelf",
+      "at": [
+        -12.45,
+        -5.95
+      ],
+      "yaw": 0,
+      "W": 1.6,
+      "H": 1.4,
+      "books": false
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "Shelf01",
+      "kind": "shelf",
+      "cell": "shared",
+      "source_record": "3B_tools0"
+    },
+    {
+      "id": "Shelf02",
+      "kind": "shelf",
+      "cell": "shared",
+      "source_record": "4B_shelf"
+    },
+    {
+      "id": "Counter03",
+      "kind": "counter",
+      "cell": "shared",
+      "source_record": "4B_sink_counter"
+    },
+    {
+      "id": "Shelf04",
+      "kind": "shelf",
+      "cell": "shared",
+      "source_record": "2A_shelf0"
+    },
+    {
+      "id": "Counter05",
+      "kind": "counter",
+      "cell": "shared",
+      "source_record": "2A_sink_support"
+    },
+    {
+      "id": "Cupboard06",
+      "kind": "cupboard",
+      "cell": "shared",
+      "source_record": "2A_k_wall_cupboard"
+    },
+    {
+      "id": "Shelf07",
+      "kind": "shelf",
+      "cell": "shared",
+      "source_record": "5A_planshelf"
+    },
+    {
+      "id": "Cupboard08",
+      "kind": "cupboard",
+      "cell": "shared",
+      "source_record": "2A_k_wall_cupboard"
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "Shelf01_Upright00",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 0.000979416446461329
+    },
+    {
+      "name": "Shelf01_Upright01",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 0.0009794164464613292
+    },
+    {
+      "name": "Shelf01_Upright10",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 0.000979416446461329
+    },
+    {
+      "name": "Shelf01_Upright11",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 0.0009794164464613292
+    },
+    {
+      "name": "Shelf01_Board0",
+      "assembly": "Shelf01",
+      "key": "floor_oak",
+      "volume_m3": 0.009598670502881516
+    },
+    {
+      "name": "Shelf01_Rung0_-1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 2.9322020678968935e-05
+    },
+    {
+      "name": "Shelf01_Rung0_1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 2.9322020678968935e-05
+    },
+    {
+      "name": "Shelf01_Board1",
+      "assembly": "Shelf01",
+      "key": "floor_oak",
+      "volume_m3": 0.009598671681428486
+    },
+    {
+      "name": "Shelf01_Rung1_-1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 2.932204079181946e-05
+    },
+    {
+      "name": "Shelf01_Rung1_1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 2.932204079181946e-05
+    },
+    {
+      "name": "Shelf01_Board2",
+      "assembly": "Shelf01",
+      "key": "floor_oak",
+      "volume_m3": 0.009598671656258773
+    },
+    {
+      "name": "Shelf01_Rung2_-1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 2.9321989150214993e-05
+    },
+    {
+      "name": "Shelf01_Rung2_1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 2.9321989150214993e-05
+    },
+    {
+      "name": "Shelf01_Board3",
+      "assembly": "Shelf01",
+      "key": "floor_oak",
+      "volume_m3": 0.00959865362032919
+    },
+    {
+      "name": "Shelf01_Rung3_-1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 2.932196131527281e-05
+    },
+    {
+      "name": "Shelf01_Rung3_1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 2.932196131527281e-05
+    },
+    {
+      "name": "Shelf01_Board4",
+      "assembly": "Shelf01",
+      "key": "floor_oak",
+      "volume_m3": 0.009598689493850315
+    },
+    {
+      "name": "Shelf01_Rung4_-1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 2.9322043774465218e-05
+    },
+    {
+      "name": "Shelf01_Rung4_1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 2.9322043774465218e-05
+    },
+    {
+      "name": "Shelf01_PaintedBin0Bottom",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 0.00011874795239342692
+    },
+    {
+      "name": "Shelf01_PaintedBin0Lid",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 0.00011874618602773258
+    },
+    {
+      "name": "Shelf01_PaintedBin0Wall0-1",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 7.520011436043849e-05
+    },
+    {
+      "name": "Shelf01_PaintedBin0Wall01",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 7.519974063149893e-05
+    },
+    {
+      "name": "Shelf01_PaintedBin0Wall1-1",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 0.00012306723600344458
+    },
+    {
+      "name": "Shelf01_PaintedBin0Wall11",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 0.00012306723600344458
+    },
+    {
+      "name": "Shelf01_PaintedBin1Bottom",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 0.000118748548256907
+    },
+    {
+      "name": "Shelf01_PaintedBin1Lid",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 0.0001187485413276998
+    },
+    {
+      "name": "Shelf01_PaintedBin1Wall0-1",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 7.520011177244641e-05
+    },
+    {
+      "name": "Shelf01_PaintedBin1Wall01",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 7.519973804351891e-05
+    },
+    {
+      "name": "Shelf01_PaintedBin1Wall1-1",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 0.00012306723255160317
+    },
+    {
+      "name": "Shelf01_PaintedBin1Wall11",
+      "assembly": "Shelf01",
+      "key": "trim",
+      "volume_m3": 0.00012306723255160274
+    },
+    {
+      "name": "Shelf01_MetalTin0Bottom",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 0.0001019515216787812
+    },
+    {
+      "name": "Shelf01_MetalTin0Lid",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 0.00010195202534663775
+    },
+    {
+      "name": "Shelf01_MetalTin0Wall0-1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 5.6364828699884354e-05
+    },
+    {
+      "name": "Shelf01_MetalTin0Wall01",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 5.6365388994709985e-05
+    },
+    {
+      "name": "Shelf01_MetalTin0Wall1-1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 9.583259064140621e-05
+    },
+    {
+      "name": "Shelf01_MetalTin0Wall11",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 9.583259063833963e-05
+    },
+    {
+      "name": "Shelf01_MetalTin1Bottom",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 0.00010195203369662946
+    },
+    {
+      "name": "Shelf01_MetalTin1Lid",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 0.00010195202725632804
+    },
+    {
+      "name": "Shelf01_MetalTin1Wall0-1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 5.6364832833160405e-05
+    },
+    {
+      "name": "Shelf01_MetalTin1Wall01",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 5.636539312564379e-05
+    },
+    {
+      "name": "Shelf01_MetalTin1Wall1-1",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 9.583259840428678e-05
+    },
+    {
+      "name": "Shelf01_MetalTin1Wall11",
+      "assembly": "Shelf01",
+      "key": "metal",
+      "volume_m3": 9.583259840428699e-05
+    },
+    {
+      "name": "Shelf02_Upright00",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 0.0009794164333421674
+    },
+    {
+      "name": "Shelf02_Upright01",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 0.0009794164333421674
+    },
+    {
+      "name": "Shelf02_Upright10",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 0.0009794164333421674
+    },
+    {
+      "name": "Shelf02_Upright11",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 0.0009794164333421674
+    },
+    {
+      "name": "Shelf02_Board0",
+      "assembly": "Shelf02",
+      "key": "floor_oak",
+      "volume_m3": 0.010558570819385304
+    },
+    {
+      "name": "Shelf02_Rung0_-1",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 2.9322039942010502e-05
+    },
+    {
+      "name": "Shelf02_Rung0_1",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 2.9322039942010502e-05
+    },
+    {
+      "name": "Shelf02_Board1",
+      "assembly": "Shelf02",
+      "key": "floor_oak",
+      "volume_m3": 0.010558572114316565
+    },
+    {
+      "name": "Shelf02_Rung1_-1",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 2.9322060054774455e-05
+    },
+    {
+      "name": "Shelf02_Rung1_1",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 2.9322060054774455e-05
+    },
+    {
+      "name": "Shelf02_Board2",
+      "assembly": "Shelf02",
+      "key": "floor_oak",
+      "volume_m3": 0.010558572087291218
+    },
+    {
+      "name": "Shelf02_Rung2_-1",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 2.9322008413169787e-05
+    },
+    {
+      "name": "Shelf02_Rung2_1",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 2.9322008413169787e-05
+    },
+    {
+      "name": "Shelf02_Board3",
+      "assembly": "Shelf02",
+      "key": "floor_oak",
+      "volume_m3": 0.010558552251300812
+    },
+    {
+      "name": "Shelf02_Rung3_-1",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 2.9321980577304474e-05
+    },
+    {
+      "name": "Shelf02_Rung3_1",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 2.9321980577304474e-05
+    },
+    {
+      "name": "Shelf02_Board4",
+      "assembly": "Shelf02",
+      "key": "floor_oak",
+      "volume_m3": 0.010558591709977416
+    },
+    {
+      "name": "Shelf02_Rung4_-1",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 2.9322063038343583e-05
+    },
+    {
+      "name": "Shelf02_Rung4_1",
+      "assembly": "Shelf02",
+      "key": "metal",
+      "volume_m3": 2.9322063038343583e-05
+    },
+    {
+      "name": "Shelf02_book_navy0LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 3.6955080173069424e-05
+    },
+    {
+      "name": "Shelf02_book_navy0UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 3.6953978472541675e-05
+    },
+    {
+      "name": "Shelf02_book_navy0Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.001076646044344607
+    },
+    {
+      "name": "Shelf02_book_navy0Spine",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 8.437243522916028e-06
+    },
+    {
+      "name": "Shelf02_book_navy1LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 3.333636616473134e-05
+    },
+    {
+      "name": "Shelf02_book_navy1UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 3.3335869239870693e-05
+    },
+    {
+      "name": "Shelf02_book_navy1Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.000771932372398343
+    },
+    {
+      "name": "Shelf02_book_navy1Spine",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 6.0145977804837456e-06
+    },
+    {
+      "name": "Shelf02_book_navy2LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 2.951790287535758e-05
+    },
+    {
+      "name": "Shelf02_book_navy2UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 2.951790287535758e-05
+    },
+    {
+      "name": "Shelf02_book_navy2Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0005072016466448297
+    },
+    {
+      "name": "Shelf02_book_navy2Spine",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 3.9740153437486965e-06
+    },
+    {
+      "name": "Shelf02_book_navy3LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 2.8674646309162347e-05
+    },
+    {
+      "name": "Shelf02_book_navy3UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 2.867443196478297e-05
+    },
+    {
+      "name": "Shelf02_book_navy3Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.00085076915266409
+    },
+    {
+      "name": "Shelf02_book_navy3Spine",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 7.094583005872239e-06
+    },
+    {
+      "name": "Shelf02_book_navy4LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 5.1360193724111286e-05
+    },
+    {
+      "name": "Shelf02_book_navy4UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 5.1359428182346534e-05
+    },
+    {
+      "name": "Shelf02_book_navy4Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0008868167143698963
+    },
+    {
+      "name": "Shelf02_book_navy4Spine",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 7.813801991167408e-06
+    },
+    {
+      "name": "Shelf02_book_navy5LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 4.649705790181247e-05
+    },
+    {
+      "name": "Shelf02_book_navy5UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 4.6497231166045336e-05
+    },
+    {
+      "name": "Shelf02_book_navy5Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.002535263995043449
+    },
+    {
+      "name": "Shelf02_book_navy5Spine",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 1.936425313032923e-05
+    },
+    {
+      "name": "Shelf02_book_navy6LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 3.410950515240398e-05
+    },
+    {
+      "name": "Shelf02_book_navy6UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 3.410950515240396e-05
+    },
+    {
+      "name": "Shelf02_book_navy6Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0016514210487261526
+    },
+    {
+      "name": "Shelf02_book_navy6Spine",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 1.4084625018174555e-05
+    },
+    {
+      "name": "Shelf02_book_navy7LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 3.265733268066964e-05
+    },
+    {
+      "name": "Shelf02_book_navy7UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 3.265731145511014e-05
+    },
+    {
+      "name": "Shelf02_book_navy7Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0009595509459669263
+    },
+    {
+      "name": "Shelf02_book_navy7Spine",
+      "assembly": "Shelf02",
+      "key": "book_navy",
+      "volume_m3": 7.995643507283573e-06
+    },
+    {
+      "name": "Shelf02_book_ochre0LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 3.6364903696793964e-05
+    },
+    {
+      "name": "Shelf02_book_ochre0UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 3.636490369679398e-05
+    },
+    {
+      "name": "Shelf02_book_ochre0Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0010232409900578629
+    },
+    {
+      "name": "Shelf02_book_ochre0Spine",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 8.006991363023207e-06
+    },
+    {
+      "name": "Shelf02_book_ochre1LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 3.271388726438292e-05
+    },
+    {
+      "name": "Shelf02_book_ochre1UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 3.271388726312241e-05
+    },
+    {
+      "name": "Shelf02_book_ochre1Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0007249352239438232
+    },
+    {
+      "name": "Shelf02_book_ochre1Spine",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 5.647971895156987e-06
+    },
+    {
+      "name": "Shelf02_book_ochre2LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 2.4921519450810623e-05
+    },
+    {
+      "name": "Shelf02_book_ochre2UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 2.4920776439469887e-05
+    },
+    {
+      "name": "Shelf02_book_ochre2Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0005504737334032163
+    },
+    {
+      "name": "Shelf02_book_ochre2Spine",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 4.874081708270525e-06
+    },
+    {
+      "name": "Shelf02_book_ochre3LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 5.0895442044541616e-05
+    },
+    {
+      "name": "Shelf02_book_ochre3UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 5.0895442044541616e-05
+    },
+    {
+      "name": "Shelf02_book_ochre3Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0008281512187532997
+    },
+    {
+      "name": "Shelf02_book_ochre3Spine",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 7.3119901186234505e-06
+    },
+    {
+      "name": "Shelf02_book_ochre4LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 4.594984016599134e-05
+    },
+    {
+      "name": "Shelf02_book_ochre4UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 4.594975455070173e-05
+    },
+    {
+      "name": "Shelf02_book_ochre4Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.002459531981143387
+    },
+    {
+      "name": "Shelf02_book_ochre4Spine",
+      "assembly": "Shelf02",
+      "key": "book_ochre",
+      "volume_m3": 1.872725239327977e-05
+    },
+    {
+      "name": "Shelf02_book_teal0LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 3.577026345824123e-05
+    },
+    {
+      "name": "Shelf02_book_teal0UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 3.577132987331382e-05
+    },
+    {
+      "name": "Shelf02_book_teal0Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0009708597067274926
+    },
+    {
+      "name": "Shelf02_book_teal0Spine",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 7.587259731742929e-06
+    },
+    {
+      "name": "Shelf02_book_teal1LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 3.208584073362894e-05
+    },
+    {
+      "name": "Shelf02_book_teal1UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 3.208584073473994e-05
+    },
+    {
+      "name": "Shelf02_book_teal1Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0006790663646754074
+    },
+    {
+      "name": "Shelf02_book_teal1Spine",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 5.291959015477503e-06
+    },
+    {
+      "name": "Shelf02_book_teal2LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 2.8205066176275077e-05
+    },
+    {
+      "name": "Shelf02_book_teal2UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 2.8205066176274426e-05
+    },
+    {
+      "name": "Shelf02_book_teal2Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0008189312831892908
+    },
+    {
+      "name": "Shelf02_book_teal2Spine",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 6.839472747676655e-06
+    },
+    {
+      "name": "Shelf02_book_teal3LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 5.315888806785665e-05
+    },
+    {
+      "name": "Shelf02_book_teal3UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 5.3158888066878155e-05
+    },
+    {
+      "name": "Shelf02_book_teal3Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0011295456543523267
+    },
+    {
+      "name": "Shelf02_book_teal3Spine",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 9.927155946075614e-06
+    },
+    {
+      "name": "Shelf02_book_teal4LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 5.042590340430255e-05
+    },
+    {
+      "name": "Shelf02_book_teal4UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 5.042590340430255e-05
+    },
+    {
+      "name": "Shelf02_book_teal4Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.002950915564687451
+    },
+    {
+      "name": "Shelf02_book_teal4Spine",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 2.395353357738434e-05
+    },
+    {
+      "name": "Shelf02_book_teal5LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 3.324745929584889e-05
+    },
+    {
+      "name": "Shelf02_book_teal5UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 3.324745929584802e-05
+    },
+    {
+      "name": "Shelf02_book_teal5Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0011294145894718312
+    },
+    {
+      "name": "Shelf02_book_teal5Spine",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 9.331012128375574e-06
+    },
+    {
+      "name": "Shelf02_book_teal6LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 4.863084603818094e-05
+    },
+    {
+      "name": "Shelf02_book_teal6UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 4.8632295804434405e-05
+    },
+    {
+      "name": "Shelf02_book_teal6Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.002845831832755651
+    },
+    {
+      "name": "Shelf02_book_teal6Spine",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 2.2018344886963103e-05
+    },
+    {
+      "name": "Shelf02_book_teal7LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 2.8082149691025654e-05
+    },
+    {
+      "name": "Shelf02_book_teal7UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 2.808046897150203e-05
+    },
+    {
+      "name": "Shelf02_book_teal7Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0010889983636907779
+    },
+    {
+      "name": "Shelf02_book_teal7Spine",
+      "assembly": "Shelf02",
+      "key": "book_teal",
+      "volume_m3": 8.953031073967273e-06
+    },
+    {
+      "name": "Shelf02_book_brown0LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 3.517111138679747e-05
+    },
+    {
+      "name": "Shelf02_book_brown0UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 3.517006286528862e-05
+    },
+    {
+      "name": "Shelf02_book_brown0Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0009195223731265487
+    },
+    {
+      "name": "Shelf02_book_brown0Spine",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 7.178186619704518e-06
+    },
+    {
+      "name": "Shelf02_book_brown1LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 3.145222957492221e-05
+    },
+    {
+      "name": "Shelf02_book_brown1UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 3.145222957326379e-05
+    },
+    {
+      "name": "Shelf02_book_brown1Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.000634341245717781
+    },
+    {
+      "name": "Shelf02_book_brown1Spine",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 4.946554509345757e-06
+    },
+    {
+      "name": "Shelf02_book_brown2LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 2.843964333050183e-05
+    },
+    {
+      "name": "Shelf02_book_brown2UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 2.843985347366295e-05
+    },
+    {
+      "name": "Shelf02_book_brown2Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.000834775782332046
+    },
+    {
+      "name": "Shelf02_book_brown2Spine",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 6.966449999346197e-06
+    },
+    {
+      "name": "Shelf02_book_brown3LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 5.271718423944082e-05
+    },
+    {
+      "name": "Shelf02_book_brown3UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 5.271718423944079e-05
+    },
+    {
+      "name": "Shelf02_book_brown3Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0010676882861169862
+    },
+    {
+      "name": "Shelf02_book_brown3Spine",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 9.382899325564057e-06
+    },
+    {
+      "name": "Shelf02_book_brown4LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 4.9950797575333693e-05
+    },
+    {
+      "name": "Shelf02_book_brown4UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 4.9950797575333693e-05
+    },
+    {
+      "name": "Shelf02_book_brown4Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0028733102249903237
+    },
+    {
+      "name": "Shelf02_book_brown4Spine",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 2.324225936309949e-05
+    },
+    {
+      "name": "Shelf02_book_brown5LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 3.348225915384643e-05
+    },
+    {
+      "name": "Shelf02_book_brown5UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 3.348224839836572e-05
+    },
+    {
+      "name": "Shelf02_book_brown5Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0011480210866008254
+    },
+    {
+      "name": "Shelf02_book_brown5Spine",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 9.479370959964412e-06
+    },
+    {
+      "name": "Shelf02_book_brown6LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 4.810710723377198e-05
+    },
+    {
+      "name": "Shelf02_book_brown6UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 4.810567312243888e-05
+    },
+    {
+      "name": "Shelf02_book_brown6Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0027670771621180245
+    },
+    {
+      "name": "Shelf02_book_brown6Spine",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 2.1338911417842088e-05
+    },
+    {
+      "name": "Shelf02_book_brown7LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 4.229202149893123e-05
+    },
+    {
+      "name": "Shelf02_book_brown7UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 4.229328231305716e-05
+    },
+    {
+      "name": "Shelf02_book_brown7Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0021784412730861302
+    },
+    {
+      "name": "Shelf02_book_brown7Spine",
+      "assembly": "Shelf02",
+      "key": "book_brown",
+      "volume_m3": 1.577276374044867e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy0LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 3.456428858741693e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy0UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 3.456480382404081e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy0Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0008692453044484459
+    },
+    {
+      "name": "Shelf02_book_burgundy0Spine",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 6.779723848358137e-06
+    },
+    {
+      "name": "Shelf02_book_burgundy1LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 3.081305525711093e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy1UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 3.081305525711093e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy1Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0005907776064740379
+    },
+    {
+      "name": "Shelf02_book_burgundy1Spine",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 4.611763729808051e-06
+    },
+    {
+      "name": "Shelf02_book_burgundy2LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 5.227147236858262e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy2UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 5.226991411283519e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy2Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0010066015542045882
+    },
+    {
+      "name": "Shelf02_book_burgundy2Spine",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 8.849253979276403e-06
+    },
+    {
+      "name": "Shelf02_book_burgundy3LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 4.94701198904441e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy3UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 4.947001619339772e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy3Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0027963335916661516
+    },
+    {
+      "name": "Shelf02_book_burgundy3Spine",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 2.2541588655645807e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy4LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 3.301268307279604e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy4UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 3.301268307279344e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy4Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0011109248481062676
+    },
+    {
+      "name": "Shelf02_book_burgundy4Spine",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 9.183568832654618e-06
+    },
+    {
+      "name": "Shelf02_book_burgundy5LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 4.757490936307482e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy5UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 4.7575618504889975e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy5Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.00268905358877705
+    },
+    {
+      "name": "Shelf02_book_burgundy5Spine",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 2.067007835495942e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy6LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 2.7849006734416773e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy6UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 2.784902630038888e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy6Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0010709966573776847
+    },
+    {
+      "name": "Shelf02_book_burgundy6Spine",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 8.809389434890887e-06
+    },
+    {
+      "name": "Shelf02_book_burgundy7LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 3.511218171671913e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy7UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 3.51127051213343e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy7Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0017700379480007173
+    },
+    {
+      "name": "Shelf02_book_burgundy7Spine",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 1.5199433027283496e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy8LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 3.28921351493202e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy8UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 3.289214580261268e-05
+    },
+    {
+      "name": "Shelf02_book_burgundy8Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0009768826757093514
+    },
+    {
+      "name": "Shelf02_book_burgundy8Spine",
+      "assembly": "Shelf02",
+      "key": "book_burgundy",
+      "volume_m3": 8.13415496253075e-06
+    },
+    {
+      "name": "Shelf02_book_green0LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 3.395345931307496e-05
+    },
+    {
+      "name": "Shelf02_book_green0UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 3.395345931307495e-05
+    },
+    {
+      "name": "Shelf02_book_green0Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0008200440375720262
+    },
+    {
+      "name": "Shelf02_book_green0Spine",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 6.391873207850866e-06
+    },
+    {
+      "name": "Shelf02_book_green1LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 3.0168207740083097e-05
+    },
+    {
+      "name": "Shelf02_book_green1UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 3.0168320165228442e-05
+    },
+    {
+      "name": "Shelf02_book_green1Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.00054839199682551
+    },
+    {
+      "name": "Shelf02_book_green1Spine",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 4.287583721116119e-06
+    },
+    {
+      "name": "Shelf02_book_green2LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 5.1818607849177294e-05
+    },
+    {
+      "name": "Shelf02_book_green2UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 5.181706309511524e-05
+    },
+    {
+      "name": "Shelf02_book_green2Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0009463059925148838
+    },
+    {
+      "name": "Shelf02_book_green2Spine",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 8.326218026915247e-06
+    },
+    {
+      "name": "Shelf02_book_green3LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 4.7039282150878285e-05
+    },
+    {
+      "name": "Shelf02_book_green3UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 4.7039282149375595e-05
+    },
+    {
+      "name": "Shelf02_book_green3Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.002611776378072271
+    },
+    {
+      "name": "Shelf02_book_green3Spine",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 2.0011851983295076e-05
+    },
+    {
+      "name": "Shelf02_book_green4LowerCover",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 3.46133696540253e-05
+    },
+    {
+      "name": "Shelf02_book_green4UpperCover",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 3.4613885621321885e-05
+    },
+    {
+      "name": "Shelf02_book_green4Pages",
+      "assembly": "Shelf02",
+      "key": "paper",
+      "volume_m3": 0.0017103691695252998
+    },
+    {
+      "name": "Shelf02_book_green4Spine",
+      "assembly": "Shelf02",
+      "key": "book_green",
+      "volume_m3": 1.4636720487902084e-05
+    },
+    {
+      "name": "Counter03_PiercedWorktop",
+      "assembly": "Counter03",
+      "key": "countertop",
+      "volume_m3": 0.026683693125272634
+    },
+    {
+      "name": "Counter03_Frame0",
+      "assembly": "Counter03",
+      "key": "wood_dark",
+      "volume_m3": 0.004211754985901867
+    },
+    {
+      "name": "Counter03_Frame1",
+      "assembly": "Counter03",
+      "key": "wood_dark",
+      "volume_m3": 0.004211754985901867
+    },
+    {
+      "name": "Counter03_Frame2",
+      "assembly": "Counter03",
+      "key": "wood_dark",
+      "volume_m3": 0.004211754985901867
+    },
+    {
+      "name": "Counter03_Frame3",
+      "assembly": "Counter03",
+      "key": "wood_dark",
+      "volume_m3": 0.004211754985901867
+    },
+    {
+      "name": "Counter03_Frame4",
+      "assembly": "Counter03",
+      "key": "wood_dark",
+      "volume_m3": 0.010621698897599964
+    },
+    {
+      "name": "Counter03_Frame5",
+      "assembly": "Counter03",
+      "key": "wood_dark",
+      "volume_m3": 0.010621698897599965
+    },
+    {
+      "name": "Counter03_Frame6",
+      "assembly": "Counter03",
+      "key": "wood_dark",
+      "volume_m3": 0.005829363437574043
+    },
+    {
+      "name": "Counter03_Frame7",
+      "assembly": "Counter03",
+      "key": "wood_dark",
+      "volume_m3": 0.005829363437574044
+    },
+    {
+      "name": "Shelf04_Upright00",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 0.000847062874320909
+    },
+    {
+      "name": "Shelf04_Upright01",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 0.0008470628743209091
+    },
+    {
+      "name": "Shelf04_Upright10",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 0.000847062874320909
+    },
+    {
+      "name": "Shelf04_Upright11",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 0.0008470628743209091
+    },
+    {
+      "name": "Shelf04_Board0",
+      "assembly": "Shelf04",
+      "key": "floor_oak",
+      "volume_m3": 0.009118720321314203
+    },
+    {
+      "name": "Shelf04_Rung0_-1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 2.9322020678968935e-05
+    },
+    {
+      "name": "Shelf04_Rung0_1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 2.9322020678968935e-05
+    },
+    {
+      "name": "Shelf04_Board1",
+      "assembly": "Shelf04",
+      "key": "floor_oak",
+      "volume_m3": 0.009118721441668497
+    },
+    {
+      "name": "Shelf04_Rung1_-1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 2.932204079181946e-05
+    },
+    {
+      "name": "Shelf04_Rung1_1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 2.932204079181946e-05
+    },
+    {
+      "name": "Shelf04_Board2",
+      "assembly": "Shelf04",
+      "key": "floor_oak",
+      "volume_m3": 0.009118721417426534
+    },
+    {
+      "name": "Shelf04_Rung2_-1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 2.9321989150214993e-05
+    },
+    {
+      "name": "Shelf04_Rung2_1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 2.9321989150214993e-05
+    },
+    {
+      "name": "Shelf04_Board3",
+      "assembly": "Shelf04",
+      "key": "floor_oak",
+      "volume_m3": 0.009118704281527418
+    },
+    {
+      "name": "Shelf04_Rung3_-1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 2.932196131527281e-05
+    },
+    {
+      "name": "Shelf04_Rung3_1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 2.932196131527281e-05
+    },
+    {
+      "name": "Shelf04_Board4",
+      "assembly": "Shelf04",
+      "key": "floor_oak",
+      "volume_m3": 0.009118738362471401
+    },
+    {
+      "name": "Shelf04_Rung4_-1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 2.9322043774464652e-05
+    },
+    {
+      "name": "Shelf04_Rung4_1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 2.9322043774464652e-05
+    },
+    {
+      "name": "Shelf04_PaintedBin0Bottom",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 0.00011874795177797739
+    },
+    {
+      "name": "Shelf04_PaintedBin0Lid",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 0.00011874618541231514
+    },
+    {
+      "name": "Shelf04_PaintedBin0Wall0-1",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 7.51986194786859e-05
+    },
+    {
+      "name": "Shelf04_PaintedBin0Wall01",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 7.519955377978126e-05
+    },
+    {
+      "name": "Shelf04_PaintedBin0Wall1-1",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 0.00012306723524228475
+    },
+    {
+      "name": "Shelf04_PaintedBin0Wall11",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 0.00012306723524228464
+    },
+    {
+      "name": "Shelf04_PaintedBin1Bottom",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 0.00011874854764142712
+    },
+    {
+      "name": "Shelf04_PaintedBin1Lid",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 0.00011874854071228583
+    },
+    {
+      "name": "Shelf04_PaintedBin1Wall0-1",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 7.519861689074262e-05
+    },
+    {
+      "name": "Shelf04_PaintedBin1Wall01",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 7.519955119180752e-05
+    },
+    {
+      "name": "Shelf04_PaintedBin1Wall1-1",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 0.0001230672317904436
+    },
+    {
+      "name": "Shelf04_PaintedBin1Wall11",
+      "assembly": "Shelf04",
+      "key": "trim",
+      "volume_m3": 0.00012306723179044307
+    },
+    {
+      "name": "Shelf04_MetalTin0Bottom",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 0.00010195151598200568
+    },
+    {
+      "name": "Shelf04_MetalTin0Lid",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 0.00010195201964985964
+    },
+    {
+      "name": "Shelf04_MetalTin0Wall0-1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 5.636482870218999e-05
+    },
+    {
+      "name": "Shelf04_MetalTin0Wall01",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 5.636426843376959e-05
+    },
+    {
+      "name": "Shelf04_MetalTin0Wall1-1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 9.583258528618474e-05
+    },
+    {
+      "name": "Shelf04_MetalTin0Wall11",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 9.58325852831182e-05
+    },
+    {
+      "name": "Shelf04_MetalTin1Bottom",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 0.00010195202799977154
+    },
+    {
+      "name": "Shelf04_MetalTin1Lid",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 0.00010195202155952043
+    },
+    {
+      "name": "Shelf04_MetalTin1Wall0-1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 5.6364832835466096e-05
+    },
+    {
+      "name": "Shelf04_MetalTin1Wall01",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 5.636427255631209e-05
+    },
+    {
+      "name": "Shelf04_MetalTin1Wall1-1",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 9.583259304906496e-05
+    },
+    {
+      "name": "Shelf04_MetalTin1Wall11",
+      "assembly": "Shelf04",
+      "key": "metal",
+      "volume_m3": 9.583259304906516e-05
+    },
+    {
+      "name": "Counter05_FootPlate0",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 7.490777571854868e-06
+    },
+    {
+      "name": "Counter05_LegWeb0",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.0001123002419854425
+    },
+    {
+      "name": "Counter05_LegFlange0",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00011229971671961172
+    },
+    {
+      "name": "Counter05_FootPlate1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 7.490777571854868e-06
+    },
+    {
+      "name": "Counter05_LegWeb1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00011230024198544251
+    },
+    {
+      "name": "Counter05_LegFlange1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00011229915792968222
+    },
+    {
+      "name": "Counter05_FootPlate2",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 7.490777571854867e-06
+    },
+    {
+      "name": "Counter05_LegWeb2",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.0001123002419854425
+    },
+    {
+      "name": "Counter05_LegFlange2",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00011229971671961172
+    },
+    {
+      "name": "Counter05_FootPlate3",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 7.490777571854868e-06
+    },
+    {
+      "name": "Counter05_LegWeb3",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00011230024198544251
+    },
+    {
+      "name": "Counter05_LegFlange3",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00011229915792968222
+    },
+    {
+      "name": "Counter05_RailWeb4_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00034779877554591895
+    },
+    {
+      "name": "Counter05_RailWeb4_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.000347797047013066
+    },
+    {
+      "name": "Counter05_RailFlange4_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00017380721842672267
+    },
+    {
+      "name": "Counter05_RailFlange4_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00017380720033408244
+    },
+    {
+      "name": "Counter05_RailEnd4_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 1.4975733561635441e-05
+    },
+    {
+      "name": "Counter05_RailEnd4_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 1.4975733561635441e-05
+    },
+    {
+      "name": "Counter05_RailWeb5_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.000347797047013066
+    },
+    {
+      "name": "Counter05_RailWeb5_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.000347798775545919
+    },
+    {
+      "name": "Counter05_RailFlange5_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00017380721842672267
+    },
+    {
+      "name": "Counter05_RailFlange5_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00017380720033408417
+    },
+    {
+      "name": "Counter05_RailEnd5_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 1.4975733561635436e-05
+    },
+    {
+      "name": "Counter05_RailEnd5_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 1.4975733561635436e-05
+    },
+    {
+      "name": "Counter05_RailWeb6_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.0001439078382570253
+    },
+    {
+      "name": "Counter05_RailWeb6_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.00014390640775001215
+    },
+    {
+      "name": "Counter05_RailFlange6_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 7.191533453040043e-05
+    },
+    {
+      "name": "Counter05_RailFlange6_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 7.191532528122522e-05
+    },
+    {
+      "name": "Counter05_RailEnd6_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 1.4975589022718163e-05
+    },
+    {
+      "name": "Counter05_RailEnd6_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 1.4975589022718163e-05
+    },
+    {
+      "name": "Counter05_RailWeb7_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.0001439078382570253
+    },
+    {
+      "name": "Counter05_RailWeb7_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 0.0001439078382570253
+    },
+    {
+      "name": "Counter05_RailFlange7_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 7.191533453040216e-05
+    },
+    {
+      "name": "Counter05_RailFlange7_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 7.191532528122609e-05
+    },
+    {
+      "name": "Counter05_RailEnd7_-1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 1.4975589022718158e-05
+    },
+    {
+      "name": "Counter05_RailEnd7_1",
+      "assembly": "Counter05",
+      "key": "metal",
+      "volume_m3": 1.4975589022718158e-05
+    },
+    {
+      "name": "Cupboard06_Back",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.016938191184122035
+    },
+    {
+      "name": "Cupboard06_Deck0",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.007698531895990448
+    },
+    {
+      "name": "Cupboard06_Deck0.68",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.0076985247528253
+    },
+    {
+      "name": "Cupboard06_Cheek-0.55",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.0046469771161397975
+    },
+    {
+      "name": "Cupboard06_Cheek0.53",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.0046469771161397975
+    },
+    {
+      "name": "Cupboard06_Shelf",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.005510601244398734
+    },
+    {
+      "name": "Cupboard06_FaceRail0.018",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.0005359624936942058
+    },
+    {
+      "name": "Cupboard06_FaceRail0.66",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00053596149176585
+    },
+    {
+      "name": "Cupboard06_CentreFace",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.0002901476410720062
+    },
+    {
+      "name": "Cupboard06_LeftStile-0.53",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00030957503984672756
+    },
+    {
+      "name": "Cupboard06_LeftStile-0.035",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00030957533943944734
+    },
+    {
+      "name": "Cupboard06_LeftRail0.04",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00018847320533404248
+    },
+    {
+      "name": "Cupboard06_LeftRail0.095",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00023566999998780473
+    },
+    {
+      "name": "Cupboard06_LeftRail0.635",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00023567031839838068
+    },
+    {
+      "name": "Cupboard06_LeftPanel",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.0039040228194442573
+    },
+    {
+      "name": "Cupboard06_LeftRecess",
+      "assembly": "Cupboard06",
+      "key": "soot",
+      "volume_m3": 3.2818996122434683e-05
+    },
+    {
+      "name": "Cupboard06_LeftLeafBatton",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.0001596735548316164
+    },
+    {
+      "name": "Cupboard06_LeftHingeSeat",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00015995400457119048
+    },
+    {
+      "name": "Cupboard06_RightStile0.01",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00030957533908707626
+    },
+    {
+      "name": "Cupboard06_RightStile0.505",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00030957503984672756
+    },
+    {
+      "name": "Cupboard06_RightRail0.04",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00018847320502109665
+    },
+    {
+      "name": "Cupboard06_RightRail0.095",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.0002356699996304846
+    },
+    {
+      "name": "Cupboard06_RightRail0.635",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00023567031804105454
+    },
+    {
+      "name": "Cupboard06_RightPanel",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.0039040228229672864
+    },
+    {
+      "name": "Cupboard06_RightRecess",
+      "assembly": "Cupboard06",
+      "key": "soot",
+      "volume_m3": 3.2818996122434724e-05
+    },
+    {
+      "name": "Cupboard06_RightLeafBatton",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00015967346553919748
+    },
+    {
+      "name": "Cupboard06_RightHingeSeat",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 7.996401310487845e-05
+    },
+    {
+      "name": "Cupboard06_MountingBatten-0.43",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00032983524687364653
+    },
+    {
+      "name": "Cupboard06_MountingBatten0.43",
+      "assembly": "Cupboard06",
+      "key": "trim",
+      "volume_m3": 0.00032983524687364653
+    },
+    {
+      "name": "Shelf07_Upright00",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 0.0007411799814361185
+    },
+    {
+      "name": "Shelf07_Upright01",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 0.0007411799814361185
+    },
+    {
+      "name": "Shelf07_Upright10",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 0.0007411799814361185
+    },
+    {
+      "name": "Shelf07_Upright11",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 0.0007411799814361185
+    },
+    {
+      "name": "Shelf07_Board0",
+      "assembly": "Shelf07",
+      "key": "floor_oak",
+      "volume_m3": 0.015358071221867485
+    },
+    {
+      "name": "Shelf07_Rung0_-1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 2.9322039942010502e-05
+    },
+    {
+      "name": "Shelf07_Rung0_1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 2.9322039942010502e-05
+    },
+    {
+      "name": "Shelf07_Board1",
+      "assembly": "Shelf07",
+      "key": "floor_oak",
+      "volume_m3": 0.015358073098719255
+    },
+    {
+      "name": "Shelf07_Rung1_-1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 2.9322060054774455e-05
+    },
+    {
+      "name": "Shelf07_Rung1_1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 2.9322060054774455e-05
+    },
+    {
+      "name": "Shelf07_Board2",
+      "assembly": "Shelf07",
+      "key": "floor_oak",
+      "volume_m3": 0.015358073062416822
+    },
+    {
+      "name": "Shelf07_Rung2_-1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 2.9322008413169787e-05
+    },
+    {
+      "name": "Shelf07_Rung2_1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 2.9322008413169787e-05
+    },
+    {
+      "name": "Shelf07_Board3",
+      "assembly": "Shelf07",
+      "key": "floor_oak",
+      "volume_m3": 0.015358044226124606
+    },
+    {
+      "name": "Shelf07_Rung3_-1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 2.9321980577304474e-05
+    },
+    {
+      "name": "Shelf07_Rung3_1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 2.9321980577304474e-05
+    },
+    {
+      "name": "Shelf07_Board4",
+      "assembly": "Shelf07",
+      "key": "floor_oak",
+      "volume_m3": 0.015358044226124495
+    },
+    {
+      "name": "Shelf07_Rung4_-1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 2.9322065802070364e-05
+    },
+    {
+      "name": "Shelf07_Rung4_1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 2.9322065802070364e-05
+    },
+    {
+      "name": "Shelf07_PaintedBin0Bottom",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 0.00011874795804401282
+    },
+    {
+      "name": "Shelf07_PaintedBin0Lid",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 0.0001187461916782491
+    },
+    {
+      "name": "Shelf07_PaintedBin0Wall0-1",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 7.52001143604385e-05
+    },
+    {
+      "name": "Shelf07_PaintedBin0Wall01",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 7.52001143604385e-05
+    },
+    {
+      "name": "Shelf07_PaintedBin0Wall1-1",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 0.0001230672417360264
+    },
+    {
+      "name": "Shelf07_PaintedBin0Wall11",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 0.00012306724173602636
+    },
+    {
+      "name": "Shelf07_PaintedBin1Bottom",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 0.00011874855390755709
+    },
+    {
+      "name": "Shelf07_PaintedBin1Lid",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 0.00011874854697835682
+    },
+    {
+      "name": "Shelf07_PaintedBin1Wall0-1",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 7.520011177244643e-05
+    },
+    {
+      "name": "Shelf07_PaintedBin1Wall01",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 7.520011177244643e-05
+    },
+    {
+      "name": "Shelf07_PaintedBin1Wall1-1",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 0.00012306723828418522
+    },
+    {
+      "name": "Shelf07_PaintedBin1Wall11",
+      "assembly": "Shelf07",
+      "key": "trim",
+      "volume_m3": 0.00012306723828418473
+    },
+    {
+      "name": "Shelf07_MetalTin0Bottom",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 0.00010195152111899331
+    },
+    {
+      "name": "Shelf07_MetalTin0Lid",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 0.00010195202478681994
+    },
+    {
+      "name": "Shelf07_MetalTin0Wall0-1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 5.6364268433769595e-05
+    },
+    {
+      "name": "Shelf07_MetalTin0Wall01",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 5.6365388994709985e-05
+    },
+    {
+      "name": "Shelf07_MetalTin0Wall1-1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 9.583259001337099e-05
+    },
+    {
+      "name": "Shelf07_MetalTin0Wall11",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 9.583259001030449e-05
+    },
+    {
+      "name": "Shelf07_MetalTin1Bottom",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 0.00010195203313681338
+    },
+    {
+      "name": "Shelf07_MetalTin1Lid",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 0.00010195202669657094
+    },
+    {
+      "name": "Shelf07_MetalTin1Wall0-1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 5.636427256092112e-05
+    },
+    {
+      "name": "Shelf07_MetalTin1Wall01",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 5.636539312103475e-05
+    },
+    {
+      "name": "Shelf07_MetalTin1Wall1-1",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 9.583259777625193e-05
+    },
+    {
+      "name": "Shelf07_MetalTin1Wall11",
+      "assembly": "Shelf07",
+      "key": "metal",
+      "volume_m3": 9.583259777625208e-05
+    },
+    {
+      "name": "Cupboard08_Back",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.016938191184122035
+    },
+    {
+      "name": "Cupboard08_Deck0",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.007698531895990448
+    },
+    {
+      "name": "Cupboard08_Deck0.68",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.0076985247528253
+    },
+    {
+      "name": "Cupboard08_Cheek-0.55",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.0046469771161397975
+    },
+    {
+      "name": "Cupboard08_Cheek0.53",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.0046469771161397975
+    },
+    {
+      "name": "Cupboard08_Shelf",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.005510601244398734
+    },
+    {
+      "name": "Cupboard08_FaceRail0.018",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.0005359624936942058
+    },
+    {
+      "name": "Cupboard08_FaceRail0.66",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00053596149176585
+    },
+    {
+      "name": "Cupboard08_CentreFace",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.0002901476410720062
+    },
+    {
+      "name": "Cupboard08_LeftStile-0.53",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00030957503984672756
+    },
+    {
+      "name": "Cupboard08_LeftStile-0.035",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00030957533943944734
+    },
+    {
+      "name": "Cupboard08_LeftRail0.04",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00018847320533404248
+    },
+    {
+      "name": "Cupboard08_LeftRail0.095",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00023566999998780473
+    },
+    {
+      "name": "Cupboard08_LeftRail0.635",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00023567031839838068
+    },
+    {
+      "name": "Cupboard08_LeftPanel",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.0039040228194442573
+    },
+    {
+      "name": "Cupboard08_LeftRecess",
+      "assembly": "Cupboard08",
+      "key": "soot",
+      "volume_m3": 3.2818996122434683e-05
+    },
+    {
+      "name": "Cupboard08_LeftLeafBatton",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.0001596735548316164
+    },
+    {
+      "name": "Cupboard08_LeftHingeSeat",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00015995400457119048
+    },
+    {
+      "name": "Cupboard08_RightStile0.01",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00030957533908707626
+    },
+    {
+      "name": "Cupboard08_RightStile0.505",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00030957503984672756
+    },
+    {
+      "name": "Cupboard08_RightRail0.04",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00018847320502109665
+    },
+    {
+      "name": "Cupboard08_RightRail0.095",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.0002356699996304846
+    },
+    {
+      "name": "Cupboard08_RightRail0.635",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00023567031804105454
+    },
+    {
+      "name": "Cupboard08_RightPanel",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.0039040228229672864
+    },
+    {
+      "name": "Cupboard08_RightRecess",
+      "assembly": "Cupboard08",
+      "key": "soot",
+      "volume_m3": 3.2818996122434724e-05
+    },
+    {
+      "name": "Cupboard08_RightLeafBatton",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 0.00015967346553919748
+    },
+    {
+      "name": "Cupboard08_RightHingeSeat",
+      "assembly": "Cupboard08",
+      "key": "trim",
+      "volume_m3": 7.996401310487845e-05
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "Shelf01",
+      "owner": "support",
+      "point": [
+        -0.48,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot00"
+    },
+    {
+      "assembly": "Shelf01",
+      "owner": "support",
+      "point": [
+        -0.48,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot01"
+    },
+    {
+      "assembly": "Shelf01",
+      "owner": "support",
+      "point": [
+        0.48,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot10"
+    },
+    {
+      "assembly": "Shelf01",
+      "owner": "support",
+      "point": [
+        0.48,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot11"
+    },
+    {
+      "assembly": "Shelf02",
+      "owner": "support",
+      "point": [
+        -0.53,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot00"
+    },
+    {
+      "assembly": "Shelf02",
+      "owner": "support",
+      "point": [
+        -0.53,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot01"
+    },
+    {
+      "assembly": "Shelf02",
+      "owner": "support",
+      "point": [
+        0.53,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot10"
+    },
+    {
+      "assembly": "Shelf02",
+      "owner": "support",
+      "point": [
+        0.53,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot11"
+    },
+    {
+      "assembly": "Counter03",
+      "owner": "support",
+      "point": [
+        -0.9,
+        0,
+        -0.22
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "timber sink foot0"
+    },
+    {
+      "assembly": "Counter03",
+      "owner": "support",
+      "point": [
+        -0.9,
+        0,
+        0.22
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "timber sink foot1"
+    },
+    {
+      "assembly": "Counter03",
+      "owner": "support",
+      "point": [
+        0.28,
+        0,
+        -0.22
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "timber sink foot2"
+    },
+    {
+      "assembly": "Counter03",
+      "owner": "support",
+      "point": [
+        0.28,
+        0,
+        0.22
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "timber sink foot3"
+    },
+    {
+      "assembly": "Shelf04",
+      "owner": "support",
+      "point": [
+        -0.45499999999999996,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot00"
+    },
+    {
+      "assembly": "Shelf04",
+      "owner": "support",
+      "point": [
+        -0.45499999999999996,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot01"
+    },
+    {
+      "assembly": "Shelf04",
+      "owner": "support",
+      "point": [
+        0.45499999999999996,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot10"
+    },
+    {
+      "assembly": "Shelf04",
+      "owner": "support",
+      "point": [
+        0.45499999999999996,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot11"
+    },
+    {
+      "assembly": "Counter05",
+      "owner": "support",
+      "point": [
+        -0.335,
+        0,
+        -0.215
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "metal sink foot0"
+    },
+    {
+      "assembly": "Counter05",
+      "owner": "support",
+      "point": [
+        -0.335,
+        0,
+        0.215
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "metal sink foot1"
+    },
+    {
+      "assembly": "Counter05",
+      "owner": "support",
+      "point": [
+        0.775,
+        0,
+        -0.215
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "metal sink foot2"
+    },
+    {
+      "assembly": "Counter05",
+      "owner": "support",
+      "point": [
+        0.775,
+        0,
+        0.215
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "metal sink foot3"
+    },
+    {
+      "assembly": "Cupboard06",
+      "owner": "wall",
+      "point": [
+        -0.43,
+        0.1,
+        0.31
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "cabinet rear bearing"
+    },
+    {
+      "assembly": "Cupboard06",
+      "owner": "wall",
+      "point": [
+        -0.43,
+        0.6,
+        0.31
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "cabinet rear bearing"
+    },
+    {
+      "assembly": "Cupboard06",
+      "owner": "wall",
+      "point": [
+        0.43,
+        0.1,
+        0.31
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "cabinet rear bearing"
+    },
+    {
+      "assembly": "Cupboard06",
+      "owner": "wall",
+      "point": [
+        0.43,
+        0.6,
+        0.31
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "cabinet rear bearing"
+    },
+    {
+      "assembly": "Shelf07",
+      "owner": "support",
+      "point": [
+        -0.78,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot00"
+    },
+    {
+      "assembly": "Shelf07",
+      "owner": "support",
+      "point": [
+        -0.78,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot01"
+    },
+    {
+      "assembly": "Shelf07",
+      "owner": "support",
+      "point": [
+        0.78,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot10"
+    },
+    {
+      "assembly": "Shelf07",
+      "owner": "support",
+      "point": [
+        0.78,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot11"
+    },
+    {
+      "assembly": "Cupboard08",
+      "owner": "wall",
+      "point": [
+        -0.43,
+        0.1,
+        0.3
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "cabinet rear bearing"
+    },
+    {
+      "assembly": "Cupboard08",
+      "owner": "wall",
+      "point": [
+        -0.43,
+        0.6,
+        0.3
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "cabinet rear bearing"
+    },
+    {
+      "assembly": "Cupboard08",
+      "owner": "wall",
+      "point": [
+        0.43,
+        0.1,
+        0.3
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "cabinet rear bearing"
+    },
+    {
+      "assembly": "Cupboard08",
+      "owner": "wall",
+      "point": [
+        0.43,
+        0.6,
+        0.3
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "cabinet rear bearing"
+    }
+  ],
+  "parts": [
+    {
+      "name": "Shelf01__floor_oak",
+      "assembly": "Shelf01",
+      "cell": "shared",
+      "key": "floor_oak",
+      "triangles": 940
+    },
+    {
+      "name": "Shelf01__metal",
+      "assembly": "Shelf01",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 4888
+    },
+    {
+      "name": "Shelf01__trim",
+      "assembly": "Shelf01",
+      "cell": "shared",
+      "key": "trim",
+      "triangles": 2256
+    },
+    {
+      "name": "Shelf02__book_brown",
+      "assembly": "Shelf02",
+      "cell": "shared",
+      "key": "book_brown",
+      "triangles": 4512
+    },
+    {
+      "name": "Shelf02__book_burgundy",
+      "assembly": "Shelf02",
+      "cell": "shared",
+      "key": "book_burgundy",
+      "triangles": 5076
+    },
+    {
+      "name": "Shelf02__book_green",
+      "assembly": "Shelf02",
+      "cell": "shared",
+      "key": "book_green",
+      "triangles": 2820
+    },
+    {
+      "name": "Shelf02__book_navy",
+      "assembly": "Shelf02",
+      "cell": "shared",
+      "key": "book_navy",
+      "triangles": 4512
+    },
+    {
+      "name": "Shelf02__book_ochre",
+      "assembly": "Shelf02",
+      "cell": "shared",
+      "key": "book_ochre",
+      "triangles": 2820
+    },
+    {
+      "name": "Shelf02__book_teal",
+      "assembly": "Shelf02",
+      "cell": "shared",
+      "key": "book_teal",
+      "triangles": 4512
+    },
+    {
+      "name": "Shelf02__floor_oak",
+      "assembly": "Shelf02",
+      "cell": "shared",
+      "key": "floor_oak",
+      "triangles": 940
+    },
+    {
+      "name": "Shelf02__metal",
+      "assembly": "Shelf02",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 2632
+    },
+    {
+      "name": "Shelf02__paper",
+      "assembly": "Shelf02",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 8084
+    },
+    {
+      "name": "Counter03__countertop",
+      "assembly": "Counter03",
+      "cell": "shared",
+      "key": "countertop",
+      "triangles": 384
+    },
+    {
+      "name": "Counter03__wood_dark",
+      "assembly": "Counter03",
+      "cell": "shared",
+      "key": "wood_dark",
+      "triangles": 1504
+    },
+    {
+      "name": "Shelf04__floor_oak",
+      "assembly": "Shelf04",
+      "cell": "shared",
+      "key": "floor_oak",
+      "triangles": 940
+    },
+    {
+      "name": "Shelf04__metal",
+      "assembly": "Shelf04",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 4888
+    },
+    {
+      "name": "Shelf04__trim",
+      "assembly": "Shelf04",
+      "cell": "shared",
+      "key": "trim",
+      "triangles": 2256
+    },
+    {
+      "name": "Counter05__metal",
+      "assembly": "Counter05",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 6768
+    },
+    {
+      "name": "Cupboard06__soot",
+      "assembly": "Cupboard06",
+      "cell": "shared",
+      "key": "soot",
+      "triangles": 376
+    },
+    {
+      "name": "Cupboard06__trim",
+      "assembly": "Cupboard06",
+      "cell": "shared",
+      "key": "trim",
+      "triangles": 5076
+    },
+    {
+      "name": "Shelf07__floor_oak",
+      "assembly": "Shelf07",
+      "cell": "shared",
+      "key": "floor_oak",
+      "triangles": 940
+    },
+    {
+      "name": "Shelf07__metal",
+      "assembly": "Shelf07",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 4888
+    },
+    {
+      "name": "Shelf07__trim",
+      "assembly": "Shelf07",
+      "cell": "shared",
+      "key": "trim",
+      "triangles": 2256
+    },
+    {
+      "name": "Cupboard08__soot",
+      "assembly": "Cupboard08",
+      "cell": "shared",
+      "key": "soot",
+      "triangles": 376
+    },
+    {
+      "name": "Cupboard08__trim",
+      "assembly": "Cupboard08",
+      "cell": "shared",
+      "key": "trim",
+      "triangles": 4700
+    }
+  ],
+  "triangles": 79344,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/domestic_storage.glb",
+    "floor_y": 0,
+    "assemblies": [
+      {
+        "id": "Shelf01",
+        "parts": [
+          {
+            "name": "Shelf01__floor_oak",
+            "key": "floor_oak",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          },
+          {
+            "name": "Shelf01__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal"
+          },
+          {
+            "name": "Shelf01__trim",
+            "key": "trim",
+            "tile": 1.2,
+            "catalog_key": "trim",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "Shelf02",
+        "parts": [
+          {
+            "name": "Shelf02__book_brown",
+            "key": "book_brown",
+            "tile": 0.32,
+            "catalog_key": "book_brown"
+          },
+          {
+            "name": "Shelf02__book_burgundy",
+            "key": "book_burgundy",
+            "tile": 0.32,
+            "catalog_key": "book_burgundy"
+          },
+          {
+            "name": "Shelf02__book_green",
+            "key": "book_green",
+            "tile": 0.32,
+            "catalog_key": "book_green"
+          },
+          {
+            "name": "Shelf02__book_navy",
+            "key": "book_navy",
+            "tile": 0.32,
+            "catalog_key": "book_navy"
+          },
+          {
+            "name": "Shelf02__book_ochre",
+            "key": "book_ochre",
+            "tile": 0.32,
+            "catalog_key": "book_ochre"
+          },
+          {
+            "name": "Shelf02__book_teal",
+            "key": "book_teal",
+            "tile": 0.32,
+            "catalog_key": "book_teal"
+          },
+          {
+            "name": "Shelf02__floor_oak",
+            "key": "floor_oak",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          },
+          {
+            "name": "Shelf02__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal"
+          },
+          {
+            "name": "Shelf02__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "Counter03",
+        "parts": [
+          {
+            "name": "Counter03__countertop",
+            "key": "countertop",
+            "tile": 1.2,
+            "catalog_key": "countertop",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          },
+          {
+            "name": "Counter03__wood_dark",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "Shelf04",
+        "parts": [
+          {
+            "name": "Shelf04__floor_oak",
+            "key": "floor_oak",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          },
+          {
+            "name": "Shelf04__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal"
+          },
+          {
+            "name": "Shelf04__trim",
+            "key": "trim",
+            "tile": 1.2,
+            "catalog_key": "trim",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "Counter05",
+        "parts": [
+          {
+            "name": "Counter05__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "Cupboard06",
+        "parts": [
+          {
+            "name": "Cupboard06__soot",
+            "key": "soot",
+            "tile": 0.55,
+            "catalog_key": "soot"
+          },
+          {
+            "name": "Cupboard06__trim",
+            "key": "trim",
+            "tile": 1.2,
+            "catalog_key": "trim",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "Shelf07",
+        "parts": [
+          {
+            "name": "Shelf07__floor_oak",
+            "key": "floor_oak",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          },
+          {
+            "name": "Shelf07__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal"
+          },
+          {
+            "name": "Shelf07__trim",
+            "key": "trim",
+            "tile": 1.2,
+            "catalog_key": "trim",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "Cupboard08",
+        "parts": [
+          {
+            "name": "Cupboard08__soot",
+            "key": "soot",
+            "tile": 0.55,
+            "catalog_key": "soot"
+          },
+          {
+            "name": "Cupboard08__trim",
+            "key": "trim",
+            "tile": 1.2,
+            "catalog_key": "trim",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      }
+    ],
+    "instances": [
+      {
+        "id": "3B_tools0",
+        "variant": "Shelf01"
+      },
+      {
+        "id": "3B_tools1",
+        "variant": "Shelf01"
+      },
+      {
+        "id": "4B_equipment_shelf",
+        "variant": "Shelf01"
+      },
+      {
+        "id": "2B_fabric_shelf_01",
+        "variant": "Shelf01"
+      },
+      {
+        "id": "2B_fabric_shelf_02",
+        "variant": "Shelf01"
+      },
+      {
+        "id": "b1_parts_shelf",
+        "variant": "Shelf01"
+      },
+      {
+        "id": "4B_shelf",
+        "variant": "Shelf02"
+      },
+      {
+        "id": "4B_sink_counter",
+        "variant": "Counter03"
+      },
+      {
+        "id": "2A_shelf0",
+        "variant": "Shelf04"
+      },
+      {
+        "id": "2A_shelf1",
+        "variant": "Shelf04"
+      },
+      {
+        "id": "2A_shelf2",
+        "variant": "Shelf04"
+      },
+      {
+        "id": "2A_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "2B_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "3A_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "4A_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "5A_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "5B_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "5C_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "6A_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "6B_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "6C_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "2C_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "4C_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "1D_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "1A_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "3D_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "4D_sink_support",
+        "variant": "Counter05"
+      },
+      {
+        "id": "2A_k_wall_cupboard",
+        "variant": "Cupboard06"
+      },
+      {
+        "id": "2B_k_wall_cupboard",
+        "variant": "Cupboard06"
+      },
+      {
+        "id": "3B_k_wall_cupboard",
+        "variant": "Cupboard06"
+      },
+      {
+        "id": "4B_wall_cupboard",
+        "variant": "Cupboard06"
+      },
+      {
+        "id": "3A_k_wall_cupboard",
+        "variant": "Cupboard06"
+      },
+      {
+        "id": "4A_k_wall_cupboard",
+        "variant": "Cupboard06"
+      },
+      {
+        "id": "5A_k_wall_cupboard",
+        "variant": "Cupboard08"
+      },
+      {
+        "id": "5B_k_wall_cupboard",
+        "variant": "Cupboard08"
+      },
+      {
+        "id": "5C_k_wall_cupboard",
+        "variant": "Cupboard08"
+      },
+      {
+        "id": "6A_k_wall_cupboard",
+        "variant": "Cupboard08"
+      },
+      {
+        "id": "6B_k_wall_cupboard",
+        "variant": "Cupboard08"
+      },
+      {
+        "id": "6C_k_wall_cupboard",
+        "variant": "Cupboard08"
+      },
+      {
+        "id": "2C_k_wall_cupboard",
+        "variant": "Cupboard08"
+      },
+      {
+        "id": "4C_k_wall_cupboard",
+        "variant": "Cupboard08"
+      },
+      {
+        "id": "1D_k_wall_cupboard",
+        "variant": "Cupboard06"
+      },
+      {
+        "id": "5A_planshelf",
+        "variant": "Shelf07"
+      }
+    ],
+    "tint_space": "linear"
+  },
+  "asset_sha256": "d64650c6da209ae2478604d4b5aeae6b6fb8cc86ece1eb1634d8a47c345d3881",
+  "source_bindings": {
+    "art/data/domestic_storage/source_plan.json": "1dd75157acb30b89b69536f2d899e0c8b7a294100164662b806d06e204611814",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_domestic_storage.py": "20d9462f5627faf46089f16f965887d1f0b6a320638a4e42578de34e92e299fa",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "game/data/runtime_material_sets.json": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73",
+    "game/scripts/generated/material_sets.gd": "51b0c6cf899b87bb34cd49191413be9f930b12d0a11db0b009616a0a1c8fee65",
+    "game/assets/props/domestic_storage.glb.import": "858b2eb9341a8177e486fab40b094a50b84fa6c25c9138d93de61ca853a3b8ae",
+    "art/textures/ai_materials/metal/material.json": "068d94125da30962359281c99868ebf22999f50e10397310a878e70af43fbc13",
+    "art/textures/ai_materials/oak_work_surface/material.json": "e6f67c0a42f610648b57189f1f2d8ed7e567742ef8c4af32e104fd73acbe7f89",
+    "art/textures/ai_materials/trim/material.json": "7f7ce266fc6d291f2c15ea67ce60be610579f45ba215460e77aa2e671b5feecf",
+    "art/textures/ai_materials/soot/material.json": "9815f25071c75361fb2b6bcd4c1dce3582c99494e34ec03051940c77eeeb4051",
+    "art/textures/ai_materials/countertop/material.json": "e7dd2b2c3ef5cec58cbdec8ecff588adfdb49bd24214babe40361e7dbe7699ab",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/library/furniture/book_navy/asset.json": "11f094b4e664f707aec80674a03e39e29ac5d44fcc4fb8eff87f5999d70ad0d8",
+    "art/textures/library/furniture/book_ochre/asset.json": "e1c80801e311182515fe74344fc36c335e82da86f6694dd517c10a2d6afe0cfd",
+    "art/textures/library/furniture/book_teal/asset.json": "78667524c82a3549885a89db5d81ab73c1f4f7d002282417d4c3f34bf97d1be3",
+    "art/textures/library/furniture/book_brown/asset.json": "79a749706b6867089cebcdca24c8c1cf127ef7e58f796e71cf99b70bfe6162ff",
+    "art/textures/library/furniture/book_burgundy/asset.json": "024b83b9c4020e4aa5ed30e0bb261e98c107f9b6d44cf80995f146401a70d6d7",
+    "art/textures/library/furniture/book_green/asset.json": "7681fe779cc7f45eb81685383f78f4131d7719e900c9dd8bcc6dc6fd02c17bbe",
+    "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png": "e239eaae1e43e714c9a768c7300ef5027f0995f42c673ba2f2b3d142e82b4eaa",
+    "game/assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_rough.png": "9c7839b01d4836a072dc4857c0f8dc646d77c834558130e9568273646e0e99fa",
+    "game/assets/building/textures/T_library_appliances_galvanized_metal_normal.png": "f354e23c04f3bb9ff4612b875ef4735f8f7b4edca266ebe795a6dc189611a788",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_albedo.png": "94715b263c85285aced41196f29aea6675f866a61180ab90a1f9c719bef4edeb",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_rough.png": "ebf613454bbd3e6a6909cbe3d1aa4fe89b45fd8229516aafb31146761cf63ee5",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_normal.png": "8aa1987fad72d117f836ac0d18922e94b71a03a009206401f440768ac6ad91e1",
+    "game/assets/building/textures/T_library_architectural_painted_trim_albedo.png": "f4beb89801df323f60c42c30dfad97af0d5243fc8846296903b2b1ebee3e6be7",
+    "game/assets/building/textures/T_library_architectural_painted_trim_rough.png": "e7e87c348ac238fff6c31ba35f0b4ed7663e3a68ab9f83d1d781a5bd3f8cd9c4",
+    "game/assets/building/textures/T_library_architectural_painted_trim_normal.png": "416bbfb7fe054518f7e23a0701085bceae724bb318182aca2437c10e33022ee7",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png": "599ccf878c2fb74c6462a8e961addfe12fb5f90e9c85b68b0601edb0921ee547",
+    "game/assets/building/textures/T_ai_materials_soot_worn_soot_rough.png": "23e9482180b08d41394fcbf259e5cc69c813da4e1f3c6a0b1b82755e39e2b1ca",
+    "game/assets/building/textures/T_ai_materials_soot_normal.png": "87975ab4abf0d0c6629b3c43078a83ddc9721afabf4a808bdfdfc3112aa33444",
+    "game/assets/building/textures/T_ai_materials_countertop_albedo.png": "93d4dd6ee13868320bec0bdbc6daf1e7d55c7d60ed8b34ebf5e5cedb69eabcf8",
+    "game/assets/building/textures/T_ai_materials_countertop_rough.png": "cec79f5f40e7f14c36d82d913e0714d95e85ed1e4ae3025b32936f3807995476",
+    "game/assets/building/textures/T_ai_materials_countertop_normal.png": "ae934e7faf731277c3ca3c250d4db7e861ff830f3c202a7040763551ccfc6312",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "game/assets/building/textures/T_library_furniture_book_navy_albedo.png": "ab6a0fc5e8122699113a933e9ca30c0b0378dbdaba0eef2bb1840879cf8900c1",
+    "game/assets/building/textures/T_library_furniture_book_navy_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_navy_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_ochre_albedo.png": "ca059ff78b62b4093d01a62b07583b05e8ef88d6e0248d56e094a2965020e983",
+    "game/assets/building/textures/T_library_furniture_book_ochre_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_ochre_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_teal_albedo.png": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef",
+    "game/assets/building/textures/T_library_furniture_book_teal_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_teal_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_brown_albedo.png": "c46d6e88f528786d6986576cc9e34279d343d3ecc8435f4617fe0cef8a44ce0e",
+    "game/assets/building/textures/T_library_furniture_book_brown_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_brown_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_burgundy_albedo.png": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9",
+    "game/assets/building/textures/T_library_furniture_book_burgundy_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_burgundy_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_green_albedo.png": "090beba64471030a0995a1d07a917884d90b85de20895e0eae2b99ed899d197f",
+    "game/assets/building/textures/T_library_furniture_book_green_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
+    "game/assets/building/textures/T_library_furniture_book_green_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
+    "art/data/material_catalog.json": "562d8c15879f12404d443d227a2ccda373c68a6af810e63cc214ce23c79ee1e1",
+    "art/textures/catalog_mapping.json": "d4f3e411ac9b1f942bed184b34a4cf19f4418a4220044c86ed917513c2421686",
+    "art/tools/generate_runtime_materials.py": "4156d34f776a3cd57c2dcdc016f0f147a0741530ef20a16d0b610e28dd8198a6",
+    "art/blender/scripts/inspect_domestic_storage.py": "6983b0b46d292cc2fcdf8bb05fa764fd8b3b8c3a973a15e5e148afab9b29d36d",
+    "art/blender/scripts/render_domestic_storage.py": "8947b65d2e99d41ca1acbeb33075a5852bfbe2d7d8e7158c04657db20912e6b5",
+    "art/blender/scripts/domestic_storage_geometry.py": "92f03ce5f713c87e4706f86e827b5176d3ff06359b9ad7854864cfd4aa38c0f5",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707",
+    "game/data/orison_v2/completion_interiors.json": "5fa82dc7867693816be370e8a6cea7a5bc71787cb51bdac1892c637e6746505f",
+    "art/data/orison_v2/completion_interiors_source.json": "5cee5bdc91d9ad58add1379f33e3efe195062af948db8ceadefa9ccf316ed719",
+    "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
+    "art/blender/scripts/inspect_domestic_storage_context.py": "ab912be72c857d6931850336322a5b151ced26783da15f3ba75c2f9b94367b6d",
+    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
+    "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e",
+    "game/tests/fixtures/orison_surface_stock.json": "c6745b20915158a8e1a82d510f187f1977b3889892b8bcbf1adbafecc07e4bd9"
+  },
+  "retained_stock": [
+    {
+      "assembly": "Shelf01",
+      "kind": "closed_storage_container",
+      "label": "PaintedBin0",
+      "low": [
+        -0.44,
+        -0.10999999999999999,
+        0.092
+      ],
+      "high": [
+        -0.08000000000000002,
+        0.10999999999999999,
+        0.32
+      ]
+    },
+    {
+      "assembly": "Shelf01",
+      "kind": "closed_storage_container",
+      "label": "PaintedBin1",
+      "low": [
+        -0.44,
+        -0.10999999999999999,
+        0.532
+      ],
+      "high": [
+        -0.08000000000000002,
+        0.10999999999999999,
+        0.76
+      ]
+    },
+    {
+      "assembly": "Shelf01",
+      "kind": "closed_storage_container",
+      "label": "MetalTin0",
+      "low": [
+        0.09999999999999998,
+        -0.09999999999999999,
+        0.092
+      ],
+      "high": [
+        0.44,
+        0.09999999999999999,
+        0.28
+      ]
+    },
+    {
+      "assembly": "Shelf01",
+      "kind": "closed_storage_container",
+      "label": "MetalTin1",
+      "low": [
+        0.09999999999999998,
+        -0.09999999999999999,
+        0.532
+      ],
+      "high": [
+        0.44,
+        0.09999999999999999,
+        0.72
+      ]
+    },
+    {
+      "assembly": "Shelf01",
+      "kind": "shelf",
+      "boards": 5,
+      "height": 1.85,
+      "books": 0
+    },
+    {
+      "assembly": "Shelf02",
+      "kind": "shelf",
+      "boards": 5,
+      "height": 1.85,
+      "books": 43
+    },
+    {
+      "assembly": "Counter03",
+      "kind": "counter",
+      "worktop": 0.905
+    },
+    {
+      "assembly": "Shelf04",
+      "kind": "closed_storage_container",
+      "label": "PaintedBin0",
+      "low": [
+        -0.415,
+        -0.10999999999999999,
+        0.092
+      ],
+      "high": [
+        -0.05499999999999999,
+        0.10999999999999999,
+        0.32
+      ]
+    },
+    {
+      "assembly": "Shelf04",
+      "kind": "closed_storage_container",
+      "label": "PaintedBin1",
+      "low": [
+        -0.415,
+        -0.10999999999999999,
+        0.532
+      ],
+      "high": [
+        -0.05499999999999999,
+        0.10999999999999999,
+        0.76
+      ]
+    },
+    {
+      "assembly": "Shelf04",
+      "kind": "closed_storage_container",
+      "label": "MetalTin0",
+      "low": [
+        0.07499999999999996,
+        -0.09999999999999999,
+        0.092
+      ],
+      "high": [
+        0.415,
+        0.09999999999999999,
+        0.28
+      ]
+    },
+    {
+      "assembly": "Shelf04",
+      "kind": "closed_storage_container",
+      "label": "MetalTin1",
+      "low": [
+        0.07499999999999996,
+        -0.09999999999999999,
+        0.532
+      ],
+      "high": [
+        0.415,
+        0.09999999999999999,
+        0.72
+      ]
+    },
+    {
+      "assembly": "Shelf04",
+      "kind": "shelf",
+      "boards": 5,
+      "height": 1.6,
+      "books": 0
+    },
+    {
+      "assembly": "Counter05",
+      "kind": "counter",
+      "worktop": 0.75
+    },
+    {
+      "assembly": "Cupboard06",
+      "kind": "cupboard",
+      "closed_passive_leaves": 2,
+      "shelves": 1,
+      "back_plane_godot_z": 0.31
+    },
+    {
+      "assembly": "Shelf07",
+      "kind": "closed_storage_container",
+      "label": "PaintedBin0",
+      "low": [
+        -0.74,
+        -0.10999999999999999,
+        0.092
+      ],
+      "high": [
+        -0.38000000000000006,
+        0.10999999999999999,
+        0.32
+      ]
+    },
+    {
+      "assembly": "Shelf07",
+      "kind": "closed_storage_container",
+      "label": "PaintedBin1",
+      "low": [
+        -0.74,
+        -0.10999999999999999,
+        0.532
+      ],
+      "high": [
+        -0.38000000000000006,
+        0.10999999999999999,
+        0.76
+      ]
+    },
+    {
+      "assembly": "Shelf07",
+      "kind": "closed_storage_container",
+      "label": "MetalTin0",
+      "low": [
+        0.4,
+        -0.09999999999999999,
+        0.092
+      ],
+      "high": [
+        0.74,
+        0.09999999999999999,
+        0.28
+      ]
+    },
+    {
+      "assembly": "Shelf07",
+      "kind": "closed_storage_container",
+      "label": "MetalTin1",
+      "low": [
+        0.4,
+        -0.09999999999999999,
+        0.532
+      ],
+      "high": [
+        0.74,
+        0.09999999999999999,
+        0.72
+      ]
+    },
+    {
+      "assembly": "Shelf07",
+      "kind": "shelf",
+      "boards": 5,
+      "height": 1.4,
+      "books": 0
+    },
+    {
+      "assembly": "Cupboard08",
+      "kind": "cupboard",
+      "closed_passive_leaves": 2,
+      "shelves": 1,
+      "back_plane_godot_z": 0.3
+    }
+  ],
+  "construction_groups": [
+    {
+      "assembly": "Shelf01",
+      "id": "Shelf01_JoinedStorage",
+      "stocks": [
+        "Shelf01_Upright00",
+        "Shelf01_Upright01",
+        "Shelf01_Upright10",
+        "Shelf01_Upright11",
+        "Shelf01_Board0",
+        "Shelf01_Rung0_-1",
+        "Shelf01_Rung0_1",
+        "Shelf01_Board1",
+        "Shelf01_Rung1_-1",
+        "Shelf01_Rung1_1",
+        "Shelf01_Board2",
+        "Shelf01_Rung2_-1",
+        "Shelf01_Rung2_1",
+        "Shelf01_Board3",
+        "Shelf01_Rung3_-1",
+        "Shelf01_Rung3_1",
+        "Shelf01_Board4",
+        "Shelf01_Rung4_-1",
+        "Shelf01_Rung4_1",
+        "Shelf01_PaintedBin0Bottom",
+        "Shelf01_PaintedBin0Lid",
+        "Shelf01_PaintedBin0Wall0-1",
+        "Shelf01_PaintedBin0Wall01",
+        "Shelf01_PaintedBin0Wall1-1",
+        "Shelf01_PaintedBin0Wall11",
+        "Shelf01_PaintedBin1Bottom",
+        "Shelf01_PaintedBin1Lid",
+        "Shelf01_PaintedBin1Wall0-1",
+        "Shelf01_PaintedBin1Wall01",
+        "Shelf01_PaintedBin1Wall1-1",
+        "Shelf01_PaintedBin1Wall11",
+        "Shelf01_MetalTin0Bottom",
+        "Shelf01_MetalTin0Lid",
+        "Shelf01_MetalTin0Wall0-1",
+        "Shelf01_MetalTin0Wall01",
+        "Shelf01_MetalTin0Wall1-1",
+        "Shelf01_MetalTin0Wall11",
+        "Shelf01_MetalTin1Bottom",
+        "Shelf01_MetalTin1Lid",
+        "Shelf01_MetalTin1Wall0-1",
+        "Shelf01_MetalTin1Wall01",
+        "Shelf01_MetalTin1Wall1-1",
+        "Shelf01_MetalTin1Wall11"
+      ]
+    },
+    {
+      "assembly": "Shelf02",
+      "id": "Shelf02_JoinedStorage",
+      "stocks": [
+        "Shelf02_Upright00",
+        "Shelf02_Upright01",
+        "Shelf02_Upright10",
+        "Shelf02_Upright11",
+        "Shelf02_Board0",
+        "Shelf02_Rung0_-1",
+        "Shelf02_Rung0_1",
+        "Shelf02_Board1",
+        "Shelf02_Rung1_-1",
+        "Shelf02_Rung1_1",
+        "Shelf02_Board2",
+        "Shelf02_Rung2_-1",
+        "Shelf02_Rung2_1",
+        "Shelf02_Board3",
+        "Shelf02_Rung3_-1",
+        "Shelf02_Rung3_1",
+        "Shelf02_Board4",
+        "Shelf02_Rung4_-1",
+        "Shelf02_Rung4_1",
+        "Shelf02_book_navy0LowerCover",
+        "Shelf02_book_navy0UpperCover",
+        "Shelf02_book_navy0Pages",
+        "Shelf02_book_navy0Spine",
+        "Shelf02_book_navy1LowerCover",
+        "Shelf02_book_navy1UpperCover",
+        "Shelf02_book_navy1Pages",
+        "Shelf02_book_navy1Spine",
+        "Shelf02_book_navy2LowerCover",
+        "Shelf02_book_navy2UpperCover",
+        "Shelf02_book_navy2Pages",
+        "Shelf02_book_navy2Spine",
+        "Shelf02_book_navy3LowerCover",
+        "Shelf02_book_navy3UpperCover",
+        "Shelf02_book_navy3Pages",
+        "Shelf02_book_navy3Spine",
+        "Shelf02_book_navy4LowerCover",
+        "Shelf02_book_navy4UpperCover",
+        "Shelf02_book_navy4Pages",
+        "Shelf02_book_navy4Spine",
+        "Shelf02_book_navy5LowerCover",
+        "Shelf02_book_navy5UpperCover",
+        "Shelf02_book_navy5Pages",
+        "Shelf02_book_navy5Spine",
+        "Shelf02_book_navy6LowerCover",
+        "Shelf02_book_navy6UpperCover",
+        "Shelf02_book_navy6Pages",
+        "Shelf02_book_navy6Spine",
+        "Shelf02_book_navy7LowerCover",
+        "Shelf02_book_navy7UpperCover",
+        "Shelf02_book_navy7Pages",
+        "Shelf02_book_navy7Spine",
+        "Shelf02_book_ochre0LowerCover",
+        "Shelf02_book_ochre0UpperCover",
+        "Shelf02_book_ochre0Pages",
+        "Shelf02_book_ochre0Spine",
+        "Shelf02_book_ochre1LowerCover",
+        "Shelf02_book_ochre1UpperCover",
+        "Shelf02_book_ochre1Pages",
+        "Shelf02_book_ochre1Spine",
+        "Shelf02_book_ochre2LowerCover",
+        "Shelf02_book_ochre2UpperCover",
+        "Shelf02_book_ochre2Pages",
+        "Shelf02_book_ochre2Spine",
+        "Shelf02_book_ochre3LowerCover",
+        "Shelf02_book_ochre3UpperCover",
+        "Shelf02_book_ochre3Pages",
+        "Shelf02_book_ochre3Spine",
+        "Shelf02_book_ochre4LowerCover",
+        "Shelf02_book_ochre4UpperCover",
+        "Shelf02_book_ochre4Pages",
+        "Shelf02_book_ochre4Spine",
+        "Shelf02_book_teal0LowerCover",
+        "Shelf02_book_teal0UpperCover",
+        "Shelf02_book_teal0Pages",
+        "Shelf02_book_teal0Spine",
+        "Shelf02_book_teal1LowerCover",
+        "Shelf02_book_teal1UpperCover",
+        "Shelf02_book_teal1Pages",
+        "Shelf02_book_teal1Spine",
+        "Shelf02_book_teal2LowerCover",
+        "Shelf02_book_teal2UpperCover",
+        "Shelf02_book_teal2Pages",
+        "Shelf02_book_teal2Spine",
+        "Shelf02_book_teal3LowerCover",
+        "Shelf02_book_teal3UpperCover",
+        "Shelf02_book_teal3Pages",
+        "Shelf02_book_teal3Spine",
+        "Shelf02_book_teal4LowerCover",
+        "Shelf02_book_teal4UpperCover",
+        "Shelf02_book_teal4Pages",
+        "Shelf02_book_teal4Spine",
+        "Shelf02_book_teal5LowerCover",
+        "Shelf02_book_teal5UpperCover",
+        "Shelf02_book_teal5Pages",
+        "Shelf02_book_teal5Spine",
+        "Shelf02_book_teal6LowerCover",
+        "Shelf02_book_teal6UpperCover",
+        "Shelf02_book_teal6Pages",
+        "Shelf02_book_teal6Spine",
+        "Shelf02_book_teal7LowerCover",
+        "Shelf02_book_teal7UpperCover",
+        "Shelf02_book_teal7Pages",
+        "Shelf02_book_teal7Spine",
+        "Shelf02_book_brown0LowerCover",
+        "Shelf02_book_brown0UpperCover",
+        "Shelf02_book_brown0Pages",
+        "Shelf02_book_brown0Spine",
+        "Shelf02_book_brown1LowerCover",
+        "Shelf02_book_brown1UpperCover",
+        "Shelf02_book_brown1Pages",
+        "Shelf02_book_brown1Spine",
+        "Shelf02_book_brown2LowerCover",
+        "Shelf02_book_brown2UpperCover",
+        "Shelf02_book_brown2Pages",
+        "Shelf02_book_brown2Spine",
+        "Shelf02_book_brown3LowerCover",
+        "Shelf02_book_brown3UpperCover",
+        "Shelf02_book_brown3Pages",
+        "Shelf02_book_brown3Spine",
+        "Shelf02_book_brown4LowerCover",
+        "Shelf02_book_brown4UpperCover",
+        "Shelf02_book_brown4Pages",
+        "Shelf02_book_brown4Spine",
+        "Shelf02_book_brown5LowerCover",
+        "Shelf02_book_brown5UpperCover",
+        "Shelf02_book_brown5Pages",
+        "Shelf02_book_brown5Spine",
+        "Shelf02_book_brown6LowerCover",
+        "Shelf02_book_brown6UpperCover",
+        "Shelf02_book_brown6Pages",
+        "Shelf02_book_brown6Spine",
+        "Shelf02_book_brown7LowerCover",
+        "Shelf02_book_brown7UpperCover",
+        "Shelf02_book_brown7Pages",
+        "Shelf02_book_brown7Spine",
+        "Shelf02_book_burgundy0LowerCover",
+        "Shelf02_book_burgundy0UpperCover",
+        "Shelf02_book_burgundy0Pages",
+        "Shelf02_book_burgundy0Spine",
+        "Shelf02_book_burgundy1LowerCover",
+        "Shelf02_book_burgundy1UpperCover",
+        "Shelf02_book_burgundy1Pages",
+        "Shelf02_book_burgundy1Spine",
+        "Shelf02_book_burgundy2LowerCover",
+        "Shelf02_book_burgundy2UpperCover",
+        "Shelf02_book_burgundy2Pages",
+        "Shelf02_book_burgundy2Spine",
+        "Shelf02_book_burgundy3LowerCover",
+        "Shelf02_book_burgundy3UpperCover",
+        "Shelf02_book_burgundy3Pages",
+        "Shelf02_book_burgundy3Spine",
+        "Shelf02_book_burgundy4LowerCover",
+        "Shelf02_book_burgundy4UpperCover",
+        "Shelf02_book_burgundy4Pages",
+        "Shelf02_book_burgundy4Spine",
+        "Shelf02_book_burgundy5LowerCover",
+        "Shelf02_book_burgundy5UpperCover",
+        "Shelf02_book_burgundy5Pages",
+        "Shelf02_book_burgundy5Spine",
+        "Shelf02_book_burgundy6LowerCover",
+        "Shelf02_book_burgundy6UpperCover",
+        "Shelf02_book_burgundy6Pages",
+        "Shelf02_book_burgundy6Spine",
+        "Shelf02_book_burgundy7LowerCover",
+        "Shelf02_book_burgundy7UpperCover",
+        "Shelf02_book_burgundy7Pages",
+        "Shelf02_book_burgundy7Spine",
+        "Shelf02_book_burgundy8LowerCover",
+        "Shelf02_book_burgundy8UpperCover",
+        "Shelf02_book_burgundy8Pages",
+        "Shelf02_book_burgundy8Spine",
+        "Shelf02_book_green0LowerCover",
+        "Shelf02_book_green0UpperCover",
+        "Shelf02_book_green0Pages",
+        "Shelf02_book_green0Spine",
+        "Shelf02_book_green1LowerCover",
+        "Shelf02_book_green1UpperCover",
+        "Shelf02_book_green1Pages",
+        "Shelf02_book_green1Spine",
+        "Shelf02_book_green2LowerCover",
+        "Shelf02_book_green2UpperCover",
+        "Shelf02_book_green2Pages",
+        "Shelf02_book_green2Spine",
+        "Shelf02_book_green3LowerCover",
+        "Shelf02_book_green3UpperCover",
+        "Shelf02_book_green3Pages",
+        "Shelf02_book_green3Spine",
+        "Shelf02_book_green4LowerCover",
+        "Shelf02_book_green4UpperCover",
+        "Shelf02_book_green4Pages",
+        "Shelf02_book_green4Spine"
+      ]
+    },
+    {
+      "assembly": "Counter03",
+      "id": "Counter03_JoinedStorage",
+      "stocks": [
+        "Counter03_PiercedWorktop",
+        "Counter03_Frame0",
+        "Counter03_Frame1",
+        "Counter03_Frame2",
+        "Counter03_Frame3",
+        "Counter03_Frame4",
+        "Counter03_Frame5",
+        "Counter03_Frame6",
+        "Counter03_Frame7"
+      ]
+    },
+    {
+      "assembly": "Shelf04",
+      "id": "Shelf04_JoinedStorage",
+      "stocks": [
+        "Shelf04_Upright00",
+        "Shelf04_Upright01",
+        "Shelf04_Upright10",
+        "Shelf04_Upright11",
+        "Shelf04_Board0",
+        "Shelf04_Rung0_-1",
+        "Shelf04_Rung0_1",
+        "Shelf04_Board1",
+        "Shelf04_Rung1_-1",
+        "Shelf04_Rung1_1",
+        "Shelf04_Board2",
+        "Shelf04_Rung2_-1",
+        "Shelf04_Rung2_1",
+        "Shelf04_Board3",
+        "Shelf04_Rung3_-1",
+        "Shelf04_Rung3_1",
+        "Shelf04_Board4",
+        "Shelf04_Rung4_-1",
+        "Shelf04_Rung4_1",
+        "Shelf04_PaintedBin0Bottom",
+        "Shelf04_PaintedBin0Lid",
+        "Shelf04_PaintedBin0Wall0-1",
+        "Shelf04_PaintedBin0Wall01",
+        "Shelf04_PaintedBin0Wall1-1",
+        "Shelf04_PaintedBin0Wall11",
+        "Shelf04_PaintedBin1Bottom",
+        "Shelf04_PaintedBin1Lid",
+        "Shelf04_PaintedBin1Wall0-1",
+        "Shelf04_PaintedBin1Wall01",
+        "Shelf04_PaintedBin1Wall1-1",
+        "Shelf04_PaintedBin1Wall11",
+        "Shelf04_MetalTin0Bottom",
+        "Shelf04_MetalTin0Lid",
+        "Shelf04_MetalTin0Wall0-1",
+        "Shelf04_MetalTin0Wall01",
+        "Shelf04_MetalTin0Wall1-1",
+        "Shelf04_MetalTin0Wall11",
+        "Shelf04_MetalTin1Bottom",
+        "Shelf04_MetalTin1Lid",
+        "Shelf04_MetalTin1Wall0-1",
+        "Shelf04_MetalTin1Wall01",
+        "Shelf04_MetalTin1Wall1-1",
+        "Shelf04_MetalTin1Wall11"
+      ]
+    },
+    {
+      "assembly": "Counter05",
+      "id": "Counter05_JoinedStorage",
+      "stocks": [
+        "Counter05_FootPlate0",
+        "Counter05_LegWeb0",
+        "Counter05_LegFlange0",
+        "Counter05_FootPlate1",
+        "Counter05_LegWeb1",
+        "Counter05_LegFlange1",
+        "Counter05_FootPlate2",
+        "Counter05_LegWeb2",
+        "Counter05_LegFlange2",
+        "Counter05_FootPlate3",
+        "Counter05_LegWeb3",
+        "Counter05_LegFlange3",
+        "Counter05_RailWeb4_-1",
+        "Counter05_RailWeb4_1",
+        "Counter05_RailFlange4_-1",
+        "Counter05_RailFlange4_1",
+        "Counter05_RailEnd4_-1",
+        "Counter05_RailEnd4_1",
+        "Counter05_RailWeb5_-1",
+        "Counter05_RailWeb5_1",
+        "Counter05_RailFlange5_-1",
+        "Counter05_RailFlange5_1",
+        "Counter05_RailEnd5_-1",
+        "Counter05_RailEnd5_1",
+        "Counter05_RailWeb6_-1",
+        "Counter05_RailWeb6_1",
+        "Counter05_RailFlange6_-1",
+        "Counter05_RailFlange6_1",
+        "Counter05_RailEnd6_-1",
+        "Counter05_RailEnd6_1",
+        "Counter05_RailWeb7_-1",
+        "Counter05_RailWeb7_1",
+        "Counter05_RailFlange7_-1",
+        "Counter05_RailFlange7_1",
+        "Counter05_RailEnd7_-1",
+        "Counter05_RailEnd7_1"
+      ]
+    },
+    {
+      "assembly": "Cupboard06",
+      "id": "Cupboard06_JoinedStorage",
+      "stocks": [
+        "Cupboard06_Back",
+        "Cupboard06_Deck0",
+        "Cupboard06_Deck0.68",
+        "Cupboard06_Cheek-0.55",
+        "Cupboard06_Cheek0.53",
+        "Cupboard06_Shelf",
+        "Cupboard06_FaceRail0.018",
+        "Cupboard06_FaceRail0.66",
+        "Cupboard06_CentreFace",
+        "Cupboard06_LeftStile-0.53",
+        "Cupboard06_LeftStile-0.035",
+        "Cupboard06_LeftRail0.04",
+        "Cupboard06_LeftRail0.095",
+        "Cupboard06_LeftRail0.635",
+        "Cupboard06_LeftPanel",
+        "Cupboard06_LeftRecess",
+        "Cupboard06_LeftLeafBatton",
+        "Cupboard06_LeftHingeSeat",
+        "Cupboard06_RightStile0.01",
+        "Cupboard06_RightStile0.505",
+        "Cupboard06_RightRail0.04",
+        "Cupboard06_RightRail0.095",
+        "Cupboard06_RightRail0.635",
+        "Cupboard06_RightPanel",
+        "Cupboard06_RightRecess",
+        "Cupboard06_RightLeafBatton",
+        "Cupboard06_RightHingeSeat",
+        "Cupboard06_MountingBatten-0.43",
+        "Cupboard06_MountingBatten0.43"
+      ]
+    },
+    {
+      "assembly": "Shelf07",
+      "id": "Shelf07_JoinedStorage",
+      "stocks": [
+        "Shelf07_Upright00",
+        "Shelf07_Upright01",
+        "Shelf07_Upright10",
+        "Shelf07_Upright11",
+        "Shelf07_Board0",
+        "Shelf07_Rung0_-1",
+        "Shelf07_Rung0_1",
+        "Shelf07_Board1",
+        "Shelf07_Rung1_-1",
+        "Shelf07_Rung1_1",
+        "Shelf07_Board2",
+        "Shelf07_Rung2_-1",
+        "Shelf07_Rung2_1",
+        "Shelf07_Board3",
+        "Shelf07_Rung3_-1",
+        "Shelf07_Rung3_1",
+        "Shelf07_Board4",
+        "Shelf07_Rung4_-1",
+        "Shelf07_Rung4_1",
+        "Shelf07_PaintedBin0Bottom",
+        "Shelf07_PaintedBin0Lid",
+        "Shelf07_PaintedBin0Wall0-1",
+        "Shelf07_PaintedBin0Wall01",
+        "Shelf07_PaintedBin0Wall1-1",
+        "Shelf07_PaintedBin0Wall11",
+        "Shelf07_PaintedBin1Bottom",
+        "Shelf07_PaintedBin1Lid",
+        "Shelf07_PaintedBin1Wall0-1",
+        "Shelf07_PaintedBin1Wall01",
+        "Shelf07_PaintedBin1Wall1-1",
+        "Shelf07_PaintedBin1Wall11",
+        "Shelf07_MetalTin0Bottom",
+        "Shelf07_MetalTin0Lid",
+        "Shelf07_MetalTin0Wall0-1",
+        "Shelf07_MetalTin0Wall01",
+        "Shelf07_MetalTin0Wall1-1",
+        "Shelf07_MetalTin0Wall11",
+        "Shelf07_MetalTin1Bottom",
+        "Shelf07_MetalTin1Lid",
+        "Shelf07_MetalTin1Wall0-1",
+        "Shelf07_MetalTin1Wall01",
+        "Shelf07_MetalTin1Wall1-1",
+        "Shelf07_MetalTin1Wall11"
+      ]
+    },
+    {
+      "assembly": "Cupboard08",
+      "id": "Cupboard08_JoinedStorage",
+      "stocks": [
+        "Cupboard08_Back",
+        "Cupboard08_Deck0",
+        "Cupboard08_Deck0.68",
+        "Cupboard08_Cheek-0.55",
+        "Cupboard08_Cheek0.53",
+        "Cupboard08_Shelf",
+        "Cupboard08_FaceRail0.018",
+        "Cupboard08_FaceRail0.66",
+        "Cupboard08_CentreFace",
+        "Cupboard08_LeftStile-0.53",
+        "Cupboard08_LeftStile-0.035",
+        "Cupboard08_LeftRail0.04",
+        "Cupboard08_LeftRail0.095",
+        "Cupboard08_LeftRail0.635",
+        "Cupboard08_LeftPanel",
+        "Cupboard08_LeftRecess",
+        "Cupboard08_LeftLeafBatton",
+        "Cupboard08_LeftHingeSeat",
+        "Cupboard08_RightStile0.01",
+        "Cupboard08_RightStile0.505",
+        "Cupboard08_RightRail0.04",
+        "Cupboard08_RightRail0.095",
+        "Cupboard08_RightRail0.635",
+        "Cupboard08_RightPanel",
+        "Cupboard08_RightRecess",
+        "Cupboard08_RightLeafBatton",
+        "Cupboard08_RightHingeSeat"
+      ]
+    }
+  ],
+  "placement": {
+    "floor_y": 0,
+    "frame": "Existing source actor frames; floor bearings and wall bearings are separate."
+  },
+  "open_work": [
+    "Scoped native construction, production support and mechanism validation complete. Whole-room light/material balance, wardrobes, remaining appliances and fixed lighting remain in the wider V2 pass."
+  ]
+}

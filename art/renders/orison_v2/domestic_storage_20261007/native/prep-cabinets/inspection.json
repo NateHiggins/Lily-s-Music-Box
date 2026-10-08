@@ -1,0 +1,661 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 38,
+  "connected_groups": [
+    {
+      "assembly": "PrepCabinet_JoinedCabinet",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "PrepCabinet_Carcasswood_dark0",
+          "PrepCabinet_Carcassplywood0"
+        ],
+        [
+          "PrepCabinet_Carcassplywood0",
+          "PrepCabinet_Carcassplywood1"
+        ],
+        [
+          "PrepCabinet_Carcassplywood0",
+          "PrepCabinet_Carcasstrim0"
+        ],
+        [
+          "PrepCabinet_Carcassplywood0",
+          "PrepCabinet_Carcasstrim1"
+        ],
+        [
+          "PrepCabinet_Carcassplywood0",
+          "PrepCabinet_TrackPlate0.095"
+        ],
+        [
+          "PrepCabinet_Carcassplywood0",
+          "PrepCabinet_TrackLip0.0950.212"
+        ],
+        [
+          "PrepCabinet_Carcassplywood1",
+          "PrepCabinet_Carcasstrim0"
+        ],
+        [
+          "PrepCabinet_Carcassplywood1",
+          "PrepCabinet_Carcasstrim1"
+        ],
+        [
+          "PrepCabinet_Carcassplywood1",
+          "PrepCabinet_Carcasscountertop0"
+        ],
+        [
+          "PrepCabinet_Carcassplywood2",
+          "PrepCabinet_Carcasstrim0"
+        ],
+        [
+          "PrepCabinet_Carcassplywood2",
+          "PrepCabinet_Carcasstrim1"
+        ],
+        [
+          "PrepCabinet_Carcasstrim0",
+          "PrepCabinet_Carcasscountertop0"
+        ],
+        [
+          "PrepCabinet_Carcasstrim0",
+          "PrepCabinet_TrackPlate0.095"
+        ],
+        [
+          "PrepCabinet_Carcasstrim0",
+          "PrepCabinet_TrackLip0.0950.212"
+        ],
+        [
+          "PrepCabinet_Carcasstrim0",
+          "PrepCabinet_TrackPlate0.85"
+        ],
+        [
+          "PrepCabinet_Carcasstrim0",
+          "PrepCabinet_TrackLip0.850.212"
+        ],
+        [
+          "PrepCabinet_Carcasstrim0",
+          "PrepCabinet_UpperTrackBridge"
+        ],
+        [
+          "PrepCabinet_Carcasstrim1",
+          "PrepCabinet_Carcasscountertop0"
+        ],
+        [
+          "PrepCabinet_Carcasstrim1",
+          "PrepCabinet_TrackPlate0.095"
+        ],
+        [
+          "PrepCabinet_Carcasstrim1",
+          "PrepCabinet_TrackLip0.0950.212"
+        ],
+        [
+          "PrepCabinet_Carcasstrim1",
+          "PrepCabinet_TrackPlate0.85"
+        ],
+        [
+          "PrepCabinet_Carcasstrim1",
+          "PrepCabinet_TrackLip0.850.212"
+        ],
+        [
+          "PrepCabinet_Carcasstrim1",
+          "PrepCabinet_UpperTrackBridge"
+        ],
+        [
+          "PrepCabinet_Carcasstrim1",
+          "PrepCabinet_FixedLeafStile0.344"
+        ],
+        [
+          "PrepCabinet_Carcasscountertop0",
+          "PrepCabinet_TrackLip0.850.212"
+        ],
+        [
+          "PrepCabinet_Carcasscountertop0",
+          "PrepCabinet_TrackLip0.850.239"
+        ],
+        [
+          "PrepCabinet_Carcasscountertop0",
+          "PrepCabinet_UpperTrackBridge"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.095",
+          "PrepCabinet_TrackLip0.0950.212"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.095",
+          "PrepCabinet_TrackLip0.0950.239"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.095",
+          "PrepCabinet_TrackLip0.0950.269"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.095",
+          "PrepCabinet_FixedLeafStile0.006000000000000005"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.095",
+          "PrepCabinet_FixedLeafStile0.344"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.095",
+          "PrepCabinet_FixedLeafRail0.1"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.095",
+          "PrepCabinet_CentreUnderlap"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.095",
+          "PrepCabinet_SlidingLeafStile-0.376"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.095",
+          "PrepCabinet_SlidingLeafStile-0.038000000000000006"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.095",
+          "PrepCabinet_SlidingLeafRail0.1"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.85",
+          "PrepCabinet_TrackLip0.850.212"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.85",
+          "PrepCabinet_TrackLip0.850.239"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.85",
+          "PrepCabinet_TrackLip0.850.269"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.85",
+          "PrepCabinet_UpperTrackBridge"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.85",
+          "PrepCabinet_FixedLeafStile0.006000000000000005"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.85",
+          "PrepCabinet_FixedLeafStile0.344"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.85",
+          "PrepCabinet_FixedLeafRail0.818"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.85",
+          "PrepCabinet_CentreUnderlap"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.85",
+          "PrepCabinet_SlidingLeafStile-0.376"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.85",
+          "PrepCabinet_SlidingLeafStile-0.038000000000000006"
+        ],
+        [
+          "PrepCabinet_TrackPlate0.85",
+          "PrepCabinet_SlidingLeafRail0.818"
+        ],
+        [
+          "PrepCabinet_TrackLip0.850.212",
+          "PrepCabinet_UpperTrackBridge"
+        ],
+        [
+          "PrepCabinet_TrackLip0.850.239",
+          "PrepCabinet_UpperTrackBridge"
+        ],
+        [
+          "PrepCabinet_FixedLeafStile0.006000000000000005",
+          "PrepCabinet_FixedLeafRail0.1"
+        ],
+        [
+          "PrepCabinet_FixedLeafStile0.006000000000000005",
+          "PrepCabinet_FixedLeafRail0.818"
+        ],
+        [
+          "PrepCabinet_FixedLeafStile0.006000000000000005",
+          "PrepCabinet_FixedLeafInsetBelow"
+        ],
+        [
+          "PrepCabinet_FixedLeafStile0.006000000000000005",
+          "PrepCabinet_FixedLeafInsetAbove"
+        ],
+        [
+          "PrepCabinet_FixedLeafStile0.006000000000000005",
+          "PrepCabinet_FixedLeafInsetLeft"
+        ],
+        [
+          "PrepCabinet_FixedLeafStile0.006000000000000005",
+          "PrepCabinet_CentreUnderlap"
+        ],
+        [
+          "PrepCabinet_FixedLeafStile0.344",
+          "PrepCabinet_FixedLeafRail0.1"
+        ],
+        [
+          "PrepCabinet_FixedLeafStile0.344",
+          "PrepCabinet_FixedLeafRail0.818"
+        ],
+        [
+          "PrepCabinet_FixedLeafStile0.344",
+          "PrepCabinet_FixedLeafInsetBelow"
+        ],
+        [
+          "PrepCabinet_FixedLeafStile0.344",
+          "PrepCabinet_FixedLeafInsetAbove"
+        ],
+        [
+          "PrepCabinet_FixedLeafStile0.344",
+          "PrepCabinet_FixedLeafInsetRight"
+        ],
+        [
+          "PrepCabinet_FixedLeafRail0.1",
+          "PrepCabinet_FixedLeafInsetBelow"
+        ],
+        [
+          "PrepCabinet_FixedLeafRail0.818",
+          "PrepCabinet_FixedLeafInsetAbove"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetBelow",
+          "PrepCabinet_FixedLeafInsetLeft"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetBelow",
+          "PrepCabinet_FixedLeafInsetRight"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetBelow",
+          "PrepCabinet_FixedLeafCupBack"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetBelow",
+          "PrepCabinet_FixedLeafCupSide0.049"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetBelow",
+          "PrepCabinet_FixedLeafCupSide0.06899999999999999"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetBelow",
+          "PrepCabinet_FixedLeafCupEnd0.5675"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetAbove",
+          "PrepCabinet_FixedLeafInsetLeft"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetAbove",
+          "PrepCabinet_FixedLeafInsetRight"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetAbove",
+          "PrepCabinet_FixedLeafCupBack"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetAbove",
+          "PrepCabinet_FixedLeafCupSide0.049"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetAbove",
+          "PrepCabinet_FixedLeafCupSide0.06899999999999999"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetAbove",
+          "PrepCabinet_FixedLeafCupEnd0.6505"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetLeft",
+          "PrepCabinet_FixedLeafCupBack"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetLeft",
+          "PrepCabinet_FixedLeafCupSide0.049"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetLeft",
+          "PrepCabinet_FixedLeafCupEnd0.5675"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetLeft",
+          "PrepCabinet_FixedLeafCupEnd0.6505"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetRight",
+          "PrepCabinet_FixedLeafCupBack"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetRight",
+          "PrepCabinet_FixedLeafCupSide0.06899999999999999"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetRight",
+          "PrepCabinet_FixedLeafCupEnd0.5675"
+        ],
+        [
+          "PrepCabinet_FixedLeafInsetRight",
+          "PrepCabinet_FixedLeafCupEnd0.6505"
+        ],
+        [
+          "PrepCabinet_FixedLeafCupBack",
+          "PrepCabinet_FixedLeafCupSide0.049"
+        ],
+        [
+          "PrepCabinet_FixedLeafCupBack",
+          "PrepCabinet_FixedLeafCupSide0.06899999999999999"
+        ],
+        [
+          "PrepCabinet_FixedLeafCupBack",
+          "PrepCabinet_FixedLeafCupEnd0.5675"
+        ],
+        [
+          "PrepCabinet_FixedLeafCupBack",
+          "PrepCabinet_FixedLeafCupEnd0.6505"
+        ],
+        [
+          "PrepCabinet_FixedLeafCupSide0.049",
+          "PrepCabinet_FixedLeafCupEnd0.5675"
+        ],
+        [
+          "PrepCabinet_FixedLeafCupSide0.049",
+          "PrepCabinet_FixedLeafCupEnd0.6505"
+        ],
+        [
+          "PrepCabinet_FixedLeafCupSide0.06899999999999999",
+          "PrepCabinet_FixedLeafCupEnd0.5675"
+        ],
+        [
+          "PrepCabinet_FixedLeafCupSide0.06899999999999999",
+          "PrepCabinet_FixedLeafCupEnd0.6505"
+        ],
+        [
+          "PrepCabinet_SlidingLeafStile-0.376",
+          "PrepCabinet_SlidingLeafRail0.1"
+        ],
+        [
+          "PrepCabinet_SlidingLeafStile-0.376",
+          "PrepCabinet_SlidingLeafRail0.818"
+        ],
+        [
+          "PrepCabinet_SlidingLeafStile-0.376",
+          "PrepCabinet_SlidingLeafInset"
+        ],
+        [
+          "PrepCabinet_SlidingLeafStile-0.038000000000000006",
+          "PrepCabinet_SlidingLeafRail0.1"
+        ],
+        [
+          "PrepCabinet_SlidingLeafStile-0.038000000000000006",
+          "PrepCabinet_SlidingLeafRail0.818"
+        ],
+        [
+          "PrepCabinet_SlidingLeafStile-0.038000000000000006",
+          "PrepCabinet_SlidingLeafInset"
+        ],
+        [
+          "PrepCabinet_SlidingLeafRail0.1",
+          "PrepCabinet_SlidingLeafInset"
+        ],
+        [
+          "PrepCabinet_SlidingLeafRail0.818",
+          "PrepCabinet_SlidingLeafInset"
+        ],
+        [
+          "PrepCabinet_SlidingLeafInset",
+          "PrepCabinet_SlidingLeafHandlePost0.577"
+        ],
+        [
+          "PrepCabinet_SlidingLeafInset",
+          "PrepCabinet_SlidingLeafHandlePost0.643"
+        ],
+        [
+          "PrepCabinet_SlidingLeafHandlePost0.577",
+          "PrepCabinet_SlidingLeafHandle"
+        ],
+        [
+          "PrepCabinet_SlidingLeafHandlePost0.643",
+          "PrepCabinet_SlidingLeafHandle"
+        ]
+      ]
+    }
+  ],
+  "distinct_object_separations": [],
+  "uv": [
+    {
+      "part": "PrepCabinet__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9997522075006785,
+      "maximum_metres_per_uv": 1.0002405195503332,
+      "maximum_edge_excess_m": 2.8508690708947725e-08,
+      "maximum_edge_ratio": 1.0001768781304756
+    },
+    {
+      "part": "PrepCabinet__Body_ON_countertop",
+      "minimum_metres_per_uv": 0.9998116335632183,
+      "maximum_metres_per_uv": 1.0001976620438209,
+      "maximum_edge_excess_m": 9.180699319386379e-08,
+      "maximum_edge_ratio": 1.0001875959512905
+    },
+    {
+      "part": "PrepCabinet__Body_ON_metal",
+      "minimum_metres_per_uv": 0.9993825113979071,
+      "maximum_metres_per_uv": 1.0005928465094462,
+      "maximum_edge_excess_m": 5.960464477539063e-08,
+      "maximum_edge_ratio": 1.000492634631106
+    },
+    {
+      "part": "PrepCabinet__Body_ON_plywood",
+      "minimum_metres_per_uv": 0.9996799932768908,
+      "maximum_metres_per_uv": 1.0003147756727433,
+      "maximum_edge_excess_m": 1.1060596301446391e-07,
+      "maximum_edge_ratio": 1.000304398982197
+    },
+    {
+      "part": "PrepCabinet__Body_ON_trim",
+      "minimum_metres_per_uv": 0.9992744063598487,
+      "maximum_metres_per_uv": 1.0007186465054303,
+      "maximum_edge_excess_m": 1.1183494994296533e-07,
+      "maximum_edge_ratio": 1.0006350072206913
+    },
+    {
+      "part": "PrepCabinet__Body_ON_wood_dark",
+      "minimum_metres_per_uv": 0.9998037467493223,
+      "maximum_metres_per_uv": 1.0002355700922294,
+      "maximum_edge_excess_m": 5.332567366492366e-08,
+      "maximum_edge_ratio": 1.0001473729708068
+    },
+    {
+      "part": "PrepCabinet__SlidingPanel_ON_brass",
+      "minimum_metres_per_uv": 0.9995111426347177,
+      "maximum_metres_per_uv": 1.0003576186332754,
+      "maximum_edge_excess_m": 2.928469362145636e-08,
+      "maximum_edge_ratio": 1.0000469592083463
+    },
+    {
+      "part": "PrepCabinet__SlidingPanel_ON_trim",
+      "minimum_metres_per_uv": 0.9995786388476725,
+      "maximum_metres_per_uv": 1.00041397709651,
+      "maximum_edge_excess_m": 7.675563468953527e-08,
+      "maximum_edge_ratio": 1.0003356455901817
+    }
+  ],
+  "local_bearings": [
+    {
+      "assembly": "PrepCabinet",
+      "owner": "support",
+      "point": [
+        -0.3,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original plinth bearing"
+    },
+    {
+      "assembly": "PrepCabinet",
+      "owner": "support",
+      "point": [
+        -0.3,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original plinth bearing"
+    },
+    {
+      "assembly": "PrepCabinet",
+      "owner": "support",
+      "point": [
+        0.3,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original plinth bearing"
+    },
+    {
+      "assembly": "PrepCabinet",
+      "owner": "support",
+      "point": [
+        0.3,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original plinth bearing"
+    }
+  ],
+  "views": [],
+  "scope": "Local construction and chart preflight only. External support context and rendering are still required.",
+  "continuous_slide_sweeps": [
+    {
+      "stock": "PrepCabinet_SlidingLeafStile-0.376",
+      "low": [
+        -0.37599998712539673,
+        0.24400000274181366,
+        0.10000000149011612
+      ],
+      "high": [
+        0.03799998831748963,
+        0.2619999945163727,
+        0.8500000238418579
+      ],
+      "fixed_stocks": 30
+    },
+    {
+      "stock": "PrepCabinet_SlidingLeafStile-0.038000000000000006",
+      "low": [
+        -0.03799999877810478,
+        0.24400000274181366,
+        0.10000000149011612
+      ],
+      "high": [
+        0.37599999901652337,
+        0.2619999945163727,
+        0.8500000238418579
+      ],
+      "fixed_stocks": 30
+    },
+    {
+      "stock": "PrepCabinet_SlidingLeafRail0.1",
+      "low": [
+        -0.3449999988079071,
+        0.24400000274181366,
+        0.10000000149011612
+      ],
+      "high": [
+        0.34499999952316285,
+        0.2619999945163727,
+        0.13199999928474426
+      ],
+      "fixed_stocks": 30
+    },
+    {
+      "stock": "PrepCabinet_SlidingLeafRail0.818",
+      "low": [
+        -0.3449999988079071,
+        0.24400000274181366,
+        0.8180000185966492
+      ],
+      "high": [
+        0.34499999952316285,
+        0.2619999945163727,
+        0.8500000238418579
+      ],
+      "fixed_stocks": 30
+    },
+    {
+      "stock": "PrepCabinet_SlidingLeafInset",
+      "low": [
+        -0.34599998593330383,
+        0.2460000067949295,
+        0.12999999523162842
+      ],
+      "high": [
+        0.34600000154972077,
+        0.257999986410141,
+        0.8199999928474426
+      ],
+      "fixed_stocks": 30
+    },
+    {
+      "stock": "PrepCabinet_SlidingLeafHandlePost0.577",
+      "low": [
+        -0.06399999558925629,
+        0.25699999928474426,
+        0.5730000138282776
+      ],
+      "high": [
+        0.3260000019967556,
+        0.2809999883174896,
+        0.5809999704360962
+      ],
+      "fixed_stocks": 30
+    },
+    {
+      "stock": "PrepCabinet_SlidingLeafHandlePost0.643",
+      "low": [
+        -0.06399999558925629,
+        0.25699999928474426,
+        0.6389999985694885
+      ],
+      "high": [
+        0.3260000019967556,
+        0.2809999883174896,
+        0.6470000147819519
+      ],
+      "fixed_stocks": 30
+    },
+    {
+      "stock": "PrepCabinet_SlidingLeafHandle",
+      "low": [
+        -0.06300000101327896,
+        0.26166868209838867,
+        0.5740180015563965
+      ],
+      "high": [
+        0.3249999999701977,
+        0.28798723220825195,
+        0.645982027053833
+      ],
+      "fixed_stocks": 30
+    }
+  ]
+}

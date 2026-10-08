@@ -41,6 +41,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Fast geometry/texture batches, changed-input planning and one-world validation | `art/blender/v2_batch_workflow.md` |
 | Five native task-lamp variants and the existing V2 bench lamp | `art/blender/task_lamps.md` |
 | Original basement reading nook and all five fitted task lamps | `art/blender/reading_nook.md` |
+| Native household shelves, sink frames, wall cupboards and twelve sliding preparation cabinets | `art/blender/domestic_storage.md` and `design/V2_DOMESTIC_STORAGE_2026-10-07.md` |
 | Shared native variants for all 103 apartment seating, tables and nightstands | `art/blender/domestic_furniture.md` and `design/V2_APARTMENT_FURNITURE_2026-10-07.md` |
 | All 55 tabletop props, native Vantry and five-lamp surface refinement | `art/blender/desktop_stock.md` and `design/V2_DESKTOP_STOCK_2026-10-07.md` |
 | Five fitted apartment work tables and strictly additive material reuse | `art/blender/work_tables.md` and `design/V2_WORK_TABLES_2026-10-07.md` |

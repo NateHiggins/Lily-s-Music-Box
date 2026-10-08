@@ -1,0 +1,83 @@
+FABRICATION STAGE: art/blender/scripts/build_domestic_storage.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_storage.py:76: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_storage.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+19:25:16 | INFO: Starting glTF 2.0 export
+19:25:16 | INFO: Extracting primitive: Counter03__countertop
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Counter03__wood_dark
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Counter05__metal
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Cupboard06__soot
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Cupboard06__trim
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Cupboard08__soot
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Cupboard08__trim
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Shelf01__floor_oak
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Shelf01__metal
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Shelf01__trim
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Shelf02__book_brown
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Shelf02__book_burgundy
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Shelf02__book_green
+19:25:16 | INFO: Primitives created: 1
+19:25:16 | INFO: Extracting primitive: Shelf02__book_navy
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Extracting primitive: Shelf02__book_ochre
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Extracting primitive: Shelf02__book_teal
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Extracting primitive: Shelf02__floor_oak
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Extracting primitive: Shelf02__metal
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Extracting primitive: Shelf02__paper
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Extracting primitive: Shelf04__floor_oak
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Extracting primitive: Shelf04__metal
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Extracting primitive: Shelf04__trim
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Extracting primitive: Shelf07__floor_oak
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Extracting primitive: Shelf07__metal
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Extracting primitive: Shelf07__trim
+19:25:17 | INFO: Primitives created: 1
+19:25:17 | INFO: Finished glTF 2.0 export in 0.16793274879455566 s
+
+SURFACE STOCK 7 original records; 8 assemblies; 407 closed stocks; 25 parts; 76712 triangles; 32 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_storage.py
+00:09.641  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_storage.blend"
+DOMESTIC STORAGE LOCAL: 407 closed stocks; 8 physical groups; 32 local bearings; 25 mapped parts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_storage_context.py
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 79, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 72, in main
+    results = execute(stages)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 47, in execute
+    runpy.run_path(sys.argv[0], run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_domestic_storage_context.py", line 133, in <module>
+    assert not failures,failures
+           ^^^^^^^^^^^^
+AssertionError: [['3B_tools0', '3B_radio', 'surface intersections', 10]]
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

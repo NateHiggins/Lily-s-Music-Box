@@ -1330,3 +1330,35 @@ game/tests/orison_v2_domestic_native_test.gd -text
 game/tests/orison_v2_domestic_seating_test.gd -text
 game/tests/orison_v2_domestic_tables_test.gd -text
 art/renders/orison_v2/apartment_furniture_20261007/** -text -whitespace
+
+art/blender/domestic_storage.blend -text
+art/blender/domestic_storage_construction.json -text
+art/blender/prep_cabinets.blend -text
+art/blender/prep_cabinets_construction.json -text
+art/blender/scripts/build_domestic_storage.py -text
+art/blender/scripts/build_prep_cabinets.py -text
+art/blender/scripts/domestic_storage_geometry.py -text
+art/blender/scripts/inspect_domestic_storage.py -text
+art/blender/scripts/inspect_domestic_storage_context.py -text
+art/blender/scripts/inspect_prep_cabinets.py -text
+art/blender/scripts/inspect_prep_cabinets_context.py -text
+art/blender/scripts/prep_cabinets_geometry.py -text
+art/blender/scripts/render_domestic_storage.py -text
+art/blender/scripts/render_prep_cabinets.py -text
+art/data/domestic_storage/source_plan.json -text
+art/data/prep_cabinets/source_plan.json -text
+game/assets/props/domestic_storage.glb -text
+game/assets/props/domestic_storage.glb.import -text
+game/assets/props/prep_cabinets.glb -text
+game/assets/props/prep_cabinets.glb.import -text
+game/data/orison_v2/domestic_storage.json -text
+game/data/orison_v2/prep_cabinets.json -text
+game/scripts/building/orison_v2_native_domestic_storage.gd -text
+game/scripts/building/orison_v2_native_prep_cabinets.gd -text
+game/scripts/building/orison_v2_prep_cabinet.gd -text
+game/scripts/props/toaster_prop.gd -text
+game/tests/fixtures/orison_domestic_storage.json -text
+game/tests/fixtures/orison_prep_cabinets.json -text
+game/tests/orison_v2_domestic_storage_test.gd -text
+game/tests/orison_v2_prep_cabinets_test.gd -text
+art/renders/orison_v2/domestic_storage_20261007/** -text -whitespace

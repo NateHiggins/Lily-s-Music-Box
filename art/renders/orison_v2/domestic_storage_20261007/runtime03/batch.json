@@ -1,0 +1,39 @@
+{
+	"batch_checks": 7,
+	"elapsed_ms": 32615,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 823,
+	"modules": {
+		"domestic_storage": {
+			"actors": 43,
+			"captured": true,
+			"checks": 823,
+			"elapsed_ms": 2605,
+			"failures": [],
+			"fixture_sha256": "bef6012c995478bd0baeb369e4dbc24fca53049367a061809ed84fd9eb619fd7",
+			"parts": 87,
+			"shared_validator_sha256": "f926ab4e04483b347828c3e8313a4306a48cec3542dc469b91eeca8e6b8f9b24",
+			"unique_triangles": 79344,
+			"validator_sha256": "a85a8676f999707509246faefe9178fda39e4d9cbd57b27239cc08dccd1f2675",
+			"variants": 8,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-13.9318943023682,
+						6.42000007629395,
+						-7.5787615776062
+					],
+					"id": "3B_tools0_native",
+					"image": "3B_tools0_native.png",
+					"owner": "3B_tools0",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

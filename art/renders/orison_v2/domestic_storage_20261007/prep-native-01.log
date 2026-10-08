@@ -1,0 +1,47 @@
+FABRICATION STAGE: art/blender/scripts/build_prep_cabinets.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_prep_cabinets.py:76: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "prep_cabinets.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+19:31:15 | INFO: Starting glTF 2.0 export
+19:31:15 | INFO: Extracting primitive: PrepCabinet__Body_ON_brass
+19:31:15 | INFO: Primitives created: 1
+19:31:15 | INFO: Extracting primitive: PrepCabinet__Body_ON_countertop
+19:31:15 | INFO: Primitives created: 1
+19:31:15 | INFO: Extracting primitive: PrepCabinet__Body_ON_metal
+19:31:15 | INFO: Primitives created: 1
+19:31:15 | INFO: Extracting primitive: PrepCabinet__Body_ON_plywood
+19:31:15 | INFO: Primitives created: 1
+19:31:15 | INFO: Extracting primitive: PrepCabinet__Body_ON_trim
+19:31:15 | INFO: Primitives created: 1
+19:31:15 | INFO: Extracting primitive: PrepCabinet__Body_ON_wood_dark
+19:31:15 | INFO: Primitives created: 1
+19:31:15 | INFO: Extracting primitive: PrepCabinet__SlidingPanel_ON_brass
+19:31:15 | INFO: Primitives created: 1
+19:31:15 | INFO: Extracting primitive: PrepCabinet__SlidingPanel_ON_trim
+19:31:15 | INFO: Primitives created: 1
+19:31:15 | INFO: Finished glTF 2.0 export in 0.023133277893066406 s
+
+SURFACE STOCK 0 original records; 1 assemblies; 32 closed stocks; 8 parts; 5920 triangles; 4 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_prep_cabinets.py
+00:02.578  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\prep_cabinets.blend"
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 79, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 72, in main
+    results = execute(stages)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 47, in execute
+    runpy.run_path(sys.argv[0], run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_prep_cabinets.py", line 57, in <module>
+    assert not join_failures,join_failures
+           ^^^^^^^^^^^^^^^^^
+AssertionError: [('PrepCabinet_JoinedCabinet', 'disconnected', ['PrepCabinet_FixedLeafHandle', 'PrepCabinet_FixedLeafHandlePost0.577', 'PrepCabinet_FixedLeafHandlePost0.643', 'PrepCabinet_SlidingLeafHandle', 'PrepCabinet_SlidingLeafHandlePost0.577', 'PrepCabinet_SlidingLeafHandlePost0.643'])]
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

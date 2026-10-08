@@ -1,0 +1,470 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/domestic_storage.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "Shelf01",
+      "parts": [
+        {
+          "name": "Shelf01__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Shelf01__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal"
+        },
+        {
+          "name": "Shelf01__trim",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Shelf02",
+      "parts": [
+        {
+          "name": "Shelf02__book_brown",
+          "key": "book_brown",
+          "tile": 0.32,
+          "catalog_key": "book_brown"
+        },
+        {
+          "name": "Shelf02__book_burgundy",
+          "key": "book_burgundy",
+          "tile": 0.32,
+          "catalog_key": "book_burgundy"
+        },
+        {
+          "name": "Shelf02__book_green",
+          "key": "book_green",
+          "tile": 0.32,
+          "catalog_key": "book_green"
+        },
+        {
+          "name": "Shelf02__book_navy",
+          "key": "book_navy",
+          "tile": 0.32,
+          "catalog_key": "book_navy"
+        },
+        {
+          "name": "Shelf02__book_ochre",
+          "key": "book_ochre",
+          "tile": 0.32,
+          "catalog_key": "book_ochre"
+        },
+        {
+          "name": "Shelf02__book_teal",
+          "key": "book_teal",
+          "tile": 0.32,
+          "catalog_key": "book_teal"
+        },
+        {
+          "name": "Shelf02__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Shelf02__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal"
+        },
+        {
+          "name": "Shelf02__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Counter03",
+      "parts": [
+        {
+          "name": "Counter03__countertop",
+          "key": "countertop",
+          "tile": 1.2,
+          "catalog_key": "countertop",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Counter03__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Shelf04",
+      "parts": [
+        {
+          "name": "Shelf04__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Shelf04__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal"
+        },
+        {
+          "name": "Shelf04__trim",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Counter05",
+      "parts": [
+        {
+          "name": "Counter05__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Cupboard06",
+      "parts": [
+        {
+          "name": "Cupboard06__soot",
+          "key": "soot",
+          "tile": 0.55,
+          "catalog_key": "soot"
+        },
+        {
+          "name": "Cupboard06__trim",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Shelf07",
+      "parts": [
+        {
+          "name": "Shelf07__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Shelf07__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal"
+        },
+        {
+          "name": "Shelf07__trim",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Cupboard08",
+      "parts": [
+        {
+          "name": "Cupboard08__soot",
+          "key": "soot",
+          "tile": 0.55,
+          "catalog_key": "soot"
+        },
+        {
+          "name": "Cupboard08__trim",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "3B_tools0",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "3B_tools1",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "4B_equipment_shelf",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "2B_fabric_shelf_01",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "2B_fabric_shelf_02",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "b1_parts_shelf",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "4B_shelf",
+      "variant": "Shelf02"
+    },
+    {
+      "id": "4B_sink_counter",
+      "variant": "Counter03"
+    },
+    {
+      "id": "2A_shelf0",
+      "variant": "Shelf04"
+    },
+    {
+      "id": "2A_shelf1",
+      "variant": "Shelf04"
+    },
+    {
+      "id": "2A_shelf2",
+      "variant": "Shelf04"
+    },
+    {
+      "id": "2A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "2B_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "3A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "4A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "5A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "5B_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "5C_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "6A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "6B_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "6C_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "2C_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "4C_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "1D_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "1A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "3D_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "4D_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "2A_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "2B_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "3B_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "4B_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "3A_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "4A_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "5A_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "5B_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "5C_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "6A_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "6B_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "6C_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "2C_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "4C_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "1D_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "5A_planshelf",
+      "variant": "Shelf07"
+    }
+  ],
+  "tint_space": "linear"
+}

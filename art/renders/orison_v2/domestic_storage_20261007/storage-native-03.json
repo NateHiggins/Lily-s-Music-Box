@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_domestic_storage.py",
+      "elapsed_s": 5.024
+    },
+    {
+      "script": "art/blender/scripts/inspect_domestic_storage.py",
+      "elapsed_s": 2.384
+    },
+    {
+      "script": "art/blender/scripts/inspect_domestic_storage_context.py",
+      "elapsed_s": 0.953
+    },
+    {
+      "script": "art/blender/scripts/render_domestic_storage.py",
+      "elapsed_s": 28.694
+    }
+  ]
+}

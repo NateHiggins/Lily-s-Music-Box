@@ -1,0 +1,383 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_ids": [
+    "3B_tools0",
+    "3B_tools1",
+    "4B_shelf",
+    "2A_shelf0",
+    "2A_shelf1",
+    "2A_shelf2",
+    "5A_planshelf"
+  ],
+  "interpretation_ids": [
+    "4B_equipment_shelf",
+    "2B_fabric_shelf_01",
+    "2B_fabric_shelf_02",
+    "4B_sink_counter",
+    "2A_sink_support",
+    "2B_sink_support",
+    "3A_sink_support",
+    "4A_sink_support",
+    "5A_sink_support",
+    "5B_sink_support",
+    "5C_sink_support",
+    "6A_sink_support",
+    "6B_sink_support",
+    "6C_sink_support",
+    "2A_k_wall_cupboard",
+    "2B_k_wall_cupboard",
+    "3B_k_wall_cupboard",
+    "4B_wall_cupboard",
+    "3A_k_wall_cupboard",
+    "4A_k_wall_cupboard",
+    "5A_k_wall_cupboard",
+    "5B_k_wall_cupboard",
+    "5C_k_wall_cupboard",
+    "6A_k_wall_cupboard",
+    "6B_k_wall_cupboard",
+    "6C_k_wall_cupboard"
+  ],
+  "variants": [
+    {
+      "id": "Shelf01",
+      "kind": "shelf",
+      "source_id": "3B_tools0",
+      "params": {
+        "id": "3B_tools0",
+        "asm": "shelf",
+        "at": [
+          -10.3,
+          9.4
+        ],
+        "yaw": 180,
+        "W": 1.0,
+        "H": 1.85,
+        "books": false
+      }
+    },
+    {
+      "id": "Shelf02",
+      "kind": "shelf",
+      "source_id": "4B_shelf",
+      "params": {
+        "id": "4B_shelf",
+        "asm": "shelf",
+        "at": [
+          -8.7,
+          2.9
+        ],
+        "yaw": 0,
+        "W": 1.1,
+        "H": 1.85,
+        "books": true
+      }
+    },
+    {
+      "id": "Counter03",
+      "kind": "counter",
+      "source_id": "4B_sink_counter",
+      "params": {}
+    },
+    {
+      "id": "Shelf04",
+      "kind": "shelf",
+      "source_id": "2A_shelf0",
+      "params": {
+        "id": "2A_shelf0",
+        "asm": "shelf",
+        "at": [
+          -12.375,
+          -5.95
+        ],
+        "yaw": 0,
+        "W": 0.95,
+        "H": 1.6,
+        "books": false
+      }
+    },
+    {
+      "id": "Counter05",
+      "kind": "counter",
+      "source_id": "2A_sink_support",
+      "params": {}
+    },
+    {
+      "id": "Cupboard06",
+      "kind": "cupboard",
+      "source_id": "2A_k_wall_cupboard",
+      "params": {
+        "back_plane": 0.31
+      }
+    },
+    {
+      "id": "Shelf07",
+      "kind": "shelf",
+      "source_id": "5A_planshelf",
+      "params": {
+        "id": "5A_planshelf",
+        "asm": "shelf",
+        "at": [
+          -12.45,
+          -5.95
+        ],
+        "yaw": 0,
+        "W": 1.6,
+        "H": 1.4,
+        "books": false
+      }
+    },
+    {
+      "id": "Cupboard08",
+      "kind": "cupboard",
+      "source_id": "2A_k_wall_cupboard",
+      "params": {
+        "back_plane": 0.3
+      }
+    }
+  ],
+  "instances": [
+    {
+      "id": "3B_tools0",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "3B_tools1",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "4B_equipment_shelf",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "2B_fabric_shelf_01",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "2B_fabric_shelf_02",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "b1_parts_shelf",
+      "variant": "Shelf01"
+    },
+    {
+      "id": "4B_shelf",
+      "variant": "Shelf02"
+    },
+    {
+      "id": "4B_sink_counter",
+      "variant": "Counter03"
+    },
+    {
+      "id": "2A_shelf0",
+      "variant": "Shelf04"
+    },
+    {
+      "id": "2A_shelf1",
+      "variant": "Shelf04"
+    },
+    {
+      "id": "2A_shelf2",
+      "variant": "Shelf04"
+    },
+    {
+      "id": "2A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "2B_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "3A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "4A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "5A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "5B_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "5C_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "6A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "6B_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "6C_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "2C_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "4C_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "1D_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "1A_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "3D_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "4D_sink_support",
+      "variant": "Counter05"
+    },
+    {
+      "id": "2A_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "2B_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "3B_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "4B_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "3A_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "4A_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "5A_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "5B_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "5C_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "6A_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "6B_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "6C_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "2C_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "4C_k_wall_cupboard",
+      "variant": "Cupboard08"
+    },
+    {
+      "id": "1D_k_wall_cupboard",
+      "variant": "Cupboard06"
+    },
+    {
+      "id": "5A_planshelf",
+      "variant": "Shelf07"
+    }
+  ],
+  "runtime_keys": [
+    "metal",
+    "floor_oak",
+    "trim",
+    "soot",
+    "countertop",
+    "wood_dark",
+    "paper",
+    "book_navy",
+    "book_ochre",
+    "book_teal",
+    "book_brown",
+    "book_burgundy",
+    "book_green"
+  ],
+  "catalog_variants": {
+    "metal": "metal",
+    "floor_oak": "oak_work_surface",
+    "trim": "trim",
+    "soot": "soot",
+    "countertop": "countertop",
+    "wood_dark": "oak_work_surface",
+    "paper": "paper",
+    "book_navy": "book_navy",
+    "book_ochre": "book_ochre",
+    "book_teal": "book_teal",
+    "book_brown": "book_brown",
+    "book_burgundy": "book_burgundy",
+    "book_green": "book_green"
+  },
+  "material_tints": {
+    "wood_dark": [
+      0.27,
+      0.14,
+      0.065,
+      1
+    ]
+  },
+  "finish_parameters": {
+    "floor_oak": {
+      "normal_scale": 0.04,
+      "roughness": 0.48
+    },
+    "wood_dark": {
+      "normal_scale": 0.04,
+      "roughness": 0.48
+    },
+    "trim": {
+      "normal_scale": 0.04,
+      "roughness": 0.48
+    },
+    "countertop": {
+      "normal_scale": 0.04,
+      "roughness": 0.48
+    }
+  },
+  "placement": {
+    "floor_y": 0,
+    "frame": "Existing source actor frames; floor bearings and wall bearings are separate."
+  },
+  "adaptations": [
+    "Eight variants preserve all 43 owner identities, source poses and support heights. Two otherwise identical wall-case forms fit the existing 0 or 10mm rear gap using native mounting battens.",
+    "Five actual boards per source shelf; source book and container envelopes remain. Hollow cabinet, fitted passive leaves and recessed grips; original operation owners are unchanged.",
+    "Original 4B sink opening and worktop height remain. Other sink frames use folded metal stock within their original envelopes.",
+    "Existing catalogue maps and linear-light local tints; no new bitmap or global finish."
+  ],
+  "open_work": [
+    "Scoped native construction, production support and mechanism validation complete. Whole-room light/material balance, wardrobes, remaining appliances and fixed lighting remain in the wider V2 pass."
+  ],
+  "tint_space": "linear"
+}

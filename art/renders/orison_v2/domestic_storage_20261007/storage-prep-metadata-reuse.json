@@ -1,0 +1,20 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Plan status/centre-underlap description and native dependency hashes only. Exact exports, runtime data and all other fixture fields remain identical.",
+  "families": {
+    "domestic_storage": {
+      "fixture_before": "bef6012c995478bd0baeb369e4dbc24fca53049367a061809ed84fd9eb619fd7",
+      "fixture_after": "5902907a646cc5adca3cef72a9b1c233409a3b158e5d507aa88f39ae1acc7f50",
+      "asset_sha256": "d64650c6da209ae2478604d4b5aeae6b6fb8cc86ece1eb1634d8a47c345d3881",
+      "runtime_sha256": "5f370eb32cf353cc34d148d714e86708782e1713e766e62a49c7deebc05958ed",
+      "unchanged_nonmetadata_fields": true
+    },
+    "prep_cabinets": {
+      "fixture_before": "ba7be4400c2ef99cdac52729886b305b4a8b48a7b0120018d68950f4626f131a",
+      "fixture_after": "db202fdd3dcf7c5bb32212ab9fc324837d2594c7c7454b7aa0afdc45b334ffcb",
+      "asset_sha256": "c56ff94b5d2471d50e786f05ab009922efef47613e63c3f75b414dd8557e4d04",
+      "runtime_sha256": "9859fc11060f95f8e01ee7700d714b8a5570b1ff87527210d75b36564b2de5b5",
+      "unchanged_nonmetadata_fields": true
+    }
+  }
+}

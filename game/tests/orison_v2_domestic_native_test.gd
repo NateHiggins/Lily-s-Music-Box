@@ -6,12 +6,13 @@ var mounted_ids: Array[int] = []
 var factory_id := 0
 func _ready() -> void: pass
 func _family() -> String: return ""
+func _factory_key() -> String: return "v2_native_domestic_factory"
 
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var family := _family()
 	var fixture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_"+family+".json"))
 	check(FileAccess.get_sha256(str(fixture.runtime.asset)) == fixture.asset_sha256,"native export matches construction: "+family)
-	var factory: RefCounted = world.adapter.root.get_meta("v2_native_domestic_factory")
+	var factory: RefCounted = world.adapter.root.get_meta(_factory_key())
 	factory_id = factory.get_instance_id()
 	var variants: Dictionary = {}
 	for row: Dictionary in fixture.runtime.assemblies: variants[str(row.id)] = row
@@ -75,11 +76,13 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			if probe.assembly != variant: continue
 			var point: Array = probe.point
 			var at := body.to_global(Vector3(point[0],point[1],point[2]))
-			var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+Vector3.UP*.004,at-Vector3.UP*.004,1,[body.get_rid()]))
-			check(not hit.is_empty() and hit.position.distance_to(at)<.00004 and hit.normal.y>.99,"actual world floor meets native bearing: "+identity+" / "+str(probe.label))
+			var d: Array = probe.direction
+			var direction: Vector3 = body.global_basis * Vector3(d[0],d[1],d[2])
+			var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+direction*.004,at-direction*.004,1,[body.get_rid()]))
+			check(not hit.is_empty() and hit.position.distance_to(at)<.00004 and hit.normal.dot(direction)>.99,"actual world meets native bearing: "+identity+" / "+str(probe.label))
 	check(first_actors.size() == fixture.runtime.assemblies.size() and unique_triangles == int(fixture.triangles),"all shared native variants accounted for")
 	check(mounted_ids.size() == fixture.runtime.instances.size(),"all original and completion actors accounted for")
-	if family == "domestic_tables":
+	if family in ["domestic_tables","domestic_storage"]:
 		var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/domestic_surface_props.json"))
 		var stock: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_surface_stock.json"))
 		var ids: Array = fixture.runtime.instances.map(func(row): return row.id)
@@ -96,24 +99,70 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 				var at := prop.to_global(Vector3(p[0],p[1],p[2]))
 				var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+Vector3.UP*.004,at-Vector3.UP*.004,1))
 				check(not hit.is_empty() and hit.collider == support and hit.position.distance_to(at)<.00004 and hit.normal.y>.99,"actual native table supports retained stock: "+str(row.id))
+	if family == "domestic_storage":
+		var radio := world.adapter.resolve("3B_radio") as StaticBody3D
+		var shelf := world.adapter.resolve("3B_tools0") as StaticBody3D
+		check(radio != null and shelf != null,"existing radio and supporting shelf remain")
+		if radio != null and shelf != null:
+			for x in [-.16,.16]:
+				for z in [-.08,.08]:
+					var at := radio.to_global(Vector3(x,0,z))
+					var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+Vector3.UP*.004,at-Vector3.UP*.004,1,[radio.get_rid()]))
+					check(not hit.is_empty() and hit.collider == shelf and hit.position.distance_to(at)<.00004 and hit.normal.y>.99,"native shelf retains actual radio bearing")
 	if capture_enabled:
+		var requested := OS.get_environment("ORISON_FABRICATION_ACTORS").split(",",false)
+		for identity: String in requested:check(identity in first_actors.values(),"requested capture actor exists in selected native family")
 		for variant: String in first_actors:
 			var identity: String = first_actors[variant]
+			if not requested.is_empty() and not identity in requested:continue
 			var body := world.adapter.resolve(identity) as StaticBody3D
 			var bounds := AABB()
 			for part: Dictionary in variants[variant].parts:
 				var draw := body.get_node(str(part.name)) as MeshInstance3D
 				bounds = bounds.merge(draw.transform * draw.mesh.get_aabb())
+			if family == "domestic_storage":
+				for draw: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
+					bounds = bounds.merge(body.global_transform.affine_inverse()*draw.global_transform*draw.mesh.get_aabb())
+				if identity=="3B_tools0":
+					var radio := world.adapter.resolve("3B_radio") as Node3D
+					for draw: MeshInstance3D in radio.find_children("*","MeshInstance3D",true,false):
+						bounds = bounds.merge(body.global_transform.affine_inverse()*draw.global_transform*draw.mesh.get_aabb())
 			var radius := maxf(1.15,maxf(bounds.size.x,bounds.size.z)*.9)
+			if family == "domestic_storage":radius=maxf(radius,bounds.size.y*1.05)
 			var station := Vector3.INF
-			for scale in [1.,1.25,.85]:
-				for direction in [Vector3(0,0,-1),Vector3(.7,0,-.7),Vector3(-.7,0,-.7),Vector3(1,0,0),Vector3(-1,0,0),Vector3(.7,0,.7),Vector3(-.7,0,.7),Vector3(0,0,1)]:
+			var directions: Array[Vector3] = [Vector3(0,0,-1),Vector3(.7,0,-.7),Vector3(-.7,0,-.7),Vector3(1,0,0),Vector3(-1,0,0),Vector3(.7,0,.7),Vector3(-.7,0,.7),Vector3(0,0,1)]
+			if family=="domestic_storage":
+				directions.clear()
+				for step in 24:
+					var angle := deg_to_rad(ceilf(float(step)*.5)*15.*(1. if step%2 else -1.))
+					directions.append(Vector3(sin(angle),0,-cos(angle)))
+			for scale in [1.,1.25,1.5,.85,.65,2.]:
+				for direction: Vector3 in directions:
 					var feet: Vector3 = body.to_global(direction*radius*float(scale)+Vector3.UP*.02)
-					if _city_clear_station(world,feet): station=feet; break
+					feet.y = world.adapter.root.global_position.y + float(levels[str(anchors[identity].level)]) + .02
+					if _city_clear_station(world,feet) and (family!="domestic_storage" or _framed_at(world,body,bounds,feet)): station=feet; break
 				if station.is_finite(): break
 			check(station.is_finite(),"clear standing camera station: "+identity)
-			if station.is_finite(): await _city_capture(world,station,body.to_global(Vector3(0,bounds.end.y*.65,0)),identity+"_native","native apartment furniture",identity)
-	return {"checks":checks,"parts":count,"variants":first_actors.size(),"actors":mounted_ids.size(),"unique_triangles":unique_triangles,"shared_validator_sha256":FileAccess.get_sha256("res://tests/orison_v2_domestic_native_test.gd"),"failures":failures.duplicate()}
+			if station.is_finite():
+				var target := body.to_global(bounds.get_center() if family=="domestic_storage" else Vector3(0,bounds.end.y*.65,0))
+				await _city_capture(world,station,target,identity+"_native","native apartment furniture",identity)
+				if family=="domestic_storage":check(_framed_at(world,body,bounds,station),"entire storage assembly and retained stock remain inside frame")
+	return {"checks":checks,"parts":count,"variants":first_actors.size(),"actors":mounted_ids.size(),"unique_triangles":unique_triangles,"views":discovery.duplicate(true),"shared_validator_sha256":FileAccess.get_sha256("res://tests/orison_v2_domestic_native_test.gd"),"failures":failures.duplicate()}
+
+func _framed_at(world: OrisonV2RuntimeRoot,body: Node3D,bounds: AABB,feet: Vector3) -> bool:
+	world.player.global_position=feet
+	world.player.face_world_point(body.to_global(bounds.get_center()))
+	var camera: Camera3D = world.player.camera
+	var frame := camera.get_viewport().get_visible_rect().grow(-16)
+	var excluded: Array[RID] = [world.player.get_rid(),(body as CollisionObject3D).get_rid()]
+	if body.get_meta("v2_furniture_id")=="3B_tools0":excluded.append((world.adapter.resolve("3B_radio") as CollisionObject3D).get_rid())
+	for corner in 8:
+		var point := body.to_global(bounds.get_endpoint(corner))
+		if camera.is_position_behind(point) or not frame.has_point(camera.unproject_position(point)):return false
+		var probe := body.to_global(bounds.get_center()+(bounds.get_endpoint(corner)-bounds.get_center())*.94)
+		var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(camera.global_position,probe,1,excluded))
+		if not hit.is_empty() and hit.position.distance_to(probe)>.02:return false
+	return true
 
 func validate_after_teardown() -> Dictionary:
 	for id: int in mounted_ids: check(not is_instance_id_valid(id),"native furniture actor retires with original owner")

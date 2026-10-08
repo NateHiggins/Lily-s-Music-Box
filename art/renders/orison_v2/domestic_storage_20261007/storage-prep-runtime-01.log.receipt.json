@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 74.17,
+  "exit_code": 0,
+  "finished_utc": "2026-10-07T23:42:16Z",
+  "started_utc": "2026-10-07T23:41:01Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/storage-prep-runtime-01.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/storage-prep-runtime-01.log",
+  "stdout_sha256": "4d37e92155c710be804450d58dc133978a503fe0f1cd29d1eb1ebb6f1a87f924"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/storage-prep-runtime-01",
+ "source": {
+  "dirty_paths": 302,
+  "dirty_sample": [
+   "M art/blender/reading_nook_construction.json",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_domestic_furniture.gd",
+   " M game/tests/fixtures/orison_reading_nook.json",
+   " M game/tests/orison_v2_domestic_native_test.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/domestic_storage.blend",
+   "?? art/blender/domestic_storage_construction.json",
+   "?? art/blender/prep_cabinets.blend",
+   "?? art/blender/prep_cabinets_construction.json",
+   "?? art/blender/scripts/build_domestic_storage.py",
+   "?? art/blender/scripts/build_prep_cabinets.py",
+   "?? art/blender/scripts/domestic_storage_geometry.py",
+   "?? art/blender/scripts/inspect_domestic_storage.py",
+   "?? art/blender/scripts/inspect_domestic_storage_context.py",
+   "?? art/blender/scripts/inspect_prep_cabinets.py",
+   "?? art/blender/scripts/inspect_prep_cabinets_context.py",
+   "?? art/blender/scripts/prep_cabinets_geometry.py",
+   "?? art/blender/scripts/render_domestic_storage.py"
+  ],
+  "repository_head": "9e08a579a3f7a08f219b82ff46691b97fe6a71a0",
+  "repository_tree": "5ae89d23769a955474fe819e718719b64a21e09d",
+  "runtime_inputs_sha256": "e068c68f1a8334519847ce1e97a56ca5549f86f9184cff9e4bf6c9bff8083220",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "9479afc1dfdf165c5d676c1821414ad01c4494880fc7d689a9d2b468b08b879a"
+ },
+ "windowed": true
+}

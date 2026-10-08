@@ -1,0 +1,30 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_domestic_storage.py",
+      "elapsed_s": 4.871
+    },
+    {
+      "script": "art/blender/scripts/inspect_domestic_storage.py",
+      "elapsed_s": 2.398
+    },
+    {
+      "script": "art/blender/scripts/inspect_domestic_storage_context.py",
+      "elapsed_s": 0.955
+    },
+    {
+      "script": "art/blender/scripts/build_prep_cabinets.py",
+      "elapsed_s": 0.745
+    },
+    {
+      "script": "art/blender/scripts/inspect_prep_cabinets.py",
+      "elapsed_s": 0.481
+    },
+    {
+      "script": "art/blender/scripts/inspect_prep_cabinets_context.py",
+      "elapsed_s": 1.009
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "stages": [
+    {
+      "script": "art/blender/scripts/build_prep_cabinets.py"
+    },
+    {
+      "script": "art/blender/scripts/inspect_prep_cabinets.py"
+    },
+    {
+      "script": "art/blender/scripts/inspect_prep_cabinets_context.py"
+    }
+  ]
+}
