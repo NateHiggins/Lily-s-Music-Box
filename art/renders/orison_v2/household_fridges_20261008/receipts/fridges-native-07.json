@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_household_fridges.py",
+      "elapsed_s": 3.957
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_fridges.py",
+      "elapsed_s": 4.164
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_fridge_motion.py",
+      "elapsed_s": 6.176
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_fridges_context.py",
+      "elapsed_s": 2.86
+    }
+  ]
+}

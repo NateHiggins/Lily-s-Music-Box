@@ -1494,3 +1494,25 @@ game/scripts/props/light_fixture_prop.gd -text
 game/tests/fixtures/orison_fixed_lighting.json -text
 game/tests/orison_v2_fixed_lighting_test.gd -text
 art/renders/orison_v2/fixed_lighting_20261008/** -text -whitespace
+
+# Native household refrigerator geometry and source-bound QA.
+art/blender/scripts/build_household_fridges.py -text
+art/blender/scripts/household_fridges_geometry.py -text
+art/blender/scripts/inspect_household_fridges.py -text
+art/blender/scripts/inspect_household_fridge_motion.py -text
+art/blender/scripts/inspect_household_fridges_context.py -text
+art/blender/scripts/render_household_fridges.py -text
+art/data/household_fridges/source_plan.json -text
+art/blender/household_fridges.blend -text
+art/blender/household_fridges_construction.json -text
+game/assets/props/household_fridges.glb -text
+game/assets/props/household_fridges.glb.import -text
+game/data/orison_v2/household_fridges.json -text
+game/scripts/building/orison_v2_fridge.gd -text
+game/scripts/building/orison_v2_native_household_fridges.gd -text
+game/tests/fixtures/orison_household_fridges.json -text
+game/tests/orison_v2_household_fridges_test.gd -text
+game/scripts/props/fridge_prop.gd -text
+game/scripts/props/stove_prop.gd -text
+game/scripts/building/orison_v2_domestic_fittings.gd -text
+art/renders/orison_v2/household_fridges_20261008/** -text -whitespace

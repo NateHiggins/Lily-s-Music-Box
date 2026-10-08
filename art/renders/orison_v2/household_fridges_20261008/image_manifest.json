@@ -1,0 +1,366 @@
+{
+  "evidence_class": "INERT",
+  "native": [
+    {
+      "id": "FridgeIcebox",
+      "file": "native/FridgeIcebox_closed.png",
+      "source": "fridge / oak icebox",
+      "state": "closed",
+      "sha256": "47956bd432e970a39281485df4b6acb5b74cfd61c65ea4d9efe0d868fe379c4b",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeIcebox",
+      "file": "native/FridgeIcebox_open.png",
+      "source": "fridge / oak icebox",
+      "state": "open",
+      "sha256": "1d0be7dec85b540920ec7ac51bfc2e818b19af03f71b028d3d3065362f66759b",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeMonitor",
+      "file": "native/FridgeMonitor_closed.png",
+      "source": "fridge / 1927 monitor-top",
+      "state": "closed",
+      "sha256": "043ca326bc0ed2e35609b017259d7e8f3bf94c735930f1443455608aa97d52a2",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeMonitor",
+      "file": "native/FridgeMonitor_open.png",
+      "source": "fridge / 1927 monitor-top",
+      "state": "open",
+      "sha256": "16db5459aaff8b66d9c459e9dfd46498bd5cab8952db680a05e8e9b6cf0926db",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_01",
+      "file": "native/FridgeItem_01_stock.png",
+      "source": "MERIDIAN MILK",
+      "state": "stock",
+      "sha256": "867656f01ca99b42007fee52b36ad0d46985200b6218224d0564e8f57cd5dcac",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_02",
+      "file": "native/FridgeItem_02_stock.png",
+      "source": "HOLLOWAY'S",
+      "state": "stock",
+      "sha256": "26ec16580e22b176b05822c6808382f6f94bb07d9dcc80063c560783f01f4de7",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_03",
+      "file": "native/FridgeItem_03_stock.png",
+      "source": "eggs",
+      "state": "stock",
+      "sha256": "7b57f3818f9ea68fe4759b91a507c81c25f446940cdd5ff44d46d734a9b52f22",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_04",
+      "file": "native/FridgeItem_04_stock.png",
+      "source": "wrapped",
+      "state": "stock",
+      "sha256": "7923077f68dd17b7efc438ef835afe4630ce8350f9055cf53fc5fa5cbee3073f",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_05",
+      "file": "native/FridgeItem_05_stock.png",
+      "source": "one lemon",
+      "state": "stock",
+      "sha256": "cc6930ad3dd0c652560aba1ace16b53989652a20d387fb3fc862ef336e42d4c9",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_06",
+      "file": "native/FridgeItem_06_stock.png",
+      "source": "CROWN & VALE",
+      "state": "stock",
+      "sha256": "921f297e3887da569072b84219df77c205666116c2001fdb861742fd387d9654",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_07",
+      "file": "native/FridgeItem_07_stock.png",
+      "source": "jars",
+      "state": "stock",
+      "sha256": "a5fcc6c27b2d0e9dcf0fc1175ce1c75de4453d44868ccd83a14ffed78af48021",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_08",
+      "file": "native/FridgeItem_08_stock.png",
+      "source": "jars",
+      "state": "stock",
+      "sha256": "25f975ac51def580d16ecdce0495f16175cef0c977ab9ad7ac841f3b0558263f",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_09",
+      "file": "native/FridgeItem_09_stock.png",
+      "source": "KESSLER'S PICKLES",
+      "state": "stock",
+      "sha256": "0f5a02f4e7d78f7f487ed8402462348eb7c1135fc7c65ba3a141afce813bb943",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_10",
+      "file": "native/FridgeItem_10_stock.png",
+      "source": "ASTORIA CREAM",
+      "state": "stock",
+      "sha256": "6cd7b82390d9c2430bbabbda74a7010872679eca34f42b88935daf682cd356d3",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_11",
+      "file": "native/FridgeItem_11_stock.png",
+      "source": "wrapped",
+      "state": "stock",
+      "sha256": "3fde7192f230c0b0a5a09a48aa6b515f8fffdb8a88319e302c6c09f4abaaa96c",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_12",
+      "file": "native/FridgeItem_12_stock.png",
+      "source": "PEERLESS LAGER",
+      "state": "stock",
+      "sha256": "b9943937d76dca7dc32d7b2c297a1bdcb896e49f6986c0addebd5e8fdee51694",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_13",
+      "file": "native/FridgeItem_13_stock.png",
+      "source": "carton",
+      "state": "stock",
+      "sha256": "a326c81f3e6274c5eba77ccd339063163d6eaa82111847e2099134985b129aec",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_14",
+      "file": "native/FridgeItem_14_stock.png",
+      "source": "BELL BROS.",
+      "state": "stock",
+      "sha256": "4aa99f80474d81a54699799aabe8d6ceefe2d74261ecd603f0c57040859b62dc",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_15",
+      "file": "native/FridgeItem_15_stock.png",
+      "source": "QUELL TONIC",
+      "state": "stock",
+      "sha256": "b406d0b5f5096ade3e25954a42f74102f7c58ad87afe3cc44ea4217509d5ce55",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_16",
+      "file": "native/FridgeItem_16_stock.png",
+      "source": "wrapped",
+      "state": "stock",
+      "sha256": "672d1869819fdd83ee9499a81942771b1e8d0c6e5f532393b8daaadf5658c793",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_17",
+      "file": "native/FridgeItem_17_stock.png",
+      "source": "furred",
+      "state": "stock",
+      "sha256": "1efbc62ae99e1166ea18ffef609dd73fd76ddbec3f398183d650d43a674d23eb",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_18",
+      "file": "native/FridgeItem_18_stock.png",
+      "source": "furred",
+      "state": "stock",
+      "sha256": "4b234c570cda58ac438aa4d7e7a1a3c2f7fce09c0c96cd798812e4ee296f7ae3",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_19",
+      "file": "native/FridgeItem_19_stock.png",
+      "source": "WREN'S BUTTER",
+      "state": "stock",
+      "sha256": "bd293f317f4cc6d0c5cb3710f8e3bc8281b26ed214b4cdbfd417dbb8d9ba4cd2",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_20",
+      "file": "native/FridgeItem_20_stock.png",
+      "source": "carton",
+      "state": "stock",
+      "sha256": "4e2d598b04500caac369f5307bd89c26eced24612c0e2b5d9c23a4dd5e0b9eb9",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_21",
+      "file": "native/FridgeItem_21_stock.png",
+      "source": "wrapped",
+      "state": "stock",
+      "sha256": "e79063fa378f776300b8e1071bae3a8fbdbe52658486a9b8c11e0157c641662e",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    },
+    {
+      "id": "FridgeItem_22",
+      "file": "native/FridgeItem_22_stock.png",
+      "source": "furred",
+      "state": "stock",
+      "sha256": "c2f7d8b235e8bc145c4e2fc514f63d96317d63636a20493337514080a46ee692",
+      "status": "visually reviewed; scoped form/material fit accepted"
+    }
+  ],
+  "production": [
+    {
+      "bucket": "native refrigerator and source household inventory",
+      "feet": [
+        12.0550518035889,
+        3.22000002861023,
+        -15.0207672119141
+      ],
+      "id": "F02_2A_FRIDGE_01_native_open",
+      "image": "F02_2A_FRIDGE_01_native_open.png",
+      "owner": "F02_2A_FRIDGE_01",
+      "status": "visually reviewed; scoped geometry/material fit accepted",
+      "source_run": "fridges-runtime-03",
+      "file": "production/F02_2A_FRIDGE_01_native_open.png",
+      "sha256": "6ead911875bb6259e3d8869ec4dfe49685eaba43679a7a10722d721ad46e6dd5"
+    },
+    {
+      "bucket": "native refrigerator and source household inventory",
+      "feet": [
+        -13.5500011444092,
+        6.42000007629395,
+        -4.02474498748779
+      ],
+      "id": "F03_3B_FRIDGE_01_native_open",
+      "image": "F03_3B_FRIDGE_01_native_open.png",
+      "owner": "F03_3B_FRIDGE_01",
+      "status": "visually reviewed; scoped geometry/material fit accepted",
+      "source_run": "fridges-runtime-03",
+      "file": "production/F03_3B_FRIDGE_01_native_open.png",
+      "sha256": "5bc6f21db91412a7621c1bd0be7d9f89c40eb6d8818c354b4cf31cb6b2b11a74"
+    },
+    {
+      "bucket": "native refrigerator and source household inventory",
+      "feet": [
+        8.82525825500488,
+        16.0200004577637,
+        -21.3999996185303
+      ],
+      "id": "F06_6B_FRIDGE_01_native_open",
+      "image": "F06_6B_FRIDGE_01_native_open.png",
+      "owner": "F06_6B_FRIDGE_01",
+      "status": "visually reviewed; scoped geometry/material fit accepted",
+      "source_run": "fridges-runtime-03",
+      "file": "production/F06_6B_FRIDGE_01_native_open.png",
+      "sha256": "d36a251b5562897c4d108cf975516289dc3dfb7a3acbfd5509d22175a006f103"
+    },
+    {
+      "bucket": "native refrigerator and source household inventory",
+      "feet": [
+        10.5199995040894,
+        0.0199999995529652,
+        -3.14999866485596
+      ],
+      "id": "F01_1A_FRIDGE_01_native_open",
+      "image": "F01_1A_FRIDGE_01_native_open.png",
+      "owner": "F01_1A_FRIDGE_01",
+      "status": "visually reviewed; scoped geometry/material fit accepted",
+      "source_run": "fridges-runtime-03",
+      "file": "production/F01_1A_FRIDGE_01_native_open.png",
+      "sha256": "3d5dc62bec046659daf7324607bf5c6e0a307b495ca0d1b5a183f545dfd50e38"
+    },
+    {
+      "bucket": "native refrigerator and source household inventory",
+      "feet": [
+        11.2000017166138,
+        3.22000002861023,
+        -15.769998550415
+      ],
+      "id": "F02_2A_FRIDGE_01_native_closed",
+      "image": "F02_2A_FRIDGE_01_native_closed.png",
+      "owner": "F02_2A_FRIDGE_01",
+      "status": "visually reviewed; scoped geometry/material fit accepted",
+      "source_run": "fridges-runtime-03",
+      "file": "production/F02_2A_FRIDGE_01_native_closed.png",
+      "sha256": "79a5c009b3d97319b0e03adadeeeb2762d5ea0e5e80f23f624ab4774e6887a51"
+    },
+    {
+      "bucket": "native refrigerator and source household inventory",
+      "feet": [
+        -12.4500007629395,
+        6.42000007629395,
+        -4.33000087738037
+      ],
+      "id": "F03_3B_FRIDGE_01_native_closed",
+      "image": "F03_3B_FRIDGE_01_native_closed.png",
+      "owner": "F03_3B_FRIDGE_01",
+      "status": "visually reviewed; scoped geometry/material fit accepted",
+      "source_run": "fridges-runtime-03",
+      "file": "production/F03_3B_FRIDGE_01_native_closed.png",
+      "sha256": "7bef59b1360344ff65dc559a447467f18a44eaaa527d2a6e1fc8d1dc5a20efda"
+    },
+    {
+      "bucket": "native refrigerator and source household inventory",
+      "feet": [
+        8.5200023651123,
+        16.0200004577637,
+        -22.5
+      ],
+      "id": "F06_6B_FRIDGE_01_native_closed",
+      "image": "F06_6B_FRIDGE_01_native_closed.png",
+      "owner": "F06_6B_FRIDGE_01",
+      "status": "visually reviewed; scoped geometry/material fit accepted",
+      "source_run": "fridges-runtime-03",
+      "file": "production/F06_6B_FRIDGE_01_native_closed.png",
+      "sha256": "e706b3d3636fb7fdcd5eee26f1dacd5eabc9f45185545b830df357e21a8fb8a9"
+    },
+    {
+      "bucket": "native refrigerator and source household inventory",
+      "feet": [
+        10.2200002670288,
+        0.0199999995529652,
+        -3.14999866485596
+      ],
+      "id": "F01_1A_FRIDGE_01_native_closed",
+      "image": "F01_1A_FRIDGE_01_native_closed.png",
+      "owner": "F01_1A_FRIDGE_01",
+      "status": "visually reviewed; scoped geometry/material fit accepted",
+      "source_run": "fridges-runtime-03",
+      "file": "production/F01_1A_FRIDGE_01_native_closed.png",
+      "sha256": "09de8ac7edb9b26b67f412f05a013c69c8c9bcebec1505d48e93fdff1df12f86"
+    },
+    {
+      "bucket": "native refrigerator and source household inventory",
+      "feet": [
+        11.8500022888184,
+        9.6200008392334,
+        -15.8999996185303
+      ],
+      "id": "F04_B_FRIDGE_01_native_open",
+      "image": "F04_B_FRIDGE_01_native_open.png",
+      "owner": "F04_B_FRIDGE_01",
+      "status": "visually reviewed; scoped geometry/material fit accepted",
+      "source_run": "fridges-runtime-04",
+      "file": "production/F04_B_FRIDGE_01_native_open.png",
+      "sha256": "677033b12645dc73a50a5b3bd8fe414d2c8682c584662b9ff9f73128397dbb7a"
+    },
+    {
+      "bucket": "native refrigerator and source household inventory",
+      "feet": [
+        11.8500022888184,
+        9.6200008392334,
+        -15.8999996185303
+      ],
+      "id": "F04_B_FRIDGE_01_native_closed",
+      "image": "F04_B_FRIDGE_01_native_closed.png",
+      "owner": "F04_B_FRIDGE_01",
+      "status": "visually reviewed; scoped geometry/material fit accepted",
+      "source_run": "fridges-runtime-04",
+      "file": "production/F04_B_FRIDGE_01_native_closed.png",
+      "sha256": "c5f02131a5586262f60084cd93ce52b280b01dbec2dada326b339cc906bc2c15"
+    }
+  ],
+  "scope": "Fabrication QA only, no runtime_contract proof or ledger promotion. Final native26 and production10; whole-building photoreal acceptance remains open. Production rooms retain strong warm light and coarse floor/plaster maps. 4B final camera includes actual case/leaf occlusion checks. Earlier failed/occluded frames and raw receipts retained."
+}

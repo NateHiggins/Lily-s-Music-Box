@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 84.16,
+  "exit_code": -1,
+  "finished_utc": "2026-10-08T06:40:26Z",
+  "started_utc": "2026-10-08T06:39:01Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fridges-import-01.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fridges-import-01.log",
+  "stdout_sha256": "a044b49f207911799554f94730842d9a9e050b01131d98a3deaffa2b56d18e53"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 78,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/boiler_window_construction.json",
+   " M art/blender/city_aerials_construction.json",
+   " M art/blender/city_beacons_construction.json",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_masts_construction.json",
+   " M art/blender/city_tanks_construction.json",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_seating_construction.json",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/domestic_tables_construction.json",
+   " M art/blender/fixed_lighting_construction.json",
+   " M art/blender/front_pavement_construction.json",
+   " M art/blender/household_radios_construction.json",
+   " M art/blender/household_toasters_construction.json",
+   " M art/blender/household_wardrobes_construction.json",
+   " M art/blender/medicine_cabinets_construction.json",
+   " M art/blender/prep_cabinets_construction.json",
+   " M art/blender/reading_nook_construction.json",
+   " M art/blender/roof_base_flashings_construction.json"
+  ],
+  "repository_head": "db2187c48ca8f6aab8109ad0fc203e55386b3097",
+  "repository_tree": "f82400d2ab405b5dee3f7ad7ce0528568f524719",
+  "runtime_inputs_sha256": "5b813ad8c8a8ef7db452a28b054f778e9b8f5975e12eeafa74d31c8325413e89",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

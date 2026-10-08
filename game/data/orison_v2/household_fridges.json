@@ -1,0 +1,1153 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/household_fridges.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "FridgeIcebox",
+      "parts": [
+        {
+          "name": "FridgeIcebox__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeIcebox__Body_ON_liner",
+          "component": "Body",
+          "key": "liner",
+          "tile": 0.55,
+          "catalog_key": "zinc_liner",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIcebox__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeIcebox__Body_ON_oak",
+          "component": "Body",
+          "key": "oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIcebox__Door_ON_brass",
+          "component": "Door",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeIcebox__Door_ON_liner",
+          "component": "Door",
+          "key": "liner",
+          "tile": 0.55,
+          "catalog_key": "zinc_liner",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIcebox__Door_ON_oak",
+          "component": "Door",
+          "key": "oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIcebox__DripTray_ON_brass",
+          "component": "DripTray",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeIcebox__DripTray_ON_liner",
+          "component": "DripTray",
+          "key": "liner",
+          "tile": 0.55,
+          "catalog_key": "zinc_liner",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIcebox__DripTray_ON_oak",
+          "component": "DripTray",
+          "key": "oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIcebox__IceDoor_ON_brass",
+          "component": "IceDoor",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeIcebox__IceDoor_ON_liner",
+          "component": "IceDoor",
+          "key": "liner",
+          "tile": 0.55,
+          "catalog_key": "zinc_liner",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIcebox__IceDoor_ON_oak",
+          "component": "IceDoor",
+          "key": "oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeMonitor",
+      "parts": [
+        {
+          "name": "FridgeMonitor__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeMonitor__Body_ON_copper",
+          "component": "Body",
+          "key": "copper",
+          "tile": 0.4,
+          "catalog_key": "copper_aged",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeMonitor__Body_ON_dark",
+          "component": "Body",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeMonitor__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeMonitor__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeMonitor__Door_ON_enamel",
+          "component": "Door",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeMonitor__Door_ON_nickel",
+          "component": "Door",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_01",
+      "parts": [
+        {
+          "name": "FridgeItem_01__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.06,
+            "roughness": 0.22
+          }
+        },
+        {
+          "name": "FridgeItem_01__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeItem_01__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_02",
+      "parts": [
+        {
+          "name": "FridgeItem_02__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.06,
+            "roughness": 0.22
+          }
+        },
+        {
+          "name": "FridgeItem_02__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeItem_02__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_03",
+      "parts": [
+        {
+          "name": "FridgeItem_03__Body_ON_food",
+          "component": "Body",
+          "key": "food",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeItem_03__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_04",
+      "parts": [
+        {
+          "name": "FridgeItem_04__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_05",
+      "parts": [
+        {
+          "name": "FridgeItem_05__Body_ON_food",
+          "component": "Body",
+          "key": "food",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_06",
+      "parts": [
+        {
+          "name": "FridgeItem_06__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_07",
+      "parts": [
+        {
+          "name": "FridgeItem_07__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.06,
+            "roughness": 0.22
+          }
+        },
+        {
+          "name": "FridgeItem_07__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_08",
+      "parts": [
+        {
+          "name": "FridgeItem_08__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.06,
+            "roughness": 0.22
+          }
+        },
+        {
+          "name": "FridgeItem_08__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_09",
+      "parts": [
+        {
+          "name": "FridgeItem_09__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.06,
+            "roughness": 0.22
+          }
+        },
+        {
+          "name": "FridgeItem_09__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeItem_09__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_10",
+      "parts": [
+        {
+          "name": "FridgeItem_10__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.06,
+            "roughness": 0.22
+          }
+        },
+        {
+          "name": "FridgeItem_10__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeItem_10__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_11",
+      "parts": [
+        {
+          "name": "FridgeItem_11__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_12",
+      "parts": [
+        {
+          "name": "FridgeItem_12__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.06,
+            "roughness": 0.22
+          }
+        },
+        {
+          "name": "FridgeItem_12__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeItem_12__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_13",
+      "parts": [
+        {
+          "name": "FridgeItem_13__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_14",
+      "parts": [
+        {
+          "name": "FridgeItem_14__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_15",
+      "parts": [
+        {
+          "name": "FridgeItem_15__Body_ON_bottle",
+          "component": "Body",
+          "key": "bottle",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.06,
+            "roughness": 0.22
+          }
+        },
+        {
+          "name": "FridgeItem_15__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeItem_15__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_16",
+      "parts": [
+        {
+          "name": "FridgeItem_16__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_17",
+      "parts": [
+        {
+          "name": "FridgeItem_17__Body_ON_food",
+          "component": "Body",
+          "key": "food",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeItem_17__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_18",
+      "parts": [
+        {
+          "name": "FridgeItem_18__Body_ON_food",
+          "component": "Body",
+          "key": "food",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeItem_18__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_19",
+      "parts": [
+        {
+          "name": "FridgeItem_19__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_20",
+      "parts": [
+        {
+          "name": "FridgeItem_20__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_21",
+      "parts": [
+        {
+          "name": "FridgeItem_21__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "FridgeItem_22",
+      "parts": [
+        {
+          "name": "FridgeItem_22__Body_ON_food",
+          "component": "Body",
+          "key": "food",
+          "tile": 0.9,
+          "catalog_key": "porcelain",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeItem_22__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "F02_2A_FRIDGE_01",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F03_3B_FRIDGE_01",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F04_B_FRIDGE_01",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F02_2B_FRIDGE_01",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F03_3A_FRIDGE_01",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F04_4A_FRIDGE_01",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F05_5A_FRIDGE_01",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F05_5B_FRIDGE_01",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F05_5C_FRIDGE_01",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F06_6A_FRIDGE_01",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F06_6B_FRIDGE_01",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F06_6C_FRIDGE_01",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F02_2C_FRIDGE_01",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F04_4C_FRIDGE_01",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F01_1D_FRIDGE_01",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F01_1A_FRIDGE_01",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F03_3D_FRIDGE_01",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F04_4D_FRIDGE_01",
+      "variant": "FridgeMonitor"
+    }
+  ],
+  "tint_space": "linear",
+  "foods": [
+    {
+      "id": "FridgeItem_01",
+      "source_id": "MERIDIAN MILK",
+      "width": 0.09,
+      "height": 0.24
+    },
+    {
+      "id": "FridgeItem_02",
+      "source_id": "HOLLOWAY'S",
+      "width": 0.07,
+      "height": 0.11
+    },
+    {
+      "id": "FridgeItem_03",
+      "source_id": "eggs",
+      "width": 0.16,
+      "height": 0.06
+    },
+    {
+      "id": "FridgeItem_04",
+      "source_id": "wrapped",
+      "width": 0.13,
+      "height": 0.07
+    },
+    {
+      "id": "FridgeItem_05",
+      "source_id": "one lemon",
+      "width": 0.05,
+      "height": 0.05
+    },
+    {
+      "id": "FridgeItem_06",
+      "source_id": "CROWN & VALE",
+      "width": 0.1,
+      "height": 0.07
+    },
+    {
+      "id": "FridgeItem_07",
+      "source_id": "jars",
+      "width": 0.06,
+      "height": 0.13
+    },
+    {
+      "id": "FridgeItem_08",
+      "source_id": "jars",
+      "width": 0.06,
+      "height": 0.12
+    },
+    {
+      "id": "FridgeItem_09",
+      "source_id": "KESSLER'S PICKLES",
+      "width": 0.08,
+      "height": 0.17
+    },
+    {
+      "id": "FridgeItem_10",
+      "source_id": "ASTORIA CREAM",
+      "width": 0.06,
+      "height": 0.1
+    },
+    {
+      "id": "FridgeItem_11",
+      "source_id": "wrapped",
+      "width": 0.14,
+      "height": 0.08
+    },
+    {
+      "id": "FridgeItem_12",
+      "source_id": "PEERLESS LAGER",
+      "width": 0.06,
+      "height": 0.19
+    },
+    {
+      "id": "FridgeItem_13",
+      "source_id": "carton",
+      "width": 0.15,
+      "height": 0.09
+    },
+    {
+      "id": "FridgeItem_14",
+      "source_id": "BELL BROS.",
+      "width": 0.08,
+      "height": 0.12
+    },
+    {
+      "id": "FridgeItem_15",
+      "source_id": "QUELL TONIC",
+      "width": 0.05,
+      "height": 0.2
+    },
+    {
+      "id": "FridgeItem_16",
+      "source_id": "wrapped",
+      "width": 0.12,
+      "height": 0.07
+    },
+    {
+      "id": "FridgeItem_17",
+      "source_id": "furred",
+      "width": 0.09,
+      "height": 0.09
+    },
+    {
+      "id": "FridgeItem_18",
+      "source_id": "furred",
+      "width": 0.07,
+      "height": 0.08
+    },
+    {
+      "id": "FridgeItem_19",
+      "source_id": "WREN'S BUTTER",
+      "width": 0.09,
+      "height": 0.06
+    },
+    {
+      "id": "FridgeItem_20",
+      "source_id": "carton",
+      "width": 0.14,
+      "height": 0.09
+    },
+    {
+      "id": "FridgeItem_21",
+      "source_id": "wrapped",
+      "width": 0.13,
+      "height": 0.08
+    },
+    {
+      "id": "FridgeItem_22",
+      "source_id": "furred",
+      "width": 0.08,
+      "height": 0.08
+    }
+  ],
+  "visual_fit": {
+    "icebox_shelves": [
+      0.3,
+      0.462,
+      0.672
+    ],
+    "monitor_shelves": [
+      0.38,
+      0.67,
+      0.94
+    ],
+    "shelf_bearing_offset": 0.0045
+  }
+}

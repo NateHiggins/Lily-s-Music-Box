@@ -1,0 +1,1203 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_fittings": [
+    {
+      "id": "F02_2A_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "2A",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F03_3B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "3B",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F04_B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "4B",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F02_2B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "2B",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F03_3A_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "3A",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F04_4A_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "4A",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F05_5A_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "5A",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F05_5B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "5B",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F05_5C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "5C",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F06_6A_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "6A",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F06_6B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "6B",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F06_6C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "6C",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F02_2C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "2C",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F04_4C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "4C",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F01_1D_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "1D",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F01_1A_FRIDGE_01",
+      "unit": "1A",
+      "kind": "fridge",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F03_3D_FRIDGE_01",
+      "unit": "3D",
+      "kind": "fridge",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F04_4D_FRIDGE_01",
+      "unit": "4D",
+      "kind": "fridge",
+      "properties": {
+        "monitor_top": true
+      }
+    }
+  ],
+  "mechanism_source": "game/scripts/props/fridge_prop.gd",
+  "mechanism_sha256": "195f5515ea7ee069e8f22206585ce1258cbb176449cfbb13604425bec9e89f64",
+  "source_larder": {
+    "1A": [
+      [
+        "MERIDIAN MILK",
+        [
+          0.92,
+          0.91,
+          0.86
+        ],
+        0.09,
+        0.24,
+        2
+      ],
+      [
+        "HOLLOWAY'S",
+        [
+          0.42,
+          0.16,
+          0.14
+        ],
+        0.07,
+        0.11,
+        1
+      ],
+      [
+        "eggs",
+        [
+          0.86,
+          0.82,
+          0.7
+        ],
+        0.16,
+        0.06,
+        1
+      ],
+      [
+        "wrapped",
+        [
+          0.8,
+          0.78,
+          0.66
+        ],
+        0.13,
+        0.07,
+        0
+      ]
+    ],
+    "1D": [
+      [
+        "MERIDIAN MILK",
+        [
+          0.92,
+          0.91,
+          0.86
+        ],
+        0.09,
+        0.24,
+        2
+      ],
+      [
+        "one lemon",
+        [
+          0.86,
+          0.78,
+          0.24
+        ],
+        0.05,
+        0.05,
+        0
+      ]
+    ],
+    "2A": [
+      [
+        "CROWN & VALE",
+        [
+          0.88,
+          0.8,
+          0.36
+        ],
+        0.1,
+        0.07,
+        2
+      ],
+      [
+        "MERIDIAN MILK",
+        [
+          0.92,
+          0.91,
+          0.86
+        ],
+        0.09,
+        0.24,
+        2
+      ],
+      [
+        "jars",
+        [
+          0.32,
+          0.44,
+          0.26
+        ],
+        0.06,
+        0.13,
+        1
+      ],
+      [
+        "jars",
+        [
+          0.36,
+          0.24,
+          0.18
+        ],
+        0.06,
+        0.12,
+        1
+      ]
+    ],
+    "2B": [
+      [
+        "KESSLER'S PICKLES",
+        [
+          0.46,
+          0.52,
+          0.24
+        ],
+        0.08,
+        0.17,
+        1
+      ],
+      [
+        "ASTORIA CREAM",
+        [
+          0.9,
+          0.87,
+          0.78
+        ],
+        0.06,
+        0.1,
+        2
+      ],
+      [
+        "wrapped",
+        [
+          0.78,
+          0.76,
+          0.64
+        ],
+        0.14,
+        0.08,
+        0
+      ]
+    ],
+    "2C": [
+      [
+        "PEERLESS LAGER",
+        [
+          0.3,
+          0.42,
+          0.22
+        ],
+        0.06,
+        0.19,
+        1
+      ],
+      [
+        "PEERLESS LAGER",
+        [
+          0.3,
+          0.42,
+          0.22
+        ],
+        0.06,
+        0.19,
+        1
+      ],
+      [
+        "carton",
+        [
+          0.84,
+          0.72,
+          0.48
+        ],
+        0.15,
+        0.09,
+        0
+      ]
+    ],
+    "3A": [
+      [
+        "MERIDIAN MILK",
+        [
+          0.92,
+          0.91,
+          0.86
+        ],
+        0.09,
+        0.24,
+        2
+      ],
+      [
+        "BELL BROS.",
+        [
+          0.34,
+          0.3,
+          0.52
+        ],
+        0.08,
+        0.12,
+        1
+      ]
+    ],
+    "3B": [
+      [
+        "QUELL TONIC",
+        [
+          0.24,
+          0.46,
+          0.5
+        ],
+        0.05,
+        0.2,
+        2
+      ],
+      [
+        "wrapped",
+        [
+          0.8,
+          0.78,
+          0.66
+        ],
+        0.12,
+        0.07,
+        1
+      ]
+    ],
+    "3D": [
+      [
+        "ASTORIA CREAM",
+        [
+          0.9,
+          0.87,
+          0.78
+        ],
+        0.06,
+        0.1,
+        2
+      ],
+      [
+        "HOLLOWAY'S",
+        [
+          0.42,
+          0.16,
+          0.14
+        ],
+        0.07,
+        0.11,
+        1
+      ],
+      [
+        "eggs",
+        [
+          0.86,
+          0.82,
+          0.7
+        ],
+        0.16,
+        0.06,
+        0
+      ]
+    ],
+    "4A": [
+      [
+        "furred",
+        [
+          0.44,
+          0.48,
+          0.36
+        ],
+        0.09,
+        0.09,
+        1
+      ],
+      [
+        "furred",
+        [
+          0.4,
+          0.44,
+          0.34
+        ],
+        0.07,
+        0.08,
+        0
+      ]
+    ],
+    "4B": [
+      [
+        "MERIDIAN MILK",
+        [
+          0.92,
+          0.91,
+          0.86
+        ],
+        0.09,
+        0.24,
+        2
+      ],
+      [
+        "PEERLESS LAGER",
+        [
+          0.3,
+          0.42,
+          0.22
+        ],
+        0.06,
+        0.19,
+        1
+      ],
+      [
+        "wrapped",
+        [
+          0.8,
+          0.78,
+          0.66
+        ],
+        0.13,
+        0.07,
+        0
+      ]
+    ],
+    "4C": [
+      [
+        "WREN'S BUTTER",
+        [
+          0.88,
+          0.78,
+          0.34
+        ],
+        0.09,
+        0.06,
+        2
+      ],
+      [
+        "PEERLESS LAGER",
+        [
+          0.3,
+          0.42,
+          0.22
+        ],
+        0.06,
+        0.19,
+        1
+      ],
+      [
+        "carton",
+        [
+          0.84,
+          0.72,
+          0.48
+        ],
+        0.14,
+        0.09,
+        1
+      ],
+      [
+        "jars",
+        [
+          0.36,
+          0.24,
+          0.18
+        ],
+        0.06,
+        0.12,
+        0
+      ]
+    ],
+    "4D": [
+      [
+        "carton",
+        [
+          0.84,
+          0.72,
+          0.48
+        ],
+        0.15,
+        0.09,
+        1
+      ]
+    ],
+    "5A": [
+      [
+        "MERIDIAN MILK",
+        [
+          0.92,
+          0.91,
+          0.86
+        ],
+        0.09,
+        0.24,
+        2
+      ],
+      [
+        "CROWN & VALE",
+        [
+          0.88,
+          0.8,
+          0.36
+        ],
+        0.1,
+        0.07,
+        1
+      ]
+    ],
+    "5B": [
+      [
+        "PEERLESS LAGER",
+        [
+          0.3,
+          0.42,
+          0.22
+        ],
+        0.06,
+        0.19,
+        2
+      ],
+      [
+        "PEERLESS LAGER",
+        [
+          0.3,
+          0.42,
+          0.22
+        ],
+        0.06,
+        0.19,
+        2
+      ],
+      [
+        "carton",
+        [
+          0.84,
+          0.72,
+          0.48
+        ],
+        0.15,
+        0.09,
+        0
+      ]
+    ],
+    "5C": [
+      [
+        "jars",
+        [
+          0.32,
+          0.44,
+          0.26
+        ],
+        0.06,
+        0.13,
+        2
+      ],
+      [
+        "jars",
+        [
+          0.52,
+          0.3,
+          0.16
+        ],
+        0.06,
+        0.13,
+        2
+      ],
+      [
+        "ASTORIA CREAM",
+        [
+          0.9,
+          0.87,
+          0.78
+        ],
+        0.06,
+        0.1,
+        1
+      ],
+      [
+        "wrapped",
+        [
+          0.78,
+          0.76,
+          0.64
+        ],
+        0.13,
+        0.08,
+        0
+      ]
+    ],
+    "6A": [
+      [
+        "MERIDIAN MILK",
+        [
+          0.92,
+          0.91,
+          0.86
+        ],
+        0.09,
+        0.24,
+        2
+      ],
+      [
+        "eggs",
+        [
+          0.86,
+          0.82,
+          0.7
+        ],
+        0.16,
+        0.06,
+        1
+      ]
+    ],
+    "6B": [
+      [
+        "HOLLOWAY'S",
+        [
+          0.42,
+          0.16,
+          0.14
+        ],
+        0.07,
+        0.11,
+        2
+      ],
+      [
+        "wrapped",
+        [
+          0.8,
+          0.78,
+          0.66
+        ],
+        0.12,
+        0.07,
+        1
+      ],
+      [
+        "furred",
+        [
+          0.44,
+          0.48,
+          0.36
+        ],
+        0.08,
+        0.08,
+        0
+      ]
+    ],
+    "6C": [
+      [
+        "KESSLER'S PICKLES",
+        [
+          0.46,
+          0.52,
+          0.24
+        ],
+        0.08,
+        0.17,
+        2
+      ],
+      [
+        "KESSLER'S PICKLES",
+        [
+          0.46,
+          0.52,
+          0.24
+        ],
+        0.08,
+        0.17,
+        2
+      ],
+      [
+        "MERIDIAN MILK",
+        [
+          0.92,
+          0.91,
+          0.86
+        ],
+        0.09,
+        0.24,
+        1
+      ]
+    ]
+  },
+  "variants": [
+    {
+      "id": "FridgeIcebox",
+      "kind": "icebox",
+      "source_id": "fridge / oak icebox"
+    },
+    {
+      "id": "FridgeMonitor",
+      "kind": "monitor",
+      "source_id": "fridge / 1927 monitor-top"
+    },
+    {
+      "id": "FridgeItem_01",
+      "kind": "food",
+      "source_id": "MERIDIAN MILK",
+      "width": 0.09,
+      "height": 0.24,
+      "source_color": [
+        0.92,
+        0.91,
+        0.86
+      ]
+    },
+    {
+      "id": "FridgeItem_02",
+      "kind": "food",
+      "source_id": "HOLLOWAY'S",
+      "width": 0.07,
+      "height": 0.11,
+      "source_color": [
+        0.42,
+        0.16,
+        0.14
+      ]
+    },
+    {
+      "id": "FridgeItem_03",
+      "kind": "food",
+      "source_id": "eggs",
+      "width": 0.16,
+      "height": 0.06,
+      "source_color": [
+        0.86,
+        0.82,
+        0.7
+      ]
+    },
+    {
+      "id": "FridgeItem_04",
+      "kind": "food",
+      "source_id": "wrapped",
+      "width": 0.13,
+      "height": 0.07,
+      "source_color": [
+        0.8,
+        0.78,
+        0.66
+      ]
+    },
+    {
+      "id": "FridgeItem_05",
+      "kind": "food",
+      "source_id": "one lemon",
+      "width": 0.05,
+      "height": 0.05,
+      "source_color": [
+        0.86,
+        0.78,
+        0.24
+      ]
+    },
+    {
+      "id": "FridgeItem_06",
+      "kind": "food",
+      "source_id": "CROWN & VALE",
+      "width": 0.1,
+      "height": 0.07,
+      "source_color": [
+        0.88,
+        0.8,
+        0.36
+      ]
+    },
+    {
+      "id": "FridgeItem_07",
+      "kind": "food",
+      "source_id": "jars",
+      "width": 0.06,
+      "height": 0.13,
+      "source_color": [
+        0.32,
+        0.44,
+        0.26
+      ]
+    },
+    {
+      "id": "FridgeItem_08",
+      "kind": "food",
+      "source_id": "jars",
+      "width": 0.06,
+      "height": 0.12,
+      "source_color": [
+        0.36,
+        0.24,
+        0.18
+      ]
+    },
+    {
+      "id": "FridgeItem_09",
+      "kind": "food",
+      "source_id": "KESSLER'S PICKLES",
+      "width": 0.08,
+      "height": 0.17,
+      "source_color": [
+        0.46,
+        0.52,
+        0.24
+      ]
+    },
+    {
+      "id": "FridgeItem_10",
+      "kind": "food",
+      "source_id": "ASTORIA CREAM",
+      "width": 0.06,
+      "height": 0.1,
+      "source_color": [
+        0.9,
+        0.87,
+        0.78
+      ]
+    },
+    {
+      "id": "FridgeItem_11",
+      "kind": "food",
+      "source_id": "wrapped",
+      "width": 0.14,
+      "height": 0.08,
+      "source_color": [
+        0.78,
+        0.76,
+        0.64
+      ]
+    },
+    {
+      "id": "FridgeItem_12",
+      "kind": "food",
+      "source_id": "PEERLESS LAGER",
+      "width": 0.06,
+      "height": 0.19,
+      "source_color": [
+        0.3,
+        0.42,
+        0.22
+      ]
+    },
+    {
+      "id": "FridgeItem_13",
+      "kind": "food",
+      "source_id": "carton",
+      "width": 0.15,
+      "height": 0.09,
+      "source_color": [
+        0.84,
+        0.72,
+        0.48
+      ]
+    },
+    {
+      "id": "FridgeItem_14",
+      "kind": "food",
+      "source_id": "BELL BROS.",
+      "width": 0.08,
+      "height": 0.12,
+      "source_color": [
+        0.34,
+        0.3,
+        0.52
+      ]
+    },
+    {
+      "id": "FridgeItem_15",
+      "kind": "food",
+      "source_id": "QUELL TONIC",
+      "width": 0.05,
+      "height": 0.2,
+      "source_color": [
+        0.24,
+        0.46,
+        0.5
+      ]
+    },
+    {
+      "id": "FridgeItem_16",
+      "kind": "food",
+      "source_id": "wrapped",
+      "width": 0.12,
+      "height": 0.07,
+      "source_color": [
+        0.8,
+        0.78,
+        0.66
+      ]
+    },
+    {
+      "id": "FridgeItem_17",
+      "kind": "food",
+      "source_id": "furred",
+      "width": 0.09,
+      "height": 0.09,
+      "source_color": [
+        0.44,
+        0.48,
+        0.36
+      ]
+    },
+    {
+      "id": "FridgeItem_18",
+      "kind": "food",
+      "source_id": "furred",
+      "width": 0.07,
+      "height": 0.08,
+      "source_color": [
+        0.4,
+        0.44,
+        0.34
+      ]
+    },
+    {
+      "id": "FridgeItem_19",
+      "kind": "food",
+      "source_id": "WREN'S BUTTER",
+      "width": 0.09,
+      "height": 0.06,
+      "source_color": [
+        0.88,
+        0.78,
+        0.34
+      ]
+    },
+    {
+      "id": "FridgeItem_20",
+      "kind": "food",
+      "source_id": "carton",
+      "width": 0.14,
+      "height": 0.09,
+      "source_color": [
+        0.84,
+        0.72,
+        0.48
+      ]
+    },
+    {
+      "id": "FridgeItem_21",
+      "kind": "food",
+      "source_id": "wrapped",
+      "width": 0.13,
+      "height": 0.08,
+      "source_color": [
+        0.78,
+        0.76,
+        0.64
+      ]
+    },
+    {
+      "id": "FridgeItem_22",
+      "kind": "food",
+      "source_id": "furred",
+      "width": 0.08,
+      "height": 0.08,
+      "source_color": [
+        0.44,
+        0.48,
+        0.36
+      ]
+    }
+  ],
+  "instances": [
+    {
+      "id": "F02_2A_FRIDGE_01",
+      "unit": "2A",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F03_3B_FRIDGE_01",
+      "unit": "3B",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F04_B_FRIDGE_01",
+      "unit": "4B",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F02_2B_FRIDGE_01",
+      "unit": "2B",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F03_3A_FRIDGE_01",
+      "unit": "3A",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F04_4A_FRIDGE_01",
+      "unit": "4A",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F05_5A_FRIDGE_01",
+      "unit": "5A",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F05_5B_FRIDGE_01",
+      "unit": "5B",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F05_5C_FRIDGE_01",
+      "unit": "5C",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F06_6A_FRIDGE_01",
+      "unit": "6A",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F06_6B_FRIDGE_01",
+      "unit": "6B",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F06_6C_FRIDGE_01",
+      "unit": "6C",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F02_2C_FRIDGE_01",
+      "unit": "2C",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F04_4C_FRIDGE_01",
+      "unit": "4C",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F01_1D_FRIDGE_01",
+      "unit": "1D",
+      "variant": "FridgeIcebox"
+    },
+    {
+      "id": "F01_1A_FRIDGE_01",
+      "unit": "1A",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F03_3D_FRIDGE_01",
+      "unit": "3D",
+      "variant": "FridgeMonitor"
+    },
+    {
+      "id": "F04_4D_FRIDGE_01",
+      "unit": "4D",
+      "variant": "FridgeMonitor"
+    }
+  ],
+  "runtime_keys": [
+    "oak",
+    "liner",
+    "enamel",
+    "nickel",
+    "brass",
+    "copper",
+    "dark",
+    "rubber",
+    "paper",
+    "food",
+    "bottle"
+  ],
+  "catalog_variants": {
+    "oak": "oak_work_surface",
+    "liner": "zinc_liner",
+    "enamel": "enamel_appliance",
+    "nickel": "nickel_plated",
+    "brass": "brass_dull",
+    "copper": "copper_aged",
+    "dark": "iron_blackened",
+    "rubber": "rubber_aged",
+    "paper": "paper",
+    "food": "porcelain",
+    "bottle": "porcelain"
+  },
+  "material_tints": {},
+  "finish_parameters": {
+    "oak": {
+      "normal_scale": 0.25,
+      "roughness": 1.0
+    },
+    "liner": {
+      "normal_scale": 0.25,
+      "roughness": 1.0
+    },
+    "enamel": {
+      "normal_scale": 0.13,
+      "roughness": 0.7
+    },
+    "nickel": {
+      "normal_scale": 0.13,
+      "roughness": 0.7
+    },
+    "brass": {
+      "normal_scale": 0.25,
+      "roughness": 0.7
+    },
+    "copper": {
+      "normal_scale": 0.25,
+      "roughness": 0.7
+    },
+    "dark": {
+      "normal_scale": 0.25,
+      "roughness": 1.0
+    },
+    "rubber": {
+      "normal_scale": 0.25,
+      "roughness": 1.0
+    },
+    "paper": {
+      "normal_scale": 0.25,
+      "roughness": 1.0
+    },
+    "food": {
+      "normal_scale": 0.13,
+      "roughness": 1.0
+    },
+    "bottle": {
+      "normal_scale": 0.06,
+      "roughness": 0.22
+    }
+  },
+  "tint_space": "linear",
+  "placement": {
+    "floor_y": 0
+  },
+  "open_work": [
+    "Whole-room lighting and broad floor/plaster finish calibration remain open."
+  ],
+  "visual_fit": {
+    "icebox_shelves": [
+      0.3,
+      0.462,
+      0.672
+    ],
+    "monitor_shelves": [
+      0.38,
+      0.67,
+      0.94
+    ],
+    "shelf_bearing_offset": 0.0045,
+    "monitor_freezer_rear_only": true,
+    "rationale": "Original tall food intersects the icebox upper divider and monitor freezer shelf. Seat icebox middle/upper racks 58/68 mm lower to clear the complete inventory; recess the monitor freezer shelf behind unchanged source food footprints."
+  }
+}

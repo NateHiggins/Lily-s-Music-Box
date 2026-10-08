@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 57.19,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T06:48:09Z",
+  "started_utc": "2026-10-08T06:47:11Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fridges-runtime-03.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fridges-runtime-03.log",
+  "stdout_sha256": "62caeb09a77b7999b5427ebbad7d535c684ae0f68563fde51c25f052add0b10e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fridges-runtime-03",
+ "source": {
+  "dirty_paths": 343,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/boiler_window_construction.json",
+   " M art/blender/city_aerials_construction.json",
+   " M art/blender/city_beacons_construction.json",
+   " M art/blender/city_closure_construction.json",
+   " M art/blender/city_masts_construction.json",
+   " M art/blender/city_tanks_construction.json",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/domestic_seating_construction.json",
+   " M art/blender/domestic_storage_construction.json",
+   " M art/blender/domestic_tables_construction.json",
+   " M art/blender/fixed_lighting_construction.json",
+   " M art/blender/front_pavement_construction.json",
+   " M art/blender/household_radios_construction.json",
+   " M art/blender/household_toasters_construction.json",
+   " M art/blender/household_wardrobes_construction.json",
+   " M art/blender/medicine_cabinets_construction.json",
+   " M art/blender/prep_cabinets_construction.json",
+   " M art/blender/reading_nook_construction.json",
+   " M art/blender/roof_base_flashings_construction.json"
+  ],
+  "repository_head": "db2187c48ca8f6aab8109ad0fc203e55386b3097",
+  "repository_tree": "f82400d2ab405b5dee3f7ad7ce0528568f524719",
+  "runtime_inputs_sha256": "080c85bd44d6de98ade3776dd13f17cf78b9967af24a9fc66cf563003e06c72c",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "1509a3598d0f42145feab8880525c617483890f8821d4e99e82143a2984d2346"
+ },
+ "windowed": true
+}

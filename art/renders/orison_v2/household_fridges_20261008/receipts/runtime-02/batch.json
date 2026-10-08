@@ -1,0 +1,152 @@
+{
+	"batch_checks": 7,
+	"elapsed_ms": 47236,
+	"evidence_class": "INERT",
+	"failures": [
+		"household_fridges: source door API reaches full 105 degree swing",
+		"household_fridges: source lamp responds to native open door"
+	],
+	"module_checks": 1705,
+	"modules": {
+		"household_fridges": {
+			"actors": 18,
+			"captured": true,
+			"checks": 1705,
+			"elapsed_ms": 14421,
+			"failures": [
+				"source door API reaches full 105 degree swing",
+				"source lamp responds to native open door"
+			],
+			"fixture_sha256": "f38b1db861425a6e841c2b25c3ab57133031998b265d2352904f4124f3654195",
+			"inventory_items": 50,
+			"monitors": 7,
+			"unique_triangles": 140808,
+			"validator_sha256": "cf900d257be5a79b16efa0b60c7d81f3dddca31189e6873252dba7b26bcf5c91",
+			"views": [
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						11.2000017166138,
+						3.22000002861023,
+						-15.769998550415
+					],
+					"id": "F02_2A_FRIDGE_01_native_open",
+					"image": "F02_2A_FRIDGE_01_native_open.png",
+					"owner": "F02_2A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						-13.5500011444092,
+						6.42000007629395,
+						-4.02474498748779
+					],
+					"id": "F03_3B_FRIDGE_01_native_open",
+					"image": "F03_3B_FRIDGE_01_native_open.png",
+					"owner": "F03_3B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						12.9500026702881,
+						9.6200008392334,
+						-15.5947437286377
+					],
+					"id": "F04_B_FRIDGE_01_native_open",
+					"image": "F04_B_FRIDGE_01_native_open.png",
+					"owner": "F04_B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						8.14129829406738,
+						16.0200004577637,
+						-21.0445156097412
+					],
+					"id": "F06_6B_FRIDGE_01_native_open",
+					"image": "F06_6B_FRIDGE_01_native_open.png",
+					"owner": "F06_6B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						10.5199995040894,
+						0.0199999995529652,
+						-3.14999866485596
+					],
+					"id": "F01_1A_FRIDGE_01_native_open",
+					"image": "F01_1A_FRIDGE_01_native_open.png",
+					"owner": "F01_1A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						11.2000017166138,
+						3.22000002861023,
+						-15.769998550415
+					],
+					"id": "F02_2A_FRIDGE_01_native_closed",
+					"image": "F02_2A_FRIDGE_01_native_closed.png",
+					"owner": "F02_2A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						-12.4500007629395,
+						6.42000007629395,
+						-4.33000087738037
+					],
+					"id": "F03_3B_FRIDGE_01_native_closed",
+					"image": "F03_3B_FRIDGE_01_native_closed.png",
+					"owner": "F03_3B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						11.8500022888184,
+						9.6200008392334,
+						-15.8999996185303
+					],
+					"id": "F04_B_FRIDGE_01_native_closed",
+					"image": "F04_B_FRIDGE_01_native_closed.png",
+					"owner": "F04_B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						8.5200023651123,
+						16.0200004577637,
+						-22.5
+					],
+					"id": "F06_6B_FRIDGE_01_native_closed",
+					"image": "F06_6B_FRIDGE_01_native_closed.png",
+					"owner": "F06_6B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						10.2200002670288,
+						0.0199999995529652,
+						-3.14999866485596
+					],
+					"id": "F01_1A_FRIDGE_01_native_closed",
+					"image": "F01_1A_FRIDGE_01_native_closed.png",
+					"owner": "F01_1A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

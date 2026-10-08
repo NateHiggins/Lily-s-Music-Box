@@ -1,0 +1,75 @@
+{
+	"batch_checks": 15,
+	"elapsed_ms": 45509,
+	"evidence_class": "INERT",
+	"failures": [
+		"household_fridges: original door owner and hinge retained",
+		"household_fridges: validator returned no complete result; inspect engine errors"
+	],
+	"module_checks": 9058,
+	"modules": {
+		"domestic_storage": {
+			"actors": 43,
+			"captured": false,
+			"checks": 820,
+			"elapsed_ms": 596,
+			"failures": [],
+			"fixture_sha256": "c42acdf04c7b3bec60de8848643a1c4efefa4b8e6af6cede0ca9435c0daf075a",
+			"parts": 87,
+			"shared_validator_sha256": "1710f1b37e028ca36c821175317ef7c3efb8164cd9764fd60df6f29b7bfe7bfc",
+			"unique_triangles": 79344,
+			"validator_sha256": "a85a8676f999707509246faefe9178fda39e4d9cbd57b27239cc08dccd1f2675",
+			"variants": 8,
+			"views": []
+		},
+		"fixed_lighting": {
+			"actors": 199,
+			"captured": false,
+			"checks": 5944,
+			"elapsed_ms": 1805,
+			"failures": [],
+			"fixture_sha256": "c981a2db2ff58cf3b19dc2ded76c04e3fad1f6f40c3dacead7c80b350eca382d",
+			"parts": 746,
+			"unique_triangles": 480680,
+			"validator_sha256": "2bbe489eb9d7cb5abce07382dfb1fb0f99ed99fb61a13d8db808d11d66890b19",
+			"variants": 27,
+			"views": []
+		},
+		"household_fridges": {
+			"captured": true,
+			"checks": 240,
+			"elapsed_ms": 292,
+			"failures": [
+				"original door owner and hinge retained"
+			],
+			"fixture_sha256": "f38b1db861425a6e841c2b25c3ab57133031998b265d2352904f4124f3654195",
+			"validator_sha256": "9998cbd31aea1cb7ab26cb13266977efaa70d482d1afc1cbb242c3a93868cabd"
+		},
+		"household_toasters": {
+			"actors": 10,
+			"captured": false,
+			"checks": 1465,
+			"elapsed_ms": 5600,
+			"failures": [],
+			"fixture_sha256": "bcefd352d0b6b74384c903d97bbe08e0160c4c79e340fc16581db7190dd2dc07",
+			"parts": 110,
+			"unique_triangles": 41144,
+			"validator_sha256": "873ad096d72233edbea28da6f32b98aa033d6e8a8ac8c42f7178dae8f1816b75",
+			"views": []
+		},
+		"prep_cabinets": {
+			"actors": 12,
+			"captured": false,
+			"checks": 589,
+			"elapsed_ms": 2192,
+			"failures": [],
+			"fixture_sha256": "773e6774b918dc11366ba657fe9b976f88090825062cb9adf76a6d7a36970495",
+			"parts": 96,
+			"unique_triangles": 7096,
+			"validator_sha256": "fe33c7c901bda8430752c72d705df4c73c5dd8cbe33533f7150acd027f3660e4"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

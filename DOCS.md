@@ -95,6 +95,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Verified front-court roof contacts, strict landing envelopes and current ledger provenance | `design/V2_FRONT_COURT_ROOF_PROGRESS_2026-10-05.md` |
 | Equal-output lamp comparison, waking V2 surface detail balance and current scoped contract | `design/V2_LAMP_SURFACE_BALANCE_2026-10-05.md` |
 | Fixed interior and passage lights with retained source controls | `art/blender/fixed_lighting.md` |
+| Native household refrigerators, source inventory and retained moving owners | `art/blender/household_fridges.md` |
 | Fitted household toasters, medicine cabinets and source-owned moving stock | `art/blender/household_accessories.md` |
 | Source-fitted bar gallery, original atlas, seated picture attachments and retained observations | `art/blender/bar_gallery.md` |
 | Fitted Harukiya curtain folds, cloth-covered fascia and wall-supported rail | `art/blender/bar_stage.md` |

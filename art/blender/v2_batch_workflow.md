@@ -264,3 +264,12 @@ sconces retain the existing inward-facing correction. Fit local presentation
 offsets without moving semantic anchors. Match photometric checks to the
 unchanged LightRig maintenance-card tuning applied after mounts. Use retained
 floor heights and projected full bounds when placing corrective cameras.
+
+For household appliances, native context should cover the complete seeded
+inventory placement envelope and adjacent appliances' full service travel.
+Validate both exact source owner names and target poses before a broad capture.
+Camera visibility must include native structural carcasses and moving leaves;
+the original closed collision body cannot describe an open door. The
+household_fridges module applies these checks to every actor while allowing
+only failed views to be recaptured. Reuse unchanged views only after exact
+asset/runtime comparison, and keep failed run receipts with the final packet.

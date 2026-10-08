@@ -1,0 +1,4180 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 502,
+  "connected_groups": [
+    {
+      "assembly": "FridgeIcebox_CompleteColdBox",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeIcebox_Foot(-0.29, -0.235)",
+          "FridgeIcebox_Bottom"
+        ],
+        [
+          "FridgeIcebox_Foot(-0.29, 0.235)",
+          "FridgeIcebox_Bottom"
+        ],
+        [
+          "FridgeIcebox_Foot(0.29, -0.235)",
+          "FridgeIcebox_Bottom"
+        ],
+        [
+          "FridgeIcebox_Foot(0.29, 0.235)",
+          "FridgeIcebox_Bottom"
+        ],
+        [
+          "FridgeIcebox_Bottom",
+          "FridgeIcebox_Cheek-0.35"
+        ],
+        [
+          "FridgeIcebox_Bottom",
+          "FridgeIcebox_Cheek0.27499999999999997"
+        ],
+        [
+          "FridgeIcebox_Bottom",
+          "FridgeIcebox_Back"
+        ],
+        [
+          "FridgeIcebox_Bottom",
+          "FridgeIcebox_TrayGuide-0.249"
+        ],
+        [
+          "FridgeIcebox_Bottom",
+          "FridgeIcebox_TrayGuide0.249"
+        ],
+        [
+          "FridgeIcebox_Top",
+          "FridgeIcebox_Cheek-0.35"
+        ],
+        [
+          "FridgeIcebox_Top",
+          "FridgeIcebox_Cheek0.27499999999999997"
+        ],
+        [
+          "FridgeIcebox_Top",
+          "FridgeIcebox_Back"
+        ],
+        [
+          "FridgeIcebox_Top",
+          "FridgeIcebox_LinerBack"
+        ],
+        [
+          "FridgeIcebox_Top",
+          "FridgeIcebox_LinerCheek-0.277"
+        ],
+        [
+          "FridgeIcebox_Top",
+          "FridgeIcebox_LinerCheek0.259"
+        ],
+        [
+          "FridgeIcebox_Top",
+          "FridgeIcebox_LinerHorizontal1.167"
+        ],
+        [
+          "FridgeIcebox_Top",
+          "FridgeIcebox_IceDoor_Skin"
+        ],
+        [
+          "FridgeIcebox_Cheek-0.35",
+          "FridgeIcebox_Back"
+        ],
+        [
+          "FridgeIcebox_Cheek-0.35",
+          "FridgeIcebox_LinerBack"
+        ],
+        [
+          "FridgeIcebox_Cheek-0.35",
+          "FridgeIcebox_LinerCheek-0.277"
+        ],
+        [
+          "FridgeIcebox_Cheek-0.35",
+          "FridgeIcebox_LinerHorizontal0.236"
+        ],
+        [
+          "FridgeIcebox_Cheek-0.35",
+          "FridgeIcebox_LinerHorizontal0.921"
+        ],
+        [
+          "FridgeIcebox_Cheek-0.35",
+          "FridgeIcebox_LinerHorizontal1.167"
+        ],
+        [
+          "FridgeIcebox_Cheek-0.35",
+          "FridgeIcebox_FrontRail0.215"
+        ],
+        [
+          "FridgeIcebox_Cheek-0.35",
+          "FridgeIcebox_FrontRail0.945"
+        ],
+        [
+          "FridgeIcebox_Cheek-0.35",
+          "FridgeIcebox_Door_Hinge0_Neck"
+        ],
+        [
+          "FridgeIcebox_Cheek-0.35",
+          "FridgeIcebox_Door_Hinge1_Neck"
+        ],
+        [
+          "FridgeIcebox_Cheek-0.35",
+          "FridgeIcebox_IceDoor_Hinge0_Neck"
+        ],
+        [
+          "FridgeIcebox_Cheek0.27499999999999997",
+          "FridgeIcebox_Back"
+        ],
+        [
+          "FridgeIcebox_Cheek0.27499999999999997",
+          "FridgeIcebox_LinerBack"
+        ],
+        [
+          "FridgeIcebox_Cheek0.27499999999999997",
+          "FridgeIcebox_LinerCheek0.259"
+        ],
+        [
+          "FridgeIcebox_Cheek0.27499999999999997",
+          "FridgeIcebox_LinerHorizontal0.236"
+        ],
+        [
+          "FridgeIcebox_Cheek0.27499999999999997",
+          "FridgeIcebox_LinerHorizontal0.921"
+        ],
+        [
+          "FridgeIcebox_Cheek0.27499999999999997",
+          "FridgeIcebox_LinerHorizontal1.167"
+        ],
+        [
+          "FridgeIcebox_Cheek0.27499999999999997",
+          "FridgeIcebox_FrontRail0.215"
+        ],
+        [
+          "FridgeIcebox_Cheek0.27499999999999997",
+          "FridgeIcebox_FrontRail0.945"
+        ],
+        [
+          "FridgeIcebox_Back",
+          "FridgeIcebox_LinerBack"
+        ],
+        [
+          "FridgeIcebox_LinerBack",
+          "FridgeIcebox_LinerCheek-0.277"
+        ],
+        [
+          "FridgeIcebox_LinerBack",
+          "FridgeIcebox_LinerCheek0.259"
+        ],
+        [
+          "FridgeIcebox_LinerBack",
+          "FridgeIcebox_LinerHorizontal0.236"
+        ],
+        [
+          "FridgeIcebox_LinerBack",
+          "FridgeIcebox_LinerHorizontal0.921"
+        ],
+        [
+          "FridgeIcebox_LinerBack",
+          "FridgeIcebox_LinerHorizontal1.167"
+        ],
+        [
+          "FridgeIcebox_LinerBack",
+          "FridgeIcebox_Drain"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_LinerHorizontal0.236"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_LinerHorizontal0.921"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_LinerHorizontal1.167"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack0_Clip(-0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack0_Clip(-0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack1_Clip(-0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack1_Clip(-0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack2_Clip(-0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek-0.277",
+          "FridgeIcebox_Rack2_Clip(-0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_LinerHorizontal0.236"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_LinerHorizontal0.921"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_LinerHorizontal1.167"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack0_Clip(0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack0_Clip(0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack1_Clip(0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack1_Clip(0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack2_Clip(0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_LinerCheek0.259",
+          "FridgeIcebox_Rack2_Clip(0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_LinerHorizontal0.236",
+          "FridgeIcebox_Drain"
+        ],
+        [
+          "FridgeIcebox_LinerHorizontal0.921",
+          "FridgeIcebox_Drain"
+        ],
+        [
+          "FridgeIcebox_TrayGuide-0.249",
+          "FridgeIcebox_TrayPan"
+        ],
+        [
+          "FridgeIcebox_TrayGuide0.249",
+          "FridgeIcebox_TrayPan"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod00",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod00",
+          "FridgeIcebox_Rack0_Clip(-0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod00",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod00",
+          "FridgeIcebox_Rack0_Clip(-0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod01",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod01",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod02",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod02",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod03",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod03",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod04",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod04",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod05",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod05",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod06",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod06",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod07",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod07",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod08",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod08",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod09",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod09",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod10",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod10",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod11",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod11",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod12",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod12",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod13",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod13",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod14",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod14",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod15",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod15",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod16",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod16",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod17",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod17",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod18",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod18",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod19",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod19",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod20",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod20",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod21",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod21",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod22",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod22",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod23",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod23",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod24",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod24",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod25",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod25",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod26",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod26",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod27",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod27",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod28",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod28",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod29",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod29",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod30",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod30",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod31",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod31",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod32",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod32",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod33",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod33",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod34",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod34",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod35",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod35",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod36",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod36",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod37",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod37",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod38",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod38",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod39",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod39",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod40",
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod40",
+          "FridgeIcebox_Rack0_Clip(0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod40",
+          "FridgeIcebox_Rack0_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack0_Rod40",
+          "FridgeIcebox_Rack0_Clip(0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998",
+          "FridgeIcebox_Rack0_Clip(-0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack0_Cross-0.19799999999999998",
+          "FridgeIcebox_Rack0_Clip(0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack0_Cross0.19799999999999998",
+          "FridgeIcebox_Rack0_Clip(-0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack0_Cross0.19799999999999998",
+          "FridgeIcebox_Rack0_Clip(0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod00",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod00",
+          "FridgeIcebox_Rack1_Clip(-0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod00",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod00",
+          "FridgeIcebox_Rack1_Clip(-0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod01",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod01",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod02",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod02",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod03",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod03",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod04",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod04",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod05",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod05",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod06",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod06",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod07",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod07",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod08",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod08",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod09",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod09",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod10",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod10",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod11",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod11",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod12",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod12",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod13",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod13",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod14",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod14",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod15",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod15",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod16",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod16",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod17",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod17",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod18",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod18",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod19",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod19",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod20",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod20",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod21",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod21",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod22",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod22",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod23",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod23",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod24",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod24",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod25",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod25",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod26",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod26",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod27",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod27",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod28",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod28",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod29",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod29",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod30",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod30",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod31",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod31",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod32",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod32",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod33",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod33",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod34",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod34",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod35",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod35",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod36",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod36",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod37",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod37",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod38",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod38",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod39",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod39",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod40",
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod40",
+          "FridgeIcebox_Rack1_Clip(0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod40",
+          "FridgeIcebox_Rack1_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack1_Rod40",
+          "FridgeIcebox_Rack1_Clip(0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998",
+          "FridgeIcebox_Rack1_Clip(-0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack1_Cross-0.19799999999999998",
+          "FridgeIcebox_Rack1_Clip(0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack1_Cross0.19799999999999998",
+          "FridgeIcebox_Rack1_Clip(-0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack1_Cross0.19799999999999998",
+          "FridgeIcebox_Rack1_Clip(0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod00",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod00",
+          "FridgeIcebox_Rack2_Clip(-0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod00",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod00",
+          "FridgeIcebox_Rack2_Clip(-0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod01",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod01",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod02",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod02",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod03",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod03",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod04",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod04",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod05",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod05",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod06",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod06",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod07",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod07",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod08",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod08",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod09",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod09",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod10",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod10",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod11",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod11",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod12",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod12",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod13",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod13",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod14",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod14",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod15",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod15",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod16",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod16",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod17",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod17",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod18",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod18",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod19",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod19",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod20",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod20",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod21",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod21",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod22",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod22",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod23",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod23",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod24",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod24",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod25",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod25",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod26",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod26",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod27",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod27",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod28",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod28",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod29",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod29",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod30",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod30",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod31",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod31",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod32",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod32",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod33",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod33",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod34",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod34",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod35",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod35",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod36",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod36",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod37",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod37",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod38",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod38",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod39",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod39",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod40",
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod40",
+          "FridgeIcebox_Rack2_Clip(0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod40",
+          "FridgeIcebox_Rack2_Cross0.19799999999999998"
+        ],
+        [
+          "FridgeIcebox_Rack2_Rod40",
+          "FridgeIcebox_Rack2_Clip(0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998",
+          "FridgeIcebox_Rack2_Clip(-0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack2_Cross-0.19799999999999998",
+          "FridgeIcebox_Rack2_Clip(0.259, -0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack2_Cross0.19799999999999998",
+          "FridgeIcebox_Rack2_Clip(-0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Rack2_Cross0.19799999999999998",
+          "FridgeIcebox_Rack2_Clip(0.259, 0.19799999999999998)"
+        ],
+        [
+          "FridgeIcebox_Door_Skin",
+          "FridgeIcebox_Door_RaisedPanel"
+        ],
+        [
+          "FridgeIcebox_Door_Skin",
+          "FridgeIcebox_Door_Liner"
+        ],
+        [
+          "FridgeIcebox_Door_Skin",
+          "FridgeIcebox_Door_Hinge0_Strap0.287"
+        ],
+        [
+          "FridgeIcebox_Door_Skin",
+          "FridgeIcebox_Door_Hinge0_Strap0.343"
+        ],
+        [
+          "FridgeIcebox_Door_Skin",
+          "FridgeIcebox_Door_Hinge1_Strap0.847"
+        ],
+        [
+          "FridgeIcebox_Door_Skin",
+          "FridgeIcebox_Door_Hinge1_Strap0.903"
+        ],
+        [
+          "FridgeIcebox_Door_RaisedPanel",
+          "FridgeIcebox_Door_HandleFoot0.535"
+        ],
+        [
+          "FridgeIcebox_Door_RaisedPanel",
+          "FridgeIcebox_Door_HandleFoot0.705"
+        ],
+        [
+          "FridgeIcebox_Door_RaisedPanel",
+          "FridgeIcebox_Door_Latch"
+        ],
+        [
+          "FridgeIcebox_Door_HandleFoot0.535",
+          "FridgeIcebox_Door_BowHandle"
+        ],
+        [
+          "FridgeIcebox_Door_HandleFoot0.535",
+          "FridgeIcebox_Door_Latch"
+        ],
+        [
+          "FridgeIcebox_Door_HandleFoot0.705",
+          "FridgeIcebox_Door_BowHandle"
+        ],
+        [
+          "FridgeIcebox_Door_BowHandle",
+          "FridgeIcebox_Door_Latch"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge0_Pin",
+          "FridgeIcebox_Door_Hinge0_Neck"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge0_Pin",
+          "FridgeIcebox_Door_Hinge0_MovingKnuckle0.287"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge0_Pin",
+          "FridgeIcebox_Door_Hinge0_MovingKnuckle0.343"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge0_MovingKnuckle0.287",
+          "FridgeIcebox_Door_Hinge0_Strap0.287"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge0_MovingKnuckle0.343",
+          "FridgeIcebox_Door_Hinge0_Strap0.343"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge0_Strap0.287",
+          "FridgeIcebox_Door_Hinge0_Screw0.287-1"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge0_Strap0.287",
+          "FridgeIcebox_Door_Hinge0_Screw0.2871"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge0_Strap0.343",
+          "FridgeIcebox_Door_Hinge0_Screw0.343-1"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge0_Strap0.343",
+          "FridgeIcebox_Door_Hinge0_Screw0.3431"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge1_Pin",
+          "FridgeIcebox_Door_Hinge1_Neck"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge1_Pin",
+          "FridgeIcebox_Door_Hinge1_MovingKnuckle0.847"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge1_Pin",
+          "FridgeIcebox_Door_Hinge1_MovingKnuckle0.903"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge1_MovingKnuckle0.847",
+          "FridgeIcebox_Door_Hinge1_Strap0.847"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge1_MovingKnuckle0.903",
+          "FridgeIcebox_Door_Hinge1_Strap0.903"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge1_Strap0.847",
+          "FridgeIcebox_Door_Hinge1_Screw0.847-1"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge1_Strap0.847",
+          "FridgeIcebox_Door_Hinge1_Screw0.8471"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge1_Strap0.903",
+          "FridgeIcebox_Door_Hinge1_Screw0.903-1"
+        ],
+        [
+          "FridgeIcebox_Door_Hinge1_Strap0.903",
+          "FridgeIcebox_Door_Hinge1_Screw0.9031"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Skin",
+          "FridgeIcebox_IceDoor_RaisedPanel"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Skin",
+          "FridgeIcebox_IceDoor_Liner"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Skin",
+          "FridgeIcebox_IceDoor_Hinge0_Strap1.057"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Skin",
+          "FridgeIcebox_IceDoor_Hinge0_Strap1.113"
+        ],
+        [
+          "FridgeIcebox_IceDoor_RaisedPanel",
+          "FridgeIcebox_IceDoor_HandleFoot1.020375"
+        ],
+        [
+          "FridgeIcebox_IceDoor_RaisedPanel",
+          "FridgeIcebox_IceDoor_HandleFoot1.149625"
+        ],
+        [
+          "FridgeIcebox_IceDoor_RaisedPanel",
+          "FridgeIcebox_IceDoor_Latch"
+        ],
+        [
+          "FridgeIcebox_IceDoor_HandleFoot1.020375",
+          "FridgeIcebox_IceDoor_BowHandle"
+        ],
+        [
+          "FridgeIcebox_IceDoor_HandleFoot1.020375",
+          "FridgeIcebox_IceDoor_Latch"
+        ],
+        [
+          "FridgeIcebox_IceDoor_HandleFoot1.149625",
+          "FridgeIcebox_IceDoor_BowHandle"
+        ],
+        [
+          "FridgeIcebox_IceDoor_BowHandle",
+          "FridgeIcebox_IceDoor_Latch"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Hinge0_Pin",
+          "FridgeIcebox_IceDoor_Hinge0_Neck"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Hinge0_Pin",
+          "FridgeIcebox_IceDoor_Hinge0_MovingKnuckle1.057"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Hinge0_Pin",
+          "FridgeIcebox_IceDoor_Hinge0_MovingKnuckle1.113"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Hinge0_MovingKnuckle1.057",
+          "FridgeIcebox_IceDoor_Hinge0_Strap1.057"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Hinge0_MovingKnuckle1.113",
+          "FridgeIcebox_IceDoor_Hinge0_Strap1.113"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Hinge0_Strap1.057",
+          "FridgeIcebox_IceDoor_Hinge0_Screw1.057-1"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Hinge0_Strap1.057",
+          "FridgeIcebox_IceDoor_Hinge0_Screw1.0571"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Hinge0_Strap1.113",
+          "FridgeIcebox_IceDoor_Hinge0_Screw1.113-1"
+        ],
+        [
+          "FridgeIcebox_IceDoor_Hinge0_Strap1.113",
+          "FridgeIcebox_IceDoor_Hinge0_Screw1.1131"
+        ],
+        [
+          "FridgeIcebox_TrayPan",
+          "FridgeIcebox_TrayLeft"
+        ],
+        [
+          "FridgeIcebox_TrayPan",
+          "FridgeIcebox_TrayRight"
+        ],
+        [
+          "FridgeIcebox_TrayPan",
+          "FridgeIcebox_TrayRear"
+        ],
+        [
+          "FridgeIcebox_TrayPan",
+          "FridgeIcebox_TrayFrontFold"
+        ],
+        [
+          "FridgeIcebox_TrayLeft",
+          "FridgeIcebox_TrayRear"
+        ],
+        [
+          "FridgeIcebox_TrayLeft",
+          "FridgeIcebox_TrayFrontFold"
+        ],
+        [
+          "FridgeIcebox_TrayRight",
+          "FridgeIcebox_TrayRear"
+        ],
+        [
+          "FridgeIcebox_TrayRight",
+          "FridgeIcebox_TrayFrontFold"
+        ],
+        [
+          "FridgeIcebox_TrayFront",
+          "FridgeIcebox_TrayFrontFold"
+        ],
+        [
+          "FridgeIcebox_TrayFront",
+          "FridgeIcebox_TrayPullFoot-0.1"
+        ],
+        [
+          "FridgeIcebox_TrayFront",
+          "FridgeIcebox_TrayPullFoot0.1"
+        ],
+        [
+          "FridgeIcebox_TrayPullFoot-0.1",
+          "FridgeIcebox_TrayPull"
+        ],
+        [
+          "FridgeIcebox_TrayPullFoot0.1",
+          "FridgeIcebox_TrayPull"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeMonitor_CompleteColdBox",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeMonitor_Leg(-0.3, -0.265)",
+          "FridgeMonitor_Bottom"
+        ],
+        [
+          "FridgeMonitor_Leg(-0.3, 0.265)",
+          "FridgeMonitor_Bottom"
+        ],
+        [
+          "FridgeMonitor_Leg(0.3, -0.265)",
+          "FridgeMonitor_Bottom"
+        ],
+        [
+          "FridgeMonitor_Leg(0.3, 0.265)",
+          "FridgeMonitor_Bottom"
+        ],
+        [
+          "FridgeMonitor_Bottom",
+          "FridgeMonitor_Cheek-0.36"
+        ],
+        [
+          "FridgeMonitor_Bottom",
+          "FridgeMonitor_Cheek0.305"
+        ],
+        [
+          "FridgeMonitor_Bottom",
+          "FridgeMonitor_Back"
+        ],
+        [
+          "FridgeMonitor_Bottom",
+          "FridgeMonitor_LinerBack"
+        ],
+        [
+          "FridgeMonitor_Bottom",
+          "FridgeMonitor_LinerCheek-0.29500000000000004"
+        ],
+        [
+          "FridgeMonitor_Bottom",
+          "FridgeMonitor_LinerCheek0.277"
+        ],
+        [
+          "FridgeMonitor_Bottom",
+          "FridgeMonitor_LinerHorizontal0.226"
+        ],
+        [
+          "FridgeMonitor_Top",
+          "FridgeMonitor_Cheek-0.36"
+        ],
+        [
+          "FridgeMonitor_Top",
+          "FridgeMonitor_Cheek0.305"
+        ],
+        [
+          "FridgeMonitor_Top",
+          "FridgeMonitor_Back"
+        ],
+        [
+          "FridgeMonitor_Top",
+          "FridgeMonitor_LinerBack"
+        ],
+        [
+          "FridgeMonitor_Top",
+          "FridgeMonitor_LinerCheek-0.29500000000000004"
+        ],
+        [
+          "FridgeMonitor_Top",
+          "FridgeMonitor_LinerCheek0.277"
+        ],
+        [
+          "FridgeMonitor_Top",
+          "FridgeMonitor_LinerHorizontal1.236"
+        ],
+        [
+          "FridgeMonitor_Top",
+          "FridgeMonitor_FreezerHood"
+        ],
+        [
+          "FridgeMonitor_Top",
+          "FridgeMonitor_CompressorBase"
+        ],
+        [
+          "FridgeMonitor_Top",
+          "FridgeMonitor_Badge"
+        ],
+        [
+          "FridgeMonitor_Top",
+          "FridgeMonitor_Door_Skin"
+        ],
+        [
+          "FridgeMonitor_Cheek-0.36",
+          "FridgeMonitor_Back"
+        ],
+        [
+          "FridgeMonitor_Cheek-0.36",
+          "FridgeMonitor_Door_Hinge0_Neck"
+        ],
+        [
+          "FridgeMonitor_Cheek-0.36",
+          "FridgeMonitor_Door_Hinge1_Neck"
+        ],
+        [
+          "FridgeMonitor_Cheek0.305",
+          "FridgeMonitor_Back"
+        ],
+        [
+          "FridgeMonitor_Back",
+          "FridgeMonitor_LinerBack"
+        ],
+        [
+          "FridgeMonitor_LinerBack",
+          "FridgeMonitor_LinerCheek-0.29500000000000004"
+        ],
+        [
+          "FridgeMonitor_LinerBack",
+          "FridgeMonitor_LinerCheek0.277"
+        ],
+        [
+          "FridgeMonitor_LinerBack",
+          "FridgeMonitor_LinerHorizontal0.226"
+        ],
+        [
+          "FridgeMonitor_LinerBack",
+          "FridgeMonitor_LinerHorizontal1.236"
+        ],
+        [
+          "FridgeMonitor_LinerBack",
+          "FridgeMonitor_FreezerShelf"
+        ],
+        [
+          "FridgeMonitor_LinerBack",
+          "FridgeMonitor_FreezerHood"
+        ],
+        [
+          "FridgeMonitor_LinerBack",
+          "FridgeMonitor_FreezerBracket-0.2"
+        ],
+        [
+          "FridgeMonitor_LinerBack",
+          "FridgeMonitor_FreezerBracket0.2"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_LinerHorizontal0.226"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_LinerHorizontal1.236"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack0_Clip(-0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack0_Clip(-0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack1_Clip(-0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack1_Clip(-0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack2_Clip(-0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek-0.29500000000000004",
+          "FridgeMonitor_Rack2_Clip(-0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_LinerHorizontal0.226"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_LinerHorizontal1.236"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack0_Clip(0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack0_Clip(0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack1_Clip(0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack1_Clip(0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack2_Clip(0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_LinerCheek0.277",
+          "FridgeMonitor_Rack2_Clip(0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_LinerHorizontal1.236",
+          "FridgeMonitor_FreezerHood"
+        ],
+        [
+          "FridgeMonitor_FreezerShelf",
+          "FridgeMonitor_FreezerHood"
+        ],
+        [
+          "FridgeMonitor_FreezerShelf",
+          "FridgeMonitor_FreezerBracket-0.2"
+        ],
+        [
+          "FridgeMonitor_FreezerShelf",
+          "FridgeMonitor_FreezerBracket0.2"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod00",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod00",
+          "FridgeMonitor_Rack0_Clip(-0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod00",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod00",
+          "FridgeMonitor_Rack0_Clip(-0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod01",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod01",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod02",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod02",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod03",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod03",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod04",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod04",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod05",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod05",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod06",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod06",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod07",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod07",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod08",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod08",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod09",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod09",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod10",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod10",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod11",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod11",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod12",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod12",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod13",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod13",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod14",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod14",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod15",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod15",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod16",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod16",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod17",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod17",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod18",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod18",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod19",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod19",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod20",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod20",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod21",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod21",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod22",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod22",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod23",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod23",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod24",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod24",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod25",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod25",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod26",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod26",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod27",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod27",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod28",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod28",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod29",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod29",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod30",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod30",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod31",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod31",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod32",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod32",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod33",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod33",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod34",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod34",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod35",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod35",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod36",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod36",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod37",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod37",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod38",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod38",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod39",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod39",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod40",
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod40",
+          "FridgeMonitor_Rack0_Clip(0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod40",
+          "FridgeMonitor_Rack0_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack0_Rod40",
+          "FridgeMonitor_Rack0_Clip(0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998",
+          "FridgeMonitor_Rack0_Clip(-0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack0_Cross-0.22299999999999998",
+          "FridgeMonitor_Rack0_Clip(0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack0_Cross0.22299999999999998",
+          "FridgeMonitor_Rack0_Clip(-0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack0_Cross0.22299999999999998",
+          "FridgeMonitor_Rack0_Clip(0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod00",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod00",
+          "FridgeMonitor_Rack1_Clip(-0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod00",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod00",
+          "FridgeMonitor_Rack1_Clip(-0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod01",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod01",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod02",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod02",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod03",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod03",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod04",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod04",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod05",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod05",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod06",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod06",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod07",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod07",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod08",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod08",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod09",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod09",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod10",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod10",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod11",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod11",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod12",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod12",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod13",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod13",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod14",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod14",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod15",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod15",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod16",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod16",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod17",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod17",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod18",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod18",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod19",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod19",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod20",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod20",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod21",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod21",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod22",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod22",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod23",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod23",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod24",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod24",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod25",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod25",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod26",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod26",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod27",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod27",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod28",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod28",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod29",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod29",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod30",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod30",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod31",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod31",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod32",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod32",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod33",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod33",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod34",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod34",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod35",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod35",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod36",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod36",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod37",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod37",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod38",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod38",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod39",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod39",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod40",
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod40",
+          "FridgeMonitor_Rack1_Clip(0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod40",
+          "FridgeMonitor_Rack1_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack1_Rod40",
+          "FridgeMonitor_Rack1_Clip(0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998",
+          "FridgeMonitor_Rack1_Clip(-0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack1_Cross-0.22299999999999998",
+          "FridgeMonitor_Rack1_Clip(0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack1_Cross0.22299999999999998",
+          "FridgeMonitor_Rack1_Clip(-0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack1_Cross0.22299999999999998",
+          "FridgeMonitor_Rack1_Clip(0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod00",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod00",
+          "FridgeMonitor_Rack2_Clip(-0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod00",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod00",
+          "FridgeMonitor_Rack2_Clip(-0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod01",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod01",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod02",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod02",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod03",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod03",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod04",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod04",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod05",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod05",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod06",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod06",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod07",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod07",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod08",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod08",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod09",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod09",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod10",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod10",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod11",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod11",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod12",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod12",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod13",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod13",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod14",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod14",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod15",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod15",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod16",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod16",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod17",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod17",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod18",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod18",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod19",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod19",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod20",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod20",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod21",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod21",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod22",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod22",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod23",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod23",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod24",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod24",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod25",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod25",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod26",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod26",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod27",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod27",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod28",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod28",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod29",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod29",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod30",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod30",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod31",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod31",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod32",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod32",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod33",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod33",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod34",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod34",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod35",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod35",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod36",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod36",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod37",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod37",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod38",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod38",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod39",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod39",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod40",
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod40",
+          "FridgeMonitor_Rack2_Clip(0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod40",
+          "FridgeMonitor_Rack2_Cross0.22299999999999998"
+        ],
+        [
+          "FridgeMonitor_Rack2_Rod40",
+          "FridgeMonitor_Rack2_Clip(0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998",
+          "FridgeMonitor_Rack2_Clip(-0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack2_Cross-0.22299999999999998",
+          "FridgeMonitor_Rack2_Clip(0.277, -0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack2_Cross0.22299999999999998",
+          "FridgeMonitor_Rack2_Clip(-0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_Rack2_Cross0.22299999999999998",
+          "FridgeMonitor_Rack2_Clip(0.277, 0.22299999999999998)"
+        ],
+        [
+          "FridgeMonitor_CompressorBase",
+          "FridgeMonitor_MotorHousing"
+        ],
+        [
+          "FridgeMonitor_CompressorBase",
+          "FridgeMonitor_Condenser1.385"
+        ],
+        [
+          "FridgeMonitor_CompressorBase",
+          "FridgeMonitor_ServicePipe-0.205"
+        ],
+        [
+          "FridgeMonitor_CompressorBase",
+          "FridgeMonitor_ServicePipe0.205"
+        ],
+        [
+          "FridgeMonitor_MotorHousing",
+          "FridgeMonitor_CapNeck"
+        ],
+        [
+          "FridgeMonitor_MotorHousing",
+          "FridgeMonitor_CoilBridge(1.385, -1)"
+        ],
+        [
+          "FridgeMonitor_MotorHousing",
+          "FridgeMonitor_CoilBridge(1.385, 1)"
+        ],
+        [
+          "FridgeMonitor_MotorHousing",
+          "FridgeMonitor_ServicePipe-0.205"
+        ],
+        [
+          "FridgeMonitor_MotorHousing",
+          "FridgeMonitor_ServicePipe0.205"
+        ],
+        [
+          "FridgeMonitor_CapNeck",
+          "FridgeMonitor_MachineryCap"
+        ],
+        [
+          "FridgeMonitor_Condenser1.385",
+          "FridgeMonitor_CoilBridge(1.385, -1)"
+        ],
+        [
+          "FridgeMonitor_Condenser1.385",
+          "FridgeMonitor_CoilBridge(1.385, 1)"
+        ],
+        [
+          "FridgeMonitor_Condenser1.385",
+          "FridgeMonitor_ServicePipe-0.205"
+        ],
+        [
+          "FridgeMonitor_Condenser1.385",
+          "FridgeMonitor_ServicePipe0.205"
+        ],
+        [
+          "FridgeMonitor_CoilBridge(1.385, -1)",
+          "FridgeMonitor_ServicePipe-0.205"
+        ],
+        [
+          "FridgeMonitor_CoilBridge(1.385, 1)",
+          "FridgeMonitor_ServicePipe0.205"
+        ],
+        [
+          "FridgeMonitor_Condenser1.455",
+          "FridgeMonitor_CoilBridge(1.455, -1)"
+        ],
+        [
+          "FridgeMonitor_Condenser1.455",
+          "FridgeMonitor_CoilBridge(1.455, 1)"
+        ],
+        [
+          "FridgeMonitor_Condenser1.455",
+          "FridgeMonitor_ServicePipe-0.205"
+        ],
+        [
+          "FridgeMonitor_Condenser1.455",
+          "FridgeMonitor_ServicePipe0.205"
+        ],
+        [
+          "FridgeMonitor_CoilBridge(1.455, -1)",
+          "FridgeMonitor_ServicePipe-0.205"
+        ],
+        [
+          "FridgeMonitor_CoilBridge(1.455, 1)",
+          "FridgeMonitor_ServicePipe0.205"
+        ],
+        [
+          "FridgeMonitor_Condenser1.525",
+          "FridgeMonitor_CoilBridge(1.525, -1)"
+        ],
+        [
+          "FridgeMonitor_Condenser1.525",
+          "FridgeMonitor_CoilBridge(1.525, 1)"
+        ],
+        [
+          "FridgeMonitor_Condenser1.525",
+          "FridgeMonitor_ServicePipe-0.205"
+        ],
+        [
+          "FridgeMonitor_Condenser1.525",
+          "FridgeMonitor_ServicePipe0.205"
+        ],
+        [
+          "FridgeMonitor_CoilBridge(1.525, -1)",
+          "FridgeMonitor_ServicePipe-0.205"
+        ],
+        [
+          "FridgeMonitor_CoilBridge(1.525, 1)",
+          "FridgeMonitor_ServicePipe0.205"
+        ],
+        [
+          "FridgeMonitor_Badge",
+          "FridgeMonitor_BadgeScrew-0.078-1"
+        ],
+        [
+          "FridgeMonitor_Badge",
+          "FridgeMonitor_BadgeScrew-0.0781"
+        ],
+        [
+          "FridgeMonitor_Badge",
+          "FridgeMonitor_BadgeScrew0.078-1"
+        ],
+        [
+          "FridgeMonitor_Badge",
+          "FridgeMonitor_BadgeScrew0.0781"
+        ],
+        [
+          "FridgeMonitor_Door_Skin",
+          "FridgeMonitor_Door_RaisedPanel"
+        ],
+        [
+          "FridgeMonitor_Door_Skin",
+          "FridgeMonitor_Door_Liner"
+        ],
+        [
+          "FridgeMonitor_Door_Skin",
+          "FridgeMonitor_Door_Hinge0_Strap0.26449999999999996"
+        ],
+        [
+          "FridgeMonitor_Door_Skin",
+          "FridgeMonitor_Door_Hinge0_Strap0.3205"
+        ],
+        [
+          "FridgeMonitor_Door_Skin",
+          "FridgeMonitor_Door_Hinge1_Strap1.1695"
+        ],
+        [
+          "FridgeMonitor_Door_Skin",
+          "FridgeMonitor_Door_Hinge1_Strap1.2255"
+        ],
+        [
+          "FridgeMonitor_Door_RaisedPanel",
+          "FridgeMonitor_Door_HandleFoot0.67"
+        ],
+        [
+          "FridgeMonitor_Door_RaisedPanel",
+          "FridgeMonitor_Door_HandleFoot0.91"
+        ],
+        [
+          "FridgeMonitor_Door_RaisedPanel",
+          "FridgeMonitor_Door_Latch"
+        ],
+        [
+          "FridgeMonitor_Door_HandleFoot0.67",
+          "FridgeMonitor_Door_BowHandle"
+        ],
+        [
+          "FridgeMonitor_Door_HandleFoot0.67",
+          "FridgeMonitor_Door_Latch"
+        ],
+        [
+          "FridgeMonitor_Door_HandleFoot0.91",
+          "FridgeMonitor_Door_BowHandle"
+        ],
+        [
+          "FridgeMonitor_Door_BowHandle",
+          "FridgeMonitor_Door_Latch"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge0_Pin",
+          "FridgeMonitor_Door_Hinge0_Neck"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge0_Pin",
+          "FridgeMonitor_Door_Hinge0_MovingKnuckle0.26449999999999996"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge0_Pin",
+          "FridgeMonitor_Door_Hinge0_MovingKnuckle0.3205"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge0_MovingKnuckle0.26449999999999996",
+          "FridgeMonitor_Door_Hinge0_Strap0.26449999999999996"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge0_MovingKnuckle0.3205",
+          "FridgeMonitor_Door_Hinge0_Strap0.3205"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge0_Strap0.26449999999999996",
+          "FridgeMonitor_Door_Hinge0_Screw0.26449999999999996-1"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge0_Strap0.26449999999999996",
+          "FridgeMonitor_Door_Hinge0_Screw0.264499999999999961"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge0_Strap0.3205",
+          "FridgeMonitor_Door_Hinge0_Screw0.3205-1"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge0_Strap0.3205",
+          "FridgeMonitor_Door_Hinge0_Screw0.32051"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge1_Pin",
+          "FridgeMonitor_Door_Hinge1_Neck"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge1_Pin",
+          "FridgeMonitor_Door_Hinge1_MovingKnuckle1.1695"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge1_Pin",
+          "FridgeMonitor_Door_Hinge1_MovingKnuckle1.2255"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge1_MovingKnuckle1.1695",
+          "FridgeMonitor_Door_Hinge1_Strap1.1695"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge1_MovingKnuckle1.2255",
+          "FridgeMonitor_Door_Hinge1_Strap1.2255"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge1_Strap1.1695",
+          "FridgeMonitor_Door_Hinge1_Screw1.1695-1"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge1_Strap1.1695",
+          "FridgeMonitor_Door_Hinge1_Screw1.16951"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge1_Strap1.2255",
+          "FridgeMonitor_Door_Hinge1_Screw1.2255-1"
+        ],
+        [
+          "FridgeMonitor_Door_Hinge1_Strap1.2255",
+          "FridgeMonitor_Door_Hinge1_Screw1.22551"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_01_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_01_Body",
+          "FridgeItem_01_Closure"
+        ],
+        [
+          "FridgeItem_01_Body",
+          "FridgeItem_01_LabelBand"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_02_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_02_Body",
+          "FridgeItem_02_Closure"
+        ],
+        [
+          "FridgeItem_02_Body",
+          "FridgeItem_02_LabelBand"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_03_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_03_PulpTray",
+          "FridgeItem_03_Egg00"
+        ],
+        [
+          "FridgeItem_03_PulpTray",
+          "FridgeItem_03_Egg01"
+        ],
+        [
+          "FridgeItem_03_PulpTray",
+          "FridgeItem_03_Egg10"
+        ],
+        [
+          "FridgeItem_03_PulpTray",
+          "FridgeItem_03_Egg11"
+        ],
+        [
+          "FridgeItem_03_PulpTray",
+          "FridgeItem_03_Egg20"
+        ],
+        [
+          "FridgeItem_03_PulpTray",
+          "FridgeItem_03_Egg21"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_04_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_04_Package",
+          "FridgeItem_04_Fold(-1, False)"
+        ],
+        [
+          "FridgeItem_04_Package",
+          "FridgeItem_04_Fold(1, False)"
+        ],
+        [
+          "FridgeItem_04_Package",
+          "FridgeItem_04_WrapSeam"
+        ],
+        [
+          "FridgeItem_04_Fold(-1, False)",
+          "FridgeItem_04_Fold(-1, True)"
+        ],
+        [
+          "FridgeItem_04_Fold(1, False)",
+          "FridgeItem_04_Fold(1, True)"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_05_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": []
+    },
+    {
+      "assembly": "FridgeItem_06_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_06_Package",
+          "FridgeItem_06_Lid"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_07_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_07_Body",
+          "FridgeItem_07_Closure"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_08_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_08_Body",
+          "FridgeItem_08_Closure"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_09_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_09_Body",
+          "FridgeItem_09_Closure"
+        ],
+        [
+          "FridgeItem_09_Body",
+          "FridgeItem_09_LabelBand"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_10_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_10_Body",
+          "FridgeItem_10_Closure"
+        ],
+        [
+          "FridgeItem_10_Body",
+          "FridgeItem_10_LabelBand"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_11_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_11_Package",
+          "FridgeItem_11_Fold(-1, False)"
+        ],
+        [
+          "FridgeItem_11_Package",
+          "FridgeItem_11_Fold(1, False)"
+        ],
+        [
+          "FridgeItem_11_Package",
+          "FridgeItem_11_WrapSeam"
+        ],
+        [
+          "FridgeItem_11_Fold(-1, False)",
+          "FridgeItem_11_Fold(-1, True)"
+        ],
+        [
+          "FridgeItem_11_Fold(1, False)",
+          "FridgeItem_11_Fold(1, True)"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_12_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_12_Body",
+          "FridgeItem_12_Closure"
+        ],
+        [
+          "FridgeItem_12_Body",
+          "FridgeItem_12_LabelBand"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_13_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_13_Package",
+          "FridgeItem_13_Lid"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_14_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_14_Package",
+          "FridgeItem_14_Lid"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_15_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_15_Body",
+          "FridgeItem_15_Closure"
+        ],
+        [
+          "FridgeItem_15_Body",
+          "FridgeItem_15_LabelBand"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_16_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_16_Package",
+          "FridgeItem_16_Fold(-1, False)"
+        ],
+        [
+          "FridgeItem_16_Package",
+          "FridgeItem_16_Fold(1, False)"
+        ],
+        [
+          "FridgeItem_16_Package",
+          "FridgeItem_16_WrapSeam"
+        ],
+        [
+          "FridgeItem_16_Fold(-1, False)",
+          "FridgeItem_16_Fold(-1, True)"
+        ],
+        [
+          "FridgeItem_16_Fold(1, False)",
+          "FridgeItem_16_Fold(1, True)"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_17_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_17_Package",
+          "FridgeItem_17_Fold(-1, False)"
+        ],
+        [
+          "FridgeItem_17_Package",
+          "FridgeItem_17_Fold(1, False)"
+        ],
+        [
+          "FridgeItem_17_Package",
+          "FridgeItem_17_WrapSeam"
+        ],
+        [
+          "FridgeItem_17_Fold(-1, False)",
+          "FridgeItem_17_Fold(-1, True)"
+        ],
+        [
+          "FridgeItem_17_Fold(1, False)",
+          "FridgeItem_17_Fold(1, True)"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_18_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_18_Package",
+          "FridgeItem_18_Fold(-1, False)"
+        ],
+        [
+          "FridgeItem_18_Package",
+          "FridgeItem_18_Fold(1, False)"
+        ],
+        [
+          "FridgeItem_18_Package",
+          "FridgeItem_18_WrapSeam"
+        ],
+        [
+          "FridgeItem_18_Fold(-1, False)",
+          "FridgeItem_18_Fold(-1, True)"
+        ],
+        [
+          "FridgeItem_18_Fold(1, False)",
+          "FridgeItem_18_Fold(1, True)"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_19_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_19_Package",
+          "FridgeItem_19_Lid"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_20_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_20_Package",
+          "FridgeItem_20_Lid"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_21_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_21_Package",
+          "FridgeItem_21_Fold(-1, False)"
+        ],
+        [
+          "FridgeItem_21_Package",
+          "FridgeItem_21_Fold(1, False)"
+        ],
+        [
+          "FridgeItem_21_Package",
+          "FridgeItem_21_WrapSeam"
+        ],
+        [
+          "FridgeItem_21_Fold(-1, False)",
+          "FridgeItem_21_Fold(-1, True)"
+        ],
+        [
+          "FridgeItem_21_Fold(1, False)",
+          "FridgeItem_21_Fold(1, True)"
+        ]
+      ]
+    },
+    {
+      "assembly": "FridgeItem_22_LarderObject",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "FridgeItem_22_Package",
+          "FridgeItem_22_Fold(-1, False)"
+        ],
+        [
+          "FridgeItem_22_Package",
+          "FridgeItem_22_Fold(1, False)"
+        ],
+        [
+          "FridgeItem_22_Package",
+          "FridgeItem_22_WrapSeam"
+        ],
+        [
+          "FridgeItem_22_Fold(-1, False)",
+          "FridgeItem_22_Fold(-1, True)"
+        ],
+        [
+          "FridgeItem_22_Fold(1, False)",
+          "FridgeItem_22_Fold(1, True)"
+        ]
+      ]
+    }
+  ],
+  "distinct_object_separations": [],
+  "uv": [
+    {
+      "part": "FridgeIcebox__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9998224878498082,
+      "maximum_metres_per_uv": 1.0001545062938038,
+      "maximum_edge_excess_m": 2.9369509791548395e-08,
+      "maximum_edge_ratio": 1.0001510667614046
+    },
+    {
+      "part": "FridgeIcebox__Body_ON_liner",
+      "minimum_metres_per_uv": 0.9994747323661757,
+      "maximum_metres_per_uv": 1.000524942413781,
+      "maximum_edge_excess_m": 4.9987973676623304e-08,
+      "maximum_edge_ratio": 1.0000890497082855
+    },
+    {
+      "part": "FridgeIcebox__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9994251549685621,
+      "maximum_metres_per_uv": 1.000580945003873,
+      "maximum_edge_excess_m": 2.8810570421445962e-08,
+      "maximum_edge_ratio": 1.0000843025513197
+    },
+    {
+      "part": "FridgeIcebox__Body_ON_oak",
+      "minimum_metres_per_uv": 0.9998432045840998,
+      "maximum_metres_per_uv": 1.0001443549833964,
+      "maximum_edge_excess_m": 5.981629591644833e-08,
+      "maximum_edge_ratio": 1.0001395813877676
+    },
+    {
+      "part": "FridgeIcebox__Door_ON_brass",
+      "minimum_metres_per_uv": 0.9990092788338676,
+      "maximum_metres_per_uv": 1.000294564470663,
+      "maximum_edge_excess_m": 1.8554122113503824e-06,
+      "maximum_edge_ratio": 1.000766874736114
+    },
+    {
+      "part": "FridgeIcebox__Door_ON_liner",
+      "minimum_metres_per_uv": 0.999970083953971,
+      "maximum_metres_per_uv": 1.0000364244719255,
+      "maximum_edge_excess_m": 4.2649745984240164e-08,
+      "maximum_edge_ratio": 1.000029343270611
+    },
+    {
+      "part": "FridgeIcebox__Door_ON_oak",
+      "minimum_metres_per_uv": 0.9999738387392562,
+      "maximum_metres_per_uv": 1.0000190000830225,
+      "maximum_edge_excess_m": 6.016952362134648e-08,
+      "maximum_edge_ratio": 1.000022780785153
+    },
+    {
+      "part": "FridgeIcebox__DripTray_ON_brass",
+      "minimum_metres_per_uv": 0.9988845454998239,
+      "maximum_metres_per_uv": 1.0004533462396654,
+      "maximum_edge_excess_m": 1.5011627344969913e-06,
+      "maximum_edge_ratio": 1.0007327725841448
+    },
+    {
+      "part": "FridgeIcebox__DripTray_ON_liner",
+      "minimum_metres_per_uv": 0.9998944512610923,
+      "maximum_metres_per_uv": 1.0000873578203289,
+      "maximum_edge_excess_m": 5.4796309226006965e-08,
+      "maximum_edge_ratio": 1.00010555988062
+    },
+    {
+      "part": "FridgeIcebox__DripTray_ON_oak",
+      "minimum_metres_per_uv": 0.9998770591659611,
+      "maximum_metres_per_uv": 1.000096953234377,
+      "maximum_edge_excess_m": 5.640906006773409e-08,
+      "maximum_edge_ratio": 1.000100079487419
+    },
+    {
+      "part": "FridgeIcebox__IceDoor_ON_brass",
+      "minimum_metres_per_uv": 0.9989651059241028,
+      "maximum_metres_per_uv": 1.000329655955356,
+      "maximum_edge_excess_m": 2.0024630924195264e-06,
+      "maximum_edge_ratio": 1.000766874736114
+    },
+    {
+      "part": "FridgeIcebox__IceDoor_ON_liner",
+      "minimum_metres_per_uv": 0.9999681751268347,
+      "maximum_metres_per_uv": 1.0000433283258934,
+      "maximum_edge_excess_m": 4.387885008247036e-08,
+      "maximum_edge_ratio": 1.000029343270611
+    },
+    {
+      "part": "FridgeIcebox__IceDoor_ON_oak",
+      "minimum_metres_per_uv": 0.9999814817366502,
+      "maximum_metres_per_uv": 1.000016028964124,
+      "maximum_edge_excess_m": 4.8814866840125176e-08,
+      "maximum_edge_ratio": 1.0000172346049303
+    },
+    {
+      "part": "FridgeMonitor__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9997001471217011,
+      "maximum_metres_per_uv": 1.0002804336912297,
+      "maximum_edge_excess_m": 2.4327626722570744e-08,
+      "maximum_edge_ratio": 1.0000222750996197
+    },
+    {
+      "part": "FridgeMonitor__Body_ON_copper",
+      "minimum_metres_per_uv": 0.9998306888544892,
+      "maximum_metres_per_uv": 1.0002177700348431,
+      "maximum_edge_excess_m": 3.317001422836752e-08,
+      "maximum_edge_ratio": 1.0000210580524256
+    },
+    {
+      "part": "FridgeMonitor__Body_ON_dark",
+      "minimum_metres_per_uv": 0.9998190007212053,
+      "maximum_metres_per_uv": 1.000004093753859,
+      "maximum_edge_excess_m": 2.3357059338348363e-06,
+      "maximum_edge_ratio": 1.0001810320454643
+    },
+    {
+      "part": "FridgeMonitor__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9998192898986303,
+      "maximum_metres_per_uv": 1.0000985660073818,
+      "maximum_edge_excess_m": 3.1934177749728954e-06,
+      "maximum_edge_ratio": 1.0001807427634128
+    },
+    {
+      "part": "FridgeMonitor__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.999219436118804,
+      "maximum_metres_per_uv": 1.0004425249210933,
+      "maximum_edge_excess_m": 1.70735455084451e-06,
+      "maximum_edge_ratio": 1.0007269008371236
+    },
+    {
+      "part": "FridgeMonitor__Door_ON_enamel",
+      "minimum_metres_per_uv": 0.9999439827924067,
+      "maximum_metres_per_uv": 1.0000292812503178,
+      "maximum_edge_excess_m": 5.960464477539063e-08,
+      "maximum_edge_ratio": 1.0000534762027546
+    },
+    {
+      "part": "FridgeMonitor__Door_ON_nickel",
+      "minimum_metres_per_uv": 0.9990254934582411,
+      "maximum_metres_per_uv": 1.000283082803637,
+      "maximum_edge_excess_m": 1.8139213713401492e-06,
+      "maximum_edge_ratio": 1.000766874736114
+    },
+    {
+      "part": "FridgeItem_01__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992788766501324,
+      "maximum_metres_per_uv": 1.0000284825329195,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007216437440218
+    },
+    {
+      "part": "FridgeItem_01__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9992786014180581,
+      "maximum_metres_per_uv": 1.0000198702818768,
+      "maximum_edge_excess_m": 2.084340784570121e-06,
+      "maximum_edge_ratio": 1.0007219193735541
+    },
+    {
+      "part": "FridgeItem_01__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9992821879277236,
+      "maximum_metres_per_uv": 1.0002402659598528,
+      "maximum_edge_excess_m": 4.248403116475195e-06,
+      "maximum_edge_ratio": 1.000718327696569
+    },
+    {
+      "part": "FridgeItem_02__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992751106906576,
+      "maximum_metres_per_uv": 1.0000557134204087,
+      "maximum_edge_excess_m": 2.545041594954542e-06,
+      "maximum_edge_ratio": 1.0007246954009041
+    },
+    {
+      "part": "FridgeItem_02__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.999278969092246,
+      "maximum_metres_per_uv": 1.000017104171481,
+      "maximum_edge_excess_m": 2.3566753183370745e-06,
+      "maximum_edge_ratio": 1.0007215511684482
+    },
+    {
+      "part": "FridgeItem_02__Body_ON_paper",
+      "minimum_metres_per_uv": 0.999281392942903,
+      "maximum_metres_per_uv": 1.0001688777537938,
+      "maximum_edge_excess_m": 2.5727017868167577e-06,
+      "maximum_edge_ratio": 1.0007191238245523
+    },
+    {
+      "part": "FridgeItem_03__Body_ON_food",
+      "minimum_metres_per_uv": 0.9992644285180865,
+      "maximum_metres_per_uv": 1.0002410717675598,
+      "maximum_edge_excess_m": 1.939858986537129e-06,
+      "maximum_edge_ratio": 1.0007339925574912
+    },
+    {
+      "part": "FridgeItem_03__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9999721068070713,
+      "maximum_metres_per_uv": 1.000028273924092,
+      "maximum_edge_excess_m": 2.6359228509544724e-08,
+      "maximum_edge_ratio": 1.0000236225805614
+    },
+    {
+      "part": "FridgeItem_04__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9998905998920442,
+      "maximum_metres_per_uv": 1.0001237354202779,
+      "maximum_edge_excess_m": 3.013310014010617e-08,
+      "maximum_edge_ratio": 1.0000952717860987
+    },
+    {
+      "part": "FridgeItem_05__Body_ON_food",
+      "minimum_metres_per_uv": 0.9992482678528088,
+      "maximum_metres_per_uv": 1.0003261913957129,
+      "maximum_edge_excess_m": 1.941082057726161e-06,
+      "maximum_edge_ratio": 1.000734534620627
+    },
+    {
+      "part": "FridgeItem_06__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9999470482973231,
+      "maximum_metres_per_uv": 1.000056059567598,
+      "maximum_edge_excess_m": 2.4749109048607942e-08,
+      "maximum_edge_ratio": 1.0000410021379438
+    },
+    {
+      "part": "FridgeItem_07__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992643034589261,
+      "maximum_metres_per_uv": 1.000047585757936,
+      "maximum_edge_excess_m": 2.1999891190809494e-06,
+      "maximum_edge_ratio": 1.0007362381889628
+    },
+    {
+      "part": "FridgeItem_07__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9992851885017291,
+      "maximum_metres_per_uv": 1.000017598627949,
+      "maximum_edge_excess_m": 2.0025712276538e-06,
+      "maximum_edge_ratio": 1.0007153228192471
+    },
+    {
+      "part": "FridgeItem_08__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992643034589261,
+      "maximum_metres_per_uv": 1.0000612933938817,
+      "maximum_edge_excess_m": 2.2037112233979847e-06,
+      "maximum_edge_ratio": 1.0007362381889628
+    },
+    {
+      "part": "FridgeItem_08__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9992851885017291,
+      "maximum_metres_per_uv": 1.0000226840435182,
+      "maximum_edge_excess_m": 2.0025712276538e-06,
+      "maximum_edge_ratio": 1.0007153228192471
+    },
+    {
+      "part": "FridgeItem_09__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992743810474162,
+      "maximum_metres_per_uv": 1.0000326633491563,
+      "maximum_edge_excess_m": 2.918144322503792e-06,
+      "maximum_edge_ratio": 1.0007259890277744
+    },
+    {
+      "part": "FridgeItem_09__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9992825192255727,
+      "maximum_metres_per_uv": 1.000016810739822,
+      "maximum_edge_excess_m": 2.6800728674513524e-06,
+      "maximum_edge_ratio": 1.000717995922698
+    },
+    {
+      "part": "FridgeItem_09__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9992791282115154,
+      "maximum_metres_per_uv": 1.0001656445630387,
+      "maximum_edge_excess_m": 2.9257010017132504e-06,
+      "maximum_edge_ratio": 1.000721391819496
+    },
+    {
+      "part": "FridgeItem_10__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992643034589261,
+      "maximum_metres_per_uv": 1.0000680271569065,
+      "maximum_edge_excess_m": 2.201509717885807e-06,
+      "maximum_edge_ratio": 1.0007362381889628
+    },
+    {
+      "part": "FridgeItem_10__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9992851885017291,
+      "maximum_metres_per_uv": 1.0000172555461997,
+      "maximum_edge_excess_m": 2.0025712276538e-06,
+      "maximum_edge_ratio": 1.0007153228192471
+    },
+    {
+      "part": "FridgeItem_10__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9992786897638063,
+      "maximum_metres_per_uv": 1.000148654172642,
+      "maximum_edge_excess_m": 2.2188699623846946e-06,
+      "maximum_edge_ratio": 1.0007218309002108
+    },
+    {
+      "part": "FridgeItem_11__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9998212849824152,
+      "maximum_metres_per_uv": 1.000130171640793,
+      "maximum_edge_excess_m": 2.9802322387695312e-08,
+      "maximum_edge_ratio": 1.0001385412986652
+    },
+    {
+      "part": "FridgeItem_12__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992789012153543,
+      "maximum_metres_per_uv": 1.0000285779762594,
+      "maximum_edge_excess_m": 2.8050781473104927e-06,
+      "maximum_edge_ratio": 1.0007216191433328
+    },
+    {
+      "part": "FridgeItem_12__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9992732551572129,
+      "maximum_metres_per_uv": 1.0000184690507394,
+      "maximum_edge_excess_m": 1.399865729327654e-06,
+      "maximum_edge_ratio": 1.0007272733849688
+    },
+    {
+      "part": "FridgeItem_12__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9992805127833808,
+      "maximum_metres_per_uv": 1.0002622526102594,
+      "maximum_edge_excess_m": 2.8456770380614824e-06,
+      "maximum_edge_ratio": 1.0007200052511933
+    },
+    {
+      "part": "FridgeItem_13__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9999545525533144,
+      "maximum_metres_per_uv": 1.0000520772211274,
+      "maximum_edge_excess_m": 2.9828013281552046e-08,
+      "maximum_edge_ratio": 1.0000328481132343
+    },
+    {
+      "part": "FridgeItem_14__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9999511232541209,
+      "maximum_metres_per_uv": 1.0000555567586458,
+      "maximum_edge_excess_m": 2.9827236833201987e-08,
+      "maximum_edge_ratio": 1.0000481485396395
+    },
+    {
+      "part": "FridgeItem_15__Body_ON_bottle",
+      "minimum_metres_per_uv": 0.9992653112575992,
+      "maximum_metres_per_uv": 1.0000300022351727,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007352289068017
+    },
+    {
+      "part": "FridgeItem_15__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9992703350050804,
+      "maximum_metres_per_uv": 1.0000185411262335,
+      "maximum_edge_excess_m": 1.1712457624482673e-06,
+      "maximum_edge_ratio": 1.0007301977946896
+    },
+    {
+      "part": "FridgeItem_15__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9992817660832638,
+      "maximum_metres_per_uv": 1.0001595672044765,
+      "maximum_edge_excess_m": 2.388031741582322e-06,
+      "maximum_edge_ratio": 1.00071875014747
+    },
+    {
+      "part": "FridgeItem_16__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9998316172893578,
+      "maximum_metres_per_uv": 1.0001433477055766,
+      "maximum_edge_excess_m": 3.130720975519363e-08,
+      "maximum_edge_ratio": 1.0001676505940733
+    },
+    {
+      "part": "FridgeItem_17__Body_ON_food",
+      "minimum_metres_per_uv": 0.9999683957440303,
+      "maximum_metres_per_uv": 1.0000211582674676,
+      "maximum_edge_excess_m": 5.7121169740395605e-08,
+      "maximum_edge_ratio": 1.0000276264248558
+    },
+    {
+      "part": "FridgeItem_17__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9998501296690776,
+      "maximum_metres_per_uv": 1.0001125816745668,
+      "maximum_edge_excess_m": 2.8597566452057133e-08,
+      "maximum_edge_ratio": 1.0001163443887529
+    },
+    {
+      "part": "FridgeItem_18__Body_ON_food",
+      "minimum_metres_per_uv": 0.9999701723197073,
+      "maximum_metres_per_uv": 1.0000327560953723,
+      "maximum_edge_excess_m": 5.7301696390881646e-08,
+      "maximum_edge_ratio": 1.000027713738267
+    },
+    {
+      "part": "FridgeItem_18__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9998216413709484,
+      "maximum_metres_per_uv": 1.0001293658037425,
+      "maximum_edge_excess_m": 3.0309228279956635e-08,
+      "maximum_edge_ratio": 1.0001766618846843
+    },
+    {
+      "part": "FridgeItem_19__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9999447034326028,
+      "maximum_metres_per_uv": 1.0000558057450049,
+      "maximum_edge_excess_m": 3.140698261183683e-08,
+      "maximum_edge_ratio": 1.0000408362773356
+    },
+    {
+      "part": "FridgeItem_20__Body_ON_paper",
+      "minimum_metres_per_uv": 0.999958540021571,
+      "maximum_metres_per_uv": 1.000054294252704,
+      "maximum_edge_excess_m": 2.8632266907673704e-08,
+      "maximum_edge_ratio": 1.0000365734799717
+    },
+    {
+      "part": "FridgeItem_21__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9998773416438833,
+      "maximum_metres_per_uv": 1.0001335972947427,
+      "maximum_edge_excess_m": 2.8597566452057133e-08,
+      "maximum_edge_ratio": 1.0001082372250416
+    },
+    {
+      "part": "FridgeItem_22__Body_ON_food",
+      "minimum_metres_per_uv": 0.9999709621445451,
+      "maximum_metres_per_uv": 1.0000214068581457,
+      "maximum_edge_excess_m": 3.879738375662731e-08,
+      "maximum_edge_ratio": 1.000018140799895
+    },
+    {
+      "part": "FridgeItem_22__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9997980877640371,
+      "maximum_metres_per_uv": 1.0001237354202779,
+      "maximum_edge_excess_m": 2.8740545473041057e-08,
+      "maximum_edge_ratio": 1.0001676505940733
+    }
+  ],
+  "local_bearings": [
+    {
+      "assembly": "FridgeIcebox",
+      "owner": "support",
+      "point": [
+        -0.29,
+        0,
+        0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeIcebox",
+      "owner": "support",
+      "point": [
+        -0.29,
+        0,
+        -0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeIcebox",
+      "owner": "support",
+      "point": [
+        0.29,
+        0,
+        0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeIcebox",
+      "owner": "support",
+      "point": [
+        0.29,
+        0,
+        -0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeMonitor",
+      "owner": "support",
+      "point": [
+        -0.3,
+        0,
+        0.265
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeMonitor",
+      "owner": "support",
+      "point": [
+        -0.3,
+        0,
+        -0.265
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeMonitor",
+      "owner": "support",
+      "point": [
+        0.3,
+        0,
+        0.265
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeMonitor",
+      "owner": "support",
+      "point": [
+        0.3,
+        0,
+        -0.265
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    }
+  ],
+  "views": [],
+  "scope": "Local construction and chart preflight only. External support context and rendering are still required."
+}

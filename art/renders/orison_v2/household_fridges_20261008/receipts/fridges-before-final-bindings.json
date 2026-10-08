@@ -1,0 +1,5750 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "F02_2A_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "2A",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F03_3B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "3B",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F04_B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "4B",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F02_2B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "2B",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F03_3A_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "3A",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F04_4A_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "4A",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F05_5A_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "5A",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F05_5B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "5B",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F05_5C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "5C",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F06_6A_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "6A",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F06_6B_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "6B",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F06_6C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "6C",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F02_2C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "2C",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F04_4C_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "4C",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F01_1D_FRIDGE_01",
+      "kind": "fridge",
+      "unit": "1D",
+      "properties": {
+        "monitor_top": false
+      }
+    },
+    {
+      "id": "F01_1A_FRIDGE_01",
+      "unit": "1A",
+      "kind": "fridge",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F03_3D_FRIDGE_01",
+      "unit": "3D",
+      "kind": "fridge",
+      "properties": {
+        "monitor_top": true
+      }
+    },
+    {
+      "id": "F04_4D_FRIDGE_01",
+      "unit": "4D",
+      "kind": "fridge",
+      "properties": {
+        "monitor_top": true
+      }
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "FridgeIcebox",
+      "kind": "icebox",
+      "cell": "shared",
+      "source_record": "fridge / oak icebox"
+    },
+    {
+      "id": "FridgeMonitor",
+      "kind": "monitor",
+      "cell": "shared",
+      "source_record": "fridge / 1927 monitor-top"
+    },
+    {
+      "id": "FridgeItem_01",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "MERIDIAN MILK"
+    },
+    {
+      "id": "FridgeItem_02",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "HOLLOWAY'S"
+    },
+    {
+      "id": "FridgeItem_03",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "eggs"
+    },
+    {
+      "id": "FridgeItem_04",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "wrapped"
+    },
+    {
+      "id": "FridgeItem_05",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "one lemon"
+    },
+    {
+      "id": "FridgeItem_06",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "CROWN & VALE"
+    },
+    {
+      "id": "FridgeItem_07",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "jars"
+    },
+    {
+      "id": "FridgeItem_08",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "jars"
+    },
+    {
+      "id": "FridgeItem_09",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "KESSLER'S PICKLES"
+    },
+    {
+      "id": "FridgeItem_10",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "ASTORIA CREAM"
+    },
+    {
+      "id": "FridgeItem_11",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "wrapped"
+    },
+    {
+      "id": "FridgeItem_12",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "PEERLESS LAGER"
+    },
+    {
+      "id": "FridgeItem_13",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "carton"
+    },
+    {
+      "id": "FridgeItem_14",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "BELL BROS."
+    },
+    {
+      "id": "FridgeItem_15",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "QUELL TONIC"
+    },
+    {
+      "id": "FridgeItem_16",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "wrapped"
+    },
+    {
+      "id": "FridgeItem_17",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "furred"
+    },
+    {
+      "id": "FridgeItem_18",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "furred"
+    },
+    {
+      "id": "FridgeItem_19",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "WREN'S BUTTER"
+    },
+    {
+      "id": "FridgeItem_20",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "carton"
+    },
+    {
+      "id": "FridgeItem_21",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "wrapped"
+    },
+    {
+      "id": "FridgeItem_22",
+      "kind": "food",
+      "cell": "shared",
+      "source_record": "furred"
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "FridgeIcebox_Foot(-0.29, -0.235)",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.00027146362825864704
+    },
+    {
+      "name": "FridgeIcebox_Foot(-0.29, 0.235)",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.00027146362825864704
+    },
+    {
+      "name": "FridgeIcebox_Foot(0.29, -0.235)",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.00027146362825864704
+    },
+    {
+      "name": "FridgeIcebox_Foot(0.29, 0.235)",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.00027146362825864704
+    },
+    {
+      "name": "FridgeIcebox_Bottom",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.02712492251443768
+    },
+    {
+      "name": "FridgeIcebox_Top",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.026341969239820517
+    },
+    {
+      "name": "FridgeIcebox_Cheek-0.35",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.04106216158353586
+    },
+    {
+      "name": "FridgeIcebox_Cheek0.27499999999999997",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.04106216158353586
+    },
+    {
+      "name": "FridgeIcebox_Back",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.033230689898473637
+    },
+    {
+      "name": "FridgeIcebox_LinerBack",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.014181414966298342
+    },
+    {
+      "name": "FridgeIcebox_LinerCheek-0.277",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.0077666379467939695
+    },
+    {
+      "name": "FridgeIcebox_LinerCheek0.259",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.0077666379467939695
+    },
+    {
+      "name": "FridgeIcebox_LinerHorizontal0.236",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.004533167305079692
+    },
+    {
+      "name": "FridgeIcebox_LinerHorizontal0.921",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.004533167504011573
+    },
+    {
+      "name": "FridgeIcebox_LinerHorizontal1.167",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.004533137461506145
+    },
+    {
+      "name": "FridgeIcebox_FrontRail0.215",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.0010720931040855914
+    },
+    {
+      "name": "FridgeIcebox_FrontRail0.945",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.0010720934792625217
+    },
+    {
+      "name": "FridgeIcebox_Drain",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 8.93174972368036e-05
+    },
+    {
+      "name": "FridgeIcebox_TrayGuide-0.249",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.0001516297494125157
+    },
+    {
+      "name": "FridgeIcebox_TrayGuide0.249",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.0001516297494125157
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod00",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664249354244238e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod01",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642508935262162e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod02",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250893526218e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod03",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.66425089352623e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod04",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250893526218e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod05",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642508935262162e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod06",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250893526218e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod07",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.66425089352623e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod08",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250893526218e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod09",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642508935262162e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod10",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642506824537322e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod11",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642504713812543e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod12",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250471381254e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod13",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664251150426047e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod14",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642511504260446e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod15",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250362879386e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod16",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642502543775257e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod17",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642500706904412e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod18",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642500115457748e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod19",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250047572785e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod20",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250218996172e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod21",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642500475727843e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod22",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642500115457748e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod23",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642500706904456e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod24",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642502543775257e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod25",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642503628793874e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod26",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642511504260446e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod27",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642511504260626e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod28",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250471381254e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod29",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642504713812543e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod30",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250682453739e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod31",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.66425089352623e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod32",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250893526218e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod33",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642508935262162e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod34",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250893526218e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod35",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.66425089352623e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod36",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250893526218e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod37",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642508935262162e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod38",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250893526218e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod39",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.66425089352623e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Rod40",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664249354244224e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Cross-0.19799999999999998",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 3.2859096265707894e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Clip(-0.259, -0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.69166825016486e-06
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Clip(0.259, -0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.69166825016486e-06
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Cross0.19799999999999998",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 3.2859096265707894e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Clip(-0.259, 0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.69166825016486e-06
+    },
+    {
+      "name": "FridgeIcebox_Rack0_Clip(0.259, 0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.69166825016486e-06
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod00",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642489736740002e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod01",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250512955991e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod02",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559952e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod03",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559955e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod04",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559952e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod05",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250512955991e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod06",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559952e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod07",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559955e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod08",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559952e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod09",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250512955991e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod10",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642503018788352e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod11",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250090801695e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod12",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250090801684e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod13",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250769855827e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod14",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642507698558e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod15",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664249982304489e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod16",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664249873807275e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod17",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664249690120217e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod18",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642496309755226e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod19",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642496670019518e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod20",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642498384247527e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod21",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642496670019433e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod22",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642496309755226e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod23",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664249690120231e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod24",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664249873807275e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod25",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664249982304487e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod26",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642507698558e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod27",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250769855824e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod28",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250090801684e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod29",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250090801698e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod30",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250301878832e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod31",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559955e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod32",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559952e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod33",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250512955991e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod34",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559952e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod35",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559955e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod36",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559952e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod37",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664250512955991e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod38",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559952e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod39",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6642505129559955e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Rod40",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664248973674006e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Cross-0.19799999999999998",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 3.285909626570776e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Clip(-0.259, -0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.69166825016484e-06
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Clip(0.259, -0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.69166825016484e-06
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Cross0.19799999999999998",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 3.285909626570776e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Clip(-0.259, 0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.69166825016484e-06
+    },
+    {
+      "name": "FridgeIcebox_Rack1_Clip(0.259, 0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.69166825016484e-06
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod00",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664302260006327e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod01",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643037995587798e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod02",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303799558773e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod03",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643037995587676e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod04",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303799558773e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod05",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643037995587798e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod06",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303799558773e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod07",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643037995587676e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod08",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303799558773e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod09",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643037995587798e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod10",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303588346394e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod11",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303377134037e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod12",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643033771340314e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod13",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643040561881696e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod14",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643040561881615e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod15",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643032686974914e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod16",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643031602608645e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod17",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664302976578448e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod18",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643029174384478e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod19",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.66430295346431e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod20",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303124879389e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod21",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664302953464273e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod22",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643029174384478e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod23",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643029765784674e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod24",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643031602608645e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod25",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643032686974484e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod26",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643040561881615e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod27",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643040561881472e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod28",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643033771340314e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod29",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303377134015e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod30",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303588346409e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod31",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643037995587676e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod32",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303799558773e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod33",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643037995587798e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod34",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303799558773e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod35",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643037995587676e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod36",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303799558773e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod37",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643037995587798e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod38",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664303799558773e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod39",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.6643037995587676e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Rod40",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 2.664302260006337e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Cross-0.19799999999999998",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 3.286018879148667e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Clip(-0.259, -0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.691694048850639e-06
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Clip(0.259, -0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.691694048850639e-06
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Cross0.19799999999999998",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 3.286018879148667e-05
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Clip(-0.259, 0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.691694048850639e-06
+    },
+    {
+      "name": "FridgeIcebox_Rack2_Clip(0.259, 0.19799999999999998)",
+      "assembly": "FridgeIcebox",
+      "key": "nickel",
+      "volume_m3": 6.691694048850639e-06
+    },
+    {
+      "name": "FridgeIcebox_Door_Skin",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.016940173044235216
+    },
+    {
+      "name": "FridgeIcebox_Door_RaisedPanel",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.007009296982621996
+    },
+    {
+      "name": "FridgeIcebox_Door_Liner",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.0024315999483733525
+    },
+    {
+      "name": "FridgeIcebox_Door_HandleFoot0.535",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 1.6545470565205283e-05
+    },
+    {
+      "name": "FridgeIcebox_Door_HandleFoot0.705",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 1.654546924819537e-05
+    },
+    {
+      "name": "FridgeIcebox_Door_BowHandle",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 4.268218568771757e-05
+    },
+    {
+      "name": "FridgeIcebox_Door_Latch",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 3.503692123504239e-05
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge0_Pin",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 2.5374336357967075e-06
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge0_Neck",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 5.684466041611771e-06
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge0_MovingKnuckle0.287",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 5.376343574233083e-06
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge0_MovingKnuckle0.343",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 5.376343574233081e-06
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge0_Strap0.287",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 1.4379437888487967e-05
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge0_Strap0.343",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 1.4379437888487981e-05
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge0_Screw0.287-1",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.449529495226626e-08
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge0_Screw0.2871",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.449529495226626e-08
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge0_Screw0.343-1",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.449510780918213e-08
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge0_Screw0.3431",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.44948292514923e-08
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge1_Pin",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 2.5374344760346222e-06
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge1_Neck",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 5.684464509192607e-06
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge1_MovingKnuckle0.847",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 5.3763554495782e-06
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge1_MovingKnuckle0.903",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 5.376355449578162e-06
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge1_Strap0.847",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 1.4379436058046733e-05
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge1_Strap0.903",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 1.4379436058046705e-05
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge1_Screw0.847-1",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.449535684657435e-08
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge1_Screw0.8471",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.449535684657435e-08
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge1_Screw0.903-1",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.44953568465752e-08
+    },
+    {
+      "name": "FridgeIcebox_Door_Hinge1_Screw0.9031",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.449535684657181e-08
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Skin",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.0057526308128593275
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_RaisedPanel",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.0018445891946823549
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Liner",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.0006834171744695514
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_HandleFoot1.020375",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 1.6545472273390705e-05
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_HandleFoot1.149625",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 1.6545467360588925e-05
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_BowHandle",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 3.318272076754705e-05
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Latch",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 3.503694749924125e-05
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Hinge0_Pin",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 2.5374344760346154e-06
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Hinge0_Neck",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 5.684459115424845e-06
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Hinge0_MovingKnuckle1.057",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 5.376357018025296e-06
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Hinge0_MovingKnuckle1.113",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 5.376357018025268e-06
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Hinge0_Strap1.057",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 1.4379439735206085e-05
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Hinge0_Strap1.113",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 1.4379439735205977e-05
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Hinge0_Screw1.057-1",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.449458012350525e-08
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Hinge0_Screw1.0571",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.449564830590454e-08
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Hinge0_Screw1.113-1",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.449458012350863e-08
+    },
+    {
+      "name": "FridgeIcebox_IceDoor_Hinge0_Screw1.1131",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.449613356964006e-08
+    },
+    {
+      "name": "FridgeIcebox_TrayPan",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.0015383539491295125
+    },
+    {
+      "name": "FridgeIcebox_TrayLeft",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.0001395168241198512
+    },
+    {
+      "name": "FridgeIcebox_TrayRight",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.0001395168241198512
+    },
+    {
+      "name": "FridgeIcebox_TrayRear",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.00019373408215740828
+    },
+    {
+      "name": "FridgeIcebox_TrayFront",
+      "assembly": "FridgeIcebox",
+      "key": "oak",
+      "volume_m3": 0.0014285305718223732
+    },
+    {
+      "name": "FridgeIcebox_TrayFrontFold",
+      "assembly": "FridgeIcebox",
+      "key": "liner",
+      "volume_m3": 0.00026594788472937444
+    },
+    {
+      "name": "FridgeIcebox_TrayPullFoot-0.1",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 7.731253857153044e-06
+    },
+    {
+      "name": "FridgeIcebox_TrayPullFoot0.1",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 7.731253857153705e-06
+    },
+    {
+      "name": "FridgeIcebox_TrayPull",
+      "assembly": "FridgeIcebox",
+      "key": "brass",
+      "volume_m3": 6.891757412837526e-05
+    },
+    {
+      "name": "FridgeMonitor_Leg(-0.3, -0.265)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 0.00015101823912794308
+    },
+    {
+      "name": "FridgeMonitor_Leg(-0.3, 0.265)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 0.00015101823912795363
+    },
+    {
+      "name": "FridgeMonitor_Leg(0.3, -0.265)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 0.0001510182391279536
+    },
+    {
+      "name": "FridgeMonitor_Leg(0.3, 0.265)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 0.00015101823912794314
+    },
+    {
+      "name": "FridgeMonitor_Bottom",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.025321472672956993
+    },
+    {
+      "name": "FridgeMonitor_Top",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.025293458135485197
+    },
+    {
+      "name": "FridgeMonitor_Cheek-0.36",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.03229640197770954
+    },
+    {
+      "name": "FridgeMonitor_Cheek0.305",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.03229640197770954
+    },
+    {
+      "name": "FridgeMonitor_Back",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.032884211484738406
+    },
+    {
+      "name": "FridgeMonitor_LinerBack",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.01636128546329163
+    },
+    {
+      "name": "FridgeMonitor_LinerCheek-0.29500000000000004",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.00952331660652404
+    },
+    {
+      "name": "FridgeMonitor_LinerCheek0.277",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.00952331660652404
+    },
+    {
+      "name": "FridgeMonitor_LinerHorizontal0.226",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.005464823141132745
+    },
+    {
+      "name": "FridgeMonitor_LinerHorizontal1.236",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.005464823230492244
+    },
+    {
+      "name": "FridgeMonitor_FreezerShelf",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.0008852409900335107
+    },
+    {
+      "name": "FridgeMonitor_FreezerHood",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.0011515405190042163
+    },
+    {
+      "name": "FridgeMonitor_FreezerBracket-0.2",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 4.336964385699368e-05
+    },
+    {
+      "name": "FridgeMonitor_FreezerBracket0.2",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 4.336964385699379e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod00",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814183509806176e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod01",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981418350980641e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod02",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195275e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod03",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981421796019547e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod04",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195275e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod05",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195495e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod06",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195275e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod07",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981421796019547e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod08",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195275e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod09",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195495e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod10",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195275e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod11",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814209156826234e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod12",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814213236400572e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod13",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981422083523544e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod14",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814220835235457e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod15",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981421323640057e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod16",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981421080781675e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod17",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981420875227102e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod18",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814208604352396e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod19",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814208750542408e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod20",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814210411911903e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod21",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981420875054236e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod22",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814208604352216e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod23",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814208752270955e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod24",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981421080781675e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod25",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981421323640074e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod26",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814220835235457e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod27",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981422083523572e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod28",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814213236400572e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod29",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814209156826356e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod30",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195275e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod31",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981421796019547e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod32",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195275e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod33",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195495e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod34",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195275e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod35",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981421796019547e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod36",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195275e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod37",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195495e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod38",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814217960195275e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod39",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814183509806187e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Rod40",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814183509806176e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Cross-0.22299999999999998",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 3.5142752465807704e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Clip(-0.277, -0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.6916828020726076e-06
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Clip(0.277, -0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.6916828020726076e-06
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Cross0.22299999999999998",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 3.5142752465807704e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Clip(-0.277, 0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.6916828020726076e-06
+    },
+    {
+      "name": "FridgeMonitor_Rack0_Clip(0.277, 0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.6916828020726076e-06
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod00",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815242828693773e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod01",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815242828693736e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod02",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod03",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597287e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod04",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod05",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597185e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod06",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod07",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597287e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod08",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod09",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597185e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod10",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod11",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815268483019066e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod12",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815272562593777e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod13",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815280161323846e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod14",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815280161324324e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod15",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815272562593296e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod16",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981527013411388e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod17",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815268078516124e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod18",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981526793055825e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod19",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815268076533186e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod20",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815269737695716e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod21",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815268076533372e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod22",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815267930558265e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod23",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815268078516144e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod24",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981527013411388e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod25",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981527256259382e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod26",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815280161324324e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod27",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815280161324375e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod28",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815272562593777e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod29",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815268483019303e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod30",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod31",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597287e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod32",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod33",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597185e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod34",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod35",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597287e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod36",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod37",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597185e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod38",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815277286597e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod39",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981524282869378e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Rod40",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9815242828693773e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Cross-0.22299999999999998",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 3.514338802994662e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Clip(-0.277, -0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.691662514895721e-06
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Clip(0.277, -0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.691662514895721e-06
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Cross0.22299999999999998",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 3.514338802994662e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Clip(-0.277, 0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.691662514895721e-06
+    },
+    {
+      "name": "FridgeMonitor_Rack1_Clip(0.277, 0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.691662514895721e-06
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod00",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814805307457718e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod01",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981480530745755e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod02",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.98148397649437e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod03",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981483976494354e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod04",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.98148397649437e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod05",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814839764944096e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod06",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.98148397649437e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod07",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981483976494354e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod08",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.98148397649437e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod09",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814839764944096e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod10",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.98148397649437e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod11",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981483095813073e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod12",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814835037600284e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod13",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814842636748737e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod14",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814842636748622e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod15",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814835037600823e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod16",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814832610999236e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod17",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981483055550634e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod18",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814830407470105e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod19",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814830553679674e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod20",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814832214946386e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod21",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981483055367979e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod22",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814830407470044e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod23",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981483055550608e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod24",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814832610999236e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod25",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981483503760115e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod26",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814842636748622e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod27",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981484263674907e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod28",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814835037600284e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod29",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814830958130968e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod30",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.98148397649437e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod31",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981483976494354e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod32",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.98148397649437e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod33",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814839764944096e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod34",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.98148397649437e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod35",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.981483976494354e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod36",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.98148397649437e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod37",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814839764944096e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod38",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.98148397649437e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod39",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814805307457983e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Rod40",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.9814805307457718e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Cross-0.22299999999999998",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 3.514393672275196e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Clip(-0.277, -0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.691662514895694e-06
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Clip(0.277, -0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.691662514895694e-06
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Cross0.22299999999999998",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 3.514393672275196e-05
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Clip(-0.277, 0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.691662514895694e-06
+    },
+    {
+      "name": "FridgeMonitor_Rack2_Clip(0.277, 0.22299999999999998)",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.691662514895694e-06
+    },
+    {
+      "name": "FridgeMonitor_CompressorBase",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.016036542670275798
+    },
+    {
+      "name": "FridgeMonitor_MotorHousing",
+      "assembly": "FridgeMonitor",
+      "key": "dark",
+      "volume_m3": 0.021514895618803962
+    },
+    {
+      "name": "FridgeMonitor_CapNeck",
+      "assembly": "FridgeMonitor",
+      "key": "dark",
+      "volume_m3": 0.0017282904274728015
+    },
+    {
+      "name": "FridgeMonitor_MachineryCap",
+      "assembly": "FridgeMonitor",
+      "key": "dark",
+      "volume_m3": 0.00417438596316264
+    },
+    {
+      "name": "FridgeMonitor_Condenser1.385",
+      "assembly": "FridgeMonitor",
+      "key": "copper",
+      "volume_m3": 0.00051234800306395
+    },
+    {
+      "name": "FridgeMonitor_CoilBridge(1.385, -1)",
+      "assembly": "FridgeMonitor",
+      "key": "copper",
+      "volume_m3": 7.612201067573071e-06
+    },
+    {
+      "name": "FridgeMonitor_CoilBridge(1.385, 1)",
+      "assembly": "FridgeMonitor",
+      "key": "copper",
+      "volume_m3": 7.612201067573022e-06
+    },
+    {
+      "name": "FridgeMonitor_Condenser1.455",
+      "assembly": "FridgeMonitor",
+      "key": "copper",
+      "volume_m3": 0.0005123480030646082
+    },
+    {
+      "name": "FridgeMonitor_CoilBridge(1.455, -1)",
+      "assembly": "FridgeMonitor",
+      "key": "copper",
+      "volume_m3": 7.612206036277026e-06
+    },
+    {
+      "name": "FridgeMonitor_CoilBridge(1.455, 1)",
+      "assembly": "FridgeMonitor",
+      "key": "copper",
+      "volume_m3": 7.61220603627704e-06
+    },
+    {
+      "name": "FridgeMonitor_Condenser1.525",
+      "assembly": "FridgeMonitor",
+      "key": "copper",
+      "volume_m3": 0.0005123480030646142
+    },
+    {
+      "name": "FridgeMonitor_CoilBridge(1.525, -1)",
+      "assembly": "FridgeMonitor",
+      "key": "copper",
+      "volume_m3": 7.612196520248775e-06
+    },
+    {
+      "name": "FridgeMonitor_CoilBridge(1.525, 1)",
+      "assembly": "FridgeMonitor",
+      "key": "copper",
+      "volume_m3": 7.61219652024874e-06
+    },
+    {
+      "name": "FridgeMonitor_ServicePipe-0.205",
+      "assembly": "FridgeMonitor",
+      "key": "copper",
+      "volume_m3": 7.831570581231377e-05
+    },
+    {
+      "name": "FridgeMonitor_ServicePipe0.205",
+      "assembly": "FridgeMonitor",
+      "key": "copper",
+      "volume_m3": 7.831570581231377e-05
+    },
+    {
+      "name": "FridgeMonitor_Badge",
+      "assembly": "FridgeMonitor",
+      "key": "brass",
+      "volume_m3": 0.0001135765605989543
+    },
+    {
+      "name": "FridgeMonitor_BadgeScrew-0.078-1",
+      "assembly": "FridgeMonitor",
+      "key": "brass",
+      "volume_m3": 6.449360771354752e-08
+    },
+    {
+      "name": "FridgeMonitor_BadgeScrew-0.0781",
+      "assembly": "FridgeMonitor",
+      "key": "brass",
+      "volume_m3": 6.44936077135509e-08
+    },
+    {
+      "name": "FridgeMonitor_BadgeScrew0.078-1",
+      "assembly": "FridgeMonitor",
+      "key": "brass",
+      "volume_m3": 6.449360771354921e-08
+    },
+    {
+      "name": "FridgeMonitor_BadgeScrew0.0781",
+      "assembly": "FridgeMonitor",
+      "key": "brass",
+      "volume_m3": 6.449360771354921e-08
+    },
+    {
+      "name": "FridgeMonitor_Door_Skin",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.026167519169509712
+    },
+    {
+      "name": "FridgeMonitor_Door_RaisedPanel",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.011310414011418966
+    },
+    {
+      "name": "FridgeMonitor_Door_Liner",
+      "assembly": "FridgeMonitor",
+      "key": "enamel",
+      "volume_m3": 0.0038940485027327146
+    },
+    {
+      "name": "FridgeMonitor_Door_HandleFoot0.67",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 1.654546891122605e-05
+    },
+    {
+      "name": "FridgeMonitor_Door_HandleFoot0.91",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 1.6545470228228244e-05
+    },
+    {
+      "name": "FridgeMonitor_Door_BowHandle",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 5.930373244250673e-05
+    },
+    {
+      "name": "FridgeMonitor_Door_Latch",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 3.503696498211037e-05
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge0_Pin",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.537433635796708e-06
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge0_Neck",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 5.684471958443838e-06
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge0_MovingKnuckle0.26449999999999996",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 5.376339468249942e-06
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge0_MovingKnuckle0.3205",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 5.376346190140681e-06
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge0_Strap0.26449999999999996",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 1.4379450736204537e-05
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge0_Strap0.3205",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 1.437945073620451e-05
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge0_Screw0.26449999999999996-1",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.449498511302373e-08
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge0_Screw0.264499999999999961",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.449477149519554e-08
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge0_Screw0.3205-1",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.449494764976783e-08
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge0_Screw0.32051",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.449494764976825e-08
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge1_Pin",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 2.5374311150829617e-06
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge1_Neck",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 5.684464747758339e-06
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge1_MovingKnuckle1.1695",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 5.376326024468494e-06
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge1_MovingKnuckle1.2255",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 5.37632602446838e-06
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge1_Strap1.1695",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 1.437943080197598e-05
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge1_Strap1.2255",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 1.4379430801975763e-05
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge1_Screw1.1695-1",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.449328424657951e-08
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge1_Screw1.16951",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.449375172193028e-08
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge1_Screw1.2255-1",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.4496075813345e-08
+    },
+    {
+      "name": "FridgeMonitor_Door_Hinge1_Screw1.22551",
+      "assembly": "FridgeMonitor",
+      "key": "nickel",
+      "volume_m3": 6.449401148137852e-08
+    },
+    {
+      "name": "FridgeItem_01_Body",
+      "assembly": "FridgeItem_01",
+      "key": "bottle",
+      "volume_m3": 0.0012066276089267931
+    },
+    {
+      "name": "FridgeItem_01_Closure",
+      "assembly": "FridgeItem_01",
+      "key": "nickel",
+      "volume_m3": 1.2534538712344003e-05
+    },
+    {
+      "name": "FridgeItem_01_LabelBand",
+      "assembly": "FridgeItem_01",
+      "key": "paper",
+      "volume_m3": 1.3268070524102152e-05
+    },
+    {
+      "name": "FridgeItem_02_Body",
+      "assembly": "FridgeItem_02",
+      "key": "bottle",
+      "volume_m3": 0.00023830371990579493
+    },
+    {
+      "name": "FridgeItem_02_Closure",
+      "assembly": "FridgeItem_02",
+      "key": "nickel",
+      "volume_m3": 7.351826839585781e-06
+    },
+    {
+      "name": "FridgeItem_02_LabelBand",
+      "assembly": "FridgeItem_02",
+      "key": "paper",
+      "volume_m3": 3.6417584968245898e-06
+    },
+    {
+      "name": "FridgeItem_03_PulpTray",
+      "assembly": "FridgeItem_03",
+      "key": "paper",
+      "volume_m3": 0.00020625817704008253
+    },
+    {
+      "name": "FridgeItem_03_Egg00",
+      "assembly": "FridgeItem_03",
+      "key": "food",
+      "volume_m3": 4.276568303647428e-05
+    },
+    {
+      "name": "FridgeItem_03_Egg01",
+      "assembly": "FridgeItem_03",
+      "key": "food",
+      "volume_m3": 4.276568303647421e-05
+    },
+    {
+      "name": "FridgeItem_03_Egg10",
+      "assembly": "FridgeItem_03",
+      "key": "food",
+      "volume_m3": 4.2765683001771013e-05
+    },
+    {
+      "name": "FridgeItem_03_Egg11",
+      "assembly": "FridgeItem_03",
+      "key": "food",
+      "volume_m3": 4.276568300177102e-05
+    },
+    {
+      "name": "FridgeItem_03_Egg20",
+      "assembly": "FridgeItem_03",
+      "key": "food",
+      "volume_m3": 4.276568303647422e-05
+    },
+    {
+      "name": "FridgeItem_03_Egg21",
+      "assembly": "FridgeItem_03",
+      "key": "food",
+      "volume_m3": 4.2765683036474265e-05
+    },
+    {
+      "name": "FridgeItem_04_Package",
+      "assembly": "FridgeItem_04",
+      "key": "paper",
+      "volume_m3": 0.0009419911205948725
+    },
+    {
+      "name": "FridgeItem_04_Fold(-1, False)",
+      "assembly": "FridgeItem_04",
+      "key": "paper",
+      "volume_m3": 2.0420427338759185e-06
+    },
+    {
+      "name": "FridgeItem_04_Fold(-1, True)",
+      "assembly": "FridgeItem_04",
+      "key": "paper",
+      "volume_m3": 1.8564026919127655e-06
+    },
+    {
+      "name": "FridgeItem_04_Fold(1, False)",
+      "assembly": "FridgeItem_04",
+      "key": "paper",
+      "volume_m3": 2.0420427338759185e-06
+    },
+    {
+      "name": "FridgeItem_04_Fold(1, True)",
+      "assembly": "FridgeItem_04",
+      "key": "paper",
+      "volume_m3": 1.8564026919127655e-06
+    },
+    {
+      "name": "FridgeItem_04_WrapSeam",
+      "assembly": "FridgeItem_04",
+      "key": "paper",
+      "volume_m3": 8.558858478697196e-07
+    },
+    {
+      "name": "FridgeItem_05_Lemon",
+      "assembly": "FridgeItem_05",
+      "key": "food",
+      "volume_m3": 4.847790318443727e-05
+    },
+    {
+      "name": "FridgeItem_06_Package",
+      "assembly": "FridgeItem_06",
+      "key": "paper",
+      "volume_m3": 0.0004781367740319077
+    },
+    {
+      "name": "FridgeItem_06_Lid",
+      "assembly": "FridgeItem_06",
+      "key": "paper",
+      "volume_m3": 7.821191907036352e-05
+    },
+    {
+      "name": "FridgeItem_07_Body",
+      "assembly": "FridgeItem_07",
+      "key": "bottle",
+      "volume_m3": 0.00020696034874517625
+    },
+    {
+      "name": "FridgeItem_07_Closure",
+      "assembly": "FridgeItem_07",
+      "key": "nickel",
+      "volume_m3": 6.383401086383212e-06
+    },
+    {
+      "name": "FridgeItem_08_Body",
+      "assembly": "FridgeItem_08",
+      "key": "bottle",
+      "volume_m3": 0.00019102031455936702
+    },
+    {
+      "name": "FridgeItem_08_Closure",
+      "assembly": "FridgeItem_08",
+      "key": "nickel",
+      "volume_m3": 5.892371650425669e-06
+    },
+    {
+      "name": "FridgeItem_09_Body",
+      "assembly": "FridgeItem_09",
+      "key": "bottle",
+      "volume_m3": 0.0004812808733726519
+    },
+    {
+      "name": "FridgeItem_09_Closure",
+      "assembly": "FridgeItem_09",
+      "key": "nickel",
+      "volume_m3": 1.4840068695534707e-05
+    },
+    {
+      "name": "FridgeItem_09_LabelBand",
+      "assembly": "FridgeItem_09",
+      "key": "paper",
+      "volume_m3": 6.4340612727516e-06
+    },
+    {
+      "name": "FridgeItem_10_Body",
+      "assembly": "FridgeItem_10",
+      "key": "bottle",
+      "volume_m3": 0.00015914024680559107
+    },
+    {
+      "name": "FridgeItem_10_Closure",
+      "assembly": "FridgeItem_10",
+      "key": "nickel",
+      "volume_m3": 4.910313166038069e-06
+    },
+    {
+      "name": "FridgeItem_10_LabelBand",
+      "assembly": "FridgeItem_10",
+      "key": "paper",
+      "volume_m3": 2.8381922785863026e-06
+    },
+    {
+      "name": "FridgeItem_11_Package",
+      "assembly": "FridgeItem_11",
+      "key": "paper",
+      "volume_m3": 0.0012491969601810156
+    },
+    {
+      "name": "FridgeItem_11_Fold(-1, False)",
+      "assembly": "FridgeItem_11",
+      "key": "paper",
+      "volume_m3": 2.513283470752149e-06
+    },
+    {
+      "name": "FridgeItem_11_Fold(-1, True)",
+      "assembly": "FridgeItem_11",
+      "key": "paper",
+      "volume_m3": 2.284796333098051e-06
+    },
+    {
+      "name": "FridgeItem_11_Fold(1, False)",
+      "assembly": "FridgeItem_11",
+      "key": "paper",
+      "volume_m3": 2.513283470752149e-06
+    },
+    {
+      "name": "FridgeItem_11_Fold(1, True)",
+      "assembly": "FridgeItem_11",
+      "key": "paper",
+      "volume_m3": 2.284796333098051e-06
+    },
+    {
+      "name": "FridgeItem_11_WrapSeam",
+      "assembly": "FridgeItem_11",
+      "key": "paper",
+      "volume_m3": 9.218010214057063e-07
+    },
+    {
+      "name": "FridgeItem_12_Body",
+      "assembly": "FridgeItem_12",
+      "key": "bottle",
+      "volume_m3": 0.00042446274587395913
+    },
+    {
+      "name": "FridgeItem_12_Closure",
+      "assembly": "FridgeItem_12",
+      "key": "nickel",
+      "volume_m3": 4.4103049901159245e-06
+    },
+    {
+      "name": "FridgeItem_12_LabelBand",
+      "assembly": "FridgeItem_12",
+      "key": "paper",
+      "volume_m3": 7.005235710014751e-06
+    },
+    {
+      "name": "FridgeItem_13_Package",
+      "assembly": "FridgeItem_13",
+      "key": "paper",
+      "volume_m3": 0.0013877505448606383
+    },
+    {
+      "name": "FridgeItem_13_Lid",
+      "assembly": "FridgeItem_13",
+      "key": "paper",
+      "volume_m3": 0.0002265191894911861
+    },
+    {
+      "name": "FridgeItem_14_Package",
+      "assembly": "FridgeItem_14",
+      "key": "paper",
+      "volume_m3": 0.0005245377872264399
+    },
+    {
+      "name": "FridgeItem_14_Lid",
+      "assembly": "FridgeItem_14",
+      "key": "paper",
+      "volume_m3": 8.58568695831791e-05
+    },
+    {
+      "name": "FridgeItem_15_Body",
+      "assembly": "FridgeItem_15",
+      "key": "bottle",
+      "volume_m3": 0.00031029582949402163
+    },
+    {
+      "name": "FridgeItem_15_Closure",
+      "assembly": "FridgeItem_15",
+      "key": "nickel",
+      "volume_m3": 3.2239063693172946e-06
+    },
+    {
+      "name": "FridgeItem_15_LabelBand",
+      "assembly": "FridgeItem_15",
+      "key": "paper",
+      "volume_m3": 6.1472505952297704e-06
+    },
+    {
+      "name": "FridgeItem_16_Package",
+      "assembly": "FridgeItem_16",
+      "key": "paper",
+      "volume_m3": 0.000802257905916488
+    },
+    {
+      "name": "FridgeItem_16_Fold(-1, False)",
+      "assembly": "FridgeItem_16",
+      "key": "paper",
+      "volume_m3": 1.8849567645657592e-06
+    },
+    {
+      "name": "FridgeItem_16_Fold(-1, True)",
+      "assembly": "FridgeItem_16",
+      "key": "paper",
+      "volume_m3": 1.7136025690915487e-06
+    },
+    {
+      "name": "FridgeItem_16_Fold(1, False)",
+      "assembly": "FridgeItem_16",
+      "key": "paper",
+      "volume_m3": 1.8849567645657592e-06
+    },
+    {
+      "name": "FridgeItem_16_Fold(1, True)",
+      "assembly": "FridgeItem_16",
+      "key": "paper",
+      "volume_m3": 1.7136025690915487e-06
+    },
+    {
+      "name": "FridgeItem_16_WrapSeam",
+      "assembly": "FridgeItem_16",
+      "key": "paper",
+      "volume_m3": 7.89965797739926e-07
+    },
+    {
+      "name": "FridgeItem_17_Package",
+      "assembly": "FridgeItem_17",
+      "key": "food",
+      "volume_m3": 0.0005792769826427736
+    },
+    {
+      "name": "FridgeItem_17_Fold(-1, False)",
+      "assembly": "FridgeItem_17",
+      "key": "paper",
+      "volume_m3": 1.8176426922245768e-06
+    },
+    {
+      "name": "FridgeItem_17_Fold(-1, True)",
+      "assembly": "FridgeItem_17",
+      "key": "paper",
+      "volume_m3": 1.6523970628204168e-06
+    },
+    {
+      "name": "FridgeItem_17_Fold(1, False)",
+      "assembly": "FridgeItem_17",
+      "key": "paper",
+      "volume_m3": 1.8176426922245768e-06
+    },
+    {
+      "name": "FridgeItem_17_Fold(1, True)",
+      "assembly": "FridgeItem_17",
+      "key": "paper",
+      "volume_m3": 1.6523970628204168e-06
+    },
+    {
+      "name": "FridgeItem_17_WrapSeam",
+      "assembly": "FridgeItem_17",
+      "key": "paper",
+      "volume_m3": 5.922056243704279e-07
+    },
+    {
+      "name": "FridgeItem_18_Package",
+      "assembly": "FridgeItem_18",
+      "key": "food",
+      "volume_m3": 0.0003104129692768435
+    },
+    {
+      "name": "FridgeItem_18_Fold(-1, False)",
+      "assembly": "FridgeItem_18",
+      "key": "paper",
+      "volume_m3": 1.2566397848141224e-06
+    },
+    {
+      "name": "FridgeItem_18_Fold(-1, True)",
+      "assembly": "FridgeItem_18",
+      "key": "paper",
+      "volume_m3": 1.1423999397873738e-06
+    },
+    {
+      "name": "FridgeItem_18_Fold(1, False)",
+      "assembly": "FridgeItem_18",
+      "key": "paper",
+      "volume_m3": 1.2566397848141224e-06
+    },
+    {
+      "name": "FridgeItem_18_Fold(1, True)",
+      "assembly": "FridgeItem_18",
+      "key": "paper",
+      "volume_m3": 1.1423999397873738e-06
+    },
+    {
+      "name": "FridgeItem_18_WrapSeam",
+      "assembly": "FridgeItem_18",
+      "key": "paper",
+      "volume_m3": 4.60363020902384e-07
+    },
+    {
+      "name": "FridgeItem_19_Package",
+      "assembly": "FridgeItem_19",
+      "key": "paper",
+      "volume_m3": 0.0003321030973818364
+    },
+    {
+      "name": "FridgeItem_19_Lid",
+      "assembly": "FridgeItem_19",
+      "key": "paper",
+      "volume_m3": 5.426328045093939e-05
+    },
+    {
+      "name": "FridgeItem_20_Package",
+      "assembly": "FridgeItem_20",
+      "key": "paper",
+      "volume_m3": 0.0012084705673138046
+    },
+    {
+      "name": "FridgeItem_20_Lid",
+      "assembly": "FridgeItem_20",
+      "key": "paper",
+      "volume_m3": 0.00019730518421862445
+    },
+    {
+      "name": "FridgeItem_21_Package",
+      "assembly": "FridgeItem_21",
+      "key": "paper",
+      "volume_m3": 0.0010766848996019737
+    },
+    {
+      "name": "FridgeItem_21_Fold(-1, False)",
+      "assembly": "FridgeItem_21",
+      "key": "paper",
+      "volume_m3": 2.333763138543169e-06
+    },
+    {
+      "name": "FridgeItem_21_Fold(-1, True)",
+      "assembly": "FridgeItem_21",
+      "key": "paper",
+      "volume_m3": 2.121603104698828e-06
+    },
+    {
+      "name": "FridgeItem_21_Fold(1, False)",
+      "assembly": "FridgeItem_21",
+      "key": "paper",
+      "volume_m3": 2.333763138543169e-06
+    },
+    {
+      "name": "FridgeItem_21_Fold(1, True)",
+      "assembly": "FridgeItem_21",
+      "key": "paper",
+      "volume_m3": 2.121603104698828e-06
+    },
+    {
+      "name": "FridgeItem_21_WrapSeam",
+      "assembly": "FridgeItem_21",
+      "key": "paper",
+      "volume_m3": 8.558813200287929e-07
+    },
+    {
+      "name": "FridgeItem_22_Package",
+      "assembly": "FridgeItem_22",
+      "key": "food",
+      "volume_m3": 0.0004061249582320731
+    },
+    {
+      "name": "FridgeItem_22_Fold(-1, False)",
+      "assembly": "FridgeItem_22",
+      "key": "paper",
+      "volume_m3": 1.4361619692372572e-06
+    },
+    {
+      "name": "FridgeItem_22_Fold(-1, True)",
+      "assembly": "FridgeItem_22",
+      "key": "paper",
+      "volume_m3": 1.3055978918550547e-06
+    },
+    {
+      "name": "FridgeItem_22_Fold(1, False)",
+      "assembly": "FridgeItem_22",
+      "key": "paper",
+      "volume_m3": 1.4361619692372572e-06
+    },
+    {
+      "name": "FridgeItem_22_Fold(1, True)",
+      "assembly": "FridgeItem_22",
+      "key": "paper",
+      "volume_m3": 1.3055978918550547e-06
+    },
+    {
+      "name": "FridgeItem_22_WrapSeam",
+      "assembly": "FridgeItem_22",
+      "key": "paper",
+      "volume_m3": 5.26282713122762e-07
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "FridgeIcebox",
+      "owner": "support",
+      "point": [
+        -0.29,
+        0,
+        0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeIcebox",
+      "owner": "support",
+      "point": [
+        -0.29,
+        0,
+        -0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeIcebox",
+      "owner": "support",
+      "point": [
+        0.29,
+        0,
+        0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeIcebox",
+      "owner": "support",
+      "point": [
+        0.29,
+        0,
+        -0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeMonitor",
+      "owner": "support",
+      "point": [
+        -0.3,
+        0,
+        0.265
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeMonitor",
+      "owner": "support",
+      "point": [
+        -0.3,
+        0,
+        -0.265
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeMonitor",
+      "owner": "support",
+      "point": [
+        0.3,
+        0,
+        0.265
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    },
+    {
+      "assembly": "FridgeMonitor",
+      "owner": "support",
+      "point": [
+        0.3,
+        0,
+        -0.265
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original floor foot"
+    }
+  ],
+  "parts": [
+    {
+      "name": "FridgeIcebox__Body_ON_brass",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 1128
+    },
+    {
+      "name": "FridgeIcebox__Body_ON_liner",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "liner",
+      "triangles": 1692
+    },
+    {
+      "name": "FridgeIcebox__Body_ON_nickel",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 26508
+    },
+    {
+      "name": "FridgeIcebox__Body_ON_oak",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "oak",
+      "triangles": 2068
+    },
+    {
+      "name": "FridgeIcebox__Door_ON_brass",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 6080
+    },
+    {
+      "name": "FridgeIcebox__Door_ON_liner",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "liner",
+      "triangles": 188
+    },
+    {
+      "name": "FridgeIcebox__Door_ON_oak",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "oak",
+      "triangles": 376
+    },
+    {
+      "name": "FridgeIcebox__DripTray_ON_brass",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 764
+    },
+    {
+      "name": "FridgeIcebox__DripTray_ON_liner",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "liner",
+      "triangles": 940
+    },
+    {
+      "name": "FridgeIcebox__DripTray_ON_oak",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "oak",
+      "triangles": 188
+    },
+    {
+      "name": "FridgeIcebox__IceDoor_ON_brass",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 3912
+    },
+    {
+      "name": "FridgeIcebox__IceDoor_ON_liner",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "liner",
+      "triangles": 188
+    },
+    {
+      "name": "FridgeIcebox__IceDoor_ON_oak",
+      "assembly": "FridgeIcebox",
+      "cell": "shared",
+      "key": "oak",
+      "triangles": 376
+    },
+    {
+      "name": "FridgeMonitor__Body_ON_brass",
+      "assembly": "FridgeMonitor",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 444
+    },
+    {
+      "name": "FridgeMonitor__Body_ON_copper",
+      "assembly": "FridgeMonitor",
+      "cell": "shared",
+      "key": "copper",
+      "triangles": 6112
+    },
+    {
+      "name": "FridgeMonitor__Body_ON_dark",
+      "assembly": "FridgeMonitor",
+      "cell": "shared",
+      "key": "dark",
+      "triangles": 2304
+    },
+    {
+      "name": "FridgeMonitor__Body_ON_enamel",
+      "assembly": "FridgeMonitor",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 3216
+    },
+    {
+      "name": "FridgeMonitor__Body_ON_nickel",
+      "assembly": "FridgeMonitor",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 29172
+    },
+    {
+      "name": "FridgeMonitor__Door_ON_enamel",
+      "assembly": "FridgeMonitor",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 564
+    },
+    {
+      "name": "FridgeMonitor__Door_ON_nickel",
+      "assembly": "FridgeMonitor",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 6080
+    },
+    {
+      "name": "FridgeItem_01__Body_ON_bottle",
+      "assembly": "FridgeItem_01",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1632
+    },
+    {
+      "name": "FridgeItem_01__Body_ON_nickel",
+      "assembly": "FridgeItem_01",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 384
+    },
+    {
+      "name": "FridgeItem_01__Body_ON_paper",
+      "assembly": "FridgeItem_01",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 768
+    },
+    {
+      "name": "FridgeItem_02__Body_ON_bottle",
+      "assembly": "FridgeItem_02",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1632
+    },
+    {
+      "name": "FridgeItem_02__Body_ON_nickel",
+      "assembly": "FridgeItem_02",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 384
+    },
+    {
+      "name": "FridgeItem_02__Body_ON_paper",
+      "assembly": "FridgeItem_02",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 768
+    },
+    {
+      "name": "FridgeItem_03__Body_ON_food",
+      "assembly": "FridgeItem_03",
+      "cell": "shared",
+      "key": "food",
+      "triangles": 19584
+    },
+    {
+      "name": "FridgeItem_03__Body_ON_paper",
+      "assembly": "FridgeItem_03",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "FridgeItem_04__Body_ON_paper",
+      "assembly": "FridgeItem_04",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 408
+    },
+    {
+      "name": "FridgeItem_05__Body_ON_food",
+      "assembly": "FridgeItem_05",
+      "cell": "shared",
+      "key": "food",
+      "triangles": 3264
+    },
+    {
+      "name": "FridgeItem_06__Body_ON_paper",
+      "assembly": "FridgeItem_06",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 376
+    },
+    {
+      "name": "FridgeItem_07__Body_ON_bottle",
+      "assembly": "FridgeItem_07",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1632
+    },
+    {
+      "name": "FridgeItem_07__Body_ON_nickel",
+      "assembly": "FridgeItem_07",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 384
+    },
+    {
+      "name": "FridgeItem_08__Body_ON_bottle",
+      "assembly": "FridgeItem_08",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1632
+    },
+    {
+      "name": "FridgeItem_08__Body_ON_nickel",
+      "assembly": "FridgeItem_08",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 384
+    },
+    {
+      "name": "FridgeItem_09__Body_ON_bottle",
+      "assembly": "FridgeItem_09",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1632
+    },
+    {
+      "name": "FridgeItem_09__Body_ON_nickel",
+      "assembly": "FridgeItem_09",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 384
+    },
+    {
+      "name": "FridgeItem_09__Body_ON_paper",
+      "assembly": "FridgeItem_09",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 768
+    },
+    {
+      "name": "FridgeItem_10__Body_ON_bottle",
+      "assembly": "FridgeItem_10",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1632
+    },
+    {
+      "name": "FridgeItem_10__Body_ON_nickel",
+      "assembly": "FridgeItem_10",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 384
+    },
+    {
+      "name": "FridgeItem_10__Body_ON_paper",
+      "assembly": "FridgeItem_10",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 768
+    },
+    {
+      "name": "FridgeItem_11__Body_ON_paper",
+      "assembly": "FridgeItem_11",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 408
+    },
+    {
+      "name": "FridgeItem_12__Body_ON_bottle",
+      "assembly": "FridgeItem_12",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1632
+    },
+    {
+      "name": "FridgeItem_12__Body_ON_nickel",
+      "assembly": "FridgeItem_12",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 384
+    },
+    {
+      "name": "FridgeItem_12__Body_ON_paper",
+      "assembly": "FridgeItem_12",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 768
+    },
+    {
+      "name": "FridgeItem_13__Body_ON_paper",
+      "assembly": "FridgeItem_13",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 376
+    },
+    {
+      "name": "FridgeItem_14__Body_ON_paper",
+      "assembly": "FridgeItem_14",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 376
+    },
+    {
+      "name": "FridgeItem_15__Body_ON_bottle",
+      "assembly": "FridgeItem_15",
+      "cell": "shared",
+      "key": "bottle",
+      "triangles": 1632
+    },
+    {
+      "name": "FridgeItem_15__Body_ON_nickel",
+      "assembly": "FridgeItem_15",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 384
+    },
+    {
+      "name": "FridgeItem_15__Body_ON_paper",
+      "assembly": "FridgeItem_15",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 768
+    },
+    {
+      "name": "FridgeItem_16__Body_ON_paper",
+      "assembly": "FridgeItem_16",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 408
+    },
+    {
+      "name": "FridgeItem_17__Body_ON_food",
+      "assembly": "FridgeItem_17",
+      "cell": "shared",
+      "key": "food",
+      "triangles": 188
+    },
+    {
+      "name": "FridgeItem_17__Body_ON_paper",
+      "assembly": "FridgeItem_17",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 220
+    },
+    {
+      "name": "FridgeItem_18__Body_ON_food",
+      "assembly": "FridgeItem_18",
+      "cell": "shared",
+      "key": "food",
+      "triangles": 188
+    },
+    {
+      "name": "FridgeItem_18__Body_ON_paper",
+      "assembly": "FridgeItem_18",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 220
+    },
+    {
+      "name": "FridgeItem_19__Body_ON_paper",
+      "assembly": "FridgeItem_19",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 376
+    },
+    {
+      "name": "FridgeItem_20__Body_ON_paper",
+      "assembly": "FridgeItem_20",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 376
+    },
+    {
+      "name": "FridgeItem_21__Body_ON_paper",
+      "assembly": "FridgeItem_21",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 408
+    },
+    {
+      "name": "FridgeItem_22__Body_ON_food",
+      "assembly": "FridgeItem_22",
+      "cell": "shared",
+      "key": "food",
+      "triangles": 188
+    },
+    {
+      "name": "FridgeItem_22__Body_ON_paper",
+      "assembly": "FridgeItem_22",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 220
+    }
+  ],
+  "triangles": 140808,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/household_fridges.glb",
+    "floor_y": 0,
+    "assemblies": [
+      {
+        "id": "FridgeIcebox",
+        "parts": [
+          {
+            "name": "FridgeIcebox__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeIcebox__Body_ON_liner",
+            "component": "Body",
+            "key": "liner",
+            "tile": 0.55,
+            "catalog_key": "zinc_liner",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeIcebox__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeIcebox__Body_ON_oak",
+            "component": "Body",
+            "key": "oak",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeIcebox__Door_ON_brass",
+            "component": "Door",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeIcebox__Door_ON_liner",
+            "component": "Door",
+            "key": "liner",
+            "tile": 0.55,
+            "catalog_key": "zinc_liner",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeIcebox__Door_ON_oak",
+            "component": "Door",
+            "key": "oak",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeIcebox__DripTray_ON_brass",
+            "component": "DripTray",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeIcebox__DripTray_ON_liner",
+            "component": "DripTray",
+            "key": "liner",
+            "tile": 0.55,
+            "catalog_key": "zinc_liner",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeIcebox__DripTray_ON_oak",
+            "component": "DripTray",
+            "key": "oak",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeIcebox__IceDoor_ON_brass",
+            "component": "IceDoor",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeIcebox__IceDoor_ON_liner",
+            "component": "IceDoor",
+            "key": "liner",
+            "tile": 0.55,
+            "catalog_key": "zinc_liner",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeIcebox__IceDoor_ON_oak",
+            "component": "IceDoor",
+            "key": "oak",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeMonitor",
+        "parts": [
+          {
+            "name": "FridgeMonitor__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeMonitor__Body_ON_copper",
+            "component": "Body",
+            "key": "copper",
+            "tile": 0.4,
+            "catalog_key": "copper_aged",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeMonitor__Body_ON_dark",
+            "component": "Body",
+            "key": "dark",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeMonitor__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeMonitor__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeMonitor__Door_ON_enamel",
+            "component": "Door",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeMonitor__Door_ON_nickel",
+            "component": "Door",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_01",
+        "parts": [
+          {
+            "name": "FridgeItem_01__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.06,
+              "roughness": 0.22
+            }
+          },
+          {
+            "name": "FridgeItem_01__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeItem_01__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_02",
+        "parts": [
+          {
+            "name": "FridgeItem_02__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.06,
+              "roughness": 0.22
+            }
+          },
+          {
+            "name": "FridgeItem_02__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeItem_02__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_03",
+        "parts": [
+          {
+            "name": "FridgeItem_03__Body_ON_food",
+            "component": "Body",
+            "key": "food",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeItem_03__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_04",
+        "parts": [
+          {
+            "name": "FridgeItem_04__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_05",
+        "parts": [
+          {
+            "name": "FridgeItem_05__Body_ON_food",
+            "component": "Body",
+            "key": "food",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_06",
+        "parts": [
+          {
+            "name": "FridgeItem_06__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_07",
+        "parts": [
+          {
+            "name": "FridgeItem_07__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.06,
+              "roughness": 0.22
+            }
+          },
+          {
+            "name": "FridgeItem_07__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_08",
+        "parts": [
+          {
+            "name": "FridgeItem_08__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.06,
+              "roughness": 0.22
+            }
+          },
+          {
+            "name": "FridgeItem_08__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_09",
+        "parts": [
+          {
+            "name": "FridgeItem_09__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.06,
+              "roughness": 0.22
+            }
+          },
+          {
+            "name": "FridgeItem_09__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeItem_09__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_10",
+        "parts": [
+          {
+            "name": "FridgeItem_10__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.06,
+              "roughness": 0.22
+            }
+          },
+          {
+            "name": "FridgeItem_10__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeItem_10__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_11",
+        "parts": [
+          {
+            "name": "FridgeItem_11__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_12",
+        "parts": [
+          {
+            "name": "FridgeItem_12__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.06,
+              "roughness": 0.22
+            }
+          },
+          {
+            "name": "FridgeItem_12__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeItem_12__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_13",
+        "parts": [
+          {
+            "name": "FridgeItem_13__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_14",
+        "parts": [
+          {
+            "name": "FridgeItem_14__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_15",
+        "parts": [
+          {
+            "name": "FridgeItem_15__Body_ON_bottle",
+            "component": "Body",
+            "key": "bottle",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.06,
+              "roughness": 0.22
+            }
+          },
+          {
+            "name": "FridgeItem_15__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "FridgeItem_15__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_16",
+        "parts": [
+          {
+            "name": "FridgeItem_16__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_17",
+        "parts": [
+          {
+            "name": "FridgeItem_17__Body_ON_food",
+            "component": "Body",
+            "key": "food",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeItem_17__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_18",
+        "parts": [
+          {
+            "name": "FridgeItem_18__Body_ON_food",
+            "component": "Body",
+            "key": "food",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeItem_18__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_19",
+        "parts": [
+          {
+            "name": "FridgeItem_19__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_20",
+        "parts": [
+          {
+            "name": "FridgeItem_20__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_21",
+        "parts": [
+          {
+            "name": "FridgeItem_21__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "FridgeItem_22",
+        "parts": [
+          {
+            "name": "FridgeItem_22__Body_ON_food",
+            "component": "Body",
+            "key": "food",
+            "tile": 0.9,
+            "catalog_key": "porcelain",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 1.0
+            }
+          },
+          {
+            "name": "FridgeItem_22__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 1.0
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      }
+    ],
+    "instances": [
+      {
+        "id": "F02_2A_FRIDGE_01",
+        "variant": "FridgeMonitor"
+      },
+      {
+        "id": "F03_3B_FRIDGE_01",
+        "variant": "FridgeIcebox"
+      },
+      {
+        "id": "F04_B_FRIDGE_01",
+        "variant": "FridgeIcebox"
+      },
+      {
+        "id": "F02_2B_FRIDGE_01",
+        "variant": "FridgeIcebox"
+      },
+      {
+        "id": "F03_3A_FRIDGE_01",
+        "variant": "FridgeMonitor"
+      },
+      {
+        "id": "F04_4A_FRIDGE_01",
+        "variant": "FridgeIcebox"
+      },
+      {
+        "id": "F05_5A_FRIDGE_01",
+        "variant": "FridgeIcebox"
+      },
+      {
+        "id": "F05_5B_FRIDGE_01",
+        "variant": "FridgeMonitor"
+      },
+      {
+        "id": "F05_5C_FRIDGE_01",
+        "variant": "FridgeIcebox"
+      },
+      {
+        "id": "F06_6A_FRIDGE_01",
+        "variant": "FridgeIcebox"
+      },
+      {
+        "id": "F06_6B_FRIDGE_01",
+        "variant": "FridgeIcebox"
+      },
+      {
+        "id": "F06_6C_FRIDGE_01",
+        "variant": "FridgeMonitor"
+      },
+      {
+        "id": "F02_2C_FRIDGE_01",
+        "variant": "FridgeIcebox"
+      },
+      {
+        "id": "F04_4C_FRIDGE_01",
+        "variant": "FridgeIcebox"
+      },
+      {
+        "id": "F01_1D_FRIDGE_01",
+        "variant": "FridgeIcebox"
+      },
+      {
+        "id": "F01_1A_FRIDGE_01",
+        "variant": "FridgeMonitor"
+      },
+      {
+        "id": "F03_3D_FRIDGE_01",
+        "variant": "FridgeMonitor"
+      },
+      {
+        "id": "F04_4D_FRIDGE_01",
+        "variant": "FridgeMonitor"
+      }
+    ],
+    "tint_space": "linear",
+    "foods": [
+      {
+        "id": "FridgeItem_01",
+        "source_id": "MERIDIAN MILK",
+        "width": 0.09,
+        "height": 0.24
+      },
+      {
+        "id": "FridgeItem_02",
+        "source_id": "HOLLOWAY'S",
+        "width": 0.07,
+        "height": 0.11
+      },
+      {
+        "id": "FridgeItem_03",
+        "source_id": "eggs",
+        "width": 0.16,
+        "height": 0.06
+      },
+      {
+        "id": "FridgeItem_04",
+        "source_id": "wrapped",
+        "width": 0.13,
+        "height": 0.07
+      },
+      {
+        "id": "FridgeItem_05",
+        "source_id": "one lemon",
+        "width": 0.05,
+        "height": 0.05
+      },
+      {
+        "id": "FridgeItem_06",
+        "source_id": "CROWN & VALE",
+        "width": 0.1,
+        "height": 0.07
+      },
+      {
+        "id": "FridgeItem_07",
+        "source_id": "jars",
+        "width": 0.06,
+        "height": 0.13
+      },
+      {
+        "id": "FridgeItem_08",
+        "source_id": "jars",
+        "width": 0.06,
+        "height": 0.12
+      },
+      {
+        "id": "FridgeItem_09",
+        "source_id": "KESSLER'S PICKLES",
+        "width": 0.08,
+        "height": 0.17
+      },
+      {
+        "id": "FridgeItem_10",
+        "source_id": "ASTORIA CREAM",
+        "width": 0.06,
+        "height": 0.1
+      },
+      {
+        "id": "FridgeItem_11",
+        "source_id": "wrapped",
+        "width": 0.14,
+        "height": 0.08
+      },
+      {
+        "id": "FridgeItem_12",
+        "source_id": "PEERLESS LAGER",
+        "width": 0.06,
+        "height": 0.19
+      },
+      {
+        "id": "FridgeItem_13",
+        "source_id": "carton",
+        "width": 0.15,
+        "height": 0.09
+      },
+      {
+        "id": "FridgeItem_14",
+        "source_id": "BELL BROS.",
+        "width": 0.08,
+        "height": 0.12
+      },
+      {
+        "id": "FridgeItem_15",
+        "source_id": "QUELL TONIC",
+        "width": 0.05,
+        "height": 0.2
+      },
+      {
+        "id": "FridgeItem_16",
+        "source_id": "wrapped",
+        "width": 0.12,
+        "height": 0.07
+      },
+      {
+        "id": "FridgeItem_17",
+        "source_id": "furred",
+        "width": 0.09,
+        "height": 0.09
+      },
+      {
+        "id": "FridgeItem_18",
+        "source_id": "furred",
+        "width": 0.07,
+        "height": 0.08
+      },
+      {
+        "id": "FridgeItem_19",
+        "source_id": "WREN'S BUTTER",
+        "width": 0.09,
+        "height": 0.06
+      },
+      {
+        "id": "FridgeItem_20",
+        "source_id": "carton",
+        "width": 0.14,
+        "height": 0.09
+      },
+      {
+        "id": "FridgeItem_21",
+        "source_id": "wrapped",
+        "width": 0.13,
+        "height": 0.08
+      },
+      {
+        "id": "FridgeItem_22",
+        "source_id": "furred",
+        "width": 0.08,
+        "height": 0.08
+      }
+    ],
+    "visual_fit": {
+      "icebox_shelves": [
+        0.3,
+        0.462,
+        0.672
+      ],
+      "monitor_shelves": [
+        0.38,
+        0.67,
+        0.94
+      ],
+      "shelf_bearing_offset": 0.0045
+    }
+  },
+  "asset_sha256": "567cdbfa18967c0f85d8d2d0471cfff01412a2c5b2972b94f3208e58529ab485",
+  "source_bindings": {
+    "art/data/household_fridges/source_plan.json": "e01789bd1db88f564be2b7f8df21a32d8540b89108951fc6a2bbe364e77c303c",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_household_fridges.py": "fbf7e7f7af37e47a143ca0b01ba0b5426e31bb5521002cf104c2c56c2100cf4e",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "game/data/runtime_material_sets.json": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73",
+    "game/scripts/generated/material_sets.gd": "51b0c6cf899b87bb34cd49191413be9f930b12d0a11db0b009616a0a1c8fee65",
+    "game/assets/props/household_fridges.glb.import": "de94448f4ef5b4893eb30be091d0832de0535fc9feb8acbb9d2b614cc766c424",
+    "art/textures/ai_materials/oak_work_surface/material.json": "e6f67c0a42f610648b57189f1f2d8ed7e567742ef8c4af32e104fd73acbe7f89",
+    "art/textures/ai_materials/zinc_liner/material.json": "caf3516c0f220772a27d9ae1cd53bee2f188eb297f9947c856c6c38774be1d7c",
+    "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/copper_aged/material.json": "2fbceb6f6f8579eca621d8e4e7db430af9d4840fffc5d0132e5b996c67960668",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "art/textures/ai_materials/rubber_aged/material.json": "356c7af1c52350241145dbd506dc002162024b9a902f595b96be211b091555bd",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/ai_materials/porcelain/material.json": "899a0a9636c14284da209f449d586f15bd8766e29436333087603d1a8e52c6d5",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_albedo.png": "94715b263c85285aced41196f29aea6675f866a61180ab90a1f9c719bef4edeb",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_rough.png": "ebf613454bbd3e6a6909cbe3d1aa4fe89b45fd8229516aafb31146761cf63ee5",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_normal.png": "8aa1987fad72d117f836ac0d18922e94b71a03a009206401f440768ac6ad91e1",
+    "game/assets/building/textures/T_ai_materials_zinc_liner_albedo.png": "7660d3b67d0cc6b12d94cb176c6c1716ade45ebfaa7cbe9bf0e49da586f49a42",
+    "game/assets/building/textures/T_ai_materials_zinc_liner_rough.png": "dc57fdcacb5854aa29200ab92ecc107daa06d145052e61ebcea59a78e38b0e94",
+    "game/assets/building/textures/T_ai_materials_zinc_liner_normal.png": "ed2ddaf99ba6a66691221350263721a4d848688456ea94f4e8fc6dcb1b6e5864",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_albedo.png": "10338ada0e24529e8ba0efa45e87607c1d5a51cdbe74285815a90a518c100e95",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_rough.png": "379412b367ed15d1b1afc467953c9dc0fd56961ee5fe750ff43a09a0a9922e17",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_normal.png": "576f07029fd6bb414d96db93b82f1e88a2fb8fb50bd1c90e33b5da202f6112ef",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_ai_materials_copper_aged_albedo.png": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272",
+    "game/assets/building/textures/T_ai_materials_copper_aged_rough.png": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79",
+    "game/assets/building/textures/T_ai_materials_copper_aged_normal.png": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "game/assets/building/textures/T_library_furniture_porcelain_albedo.png": "e85e5384e87a545a1cf3b368fc466a8611b87932ea7ad2ee7557a4a291263b5c",
+    "game/assets/building/textures/T_library_furniture_porcelain_rough.png": "9c0c46ffaca87f8aa08c408000d2bf16c722e775b030ff0b5832bf434a1f51cc",
+    "game/assets/building/textures/T_library_furniture_porcelain_normal.png": "800359566e5913a649d47b0d243cd872d6810b9c75f7311611965bf422092559",
+    "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
+    "art/data/material_catalog.json": "562d8c15879f12404d443d227a2ccda373c68a6af810e63cc214ce23c79ee1e1",
+    "art/textures/catalog_mapping.json": "d4f3e411ac9b1f942bed184b34a4cf19f4418a4220044c86ed917513c2421686",
+    "art/tools/generate_runtime_materials.py": "4156d34f776a3cd57c2dcdc016f0f147a0741530ef20a16d0b610e28dd8198a6",
+    "art/blender/scripts/inspect_household_fridges.py": "31256bd6d444ff67d7fd2ef80e1508a9c7c48b5b27b2ab750e94d9902f6b50eb",
+    "art/blender/scripts/render_household_fridges.py": "9ca204067bd8c964500a213e0cc18625407eb35623e7e14b808dfd66c255bb9f",
+    "art/blender/scripts/household_fridges_geometry.py": "71131def5e3cc1b6d2feaf9af0010380b328c0e622d17837a758aa6651f64621",
+    "art/blender/scripts/inspect_household_fridges_context.py": "7ba1cb947fe3ee3a9d8b4520d401c1c6e6294d677b3955ee291f7936e95106ca",
+    "art/blender/scripts/inspect_household_fridge_motion.py": "15604e66ac51c0bbc1f8e989855326f7de78aa15e1d95eb4841488a292a8f8b4",
+    "art/blender/scripts/surface_stock_geometry.py": "aa8245d785858c296761d420ec6302e18da3646d386c0b37c4d164c94c8beb12",
+    "art/blender/scripts/inspect_household_toaster_motion.py": "9019c8b4a08f01cd6e80f582ad5d76813eb11452db98a74c1a9782ad25553bb8",
+    "art/blender/scripts/inspect_medicine_cabinets_context.py": "6b426ed36fa3d7e5d275f2ad81164e01e5ee0b3f0910fc22bd70fcf0f11f7295",
+    "game/scripts/props/fridge_prop.gd": "195f5515ea7ee069e8f22206585ce1258cbb176449cfbb13604425bec9e89f64",
+    "game/scripts/props/functional_prop.gd": "f33126057cad4c7fc00cf132ba523d9e4fa915b6922aa9470ed10be47b2806ee",
+    "game/data/orison_v2/domestic_fittings.json": "09294039d42e7a1c90b942aeb00855757586231da29d6bdf4264ca915aa7a248",
+    "game/data/orison_v2/completion_interiors.json": "5fa82dc7867693816be370e8a6cea7a5bc71787cb51bdac1892c637e6746505f",
+    "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707",
+    "game/data/orison_v2_blockout.json": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab",
+    "art/data/orison_v2/completion_interiors_source.json": "9c2cc8459d7c93733aa047e426145f2e468ade34f14f988f44e522b2160cf0e9",
+    "art/blender/domestic_objects.blend": "99a7d3e1f3f6ecb06d740608bb6ec5556a540ab8653b925b19041fe3ba9d2fe0",
+    "game/tests/fixtures/orison_domestic_objects.json": "27bcad2cec7f9e5fa6a94a07f4640bc8cf0f3921b31c380e6812fcaea0a54746",
+    "art/blender/household_wardrobes.blend": "ed34e76d54efba76a5e2ef7e862d2b432c199ae8856b29f63793b69a04e77ad7",
+    "game/tests/fixtures/orison_household_wardrobes.json": "e234a93acacf20fd5d67ea3a85f534190763df5e567a11c0e52fcd1cf25c2bf3",
+    "art/blender/prep_cabinets.blend": "6c3cfa636a09f138a4b5f1939939149ee2ac98dc7eea068d8bd118b97e4062b3",
+    "game/tests/fixtures/orison_prep_cabinets.json": "773e6774b918dc11366ba657fe9b976f88090825062cb9adf76a6d7a36970495",
+    "art/blender/domestic_storage.blend": "2ecf3c03e229cb313a07fd549e6d21f9421a7305c6b349f2c68d2387cfc07684",
+    "game/tests/fixtures/orison_domestic_storage.json": "c42acdf04c7b3bec60de8848643a1c4efefa4b8e6af6cede0ca9435c0daf075a",
+    "art/blender/domestic_seating.blend": "b38976cbf3603ee75878320139027f17d6d732b6c27111d99c83719243b46efe",
+    "game/tests/fixtures/orison_domestic_seating.json": "ddb031013e8ffc11e62c7a24b63251d926ff3b0cbe68de606daf903fb0dcfa90",
+    "art/blender/domestic_tables.blend": "c408c7b2e9d545f519e0b269ca8691ced4bec2373d98d831228653f7e476b3ea",
+    "game/tests/fixtures/orison_domestic_tables.json": "83e825f44da20dfa2cb4a77f184382210c58dd1c25322d596c46570854944a01",
+    "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
+    "game/tests/fixtures/orison_work_tables.json": "6ed68b5413c5841bc0b4085eac2e5d26fafb4931e7a570becbe8e23d12cf7a98"
+  },
+  "retained_stock": [],
+  "construction_groups": [
+    {
+      "assembly": "FridgeIcebox",
+      "id": "FridgeIcebox_CompleteColdBox",
+      "stocks": [
+        "FridgeIcebox_Foot(-0.29, -0.235)",
+        "FridgeIcebox_Foot(-0.29, 0.235)",
+        "FridgeIcebox_Foot(0.29, -0.235)",
+        "FridgeIcebox_Foot(0.29, 0.235)",
+        "FridgeIcebox_Bottom",
+        "FridgeIcebox_Top",
+        "FridgeIcebox_Cheek-0.35",
+        "FridgeIcebox_Cheek0.27499999999999997",
+        "FridgeIcebox_Back",
+        "FridgeIcebox_LinerBack",
+        "FridgeIcebox_LinerCheek-0.277",
+        "FridgeIcebox_LinerCheek0.259",
+        "FridgeIcebox_LinerHorizontal0.236",
+        "FridgeIcebox_LinerHorizontal0.921",
+        "FridgeIcebox_LinerHorizontal1.167",
+        "FridgeIcebox_FrontRail0.215",
+        "FridgeIcebox_FrontRail0.945",
+        "FridgeIcebox_Drain",
+        "FridgeIcebox_TrayGuide-0.249",
+        "FridgeIcebox_TrayGuide0.249",
+        "FridgeIcebox_Rack0_Rod00",
+        "FridgeIcebox_Rack0_Rod01",
+        "FridgeIcebox_Rack0_Rod02",
+        "FridgeIcebox_Rack0_Rod03",
+        "FridgeIcebox_Rack0_Rod04",
+        "FridgeIcebox_Rack0_Rod05",
+        "FridgeIcebox_Rack0_Rod06",
+        "FridgeIcebox_Rack0_Rod07",
+        "FridgeIcebox_Rack0_Rod08",
+        "FridgeIcebox_Rack0_Rod09",
+        "FridgeIcebox_Rack0_Rod10",
+        "FridgeIcebox_Rack0_Rod11",
+        "FridgeIcebox_Rack0_Rod12",
+        "FridgeIcebox_Rack0_Rod13",
+        "FridgeIcebox_Rack0_Rod14",
+        "FridgeIcebox_Rack0_Rod15",
+        "FridgeIcebox_Rack0_Rod16",
+        "FridgeIcebox_Rack0_Rod17",
+        "FridgeIcebox_Rack0_Rod18",
+        "FridgeIcebox_Rack0_Rod19",
+        "FridgeIcebox_Rack0_Rod20",
+        "FridgeIcebox_Rack0_Rod21",
+        "FridgeIcebox_Rack0_Rod22",
+        "FridgeIcebox_Rack0_Rod23",
+        "FridgeIcebox_Rack0_Rod24",
+        "FridgeIcebox_Rack0_Rod25",
+        "FridgeIcebox_Rack0_Rod26",
+        "FridgeIcebox_Rack0_Rod27",
+        "FridgeIcebox_Rack0_Rod28",
+        "FridgeIcebox_Rack0_Rod29",
+        "FridgeIcebox_Rack0_Rod30",
+        "FridgeIcebox_Rack0_Rod31",
+        "FridgeIcebox_Rack0_Rod32",
+        "FridgeIcebox_Rack0_Rod33",
+        "FridgeIcebox_Rack0_Rod34",
+        "FridgeIcebox_Rack0_Rod35",
+        "FridgeIcebox_Rack0_Rod36",
+        "FridgeIcebox_Rack0_Rod37",
+        "FridgeIcebox_Rack0_Rod38",
+        "FridgeIcebox_Rack0_Rod39",
+        "FridgeIcebox_Rack0_Rod40",
+        "FridgeIcebox_Rack0_Cross-0.19799999999999998",
+        "FridgeIcebox_Rack0_Clip(-0.259, -0.19799999999999998)",
+        "FridgeIcebox_Rack0_Clip(0.259, -0.19799999999999998)",
+        "FridgeIcebox_Rack0_Cross0.19799999999999998",
+        "FridgeIcebox_Rack0_Clip(-0.259, 0.19799999999999998)",
+        "FridgeIcebox_Rack0_Clip(0.259, 0.19799999999999998)",
+        "FridgeIcebox_Rack1_Rod00",
+        "FridgeIcebox_Rack1_Rod01",
+        "FridgeIcebox_Rack1_Rod02",
+        "FridgeIcebox_Rack1_Rod03",
+        "FridgeIcebox_Rack1_Rod04",
+        "FridgeIcebox_Rack1_Rod05",
+        "FridgeIcebox_Rack1_Rod06",
+        "FridgeIcebox_Rack1_Rod07",
+        "FridgeIcebox_Rack1_Rod08",
+        "FridgeIcebox_Rack1_Rod09",
+        "FridgeIcebox_Rack1_Rod10",
+        "FridgeIcebox_Rack1_Rod11",
+        "FridgeIcebox_Rack1_Rod12",
+        "FridgeIcebox_Rack1_Rod13",
+        "FridgeIcebox_Rack1_Rod14",
+        "FridgeIcebox_Rack1_Rod15",
+        "FridgeIcebox_Rack1_Rod16",
+        "FridgeIcebox_Rack1_Rod17",
+        "FridgeIcebox_Rack1_Rod18",
+        "FridgeIcebox_Rack1_Rod19",
+        "FridgeIcebox_Rack1_Rod20",
+        "FridgeIcebox_Rack1_Rod21",
+        "FridgeIcebox_Rack1_Rod22",
+        "FridgeIcebox_Rack1_Rod23",
+        "FridgeIcebox_Rack1_Rod24",
+        "FridgeIcebox_Rack1_Rod25",
+        "FridgeIcebox_Rack1_Rod26",
+        "FridgeIcebox_Rack1_Rod27",
+        "FridgeIcebox_Rack1_Rod28",
+        "FridgeIcebox_Rack1_Rod29",
+        "FridgeIcebox_Rack1_Rod30",
+        "FridgeIcebox_Rack1_Rod31",
+        "FridgeIcebox_Rack1_Rod32",
+        "FridgeIcebox_Rack1_Rod33",
+        "FridgeIcebox_Rack1_Rod34",
+        "FridgeIcebox_Rack1_Rod35",
+        "FridgeIcebox_Rack1_Rod36",
+        "FridgeIcebox_Rack1_Rod37",
+        "FridgeIcebox_Rack1_Rod38",
+        "FridgeIcebox_Rack1_Rod39",
+        "FridgeIcebox_Rack1_Rod40",
+        "FridgeIcebox_Rack1_Cross-0.19799999999999998",
+        "FridgeIcebox_Rack1_Clip(-0.259, -0.19799999999999998)",
+        "FridgeIcebox_Rack1_Clip(0.259, -0.19799999999999998)",
+        "FridgeIcebox_Rack1_Cross0.19799999999999998",
+        "FridgeIcebox_Rack1_Clip(-0.259, 0.19799999999999998)",
+        "FridgeIcebox_Rack1_Clip(0.259, 0.19799999999999998)",
+        "FridgeIcebox_Rack2_Rod00",
+        "FridgeIcebox_Rack2_Rod01",
+        "FridgeIcebox_Rack2_Rod02",
+        "FridgeIcebox_Rack2_Rod03",
+        "FridgeIcebox_Rack2_Rod04",
+        "FridgeIcebox_Rack2_Rod05",
+        "FridgeIcebox_Rack2_Rod06",
+        "FridgeIcebox_Rack2_Rod07",
+        "FridgeIcebox_Rack2_Rod08",
+        "FridgeIcebox_Rack2_Rod09",
+        "FridgeIcebox_Rack2_Rod10",
+        "FridgeIcebox_Rack2_Rod11",
+        "FridgeIcebox_Rack2_Rod12",
+        "FridgeIcebox_Rack2_Rod13",
+        "FridgeIcebox_Rack2_Rod14",
+        "FridgeIcebox_Rack2_Rod15",
+        "FridgeIcebox_Rack2_Rod16",
+        "FridgeIcebox_Rack2_Rod17",
+        "FridgeIcebox_Rack2_Rod18",
+        "FridgeIcebox_Rack2_Rod19",
+        "FridgeIcebox_Rack2_Rod20",
+        "FridgeIcebox_Rack2_Rod21",
+        "FridgeIcebox_Rack2_Rod22",
+        "FridgeIcebox_Rack2_Rod23",
+        "FridgeIcebox_Rack2_Rod24",
+        "FridgeIcebox_Rack2_Rod25",
+        "FridgeIcebox_Rack2_Rod26",
+        "FridgeIcebox_Rack2_Rod27",
+        "FridgeIcebox_Rack2_Rod28",
+        "FridgeIcebox_Rack2_Rod29",
+        "FridgeIcebox_Rack2_Rod30",
+        "FridgeIcebox_Rack2_Rod31",
+        "FridgeIcebox_Rack2_Rod32",
+        "FridgeIcebox_Rack2_Rod33",
+        "FridgeIcebox_Rack2_Rod34",
+        "FridgeIcebox_Rack2_Rod35",
+        "FridgeIcebox_Rack2_Rod36",
+        "FridgeIcebox_Rack2_Rod37",
+        "FridgeIcebox_Rack2_Rod38",
+        "FridgeIcebox_Rack2_Rod39",
+        "FridgeIcebox_Rack2_Rod40",
+        "FridgeIcebox_Rack2_Cross-0.19799999999999998",
+        "FridgeIcebox_Rack2_Clip(-0.259, -0.19799999999999998)",
+        "FridgeIcebox_Rack2_Clip(0.259, -0.19799999999999998)",
+        "FridgeIcebox_Rack2_Cross0.19799999999999998",
+        "FridgeIcebox_Rack2_Clip(-0.259, 0.19799999999999998)",
+        "FridgeIcebox_Rack2_Clip(0.259, 0.19799999999999998)",
+        "FridgeIcebox_Door_Skin",
+        "FridgeIcebox_Door_RaisedPanel",
+        "FridgeIcebox_Door_Liner",
+        "FridgeIcebox_Door_HandleFoot0.535",
+        "FridgeIcebox_Door_HandleFoot0.705",
+        "FridgeIcebox_Door_BowHandle",
+        "FridgeIcebox_Door_Latch",
+        "FridgeIcebox_Door_Hinge0_Pin",
+        "FridgeIcebox_Door_Hinge0_Neck",
+        "FridgeIcebox_Door_Hinge0_MovingKnuckle0.287",
+        "FridgeIcebox_Door_Hinge0_MovingKnuckle0.343",
+        "FridgeIcebox_Door_Hinge0_Strap0.287",
+        "FridgeIcebox_Door_Hinge0_Strap0.343",
+        "FridgeIcebox_Door_Hinge0_Screw0.287-1",
+        "FridgeIcebox_Door_Hinge0_Screw0.2871",
+        "FridgeIcebox_Door_Hinge0_Screw0.343-1",
+        "FridgeIcebox_Door_Hinge0_Screw0.3431",
+        "FridgeIcebox_Door_Hinge1_Pin",
+        "FridgeIcebox_Door_Hinge1_Neck",
+        "FridgeIcebox_Door_Hinge1_MovingKnuckle0.847",
+        "FridgeIcebox_Door_Hinge1_MovingKnuckle0.903",
+        "FridgeIcebox_Door_Hinge1_Strap0.847",
+        "FridgeIcebox_Door_Hinge1_Strap0.903",
+        "FridgeIcebox_Door_Hinge1_Screw0.847-1",
+        "FridgeIcebox_Door_Hinge1_Screw0.8471",
+        "FridgeIcebox_Door_Hinge1_Screw0.903-1",
+        "FridgeIcebox_Door_Hinge1_Screw0.9031",
+        "FridgeIcebox_IceDoor_Skin",
+        "FridgeIcebox_IceDoor_RaisedPanel",
+        "FridgeIcebox_IceDoor_Liner",
+        "FridgeIcebox_IceDoor_HandleFoot1.020375",
+        "FridgeIcebox_IceDoor_HandleFoot1.149625",
+        "FridgeIcebox_IceDoor_BowHandle",
+        "FridgeIcebox_IceDoor_Latch",
+        "FridgeIcebox_IceDoor_Hinge0_Pin",
+        "FridgeIcebox_IceDoor_Hinge0_Neck",
+        "FridgeIcebox_IceDoor_Hinge0_MovingKnuckle1.057",
+        "FridgeIcebox_IceDoor_Hinge0_MovingKnuckle1.113",
+        "FridgeIcebox_IceDoor_Hinge0_Strap1.057",
+        "FridgeIcebox_IceDoor_Hinge0_Strap1.113",
+        "FridgeIcebox_IceDoor_Hinge0_Screw1.057-1",
+        "FridgeIcebox_IceDoor_Hinge0_Screw1.0571",
+        "FridgeIcebox_IceDoor_Hinge0_Screw1.113-1",
+        "FridgeIcebox_IceDoor_Hinge0_Screw1.1131",
+        "FridgeIcebox_TrayPan",
+        "FridgeIcebox_TrayLeft",
+        "FridgeIcebox_TrayRight",
+        "FridgeIcebox_TrayRear",
+        "FridgeIcebox_TrayFront",
+        "FridgeIcebox_TrayFrontFold",
+        "FridgeIcebox_TrayPullFoot-0.1",
+        "FridgeIcebox_TrayPullFoot0.1",
+        "FridgeIcebox_TrayPull"
+      ]
+    },
+    {
+      "assembly": "FridgeMonitor",
+      "id": "FridgeMonitor_CompleteColdBox",
+      "stocks": [
+        "FridgeMonitor_Leg(-0.3, -0.265)",
+        "FridgeMonitor_Leg(-0.3, 0.265)",
+        "FridgeMonitor_Leg(0.3, -0.265)",
+        "FridgeMonitor_Leg(0.3, 0.265)",
+        "FridgeMonitor_Bottom",
+        "FridgeMonitor_Top",
+        "FridgeMonitor_Cheek-0.36",
+        "FridgeMonitor_Cheek0.305",
+        "FridgeMonitor_Back",
+        "FridgeMonitor_LinerBack",
+        "FridgeMonitor_LinerCheek-0.29500000000000004",
+        "FridgeMonitor_LinerCheek0.277",
+        "FridgeMonitor_LinerHorizontal0.226",
+        "FridgeMonitor_LinerHorizontal1.236",
+        "FridgeMonitor_FreezerShelf",
+        "FridgeMonitor_FreezerHood",
+        "FridgeMonitor_FreezerBracket-0.2",
+        "FridgeMonitor_FreezerBracket0.2",
+        "FridgeMonitor_Rack0_Rod00",
+        "FridgeMonitor_Rack0_Rod01",
+        "FridgeMonitor_Rack0_Rod02",
+        "FridgeMonitor_Rack0_Rod03",
+        "FridgeMonitor_Rack0_Rod04",
+        "FridgeMonitor_Rack0_Rod05",
+        "FridgeMonitor_Rack0_Rod06",
+        "FridgeMonitor_Rack0_Rod07",
+        "FridgeMonitor_Rack0_Rod08",
+        "FridgeMonitor_Rack0_Rod09",
+        "FridgeMonitor_Rack0_Rod10",
+        "FridgeMonitor_Rack0_Rod11",
+        "FridgeMonitor_Rack0_Rod12",
+        "FridgeMonitor_Rack0_Rod13",
+        "FridgeMonitor_Rack0_Rod14",
+        "FridgeMonitor_Rack0_Rod15",
+        "FridgeMonitor_Rack0_Rod16",
+        "FridgeMonitor_Rack0_Rod17",
+        "FridgeMonitor_Rack0_Rod18",
+        "FridgeMonitor_Rack0_Rod19",
+        "FridgeMonitor_Rack0_Rod20",
+        "FridgeMonitor_Rack0_Rod21",
+        "FridgeMonitor_Rack0_Rod22",
+        "FridgeMonitor_Rack0_Rod23",
+        "FridgeMonitor_Rack0_Rod24",
+        "FridgeMonitor_Rack0_Rod25",
+        "FridgeMonitor_Rack0_Rod26",
+        "FridgeMonitor_Rack0_Rod27",
+        "FridgeMonitor_Rack0_Rod28",
+        "FridgeMonitor_Rack0_Rod29",
+        "FridgeMonitor_Rack0_Rod30",
+        "FridgeMonitor_Rack0_Rod31",
+        "FridgeMonitor_Rack0_Rod32",
+        "FridgeMonitor_Rack0_Rod33",
+        "FridgeMonitor_Rack0_Rod34",
+        "FridgeMonitor_Rack0_Rod35",
+        "FridgeMonitor_Rack0_Rod36",
+        "FridgeMonitor_Rack0_Rod37",
+        "FridgeMonitor_Rack0_Rod38",
+        "FridgeMonitor_Rack0_Rod39",
+        "FridgeMonitor_Rack0_Rod40",
+        "FridgeMonitor_Rack0_Cross-0.22299999999999998",
+        "FridgeMonitor_Rack0_Clip(-0.277, -0.22299999999999998)",
+        "FridgeMonitor_Rack0_Clip(0.277, -0.22299999999999998)",
+        "FridgeMonitor_Rack0_Cross0.22299999999999998",
+        "FridgeMonitor_Rack0_Clip(-0.277, 0.22299999999999998)",
+        "FridgeMonitor_Rack0_Clip(0.277, 0.22299999999999998)",
+        "FridgeMonitor_Rack1_Rod00",
+        "FridgeMonitor_Rack1_Rod01",
+        "FridgeMonitor_Rack1_Rod02",
+        "FridgeMonitor_Rack1_Rod03",
+        "FridgeMonitor_Rack1_Rod04",
+        "FridgeMonitor_Rack1_Rod05",
+        "FridgeMonitor_Rack1_Rod06",
+        "FridgeMonitor_Rack1_Rod07",
+        "FridgeMonitor_Rack1_Rod08",
+        "FridgeMonitor_Rack1_Rod09",
+        "FridgeMonitor_Rack1_Rod10",
+        "FridgeMonitor_Rack1_Rod11",
+        "FridgeMonitor_Rack1_Rod12",
+        "FridgeMonitor_Rack1_Rod13",
+        "FridgeMonitor_Rack1_Rod14",
+        "FridgeMonitor_Rack1_Rod15",
+        "FridgeMonitor_Rack1_Rod16",
+        "FridgeMonitor_Rack1_Rod17",
+        "FridgeMonitor_Rack1_Rod18",
+        "FridgeMonitor_Rack1_Rod19",
+        "FridgeMonitor_Rack1_Rod20",
+        "FridgeMonitor_Rack1_Rod21",
+        "FridgeMonitor_Rack1_Rod22",
+        "FridgeMonitor_Rack1_Rod23",
+        "FridgeMonitor_Rack1_Rod24",
+        "FridgeMonitor_Rack1_Rod25",
+        "FridgeMonitor_Rack1_Rod26",
+        "FridgeMonitor_Rack1_Rod27",
+        "FridgeMonitor_Rack1_Rod28",
+        "FridgeMonitor_Rack1_Rod29",
+        "FridgeMonitor_Rack1_Rod30",
+        "FridgeMonitor_Rack1_Rod31",
+        "FridgeMonitor_Rack1_Rod32",
+        "FridgeMonitor_Rack1_Rod33",
+        "FridgeMonitor_Rack1_Rod34",
+        "FridgeMonitor_Rack1_Rod35",
+        "FridgeMonitor_Rack1_Rod36",
+        "FridgeMonitor_Rack1_Rod37",
+        "FridgeMonitor_Rack1_Rod38",
+        "FridgeMonitor_Rack1_Rod39",
+        "FridgeMonitor_Rack1_Rod40",
+        "FridgeMonitor_Rack1_Cross-0.22299999999999998",
+        "FridgeMonitor_Rack1_Clip(-0.277, -0.22299999999999998)",
+        "FridgeMonitor_Rack1_Clip(0.277, -0.22299999999999998)",
+        "FridgeMonitor_Rack1_Cross0.22299999999999998",
+        "FridgeMonitor_Rack1_Clip(-0.277, 0.22299999999999998)",
+        "FridgeMonitor_Rack1_Clip(0.277, 0.22299999999999998)",
+        "FridgeMonitor_Rack2_Rod00",
+        "FridgeMonitor_Rack2_Rod01",
+        "FridgeMonitor_Rack2_Rod02",
+        "FridgeMonitor_Rack2_Rod03",
+        "FridgeMonitor_Rack2_Rod04",
+        "FridgeMonitor_Rack2_Rod05",
+        "FridgeMonitor_Rack2_Rod06",
+        "FridgeMonitor_Rack2_Rod07",
+        "FridgeMonitor_Rack2_Rod08",
+        "FridgeMonitor_Rack2_Rod09",
+        "FridgeMonitor_Rack2_Rod10",
+        "FridgeMonitor_Rack2_Rod11",
+        "FridgeMonitor_Rack2_Rod12",
+        "FridgeMonitor_Rack2_Rod13",
+        "FridgeMonitor_Rack2_Rod14",
+        "FridgeMonitor_Rack2_Rod15",
+        "FridgeMonitor_Rack2_Rod16",
+        "FridgeMonitor_Rack2_Rod17",
+        "FridgeMonitor_Rack2_Rod18",
+        "FridgeMonitor_Rack2_Rod19",
+        "FridgeMonitor_Rack2_Rod20",
+        "FridgeMonitor_Rack2_Rod21",
+        "FridgeMonitor_Rack2_Rod22",
+        "FridgeMonitor_Rack2_Rod23",
+        "FridgeMonitor_Rack2_Rod24",
+        "FridgeMonitor_Rack2_Rod25",
+        "FridgeMonitor_Rack2_Rod26",
+        "FridgeMonitor_Rack2_Rod27",
+        "FridgeMonitor_Rack2_Rod28",
+        "FridgeMonitor_Rack2_Rod29",
+        "FridgeMonitor_Rack2_Rod30",
+        "FridgeMonitor_Rack2_Rod31",
+        "FridgeMonitor_Rack2_Rod32",
+        "FridgeMonitor_Rack2_Rod33",
+        "FridgeMonitor_Rack2_Rod34",
+        "FridgeMonitor_Rack2_Rod35",
+        "FridgeMonitor_Rack2_Rod36",
+        "FridgeMonitor_Rack2_Rod37",
+        "FridgeMonitor_Rack2_Rod38",
+        "FridgeMonitor_Rack2_Rod39",
+        "FridgeMonitor_Rack2_Rod40",
+        "FridgeMonitor_Rack2_Cross-0.22299999999999998",
+        "FridgeMonitor_Rack2_Clip(-0.277, -0.22299999999999998)",
+        "FridgeMonitor_Rack2_Clip(0.277, -0.22299999999999998)",
+        "FridgeMonitor_Rack2_Cross0.22299999999999998",
+        "FridgeMonitor_Rack2_Clip(-0.277, 0.22299999999999998)",
+        "FridgeMonitor_Rack2_Clip(0.277, 0.22299999999999998)",
+        "FridgeMonitor_CompressorBase",
+        "FridgeMonitor_MotorHousing",
+        "FridgeMonitor_CapNeck",
+        "FridgeMonitor_MachineryCap",
+        "FridgeMonitor_Condenser1.385",
+        "FridgeMonitor_CoilBridge(1.385, -1)",
+        "FridgeMonitor_CoilBridge(1.385, 1)",
+        "FridgeMonitor_Condenser1.455",
+        "FridgeMonitor_CoilBridge(1.455, -1)",
+        "FridgeMonitor_CoilBridge(1.455, 1)",
+        "FridgeMonitor_Condenser1.525",
+        "FridgeMonitor_CoilBridge(1.525, -1)",
+        "FridgeMonitor_CoilBridge(1.525, 1)",
+        "FridgeMonitor_ServicePipe-0.205",
+        "FridgeMonitor_ServicePipe0.205",
+        "FridgeMonitor_Badge",
+        "FridgeMonitor_BadgeScrew-0.078-1",
+        "FridgeMonitor_BadgeScrew-0.0781",
+        "FridgeMonitor_BadgeScrew0.078-1",
+        "FridgeMonitor_BadgeScrew0.0781",
+        "FridgeMonitor_Door_Skin",
+        "FridgeMonitor_Door_RaisedPanel",
+        "FridgeMonitor_Door_Liner",
+        "FridgeMonitor_Door_HandleFoot0.67",
+        "FridgeMonitor_Door_HandleFoot0.91",
+        "FridgeMonitor_Door_BowHandle",
+        "FridgeMonitor_Door_Latch",
+        "FridgeMonitor_Door_Hinge0_Pin",
+        "FridgeMonitor_Door_Hinge0_Neck",
+        "FridgeMonitor_Door_Hinge0_MovingKnuckle0.26449999999999996",
+        "FridgeMonitor_Door_Hinge0_MovingKnuckle0.3205",
+        "FridgeMonitor_Door_Hinge0_Strap0.26449999999999996",
+        "FridgeMonitor_Door_Hinge0_Strap0.3205",
+        "FridgeMonitor_Door_Hinge0_Screw0.26449999999999996-1",
+        "FridgeMonitor_Door_Hinge0_Screw0.264499999999999961",
+        "FridgeMonitor_Door_Hinge0_Screw0.3205-1",
+        "FridgeMonitor_Door_Hinge0_Screw0.32051",
+        "FridgeMonitor_Door_Hinge1_Pin",
+        "FridgeMonitor_Door_Hinge1_Neck",
+        "FridgeMonitor_Door_Hinge1_MovingKnuckle1.1695",
+        "FridgeMonitor_Door_Hinge1_MovingKnuckle1.2255",
+        "FridgeMonitor_Door_Hinge1_Strap1.1695",
+        "FridgeMonitor_Door_Hinge1_Strap1.2255",
+        "FridgeMonitor_Door_Hinge1_Screw1.1695-1",
+        "FridgeMonitor_Door_Hinge1_Screw1.16951",
+        "FridgeMonitor_Door_Hinge1_Screw1.2255-1",
+        "FridgeMonitor_Door_Hinge1_Screw1.22551"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_01",
+      "id": "FridgeItem_01_LarderObject",
+      "stocks": [
+        "FridgeItem_01_Body",
+        "FridgeItem_01_Closure",
+        "FridgeItem_01_LabelBand"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_02",
+      "id": "FridgeItem_02_LarderObject",
+      "stocks": [
+        "FridgeItem_02_Body",
+        "FridgeItem_02_Closure",
+        "FridgeItem_02_LabelBand"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_03",
+      "id": "FridgeItem_03_LarderObject",
+      "stocks": [
+        "FridgeItem_03_PulpTray",
+        "FridgeItem_03_Egg00",
+        "FridgeItem_03_Egg01",
+        "FridgeItem_03_Egg10",
+        "FridgeItem_03_Egg11",
+        "FridgeItem_03_Egg20",
+        "FridgeItem_03_Egg21"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_04",
+      "id": "FridgeItem_04_LarderObject",
+      "stocks": [
+        "FridgeItem_04_Package",
+        "FridgeItem_04_Fold(-1, False)",
+        "FridgeItem_04_Fold(-1, True)",
+        "FridgeItem_04_Fold(1, False)",
+        "FridgeItem_04_Fold(1, True)",
+        "FridgeItem_04_WrapSeam"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_05",
+      "id": "FridgeItem_05_LarderObject",
+      "stocks": [
+        "FridgeItem_05_Lemon"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_06",
+      "id": "FridgeItem_06_LarderObject",
+      "stocks": [
+        "FridgeItem_06_Package",
+        "FridgeItem_06_Lid"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_07",
+      "id": "FridgeItem_07_LarderObject",
+      "stocks": [
+        "FridgeItem_07_Body",
+        "FridgeItem_07_Closure"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_08",
+      "id": "FridgeItem_08_LarderObject",
+      "stocks": [
+        "FridgeItem_08_Body",
+        "FridgeItem_08_Closure"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_09",
+      "id": "FridgeItem_09_LarderObject",
+      "stocks": [
+        "FridgeItem_09_Body",
+        "FridgeItem_09_Closure",
+        "FridgeItem_09_LabelBand"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_10",
+      "id": "FridgeItem_10_LarderObject",
+      "stocks": [
+        "FridgeItem_10_Body",
+        "FridgeItem_10_Closure",
+        "FridgeItem_10_LabelBand"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_11",
+      "id": "FridgeItem_11_LarderObject",
+      "stocks": [
+        "FridgeItem_11_Package",
+        "FridgeItem_11_Fold(-1, False)",
+        "FridgeItem_11_Fold(-1, True)",
+        "FridgeItem_11_Fold(1, False)",
+        "FridgeItem_11_Fold(1, True)",
+        "FridgeItem_11_WrapSeam"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_12",
+      "id": "FridgeItem_12_LarderObject",
+      "stocks": [
+        "FridgeItem_12_Body",
+        "FridgeItem_12_Closure",
+        "FridgeItem_12_LabelBand"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_13",
+      "id": "FridgeItem_13_LarderObject",
+      "stocks": [
+        "FridgeItem_13_Package",
+        "FridgeItem_13_Lid"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_14",
+      "id": "FridgeItem_14_LarderObject",
+      "stocks": [
+        "FridgeItem_14_Package",
+        "FridgeItem_14_Lid"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_15",
+      "id": "FridgeItem_15_LarderObject",
+      "stocks": [
+        "FridgeItem_15_Body",
+        "FridgeItem_15_Closure",
+        "FridgeItem_15_LabelBand"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_16",
+      "id": "FridgeItem_16_LarderObject",
+      "stocks": [
+        "FridgeItem_16_Package",
+        "FridgeItem_16_Fold(-1, False)",
+        "FridgeItem_16_Fold(-1, True)",
+        "FridgeItem_16_Fold(1, False)",
+        "FridgeItem_16_Fold(1, True)",
+        "FridgeItem_16_WrapSeam"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_17",
+      "id": "FridgeItem_17_LarderObject",
+      "stocks": [
+        "FridgeItem_17_Package",
+        "FridgeItem_17_Fold(-1, False)",
+        "FridgeItem_17_Fold(-1, True)",
+        "FridgeItem_17_Fold(1, False)",
+        "FridgeItem_17_Fold(1, True)",
+        "FridgeItem_17_WrapSeam"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_18",
+      "id": "FridgeItem_18_LarderObject",
+      "stocks": [
+        "FridgeItem_18_Package",
+        "FridgeItem_18_Fold(-1, False)",
+        "FridgeItem_18_Fold(-1, True)",
+        "FridgeItem_18_Fold(1, False)",
+        "FridgeItem_18_Fold(1, True)",
+        "FridgeItem_18_WrapSeam"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_19",
+      "id": "FridgeItem_19_LarderObject",
+      "stocks": [
+        "FridgeItem_19_Package",
+        "FridgeItem_19_Lid"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_20",
+      "id": "FridgeItem_20_LarderObject",
+      "stocks": [
+        "FridgeItem_20_Package",
+        "FridgeItem_20_Lid"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_21",
+      "id": "FridgeItem_21_LarderObject",
+      "stocks": [
+        "FridgeItem_21_Package",
+        "FridgeItem_21_Fold(-1, False)",
+        "FridgeItem_21_Fold(-1, True)",
+        "FridgeItem_21_Fold(1, False)",
+        "FridgeItem_21_Fold(1, True)",
+        "FridgeItem_21_WrapSeam"
+      ]
+    },
+    {
+      "assembly": "FridgeItem_22",
+      "id": "FridgeItem_22_LarderObject",
+      "stocks": [
+        "FridgeItem_22_Package",
+        "FridgeItem_22_Fold(-1, False)",
+        "FridgeItem_22_Fold(-1, True)",
+        "FridgeItem_22_Fold(1, False)",
+        "FridgeItem_22_Fold(1, True)",
+        "FridgeItem_22_WrapSeam"
+      ]
+    }
+  ],
+  "placement": {
+    "floor_y": 0
+  },
+  "open_work": [
+    "Whole-room lighting and broad floor/plaster finish calibration remain open."
+  ]
+}

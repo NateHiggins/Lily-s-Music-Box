@@ -1,0 +1,117 @@
+{
+  "evidence_class": "INERT",
+  "checks": [
+    [
+      "FridgeIcebox_Door_Hinge0_MovingKnuckle0.287",
+      "FridgeIcebox_Door_Hinge0_Pin",
+      "coaxial annular bearing"
+    ],
+    [
+      "FridgeIcebox_Door_Hinge0_MovingKnuckle0.343",
+      "FridgeIcebox_Door_Hinge0_Pin",
+      "coaxial annular bearing"
+    ],
+    [
+      "FridgeIcebox_Door_Hinge0_Strap0.287",
+      "FridgeIcebox_Door_Hinge0_Pin",
+      105,
+      0
+    ],
+    [
+      "FridgeIcebox_Door_Hinge0_Strap0.343",
+      "FridgeIcebox_Door_Hinge0_Pin",
+      105,
+      0
+    ],
+    [
+      "FridgeIcebox_Door_Hinge1_MovingKnuckle0.847",
+      "FridgeIcebox_Door_Hinge1_Pin",
+      "coaxial annular bearing"
+    ],
+    [
+      "FridgeIcebox_Door_Hinge1_MovingKnuckle0.903",
+      "FridgeIcebox_Door_Hinge1_Pin",
+      "coaxial annular bearing"
+    ],
+    [
+      "FridgeIcebox_Door_Hinge1_Strap0.847",
+      "FridgeIcebox_Door_Hinge1_Pin",
+      105,
+      0
+    ],
+    [
+      "FridgeIcebox_Door_Hinge1_Strap0.903",
+      "FridgeIcebox_Door_Hinge1_Pin",
+      105,
+      0
+    ],
+    [
+      "FridgeIcebox_IceDoor_Hinge0_MovingKnuckle1.057",
+      "FridgeIcebox_IceDoor_Hinge0_Pin",
+      "coaxial annular bearing"
+    ],
+    [
+      "FridgeIcebox_IceDoor_Hinge0_MovingKnuckle1.113",
+      "FridgeIcebox_IceDoor_Hinge0_Pin",
+      "coaxial annular bearing"
+    ],
+    [
+      "FridgeIcebox_IceDoor_Hinge0_Strap1.057",
+      "FridgeIcebox_IceDoor_Hinge0_Pin",
+      94,
+      0
+    ],
+    [
+      "FridgeIcebox_IceDoor_Hinge0_Strap1.113",
+      "FridgeIcebox_IceDoor_Hinge0_Pin",
+      94,
+      0
+    ],
+    [
+      "FridgeMonitor_Door_Hinge0_MovingKnuckle0.26449999999999996",
+      "FridgeMonitor_Door_Hinge0_Pin",
+      "coaxial annular bearing"
+    ],
+    [
+      "FridgeMonitor_Door_Hinge0_MovingKnuckle0.3205",
+      "FridgeMonitor_Door_Hinge0_Pin",
+      "coaxial annular bearing"
+    ],
+    [
+      "FridgeMonitor_Door_Hinge0_Strap0.26449999999999996",
+      "FridgeMonitor_Door_Hinge0_Pin",
+      105,
+      0
+    ],
+    [
+      "FridgeMonitor_Door_Hinge0_Strap0.3205",
+      "FridgeMonitor_Door_Hinge0_Pin",
+      105,
+      0
+    ],
+    [
+      "FridgeMonitor_Door_Hinge1_MovingKnuckle1.1695",
+      "FridgeMonitor_Door_Hinge1_Pin",
+      "coaxial annular bearing"
+    ],
+    [
+      "FridgeMonitor_Door_Hinge1_MovingKnuckle1.2255",
+      "FridgeMonitor_Door_Hinge1_Pin",
+      "coaxial annular bearing"
+    ],
+    [
+      "FridgeMonitor_Door_Hinge1_Strap1.1695",
+      "FridgeMonitor_Door_Hinge1_Pin",
+      105,
+      0
+    ],
+    [
+      "FridgeMonitor_Door_Hinge1_Strap1.2255",
+      "FridgeMonitor_Door_Hinge1_Pin",
+      105,
+      0
+    ]
+  ],
+  "failures": [],
+  "scope": "All three source hinges (105/98 degrees) and the 300 mm pan stroke. Analytic arc bounds reject distant stocks; bounded convex hulls enclose every intermediate angle. Exact annular pin exception; 30 micrometre contact tolerance."
+}

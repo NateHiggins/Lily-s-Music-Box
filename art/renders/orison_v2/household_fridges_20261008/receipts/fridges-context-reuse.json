@@ -1,0 +1,670 @@
+{
+  "evidence_class": "INERT",
+  "base": "db2187c48ca8f6aab8109ad0fc203e55386b3097",
+  "applied": true,
+  "exact_source_changes": [
+    {
+      "source": "art/data/orison_v2/completion_interiors_source.json",
+      "before": {
+        "id": "F01_1A_FRIDGE_01",
+        "level": "F01",
+        "position": [
+          -10.82,
+          0,
+          -8.8
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      "after": {
+        "id": "F01_1A_FRIDGE_01",
+        "level": "F01",
+        "position": [
+          -8.62,
+          0,
+          -8.5
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "source": "art/data/orison_v2/completion_interiors_source.json",
+      "before": {
+        "id": "F03_3D_FRIDGE_01",
+        "level": "F03",
+        "position": [
+          -10.82,
+          0,
+          -8.8
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      "after": {
+        "id": "F03_3D_FRIDGE_01",
+        "level": "F03",
+        "position": [
+          -8.62,
+          0,
+          -8.5
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "source": "art/data/orison_v2/completion_interiors_source.json",
+      "before": {
+        "id": "F04_4D_FRIDGE_01",
+        "level": "F04",
+        "position": [
+          -10.82,
+          0,
+          -8.8
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      "after": {
+        "id": "F04_4D_FRIDGE_01",
+        "level": "F04",
+        "position": [
+          -8.62,
+          0,
+          -8.5
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "source": "game/data/orison_v2_blockout.json",
+      "before": {
+        "id": "F01_1A_FRIDGE_01",
+        "level": "F01",
+        "position": [
+          -10.82,
+          0,
+          -8.8
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      "after": {
+        "id": "F01_1A_FRIDGE_01",
+        "level": "F01",
+        "position": [
+          -8.62,
+          0,
+          -8.5
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "source": "game/data/orison_v2_blockout.json",
+      "before": {
+        "id": "F03_3D_FRIDGE_01",
+        "level": "F03",
+        "position": [
+          -10.82,
+          0,
+          -8.8
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      "after": {
+        "id": "F03_3D_FRIDGE_01",
+        "level": "F03",
+        "position": [
+          -8.62,
+          0,
+          -8.5
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "source": "game/data/orison_v2_blockout.json",
+      "before": {
+        "id": "F04_4D_FRIDGE_01",
+        "level": "F04",
+        "position": [
+          -10.82,
+          0,
+          -8.8
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      },
+      "after": {
+        "id": "F04_4D_FRIDGE_01",
+        "level": "F04",
+        "position": [
+          -8.62,
+          0,
+          -8.5
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    }
+  ],
+  "updates": [
+    {
+      "path": "game/tests/fixtures/orison_boiler_window.json",
+      "before": "f83259bd55faa0135e6cb590be503ba5952a22d53b7978a74d51e68495ae4a00",
+      "after": "f9d28ec7356956c877631472263553009568e1bea8efaaa36528c05a6cce7e9d",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "792356cf9e8fcbcb381b5a466760d856bf32c2c2a9c95c4dba1d019d7ec3cb71"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_aerials.json",
+      "before": "551d20a530da53f9fd54dab2ded7b663b332a1c0f1918c1abbee1901801f2a67",
+      "after": "036379ed8053536a7f20bf671aaf8a7ab21f47470ac0bcb7d60d66eff6369800",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "092ae72b844bd96c75f6d1b4b214879dbd274840b3f3245f17577fd4fb67c3f0"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_beacons.json",
+      "before": "3c543910a8ba34d016a8279b2073a29d9247e6d4d42f51e77195beb22deb031c",
+      "after": "476e918a33e5ee703492b96d9ed3261192e7da6c89ce21a0dfab370629ac63d8",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "64faf094b5cd30c11f817aff3e0b9baf2ec3de31b14e9704ff1e609ab92738fe"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_masts.json",
+      "before": "60e8aa315ba20709903c0806b30af6a7d02f5b9ec5000aa6709c7a6ac96ae20d",
+      "after": "42ae61f53fa2f1b2730743dcb84f5863a1d67f940cb3c76271ff31a12c02678a",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "37ab64c754f28adc3e5a307d82c3b0cf6155d1b3ae4ca88887dadc8f749a126b"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_tanks.json",
+      "before": "cf7ab34258461bc709196d5bf098d4f583b1706dd84c02a0d6bdaf9bc25bb0c5",
+      "after": "14aecab4fe8dc6e63a6590af504f98ac8e7d7fa3efda119d792107cf7ed19889",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "d0ab1ddbd28af3af4bcf22034c60d37b17b6993ba7b37410c0c1791efc2f0f36"
+    },
+    {
+      "path": "game/tests/fixtures/orison_city_closure.json",
+      "before": "244becb77ddad89c300e4f3bb37e3e3675f2edf1fd8fb207dfc7852c948e1fd0",
+      "after": "032f4db99896d58218ff433a0b55ba16e1abcdbf3e9c5fd336133614171b5d34",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json",
+        "game/tests/fixtures/orison_city_masts.json",
+        "game/tests/fixtures/orison_city_aerials.json",
+        "game/tests/fixtures/orison_city_tanks.json"
+      ],
+      "asset_sha256_unchanged": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e"
+    },
+    {
+      "path": "game/tests/fixtures/orison_domestic_objects.json",
+      "before": "8ab7b787b443c028f6ba0a55cf283eb0035282d8bce4da5e3558a0d3a0cacb3d",
+      "after": "27bcad2cec7f9e5fa6a94a07f4640bc8cf0f3921b31c380e6812fcaea0a54746",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "7940870f6ece99b0da4008f1d1e89835ad6a5d417fe62f85e1ebd85ba5fc37be"
+    },
+    {
+      "path": "game/tests/fixtures/orison_domestic_seating.json",
+      "before": "6e60f3022d08168de29c1443224939c90b6d56d2b325f68d926be782f0a77ded",
+      "after": "ddb031013e8ffc11e62c7a24b63251d926ff3b0cbe68de606daf903fb0dcfa90",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "4bda006bb8cf23a271664b1b77bf5fdbb07b93b7006698f49e1b0711da90716f"
+    },
+    {
+      "path": "game/tests/fixtures/orison_domestic_storage.json",
+      "before": "5902907a646cc5adca3cef72a9b1c233409a3b158e5d507aa88f39ae1acc7f50",
+      "after": "c42acdf04c7b3bec60de8848643a1c4efefa4b8e6af6cede0ca9435c0daf075a",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "d64650c6da209ae2478604d4b5aeae6b6fb8cc86ece1eb1634d8a47c345d3881"
+    },
+    {
+      "path": "game/tests/fixtures/orison_domestic_tables.json",
+      "before": "204d6055cdcc8cc37879307885e247e0ce5552cf8c675adacd81a1e4e19d48dc",
+      "after": "83e825f44da20dfa2cb4a77f184382210c58dd1c25322d596c46570854944a01",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "52940ff9e78b863b46b2b9a113b5d270a5dcc8f9515c9c0caca496c3f1b9eb63"
+    },
+    {
+      "path": "game/tests/fixtures/orison_fixed_lighting.json",
+      "before": "5af1f056063c4ec72fbb3654ea150312b94cb7193065c20e974d9f05ae2dd37d",
+      "after": "c981a2db2ff58cf3b19dc2ded76c04e3fad1f6f40c3dacead7c80b350eca382d",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json",
+        "art/data/orison_v2/completion_interiors_source.json"
+      ],
+      "asset_sha256_unchanged": "1a1e3b472f82a7b0d9c356be7b0b26fc8851bfe1d99dc25a787e3778c046d170"
+    },
+    {
+      "path": "game/tests/fixtures/orison_front_pavement_construction.json",
+      "before": "b5580b3b7d28500411233e95bcbd44eb92813535a2df5f082d6d7bbb8c042be9",
+      "after": "6b224e0f26be0002a0c510a977fba9938b28a57cd63df521c9009483878a97c0",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "c3461f121f9992a5679db5746c602894a1d696768ddcb8f11aac13a57081122d"
+    },
+    {
+      "path": "game/tests/fixtures/orison_household_wardrobes.json",
+      "before": "4e0dcf6a7328eff4a0666595bb76174cb096aa1a7c7c04676a063a74f2ef3f16",
+      "after": "e234a93acacf20fd5d67ea3a85f534190763df5e567a11c0e52fcd1cf25c2bf3",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "83f0822bd898dcf60b2eefbbf32e218e5b831d1decfdc16e8ca7cc4ff5469238"
+    },
+    {
+      "path": "game/tests/fixtures/orison_prep_cabinets.json",
+      "before": "db202fdd3dcf7c5bb32212ab9fc324837d2594c7c7454b7aa0afdc45b334ffcb",
+      "after": "773e6774b918dc11366ba657fe9b976f88090825062cb9adf76a6d7a36970495",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "c56ff94b5d2471d50e786f05ab009922efef47613e63c3f75b414dd8557e4d04"
+    },
+    {
+      "path": "game/tests/fixtures/orison_household_fridges.json",
+      "before": "0d51d55fb8600bdf006ae4ba52c15f0bca8481242b094f82e1ff3ddcae446fcd",
+      "after": "b519ebc405d776cc8a33baef6da0e393bb230945cbb53ee5ff1ce7d82b4ad2ef",
+      "bindings_only": [
+        "game/tests/fixtures/orison_domestic_objects.json",
+        "game/tests/fixtures/orison_household_wardrobes.json",
+        "game/tests/fixtures/orison_prep_cabinets.json",
+        "game/tests/fixtures/orison_domestic_storage.json",
+        "game/tests/fixtures/orison_domestic_seating.json",
+        "game/tests/fixtures/orison_domestic_tables.json"
+      ],
+      "asset_sha256_unchanged": "567cdbfa18967c0f85d8d2d0471cfff01412a2c5b2972b94f3208e58529ab485"
+    },
+    {
+      "path": "game/tests/fixtures/orison_household_radios.json",
+      "before": "bb947e24b2ea297557f54912425b514a78f3258798bf982d69f753ee675f1264",
+      "after": "63579014ec14924b67d0141768fcb128fd3279ed25c81b62d94a643d55809ff3",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "40834a2cd5c7db6c9a903441cc5c21d38fabdfa3e88e63d5062038daf73f96be"
+    },
+    {
+      "path": "game/tests/fixtures/orison_household_toasters.json",
+      "before": "2c8c7f157be25bf3592ab2a1c8818825c35d7ca6a94a02a3f41d1938daa6c994",
+      "after": "bcefd352d0b6b74384c903d97bbe08e0160c4c79e340fc16581db7190dd2dc07",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "8ef87e80828fb4e0e1eba1af8938250a4c1a062d50bf00eb8efbe0ddb7927e9b"
+    },
+    {
+      "path": "game/tests/fixtures/orison_medicine_cabinets.json",
+      "before": "b6aa348aad04bc2aa272a8963b8114278eb44ab5b481aeafcfaf35755b808b5f",
+      "after": "c0bb7006843ce817c62325ac92df3bd3545641540fdd27acbdfedb3ce4fbaf73",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "2c3c377d417b508ddf92da8200296a646295befdc5e2cb21afc46107cfd4a87e"
+    },
+    {
+      "path": "game/tests/fixtures/orison_reading_nook.json",
+      "before": "229392d24e010bed208b6da9f27e05c09754345f52b652c9db4b4a17e5fc33b6",
+      "after": "27f1cb5f747ea47c9a66e73f72850bb5568d9c05275664aaa86df893c8735b29",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "0767ba652b36f1f2854de0a5c94a4e9a499b7f299a1a22b01366c956f0643cf9"
+    },
+    {
+      "path": "game/tests/fixtures/orison_roof_base_flashings.json",
+      "before": "9f3e9b2f9a2c16c9b22030a44f0a6ef0705270908eceae89dbbc515486014e0e",
+      "after": "1ba7b875c18a821a5296c48e3fb4df563ddad5ab271a86148f96f833aba9ddac",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "e4999b5e17cc05ddd1fcbfb468dfa734852c3d7e679b723c4ecea3217a14f456"
+    },
+    {
+      "path": "art/blender/roof_drainage_falls_construction.json",
+      "before": "2277f4e439ec075d0f6d64d7308db3cd39b71bc87259d883c54c42498a56f536",
+      "after": "338752581c4bb9e8ba9c86eb646461bddf94cdb1df85d57dd75fc29d30e34809",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "faae515fa31340674eaa1b47809aa789b7ff36e4a4d676378d2b88c3928a6c4f"
+    },
+    {
+      "path": "game/tests/fixtures/orison_roof_drainage_door_weather.json",
+      "before": "9971437e3583c55fc700ec3108fae9fdded7850ec9e3d8e85924ed0c405a4774",
+      "after": "58ab10fc0bcaff8d53e3cc48493ec15c2306e86748132e71365789c091559ea8",
+      "bindings_only": [
+        "art/blender/roof_drainage_falls_construction.json"
+      ],
+      "asset_sha256_unchanged": "7ba4b76f71a36d54b6aedc2846f645044854d03675741c3afa9fa17cd2cf4e4f"
+    },
+    {
+      "path": "game/tests/fixtures/orison_roof_drainage_falls.json",
+      "before": "2277f4e439ec075d0f6d64d7308db3cd39b71bc87259d883c54c42498a56f536",
+      "after": "338752581c4bb9e8ba9c86eb646461bddf94cdb1df85d57dd75fc29d30e34809",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "faae515fa31340674eaa1b47809aa789b7ff36e4a4d676378d2b88c3928a6c4f"
+    },
+    {
+      "path": "game/tests/fixtures/orison_roof_drainage_plant_weather.json",
+      "before": "703420c555fc47034265569957924a5857402f4d9852952e63f4e67ac89c3e28",
+      "after": "8ecf395437b80621c89aff5ea82b51e3f2e39f1e5ee2db5fb1a709d80009ca9f",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json",
+        "art/blender/roof_drainage_falls_construction.json"
+      ],
+      "asset_sha256_unchanged": "064808b9c7b701a0c577b04d51586b8946519da21de6fc0bef611743db468019"
+    },
+    {
+      "path": "game/tests/fixtures/orison_roof_membrane.json",
+      "before": "d1445b84d8fffbb15314c6885aa99b5c2340d7669df36ea66907738a2747fdb0",
+      "after": "d464fef118c754bf76fe95faa53c8db877222e862c612da40c81db89518308d6",
+      "bindings_only": [
+        "art/blender/roof_drainage_falls_construction.json"
+      ],
+      "asset_sha256_unchanged": "dd59738599508bc79d17c2423ce4cc6f09b124c1112ec15cdbbea067435230fb"
+    },
+    {
+      "path": "game/tests/fixtures/orison_roof_public_weathering.json",
+      "before": "9cd87c56fa1f569abae13a8288b538326d580fe5780ef641ba0715d28bfae0e8",
+      "after": "7e1fd3d2f8e94d1ba5c07e4fa1f70f25ee13e629576bb4709782b4d0e8968131",
+      "bindings_only": [
+        "game\\data\\orison_v2_blockout.json",
+        "art/blender/roof_drainage_falls_construction.json"
+      ],
+      "asset_sha256_unchanged": "69207288d64ccb4117de511f684b1b8558f89d067390c47c60486fd6bded1fff"
+    },
+    {
+      "path": "game/tests/fixtures/orison_roof_service_weathering.json",
+      "before": "681d2188e053fbe102cb1a95d44d82189738b5b0e8c978847b8663e3f06bcb66",
+      "after": "0f1e2dc92d1e61f1def8cde2ea65ee264a03891d544d6e9eff77606222cfc31b",
+      "bindings_only": [
+        "game\\data\\orison_v2_blockout.json",
+        "art/blender/roof_drainage_falls_construction.json"
+      ],
+      "asset_sha256_unchanged": "ed83427c44f3ed4ecd0091a1c1b3696b3f1d1d6a44b1ef1186c3719022a4c45e"
+    },
+    {
+      "path": "art/blender/boiler_window_construction.json",
+      "before": "f83259bd55faa0135e6cb590be503ba5952a22d53b7978a74d51e68495ae4a00",
+      "after": "f9d28ec7356956c877631472263553009568e1bea8efaaa36528c05a6cce7e9d",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "792356cf9e8fcbcb381b5a466760d856bf32c2c2a9c95c4dba1d019d7ec3cb71"
+    },
+    {
+      "path": "art/blender/city_aerials_construction.json",
+      "before": "551d20a530da53f9fd54dab2ded7b663b332a1c0f1918c1abbee1901801f2a67",
+      "after": "036379ed8053536a7f20bf671aaf8a7ab21f47470ac0bcb7d60d66eff6369800",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "092ae72b844bd96c75f6d1b4b214879dbd274840b3f3245f17577fd4fb67c3f0"
+    },
+    {
+      "path": "art/blender/city_beacons_construction.json",
+      "before": "3c543910a8ba34d016a8279b2073a29d9247e6d4d42f51e77195beb22deb031c",
+      "after": "476e918a33e5ee703492b96d9ed3261192e7da6c89ce21a0dfab370629ac63d8",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "64faf094b5cd30c11f817aff3e0b9baf2ec3de31b14e9704ff1e609ab92738fe"
+    },
+    {
+      "path": "art/blender/city_closure_construction.json",
+      "before": "244becb77ddad89c300e4f3bb37e3e3675f2edf1fd8fb207dfc7852c948e1fd0",
+      "after": "032f4db99896d58218ff433a0b55ba16e1abcdbf3e9c5fd336133614171b5d34",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json",
+        "game/tests/fixtures/orison_city_masts.json",
+        "game/tests/fixtures/orison_city_aerials.json",
+        "game/tests/fixtures/orison_city_tanks.json"
+      ],
+      "asset_sha256_unchanged": "b860ddd7685b2d74ce20d573aa6c84e3f298ef0bab44a7b25724d96fa305696e"
+    },
+    {
+      "path": "art/blender/city_masts_construction.json",
+      "before": "60e8aa315ba20709903c0806b30af6a7d02f5b9ec5000aa6709c7a6ac96ae20d",
+      "after": "42ae61f53fa2f1b2730743dcb84f5863a1d67f940cb3c76271ff31a12c02678a",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "37ab64c754f28adc3e5a307d82c3b0cf6155d1b3ae4ca88887dadc8f749a126b"
+    },
+    {
+      "path": "art/blender/city_tanks_construction.json",
+      "before": "cf7ab34258461bc709196d5bf098d4f583b1706dd84c02a0d6bdaf9bc25bb0c5",
+      "after": "14aecab4fe8dc6e63a6590af504f98ac8e7d7fa3efda119d792107cf7ed19889",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "d0ab1ddbd28af3af4bcf22034c60d37b17b6993ba7b37410c0c1791efc2f0f36"
+    },
+    {
+      "path": "art/blender/domestic_objects_construction.json",
+      "before": "8ab7b787b443c028f6ba0a55cf283eb0035282d8bce4da5e3558a0d3a0cacb3d",
+      "after": "27bcad2cec7f9e5fa6a94a07f4640bc8cf0f3921b31c380e6812fcaea0a54746",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "7940870f6ece99b0da4008f1d1e89835ad6a5d417fe62f85e1ebd85ba5fc37be"
+    },
+    {
+      "path": "art/blender/domestic_seating_construction.json",
+      "before": "6e60f3022d08168de29c1443224939c90b6d56d2b325f68d926be782f0a77ded",
+      "after": "ddb031013e8ffc11e62c7a24b63251d926ff3b0cbe68de606daf903fb0dcfa90",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "4bda006bb8cf23a271664b1b77bf5fdbb07b93b7006698f49e1b0711da90716f"
+    },
+    {
+      "path": "art/blender/domestic_storage_construction.json",
+      "before": "5902907a646cc5adca3cef72a9b1c233409a3b158e5d507aa88f39ae1acc7f50",
+      "after": "c42acdf04c7b3bec60de8848643a1c4efefa4b8e6af6cede0ca9435c0daf075a",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "d64650c6da209ae2478604d4b5aeae6b6fb8cc86ece1eb1634d8a47c345d3881"
+    },
+    {
+      "path": "art/blender/domestic_tables_construction.json",
+      "before": "204d6055cdcc8cc37879307885e247e0ce5552cf8c675adacd81a1e4e19d48dc",
+      "after": "83e825f44da20dfa2cb4a77f184382210c58dd1c25322d596c46570854944a01",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "52940ff9e78b863b46b2b9a113b5d270a5dcc8f9515c9c0caca496c3f1b9eb63"
+    },
+    {
+      "path": "art/blender/fixed_lighting_construction.json",
+      "before": "5af1f056063c4ec72fbb3654ea150312b94cb7193065c20e974d9f05ae2dd37d",
+      "after": "c981a2db2ff58cf3b19dc2ded76c04e3fad1f6f40c3dacead7c80b350eca382d",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json",
+        "art/data/orison_v2/completion_interiors_source.json"
+      ],
+      "asset_sha256_unchanged": "1a1e3b472f82a7b0d9c356be7b0b26fc8851bfe1d99dc25a787e3778c046d170"
+    },
+    {
+      "path": "art/blender/front_pavement_construction.json",
+      "before": "b5580b3b7d28500411233e95bcbd44eb92813535a2df5f082d6d7bbb8c042be9",
+      "after": "6b224e0f26be0002a0c510a977fba9938b28a57cd63df521c9009483878a97c0",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "c3461f121f9992a5679db5746c602894a1d696768ddcb8f11aac13a57081122d"
+    },
+    {
+      "path": "art/blender/household_fridges_construction.json",
+      "before": "0d51d55fb8600bdf006ae4ba52c15f0bca8481242b094f82e1ff3ddcae446fcd",
+      "after": "b519ebc405d776cc8a33baef6da0e393bb230945cbb53ee5ff1ce7d82b4ad2ef",
+      "bindings_only": [
+        "game/tests/fixtures/orison_domestic_objects.json",
+        "game/tests/fixtures/orison_household_wardrobes.json",
+        "game/tests/fixtures/orison_prep_cabinets.json",
+        "game/tests/fixtures/orison_domestic_storage.json",
+        "game/tests/fixtures/orison_domestic_seating.json",
+        "game/tests/fixtures/orison_domestic_tables.json"
+      ],
+      "asset_sha256_unchanged": "567cdbfa18967c0f85d8d2d0471cfff01412a2c5b2972b94f3208e58529ab485"
+    },
+    {
+      "path": "art/blender/household_radios_construction.json",
+      "before": "bb947e24b2ea297557f54912425b514a78f3258798bf982d69f753ee675f1264",
+      "after": "63579014ec14924b67d0141768fcb128fd3279ed25c81b62d94a643d55809ff3",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "40834a2cd5c7db6c9a903441cc5c21d38fabdfa3e88e63d5062038daf73f96be"
+    },
+    {
+      "path": "art/blender/household_toasters_construction.json",
+      "before": "2c8c7f157be25bf3592ab2a1c8818825c35d7ca6a94a02a3f41d1938daa6c994",
+      "after": "bcefd352d0b6b74384c903d97bbe08e0160c4c79e340fc16581db7190dd2dc07",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "8ef87e80828fb4e0e1eba1af8938250a4c1a062d50bf00eb8efbe0ddb7927e9b"
+    },
+    {
+      "path": "art/blender/household_wardrobes_construction.json",
+      "before": "4e0dcf6a7328eff4a0666595bb76174cb096aa1a7c7c04676a063a74f2ef3f16",
+      "after": "e234a93acacf20fd5d67ea3a85f534190763df5e567a11c0e52fcd1cf25c2bf3",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "83f0822bd898dcf60b2eefbbf32e218e5b831d1decfdc16e8ca7cc4ff5469238"
+    },
+    {
+      "path": "art/blender/medicine_cabinets_construction.json",
+      "before": "b6aa348aad04bc2aa272a8963b8114278eb44ab5b481aeafcfaf35755b808b5f",
+      "after": "c0bb7006843ce817c62325ac92df3bd3545641540fdd27acbdfedb3ce4fbaf73",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "2c3c377d417b508ddf92da8200296a646295befdc5e2cb21afc46107cfd4a87e"
+    },
+    {
+      "path": "art/blender/prep_cabinets_construction.json",
+      "before": "db202fdd3dcf7c5bb32212ab9fc324837d2594c7c7454b7aa0afdc45b334ffcb",
+      "after": "773e6774b918dc11366ba657fe9b976f88090825062cb9adf76a6d7a36970495",
+      "bindings_only": [
+        "art/data/orison_v2/completion_interiors_source.json",
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "c56ff94b5d2471d50e786f05ab009922efef47613e63c3f75b414dd8557e4d04"
+    },
+    {
+      "path": "art/blender/reading_nook_construction.json",
+      "before": "229392d24e010bed208b6da9f27e05c09754345f52b652c9db4b4a17e5fc33b6",
+      "after": "27f1cb5f747ea47c9a66e73f72850bb5568d9c05275664aaa86df893c8735b29",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "0767ba652b36f1f2854de0a5c94a4e9a499b7f299a1a22b01366c956f0643cf9"
+    },
+    {
+      "path": "art/blender/roof_base_flashings_construction.json",
+      "before": "9f3e9b2f9a2c16c9b22030a44f0a6ef0705270908eceae89dbbc515486014e0e",
+      "after": "1ba7b875c18a821a5296c48e3fb4df563ddad5ab271a86148f96f833aba9ddac",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json"
+      ],
+      "asset_sha256_unchanged": "e4999b5e17cc05ddd1fcbfb468dfa734852c3d7e679b723c4ecea3217a14f456"
+    },
+    {
+      "path": "art/blender/roof_drainage_door_weather_construction.json",
+      "before": "9971437e3583c55fc700ec3108fae9fdded7850ec9e3d8e85924ed0c405a4774",
+      "after": "58ab10fc0bcaff8d53e3cc48493ec15c2306e86748132e71365789c091559ea8",
+      "bindings_only": [
+        "art/blender/roof_drainage_falls_construction.json"
+      ],
+      "asset_sha256_unchanged": "7ba4b76f71a36d54b6aedc2846f645044854d03675741c3afa9fa17cd2cf4e4f"
+    },
+    {
+      "path": "art/blender/roof_drainage_plant_weather_construction.json",
+      "before": "703420c555fc47034265569957924a5857402f4d9852952e63f4e67ac89c3e28",
+      "after": "8ecf395437b80621c89aff5ea82b51e3f2e39f1e5ee2db5fb1a709d80009ca9f",
+      "bindings_only": [
+        "game/data/orison_v2_blockout.json",
+        "art/blender/roof_drainage_falls_construction.json"
+      ],
+      "asset_sha256_unchanged": "064808b9c7b701a0c577b04d51586b8946519da21de6fc0bef611743db468019"
+    },
+    {
+      "path": "art/blender/roof_membrane_construction.json",
+      "before": "d1445b84d8fffbb15314c6885aa99b5c2340d7669df36ea66907738a2747fdb0",
+      "after": "d464fef118c754bf76fe95faa53c8db877222e862c612da40c81db89518308d6",
+      "bindings_only": [
+        "art/blender/roof_drainage_falls_construction.json"
+      ],
+      "asset_sha256_unchanged": "dd59738599508bc79d17c2423ce4cc6f09b124c1112ec15cdbbea067435230fb"
+    },
+    {
+      "path": "art/blender/roof_public_weathering_construction.json",
+      "before": "9cd87c56fa1f569abae13a8288b538326d580fe5780ef641ba0715d28bfae0e8",
+      "after": "7e1fd3d2f8e94d1ba5c07e4fa1f70f25ee13e629576bb4709782b4d0e8968131",
+      "bindings_only": [
+        "game\\data\\orison_v2_blockout.json",
+        "art/blender/roof_drainage_falls_construction.json"
+      ],
+      "asset_sha256_unchanged": "69207288d64ccb4117de511f684b1b8558f89d067390c47c60486fd6bded1fff"
+    },
+    {
+      "path": "art/blender/roof_service_weathering_construction.json",
+      "before": "681d2188e053fbe102cb1a95d44d82189738b5b0e8c978847b8663e3f06bcb66",
+      "after": "0f1e2dc92d1e61f1def8cde2ea65ee264a03891d544d6e9eff77606222cfc31b",
+      "bindings_only": [
+        "game\\data\\orison_v2_blockout.json",
+        "art/blender/roof_drainage_falls_construction.json"
+      ],
+      "asset_sha256_unchanged": "ed83427c44f3ed4ecd0091a1c1b3696b3f1d1d6a44b1ef1186c3719022a4c45e"
+    }
+  ],
+  "scope": "Exactly three V2 refrigerator positions/yaws; every other source record is identical. Existing geometry and evidence unchanged. Fresh refrigerator context checks independently cover all surrounding native furniture and relocated stove service envelopes. Existing visual acceptance is not renewed."
+}

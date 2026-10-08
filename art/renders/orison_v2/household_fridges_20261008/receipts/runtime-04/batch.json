@@ -1,0 +1,50 @@
+{
+	"batch_checks": 7,
+	"elapsed_ms": 37054,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 1697,
+	"modules": {
+		"household_fridges": {
+			"actors": 18,
+			"captured": true,
+			"checks": 1697,
+			"elapsed_ms": 4638,
+			"failures": [],
+			"fixture_sha256": "f38b1db861425a6e841c2b25c3ab57133031998b265d2352904f4124f3654195",
+			"inventory_items": 50,
+			"monitors": 7,
+			"unique_triangles": 140808,
+			"validator_sha256": "3ab4f42a7506c912cd6fbb4eedc885ef1c735a6c97045c0dec02593c42e4fbe1",
+			"views": [
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						11.8500022888184,
+						9.6200008392334,
+						-15.8999996185303
+					],
+					"id": "F04_B_FRIDGE_01_native_open",
+					"image": "F04_B_FRIDGE_01_native_open.png",
+					"owner": "F04_B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						11.8500022888184,
+						9.6200008392334,
+						-15.8999996185303
+					],
+					"id": "F04_B_FRIDGE_01_native_closed",
+					"image": "F04_B_FRIDGE_01_native_closed.png",
+					"owner": "F04_B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

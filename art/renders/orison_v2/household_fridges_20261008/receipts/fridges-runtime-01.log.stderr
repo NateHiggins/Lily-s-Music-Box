@@ -1,0 +1,30 @@
+ERROR: The object does not have any 'meta' values with the key 'v2_native_fridge_factory'.
+   at: get_meta (core/object/object.cpp:1053)
+   GDScript backtrace (most recent call first):
+       [0] mount_source (res://scripts/building/orison_v2_domestic_fittings.gd:27)
+       [1] mount (res://scripts/building/orison_v2_domestic_fittings.gd:22)
+       [2] _compose_authorities (res://scripts/building/orison_v2_runtime_root.gd:234)
+       [3] _ready (res://scripts/building/orison_v2_runtime_root.gd:162)
+       [4] _run (res://tests/orison_v2_fabrication_batch.gd:68)
+ERROR: Node not found: "Door" (relative to "/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F03_3B_FRIDGE_01").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] validate_in_world (res://tests/orison_v2_household_fridges_test.gd:28)
+       [1] _run (res://tests/orison_v2_fabrication_batch.gd:105)
+ERROR: original door owner and hinge retained
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_household_fridges_test.gd:28)
+       [3] _run (res://tests/orison_v2_fabrication_batch.gd:105)
+ERROR: Node not found: "Door" (relative to "/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F03_3B_FRIDGE_01").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] validate_in_world (res://tests/orison_v2_household_fridges_test.gd:49)
+       [1] _run (res://tests/orison_v2_fabrication_batch.gd:105)
+SCRIPT ERROR: Cannot call method 'get_node' on a null value.
+   at: validate_in_world (res://tests/orison_v2_household_fridges_test.gd:50)
+   GDScript backtrace (most recent call first):
+       [0] validate_in_world (res://tests/orison_v2_household_fridges_test.gd:50)
+       [1] _run (res://tests/orison_v2_fabrication_batch.gd:105)
