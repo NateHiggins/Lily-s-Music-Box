@@ -44,6 +44,15 @@ between these checks. Raw records are preserved without rewriting their claims.
 Reader NEW=0. Inspection records and wrapper receipts are INERT; no new schema-2
 runtime contract or completeness-ledger acceptance is claimed.
 
+Fresh static candidate **490c0d5f** passes 49 gate comparisons with zero
+regressions and unchanged ledger counts/requirements. Protected **17/17**;
+selector **V2**. The clean fresh checkout was removed after verification.
+Baseline **a172324c** reuses its actual verified board; intervening **03118dd7**
+contains only review metadata/documentation. Godot was not rerun by the verifier.
+See [verification](../art/renders/orison_v2/ground_finish_20261008/verification.md)
+and [committed byte comparison](../art/renders/orison_v2/ground_finish_20261008/committed_binding.json).
+Final run03 has no script errors and empty stderr; its wrapper receipt binds.
+
 ## Closeout
 
 Worktree clean at end: no; pre-existing owner insitu files, two EOL-only edits,
@@ -55,4 +64,4 @@ ground/foundation validator and a read-only Blender review script. Open findings
 broader city-ground interfaces, drainage, shell/roof details, weather readiness
 and full V2 acceptance. Decision needed from owner: none.
 
-Last line: bounded ground finish pass; broader V2 remains open.
+Last line: MERGE-CANDIDATE **490c0d5f4fac3d5d17f3ec99161b07851929779d**; broader V2 remains open.

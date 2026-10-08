@@ -1,0 +1,23 @@
+{
+  "evidence_class": "INERT",
+  "candidate": "490c0d5f4fac3d5d17f3ec99161b07851929779d",
+  "runtime_inputs_sha256": "92b2197f17f3ccf60a8fb7e48b367bfe463137e4dc8c926fe5fa664767e98b7e",
+  "files": [
+    {
+      "path": "game/scripts/building/orison_v2_ground.gd",
+      "sha256": "407c41cde8ada7cc79ba7e09344081f69f8911d285339bf9f882c42189b6f3cb",
+      "committed_bytes_match": true
+    },
+    {
+      "path": "game/tests/orison_v2_city_foundations_test.gd",
+      "sha256": "45233166701a3586ccc34adfe3d1ea904354552d0894f83ca8722fc513dd46e7",
+      "committed_bytes_match": true
+    },
+    {
+      "path": "game/data/orison_v2/ground_finish.json",
+      "sha256": "30e05ddcac2abb08ed0148b6e0db9f9eaa676d22fa34fce302d55254bfef8db9",
+      "committed_bytes_match": true
+    }
+  ],
+  "scope": "Canonical wrapper receipt binds to reviewed inputs. Runtime/test/profile match committed bytes; four native/export bytes match starting HEAD. This is not a runtime contract or fresh-checkout runtime proof."
+}
