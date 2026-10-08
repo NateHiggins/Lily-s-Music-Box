@@ -65,8 +65,11 @@ The initial scoring probes were only 33 mm long; longer probes resolve the
 small triangles without changing their geometry or collision shapes.
 
 Protected 17/17: no protected paths changed. Selector V2 and explicit V1
-rollback remain. This INERT report changes no ledger claims. Fresh static
-candidate verification follows the named-path code commit.
+rollback remain. This INERT report changes no ledger claims. Fresh [static candidate verification](../art/renders/orison_v2/bar_furniture_20261008/verification.json)
+passed for **e7574e78** against **5d5da5a6**: zero gate regressions, zero
+fresh-checkout dirt, protected 17/17 and selector V2. Only the append-only
+spatial inventory is a flagged gate file. This verification used no extra
+Godot run; composed runtime evidence is linked above.
 
 Worktree clean at report time: no. Owner dossier inputs, unrelated in-situ
 images, existing line-ending-only changes and unrelated generated UIDs stay
