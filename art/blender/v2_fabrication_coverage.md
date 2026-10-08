@@ -156,6 +156,11 @@ under the production lamp before applying changes throughout the building.
 
 The four original Harukiya ceiling stocks use a local **smoked_plaster** finish with fine physical substrate relief and optical smoke staining. Their 48 original faces, normals and physical owner remain; **bar_ceiling_finish.md** records the bounded repair. Shared soot, all fifteen visual locks and broader material acceptance remain separate.
 
+The fixed-light family replaces visual stock on 199 existing room, passage and
+bar actors with 27 native variants. Original circuits, emitters, flicker and
+swing owners remain. **fixed_lighting.md** describes fitted suspensions,
+registered local finishes and the remaining exterior/whole-building work.
+
 ## Evidence and continuation
 
 Door receipts and inspected captures: **tmp/boiler-doors**; verified candidate

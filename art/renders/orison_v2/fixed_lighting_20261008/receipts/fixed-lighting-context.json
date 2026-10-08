@@ -1,0 +1,5264 @@
+{
+  "evidence_class": "INERT",
+  "actors": 133,
+  "contacts": [
+    {
+      "id": "B1_LAUNDRY_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise150",
+      "point": [
+        -6.025000095367432,
+        -0.2000000774860382,
+        0.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "B1_LAUNDRY",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F01_MAIL_TELEPHONE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "B1_LAUNDRY_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise150",
+      "point": [
+        -5.974999904632568,
+        -0.2000000774860382,
+        0.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "B1_LAUNDRY",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F01_MAIL_TELEPHONE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise360",
+      "point": [
+        -11.258999824523926,
+        6.200000286102295,
+        0.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise360",
+      "point": [
+        -11.140999794006348,
+        6.200000286102295,
+        0.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise100",
+      "point": [
+        13.541000366210938,
+        9.40000057220459,
+        -2.4000000953674316
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_B_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_A_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise100",
+      "point": [
+        13.659000396728516,
+        9.40000057220459,
+        -2.4000000953674316
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_B_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_A_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear_rise100",
+      "point": [
+        11.27500057220459,
+        9.40000057220459,
+        -6.650000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_B_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_A_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear_rise100",
+      "point": [
+        11.324999809265137,
+        9.40000057220459,
+        -6.650000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_B_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_A_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise100",
+      "point": [
+        11.175000190734863,
+        9.40000057220459,
+        -10.300000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_B_ALCOVE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_A_BED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise100",
+      "point": [
+        11.22499942779541,
+        9.40000057220459,
+        -10.300000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_B_ALCOVE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_A_BED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "3B_LT_SCONCE",
+      "variant": "sconce_globe_back050",
+      "point": [
+        15.579999923706055,
+        7.965000629425049,
+        -10.300000190734863
+      ],
+      "owner": "wall",
+      "matches": [
+        {
+          "space": "F03_B_BATH",
+          "surface": "east"
+        }
+      ]
+    },
+    {
+      "id": "3B_LT_SCONCE",
+      "variant": "sconce_globe_back050",
+      "point": [
+        15.579999923706055,
+        8.075000762939453,
+        -10.300000190734863
+      ],
+      "owner": "wall",
+      "matches": [
+        {
+          "space": "F03_B_BATH",
+          "surface": "east"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -13.125,
+        12.600000381469727,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_ALCOVE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_ALCOVE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -13.075000762939453,
+        12.600000381469727,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_ALCOVE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_ALCOVE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -11.758999824523926,
+        12.600000381469727,
+        -0.20000000298023224
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_MAIN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -11.640999794006348,
+        12.600000381469727,
+        -0.20000000298023224
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_MAIN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.590000152587891,
+        12.600000381469727,
+        4.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.409999847412109,
+        12.600000381469727,
+        4.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -13.390000343322754,
+        12.600000381469727,
+        4.800000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -13.210000038146973,
+        12.600000381469727,
+        4.800000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -10.140000343322754,
+        12.600000381469727,
+        4.900000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -9.960000038146973,
+        12.600000381469727,
+        4.900000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_CLOSET_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.840000152587891,
+        12.600000381469727,
+        7.150000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_CLOSET",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_CLOSET_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.659999847412109,
+        12.600000381469727,
+        7.150000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_CLOSET",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.690000057220459,
+        6.199999809265137,
+        0.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.509999752044678,
+        6.199999809265137,
+        0.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -12.989999771118164,
+        6.199999809265137,
+        4.699999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -12.809999465942383,
+        6.199999809265137,
+        4.699999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -9.690000534057617,
+        6.199999809265137,
+        5.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -9.510000228881836,
+        6.199999809265137,
+        5.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.490000247955322,
+        6.199999809265137,
+        4.349999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.309999942779541,
+        6.199999809265137,
+        4.349999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -12.890000343322754,
+        6.199999809265137,
+        9.25
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_BED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -12.710000038146973,
+        6.199999809265137,
+        9.25
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_A_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_A_BED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        10.40999984741211,
+        6.199999809265137,
+        -2.5
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        10.59000015258789,
+        6.199999809265137,
+        -2.5
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        13.541000366210938,
+        6.199999809265137,
+        -1.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        13.659000396728516,
+        6.199999809265137,
+        -1.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.059999465942383,
+        6.199999809265137,
+        -6.300000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.239999771118164,
+        6.199999809265137,
+        -6.300000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.059999465942383,
+        6.199999809265137,
+        -10.350000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_ALCOVE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.239999771118164,
+        6.199999809265137,
+        -10.350000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_ALCOVE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.059999465942383,
+        6.199999809265137,
+        -6.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.239999771118164,
+        6.199999809265137,
+        -6.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.109999656677246,
+        6.199999809265137,
+        -10.800000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.289999961853027,
+        6.199999809265137,
+        -10.800000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_B_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        10.40999984741211,
+        9.399999618530273,
+        -2.5
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_B_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_A_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        10.59000015258789,
+        9.399999618530273,
+        -2.5
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_B_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_A_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.210000038146973,
+        9.399999618530273,
+        -7.5
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_B_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_A_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.390000343322754,
+        9.399999618530273,
+        -7.5
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_B_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_A_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.690000057220459,
+        12.600000381469727,
+        0.15000000596046448
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_WEST_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.509999752044678,
+        12.600000381469727,
+        0.15000000596046448
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_WEST_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -9.140000343322754,
+        12.600000381469727,
+        7.300000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_ALCOVE_APPROACH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -8.960000038146973,
+        12.600000381469727,
+        7.300000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_ALCOVE_APPROACH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_B_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise360",
+      "point": [
+        -11.258999824523926,
+        9.399999618530273,
+        0.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_MAIN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_MAIN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise360",
+      "point": [
+        -11.140999794006348,
+        9.399999618530273,
+        0.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_MAIN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_MAIN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.690000057220459,
+        9.399999618530273,
+        0.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_VESTIBULE",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_VESTIBULE",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.509999752044678,
+        9.399999618530273,
+        0.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_VESTIBULE",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_VESTIBULE",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -12.989999771118164,
+        9.399999618530273,
+        4.699999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_KITCHEN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_KITCHEN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -12.809999465942383,
+        9.399999618530273,
+        4.699999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_KITCHEN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_KITCHEN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -9.690000534057617,
+        9.399999618530273,
+        5.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -9.510000228881836,
+        9.399999618530273,
+        5.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.490000247955322,
+        9.399999618530273,
+        4.349999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_BATH",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_BATH",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.309999942779541,
+        9.399999618530273,
+        4.349999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_BATH",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_BATH",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -12.890000343322754,
+        9.399999618530273,
+        9.25
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_ALCOVE",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_BED",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -12.710000038146973,
+        9.399999618530273,
+        9.25
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_B_ALCOVE",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F03_A_BED",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        10.40999984741211,
+        12.600000381469727,
+        -2.5
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        10.59000015258789,
+        12.600000381469727,
+        -2.5
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        13.541000366210938,
+        12.600000381469727,
+        -1.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        13.659000396728516,
+        12.600000381469727,
+        -1.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.059999465942383,
+        12.600000381469727,
+        -6.300000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.239999771118164,
+        12.600000381469727,
+        -6.300000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.059999465942383,
+        12.600000381469727,
+        -10.350000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.239999771118164,
+        12.600000381469727,
+        -10.350000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.059999465942383,
+        12.600000381469727,
+        -6.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.239999771118164,
+        12.600000381469727,
+        -6.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.109999656677246,
+        12.600000381469727,
+        -10.800000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.289999961853027,
+        12.600000381469727,
+        -10.800000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_A_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F05_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -12.034000396728516,
+        15.800000190734863,
+        -3.4749999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -11.916000366210938,
+        15.800000190734863,
+        -3.4749999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.039999961853027,
+        15.800000190734863,
+        -2.2249999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.859999656677246,
+        15.800000190734863,
+        -2.2249999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.039999961853027,
+        15.800000190734863,
+        -6.349999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.859999656677246,
+        15.800000190734863,
+        -6.349999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.039999961853027,
+        15.800000190734863,
+        -10.600000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.859999656677246,
+        15.800000190734863,
+        -10.600000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -13.515000343322754,
+        15.800000190734863,
+        -9.350000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_BED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -13.335000038146973,
+        15.800000190734863,
+        -9.350000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_BED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        -10.0,
+        15.800000190734863,
+        -7.849999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        -9.5,
+        15.800000190734863,
+        -7.849999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_STUDY_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -9.84000015258789,
+        15.800000190734863,
+        -10.850000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_STUDY",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_STUDY",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_A_STUDY_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -9.65999984741211,
+        15.800000190734863,
+        -10.850000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_STUDY",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_A_STUDY",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -12.534000396728516,
+        15.800000190734863,
+        3.4749999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -12.416000366210938,
+        15.800000190734863,
+        3.4749999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.990000247955322,
+        15.800000190734863,
+        1.850000023841858
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.809999942779541,
+        15.800000190734863,
+        1.850000023841858
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.990000247955322,
+        15.800000190734863,
+        4.724999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.809999942779541,
+        15.800000190734863,
+        4.724999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -13.515000343322754,
+        15.800000190734863,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_ALCOVE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_ALCOVE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -13.335000038146973,
+        15.800000190734863,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_ALCOVE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_ALCOVE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -10.34000015258789,
+        15.800000190734863,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -10.15999984741211,
+        15.800000190734863,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        -8.149999618530273,
+        15.800000190734863,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        -7.650000095367432,
+        15.800000190734863,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_B_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_B_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -0.940000057220459,
+        15.800000190734863,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -0.7599999904632568,
+        15.800000190734863,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -2.6089999675750732,
+        15.800000190734863,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -2.490999937057495,
+        15.800000190734863,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -3.990000009536743,
+        15.800000190734863,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_STUDIO",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_STUDIO",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -3.81000018119812,
+        15.800000190734863,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_STUDIO",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_STUDIO",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        3.7100000381469727,
+        15.800000190734863,
+        7.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        3.8899998664855957,
+        15.800000190734863,
+        7.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.06000018119812,
+        15.800000190734863,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.240000009536743,
+        15.800000190734863,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        5.199999809265137,
+        15.800000190734863,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        5.699999809265137,
+        15.800000190734863,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.06000018119812,
+        15.800000190734863,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BED1",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_BED1",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.240000009536743,
+        15.800000190734863,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BED1",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_BED1",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        5.359999656677246,
+        15.800000190734863,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BED2",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_BED2",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F05_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        5.539999961853027,
+        15.800000190734863,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BED2",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F06_C_BED2",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -12.034000396728516,
+        19.0,
+        -3.4749999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -11.916000366210938,
+        19.0,
+        -3.4749999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.039999961853027,
+        19.0,
+        -2.2249999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.859999656677246,
+        19.0,
+        -2.2249999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.039999961853027,
+        19.0,
+        -6.349999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.859999656677246,
+        19.0,
+        -6.349999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.039999961853027,
+        19.0,
+        -10.600000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -6.859999656677246,
+        19.0,
+        -10.600000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -13.515000343322754,
+        19.0,
+        -9.350000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -13.335000038146973,
+        19.0,
+        -9.350000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        -10.0,
+        19.0,
+        -7.849999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        -9.5,
+        19.0,
+        -7.849999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_STUDY_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -9.84000015258789,
+        19.0,
+        -10.850000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_STUDY",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_A_STUDY_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -9.65999984741211,
+        19.0,
+        -10.850000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_A_STUDY",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -12.534000396728516,
+        19.0,
+        3.4749999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -12.416000366210938,
+        19.0,
+        3.4749999046325684
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.990000247955322,
+        19.0,
+        1.850000023841858
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.809999942779541,
+        19.0,
+        1.850000023841858
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.990000247955322,
+        19.0,
+        4.724999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -7.809999942779541,
+        19.0,
+        4.724999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -13.515000343322754,
+        19.0,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_ALCOVE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -13.335000038146973,
+        19.0,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_ALCOVE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -10.34000015258789,
+        19.0,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -10.15999984741211,
+        19.0,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        -8.149999618530273,
+        19.0,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        -7.650000095367432,
+        19.0,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_B_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -0.940000057220459,
+        19.0,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -0.7599999904632568,
+        19.0,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -2.6089999675750732,
+        19.0,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -2.490999937057495,
+        19.0,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -3.990000009536743,
+        19.0,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_STUDIO",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -3.81000018119812,
+        19.0,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_STUDIO",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_WEST",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        3.7100000381469727,
+        19.0,
+        7.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        3.8899998664855957,
+        19.0,
+        7.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.06000018119812,
+        19.0,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.240000009536743,
+        19.0,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        5.199999809265137,
+        19.0,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        5.699999809265137,
+        19.0,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.06000018119812,
+        19.0,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_BED1",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.240000009536743,
+        19.0,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_BED1",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        5.359999656677246,
+        19.0,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_BED2",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F06_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        5.539999961853027,
+        19.0,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F06_C_BED2",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "ROOF_DECK_NORTH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -0.940000057220459,
+        6.199999809265137,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -0.7599999904632568,
+        6.199999809265137,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -2.6089999675750732,
+        6.199999809265137,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -2.490999937057495,
+        6.199999809265137,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -3.990000009536743,
+        6.199999809265137,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_STUDIO",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -3.81000018119812,
+        6.199999809265137,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_STUDIO",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        3.7100000381469727,
+        6.199999809265137,
+        7.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        3.8899998664855957,
+        6.199999809265137,
+        7.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.06000018119812,
+        6.199999809265137,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.240000009536743,
+        6.199999809265137,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        5.199999809265137,
+        6.199999809265137,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        5.699999809265137,
+        6.199999809265137,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.06000018119812,
+        6.199999809265137,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_BED1",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.240000009536743,
+        6.199999809265137,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_BED1",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        5.359999656677246,
+        6.199999809265137,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_BED2",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        5.539999961853027,
+        6.199999809265137,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_C_BED2",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_C_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -0.940000057220459,
+        12.600000381469727,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_VESTIBULE",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_VESTIBULE",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -0.7599999904632568,
+        12.600000381469727,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_VESTIBULE",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_VESTIBULE",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -2.6089999675750732,
+        12.600000381469727,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_MAIN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_MAIN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        -2.490999937057495,
+        12.600000381469727,
+        9.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_MAIN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_MAIN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -3.990000009536743,
+        12.600000381469727,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_STUDIO",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_STUDIO",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        -3.81000018119812,
+        12.600000381469727,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_STUDIO",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_STUDIO",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        3.7100000381469727,
+        12.600000381469727,
+        7.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        3.8899998664855957,
+        12.600000381469727,
+        7.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.06000018119812,
+        12.600000381469727,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BATH",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_BATH",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.240000009536743,
+        12.600000381469727,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BATH",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_BATH",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        5.199999809265137,
+        12.600000381469727,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_KITCHEN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_KITCHEN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear",
+      "point": [
+        5.699999809265137,
+        12.600000381469727,
+        5.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_KITCHEN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_KITCHEN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.06000018119812,
+        12.600000381469727,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BED1",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_BED1",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        2.240000009536743,
+        12.600000381469727,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BED1",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_BED1",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        5.359999656677246,
+        12.600000381469727,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BED2",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_BED2",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        5.539999961853027,
+        12.600000381469727,
+        9.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_C_BED2",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_C_BED2",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        10.40999984741211,
+        3.0,
+        -2.5
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_VESTIBULE",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_VESTIBULE",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        10.59000015258789,
+        3.0,
+        -2.5
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_VESTIBULE",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_VESTIBULE",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        13.541000366210938,
+        3.0,
+        -1.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_MAIN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_MAIN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade",
+      "point": [
+        13.659000396728516,
+        3.0,
+        -1.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_MAIN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_MAIN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.059999465942383,
+        3.0,
+        -6.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_KITCHEN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_KITCHEN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.239999771118164,
+        3.0,
+        -6.099999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_KITCHEN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_KITCHEN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.059999465942383,
+        3.0,
+        -10.350000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_BED",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_BED",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        11.239999771118164,
+        3.0,
+        -10.350000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_BED",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_BED",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.059999465942383,
+        3.0,
+        -6.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.239999771118164,
+        3.0,
+        -6.75
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.109999656677246,
+        3.0,
+        -10.800000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_BATH",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_BATH",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_D_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome",
+      "point": [
+        14.289999961853027,
+        3.0,
+        -10.800000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_B_BATH",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F01_D_BATH",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_VESTIBULE_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.825000286102295,
+        3.0,
+        -5.199999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_VESTIBULE_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.775000095367432,
+        3.0,
+        -5.199999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_MAIN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -11.949999809265137,
+        3.0,
+        -5.525000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_MAIN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -11.90000057220459,
+        3.0,
+        -5.525000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.825000286102295,
+        3.0,
+        -8.100000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.775000095367432,
+        3.0,
+        -8.100000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_BATH_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.825000286102295,
+        3.0,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_BATH_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.775000095367432,
+        3.0,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_KITCHEN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.774999618530273,
+        3.0,
+        -8.425000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_KITCHEN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.725000381469727,
+        3.0,
+        -8.425000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_BED_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -13.5,
+        3.0,
+        -9.774999618530273
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_BED_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -13.450000762939453,
+        3.0,
+        -9.774999618530273
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_STUDY_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.774999618530273,
+        3.0,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_STUDY",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_A_STUDY_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.725000381469727,
+        3.0,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_A_STUDY",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F02_D_RESTRICTED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_VESTIBULE_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.925000190734863,
+        9.40000057220459,
+        -5.199999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_VESTIBULE_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.875,
+        9.40000057220459,
+        -5.199999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_VESTIBULE",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_VESTIBULE",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_MAIN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -11.949999809265137,
+        9.40000057220459,
+        -5.525000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_MAIN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -11.90000057220459,
+        9.40000057220459,
+        -5.525000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_MAIN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_MAIN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.925000190734863,
+        9.40000057220459,
+        -8.100000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.875,
+        9.40000057220459,
+        -8.100000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_BATH_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.925000190734863,
+        9.40000057220459,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_BATH_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.875,
+        9.40000057220459,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_BATH",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_BATH",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_KITCHEN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.774999618530273,
+        9.40000057220459,
+        -8.425000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_KITCHEN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.725000381469727,
+        9.40000057220459,
+        -8.425000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_KITCHEN",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_KITCHEN",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_BED_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -13.5,
+        9.40000057220459,
+        -9.774999618530273
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_BED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_BED_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -13.450000762939453,
+        9.40000057220459,
+        -9.774999618530273
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_BED",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_BED",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_STUDY_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.774999618530273,
+        9.40000057220459,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_STUDY",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_STUDY",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_D_STUDY_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.725000381469727,
+        9.40000057220459,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_D_STUDY",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_D_STUDY",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_VESTIBULE_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.925000190734863,
+        12.600000381469727,
+        -5.199999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_VESTIBULE",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_VESTIBULE_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.875,
+        12.600000381469727,
+        -5.199999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_VESTIBULE",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_MAIN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -11.949999809265137,
+        12.600000381469727,
+        -5.525000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_MAIN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_MAIN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_MAIN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -11.90000057220459,
+        12.600000381469727,
+        -5.525000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_MAIN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_MAIN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.925000190734863,
+        12.600000381469727,
+        -8.100000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.875,
+        12.600000381469727,
+        -8.100000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_PRIVATE_HALL",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_PRIVATE_HALL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_BATH_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.925000190734863,
+        12.600000381469727,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_BATH",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_BATH",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_BATH_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -6.875,
+        12.600000381469727,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_BATH",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_BATH",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_KITCHEN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.774999618530273,
+        12.600000381469727,
+        -8.425000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_KITCHEN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_KITCHEN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_KITCHEN_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.725000381469727,
+        12.600000381469727,
+        -8.425000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_KITCHEN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_KITCHEN",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_BED_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -13.5,
+        12.600000381469727,
+        -9.774999618530273
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_BED",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_BED",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_BED_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -13.450000762939453,
+        12.600000381469727,
+        -9.774999618530273
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_BED",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_BED",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_STUDY_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.774999618530273,
+        12.600000381469727,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_STUDY",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_STUDY",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_D_STUDY_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -9.725000381469727,
+        12.600000381469727,
+        -11.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F05_A_STUDY",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "F04_D_STUDY",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -3.9250001907348633,
+        6.199999809265137,
+        -3.950000047683716
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_SOUTHWEST_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_SOUTHWEST_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F02_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -3.875,
+        6.199999809265137,
+        -3.950000047683716
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F02_SOUTHWEST_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F03_SOUTHWEST_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -3.9250001907348633,
+        9.40000057220459,
+        -3.950000047683716
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_SOUTHWEST_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_SOUTHWEST_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F03_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -3.875,
+        9.40000057220459,
+        -3.950000047683716
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F03_SOUTHWEST_HALL",
+          "surface": "ceiling underside"
+        },
+        {
+          "space": "F04_SOUTHWEST_HALL",
+          "surface": "upper floor underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -3.9250001907348633,
+        12.600000381469727,
+        -3.950000047683716
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_SOUTHWEST_HALL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F04_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        -3.875,
+        12.600000381469727,
+        -3.950000047683716
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F04_SOUTHWEST_HALL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_STAFF_RESTROOM_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        6.824999809265137,
+        3.0,
+        -6.449999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_STAFF_RESTROOM",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "F01_STAFF_RESTROOM_LT",
+      "variant": "flush_dome_rise100",
+      "point": [
+        6.875,
+        3.0,
+        -6.449999809265137
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_STAFF_RESTROOM",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "B1_ELECTRICAL_LT",
+      "variant": "flush_dome_rise150",
+      "point": [
+        7.424999713897705,
+        -0.2000000774860382,
+        -4.150000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "B1_ELECTRICAL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "B1_ELECTRICAL_LT",
+      "variant": "flush_dome_rise150",
+      "point": [
+        7.474999904632568,
+        -0.2000000774860382,
+        -4.150000095367432
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "B1_ELECTRICAL",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "B1_MAINTENANCE_SHOP_LT",
+      "variant": "flush_dome_rise150",
+      "point": [
+        7.424999713897705,
+        -0.2000000774860382,
+        3.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "B1_MAINTENANCE_SHOP",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "B1_MAINTENANCE_SHOP_LT",
+      "variant": "flush_dome_rise150",
+      "point": [
+        7.474999904632568,
+        -0.2000000774860382,
+        3.0
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "B1_MAINTENANCE_SHOP",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "B1_COAL_ROOM_LT",
+      "variant": "flush_dome_rise150",
+      "point": [
+        12.550000190734863,
+        -0.2000000774860382,
+        -7.849999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_D_KITCHEN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "B1_COAL_ROOM",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "B1_COAL_ROOM_LT",
+      "variant": "flush_dome_rise150",
+      "point": [
+        12.59999942779541,
+        -0.2000000774860382,
+        -7.849999904632568
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "F01_D_KITCHEN",
+          "surface": "upper floor underside"
+        },
+        {
+          "space": "B1_COAL_ROOM",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_LT",
+      "variant": "flush_dome_rise150",
+      "point": [
+        -2.325000047683716,
+        -0.2000000774860382,
+        6.675000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "B1_RESIDENT_STORAGE",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_LT",
+      "variant": "flush_dome_rise150",
+      "point": [
+        -2.2749998569488525,
+        -0.2000000774860382,
+        6.675000190734863
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "space": "B1_RESIDENT_STORAGE",
+          "surface": "ceiling underside"
+        }
+      ]
+    },
+    {
+      "id": "B1_SERVICE_CORE_LT",
+      "variant": "flush_dome",
+      "point": [
+        11.260000228881836,
+        1.3999998569488525,
+        8.600000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "stair": "SERVICE_F01_F02",
+          "surface": "half landing underside"
+        }
+      ]
+    },
+    {
+      "id": "B1_SERVICE_CORE_LT",
+      "variant": "flush_dome",
+      "point": [
+        11.440000534057617,
+        1.3999998569488525,
+        8.600000381469727
+      ],
+      "owner": "ceiling",
+      "matches": [
+        {
+          "stair": "SERVICE_F01_F02",
+          "surface": "half landing underside"
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "scope": "Authored room fixture supports. City bearings are checked separately against actual exported geometry."
+}

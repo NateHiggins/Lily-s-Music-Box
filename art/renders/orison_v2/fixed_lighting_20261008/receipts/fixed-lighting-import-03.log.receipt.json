@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 12.35,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T05:41:38Z",
+  "started_utc": "2026-10-08T05:41:25Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fixed-lighting-import-03.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fixed-lighting-import-03.log",
+  "stdout_sha256": "cf53356a7bab7726fed8c16174125d0fbd0725db0e2d0871b7d5ef67bc4a9cee"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 296,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/v2_batch_workflow.md",
+   " M art/blender/v2_fabrication_coverage.md",
+   " M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/assets/building/orison_v2/exterior/passage_gateway.gltf",
+   " M game/data/orison_v2/room_lighting.json",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/scripts/props/light_fixture_prop.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/fixed_lighting.blend",
+   "?? art/blender/fixed_lighting.md",
+   "?? art/blender/fixed_lighting_construction.json",
+   "?? art/blender/scripts/build_fixed_lighting.py",
+   "?? art/blender/scripts/fixed_lighting_geometry.py",
+   "?? art/blender/scripts/inspect_fixed_lighting.py"
+  ],
+  "repository_head": "df624dde74b63228d25777ee9936814dfe08e60d",
+  "repository_tree": "d7fe3e0d90034221f1027304a92d5221f23ba670",
+  "runtime_inputs_sha256": "110c04ae22a74d34ff3c62240dc9a50fb7b4b800e0be832723b432306cb6c93c",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

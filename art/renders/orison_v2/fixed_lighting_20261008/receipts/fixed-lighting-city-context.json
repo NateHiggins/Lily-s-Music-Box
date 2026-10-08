@@ -1,0 +1,3600 @@
+{
+  "evidence_class": "INERT",
+  "actors": 66,
+  "contacts": [
+    {
+      "id": "PASSAGE_PORTAL_LT_W",
+      "variant": "cage_bulb_rise960",
+      "point": [
+        11.454999923706055,
+        -27.516000747680664,
+        3.7799999713897705
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "site_street_common.gltf",
+          "mesh": "F01_OWN_STREET_retail_passage_proxy_gateway_cast_iron-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -0.9999999403953552
+          ]
+        },
+        {
+          "source": "passage_gateway.gltf",
+          "mesh": "F01_OWN_STREET_retail_passage_proxy_gateway_cast_iron-col.001",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -0.9999999403953552
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_PORTAL_LT_W",
+      "variant": "cage_bulb_rise960",
+      "point": [
+        11.504999160766602,
+        -27.516000747680664,
+        3.7799999713897705
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "site_street_common.gltf",
+          "mesh": "F01_OWN_STREET_retail_passage_proxy_gateway_cast_iron-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -0.9999999403953552
+          ]
+        },
+        {
+          "source": "passage_gateway.gltf",
+          "mesh": "F01_OWN_STREET_retail_passage_proxy_gateway_cast_iron-col.001",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -0.9999999403953552
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_PORTAL_LT_E",
+      "variant": "cage_bulb_wall0x-255",
+      "point": [
+        20.43000030517578,
+        -27.916000366210938,
+        2.7849998474121094
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "site_street_common.gltf",
+          "mesh": "F01_OWN_STREET_retail_passage_proxy_gateway_common_brick-col",
+          "error_m": 0.0,
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "source": "passage_gateway.gltf",
+          "mesh": "F01_OWN_STREET_retail_passage_proxy_gateway_common_brick-col.001",
+          "error_m": 0.0,
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_PORTAL_LT_E",
+      "variant": "cage_bulb_wall0x-255",
+      "point": [
+        20.43000030517578,
+        -27.916000366210938,
+        2.8550000190734863
+      ],
+      "direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "site_street_common.gltf",
+          "mesh": "F01_OWN_STREET_retail_passage_proxy_gateway_common_brick-col",
+          "error_m": 0.0,
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        {
+          "source": "passage_gateway.gltf",
+          "mesh": "F01_OWN_STREET_retail_passage_proxy_gateway_common_brick-col.001",
+          "error_m": 0.0,
+          "normal": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_00",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        13.975000381469727,
+        -31.200000762939453,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_00",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        14.024999618530273,
+        -31.200000762939453,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_01",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        13.975000381469727,
+        -35.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_01",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        14.024999618530273,
+        -35.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_02",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        13.975000381469727,
+        -41.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_02",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        14.024999618530273,
+        -41.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_03",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        13.975000381469727,
+        -45.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_03",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        14.024999618530273,
+        -45.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_04",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        13.975000381469727,
+        -49.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_04",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        14.024999618530273,
+        -49.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_05",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        13.975000381469727,
+        -53.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_05",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        14.024999618530273,
+        -53.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_06",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        13.975000381469727,
+        -57.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_06",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        14.024999618530273,
+        -57.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_07",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        13.975000381469727,
+        -61.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_07",
+      "variant": "cage_bulb_rise160",
+      "point": [
+        14.024999618530273,
+        -61.0,
+        3.880000114440918
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "passage.gltf",
+          "mesh": "F01_OWN_PASSAGE_retail_passage_shell_brass_dull-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_DARTS",
+      "variant": "cage_bulb_rise140",
+      "point": [
+        -11.104999542236328,
+        -33.0,
+        -0.14999999105930328
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 1.4901161193847656e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 1.4901161193847656e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_DARTS",
+      "variant": "cage_bulb_rise140",
+      "point": [
+        -11.055000305175781,
+        -33.0,
+        -0.14999999105930328
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 1.4901161193847656e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 1.4901161193847656e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_LOBBY",
+      "variant": "cage_bulb_rise250",
+      "point": [
+        4.849999904632568,
+        -29.299999237060547,
+        2.549999952316284
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_common_brick-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_LOBBY",
+      "variant": "cage_bulb_rise250",
+      "point": [
+        4.900000095367432,
+        -29.299999237060547,
+        2.549999952316284
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_common_brick-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_WELL",
+      "variant": "cage_bulb_rise60",
+      "point": [
+        -2.6050000190734863,
+        -33.400001525878906,
+        1.659999966621399
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_furnish_rubber_aged",
+          "error_m": 0.0,
+          "normal": [
+            0.0,
+            0.0,
+            -0.9999999403953552
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_WELL",
+      "variant": "cage_bulb_rise60",
+      "point": [
+        -2.5949997901916504,
+        -33.400001525878906,
+        1.659999966621399
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_furnish_rubber_aged",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_STAIR",
+      "variant": "cage_bulb_rise2000",
+      "point": [
+        5.275000095367432,
+        -32.599998474121094,
+        2.549999952316284
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_common_brick-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_STAIR",
+      "variant": "cage_bulb_rise2000",
+      "point": [
+        5.325000286102295,
+        -32.599998474121094,
+        2.549999952316284
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_common_brick-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_CAN0",
+      "variant": "kitchen_linear_rise80",
+      "point": [
+        -3.200000047683716,
+        -29.67500114440918,
+        -0.9799999594688416
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_fabric_warm-col",
+          "error_m": 5.960464477539063e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_CAN0",
+      "variant": "kitchen_linear_rise80",
+      "point": [
+        -3.200000047683716,
+        -29.725000381469727,
+        -0.9799999594688416
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_fabric_warm-col",
+          "error_m": 5.960464477539063e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_CAN1",
+      "variant": "kitchen_linear_rise80",
+      "point": [
+        -0.25,
+        -29.67500114440918,
+        -0.9799999594688416
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_fabric_warm-col",
+          "error_m": 5.960464477539063e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_CAN1",
+      "variant": "kitchen_linear_rise80",
+      "point": [
+        -0.25,
+        -29.725000381469727,
+        -0.9799999594688416
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_fabric_warm-col",
+          "error_m": 5.960464477539063e-08,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_POOL",
+      "variant": "pendant_shade_rise450",
+      "point": [
+        -7.459000110626221,
+        -31.25,
+        -0.15000003576278687
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_POOL",
+      "variant": "pendant_shade_rise450",
+      "point": [
+        -7.341000080108643,
+        -31.25,
+        -0.15000003576278687
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_TAB0",
+      "variant": "pendant_shade_rise470",
+      "point": [
+        -8.258999824523926,
+        -35.29999923706055,
+        -0.15000000596046448
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_TAB0",
+      "variant": "pendant_shade_rise470",
+      "point": [
+        -8.140999794006348,
+        -35.29999923706055,
+        -0.15000000596046448
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_TAB1",
+      "variant": "pendant_shade_retained_rod",
+      "point": [
+        -5.2079997062683105,
+        -35.29999923706055,
+        -0.6200000047683716
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_furnish_metal",
+          "error_m": 0.0,
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_TAB1",
+      "variant": "pendant_shade_retained_rod",
+      "point": [
+        -5.191999912261963,
+        -35.29999923706055,
+        -0.6200000047683716
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_furnish_metal",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_TAB2",
+      "variant": "pendant_shade_retained_rod",
+      "point": [
+        -1.2080000638961792,
+        -34.900001525878906,
+        -0.6200000047683716
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_furnish_metal",
+          "error_m": 0.0,
+          "normal": [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_TAB2",
+      "variant": "pendant_shade_retained_rod",
+      "point": [
+        -1.1920000314712524,
+        -34.900001525878906,
+        -0.6200000047683716
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_furnish_metal",
+          "error_m": 0.0,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_STAGE0",
+      "variant": "cage_bulb_rise800",
+      "point": [
+        -1.9249999523162842,
+        -36.54999923706055,
+        -0.1499999761581421
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -0.9999999403953552
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -0.9999999403953552
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_STAGE0",
+      "variant": "cage_bulb_rise800",
+      "point": [
+        -1.875,
+        -36.54999923706055,
+        -0.1499999761581421
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -0.9999999403953552
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -0.9999999403953552
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_STAGE1",
+      "variant": "cage_bulb_rise800",
+      "point": [
+        0.4749999940395355,
+        -36.54999923706055,
+        -0.1499999761581421
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            0.0,
+            -0.9999999403953552
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            0.0,
+            -0.9999999403953552
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_STAGE1",
+      "variant": "cage_bulb_rise800",
+      "point": [
+        0.5249999761581421,
+        -36.54999923706055,
+        -0.1499999761581421
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            0.0,
+            -0.9999999403953552
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            0.0,
+            -0.9999999403953552
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_DECK0",
+      "variant": "sconce_globe_back80",
+      "point": [
+        4.0,
+        -36.599998474121094,
+        -1.3549998998641968
+      ],
+      "direction": [
+        -1.0,
+        -7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_bar_wall-col",
+          "error_m": 0.0,
+          "normal": [
+            -1.0,
+            -0.0,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_DECK0",
+      "variant": "sconce_globe_back80",
+      "point": [
+        4.0,
+        -36.599998474121094,
+        -1.2450000047683716
+      ],
+      "direction": [
+        -1.0,
+        -7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_bar_wall-col",
+          "error_m": 0.0,
+          "normal": [
+            -1.0,
+            -0.0,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_DECK1",
+      "variant": "sconce_globe_back80",
+      "point": [
+        4.0,
+        -33.20000076293945,
+        -1.3549998998641968
+      ],
+      "direction": [
+        -1.0,
+        -7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_stairwell_teal-col",
+          "error_m": 0.0,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_DECK1",
+      "variant": "sconce_globe_back80",
+      "point": [
+        4.0,
+        -33.20000076293945,
+        -1.2450000047683716
+      ],
+      "direction": [
+        -1.0,
+        -7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_stairwell_teal-col",
+          "error_m": 0.0,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_DECK2",
+      "variant": "sconce_globe_back80",
+      "point": [
+        4.0,
+        -32.04999923706055,
+        -1.3549998998641968
+      ],
+      "direction": [
+        -1.0,
+        -7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_stairwell_teal-col",
+          "error_m": 0.0,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_DECK2",
+      "variant": "sconce_globe_back80",
+      "point": [
+        4.0,
+        -32.04999923706055,
+        -1.2450000047683716
+      ],
+      "direction": [
+        -1.0,
+        -7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_stairwell_teal-col",
+          "error_m": 0.0,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_WEST0",
+      "variant": "sconce_globe_back160",
+      "point": [
+        -11.5,
+        -35.400001525878906,
+        -0.8549999594688416
+      ],
+      "direction": [
+        1.0,
+        -7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_bar_wall-col",
+          "error_m": 0.0,
+          "normal": [
+            1.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_WEST0",
+      "variant": "sconce_globe_back160",
+      "point": [
+        -11.5,
+        -35.400001525878906,
+        -0.7449999451637268
+      ],
+      "direction": [
+        1.0,
+        -7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_bar_wall-col",
+          "error_m": 0.0,
+          "normal": [
+            1.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_WEST1",
+      "variant": "sconce_globe_back100",
+      "point": [
+        -11.440000534057617,
+        -31.299999237060547,
+        -1.3549998998641968
+      ],
+      "direction": [
+        1.0,
+        -7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 9.5367431640625e-07,
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_WEST1",
+      "variant": "sconce_globe_back100",
+      "point": [
+        -11.440000534057617,
+        -31.299999237060547,
+        -1.2450000047683716
+      ],
+      "direction": [
+        1.0,
+        -7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 9.5367431640625e-07,
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_WC",
+      "variant": "cage_bulb_rise300",
+      "point": [
+        -10.644999504089355,
+        -37.099998474121094,
+        -0.1499999761581421
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -0.9999999403953552
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -0.9999999403953552
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_WC",
+      "variant": "cage_bulb_rise300",
+      "point": [
+        -10.595000267028809,
+        -37.099998474121094,
+        -0.1499999761581421
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "F01_OWN_SHOP_BAR_retail_bar_soot-col",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -0.9999999403953552
+          ]
+        },
+        {
+          "source": "shop_bar.gltf",
+          "mesh": "bar_smoked_ceiling__smoked_plaster",
+          "error_m": 2.9802322387695312e-08,
+          "normal": [
+            -0.0,
+            -0.0,
+            -0.9999999403953552
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        11.260000228881836,
+        -43.82500076293945,
+        2.625
+      ],
+      "direction": [
+        1.0,
+        -4.371138828673793e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_model_laundry.gltf",
+          "mesh": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_book_teal-col",
+          "error_m": 0.0,
+          "normal": [
+            1.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        11.260000228881836,
+        -43.82500076293945,
+        2.695000171661377
+      ],
+      "direction": [
+        1.0,
+        -4.371138828673793e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_model_laundry.gltf",
+          "mesh": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_book_teal-col",
+          "error_m": 0.0,
+          "normal": [
+            1.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        10.050000190734863,
+        -41.974998474121094,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_model_laundry.gltf",
+          "mesh": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        10.050000190734863,
+        -42.025001525878906,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_model_laundry.gltf",
+          "mesh": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        7.5,
+        -41.974998474121094,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_model_laundry.gltf",
+          "mesh": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        7.5,
+        -42.025001525878906,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_model_laundry.gltf",
+          "mesh": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        4.949999809265137,
+        -41.974998474121094,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_model_laundry.gltf",
+          "mesh": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        4.949999809265137,
+        -42.025001525878906,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_model_laundry.gltf",
+          "mesh": "F01_OWN_SHOP_MODEL_LAUNDRY_retail_shop_model_laundry_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        11.260000228881836,
+        -49.42499923706055,
+        2.625
+      ],
+      "direction": [
+        1.0,
+        -4.371138828673793e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_shoe_rebuilding.gltf",
+          "mesh": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_lacquer_red-col",
+          "error_m": 0.0,
+          "normal": [
+            1.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        11.260000228881836,
+        -49.42499923706055,
+        2.695000171661377
+      ],
+      "direction": [
+        1.0,
+        -4.371138828673793e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_shoe_rebuilding.gltf",
+          "mesh": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_lacquer_red-col",
+          "error_m": 0.0,
+          "normal": [
+            1.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        10.050000190734863,
+        -47.57499694824219,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_shoe_rebuilding.gltf",
+          "mesh": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        10.050000190734863,
+        -47.625,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_shoe_rebuilding.gltf",
+          "mesh": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        5.949999809265137,
+        -47.57499694824219,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_shoe_rebuilding.gltf",
+          "mesh": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        5.949999809265137,
+        -47.625,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_shoe_rebuilding.gltf",
+          "mesh": "F01_OWN_SHOP_SHOE_REBUILDING_retail_shop_shoe_rebuilding_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_KEYS_CUT",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        11.260000228881836,
+        -53.025001525878906,
+        2.625
+      ],
+      "direction": [
+        1.0,
+        -4.371138828673793e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_keys_cut.gltf",
+          "mesh": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_brass-col",
+          "error_m": 0.0,
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_KEYS_CUT",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        11.260000228881836,
+        -53.025001525878906,
+        2.695000171661377
+      ],
+      "direction": [
+        1.0,
+        -4.371138828673793e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_keys_cut.gltf",
+          "mesh": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_brass-col",
+          "error_m": 0.0,
+          "normal": [
+            1.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_KEYS_CUT",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        10.050000190734863,
+        -52.17499923706055,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_keys_cut.gltf",
+          "mesh": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_KEYS_CUT",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        10.050000190734863,
+        -52.22500228881836,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_keys_cut.gltf",
+          "mesh": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_KEYS_CUT",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        6.949999809265137,
+        -52.17499923706055,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_keys_cut.gltf",
+          "mesh": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_KEYS_CUT",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        6.949999809265137,
+        -52.22500228881836,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_keys_cut.gltf",
+          "mesh": "F01_OWN_SHOP_KEYS_CUT_retail_shop_keys_cut_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        11.260000228881836,
+        -58.42499923706055,
+        2.625
+      ],
+      "direction": [
+        1.0,
+        -4.371138828673793e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_hardware_paint.gltf",
+          "mesh": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_fabric_green-col",
+          "error_m": 0.0,
+          "normal": [
+            1.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        11.260000228881836,
+        -58.42499923706055,
+        2.695000171661377
+      ],
+      "direction": [
+        1.0,
+        -4.371138828673793e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_hardware_paint.gltf",
+          "mesh": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_fabric_green-col",
+          "error_m": 0.0,
+          "normal": [
+            1.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        10.050000190734863,
+        -56.67499923706055,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_hardware_paint.gltf",
+          "mesh": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        10.050000190734863,
+        -56.72500228881836,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_hardware_paint.gltf",
+          "mesh": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        7.75,
+        -56.67499923706055,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_hardware_paint.gltf",
+          "mesh": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        7.75,
+        -56.72500228881836,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_hardware_paint.gltf",
+          "mesh": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        5.449999809265137,
+        -56.67499923706055,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_hardware_paint.gltf",
+          "mesh": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        5.449999809265137,
+        -56.72500228881836,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_hardware_paint.gltf",
+          "mesh": "F01_OWN_SHOP_HARDWARE_PAINT_retail_shop_hardware_paint_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        11.260000228881836,
+        -63.025001525878906,
+        2.625
+      ],
+      "direction": [
+        1.0,
+        -4.371138828673793e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_funeral_parlour.gltf",
+          "mesh": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_soot-col",
+          "error_m": 0.0,
+          "normal": [
+            0.9999999403953552,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        11.260000228881836,
+        -63.025001525878906,
+        2.695000171661377
+      ],
+      "direction": [
+        1.0,
+        -4.371138828673793e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_funeral_parlour.gltf",
+          "mesh": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_soot-col",
+          "error_m": 0.0,
+          "normal": [
+            0.9999999403953552,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        10.050000190734863,
+        -61.67499923706055,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_funeral_parlour.gltf",
+          "mesh": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        10.050000190734863,
+        -61.72500228881836,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_funeral_parlour.gltf",
+          "mesh": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        7.5,
+        -61.67499923706055,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_funeral_parlour.gltf",
+          "mesh": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        7.5,
+        -61.72500228881836,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_funeral_parlour.gltf",
+          "mesh": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        4.949999809265137,
+        -61.67499923706055,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_funeral_parlour.gltf",
+          "mesh": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        4.949999809265137,
+        -61.72500228881836,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_funeral_parlour.gltf",
+          "mesh": "F01_OWN_SHOP_FUNERAL_PARLOUR_retail_shop_funeral_parlour_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -62.974998474121094,
+        2.625
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_photo_supplies.gltf",
+          "mesh": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_felt_violet-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -62.974998474121094,
+        2.695000171661377
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_photo_supplies.gltf",
+          "mesh": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_felt_violet-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -61.42500305175781,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_photo_supplies.gltf",
+          "mesh": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -61.375,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_photo_supplies.gltf",
+          "mesh": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        22.049999237060547,
+        -61.42500305175781,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_photo_supplies.gltf",
+          "mesh": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        22.049999237060547,
+        -61.375,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_photo_supplies.gltf",
+          "mesh": "F01_OWN_SHOP_PHOTO_SUPPLIES_retail_shop_photo_supplies_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_RADIO_SERVICE",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -56.57500076293945,
+        2.625
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_radio_service.gltf",
+          "mesh": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_stairwell_teal-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_RADIO_SERVICE",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -56.57500076293945,
+        2.695000171661377
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_radio_service.gltf",
+          "mesh": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_stairwell_teal-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -1.0,
+            -0.0,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -57.22500228881836,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_radio_service.gltf",
+          "mesh": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -57.17499923706055,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_radio_service.gltf",
+          "mesh": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        21.049999237060547,
+        -57.22500228881836,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_radio_service.gltf",
+          "mesh": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        21.049999237060547,
+        -57.17499923706055,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_radio_service.gltf",
+          "mesh": "F01_OWN_SHOP_RADIO_SERVICE_retail_shop_radio_service_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_PAWNBROKER",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -51.974998474121094,
+        2.625
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_pawnbroker.gltf",
+          "mesh": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_bright-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -0.9999999403953552,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_PAWNBROKER",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -51.974998474121094,
+        2.695000171661377
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_pawnbroker.gltf",
+          "mesh": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_brass_bright-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -0.9999999403953552,
+            -0.0,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_PAWNBROKER",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -53.32500076293945,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_pawnbroker.gltf",
+          "mesh": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_PAWNBROKER",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -53.27499771118164,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_pawnbroker.gltf",
+          "mesh": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_PAWNBROKER",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        22.049999237060547,
+        -53.32500076293945,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_pawnbroker.gltf",
+          "mesh": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_PAWNBROKER",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        22.049999237060547,
+        -53.27499771118164,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_pawnbroker.gltf",
+          "mesh": "F01_OWN_SHOP_PAWNBROKER_retail_shop_pawnbroker_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_NEWS_CIGARS",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -49.974998474121094,
+        2.625
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_news_cigars.gltf",
+          "mesh": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_safety_orange-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_NEWS_CIGARS",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -49.974998474121094,
+        2.695000171661377
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_news_cigars.gltf",
+          "mesh": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_safety_orange-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -49.875,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_news_cigars.gltf",
+          "mesh": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -49.82499694824219,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_news_cigars.gltf",
+          "mesh": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        20.049999237060547,
+        -49.875,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_news_cigars.gltf",
+          "mesh": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        20.049999237060547,
+        -49.82499694824219,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_news_cigars.gltf",
+          "mesh": "F01_OWN_SHOP_NEWS_CIGARS_retail_shop_news_cigars_plaster-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_OTIS___SON",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -45.375,
+        2.625
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_otis_son.gltf",
+          "mesh": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_book_teal-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -0.9999999403953552,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_OTIS___SON",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -45.375,
+        2.695000171661377
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_otis_son.gltf",
+          "mesh": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_book_teal-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -0.9999999403953552,
+            -0.0,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_OTIS___SON",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -46.57500076293945,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_otis_son.gltf",
+          "mesh": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_OTIS___SON",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -46.52499771118164,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_otis_son.gltf",
+          "mesh": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_OTIS___SON",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        20.5,
+        -46.57500076293945,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_otis_son.gltf",
+          "mesh": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_OTIS___SON",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        20.5,
+        -46.52499771118164,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_otis_son.gltf",
+          "mesh": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN2_OTIS___SON",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        23.049999237060547,
+        -46.57500076293945,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_otis_son.gltf",
+          "mesh": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN2_OTIS___SON",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        23.049999237060547,
+        -46.52499771118164,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_otis_son.gltf",
+          "mesh": "F01_OWN_SHOP_OTIS_SON_retail_shop_otis___son_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_LUNCHEONETTE",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -43.375,
+        2.625
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_luncheonette.gltf",
+          "mesh": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_lacquer_red-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_LT_LUNCHEONETTE",
+      "variant": "cage_bulb_wall0x200",
+      "point": [
+        16.740001678466797,
+        -43.375,
+        2.695000171661377
+      ],
+      "direction": [
+        -1.0,
+        7.549790126404332e-08,
+        0.0
+      ],
+      "support": [
+        {
+          "source": "shop_luncheonette.gltf",
+          "mesh": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_lacquer_red-col",
+          "error_m": 1.9073486328125e-06,
+          "normal": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -41.82500076293945,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_luncheonette.gltf",
+          "mesh": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        17.950000762939453,
+        -41.77499771118164,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_luncheonette.gltf",
+          "mesh": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        20.5,
+        -41.82500076293945,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_luncheonette.gltf",
+          "mesh": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        20.5,
+        -41.77499771118164,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_luncheonette.gltf",
+          "mesh": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        23.049999237060547,
+        -41.82500076293945,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_luncheonette.gltf",
+          "mesh": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380",
+      "point": [
+        23.049999237060547,
+        -41.77499771118164,
+        3.3000001907348633
+      ],
+      "direction": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "support": [
+        {
+          "source": "shop_luncheonette.gltf",
+          "mesh": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_tin_ceiling-col",
+          "error_m": 2.384185791015625e-07,
+          "normal": [
+            -0.0,
+            0.0,
+            -1.0
+          ]
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "scope": "Retained source surface contacts; engine collision and composed review remain separate."
+}

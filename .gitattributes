@@ -1472,3 +1472,25 @@ game/tests/fixtures/orison_medicine_cabinets.json -text
 game/tests/orison_v2_household_toasters_test.gd -text
 game/tests/orison_v2_medicine_cabinets_test.gd -text
 art/renders/orison_v2/household_accessories_20261007/** -text -whitespace
+art/blender/fixed_lighting.blend -text
+art/blender/fixed_lighting_construction.json -text
+art/blender/scripts/build_fixed_lighting.py -text
+art/blender/scripts/fixed_lighting_geometry.py -text
+art/blender/scripts/inspect_fixed_lighting.py -text
+art/blender/scripts/inspect_fixed_lighting_city_context.py -text
+art/blender/scripts/inspect_fixed_lighting_context.py -text
+art/blender/scripts/render_fixed_lighting.py -text
+art/data/fixed_lighting/source_plan.json -text
+game/assets/building/orison_v2/exterior/passage_gateway.gltf -text
+game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png -text
+game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png -text
+game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png -text
+game/assets/props/fixed_lighting.glb -text
+game/assets/props/fixed_lighting.glb.import -text
+game/data/orison_v2/fixed_lighting.json -text
+game/data/orison_v2/room_lighting.json -text
+game/scripts/building/orison_v2_native_fixed_lighting.gd -text
+game/scripts/props/light_fixture_prop.gd -text
+game/tests/fixtures/orison_fixed_lighting.json -text
+game/tests/orison_v2_fixed_lighting_test.gd -text
+art/renders/orison_v2/fixed_lighting_20261008/** -text -whitespace

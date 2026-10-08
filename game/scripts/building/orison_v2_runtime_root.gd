@@ -182,6 +182,12 @@ func _ready() -> void:
 		startup_failed=true
 		push_error("ORISON V2 RUNTIME: roof drainage refused: %s" % [roof_drainage.errors])
 		return
+	var fixed_lighting := preload("res://scripts/building/orison_v2_native_fixed_lighting.gd").new()
+	if not fixed_lighting.mount(self):
+		startup_failed = true
+		push_error("V2 native fixed lighting refused: %s" % [fixed_lighting.errors])
+		return
+	adapter.root.set_meta("v2_native_fixed_lighting_factory", fixed_lighting)
 	var lamp_air := preload("res://scripts/building/orison_v2_lamp_atmosphere.gd").new()
 	lamp_air.name = "LampAtmosphere"
 	add_child(lamp_air)

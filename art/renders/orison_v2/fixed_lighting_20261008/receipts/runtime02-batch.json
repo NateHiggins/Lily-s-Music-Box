@@ -1,0 +1,457 @@
+{
+	"batch_checks": 18,
+	"elapsed_ms": 66716,
+	"evidence_class": "INERT",
+	"failures": [
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: actual collision-bearing light attachment: 3B_LT_SCONCE",
+		"fixed_lighting: actual collision-bearing light attachment: 3B_LT_SCONCE",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: original emission frame and photometric settings retained",
+		"fixed_lighting: actual collision-bearing light attachment: F01_BAR_LT_WELL",
+		"fixed_lighting: actual collision-bearing light attachment: F01_BAR_LT_WELL",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_MODEL_LAUNDRY",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_MODEL_LAUNDRY",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_SHOE_REBUILDING",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_SHOE_REBUILDING",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_KEYS_CUT",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_KEYS_CUT",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_HARDWARE_PAINT",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_HARDWARE_PAINT",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_FUNERAL_PARLOUR",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_FUNERAL_PARLOUR",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_PHOTO_SUPPLIES",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_PHOTO_SUPPLIES",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_RADIO_SERVICE",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_RADIO_SERVICE",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_PAWNBROKER",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_PAWNBROKER",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_NEWS_CIGARS",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_NEWS_CIGARS",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_OTIS___SON",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_OTIS___SON",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_LUNCHEONETTE",
+		"fixed_lighting: actual collision-bearing light attachment: SITE_SHOP_LT_LUNCHEONETTE",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_DARTS",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_WELL",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_STAIR",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_CAN0",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_POOL",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_TAB0",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_TAB1",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_STAGE0",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_DECK0",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_WEST0",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_WEST1",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_WC",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_TAB2"
+	],
+	"module_checks": 10291,
+	"modules": {
+		"domestic_objects": {
+			"actors": 17,
+			"captured": false,
+			"checks": 847,
+			"elapsed_ms": 509,
+			"failures": [],
+			"fixture_sha256": "8ab7b787b443c028f6ba0a55cf283eb0035282d8bce4da5e3558a0d3a0cacb3d",
+			"parts": 66,
+			"shared_validator_sha256": "1710f1b37e028ca36c821175317ef7c3efb8164cd9764fd60df6f29b7bfe7bfc",
+			"unique_triangles": 134772,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 16,
+			"views": []
+		},
+		"fixed_lighting": {
+			"actors": 199,
+			"captured": true,
+			"checks": 5725,
+			"elapsed_ms": 22745,
+			"failures": [
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"actual collision-bearing light attachment: 3B_LT_SCONCE",
+				"actual collision-bearing light attachment: 3B_LT_SCONCE",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"original emission frame and photometric settings retained",
+				"actual collision-bearing light attachment: F01_BAR_LT_WELL",
+				"actual collision-bearing light attachment: F01_BAR_LT_WELL",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_MODEL_LAUNDRY",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_MODEL_LAUNDRY",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_SHOE_REBUILDING",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_SHOE_REBUILDING",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_KEYS_CUT",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_KEYS_CUT",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_HARDWARE_PAINT",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_HARDWARE_PAINT",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_FUNERAL_PARLOUR",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_FUNERAL_PARLOUR",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_PHOTO_SUPPLIES",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_PHOTO_SUPPLIES",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_RADIO_SERVICE",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_RADIO_SERVICE",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_PAWNBROKER",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_PAWNBROKER",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_NEWS_CIGARS",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_NEWS_CIGARS",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_OTIS___SON",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_OTIS___SON",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_LUNCHEONETTE",
+				"actual collision-bearing light attachment: SITE_SHOP_LT_LUNCHEONETTE",
+				"unobstructed standing view of native fixture: F01_BAR_LT_DARTS",
+				"unobstructed standing view of native fixture: F01_BAR_LT_WELL",
+				"unobstructed standing view of native fixture: F01_BAR_LT_STAIR",
+				"unobstructed standing view of native fixture: F01_BAR_LT_CAN0",
+				"unobstructed standing view of native fixture: F01_BAR_LT_POOL",
+				"unobstructed standing view of native fixture: F01_BAR_LT_TAB0",
+				"unobstructed standing view of native fixture: F01_BAR_LT_TAB1",
+				"unobstructed standing view of native fixture: F01_BAR_LT_STAGE0",
+				"unobstructed standing view of native fixture: F01_BAR_LT_DECK0",
+				"unobstructed standing view of native fixture: F01_BAR_LT_WEST0",
+				"unobstructed standing view of native fixture: F01_BAR_LT_WEST1",
+				"unobstructed standing view of native fixture: F01_BAR_LT_WC",
+				"unobstructed standing view of native fixture: F01_BAR_LT_TAB2"
+			],
+			"fixture_sha256": "32a8a92f0867d42dfe5fd06ab856bc9b46968d33411e69c86d4086d5ec1c0c3f",
+			"parts": 746,
+			"unique_triangles": 481736,
+			"validator_sha256": "b4cf49a66f4873705107705ec88a3b16819298ee83d1e30316b6b2d383b7297a",
+			"variants": 27,
+			"views": [
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						6.00000095367432,
+						-3.18499994277954,
+						-10.5499982833862
+					],
+					"id": "B1_LAUNDRY_LT_FLUSH_DOME_native",
+					"image": "B1_LAUNDRY_LT_FLUSH_DOME_native.png",
+					"owner": "B1_LAUNDRY_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						12.3000011444092,
+						3.21500015258789,
+						-12.399998664856
+					],
+					"id": "F02_A_MAIN_LT_PENDANT_SHADE_native",
+					"image": "F02_A_MAIN_LT_PENDANT_SHADE_native.png",
+					"owner": "F02_A_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-13.0499992370605,
+						6.41499996185303,
+						-8.29737281799316
+					],
+					"id": "F03_B_MAIN_LT_PENDANT_SHADE_native",
+					"image": "F03_B_MAIN_LT_PENDANT_SHADE_native.png",
+					"owner": "F03_B_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-10.5221824645996,
+						6.41499996185303,
+						-4.22218322753906
+					],
+					"id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR_native",
+					"image": "F03_B_KITCHEN_LT_KITCHEN_LINEAR_native.png",
+					"owner": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-10.6499996185303,
+						6.41499996185303,
+						-2.3026282787323
+					],
+					"id": "F03_B_ALCOVE_LT_FLUSH_DOME_native",
+					"image": "F03_B_ALCOVE_LT_FLUSH_DOME_native.png",
+					"owner": "F03_B_ALCOVE_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-14.4674816131592,
+						6.41499996185303,
+						-0.26529923081398
+					],
+					"id": "3B_LT_SCONCE_native",
+					"image": "3B_LT_SCONCE_native.png",
+					"owner": "3B_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						11.7000007629395,
+						9.61500072479248,
+						-10.3499984741211
+					],
+					"id": "F04_B_MAIN_LT_PENDANT_SHADE_native",
+					"image": "F04_B_MAIN_LT_PENDANT_SHADE_native.png",
+					"owner": "F04_B_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						8.27781867980957,
+						9.61500072479248,
+						-15.622181892395
+					],
+					"id": "F04_B_BATH_LT_FLUSH_DOME_native",
+					"image": "F04_B_BATH_LT_FLUSH_DOME_native.png",
+					"owner": "F04_B_BATH_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						9.75,
+						12.8150005340576,
+						-2.69999885559082
+					],
+					"id": "F05_A_KITCHEN_LT_KITCHEN_LINEAR_native",
+					"image": "F05_A_KITCHEN_LT_KITCHEN_LINEAR_native.png",
+					"owner": "F05_A_KITCHEN_LT_KITCHEN_LINEAR",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						12.5425176620483,
+						0.0149999996647239,
+						18.0057010650635
+					],
+					"id": "PASSAGE_PORTAL_LT_W_native",
+					"image": "PASSAGE_PORTAL_LT_W_native.png",
+					"owner": "PASSAGE_PORTAL_LT_W",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						20.0452995300293,
+						0.0149999996647239,
+						16.6584815979004
+					],
+					"id": "PASSAGE_PORTAL_LT_E_native",
+					"image": "PASSAGE_PORTAL_LT_E_native.png",
+					"owner": "PASSAGE_PORTAL_LT_E",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						14.0,
+						0.0149999996647239,
+						22.5050010681152
+					],
+					"id": "PASSAGE_AISLE_LT_00_native",
+					"image": "PASSAGE_AISLE_LT_00_native.png",
+					"owner": "PASSAGE_AISLE_LT_00",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						5.15970087051392,
+						0.0149999996647239,
+						18.4424800872803
+					],
+					"id": "F01_BAR_LT_LOBBY_native",
+					"image": "F01_BAR_LT_LOBBY_native.png",
+					"owner": "F01_BAR_LT_LOBBY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						11.744701385498,
+						0.0149999996647239,
+						35.0925178527832
+					],
+					"id": "SITE_SHOP_LT_MODEL_LAUNDRY_native",
+					"image": "SITE_SHOP_LT_MODEL_LAUNDRY_native.png",
+					"owner": "SITE_SHOP_LT_MODEL_LAUNDRY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						9.27218246459961,
+						0.0149999996647239,
+						31.4271850585938
+					],
+					"id": "SITE_SHOP_IN0_MODEL_LAUNDRY_native",
+					"image": "SITE_SHOP_IN0_MODEL_LAUNDRY_native.png",
+					"owner": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-11.06529712677,
+						-1.58500003814697,
+						-19.1874809265137
+					],
+					"id": "B1_SERVICE_CORE_LT_native",
+					"image": "B1_SERVICE_CORE_LT_native.png",
+					"owner": "B1_SERVICE_CORE_LT",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"household_wardrobes": {
+			"actors": 21,
+			"captured": false,
+			"checks": 2073,
+			"elapsed_ms": 2475,
+			"failures": [],
+			"fixture_sha256": "4e0dcf6a7328eff4a0666595bb76174cb096aa1a7c7c04676a063a74f2ef3f16",
+			"parts": 231,
+			"unique_triangles": 447616,
+			"validator_sha256": "24b178789f4404b90636cd8cbd25915371403c635627cf93ad8cead61fe1c267",
+			"views": []
+		},
+		"medicine_cabinets": {
+			"actors": 12,
+			"captured": true,
+			"checks": 1060,
+			"elapsed_ms": 8198,
+			"failures": [],
+			"fixture_sha256": "b6aa348aad04bc2aa272a8963b8114278eb44ab5b481aeafcfaf35755b808b5f",
+			"kept_items": 28,
+			"unique_triangles": 48260,
+			"validator_sha256": "5d62f1ef3069e6fb5c77e04d38a6965a96fdb5fdefd1a4e9fc3ce4d352be7796",
+			"views": [
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						-15.1499996185303,
+						6.42000007629395,
+						-0.522000789642334
+					],
+					"id": "F03_3B_MIRROR_01_native_open",
+					"image": "F03_3B_MIRROR_01_native_open.png",
+					"owner": "F03_3B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						-15.1499996185303,
+						6.42000007629395,
+						-0.522000789642334
+					],
+					"id": "F03_3B_MIRROR_01_native_mirror",
+					"image": "F03_3B_MIRROR_01_native_mirror.png",
+					"owner": "F03_3B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"photo_radio_fittings": {
+			"captured": false,
+			"checks": 170,
+			"elapsed_ms": 62,
+			"failures": [],
+			"fixture_sha256": "e621c590bf78d92747f4f915db2974d234721b7c25930f7fb6d06544546374f7",
+			"parts": 7,
+			"removed": 48,
+			"supports": 15,
+			"triangles": 11488,
+			"validator_sha256": "db99a4e58a059ad2b5189c8015ad4f96cbae259ce9ecc781df021c7bcb67e813"
+		},
+		"task_lamps": {
+			"captured": false,
+			"checks": 416,
+			"elapsed_ms": 600,
+			"failures": [],
+			"fixture_sha256": "39056492316798954ec1795ce99c583caac120bc9dd6dc678ba88e897c715541",
+			"library_variants": 5,
+			"parts": 34,
+			"production_actors": 1,
+			"triangles": 61596,
+			"validator_sha256": "3192db39959f7da70ac0f2a9c9c0c65e2e1a9eb63de88117ba138512c83ac698"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

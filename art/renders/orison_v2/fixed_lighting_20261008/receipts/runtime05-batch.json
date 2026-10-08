@@ -1,0 +1,75 @@
+{
+	"batch_checks": 10,
+	"elapsed_ms": 44485,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 7005,
+	"modules": {
+		"fixed_lighting": {
+			"actors": 199,
+			"captured": true,
+			"checks": 5945,
+			"elapsed_ms": 4094,
+			"failures": [],
+			"fixture_sha256": "5af1f056063c4ec72fbb3654ea150312b94cb7193065c20e974d9f05ae2dd37d",
+			"parts": 746,
+			"unique_triangles": 480680,
+			"validator_sha256": "2bbe489eb9d7cb5abce07382dfb1fb0f99ed99fb61a13d8db808d11d66890b19",
+			"variants": 27,
+			"views": [
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-14.4674816131592,
+						6.41499996185303,
+						-0.26529923081398
+					],
+					"id": "3B_LT_SCONCE_native",
+					"image": "3B_LT_SCONCE_native.png",
+					"owner": "3B_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"medicine_cabinets": {
+			"actors": 12,
+			"captured": true,
+			"checks": 1060,
+			"elapsed_ms": 8145,
+			"failures": [],
+			"fixture_sha256": "b6aa348aad04bc2aa272a8963b8114278eb44ab5b481aeafcfaf35755b808b5f",
+			"kept_items": 28,
+			"unique_triangles": 48260,
+			"validator_sha256": "5d62f1ef3069e6fb5c77e04d38a6965a96fdb5fdefd1a4e9fc3ce4d352be7796",
+			"views": [
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						-15.1499996185303,
+						6.42000007629395,
+						-0.522000789642334
+					],
+					"id": "F03_3B_MIRROR_01_native_open",
+					"image": "F03_3B_MIRROR_01_native_open.png",
+					"owner": "F03_3B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						-15.1499996185303,
+						6.42000007629395,
+						-0.522000789642334
+					],
+					"id": "F03_3B_MIRROR_01_native_mirror",
+					"image": "F03_3B_MIRROR_01_native_mirror.png",
+					"owner": "F03_3B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

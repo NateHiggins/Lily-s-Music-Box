@@ -1,0 +1,411 @@
+{
+	"batch_checks": 10,
+	"elapsed_ms": 78152,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 7032,
+	"modules": {
+		"fixed_lighting": {
+			"actors": 199,
+			"captured": true,
+			"checks": 5972,
+			"elapsed_ms": 37725,
+			"failures": [],
+			"fixture_sha256": "963c9d55ba142c85b326d44232da5dfa81dba38364479d204d1cf555f1552c42",
+			"parts": 746,
+			"unique_triangles": 480680,
+			"validator_sha256": "42457c8efe95702bd9574fef7b4f5055368cd4f7f885bc159b93699640e2d9c9",
+			"variants": 27,
+			"views": [
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						6.00000095367432,
+						-3.18499994277954,
+						-10.5499982833862
+					],
+					"id": "B1_LAUNDRY_LT_FLUSH_DOME_native",
+					"image": "B1_LAUNDRY_LT_FLUSH_DOME_native.png",
+					"owner": "B1_LAUNDRY_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						12.3000011444092,
+						3.21500015258789,
+						-12.399998664856
+					],
+					"id": "F02_A_MAIN_LT_PENDANT_SHADE_native",
+					"image": "F02_A_MAIN_LT_PENDANT_SHADE_native.png",
+					"owner": "F02_A_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-13.0499992370605,
+						6.41499996185303,
+						-8.29737281799316
+					],
+					"id": "F03_B_MAIN_LT_PENDANT_SHADE_native",
+					"image": "F03_B_MAIN_LT_PENDANT_SHADE_native.png",
+					"owner": "F03_B_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-10.5221824645996,
+						6.41499996185303,
+						-4.22218322753906
+					],
+					"id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR_native",
+					"image": "F03_B_KITCHEN_LT_KITCHEN_LINEAR_native.png",
+					"owner": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-10.6499996185303,
+						6.41499996185303,
+						-2.3026282787323
+					],
+					"id": "F03_B_ALCOVE_LT_FLUSH_DOME_native",
+					"image": "F03_B_ALCOVE_LT_FLUSH_DOME_native.png",
+					"owner": "F03_B_ALCOVE_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-14.4674816131592,
+						6.41499996185303,
+						-0.26529923081398
+					],
+					"id": "3B_LT_SCONCE_native",
+					"image": "3B_LT_SCONCE_native.png",
+					"owner": "3B_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						11.7000007629395,
+						9.61500072479248,
+						-10.3499984741211
+					],
+					"id": "F04_B_MAIN_LT_PENDANT_SHADE_native",
+					"image": "F04_B_MAIN_LT_PENDANT_SHADE_native.png",
+					"owner": "F04_B_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						8.27781867980957,
+						9.61500072479248,
+						-15.622181892395
+					],
+					"id": "F04_B_BATH_LT_FLUSH_DOME_native",
+					"image": "F04_B_BATH_LT_FLUSH_DOME_native.png",
+					"owner": "F04_B_BATH_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						9.75,
+						12.8150005340576,
+						-2.69999885559082
+					],
+					"id": "F05_A_KITCHEN_LT_KITCHEN_LINEAR_native",
+					"image": "F05_A_KITCHEN_LT_KITCHEN_LINEAR_native.png",
+					"owner": "F05_A_KITCHEN_LT_KITCHEN_LINEAR",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						12.5425176620483,
+						0.0149999996647239,
+						18.0057010650635
+					],
+					"id": "PASSAGE_PORTAL_LT_W_native",
+					"image": "PASSAGE_PORTAL_LT_W_native.png",
+					"owner": "PASSAGE_PORTAL_LT_W",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						20.0452995300293,
+						0.0149999996647239,
+						16.6584815979004
+					],
+					"id": "PASSAGE_PORTAL_LT_E_native",
+					"image": "PASSAGE_PORTAL_LT_E_native.png",
+					"owner": "PASSAGE_PORTAL_LT_E",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						14.0,
+						0.0149999996647239,
+						22.5050010681152
+					],
+					"id": "PASSAGE_AISLE_LT_00_native",
+					"image": "PASSAGE_AISLE_LT_00_native.png",
+					"owner": "PASSAGE_AISLE_LT_00",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-11.0799999237061,
+						-2.78500008583069,
+						24.3050003051758
+					],
+					"id": "F01_BAR_LT_DARTS_native",
+					"image": "F01_BAR_LT_DARTS_native.png",
+					"owner": "F01_BAR_LT_DARTS",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						5.15970087051392,
+						0.0149999996647239,
+						18.4424800872803
+					],
+					"id": "F01_BAR_LT_LOBBY_native",
+					"image": "F01_BAR_LT_LOBBY_native.png",
+					"owner": "F01_BAR_LT_LOBBY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-1.49999988079071,
+						-2.78500008583069,
+						23.605001449585
+					],
+					"id": "F01_BAR_LT_WELL_native",
+					"image": "F01_BAR_LT_WELL_native.png",
+					"owner": "F01_BAR_LT_WELL",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						4.78236198425293,
+						-2.78500008583069,
+						24.7368507385254
+					],
+					"id": "F01_BAR_LT_STAIR_native",
+					"image": "F01_BAR_LT_STAIR_native.png",
+					"owner": "F01_BAR_LT_STAIR",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-3.20000004768372,
+						-2.78500008583069,
+						21.0050010681152
+					],
+					"id": "F01_BAR_LT_CAN0_native",
+					"image": "F01_BAR_LT_CAN0_native.png",
+					"owner": "F01_BAR_LT_CAN0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-7.40000009536743,
+						-2.78500008583069,
+						22.5550003051758
+					],
+					"id": "F01_BAR_LT_POOL_native",
+					"image": "F01_BAR_LT_POOL_native.png",
+					"owner": "F01_BAR_LT_POOL",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-7.91529893875122,
+						-2.78500008583069,
+						26.5675182342529
+					],
+					"id": "F01_BAR_LT_TAB0_native",
+					"image": "F01_BAR_LT_TAB0_native.png",
+					"owner": "F01_BAR_LT_TAB0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-5.19999980926514,
+						-2.78500008583069,
+						26.6049995422363
+					],
+					"id": "F01_BAR_LT_TAB1_native",
+					"image": "F01_BAR_LT_TAB1_native.png",
+					"owner": "F01_BAR_LT_TAB1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-2.67781734466553,
+						-2.78500008583069,
+						25.9771823883057
+					],
+					"id": "F01_BAR_LT_STAGE0_native",
+					"image": "F01_BAR_LT_STAGE0_native.png",
+					"owner": "F01_BAR_LT_STAGE0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						3.22717976570129,
+						-2.60500001907349,
+						26.4049987792969
+					],
+					"id": "F01_BAR_LT_DECK0_native",
+					"image": "F01_BAR_LT_DECK0_native.png",
+					"owner": "F01_BAR_LT_DECK0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-10.2774820327759,
+						-2.78500008583069,
+						25.8897018432617
+					],
+					"id": "F01_BAR_LT_WEST0_native",
+					"image": "F01_BAR_LT_WEST0_native.png",
+					"owner": "F01_BAR_LT_WEST0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-11.0552988052368,
+						-2.78500008583069,
+						22.5675182342529
+					],
+					"id": "F01_BAR_LT_WEST1_native",
+					"image": "F01_BAR_LT_WEST1_native.png",
+					"owner": "F01_BAR_LT_WEST1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-10.1957359313965,
+						-2.78500008583069,
+						26.8807334899902
+					],
+					"id": "F01_BAR_LT_WC_native",
+					"image": "F01_BAR_LT_WC_native.png",
+					"owner": "F01_BAR_LT_WC",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						11.744701385498,
+						0.0149999996647239,
+						35.0925178527832
+					],
+					"id": "SITE_SHOP_LT_MODEL_LAUNDRY_native",
+					"image": "SITE_SHOP_LT_MODEL_LAUNDRY_native.png",
+					"owner": "SITE_SHOP_LT_MODEL_LAUNDRY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						9.27218246459961,
+						0.0149999996647239,
+						31.4271850585938
+					],
+					"id": "SITE_SHOP_IN0_MODEL_LAUNDRY_native",
+					"image": "SITE_SHOP_IN0_MODEL_LAUNDRY_native.png",
+					"owner": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-11.06529712677,
+						-1.58500003814697,
+						-19.9625205993652
+					],
+					"id": "B1_SERVICE_CORE_LT_native",
+					"image": "B1_SERVICE_CORE_LT_native.png",
+					"owner": "B1_SERVICE_CORE_LT",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native fixture and fitted attachment",
+					"feet": [
+						-0.100000023841858,
+						-2.78500008583069,
+						25.105001449585
+					],
+					"id": "F01_BAR_LT_TAB2_native",
+					"image": "F01_BAR_LT_TAB2_native.png",
+					"owner": "F01_BAR_LT_TAB2",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"medicine_cabinets": {
+			"actors": 12,
+			"captured": true,
+			"checks": 1060,
+			"elapsed_ms": 8308,
+			"failures": [],
+			"fixture_sha256": "b6aa348aad04bc2aa272a8963b8114278eb44ab5b481aeafcfaf35755b808b5f",
+			"kept_items": 28,
+			"unique_triangles": 48260,
+			"validator_sha256": "5d62f1ef3069e6fb5c77e04d38a6965a96fdb5fdefd1a4e9fc3ce4d352be7796",
+			"views": [
+				{
+					"bucket": "native cabinet and original household stock",
+					"feet": [
+						-15.1499996185303,
+						6.42000007629395,
+						-0.522000789642334
+					],
+					"id": "F03_3B_MIRROR_01_native_open",
+					"image": "F03_3B_MIRROR_01_native_open.png",
+					"owner": "F03_3B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native leaf and live source reflection",
+					"feet": [
+						-15.1499996185303,
+						6.42000007629395,
+						-0.522000789642334
+					],
+					"id": "F03_3B_MIRROR_01_native_mirror",
+					"image": "F03_3B_MIRROR_01_native_mirror.png",
+					"owner": "F03_3B_MIRROR_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

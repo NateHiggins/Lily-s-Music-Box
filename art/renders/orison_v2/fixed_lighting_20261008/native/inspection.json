@@ -1,0 +1,5076 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 438,
+  "connected_groups": [
+    {
+      "assembly": "pendant_shade_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "pendant_shade_Canopy",
+          "pendant_shade_CanopyScrew-1"
+        ],
+        [
+          "pendant_shade_Canopy",
+          "pendant_shade_CanopyScrew1"
+        ],
+        [
+          "pendant_shade_Canopy",
+          "pendant_shade_BraidedDrop"
+        ],
+        [
+          "pendant_shade_BraidedDrop",
+          "pendant_shade_Socket"
+        ],
+        [
+          "pendant_shade_Socket",
+          "pendant_shade_SocketThread0"
+        ],
+        [
+          "pendant_shade_Socket",
+          "pendant_shade_SocketThread1"
+        ],
+        [
+          "pendant_shade_Socket",
+          "pendant_shade_SocketThread2"
+        ],
+        [
+          "pendant_shade_Socket",
+          "pendant_shade_SocketThread3"
+        ],
+        [
+          "pendant_shade_Socket",
+          "pendant_shade_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_Socket",
+          "pendant_shade_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_Socket",
+          "pendant_shade_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_Socket",
+          "pendant_shade_Lamp"
+        ],
+        [
+          "pendant_shade_SocketThread1",
+          "pendant_shade_Lamp"
+        ],
+        [
+          "pendant_shade_Shade",
+          "pendant_shade_UpperHem"
+        ],
+        [
+          "pendant_shade_Shade",
+          "pendant_shade_LowerHem"
+        ],
+        [
+          "pendant_shade_Shade",
+          "pendant_shade_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_Shade",
+          "pendant_shade_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_Shade",
+          "pendant_shade_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_Shade",
+          "pendant_shade_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_Shade",
+          "pendant_shade_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_Shade",
+          "pendant_shade_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_UpperHem",
+          "pendant_shade_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_UpperHem",
+          "pendant_shade_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_UpperHem",
+          "pendant_shade_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_LowerHem",
+          "pendant_shade_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_LowerHem",
+          "pendant_shade_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_LowerHem",
+          "pendant_shade_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_Diffuser",
+          "pendant_shade_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_Diffuser",
+          "pendant_shade_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_Diffuser",
+          "pendant_shade_DiffuserStay2"
+        ]
+      ]
+    },
+    {
+      "assembly": "flush_dome_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "flush_dome_SteppedCanopy",
+          "flush_dome_OpalBowl"
+        ],
+        [
+          "flush_dome_SteppedCanopy",
+          "flush_dome_GlobeScrew0"
+        ],
+        [
+          "flush_dome_SteppedCanopy",
+          "flush_dome_GlobeScrew1"
+        ],
+        [
+          "flush_dome_SteppedCanopy",
+          "flush_dome_GlobeScrew2"
+        ],
+        [
+          "flush_dome_RetainingRing",
+          "flush_dome_GlobeScrew0"
+        ],
+        [
+          "flush_dome_RetainingRing",
+          "flush_dome_GlobeScrew1"
+        ],
+        [
+          "flush_dome_RetainingRing",
+          "flush_dome_GlobeScrew2"
+        ]
+      ]
+    },
+    {
+      "assembly": "kitchen_linear_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "kitchen_linear_Spine",
+          "kitchen_linear_Fold-0.065"
+        ],
+        [
+          "kitchen_linear_Spine",
+          "kitchen_linear_Fold0.062"
+        ],
+        [
+          "kitchen_linear_Spine",
+          "kitchen_linear_EndCap-0.357"
+        ],
+        [
+          "kitchen_linear_Spine",
+          "kitchen_linear_EndCap0.33"
+        ],
+        [
+          "kitchen_linear_Spine",
+          "kitchen_linear_TubeSocket-0.323"
+        ],
+        [
+          "kitchen_linear_Spine",
+          "kitchen_linear_TubeSocket0.298"
+        ],
+        [
+          "kitchen_linear_Fold-0.065",
+          "kitchen_linear_EndCap-0.357"
+        ],
+        [
+          "kitchen_linear_Fold-0.065",
+          "kitchen_linear_EndCap0.33"
+        ],
+        [
+          "kitchen_linear_Fold0.062",
+          "kitchen_linear_EndCap-0.357"
+        ],
+        [
+          "kitchen_linear_Fold0.062",
+          "kitchen_linear_EndCap0.33"
+        ],
+        [
+          "kitchen_linear_TubeSocket-0.323",
+          "kitchen_linear_LampPin-0.323"
+        ],
+        [
+          "kitchen_linear_TubeSocket-0.323",
+          "kitchen_linear_Tube"
+        ],
+        [
+          "kitchen_linear_LampPin-0.323",
+          "kitchen_linear_Tube"
+        ],
+        [
+          "kitchen_linear_TubeSocket0.298",
+          "kitchen_linear_LampPin0.298"
+        ],
+        [
+          "kitchen_linear_TubeSocket0.298",
+          "kitchen_linear_Tube"
+        ],
+        [
+          "kitchen_linear_LampPin0.298",
+          "kitchen_linear_Tube"
+        ]
+      ]
+    },
+    {
+      "assembly": "flush_dome_rise150_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "flush_dome_rise150_SteppedCanopy",
+          "flush_dome_rise150_OpalBowl"
+        ],
+        [
+          "flush_dome_rise150_SteppedCanopy",
+          "flush_dome_rise150_GlobeScrew0"
+        ],
+        [
+          "flush_dome_rise150_SteppedCanopy",
+          "flush_dome_rise150_GlobeScrew1"
+        ],
+        [
+          "flush_dome_rise150_SteppedCanopy",
+          "flush_dome_rise150_GlobeScrew2"
+        ],
+        [
+          "flush_dome_rise150_SteppedCanopy",
+          "flush_dome_rise150_RigidMount"
+        ],
+        [
+          "flush_dome_rise150_RetainingRing",
+          "flush_dome_rise150_GlobeScrew0"
+        ],
+        [
+          "flush_dome_rise150_RetainingRing",
+          "flush_dome_rise150_GlobeScrew1"
+        ],
+        [
+          "flush_dome_rise150_RetainingRing",
+          "flush_dome_rise150_GlobeScrew2"
+        ],
+        [
+          "flush_dome_rise150_RigidMount",
+          "flush_dome_rise150_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "pendant_shade_rise360_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "pendant_shade_rise360_Canopy",
+          "pendant_shade_rise360_CanopyScrew-1"
+        ],
+        [
+          "pendant_shade_rise360_Canopy",
+          "pendant_shade_rise360_CanopyScrew1"
+        ],
+        [
+          "pendant_shade_rise360_Canopy",
+          "pendant_shade_rise360_BraidedDrop"
+        ],
+        [
+          "pendant_shade_rise360_BraidedDrop",
+          "pendant_shade_rise360_Socket"
+        ],
+        [
+          "pendant_shade_rise360_Socket",
+          "pendant_shade_rise360_SocketThread0"
+        ],
+        [
+          "pendant_shade_rise360_Socket",
+          "pendant_shade_rise360_SocketThread1"
+        ],
+        [
+          "pendant_shade_rise360_Socket",
+          "pendant_shade_rise360_SocketThread2"
+        ],
+        [
+          "pendant_shade_rise360_Socket",
+          "pendant_shade_rise360_SocketThread3"
+        ],
+        [
+          "pendant_shade_rise360_Socket",
+          "pendant_shade_rise360_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise360_Socket",
+          "pendant_shade_rise360_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise360_Socket",
+          "pendant_shade_rise360_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise360_Socket",
+          "pendant_shade_rise360_Lamp"
+        ],
+        [
+          "pendant_shade_rise360_SocketThread1",
+          "pendant_shade_rise360_Lamp"
+        ],
+        [
+          "pendant_shade_rise360_Shade",
+          "pendant_shade_rise360_UpperHem"
+        ],
+        [
+          "pendant_shade_rise360_Shade",
+          "pendant_shade_rise360_LowerHem"
+        ],
+        [
+          "pendant_shade_rise360_Shade",
+          "pendant_shade_rise360_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise360_Shade",
+          "pendant_shade_rise360_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise360_Shade",
+          "pendant_shade_rise360_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise360_Shade",
+          "pendant_shade_rise360_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise360_Shade",
+          "pendant_shade_rise360_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise360_Shade",
+          "pendant_shade_rise360_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_rise360_UpperHem",
+          "pendant_shade_rise360_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise360_UpperHem",
+          "pendant_shade_rise360_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise360_UpperHem",
+          "pendant_shade_rise360_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise360_LowerHem",
+          "pendant_shade_rise360_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise360_LowerHem",
+          "pendant_shade_rise360_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise360_LowerHem",
+          "pendant_shade_rise360_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_rise360_Diffuser",
+          "pendant_shade_rise360_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise360_Diffuser",
+          "pendant_shade_rise360_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise360_Diffuser",
+          "pendant_shade_rise360_DiffuserStay2"
+        ]
+      ]
+    },
+    {
+      "assembly": "pendant_shade_rise100_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "pendant_shade_rise100_Canopy",
+          "pendant_shade_rise100_CanopyScrew-1"
+        ],
+        [
+          "pendant_shade_rise100_Canopy",
+          "pendant_shade_rise100_CanopyScrew1"
+        ],
+        [
+          "pendant_shade_rise100_Canopy",
+          "pendant_shade_rise100_BraidedDrop"
+        ],
+        [
+          "pendant_shade_rise100_BraidedDrop",
+          "pendant_shade_rise100_Socket"
+        ],
+        [
+          "pendant_shade_rise100_Socket",
+          "pendant_shade_rise100_SocketThread0"
+        ],
+        [
+          "pendant_shade_rise100_Socket",
+          "pendant_shade_rise100_SocketThread1"
+        ],
+        [
+          "pendant_shade_rise100_Socket",
+          "pendant_shade_rise100_SocketThread2"
+        ],
+        [
+          "pendant_shade_rise100_Socket",
+          "pendant_shade_rise100_SocketThread3"
+        ],
+        [
+          "pendant_shade_rise100_Socket",
+          "pendant_shade_rise100_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise100_Socket",
+          "pendant_shade_rise100_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise100_Socket",
+          "pendant_shade_rise100_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise100_Socket",
+          "pendant_shade_rise100_Lamp"
+        ],
+        [
+          "pendant_shade_rise100_SocketThread1",
+          "pendant_shade_rise100_Lamp"
+        ],
+        [
+          "pendant_shade_rise100_Shade",
+          "pendant_shade_rise100_UpperHem"
+        ],
+        [
+          "pendant_shade_rise100_Shade",
+          "pendant_shade_rise100_LowerHem"
+        ],
+        [
+          "pendant_shade_rise100_Shade",
+          "pendant_shade_rise100_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise100_Shade",
+          "pendant_shade_rise100_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise100_Shade",
+          "pendant_shade_rise100_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise100_Shade",
+          "pendant_shade_rise100_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise100_Shade",
+          "pendant_shade_rise100_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise100_Shade",
+          "pendant_shade_rise100_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_rise100_UpperHem",
+          "pendant_shade_rise100_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise100_UpperHem",
+          "pendant_shade_rise100_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise100_UpperHem",
+          "pendant_shade_rise100_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise100_LowerHem",
+          "pendant_shade_rise100_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise100_LowerHem",
+          "pendant_shade_rise100_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise100_LowerHem",
+          "pendant_shade_rise100_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_rise100_Diffuser",
+          "pendant_shade_rise100_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise100_Diffuser",
+          "pendant_shade_rise100_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise100_Diffuser",
+          "pendant_shade_rise100_DiffuserStay2"
+        ]
+      ]
+    },
+    {
+      "assembly": "kitchen_linear_rise100_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "kitchen_linear_rise100_Spine",
+          "kitchen_linear_rise100_Fold-0.065"
+        ],
+        [
+          "kitchen_linear_rise100_Spine",
+          "kitchen_linear_rise100_Fold0.062"
+        ],
+        [
+          "kitchen_linear_rise100_Spine",
+          "kitchen_linear_rise100_EndCap-0.357"
+        ],
+        [
+          "kitchen_linear_rise100_Spine",
+          "kitchen_linear_rise100_EndCap0.33"
+        ],
+        [
+          "kitchen_linear_rise100_Spine",
+          "kitchen_linear_rise100_TubeSocket-0.323"
+        ],
+        [
+          "kitchen_linear_rise100_Spine",
+          "kitchen_linear_rise100_TubeSocket0.298"
+        ],
+        [
+          "kitchen_linear_rise100_Spine",
+          "kitchen_linear_rise100_RigidMount"
+        ],
+        [
+          "kitchen_linear_rise100_Fold-0.065",
+          "kitchen_linear_rise100_EndCap-0.357"
+        ],
+        [
+          "kitchen_linear_rise100_Fold-0.065",
+          "kitchen_linear_rise100_EndCap0.33"
+        ],
+        [
+          "kitchen_linear_rise100_Fold0.062",
+          "kitchen_linear_rise100_EndCap-0.357"
+        ],
+        [
+          "kitchen_linear_rise100_Fold0.062",
+          "kitchen_linear_rise100_EndCap0.33"
+        ],
+        [
+          "kitchen_linear_rise100_TubeSocket-0.323",
+          "kitchen_linear_rise100_LampPin-0.323"
+        ],
+        [
+          "kitchen_linear_rise100_TubeSocket-0.323",
+          "kitchen_linear_rise100_Tube"
+        ],
+        [
+          "kitchen_linear_rise100_LampPin-0.323",
+          "kitchen_linear_rise100_Tube"
+        ],
+        [
+          "kitchen_linear_rise100_TubeSocket0.298",
+          "kitchen_linear_rise100_LampPin0.298"
+        ],
+        [
+          "kitchen_linear_rise100_TubeSocket0.298",
+          "kitchen_linear_rise100_Tube"
+        ],
+        [
+          "kitchen_linear_rise100_LampPin0.298",
+          "kitchen_linear_rise100_Tube"
+        ],
+        [
+          "kitchen_linear_rise100_RigidMount",
+          "kitchen_linear_rise100_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "flush_dome_rise100_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "flush_dome_rise100_SteppedCanopy",
+          "flush_dome_rise100_OpalBowl"
+        ],
+        [
+          "flush_dome_rise100_SteppedCanopy",
+          "flush_dome_rise100_GlobeScrew0"
+        ],
+        [
+          "flush_dome_rise100_SteppedCanopy",
+          "flush_dome_rise100_GlobeScrew1"
+        ],
+        [
+          "flush_dome_rise100_SteppedCanopy",
+          "flush_dome_rise100_GlobeScrew2"
+        ],
+        [
+          "flush_dome_rise100_SteppedCanopy",
+          "flush_dome_rise100_RigidMount"
+        ],
+        [
+          "flush_dome_rise100_RetainingRing",
+          "flush_dome_rise100_GlobeScrew0"
+        ],
+        [
+          "flush_dome_rise100_RetainingRing",
+          "flush_dome_rise100_GlobeScrew1"
+        ],
+        [
+          "flush_dome_rise100_RetainingRing",
+          "flush_dome_rise100_GlobeScrew2"
+        ],
+        [
+          "flush_dome_rise100_RigidMount",
+          "flush_dome_rise100_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "sconce_globe_back050_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "sconce_globe_back050_Backplate",
+          "sconce_globe_back050_WallScrew-0.055"
+        ],
+        [
+          "sconce_globe_back050_Backplate",
+          "sconce_globe_back050_WallScrew0.055"
+        ],
+        [
+          "sconce_globe_back050_Backplate",
+          "sconce_globe_back050_CastArm"
+        ],
+        [
+          "sconce_globe_back050_CastArm",
+          "sconce_globe_back050_GlobeSocket"
+        ],
+        [
+          "sconce_globe_back050_CastArm",
+          "sconce_globe_back050_GlobeSocketThread0"
+        ],
+        [
+          "sconce_globe_back050_CastArm",
+          "sconce_globe_back050_GlobeSocketThread1"
+        ],
+        [
+          "sconce_globe_back050_CastArm",
+          "sconce_globe_back050_GlobeSocketThread2"
+        ],
+        [
+          "sconce_globe_back050_CastArm",
+          "sconce_globe_back050_GlobeSocketThread3"
+        ],
+        [
+          "sconce_globe_back050_GlobeSocket",
+          "sconce_globe_back050_GlobeSocketThread0"
+        ],
+        [
+          "sconce_globe_back050_GlobeSocket",
+          "sconce_globe_back050_GlobeSocketThread1"
+        ],
+        [
+          "sconce_globe_back050_GlobeSocket",
+          "sconce_globe_back050_GlobeSocketThread2"
+        ],
+        [
+          "sconce_globe_back050_GlobeSocket",
+          "sconce_globe_back050_GlobeSocketThread3"
+        ],
+        [
+          "sconce_globe_back050_GlobeSocket",
+          "sconce_globe_back050_GlobeCollar"
+        ],
+        [
+          "sconce_globe_back050_GlobeSocket",
+          "sconce_globe_back050_OpalGlobe"
+        ],
+        [
+          "sconce_globe_back050_GlobeCollar",
+          "sconce_globe_back050_OpalGlobe"
+        ]
+      ]
+    },
+    {
+      "assembly": "cage_bulb_rise960_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "cage_bulb_rise960_Canopy",
+          "cage_bulb_rise960_CanopyScrew-1"
+        ],
+        [
+          "cage_bulb_rise960_Canopy",
+          "cage_bulb_rise960_CanopyScrew1"
+        ],
+        [
+          "cage_bulb_rise960_Canopy",
+          "cage_bulb_rise960_Drop"
+        ],
+        [
+          "cage_bulb_rise960_Canopy",
+          "cage_bulb_rise960_RigidMount"
+        ],
+        [
+          "cage_bulb_rise960_Drop",
+          "cage_bulb_rise960_SocketCap"
+        ],
+        [
+          "cage_bulb_rise960_SocketCap",
+          "cage_bulb_rise960_Insulator"
+        ],
+        [
+          "cage_bulb_rise960_SocketCap",
+          "cage_bulb_rise960_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise960_SocketCap",
+          "cage_bulb_rise960_PearLamp"
+        ],
+        [
+          "cage_bulb_rise960_SocketCap",
+          "cage_bulb_rise960_GuardRib0"
+        ],
+        [
+          "cage_bulb_rise960_SocketCap",
+          "cage_bulb_rise960_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise960_SocketCap",
+          "cage_bulb_rise960_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise960_SocketCap",
+          "cage_bulb_rise960_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise960_SocketCap",
+          "cage_bulb_rise960_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise960_SocketCap",
+          "cage_bulb_rise960_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise960_Insulator",
+          "cage_bulb_rise960_InsulatorThread0"
+        ],
+        [
+          "cage_bulb_rise960_Insulator",
+          "cage_bulb_rise960_InsulatorThread1"
+        ],
+        [
+          "cage_bulb_rise960_Insulator",
+          "cage_bulb_rise960_InsulatorThread2"
+        ],
+        [
+          "cage_bulb_rise960_Insulator",
+          "cage_bulb_rise960_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise960_Insulator",
+          "cage_bulb_rise960_PearLamp"
+        ],
+        [
+          "cage_bulb_rise960_InsulatorThread2",
+          "cage_bulb_rise960_PearLamp"
+        ],
+        [
+          "cage_bulb_rise960_InsulatorThread3",
+          "cage_bulb_rise960_PearLamp"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib0",
+          "cage_bulb_rise960_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib0",
+          "cage_bulb_rise960_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib0",
+          "cage_bulb_rise960_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib0",
+          "cage_bulb_rise960_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib0",
+          "cage_bulb_rise960_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib0",
+          "cage_bulb_rise960_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib1",
+          "cage_bulb_rise960_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib1",
+          "cage_bulb_rise960_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib1",
+          "cage_bulb_rise960_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib1",
+          "cage_bulb_rise960_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib1",
+          "cage_bulb_rise960_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib2",
+          "cage_bulb_rise960_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib2",
+          "cage_bulb_rise960_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib2",
+          "cage_bulb_rise960_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib2",
+          "cage_bulb_rise960_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib3",
+          "cage_bulb_rise960_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib3",
+          "cage_bulb_rise960_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib3",
+          "cage_bulb_rise960_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib4",
+          "cage_bulb_rise960_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib4",
+          "cage_bulb_rise960_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise960_GuardRib5",
+          "cage_bulb_rise960_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise960_RigidMount",
+          "cage_bulb_rise960_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "cage_bulb_wall0x-255_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "cage_bulb_wall0x-255_Canopy",
+          "cage_bulb_wall0x-255_CanopyScrew-1"
+        ],
+        [
+          "cage_bulb_wall0x-255_Canopy",
+          "cage_bulb_wall0x-255_CanopyScrew1"
+        ],
+        [
+          "cage_bulb_wall0x-255_Canopy",
+          "cage_bulb_wall0x-255_Drop"
+        ],
+        [
+          "cage_bulb_wall0x-255_Canopy",
+          "cage_bulb_wall0x-255_BracketArm"
+        ],
+        [
+          "cage_bulb_wall0x-255_Drop",
+          "cage_bulb_wall0x-255_SocketCap"
+        ],
+        [
+          "cage_bulb_wall0x-255_Drop",
+          "cage_bulb_wall0x-255_BracketArm"
+        ],
+        [
+          "cage_bulb_wall0x-255_SocketCap",
+          "cage_bulb_wall0x-255_Insulator"
+        ],
+        [
+          "cage_bulb_wall0x-255_SocketCap",
+          "cage_bulb_wall0x-255_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_wall0x-255_SocketCap",
+          "cage_bulb_wall0x-255_PearLamp"
+        ],
+        [
+          "cage_bulb_wall0x-255_SocketCap",
+          "cage_bulb_wall0x-255_GuardRib0"
+        ],
+        [
+          "cage_bulb_wall0x-255_SocketCap",
+          "cage_bulb_wall0x-255_GuardRib1"
+        ],
+        [
+          "cage_bulb_wall0x-255_SocketCap",
+          "cage_bulb_wall0x-255_GuardRib2"
+        ],
+        [
+          "cage_bulb_wall0x-255_SocketCap",
+          "cage_bulb_wall0x-255_GuardRib3"
+        ],
+        [
+          "cage_bulb_wall0x-255_SocketCap",
+          "cage_bulb_wall0x-255_GuardRib4"
+        ],
+        [
+          "cage_bulb_wall0x-255_SocketCap",
+          "cage_bulb_wall0x-255_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x-255_Insulator",
+          "cage_bulb_wall0x-255_InsulatorThread0"
+        ],
+        [
+          "cage_bulb_wall0x-255_Insulator",
+          "cage_bulb_wall0x-255_InsulatorThread1"
+        ],
+        [
+          "cage_bulb_wall0x-255_Insulator",
+          "cage_bulb_wall0x-255_InsulatorThread2"
+        ],
+        [
+          "cage_bulb_wall0x-255_Insulator",
+          "cage_bulb_wall0x-255_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_wall0x-255_Insulator",
+          "cage_bulb_wall0x-255_PearLamp"
+        ],
+        [
+          "cage_bulb_wall0x-255_InsulatorThread2",
+          "cage_bulb_wall0x-255_PearLamp"
+        ],
+        [
+          "cage_bulb_wall0x-255_InsulatorThread3",
+          "cage_bulb_wall0x-255_PearLamp"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib0",
+          "cage_bulb_wall0x-255_GuardRib1"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib0",
+          "cage_bulb_wall0x-255_GuardRib2"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib0",
+          "cage_bulb_wall0x-255_GuardRib3"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib0",
+          "cage_bulb_wall0x-255_GuardRib4"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib0",
+          "cage_bulb_wall0x-255_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib0",
+          "cage_bulb_wall0x-255_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib1",
+          "cage_bulb_wall0x-255_GuardRib2"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib1",
+          "cage_bulb_wall0x-255_GuardRib3"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib1",
+          "cage_bulb_wall0x-255_GuardRib4"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib1",
+          "cage_bulb_wall0x-255_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib1",
+          "cage_bulb_wall0x-255_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib2",
+          "cage_bulb_wall0x-255_GuardRib3"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib2",
+          "cage_bulb_wall0x-255_GuardRib4"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib2",
+          "cage_bulb_wall0x-255_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib2",
+          "cage_bulb_wall0x-255_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib3",
+          "cage_bulb_wall0x-255_GuardRib4"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib3",
+          "cage_bulb_wall0x-255_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib3",
+          "cage_bulb_wall0x-255_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib4",
+          "cage_bulb_wall0x-255_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib4",
+          "cage_bulb_wall0x-255_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x-255_GuardRib5",
+          "cage_bulb_wall0x-255_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x-255_WallRosette",
+          "cage_bulb_wall0x-255_BracketArm"
+        ]
+      ]
+    },
+    {
+      "assembly": "cage_bulb_rise160_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "cage_bulb_rise160_Canopy",
+          "cage_bulb_rise160_CanopyScrew-1"
+        ],
+        [
+          "cage_bulb_rise160_Canopy",
+          "cage_bulb_rise160_CanopyScrew1"
+        ],
+        [
+          "cage_bulb_rise160_Canopy",
+          "cage_bulb_rise160_Drop"
+        ],
+        [
+          "cage_bulb_rise160_Canopy",
+          "cage_bulb_rise160_RigidMount"
+        ],
+        [
+          "cage_bulb_rise160_Drop",
+          "cage_bulb_rise160_SocketCap"
+        ],
+        [
+          "cage_bulb_rise160_SocketCap",
+          "cage_bulb_rise160_Insulator"
+        ],
+        [
+          "cage_bulb_rise160_SocketCap",
+          "cage_bulb_rise160_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise160_SocketCap",
+          "cage_bulb_rise160_PearLamp"
+        ],
+        [
+          "cage_bulb_rise160_SocketCap",
+          "cage_bulb_rise160_GuardRib0"
+        ],
+        [
+          "cage_bulb_rise160_SocketCap",
+          "cage_bulb_rise160_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise160_SocketCap",
+          "cage_bulb_rise160_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise160_SocketCap",
+          "cage_bulb_rise160_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise160_SocketCap",
+          "cage_bulb_rise160_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise160_SocketCap",
+          "cage_bulb_rise160_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise160_Insulator",
+          "cage_bulb_rise160_InsulatorThread0"
+        ],
+        [
+          "cage_bulb_rise160_Insulator",
+          "cage_bulb_rise160_InsulatorThread1"
+        ],
+        [
+          "cage_bulb_rise160_Insulator",
+          "cage_bulb_rise160_InsulatorThread2"
+        ],
+        [
+          "cage_bulb_rise160_Insulator",
+          "cage_bulb_rise160_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise160_Insulator",
+          "cage_bulb_rise160_PearLamp"
+        ],
+        [
+          "cage_bulb_rise160_InsulatorThread2",
+          "cage_bulb_rise160_PearLamp"
+        ],
+        [
+          "cage_bulb_rise160_InsulatorThread3",
+          "cage_bulb_rise160_PearLamp"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib0",
+          "cage_bulb_rise160_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib0",
+          "cage_bulb_rise160_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib0",
+          "cage_bulb_rise160_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib0",
+          "cage_bulb_rise160_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib0",
+          "cage_bulb_rise160_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib0",
+          "cage_bulb_rise160_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib1",
+          "cage_bulb_rise160_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib1",
+          "cage_bulb_rise160_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib1",
+          "cage_bulb_rise160_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib1",
+          "cage_bulb_rise160_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib1",
+          "cage_bulb_rise160_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib2",
+          "cage_bulb_rise160_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib2",
+          "cage_bulb_rise160_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib2",
+          "cage_bulb_rise160_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib2",
+          "cage_bulb_rise160_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib3",
+          "cage_bulb_rise160_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib3",
+          "cage_bulb_rise160_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib3",
+          "cage_bulb_rise160_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib4",
+          "cage_bulb_rise160_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib4",
+          "cage_bulb_rise160_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise160_GuardRib5",
+          "cage_bulb_rise160_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise160_RigidMount",
+          "cage_bulb_rise160_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "cage_bulb_rise140_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "cage_bulb_rise140_Canopy",
+          "cage_bulb_rise140_CanopyScrew-1"
+        ],
+        [
+          "cage_bulb_rise140_Canopy",
+          "cage_bulb_rise140_CanopyScrew1"
+        ],
+        [
+          "cage_bulb_rise140_Canopy",
+          "cage_bulb_rise140_Drop"
+        ],
+        [
+          "cage_bulb_rise140_Canopy",
+          "cage_bulb_rise140_RigidMount"
+        ],
+        [
+          "cage_bulb_rise140_Drop",
+          "cage_bulb_rise140_SocketCap"
+        ],
+        [
+          "cage_bulb_rise140_SocketCap",
+          "cage_bulb_rise140_Insulator"
+        ],
+        [
+          "cage_bulb_rise140_SocketCap",
+          "cage_bulb_rise140_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise140_SocketCap",
+          "cage_bulb_rise140_PearLamp"
+        ],
+        [
+          "cage_bulb_rise140_SocketCap",
+          "cage_bulb_rise140_GuardRib0"
+        ],
+        [
+          "cage_bulb_rise140_SocketCap",
+          "cage_bulb_rise140_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise140_SocketCap",
+          "cage_bulb_rise140_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise140_SocketCap",
+          "cage_bulb_rise140_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise140_SocketCap",
+          "cage_bulb_rise140_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise140_SocketCap",
+          "cage_bulb_rise140_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise140_Insulator",
+          "cage_bulb_rise140_InsulatorThread0"
+        ],
+        [
+          "cage_bulb_rise140_Insulator",
+          "cage_bulb_rise140_InsulatorThread1"
+        ],
+        [
+          "cage_bulb_rise140_Insulator",
+          "cage_bulb_rise140_InsulatorThread2"
+        ],
+        [
+          "cage_bulb_rise140_Insulator",
+          "cage_bulb_rise140_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise140_Insulator",
+          "cage_bulb_rise140_PearLamp"
+        ],
+        [
+          "cage_bulb_rise140_InsulatorThread2",
+          "cage_bulb_rise140_PearLamp"
+        ],
+        [
+          "cage_bulb_rise140_InsulatorThread3",
+          "cage_bulb_rise140_PearLamp"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib0",
+          "cage_bulb_rise140_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib0",
+          "cage_bulb_rise140_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib0",
+          "cage_bulb_rise140_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib0",
+          "cage_bulb_rise140_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib0",
+          "cage_bulb_rise140_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib0",
+          "cage_bulb_rise140_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib1",
+          "cage_bulb_rise140_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib1",
+          "cage_bulb_rise140_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib1",
+          "cage_bulb_rise140_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib1",
+          "cage_bulb_rise140_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib1",
+          "cage_bulb_rise140_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib2",
+          "cage_bulb_rise140_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib2",
+          "cage_bulb_rise140_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib2",
+          "cage_bulb_rise140_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib2",
+          "cage_bulb_rise140_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib3",
+          "cage_bulb_rise140_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib3",
+          "cage_bulb_rise140_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib3",
+          "cage_bulb_rise140_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib4",
+          "cage_bulb_rise140_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib4",
+          "cage_bulb_rise140_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise140_GuardRib5",
+          "cage_bulb_rise140_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise140_RigidMount",
+          "cage_bulb_rise140_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "cage_bulb_rise250_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "cage_bulb_rise250_Canopy",
+          "cage_bulb_rise250_CanopyScrew-1"
+        ],
+        [
+          "cage_bulb_rise250_Canopy",
+          "cage_bulb_rise250_CanopyScrew1"
+        ],
+        [
+          "cage_bulb_rise250_Canopy",
+          "cage_bulb_rise250_Drop"
+        ],
+        [
+          "cage_bulb_rise250_Canopy",
+          "cage_bulb_rise250_RigidMount"
+        ],
+        [
+          "cage_bulb_rise250_Drop",
+          "cage_bulb_rise250_SocketCap"
+        ],
+        [
+          "cage_bulb_rise250_SocketCap",
+          "cage_bulb_rise250_Insulator"
+        ],
+        [
+          "cage_bulb_rise250_SocketCap",
+          "cage_bulb_rise250_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise250_SocketCap",
+          "cage_bulb_rise250_PearLamp"
+        ],
+        [
+          "cage_bulb_rise250_SocketCap",
+          "cage_bulb_rise250_GuardRib0"
+        ],
+        [
+          "cage_bulb_rise250_SocketCap",
+          "cage_bulb_rise250_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise250_SocketCap",
+          "cage_bulb_rise250_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise250_SocketCap",
+          "cage_bulb_rise250_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise250_SocketCap",
+          "cage_bulb_rise250_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise250_SocketCap",
+          "cage_bulb_rise250_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise250_Insulator",
+          "cage_bulb_rise250_InsulatorThread0"
+        ],
+        [
+          "cage_bulb_rise250_Insulator",
+          "cage_bulb_rise250_InsulatorThread1"
+        ],
+        [
+          "cage_bulb_rise250_Insulator",
+          "cage_bulb_rise250_InsulatorThread2"
+        ],
+        [
+          "cage_bulb_rise250_Insulator",
+          "cage_bulb_rise250_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise250_Insulator",
+          "cage_bulb_rise250_PearLamp"
+        ],
+        [
+          "cage_bulb_rise250_InsulatorThread2",
+          "cage_bulb_rise250_PearLamp"
+        ],
+        [
+          "cage_bulb_rise250_InsulatorThread3",
+          "cage_bulb_rise250_PearLamp"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib0",
+          "cage_bulb_rise250_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib0",
+          "cage_bulb_rise250_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib0",
+          "cage_bulb_rise250_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib0",
+          "cage_bulb_rise250_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib0",
+          "cage_bulb_rise250_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib0",
+          "cage_bulb_rise250_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib1",
+          "cage_bulb_rise250_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib1",
+          "cage_bulb_rise250_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib1",
+          "cage_bulb_rise250_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib1",
+          "cage_bulb_rise250_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib1",
+          "cage_bulb_rise250_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib2",
+          "cage_bulb_rise250_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib2",
+          "cage_bulb_rise250_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib2",
+          "cage_bulb_rise250_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib2",
+          "cage_bulb_rise250_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib3",
+          "cage_bulb_rise250_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib3",
+          "cage_bulb_rise250_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib3",
+          "cage_bulb_rise250_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib4",
+          "cage_bulb_rise250_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib4",
+          "cage_bulb_rise250_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise250_GuardRib5",
+          "cage_bulb_rise250_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise250_RigidMount",
+          "cage_bulb_rise250_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "cage_bulb_rise60_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "cage_bulb_rise60_Canopy",
+          "cage_bulb_rise60_CanopyScrew-1"
+        ],
+        [
+          "cage_bulb_rise60_Canopy",
+          "cage_bulb_rise60_CanopyScrew1"
+        ],
+        [
+          "cage_bulb_rise60_Canopy",
+          "cage_bulb_rise60_Drop"
+        ],
+        [
+          "cage_bulb_rise60_Canopy",
+          "cage_bulb_rise60_RigidMount"
+        ],
+        [
+          "cage_bulb_rise60_Drop",
+          "cage_bulb_rise60_SocketCap"
+        ],
+        [
+          "cage_bulb_rise60_SocketCap",
+          "cage_bulb_rise60_Insulator"
+        ],
+        [
+          "cage_bulb_rise60_SocketCap",
+          "cage_bulb_rise60_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise60_SocketCap",
+          "cage_bulb_rise60_PearLamp"
+        ],
+        [
+          "cage_bulb_rise60_SocketCap",
+          "cage_bulb_rise60_GuardRib0"
+        ],
+        [
+          "cage_bulb_rise60_SocketCap",
+          "cage_bulb_rise60_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise60_SocketCap",
+          "cage_bulb_rise60_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise60_SocketCap",
+          "cage_bulb_rise60_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise60_SocketCap",
+          "cage_bulb_rise60_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise60_SocketCap",
+          "cage_bulb_rise60_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise60_Insulator",
+          "cage_bulb_rise60_InsulatorThread0"
+        ],
+        [
+          "cage_bulb_rise60_Insulator",
+          "cage_bulb_rise60_InsulatorThread1"
+        ],
+        [
+          "cage_bulb_rise60_Insulator",
+          "cage_bulb_rise60_InsulatorThread2"
+        ],
+        [
+          "cage_bulb_rise60_Insulator",
+          "cage_bulb_rise60_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise60_Insulator",
+          "cage_bulb_rise60_PearLamp"
+        ],
+        [
+          "cage_bulb_rise60_InsulatorThread2",
+          "cage_bulb_rise60_PearLamp"
+        ],
+        [
+          "cage_bulb_rise60_InsulatorThread3",
+          "cage_bulb_rise60_PearLamp"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib0",
+          "cage_bulb_rise60_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib0",
+          "cage_bulb_rise60_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib0",
+          "cage_bulb_rise60_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib0",
+          "cage_bulb_rise60_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib0",
+          "cage_bulb_rise60_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib0",
+          "cage_bulb_rise60_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib1",
+          "cage_bulb_rise60_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib1",
+          "cage_bulb_rise60_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib1",
+          "cage_bulb_rise60_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib1",
+          "cage_bulb_rise60_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib1",
+          "cage_bulb_rise60_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib2",
+          "cage_bulb_rise60_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib2",
+          "cage_bulb_rise60_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib2",
+          "cage_bulb_rise60_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib2",
+          "cage_bulb_rise60_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib3",
+          "cage_bulb_rise60_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib3",
+          "cage_bulb_rise60_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib3",
+          "cage_bulb_rise60_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib4",
+          "cage_bulb_rise60_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib4",
+          "cage_bulb_rise60_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise60_GuardRib5",
+          "cage_bulb_rise60_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise60_RigidMount",
+          "cage_bulb_rise60_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "cage_bulb_rise2000_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "cage_bulb_rise2000_Canopy",
+          "cage_bulb_rise2000_CanopyScrew-1"
+        ],
+        [
+          "cage_bulb_rise2000_Canopy",
+          "cage_bulb_rise2000_CanopyScrew1"
+        ],
+        [
+          "cage_bulb_rise2000_Canopy",
+          "cage_bulb_rise2000_Drop"
+        ],
+        [
+          "cage_bulb_rise2000_Canopy",
+          "cage_bulb_rise2000_RigidMount"
+        ],
+        [
+          "cage_bulb_rise2000_Drop",
+          "cage_bulb_rise2000_SocketCap"
+        ],
+        [
+          "cage_bulb_rise2000_SocketCap",
+          "cage_bulb_rise2000_Insulator"
+        ],
+        [
+          "cage_bulb_rise2000_SocketCap",
+          "cage_bulb_rise2000_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise2000_SocketCap",
+          "cage_bulb_rise2000_PearLamp"
+        ],
+        [
+          "cage_bulb_rise2000_SocketCap",
+          "cage_bulb_rise2000_GuardRib0"
+        ],
+        [
+          "cage_bulb_rise2000_SocketCap",
+          "cage_bulb_rise2000_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise2000_SocketCap",
+          "cage_bulb_rise2000_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise2000_SocketCap",
+          "cage_bulb_rise2000_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise2000_SocketCap",
+          "cage_bulb_rise2000_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise2000_SocketCap",
+          "cage_bulb_rise2000_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise2000_Insulator",
+          "cage_bulb_rise2000_InsulatorThread0"
+        ],
+        [
+          "cage_bulb_rise2000_Insulator",
+          "cage_bulb_rise2000_InsulatorThread1"
+        ],
+        [
+          "cage_bulb_rise2000_Insulator",
+          "cage_bulb_rise2000_InsulatorThread2"
+        ],
+        [
+          "cage_bulb_rise2000_Insulator",
+          "cage_bulb_rise2000_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise2000_Insulator",
+          "cage_bulb_rise2000_PearLamp"
+        ],
+        [
+          "cage_bulb_rise2000_InsulatorThread2",
+          "cage_bulb_rise2000_PearLamp"
+        ],
+        [
+          "cage_bulb_rise2000_InsulatorThread3",
+          "cage_bulb_rise2000_PearLamp"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib0",
+          "cage_bulb_rise2000_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib0",
+          "cage_bulb_rise2000_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib0",
+          "cage_bulb_rise2000_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib0",
+          "cage_bulb_rise2000_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib0",
+          "cage_bulb_rise2000_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib0",
+          "cage_bulb_rise2000_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib1",
+          "cage_bulb_rise2000_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib1",
+          "cage_bulb_rise2000_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib1",
+          "cage_bulb_rise2000_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib1",
+          "cage_bulb_rise2000_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib1",
+          "cage_bulb_rise2000_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib2",
+          "cage_bulb_rise2000_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib2",
+          "cage_bulb_rise2000_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib2",
+          "cage_bulb_rise2000_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib2",
+          "cage_bulb_rise2000_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib3",
+          "cage_bulb_rise2000_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib3",
+          "cage_bulb_rise2000_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib3",
+          "cage_bulb_rise2000_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib4",
+          "cage_bulb_rise2000_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib4",
+          "cage_bulb_rise2000_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise2000_GuardRib5",
+          "cage_bulb_rise2000_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise2000_RigidMount",
+          "cage_bulb_rise2000_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "kitchen_linear_rise80_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "kitchen_linear_rise80_Spine",
+          "kitchen_linear_rise80_Fold-0.065"
+        ],
+        [
+          "kitchen_linear_rise80_Spine",
+          "kitchen_linear_rise80_Fold0.062"
+        ],
+        [
+          "kitchen_linear_rise80_Spine",
+          "kitchen_linear_rise80_EndCap-0.357"
+        ],
+        [
+          "kitchen_linear_rise80_Spine",
+          "kitchen_linear_rise80_EndCap0.33"
+        ],
+        [
+          "kitchen_linear_rise80_Spine",
+          "kitchen_linear_rise80_TubeSocket-0.323"
+        ],
+        [
+          "kitchen_linear_rise80_Spine",
+          "kitchen_linear_rise80_TubeSocket0.298"
+        ],
+        [
+          "kitchen_linear_rise80_Spine",
+          "kitchen_linear_rise80_RigidMount"
+        ],
+        [
+          "kitchen_linear_rise80_Fold-0.065",
+          "kitchen_linear_rise80_EndCap-0.357"
+        ],
+        [
+          "kitchen_linear_rise80_Fold-0.065",
+          "kitchen_linear_rise80_EndCap0.33"
+        ],
+        [
+          "kitchen_linear_rise80_Fold0.062",
+          "kitchen_linear_rise80_EndCap-0.357"
+        ],
+        [
+          "kitchen_linear_rise80_Fold0.062",
+          "kitchen_linear_rise80_EndCap0.33"
+        ],
+        [
+          "kitchen_linear_rise80_TubeSocket-0.323",
+          "kitchen_linear_rise80_LampPin-0.323"
+        ],
+        [
+          "kitchen_linear_rise80_TubeSocket-0.323",
+          "kitchen_linear_rise80_Tube"
+        ],
+        [
+          "kitchen_linear_rise80_LampPin-0.323",
+          "kitchen_linear_rise80_Tube"
+        ],
+        [
+          "kitchen_linear_rise80_TubeSocket0.298",
+          "kitchen_linear_rise80_LampPin0.298"
+        ],
+        [
+          "kitchen_linear_rise80_TubeSocket0.298",
+          "kitchen_linear_rise80_Tube"
+        ],
+        [
+          "kitchen_linear_rise80_LampPin0.298",
+          "kitchen_linear_rise80_Tube"
+        ],
+        [
+          "kitchen_linear_rise80_RigidMount",
+          "kitchen_linear_rise80_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "pendant_shade_rise450_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "pendant_shade_rise450_Canopy",
+          "pendant_shade_rise450_CanopyScrew-1"
+        ],
+        [
+          "pendant_shade_rise450_Canopy",
+          "pendant_shade_rise450_CanopyScrew1"
+        ],
+        [
+          "pendant_shade_rise450_Canopy",
+          "pendant_shade_rise450_BraidedDrop"
+        ],
+        [
+          "pendant_shade_rise450_BraidedDrop",
+          "pendant_shade_rise450_Socket"
+        ],
+        [
+          "pendant_shade_rise450_Socket",
+          "pendant_shade_rise450_SocketThread0"
+        ],
+        [
+          "pendant_shade_rise450_Socket",
+          "pendant_shade_rise450_SocketThread1"
+        ],
+        [
+          "pendant_shade_rise450_Socket",
+          "pendant_shade_rise450_SocketThread2"
+        ],
+        [
+          "pendant_shade_rise450_Socket",
+          "pendant_shade_rise450_SocketThread3"
+        ],
+        [
+          "pendant_shade_rise450_Socket",
+          "pendant_shade_rise450_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise450_Socket",
+          "pendant_shade_rise450_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise450_Socket",
+          "pendant_shade_rise450_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise450_Socket",
+          "pendant_shade_rise450_Lamp"
+        ],
+        [
+          "pendant_shade_rise450_SocketThread1",
+          "pendant_shade_rise450_Lamp"
+        ],
+        [
+          "pendant_shade_rise450_Shade",
+          "pendant_shade_rise450_UpperHem"
+        ],
+        [
+          "pendant_shade_rise450_Shade",
+          "pendant_shade_rise450_LowerHem"
+        ],
+        [
+          "pendant_shade_rise450_Shade",
+          "pendant_shade_rise450_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise450_Shade",
+          "pendant_shade_rise450_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise450_Shade",
+          "pendant_shade_rise450_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise450_Shade",
+          "pendant_shade_rise450_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise450_Shade",
+          "pendant_shade_rise450_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise450_Shade",
+          "pendant_shade_rise450_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_rise450_UpperHem",
+          "pendant_shade_rise450_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise450_UpperHem",
+          "pendant_shade_rise450_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise450_UpperHem",
+          "pendant_shade_rise450_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise450_LowerHem",
+          "pendant_shade_rise450_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise450_LowerHem",
+          "pendant_shade_rise450_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise450_LowerHem",
+          "pendant_shade_rise450_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_rise450_Diffuser",
+          "pendant_shade_rise450_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise450_Diffuser",
+          "pendant_shade_rise450_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise450_Diffuser",
+          "pendant_shade_rise450_DiffuserStay2"
+        ]
+      ]
+    },
+    {
+      "assembly": "pendant_shade_rise470_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "pendant_shade_rise470_Canopy",
+          "pendant_shade_rise470_CanopyScrew-1"
+        ],
+        [
+          "pendant_shade_rise470_Canopy",
+          "pendant_shade_rise470_CanopyScrew1"
+        ],
+        [
+          "pendant_shade_rise470_Canopy",
+          "pendant_shade_rise470_BraidedDrop"
+        ],
+        [
+          "pendant_shade_rise470_BraidedDrop",
+          "pendant_shade_rise470_Socket"
+        ],
+        [
+          "pendant_shade_rise470_Socket",
+          "pendant_shade_rise470_SocketThread0"
+        ],
+        [
+          "pendant_shade_rise470_Socket",
+          "pendant_shade_rise470_SocketThread1"
+        ],
+        [
+          "pendant_shade_rise470_Socket",
+          "pendant_shade_rise470_SocketThread2"
+        ],
+        [
+          "pendant_shade_rise470_Socket",
+          "pendant_shade_rise470_SocketThread3"
+        ],
+        [
+          "pendant_shade_rise470_Socket",
+          "pendant_shade_rise470_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise470_Socket",
+          "pendant_shade_rise470_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise470_Socket",
+          "pendant_shade_rise470_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise470_Socket",
+          "pendant_shade_rise470_Lamp"
+        ],
+        [
+          "pendant_shade_rise470_SocketThread1",
+          "pendant_shade_rise470_Lamp"
+        ],
+        [
+          "pendant_shade_rise470_Shade",
+          "pendant_shade_rise470_UpperHem"
+        ],
+        [
+          "pendant_shade_rise470_Shade",
+          "pendant_shade_rise470_LowerHem"
+        ],
+        [
+          "pendant_shade_rise470_Shade",
+          "pendant_shade_rise470_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise470_Shade",
+          "pendant_shade_rise470_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise470_Shade",
+          "pendant_shade_rise470_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise470_Shade",
+          "pendant_shade_rise470_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise470_Shade",
+          "pendant_shade_rise470_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise470_Shade",
+          "pendant_shade_rise470_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_rise470_UpperHem",
+          "pendant_shade_rise470_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_rise470_UpperHem",
+          "pendant_shade_rise470_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_rise470_UpperHem",
+          "pendant_shade_rise470_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_rise470_LowerHem",
+          "pendant_shade_rise470_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise470_LowerHem",
+          "pendant_shade_rise470_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise470_LowerHem",
+          "pendant_shade_rise470_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_rise470_Diffuser",
+          "pendant_shade_rise470_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_rise470_Diffuser",
+          "pendant_shade_rise470_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_rise470_Diffuser",
+          "pendant_shade_rise470_DiffuserStay2"
+        ]
+      ]
+    },
+    {
+      "assembly": "pendant_shade_retained_rod_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "pendant_shade_retained_rod_InlineCollar",
+          "pendant_shade_retained_rod_BraidedDrop"
+        ],
+        [
+          "pendant_shade_retained_rod_BraidedDrop",
+          "pendant_shade_retained_rod_Socket"
+        ],
+        [
+          "pendant_shade_retained_rod_Socket",
+          "pendant_shade_retained_rod_SocketThread0"
+        ],
+        [
+          "pendant_shade_retained_rod_Socket",
+          "pendant_shade_retained_rod_SocketThread1"
+        ],
+        [
+          "pendant_shade_retained_rod_Socket",
+          "pendant_shade_retained_rod_SocketThread2"
+        ],
+        [
+          "pendant_shade_retained_rod_Socket",
+          "pendant_shade_retained_rod_SocketThread3"
+        ],
+        [
+          "pendant_shade_retained_rod_Socket",
+          "pendant_shade_retained_rod_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_retained_rod_Socket",
+          "pendant_shade_retained_rod_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_retained_rod_Socket",
+          "pendant_shade_retained_rod_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_retained_rod_Socket",
+          "pendant_shade_retained_rod_Lamp"
+        ],
+        [
+          "pendant_shade_retained_rod_SocketThread1",
+          "pendant_shade_retained_rod_Lamp"
+        ],
+        [
+          "pendant_shade_retained_rod_Shade",
+          "pendant_shade_retained_rod_UpperHem"
+        ],
+        [
+          "pendant_shade_retained_rod_Shade",
+          "pendant_shade_retained_rod_LowerHem"
+        ],
+        [
+          "pendant_shade_retained_rod_Shade",
+          "pendant_shade_retained_rod_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_retained_rod_Shade",
+          "pendant_shade_retained_rod_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_retained_rod_Shade",
+          "pendant_shade_retained_rod_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_retained_rod_Shade",
+          "pendant_shade_retained_rod_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_retained_rod_Shade",
+          "pendant_shade_retained_rod_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_retained_rod_Shade",
+          "pendant_shade_retained_rod_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_retained_rod_UpperHem",
+          "pendant_shade_retained_rod_ShadeSpider0"
+        ],
+        [
+          "pendant_shade_retained_rod_UpperHem",
+          "pendant_shade_retained_rod_ShadeSpider1"
+        ],
+        [
+          "pendant_shade_retained_rod_UpperHem",
+          "pendant_shade_retained_rod_ShadeSpider2"
+        ],
+        [
+          "pendant_shade_retained_rod_LowerHem",
+          "pendant_shade_retained_rod_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_retained_rod_LowerHem",
+          "pendant_shade_retained_rod_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_retained_rod_LowerHem",
+          "pendant_shade_retained_rod_DiffuserStay2"
+        ],
+        [
+          "pendant_shade_retained_rod_Diffuser",
+          "pendant_shade_retained_rod_DiffuserStay0"
+        ],
+        [
+          "pendant_shade_retained_rod_Diffuser",
+          "pendant_shade_retained_rod_DiffuserStay1"
+        ],
+        [
+          "pendant_shade_retained_rod_Diffuser",
+          "pendant_shade_retained_rod_DiffuserStay2"
+        ]
+      ]
+    },
+    {
+      "assembly": "cage_bulb_rise800_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "cage_bulb_rise800_Canopy",
+          "cage_bulb_rise800_CanopyScrew-1"
+        ],
+        [
+          "cage_bulb_rise800_Canopy",
+          "cage_bulb_rise800_CanopyScrew1"
+        ],
+        [
+          "cage_bulb_rise800_Canopy",
+          "cage_bulb_rise800_Drop"
+        ],
+        [
+          "cage_bulb_rise800_Canopy",
+          "cage_bulb_rise800_RigidMount"
+        ],
+        [
+          "cage_bulb_rise800_Drop",
+          "cage_bulb_rise800_SocketCap"
+        ],
+        [
+          "cage_bulb_rise800_SocketCap",
+          "cage_bulb_rise800_Insulator"
+        ],
+        [
+          "cage_bulb_rise800_SocketCap",
+          "cage_bulb_rise800_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise800_SocketCap",
+          "cage_bulb_rise800_PearLamp"
+        ],
+        [
+          "cage_bulb_rise800_SocketCap",
+          "cage_bulb_rise800_GuardRib0"
+        ],
+        [
+          "cage_bulb_rise800_SocketCap",
+          "cage_bulb_rise800_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise800_SocketCap",
+          "cage_bulb_rise800_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise800_SocketCap",
+          "cage_bulb_rise800_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise800_SocketCap",
+          "cage_bulb_rise800_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise800_SocketCap",
+          "cage_bulb_rise800_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise800_Insulator",
+          "cage_bulb_rise800_InsulatorThread0"
+        ],
+        [
+          "cage_bulb_rise800_Insulator",
+          "cage_bulb_rise800_InsulatorThread1"
+        ],
+        [
+          "cage_bulb_rise800_Insulator",
+          "cage_bulb_rise800_InsulatorThread2"
+        ],
+        [
+          "cage_bulb_rise800_Insulator",
+          "cage_bulb_rise800_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise800_Insulator",
+          "cage_bulb_rise800_PearLamp"
+        ],
+        [
+          "cage_bulb_rise800_InsulatorThread2",
+          "cage_bulb_rise800_PearLamp"
+        ],
+        [
+          "cage_bulb_rise800_InsulatorThread3",
+          "cage_bulb_rise800_PearLamp"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib0",
+          "cage_bulb_rise800_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib0",
+          "cage_bulb_rise800_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib0",
+          "cage_bulb_rise800_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib0",
+          "cage_bulb_rise800_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib0",
+          "cage_bulb_rise800_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib0",
+          "cage_bulb_rise800_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib1",
+          "cage_bulb_rise800_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib1",
+          "cage_bulb_rise800_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib1",
+          "cage_bulb_rise800_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib1",
+          "cage_bulb_rise800_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib1",
+          "cage_bulb_rise800_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib2",
+          "cage_bulb_rise800_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib2",
+          "cage_bulb_rise800_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib2",
+          "cage_bulb_rise800_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib2",
+          "cage_bulb_rise800_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib3",
+          "cage_bulb_rise800_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib3",
+          "cage_bulb_rise800_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib3",
+          "cage_bulb_rise800_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib4",
+          "cage_bulb_rise800_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib4",
+          "cage_bulb_rise800_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise800_GuardRib5",
+          "cage_bulb_rise800_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise800_RigidMount",
+          "cage_bulb_rise800_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "sconce_globe_back80_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "sconce_globe_back80_Backplate",
+          "sconce_globe_back80_WallScrew-0.055"
+        ],
+        [
+          "sconce_globe_back80_Backplate",
+          "sconce_globe_back80_WallScrew0.055"
+        ],
+        [
+          "sconce_globe_back80_Backplate",
+          "sconce_globe_back80_CastArm"
+        ],
+        [
+          "sconce_globe_back80_CastArm",
+          "sconce_globe_back80_GlobeSocket"
+        ],
+        [
+          "sconce_globe_back80_CastArm",
+          "sconce_globe_back80_GlobeSocketThread0"
+        ],
+        [
+          "sconce_globe_back80_CastArm",
+          "sconce_globe_back80_GlobeSocketThread1"
+        ],
+        [
+          "sconce_globe_back80_CastArm",
+          "sconce_globe_back80_GlobeSocketThread2"
+        ],
+        [
+          "sconce_globe_back80_CastArm",
+          "sconce_globe_back80_GlobeSocketThread3"
+        ],
+        [
+          "sconce_globe_back80_GlobeSocket",
+          "sconce_globe_back80_GlobeSocketThread0"
+        ],
+        [
+          "sconce_globe_back80_GlobeSocket",
+          "sconce_globe_back80_GlobeSocketThread1"
+        ],
+        [
+          "sconce_globe_back80_GlobeSocket",
+          "sconce_globe_back80_GlobeSocketThread2"
+        ],
+        [
+          "sconce_globe_back80_GlobeSocket",
+          "sconce_globe_back80_GlobeSocketThread3"
+        ],
+        [
+          "sconce_globe_back80_GlobeSocket",
+          "sconce_globe_back80_GlobeCollar"
+        ],
+        [
+          "sconce_globe_back80_GlobeSocket",
+          "sconce_globe_back80_OpalGlobe"
+        ],
+        [
+          "sconce_globe_back80_GlobeCollar",
+          "sconce_globe_back80_OpalGlobe"
+        ]
+      ]
+    },
+    {
+      "assembly": "sconce_globe_back100_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "sconce_globe_back100_Backplate",
+          "sconce_globe_back100_WallScrew-0.055"
+        ],
+        [
+          "sconce_globe_back100_Backplate",
+          "sconce_globe_back100_WallScrew0.055"
+        ],
+        [
+          "sconce_globe_back100_Backplate",
+          "sconce_globe_back100_CastArm"
+        ],
+        [
+          "sconce_globe_back100_CastArm",
+          "sconce_globe_back100_GlobeSocket"
+        ],
+        [
+          "sconce_globe_back100_CastArm",
+          "sconce_globe_back100_GlobeSocketThread0"
+        ],
+        [
+          "sconce_globe_back100_CastArm",
+          "sconce_globe_back100_GlobeSocketThread1"
+        ],
+        [
+          "sconce_globe_back100_CastArm",
+          "sconce_globe_back100_GlobeSocketThread2"
+        ],
+        [
+          "sconce_globe_back100_CastArm",
+          "sconce_globe_back100_GlobeSocketThread3"
+        ],
+        [
+          "sconce_globe_back100_GlobeSocket",
+          "sconce_globe_back100_GlobeSocketThread0"
+        ],
+        [
+          "sconce_globe_back100_GlobeSocket",
+          "sconce_globe_back100_GlobeSocketThread1"
+        ],
+        [
+          "sconce_globe_back100_GlobeSocket",
+          "sconce_globe_back100_GlobeSocketThread2"
+        ],
+        [
+          "sconce_globe_back100_GlobeSocket",
+          "sconce_globe_back100_GlobeSocketThread3"
+        ],
+        [
+          "sconce_globe_back100_GlobeSocket",
+          "sconce_globe_back100_GlobeCollar"
+        ],
+        [
+          "sconce_globe_back100_GlobeSocket",
+          "sconce_globe_back100_OpalGlobe"
+        ],
+        [
+          "sconce_globe_back100_GlobeCollar",
+          "sconce_globe_back100_OpalGlobe"
+        ]
+      ]
+    },
+    {
+      "assembly": "cage_bulb_rise300_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "cage_bulb_rise300_Canopy",
+          "cage_bulb_rise300_CanopyScrew-1"
+        ],
+        [
+          "cage_bulb_rise300_Canopy",
+          "cage_bulb_rise300_CanopyScrew1"
+        ],
+        [
+          "cage_bulb_rise300_Canopy",
+          "cage_bulb_rise300_Drop"
+        ],
+        [
+          "cage_bulb_rise300_Canopy",
+          "cage_bulb_rise300_RigidMount"
+        ],
+        [
+          "cage_bulb_rise300_Drop",
+          "cage_bulb_rise300_SocketCap"
+        ],
+        [
+          "cage_bulb_rise300_SocketCap",
+          "cage_bulb_rise300_Insulator"
+        ],
+        [
+          "cage_bulb_rise300_SocketCap",
+          "cage_bulb_rise300_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise300_SocketCap",
+          "cage_bulb_rise300_PearLamp"
+        ],
+        [
+          "cage_bulb_rise300_SocketCap",
+          "cage_bulb_rise300_GuardRib0"
+        ],
+        [
+          "cage_bulb_rise300_SocketCap",
+          "cage_bulb_rise300_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise300_SocketCap",
+          "cage_bulb_rise300_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise300_SocketCap",
+          "cage_bulb_rise300_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise300_SocketCap",
+          "cage_bulb_rise300_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise300_SocketCap",
+          "cage_bulb_rise300_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise300_Insulator",
+          "cage_bulb_rise300_InsulatorThread0"
+        ],
+        [
+          "cage_bulb_rise300_Insulator",
+          "cage_bulb_rise300_InsulatorThread1"
+        ],
+        [
+          "cage_bulb_rise300_Insulator",
+          "cage_bulb_rise300_InsulatorThread2"
+        ],
+        [
+          "cage_bulb_rise300_Insulator",
+          "cage_bulb_rise300_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise300_Insulator",
+          "cage_bulb_rise300_PearLamp"
+        ],
+        [
+          "cage_bulb_rise300_InsulatorThread2",
+          "cage_bulb_rise300_PearLamp"
+        ],
+        [
+          "cage_bulb_rise300_InsulatorThread3",
+          "cage_bulb_rise300_PearLamp"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib0",
+          "cage_bulb_rise300_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib0",
+          "cage_bulb_rise300_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib0",
+          "cage_bulb_rise300_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib0",
+          "cage_bulb_rise300_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib0",
+          "cage_bulb_rise300_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib0",
+          "cage_bulb_rise300_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib1",
+          "cage_bulb_rise300_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib1",
+          "cage_bulb_rise300_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib1",
+          "cage_bulb_rise300_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib1",
+          "cage_bulb_rise300_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib1",
+          "cage_bulb_rise300_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib2",
+          "cage_bulb_rise300_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib2",
+          "cage_bulb_rise300_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib2",
+          "cage_bulb_rise300_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib2",
+          "cage_bulb_rise300_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib3",
+          "cage_bulb_rise300_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib3",
+          "cage_bulb_rise300_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib3",
+          "cage_bulb_rise300_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib4",
+          "cage_bulb_rise300_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib4",
+          "cage_bulb_rise300_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise300_GuardRib5",
+          "cage_bulb_rise300_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise300_RigidMount",
+          "cage_bulb_rise300_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "cage_bulb_wall0x200_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "cage_bulb_wall0x200_Canopy",
+          "cage_bulb_wall0x200_CanopyScrew-1"
+        ],
+        [
+          "cage_bulb_wall0x200_Canopy",
+          "cage_bulb_wall0x200_CanopyScrew1"
+        ],
+        [
+          "cage_bulb_wall0x200_Canopy",
+          "cage_bulb_wall0x200_Drop"
+        ],
+        [
+          "cage_bulb_wall0x200_Canopy",
+          "cage_bulb_wall0x200_BracketArm"
+        ],
+        [
+          "cage_bulb_wall0x200_Drop",
+          "cage_bulb_wall0x200_SocketCap"
+        ],
+        [
+          "cage_bulb_wall0x200_Drop",
+          "cage_bulb_wall0x200_BracketArm"
+        ],
+        [
+          "cage_bulb_wall0x200_SocketCap",
+          "cage_bulb_wall0x200_Insulator"
+        ],
+        [
+          "cage_bulb_wall0x200_SocketCap",
+          "cage_bulb_wall0x200_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_wall0x200_SocketCap",
+          "cage_bulb_wall0x200_PearLamp"
+        ],
+        [
+          "cage_bulb_wall0x200_SocketCap",
+          "cage_bulb_wall0x200_GuardRib0"
+        ],
+        [
+          "cage_bulb_wall0x200_SocketCap",
+          "cage_bulb_wall0x200_GuardRib1"
+        ],
+        [
+          "cage_bulb_wall0x200_SocketCap",
+          "cage_bulb_wall0x200_GuardRib2"
+        ],
+        [
+          "cage_bulb_wall0x200_SocketCap",
+          "cage_bulb_wall0x200_GuardRib3"
+        ],
+        [
+          "cage_bulb_wall0x200_SocketCap",
+          "cage_bulb_wall0x200_GuardRib4"
+        ],
+        [
+          "cage_bulb_wall0x200_SocketCap",
+          "cage_bulb_wall0x200_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x200_Insulator",
+          "cage_bulb_wall0x200_InsulatorThread0"
+        ],
+        [
+          "cage_bulb_wall0x200_Insulator",
+          "cage_bulb_wall0x200_InsulatorThread1"
+        ],
+        [
+          "cage_bulb_wall0x200_Insulator",
+          "cage_bulb_wall0x200_InsulatorThread2"
+        ],
+        [
+          "cage_bulb_wall0x200_Insulator",
+          "cage_bulb_wall0x200_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_wall0x200_Insulator",
+          "cage_bulb_wall0x200_PearLamp"
+        ],
+        [
+          "cage_bulb_wall0x200_InsulatorThread2",
+          "cage_bulb_wall0x200_PearLamp"
+        ],
+        [
+          "cage_bulb_wall0x200_InsulatorThread3",
+          "cage_bulb_wall0x200_PearLamp"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib0",
+          "cage_bulb_wall0x200_GuardRib1"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib0",
+          "cage_bulb_wall0x200_GuardRib2"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib0",
+          "cage_bulb_wall0x200_GuardRib3"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib0",
+          "cage_bulb_wall0x200_GuardRib4"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib0",
+          "cage_bulb_wall0x200_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib0",
+          "cage_bulb_wall0x200_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib1",
+          "cage_bulb_wall0x200_GuardRib2"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib1",
+          "cage_bulb_wall0x200_GuardRib3"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib1",
+          "cage_bulb_wall0x200_GuardRib4"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib1",
+          "cage_bulb_wall0x200_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib1",
+          "cage_bulb_wall0x200_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib2",
+          "cage_bulb_wall0x200_GuardRib3"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib2",
+          "cage_bulb_wall0x200_GuardRib4"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib2",
+          "cage_bulb_wall0x200_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib2",
+          "cage_bulb_wall0x200_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib3",
+          "cage_bulb_wall0x200_GuardRib4"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib3",
+          "cage_bulb_wall0x200_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib3",
+          "cage_bulb_wall0x200_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib4",
+          "cage_bulb_wall0x200_GuardRib5"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib4",
+          "cage_bulb_wall0x200_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x200_GuardRib5",
+          "cage_bulb_wall0x200_GuardHoop"
+        ],
+        [
+          "cage_bulb_wall0x200_WallRosette",
+          "cage_bulb_wall0x200_BracketArm"
+        ]
+      ]
+    },
+    {
+      "assembly": "cage_bulb_rise380_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "cage_bulb_rise380_Canopy",
+          "cage_bulb_rise380_CanopyScrew-1"
+        ],
+        [
+          "cage_bulb_rise380_Canopy",
+          "cage_bulb_rise380_CanopyScrew1"
+        ],
+        [
+          "cage_bulb_rise380_Canopy",
+          "cage_bulb_rise380_Drop"
+        ],
+        [
+          "cage_bulb_rise380_Canopy",
+          "cage_bulb_rise380_RigidMount"
+        ],
+        [
+          "cage_bulb_rise380_Drop",
+          "cage_bulb_rise380_SocketCap"
+        ],
+        [
+          "cage_bulb_rise380_SocketCap",
+          "cage_bulb_rise380_Insulator"
+        ],
+        [
+          "cage_bulb_rise380_SocketCap",
+          "cage_bulb_rise380_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise380_SocketCap",
+          "cage_bulb_rise380_PearLamp"
+        ],
+        [
+          "cage_bulb_rise380_SocketCap",
+          "cage_bulb_rise380_GuardRib0"
+        ],
+        [
+          "cage_bulb_rise380_SocketCap",
+          "cage_bulb_rise380_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise380_SocketCap",
+          "cage_bulb_rise380_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise380_SocketCap",
+          "cage_bulb_rise380_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise380_SocketCap",
+          "cage_bulb_rise380_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise380_SocketCap",
+          "cage_bulb_rise380_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise380_Insulator",
+          "cage_bulb_rise380_InsulatorThread0"
+        ],
+        [
+          "cage_bulb_rise380_Insulator",
+          "cage_bulb_rise380_InsulatorThread1"
+        ],
+        [
+          "cage_bulb_rise380_Insulator",
+          "cage_bulb_rise380_InsulatorThread2"
+        ],
+        [
+          "cage_bulb_rise380_Insulator",
+          "cage_bulb_rise380_InsulatorThread3"
+        ],
+        [
+          "cage_bulb_rise380_Insulator",
+          "cage_bulb_rise380_PearLamp"
+        ],
+        [
+          "cage_bulb_rise380_InsulatorThread2",
+          "cage_bulb_rise380_PearLamp"
+        ],
+        [
+          "cage_bulb_rise380_InsulatorThread3",
+          "cage_bulb_rise380_PearLamp"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib0",
+          "cage_bulb_rise380_GuardRib1"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib0",
+          "cage_bulb_rise380_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib0",
+          "cage_bulb_rise380_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib0",
+          "cage_bulb_rise380_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib0",
+          "cage_bulb_rise380_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib0",
+          "cage_bulb_rise380_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib1",
+          "cage_bulb_rise380_GuardRib2"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib1",
+          "cage_bulb_rise380_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib1",
+          "cage_bulb_rise380_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib1",
+          "cage_bulb_rise380_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib1",
+          "cage_bulb_rise380_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib2",
+          "cage_bulb_rise380_GuardRib3"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib2",
+          "cage_bulb_rise380_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib2",
+          "cage_bulb_rise380_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib2",
+          "cage_bulb_rise380_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib3",
+          "cage_bulb_rise380_GuardRib4"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib3",
+          "cage_bulb_rise380_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib3",
+          "cage_bulb_rise380_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib4",
+          "cage_bulb_rise380_GuardRib5"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib4",
+          "cage_bulb_rise380_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise380_GuardRib5",
+          "cage_bulb_rise380_GuardHoop"
+        ],
+        [
+          "cage_bulb_rise380_RigidMount",
+          "cage_bulb_rise380_UpperRosette"
+        ]
+      ]
+    },
+    {
+      "assembly": "sconce_globe_back160_Fixture",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "sconce_globe_back160_Backplate",
+          "sconce_globe_back160_WallScrew-0.055"
+        ],
+        [
+          "sconce_globe_back160_Backplate",
+          "sconce_globe_back160_WallScrew0.055"
+        ],
+        [
+          "sconce_globe_back160_Backplate",
+          "sconce_globe_back160_CastArm"
+        ],
+        [
+          "sconce_globe_back160_CastArm",
+          "sconce_globe_back160_GlobeSocket"
+        ],
+        [
+          "sconce_globe_back160_CastArm",
+          "sconce_globe_back160_GlobeSocketThread0"
+        ],
+        [
+          "sconce_globe_back160_CastArm",
+          "sconce_globe_back160_GlobeSocketThread1"
+        ],
+        [
+          "sconce_globe_back160_CastArm",
+          "sconce_globe_back160_GlobeSocketThread2"
+        ],
+        [
+          "sconce_globe_back160_CastArm",
+          "sconce_globe_back160_GlobeSocketThread3"
+        ],
+        [
+          "sconce_globe_back160_GlobeSocket",
+          "sconce_globe_back160_GlobeSocketThread0"
+        ],
+        [
+          "sconce_globe_back160_GlobeSocket",
+          "sconce_globe_back160_GlobeSocketThread1"
+        ],
+        [
+          "sconce_globe_back160_GlobeSocket",
+          "sconce_globe_back160_GlobeSocketThread2"
+        ],
+        [
+          "sconce_globe_back160_GlobeSocket",
+          "sconce_globe_back160_GlobeSocketThread3"
+        ],
+        [
+          "sconce_globe_back160_GlobeSocket",
+          "sconce_globe_back160_GlobeCollar"
+        ],
+        [
+          "sconce_globe_back160_GlobeSocket",
+          "sconce_globe_back160_OpalGlobe"
+        ],
+        [
+          "sconce_globe_back160_GlobeCollar",
+          "sconce_globe_back160_OpalGlobe"
+        ]
+      ]
+    }
+  ],
+  "distinct_object_separations": [],
+  "uv": [
+    {
+      "part": "pendant_shade__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9971141775445274,
+      "maximum_metres_per_uv": 1.0021671962041245,
+      "maximum_edge_excess_m": 2.2270214908425706e-06,
+      "maximum_edge_ratio": 1.0007153506618407
+    },
+    {
+      "part": "pendant_shade__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992672807422097,
+      "maximum_metres_per_uv": 1.0000095272889635,
+      "maximum_edge_excess_m": 2.2060343712270412e-06,
+      "maximum_edge_ratio": 1.00073325652897
+    },
+    {
+      "part": "pendant_shade__Body_ON_linen",
+      "minimum_metres_per_uv": 0.9998176985348293,
+      "maximum_metres_per_uv": 1.0000521063989263,
+      "maximum_edge_excess_m": 2.7465998831653626e-06,
+      "maximum_edge_ratio": 1.0001823347050545
+    },
+    {
+      "part": "pendant_shade__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9996497459953073,
+      "maximum_metres_per_uv": 1.0002895598644077,
+      "maximum_edge_excess_m": 2.545435173837568e-08,
+      "maximum_edge_ratio": 1.0000289345215352
+    },
+    {
+      "part": "pendant_shade__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992670319183518,
+      "maximum_metres_per_uv": 1.0001556583034241,
+      "maximum_edge_excess_m": 3.7631341446185337e-06,
+      "maximum_edge_ratio": 1.0007335057179272
+    },
+    {
+      "part": "pendant_shade__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.000090776575306,
+      "maximum_edge_excess_m": 5.610156294620985e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "flush_dome__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9982087278876958,
+      "maximum_metres_per_uv": 1.0014948714257101,
+      "maximum_edge_excess_m": 1.768699143622418e-06,
+      "maximum_edge_ratio": 1.0001850842410036
+    },
+    {
+      "part": "flush_dome__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9997795127998438,
+      "maximum_metres_per_uv": 1.0001658668048734,
+      "maximum_edge_excess_m": 2.1749765159988915e-06,
+      "maximum_edge_ratio": 1.000189873910123
+    },
+    {
+      "part": "kitchen_linear__Body_ON_brass",
+      "minimum_metres_per_uv": 0.998840696108792,
+      "maximum_metres_per_uv": 1.0013681649081998,
+      "maximum_edge_excess_m": 5.170738858861334e-08,
+      "maximum_edge_ratio": 1.000104041303168
+    },
+    {
+      "part": "kitchen_linear__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9997788215858899,
+      "maximum_metres_per_uv": 1.0002516033981739,
+      "maximum_edge_excess_m": 6.205587643748345e-08,
+      "maximum_edge_ratio": 1.0001983851023546
+    },
+    {
+      "part": "kitchen_linear__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992742093064789,
+      "maximum_metres_per_uv": 1.0000567331117558,
+      "maximum_edge_excess_m": 1.900628282099949e-06,
+      "maximum_edge_ratio": 1.000726317848256
+    },
+    {
+      "part": "flush_dome_rise150__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9982087278876958,
+      "maximum_metres_per_uv": 1.0014948714257101,
+      "maximum_edge_excess_m": 1.768699143622418e-06,
+      "maximum_edge_ratio": 1.0001850842410036
+    },
+    {
+      "part": "flush_dome_rise150__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9997795127998438,
+      "maximum_metres_per_uv": 1.0001658668048734,
+      "maximum_edge_excess_m": 2.1749765159988915e-06,
+      "maximum_edge_ratio": 1.000189873910123
+    },
+    {
+      "part": "flush_dome_rise150__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992855339785687,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007149768480954
+    },
+    {
+      "part": "pendant_shade_rise360__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9971141775445274,
+      "maximum_metres_per_uv": 1.0021671962041245,
+      "maximum_edge_excess_m": 2.2270214908425706e-06,
+      "maximum_edge_ratio": 1.0007153506618407
+    },
+    {
+      "part": "pendant_shade_rise360__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992672807422097,
+      "maximum_metres_per_uv": 1.0000095272889635,
+      "maximum_edge_excess_m": 2.2060343712270412e-06,
+      "maximum_edge_ratio": 1.00073325652897
+    },
+    {
+      "part": "pendant_shade_rise360__Body_ON_linen",
+      "minimum_metres_per_uv": 0.9998176985348293,
+      "maximum_metres_per_uv": 1.0000521063989263,
+      "maximum_edge_excess_m": 2.7465998831653626e-06,
+      "maximum_edge_ratio": 1.0001823347050545
+    },
+    {
+      "part": "pendant_shade_rise360__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9996497459953073,
+      "maximum_metres_per_uv": 1.0002895598644077,
+      "maximum_edge_excess_m": 2.545435173837568e-08,
+      "maximum_edge_ratio": 1.0000289345215352
+    },
+    {
+      "part": "pendant_shade_rise360__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992670319183518,
+      "maximum_metres_per_uv": 1.0001556583034241,
+      "maximum_edge_excess_m": 3.7631341446185337e-06,
+      "maximum_edge_ratio": 1.0007335057179272
+    },
+    {
+      "part": "pendant_shade_rise360__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271104290237,
+      "maximum_metres_per_uv": 1.000090776575306,
+      "maximum_edge_excess_m": 5.610156294620985e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "pendant_shade_rise100__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9971141775445274,
+      "maximum_metres_per_uv": 1.0021671962041245,
+      "maximum_edge_excess_m": 2.2270214908425706e-06,
+      "maximum_edge_ratio": 1.0007153506618407
+    },
+    {
+      "part": "pendant_shade_rise100__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992672807422097,
+      "maximum_metres_per_uv": 1.0000095272889635,
+      "maximum_edge_excess_m": 2.2060343712270412e-06,
+      "maximum_edge_ratio": 1.00073325652897
+    },
+    {
+      "part": "pendant_shade_rise100__Body_ON_linen",
+      "minimum_metres_per_uv": 0.9998176985348293,
+      "maximum_metres_per_uv": 1.0000521063989263,
+      "maximum_edge_excess_m": 2.7465998831653626e-06,
+      "maximum_edge_ratio": 1.0001823347050545
+    },
+    {
+      "part": "pendant_shade_rise100__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9996497459953073,
+      "maximum_metres_per_uv": 1.0002895598644077,
+      "maximum_edge_excess_m": 2.545435173837568e-08,
+      "maximum_edge_ratio": 1.0000289345215352
+    },
+    {
+      "part": "pendant_shade_rise100__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992670319183518,
+      "maximum_metres_per_uv": 1.0001556583034241,
+      "maximum_edge_excess_m": 3.7631341446185337e-06,
+      "maximum_edge_ratio": 1.0007335057179272
+    },
+    {
+      "part": "pendant_shade_rise100__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992275232591689,
+      "maximum_metres_per_uv": 1.000090776575306,
+      "maximum_edge_excess_m": 5.610156294620985e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "kitchen_linear_rise100__Body_ON_brass",
+      "minimum_metres_per_uv": 0.998840696108792,
+      "maximum_metres_per_uv": 1.0013681649081998,
+      "maximum_edge_excess_m": 5.170738858861334e-08,
+      "maximum_edge_ratio": 1.000104041303168
+    },
+    {
+      "part": "kitchen_linear_rise100__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9997788215858899,
+      "maximum_metres_per_uv": 1.0002516033981739,
+      "maximum_edge_excess_m": 6.205587643748345e-08,
+      "maximum_edge_ratio": 1.0001983851023546
+    },
+    {
+      "part": "kitchen_linear_rise100__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992742093064789,
+      "maximum_metres_per_uv": 1.0000567331117558,
+      "maximum_edge_excess_m": 1.900628282099949e-06,
+      "maximum_edge_ratio": 1.000726317848256
+    },
+    {
+      "part": "kitchen_linear_rise100__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992855339785687,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007149768480954
+    },
+    {
+      "part": "flush_dome_rise100__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9982087278876958,
+      "maximum_metres_per_uv": 1.0014948714257101,
+      "maximum_edge_excess_m": 1.768699143622418e-06,
+      "maximum_edge_ratio": 1.0001850842410036
+    },
+    {
+      "part": "flush_dome_rise100__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9997795127998438,
+      "maximum_metres_per_uv": 1.0001658668048734,
+      "maximum_edge_excess_m": 2.1749765159988915e-06,
+      "maximum_edge_ratio": 1.000189873910123
+    },
+    {
+      "part": "flush_dome_rise100__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992855339785687,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007149768480954
+    },
+    {
+      "part": "sconce_globe_back050__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992296463853357,
+      "maximum_metres_per_uv": 1.0002618695527061,
+      "maximum_edge_excess_m": 2.2927927583299944e-06,
+      "maximum_edge_ratio": 1.0007709475168707
+    },
+    {
+      "part": "sconce_globe_back050__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992690564873322,
+      "maximum_metres_per_uv": 1.0000265544733193,
+      "maximum_edge_excess_m": 1.722271919207645e-06,
+      "maximum_edge_ratio": 1.0007314781819
+    },
+    {
+      "part": "sconce_globe_back050__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9996343060665268,
+      "maximum_metres_per_uv": 1.0002943456778643,
+      "maximum_edge_excess_m": 1.6195210159183557e-06,
+      "maximum_edge_ratio": 1.000272981477101
+    },
+    {
+      "part": "cage_bulb_rise960__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992720090402825,
+      "maximum_metres_per_uv": 1.0002261758304247,
+      "maximum_edge_excess_m": 2.457694179476902e-06,
+      "maximum_edge_ratio": 1.00072852131665
+    },
+    {
+      "part": "cage_bulb_rise960__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992735990689606,
+      "maximum_metres_per_uv": 1.000018557161572,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007269289729224
+    },
+    {
+      "part": "cage_bulb_rise960__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9992854305379053,
+      "maximum_metres_per_uv": 1.0000297343115745,
+      "maximum_edge_excess_m": 7.387017424373768e-06,
+      "maximum_edge_ratio": 1.000715080436738
+    },
+    {
+      "part": "cage_bulb_rise960__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9994306991629731,
+      "maximum_metres_per_uv": 1.0005135285447688,
+      "maximum_edge_excess_m": 2.3871485057766484e-08,
+      "maximum_edge_ratio": 1.0000223497121687
+    },
+    {
+      "part": "cage_bulb_rise960__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992702600246371,
+      "maximum_metres_per_uv": 1.0001475325318772,
+      "maximum_edge_excess_m": 4.223029574179291e-06,
+      "maximum_edge_ratio": 1.0007302728846796
+    },
+    {
+      "part": "cage_bulb_rise960__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "cage_bulb_wall0x-255__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992720090402825,
+      "maximum_metres_per_uv": 1.0002261758304247,
+      "maximum_edge_excess_m": 2.457694179476902e-06,
+      "maximum_edge_ratio": 1.00072852131665
+    },
+    {
+      "part": "cage_bulb_wall0x-255__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992735990689606,
+      "maximum_metres_per_uv": 1.000018557161572,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007269289729224
+    },
+    {
+      "part": "cage_bulb_wall0x-255__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9992854305379053,
+      "maximum_metres_per_uv": 1.0000297343115745,
+      "maximum_edge_excess_m": 7.387017424373768e-06,
+      "maximum_edge_ratio": 1.000715080436738
+    },
+    {
+      "part": "cage_bulb_wall0x-255__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9994306991629731,
+      "maximum_metres_per_uv": 1.0005135285447688,
+      "maximum_edge_excess_m": 2.3871485057766484e-08,
+      "maximum_edge_ratio": 1.0000223497121687
+    },
+    {
+      "part": "cage_bulb_wall0x-255__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992702600246371,
+      "maximum_metres_per_uv": 1.0001475325318772,
+      "maximum_edge_excess_m": 4.223029574179291e-06,
+      "maximum_edge_ratio": 1.0007302728846796
+    },
+    {
+      "part": "cage_bulb_wall0x-255__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.0000873217489765,
+      "maximum_edge_excess_m": 5.182533721078027e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "cage_bulb_rise160__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992720090402825,
+      "maximum_metres_per_uv": 1.0002261758304247,
+      "maximum_edge_excess_m": 2.457694179476902e-06,
+      "maximum_edge_ratio": 1.00072852131665
+    },
+    {
+      "part": "cage_bulb_rise160__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992735990689606,
+      "maximum_metres_per_uv": 1.000018557161572,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007269289729224
+    },
+    {
+      "part": "cage_bulb_rise160__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9992854305379053,
+      "maximum_metres_per_uv": 1.0000297343115745,
+      "maximum_edge_excess_m": 7.387017424373768e-06,
+      "maximum_edge_ratio": 1.000715080436738
+    },
+    {
+      "part": "cage_bulb_rise160__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9994306991629731,
+      "maximum_metres_per_uv": 1.0005135285447688,
+      "maximum_edge_excess_m": 2.3871485057766484e-08,
+      "maximum_edge_ratio": 1.0000223497121687
+    },
+    {
+      "part": "cage_bulb_rise160__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992702600246371,
+      "maximum_metres_per_uv": 1.0001475325318772,
+      "maximum_edge_excess_m": 4.223029574179291e-06,
+      "maximum_edge_ratio": 1.0007302728846796
+    },
+    {
+      "part": "cage_bulb_rise160__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "cage_bulb_rise140__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992720090402825,
+      "maximum_metres_per_uv": 1.0002261758304247,
+      "maximum_edge_excess_m": 2.457694179476902e-06,
+      "maximum_edge_ratio": 1.00072852131665
+    },
+    {
+      "part": "cage_bulb_rise140__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992735990689606,
+      "maximum_metres_per_uv": 1.000018557161572,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007269289729224
+    },
+    {
+      "part": "cage_bulb_rise140__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9992854305379053,
+      "maximum_metres_per_uv": 1.0000297343115745,
+      "maximum_edge_excess_m": 7.387017424373768e-06,
+      "maximum_edge_ratio": 1.000715080436738
+    },
+    {
+      "part": "cage_bulb_rise140__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9994306991629731,
+      "maximum_metres_per_uv": 1.0005135285447688,
+      "maximum_edge_excess_m": 2.3871485057766484e-08,
+      "maximum_edge_ratio": 1.0000223497121687
+    },
+    {
+      "part": "cage_bulb_rise140__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992702600246371,
+      "maximum_metres_per_uv": 1.0001475325318772,
+      "maximum_edge_excess_m": 4.223029574179291e-06,
+      "maximum_edge_ratio": 1.0007302728846796
+    },
+    {
+      "part": "cage_bulb_rise140__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "cage_bulb_rise250__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992720090402825,
+      "maximum_metres_per_uv": 1.0002261758304247,
+      "maximum_edge_excess_m": 2.457694179476902e-06,
+      "maximum_edge_ratio": 1.00072852131665
+    },
+    {
+      "part": "cage_bulb_rise250__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992735990689606,
+      "maximum_metres_per_uv": 1.000018557161572,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007269289729224
+    },
+    {
+      "part": "cage_bulb_rise250__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9992854305379053,
+      "maximum_metres_per_uv": 1.0000297343115745,
+      "maximum_edge_excess_m": 7.387017424373768e-06,
+      "maximum_edge_ratio": 1.000715080436738
+    },
+    {
+      "part": "cage_bulb_rise250__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9994306991629731,
+      "maximum_metres_per_uv": 1.0005135285447688,
+      "maximum_edge_excess_m": 2.3871485057766484e-08,
+      "maximum_edge_ratio": 1.0000223497121687
+    },
+    {
+      "part": "cage_bulb_rise250__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992702600246371,
+      "maximum_metres_per_uv": 1.0001475325318772,
+      "maximum_edge_excess_m": 4.223029574179291e-06,
+      "maximum_edge_ratio": 1.0007302728846796
+    },
+    {
+      "part": "cage_bulb_rise250__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "cage_bulb_rise60__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992720090402825,
+      "maximum_metres_per_uv": 1.0002261758304247,
+      "maximum_edge_excess_m": 2.457694179476902e-06,
+      "maximum_edge_ratio": 1.00072852131665
+    },
+    {
+      "part": "cage_bulb_rise60__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992735990689606,
+      "maximum_metres_per_uv": 1.000018557161572,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007269289729224
+    },
+    {
+      "part": "cage_bulb_rise60__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9992854305379053,
+      "maximum_metres_per_uv": 1.0000297343115745,
+      "maximum_edge_excess_m": 7.387017424373768e-06,
+      "maximum_edge_ratio": 1.000715080436738
+    },
+    {
+      "part": "cage_bulb_rise60__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9994306991629731,
+      "maximum_metres_per_uv": 1.0005135285447688,
+      "maximum_edge_excess_m": 2.3871485057766484e-08,
+      "maximum_edge_ratio": 1.0000223497121687
+    },
+    {
+      "part": "cage_bulb_rise60__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992702600246371,
+      "maximum_metres_per_uv": 1.0001475325318772,
+      "maximum_edge_excess_m": 4.223029574179291e-06,
+      "maximum_edge_ratio": 1.0007302728846796
+    },
+    {
+      "part": "cage_bulb_rise60__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "cage_bulb_rise2000__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992720090402825,
+      "maximum_metres_per_uv": 1.0002261758304247,
+      "maximum_edge_excess_m": 2.457694179476902e-06,
+      "maximum_edge_ratio": 1.00072852131665
+    },
+    {
+      "part": "cage_bulb_rise2000__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992735990689606,
+      "maximum_metres_per_uv": 1.000018557161572,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007269289729224
+    },
+    {
+      "part": "cage_bulb_rise2000__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9992854305379053,
+      "maximum_metres_per_uv": 1.0000297343115745,
+      "maximum_edge_excess_m": 7.387017424373768e-06,
+      "maximum_edge_ratio": 1.000715080436738
+    },
+    {
+      "part": "cage_bulb_rise2000__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9994306991629731,
+      "maximum_metres_per_uv": 1.0005135285447688,
+      "maximum_edge_excess_m": 2.3871485057766484e-08,
+      "maximum_edge_ratio": 1.0000223497121687
+    },
+    {
+      "part": "cage_bulb_rise2000__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992702600246371,
+      "maximum_metres_per_uv": 1.0001475325318772,
+      "maximum_edge_excess_m": 4.223029574179291e-06,
+      "maximum_edge_ratio": 1.0007302728846796
+    },
+    {
+      "part": "cage_bulb_rise2000__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "kitchen_linear_rise80__Body_ON_brass",
+      "minimum_metres_per_uv": 0.998840696108792,
+      "maximum_metres_per_uv": 1.0013681649081998,
+      "maximum_edge_excess_m": 5.170738858861334e-08,
+      "maximum_edge_ratio": 1.000104041303168
+    },
+    {
+      "part": "kitchen_linear_rise80__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9997788215858899,
+      "maximum_metres_per_uv": 1.0002516033981739,
+      "maximum_edge_excess_m": 6.205587643748345e-08,
+      "maximum_edge_ratio": 1.0001983851023546
+    },
+    {
+      "part": "kitchen_linear_rise80__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992742093064789,
+      "maximum_metres_per_uv": 1.0000567331117558,
+      "maximum_edge_excess_m": 1.900628282099949e-06,
+      "maximum_edge_ratio": 1.000726317848256
+    },
+    {
+      "part": "kitchen_linear_rise80__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992855339785687,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007149768480954
+    },
+    {
+      "part": "pendant_shade_rise450__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9971141775445274,
+      "maximum_metres_per_uv": 1.0021671962041245,
+      "maximum_edge_excess_m": 2.2270214908425706e-06,
+      "maximum_edge_ratio": 1.0007153506618407
+    },
+    {
+      "part": "pendant_shade_rise450__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992672807422097,
+      "maximum_metres_per_uv": 1.0000095272889635,
+      "maximum_edge_excess_m": 2.2060343712270412e-06,
+      "maximum_edge_ratio": 1.00073325652897
+    },
+    {
+      "part": "pendant_shade_rise450__Body_ON_linen",
+      "minimum_metres_per_uv": 0.9998176985348293,
+      "maximum_metres_per_uv": 1.0000521063989263,
+      "maximum_edge_excess_m": 2.7465998831653626e-06,
+      "maximum_edge_ratio": 1.0001823347050545
+    },
+    {
+      "part": "pendant_shade_rise450__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9996497459953073,
+      "maximum_metres_per_uv": 1.0002895598644077,
+      "maximum_edge_excess_m": 2.545435173837568e-08,
+      "maximum_edge_ratio": 1.0000289345215352
+    },
+    {
+      "part": "pendant_shade_rise450__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992670319183518,
+      "maximum_metres_per_uv": 1.0001556583034241,
+      "maximum_edge_excess_m": 3.7631341446185337e-06,
+      "maximum_edge_ratio": 1.0007335057179272
+    },
+    {
+      "part": "pendant_shade_rise450__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271104290237,
+      "maximum_metres_per_uv": 1.000090776575306,
+      "maximum_edge_excess_m": 5.610156294620985e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "pendant_shade_rise470__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9971141775445274,
+      "maximum_metres_per_uv": 1.0021671962041245,
+      "maximum_edge_excess_m": 2.2270214908425706e-06,
+      "maximum_edge_ratio": 1.0007153506618407
+    },
+    {
+      "part": "pendant_shade_rise470__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992672807422097,
+      "maximum_metres_per_uv": 1.0000095272889635,
+      "maximum_edge_excess_m": 2.2060343712270412e-06,
+      "maximum_edge_ratio": 1.00073325652897
+    },
+    {
+      "part": "pendant_shade_rise470__Body_ON_linen",
+      "minimum_metres_per_uv": 0.9998176985348293,
+      "maximum_metres_per_uv": 1.0000521063989263,
+      "maximum_edge_excess_m": 2.7465998831653626e-06,
+      "maximum_edge_ratio": 1.0001823347050545
+    },
+    {
+      "part": "pendant_shade_rise470__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9996465561951945,
+      "maximum_metres_per_uv": 1.0003304989654398,
+      "maximum_edge_excess_m": 2.545435173837568e-08,
+      "maximum_edge_ratio": 1.000028693561924
+    },
+    {
+      "part": "pendant_shade_rise470__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992670319183518,
+      "maximum_metres_per_uv": 1.0001556583034241,
+      "maximum_edge_excess_m": 3.7631341446185337e-06,
+      "maximum_edge_ratio": 1.0007335057179272
+    },
+    {
+      "part": "pendant_shade_rise470__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271104290237,
+      "maximum_metres_per_uv": 1.000090776575306,
+      "maximum_edge_excess_m": 5.610156294620985e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "pendant_shade_retained_rod__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9971141775445274,
+      "maximum_metres_per_uv": 1.0021671962041245,
+      "maximum_edge_excess_m": 2.2270214908425706e-06,
+      "maximum_edge_ratio": 1.0007153506618407
+    },
+    {
+      "part": "pendant_shade_retained_rod__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992672807422097,
+      "maximum_metres_per_uv": 1.0000095272889635,
+      "maximum_edge_excess_m": 2.2060343712270412e-06,
+      "maximum_edge_ratio": 1.00073325652897
+    },
+    {
+      "part": "pendant_shade_retained_rod__Body_ON_linen",
+      "minimum_metres_per_uv": 0.9998176985348293,
+      "maximum_metres_per_uv": 1.0000521063989263,
+      "maximum_edge_excess_m": 2.7465998831653626e-06,
+      "maximum_edge_ratio": 1.0001823347050545
+    },
+    {
+      "part": "pendant_shade_retained_rod__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9996497459953073,
+      "maximum_metres_per_uv": 1.0002895598644077,
+      "maximum_edge_excess_m": 2.545435173837568e-08,
+      "maximum_edge_ratio": 1.0000289345215352
+    },
+    {
+      "part": "pendant_shade_retained_rod__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992670319183518,
+      "maximum_metres_per_uv": 1.0001556583034241,
+      "maximum_edge_excess_m": 3.7631341446185337e-06,
+      "maximum_edge_ratio": 1.0007335057179272
+    },
+    {
+      "part": "pendant_shade_retained_rod__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992813416829444,
+      "maximum_metres_per_uv": 1.0000426172959438,
+      "maximum_edge_excess_m": 1.9755245998080186e-06,
+      "maximum_edge_ratio": 1.0007191751582647
+    },
+    {
+      "part": "cage_bulb_rise800__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992720090402825,
+      "maximum_metres_per_uv": 1.0002261758304247,
+      "maximum_edge_excess_m": 2.457694179476902e-06,
+      "maximum_edge_ratio": 1.00072852131665
+    },
+    {
+      "part": "cage_bulb_rise800__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992735990689606,
+      "maximum_metres_per_uv": 1.000018557161572,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007269289729224
+    },
+    {
+      "part": "cage_bulb_rise800__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9992854305379053,
+      "maximum_metres_per_uv": 1.0000297343115745,
+      "maximum_edge_excess_m": 7.387017424373768e-06,
+      "maximum_edge_ratio": 1.000715080436738
+    },
+    {
+      "part": "cage_bulb_rise800__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9994306991629731,
+      "maximum_metres_per_uv": 1.0005135285447688,
+      "maximum_edge_excess_m": 2.3871485057766484e-08,
+      "maximum_edge_ratio": 1.0000223497121687
+    },
+    {
+      "part": "cage_bulb_rise800__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992702600246371,
+      "maximum_metres_per_uv": 1.0001475325318772,
+      "maximum_edge_excess_m": 4.223029574179291e-06,
+      "maximum_edge_ratio": 1.0007302728846796
+    },
+    {
+      "part": "cage_bulb_rise800__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "sconce_globe_back80__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992296463853357,
+      "maximum_metres_per_uv": 1.0002045156591781,
+      "maximum_edge_excess_m": 2.2927927583299944e-06,
+      "maximum_edge_ratio": 1.0007709475168707
+    },
+    {
+      "part": "sconce_globe_back80__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992690564873322,
+      "maximum_metres_per_uv": 1.0000265544733193,
+      "maximum_edge_excess_m": 1.722271919207645e-06,
+      "maximum_edge_ratio": 1.0007314781819
+    },
+    {
+      "part": "sconce_globe_back80__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9996343060665268,
+      "maximum_metres_per_uv": 1.0002943456778643,
+      "maximum_edge_excess_m": 1.6195210159183557e-06,
+      "maximum_edge_ratio": 1.000272981477101
+    },
+    {
+      "part": "sconce_globe_back100__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992296463853357,
+      "maximum_metres_per_uv": 1.0002045156591781,
+      "maximum_edge_excess_m": 2.2927927583299944e-06,
+      "maximum_edge_ratio": 1.0007709475168707
+    },
+    {
+      "part": "sconce_globe_back100__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992690564873322,
+      "maximum_metres_per_uv": 1.0000265544733193,
+      "maximum_edge_excess_m": 1.722271919207645e-06,
+      "maximum_edge_ratio": 1.0007314781819
+    },
+    {
+      "part": "sconce_globe_back100__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9996343060665268,
+      "maximum_metres_per_uv": 1.0002943456778643,
+      "maximum_edge_excess_m": 1.6195210159183557e-06,
+      "maximum_edge_ratio": 1.000272981477101
+    },
+    {
+      "part": "cage_bulb_rise300__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992720090402825,
+      "maximum_metres_per_uv": 1.0002261758304247,
+      "maximum_edge_excess_m": 2.457694179476902e-06,
+      "maximum_edge_ratio": 1.00072852131665
+    },
+    {
+      "part": "cage_bulb_rise300__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992735990689606,
+      "maximum_metres_per_uv": 1.000018557161572,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007269289729224
+    },
+    {
+      "part": "cage_bulb_rise300__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9992854305379053,
+      "maximum_metres_per_uv": 1.0000297343115745,
+      "maximum_edge_excess_m": 7.387017424373768e-06,
+      "maximum_edge_ratio": 1.000715080436738
+    },
+    {
+      "part": "cage_bulb_rise300__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9994306991629731,
+      "maximum_metres_per_uv": 1.0005135285447688,
+      "maximum_edge_excess_m": 2.3871485057766484e-08,
+      "maximum_edge_ratio": 1.0000223497121687
+    },
+    {
+      "part": "cage_bulb_rise300__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992702600246371,
+      "maximum_metres_per_uv": 1.0001475325318772,
+      "maximum_edge_excess_m": 4.223029574179291e-06,
+      "maximum_edge_ratio": 1.0007302728846796
+    },
+    {
+      "part": "cage_bulb_rise300__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "cage_bulb_wall0x200__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992720090402825,
+      "maximum_metres_per_uv": 1.0002261758304247,
+      "maximum_edge_excess_m": 2.457694179476902e-06,
+      "maximum_edge_ratio": 1.00072852131665
+    },
+    {
+      "part": "cage_bulb_wall0x200__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992735990689606,
+      "maximum_metres_per_uv": 1.000018557161572,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007269289729224
+    },
+    {
+      "part": "cage_bulb_wall0x200__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9992854305379053,
+      "maximum_metres_per_uv": 1.0000297343115745,
+      "maximum_edge_excess_m": 7.387017424373768e-06,
+      "maximum_edge_ratio": 1.000715080436738
+    },
+    {
+      "part": "cage_bulb_wall0x200__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9994306991629731,
+      "maximum_metres_per_uv": 1.0005135285447688,
+      "maximum_edge_excess_m": 2.3871485057766484e-08,
+      "maximum_edge_ratio": 1.0000223497121687
+    },
+    {
+      "part": "cage_bulb_wall0x200__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992702600246371,
+      "maximum_metres_per_uv": 1.0001475325318772,
+      "maximum_edge_excess_m": 4.223029574179291e-06,
+      "maximum_edge_ratio": 1.0007302728846796
+    },
+    {
+      "part": "cage_bulb_wall0x200__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.0000873217489765,
+      "maximum_edge_excess_m": 5.182216308252836e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "cage_bulb_rise380__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992720090402825,
+      "maximum_metres_per_uv": 1.0002261758304247,
+      "maximum_edge_excess_m": 2.457694179476902e-06,
+      "maximum_edge_ratio": 1.00072852131665
+    },
+    {
+      "part": "cage_bulb_rise380__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992735990689606,
+      "maximum_metres_per_uv": 1.000018557161572,
+      "maximum_edge_excess_m": 2.3771713207839697e-06,
+      "maximum_edge_ratio": 1.0007269289729224
+    },
+    {
+      "part": "cage_bulb_rise380__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9992854305379053,
+      "maximum_metres_per_uv": 1.0000297343115745,
+      "maximum_edge_excess_m": 7.387017424373768e-06,
+      "maximum_edge_ratio": 1.000715080436738
+    },
+    {
+      "part": "cage_bulb_rise380__Body_ON_rubber",
+      "minimum_metres_per_uv": 0.9994306991629731,
+      "maximum_metres_per_uv": 1.0005135285447688,
+      "maximum_edge_excess_m": 2.3871485057766484e-08,
+      "maximum_edge_ratio": 1.0000223497121687
+    },
+    {
+      "part": "cage_bulb_rise380__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9992702600246371,
+      "maximum_metres_per_uv": 1.0001475325318772,
+      "maximum_edge_excess_m": 4.223029574179291e-06,
+      "maximum_edge_ratio": 1.0007302728846796
+    },
+    {
+      "part": "cage_bulb_rise380__Mount_ON_brass",
+      "minimum_metres_per_uv": 0.9992271096775086,
+      "maximum_metres_per_uv": 1.000569006811984,
+      "maximum_edge_excess_m": 4.208553971885194e-06,
+      "maximum_edge_ratio": 1.0007730439681268
+    },
+    {
+      "part": "sconce_globe_back160__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9992296463853357,
+      "maximum_metres_per_uv": 1.0002045156591781,
+      "maximum_edge_excess_m": 2.2927927583299944e-06,
+      "maximum_edge_ratio": 1.0007709475168707
+    },
+    {
+      "part": "sconce_globe_back160__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9992690564873322,
+      "maximum_metres_per_uv": 1.0000265544733193,
+      "maximum_edge_excess_m": 1.722271919207645e-06,
+      "maximum_edge_ratio": 1.0007314781819
+    },
+    {
+      "part": "sconce_globe_back160__Bulb_ON_bulb",
+      "minimum_metres_per_uv": 0.9996343060665268,
+      "maximum_metres_per_uv": 1.0002943456778643,
+      "maximum_edge_excess_m": 1.6195210159183557e-06,
+      "maximum_edge_ratio": 1.000272981477101
+    }
+  ],
+  "local_bearings": [
+    {
+      "assembly": "pendant_shade",
+      "owner": "ceiling",
+      "point": [
+        -0.059,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "canopy rim against original ceiling"
+    },
+    {
+      "assembly": "pendant_shade",
+      "owner": "ceiling",
+      "point": [
+        0.059,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "canopy rim against original ceiling"
+    },
+    {
+      "assembly": "flush_dome",
+      "owner": "ceiling",
+      "point": [
+        -0.09,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "schoolhouse canopy ceiling seat"
+    },
+    {
+      "assembly": "flush_dome",
+      "owner": "ceiling",
+      "point": [
+        0.09,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "schoolhouse canopy ceiling seat"
+    },
+    {
+      "assembly": "kitchen_linear",
+      "owner": "ceiling",
+      "point": [
+        -0.25,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "trough back to original ceiling"
+    },
+    {
+      "assembly": "kitchen_linear",
+      "owner": "ceiling",
+      "point": [
+        0.25,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "trough back to original ceiling"
+    },
+    {
+      "assembly": "flush_dome_rise150",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.15,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "flush_dome_rise150",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.15,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "pendant_shade_rise360",
+      "owner": "ceiling",
+      "point": [
+        -0.059,
+        0.36,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "canopy rim against original ceiling"
+    },
+    {
+      "assembly": "pendant_shade_rise360",
+      "owner": "ceiling",
+      "point": [
+        0.059,
+        0.36,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "canopy rim against original ceiling"
+    },
+    {
+      "assembly": "pendant_shade_rise100",
+      "owner": "ceiling",
+      "point": [
+        -0.059,
+        0.1,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "canopy rim against original ceiling"
+    },
+    {
+      "assembly": "pendant_shade_rise100",
+      "owner": "ceiling",
+      "point": [
+        0.059,
+        0.1,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "canopy rim against original ceiling"
+    },
+    {
+      "assembly": "kitchen_linear_rise100",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.1,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "kitchen_linear_rise100",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.1,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "flush_dome_rise100",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.1,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "flush_dome_rise100",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.1,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "sconce_globe_back050",
+      "owner": "wall",
+      "point": [
+        0,
+        -0.055,
+        -0.05
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "fitted wall backplate"
+    },
+    {
+      "assembly": "sconce_globe_back050",
+      "owner": "wall",
+      "point": [
+        0,
+        0.055,
+        -0.05
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "fitted wall backplate"
+    },
+    {
+      "assembly": "cage_bulb_rise960",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.96,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise960",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.96,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_wall0x-255",
+      "owner": "wall",
+      "point": [
+        0.10000000149011612,
+        -0.03500000014901161,
+        0.4000000059604645
+      ],
+      "direction": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "label": "wall rosette fixed to retained fascia or pier"
+    },
+    {
+      "assembly": "cage_bulb_wall0x-255",
+      "owner": "wall",
+      "point": [
+        0.10000000149011612,
+        0.03500000014901161,
+        0.4000000059604645
+      ],
+      "direction": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "label": "wall rosette fixed to retained fascia or pier"
+    },
+    {
+      "assembly": "cage_bulb_rise160",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.16,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise160",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.16,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise140",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.14,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise140",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.14,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise250",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.25,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise250",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.25,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise60",
+      "owner": "ceiling",
+      "point": [
+        -0.005,
+        0.06,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise60",
+      "owner": "ceiling",
+      "point": [
+        0.005,
+        0.06,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise2000",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        2.0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise2000",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        2.0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "kitchen_linear_rise80",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.08,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "kitchen_linear_rise80",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.08,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "pendant_shade_rise450",
+      "owner": "ceiling",
+      "point": [
+        -0.059,
+        0.45,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "canopy rim against original ceiling"
+    },
+    {
+      "assembly": "pendant_shade_rise450",
+      "owner": "ceiling",
+      "point": [
+        0.059,
+        0.45,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "canopy rim against original ceiling"
+    },
+    {
+      "assembly": "pendant_shade_rise470",
+      "owner": "ceiling",
+      "point": [
+        -0.059,
+        0.47,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "canopy rim against original ceiling"
+    },
+    {
+      "assembly": "pendant_shade_rise470",
+      "owner": "ceiling",
+      "point": [
+        0.059,
+        0.47,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "canopy rim against original ceiling"
+    },
+    {
+      "assembly": "pendant_shade_retained_rod",
+      "owner": "ceiling",
+      "point": [
+        -0.008,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "retained source suspension rod endpoint"
+    },
+    {
+      "assembly": "pendant_shade_retained_rod",
+      "owner": "ceiling",
+      "point": [
+        0.008,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "retained source suspension rod endpoint"
+    },
+    {
+      "assembly": "cage_bulb_rise800",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.8,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise800",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.8,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "sconce_globe_back80",
+      "owner": "wall",
+      "point": [
+        0,
+        -0.055,
+        -0.08
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "fitted wall backplate"
+    },
+    {
+      "assembly": "sconce_globe_back80",
+      "owner": "wall",
+      "point": [
+        0,
+        0.055,
+        -0.08
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "fitted wall backplate"
+    },
+    {
+      "assembly": "sconce_globe_back100",
+      "owner": "wall",
+      "point": [
+        0,
+        -0.055,
+        -0.1
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "fitted wall backplate"
+    },
+    {
+      "assembly": "sconce_globe_back100",
+      "owner": "wall",
+      "point": [
+        0,
+        0.055,
+        -0.1
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "fitted wall backplate"
+    },
+    {
+      "assembly": "cage_bulb_rise300",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.3,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise300",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.3,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_wall0x200",
+      "owner": "wall",
+      "point": [
+        0.0,
+        -0.03500000014901161,
+        0.20000000298023224
+      ],
+      "direction": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "label": "wall rosette fixed to retained fascia or pier"
+    },
+    {
+      "assembly": "cage_bulb_wall0x200",
+      "owner": "wall",
+      "point": [
+        0.0,
+        0.03500000014901161,
+        0.20000000298023224
+      ],
+      "direction": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "label": "wall rosette fixed to retained fascia or pier"
+    },
+    {
+      "assembly": "cage_bulb_rise380",
+      "owner": "ceiling",
+      "point": [
+        -0.025,
+        0.38,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "cage_bulb_rise380",
+      "owner": "ceiling",
+      "point": [
+        0.025,
+        0.38,
+        0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "label": "fitted suspension seat"
+    },
+    {
+      "assembly": "sconce_globe_back160",
+      "owner": "wall",
+      "point": [
+        0,
+        -0.055,
+        -0.16
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "fitted wall backplate"
+    },
+    {
+      "assembly": "sconce_globe_back160",
+      "owner": "wall",
+      "point": [
+        0,
+        0.055,
+        -0.16
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "fitted wall backplate"
+    }
+  ],
+  "views": [],
+  "scope": "Local construction and chart preflight only. External support context and rendering are still required."
+}

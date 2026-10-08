@@ -1,0 +1,17 @@
+SCRIPT ERROR: Left operand of 'is' is a previously freed instance.
+   at: mount (res://scripts/building/orison_v2_native_fixed_lighting.gd:25)
+   GDScript backtrace (most recent call first):
+       [0] mount (res://scripts/building/orison_v2_native_fixed_lighting.gd:25)
+       [1] _ready (res://scripts/building/orison_v2_runtime_root.gd:186)
+       [2] _run (res://tests/orison_v2_fabrication_batch.gd:67)
+ERROR: V2 native fixed lighting refused: []
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/building/orison_v2_runtime_root.gd:188)
+       [1] _run (res://tests/orison_v2_fabrication_batch.gd:67)
+ERROR: batch world initialized
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _run (res://tests/orison_v2_fabrication_batch.gd:70)

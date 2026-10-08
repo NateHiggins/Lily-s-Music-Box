@@ -1,0 +1,7431 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "mechanism_source": "game/scripts/props/light_fixture_prop.gd",
+  "mechanism_sha256": "fb03473169a196be04bcaee3b680af8d11d61844e3da648099e92c696d2ac5b6",
+  "original_source_markers": [
+    {
+      "kind": "flush_dome",
+      "id": "B1_CORRIDOR_DOME_01",
+      "unit": "B1",
+      "pos": [
+        -4.35,
+        -5.1,
+        -0.2599999999999998
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "B1_CORRIDOR_DOME_02",
+      "unit": "B1",
+      "pos": [
+        -4.35,
+        0.0,
+        -0.2599999999999998
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "B1_CORRIDOR_DOME_03",
+      "unit": "B1",
+      "pos": [
+        -4.35,
+        5.1,
+        -0.2599999999999998
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "B1_CORRIDOR_DOME_04",
+      "unit": "B1",
+      "pos": [
+        4.35,
+        -5.1,
+        -0.2599999999999998
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "B1_CORRIDOR_DOME_05",
+      "unit": "B1",
+      "pos": [
+        4.35,
+        0.0,
+        -0.2599999999999998
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "B1_CORRIDOR_DOME_06",
+      "unit": "B1",
+      "pos": [
+        4.35,
+        5.1,
+        -0.2599999999999998
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "B1_CORRIDOR_DOME_07",
+      "unit": "B1",
+      "pos": [
+        0.0,
+        -8.25,
+        -0.2599999999999998
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "B1_CORRIDOR_DOME_08",
+      "unit": "B1",
+      "pos": [
+        0.0,
+        8.25,
+        -0.2599999999999998
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "B1_STORAGE_CAGES_LT_CAGE_BULB",
+      "unit": "B1",
+      "pos": [
+        -9.58,
+        -5.05,
+        -0.23999999999999977
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 7.55,
+      "energy": 0.55
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "B1_LAUNDRY_LT_CAGE_BULB",
+      "unit": "B1",
+      "pos": [
+        -9.58,
+        6.16,
+        -0.23999999999999977
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.84,
+      "energy": 0.8
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "B1_BOILER_LT_CAGE_BULB",
+      "unit": "B1",
+      "pos": [
+        9.58,
+        4.385,
+        -0.23999999999999977
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 8.03,
+      "energy": 0.65
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "B1_ELECTRICAL_LT_CAGE_BULB",
+      "unit": "B1",
+      "pos": [
+        9.58,
+        -5.325,
+        -0.23999999999999977
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 7.37,
+      "energy": 0.7
+    },
+    {
+      "kind": "flush_dome",
+      "id": "B1_HALL_LT_FLUSH_DOME",
+      "unit": "B1",
+      "pos": [
+        -1.2,
+        -5.0,
+        -0.23999999999999977
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 4.62,
+      "energy": 0.68
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "B1_UTILITY_LT_CAGE_BULB",
+      "unit": "B1",
+      "pos": [
+        0.0,
+        5.0,
+        -0.23999999999999977
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 5.39,
+      "energy": 0.6
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "B1_COAL_LT_CAGE_BULB",
+      "unit": "B1",
+      "pos": [
+        12.475,
+        1.5,
+        -0.23999999999999977
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.96,
+      "energy": 0.5
+    },
+    {
+      "kind": "eye_pendant",
+      "id": "B1_ATRIUM_FRUIT_1",
+      "unit": "B1",
+      "pos": [
+        0.48,
+        0.212,
+        -1.408
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "energy": 0.48,
+      "navigation": true,
+      "standby": 0.32
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_MARQUEE_LT_01",
+      "pos": [
+        -0.78,
+        -10.86,
+        3.24
+      ],
+      "yaw_deg": 0,
+      "exterior": true,
+      "network": "electrical",
+      "unit": "LOBBY"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_MARQUEE_LT_02",
+      "pos": [
+        0.78,
+        -10.86,
+        3.24
+      ],
+      "yaw_deg": 0,
+      "exterior": true,
+      "network": "electrical",
+      "unit": "LOBBY"
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "F01WC_LT_SCONCE",
+      "unit": "F01WC",
+      "pos": [
+        -13.57,
+        6.4799999999999995,
+        1.62
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "1A_LT_SCONCE",
+      "unit": "1A",
+      "pos": [
+        -5.59,
+        -4.7700000000000005,
+        1.62
+      ],
+      "yaw_deg": -90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "1D_LT_SCONCE",
+      "unit": "1D",
+      "pos": [
+        5.59,
+        -4.7700000000000005,
+        1.62
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_CORRIDOR_DOME_01",
+      "unit": "F01",
+      "pos": [
+        -4.35,
+        -5.1,
+        2.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_CORRIDOR_DOME_02",
+      "unit": "F01",
+      "pos": [
+        -4.35,
+        0.0,
+        2.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_CORRIDOR_DOME_03",
+      "unit": "F01",
+      "pos": [
+        -4.35,
+        5.1,
+        2.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_CORRIDOR_DOME_04",
+      "unit": "F01",
+      "pos": [
+        4.35,
+        -5.1,
+        2.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_CORRIDOR_DOME_05",
+      "unit": "F01",
+      "pos": [
+        4.35,
+        0.0,
+        2.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_CORRIDOR_DOME_06",
+      "unit": "F01",
+      "pos": [
+        4.35,
+        5.1,
+        2.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_CORRIDOR_DOME_07",
+      "unit": "F01",
+      "pos": [
+        0.0,
+        -8.25,
+        2.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_CORRIDOR_DOME_08",
+      "unit": "F01",
+      "pos": [
+        0.0,
+        8.25,
+        2.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "chandelier",
+      "id": "F01_LOBBY_LT_CHANDELIER",
+      "unit": "F01",
+      "pos": [
+        0.0,
+        -8.29,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.45,
+      "range": 7.15,
+      "energy": 1.05
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_COMMON_B_LT_PENDANT_SHADE",
+      "unit": "F01",
+      "pos": [
+        -8.705,
+        7.525,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.75,
+      "energy": 1.25
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_STORAGE_C_LT_CAGE_BULB",
+      "unit": "F01",
+      "pos": [
+        9.58,
+        4.385,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 8.18,
+      "energy": 0.55
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_HALL_LT_FLUSH_DOME",
+      "unit": "F01",
+      "pos": [
+        -1.2,
+        -5.0,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 4.9,
+      "energy": 0.68
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_UTILITY_LT_CAGE_BULB",
+      "unit": "F01",
+      "pos": [
+        0.0,
+        5.0,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 5.63,
+      "energy": 0.6
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_OFFICE_LT_PENDANT_SHADE",
+      "unit": "F01",
+      "pos": [
+        -11.765,
+        4.035,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.67,
+      "energy": 1.3
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_PACKAGE_LT_CAGE_BULB",
+      "unit": "F01",
+      "pos": [
+        -7.695,
+        4.035,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.82,
+      "energy": 0.55
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_A_BED_LT_FLUSH_DOME",
+      "unit": "1A",
+      "pos": [
+        -9.58,
+        -7.95,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.21,
+      "energy": 1.32
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_A_MAIN_LT_PENDANT_SHADE",
+      "unit": "1A",
+      "pos": [
+        -9.58,
+        -3.35,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.71,
+      "energy": 1.62
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F01_D_BED_LT_FLUSH_DOME",
+      "unit": "1D",
+      "pos": [
+        9.58,
+        -7.95,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.21,
+      "energy": 0.88
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+      "unit": "1D",
+      "pos": [
+        9.58,
+        -3.625,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.58,
+      "energy": 1.08
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_D_OFFICE_LT_PENDANT_SHADE",
+      "unit": "1D",
+      "pos": [
+        6.61,
+        -1.92,
+        2.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.19,
+      "energy": 1.04
+    },
+    {
+      "kind": "eye_pendant",
+      "id": "F01_ATRIUM_FRUIT_1",
+      "unit": "F01",
+      "pos": [
+        0.311,
+        -0.611,
+        1.392
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "energy": 0.48,
+      "navigation": true,
+      "standby": 0.32
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "PASSAGE_PORTAL_LT_W",
+      "unit": "PASSAGE",
+      "pos": [
+        11.48,
+        -27.516,
+        2.82
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.4,
+      "energy": 1.0,
+      "navigation": true,
+      "standby": 0.52,
+      "exterior": true,
+      "zone": "STREET"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "PASSAGE_PORTAL_LT_E",
+      "unit": "PASSAGE",
+      "pos": [
+        20.33,
+        -27.516,
+        2.82
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.4,
+      "energy": 1.0,
+      "navigation": true,
+      "standby": 0.52,
+      "exterior": true,
+      "zone": "STREET"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "PASSAGE_AISLE_LT_00",
+      "unit": "PASSAGE",
+      "pos": [
+        14.0,
+        -31.2,
+        3.72
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.4,
+      "energy": 0.76,
+      "navigation": true,
+      "standby": 0.42,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "PASSAGE_AISLE_LT_01",
+      "unit": "PASSAGE",
+      "pos": [
+        14.0,
+        -35.0,
+        3.72
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.4,
+      "energy": 0.76,
+      "navigation": true,
+      "standby": 0.42,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "PASSAGE_AISLE_LT_02",
+      "unit": "PASSAGE",
+      "pos": [
+        14.0,
+        -41.0,
+        3.72
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.4,
+      "energy": 0.76,
+      "navigation": true,
+      "standby": 0.42,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "PASSAGE_AISLE_LT_03",
+      "unit": "PASSAGE",
+      "pos": [
+        14.0,
+        -45.0,
+        3.72
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.4,
+      "energy": 0.76,
+      "navigation": true,
+      "standby": 0.42,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "PASSAGE_AISLE_LT_04",
+      "unit": "PASSAGE",
+      "pos": [
+        14.0,
+        -49.0,
+        3.72
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.4,
+      "energy": 0.76,
+      "navigation": true,
+      "standby": 0.42,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "PASSAGE_AISLE_LT_05",
+      "unit": "PASSAGE",
+      "pos": [
+        14.0,
+        -53.0,
+        3.72
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.4,
+      "energy": 0.76,
+      "navigation": true,
+      "standby": 0.42,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "PASSAGE_AISLE_LT_06",
+      "unit": "PASSAGE",
+      "pos": [
+        14.0,
+        -57.0,
+        3.72
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.4,
+      "energy": 0.76,
+      "navigation": true,
+      "standby": 0.42,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "PASSAGE_AISLE_LT_07",
+      "unit": "PASSAGE",
+      "pos": [
+        14.0,
+        -61.0,
+        3.72
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.4,
+      "energy": 0.76,
+      "navigation": true,
+      "standby": 0.42,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F01_BODEGA_LT_0",
+      "unit": "SITE",
+      "pos": [
+        17.55,
+        -10.2,
+        3.05
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "range": 5.5,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F01_BODEGA_LT_1",
+      "unit": "SITE",
+      "pos": [
+        17.55,
+        -7.2,
+        3.05
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "range": 5.5,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F01_BODEGA_LT_2",
+      "unit": "SITE",
+      "pos": [
+        17.55,
+        -4.2,
+        3.05
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "range": 5.5,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_DARTS",
+      "unit": "SITE",
+      "pos": [
+        -11.08,
+        -33.0,
+        -0.2899999999999998
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 2.6,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.2,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_LOBBY",
+      "unit": "SITE",
+      "pos": [
+        4.875,
+        -29.3,
+        2.3
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.5,
+      "energy": 0.46,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_WELL",
+      "unit": "SITE",
+      "pos": [
+        -2.6,
+        -33.4,
+        1.6
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "energy": 0.4,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_STAIR",
+      "unit": "SITE",
+      "pos": [
+        5.3,
+        -32.6,
+        0.55
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.5,
+      "energy": 0.46,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F01_BAR_LT_CAN0",
+      "unit": "SITE",
+      "pos": [
+        -3.2,
+        -29.7,
+        -1.06
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "range": 5.0,
+      "energy": 0.7,
+      "navigation": true,
+      "standby": 0.4,
+      "exterior": true
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F01_BAR_LT_CAN1",
+      "unit": "SITE",
+      "pos": [
+        -0.25,
+        -29.7,
+        -1.06
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "range": 5.0,
+      "energy": 0.7,
+      "navigation": true,
+      "standby": 0.4,
+      "exterior": true
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_BAR_LT_POOL",
+      "unit": "SITE",
+      "pos": [
+        -7.4,
+        -31.25,
+        -0.6
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.66,
+      "navigation": true,
+      "standby": 0.4,
+      "exterior": true
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_BAR_LT_TAB0",
+      "unit": "SITE",
+      "pos": [
+        -8.2,
+        -35.3,
+        -0.62
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.52,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_BAR_LT_TAB1",
+      "unit": "SITE",
+      "pos": [
+        -5.2,
+        -35.3,
+        -0.62
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.52,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F01_BAR_LT_TAB2",
+      "unit": "SITE",
+      "pos": [
+        -1.2,
+        -34.9,
+        -0.62
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.52,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_STAGE0",
+      "unit": "SITE",
+      "pos": [
+        -1.9,
+        -36.55,
+        -0.95
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.6,
+      "navigation": true,
+      "standby": 0.3,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_STAGE1",
+      "unit": "SITE",
+      "pos": [
+        0.5,
+        -36.55,
+        -0.95
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.6,
+      "navigation": true,
+      "standby": 0.3,
+      "exterior": true
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "F01_BAR_LT_DECK0",
+      "unit": "SITE",
+      "pos": [
+        3.92,
+        -36.6,
+        -1.3
+      ],
+      "yaw_deg": 270,
+      "network": "electrical",
+      "range": 3.4,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "F01_BAR_LT_DECK1",
+      "unit": "SITE",
+      "pos": [
+        3.92,
+        -33.2,
+        -1.3
+      ],
+      "yaw_deg": 270,
+      "network": "electrical",
+      "range": 3.4,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "F01_BAR_LT_DECK2",
+      "unit": "SITE",
+      "pos": [
+        3.92,
+        -32.05,
+        -1.3
+      ],
+      "yaw_deg": 270,
+      "network": "electrical",
+      "range": 3.4,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "F01_BAR_LT_WEST0",
+      "unit": "SITE",
+      "pos": [
+        -11.34,
+        -35.4,
+        -1.3
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "F01_BAR_LT_WEST1",
+      "unit": "SITE",
+      "pos": [
+        -11.34,
+        -31.3,
+        -1.3
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "range": 3.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F01_BAR_LT_WC",
+      "unit": "SITE",
+      "pos": [
+        -10.62,
+        -37.1,
+        -0.44999999999999973
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 2.5,
+      "energy": 0.48,
+      "navigation": true,
+      "standby": 0.35,
+      "exterior": true
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+      "unit": "SITE",
+      "pos": [
+        11.46,
+        -43.825,
+        2.66
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+      "unit": "SITE",
+      "pos": [
+        10.05,
+        -42.0,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.98,
+      "navigation": false,
+      "standby": 0.4,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+      "unit": "SITE",
+      "pos": [
+        7.5,
+        -42.0,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.8,
+      "navigation": false,
+      "standby": 0.4,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+      "unit": "SITE",
+      "pos": [
+        4.95,
+        -42.0,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.8,
+      "navigation": false,
+      "standby": 0.4,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+      "unit": "SITE",
+      "pos": [
+        11.46,
+        -49.425000000000004,
+        2.66
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+      "unit": "SITE",
+      "pos": [
+        10.05,
+        -47.6,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.74,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+      "unit": "SITE",
+      "pos": [
+        5.95,
+        -47.6,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.58,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_LT_KEYS_CUT",
+      "unit": "SITE",
+      "pos": [
+        11.46,
+        -53.025,
+        2.66
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN0_KEYS_CUT",
+      "unit": "SITE",
+      "pos": [
+        10.05,
+        -52.2,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.74,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN1_KEYS_CUT",
+      "unit": "SITE",
+      "pos": [
+        6.95,
+        -52.2,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.58,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+      "unit": "SITE",
+      "pos": [
+        11.46,
+        -58.425000000000004,
+        2.66
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+      "unit": "SITE",
+      "pos": [
+        10.05,
+        -56.7,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.74,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+      "unit": "SITE",
+      "pos": [
+        7.75,
+        -56.7,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.58,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+      "unit": "SITE",
+      "pos": [
+        5.45,
+        -56.7,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.58,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+      "unit": "SITE",
+      "pos": [
+        11.46,
+        -63.025,
+        2.66
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+      "unit": "SITE",
+      "pos": [
+        10.05,
+        -61.7,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.74,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+      "unit": "SITE",
+      "pos": [
+        7.5,
+        -61.7,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.58,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+      "unit": "SITE",
+      "pos": [
+        4.95,
+        -61.7,
+        2.92
+      ],
+      "yaw_deg": 90.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.58,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+      "unit": "SITE",
+      "pos": [
+        16.54,
+        -62.974999999999994,
+        2.66
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+      "unit": "SITE",
+      "pos": [
+        17.95,
+        -61.39999999999999,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.74,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+      "unit": "SITE",
+      "pos": [
+        22.05,
+        -61.39999999999999,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.58,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_LT_RADIO_SERVICE",
+      "unit": "SITE",
+      "pos": [
+        16.54,
+        -56.574999999999996,
+        2.66
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+      "unit": "SITE",
+      "pos": [
+        17.95,
+        -57.199999999999996,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.74,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+      "unit": "SITE",
+      "pos": [
+        21.05,
+        -57.199999999999996,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.58,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_LT_PAWNBROKER",
+      "unit": "SITE",
+      "pos": [
+        16.54,
+        -51.974999999999994,
+        2.66
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN0_PAWNBROKER",
+      "unit": "SITE",
+      "pos": [
+        17.95,
+        -53.3,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.98,
+      "navigation": false,
+      "standby": 0.4,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN1_PAWNBROKER",
+      "unit": "SITE",
+      "pos": [
+        22.05,
+        -53.3,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.8,
+      "navigation": false,
+      "standby": 0.4,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_LT_NEWS_CIGARS",
+      "unit": "SITE",
+      "pos": [
+        16.54,
+        -49.974999999999994,
+        2.66
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+      "unit": "SITE",
+      "pos": [
+        17.95,
+        -49.849999999999994,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.98,
+      "navigation": false,
+      "standby": 0.4,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+      "unit": "SITE",
+      "pos": [
+        20.05,
+        -49.849999999999994,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.8,
+      "navigation": false,
+      "standby": 0.4,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_LT_OTIS___SON",
+      "unit": "SITE",
+      "pos": [
+        16.54,
+        -45.37499999999999,
+        2.66
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN0_OTIS___SON",
+      "unit": "SITE",
+      "pos": [
+        17.95,
+        -46.55,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.74,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN1_OTIS___SON",
+      "unit": "SITE",
+      "pos": [
+        20.5,
+        -46.55,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.58,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN2_OTIS___SON",
+      "unit": "SITE",
+      "pos": [
+        23.05,
+        -46.55,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.58,
+      "navigation": false,
+      "standby": 0.22,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_LT_LUNCHEONETTE",
+      "unit": "SITE",
+      "pos": [
+        16.54,
+        -43.37499999999999,
+        2.66
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 4.2,
+      "energy": 0.55,
+      "navigation": false,
+      "standby": 0.3,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+      "unit": "SITE",
+      "pos": [
+        17.95,
+        -41.8,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.98,
+      "navigation": false,
+      "standby": 0.4,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+      "unit": "SITE",
+      "pos": [
+        20.5,
+        -41.8,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.8,
+      "navigation": false,
+      "standby": 0.4,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+      "unit": "SITE",
+      "pos": [
+        23.05,
+        -41.8,
+        2.92
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.8,
+      "navigation": false,
+      "standby": 0.4,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "SITE_SHOP_DARKROOM_PHOTO_SUPPLIES",
+      "unit": "SITE",
+      "pos": [
+        22.7,
+        -59.71999999999999,
+        2.24
+      ],
+      "yaw_deg": 270.0,
+      "network": "electrical",
+      "range": 2.2,
+      "energy": 0.34,
+      "navigation": false,
+      "standby": 0.34,
+      "exterior": true,
+      "zone": "PASSAGE"
+    },
+    {
+      "kind": "street_lamp",
+      "id": "F01_STREETLAMP_03",
+      "unit": "SITE",
+      "pos": [
+        -23.94,
+        -14.49,
+        4.55
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 8.5,
+      "energy": 0.42,
+      "navigation": true,
+      "standby": 0.25
+    },
+    {
+      "kind": "street_lamp",
+      "id": "F01_STREETLAMP_04",
+      "unit": "SITE",
+      "pos": [
+        -12.94,
+        -14.49,
+        4.55
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 8.5,
+      "energy": 0.42,
+      "navigation": true,
+      "standby": 0.25
+    },
+    {
+      "kind": "street_lamp",
+      "id": "F01_STREETLAMP_06",
+      "unit": "SITE",
+      "pos": [
+        9.06,
+        -14.49,
+        4.55
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 8.5,
+      "energy": 0.42,
+      "navigation": true,
+      "standby": 0.25
+    },
+    {
+      "kind": "street_lamp",
+      "id": "F01_STREETLAMP_07",
+      "unit": "SITE",
+      "pos": [
+        20.06,
+        -14.49,
+        4.55
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 8.5,
+      "energy": 0.42,
+      "navigation": true,
+      "standby": 0.25
+    },
+    {
+      "kind": "street_lamp",
+      "id": "F01_STREETLAMP_08",
+      "unit": "SITE",
+      "pos": [
+        31.06,
+        -14.49,
+        4.55
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 8.5,
+      "energy": 0.42,
+      "navigation": true,
+      "standby": 0.25
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "2A_LT_SCONCE",
+      "unit": "2A",
+      "pos": [
+        -5.59,
+        -4.7700000000000005,
+        4.82
+      ],
+      "yaw_deg": -90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "2B_LT_SCONCE",
+      "unit": "2B",
+      "pos": [
+        -5.59,
+        4.39,
+        4.82
+      ],
+      "yaw_deg": -90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "2C_LT_SCONCE",
+      "unit": "2C",
+      "pos": [
+        5.59,
+        5.21,
+        4.82
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "2D_LT_SCONCE",
+      "unit": "2D",
+      "pos": [
+        5.59,
+        -4.7700000000000005,
+        4.82
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_CORRIDOR_DOME_01",
+      "unit": "F02",
+      "pos": [
+        -4.35,
+        -5.1,
+        6.140000000000001
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_CORRIDOR_DOME_02",
+      "unit": "F02",
+      "pos": [
+        -4.35,
+        0.0,
+        6.140000000000001
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_CORRIDOR_DOME_03",
+      "unit": "F02",
+      "pos": [
+        -4.35,
+        5.1,
+        6.140000000000001
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_CORRIDOR_DOME_04",
+      "unit": "F02",
+      "pos": [
+        4.35,
+        -5.1,
+        6.140000000000001
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_CORRIDOR_DOME_05",
+      "unit": "F02",
+      "pos": [
+        4.35,
+        0.0,
+        6.140000000000001
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_CORRIDOR_DOME_06",
+      "unit": "F02",
+      "pos": [
+        4.35,
+        5.1,
+        6.140000000000001
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_CORRIDOR_DOME_07",
+      "unit": "F02",
+      "pos": [
+        0.0,
+        -8.25,
+        6.140000000000001
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_CORRIDOR_DOME_08",
+      "unit": "F02",
+      "pos": [
+        0.0,
+        8.25,
+        6.140000000000001
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_A_BED_LT_FLUSH_DOME",
+      "unit": "2A",
+      "pos": [
+        -9.58,
+        -7.95,
+        6.16
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.21,
+      "energy": 1.26
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F02_A_MAIN_LT_PENDANT_SHADE",
+      "unit": "2A",
+      "pos": [
+        -9.58,
+        -3.35,
+        6.16
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.71,
+      "energy": 1.55
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_B_ALCOVE_LT_FLUSH_DOME",
+      "unit": "2B",
+      "pos": [
+        -12.275,
+        8.075,
+        6.16
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.52,
+      "energy": 1.15
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F02_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "unit": "2B",
+      "pos": [
+        -8.205,
+        8.075,
+        6.16
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 1.55
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F02_B_MAIN_LT_PENDANT_SHADE",
+      "unit": "2B",
+      "pos": [
+        -9.58,
+        4.585,
+        6.16
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.28,
+      "energy": 1.55
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_C_BED1_LT_FLUSH_DOME",
+      "unit": "2C",
+      "pos": [
+        7.545,
+        7.95,
+        6.16
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.87,
+      "energy": 0.75
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_C_BED2_LT_FLUSH_DOME",
+      "unit": "2C",
+      "pos": [
+        11.615,
+        7.95,
+        6.16
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.87,
+      "energy": 0.75
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+      "unit": "2C",
+      "pos": [
+        9.58,
+        2.685,
+        6.16
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 7.07,
+      "energy": 0.92
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F02_WSTOR_LT_CAGE_BULB",
+      "unit": "F02",
+      "pos": [
+        -9.58,
+        1.11,
+        6.16
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.13,
+      "energy": 0.55
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F02_HALL_LT_FLUSH_DOME",
+      "unit": "F02",
+      "pos": [
+        -1.2,
+        -5.0,
+        6.16
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 4.9,
+      "energy": 0.68
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F02_UTILITY_LT_CAGE_BULB",
+      "unit": "F02",
+      "pos": [
+        0.0,
+        5.0,
+        6.16
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 5.63,
+      "energy": 0.6
+    },
+    {
+      "kind": "eye_pendant",
+      "id": "F02_ATRIUM_FRUIT_1",
+      "unit": "F02",
+      "pos": [
+        1.23,
+        -0.483,
+        4.592
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "energy": 0.48,
+      "navigation": true,
+      "standby": 0.32
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "3A_LT_SCONCE",
+      "unit": "3A",
+      "pos": [
+        -5.59,
+        -4.7700000000000005,
+        8.02
+      ],
+      "yaw_deg": -90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "3B_LT_SCONCE",
+      "unit": "3B",
+      "pos": [
+        -5.59,
+        4.39,
+        8.02
+      ],
+      "yaw_deg": -90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "3C_LT_SCONCE",
+      "unit": "3C",
+      "pos": [
+        5.59,
+        5.21,
+        8.02
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "3D_LT_SCONCE",
+      "unit": "3D",
+      "pos": [
+        5.59,
+        -4.7700000000000005,
+        8.02
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_CORRIDOR_DOME_01",
+      "unit": "F03",
+      "pos": [
+        -4.35,
+        -5.1,
+        9.34
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_CORRIDOR_DOME_02",
+      "unit": "F03",
+      "pos": [
+        -4.35,
+        0.0,
+        9.34
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_CORRIDOR_DOME_03",
+      "unit": "F03",
+      "pos": [
+        -4.35,
+        5.1,
+        9.34
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_CORRIDOR_DOME_04",
+      "unit": "F03",
+      "pos": [
+        4.35,
+        -5.1,
+        9.34
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_CORRIDOR_DOME_05",
+      "unit": "F03",
+      "pos": [
+        4.35,
+        0.0,
+        9.34
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_CORRIDOR_DOME_06",
+      "unit": "F03",
+      "pos": [
+        4.35,
+        5.1,
+        9.34
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_CORRIDOR_DOME_07",
+      "unit": "F03",
+      "pos": [
+        0.0,
+        -8.25,
+        9.34
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_CORRIDOR_DOME_08",
+      "unit": "F03",
+      "pos": [
+        0.0,
+        8.25,
+        9.34
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_A_BED_LT_FLUSH_DOME",
+      "unit": "3A",
+      "pos": [
+        -9.58,
+        -7.95,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.21,
+      "energy": 1.16
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F03_A_MAIN_LT_PENDANT_SHADE",
+      "unit": "3A",
+      "pos": [
+        -9.58,
+        -3.35,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.71,
+      "energy": 1.42
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_B_ALCOVE_LT_FLUSH_DOME",
+      "unit": "3B",
+      "pos": [
+        -12.275,
+        8.075,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.52,
+      "energy": 1.25
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "unit": "3B",
+      "pos": [
+        -8.205,
+        8.075,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 1.69
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F03_B_MAIN_LT_PENDANT_SHADE",
+      "unit": "3B",
+      "pos": [
+        -9.58,
+        4.585,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.28,
+      "energy": 1.69
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_C_BED1_LT_FLUSH_DOME",
+      "unit": "3C",
+      "pos": [
+        7.545,
+        7.95,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.87,
+      "energy": 1.16
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_C_BED2_LT_FLUSH_DOME",
+      "unit": "3C",
+      "pos": [
+        11.615,
+        7.95,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.87,
+      "energy": 1.16
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F03_C_MAIN_LT_PENDANT_SHADE",
+      "unit": "3C",
+      "pos": [
+        9.58,
+        2.685,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 7.07,
+      "energy": 1.42
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_D_BED_LT_FLUSH_DOME",
+      "unit": "3D",
+      "pos": [
+        9.58,
+        -7.95,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.21,
+      "energy": 0.72
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F03_D_MAIN_LT_PENDANT_SHADE",
+      "unit": "3D",
+      "pos": [
+        9.58,
+        -3.625,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.58,
+      "energy": 0.88
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F03_D_OFFICE_LT_PENDANT_SHADE",
+      "unit": "3D",
+      "pos": [
+        6.61,
+        -1.92,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.19,
+      "energy": 0.85
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F03_WSTOR_LT_CAGE_BULB",
+      "unit": "F03",
+      "pos": [
+        -9.58,
+        1.11,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.13,
+      "energy": 0.55
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F03_HALL_LT_FLUSH_DOME",
+      "unit": "F03",
+      "pos": [
+        -1.2,
+        -5.0,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 4.9,
+      "energy": 0.68
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F03_UTILITY_LT_CAGE_BULB",
+      "unit": "F03",
+      "pos": [
+        0.0,
+        5.0,
+        9.36
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 5.63,
+      "energy": 0.6
+    },
+    {
+      "kind": "eye_pendant",
+      "id": "F03_ATRIUM_FRUIT_1",
+      "unit": "F03",
+      "pos": [
+        -0.545,
+        -0.878,
+        7.792
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "energy": 0.48,
+      "navigation": true,
+      "standby": 0.32
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "4A_LT_SCONCE",
+      "unit": "4A",
+      "pos": [
+        -5.59,
+        -4.7700000000000005,
+        11.219999999999999
+      ],
+      "yaw_deg": -90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "4B_LT_SCONCE",
+      "unit": "4B",
+      "pos": [
+        -6.33,
+        6.84,
+        11.219999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "4C_LT_SCONCE",
+      "unit": "4C",
+      "pos": [
+        5.59,
+        5.21,
+        11.219999999999999
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "4D_LT_SCONCE",
+      "unit": "4D",
+      "pos": [
+        5.59,
+        -4.7700000000000005,
+        11.219999999999999
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_CORRIDOR_DOME_01",
+      "unit": "F04",
+      "pos": [
+        -4.35,
+        -5.1,
+        12.54
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_CORRIDOR_DOME_02",
+      "unit": "F04",
+      "pos": [
+        -4.35,
+        0.0,
+        12.54
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_CORRIDOR_DOME_03",
+      "unit": "F04",
+      "pos": [
+        -4.35,
+        5.1,
+        12.54
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_CORRIDOR_DOME_04",
+      "unit": "F04",
+      "pos": [
+        4.35,
+        -5.1,
+        12.54
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_CORRIDOR_DOME_05",
+      "unit": "F04",
+      "pos": [
+        4.35,
+        0.0,
+        12.54
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_CORRIDOR_DOME_06",
+      "unit": "F04",
+      "pos": [
+        4.35,
+        5.1,
+        12.54
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_CORRIDOR_DOME_07",
+      "unit": "F04",
+      "pos": [
+        0.0,
+        -8.25,
+        12.54
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_CORRIDOR_DOME_08",
+      "unit": "F04",
+      "pos": [
+        0.0,
+        8.25,
+        12.54
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_A_BED_LT_FLUSH_DOME",
+      "unit": "4A",
+      "pos": [
+        -9.58,
+        -7.95,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.21,
+      "energy": 1.38
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F04_A_MAIN_LT_PENDANT_SHADE",
+      "unit": "4A",
+      "pos": [
+        -9.58,
+        -3.35,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.71,
+      "energy": 1.69
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F04_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "unit": "4B",
+      "pos": [
+        -9.305,
+        8.075,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.61,
+      "energy": 1.42
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_B_ALCOVE_LT_FLUSH_DOME",
+      "unit": "4B",
+      "pos": [
+        -12.275,
+        8.075,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.52,
+      "energy": 1.05
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_C_BED1_LT_FLUSH_DOME",
+      "unit": "4C",
+      "pos": [
+        7.545,
+        7.95,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.87,
+      "energy": 1.26
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_C_BED2_LT_FLUSH_DOME",
+      "unit": "4C",
+      "pos": [
+        11.615,
+        7.95,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.87,
+      "energy": 1.26
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+      "unit": "4C",
+      "pos": [
+        9.58,
+        2.685,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 7.07,
+      "energy": 1.55
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_D_BED_LT_FLUSH_DOME",
+      "unit": "4D",
+      "pos": [
+        9.58,
+        -7.95,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.21,
+      "energy": 1.1
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F04_D_MAIN_LT_PENDANT_SHADE",
+      "unit": "4D",
+      "pos": [
+        9.58,
+        -3.625,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.58,
+      "energy": 1.35
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F04_D_OFFICE_LT_PENDANT_SHADE",
+      "unit": "4D",
+      "pos": [
+        6.61,
+        -1.92,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.19,
+      "energy": 1.3
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F04_WSTOR_LT_CAGE_BULB",
+      "unit": "F04",
+      "pos": [
+        -9.58,
+        1.11,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.13,
+      "energy": 0.55
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F04_HALL_LT_FLUSH_DOME",
+      "unit": "F04",
+      "pos": [
+        -1.2,
+        -5.0,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 4.9,
+      "energy": 0.68
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F04_UTILITY_LT_CAGE_BULB",
+      "unit": "F04",
+      "pos": [
+        0.0,
+        5.0,
+        12.559999999999999
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 5.63,
+      "energy": 0.6
+    },
+    {
+      "kind": "eye_pendant",
+      "id": "F04_ATRIUM_FRUIT_1",
+      "unit": "F04",
+      "pos": [
+        0.803,
+        0.221,
+        10.992
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "energy": 0.48,
+      "navigation": true,
+      "standby": 0.32
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "5A_LT_SCONCE",
+      "unit": "5A",
+      "pos": [
+        -5.59,
+        -4.7700000000000005,
+        14.420000000000002
+      ],
+      "yaw_deg": -90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "5B_LT_SCONCE",
+      "unit": "5B",
+      "pos": [
+        -5.59,
+        4.39,
+        14.420000000000002
+      ],
+      "yaw_deg": -90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "5C_LT_SCONCE",
+      "unit": "5C",
+      "pos": [
+        5.59,
+        5.21,
+        14.420000000000002
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "5D_LT_SCONCE",
+      "unit": "5D",
+      "pos": [
+        5.59,
+        -4.7700000000000005,
+        14.420000000000002
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_CORRIDOR_DOME_01",
+      "unit": "F05",
+      "pos": [
+        -4.35,
+        -5.1,
+        15.740000000000002
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_CORRIDOR_DOME_02",
+      "unit": "F05",
+      "pos": [
+        -4.35,
+        0.0,
+        15.740000000000002
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_CORRIDOR_DOME_03",
+      "unit": "F05",
+      "pos": [
+        -4.35,
+        5.1,
+        15.740000000000002
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_CORRIDOR_DOME_04",
+      "unit": "F05",
+      "pos": [
+        4.35,
+        -5.1,
+        15.740000000000002
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_CORRIDOR_DOME_05",
+      "unit": "F05",
+      "pos": [
+        4.35,
+        0.0,
+        15.740000000000002
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_CORRIDOR_DOME_06",
+      "unit": "F05",
+      "pos": [
+        4.35,
+        5.1,
+        15.740000000000002
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_CORRIDOR_DOME_07",
+      "unit": "F05",
+      "pos": [
+        0.0,
+        -8.25,
+        15.740000000000002
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_CORRIDOR_DOME_08",
+      "unit": "F05",
+      "pos": [
+        0.0,
+        8.25,
+        15.740000000000002
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_A_BED_LT_FLUSH_DOME",
+      "unit": "5A",
+      "pos": [
+        -9.58,
+        -7.95,
+        15.760000000000002
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.21,
+      "energy": 1.32
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F05_A_MAIN_LT_PENDANT_SHADE",
+      "unit": "5A",
+      "pos": [
+        -9.58,
+        -3.35,
+        15.760000000000002
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.71,
+      "energy": 1.62
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_B_ALCOVE_LT_FLUSH_DOME",
+      "unit": "5B",
+      "pos": [
+        -12.275,
+        8.075,
+        15.760000000000002
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.52,
+      "energy": 0.6
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "unit": "5B",
+      "pos": [
+        -8.205,
+        8.075,
+        15.760000000000002
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.81
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F05_B_MAIN_LT_PENDANT_SHADE",
+      "unit": "5B",
+      "pos": [
+        -9.58,
+        4.585,
+        15.760000000000002
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.28,
+      "energy": 0.81
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_C_BED1_LT_FLUSH_DOME",
+      "unit": "5C",
+      "pos": [
+        7.545,
+        7.95,
+        15.760000000000002
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.87,
+      "energy": 1.43
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_C_BED2_LT_FLUSH_DOME",
+      "unit": "5C",
+      "pos": [
+        11.615,
+        7.95,
+        15.760000000000002
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.87,
+      "energy": 1.43
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F05_C_MAIN_LT_PENDANT_SHADE",
+      "unit": "5C",
+      "pos": [
+        9.58,
+        2.685,
+        15.760000000000002
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 7.07,
+      "energy": 1.76
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F05_WSTOR_LT_CAGE_BULB",
+      "unit": "F05",
+      "pos": [
+        -9.58,
+        1.11,
+        15.760000000000002
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.13,
+      "energy": 0.55
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F05_HALL_LT_FLUSH_DOME",
+      "unit": "F05",
+      "pos": [
+        -1.2,
+        -5.0,
+        15.760000000000002
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 4.9,
+      "energy": 0.68
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F05_UTILITY_LT_CAGE_BULB",
+      "unit": "F05",
+      "pos": [
+        0.0,
+        5.0,
+        15.760000000000002
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 5.63,
+      "energy": 0.6
+    },
+    {
+      "kind": "eye_pendant",
+      "id": "F05_ATRIUM_FRUIT_1",
+      "unit": "F05",
+      "pos": [
+        0.554,
+        -0.61,
+        14.192
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "energy": 0.48,
+      "navigation": true,
+      "standby": 0.32
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "6A_LT_SCONCE",
+      "unit": "6A",
+      "pos": [
+        -5.59,
+        -4.7700000000000005,
+        17.62
+      ],
+      "yaw_deg": -90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "6B_LT_SCONCE",
+      "unit": "6B",
+      "pos": [
+        -5.59,
+        4.39,
+        17.62
+      ],
+      "yaw_deg": -90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "6C_LT_SCONCE",
+      "unit": "6C",
+      "pos": [
+        5.59,
+        5.21,
+        17.62
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "sconce_globe",
+      "id": "6D_LT_SCONCE",
+      "unit": "6D",
+      "pos": [
+        5.59,
+        -4.7700000000000005,
+        17.62
+      ],
+      "yaw_deg": 90,
+      "network": "electrical",
+      "energy": 1.05
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_CORRIDOR_DOME_01",
+      "unit": "F06",
+      "pos": [
+        -4.35,
+        -5.1,
+        18.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_CORRIDOR_DOME_02",
+      "unit": "F06",
+      "pos": [
+        -4.35,
+        0.0,
+        18.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_CORRIDOR_DOME_03",
+      "unit": "F06",
+      "pos": [
+        -4.35,
+        5.1,
+        18.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_CORRIDOR_DOME_04",
+      "unit": "F06",
+      "pos": [
+        4.35,
+        -5.1,
+        18.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_CORRIDOR_DOME_05",
+      "unit": "F06",
+      "pos": [
+        4.35,
+        0.0,
+        18.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_CORRIDOR_DOME_06",
+      "unit": "F06",
+      "pos": [
+        4.35,
+        5.1,
+        18.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_CORRIDOR_DOME_07",
+      "unit": "F06",
+      "pos": [
+        0.0,
+        -8.25,
+        18.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_CORRIDOR_DOME_08",
+      "unit": "F06",
+      "pos": [
+        0.0,
+        8.25,
+        18.94
+      ],
+      "range": 4.6,
+      "energy": 0.55,
+      "navigation": true,
+      "standby": 0.22,
+      "yaw_deg": 0,
+      "network": "electrical"
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_A_BED_LT_FLUSH_DOME",
+      "unit": "6A",
+      "pos": [
+        -9.58,
+        -7.95,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.21,
+      "energy": 0.61
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F06_A_MAIN_LT_PENDANT_SHADE",
+      "unit": "6A",
+      "pos": [
+        -9.58,
+        -3.35,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.71,
+      "energy": 0.74
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_B_ALCOVE_LT_FLUSH_DOME",
+      "unit": "6B",
+      "pos": [
+        -12.275,
+        8.075,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.52,
+      "energy": 0.72
+    },
+    {
+      "kind": "kitchen_linear",
+      "id": "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "unit": "6B",
+      "pos": [
+        -8.205,
+        8.075,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 5.2,
+      "energy": 0.97
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F06_B_MAIN_LT_PENDANT_SHADE",
+      "unit": "6B",
+      "pos": [
+        -9.58,
+        4.585,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.28,
+      "energy": 0.97
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_C_BED1_LT_FLUSH_DOME",
+      "unit": "6C",
+      "pos": [
+        7.545,
+        7.95,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.87,
+      "energy": 0.99
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_C_BED2_LT_FLUSH_DOME",
+      "unit": "6C",
+      "pos": [
+        11.615,
+        7.95,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.87,
+      "energy": 0.99
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F06_C_MAIN_LT_PENDANT_SHADE",
+      "unit": "6C",
+      "pos": [
+        9.58,
+        2.685,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 7.07,
+      "energy": 1.22
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_D_BED_LT_FLUSH_DOME",
+      "unit": "6D",
+      "pos": [
+        9.58,
+        -7.95,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.21,
+      "energy": 1.04
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F06_D_MAIN_LT_PENDANT_SHADE",
+      "unit": "6D",
+      "pos": [
+        9.58,
+        -3.625,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.58,
+      "energy": 1.28
+    },
+    {
+      "kind": "pendant_shade",
+      "id": "F06_D_OFFICE_LT_PENDANT_SHADE",
+      "unit": "6D",
+      "pos": [
+        6.61,
+        -1.92,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 4.19,
+      "energy": 1.23
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F06_WSTOR_LT_CAGE_BULB",
+      "unit": "F06",
+      "pos": [
+        -9.58,
+        1.11,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 6.13,
+      "energy": 0.55
+    },
+    {
+      "kind": "flush_dome",
+      "id": "F06_HALL_LT_FLUSH_DOME",
+      "unit": "F06",
+      "pos": [
+        -1.2,
+        -5.0,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 4.9,
+      "energy": 0.68
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "F06_UTILITY_LT_CAGE_BULB",
+      "unit": "F06",
+      "pos": [
+        0.0,
+        5.0,
+        18.96
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "navigation": true,
+      "standby": 0.3,
+      "range": 5.63,
+      "energy": 0.6
+    },
+    {
+      "kind": "eye_pendant",
+      "id": "F06_ATRIUM_FRUIT_1",
+      "unit": "F06",
+      "pos": [
+        0.614,
+        -0.318,
+        17.392
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "energy": 0.48,
+      "navigation": true,
+      "standby": 0.32
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "ROOF_LT_DECK",
+      "unit": "ROOF",
+      "pos": [
+        8.6,
+        -2.6,
+        21.72
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 9.5,
+      "energy": 0.95,
+      "navigation": true,
+      "standby": 0.45
+    },
+    {
+      "kind": "cage_bulb",
+      "id": "ROOF_LT_GARDEN",
+      "unit": "ROOF",
+      "pos": [
+        -9.0,
+        6.2,
+        21.5
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "range": 8.0,
+      "energy": 0.7,
+      "navigation": true,
+      "standby": 0.35
+    },
+    {
+      "kind": "eye_pendant",
+      "id": "ROOF_ATRIUM_FRUIT_1",
+      "unit": "ROOF",
+      "pos": [
+        -0.247,
+        -1.08,
+        19.948
+      ],
+      "yaw_deg": 0,
+      "network": "electrical",
+      "energy": 0.48,
+      "navigation": true,
+      "standby": 0.32
+    }
+  ],
+  "original_room_fixtures": [
+    {
+      "id": "B1_LAUNDRY_LT_FLUSH_DOME",
+      "room": "B1_LAUNDRY",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F02_A_MAIN_LT_PENDANT_SHADE",
+      "room": "F02_A_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 7.0,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F03_B_MAIN_LT_PENDANT_SHADE",
+      "room": "F03_B_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 6.28,
+        "energy_scale": 1.69
+      }
+    },
+    {
+      "id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "room": "F03_B_KITCHEN",
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 5.2,
+        "energy_scale": 1.69
+      }
+    },
+    {
+      "id": "F03_B_ALCOVE_LT_FLUSH_DOME",
+      "room": "F03_B_ALCOVE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.52,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "3B_LT_SCONCE",
+      "room": "F03_B_BATH",
+      "kind": "sconce_globe",
+      "properties": {
+        "range_clamp": 4.0,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F04_B_ALCOVE_LT_FLUSH_DOME",
+      "room": "F04_B_ALCOVE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5.0,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F04_B_MAIN_LT_PENDANT_SHADE",
+      "room": "F04_B_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 7.0,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F04_B_BATH_LT_FLUSH_DOME",
+      "room": "F04_B_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.0,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F04_B_KITCHEN_LT_FLUSH_DOME",
+      "room": "F04_B_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5.2,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F04_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F04_B_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.0,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F04_B_CLOSET_LT_FLUSH_DOME",
+      "room": "F04_B_CLOSET",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.0,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F02_A_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F02_A_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F02_A_KITCHEN_LT_FLUSH_DOME",
+      "room": "F02_A_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5.2,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F02_A_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_A_BATH_LT_FLUSH_DOME",
+      "room": "F02_A_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F02_A_BED_LT_FLUSH_DOME",
+      "room": "F02_A_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5.5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_B_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F02_B_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F02_B_MAIN_LT_PENDANT_SHADE",
+      "room": "F02_B_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F02_B_KITCHEN_LT_FLUSH_DOME",
+      "room": "F02_B_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_B_BED_LT_FLUSH_DOME",
+      "room": "F02_B_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F02_B_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F02_B_BATH_LT_FLUSH_DOME",
+      "room": "F02_B_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F03_B_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F03_B_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F03_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F03_B_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F04_B_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F04_B_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME",
+      "room": "F04_B_ALCOVE_APPROACH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.5,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F03_A_MAIN_LT_PENDANT_SHADE",
+      "room": "F03_A_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 7.0,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F03_A_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F03_A_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F03_A_KITCHEN_LT_FLUSH_DOME",
+      "room": "F03_A_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5.2,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F03_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F03_A_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F03_A_BATH_LT_FLUSH_DOME",
+      "room": "F03_A_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F03_A_BED_LT_FLUSH_DOME",
+      "room": "F03_A_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5.5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F04_A_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F04_A_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F04_A_MAIN_LT_PENDANT_SHADE",
+      "room": "F04_A_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F04_A_KITCHEN_LT_FLUSH_DOME",
+      "room": "F04_A_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F04_A_BED_LT_FLUSH_DOME",
+      "room": "F04_A_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F04_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F04_A_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F04_A_BATH_LT_FLUSH_DOME",
+      "room": "F04_A_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F05_A_MAIN_LT_PENDANT_SHADE",
+      "room": "F05_A_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 5.47,
+        "energy_scale": 1.62
+      }
+    },
+    {
+      "id": "F05_A_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F05_A_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.91,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "id": "F05_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F05_A_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.64,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "id": "F05_A_BATH_LT_FLUSH_DOME",
+      "room": "F05_A_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.01,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "id": "F05_A_BED_LT_FLUSH_DOME",
+      "room": "F05_A_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.54,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "id": "F05_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "room": "F05_A_KITCHEN",
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 2.89,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "id": "F05_A_STUDY_LT_FLUSH_DOME",
+      "room": "F05_A_STUDY",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.89,
+        "energy_scale": 1.32
+      }
+    },
+    {
+      "id": "F05_B_MAIN_LT_PENDANT_SHADE",
+      "room": "F05_B_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 5.08,
+        "energy_scale": 0.81
+      }
+    },
+    {
+      "id": "F05_B_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F05_B_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.68,
+        "energy_scale": 0.6
+      }
+    },
+    {
+      "id": "F05_B_BATH_LT_FLUSH_DOME",
+      "room": "F05_B_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.94,
+        "energy_scale": 0.6
+      }
+    },
+    {
+      "id": "F05_B_ALCOVE_LT_FLUSH_DOME",
+      "room": "F05_B_ALCOVE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.26,
+        "energy_scale": 0.6
+      }
+    },
+    {
+      "id": "F05_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F05_B_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.62,
+        "energy_scale": 0.6
+      }
+    },
+    {
+      "id": "F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "room": "F05_B_KITCHEN",
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 3.8,
+        "energy_scale": 0.81
+      }
+    },
+    {
+      "id": "F05_C_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F05_C_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.64,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F05_C_MAIN_LT_PENDANT_SHADE",
+      "room": "F05_C_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 4.84,
+        "energy_scale": 1.76
+      }
+    },
+    {
+      "id": "F05_C_STUDIO_LT_FLUSH_DOME",
+      "room": "F05_C_STUDIO",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.91,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F05_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F05_C_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.18,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F05_C_BATH_LT_FLUSH_DOME",
+      "room": "F05_C_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F05_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "room": "F05_C_KITCHEN",
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F05_C_BED1_LT_FLUSH_DOME",
+      "room": "F05_C_BED1",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F05_C_BED2_LT_FLUSH_DOME",
+      "room": "F05_C_BED2",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F06_A_MAIN_LT_PENDANT_SHADE",
+      "room": "F06_A_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 5.47,
+        "energy_scale": 0.74
+      }
+    },
+    {
+      "id": "F06_A_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F06_A_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.91,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "id": "F06_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F06_A_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.64,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "id": "F06_A_BATH_LT_FLUSH_DOME",
+      "room": "F06_A_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.01,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "id": "F06_A_BED_LT_FLUSH_DOME",
+      "room": "F06_A_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.54,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "id": "F06_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "room": "F06_A_KITCHEN",
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 2.89,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "id": "F06_A_STUDY_LT_FLUSH_DOME",
+      "room": "F06_A_STUDY",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.89,
+        "energy_scale": 0.61
+      }
+    },
+    {
+      "id": "F06_B_MAIN_LT_PENDANT_SHADE",
+      "room": "F06_B_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 5.08,
+        "energy_scale": 0.97
+      }
+    },
+    {
+      "id": "F06_B_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F06_B_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.68,
+        "energy_scale": 0.72
+      }
+    },
+    {
+      "id": "F06_B_BATH_LT_FLUSH_DOME",
+      "room": "F06_B_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.94,
+        "energy_scale": 0.72
+      }
+    },
+    {
+      "id": "F06_B_ALCOVE_LT_FLUSH_DOME",
+      "room": "F06_B_ALCOVE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.26,
+        "energy_scale": 0.72
+      }
+    },
+    {
+      "id": "F06_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F06_B_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.62,
+        "energy_scale": 0.72
+      }
+    },
+    {
+      "id": "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "room": "F06_B_KITCHEN",
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 3.8,
+        "energy_scale": 0.97
+      }
+    },
+    {
+      "id": "F06_C_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F06_C_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.64,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "id": "F06_C_MAIN_LT_PENDANT_SHADE",
+      "room": "F06_C_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 4.84,
+        "energy_scale": 1.22
+      }
+    },
+    {
+      "id": "F06_C_STUDIO_LT_FLUSH_DOME",
+      "room": "F06_C_STUDIO",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.91,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "id": "F06_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F06_C_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.18,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "id": "F06_C_BATH_LT_FLUSH_DOME",
+      "room": "F06_C_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "id": "F06_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "room": "F06_C_KITCHEN",
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "id": "F06_C_BED1_LT_FLUSH_DOME",
+      "room": "F06_C_BED1",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "id": "F06_C_BED2_LT_FLUSH_DOME",
+      "room": "F06_C_BED2",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 0.99
+      }
+    },
+    {
+      "id": "F02_C_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F02_C_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.64,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+      "room": "F02_C_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 4.84,
+        "energy_scale": 1.76
+      }
+    },
+    {
+      "id": "F02_C_STUDIO_LT_FLUSH_DOME",
+      "room": "F02_C_STUDIO",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.91,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F02_C_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.18,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F02_C_BATH_LT_FLUSH_DOME",
+      "room": "F02_C_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F02_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "room": "F02_C_KITCHEN",
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F02_C_BED1_LT_FLUSH_DOME",
+      "room": "F02_C_BED1",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F02_C_BED2_LT_FLUSH_DOME",
+      "room": "F02_C_BED2",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F04_C_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F04_C_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.64,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+      "room": "F04_C_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 4.84,
+        "energy_scale": 1.76
+      }
+    },
+    {
+      "id": "F04_C_STUDIO_LT_FLUSH_DOME",
+      "room": "F04_C_STUDIO",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.91,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F04_C_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.18,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F04_C_BATH_LT_FLUSH_DOME",
+      "room": "F04_C_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F04_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "room": "F04_C_KITCHEN",
+      "kind": "kitchen_linear",
+      "properties": {
+        "range_clamp": 2.87,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F04_C_BED1_LT_FLUSH_DOME",
+      "room": "F04_C_BED1",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F04_C_BED2_LT_FLUSH_DOME",
+      "room": "F04_C_BED2",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3.32,
+        "energy_scale": 1.43
+      }
+    },
+    {
+      "id": "F01_D_VESTIBULE_LT_FLUSH_DOME",
+      "room": "F01_D_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 3,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+      "room": "F01_D_MAIN",
+      "kind": "pendant_shade",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F01_D_KITCHEN_LT_FLUSH_DOME",
+      "room": "F01_D_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F01_D_BED_LT_FLUSH_DOME",
+      "room": "F01_D_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F01_D_PRIVATE_HALL_LT_FLUSH_DOME",
+      "room": "F01_D_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4.5,
+        "energy_scale": 1.25
+      }
+    },
+    {
+      "id": "F01_D_BATH_LT_FLUSH_DOME",
+      "room": "F01_D_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 4,
+        "energy_scale": 1.05
+      }
+    },
+    {
+      "id": "F01_A_VESTIBULE_LT",
+      "room": "F01_A_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F01_A_MAIN_LT",
+      "room": "F01_A_MAIN",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F01_A_PRIVATE_HALL_LT",
+      "room": "F01_A_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F01_A_BATH_LT",
+      "room": "F01_A_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F01_A_KITCHEN_LT",
+      "room": "F01_A_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F01_A_BED_LT",
+      "room": "F01_A_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F01_A_STUDY_LT",
+      "room": "F01_A_STUDY",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F03_D_VESTIBULE_LT",
+      "room": "F03_D_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F03_D_MAIN_LT",
+      "room": "F03_D_MAIN",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F03_D_PRIVATE_HALL_LT",
+      "room": "F03_D_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F03_D_BATH_LT",
+      "room": "F03_D_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F03_D_KITCHEN_LT",
+      "room": "F03_D_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F03_D_BED_LT",
+      "room": "F03_D_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F03_D_STUDY_LT",
+      "room": "F03_D_STUDY",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F04_D_VESTIBULE_LT",
+      "room": "F04_D_VESTIBULE",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F04_D_MAIN_LT",
+      "room": "F04_D_MAIN",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F04_D_PRIVATE_HALL_LT",
+      "room": "F04_D_PRIVATE_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F04_D_BATH_LT",
+      "room": "F04_D_BATH",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F04_D_KITCHEN_LT",
+      "room": "F04_D_KITCHEN",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F04_D_BED_LT",
+      "room": "F04_D_BED",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F04_D_STUDY_LT",
+      "room": "F04_D_STUDY",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F02_SOUTHWEST_HALL_LT",
+      "room": "F02_SOUTHWEST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F03_SOUTHWEST_HALL_LT",
+      "room": "F03_SOUTHWEST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F04_SOUTHWEST_HALL_LT",
+      "room": "F04_SOUTHWEST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "F01_STAFF_RESTROOM_LT",
+      "room": "F01_STAFF_RESTROOM",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "B1_ELECTRICAL_LT",
+      "room": "B1_ELECTRICAL",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "B1_MAINTENANCE_SHOP_LT",
+      "room": "B1_MAINTENANCE_SHOP",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "B1_COAL_ROOM_LT",
+      "room": "B1_COAL_ROOM",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_LT",
+      "room": "B1_RESIDENT_STORAGE",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    },
+    {
+      "id": "B1_SERVICE_CORE_LT",
+      "room": "B1_SERVICE_CORE",
+      "kind": "flush_dome",
+      "properties": {
+        "energy_scale": 1.5,
+        "range_clamp": 6.5
+      }
+    }
+  ],
+  "variants": [
+    {
+      "id": "pendant_shade",
+      "kind": "pendant_shade",
+      "source_id": "F01_COMMON_B_LT_PENDANT_SHADE"
+    },
+    {
+      "id": "flush_dome",
+      "kind": "flush_dome",
+      "source_id": "B1_CORRIDOR_DOME_01"
+    },
+    {
+      "id": "kitchen_linear",
+      "kind": "kitchen_linear",
+      "source_id": "F01_BODEGA_LT_0"
+    },
+    {
+      "id": "flush_dome_rise150",
+      "kind": "flush_dome",
+      "source_id": "B1_LAUNDRY_LT_FLUSH_DOME",
+      "ceiling_rise": 0.15
+    },
+    {
+      "id": "pendant_shade_rise360",
+      "kind": "pendant_shade",
+      "source_id": "F02_A_MAIN_LT_PENDANT_SHADE",
+      "ceiling_rise": 0.36
+    },
+    {
+      "id": "pendant_shade_rise100",
+      "kind": "pendant_shade",
+      "source_id": "F03_B_MAIN_LT_PENDANT_SHADE",
+      "ceiling_rise": 0.1
+    },
+    {
+      "id": "kitchen_linear_rise100",
+      "kind": "kitchen_linear",
+      "source_id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "ceiling_rise": 0.1
+    },
+    {
+      "id": "flush_dome_rise100",
+      "kind": "flush_dome",
+      "source_id": "F03_B_ALCOVE_LT_FLUSH_DOME",
+      "ceiling_rise": 0.1
+    },
+    {
+      "id": "sconce_globe_back050",
+      "kind": "sconce_globe",
+      "source_id": "3B_LT_SCONCE",
+      "wall_back": 0.05
+    },
+    {
+      "id": "cage_bulb_rise960",
+      "kind": "cage_bulb",
+      "source_id": "PASSAGE_PORTAL_LT_W",
+      "ceiling_rise": 0.96
+    },
+    {
+      "id": "cage_bulb_wall0x-255",
+      "kind": "cage_bulb",
+      "source_id": "PASSAGE_PORTAL_LT_E",
+      "wall_mount": [
+        0.1,
+        -0.4,
+        0
+      ],
+      "wall_direction": [
+        0,
+        -1,
+        0
+      ],
+      "arm_path": [
+        [
+          0.1,
+          -0.13,
+          -0.018
+        ],
+        [
+          0.1,
+          -0.3,
+          -0.01
+        ]
+      ]
+    },
+    {
+      "id": "cage_bulb_rise160",
+      "kind": "cage_bulb",
+      "source_id": "PASSAGE_AISLE_LT_00",
+      "ceiling_rise": 0.16
+    },
+    {
+      "id": "cage_bulb_rise140",
+      "kind": "cage_bulb",
+      "source_id": "F01_BAR_LT_DARTS",
+      "ceiling_rise": 0.14
+    },
+    {
+      "id": "cage_bulb_rise250",
+      "kind": "cage_bulb",
+      "source_id": "F01_BAR_LT_LOBBY",
+      "ceiling_rise": 0.25
+    },
+    {
+      "id": "cage_bulb_rise60",
+      "kind": "cage_bulb",
+      "source_id": "F01_BAR_LT_WELL",
+      "ceiling_rise": 0.06,
+      "seat_x": [
+        -0.005,
+        0.005
+      ]
+    },
+    {
+      "id": "cage_bulb_rise2000",
+      "kind": "cage_bulb",
+      "source_id": "F01_BAR_LT_STAIR",
+      "ceiling_rise": 2.0
+    },
+    {
+      "id": "kitchen_linear_rise80",
+      "kind": "kitchen_linear",
+      "source_id": "F01_BAR_LT_CAN0",
+      "ceiling_rise": 0.08
+    },
+    {
+      "id": "pendant_shade_rise450",
+      "kind": "pendant_shade",
+      "source_id": "F01_BAR_LT_POOL",
+      "ceiling_rise": 0.45
+    },
+    {
+      "id": "pendant_shade_rise470",
+      "kind": "pendant_shade",
+      "source_id": "F01_BAR_LT_TAB0",
+      "ceiling_rise": 0.47
+    },
+    {
+      "id": "pendant_shade_retained_rod",
+      "kind": "pendant_shade",
+      "source_id": "F01_BAR_LT_TAB1",
+      "ceiling_rise": 0,
+      "inline_feed_radius": 0.016
+    },
+    {
+      "id": "cage_bulb_rise800",
+      "kind": "cage_bulb",
+      "source_id": "F01_BAR_LT_STAGE0",
+      "ceiling_rise": 0.8
+    },
+    {
+      "id": "sconce_globe_back80",
+      "kind": "sconce_globe",
+      "source_id": "F01_BAR_LT_DECK0",
+      "wall_back": 0.08
+    },
+    {
+      "id": "sconce_globe_back100",
+      "kind": "sconce_globe",
+      "source_id": "F01_BAR_LT_WEST0",
+      "wall_back": 0.1
+    },
+    {
+      "id": "cage_bulb_rise300",
+      "kind": "cage_bulb",
+      "source_id": "F01_BAR_LT_WC",
+      "ceiling_rise": 0.3
+    },
+    {
+      "id": "cage_bulb_wall0x200",
+      "kind": "cage_bulb",
+      "source_id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+      "wall_mount": [
+        0,
+        -0.2,
+        0
+      ]
+    },
+    {
+      "id": "cage_bulb_rise380",
+      "kind": "cage_bulb",
+      "source_id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+      "ceiling_rise": 0.38
+    },
+    {
+      "id": "sconce_globe_back160",
+      "kind": "sconce_globe",
+      "source_id": "F01_BAR_LT_WEST0",
+      "wall_back": 0.16
+    }
+  ],
+  "instances": [
+    {
+      "id": "B1_LAUNDRY_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise150"
+    },
+    {
+      "id": "F02_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise360"
+    },
+    {
+      "id": "F03_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise100"
+    },
+    {
+      "id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear_rise100"
+    },
+    {
+      "id": "F03_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "3B_LT_SCONCE",
+      "variant": "sconce_globe_back050",
+      "visual_offset": [
+        0.8,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "F04_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F04_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_B_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_B_CLOSET_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F02_B_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_B_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise360"
+    },
+    {
+      "id": "F03_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F04_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F05_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F05_A_STUDY_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F05_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F05_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F05_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F05_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F06_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F06_A_STUDY_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F06_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F06_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F06_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F06_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F02_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F02_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F04_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F04_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_D_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F01_D_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_D_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_D_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_D_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_A_VESTIBULE_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_MAIN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_BATH_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_KITCHEN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_BED_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_STUDY_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_VESTIBULE_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_MAIN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_BATH_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_KITCHEN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_BED_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_STUDY_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_VESTIBULE_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_MAIN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_BATH_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_KITCHEN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_BED_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_STUDY_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F02_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_STAFF_RESTROOM_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "B1_ELECTRICAL_LT",
+      "variant": "flush_dome_rise150"
+    },
+    {
+      "id": "B1_MAINTENANCE_SHOP_LT",
+      "variant": "flush_dome_rise150"
+    },
+    {
+      "id": "B1_COAL_ROOM_LT",
+      "variant": "flush_dome_rise150"
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_LT",
+      "variant": "flush_dome_rise150"
+    },
+    {
+      "id": "B1_SERVICE_CORE_LT",
+      "variant": "flush_dome",
+      "visual_offset": [
+        0,
+        1.75,
+        1.35
+      ]
+    },
+    {
+      "id": "PASSAGE_PORTAL_LT_W",
+      "variant": "cage_bulb_rise960",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "PASSAGE_PORTAL_LT_W",
+        "unit": "PASSAGE",
+        "pos": [
+          11.48,
+          -27.516,
+          2.82
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 6.4,
+        "energy": 1.0,
+        "navigation": true,
+        "standby": 0.52,
+        "exterior": true,
+        "zone": "STREET"
+      }
+    },
+    {
+      "id": "PASSAGE_PORTAL_LT_E",
+      "variant": "cage_bulb_wall0x-255",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "PASSAGE_PORTAL_LT_E",
+        "unit": "PASSAGE",
+        "pos": [
+          20.33,
+          -27.516,
+          2.82
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 6.4,
+        "energy": 1.0,
+        "navigation": true,
+        "standby": 0.52,
+        "exterior": true,
+        "zone": "STREET"
+      }
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_00",
+      "variant": "cage_bulb_rise160",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "PASSAGE_AISLE_LT_00",
+        "unit": "PASSAGE",
+        "pos": [
+          14.0,
+          -31.2,
+          3.72
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 5.4,
+        "energy": 0.76,
+        "navigation": true,
+        "standby": 0.42,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_01",
+      "variant": "cage_bulb_rise160",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "PASSAGE_AISLE_LT_01",
+        "unit": "PASSAGE",
+        "pos": [
+          14.0,
+          -35.0,
+          3.72
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 5.4,
+        "energy": 0.76,
+        "navigation": true,
+        "standby": 0.42,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_02",
+      "variant": "cage_bulb_rise160",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "PASSAGE_AISLE_LT_02",
+        "unit": "PASSAGE",
+        "pos": [
+          14.0,
+          -41.0,
+          3.72
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 5.4,
+        "energy": 0.76,
+        "navigation": true,
+        "standby": 0.42,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_03",
+      "variant": "cage_bulb_rise160",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "PASSAGE_AISLE_LT_03",
+        "unit": "PASSAGE",
+        "pos": [
+          14.0,
+          -45.0,
+          3.72
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 5.4,
+        "energy": 0.76,
+        "navigation": true,
+        "standby": 0.42,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_04",
+      "variant": "cage_bulb_rise160",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "PASSAGE_AISLE_LT_04",
+        "unit": "PASSAGE",
+        "pos": [
+          14.0,
+          -49.0,
+          3.72
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 5.4,
+        "energy": 0.76,
+        "navigation": true,
+        "standby": 0.42,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_05",
+      "variant": "cage_bulb_rise160",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "PASSAGE_AISLE_LT_05",
+        "unit": "PASSAGE",
+        "pos": [
+          14.0,
+          -53.0,
+          3.72
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 5.4,
+        "energy": 0.76,
+        "navigation": true,
+        "standby": 0.42,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_06",
+      "variant": "cage_bulb_rise160",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "PASSAGE_AISLE_LT_06",
+        "unit": "PASSAGE",
+        "pos": [
+          14.0,
+          -57.0,
+          3.72
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 5.4,
+        "energy": 0.76,
+        "navigation": true,
+        "standby": 0.42,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_07",
+      "variant": "cage_bulb_rise160",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "PASSAGE_AISLE_LT_07",
+        "unit": "PASSAGE",
+        "pos": [
+          14.0,
+          -61.0,
+          3.72
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 5.4,
+        "energy": 0.76,
+        "navigation": true,
+        "standby": 0.42,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "F01_BAR_LT_DARTS",
+      "variant": "cage_bulb_rise140",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "F01_BAR_LT_DARTS",
+        "unit": "SITE",
+        "pos": [
+          -11.08,
+          -33.0,
+          -0.2899999999999998
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 2.6,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.2,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_LOBBY",
+      "variant": "cage_bulb_rise250",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "F01_BAR_LT_LOBBY",
+        "unit": "SITE",
+        "pos": [
+          4.875,
+          -29.3,
+          2.3
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 3.5,
+        "energy": 0.46,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_WELL",
+      "variant": "cage_bulb_rise60",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "F01_BAR_LT_WELL",
+        "unit": "SITE",
+        "pos": [
+          -2.6,
+          -33.4,
+          1.6
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "energy": 0.4,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_STAIR",
+      "variant": "cage_bulb_rise2000",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "F01_BAR_LT_STAIR",
+        "unit": "SITE",
+        "pos": [
+          5.3,
+          -32.6,
+          0.55
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 3.5,
+        "energy": 0.46,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_CAN0",
+      "variant": "kitchen_linear_rise80",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "kitchen_linear",
+        "id": "F01_BAR_LT_CAN0",
+        "unit": "SITE",
+        "pos": [
+          -3.2,
+          -29.7,
+          -1.06
+        ],
+        "yaw_deg": 90,
+        "network": "electrical",
+        "range": 5.0,
+        "energy": 0.7,
+        "navigation": true,
+        "standby": 0.4,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_CAN1",
+      "variant": "kitchen_linear_rise80",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "kitchen_linear",
+        "id": "F01_BAR_LT_CAN1",
+        "unit": "SITE",
+        "pos": [
+          -0.25,
+          -29.7,
+          -1.06
+        ],
+        "yaw_deg": 90,
+        "network": "electrical",
+        "range": 5.0,
+        "energy": 0.7,
+        "navigation": true,
+        "standby": 0.4,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_POOL",
+      "variant": "pendant_shade_rise450",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "pendant_shade",
+        "id": "F01_BAR_LT_POOL",
+        "unit": "SITE",
+        "pos": [
+          -7.4,
+          -31.25,
+          -0.6
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.66,
+        "navigation": true,
+        "standby": 0.4,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_TAB0",
+      "variant": "pendant_shade_rise470",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "pendant_shade",
+        "id": "F01_BAR_LT_TAB0",
+        "unit": "SITE",
+        "pos": [
+          -8.2,
+          -35.3,
+          -0.62
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 3.6,
+        "energy": 0.52,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_TAB1",
+      "variant": "pendant_shade_retained_rod",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "pendant_shade",
+        "id": "F01_BAR_LT_TAB1",
+        "unit": "SITE",
+        "pos": [
+          -5.2,
+          -35.3,
+          -0.62
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 3.6,
+        "energy": 0.52,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_TAB2",
+      "variant": "pendant_shade_retained_rod",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "pendant_shade",
+        "id": "F01_BAR_LT_TAB2",
+        "unit": "SITE",
+        "pos": [
+          -1.2,
+          -34.9,
+          -0.62
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 3.6,
+        "energy": 0.52,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_STAGE0",
+      "variant": "cage_bulb_rise800",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "F01_BAR_LT_STAGE0",
+        "unit": "SITE",
+        "pos": [
+          -1.9,
+          -36.55,
+          -0.95
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 3.6,
+        "energy": 0.6,
+        "navigation": true,
+        "standby": 0.3,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_STAGE1",
+      "variant": "cage_bulb_rise800",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "F01_BAR_LT_STAGE1",
+        "unit": "SITE",
+        "pos": [
+          0.5,
+          -36.55,
+          -0.95
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 3.6,
+        "energy": 0.6,
+        "navigation": true,
+        "standby": 0.3,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_DECK0",
+      "variant": "sconce_globe_back80",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "sconce_globe",
+        "id": "F01_BAR_LT_DECK0",
+        "unit": "SITE",
+        "pos": [
+          3.92,
+          -36.6,
+          -1.3
+        ],
+        "yaw_deg": 270,
+        "network": "electrical",
+        "range": 3.4,
+        "energy": 0.55,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_DECK1",
+      "variant": "sconce_globe_back80",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "sconce_globe",
+        "id": "F01_BAR_LT_DECK1",
+        "unit": "SITE",
+        "pos": [
+          3.92,
+          -33.2,
+          -1.3
+        ],
+        "yaw_deg": 270,
+        "network": "electrical",
+        "range": 3.4,
+        "energy": 0.55,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_DECK2",
+      "variant": "sconce_globe_back80",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "sconce_globe",
+        "id": "F01_BAR_LT_DECK2",
+        "unit": "SITE",
+        "pos": [
+          3.92,
+          -32.05,
+          -1.3
+        ],
+        "yaw_deg": 270,
+        "network": "electrical",
+        "range": 3.4,
+        "energy": 0.55,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_WEST0",
+      "variant": "sconce_globe_back160",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "sconce_globe",
+        "id": "F01_BAR_LT_WEST0",
+        "unit": "SITE",
+        "pos": [
+          -11.34,
+          -35.4,
+          -1.3
+        ],
+        "yaw_deg": 90,
+        "network": "electrical",
+        "range": 3.6,
+        "energy": 0.55,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      },
+      "visual_offset": [
+        0,
+        0.5,
+        0
+      ],
+      "fit_reason": "Raise the visual assembly above two retained framed pictures and attach its backplate to the actual wall. Original actor, circuit and photometric settings retained."
+    },
+    {
+      "id": "F01_BAR_LT_WEST1",
+      "variant": "sconce_globe_back100",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "sconce_globe",
+        "id": "F01_BAR_LT_WEST1",
+        "unit": "SITE",
+        "pos": [
+          -11.34,
+          -31.3,
+          -1.3
+        ],
+        "yaw_deg": 90,
+        "network": "electrical",
+        "range": 3.6,
+        "energy": 0.55,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      }
+    },
+    {
+      "id": "F01_BAR_LT_WC",
+      "variant": "cage_bulb_rise300",
+      "domain": "bar",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "F01_BAR_LT_WC",
+        "unit": "SITE",
+        "pos": [
+          -10.62,
+          -37.1,
+          -0.44999999999999973
+        ],
+        "yaw_deg": 0,
+        "network": "electrical",
+        "range": 2.5,
+        "energy": 0.48,
+        "navigation": true,
+        "standby": 0.35,
+        "exterior": true
+      }
+    },
+    {
+      "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+      "variant": "cage_bulb_wall0x200",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+        "unit": "SITE",
+        "pos": [
+          11.46,
+          -43.825,
+          2.66
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+        "unit": "SITE",
+        "pos": [
+          10.05,
+          -42.0,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.98,
+        "navigation": false,
+        "standby": 0.4,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+        "unit": "SITE",
+        "pos": [
+          7.5,
+          -42.0,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.8,
+        "navigation": false,
+        "standby": 0.4,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+        "unit": "SITE",
+        "pos": [
+          4.95,
+          -42.0,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.8,
+        "navigation": false,
+        "standby": 0.4,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+      "variant": "cage_bulb_wall0x200",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+        "unit": "SITE",
+        "pos": [
+          11.46,
+          -49.425000000000004,
+          2.66
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+        "unit": "SITE",
+        "pos": [
+          10.05,
+          -47.6,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.74,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+        "unit": "SITE",
+        "pos": [
+          5.95,
+          -47.6,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.58,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_LT_KEYS_CUT",
+      "variant": "cage_bulb_wall0x200",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_LT_KEYS_CUT",
+        "unit": "SITE",
+        "pos": [
+          11.46,
+          -53.025,
+          2.66
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN0_KEYS_CUT",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN0_KEYS_CUT",
+        "unit": "SITE",
+        "pos": [
+          10.05,
+          -52.2,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.74,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN1_KEYS_CUT",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN1_KEYS_CUT",
+        "unit": "SITE",
+        "pos": [
+          6.95,
+          -52.2,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.58,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+      "variant": "cage_bulb_wall0x200",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+        "unit": "SITE",
+        "pos": [
+          11.46,
+          -58.425000000000004,
+          2.66
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+        "unit": "SITE",
+        "pos": [
+          10.05,
+          -56.7,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.74,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+        "unit": "SITE",
+        "pos": [
+          7.75,
+          -56.7,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.58,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+        "unit": "SITE",
+        "pos": [
+          5.45,
+          -56.7,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.58,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_wall0x200",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+        "unit": "SITE",
+        "pos": [
+          11.46,
+          -63.025,
+          2.66
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+        "unit": "SITE",
+        "pos": [
+          10.05,
+          -61.7,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.74,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+        "unit": "SITE",
+        "pos": [
+          7.5,
+          -61.7,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.58,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+        "unit": "SITE",
+        "pos": [
+          4.95,
+          -61.7,
+          2.92
+        ],
+        "yaw_deg": 90.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.58,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_wall0x200",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+        "unit": "SITE",
+        "pos": [
+          16.54,
+          -62.974999999999994,
+          2.66
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+        "unit": "SITE",
+        "pos": [
+          17.95,
+          -61.39999999999999,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.74,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+        "unit": "SITE",
+        "pos": [
+          22.05,
+          -61.39999999999999,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.58,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_LT_RADIO_SERVICE",
+      "variant": "cage_bulb_wall0x200",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_LT_RADIO_SERVICE",
+        "unit": "SITE",
+        "pos": [
+          16.54,
+          -56.574999999999996,
+          2.66
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+        "unit": "SITE",
+        "pos": [
+          17.95,
+          -57.199999999999996,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.74,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+        "unit": "SITE",
+        "pos": [
+          21.05,
+          -57.199999999999996,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.58,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_LT_PAWNBROKER",
+      "variant": "cage_bulb_wall0x200",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_LT_PAWNBROKER",
+        "unit": "SITE",
+        "pos": [
+          16.54,
+          -51.974999999999994,
+          2.66
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN0_PAWNBROKER",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN0_PAWNBROKER",
+        "unit": "SITE",
+        "pos": [
+          17.95,
+          -53.3,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.98,
+        "navigation": false,
+        "standby": 0.4,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN1_PAWNBROKER",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN1_PAWNBROKER",
+        "unit": "SITE",
+        "pos": [
+          22.05,
+          -53.3,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.8,
+        "navigation": false,
+        "standby": 0.4,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_LT_NEWS_CIGARS",
+      "variant": "cage_bulb_wall0x200",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_LT_NEWS_CIGARS",
+        "unit": "SITE",
+        "pos": [
+          16.54,
+          -49.974999999999994,
+          2.66
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+        "unit": "SITE",
+        "pos": [
+          17.95,
+          -49.849999999999994,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.98,
+        "navigation": false,
+        "standby": 0.4,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+        "unit": "SITE",
+        "pos": [
+          20.05,
+          -49.849999999999994,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.8,
+        "navigation": false,
+        "standby": 0.4,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_LT_OTIS___SON",
+      "variant": "cage_bulb_wall0x200",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_LT_OTIS___SON",
+        "unit": "SITE",
+        "pos": [
+          16.54,
+          -45.37499999999999,
+          2.66
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN0_OTIS___SON",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN0_OTIS___SON",
+        "unit": "SITE",
+        "pos": [
+          17.95,
+          -46.55,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.74,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN1_OTIS___SON",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN1_OTIS___SON",
+        "unit": "SITE",
+        "pos": [
+          20.5,
+          -46.55,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.58,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN2_OTIS___SON",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN2_OTIS___SON",
+        "unit": "SITE",
+        "pos": [
+          23.05,
+          -46.55,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.58,
+        "navigation": false,
+        "standby": 0.22,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_LT_LUNCHEONETTE",
+      "variant": "cage_bulb_wall0x200",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_LT_LUNCHEONETTE",
+        "unit": "SITE",
+        "pos": [
+          16.54,
+          -43.37499999999999,
+          2.66
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 4.2,
+        "energy": 0.55,
+        "navigation": false,
+        "standby": 0.3,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+        "unit": "SITE",
+        "pos": [
+          17.95,
+          -41.8,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.98,
+        "navigation": false,
+        "standby": 0.4,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+        "unit": "SITE",
+        "pos": [
+          20.5,
+          -41.8,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.8,
+        "navigation": false,
+        "standby": 0.4,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    },
+    {
+      "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380",
+      "domain": "passage",
+      "source_marker": {
+        "kind": "cage_bulb",
+        "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+        "unit": "SITE",
+        "pos": [
+          23.05,
+          -41.8,
+          2.92
+        ],
+        "yaw_deg": 270.0,
+        "network": "electrical",
+        "range": 5.2,
+        "energy": 0.8,
+        "navigation": false,
+        "standby": 0.4,
+        "exterior": true,
+        "zone": "PASSAGE"
+      }
+    }
+  ],
+  "runtime_keys": [
+    "brass",
+    "enamel",
+    "linen",
+    "rubber",
+    "iron",
+    "glass",
+    "bulb",
+    "stained"
+  ],
+  "catalog_variants": {
+    "brass": "bronze_sheet",
+    "enamel": "enamel_appliance",
+    "linen": "linen",
+    "rubber": "rubber_aged",
+    "iron": "iron_blackened",
+    "glass": "milk_glass",
+    "bulb": "milk_glass",
+    "stained": "milk_glass"
+  },
+  "material_tints": {
+    "rubber": [
+      0.055,
+      0.05,
+      0.044,
+      1.0
+    ],
+    "linen": [
+      0.78,
+      0.7,
+      0.58,
+      1.0
+    ],
+    "stained": [
+      0.34,
+      0.17,
+      0.05,
+      1.0
+    ]
+  },
+  "finish_parameters": {
+    "brass": {
+      "roughness": 0.7,
+      "normal_scale": 0.25
+    },
+    "enamel": {
+      "normal_scale": 0.02,
+      "roughness": 0.28
+    },
+    "linen": {
+      "normal_scale": 0.02,
+      "roughness": 0.78
+    },
+    "rubber": {
+      "normal_scale": 0.02,
+      "roughness": 0.7
+    },
+    "iron": {
+      "normal_scale": 0.02,
+      "roughness": 0.48
+    },
+    "glass": {
+      "normal_scale": 0.02,
+      "roughness": 0.2
+    },
+    "bulb": {
+      "normal_scale": 0.02,
+      "roughness": 0.2
+    },
+    "stained": {
+      "normal_scale": 0.02,
+      "roughness": 0.42
+    }
+  },
+  "placement": {
+    "floor_y": 0,
+    "frame": "Original source actor and swing node; preserve original light, envelope, halo and circuit ownership.",
+    "corrections": [
+      {
+        "id": "B1_SERVICE_CORE_LT",
+        "classification": "NECESSITY",
+        "source_position": [
+          11.35,
+          2.85,
+          7.25
+        ],
+        "fitted_position": [
+          11.35,
+          4.6,
+          8.6
+        ],
+        "reason": "Open service core has no ceiling. Fit below F01 service stair half landing; retain fixture and circuit identity and settings. Lower landing top -1.6, fixture bottom 1.14: 2.74 m clear. Apply presentation offset only; preserve the original authored actor anchor.",
+        "visual_offset": [
+          0,
+          1.75,
+          1.35
+        ]
+      },
+      {
+        "id": "3B_LT_SCONCE",
+        "classification": "NECESSITY",
+        "visual_offset": [
+          0.8,
+          0,
+          0
+        ],
+        "reason": "Original anchor is centered in the bath window opening. Fit on the adjacent east-wall pier, clear of window trim and the overhead vent duct; retain actor anchor and circuit."
+      }
+    ]
+  },
+  "tint_space": "linear",
+  "open_work": [
+    "Exterior shed/alley lights and V1 forms not currently mounted in V2 need their subsequent native installation pass. Full-building photoreal calibration and runtime-contract acceptance remain incomplete."
+  ],
+  "finish_adaptation": "Use the existing restrained bronze_sheet copper-alloy catalogue finish locally for aged brass housings; the old brass_dull map made hand-size fixtures appear covered in large crust flakes. Existing global keys and maps are unchanged."
+}

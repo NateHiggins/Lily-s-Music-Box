@@ -1,0 +1,142 @@
+FABRICATION STAGE: art/blender/scripts/build_fixed_lighting.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_fixed_lighting.py:72: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "fixed_lighting.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+23:15:35 | INFO: Starting glTF 2.0 export
+23:15:35 | INFO: Extracting primitive: cage_bulb__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: cage_bulb__Body_ON_enamel
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: cage_bulb__Body_ON_iron
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: cage_bulb__Body_ON_rubber
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: cage_bulb__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: chandelier__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: chandelier__Body_ON_enamel
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: chandelier__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: entry_lantern__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: entry_lantern__Body_ON_enamel
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: entry_lantern__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: entry_lantern__Stained_ON_stained
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: eye_pendant__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: eye_pendant__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: flush_dome__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: flush_dome__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: flush_dome_rise100__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: flush_dome_rise100__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: flush_dome_rise150__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: flush_dome_rise150__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: kitchen_linear__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: kitchen_linear__Body_ON_enamel
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: kitchen_linear__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: kitchen_linear_rise100__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: kitchen_linear_rise100__Body_ON_enamel
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: kitchen_linear_rise100__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade__Body_ON_enamel
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade__Body_ON_linen
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade__Body_ON_rubber
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade_rise100__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade_rise100__Body_ON_enamel
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade_rise100__Body_ON_linen
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade_rise100__Body_ON_rubber
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade_rise100__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade_rise360__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade_rise360__Body_ON_enamel
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade_rise360__Body_ON_linen
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade_rise360__Body_ON_rubber
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: pendant_shade_rise360__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: sconce_globe__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: sconce_globe__Body_ON_enamel
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: sconce_globe__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: sconce_globe_back050__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: sconce_globe_back050__Body_ON_enamel
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: sconce_globe_back050__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: street_lamp__Body_ON_brass
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: street_lamp__Body_ON_enamel
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: street_lamp__Body_ON_iron
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: street_lamp__Bulb_ON_bulb
+23:15:35 | INFO: Primitives created: 1
+23:15:35 | INFO: Extracting primitive: street_lamp__Stained_ON_stained
+23:15:35 | INFO: Primitives created: 1
+23:15:36 | INFO: Finished glTF 2.0 export in 0.7674262523651123 s
+
+FIXED LIGHTING 248 original records; 15 assemblies; 246 closed stocks; 52 parts; 391156 triangles; 28 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_fixed_lighting.py
+00:07.438  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\fixed_lighting.blend"
+FIXED LIGHTING LOCAL: 246 closed stocks; 14 physical groups; 28 local bearings; 52 mapped parts
+FABRICATION STAGE: art/blender/scripts/inspect_fixed_lighting_context.py
+FIXED LIGHTING ROOM CONTEXT: 133 actors; 266 source surface contacts
+FABRICATION STAGE: art/blender/scripts/render_fixed_lighting.py
+00:12.250  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\fixed_lighting.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_fixed_lighting.py:12: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral light inspection');scene.world.use_nodes=True
+00:14.657  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\pendant_shade.png'
+00:17.172  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\flush_dome.png'
+00:19.454  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\sconce_globe.png'
+00:21.391  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\kitchen_linear.png'
+00:23.282  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\cage_bulb.png'
+00:25.719  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\chandelier.png'
+00:27.860  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\eye_pendant.png'
+00:30.235  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\street_lamp.png'
+00:32.969  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\entry_lantern.png'
+00:35.282  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\flush_dome_rise150.png'
+00:37.250  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\pendant_shade_rise360.png'
+00:39.266  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\pendant_shade_rise100.png'
+00:41.204  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\kitchen_linear_rise100.png'
+00:43.704  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\flush_dome_rise100.png'
+00:46.000  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\fixed-lighting-native\sconce_globe_back050.png'
+{"completed_stages": 4, "elapsed_s": 44.646}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

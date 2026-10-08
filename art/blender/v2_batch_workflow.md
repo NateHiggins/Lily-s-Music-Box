@@ -257,3 +257,10 @@ Use the same **C:/ov/v2-fabrication** verifier work directory across batches.
 Its baseline board cache is keyed by merge-base and tool version; changing the
 work directory needlessly reruns the unchanged baseline. Temporary checkouts
 still retire normally, while cached baseline boards remain for reuse.
+
+For fixed lights, use the production actor yaw convention in native context
+checks: passage and non-sconce bar markers negate authored yaw, while bar
+sconces retain the existing inward-facing correction. Fit local presentation
+offsets without moving semantic anchors. Match photometric checks to the
+unchanged LightRig maintenance-card tuning applied after mounts. Use retained
+floor heights and projected full bounds when placing corrective cameras.

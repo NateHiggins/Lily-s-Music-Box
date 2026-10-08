@@ -13,6 +13,10 @@ func _run() -> void:
 	var cell: Node3D=bar.get_node("RetainedBarGeometry");var model: Node3D=cell.get_node("BarFixtureMounts")
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_bar_fixture_mounts.json"))
 	check(FileAccess.get_sha256("res://assets/props/bar_fixture_mounts.glb")==fixture.asset_sha256,"installed mounts bind the native export")
+	var transferred: bool=world.adapter.root.has_meta("v2_native_fixed_lighting_factory")
+	var expected_parts: Array=fixture.parts.filter(func(p):return not transferred or str(p.name).begins_with("CanopyStay"))
+	var expected_triangles:=0
+	for part: Dictionary in expected_parts:expected_triangles+=int(part.triangles)
 	var parts:=0;var triangles:=0;var exclude: Array[RID]=[world.player.get_rid()]
 	for body: CollisionObject3D in model.find_children("*","CollisionObject3D",true,false):exclude.append(body.get_rid())
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
@@ -26,7 +30,7 @@ func _run() -> void:
 		check(material.metallic==library.metallic and material.roughness==library.roughness and material.normal_scale==library.normal_scale,"mount retains the catalogue optical calibration: "+identity)
 		var shape: CollisionShape3D=draw.find_children("*","CollisionShape3D",true,false)[0]
 		check((shape.shape as ConcavePolygonShape3D).get_faces()==draw.mesh.get_faces() and shape.global_transform.is_equal_approx(draw.global_transform),"native collision agrees with visible faces: "+identity)
-	check(parts==fixture.parts.size() and triangles==int(fixture.triangles),"all native mounts have one physical owner")
+	check(parts==expected_parts.size() and triangles==expected_triangles,"all native mounts have one physical owner")
 	var count:=0;var sconces:=0
 	for marker: Dictionary in fixture.original_markers:
 		var actor:=bar.actors.get_node(str(marker.id)) as LightFixtureProp;count+=1
@@ -40,6 +44,8 @@ func _run() -> void:
 	check(count==18 and sconces==5,"all eighteen original lights retained; five wall orientations fitted")
 	var bearing_samples:=0;var span_samples:=0
 	for contact: Dictionary in fixture.contacts:
+		# Complete native fixtures now own their mounts; this family retains canopy stays.
+		if transferred and not str(contact.id).begins_with("CanopyStay"):continue
 		var at:=_v(contact.bearing);var direction:=_v(contact.direction)
 		var owner: MeshInstance3D
 		for draw: MeshInstance3D in cell.find_children("*","MeshInstance3D",true,false):
@@ -103,6 +109,7 @@ func _mount_views(world: OrisonV2RuntimeRoot, bar: Node3D, model: Node3D) -> voi
 		if floor_hit.is_empty():continue
 		world.player.global_position=feet;world.player.face_world_point(bar.to_global(view[2]));world.player.set_lamp_enabled(true)
 		await _settled_optics();await shot(str(view[0])+"_fitted")
+		if world.adapter.root.has_meta("v2_native_fixed_lighting_factory"):continue
 		model.hide()
 		for actor: LightFixtureProp in bar.actors.find_children("*","LightFixtureProp",true,false):
 			if actor.prop_type=="sconce_globe":actor.rotation.y=-actor.rotation.y

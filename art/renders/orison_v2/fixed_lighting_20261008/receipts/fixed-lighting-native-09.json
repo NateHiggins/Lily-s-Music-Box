@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_fixed_lighting.py",
+      "elapsed_s": 13.225
+    },
+    {
+      "script": "art/blender/scripts/inspect_fixed_lighting.py",
+      "elapsed_s": 12.302
+    },
+    {
+      "script": "art/blender/scripts/inspect_fixed_lighting_context.py",
+      "elapsed_s": 0.098
+    },
+    {
+      "script": "art/blender/scripts/inspect_fixed_lighting_city_context.py",
+      "elapsed_s": 4.551
+    },
+    {
+      "script": "art/blender/scripts/render_fixed_lighting.py",
+      "elapsed_s": 185.346
+    }
+  ]
+}

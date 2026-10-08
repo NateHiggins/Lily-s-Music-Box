@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 49.93,
+  "exit_code": 1,
+  "finished_utc": "2026-10-08T05:21:50Z",
+  "started_utc": "2026-10-08T05:21:00Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Left operand of 'is' is a previously freed instance."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fixed-lighting-runtime-01.log.stderr",
+  "stderr_sha256": "c64c0c25c30f7165022bd21416f0319003059720c8b6ef971f2726b0b6d8102a",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fixed-lighting-runtime-01.log",
+  "stdout_sha256": "93241ddea7d5dac5bd7f87420d80c843eb9f13846b7a2a0be43eeab6d95dae36"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/fixed-lighting-runtime01",
+ "source": {
+  "dirty_paths": 288,
+  "dirty_sample": [
+   "M art/data/orison_v2/completion_interiors_source.json",
+   " M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/data/orison_v2_blockout.json",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   "?? art/blender/fixed_lighting.blend",
+   "?? art/blender/fixed_lighting_construction.json",
+   "?? art/blender/scripts/build_fixed_lighting.py",
+   "?? art/blender/scripts/fixed_lighting_geometry.py",
+   "?? art/blender/scripts/inspect_fixed_lighting.py",
+   "?? art/blender/scripts/inspect_fixed_lighting_city_context.py",
+   "?? art/blender/scripts/inspect_fixed_lighting_context.py",
+   "?? art/blender/scripts/render_fixed_lighting.py",
+   "?? art/data/fixed_lighting/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png"
+  ],
+  "repository_head": "df624dde74b63228d25777ee9936814dfe08e60d",
+  "repository_tree": "d7fe3e0d90034221f1027304a92d5221f23ba670",
+  "runtime_inputs_sha256": "1341ae7c519ca9b30a8564e23006581882f049d1566c1de56331807b3641984e",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "301904978d217a5613a891a92a3e834d231244010d6f1125761860b658b86ab8"
+ },
+ "windowed": true
+}

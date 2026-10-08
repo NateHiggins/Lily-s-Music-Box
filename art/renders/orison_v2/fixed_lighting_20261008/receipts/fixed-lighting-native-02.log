@@ -1,0 +1,131 @@
+FABRICATION STAGE: art/blender/scripts/build_fixed_lighting.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_fixed_lighting.py:72: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "fixed_lighting.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+23:14:05 | INFO: Starting glTF 2.0 export
+23:14:05 | INFO: Extracting primitive: cage_bulb__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: cage_bulb__Body_ON_enamel
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: cage_bulb__Body_ON_iron
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: cage_bulb__Body_ON_rubber
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: cage_bulb__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: chandelier__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: chandelier__Body_ON_enamel
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: chandelier__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: entry_lantern__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: entry_lantern__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: entry_lantern__Stained_ON_stained
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: eye_pendant__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: eye_pendant__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: flush_dome__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: flush_dome__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: flush_dome_rise100__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: flush_dome_rise100__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: flush_dome_rise150__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: flush_dome_rise150__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: kitchen_linear__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: kitchen_linear__Body_ON_enamel
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: kitchen_linear__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: kitchen_linear_rise100__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: kitchen_linear_rise100__Body_ON_enamel
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: kitchen_linear_rise100__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade__Body_ON_enamel
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade__Body_ON_linen
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade__Body_ON_rubber
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade_rise100__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade_rise100__Body_ON_enamel
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade_rise100__Body_ON_linen
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade_rise100__Body_ON_rubber
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade_rise100__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade_rise360__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade_rise360__Body_ON_enamel
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade_rise360__Body_ON_linen
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade_rise360__Body_ON_rubber
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: pendant_shade_rise360__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: sconce_globe__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: sconce_globe__Body_ON_enamel
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: sconce_globe__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: sconce_globe_back050__Body_ON_brass
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: sconce_globe_back050__Body_ON_enamel
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: sconce_globe_back050__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: street_lamp__Body_ON_iron
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: street_lamp__Bulb_ON_bulb
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Extracting primitive: street_lamp__Stained_ON_stained
+23:14:05 | INFO: Primitives created: 1
+23:14:05 | INFO: Finished glTF 2.0 export in 0.7868096828460693 s
+
+FIXED LIGHTING 248 original records; 15 assemblies; 228 closed stocks; 49 parts; 383124 triangles; 28 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_fixed_lighting.py
+00:07.328  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\fixed_lighting.blend"
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 79, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 72, in main
+    results = execute(stages)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 47, in execute
+    runpy.run_path(sys.argv[0], run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_fixed_lighting.py", line 57, in <module>
+    assert not join_failures,join_failures
+           ^^^^^^^^^^^^^^^^^
+AssertionError: [('pendant_shade_Fixture', 'disconnected', ['pendant_shade_SocketThread0', 'pendant_shade_SocketThread1', 'pendant_shade_SocketThread3']), ('kitchen_linear_Fixture', 'disconnected', ['kitchen_linear_LampPin-0.323', 'kitchen_linear_LampPin0.298', 'kitchen_linear_Tube', 'kitchen_linear_TubeSocket-0.323', 'kitchen_linear_TubeSocket0.298']), ('cage_bulb_Fixture', 'disconnected', ['cage_bulb_InsulatorThread0', 'cage_bulb_InsulatorThread1', 'cage_bulb_InsulatorThread2']), ('street_lamp_Fixture', 'disconnected', ['street_lamp_LampCore', 'street_lamp_PrismaticLens']), ('entry_lantern_Fixture', 'disconnected', ['entry_lantern_Frame(-0.1575, -0.205)', 'entry_lantern_Frame(-0.1575, -0.45)', 'entry_lantern_Frame(0.1325, -0.205)', 'entry_lantern_Frame(0.1325, -0.45)', 'entry_lantern_Lintel-0.3225', 'entry_lantern_Lintel0.1375', 'entry_lantern_Pane-0.426', 'entry_lantern_WeatherCap']), ('pendant_shade_rise360_Fixture', 'disconnected', ['pendant_shade_rise360_SocketThread0', 'pendant_shade_rise360_SocketThread1', 'pendant_shade_rise360_SocketThread3']), ('pendant_shade_rise100_Fixture', 'disconnected', ['pendant_shade_rise100_SocketThread0', 'pendant_shade_rise100_SocketThread1', 'pendant_shade_rise100_SocketThread3']), ('kitchen_linear_rise100_Fixture', 'disconnected', ['kitchen_linear_rise100_LampPin-0.323', 'kitchen_linear_rise100_LampPin0.298', 'kitchen_linear_rise100_Tube', 'kitchen_linear_rise100_TubeSocket-0.323', 'kitchen_linear_rise100_TubeSocket0.298'])]
+
+Error: script failed, file: 'art/blender/scripts/run_fabrication_batch.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

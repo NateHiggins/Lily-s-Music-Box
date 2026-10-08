@@ -1,0 +1,2719 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/fixed_lighting.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "pendant_shade",
+      "parts": [
+        {
+          "name": "pendant_shade__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "pendant_shade__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "pendant_shade__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.78,
+            0.7,
+            0.58,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.78
+          }
+        },
+        {
+          "name": "pendant_shade__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "pendant_shade__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "pendant_shade__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "flush_dome",
+      "parts": [
+        {
+          "name": "flush_dome__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "flush_dome__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "kitchen_linear",
+      "parts": [
+        {
+          "name": "kitchen_linear__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "kitchen_linear__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "kitchen_linear__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "flush_dome_rise150",
+      "parts": [
+        {
+          "name": "flush_dome_rise150__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "flush_dome_rise150__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "flush_dome_rise150__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "pendant_shade_rise360",
+      "parts": [
+        {
+          "name": "pendant_shade_rise360__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "pendant_shade_rise360__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "pendant_shade_rise360__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.78,
+            0.7,
+            0.58,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.78
+          }
+        },
+        {
+          "name": "pendant_shade_rise360__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "pendant_shade_rise360__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "pendant_shade_rise360__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "pendant_shade_rise100",
+      "parts": [
+        {
+          "name": "pendant_shade_rise100__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "pendant_shade_rise100__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "pendant_shade_rise100__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.78,
+            0.7,
+            0.58,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.78
+          }
+        },
+        {
+          "name": "pendant_shade_rise100__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "pendant_shade_rise100__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "pendant_shade_rise100__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "kitchen_linear_rise100",
+      "parts": [
+        {
+          "name": "kitchen_linear_rise100__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "kitchen_linear_rise100__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "kitchen_linear_rise100__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "kitchen_linear_rise100__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "flush_dome_rise100",
+      "parts": [
+        {
+          "name": "flush_dome_rise100__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "flush_dome_rise100__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "flush_dome_rise100__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "sconce_globe_back050",
+      "parts": [
+        {
+          "name": "sconce_globe_back050__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "sconce_globe_back050__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "sconce_globe_back050__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "cage_bulb_rise960",
+      "parts": [
+        {
+          "name": "cage_bulb_rise960__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "cage_bulb_rise960__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "cage_bulb_rise960__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "cage_bulb_rise960__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "cage_bulb_rise960__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "cage_bulb_rise960__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "cage_bulb_wall0x-255",
+      "parts": [
+        {
+          "name": "cage_bulb_wall0x-255__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "cage_bulb_wall0x-255__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "cage_bulb_wall0x-255__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "cage_bulb_wall0x-255__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "cage_bulb_wall0x-255__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "cage_bulb_wall0x-255__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "cage_bulb_rise160",
+      "parts": [
+        {
+          "name": "cage_bulb_rise160__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "cage_bulb_rise160__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "cage_bulb_rise160__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "cage_bulb_rise160__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "cage_bulb_rise160__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "cage_bulb_rise160__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "cage_bulb_rise140",
+      "parts": [
+        {
+          "name": "cage_bulb_rise140__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "cage_bulb_rise140__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "cage_bulb_rise140__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "cage_bulb_rise140__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "cage_bulb_rise140__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "cage_bulb_rise140__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "cage_bulb_rise250",
+      "parts": [
+        {
+          "name": "cage_bulb_rise250__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "cage_bulb_rise250__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "cage_bulb_rise250__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "cage_bulb_rise250__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "cage_bulb_rise250__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "cage_bulb_rise250__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "cage_bulb_rise60",
+      "parts": [
+        {
+          "name": "cage_bulb_rise60__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "cage_bulb_rise60__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "cage_bulb_rise60__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "cage_bulb_rise60__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "cage_bulb_rise60__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "cage_bulb_rise60__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "cage_bulb_rise2000",
+      "parts": [
+        {
+          "name": "cage_bulb_rise2000__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "cage_bulb_rise2000__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "cage_bulb_rise2000__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "cage_bulb_rise2000__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "cage_bulb_rise2000__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "cage_bulb_rise2000__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "kitchen_linear_rise80",
+      "parts": [
+        {
+          "name": "kitchen_linear_rise80__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "kitchen_linear_rise80__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "kitchen_linear_rise80__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "kitchen_linear_rise80__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "pendant_shade_rise450",
+      "parts": [
+        {
+          "name": "pendant_shade_rise450__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "pendant_shade_rise450__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "pendant_shade_rise450__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.78,
+            0.7,
+            0.58,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.78
+          }
+        },
+        {
+          "name": "pendant_shade_rise450__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "pendant_shade_rise450__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "pendant_shade_rise450__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "pendant_shade_rise470",
+      "parts": [
+        {
+          "name": "pendant_shade_rise470__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "pendant_shade_rise470__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "pendant_shade_rise470__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.78,
+            0.7,
+            0.58,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.78
+          }
+        },
+        {
+          "name": "pendant_shade_rise470__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "pendant_shade_rise470__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "pendant_shade_rise470__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "pendant_shade_retained_rod",
+      "parts": [
+        {
+          "name": "pendant_shade_retained_rod__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "pendant_shade_retained_rod__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "pendant_shade_retained_rod__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.78,
+            0.7,
+            0.58,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.78
+          }
+        },
+        {
+          "name": "pendant_shade_retained_rod__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "pendant_shade_retained_rod__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "pendant_shade_retained_rod__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "cage_bulb_rise800",
+      "parts": [
+        {
+          "name": "cage_bulb_rise800__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "cage_bulb_rise800__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "cage_bulb_rise800__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "cage_bulb_rise800__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "cage_bulb_rise800__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "cage_bulb_rise800__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "sconce_globe_back80",
+      "parts": [
+        {
+          "name": "sconce_globe_back80__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "sconce_globe_back80__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "sconce_globe_back80__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "sconce_globe_back100",
+      "parts": [
+        {
+          "name": "sconce_globe_back100__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "sconce_globe_back100__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "sconce_globe_back100__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "cage_bulb_rise300",
+      "parts": [
+        {
+          "name": "cage_bulb_rise300__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "cage_bulb_rise300__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "cage_bulb_rise300__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "cage_bulb_rise300__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "cage_bulb_rise300__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "cage_bulb_rise300__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "cage_bulb_wall0x200",
+      "parts": [
+        {
+          "name": "cage_bulb_wall0x200__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "cage_bulb_wall0x200__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "cage_bulb_wall0x200__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "cage_bulb_wall0x200__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "cage_bulb_wall0x200__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "cage_bulb_wall0x200__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "cage_bulb_rise380",
+      "parts": [
+        {
+          "name": "cage_bulb_rise380__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "cage_bulb_rise380__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "cage_bulb_rise380__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "cage_bulb_rise380__Body_ON_rubber",
+          "component": "Body",
+          "key": "rubber",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "tint": [
+            0.055,
+            0.05,
+            0.044,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "cage_bulb_rise380__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "cage_bulb_rise380__Mount_ON_brass",
+          "component": "Mount",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "sconce_globe_back160",
+      "parts": [
+        {
+          "name": "sconce_globe_back160__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "finish": {
+            "roughness": 0.7,
+            "normal_scale": 0.25
+          }
+        },
+        {
+          "name": "sconce_globe_back160__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.28
+          }
+        },
+        {
+          "name": "sconce_globe_back160__Bulb_ON_bulb",
+          "component": "Bulb",
+          "key": "bulb",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.2
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "B1_LAUNDRY_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise150"
+    },
+    {
+      "id": "F02_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise360"
+    },
+    {
+      "id": "F03_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise100"
+    },
+    {
+      "id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear_rise100"
+    },
+    {
+      "id": "F03_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "3B_LT_SCONCE",
+      "variant": "sconce_globe_back050",
+      "visual_offset": [
+        0.8,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "F04_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F04_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_B_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_B_CLOSET_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F02_B_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_B_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade_rise360"
+    },
+    {
+      "id": "F03_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F03_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F04_A_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F05_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F05_A_STUDY_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F05_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F05_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F05_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F05_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F05_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_A_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F06_A_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_A_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_A_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_A_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_A_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F06_A_STUDY_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_B_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F06_B_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_B_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_B_ALCOVE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_B_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_B_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F06_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F06_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F06_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F06_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F02_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F02_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F02_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F04_C_STUDIO_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_KITCHEN_LT_KITCHEN_LINEAR",
+      "variant": "kitchen_linear"
+    },
+    {
+      "id": "F04_C_BED1_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F04_C_BED2_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_D_VESTIBULE_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_D_MAIN_LT_PENDANT_SHADE",
+      "variant": "pendant_shade"
+    },
+    {
+      "id": "F01_D_KITCHEN_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_D_BED_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_D_PRIVATE_HALL_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_D_BATH_LT_FLUSH_DOME",
+      "variant": "flush_dome"
+    },
+    {
+      "id": "F01_A_VESTIBULE_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_MAIN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_BATH_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_KITCHEN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_BED_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_A_STUDY_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_VESTIBULE_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_MAIN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_BATH_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_KITCHEN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_BED_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_D_STUDY_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_VESTIBULE_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_MAIN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_PRIVATE_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_BATH_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_KITCHEN_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_BED_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_D_STUDY_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F02_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_SOUTHWEST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F01_STAFF_RESTROOM_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "B1_ELECTRICAL_LT",
+      "variant": "flush_dome_rise150"
+    },
+    {
+      "id": "B1_MAINTENANCE_SHOP_LT",
+      "variant": "flush_dome_rise150"
+    },
+    {
+      "id": "B1_COAL_ROOM_LT",
+      "variant": "flush_dome_rise150"
+    },
+    {
+      "id": "B1_RESIDENT_STORAGE_LT",
+      "variant": "flush_dome_rise150"
+    },
+    {
+      "id": "B1_SERVICE_CORE_LT",
+      "variant": "flush_dome",
+      "visual_offset": [
+        0,
+        1.75,
+        1.35
+      ]
+    },
+    {
+      "id": "PASSAGE_PORTAL_LT_W",
+      "variant": "cage_bulb_rise960"
+    },
+    {
+      "id": "PASSAGE_PORTAL_LT_E",
+      "variant": "cage_bulb_wall0x-255"
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_00",
+      "variant": "cage_bulb_rise160"
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_01",
+      "variant": "cage_bulb_rise160"
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_02",
+      "variant": "cage_bulb_rise160"
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_03",
+      "variant": "cage_bulb_rise160"
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_04",
+      "variant": "cage_bulb_rise160"
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_05",
+      "variant": "cage_bulb_rise160"
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_06",
+      "variant": "cage_bulb_rise160"
+    },
+    {
+      "id": "PASSAGE_AISLE_LT_07",
+      "variant": "cage_bulb_rise160"
+    },
+    {
+      "id": "F01_BAR_LT_DARTS",
+      "variant": "cage_bulb_rise140"
+    },
+    {
+      "id": "F01_BAR_LT_LOBBY",
+      "variant": "cage_bulb_rise250"
+    },
+    {
+      "id": "F01_BAR_LT_WELL",
+      "variant": "cage_bulb_rise60"
+    },
+    {
+      "id": "F01_BAR_LT_STAIR",
+      "variant": "cage_bulb_rise2000"
+    },
+    {
+      "id": "F01_BAR_LT_CAN0",
+      "variant": "kitchen_linear_rise80"
+    },
+    {
+      "id": "F01_BAR_LT_CAN1",
+      "variant": "kitchen_linear_rise80"
+    },
+    {
+      "id": "F01_BAR_LT_POOL",
+      "variant": "pendant_shade_rise450"
+    },
+    {
+      "id": "F01_BAR_LT_TAB0",
+      "variant": "pendant_shade_rise470"
+    },
+    {
+      "id": "F01_BAR_LT_TAB1",
+      "variant": "pendant_shade_retained_rod"
+    },
+    {
+      "id": "F01_BAR_LT_TAB2",
+      "variant": "pendant_shade_retained_rod"
+    },
+    {
+      "id": "F01_BAR_LT_STAGE0",
+      "variant": "cage_bulb_rise800"
+    },
+    {
+      "id": "F01_BAR_LT_STAGE1",
+      "variant": "cage_bulb_rise800"
+    },
+    {
+      "id": "F01_BAR_LT_DECK0",
+      "variant": "sconce_globe_back80"
+    },
+    {
+      "id": "F01_BAR_LT_DECK1",
+      "variant": "sconce_globe_back80"
+    },
+    {
+      "id": "F01_BAR_LT_DECK2",
+      "variant": "sconce_globe_back80"
+    },
+    {
+      "id": "F01_BAR_LT_WEST0",
+      "variant": "sconce_globe_back160",
+      "visual_offset": [
+        0,
+        0.5,
+        0
+      ]
+    },
+    {
+      "id": "F01_BAR_LT_WEST1",
+      "variant": "sconce_globe_back100"
+    },
+    {
+      "id": "F01_BAR_LT_WC",
+      "variant": "cage_bulb_rise300"
+    },
+    {
+      "id": "SITE_SHOP_LT_MODEL_LAUNDRY",
+      "variant": "cage_bulb_wall0x200"
+    },
+    {
+      "id": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN1_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN2_MODEL_LAUNDRY",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_LT_SHOE_REBUILDING",
+      "variant": "cage_bulb_wall0x200"
+    },
+    {
+      "id": "SITE_SHOP_IN0_SHOE_REBUILDING",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN1_SHOE_REBUILDING",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_LT_KEYS_CUT",
+      "variant": "cage_bulb_wall0x200"
+    },
+    {
+      "id": "SITE_SHOP_IN0_KEYS_CUT",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN1_KEYS_CUT",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_LT_HARDWARE_PAINT",
+      "variant": "cage_bulb_wall0x200"
+    },
+    {
+      "id": "SITE_SHOP_IN0_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN1_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN2_HARDWARE_PAINT",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_LT_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_wall0x200"
+    },
+    {
+      "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_LT_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_wall0x200"
+    },
+    {
+      "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_LT_RADIO_SERVICE",
+      "variant": "cage_bulb_wall0x200"
+    },
+    {
+      "id": "SITE_SHOP_IN0_RADIO_SERVICE",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN1_RADIO_SERVICE",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_LT_PAWNBROKER",
+      "variant": "cage_bulb_wall0x200"
+    },
+    {
+      "id": "SITE_SHOP_IN0_PAWNBROKER",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN1_PAWNBROKER",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_LT_NEWS_CIGARS",
+      "variant": "cage_bulb_wall0x200"
+    },
+    {
+      "id": "SITE_SHOP_IN0_NEWS_CIGARS",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN1_NEWS_CIGARS",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_LT_OTIS___SON",
+      "variant": "cage_bulb_wall0x200"
+    },
+    {
+      "id": "SITE_SHOP_IN0_OTIS___SON",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN1_OTIS___SON",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN2_OTIS___SON",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_LT_LUNCHEONETTE",
+      "variant": "cage_bulb_wall0x200"
+    },
+    {
+      "id": "SITE_SHOP_IN0_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN1_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380"
+    },
+    {
+      "id": "SITE_SHOP_IN2_LUNCHEONETTE",
+      "variant": "cage_bulb_rise380"
+    }
+  ],
+  "tint_space": "linear"
+}

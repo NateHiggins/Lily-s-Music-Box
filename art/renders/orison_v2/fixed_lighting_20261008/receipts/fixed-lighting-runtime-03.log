@@ -1,0 +1,331 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1104 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 1311 surfaces layered (478 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 170 surfaces layered (81 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=31005.140
+[LIGHTING] 211 sources active in system; 211 full personalities; profiles steady/breathe/mains/beat/dropout=[50, 49, 36, 42, 34]
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise150__Body_ON_brass valid_basis=true max_uv_excess=0.00000176858157 widest=1.00018508260331 vertices=8829 derivatives=true bad_derivatives=0 min_determinant=0.00000002000626 worst_dot=0.99999868869781
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise150__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000218115747 widest=1.00019718349396 vertices=55307 derivatives=true bad_derivatives=0 min_determinant=0.0000032627654 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise150__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00071499261512 vertices=1250 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Body_ON_rubber valid_basis=true max_uv_excess=0.00000007357448 widest=1.00006088965948 vertices=357 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise360__Mount_ON_brass valid_basis=true max_uv_excess=0.00000561028719 widest=1.00077299988628 vertices=3475 derivatives=true bad_derivatives=0 min_determinant=0.00000058501542 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Body_ON_rubber valid_basis=true max_uv_excess=0.00000007357448 widest=1.00006088965948 vertices=363 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise100__Mount_ON_brass valid_basis=true max_uv_excess=0.00000561028719 widest=1.00077299988628 vertices=3397 derivatives=true bad_derivatives=0 min_determinant=0.00000058499423 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise100__Body_ON_brass valid_basis=true max_uv_excess=0.0000000516884 widest=1.00010404230321 vertices=795 derivatives=true bad_derivatives=0 min_determinant=0.00000002002169 worst_dot=0.99999910593033
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise100__Body_ON_enamel valid_basis=true max_uv_excess=0.00000011920929 widest=1.00023916423925 vertices=3568 derivatives=true bad_derivatives=0 min_determinant=0.00000002891519 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise100__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000190059654 widest=1.00072630571091 vertices=956 derivatives=true bad_derivatives=0 min_determinant=0.00000665328705 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise100__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00071499261512 vertices=1237 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise100__Body_ON_brass valid_basis=true max_uv_excess=0.00000176858157 widest=1.00018508260331 vertices=8829 derivatives=true bad_derivatives=0 min_determinant=0.00000002000626 worst_dot=0.99999868869781
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise100__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000218115747 widest=1.00019718349396 vertices=55307 derivatives=true bad_derivatives=0 min_determinant=0.0000032627654 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_flush_dome_rise100__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00071499261512 vertices=1237 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back050__Body_ON_brass valid_basis=true max_uv_excess=0.00000229291618 widest=1.0007709499817 vertices=11639 derivatives=true bad_derivatives=0 min_determinant=0.00000005666249 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back050__Body_ON_enamel valid_basis=true max_uv_excess=0.00000172224827 widest=1.0007314681308 vertices=905 derivatives=true bad_derivatives=0 min_determinant=0.00000936085915 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back050__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000162003562 widest=1.00031747355831 vertices=55871 derivatives=true bad_derivatives=0 min_determinant=0.00000159960502 worst_dot=0.99999976158142
+LIGHT CONTACT 3B_LT_SCONCE at=(-15.58, 7.965001, -0.55) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+LIGHT CONTACT 3B_LT_SCONCE at=(-15.58, 8.075001, -0.55) direction=(1.0, 0.0, 0.0) hit={  } nearby={  }
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Body_ON_rubber valid_basis=true max_uv_excess=0.00000007357448 widest=1.00006088965948 vertices=352 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade__Mount_ON_brass valid_basis=true max_uv_excess=0.00000561028719 widest=1.00077299988628 vertices=3400 derivatives=true bad_derivatives=0 min_determinant=0.00000058499423 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_flush_dome__Body_ON_brass valid_basis=true max_uv_excess=0.00000176858157 widest=1.00018508260331 vertices=8829 derivatives=true bad_derivatives=0 min_determinant=0.00000002000626 worst_dot=0.99999868869781
+CAP MAPPING: mesh=fixed_lighting_flush_dome__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000218115747 widest=1.00019718349396 vertices=55307 derivatives=true bad_derivatives=0 min_determinant=0.0000032627654 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear__Body_ON_brass valid_basis=true max_uv_excess=0.0000000516884 widest=1.00010404230321 vertices=795 derivatives=true bad_derivatives=0 min_determinant=0.00000002002169 worst_dot=0.99999910593033
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear__Body_ON_enamel valid_basis=true max_uv_excess=0.00000011920929 widest=1.00023916423925 vertices=3568 derivatives=true bad_derivatives=0 min_determinant=0.00000002891519 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000190059654 widest=1.00072630571091 vertices=956 derivatives=true bad_derivatives=0 min_determinant=0.00000665328705 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise960__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4665 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x-255__Mount_ON_brass valid_basis=true max_uv_excess=0.00000518234447 widest=1.00077299988628 vertices=4574 derivatives=true bad_derivatives=0 min_determinant=0.00000058501687 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise160__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4647 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise140__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4654 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise250__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4660 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise60__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4643 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+LIGHT CONTACT F01_BAR_LT_WELL at=(-2.605, 1.66, 23.605) direction=(0.0, -1.0, 0.0) hit={  } nearby={ "position": (-2.605, 1.6, 23.605), "normal": (0.0, -1.0, 0.0), "face_index": 80, "collider_id": 2540607474080, "collider": F01_retail_bar_fixture_mount_F01_BAR_LT_WELL__brass_dull_col:<StaticBody3D#2540607474080>, "shape": 0, "rid": RID(1068317280313016) }
+LIGHT CONTACT F01_BAR_LT_WELL at=(-2.595, 1.66, 23.605) direction=(0.0, -1.0, 0.0) hit={  } nearby={ "position": (-2.595, 1.6, 23.605), "normal": (0.0, -1.0, 0.0), "face_index": 80, "collider_id": 2540607474080, "collider": F01_retail_bar_fixture_mount_F01_BAR_LT_WELL__brass_dull_col:<StaticBody3D#2540607474080>, "shape": 0, "rid": RID(1068317280313016) }
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise2000__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4690 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise80__Body_ON_brass valid_basis=true max_uv_excess=0.0000000516884 widest=1.00010404230321 vertices=795 derivatives=true bad_derivatives=0 min_determinant=0.00000002002169 worst_dot=0.99999910593033
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise80__Body_ON_enamel valid_basis=true max_uv_excess=0.00000011920929 widest=1.00023916423925 vertices=3568 derivatives=true bad_derivatives=0 min_determinant=0.00000002891519 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise80__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000190059654 widest=1.00072630571091 vertices=956 derivatives=true bad_derivatives=0 min_determinant=0.00000665328705 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_kitchen_linear_rise80__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00071499261512 vertices=1225 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Body_ON_rubber valid_basis=true max_uv_excess=0.00000007357448 widest=1.00006088965948 vertices=377 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise450__Mount_ON_brass valid_basis=true max_uv_excess=0.00000561028719 widest=1.00077299988628 vertices=3504 derivatives=true bad_derivatives=0 min_determinant=0.00000058501542 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Body_ON_rubber valid_basis=true max_uv_excess=0.00000004778849 widest=1.00006088965948 vertices=373 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise470__Mount_ON_brass valid_basis=true max_uv_excess=0.00000561028719 widest=1.00077299988628 vertices=3476 derivatives=true bad_derivatives=0 min_determinant=0.00000058501542 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise3140__Body_ON_brass valid_basis=true max_uv_excess=0.00000222702511 widest=1.00071535182409 vertices=10671 derivatives=true bad_derivatives=0 min_determinant=0.00000000874689 worst_dot=0.99999463558197
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise3140__Body_ON_enamel valid_basis=true max_uv_excess=0.00000220607035 widest=1.00073326849615 vertices=873 derivatives=true bad_derivatives=0 min_determinant=0.0000122861322 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise3140__Body_ON_linen valid_basis=true max_uv_excess=0.0000027474016 widest=1.00018232134953 vertices=8783 derivatives=true bad_derivatives=0 min_determinant=0.00001211036555 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise3140__Body_ON_rubber valid_basis=true max_uv_excess=0.00000023841858 widest=1.00006088965948 vertices=372 derivatives=true bad_derivatives=0 min_determinant=0.00000008034271 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise3140__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000376300886 widest=1.00073344203372 vertices=29478 derivatives=true bad_derivatives=0 min_determinant=0.00000072198646 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_pendant_shade_rise3140__Mount_ON_brass valid_basis=true max_uv_excess=0.00000561028719 widest=1.00076518977854 vertices=3672 derivatives=true bad_derivatives=0 min_determinant=0.00000058496045 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise800__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4659 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back80__Body_ON_brass valid_basis=true max_uv_excess=0.00000229291618 widest=1.0007709499817 vertices=11640 derivatives=true bad_derivatives=0 min_determinant=0.00000005667773 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back80__Body_ON_enamel valid_basis=true max_uv_excess=0.00000172224827 widest=1.0007314681308 vertices=905 derivatives=true bad_derivatives=0 min_determinant=0.00000936085915 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back80__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000162003562 widest=1.00031747355831 vertices=55871 derivatives=true bad_derivatives=0 min_determinant=0.00000159960502 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back160__Body_ON_brass valid_basis=true max_uv_excess=0.00000229291618 widest=1.0007709499817 vertices=11659 derivatives=true bad_derivatives=0 min_determinant=0.00000005666249 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back160__Body_ON_enamel valid_basis=true max_uv_excess=0.00000172224827 widest=1.0007314681308 vertices=905 derivatives=true bad_derivatives=0 min_determinant=0.00000936085915 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back160__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000162003562 widest=1.00031747355831 vertices=55871 derivatives=true bad_derivatives=0 min_determinant=0.00000159960502 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back100__Body_ON_brass valid_basis=true max_uv_excess=0.00000229291618 widest=1.0007709499817 vertices=11654 derivatives=true bad_derivatives=0 min_determinant=0.00000005666249 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back100__Body_ON_enamel valid_basis=true max_uv_excess=0.00000172224827 widest=1.0007314681308 vertices=905 derivatives=true bad_derivatives=0 min_determinant=0.00000936085915 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_sconce_globe_back100__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000162003562 widest=1.00031747355831 vertices=55871 derivatives=true bad_derivatives=0 min_determinant=0.00000159960502 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise300__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4664 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_wall0x200__Mount_ON_brass valid_basis=true max_uv_excess=0.00000518234447 widest=1.00077299988628 vertices=4472 derivatives=true bad_derivatives=0 min_determinant=0.00000058501687 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Body_ON_brass valid_basis=true max_uv_excess=0.00000245776027 widest=1.00072847826941 vertices=7363 derivatives=true bad_derivatives=0 min_determinant=0.00000105940483 worst_dot=0.99999976158142
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Body_ON_enamel valid_basis=true max_uv_excess=0.00000237720087 widest=1.00072693801604 vertices=911 derivatives=true bad_derivatives=0 min_determinant=0.00001345621418 worst_dot=0.99999988079071
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Body_ON_iron valid_basis=true max_uv_excess=0.00000738725066 widest=1.00071509504366 vertices=4991 derivatives=true bad_derivatives=0 min_determinant=0.0000021434838 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Body_ON_rubber valid_basis=true max_uv_excess=0.00000005238689 widest=1.00006087482463 vertices=335 derivatives=true bad_derivatives=0 min_determinant=0.00000005579091 worst_dot=0.99999970197678
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Bulb_ON_bulb valid_basis=true max_uv_excess=0.00000422261655 widest=1.00073029381385 vertices=27571 derivatives=true bad_derivatives=0 min_determinant=0.00000092266237 worst_dot=0.99999982118607
+CAP MAPPING: mesh=fixed_lighting_cage_bulb_rise380__Mount_ON_brass valid_basis=true max_uv_excess=0.00000420864671 widest=1.00077299988628 vertices=4653 derivatives=true bad_derivatives=0 min_determinant=0.00000022321561 worst_dot=0.99999982118607
+[SWITCHES] F02_C_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F02_C_MAIN -> off (1 fixtures)
+[SWITCHES] F02_C_STUDIO -> off (1 fixtures)
+[SWITCHES] F02_C_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F02_C_BATH -> off (1 fixtures)
+[SWITCHES] F02_C_KITCHEN -> off (1 fixtures)
+[SWITCHES] F02_C_BED1 -> off (1 fixtures)
+[SWITCHES] F02_C_BED2 -> off (1 fixtures)
+[SWITCHES] F04_C_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F04_C_MAIN -> off (1 fixtures)
+[SWITCHES] F04_C_STUDIO -> off (1 fixtures)
+[SWITCHES] F04_C_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F04_C_BATH -> off (1 fixtures)
+[SWITCHES] F04_C_KITCHEN -> off (1 fixtures)
+[SWITCHES] F04_C_BED1 -> off (1 fixtures)
+[SWITCHES] F04_C_BED2 -> off (1 fixtures)
+[SWITCHES] F01_D_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F01_D_MAIN -> off (1 fixtures)
+[SWITCHES] F01_D_KITCHEN -> off (1 fixtures)
+[SWITCHES] F01_D_BED -> off (1 fixtures)
+[SWITCHES] F01_D_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F01_D_BATH -> off (1 fixtures)
+[SWITCHES] F01_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F01_A_MAIN -> off (1 fixtures)
+[SWITCHES] F01_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F01_A_BATH -> off (1 fixtures)
+[SWITCHES] F01_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F01_A_BED -> off (1 fixtures)
+[SWITCHES] F01_A_STUDY -> off (1 fixtures)
+[SWITCHES] F03_D_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F03_D_MAIN -> off (1 fixtures)
+[SWITCHES] F03_D_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F03_D_BATH -> off (1 fixtures)
+[SWITCHES] F03_D_KITCHEN -> off (1 fixtures)
+[SWITCHES] F03_D_BED -> off (1 fixtures)
+[SWITCHES] F03_D_STUDY -> off (1 fixtures)
+[SWITCHES] F04_D_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F04_D_MAIN -> off (1 fixtures)
+[SWITCHES] F04_D_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F04_D_BATH -> off (1 fixtures)
+[SWITCHES] F04_D_KITCHEN -> off (1 fixtures)
+[SWITCHES] F04_D_BED -> off (1 fixtures)
+[SWITCHES] F04_D_STUDY -> off (1 fixtures)
+[SWITCHES] F02_SOUTHWEST_HALL -> off (1 fixtures)
+[SWITCHES] F03_SOUTHWEST_HALL -> off (1 fixtures)
+[SWITCHES] F04_SOUTHWEST_HALL -> off (1 fixtures)
+[SWITCHES] F01_STAFF_RESTROOM -> off (1 fixtures)
+[SWITCHES] B1_ELECTRICAL -> off (1 fixtures)
+[SWITCHES] B1_MAINTENANCE_SHOP -> off (1 fixtures)
+[SWITCHES] B1_COAL_ROOM -> off (1 fixtures)
+[SWITCHES] B1_RESIDENT_STORAGE -> off (1 fixtures)
+[SWITCHES] B1_SERVICE_CORE -> off (1 fixtures)
+[SWITCHES] B1_LAUNDRY -> off (1 fixtures)
+[SWITCHES] F02_A_MAIN -> off (1 fixtures)
+[SWITCHES] F03_B_MAIN -> off (1 fixtures)
+[SWITCHES] F03_B_KITCHEN -> off (1 fixtures)
+[SWITCHES] F03_B_ALCOVE -> off (1 fixtures)
+[SWITCHES] F03_B_BATH -> off (1 fixtures)
+[SWITCHES] F04_B_ALCOVE -> off (1 fixtures)
+[SWITCHES] F04_B_MAIN -> off (1 fixtures)
+[SWITCHES] F04_B_BATH -> off (1 fixtures)
+[SWITCHES] F04_B_KITCHEN -> off (1 fixtures)
+[SWITCHES] F04_B_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F04_B_CLOSET -> off (1 fixtures)
+[SWITCHES] F02_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F02_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F02_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F02_A_BATH -> off (1 fixtures)
+[SWITCHES] F02_A_BED -> off (1 fixtures)
+[SWITCHES] F02_B_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F02_B_MAIN -> off (1 fixtures)
+[SWITCHES] F02_B_KITCHEN -> off (1 fixtures)
+[SWITCHES] F02_B_BED -> off (1 fixtures)
+[SWITCHES] F02_B_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F02_B_BATH -> off (1 fixtures)
+[SWITCHES] F03_B_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F03_B_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F04_B_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F04_B_ALCOVE_APPROACH -> off (1 fixtures)
+[SWITCHES] F03_A_MAIN -> off (1 fixtures)
+[SWITCHES] F03_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F03_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F03_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F03_A_BATH -> off (1 fixtures)
+[SWITCHES] F03_A_BED -> off (1 fixtures)
+[SWITCHES] F04_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F04_A_MAIN -> off (1 fixtures)
+[SWITCHES] F04_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F04_A_BED -> off (1 fixtures)
+[SWITCHES] F04_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F04_A_BATH -> off (1 fixtures)
+[SWITCHES] F05_A_MAIN -> off (1 fixtures)
+[SWITCHES] F05_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F05_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F05_A_BATH -> off (1 fixtures)
+[SWITCHES] F05_A_BED -> off (1 fixtures)
+[SWITCHES] F05_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F05_A_STUDY -> off (1 fixtures)
+[SWITCHES] F05_B_MAIN -> off (1 fixtures)
+[SWITCHES] F05_B_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F05_B_BATH -> off (1 fixtures)
+[SWITCHES] F05_B_ALCOVE -> off (1 fixtures)
+[SWITCHES] F05_B_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F05_B_KITCHEN -> off (1 fixtures)
+[SWITCHES] F05_C_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F05_C_MAIN -> off (1 fixtures)
+[SWITCHES] F05_C_STUDIO -> off (1 fixtures)
+[SWITCHES] F05_C_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F05_C_BATH -> off (1 fixtures)
+[SWITCHES] F05_C_KITCHEN -> off (1 fixtures)
+[SWITCHES] F05_C_BED1 -> off (1 fixtures)
+[SWITCHES] F05_C_BED2 -> off (1 fixtures)
+[SWITCHES] F06_A_MAIN -> off (1 fixtures)
+[SWITCHES] F06_A_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F06_A_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F06_A_BATH -> off (1 fixtures)
+[SWITCHES] F06_A_BED -> off (1 fixtures)
+[SWITCHES] F06_A_KITCHEN -> off (1 fixtures)
+[SWITCHES] F06_A_STUDY -> off (1 fixtures)
+[SWITCHES] F06_B_MAIN -> off (1 fixtures)
+[SWITCHES] F06_B_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F06_B_BATH -> off (1 fixtures)
+[SWITCHES] F06_B_ALCOVE -> off (1 fixtures)
+[SWITCHES] F06_B_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F06_B_KITCHEN -> off (1 fixtures)
+[SWITCHES] F06_C_VESTIBULE -> off (1 fixtures)
+[SWITCHES] F06_C_MAIN -> off (1 fixtures)
+[SWITCHES] F06_C_STUDIO -> off (1 fixtures)
+[SWITCHES] F06_C_PRIVATE_HALL -> off (1 fixtures)
+[SWITCHES] F06_C_BATH -> off (1 fixtures)
+[SWITCHES] F06_C_KITCHEN -> off (1 fixtures)
+[SWITCHES] F06_C_BED1 -> off (1 fixtures)
+[SWITCHES] F06_C_BED2 -> off (1 fixtures)
+[HARUKIYA] OPEN, 18 fixtures
+CAP MAPPING: mesh=medicine_cabinets_MedicineRight__Body_ON_enamel valid_basis=true max_uv_excess=0.00000008805364 widest=1.00063379567405 vertices=7813 derivatives=true bad_derivatives=0 min_determinant=0.00000000722607 worst_dot=0.99999970197678
+CAP MAPPING: mesh=medicine_cabinets_MedicineRight__Body_ON_glassish valid_basis=true max_uv_excess=0.00000011030352 widest=1.00055481719793 vertices=1023 derivatives=true bad_derivatives=0 min_determinant=0.00000002888487 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineRight__Body_ON_nickel valid_basis=true max_uv_excess=0.00000237929635 widest=1.00112271645746 vertices=16628 derivatives=true bad_derivatives=0 min_determinant=0.00000000722607 worst_dot=0.99999976158142
+CAP MAPPING: mesh=medicine_cabinets_MedicineRight__CabinetDoor_ON_bakelite valid_basis=true max_uv_excess=0.00000008314964 widest=1.00027329278307 vertices=2040 derivatives=true bad_derivatives=0 min_determinant=0.00000004161343 worst_dot=0.99999988079071
+CAP MAPPING: mesh=medicine_cabinets_MedicineRight__CabinetDoor_ON_enamel valid_basis=true max_uv_excess=0.00000007631024 widest=1.00036909105907 vertices=530 derivatives=true bad_derivatives=0 min_determinant=0.00000001850648 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineRight__CabinetDoor_ON_nickel valid_basis=true max_uv_excess=0.00000222725794 widest=1.00077730365296 vertices=13912 derivatives=true bad_derivatives=0 min_determinant=0.00000001849776 worst_dot=0.99999976158142
+CAP MAPPING: mesh=medicine_cabinets_MedicineRight__Mirror_ON_mirror valid_basis=true max_uv_excess=0.00000006916525 widest=1.00042893216252 vertices=500 derivatives=true bad_derivatives=0 min_determinant=0.00000001417325 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_aspirin__Body_ON_bakelite valid_basis=true max_uv_excess=0.00000083644409 widest=1.00073122097824 vertices=879 derivatives=true bad_derivatives=0 min_determinant=0.00000113558622 worst_dot=0.99999988079071
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_aspirin__Body_ON_bottle valid_basis=true max_uv_excess=0.0000014025718 widest=1.000745860838 vertices=2584 derivatives=true bad_derivatives=0 min_determinant=0.00000126273133 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_cold_cream__Body_ON_porcelain valid_basis=true max_uv_excess=0.00000006286427 widest=1.00013071629351 vertices=2198 derivatives=true bad_derivatives=0 min_determinant=0.00000098150713 worst_dot=0.99999976158142
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_thimble_tin__Body_ON_nickel valid_basis=true max_uv_excess=0.00000008699135 widest=1.00030162007012 vertices=2174 derivatives=true bad_derivatives=0 min_determinant=0.00000075143686 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_iodine__Body_ON_bakelite valid_basis=true max_uv_excess=0.00000077264849 widest=1.00072369717335 vertices=913 derivatives=true bad_derivatives=0 min_determinant=0.00000124751925 worst_dot=0.99999988079071
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_iodine__Body_ON_bottle valid_basis=true max_uv_excess=0.00000131723937 widest=1.00074475924913 vertices=2608 derivatives=true bad_derivatives=0 min_determinant=0.00000115902526 worst_dot=0.99999988079071
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_razor__Body_ON_bakelite valid_basis=true max_uv_excess=0.00000004435424 widest=1.0000603107298 vertices=521 derivatives=true bad_derivatives=0 min_determinant=0.00000026022305 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_razor__Body_ON_nickel valid_basis=true max_uv_excess=0.00000008515781 widest=1.0008237249682 vertices=8264 derivatives=true bad_derivatives=0 min_determinant=0.00000000462568 worst_dot=0.99999624490738
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_shaving_stick__Body_ON_bakelite valid_basis=true max_uv_excess=0.00000093411654 widest=1.00072053510687 vertices=886 derivatives=true bad_derivatives=0 min_determinant=0.00000176790324 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_shaving_stick__Body_ON_bottle valid_basis=true max_uv_excess=0.00000160373747 widest=1.00073193932312 vertices=2598 derivatives=true bad_derivatives=0 min_determinant=0.00000147028639 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_shaving_stick__Body_ON_paper valid_basis=true max_uv_excess=0.00000161491334 widest=1.00072550054936 vertices=723 derivatives=true bad_derivatives=0 min_determinant=0.00000007528995 worst_dot=0.99999928474426
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_plasters__Body_ON_paper valid_basis=true max_uv_excess=0.00000004695539 widest=1.0009084059752 vertices=999 derivatives=true bad_derivatives=0 min_determinant=0.00000000115642 worst_dot=0.99999952316284
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_brown_bottle__Body_ON_bakelite valid_basis=true max_uv_excess=0.00000093411654 widest=1.00072053510687 vertices=913 derivatives=true bad_derivatives=0 min_determinant=0.00000191248112 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_brown_bottle__Body_ON_bottle valid_basis=true max_uv_excess=0.00000160373747 widest=1.00073193932312 vertices=2620 derivatives=true bad_derivatives=0 min_determinant=0.00000147028639 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineLeft__Body_ON_enamel valid_basis=true max_uv_excess=0.00000008805364 widest=1.00063379567405 vertices=7813 derivatives=true bad_derivatives=0 min_determinant=0.00000000722607 worst_dot=0.99999970197678
+CAP MAPPING: mesh=medicine_cabinets_MedicineLeft__Body_ON_glassish valid_basis=true max_uv_excess=0.00000011030352 widest=1.00055481719793 vertices=1023 derivatives=true bad_derivatives=0 min_determinant=0.00000002888487 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineLeft__Body_ON_nickel valid_basis=true max_uv_excess=0.00000237929635 widest=1.00112271645746 vertices=16635 derivatives=true bad_derivatives=0 min_determinant=0.00000000722607 worst_dot=0.99999976158142
+CAP MAPPING: mesh=medicine_cabinets_MedicineLeft__CabinetDoor_ON_bakelite valid_basis=true max_uv_excess=0.00000008314964 widest=1.00027329278307 vertices=2040 derivatives=true bad_derivatives=0 min_determinant=0.00000004161343 worst_dot=0.99999988079071
+CAP MAPPING: mesh=medicine_cabinets_MedicineLeft__CabinetDoor_ON_enamel valid_basis=true max_uv_excess=0.00000007631024 widest=1.00036909105907 vertices=530 derivatives=true bad_derivatives=0 min_determinant=0.00000001850648 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineLeft__CabinetDoor_ON_nickel valid_basis=true max_uv_excess=0.00000222725794 widest=1.00074514946414 vertices=13902 derivatives=true bad_derivatives=0 min_determinant=0.00000001849776 worst_dot=0.99999976158142
+CAP MAPPING: mesh=medicine_cabinets_MedicineLeft__Mirror_ON_mirror valid_basis=true max_uv_excess=0.00000006916525 widest=1.00042893216252 vertices=500 derivatives=true bad_derivatives=0 min_determinant=0.00000001417325 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_turpentine__Body_ON_bakelite valid_basis=true max_uv_excess=0.00000099756289 widest=1.00072672600394 vertices=902 derivatives=true bad_derivatives=0 min_determinant=0.00000221793194 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_turpentine__Body_ON_bottle valid_basis=true max_uv_excess=0.00000168895349 widest=1.00073325628856 vertices=2627 derivatives=true bad_derivatives=0 min_determinant=0.00000157406717 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_QUELL_TONIC__Body_ON_bakelite valid_basis=true max_uv_excess=0.00000099756289 widest=1.00072672600394 vertices=919 derivatives=true bad_derivatives=0 min_determinant=0.00000237827769 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_QUELL_TONIC__Body_ON_bottle valid_basis=true max_uv_excess=0.00000168895349 widest=1.00073325628856 vertices=2615 derivatives=true bad_derivatives=0 min_determinant=0.00000157406717 worst_dot=0.99999982118607
+CAP MAPPING: mesh=medicine_cabinets_MedicineItem_QUELL_TONIC__Body_ON_paper valid_basis=true max_uv_excess=0.00000168918632 widest=1.00071814326854 vertices=742 derivatives=true bad_derivatives=0 min_determinant=0.00000008437294 worst_dot=0.99999910593033
+FABRICATION BATCH: worlds=1 modules=2 module_checks=6984 failures=6 elapsed_ms=75568

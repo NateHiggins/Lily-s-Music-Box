@@ -1,0 +1,50 @@
+ERROR: actual collision-bearing light attachment: 3B_LT_SCONCE
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_fixed_lighting_test.gd:69)
+       [3] _run (res://tests/orison_v2_fabrication_batch.gd:104)
+ERROR: actual collision-bearing light attachment: 3B_LT_SCONCE
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_fixed_lighting_test.gd:69)
+       [3] _run (res://tests/orison_v2_fabrication_batch.gd:104)
+ERROR: actual collision-bearing light attachment: F01_BAR_LT_WELL
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_fixed_lighting_test.gd:69)
+       [3] _run (res://tests/orison_v2_fabrication_batch.gd:104)
+ERROR: actual collision-bearing light attachment: F01_BAR_LT_WELL
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] validate_in_world (res://tests/orison_v2_fixed_lighting_test.gd:69)
+       [3] _run (res://tests/orison_v2_fabrication_batch.gd:104)
+ERROR: unobstructed standing view of native fixture: F01_BAR_LT_DECK0
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _capture_light (res://tests/orison_v2_fixed_lighting_test.gd:133)
+       [3] validate_in_world (res://tests/orison_v2_fixed_lighting_test.gd:90)
+       [4] _capture_light (res://tests/orison_v2_fixed_lighting_test.gd:134)
+       [5] _city_capture (res://tests/orison_v2_city_sweep.gd:124)
+       [6] shot (res://tests/orison_v2_floor_surface_test.gd:199)
+ERROR: unobstructed standing view of native fixture: F01_BAR_LT_WC
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _capture_light (res://tests/orison_v2_fixed_lighting_test.gd:133)
+       [3] validate_in_world (res://tests/orison_v2_fixed_lighting_test.gd:90)
+       [4] _capture_light (res://tests/orison_v2_fixed_lighting_test.gd:134)
+       [5] _city_capture (res://tests/orison_v2_city_sweep.gd:124)
+       [6] shot (res://tests/orison_v2_floor_surface_test.gd:199)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)
