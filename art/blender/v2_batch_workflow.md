@@ -43,8 +43,11 @@ inputs are hashed once per invocation. `review_queue` retains missing/stale
 inputs even when a repeated snapshot has no new edits. `unregistered_builders`
 keeps older/nonstandard builders visible. `BOUND` means hashes match, not
 visual acceptance. Reuse a snapshot only alongside successful receipts and
-reviewed renders. Investigate drift before choosing rebuild stages. Existing
-front-pavement drift in world_connection and exterior_masonry remains open.
+reviewed renders. Investigate drift before choosing rebuild stages.
+Front-pavement historical hash drift remains visible; the October 8 street
+review compares its unchanged consumed fields and 24 native masks explicitly
+in **game/tests/fixtures/orison_front_pavement_review.json**. It does not repin
+the original fixture or approve unrelated masonry changes.
 The planner does not rebuild assets, approve appearance or promote the ledger.
 
 For one newly added material, **tools/rebind_additive_material.py** accepts an

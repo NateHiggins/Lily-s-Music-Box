@@ -20,7 +20,7 @@ original pins are retained, with an explicit consumed-source comparison beside
 them. This clears the local review obligation without blanket repinning other
 families or claiming whole-file/native equality for the masonry.
 
-The eight 35 mm raised black strips become 7 mm seams seated at +0.4 mm and
+The eight 35 mm-wide raised black strips become 7 mm seams seated at +0.4 mm and
 clipped to the actual fitted floor. Coping stones sit on the original curb at
 +0.12 m, with small arrises and 4 mm joints. Native support review caught the
 last proxy projecting 640 mm beyond that curb; the final east end fits its real
@@ -72,6 +72,29 @@ tools tests pass, and GDScript syntax preflight passes.
 
 ## Closeout
 
+Implementation commit **e02cfdc5** passed fresh-checkout static candidate
+verification against **7023ec99**: 49 board entries, zero regressions, no
+timeouts, a clean checkout, 17 unchanged protected paths, selector V2 and no
+ledger requirement changes. The existing incomplete ledger remains unchanged;
+this is a relative gate pass. The verifier did not repeat Godot. Its
+[JSON](../art/renders/orison_v2/street_paving_20261008/verification.json) and
+[readable result](../art/renders/orison_v2/street_paving_20261008/verification.md)
+retain the full comparison. Both temporary verification checkouts were removed.
+
+The [committed binding comparison](../art/renders/orison_v2/street_paving_20261008/committed_runtime_binding.json)
+matches the canonical runtime digest to the executed contract and checks eight
+committed test, fixture, runtime and export files byte for byte. The fresh
+checkout differs in line endings on 343 runtime inputs; all normalize to the
+same text, but its raw digest differs. No fresh-checkout runtime execution or
+additional runtime proof is inferred from that static comparison.
+
+The [next planner baseline](../art/renders/orison_v2/street_paving_20261008/fabrication_baseline.json)
+contains 103 registered families, 34 historical source drifts, zero missing
+registered inputs and 69 unregistered builders. The shared root addition flags
+all families conservatively against the prior snapshot; only the directly
+affected slab/detail/crossing checks are renewed here. Repeating the new
+snapshot produces zero newly changed families. Historical drift stays visible.
+
 Worktree clean at end: no; owner insitu notes/captures, supplied dossier/review
 inputs, two pre-existing EOL-only changes and unrelated generated UIDs remain
 outside this batch. Only named owned paths are staged. Protected 17/17 and V2
@@ -84,5 +107,6 @@ street/shell polish, rear/service interfaces, city ground/roof boundaries and
 independent service/weather capacity. G15 remains conditional and uninstalled.
 Decision needed from owner: none.
 
-Last line: implementation and scoped runtime review complete; clean candidate
-comparison and publication are recorded in the committed verification packet.
+Last line: street batch implementation, scoped runtime review and static
+candidate verification complete. Continue with rear/service shell interfaces
+and remaining city ground/roof boundaries; broader V2 remains open.

@@ -1,0 +1,59 @@
+{
+  "schema": "orison.street-paving-committed-binding.v1",
+  "evidence_class": "INERT",
+  "candidate": "e02cfdc58cb062f2701728b5f7027dabb9b0d917",
+  "receipt": "runtime02/street_paving_details/runtime_contract.json",
+  "runtime_inputs_sha256": "db42187e913955b98d00a1965fd3275356eac8885860875224c6e1b740247d01",
+  "canonical_runtime_exactly_matches_contract": true,
+  "committed_files": [
+    {
+      "path": "game/tests/orison_v2_street_paving_details_test.gd",
+      "sha256": "ac2304278744e67a110216e0bb0aaf7d603cfb4930f6eea3575368e90d4c52ad",
+      "committed_bytes_equal": true
+    },
+    {
+      "path": "game/tests/orison_v2_front_pavement_test.gd",
+      "sha256": "04b72b918e84213f14c413c691596a5784c82f89789fb3594cbdfa16a499e13b",
+      "committed_bytes_equal": true
+    },
+    {
+      "path": "game/tests/orison_v2_fabrication_batch.gd",
+      "sha256": "d807f393c409cf45f64332200eb662f9cf2a4954f18ba7d99a04e0ec6ae6fe4e",
+      "committed_bytes_equal": true
+    },
+    {
+      "path": "game/tests/fixtures/orison_street_paving_details.json",
+      "sha256": "4884d23319aa1c1659a9a1f052659209e0bcbdfe099ba58fa4262f36ad221b7c",
+      "committed_bytes_equal": true
+    },
+    {
+      "path": "game/tests/fixtures/orison_front_pavement_review.json",
+      "sha256": "cbb19816bc2335545c938d6f038467b9f17603f05123c6d37103e8c189a9dcfd",
+      "committed_bytes_equal": true
+    },
+    {
+      "path": "game/assets/props/street_paving_details.glb",
+      "sha256": "c99c6be32702ee5375683a4a8863f6ca31b3ec2fe17af213e4c901437d2bc30c",
+      "committed_bytes_equal": true
+    },
+    {
+      "path": "game/data/orison_v2/street_paving_details.json",
+      "sha256": "8677576a377c6a2542fa2eb5dc1a0603f40d9819d5199a8a88793214ea960e4f",
+      "committed_bytes_equal": true
+    },
+    {
+      "path": "game/scripts/building/orison_v2_street_paving_details.gd",
+      "sha256": "95ec4fb4c5c3fee74a0def1778f89976f0d591a687657fa94f4332c8ab8d783d",
+      "committed_bytes_equal": true
+    }
+  ],
+  "retained_slab_validator_matches_run01": true,
+  "fresh_checkout": {
+    "runtime_inputs_sha256": "de94dc97e2c0934f5de09f4573778be4b993cc496fc5a11465a8ccdd5dc2a326",
+    "raw_digest_matches_canonical": false,
+    "line_ending_only_difference_count": 343,
+    "lf_normalized_manifest_sha256": "62a728e89d94bbcf3bce76e0db636c7696257b53e73d6ed5e697ad269b087440",
+    "normalized_inputs_equal": true
+  },
+  "scope": "Post-commit comparison only, not a runtime contract. Canonical runtime and test match the executed contract. Fresh checkout has only line-ending differences in runtime inputs and was statically verified; its raw runtime digest differs and no fresh-checkout runtime execution is claimed."
+}
