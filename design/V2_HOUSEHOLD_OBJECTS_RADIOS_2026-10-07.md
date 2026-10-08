@@ -7,10 +7,14 @@ REPORT - V2-HOUSEHOLD-OBJECTS-RADIOS - 2026-10-07
 Branch / HEAD / origin/main / merge-base: canonical **main**, source parent
 **d89685c8f2d46bc907aafaab294b0b5a5d4c10b8**. No push. Worktree clean at end:
 no; the owner's **shots.md** and **shot_024..027.png** are excluded. Selector
-remains V2 with explicit V1 rollback. Candidate verification is recorded after
-source staging; no unperformed static result is claimed here.
+remains V2 with explicit V1 rollback. Source **a8fcfe153d7bef388541ec3752cb57a30cd896ec** has the exact verified tree
+**b72066f64e7de3f2ee8a67836433ce0e80024eaf**. Anonymous candidate
+**adcde32ace02a602e4fa9b364102d241b5feb128** passes fresh-checkout static verification, with no
+blocking findings or regressions. The one changed gate manifest was reviewed
+as append-only reference coverage. Existing rendered runtime receipts are
+reused; candidate verification does not launch Godot. Temporary checkout removed.
 
-Ledger before -> after: expected unchanged **7 / 8 / 127 / 42 / 151 / 153**;
+Ledger before -> after: unchanged **7 / 8 / 127 / 42 / 151 / 153**;
 this report promotes no requirements and supplies no runtime-contract proof.
 Whole V2 remains incomplete.
 
