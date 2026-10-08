@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "apertures": [
+    {
+      "id": "retail_bar_cab01",
+      "unobstructed_rays_to_original_screen_plane": 192,
+      "scope_radius_m": 0.19,
+      "lowest_stock_z": -2.619999885559082
+    },
+    {
+      "id": "retail_bar_cab02",
+      "unobstructed_rays_to_original_screen_plane": 192,
+      "scope_radius_m": 0.205,
+      "lowest_stock_z": -2.619999885559082
+    }
+  ],
+  "cabinet_crossings": [],
+  "views": [
+    "pair.png",
+    "retail_bar_cab01_front.png",
+    "retail_bar_cab02_front.png",
+    "retail_bar_cab01_service.png",
+    "retail_bar_cab02_feet.png"
+  ],
+  "scope": "Native unpowered chassis, feet and original-scope clearances. Actual programme ownership/input are separate runtime checks."
+}

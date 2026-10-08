@@ -29,11 +29,16 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(draw.find_children("*","Area3D",true,false).is_empty(),"passive geometry creates no new interaction owner")
 	var originals: Dictionary = model.get_meta("original_meshes")
 	var removed: Dictionary = model.get_meta("removed_triangles")
+	# Receiving cases share several legacy material draws. Their separately
+	# bound retirement follows furniture in the production composition.
+	var later_removed: Dictionary = {}
+	if geometry.has_node("BarReceiving"):
+		later_removed=geometry.get_node("BarReceiving").get_meta("removed_triangles")
 	var total := 0
 	for draw: MeshInstance3D in originals:
 		var old: ArrayMesh = originals[draw]
 		var amount: int = int(removed[str(draw.name)]); total += amount
-		check(old.get_faces().size()-draw.mesh.get_faces().size()==amount*3,"only the selected original triangles retire")
+		check(old.get_faces().size()-draw.mesh.get_faces().size()==(amount+int(later_removed.get(draw,0)))*3,"only furniture and separately bound subsequent receiving triangles retire")
 		if draw.mesh.get_surface_count()==0: continue
 		var remap: Array = draw.mesh.get_meta("bar_source_surface_indices")
 		for surface in draw.mesh.get_surface_count():

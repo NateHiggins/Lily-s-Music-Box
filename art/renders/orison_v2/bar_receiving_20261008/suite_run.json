@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 88.47,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T14:04:31Z",
+  "started_utc": "2026-10-08T14:03:03Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/bar-receiving-runtime-04.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/bar-receiving-runtime-04.log",
+  "stdout_sha256": "e8c54c396a82e2c7552fe22c21479a48e3bac04d86d82830e602111cb614e350"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/bar-receiving-runtime-04",
+ "source": {
+  "dirty_paths": 293,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/scripts/building/orison_v2_bar_region.gd",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/tests/orison_v2_bar_furniture_test.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/bar_receiving.blend",
+   "?? art/blender/bar_receiving_construction.json",
+   "?? art/blender/scripts/build_bar_receiving.py",
+   "?? art/blender/scripts/fabrication_native_batch.py",
+   "?? art/blender/scripts/inspect_bar_receiving.py",
+   "?? art/blender/scripts/prepare_bar_receiving.py",
+   "?? art/data/bar_receiving/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png"
+  ],
+  "repository_head": "94594cdf90805dae508b6115a1a0545ca659e949",
+  "repository_tree": "d126a5c6d38c3925c0411d55f43f1782542d70be",
+  "runtime_inputs_sha256": "281c8daec3007ca0dda0e960ab48b8cd8686b60f4298bcf45c6028126accc42f",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "1baecb8124973d8d702cdb0ac13ed651f73326ee507de81099ffe64da638dea8"
+ },
+ "windowed": true
+}

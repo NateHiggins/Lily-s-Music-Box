@@ -1,0 +1,45 @@
+{
+	"checks": 339,
+	"contracts": {
+		"premature_action_denial": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		},
+		"world_reconstruction": {
+			"executed": true,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 42.441,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Whole native receiving cases, exact static-source/hull retirement, floor bearings, original scope and ordinary E/W/Escape input, board unload, full production-world reconstruction with original programmes and outer-state stability, and final teardown. No disk-save reconstruction or changed residency policy.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "94594cdf90805dae508b6115a1a0545ca659e949",
+		"runtime_inputs_sha256": "281c8daec3007ca0dda0e960ab48b8cd8686b60f4298bcf45c6028126accc42f",
+		"test_path": "game/tests/orison_v2_bar_receiving_test.gd",
+		"test_sha256": "012e17aba598858bf2437f85f95d735bbb48747c8339a2d1ac6a4039f7e4c304"
+	}
+}

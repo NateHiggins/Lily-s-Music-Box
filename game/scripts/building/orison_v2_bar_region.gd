@@ -79,10 +79,15 @@ func _ready() -> void:
 		geometry.free()
 		_fail("native stage furniture and target differ from their exact source triangles")
 		return
+	if not preload("res://scripts/building/orison_v2_bar_receiving.gd").mount_cell(geometry, source_layout):
+		geometry.free()
+		_fail("native receiving cases differ from their source cases and shared hull")
+		return
 	add_child(geometry)
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})
 	preload("res://scripts/building/orison_v2_bar_furniture.gd").calibrate(geometry)
+	preload("res://scripts/building/orison_v2_bar_receiving.gd").calibrate(geometry)
 	actors = Node3D.new()
 	actors.name = "BarActors"
 	add_child(actors)

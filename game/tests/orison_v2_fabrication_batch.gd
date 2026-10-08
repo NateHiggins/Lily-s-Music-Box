@@ -2,6 +2,7 @@ extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
 const MODULES := {
+	"bar_receiving": preload("res://tests/orison_v2_bar_receiving_test.gd"),
 	"bar_furniture": preload("res://tests/orison_v2_bar_furniture_test.gd"),
 	"task_lamp_supply": preload("res://tests/orison_v2_task_lamp_supply_test.gd"),
 	"bar_instruments": preload("res://tests/orison_v2_bar_instruments_test.gd"),
@@ -128,10 +129,13 @@ func _run() -> void:
 	world.shutdown_for_tests()
 	world.free()
 	await _retired_audio()
+	var world_loads := 1
 	for id: String in teardown_validators:
 		var module: Node = teardown_validators[id]
 		var before: int = int(results[id].checks)
-		var post: Dictionary = module.validate_after_teardown()
+		var post: Dictionary = await module.validate_after_teardown()
+		world_loads += int(post.get("additional_world_loads",0))
+		results[id]["additional_world_loads"] = int(post.get("additional_world_loads",0))
 		results[id].checks = post.checks
 		results[id].failures = post.failures
 		total += int(post.checks)-before
@@ -142,11 +146,11 @@ func _run() -> void:
 	# Allow the rendering queue to retire those final references before exit.
 	await get_tree().process_frame
 	await get_tree().process_frame
-	var receipt := {"schema":"orison.fabrication-batch.v1", "evidence_class":"INERT", "world_loads":1,
+	var receipt := {"schema":"orison.fabrication-batch.v1", "evidence_class":"INERT", "world_loads":world_loads,
 		"modules":results, "module_checks":total, "batch_checks":checks, "failures":failures,
 		"elapsed_ms":Time.get_ticks_msec()-started, "scope":"Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate."}
 	FileAccess.open(directory.path_join("batch.json"), FileAccess.WRITE).store_string(JSON.stringify(receipt, "\t"))
-	print("FABRICATION BATCH: worlds=1 modules=", results.size(), " module_checks=", total, " failures=", failures.size(), " elapsed_ms=", receipt.elapsed_ms)
+	print("FABRICATION BATCH: worlds=",world_loads," modules=", results.size(), " module_checks=", total, " failures=", failures.size(), " elapsed_ms=", receipt.elapsed_ms)
 	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _selection(value: String, defaults: Array) -> Array:

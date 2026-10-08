@@ -1,0 +1,67 @@
+{
+	"batch_checks": 11,
+	"elapsed_ms": 76840,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 1242,
+	"modules": {
+		"bar_furniture": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 539,
+			"elapsed_ms": 171,
+			"failures": [],
+			"fixture_sha256": "d2cbba16a2aef4decb8e4c4b55a77146b38b02f657d40afe17e736ef2d1b8ea1",
+			"validator_sha256": "208e3f4ca58ecd31f1da3025b08816b121fc954e17104b029891ec68c934d9e8",
+			"views": []
+		},
+		"bar_instruments": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 364,
+			"elapsed_ms": 240,
+			"failures": [],
+			"fixture_sha256": "707dbacf584532f18004fe65cf5229c7ba61ed13c4cb48eb2095ce5ba40146bd",
+			"validator_sha256": "a707296c3d4a7f1f51f74706cfd192eb343fde77ffe3e1b247b7a1a621461536",
+			"views": []
+		},
+		"bar_receiving": {
+			"additional_world_loads": 1,
+			"captured": true,
+			"checks": 339,
+			"elapsed_ms": 7348,
+			"failures": [],
+			"fixture_sha256": "546f5b64c001e77679d2f9f23c68577d479dcdbd2d938308f428b84005bc756c",
+			"validator_sha256": "012e17aba598858bf2437f85f95d735bbb48747c8339a2d1ac6a4039f7e4c304",
+			"views": [
+				{
+					"bucket": "bar",
+					"feet": [
+						2.29999995231628,
+						-2.58999991416931,
+						25.5050029754639
+					],
+					"id": "receivers_whole",
+					"image": "receivers_whole.png",
+					"owner": "G12",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "bar",
+					"feet": [
+						1.89999997615814,
+						-2.58999991416931,
+						26.9050006866455
+					],
+					"id": "receivers_feet",
+					"image": "receivers_feet.png",
+					"owner": "G12",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 2
+}

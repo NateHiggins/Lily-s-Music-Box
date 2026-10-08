@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 8.64,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T13:45:03Z",
+  "started_utc": "2026-10-08T13:44:54Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/bar-receiving-import-02.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/bar-receiving-import-02.log",
+  "stdout_sha256": "c8d1043326685835a3f0e839bee76fa81b26571d1efa2749c8dd302cfcb15291"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 289,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/scripts/building/orison_v2_bar_region.gd",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   "?? art/blender/bar_receiving.blend",
+   "?? art/blender/bar_receiving_construction.json",
+   "?? art/blender/scripts/build_bar_receiving.py",
+   "?? art/blender/scripts/fabrication_native_batch.py",
+   "?? art/blender/scripts/inspect_bar_receiving.py",
+   "?? art/blender/scripts/prepare_bar_receiving.py",
+   "?? art/data/bar_receiving/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? art/reviews/v2_improvement_20261008/",
+   "?? game/assets/props/bar_receiving.glb",
+   "?? game/data/orison_v2/bar_receiving.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid"
+  ],
+  "repository_head": "94594cdf90805dae508b6115a1a0545ca659e949",
+  "repository_tree": "d126a5c6d38c3925c0411d55f43f1782542d70be",
+  "runtime_inputs_sha256": "4d1fa83e6886e106a12ddb41efd127b2bb868b50648f0ad6f43142a803046115",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}
