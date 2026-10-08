@@ -1,0 +1,112 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1104 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 386 surfaces layered (258 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=38611.971
+[LIGHTING] 211 sources active in system; 211 full personalities; profiles steady/breathe/mains/beat/dropout=[50, 49, 36, 42, 34]
+CAP MAPPING: mesh=city_shells_site_back_e__brick valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000567993469 vertices=306 derivatives=true bad_derivatives=0 min_determinant=0.00011084927309 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_back_e__concrete valid_basis=true max_uv_excess=0.00000015646219 widest=1.00001382961226 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.00011085044108 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_back_e__galvanized_roof valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000692307124 vertices=834 derivatives=true bad_derivatives=0 min_determinant=0.00000002628138 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_back_w__brick valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000518606618 vertices=204 derivatives=true bad_derivatives=0 min_determinant=0.00011084985708 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_back_w__concrete valid_basis=true max_uv_excess=0.00000017695129 widest=1.00001564016685 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.00011085160907 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_back_w__soot valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000567993469 vertices=734 derivatives=true bad_derivatives=0 min_determinant=0.00000002628138 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_far_e__bronze_sheet valid_basis=true max_uv_excess=0.00000381469727 widest=1.00004167223417 vertices=1190 derivatives=true bad_derivatives=0 min_determinant=0.00000580335472 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_far_e__concrete valid_basis=true max_uv_excess=0.00000190734863 widest=1.00001621662514 vertices=770 derivatives=true bad_derivatives=0 min_determinant=0.00011084154244 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_far_n__bronze_sheet valid_basis=true max_uv_excess=0.00000058021396 widest=1.00004187138053 vertices=1208 derivatives=true bad_derivatives=0 min_determinant=0.00000518352317 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_far_n__concrete valid_basis=true max_uv_excess=0.00000190734863 widest=1.00001695723353 vertices=782 derivatives=true bad_derivatives=0 min_determinant=0.00011084154244 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_far_ne__brick valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000510363339 vertices=546 derivatives=true bad_derivatives=0 min_determinant=0.00011084994743 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_far_ne__bronze_sheet valid_basis=true max_uv_excess=0.00000381469727 widest=1.00000567993469 vertices=1138 derivatives=true bad_derivatives=0 min_determinant=0.00000000002046 worst_dot=0.99997663497925
+CAP MAPPING: mesh=city_shells_site_far_ne__concrete valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000131706668 vertices=120 derivatives=true bad_derivatives=0 min_determinant=0.0001108469371 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_far_nw__brick valid_basis=true max_uv_excess=0.00000190734863 widest=1.0000072436509 vertices=548 derivatives=true bad_derivatives=0 min_determinant=0.0001108525059 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_far_nw__bronze_sheet valid_basis=true max_uv_excess=0.00000381469727 widest=1.00004167223417 vertices=1190 derivatives=true bad_derivatives=0 min_determinant=0.00000000001143 worst_dot=0.99993097782135
+CAP MAPPING: mesh=city_shells_site_far_nw__concrete valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000510363339 vertices=112 derivatives=true bad_derivatives=0 min_determinant=0.00011085596817 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_far_s__bronze_sheet valid_basis=true max_uv_excess=0.00000054668635 widest=1.00003945341362 vertices=1238 derivatives=true bad_derivatives=0 min_determinant=0.00000427383202 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_far_s__concrete valid_basis=true max_uv_excess=0.00000190734863 widest=1.00001885164194 vertices=762 derivatives=true bad_derivatives=0 min_determinant=0.00011083300558 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_far_se__brass_mesh valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000518055508 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.00009742736215 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_far_se__brick valid_basis=true max_uv_excess=0.00000190734863 widest=1.00001004293271 vertices=540 derivatives=true bad_derivatives=0 min_determinant=0.00011084405905 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_far_se__bronze_sheet valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000749070515 vertices=1036 derivatives=true bad_derivatives=0 min_determinant=0.00000000002046 worst_dot=0.99999094009399
+CAP MAPPING: mesh=city_shells_site_far_se__concrete valid_basis=true max_uv_excess=0.00000190734863 widest=1.00001885164194 vertices=120 derivatives=true bad_derivatives=0 min_determinant=0.00011084810509 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_far_se__galvanized_roof valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000321040104 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.00011085116016 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_far_sw__brass_mesh valid_basis=true max_uv_excess=0.00000005960464 widest=1.00000289759708 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.00009742736215 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_far_sw__brick valid_basis=true max_uv_excess=0.00000381469727 widest=1.00000642084384 vertices=536 derivatives=true bad_derivatives=0 min_determinant=0.00011084405905 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_far_sw__bronze_sheet valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000584465804 vertices=1096 derivatives=true bad_derivatives=0 min_determinant=0.00000000002046 worst_dot=0.99997770786285
+CAP MAPPING: mesh=city_shells_site_far_sw__concrete valid_basis=true max_uv_excess=0.00000011455268 widest=1.00001012525267 vertices=112 derivatives=true bad_derivatives=0 min_determinant=0.00011084810509 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_far_sw__galvanized_roof valid_basis=true max_uv_excess=0.00000023841858 widest=1.00000666775601 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.00011085113278 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_far_w__brick valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000913687784 vertices=540 derivatives=true bad_derivatives=0 min_determinant=0.0001108436767 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_far_w__bronze_sheet valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000674936338 vertices=1184 derivatives=true bad_derivatives=0 min_determinant=0.0000000000116 worst_dot=0.99997580051422
+CAP MAPPING: mesh=city_shells_site_far_w__concrete valid_basis=true max_uv_excess=0.00000014156103 widest=1.00001251213348 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.00011084810509 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_nbr_e__brass_mesh valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000518055508 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.00009742736215 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_nbr_e__brick valid_basis=true max_uv_excess=0.00000047683716 widest=1.00000567993469 vertices=296 derivatives=true bad_derivatives=0 min_determinant=0.00011084994743 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_nbr_e__bronze_sheet valid_basis=true max_uv_excess=0.00000095367432 widest=1.00001075335086 vertices=714 derivatives=true bad_derivatives=0 min_determinant=0.00000004688184 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_nbr_e__concrete valid_basis=true max_uv_excess=0.00000190734863 widest=1.00001498152251 vertices=208 derivatives=true bad_derivatives=0 min_determinant=0.00011085295779 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_nbr_e__galvanized_roof valid_basis=true max_uv_excess=0.00000023841858 widest=1.00000321040104 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.00011085120578 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_nbr_s2__brick valid_basis=true max_uv_excess=0.00000005867332 widest=1.00000518606618 vertices=208 derivatives=true bad_derivatives=0 min_determinant=0.00011084927309 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_nbr_s2__concrete valid_basis=true max_uv_excess=0.00000007264316 widest=1.00000642084384 vertices=200 derivatives=true bad_derivatives=0 min_determinant=0.00011085160907 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_nbr_s2__soot valid_basis=true max_uv_excess=0.00000095367432 widest=1.00000452766978 vertices=762 derivatives=true bad_derivatives=0 min_determinant=0.00001645945758 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_nbr_w__brass_mesh valid_basis=true max_uv_excess=0.00000005960464 widest=1.00000518055508 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.00009742736215 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_nbr_w__brick valid_basis=true max_uv_excess=0.00000047683716 widest=1.00000592684446 vertices=300 derivatives=true bad_derivatives=0 min_determinant=0.00011084956508 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_nbr_w__bronze_sheet valid_basis=true max_uv_excess=0.00000381469727 widest=1.00004106598975 vertices=722 derivatives=true bad_derivatives=0 min_determinant=0.00000004688184 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_nbr_w__concrete valid_basis=true max_uv_excess=0.00000190734863 widest=1.00001382961226 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.00011085102507 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_nbr_w__galvanized_roof valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000197563141 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.00011085113278 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_ne1__brick valid_basis=true max_uv_excess=0.00000006798655 widest=1.0000060092958 vertices=200 derivatives=true bad_derivatives=0 min_determinant=0.00011084994743 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_ne1__concrete valid_basis=true max_uv_excess=0.00000095367432 widest=1.00001037190012 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.00011085160907 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_ne1__galvanized_roof valid_basis=true max_uv_excess=0.00000190734863 widest=1.00004046149222 vertices=758 derivatives=true bad_derivatives=0 min_determinant=0.00001337466529 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_ne2__bronze_sheet valid_basis=true max_uv_excess=0.00000190734863 widest=1.0000399907114 vertices=816 derivatives=true bad_derivatives=0 min_determinant=0.00000995826667 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_ne2__concrete valid_basis=true max_uv_excess=0.00000190734863 widest=1.00001621662514 vertices=408 derivatives=true bad_derivatives=0 min_determinant=0.00011085062178 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_ne3__brick valid_basis=true max_uv_excess=0.00000007729977 widest=1.00000683238521 vertices=200 derivatives=true bad_derivatives=0 min_determinant=0.00011085053143 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_ne3__concrete valid_basis=true max_uv_excess=0.00000011734664 widest=1.00001037190012 vertices=112 derivatives=true bad_derivatives=0 min_determinant=0.00011085160907 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_ne3__soot valid_basis=true max_uv_excess=0.00000190734863 widest=1.00004274664106 vertices=764 derivatives=true bad_derivatives=0 min_determinant=0.00000000002069 worst_dot=0.99997669458389
+CAP MAPPING: mesh=city_shells_site_ne4__brass_mesh valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000518055508 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.0000974274477 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_ne4__brick valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000567993469 vertices=408 derivatives=true bad_derivatives=0 min_determinant=0.00011084877944 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_ne4__bronze_sheet valid_basis=true max_uv_excess=0.00000190734863 widest=1.00004046149222 vertices=864 derivatives=true bad_derivatives=0 min_determinant=0.0000000000116 worst_dot=0.99993145465851
+CAP MAPPING: mesh=city_shells_site_ne4__concrete valid_basis=true max_uv_excess=0.00000015646219 widest=1.00001382961226 vertices=112 derivatives=true bad_derivatives=0 min_determinant=0.00011085160907 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_ne4__galvanized_roof valid_basis=true max_uv_excess=0.00000023841858 widest=1.00000666775601 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.00011085062178 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_nw1__brass_mesh valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000518055508 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.00009742736215 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_nw1__brick valid_basis=true max_uv_excess=0.00000023841858 widest=1.00000567993469 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.00011085062178 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_nw1__bronze_sheet valid_basis=true max_uv_excess=0.00000381469727 widest=1.0000399907114 vertices=692 derivatives=true bad_derivatives=0 min_determinant=0.00000029701712 worst_dot=0.99999976158142
+CAP MAPPING: mesh=city_shells_site_nw1__concrete valid_basis=true max_uv_excess=0.00000095367432 widest=1.00001382961226 vertices=316 derivatives=true bad_derivatives=0 min_determinant=0.00011084898109 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_nw1__galvanized_roof valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000321040104 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.00011085120578 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_nw2__brick valid_basis=true max_uv_excess=0.00000190734863 widest=1.00000773794001 vertices=196 derivatives=true bad_derivatives=0 min_determinant=0.0001108442188 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_nw2__concrete valid_basis=true max_uv_excess=0.00000047683716 widest=1.0000111954004 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.00011085160907 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_nw2__galvanized_roof valid_basis=true max_uv_excess=0.00000190734863 widest=1.00001942340839 vertices=722 derivatives=true bad_derivatives=0 min_determinant=0.00000056253293 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_nw3__brick valid_basis=true max_uv_excess=0.00000006426126 widest=1.00000567993469 vertices=308 derivatives=true bad_derivatives=0 min_determinant=0.00011084868909 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_nw3__bronze_sheet valid_basis=true max_uv_excess=0.00000095367432 widest=1.00000510329144 vertices=812 derivatives=true bad_derivatives=0 min_determinant=0.00000002627978 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_nw3__concrete valid_basis=true max_uv_excess=0.00000015646219 widest=1.00001382961226 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.00011085062178 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_nw4__brass_mesh valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000360004485 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.00009742736215 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_nw4__brick valid_basis=true max_uv_excess=0.00000381469727 widest=1.00000716176349 vertices=296 derivatives=true bad_derivatives=0 min_determinant=0.00011084325249 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_nw4__concrete valid_basis=true max_uv_excess=0.00000095367432 widest=1.00001382961226 vertices=112 derivatives=true bad_derivatives=0 min_determinant=0.00011085266579 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_nw4__galvanized_roof valid_basis=true max_uv_excess=0.00000011920929 widest=1.00000666775601 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.00011085116928 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_nw4__soot valid_basis=true max_uv_excess=0.00000190734863 widest=1.00004160326481 vertices=744 derivatives=true bad_derivatives=0 min_determinant=0.00000789202295 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_se2__brick valid_basis=true max_uv_excess=0.00000095367432 widest=1.00000782025852 vertices=292 derivatives=true bad_derivatives=0 min_determinant=0.00011084810509 worst_dot=0.99999988079071
+CAP MAPPING: mesh=city_shells_site_se2__bronze_sheet valid_basis=true max_uv_excess=0.00000095367432 widest=1.00002076849201 vertices=840 derivatives=true bad_derivatives=0 min_determinant=0.00000002627978 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_se2__concrete valid_basis=true max_uv_excess=0.00000190734863 widest=1.00001004293271 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.0001108469371 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_se3__brick valid_basis=true max_uv_excess=0.00000006426126 widest=1.00000567993469 vertices=196 derivatives=true bad_derivatives=0 min_determinant=0.00011084810509 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_se3__concrete valid_basis=true max_uv_excess=0.00000012107193 widest=1.00001070148568 vertices=96 derivatives=true bad_derivatives=0 min_determinant=0.0001108469371 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_se3__soot valid_basis=true max_uv_excess=0.000000317581 widest=1.00002291964406 vertices=732 derivatives=true bad_derivatives=0 min_determinant=0.00001613386621 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_sw2__brick valid_basis=true max_uv_excess=0.00000095367432 widest=1.00000946655782 vertices=200 derivatives=true bad_derivatives=0 min_determinant=0.00011084945378 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_sw2__concrete valid_basis=true max_uv_excess=0.00000095367432 widest=1.000016381505 vertices=104 derivatives=true bad_derivatives=0 min_determinant=0.0001108469371 worst_dot=1.0
+CAP MAPPING: mesh=city_shells_site_sw2__galvanized_roof valid_basis=true max_uv_excess=0.00000095367432 widest=1.00002177661708 vertices=728 derivatives=true bad_derivatives=0 min_determinant=0.00001574529051 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_sw3__bronze_sheet valid_basis=true max_uv_excess=0.00000095367432 widest=1.00002076849201 vertices=816 derivatives=true bad_derivatives=0 min_determinant=0.00000002627978 worst_dot=0.99999994039536
+CAP MAPPING: mesh=city_shells_site_sw3__concrete valid_basis=true max_uv_excess=0.00000023841858 widest=1.00001909803598 vertices=396 derivatives=true bad_derivatives=0 min_determinant=0.0001108469371 worst_dot=0.99999994039536
+[HARUKIYA] CLOSED, 18 fixtures
+CITY CLOSURE: checks=2247 parts=84 triangles=14098 joined_parapets=25 retained_hardware_footprint_samples=1205 failures=0
