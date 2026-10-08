@@ -9,8 +9,13 @@ Branch / HEAD / origin/main / merge-base: canonical **main**, source parent
 **4c353a8d3e61ebfe783216900702e2219a15f533**; the owner requested commit and
 push of the finished batch. Worktree clean at end: no; owner **shots.md** and
 **shot_024..027.png** are excluded. Selector remains V2 with explicit V1
-rollback. Exact source tree and candidate verification are recorded by the
-metadata follow-up after the commit gate.
+rollback. Source **ef92e53e4c1dfcbbddc402843da30f61e2b95540** has the exact verified tree
+**f1227a0ae46c66728b2cd6944a7114b66189f0e6**. Anonymous candidate
+**942b3abacd91e9e537f572d7cdeac671de165993** passes clean-checkout verification: zero
+static regressions, all 17 protected paths unchanged, no blocking findings,
+no lint errors and unchanged ledger counts. The sole gate-manifest change
+is reviewed as append-only spatial coverage. Completed runtime receipts are
+reused without another Godot run. Temporary verification checkouts retired.
 
 Ledger before -> after: **7 / 8 / 127 / 42 / 151 / 153**. This report supplies
 no runtime-contract proof and promotes no requirements. Whole V2 is incomplete.
@@ -54,7 +59,7 @@ Runtime04 passes 7,032 module plus 10 batch checks in 88.36s wrapper / 78.152s
 internal. Review catches the raised 3B sconce meeting its vent duct despite
 valid wall bearings. Runtime05 moves it beside the window and adds complete
 fixture clearance: 7,005 module plus 10 batch checks pass, with three targeted
-recaptures. All 199 lights and all 12 cabinets are revalidated. Original room
+recaptures in 54.53s wrapper / 44.485s internal. All 199 lights and all 12 cabinets are revalidated. Original room
 switch toggle/restore and source ownership, unique native meshes, material
 bindings and factory retirement are checked. The seven-texture shutdown
 warning remains. Failed and superseded receipts are preserved.
@@ -70,7 +75,8 @@ part of global photoreal lighting/material work, not resolved by this batch.
 Outside the expected boundary: the original 3B anchor occupies an authored
 window opening, and prior native bar mounts overlapped replacement supports.
 Both are corrected without moving gameplay anchors or changing source light
-behavior. Render review remains necessary beyond contact rays.
+behavior. Render review remains necessary beyond contact rays. Two new script UIDs are
+retained; 261 unrelated generated UIDs are removed.
 
 Open findings: the six alley/shed lights, unmounted V1 light forms, remaining
 appliances, broad finish and lighting calibration, earlier 3B crate/wardrobe

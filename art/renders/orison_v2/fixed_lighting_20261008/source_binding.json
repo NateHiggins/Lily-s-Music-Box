@@ -1,0 +1,14 @@
+{
+  "evidence_class": "INERT",
+  "parent": "df624dde74b63228d25777ee9936814dfe08e60d",
+  "tree": "f1227a0ae46c66728b2cd6944a7114b66189f0e6",
+  "candidate": "942b3abacd91e9e537f572d7cdeac671de165993",
+  "source_commit": "ef92e53e4c1dfcbbddc402843da30f61e2b95540",
+  "verification": "verification.json",
+  "runtime_receipts": [
+    "receipts/fixed-lighting-runtime-04.log.receipt.json",
+    "receipts/fixed-lighting-runtime-05.log.receipt.json"
+  ],
+  "gate_review": "Spatial manifest appends 211 references and preserves all 8067 prior records; no gate logic changes. Candidate reuses completed scoped runtime receipts.",
+  "limitations": "Whole V2 and broad photoreal calibration remain incomplete."
+}
