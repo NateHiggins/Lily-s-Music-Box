@@ -7,8 +7,13 @@ REPORT - V2-HOUSEHOLD-FRIDGES - 2026-10-08
 Branch / HEAD / origin/main / merge-base: canonical **main**, source parent
 and fetched remote **db2187c48ca8f6aab8109ad0fc203e55386b3097**. Worktree clean
 at end: no; owner **shots.md** and **shot_024..027.png** are excluded. Selector
-remains V2 with explicit V1 rollback. Candidate verification is pending; the
-completed native and production receipts below do not assert static success.
+remains V2 with explicit V1 rollback. Source **3fbba2e5dbe298602bf71a066912718b663ece04** has the
+exact verified tree **586613f6d2fa553e0a2880be2813a0a1e7b54cbc**. Anonymous candidate
+**3f3ecfee79f17dc04b38ad81a2d27c5daaef0fd2** passes fresh-checkout verification: zero static
+regressions, all 17 protected paths unchanged, no blocking findings or lint
+errors, and unchanged ledger counts. The spatial manifest change is reviewed
+as append-only coverage. Completed production receipts are reused without
+another Godot run. Temporary verification checkouts are retired.
 
 Ledger before -> after: **7 / 8 / 127 / 42 / 151 / 153**. This report supplies
 no runtime-contract proof and promotes no requirements. Whole V2 is incomplete.
