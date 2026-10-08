@@ -74,7 +74,11 @@ Seven pre-existing Texture RID shutdown warnings remain.
 
 Protected 17/17: no protected paths changed. Selector V2 and explicit V1
 rollback remain. This INERT report changes no ledger claims. Fresh candidate
-static verification is pending before push.
+[static verification](../art/renders/orison_v2/bar_and_supply_20261008/verification.json)
+passed for **a10d28f4** against **b17512c5**: zero gate regressions, zero
+fresh-checkout dirt, protected 17/17 and selector V2. The only flagged gate
+file is the append-only spatial inventory described above. This verifier
+used no additional Godot run; runtime evidence is the composed batch above.
 
 Worktree clean at report time: no. Owner dossier inputs, unrelated in-situ
 images, existing line-ending-only changes and generated unrelated UIDs remain
