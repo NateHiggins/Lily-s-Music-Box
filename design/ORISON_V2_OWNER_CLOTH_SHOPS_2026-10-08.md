@@ -85,7 +85,11 @@ The known seven-Texture-RID shutdown warning persists, as in preceding
 accepted finish runs. Scoped actor retirement passes; this is not an
 empty-stderr run. Reader NEW=0. The spatial manifest appends fifteen reviewed
 references to existing service anchors and test stations, preserving every
-preceding record. Static candidate verification follows the code commit.
+preceding record. Fresh static [candidate verification](../art/renders/orison_v2/cloth_shops_20261008/verification.json)
+passes with zero regressions against **326f8cda**, a clean verification
+checkout, all 17 protected paths and selector V2. The only changed gate file
+is the reviewed append-only spatial manifest. Godot evidence is the shared
+run above; the verifier did not launch additional Godot processes.
 Protected paths and the selector are not edited by this batch.
 
 Worktree clean at end: no. Owner in-situ notes/images, the supplied dossier
@@ -93,4 +97,4 @@ inputs/PDF, unrelated UIDs and two preceding line-ending-only changes are
 excluded. No owner decision is required. Remaining work is recorded in the
 owner inventory. Native softbox historical identity remains qualified.
 
-MERGE-CANDIDATE — pending static candidate verification
+MERGE-CANDIDATE ec0fc63371a0c69a8d22e5e344177c179a4f0b96

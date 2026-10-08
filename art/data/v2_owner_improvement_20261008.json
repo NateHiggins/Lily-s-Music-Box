@@ -396,8 +396,8 @@
       "result": null
     }
   ],
-  "evidence_root": "art/renders/orison_v2/service_finishes_20261008",
-  "last_verified_batch": "B4 cloth plus B5 shops; final runtime08: 12207 module +17 batch checks, zero failures, one world; static candidate pending.",
-  "code_candidate": "pending cloth/shop commit",
-  "candidate_verification": "pending"
+  "evidence_root": "art/renders/orison_v2/cloth_shops_20261008",
+  "last_verified_batch": "B4 cloth plus B5 shops: final runtime08, 12207 module +17 batch checks, zero failures, one world; fresh static candidate verification passed with zero regressions.",
+  "code_candidate": "ec0fc63371a0c69a8d22e5e344177c179a4f0b96",
+  "candidate_verification": "art/renders/orison_v2/cloth_shops_20261008/verification.json"
 }
