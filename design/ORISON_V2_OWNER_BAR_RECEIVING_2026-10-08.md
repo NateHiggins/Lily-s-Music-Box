@@ -47,7 +47,11 @@ Gates: reader NEW=0; source planner zero missing inputs or source drift;
 native export tangent validation passes. The spatial inventory appends eight
 new records without changing prior classifications. Protected 17 paths
 are unchanged; the V2 selector and explicit V1 rollback remain. Fresh
-candidate verification is pending the implementation commit. This INERT
+[static candidate verification](../art/renders/orison_v2/bar_receiving_20261008/verification.json)
+passed for **67b2d52d** against **94594cdf**: zero gate regressions, zero
+fresh-checkout dirt, protected 17/17, selector V2 and no lint errors.
+The only flagged gate file appends eight spatial records without changing
+prior entries. No additional Godot run was needed for static verification. This INERT
 report changes no ledger requirement status.
 
 Worktree clean at report time: no. Owner dossier inputs, unrelated in-situ
