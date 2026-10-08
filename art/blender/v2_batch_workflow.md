@@ -252,3 +252,8 @@ actually reaches the parent target. Record rejected camera collider paths and
 local hit/target positions, so a blocked camera cannot conceal a stale body.
 After a local prototype repair, compare all unchanged glTF accessors exactly
 before reusing their native views; review changed views before shared import.
+
+Use the same **C:/ov/v2-fabrication** verifier work directory across batches.
+Its baseline board cache is keyed by merge-base and tool version; changing the
+work directory needlessly reruns the unchanged baseline. Temporary checkouts
+still retire normally, while cached baseline boards remain for reuse.

@@ -7,7 +7,13 @@ REPORT - V2-HOUSEHOLD-ACCESSORIES - 2026-10-07
 Branch / HEAD / origin/main / merge-base: canonical **main**, source parent
 **934b8c07b1458c1b5d397c4e32e93a87f74e7708**. No push. Worktree clean at end:
 no; owner **shots.md** and **shot_024..027.png** are excluded. Selector remains
-V2 with explicit V1 rollback. Candidate static verification is pending.
+V2 with explicit V1 rollback. Source **6283abcdd562d45b5f2454fad96bd2badf33c315** has the exact verified tree
+**02035e18ff123d575798ce68228026e7b2535fdf**. Anonymous candidate
+**19197c6428df8056ab52f6bfbfec727d84637a23** passes fresh-checkout verification: zero gate
+regressions, 17 protected paths unchanged, no blocking findings and unchanged
+ledger counts. The sole gate-manifest change was reviewed as append-only
+reference coverage. Existing runtime receipts are reused without another Godot
+run. Temporary verification checkouts were removed.
 
 Ledger before -> after: **7 / 8 / 127 / 42 / 151 / 153**; this report promotes
 no requirements and supplies no runtime-contract proof. Whole V2 is incomplete.
