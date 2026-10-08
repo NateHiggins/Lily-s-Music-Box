@@ -1,0 +1,37 @@
+{
+	"checks": 2177,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 10.142,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Scoped shop optical overrides, preserved source mesh materials, loaded mip chains, one authorized key-copy keyboard transaction, duplicate refusal and owner teardown. Native fit has independent batch validators. The original Radio Service receiver is temporarily enabled for two keyboard sessions across one passage geometry unload/reload. Save reconstruction is not exercised; default cabinet policy remains unchanged.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "326f8cda5d955656be5c39cedd954eb53d8d0c70",
+		"runtime_inputs_sha256": "27e7b1ddb79eb25f49654762488a4936721601e3fa7955c2e271e3be5b86e271",
+		"test_path": "game/tests/orison_v2_owner_shop_finish_test.gd",
+		"test_sha256": "60c028d02b5ed6538172767c509a5627f97bbea10250750379993aef8a76e240"
+	}
+}

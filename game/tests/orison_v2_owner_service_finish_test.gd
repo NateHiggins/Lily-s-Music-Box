@@ -4,6 +4,8 @@ var retained: Array[WeakRef] = []
 var contract_started := 0
 var changed_slots := 0
 var validation_completed := false
+var contract_key := "owner_service_finish"
+var contract_scope := "Scoped service and household finish overrides: loaded mip chains, deployed opaque pigment shaders, retained service mechanism controls, state restoration and owner retirement. Furniture fit, player approach routes and save reconstruction are not exercised by this module."
 
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	contract_started = Time.get_ticks_msec()
@@ -123,9 +125,9 @@ func validate_after_teardown() -> Dictionary:
 	var passed := failures.is_empty(); var status := "PASS" if passed else "FAIL"
 	var path: String=get_script().resource_path
 	var receipt := {"schema_version":2,"evidence_kind":"runtime_contract","selector":"v2","production_runtime":true,
-		"scope":"Scoped service and household finish overrides: loaded mip chains, deployed opaque pigment shaders, retained service mechanism controls, state restoration and owner retirement. Furniture fit, player approach routes and save reconstruction are not exercised by this module.",
+		"scope":contract_scope,
 		"execution":{"completed":true,"exit_code":0 if passed else 1,"timed_out":false,"elapsed_s":(Time.get_ticks_msec()-contract_started)/1000.},
 		"source":{"test_path":"game/"+path.trim_prefix("res://"),"test_sha256":FileAccess.get_sha256(path),"repository_head":str(head[0]).strip_edges() if not head.is_empty() else "","runtime_inputs_sha256":str(digest[0]).strip_edges() if not digest.is_empty() else ""},
 		"contracts":{"production_composition":{"executed":true,"status":status},"save_reconstruction":{"executed":false,"status":"NOT_EXECUTED"},"teardown":{"executed":true,"status":status,"measurement_scope":"runtime_owned","retained_nodes":retained.filter(func(r):return r.get_ref()!=null).size()}},"checks":checks,"failures":failures}
-	FileAccess.open(OS.get_environment("SHOT_DIR").path_join("owner_service_finish/runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t"))
+	FileAccess.open(OS.get_environment("SHOT_DIR").path_join(contract_key+"/runtime_contract.json"),FileAccess.WRITE).store_string(JSON.stringify(receipt,"\t"))
 	return {"checks":checks,"failures":failures}

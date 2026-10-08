@@ -1,0 +1,374 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION of retained LaundryAirerProp dimensions; INFERRED cloth hems and wet-use finish",
+  "asset_sha256": "2054e0ecd0a0b900cea531cc142f275eabcd181e844a89fe1a75c8b428e135b2",
+  "native_sha256": "9cbb3fb1137c1fbb53686ce2cfd55d476630b839e3a8aff75e1430f07d786d3d",
+  "source_bindings": {
+    "art/blender/scripts/build_basement_airer.py": "232d83f0e57f7c7c069dccb2758587ba38c2e47e2e08bade73f1f37127d922a0",
+    "game/scripts/props/laundry_airer_prop.gd": "a9997ce4e8ba463eb96bcd47bab64f59f798a9e2b63f6314114874638b29ff84"
+  },
+  "stocks": [
+    {
+      "name": "RinseTub0",
+      "group": "Fixed",
+      "material": "zinc_liner",
+      "volume_m3": 0.0057138646973500535
+    },
+    {
+      "name": "Tub0Foot-0.25_-0.2",
+      "group": "Fixed",
+      "material": "wood_dark",
+      "volume_m3": 0.0008702317822644702
+    },
+    {
+      "name": "Tub0Foot-0.25_0.2",
+      "group": "Fixed",
+      "material": "wood_dark",
+      "volume_m3": 0.0008702317822644702
+    },
+    {
+      "name": "Tub0Foot0.25_-0.2",
+      "group": "Fixed",
+      "material": "wood_dark",
+      "volume_m3": 0.0008702317822644702
+    },
+    {
+      "name": "Tub0Foot0.25_0.2",
+      "group": "Fixed",
+      "material": "wood_dark",
+      "volume_m3": 0.0008702317822644702
+    },
+    {
+      "name": "DrainTail0",
+      "group": "Fixed",
+      "material": "brass_dull",
+      "volume_m3": 0.00045961941591185485
+    },
+    {
+      "name": "DrainNeck0",
+      "group": "Fixed",
+      "material": "brass_dull",
+      "volume_m3": 0.00021389982530074217
+    },
+    {
+      "name": "DrainCock0",
+      "group": "Fixed",
+      "material": "brass_dull",
+      "volume_m3": 4.736169893465585e-05
+    },
+    {
+      "name": "RinseTub1",
+      "group": "Fixed",
+      "material": "zinc_liner",
+      "volume_m3": 0.005713864698359376
+    },
+    {
+      "name": "Tub1Foot-0.25_-0.2",
+      "group": "Fixed",
+      "material": "wood_dark",
+      "volume_m3": 0.0008702317822644702
+    },
+    {
+      "name": "Tub1Foot-0.25_0.2",
+      "group": "Fixed",
+      "material": "wood_dark",
+      "volume_m3": 0.0008702317822644702
+    },
+    {
+      "name": "Tub1Foot0.25_-0.2",
+      "group": "Fixed",
+      "material": "wood_dark",
+      "volume_m3": 0.0008702317822644702
+    },
+    {
+      "name": "Tub1Foot0.25_0.2",
+      "group": "Fixed",
+      "material": "wood_dark",
+      "volume_m3": 0.0008702317822644702
+    },
+    {
+      "name": "DrainTail1",
+      "group": "Fixed",
+      "material": "brass_dull",
+      "volume_m3": 0.00045961941591185496
+    },
+    {
+      "name": "DrainNeck1",
+      "group": "Fixed",
+      "material": "brass_dull",
+      "volume_m3": 0.00021389982530074051
+    },
+    {
+      "name": "DrainCock1",
+      "group": "Fixed",
+      "material": "brass_dull",
+      "volume_m3": 4.736169893465585e-05
+    },
+    {
+      "name": "Pulley-0.52",
+      "group": "Fixed",
+      "material": "zinc_liner",
+      "volume_m3": 0.00038502032488421184
+    },
+    {
+      "name": "CeilingTackle-0.52",
+      "group": "Fixed",
+      "material": "zinc_liner",
+      "volume_m3": 0.0013436516471172378
+    },
+    {
+      "name": "CeilingHanger-0.52",
+      "group": "Fixed",
+      "material": "zinc_liner",
+      "volume_m3": 9.521614036702461e-05
+    },
+    {
+      "name": "CeilingPlate-0.52",
+      "group": "Fixed",
+      "material": "zinc_liner",
+      "volume_m3": 0.00011495370225770084
+    },
+    {
+      "name": "Pulley0.52",
+      "group": "Fixed",
+      "material": "zinc_liner",
+      "volume_m3": 0.0003850203248842214
+    },
+    {
+      "name": "CeilingTackle0.52",
+      "group": "Fixed",
+      "material": "zinc_liner",
+      "volume_m3": 0.0013436516471172378
+    },
+    {
+      "name": "CeilingHanger0.52",
+      "group": "Fixed",
+      "material": "zinc_liner",
+      "volume_m3": 9.52161403670245e-05
+    },
+    {
+      "name": "CeilingPlate0.52",
+      "group": "Fixed",
+      "material": "zinc_liner",
+      "volume_m3": 0.00011495370225770084
+    },
+    {
+      "name": "OriginalCleat",
+      "group": "Fixed",
+      "material": "wood_dark",
+      "volume_m3": 0.001799541755899572
+    },
+    {
+      "name": "CleatStandExtension",
+      "group": "Fixed",
+      "material": "wood_dark",
+      "volume_m3": 0.0018012718053226433
+    },
+    {
+      "name": "CleatSupportArm",
+      "group": "Fixed",
+      "material": "wood_dark",
+      "volume_m3": 0.0011196716979711484
+    },
+    {
+      "name": "CleatPin1.06",
+      "group": "Fixed",
+      "material": "brass_dull",
+      "volume_m3": 4.525483150581559e-05
+    },
+    {
+      "name": "CleatPin1.15",
+      "group": "Fixed",
+      "material": "brass_dull",
+      "volume_m3": 4.5254831505815154e-05
+    },
+    {
+      "name": "CleatPin1.24",
+      "group": "Fixed",
+      "material": "brass_dull",
+      "volume_m3": 4.525486522330153e-05
+    },
+    {
+      "name": "CleatedReturn0",
+      "group": "Fixed",
+      "material": "linen",
+      "volume_m3": 0.00014095746699212958
+    },
+    {
+      "name": "CleatedReturn1",
+      "group": "Fixed",
+      "material": "linen",
+      "volume_m3": 8.150375445726893e-05
+    },
+    {
+      "name": "Lath-0.22",
+      "group": "Rack",
+      "material": "wood_dark",
+      "volume_m3": 0.001794281754928801
+    },
+    {
+      "name": "Lath-0.11",
+      "group": "Rack",
+      "material": "wood_dark",
+      "volume_m3": 0.001794281754928801
+    },
+    {
+      "name": "Lath0",
+      "group": "Rack",
+      "material": "wood_dark",
+      "volume_m3": 0.001794281754928801
+    },
+    {
+      "name": "Lath0.11",
+      "group": "Rack",
+      "material": "wood_dark",
+      "volume_m3": 0.001794281754928801
+    },
+    {
+      "name": "Lath0.22",
+      "group": "Rack",
+      "material": "wood_dark",
+      "volume_m3": 0.001794281754928801
+    },
+    {
+      "name": "EndStrap-0.56",
+      "group": "Rack",
+      "material": "zinc_liner",
+      "volume_m3": 0.003359271702841417
+    },
+    {
+      "name": "EndStrap0.56",
+      "group": "Rack",
+      "material": "zinc_liner",
+      "volume_m3": 0.003359271702841417
+    },
+    {
+      "name": "Cloth0",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 0.00023065667190698313
+    },
+    {
+      "name": "Cloth0BackHem",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 4.4531799319902484e-07
+    },
+    {
+      "name": "Cloth0FrontHem",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 4.46481185403834e-07
+    },
+    {
+      "name": "Cloth0Selvedge0",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 7.329115087597556e-07
+    },
+    {
+      "name": "Cloth0Selvedge32",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 7.317609971131126e-07
+    },
+    {
+      "name": "Cloth1",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 0.00010875178922753611
+    },
+    {
+      "name": "Cloth1BackHem",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 2.802322155657336e-07
+    },
+    {
+      "name": "Cloth1FrontHem",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 2.821604150642508e-07
+    },
+    {
+      "name": "Cloth1Selvedge0",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 5.494050587993914e-07
+    },
+    {
+      "name": "Cloth1Selvedge32",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 5.489887438963499e-07
+    },
+    {
+      "name": "Cloth2",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 5.272539842822989e-05
+    },
+    {
+      "name": "Cloth2BackHem",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 1.714615656424941e-07
+    },
+    {
+      "name": "Cloth2FrontHem",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 1.7463622303360266e-07
+    },
+    {
+      "name": "Cloth2Selvedge0",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 4.404934031847478e-07
+    },
+    {
+      "name": "Cloth2Selvedge32",
+      "group": "Rack",
+      "material": "linen",
+      "volume_m3": 4.412140942428919e-07
+    },
+    {
+      "name": "SuspensionRope",
+      "group": "Rope",
+      "material": "linen",
+      "volume_m3": 0.00010182337737675614
+    }
+  ],
+  "cloth_count": 3,
+  "tub_count": 2,
+  "rack_travel": [
+    1.38,
+    1.98
+  ],
+  "floor_feet": 8,
+  "cloth_bearing_gap_m": 0.0,
+  "rope_top": [
+    [
+      -0.52,
+      2.42,
+      0
+    ],
+    [
+      0.52,
+      2.42,
+      0
+    ]
+  ],
+  "rope_bottom": [
+    [
+      -0.56,
+      0.075,
+      0
+    ],
+    [
+      0.56,
+      0.075,
+      0
+    ]
+  ]
+}

@@ -2873,7 +2873,19 @@
       "name": "DomesticObject11_ClothDiffuser",
       "assembly": "DomesticObject11",
       "key": "linen",
-      "volume_m3": 4.340717758748921e-05
+      "volume_m3": 3.720710413304907e-05
+    },
+    {
+      "name": "DomesticObject11_DiffuserHem1",
+      "assembly": "DomesticObject11",
+      "key": "linen",
+      "volume_m3": 1.4435224378650318e-07
+    },
+    {
+      "name": "DomesticObject11_DiffuserHem9",
+      "assembly": "DomesticObject11",
+      "key": "linen",
+      "volume_m3": 1.4434997282497724e-07
     },
     {
       "name": "DomesticObject11_HeadYoke",
@@ -4396,7 +4408,7 @@
       "assembly": "DomesticObject11",
       "cell": "shared",
       "key": "linen",
-      "triangles": 12
+      "triangles": 2928
     },
     {
       "name": "DomesticObject11__Body_ON_metal",
@@ -4490,7 +4502,7 @@
       "triangles": 188
     }
   ],
-  "triangles": 134772,
+  "triangles": 137688,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -5518,7 +5530,7 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "7940870f6ece99b0da4008f1d1e89835ad6a5d417fe62f85e1ebd85ba5fc37be",
+  "asset_sha256": "55de7dfda95bf0eae9cd4f346b777c5f28265ed30f423fad4a7dd81b5e252a83",
   "source_bindings": {
     "art/data/domestic_objects/source_plan.json": "6fb0d08dfb3b7eec76527c49744267bea7ed737a1338f84693af98fb885b13f3",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
@@ -5612,22 +5624,22 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "1aeee1f57dfb3013cc9d8028a5a7e115bc80f5214ea4c8670aa0b2b45905e491",
+    "art/blender/scripts/domestic_objects_geometry.py": "2363e827c2663123c74129b768d5edfe99f5022b217041f86014edcdfba07fb8",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707",
     "game/data/orison_v2/completion_interiors.json": "5fa82dc7867693816be370e8a6cea7a5bc71787cb51bdac1892c637e6746505f",
     "art/data/orison_v2/completion_interiors_source.json": "9c2cc8459d7c93733aa047e426145f2e468ade34f14f988f44e522b2160cf0e9",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
-    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "74c6f86eb5499f387460880d4b1400ddd3515f0cf02f1f677ad8ca4129b6db57",
-    "game/data/orison_v2_blockout.json": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab",
+    "game/data/orison_v2_blockout.json": "a4eb64d3f886c75d5e3a46d5629d5c364fc199f564b451df0f730f4787315843",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
     "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e",
     "game/tests/fixtures/orison_surface_stock.json": "046a968349c75f946cff600f351552ca45dfcf85568fa264e4e94ffe2d975ad8",
     "art/blender/domestic_storage.blend": "2ecf3c03e229cb313a07fd549e6d21f9421a7305c6b349f2c68d2387cfc07684",
     "art/blender/prep_cabinets.blend": "6c3cfa636a09f138a4b5f1939939149ee2ac98dc7eea068d8bd118b97e4062b3",
-    "art/blender/household_wardrobes.blend": "ed34e76d54efba76a5e2ef7e862d2b432c199ae8856b29f63793b69a04e77ad7",
+    "art/blender/household_wardrobes.blend": "649ced6b089e289b3f3a7923cb4d07f2ed2d94532f978f2e308f242ad9218ca0",
     "art/blender/scripts/surface_stock_geometry.py": "aa8245d785858c296761d420ec6302e18da3646d386c0b37c4d164c94c8beb12",
     "art/blender/domestic_seating.blend": "b38976cbf3603ee75878320139027f17d6d732b6c27111d99c83719243b46efe",
     "art/blender/domestic_tables.blend": "c408c7b2e9d545f519e0b269ca8691ced4bec2373d98d831228653f7e476b3ea"
@@ -7500,6 +7512,8 @@
         "DomesticObject11_FoldedLightHousing",
         "DomesticObject11_BackCap",
         "DomesticObject11_ClothDiffuser",
+        "DomesticObject11_DiffuserHem1",
+        "DomesticObject11_DiffuserHem9",
         "DomesticObject11_HeadYoke",
         "DomesticObject11_TiltAxle",
         "DomesticObject11_TiltButton-0.034",

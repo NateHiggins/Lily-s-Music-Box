@@ -1,5 +1,11 @@
 extends "res://tests/orison_v2_city_sweep.gd"
 ## Actual retained shop boundaries, fitted supports, imported charts and standing detail views.
+var batch_mode := false
+var capture_enabled := true
+
+func _ready() -> void:
+	if not batch_mode: call_deferred("_run")
+
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
@@ -22,6 +28,11 @@ func _run() -> void:
 	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
 	if passage.residency.state!="RESIDENT":world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	await get_tree().physics_frame;await get_tree().physics_frame
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var passage: OrisonV2PassageRegion = world.passage_region
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_diner_urns.json"))
 	check(FileAccess.get_sha256("res://assets/props/diner_urns.glb")==fixture.asset_sha256,"installed mesh binds the native hollow urn and empty pie-case export")
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
@@ -82,7 +93,7 @@ func _run() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
 	print("DINER URNS: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	return {"checks":checks,"failures":failures,"parts":parts,"triangles":triangles,"supports":supports}
 
 func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, start: Vector3, finish: Vector3) -> Dictionary:
 	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("diner_urns_part",""))==part)
@@ -132,6 +143,7 @@ func _check_urn_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void
 		check(cell.has_node(name),"accepted adjacent native fitting retained: "+name)
 
 func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
+	if not capture_enabled:return
 	var cell: Node3D=world.passage_region.cell_nodes.shop_luncheonette
 	var r: Array=fixture.assemblies[0].floor.rect;var observations: Array=[]
 	for view: Array in [["urn0_clerk",Vector3(20.15,.03,43.47),Vector3(22.81,1.45,43.45)],["urn1_clerk",Vector3(20.15,.03,42.83),Vector3(22.81,1.55,42.83)],["urns_context",Vector3(20.15,.03,43.47),Vector3(22.81,1.75,43.10)],["pie_glazing",Vector3(22.10,.03,40.10),Vector3(22.79,1.28,40.20)],["pie_empty_shelves",Vector3(22.10,.03,40.10),Vector3(22.79,1.43,40.20)],["pie_floor_posts",Vector3(22.10,.03,40.10),Vector3(22.79,1.03,40.20)],["shop_context",Vector3(19.80,.03,40.30),Vector3(22.85,1.35,41.78)]]:

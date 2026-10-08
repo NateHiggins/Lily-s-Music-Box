@@ -10,6 +10,9 @@ def apply_current(group):
     catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials']
     keys={}
     for k,s in catalog.items():keys.setdefault(s['files'][0],k)
+    keys["T_ai_materials_marble_lobby_b_albedo.png"]="marble_lobby_b"
+    for key in profiles:
+        keys.setdefault("T_ai_materials_"+key+"_b_albedo.png",key)
     changed=[]
     for mat in bpy.data.materials:
         if not mat.use_nodes:continue
@@ -31,6 +34,8 @@ def apply_current(group):
             selected=recipe.get('catalog',key)
             if selected!=key:
                 before=catalog[key];after=catalog[selected]
+                legacy=albedo and Path(albedo.image.filepath).name.endswith('_b_albedo.png')
+                if legacy:before={'files':['T_ai_materials_'+key+'_b_'+suffix+'.png' for suffix in ['albedo','rough','normal']],'meters_per_tile':None}
                 for node in textures:
                     name=Path(node.image.filepath).name
                     if name in before['files']:
@@ -38,7 +43,7 @@ def apply_current(group):
                         node.image=bpy.data.images.load(str(ROOT/'game/assets/building/textures'/after['files'][index]),check_existing=True)
                         if index:node.image.colorspace_settings.name='Non-Color'
                 for node in nodes:
-                    if node.type=='VECT_MATH' and node.operation=='SCALE':node.inputs['Scale'].default_value*=before['meters_per_tile']/after['meters_per_tile']
+                    if node.type=='VECT_MATH' and node.operation=='SCALE':node.inputs['Scale'].default_value=1/after['meters_per_tile'] if legacy else node.inputs['Scale'].default_value*before['meters_per_tile']/after['meters_per_tile']
             if not recipe.get('retain_tint',False) and albedo:
                 tint=tuple(v/12.92 if v<=.04045 else ((v+.055)/1.055)**2.4 for v in recipe['color'][:3])+(1,)
                 mix=nodes.new('ShaderNodeMixRGB');mix.blend_type='MULTIPLY';mix.inputs[0].default_value=1;mix.inputs[2].default_value=tint

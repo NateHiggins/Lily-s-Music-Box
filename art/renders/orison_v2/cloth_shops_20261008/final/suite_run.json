@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 69.31,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T18:49:44Z",
+  "started_utc": "2026-10-08T18:48:34Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/cloth-shop-final-08.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/cloth-shop-final-08.log",
+  "stdout_sha256": "51a2a5c826af91f48c7b2c8cf4ae5e40d8b24cba3e4e2e1fcc91d1076f95fc2e"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/cloth-shop-final-08",
+ "source": {
+  "dirty_paths": 328,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/bath_shower.blend",
+   " M art/blender/domestic_objects.blend",
+   " M art/blender/domestic_objects_construction.json",
+   " M art/blender/druggist_carboys.blend",
+   " M art/blender/druggist_carboys_construction.json",
+   " M art/blender/household_wardrobes.blend",
+   " M art/blender/household_wardrobes_construction.json",
+   " M art/blender/scripts/build_bathroom_details.py",
+   " M art/blender/scripts/build_druggist_carboys.py",
+   " M art/blender/scripts/domestic_objects_geometry.py",
+   " M art/blender/scripts/household_wardrobes_geometry.py",
+   " M art/blender/scripts/owner_finish_materials.py",
+   " M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/assets/props/bath_shower.glb",
+   " M game/assets/props/domestic_objects.glb",
+   " M game/assets/props/druggist_carboys.glb",
+   " M game/assets/props/household_wardrobes.glb",
+   " M game/data/orison_v2/owner_finish_profiles.json"
+  ],
+  "repository_head": "326f8cda5d955656be5c39cedd954eb53d8d0c70",
+  "repository_tree": "01d8717ee914de975e15e3e33aa8e85efac47afe",
+  "runtime_inputs_sha256": "0fc5590d36eb740a88d104963e1e917afdea6525a0957cc99d87c39c828b08cf",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "99eb97ec26837bd6663bfa4ed6b613b221dde1f025db291362b6a426e7efc9ae"
+ },
+ "windowed": true
+}

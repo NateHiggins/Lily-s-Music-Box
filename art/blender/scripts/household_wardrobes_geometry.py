@@ -47,6 +47,19 @@ def folded_cloth(label,lo,hi):
  boundary=list(range(nr))+[i*nr+nr-1 for i in range(1,nx+1)]+[nx*nr+j for j in range(nr-2,-1,-1)]+[i*nr for i in range(nx-1,0,-1)]
  faces.extend((a,b,b+stride,a+stride) for a,b in zip(boundary,boundary[1:]+boundary[:1]))
  tag(solid(identity+'_'+label,verts,faces,identity,key))
+ # Folded hems and side seams belong to each retained garment, not to the
+ # repeating weave tile. Half-embedded fine cords give a restrained sewn
+ # edge without changing source colours, hems, hanger or garment count.
+ for j in [1,nr-2]:
+  seam=[]
+  for i in range(1,nx):
+   x,y,z=verts[i*nr+j];seam.append((x,y+(-.00025 if j<nr/2 else .00025),z))
+  tag(curved_wire(identity+'_'+label+'Hem'+str(j),seam,.00045,identity,key))
+ for i in [1,nx-1]:
+  seam=[]
+  for j in range(nr//2+3,nr-1):
+   x,y,z=verts[i*nr+j];seam.append((x,y+.00025,z))
+  tag(curved_wire(identity+'_'+label+'SideSeam'+str(i),seam,.00045,identity,key))
  # Hanger width fits the source silhouette; its crossbar carries the fold.
  hw=half*.94
  tag(curved_wire(identity+'_'+label+'Hanger',[(cx-hw,.02,bar),(cx,.02,1.58),(cx+hw,.02,bar),(cx-hw,.02,bar)],.0015,identity,'metal'))

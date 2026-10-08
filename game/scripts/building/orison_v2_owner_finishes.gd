@@ -15,17 +15,50 @@ func _init() -> void:
 	for key: String in MatLib.SETS:
 		if not _keys.has(str(MatLib.SETS[key][0])): _keys[str(MatLib.SETS[key][0])] = key
 
+# Source-only legacy marble has no new catalogue key; retain its registered shipping maps.
 func apply_service_actors(root: Node) -> void:
+	preload("res://scripts/building/orison_v2_service_floor_finish.gd").apply(root)
 	for actor: Node in root.find_children("*", "Node3D", true, false):
 		var group := ""
 		if actor is BoilerProp: group = "heating"
 		elif actor is RadiatorProp: group = "heating"
 		elif actor is WasherProp: group = "washer"
+		elif actor is LaundryAirerProp: group = "airer"
 		elif actor is TapProp and actor.fixture in ["bath_sink", "shower"]: group = "bath"
 		elif actor.get_script() == preload("res://scripts/building/orison_v2_water_closet.gd"): group = "bath"
+		elif str(actor.get_meta("v2_native_domestic_variant","")).begins_with("DomesticObject"): group = "domestic_objects"
 		elif actor.has_meta("v2_furniture_id") or actor.has_meta("v2_surface_prop"): group = "domestic"
 		elif actor.has_meta("v2_native_toaster_variant") or actor.has_meta("v2_native_medicine_variant"): group = "small_appliance"
-		if not group.is_empty(): apply_actor(actor, group)
+		if not group.is_empty():
+			apply_actor(actor, group)
+			preload("res://scripts/building/orison_v2_service_wear.gd").apply(actor)
+
+func apply_shop_cell(cell: Node3D) -> void:
+	for model: Node in cell.get_children():
+		if model.has_meta("original_meshes"): apply_actor(model,"shop")
+
+static func apply_shop_wear(cell: Node3D) -> void:
+	# Applied after attachment, so source-local upper rails map to real world
+	# heights on initial composition and every streamed reconstruction.
+	for model: Node in cell.get_children():
+		if model.name != "PawnDisplay": continue
+		var slots := 0
+		for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+			if not str(draw.get_meta("pawn_display_part","")).contains("_case_"): continue
+			var original := draw.get_active_material(0) as ShaderMaterial
+			if original == null or str(original.get_meta("v2_owner_finish","")) != "shop/wood_dark": continue
+			var finish := original.duplicate() as ShaderMaterial
+			var bounds: AABB = draw.global_transform * draw.mesh.get_aabb()
+			finish.set_shader_parameter("state_rect",Vector4(bounds.position.x-.005,bounds.position.z-.005,bounds.end.x+.005,bounds.end.z+.005))
+			finish.set_shader_parameter("state_y",Vector2(bounds.end.y-.045,bounds.end.y+.002))
+			finish.set_shader_parameter("state_edge_m",.008)
+			finish.set_shader_parameter("mask_amount",Vector4(0,.035,0,.17))
+			finish.set_shader_parameter("mask_proc_scale",24.)
+			finish.set_shader_parameter("wear_on_crests",.45)
+			finish.set_shader_parameter("wear_rough",.44)
+			draw.set_surface_override_material(0,finish)
+			slots += 1
+		model.set_meta("v2_local_shop_wear_slots",slots)
 
 func apply_actor(actor: Node, group: String) -> void:
 	if actor.has_meta("v2_owner_finish_group"): return
@@ -61,6 +94,10 @@ func material_for(original: Material, group: String) -> Material:
 	# Stateful water, fire, lamps and optical glass keep their exact resources.
 	if source.emission_enabled or source.transparency != BaseMaterial3D.TRANSPARENCY_DISABLED or source.albedo_texture == null: return original
 	var key: String = _keys.get(source.albedo_texture.resource_path.get_file(), "")
+	var filename := source.albedo_texture.resource_path.get_file()
+	var legacy := key.is_empty() and filename.begins_with("T_ai_materials_") and filename.ends_with("_b_albedo.png")
+	if legacy: key = filename.trim_prefix("T_ai_materials_").trim_suffix("_b_albedo.png")
+	if key == "marble_lobby": key = "marble_lobby_b"
 	var recipe: Dictionary = _profiles[group].get(key, {})
 	if recipe.is_empty(): return original
 	# Existing local rust/corrosion patches are separate from the clean casting.
@@ -74,7 +111,8 @@ func material_for(original: Material, group: String) -> Material:
 		result.albedo_texture = maps.albedo_texture
 		result.normal_texture = maps.normal_texture
 		result.roughness_texture = maps.roughness_texture
-		result.uv1_scale *= float(MatLib.SETS[key][3]) / float(MatLib.SETS[selected][3])
+		if legacy and not source.uv1_triplanar: result.uv1_scale = Vector3.ONE / float(MatLib.SETS[selected][3])
+		else: result.uv1_scale *= float(MatLib.SETS[key][3]) / float(MatLib.SETS[selected][3])
 	if bool(recipe.get("untextured", false)):
 		result.albedo_texture = null
 		result.roughness_texture = null
@@ -88,7 +126,7 @@ func material_for(original: Material, group: String) -> Material:
 	result.metallic = float(recipe.metallic)
 	result.set_meta("v2_owner_finish", group + "/" + key)
 	var final: Material = result
-	if recipe.has("pigment") and not result.vertex_color_use_as_albedo:
+	if recipe.has("pigment") and result.albedo_texture != null and not result.vertex_color_use_as_albedo:
 		result.resource_name = "M_" + selected
 		final = SurfacePass.surface_for(result,{"pigment_variation":float(recipe.pigment),"relief_mul":0.})
 		final.set_meta("v2_owner_finish",group + "/" + key)

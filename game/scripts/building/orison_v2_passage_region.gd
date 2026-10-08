@@ -279,6 +279,9 @@ func _ready() -> void:
 		if not DinerReceiving.mount_cell(cell_nodes[identity],source_layout,cabinets_enabled):
 			_fail("native Diner receiving pair refused: "+identity)
 			return
+	var owner_finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd").new()
+	for cell: Node3D in cell_nodes.values(): owner_finishes.apply_shop_cell(cell)
+	for cell: Node3D in cell_nodes.values(): owner_finishes.apply_shop_wear(cell)
 	surface_pass.apply(cell_nodes)
 	_actors = Node3D.new()
 	_actors.name = "PassageActors"
@@ -477,6 +480,7 @@ func activate_geometry(geometry: Node3D, cells: Dictionary, surfaces: RefCounted
 	_geometry_root.name = "ResidentGeometry"
 	add_child(_geometry_root)
 	cell_nodes.merge(cells)
+	for cell: Node3D in cells.values(): preload("res://scripts/building/orison_v2_owner_finishes.gd").apply_shop_wear(cell)
 	surface_pass = surfaces
 	_actors.process_mode = Node.PROCESS_MODE_INHERIT
 	_actors.visible = true

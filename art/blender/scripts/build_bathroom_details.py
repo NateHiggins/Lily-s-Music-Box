@@ -6,6 +6,7 @@ import bpy
 import math
 import json
 import sys
+import os
 from pathlib import Path
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
@@ -99,20 +100,24 @@ for x in [-.34,.34]:
     pipe('RodBrace',[(x,2.02,-.20),(x,2.19,.35)],.005,nickel,fixed)
     cyl('BraceWallPlate',(x,2.19,.35),.019,.009,nickel,(0,0,1),fixed)
 def cloth(name,gathered):
-    parent=group(name);verts=[];faces=[];nx=144;ny=24
+    parent=group(name);verts=[];faces=[];nx=144;ny=36
     for j in range(ny+1):
         v=j/ny
         for i in range(nx+1):
             u=i/nx
             if gathered:
-                x=.34+(.018+.025*v)*math.sin(u*math.pi*18)+.006*v*math.sin(u*19+v*4)
+                phase=u*math.pi*18+.16*v*math.sin(u*17+.4)
+                x=.34+(.018+.022*v)*math.sin(phase)+.004*v*math.sin(u*19+v*4)
                 z=.14+.18*u+.006*v*math.sin(u*23)
             else:
                 length=u*1.96
                 if length<.64:x=-.34;z=.32-length;normal=(1,0)
                 elif length<1.32:x=-.34+length-.64;z=-.32;normal=(0,1)
                 else:x=.34;z=-.32+length-1.32;normal=(-1,0)
-                wave=(.018+.005*v)*math.sin(u*math.tau*18)+.003*math.sin(v*7+u*21)
+                # Ring positions stay fixed. Fold depth/phase becomes less
+                # regular down the weight of the cloth, never a tiled fold.
+                phase=u*math.tau*18+.24*v*math.sin(u*23+.6)
+                wave=(.018+.004*v+.003*v*math.sin(u*17))*math.sin(phase)+.002*v*math.sin(v*7+u*21)
                 x+=normal[0]*wave;z+=normal[1]*wave
             # Lift both hems 75 mm: the deepest fold now clears the 129 mm
             # receptor rim by at least 25 mm, including cloth thickness.
@@ -122,6 +127,13 @@ def cloth(name,gathered):
         for i in range(nx):
             a=j*(nx+1)+i;faces.append((a,a+1,a+nx+2,a+nx+1))
     mesh('RubberizedDuck',verts,faces,duck,parent,.0012)
+    # Turned hem and selvedges follow the physical folds in both poses.
+    # The existing 25 mm receptor clearance stays above the hem thickness.
+    for j in [ny]:
+        edge=[(x,y+.005,z) for x,y,z in verts[j*(nx+1):(j+1)*(nx+1)]]
+        pipe('SewnBottomHem',edge,.00075,duck,parent)
+    for i in [0,nx]:
+        pipe('SewnSelvedge',[verts[j*(nx+1)+i] for j in range(ny+1)],.0007,duck,parent)
     # Separate eyelets follow the unchanged gathered/drawn top edge.
     for i in range(19):
         u=i/18
@@ -150,7 +162,7 @@ for parent in [o for o in bpy.context.scene.objects if o.type=='EMPTY']:
         for o in parts:o.select_set(True)
         bpy.context.view_layer.objects.active=parts[0];bpy.ops.object.join();bpy.context.object.name=parent.name+'_'+mat.name
 save('bath_shower')
-if '--shower-only' in sys.argv:
+if '--shower-only' in sys.argv or os.environ.get('BATH_SHOWER_ONLY')=='1':
     sys.exit(0)
 
 clear()

@@ -159,6 +159,10 @@ func _framed_at(world: OrisonV2RuntimeRoot,body: Node3D,bounds: AABB,feet: Vecto
 	var camera: Camera3D = world.player.camera
 	var frame := camera.get_viewport().get_visible_rect().grow(-16)
 	var excluded: Array[RID] = [world.player.get_rid(),(body as CollisionObject3D).get_rid()]
+	# Moving wardrobe leaves belong to the photographed subject. Their own
+	# corner occlusion is tested against the garment meshes separately.
+	if body.has_meta("v2_native_wardrobe_variant"):
+		for owned: CollisionObject3D in body.find_children("*","CollisionObject3D",true,false): excluded.append(owned.get_rid())
 	# This stand and the original basin are one inspection subject. The basin
 	# legitimately occludes its rear support corners; unrelated walls still block.
 	var basin := _supported_basin(world,body)

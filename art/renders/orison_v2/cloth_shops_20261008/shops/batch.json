@@ -1,0 +1,499 @@
+{
+	"batch_checks": 73,
+	"elapsed_ms": 202655,
+	"evidence_class": "INERT",
+	"failures": [
+		"household_wardrobes: clear full wardrobe camera station: 3B_aw_wardrobe open"
+	],
+	"module_checks": 20653,
+	"modules": {
+		"cobbler_fittings": {
+			"captured": true,
+			"checks": 751,
+			"elapsed_ms": 12356,
+			"failures": [],
+			"fixture_sha256": "0f5c72f2f12df7fccc2e0ec50316fc9183a278cb49276f1f5252d7c9fd73c835",
+			"parts": 46,
+			"removed": 588,
+			"supports": 37,
+			"triangles": 117708,
+			"validator_sha256": "5bd844d6c0f0366cbabe8aaf49db4c10fb5c3af8642d36532db84b590d4cd68f"
+		},
+		"diner_apparatus": {
+			"captured": true,
+			"checks": 229,
+			"elapsed_ms": 11382,
+			"failures": [],
+			"fixture_sha256": "8e1c45b9bbcdc373a183de6434377f3e03c131c2725e4db17879e83356cf2da7",
+			"parts": 6,
+			"supports": 32,
+			"triangles": 21240,
+			"validator_sha256": "1810f3c06ae140b9f272c84f6841e34ecc81287c9678c25323eba56889fbafdc"
+		},
+		"diner_counter": {
+			"captured": false,
+			"checks": 136,
+			"elapsed_ms": 95,
+			"failures": [],
+			"fixture_sha256": "dc45b5a5764206cb1312522f3971e0291c0d4b009f042a381ba5c2dae8164bda",
+			"parts": 5,
+			"removed": 48,
+			"supports": 8,
+			"triangles": 4760,
+			"validator_sha256": "9d82678688e315746ffb4c7e439bf09394460f8ccbb150284304c75b030010eb"
+		},
+		"diner_urns": {
+			"captured": true,
+			"checks": 187,
+			"elapsed_ms": 8805,
+			"failures": [],
+			"fixture_sha256": "93b822a6817330ee5074d09bf07f401b481d7db629f16bdf1a9e694b80abef28",
+			"parts": 9,
+			"supports": 12,
+			"triangles": 12472,
+			"validator_sha256": "9a1b134d9324328424c70b8b5572ed3b781ab1b1ebf6b1b95bc82a7c98daa02a"
+		},
+		"druggist_carboys": {
+			"captured": true,
+			"checks": 449,
+			"elapsed_ms": 10339,
+			"failures": [],
+			"fixture_sha256": "fb97a6acb64e018e389e6395beab6b9e28415acbb5fda0c2531e19a8b66b994c",
+			"parts": 19,
+			"supports": 22,
+			"triangles": 99192,
+			"validator_sha256": "5332b77857498dc9b5de5c6530435719e94a2ee54f3e5b56fc2ed035eec1d5a3"
+		},
+		"druggist_fountain": {
+			"captured": true,
+			"checks": 184,
+			"elapsed_ms": 9223,
+			"failures": [],
+			"fixture_sha256": "a6219bdbfd3c8ed3d557289c9fbc9816b40e40b38e0c8f4a69c2723ead76de9c",
+			"parts": 9,
+			"supports": 4,
+			"triangles": 20640,
+			"validator_sha256": "aaf1edae0a2c5c61e8016bcdc32db9e3b8b4c507cd36b0ffa03d701d9e6c84e8"
+		},
+		"druggist_mortar": {
+			"captured": false,
+			"checks": 43,
+			"elapsed_ms": 77,
+			"failures": [],
+			"fixture_sha256": "ffc30945f1cf53588d3c2ba9ddac64221ffa12dc9d6ee065e55d2584e185aaee",
+			"parts": 2,
+			"supports": 2,
+			"triangles": 4218,
+			"validator_sha256": "cb1a03704ddc903368700a6c7e320a13fdc39caa8cf7eab6a9028eb721da5fc6"
+		},
+		"funeral_drapes": {
+			"captured": true,
+			"checks": 184,
+			"elapsed_ms": 12010,
+			"failures": [],
+			"fixture_sha256": "54089264735c0656697481cbfe91445f0b65611e1188424506953ed3b76da293",
+			"parts": 4,
+			"supports": 20,
+			"triangles": 51776,
+			"validator_sha256": "c831a4a4f9851422ec215f51312b42506e8e561062742bbbdb05753475047c62"
+		},
+		"funeral_foliage": {
+			"captured": true,
+			"checks": 253,
+			"elapsed_ms": 14128,
+			"failures": [],
+			"fixture_sha256": "d8b3a977ddf957db479648a5b75ba4359f41b03a03dad2a1de5d4dcc2d900675",
+			"parts": 14,
+			"supports": 16,
+			"triangles": 96944,
+			"validator_sha256": "0f18dfe22de0eb8aee8a6b813566fbf1c2ac34ae98e8a66461fe99301ffdbf5a"
+		},
+		"hardware_stock": {
+			"captured": false,
+			"checks": 1372,
+			"elapsed_ms": 3109,
+			"failures": [],
+			"fixture_sha256": "53ff7fddc8d9c9c5d49d559a65a52105b2f79fec7771e25d4f36607f929026f6",
+			"parts": 81,
+			"removed": 636,
+			"supports": 56,
+			"triangles": 170472,
+			"validator_sha256": "3dafd04180a1b6d4cb9b57e63b36b19ffb799ae1a76c2b02938457d5630ce311"
+		},
+		"hardware_tools": {
+			"captured": false,
+			"checks": 254,
+			"elapsed_ms": 381,
+			"failures": [],
+			"fixture_sha256": "7b13ed2cfff27a06347f60eacdfcc3acc43541a24ca1565bae59c940af63b055",
+			"parts": 11,
+			"removed": 408,
+			"supports": 12,
+			"triangles": 10976,
+			"validator_sha256": "67779ac2b944a2bf293a576d57a7552ff661a1a0fb66e5d1c14462770b6d3f59"
+		},
+		"household_wardrobes": {
+			"actors": 21,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 2077,
+			"elapsed_ms": 4223,
+			"failures": [
+				"clear full wardrobe camera station: 3B_aw_wardrobe open"
+			],
+			"fixture_sha256": "3a2c2a6a527690290f4c51cb35a8a82f8b316316504e7d0d2395b744bf225966",
+			"parts": 231,
+			"unique_triangles": 551616,
+			"validator_sha256": "3b8183353a07aeebb6b1b4de1c5a9e3784f84355999c3fcf5233262825395cab",
+			"views": [
+				{
+					"bucket": "native private wardrobe",
+					"feet": [
+						-11.7614994049072,
+						6.42000007629395,
+						-0.791813373565674
+					],
+					"id": "3B_aw_wardrobe_closed",
+					"image": "3B_aw_wardrobe_closed.png",
+					"inspection_fov": 72.0,
+					"owner": "3B_aw_wardrobe",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"laundry_apparatus": {
+			"captured": false,
+			"checks": 284,
+			"elapsed_ms": 96,
+			"failures": [],
+			"fixture_sha256": "fb8b15aa80e05947b30077b8817de49b9508692511e89c835f7403ea9fc1e7d0",
+			"parts": 18,
+			"removed": 276,
+			"supports": 24,
+			"triangles": 32980,
+			"validator_sha256": "dfc3facfc32367ab823938bde9106de2601abdc1de7398226c84c9077113de6b"
+		},
+		"laundry_fittings": {
+			"captured": true,
+			"checks": 1140,
+			"elapsed_ms": 19970,
+			"failures": [],
+			"fixture_sha256": "cc1bc03c1e925309dbdee5603dcc4508c137c1e8740876a417028ebfe53016de",
+			"parts": 99,
+			"removed": 636,
+			"supports": 57,
+			"triangles": 83928,
+			"validator_sha256": "47a4d8440eb40a43b72524899f315cdba7b55dc98b82802ba3e282f11f6ad2cd"
+		},
+		"laundry_trade": {
+			"captured": false,
+			"checks": 311,
+			"elapsed_ms": 142,
+			"failures": [],
+			"fixture_sha256": "181fdb02c10875ffd91efa588358c7c4487646e484f77690a3aea43066526f07",
+			"parts": 14,
+			"removed": 312,
+			"supports": 29,
+			"triangles": 20218,
+			"validator_sha256": "63c594b51a058e832daff67d5d62afe83074f6fe86e56b597002113d5171951f"
+		},
+		"locksmith_fittings": {
+			"captured": true,
+			"checks": 877,
+			"elapsed_ms": 8875,
+			"failures": [],
+			"fixture_sha256": "b30e6809cc37c220045922b6f47b55da7c80a9ad966b81c83c05672167f3934b",
+			"parts": 30,
+			"removed": 1596,
+			"supports": 34,
+			"triangles": 93880,
+			"validator_sha256": "c4ae9f33b8c15c746e9e57e67feb5d70035a1bea28eaf9a340504a31bd33d1f1"
+		},
+		"owner_service_finish": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"changed_slots": 2640,
+			"checks": 6863,
+			"elapsed_ms": 281,
+			"failures": [],
+			"fixture_sha256": "0ef46d773e5ff37f219c29c504a652a9c42bf96db3843bf1dc23e481cf5cbcdd",
+			"loaded_texture_maps": 102,
+			"owners": 351,
+			"shader_slots": 1603,
+			"validator_sha256": "2ebc288eab371f4b65f22383a2126337bd343bb96fb382eb9a60436b16f59e45"
+		},
+		"owner_shop_finish": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"changed_slots": 974,
+			"checks": 2177,
+			"elapsed_ms": 8660,
+			"failures": [],
+			"fixture_sha256": "",
+			"loaded_texture_maps": 75,
+			"owners": 63,
+			"validator_sha256": "60c028d02b5ed6538172767c509a5627f97bbea10250750379993aef8a76e240"
+		},
+		"pawn_clocks": {
+			"captured": false,
+			"checks": 989,
+			"elapsed_ms": 948,
+			"failures": [],
+			"fixture_sha256": "e26e0dbbb4ff372f29cc944d6f60c6c73c7aa093a07e07d121ee95f737c56722",
+			"parts": 68,
+			"removed": 180,
+			"supports": 30,
+			"triangles": 27816,
+			"validator_sha256": "9dfb99f42c9ceba61b6c77429eda2320356df5777bbad66806dbe83fd7b4e40e"
+		},
+		"pawn_display": {
+			"captured": true,
+			"checks": 299,
+			"elapsed_ms": 9017,
+			"failures": [],
+			"fixture_sha256": "86f5757fead8b1fd84578436d7e083aef9f726261e61c4d48d7b8c785aa85d6f",
+			"parts": 16,
+			"removed": 96,
+			"supports": 14,
+			"triangles": 28296,
+			"validator_sha256": "f798516421cf74e7fb5e3cec9bdf77001d67c4be98f5ebbcf7615fbb843bb75d"
+		},
+		"pawn_fittings": {
+			"captured": false,
+			"checks": 546,
+			"elapsed_ms": 229,
+			"failures": [],
+			"fixture_sha256": "4101c2421d62c7596c29b10fb4f8df03a1595b85468655ff097bb44a05ade68e",
+			"parts": 33,
+			"removed": 480,
+			"supports": 23,
+			"triangles": 44672,
+			"validator_sha256": "afa61ef00d6d9f2daf925948fcdc03ef169ba04b3b26d08a188890bd929399f6"
+		},
+		"photo_cameras": {
+			"captured": true,
+			"checks": 168,
+			"elapsed_ms": 9141,
+			"failures": [],
+			"fixture_sha256": "d144a8a53127b2dc1f74ad9bbe21d5ffa557078f528a62d5f2a59fdc265319cd",
+			"parts": 8,
+			"removed": 96,
+			"supports": 7,
+			"triangles": 10016,
+			"validator_sha256": "cc8e1af4650fa1c0f794bb3e5826b50b7ed568f0fe23aa05d2490db5dcf13078"
+		},
+		"photo_stock": {
+			"captured": false,
+			"checks": 287,
+			"elapsed_ms": 161,
+			"failures": [],
+			"fixture_sha256": "15e7808dc30ff611a1be54f11521bb783962daae409442dee9febc5e7b5f2652",
+			"parts": 16,
+			"removed": 240,
+			"supports": 19,
+			"triangles": 18988,
+			"validator_sha256": "e5aec2ef86bd00424a323d294b43b4483a45ea04d4101bd21b6709875fa93678"
+		},
+		"radio_battery": {
+			"captured": true,
+			"checks": 247,
+			"elapsed_ms": 8545,
+			"failures": [],
+			"fixture_sha256": "a3a5a9ed958fba43874c24213c564739f3f2e1fee40ac2beb27e27a95d373bed",
+			"parts": 7,
+			"supports": 4,
+			"triangles": 20912,
+			"validator_sha256": "5e9faa7b515a2f41f9b63230871632485cbb5791a4d18d5b66c806a748b19fcf"
+		},
+		"radio_wire": {
+			"captured": false,
+			"checks": 115,
+			"elapsed_ms": 479,
+			"failures": [],
+			"fixture_sha256": "f31b6f144cfdac018bd50b77c39690c06552845eb862461229f7c97e04692556",
+			"parts": 4,
+			"removed": 24,
+			"supports": 8,
+			"triangles": 30108,
+			"validator_sha256": "83205e76fb26cd3ecf431e89885675ab30dd0aea080c23cc3def2e1a82d17488"
+		},
+		"wet_cloth": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 231,
+			"cloth_count": 3,
+			"elapsed_ms": 12771,
+			"failures": [],
+			"fixture_sha256": "",
+			"local_residue_slots": 161,
+			"validator_sha256": "9d72a238686cfd41c52e3c65aa1ab51e314f4d3cad13d6d5328dcb36a48d2654",
+			"views": [
+				{
+					"bucket": "native wet-work stock lowered",
+					"feet": [
+						5.30000114440918,
+						-3.1800000667572,
+						-13.2499990463257
+					],
+					"id": "airer_lowered",
+					"image": "airer_lowered.png",
+					"owner": "B1_LAUNDRY_AIRER_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native wet-work stock raised",
+					"feet": [
+						5.30000114440918,
+						-3.1800000667572,
+						-13.2499990463257
+					],
+					"id": "airer_raised",
+					"image": "airer_raised.png",
+					"owner": "B1_LAUNDRY_AIRER_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "local service use and unchanged practicals",
+					"feet": [
+						3.40000081062317,
+						-3.17000007629395,
+						-9.24999904632568
+					],
+					"id": "B1_LAUNDRY_finish",
+					"image": "B1_LAUNDRY_finish.png",
+					"owner": "B1_LAUNDRY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "firing approach and local service use",
+					"feet": [
+						-10.2999992370605,
+						-3.17000007629395,
+						-10.5500001907349
+					],
+					"id": "B1_BOILER_ROOM_finish",
+					"image": "B1_BOILER_ROOM_finish.png",
+					"owner": "B1_BOILER_ROOM",
+					"status": "captured_pending_visual_review"
+				}
+			],
+			"walked_service_approaches": [
+				{
+					"actual": [
+						-3.22146463394165,
+						-3.19916319847107,
+						-2.30341053009033
+					],
+					"ok": true,
+					"target": [
+						-3.20000004768372,
+						-3.20000004768372,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.90018796920776,
+						-3.19916319847107,
+						-2.39745044708252
+					],
+					"ok": true,
+					"target": [
+						-7.0,
+						-3.20000004768372,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.29620456695557,
+						-3.19916319847107,
+						-0.233392715454102
+					],
+					"ok": true,
+					"target": [
+						-8.35000038146973,
+						-3.20000004768372,
+						-0.150000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.08989191055298,
+						-3.19916319847107,
+						-0.76070499420166
+					],
+					"ok": true,
+					"target": [
+						-7.0,
+						-3.20000004768372,
+						-0.800000011920929
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-5.35912752151489,
+						-3.19916319847107,
+						1.52201652526855
+					],
+					"ok": true,
+					"target": [
+						-5.30000019073486,
+						-3.20000004768372,
+						1.60000002384186
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6000003814697,
+						-3.19914078712463,
+						2.3035774230957
+					],
+					"ok": true,
+					"target": [
+						10.6000003814697,
+						-3.20000004768372,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.9819192886353,
+						-3.19914078712463,
+						2.38110637664795
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0622510910034,
+						-3.19914078712463,
+						3.00153732299805
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						3.09999990463257
+					],
+					"wall_contacts": {}
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

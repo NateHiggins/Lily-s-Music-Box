@@ -1,5 +1,11 @@
 extends "res://tests/orison_v2_city_sweep.gd"
 ## Actual retained shop boundaries, fitted supports, imported charts and standing detail views.
+var batch_mode := false
+var capture_enabled := true
+
+func _ready() -> void:
+	if not batch_mode: call_deferred("_run")
+
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
@@ -22,10 +28,15 @@ func _run() -> void:
 	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
 	if passage.residency.state!="RESIDENT":world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	await get_tree().physics_frame;await get_tree().physics_frame
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var passage: OrisonV2PassageRegion = world.passage_region
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_funeral_foliage.json"))
 	var installed: bool=passage.cell_nodes.has("shop_funeral_parlour") and passage.cell_nodes.shop_funeral_parlour.has_node("FuneralFoliage")
 	check(installed,"actual retained funeral cell and native fittings exist before their contracts")
-	if not installed:world.shutdown_for_tests();world.free();get_tree().quit(1);return
+	if not installed:return {"checks":checks,"failures":failures}
 	check(FileAccess.get_sha256("res://assets/props/funeral_foliage.glb")==fixture.asset_sha256,"installed mesh binds the native foliage export")
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
 	for record: Dictionary in fixture.runtime.cells:
@@ -82,7 +93,7 @@ func _run() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
 	print("FUNERAL FOLIAGE: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	return {"checks":checks,"failures":failures,"parts":parts,"triangles":triangles,"supports":supports}
 
 func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, start: Vector3, finish: Vector3) -> Dictionary:
 	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("funeral_foliage_part",""))==part)
@@ -131,6 +142,7 @@ func _check_foliage_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 	check(not fixture.runtime.cells[0].replace.any(func(row):return str(row.id)=="storm_shop_funeral_parlour_boh_door"),"retained decorative rear door is outside the eight replacement owners")
 
 func _retail_detail_views(world: OrisonV2RuntimeRoot, _fixture: Dictionary) -> void:
+	if not capture_enabled:return
 	var cell: Node3D=world.passage_region.cell_nodes.shop_funeral_parlour;var observations: Array=[]
 	for view: Dictionary in FOLIAGE_BASELINE_VIEWS:
 		var feet:=_v(view.feet);var target:=_v(view.target)

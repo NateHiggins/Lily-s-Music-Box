@@ -1,0 +1,37 @@
+{
+	"checks": 231,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 166.512,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Native V2 airer original control, interrupted travel, suspension endpoints, cloth/tub clearance, original physical reach, repeated shower curtain poses, local residue deployment, live collision-controlled laundry/boiler service approaches and teardown. Save reconstruction and full building routes are not exercised.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "326f8cda5d955656be5c39cedd954eb53d8d0c70",
+		"runtime_inputs_sha256": "27e7b1ddb79eb25f49654762488a4936721601e3fa7955c2e271e3be5b86e271",
+		"test_path": "game/tests/orison_v2_wet_cloth_test.gd",
+		"test_sha256": "9d72a238686cfd41c52e3c65aa1ab51e314f4d3cad13d6d5328dcb36a48d2654"
+	}
+}

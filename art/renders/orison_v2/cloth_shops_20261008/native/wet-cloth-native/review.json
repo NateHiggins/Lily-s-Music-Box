@@ -1,0 +1,149 @@
+{
+  "evidence_class": "INERT",
+  "checks": [
+    {
+      "pass": true,
+      "label": "airer floor bearing",
+      "name": "Tub0Foot-0.25_-0.2",
+      "z": 0.0
+    },
+    {
+      "pass": true,
+      "label": "airer floor bearing",
+      "name": "Tub0Foot-0.25_0.2",
+      "z": 0.0
+    },
+    {
+      "pass": true,
+      "label": "airer floor bearing",
+      "name": "Tub0Foot0.25_-0.2",
+      "z": 0.0
+    },
+    {
+      "pass": true,
+      "label": "airer floor bearing",
+      "name": "Tub0Foot0.25_0.2",
+      "z": 0.0
+    },
+    {
+      "pass": true,
+      "label": "airer floor bearing",
+      "name": "Tub1Foot-0.25_-0.2",
+      "z": 0.0
+    },
+    {
+      "pass": true,
+      "label": "airer floor bearing",
+      "name": "Tub1Foot-0.25_0.2",
+      "z": 0.0
+    },
+    {
+      "pass": true,
+      "label": "airer floor bearing",
+      "name": "Tub1Foot0.25_-0.2",
+      "z": 0.0
+    },
+    {
+      "pass": true,
+      "label": "airer floor bearing",
+      "name": "Tub1Foot0.25_0.2",
+      "z": 0.0
+    },
+    {
+      "pass": true,
+      "label": "cloth crown bears on lath",
+      "cloth": 0,
+      "x": -0.335,
+      "gap_m": 0.0
+    },
+    {
+      "pass": true,
+      "label": "cloth crown bears on lath",
+      "cloth": 0,
+      "x": -0.31,
+      "gap_m": 0.0
+    },
+    {
+      "pass": true,
+      "label": "cloth crown bears on lath",
+      "cloth": 0,
+      "x": -0.285,
+      "gap_m": 0.0
+    },
+    {
+      "pass": true,
+      "label": "cloth crown bears on lath",
+      "cloth": 1,
+      "x": 0.17500000000000002,
+      "gap_m": 0.0
+    },
+    {
+      "pass": true,
+      "label": "cloth crown bears on lath",
+      "cloth": 1,
+      "x": 0.2,
+      "gap_m": 0.0
+    },
+    {
+      "pass": true,
+      "label": "cloth crown bears on lath",
+      "cloth": 1,
+      "x": 0.225,
+      "gap_m": 0.0
+    },
+    {
+      "pass": true,
+      "label": "cloth crown bears on lath",
+      "cloth": 2,
+      "x": 0.40499999999999997,
+      "gap_m": 0.0
+    },
+    {
+      "pass": true,
+      "label": "cloth crown bears on lath",
+      "cloth": 2,
+      "x": 0.43,
+      "gap_m": 0.0
+    },
+    {
+      "pass": true,
+      "label": "cloth crown bears on lath",
+      "cloth": 2,
+      "x": 0.455,
+      "gap_m": 0.0
+    },
+    {
+      "pass": true,
+      "label": "rinse cavity remains open",
+      "tub": 0,
+      "inner_bottom": 0.4440000057220459
+    },
+    {
+      "pass": true,
+      "label": "rinse cavity remains open",
+      "tub": 1,
+      "inner_bottom": 0.4439999759197235
+    },
+    {
+      "pass": true,
+      "label": "shower hem clears receptor",
+      "pose": "CurtainDrawn",
+      "low": 0.15499845147132874
+    },
+    {
+      "pass": true,
+      "label": "shower hem clears receptor",
+      "pose": "CurtainGathered",
+      "low": 0.15499602258205414
+    }
+  ],
+  "views": [
+    "airer_full.png",
+    "airer_cloth.png",
+    "rinse_tubs.png",
+    "shower_CurtainDrawn.png",
+    "shower_CurtainGathered.png"
+  ],
+  "airer_sha256": "9cbb3fb1137c1fbb53686ce2cfd55d476630b839e3a8aff75e1430f07d786d3d",
+  "shower_sha256": "26137f78b59923b03a767403fba0b01991f42b50d907487ad7e7cd98b9d97826"
+}

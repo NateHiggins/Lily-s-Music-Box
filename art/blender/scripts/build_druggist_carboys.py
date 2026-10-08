@@ -137,6 +137,18 @@ def prism(name,outline,z0,z1,identity,key,bevel=0):
 
 
 
+def rounded_profile(profile, indices, fraction=.18, samples=8):
+ # Smooth only silhouette bends; bearing planes, neck bores and fill levels stay exact.
+ result=[]
+ for i,p in enumerate(profile):
+  if i not in indices:result.append(p);continue
+  before=profile[i-1];after=profile[i+1]
+  entry=tuple(p[j]+fraction*(before[j]-p[j]) for j in range(2))
+  leave=tuple(p[j]+fraction*(after[j]-p[j]) for j in range(2))
+  for step in range(samples+1):
+   u=step/samples;result.append(tuple((1-u)**2*entry[j]+2*u*(1-u)*p[j]+u*u*leave[j] for j in range(2)))
+ return result
+
 def vessel(name,cx,cy,z,profile,identity,key):
  n=96;verts=[];rings=[];closed_profile=profile[0]==profile[-1]
  if closed_profile:profile=profile[:-1]
@@ -187,8 +199,8 @@ for item,group in zip(assemblies,plan['groups']):
  for i,(a,b) in enumerate([(py0,py0+.030),(py1-.030,py1)]):box(identity+'_EndPanel'+str(i),(px0+.020,a,base+.030),(px1-.020,b,seat-.020),identity,'wood_dark',.002)
  box(identity+'_OriginalTop',(px0,py0,seat-.035),(px1,py1,seat),identity,'wood_dark',.002)
  box(identity+'_BridgedBodySeat',(cx-.195,cy-.195,seat-.003),(cx+.195,cy+.195,z),identity,'wood_dark',.001)
- vessel(identity+'_HollowDisplayCarboy',cx,cy,z,[(0,0),(.130,0),(.166,.025),(.170,.090),(.170,.400),(.160,.510),(.098,.600),(.045,.630),(.045,.720),(.035,.720),(.035,.634),(.088,.607),(.150,.515),(.158,.402),(.158,.094),(.150,.035),(.125,.016),(0,.016)],identity,'glassish')
- vessel(identity+'_InsertedClearStopper',cx,cy,1.320,[(0,0),(.036,0),(.036,.060),(.044,.078),(.074,.115),(.080,.155),(.067,.200),(.035,.240),(0,.240)],identity,'glassish')
+ vessel(identity+'_HollowDisplayCarboy',cx,cy,z,rounded_profile([(0,0),(.130,0),(.166,.025),(.170,.090),(.170,.400),(.160,.510),(.098,.600),(.045,.630),(.045,.720),(.035,.720),(.035,.634),(.088,.607),(.150,.515),(.158,.402),(.158,.094),(.150,.035),(.125,.016),(0,.016)],[4, 5, 6, 11, 12, 13]),identity,'glassish')
+ vessel(identity+'_InsertedClearStopper',cx,cy,1.320,rounded_profile([(0,0),(.036,0),(.036,.060),(.044,.078),(.074,.115),(.080,.155),(.067,.200),(.035,.240),(0,.240)],[2, 3, 4, 5, 6]),identity,'glassish')
  vessel(identity+'_BoundedDisplayFill',cx,cy,z+.016,[(0,0),(.122,0),(.144,.045),(.152,.095),(.152,.370),(.148,.430),(0,.430)],identity,'fill'+str(group['index']))
 
 for row in selected:
@@ -219,7 +231,8 @@ def turned_chart(points,origin):
    values=np.column_stack((index*(2*r0*math.sin(math.pi/96)),height-low))
   else:
    length=math.hypot(r1-r0,high-low);factor=length/abs(r1-r0);step=2*math.asin(math.sin(math.pi/96)/factor)
-   distance=radius*factor;angle=index*step;values=np.column_stack((distance*np.sin(angle),distance*np.cos(angle)))
+   # A common ring radius avoids amplifying float32 radial noise on almost cylindrical bands.
+   distance=np.where(abs(height-low)<.0000003,r0,r1)*factor;angle=index*step;values=np.column_stack((distance*np.sin(angle),distance*np.cos(angle)))
  values-=np.floor(values.min(axis=0)/sets[key]['meters_per_tile'])*sets[key]['meters_per_tile']
  def derivatives():
   a=values[1]-values[0];b=values[2]-values[0];det=a[0]*b[1]-b[0]*a[1];assert abs(det)>1e-12,(name,p.tolist(),values.tolist(),radius.tolist(),height.tolist())

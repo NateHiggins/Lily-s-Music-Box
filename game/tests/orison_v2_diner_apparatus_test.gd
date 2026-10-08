@@ -1,5 +1,11 @@
 extends "res://tests/orison_v2_city_sweep.gd"
 ## Actual retained shop boundaries, fitted supports, imported charts and standing detail views.
+var batch_mode := false
+var capture_enabled := true
+
+func _ready() -> void:
+	if not batch_mode: call_deferred("_run")
+
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
@@ -22,6 +28,11 @@ func _run() -> void:
 	check(passage.residency.state=="RESIDENT","normal prefetch exposes fitted stock geometry")
 	if passage.residency.state!="RESIDENT":world.shutdown_for_tests();world.free();get_tree().quit(1);return
 	await get_tree().physics_frame;await get_tree().physics_frame
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var passage: OrisonV2PassageRegion = world.passage_region
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_diner_apparatus.json"))
 	check(FileAccess.get_sha256("res://assets/props/diner_apparatus.glb")==fixture.asset_sha256,"installed mesh binds the native griddle, soda pumps and supported mixer export")
 	var parts:=0;var triangles:=0;var removed:=0;var supports:=0
@@ -86,7 +97,7 @@ func _run() -> void:
 	var directory:=OS.get_environment("SHOT_DIR")
 	FileAccess.open(directory.path_join("fittings.json"),FileAccess.WRITE).store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"parts":parts,"triangles":triangles,"removed":removed,"supports":supports,"failures":failures},"\t"))
 	print("DINER APPARATUS: checks=",checks," parts=",parts," triangles=",triangles," removed=",removed," supports=",supports," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	return {"checks":checks,"failures":failures,"parts":parts,"triangles":triangles,"supports":supports}
 
 func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, start: Vector3, finish: Vector3) -> Dictionary:
 	var targets:=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("diner_apparatus_part",""))==part)
@@ -145,6 +156,7 @@ func _check_apparatus_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -
 		check(cell.has_node(name),"accepted adjacent native fitting retained: "+name)
 
 func _retail_detail_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
+	if not capture_enabled:return
 	var cell: Node3D=world.passage_region.cell_nodes.shop_luncheonette
 	var r: Array=fixture.assemblies[0].floor.rect;var observations: Array=[]
 	for view: Array in [["griddle_front",Vector3(20.15,.03,43.47),Vector3(22.17,.83,43.35)],["griddle_bed",Vector3(20.15,.03,43.47),Vector3(22.17,1.006,43.35)],["griddle_feet",Vector3(20.15,.03,43.47),Vector3(22.17,.24,43.35)],["five_pumps",Vector3(20.15,.03,42.0),Vector3(22.24,1.25,41.75)],["pump_nozzles",Vector3(20.15,.03,42.0),Vector3(22.09,1.245,41.75)],["fountain_plinth",Vector3(20.15,.03,42.0),Vector3(22.17,.20,41.8)],["mixer_head",Vector3(22.10,.03,40.10),Vector3(22.27,1.70,40.8)],["mixer_stand",Vector3(22.10,.03,40.10),Vector3(22.27,.68,40.8)],["shop_context",Vector3(19.80,.03,40.30),Vector3(22.25,1.35,41.78)]]:

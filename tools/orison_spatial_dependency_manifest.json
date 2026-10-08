@@ -248476,6 +248476,469 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F04/marker+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "11cfce73c74c0ae8",
+   "kind": "id_reference",
+   "token": "B1_BOILER_01",
+   "file": "game/scripts/building/orison_v2_service_floor_finish.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "apply"
+   ],
+   "lines": [
+    20
+   ],
+   "count": 1,
+   "context": [
+    "var boiler: Node3D=world.adapter.resolve(\"B1_BOILER_01\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d73e4de842230c7d",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM",
+   "file": "game/scripts/building/orison_v2_service_floor_finish.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "apply"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [
+    "for room in [\"B1_LAUNDRY\",\"B1_BOILER_ROOM\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fbe645c4cec3d0c9",
+   "kind": "id_reference",
+   "token": "B1_LAUNDRY",
+   "file": "game/scripts/building/orison_v2_service_floor_finish.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "apply"
+   ],
+   "lines": [
+    4,
+    12
+   ],
+   "count": 2,
+   "context": [
+    "for room in [\"B1_LAUNDRY\",\"B1_BOILER_ROOM\"]:",
+    "if room==\"B1_LAUNDRY\":"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "B1/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "23f87efe8d74f452",
+   "kind": "id_reference",
+   "token": "B1_LAUNDRY_AIRER_01",
+   "file": "game/scripts/building/orison_v2_service_floor_finish.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "apply"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "for identity in [\"B1_WASHER_01\",\"B1_WASHER_02\",\"B1_LAUNDRY_AIRER_01\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a51b1cf993f28e52",
+   "kind": "id_reference",
+   "token": "B1_WASHER_01",
+   "file": "game/scripts/building/orison_v2_service_floor_finish.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "apply"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "for identity in [\"B1_WASHER_01\",\"B1_WASHER_02\",\"B1_LAUNDRY_AIRER_01\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "91e0e83ae5cd1e46",
+   "kind": "id_reference",
+   "token": "B1_WASHER_02",
+   "file": "game/scripts/building/orison_v2_service_floor_finish.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "apply"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "for identity in [\"B1_WASHER_01\",\"B1_WASHER_02\",\"B1_LAUNDRY_AIRER_01\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "43beba0ac22812b5",
+   "kind": "id_reference",
+   "token": "3B_aw_wardrobe",
+   "file": "game/tests/orison_v2_household_wardrobes_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_wardrobe_captures"
+   ],
+   "lines": [
+    137,
+    150
+   ],
+   "count": 2,
+   "context": [
+    "if state==\"open\" and identity==\"3B_aw_wardrobe\" and draw.get_parent()!=body:continue",
+    "if _city_clear_station(world,feet) and _framed_at(world,body,bounds,feet) and (state!=\"open\" or identity!=\"3B_aw_wardrobe\" or _contents_visible(body,world.playe"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "472552b751ffd1d4",
+   "kind": "id_reference",
+   "token": "F01_VESTIBULE",
+   "file": "game/tests/orison_v2_owner_shop_finish_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_receiver_reload"
+   ],
+   "lines": [
+    92
+   ],
+   "count": 1,
+   "context": [
+    "var vestibule: Dictionary=world.layout.spaces.filter(func(r):return r.id==\"F01_VESTIBULE\")[0]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d86dae19cd6de9a2",
+   "kind": "unit_reference",
+   "token": "2A",
+   "file": "game/tests/orison_v2_owner_shop_finish_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    54,
+    55
+   ],
+   "count": 2,
+   "context": [
+    "check(DoorKeyring.book().copies.get(\"2A\") == \"mina_vale\" and DoorKeyring.book().originals == originals,\"focused E creates authorized spare and preserves residen",
+    "check(not DoorKeyring.make_copy(\"2A\"),\"duplicate spare refused by original authority\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "40cd1e69ec92fe0e",
+   "kind": "id_reference",
+   "token": "B1_BOILER_01",
+   "file": "game/tests/orison_v2_wet_cloth_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    105
+   ],
+   "count": 1,
+   "context": [
+    "var boiler: Node3D=world.adapter.resolve(\"B1_BOILER_01\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8f08773428b54f49",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM",
+   "file": "game/tests/orison_v2_wet_cloth_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    76,
+    106
+   ],
+   "count": 2,
+   "context": [
+    "for room in [\"B1_LAUNDRY\",\"B1_BOILER_ROOM\"]:",
+    "await _city_capture(world,boiler.to_global(Vector3(.6,.03,-2.15)),boiler.to_global(Vector3(0,.55,0)),\"B1_BOILER_ROOM_finish\",\"firing approach and local service "
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b5d44da55ece6609",
+   "kind": "id_reference",
+   "token": "B1_LAUNDRY",
+   "file": "game/tests/orison_v2_wet_cloth_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    76,
+    103
+   ],
+   "count": 2,
+   "context": [
+    "for room in [\"B1_LAUNDRY\",\"B1_BOILER_ROOM\"]:",
+    "for row in [[\"B1_LAUNDRY\",Vector3(-3.4,-3.17,-2.4),Vector3(-6.5,-2.3,1.4)]]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "B1/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "81c056aba373b348",
+   "kind": "id_reference",
+   "token": "B1_LAUNDRY_AIRER_01",
+   "file": "game/tests/orison_v2_wet_cloth_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    14,
+    55,
+    57
+   ],
+   "count": 3,
+   "context": [
+    "var airer=world.adapter.resolve(\"B1_LAUNDRY_AIRER_01\")",
+    "await _city_capture(world,approach,airer.to_global(Vector3(0,1.1,0)),\"airer_lowered\",\"native wet-work stock lowered\",\"B1_LAUNDRY_AIRER_01\")",
+    "await _city_capture(world,approach,airer.to_global(Vector3(0,1.25,0)),\"airer_raised\",\"native wet-work stock raised\",\"B1_LAUNDRY_AIRER_01\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "58ee449269663628",
+   "kind": "node_path",
+   "token": "B1_LAUNDRY/Ceiling",
+   "file": "game/tests/orison_v2_wet_cloth_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    86
+   ],
+   "count": 1,
+   "context": [
+    "var ceiling: MeshInstance3D=world.adapter.root.get_node(\"B1_LAUNDRY/Ceiling\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7d4e5a0f264519b0",
+   "kind": "vector3_coordinate",
+   "token": "validate_in_world",
+   "file": "game/tests/orison_v2_wet_cloth_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    92,
+    92,
+    92,
+    92
+   ],
+   "count": 4,
+   "context": [
+    "for route in [[Vector3(-3.4,-3.18,-1.5),Vector3(-3.2,-3.2,-2.4),Vector3(-7,-3.2,-2.4),Vector3(-8.35,-3.2,-.15),Vector3(-7,-3.2,-.8),Vector3(-5.3,-3.2,1.6)],"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

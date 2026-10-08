@@ -410,13 +410,13 @@
       "name": "storm_shop_otis___son_carboy0_HollowDisplayCarboy",
       "assembly": "storm_shop_otis___son_carboy0",
       "key": "glassish",
-      "volume_m3": 0.007953574427628849
+      "volume_m3": 0.007948385770571087
     },
     {
       "name": "storm_shop_otis___son_carboy0_InsertedClearStopper",
       "assembly": "storm_shop_otis___son_carboy0",
       "key": "glassish",
-      "volume_m3": 0.0025952893747965486
+      "volume_m3": 0.0025894571585161085
     },
     {
       "name": "storm_shop_otis___son_carboy0_BoundedDisplayFill",
@@ -494,13 +494,13 @@
       "name": "storm_shop_otis___son_carboy1_HollowDisplayCarboy",
       "assembly": "storm_shop_otis___son_carboy1",
       "key": "glassish",
-      "volume_m3": 0.007953574942410066
+      "volume_m3": 0.00794838611466404
     },
     {
       "name": "storm_shop_otis___son_carboy1_InsertedClearStopper",
       "assembly": "storm_shop_otis___son_carboy1",
       "key": "glassish",
-      "volume_m3": 0.0025952893676632668
+      "volume_m3": 0.0025894571591295514
     },
     {
       "name": "storm_shop_otis___son_carboy1_BoundedDisplayFill",
@@ -578,13 +578,13 @@
       "name": "storm_shop_otis___son_carboy2_HollowDisplayCarboy",
       "assembly": "storm_shop_otis___son_carboy2",
       "key": "glassish",
-      "volume_m3": 0.007953575000024188
+      "volume_m3": 0.007948386136252594
     },
     {
       "name": "storm_shop_otis___son_carboy2_InsertedClearStopper",
       "assembly": "storm_shop_otis___son_carboy2",
       "key": "glassish",
-      "volume_m3": 0.002595289370475186
+      "volume_m3": 0.0025894571555978908
     },
     {
       "name": "storm_shop_otis___son_carboy2_BoundedDisplayFill",
@@ -662,13 +662,13 @@
       "name": "storm_shop_otis___son_carboy3_HollowDisplayCarboy",
       "assembly": "storm_shop_otis___son_carboy3",
       "key": "glassish",
-      "volume_m3": 0.007953574620779991
+      "volume_m3": 0.007948385872902013
     },
     {
       "name": "storm_shop_otis___son_carboy3_InsertedClearStopper",
       "assembly": "storm_shop_otis___son_carboy3",
       "key": "glassish",
-      "volume_m3": 0.0025952893695527033
+      "volume_m3": 0.002589457159047278
     },
     {
       "name": "storm_shop_otis___son_carboy3_BoundedDisplayFill",
@@ -1082,14 +1082,14 @@
       "assembly": "storm_shop_otis___son_carboy0",
       "cell": "shop_otis_son",
       "key": "glassish_shell",
-      "triangles": 3068
+      "triangles": 12284
     },
     {
       "name": "storm_shop_otis___son_carboy0__glassish_stopper",
       "assembly": "storm_shop_otis___son_carboy0",
       "cell": "shop_otis_son",
       "key": "glassish_stopper",
-      "triangles": 1340
+      "triangles": 9020
     },
     {
       "name": "storm_shop_otis___son_carboy0__wood_dark",
@@ -1110,14 +1110,14 @@
       "assembly": "storm_shop_otis___son_carboy1",
       "cell": "shop_otis_son",
       "key": "glassish_shell",
-      "triangles": 3068
+      "triangles": 12284
     },
     {
       "name": "storm_shop_otis___son_carboy1__glassish_stopper",
       "assembly": "storm_shop_otis___son_carboy1",
       "cell": "shop_otis_son",
       "key": "glassish_stopper",
-      "triangles": 1340
+      "triangles": 9020
     },
     {
       "name": "storm_shop_otis___son_carboy1__wood_dark",
@@ -1138,14 +1138,14 @@
       "assembly": "storm_shop_otis___son_carboy2",
       "cell": "shop_otis_son",
       "key": "glassish_shell",
-      "triangles": 3068
+      "triangles": 12284
     },
     {
       "name": "storm_shop_otis___son_carboy2__glassish_stopper",
       "assembly": "storm_shop_otis___son_carboy2",
       "cell": "shop_otis_son",
       "key": "glassish_stopper",
-      "triangles": 1340
+      "triangles": 9020
     },
     {
       "name": "storm_shop_otis___son_carboy2__wood_dark",
@@ -1166,14 +1166,14 @@
       "assembly": "storm_shop_otis___son_carboy3",
       "cell": "shop_otis_son",
       "key": "glassish_shell",
-      "triangles": 3068
+      "triangles": 12284
     },
     {
       "name": "storm_shop_otis___son_carboy3__glassish_stopper",
       "assembly": "storm_shop_otis___son_carboy3",
       "cell": "shop_otis_son",
       "key": "glassish_stopper",
-      "triangles": 1340
+      "triangles": 9020
     },
     {
       "name": "storm_shop_otis___son_carboy3__wood_dark",
@@ -1204,7 +1204,7 @@
       "triangles": 376
     }
   ],
-  "triangles": 31608,
+  "triangles": 99192,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -1561,11 +1561,11 @@
       }
     ]
   },
-  "asset_sha256": "f3d19a4930d258df28ec589cf133d776c3194b687369200ccb9727d46e5537a2",
+  "asset_sha256": "0e4fc02327752d276856ebaf071810b676c2b843e24c01ff5b47c12848ccec07",
   "source_bindings": {
     "art/data/druggist_carboys/source_plan.json": "405b7219f542316893fd5d3d37b61ac92ac4b652170a42e0565c5ec4a0a8aece",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_druggist_carboys.py": "02566298781628c117f154b20c404daed7322518817e03520acdec836e21fcb7",
+    "art/blender/scripts/build_druggist_carboys.py": "28dd46b660dc38d55a640984492f7d5db9e7882c59785b0cfd5b82f688b710cc",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
     "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",
@@ -1614,7 +1614,7 @@
     "art/blender/scripts/inspect_druggist_carboys.py": "e3e827d3187dccf9d70750ec7643d33fbf9d872efc101b82cdbba735494b187a",
     "game/assets/props/druggist_cupboard.glb": "bae0c56b94e772c06580325e17cf49ff927262554120324168cc56a7c71950f7",
     "game/data/orison_v2/druggist_cupboard.json": "8eeb0f1dd464984609cf2ec0d3ff5a78304d9e48702edd17bff4bbb283f03d2d",
-    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "game/scripts/lamp/lamp_optical_receivers.gd": "219767cd53f1a5dbd877bcf9ba4cdf91078dc3aa21850e22dcb09b88054934af",
     "game/shaders/lamp_optical_glass_haze.gdshader": "95a968ea87935c997663dddee63d08703d99dd406125022157d93fdc136779de",

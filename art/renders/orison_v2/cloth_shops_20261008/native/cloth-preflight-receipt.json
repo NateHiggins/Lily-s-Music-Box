@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/inspect_household_wardrobes_context.py",
+      "elapsed_s": 2.48
+    },
+    {
+      "script": "art/blender/scripts/inspect_domestic_objects_context.py",
+      "elapsed_s": 2.441
+    },
+    {
+      "script": "art/blender/scripts/review_owner_cloth_objects.py",
+      "elapsed_s": 28.985
+    },
+    {
+      "script": "art/blender/scripts/review_owner_wet_cloth.py",
+      "elapsed_s": 16.036
+    }
+  ]
+}

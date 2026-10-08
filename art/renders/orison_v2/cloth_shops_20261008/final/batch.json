@@ -1,0 +1,220 @@
+{
+	"batch_checks": 17,
+	"elapsed_ms": 57980,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 12207,
+	"modules": {
+		"domestic_objects": {
+			"actors": 17,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 847,
+			"elapsed_ms": 518,
+			"failures": [],
+			"fixture_sha256": "8bcf9dd3e7ae428f30b438d3f40bc1c2c8781cf24f3aae7b4608c52842fe68d0",
+			"parts": 66,
+			"shared_validator_sha256": "634c1235da90cb17304bef9bad78ae4cbeb8d829df7e2846677e410693cf94b4",
+			"unique_triangles": 137688,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 16,
+			"views": []
+		},
+		"household_wardrobes": {
+			"actors": 21,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 2077,
+			"elapsed_ms": 5442,
+			"failures": [],
+			"fixture_sha256": "3a2c2a6a527690290f4c51cb35a8a82f8b316316504e7d0d2395b744bf225966",
+			"parts": 231,
+			"unique_triangles": 551616,
+			"validator_sha256": "09ce8a052e203804bd7395bc5e171da9b85db37bf529e8edc902fa9c788ba89f",
+			"views": [
+				{
+					"bucket": "native private wardrobe",
+					"feet": [
+						-11.7614994049072,
+						6.42000007629395,
+						-0.791813373565674
+					],
+					"id": "3B_aw_wardrobe_closed",
+					"image": "3B_aw_wardrobe_closed.png",
+					"inspection_fov": 72.0,
+					"inspection_subject": "complete wardrobe",
+					"owner": "3B_aw_wardrobe",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native private wardrobe",
+					"feet": [
+						-10.3999996185303,
+						6.42000007629395,
+						-2.37000060081482
+					],
+					"id": "3B_aw_wardrobe_open",
+					"image": "3B_aw_wardrobe_open.png",
+					"inspection_fov": 72.0,
+					"inspection_subject": "four hanging garments inside the original open leaves",
+					"owner": "3B_aw_wardrobe",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"owner_service_finish": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"changed_slots": 2643,
+			"checks": 6875,
+			"elapsed_ms": 283,
+			"failures": [],
+			"fixture_sha256": "f4b0c1cee2292ecf277cbc291f12ed914822f83dc716401327b9bb20d9da103e",
+			"loaded_texture_maps": 105,
+			"owners": 351,
+			"shader_slots": 1606,
+			"validator_sha256": "2ebc288eab371f4b65f22383a2126337bd343bb96fb382eb9a60436b16f59e45"
+		},
+		"owner_shop_finish": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"changed_slots": 974,
+			"checks": 2177,
+			"elapsed_ms": 8399,
+			"failures": [],
+			"fixture_sha256": "",
+			"loaded_texture_maps": 75,
+			"owners": 63,
+			"validator_sha256": "60c028d02b5ed6538172767c509a5627f97bbea10250750379993aef8a76e240"
+		},
+		"wet_cloth": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 231,
+			"cloth_count": 3,
+			"elapsed_ms": 7544,
+			"failures": [],
+			"fixture_sha256": "",
+			"local_residue_slots": 161,
+			"validator_sha256": "9d72a238686cfd41c52e3c65aa1ab51e314f4d3cad13d6d5328dcb36a48d2654",
+			"views": [],
+			"walked_service_approaches": [
+				{
+					"actual": [
+						-3.22146463394165,
+						-3.19916319847107,
+						-2.30341053009033
+					],
+					"ok": true,
+					"target": [
+						-3.20000004768372,
+						-3.20000004768372,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.90018796920776,
+						-3.19916319847107,
+						-2.39745044708252
+					],
+					"ok": true,
+					"target": [
+						-7.0,
+						-3.20000004768372,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.29620456695557,
+						-3.19916319847107,
+						-0.233392715454102
+					],
+					"ok": true,
+					"target": [
+						-8.35000038146973,
+						-3.20000004768372,
+						-0.150000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.08989191055298,
+						-3.19916319847107,
+						-0.76070499420166
+					],
+					"ok": true,
+					"target": [
+						-7.0,
+						-3.20000004768372,
+						-0.800000011920929
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-5.35912752151489,
+						-3.19916319847107,
+						1.52201652526855
+					],
+					"ok": true,
+					"target": [
+						-5.30000019073486,
+						-3.20000004768372,
+						1.60000002384186
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6000003814697,
+						-3.19914078712463,
+						2.3035774230957
+					],
+					"ok": true,
+					"target": [
+						10.6000003814697,
+						-3.20000004768372,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.9819192886353,
+						-3.19914078712463,
+						2.38110637664795
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0622510910034,
+						-3.19914078712463,
+						3.00153732299805
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						3.09999990463257
+					],
+					"wall_contacts": {}
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

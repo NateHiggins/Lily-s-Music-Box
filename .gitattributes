@@ -1666,3 +1666,23 @@ art/blender/scripts/review_owner_domestic_finishes.py -text
 art/blender/scripts/review_owner_small_appliances.py -text
 game/tests/orison_v2_bedding_test.gd -text
 game/tests/fixtures/orison_bedding.json -text
+
+# Dossier wet cloth, attached pulley presentation and local use marks.
+art/blender/scripts/build_basement_airer.py -text
+art/blender/scripts/build_bathroom_details.py -text
+art/blender/scripts/review_owner_wet_cloth.py -text
+art/blender/scripts/review_owner_cloth_objects.py -text
+game/scripts/building/orison_v2_laundry_airer.gd -text
+game/scripts/building/orison_v2_service_wear.gd -text
+game/tests/orison_v2_wet_cloth_test.gd -text
+game/tests/fixtures/orison_basement_airer.json -text
+
+# Owner cloth/shop finish sources and scoped runtime review.
+art/blender/scripts/review_owner_shops.py -text
+game/scripts/building/orison_v2_service_floor_finish.gd -text
+game/shaders/orison_service_floor.gdshader -text
+game/tests/orison_v2_owner_shop_finish_test.gd -text
+game/tests/orison_v2_diner_apparatus_test.gd -text
+game/tests/orison_v2_diner_urns_test.gd -text
+
+art/renders/orison_v2/cloth_shops_20261008/** -text

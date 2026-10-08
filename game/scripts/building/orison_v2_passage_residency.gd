@@ -337,6 +337,7 @@ func _stage_one() -> void:
 		if not region.DinerReceiving.mount_cell(cell,region.source_layout,region.cabinets_enabled):
 			_fail("native Diner receiving pair reload refused: "+identity)
 			return
+		preload("res://scripts/building/orison_v2_owner_finishes.gd").new().apply_shop_cell(cell)
 		_staged_surface.apply({identity: cell})
 		var finished := Time.get_ticks_usec()
 		peak_stage_ms = maxf(peak_stage_ms, float(finished-started)/1000.0)

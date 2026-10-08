@@ -127,12 +127,21 @@ func _wardrobe_captures(world: OrisonV2RuntimeRoot,fixture: Dictionary,state: St
 		representatives.append(str(row.source_record))
 	if state=="open":representatives.append("1A_wardrobe")
 	var requested := OS.get_environment("ORISON_FABRICATION_ACTORS").split(",",false)
+	for identity: String in requested:
+		check(identity in fixture.runtime.instances.map(func(row):return str(row.id)),"requested wardrobe capture owner exists: "+identity)
 	for identity: String in representatives:
 		if not requested.is_empty() and not identity in requested:continue
 		var body := world.adapter.resolve(identity) as Wardrobe
 		var bounds := AABB()
+		var first_part := true
+		var contents_view := state=="open" and identity=="3B_aw_wardrobe"
 		for draw: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
-			bounds=bounds.merge(body.global_transform.affine_inverse()*draw.global_transform*draw.mesh.get_aabb())
+			# The close installed view frames all four garments. Whole-case and
+			# full open-leaf silhouettes have independent native/room plates.
+			if contents_view and draw.get_meta("material_key","") not in ["linen","fabric_warm","fabric_cool","fabric_green"]:continue
+			var part_bounds: AABB=body.global_transform.affine_inverse()*draw.global_transform*draw.mesh.get_aabb()
+			bounds=part_bounds if first_part else bounds.merge(part_bounds)
+			first_part=false
 		var radius := maxf(2.1,bounds.size.y*1.12)
 		var station := Vector3.INF
 		var original_fov := world.player.camera.fov
@@ -140,15 +149,46 @@ func _wardrobe_captures(world: OrisonV2RuntimeRoot,fixture: Dictionary,state: St
 		# wider inspection lens fits the near leaf before resorting to side views.
 		for step in 17:
 			var angle := deg_to_rad(ceilf(float(step)*.5)*10.*(1. if step%2 else -1.))
-			for fov: float in [original_fov,90.,100.]:
+			for fov: float in [original_fov,90.,100.,110.,120.]:
 				world.player.camera.fov=fov
-				for scale in [1.,1.25,1.5,.85,.65,.5,2.]:
-					var feet := body.to_global(Vector3(sin(angle),0,-cos(angle))*radius*float(scale)+Vector3.UP*.02)
-					if _city_clear_station(world,feet) and _framed_at(world,body,bounds,feet):station=feet;break
+				for distance in [radius,radius*1.25,radius*1.5,radius*.85,radius*.65,radius*.5,.75,.72,.78,radius*2.]:
+					var feet := body.to_global(Vector3(sin(angle),0,-cos(angle))*float(distance)+Vector3.UP*.02)
+					if _city_clear_station(world,feet) and _framed_at(world,body,bounds,feet) and (state!="open" or identity!="3B_aw_wardrobe" or _contents_visible(body,world.player.camera.global_position)):
+						station=feet;break
 				if station.is_finite():break
 			if station.is_finite():break
+		if not station.is_finite() and identity=="3B_aw_wardrobe" and state=="open":
+			var diagnostic := []
+			for distance in [.60,.75,.90,1.05,1.5,2.5]:
+				var feet := body.to_global(Vector3(0,.02,-distance))
+				world.player.camera.fov=120.
+				var framed := _framed_at(world,body,bounds,feet)
+				diagnostic.append({"distance":distance,"clear":_city_clear_station(world,feet),"framed":framed,"contents":_contents_visible(body,world.player.camera.global_position),"eye_local":str(body.to_local(world.player.camera.global_position))})
+			print("WARDROBE VIEW DIAGNOSTIC ",JSON.stringify(diagnostic)," keys=",body.find_children("*","MeshInstance3D",true,false).map(func(draw):return draw.get_meta("material_key","")))
 		check(station.is_finite(),"clear full wardrobe camera station: "+identity+" "+state)
 		if station.is_finite():
 			await _city_capture(world,station,body.to_global(bounds.get_center()),identity+"_"+state,"native private wardrobe",identity)
 			discovery[-1]["inspection_fov"]=world.player.camera.fov
+			discovery[-1]["inspection_subject"]="four hanging garments inside the original open leaves" if contents_view else "complete wardrobe"
 		world.player.camera.fov=original_fov
+
+func _contents_visible(body: Wardrobe,eye: Vector3) -> bool:
+	var garments := 0
+	var cloth_keys := ["linen","fabric_warm","fabric_cool","fabric_green"]
+	for garment: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
+		if garment.get_meta("material_key","") not in cloth_keys:continue
+		garments += 1
+		var target:=garment.to_global(garment.mesh.get_aabb().get_center())
+		# Include fixed cheeks/back and both faces of the moving leaves. An eye
+		# behind the case can miss the leaves while still hiding every garment.
+		for draw: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
+			if draw.get_meta("material_key","") in cloth_keys:continue
+			var start:=draw.to_local(eye)
+			var end:=draw.to_local(target)
+			var direction:=(end-start).normalized()
+			var faces:=draw.mesh.get_faces()
+			for i in range(0,faces.size(),3):
+				for reverse in [false,true]:
+					var hit: Variant=Geometry3D.ray_intersects_triangle(start,direction,faces[i],faces[i+2] if reverse else faces[i+1],faces[i+1] if reverse else faces[i+2])
+					if hit is Vector3 and start.distance_to(hit)<start.distance_to(end)-.002:return false
+	return garments == 4

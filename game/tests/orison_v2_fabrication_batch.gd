@@ -2,6 +2,16 @@ extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
 const MODULES := {
+	"owner_shop_finish": preload("res://tests/orison_v2_owner_shop_finish_test.gd"),
+	"druggist_carboys": preload("res://tests/orison_v2_druggist_carboys_test.gd"),
+	"druggist_fountain": preload("res://tests/orison_v2_druggist_fountain_test.gd"),
+	"druggist_mortar": preload("res://tests/orison_v2_druggist_mortar_test.gd"),
+	"funeral_foliage": preload("res://tests/orison_v2_funeral_foliage_test.gd"),
+	"funeral_drapes": preload("res://tests/orison_v2_funeral_drapes_test.gd"),
+	"diner_apparatus": preload("res://tests/orison_v2_diner_apparatus_test.gd"),
+	"diner_urns": preload("res://tests/orison_v2_diner_urns_test.gd"),
+	"radio_battery": preload("res://tests/orison_v2_radio_battery_test.gd"),
+	"wet_cloth": preload("res://tests/orison_v2_wet_cloth_test.gd"),
 	"bedding": preload("res://tests/orison_v2_bedding_test.gd"),
 	"owner_service_finish": preload("res://tests/orison_v2_owner_service_finish_test.gd"),
 	"bodega_frontage": preload("res://tests/orison_v2_bodega_frontage_test.gd"),
@@ -59,6 +69,12 @@ func _run() -> void:
 	var selected := _selection(OS.get_environment("ORISON_FABRICATION_MODULES"), MODULES.keys())
 	var captures := _selection(OS.get_environment("ORISON_FABRICATION_CAPTURES"), selected)
 	var directory := OS.get_environment("SHOT_DIR")
+	var actor_options := OS.get_environment("ORISON_FABRICATION_ACTORS_BY_MODULE")
+	var module_actors: Variant = {} if actor_options.is_empty() else JSON.parse_string(actor_options)
+	check(module_actors is Dictionary,"per-module capture actors must be a JSON object")
+	if module_actors is not Dictionary: get_tree().quit(1); return
+	for id: String in module_actors:
+		check(id in selected and module_actors[id] is Array,"per-module capture selection belongs to this batch: "+id)
 	if directory.is_empty(): directory = "user://fabrication_batch"
 	DirAccess.make_dir_recursive_absolute(directory)
 	for id: String in selected:
@@ -103,6 +119,7 @@ func _run() -> void:
 	var teardown_validators := {}
 	var total := 0
 	var previous_directory := OS.get_environment("SHOT_DIR")
+	var previous_actors := OS.get_environment("ORISON_FABRICATION_ACTORS")
 	for id: String in selected:
 		var module = MODULES[id].new()
 		module.batch_mode = true
@@ -111,6 +128,7 @@ func _run() -> void:
 		var destination := directory.path_join(id)
 		DirAccess.make_dir_recursive_absolute(destination)
 		OS.set_environment("SHOT_DIR", destination)
+		OS.set_environment("ORISON_FABRICATION_ACTORS",",".join(module_actors[id]) if module_actors.has(id) else previous_actors)
 		var module_started := Time.get_ticks_msec()
 		var result: Dictionary = await module.validate_in_world(world)
 		if not result.has_all(["checks", "failures"]):
@@ -130,6 +148,7 @@ func _run() -> void:
 		if module.has_method("validate_after_teardown"): teardown_validators[id] = module
 		else: module.free()
 	OS.set_environment("SHOT_DIR", previous_directory)
+	OS.set_environment("ORISON_FABRICATION_ACTORS", previous_actors)
 	world.shutdown_for_tests()
 	world.free()
 	await _retired_audio()

@@ -237,7 +237,26 @@ def softbox(source,member):
   points=[center+axis*z+u*x*w/2+v*y*d/2 for z in [-depth/2,depth/2] for x,y in [(-1,-1),(1,-1),(1,1),(-1,1)]]
   return solid(identity+'_'+label,points,[(3,2,1,0),(4,5,6,7)]+[(i,(i+1)%4,4+(i+1)%4,4+i) for i in range(4)],identity,key)
  cap('BackCap',a+axis*.001,.459,.089,.002,'soot')
- cap('ClothDiffuser',c-axis*.0007,.419,.074,.0014,'linen')
+ # Retained linen diffuser: a shallow tensioned sheet inside the original
+ # mouth, with turned seams. This is an unlit diffusion fitting, not a new
+ # emissive lamp or a claim of a historically documented modern softbox.
+ nx=32;ny=10;verts=[]
+ for skin in [0,1]:
+  for j in range(ny+1):
+   yy=j/ny
+   for i in range(nx+1):
+    xx=i/nx;slack=.0015*math.sin(xx*math.pi)*math.sin(yy*math.pi)
+    verts.append(c+u*(xx-.5)*.419+v*(yy-.5)*.074-axis*(.0001+slack+skin*.0012))
+ count=(nx+1)*(ny+1);faces=[]
+ for skin in [0,1]:
+  for j in range(ny):
+   for i in range(nx):
+    a=skin*count+j*(nx+1)+i;q=(a,a+1,a+nx+2,a+nx+1);faces.append(q if skin==0 else tuple(reversed(q)))
+ boundary=list(range(nx+1))+[j*(nx+1)+nx for j in range(1,ny+1)]+[ny*(nx+1)+i for i in range(nx-1,-1,-1)]+[j*(nx+1) for j in range(ny-1,0,-1)]
+ faces.extend((a,b,b+count,a+count) for a,b in zip(boundary,boundary[1:]+boundary[:1]))
+ solid(identity+'_ClothDiffuser',verts,faces,identity,'linen')
+ for j in [1,ny-1]:
+  wire('DiffuserHem'+str(j),[verts[j*(nx+1)+i]-axis*.0002 for i in range(1,nx)],.00035,'linen')
  # The old head floated beyond the pole. A seated tilt yoke bridges it.
  tube('HeadYoke',(0,0,1.50+offset),(0,.055,1.53+offset),.011,'metal')
  tube('TiltAxle',(-.034,.052,1.53+offset),(.034,.052,1.53+offset),.007,'metal')
