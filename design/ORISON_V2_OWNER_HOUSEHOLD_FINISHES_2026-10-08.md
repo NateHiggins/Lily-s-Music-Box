@@ -77,8 +77,12 @@ the planner's broader queue; scoped testing does not claim every V2 family was
 rerun. Initial fresh verification found only four new test-anchor inventory records.
 The manifest appends their exact reviewed records, preserving every previous
 entry; all are non-gameplay test references to existing boiler, washer, radiator
-and shower anchors. Candidate verification is recorded separately after this
-classification update.
+and shower anchors. Fresh [candidate verification](../art/renders/orison_v2/service_finishes_20261008/verification.json)
+passes for **8c2cf283** against **f32c09f3**: zero regressions, clean fresh
+checkout, protected 17/17, selector V2 and zero document-lint errors. The only
+changed gate file appends the four reviewed test references without changing
+previous records. The existing composed run remains bound; no extra Godot
+launch was used for this static verification.
 This INERT document promotes no completeness-ledger requirement.
 
 Worktree clean at report time: no. Owner dossier files, in-situ shots, unrelated
