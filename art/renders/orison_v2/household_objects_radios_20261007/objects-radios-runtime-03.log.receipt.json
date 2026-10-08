@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 43.62,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T01:15:45Z",
+  "started_utc": "2026-10-08T01:15:02Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/objects-radios-runtime-03.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/objects-radios-runtime-03.log",
+  "stdout_sha256": "e6ba2292e147eb54e963b4a4e848e4396f0a237cde57db6039f9befa4fb90271"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/objects-radios-runtime-03",
+ "source": {
+  "dirty_paths": 305,
+  "dirty_sample": [
+   "M art/blender/reading_nook_construction.json",
+   " M art/renders/insitu/shots.md",
+   " M game/scripts/building/orison_v2_domestic_furniture.gd",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/scripts/building/orison_v2_specialist_radio.gd",
+   " M game/tests/fixtures/orison_reading_nook.json",
+   " M game/tests/orison_v2_domestic_native_test.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/domestic_objects.blend",
+   "?? art/blender/domestic_objects_construction.json",
+   "?? art/blender/household_radios.blend",
+   "?? art/blender/household_radios_construction.json",
+   "?? art/blender/scripts/build_domestic_objects.py",
+   "?? art/blender/scripts/build_household_radios.py",
+   "?? art/blender/scripts/domestic_objects_geometry.py",
+   "?? art/blender/scripts/household_radios_geometry.py",
+   "?? art/blender/scripts/inspect_domestic_objects.py",
+   "?? art/blender/scripts/inspect_domestic_objects_context.py"
+  ],
+  "repository_head": "d89685c8f2d46bc907aafaab294b0b5a5d4c10b8",
+  "repository_tree": "38114e0e53131624d055d449071f53cfdbe2a003",
+  "runtime_inputs_sha256": "53f389ff697ffecb33a30a751fbd59c35672d370bd8133727713078251043d02",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "34c2f235f1421886305568798454f5a6cb09ebb299594c752c5f516818bb2186"
+ },
+ "windowed": true
+}

@@ -1,0 +1,24 @@
+00:01.313  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_objects.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_domestic_objects.py:9: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.60,.65,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.65
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_domestic_objects.py:12: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=10,location=(0,0,-.00004));ground=bpy.context.object;mat=bpy.data.materials.new('Review neutral');mat.use_nodes=True;mat.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.23,.25,.26,1);mat.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.75;ground.data.materials.append(mat)
+00:05.844  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject00.png'
+00:10.203  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject01.png'
+00:14.578  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject02.png'
+00:20.203  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject03.png'
+00:24.781  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject04.png'
+00:28.766  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject05.png'
+00:33.031  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject06.png'
+00:37.391  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject07.png'
+00:42.813  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject08.png'
+00:51.250  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject09.png'
+00:55.641  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject10.png'
+00:58.594  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject11.png'
+01:04.250  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject12.png'
+01:08.578  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject13.png'
+01:12.735  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject14.png'
+01:17.297  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\domestic-objects-native\DomesticObject15.png'
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

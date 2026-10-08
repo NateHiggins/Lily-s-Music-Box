@@ -1,0 +1,46 @@
+FABRICATION STAGE: art/blender/scripts/build_household_radios.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_household_radios.py:76: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "household_radios.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+21:04:52 | INFO: Starting glTF 2.0 export
+21:04:52 | INFO: Extracting primitive: HouseholdRadio__Body_ON_bakelite
+21:04:52 | INFO: Primitives created: 1
+21:04:52 | INFO: Extracting primitive: HouseholdRadio__Body_ON_brass
+21:04:52 | INFO: Primitives created: 1
+21:04:52 | INFO: Extracting primitive: HouseholdRadio__Body_ON_glassish
+21:04:52 | INFO: Primitives created: 1
+21:04:52 | INFO: Extracting primitive: HouseholdRadio__Body_ON_linen
+21:04:52 | INFO: Primitives created: 1
+21:04:52 | INFO: Extracting primitive: HouseholdRadio__Body_ON_metal
+21:04:52 | INFO: Primitives created: 1
+21:04:52 | INFO: Extracting primitive: HouseholdRadio__Body_ON_paper
+21:04:52 | INFO: Primitives created: 1
+21:04:52 | INFO: Extracting primitive: HouseholdRadio__Body_ON_rubber_aged
+21:04:52 | INFO: Primitives created: 1
+21:04:52 | INFO: Extracting primitive: HouseholdRadio__Body_ON_wood_dark
+21:04:52 | INFO: Primitives created: 1
+21:04:52 | INFO: Extracting primitive: HouseholdRadio__PowerTuningKnob_ON_bakelite
+21:04:52 | INFO: Primitives created: 1
+21:04:52 | INFO: Extracting primitive: HouseholdRadio__PowerTuningKnob_ON_brass
+21:04:52 | INFO: Primitives created: 1
+21:04:52 | INFO: Finished glTF 2.0 export in 0.03316688537597656 s
+
+HOUSEHOLD RADIOS 5 original records; 1 assemblies; 51 closed stocks; 10 parts; 11916 triangles; 4 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_household_radios.py
+00:02.906  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\household_radios.blend"
+HOUSEHOLD RADIOS LOCAL: 51 closed stocks; 1 physical groups; 4 local bearings; 10 mapped parts
+FABRICATION STAGE: art/blender/scripts/inspect_household_radios_context.py
+STORAGE CONTEXT: 5 installations; 20 floor bearings; 1 nearby pairs clear
+FABRICATION STAGE: art/blender/scripts/render_household_radios.py
+00:06.000  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\household_radios.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_household_radios.py:9: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('Neutral inspection');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.55,.60,.65,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.65
+C:\PleaseRemainOnTheLine\art\blender\scripts\render_household_radios.py:12: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_plane_add(size=10,location=(0,0,-.00004));ground=bpy.context.object;mat=bpy.data.materials.new('Review neutral');mat.use_nodes=True;mat.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value=(.23,.25,.26,1);mat.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value=.75;ground.data.materials.append(mat)
+00:11.078  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-finish-review\household-radios-native\HouseholdRadio.png'
+{"completed_stages": 4, "elapsed_s": 9.722}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

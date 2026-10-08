@@ -1,10 +1,12 @@
 extends BakedFurnitureInteraction
 ## Existing specialist valve-radio controls with scene-owned decoder cleanup.
+var native_ready := false
 func _ready() -> void:
 	super._ready()
-	if _radio_knob != null:
-		for mesh: MeshInstance3D in _radio_knob.find_children("*", "MeshInstance3D", true, false):
-			mesh.material_override = MatLib.get_mat("bakelite_black")
+	var factory: RefCounted = get_meta("v2_radio_factory",null)
+	if factory != null:
+		native_ready = factory.mount_on(self,record_id)
+		remove_meta("v2_radio_factory")
 
 func _exit_tree() -> void:
 	if _control_tween != null and _control_tween.is_valid(): _control_tween.kill()

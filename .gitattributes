@@ -1384,3 +1384,38 @@ game/tests/orison_v2_household_wardrobes_test.gd -text
 tools/orison_spatial_dependency_manifest.json -text
 tools/plan_v2_fabrication.py -text
 art/renders/orison_v2/household_wardrobes_20261007/** -text -whitespace
+
+art/blender/domestic_objects.blend -text
+art/blender/domestic_objects_construction.json -text
+art/blender/household_radios.blend -text
+art/blender/household_radios_construction.json -text
+art/blender/scripts/build_domestic_objects.py -text
+art/blender/scripts/build_household_radios.py -text
+art/blender/scripts/domestic_objects_geometry.py -text
+art/blender/scripts/household_radios_geometry.py -text
+art/blender/scripts/inspect_domestic_objects.py -text
+art/blender/scripts/inspect_domestic_objects_context.py -text
+art/blender/scripts/inspect_household_radios.py -text
+art/blender/scripts/inspect_household_radios_context.py -text
+art/blender/scripts/render_domestic_objects.py -text
+art/blender/scripts/render_household_radios.py -text
+art/data/domestic_objects/source_plan.json -text
+art/data/household_radios/source_plan.json -text
+art/textures/ai_materials/enamel_appliance/material.json -text
+game/assets/building/textures/T_ai_materials_enamel_appliance_albedo.png -text
+game/assets/building/textures/T_ai_materials_enamel_appliance_normal.png -text
+game/assets/building/textures/T_ai_materials_enamel_appliance_rough.png -text
+game/assets/props/domestic_objects.glb -text
+game/assets/props/domestic_objects.glb.import -text
+game/assets/props/household_radios.glb -text
+game/assets/props/household_radios.glb.import -text
+game/data/orison_v2/domestic_objects.json -text
+game/data/orison_v2/household_radios.json -text
+game/scripts/building/orison_v2_native_domestic_objects.gd -text
+game/scripts/building/orison_v2_native_household_radios.gd -text
+game/scripts/building/orison_v2_specialist_radio.gd -text
+game/tests/fixtures/orison_domestic_objects.json -text
+game/tests/fixtures/orison_household_radios.json -text
+game/tests/orison_v2_domestic_objects_test.gd -text
+game/tests/orison_v2_household_radios_test.gd -text
+art/renders/orison_v2/household_objects_radios_20261007/** -text -whitespace

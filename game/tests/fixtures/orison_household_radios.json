@@ -1,0 +1,851 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "3B_radio",
+      "asm": "radio",
+      "at": [
+        -11.4,
+        5.89
+      ],
+      "yaw": 180,
+      "z0": 0.91
+    },
+    {
+      "id": "5B_k_hob_radio0",
+      "asm": "radio",
+      "at": [
+        -5.95,
+        8.48
+      ],
+      "yaw": 180,
+      "z0": 0.9
+    },
+    {
+      "id": "5B_k_hob_radio1",
+      "asm": "radio",
+      "at": [
+        -5.72,
+        8.44
+      ],
+      "yaw": 180,
+      "z0": 0.9
+    },
+    {
+      "id": "5B_story_radio",
+      "asm": "radio",
+      "at": [
+        -8.43,
+        3.82
+      ],
+      "yaw": 180,
+      "z0": 0.77
+    },
+    {
+      "id": "6C_story_old_radio",
+      "asm": "radio",
+      "at": [
+        8.87,
+        2.32
+      ],
+      "yaw": -165,
+      "z0": 0.77
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "HouseholdRadio",
+      "kind": "radio",
+      "cell": "shared",
+      "source_record": "3B_radio"
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "HouseholdRadio_Bottom",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 0.0005009957057458646
+    },
+    {
+      "name": "HouseholdRadio_Top",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 0.0005009967410720831
+    },
+    {
+      "name": "HouseholdRadio_Side-0.19",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 0.00035854352213874604
+    },
+    {
+      "name": "HouseholdRadio_Side0.184",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 0.00035854352213874604
+    },
+    {
+      "name": "HouseholdRadio_Back",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 0.0005991675575126769
+    },
+    {
+      "name": "HouseholdRadio_FrontStile-0.185",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 9.686566440425014e-05
+    },
+    {
+      "name": "HouseholdRadio_FrontStile0.125",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 9.686566440425014e-05
+    },
+    {
+      "name": "HouseholdRadio_Sill",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 6.7846923846107e-05
+    },
+    {
+      "name": "HouseholdRadio_Middle",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 4.5176533709579226e-05
+    },
+    {
+      "name": "HouseholdRadio_Crown",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 4.517653706880503e-05
+    },
+    {
+      "name": "HouseholdRadio_DialJamb-0.126",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 5.754960692263029e-06
+    },
+    {
+      "name": "HouseholdRadio_DialJamb0.1",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 5.754960692263029e-06
+    },
+    {
+      "name": "HouseholdRadio_GrilleBacking",
+      "assembly": "HouseholdRadio",
+      "key": "rubber_aged",
+      "volume_m3": 0.00030622482479547233
+    },
+    {
+      "name": "HouseholdRadio_WovenGrille",
+      "assembly": "HouseholdRadio",
+      "key": "linen",
+      "volume_m3": 9.743878576433622e-05
+    },
+    {
+      "name": "HouseholdRadio_GrilleBead-0.127",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 1.5729662730839066e-06
+    },
+    {
+      "name": "HouseholdRadio_GrilleBead0.124",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 1.5729662730839062e-06
+    },
+    {
+      "name": "HouseholdRadio_GrilleBead0.113",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 2.9594618938746495e-06
+    },
+    {
+      "name": "HouseholdRadio_GrilleBead0.244",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 2.9594594870334064e-06
+    },
+    {
+      "name": "HouseholdRadio_ScaleBack",
+      "assembly": "HouseholdRadio",
+      "key": "wood_dark",
+      "volume_m3": 4.771361008436747e-05
+    },
+    {
+      "name": "HouseholdRadio_Scale",
+      "assembly": "HouseholdRadio",
+      "key": "paper",
+      "volume_m3": 1.0490522620587004e-05
+    },
+    {
+      "name": "HouseholdRadio_OriginalPointer",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 1.208061987102275e-07
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick0",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 2.6640258594980897e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick1",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.4784164399773355e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick2",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.4783978403200478e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick3",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.4784164399773363e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick4",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 2.664009109064452e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick5",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.4784071401486929e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick6",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.4784117900630138e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick7",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.4784094651058527e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick8",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 2.664013820123912e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick9",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.4784094651058527e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick10",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.4784117900630138e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick11",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.4784164399773363e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick12",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 2.664009109064452e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick13",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.4784071401486929e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick14",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.478416439977335e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick15",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 1.4784164399773355e-09
+    },
+    {
+      "name": "HouseholdRadio_ScaleTick16",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 2.6640258594980897e-09
+    },
+    {
+      "name": "HouseholdRadio_DialGlass",
+      "assembly": "HouseholdRadio",
+      "key": "glassish",
+      "volume_m3": 8.394676992577386e-06
+    },
+    {
+      "name": "HouseholdRadio_DialBead-0.102",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 5.417255292064297e-07
+    },
+    {
+      "name": "HouseholdRadio_DialBead0.1",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 5.417255292064296e-07
+    },
+    {
+      "name": "HouseholdRadio_DialBead0.048",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 2.809059001032568e-06
+    },
+    {
+      "name": "HouseholdRadio_DialBead0.085",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 2.809054199475345e-06
+    },
+    {
+      "name": "HouseholdRadio_ControlSeat0",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 6.5136073795272835e-06
+    },
+    {
+      "name": "HouseholdRadio_Spindle0",
+      "assembly": "HouseholdRadio",
+      "key": "metal",
+      "volume_m3": 2.0362188847677117e-06
+    },
+    {
+      "name": "HouseholdRadio_ControlSeat1",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 6.513607379527294e-06
+    },
+    {
+      "name": "HouseholdRadio_Spindle1",
+      "assembly": "HouseholdRadio",
+      "key": "metal",
+      "volume_m3": 2.0362188847677104e-06
+    },
+    {
+      "name": "HouseholdRadio_PassiveKnob",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 2.1034940749152063e-05
+    },
+    {
+      "name": "HouseholdRadio_PassiveIndex",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 1.1064536071237527e-08
+    },
+    {
+      "name": "HouseholdRadio_ActiveKnob",
+      "assembly": "HouseholdRadio",
+      "key": "bakelite",
+      "volume_m3": 2.1034933156616125e-05
+    },
+    {
+      "name": "HouseholdRadio_ActiveIndex",
+      "assembly": "HouseholdRadio",
+      "key": "brass",
+      "volume_m3": 1.1064536071237527e-08
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "HouseholdRadio",
+      "owner": "support",
+      "point": [
+        -0.16,
+        0,
+        0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original cabinet base"
+    },
+    {
+      "assembly": "HouseholdRadio",
+      "owner": "support",
+      "point": [
+        -0.16,
+        0,
+        -0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original cabinet base"
+    },
+    {
+      "assembly": "HouseholdRadio",
+      "owner": "support",
+      "point": [
+        0.16,
+        0,
+        0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original cabinet base"
+    },
+    {
+      "assembly": "HouseholdRadio",
+      "owner": "support",
+      "point": [
+        0.16,
+        0,
+        -0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original cabinet base"
+    }
+  ],
+  "parts": [
+    {
+      "name": "HouseholdRadio__Body_ON_bakelite",
+      "assembly": "HouseholdRadio",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 4220
+    },
+    {
+      "name": "HouseholdRadio__Body_ON_brass",
+      "assembly": "HouseholdRadio",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 2904
+    },
+    {
+      "name": "HouseholdRadio__Body_ON_glassish",
+      "assembly": "HouseholdRadio",
+      "cell": "shared",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "HouseholdRadio__Body_ON_linen",
+      "assembly": "HouseholdRadio",
+      "cell": "shared",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "HouseholdRadio__Body_ON_metal",
+      "assembly": "HouseholdRadio",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 384
+    },
+    {
+      "name": "HouseholdRadio__Body_ON_paper",
+      "assembly": "HouseholdRadio",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "HouseholdRadio__Body_ON_rubber_aged",
+      "assembly": "HouseholdRadio",
+      "cell": "shared",
+      "key": "rubber_aged",
+      "triangles": 188
+    },
+    {
+      "name": "HouseholdRadio__Body_ON_wood_dark",
+      "assembly": "HouseholdRadio",
+      "cell": "shared",
+      "key": "wood_dark",
+      "triangles": 2444
+    },
+    {
+      "name": "HouseholdRadio__PowerTuningKnob_ON_bakelite",
+      "assembly": "HouseholdRadio",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 1024
+    },
+    {
+      "name": "HouseholdRadio__PowerTuningKnob_ON_brass",
+      "assembly": "HouseholdRadio",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 188
+    }
+  ],
+  "triangles": 11916,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/household_radios.glb",
+    "floor_y": 0,
+    "assemblies": [
+      {
+        "id": "HouseholdRadio",
+        "parts": [
+          {
+            "name": "HouseholdRadio__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "HouseholdRadio__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "HouseholdRadio__Body_ON_glassish",
+            "component": "Body",
+            "key": "glassish",
+            "tile": 1.6,
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "HouseholdRadio__Body_ON_linen",
+            "component": "Body",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.75
+            }
+          },
+          {
+            "name": "HouseholdRadio__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "HouseholdRadio__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.75
+            }
+          },
+          {
+            "name": "HouseholdRadio__Body_ON_rubber_aged",
+            "component": "Body",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.75
+            }
+          },
+          {
+            "name": "HouseholdRadio__Body_ON_wood_dark",
+            "component": "Body",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "HouseholdRadio__PowerTuningKnob_ON_bakelite",
+            "component": "PowerTuningKnob",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "HouseholdRadio__PowerTuningKnob_ON_brass",
+            "component": "PowerTuningKnob",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.42
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      }
+    ],
+    "instances": [
+      {
+        "id": "3B_radio",
+        "variant": "HouseholdRadio"
+      },
+      {
+        "id": "5B_k_hob_radio0",
+        "variant": "HouseholdRadio"
+      },
+      {
+        "id": "5B_k_hob_radio1",
+        "variant": "HouseholdRadio"
+      },
+      {
+        "id": "5B_story_radio",
+        "variant": "HouseholdRadio"
+      },
+      {
+        "id": "6C_story_old_radio",
+        "variant": "HouseholdRadio"
+      }
+    ],
+    "tint_space": "linear",
+    "local_materials": {
+      "glassish": {
+        "files": [
+          null,
+          "T_glass_rough.png",
+          "T_glass_normal.png"
+        ],
+        "metallic": 0,
+        "roughness": 0.42,
+        "normal_scale": 0.025,
+        "color": [
+          0.7599999904632568,
+          0.8500000238418579,
+          0.8899999856948853,
+          0.1599999964237213
+        ],
+        "alpha": true
+      }
+    },
+    "optics": {
+      "role": "Glazing",
+      "room_class": "public",
+      "shader": "res://shaders/lamp_glass_surface.gdshader",
+      "surface_roughness": 0.06
+    }
+  },
+  "asset_sha256": "40834a2cd5c7db6c9a903441cc5c21d38fabdfa3e88e63d5062038daf73f96be",
+  "source_bindings": {
+    "art/data/household_radios/source_plan.json": "8611bf65a1a31a052851c7fee41c3096f3b0cd755476e21de17dc5a72bfa1faa",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_household_radios.py": "651218c7e27e9b8819007971162b74f31251e4b7c2b9a7199f7a2d3f0356b1a5",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "game/data/runtime_material_sets.json": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73",
+    "game/scripts/generated/material_sets.gd": "51b0c6cf899b87bb34cd49191413be9f930b12d0a11db0b009616a0a1c8fee65",
+    "game/assets/props/household_radios.glb.import": "ec84694dc43f9fdffd23d86b8c8f712f463d6c77b99acb15a6e97b36da270d68",
+    "art/textures/ai_materials/oak_work_surface/material.json": "e6f67c0a42f610648b57189f1f2d8ed7e567742ef8c4af32e104fd73acbe7f89",
+    "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
+    "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
+    "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
+    "art/textures/ai_materials/rubber_aged/material.json": "356c7af1c52350241145dbd506dc002162024b9a902f595b96be211b091555bd",
+    "art/tools/build_glass_maps.py": "63e2357d85a1fc7520c3af5592d0d8248b16519e10d1a25b28a43cb1380a7ead",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_albedo.png": "94715b263c85285aced41196f29aea6675f866a61180ab90a1f9c719bef4edeb",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_rough.png": "ebf613454bbd3e6a6909cbe3d1aa4fe89b45fd8229516aafb31146761cf63ee5",
+    "game/assets/building/textures/T_ai_materials_oak_work_surface_normal.png": "8aa1987fad72d117f836ac0d18922e94b71a03a009206401f440768ac6ad91e1",
+    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
+    "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
+    "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
+    "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
+    "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
+    "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
+    "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
+    "game/assets/building/textures/T_glass_rough.png": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
+    "game/assets/building/textures/T_glass_normal.png": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
+    "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
+    "art/data/material_catalog.json": "562d8c15879f12404d443d227a2ccda373c68a6af810e63cc214ce23c79ee1e1",
+    "art/textures/catalog_mapping.json": "d4f3e411ac9b1f942bed184b34a4cf19f4418a4220044c86ed917513c2421686",
+    "art/tools/generate_runtime_materials.py": "4156d34f776a3cd57c2dcdc016f0f147a0741530ef20a16d0b610e28dd8198a6",
+    "art/blender/scripts/inspect_household_radios.py": "724f25dff1ef19aee3399827f71f998359e33642e857ab53f62fc280545b498b",
+    "art/blender/scripts/render_household_radios.py": "00c9f9ecf1f031bde831af6ce15daa25f0c97f856cd1e51d3cf14af103f79dd1",
+    "art/blender/scripts/household_radios_geometry.py": "ba492487a33517d917ca82926856a8eef2cb1ee11c25bcb570c85eeaa5f11a2e",
+    "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
+    "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707",
+    "game/data/orison_v2/completion_interiors.json": "5fa82dc7867693816be370e8a6cea7a5bc71787cb51bdac1892c637e6746505f",
+    "art/data/orison_v2/completion_interiors_source.json": "5cee5bdc91d9ad58add1379f33e3efe195062af948db8ceadefa9ccf316ed719",
+    "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
+    "art/blender/scripts/inspect_household_radios_context.py": "0e14f965eacf935419f413179104eee6200d1d3cd38ff220c5d057d3df32492e",
+    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
+    "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e",
+    "game/tests/fixtures/orison_surface_stock.json": "c6745b20915158a8e1a82d510f187f1977b3889892b8bcbf1adbafecc07e4bd9",
+    "art/blender/domestic_storage.blend": "2ecf3c03e229cb313a07fd549e6d21f9421a7305c6b349f2c68d2387cfc07684",
+    "art/blender/prep_cabinets.blend": "6c3cfa636a09f138a4b5f1939939149ee2ac98dc7eea068d8bd118b97e4062b3",
+    "art/blender/household_wardrobes.blend": "ed34e76d54efba76a5e2ef7e862d2b432c199ae8856b29f63793b69a04e77ad7",
+    "art/blender/domestic_objects.blend": "99a7d3e1f3f6ecb06d740608bb6ec5556a540ab8653b925b19041fe3ba9d2fe0",
+    "game/scripts/props/baked_furniture_interaction.gd": "0eeb897f8a45f61ac4ff0e69dea93433d09262ed20fe5da8aea6be59a1cb7039",
+    "art/blender/scripts/surface_stock_geometry.py": "aa8245d785858c296761d420ec6302e18da3646d386c0b37c4d164c94c8beb12",
+    "art/blender/domestic_seating.blend": "b38976cbf3603ee75878320139027f17d6d732b6c27111d99c83719243b46efe",
+    "art/blender/domestic_tables.blend": "c408c7b2e9d545f519e0b269ca8691ced4bec2373d98d831228653f7e476b3ea"
+  },
+  "retained_stock": [
+    {
+      "assembly": "HouseholdRadio",
+      "kind": "source_control",
+      "pivot_godot": [
+        0.14,
+        0.062,
+        -0.139
+      ],
+      "angle_degrees": 42,
+      "authority": "game/scripts/props/baked_furniture_interaction.gd"
+    }
+  ],
+  "construction_groups": [
+    {
+      "assembly": "HouseholdRadio",
+      "id": "HouseholdRadio_CabinetAndSeatedControls",
+      "stocks": [
+        "HouseholdRadio_Bottom",
+        "HouseholdRadio_Top",
+        "HouseholdRadio_Side-0.19",
+        "HouseholdRadio_Side0.184",
+        "HouseholdRadio_Back",
+        "HouseholdRadio_FrontStile-0.185",
+        "HouseholdRadio_FrontStile0.125",
+        "HouseholdRadio_Sill",
+        "HouseholdRadio_Middle",
+        "HouseholdRadio_Crown",
+        "HouseholdRadio_DialJamb-0.126",
+        "HouseholdRadio_DialJamb0.1",
+        "HouseholdRadio_GrilleBacking",
+        "HouseholdRadio_WovenGrille",
+        "HouseholdRadio_GrilleBead-0.127",
+        "HouseholdRadio_GrilleBead0.124",
+        "HouseholdRadio_GrilleBead0.113",
+        "HouseholdRadio_GrilleBead0.244",
+        "HouseholdRadio_ScaleBack",
+        "HouseholdRadio_Scale",
+        "HouseholdRadio_OriginalPointer",
+        "HouseholdRadio_ScaleTick0",
+        "HouseholdRadio_ScaleTick1",
+        "HouseholdRadio_ScaleTick2",
+        "HouseholdRadio_ScaleTick3",
+        "HouseholdRadio_ScaleTick4",
+        "HouseholdRadio_ScaleTick5",
+        "HouseholdRadio_ScaleTick6",
+        "HouseholdRadio_ScaleTick7",
+        "HouseholdRadio_ScaleTick8",
+        "HouseholdRadio_ScaleTick9",
+        "HouseholdRadio_ScaleTick10",
+        "HouseholdRadio_ScaleTick11",
+        "HouseholdRadio_ScaleTick12",
+        "HouseholdRadio_ScaleTick13",
+        "HouseholdRadio_ScaleTick14",
+        "HouseholdRadio_ScaleTick15",
+        "HouseholdRadio_ScaleTick16",
+        "HouseholdRadio_DialGlass",
+        "HouseholdRadio_DialBead-0.102",
+        "HouseholdRadio_DialBead0.1",
+        "HouseholdRadio_DialBead0.048",
+        "HouseholdRadio_DialBead0.085",
+        "HouseholdRadio_ControlSeat0",
+        "HouseholdRadio_Spindle0",
+        "HouseholdRadio_ControlSeat1",
+        "HouseholdRadio_Spindle1",
+        "HouseholdRadio_PassiveKnob",
+        "HouseholdRadio_PassiveIndex",
+        "HouseholdRadio_ActiveKnob",
+        "HouseholdRadio_ActiveIndex"
+      ]
+    }
+  ],
+  "placement": {
+    "floor_y": 0,
+    "frame": "Original radio actor origins and tuning pivot; cabinet base retains source support."
+  },
+  "open_work": [
+    "Broad room lighting and surface calibration remain open. Native form, supports and runtime controls validated in the scoped object/radio batch."
+  ]
+}

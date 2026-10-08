@@ -1,0 +1,18 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_domestic_objects.py",
+      "elapsed_s": 4.395
+    },
+    {
+      "script": "art/blender/scripts/inspect_domestic_objects.py",
+      "elapsed_s": 2.254
+    },
+    {
+      "script": "art/blender/scripts/inspect_domestic_objects_context.py",
+      "elapsed_s": 2.167
+    }
+  ]
+}

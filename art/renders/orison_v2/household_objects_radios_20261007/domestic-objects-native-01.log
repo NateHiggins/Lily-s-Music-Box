@@ -1,0 +1,155 @@
+FABRICATION STAGE: art/blender/scripts/build_domestic_objects.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_domestic_objects.py:76: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "domestic_objects.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+20:48:04 | INFO: Starting glTF 2.0 export
+20:48:04 | INFO: Extracting primitive: DomesticObject00__Body_ON_brass
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject00__Body_ON_paper
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject00__Body_ON_timber
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject00__Body_ON_wood_dark
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject01__Body_ON_timber
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject01__Body_ON_wood_dark
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject02__Body_ON_brass
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject02__Body_ON_metal
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject02__Body_ON_plywood
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject02__Body_ON_rubber_aged
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject02__Body_ON_timber
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject02__Body_ON_wood_dark
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject03__Body_ON_metal
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject03__Body_ON_timber
+20:48:04 | INFO: Primitives created: 1
+20:48:04 | INFO: Extracting primitive: DomesticObject04__Body_ON_bakelite
+20:48:04 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject04__Body_ON_enamel
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject04__Body_ON_metal
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject04__Body_ON_paper
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject04__Body_ON_rubber_aged
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject04__Body_ON_soot
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject05__Body_ON_plant
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject05__Body_ON_soil
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject05__Body_ON_terracotta
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject05__Body_ON_timber
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject06__Body_ON_brass
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject06__Body_ON_paper
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject06__Body_ON_timber
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject06__Body_ON_wood_dark
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject07__Body_ON_brass
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject07__Body_ON_paper
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject07__Body_ON_timber
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject07__Body_ON_wood_dark
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject08__Body_ON_book_brown
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject08__Body_ON_book_burgundy
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject08__Body_ON_book_green
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject08__Body_ON_book_navy
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject08__Body_ON_book_ochre
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject08__Body_ON_book_teal
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject08__Body_ON_paper
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject09__Body_ON_brass
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject09__Body_ON_paper
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject09__Body_ON_timber
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject09__Body_ON_wood_dark
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject10__Body_ON_metal
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject10__Body_ON_milk_glass
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject10__Body_ON_rubber_aged
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject10__Body_ON_soot
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject11__Body_ON_linen
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject11__Body_ON_metal
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject11__Body_ON_rubber_aged
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject11__Body_ON_soot
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject12__Body_ON_metal
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject12__Body_ON_soot
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject12__Body_ON_timber
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject13__Body_ON_rubber_aged
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject14__Body_ON_rubber_aged
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject15__Body_ON_brass
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject15__Body_ON_metal
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject15__Body_ON_plywood
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject15__Body_ON_rubber_aged
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Extracting primitive: DomesticObject15__Body_ON_timber
+20:48:05 | INFO: Primitives created: 1
+20:48:05 | INFO: Finished glTF 2.0 export in 0.25595569610595703 s
+
+DOMESTIC OBJECTS 16 original records; 16 assemblies; 410 closed stocks; 61 parts; 106060 triangles; 58 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_domestic_objects.py
+00:09.313  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\domestic_objects.blend"
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 79, in <module>
+    if __name__ == '__main__': main()
+                               ~~~~^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 72, in main
+    results = execute(stages)
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\run_fabrication_batch.py", line 47, in execute
+    runpy.run_path(sys.argv[0], run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_domestic_objects.py", line 57, in <module>
+    assert not join_failures,join_failures
+           ^^^^^^^^^^^^^^^^^
+AssertionError: [('DomesticObject04_PassiveReelDeck', 'disconnected', ['DomesticObject04_Control0', 'DomesticObject04_Control1', 'DomesticObject04_Control2', 'DomesticObject04_Deck', 'DomesticObject04_Guide-0.063', 'DomesticObject04_Guide0.063', 'DomesticObject04_HeadBlock', 'DomesticObject04_MeterFace0', 'DomesticObject04_MeterFace1', 'DomesticObject04_MeterPointer0', 'DomesticObject04_MeterPointer1', 'DomesticObject04_MeterRim0_Far', 'DomesticObject04_MeterRim0_Left', 'DomesticObject04_MeterRim0_Near', 'DomesticObject04_MeterRim0_Right', 'DomesticObject04_MeterRim1_Far', 'DomesticObject04_MeterRim1_Left', 'DomesticObject04_MeterRim1_Near', 'DomesticObject04_MeterRim1_Right', 'DomesticObject04_MeterTick(0, 0)', 'DomesticObject04_MeterTick(0, 1)', 'DomesticObject04_MeterTick(0, 2)', 'DomesticObject04_MeterTick(0, 3)', 'DomesticObject04_MeterTick(0, 4)', 'DomesticObject04_MeterTick(1, 0)', 'DomesticObject04_MeterTick(1, 1)', 'DomesticObject04_MeterTick(1, 2)', 'DomesticObject04_MeterTick(1, 3)', 'DomesticObject04_MeterTick(1, 4)', 'DomesticObject04_ReelBase0', 'DomesticObject04_ReelBase1', 'DomesticObject04_ReelBoss0', 'DomesticObject04_ReelBoss1', 'DomesticObject04_ReelCentre0', 'DomesticObject04_ReelCentre1', 'DomesticObject04_ReelOuter0', 'DomesticObject04_ReelOuter1', 'DomesticObject04_ReelSpoke(0, 0)', 'DomesticObject04_ReelSpoke(0, 1)', 'DomesticObject04_ReelSpoke(0, 2)', 'DomesticObject04_ReelSpoke(1, 0)', 'DomesticObject04_ReelSpoke(1, 1)', 'DomesticObject04_ReelSpoke(1, 2)', 'DomesticObject04_Spindle0', 'DomesticObject04_Spindle1', 'DomesticObject04_TapePack0', 'DomesticObject04_TapePack1', 'DomesticObject04_TapePath'])]
+
+Error: script failed, file: 'art/blender/scripts/run_fabrication_batch.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

@@ -99,7 +99,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 				var at := prop.to_global(Vector3(p[0],p[1],p[2]))
 				var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+Vector3.UP*.004,at-Vector3.UP*.004,1))
 				check(not hit.is_empty() and hit.collider == support and hit.position.distance_to(at)<.00004 and hit.normal.y>.99,"actual native table supports retained stock: "+str(row.id))
-	if family == "domestic_storage":
+	if family in ["domestic_storage","domestic_objects"]:
 		var radio := world.adapter.resolve("3B_radio") as StaticBody3D
 		var shelf := world.adapter.resolve("3B_tools0") as StaticBody3D
 		check(radio != null and shelf != null,"existing radio and supporting shelf remain")
@@ -120,7 +120,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			for part: Dictionary in variants[variant].parts:
 				var draw := body.get_node(str(part.name)) as MeshInstance3D
 				bounds = bounds.merge(draw.transform * draw.mesh.get_aabb())
-			if family == "domestic_storage":
+			if family in ["domestic_storage","domestic_objects"]:
 				for draw: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
 					bounds = bounds.merge(body.global_transform.affine_inverse()*draw.global_transform*draw.mesh.get_aabb())
 				if identity=="3B_tools0":
@@ -128,10 +128,10 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 					for draw: MeshInstance3D in radio.find_children("*","MeshInstance3D",true,false):
 						bounds = bounds.merge(body.global_transform.affine_inverse()*draw.global_transform*draw.mesh.get_aabb())
 			var radius := maxf(1.15,maxf(bounds.size.x,bounds.size.z)*.9)
-			if family == "domestic_storage":radius=maxf(radius,bounds.size.y*1.05)
+			if family in ["domestic_storage","domestic_objects"]:radius=maxf(radius,bounds.size.y*1.05)
 			var station := Vector3.INF
 			var directions: Array[Vector3] = [Vector3(0,0,-1),Vector3(.7,0,-.7),Vector3(-.7,0,-.7),Vector3(1,0,0),Vector3(-1,0,0),Vector3(.7,0,.7),Vector3(-.7,0,.7),Vector3(0,0,1)]
-			if family=="domestic_storage":
+			if family in ["domestic_storage","domestic_objects"]:
 				directions.clear()
 				for step in 24:
 					var angle := deg_to_rad(ceilf(float(step)*.5)*15.*(1. if step%2 else -1.))
@@ -140,13 +140,13 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 				for direction: Vector3 in directions:
 					var feet: Vector3 = body.to_global(direction*radius*float(scale)+Vector3.UP*.02)
 					feet.y = world.adapter.root.global_position.y + float(levels[str(anchors[identity].level)]) + .02
-					if _city_clear_station(world,feet) and (family!="domestic_storage" or _framed_at(world,body,bounds,feet)): station=feet; break
+					if _city_clear_station(world,feet) and (family not in ["domestic_storage","domestic_objects"] or _framed_at(world,body,bounds,feet)): station=feet; break
 				if station.is_finite(): break
 			check(station.is_finite(),"clear standing camera station: "+identity)
 			if station.is_finite():
-				var target := body.to_global(bounds.get_center() if family=="domestic_storage" else Vector3(0,bounds.end.y*.65,0))
+				var target := body.to_global(bounds.get_center() if family in ["domestic_storage","domestic_objects"] else Vector3(0,bounds.end.y*.65,0))
 				await _city_capture(world,station,target,identity+"_native","native apartment furniture",identity)
-				if family=="domestic_storage":check(_framed_at(world,body,bounds,station),"entire storage assembly and retained stock remain inside frame")
+				if family in ["domestic_storage","domestic_objects"]:check(_framed_at(world,body,bounds,station),"entire storage assembly and retained stock remain inside frame")
 	return {"checks":checks,"parts":count,"variants":first_actors.size(),"actors":mounted_ids.size(),"unique_triangles":unique_triangles,"views":discovery.duplicate(true),"shared_validator_sha256":FileAccess.get_sha256("res://tests/orison_v2_domestic_native_test.gd"),"failures":failures.duplicate()}
 
 func _framed_at(world: OrisonV2RuntimeRoot,body: Node3D,bounds: AABB,feet: Vector3) -> bool:

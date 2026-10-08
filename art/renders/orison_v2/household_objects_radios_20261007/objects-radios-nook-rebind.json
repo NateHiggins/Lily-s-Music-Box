@@ -1,0 +1,21 @@
+{
+  "evidence_class": "INERT",
+  "reason": "Only mount_source and new family constants adopt native objects/radios. Nine unrelated construction methods and all nook geometry remain unchanged.",
+  "changed_functions": [
+    "mount_source"
+  ],
+  "unchanged_functions": [
+    "mount",
+    "validate",
+    "_bed_variant",
+    "_add_bed",
+    "_add_surfaces",
+    "_validate_surfaces",
+    "_numbers",
+    "_vector",
+    "_material"
+  ],
+  "binding": "game/scripts/building/orison_v2_domestic_furniture.gd",
+  "before": "ec7c09ccb1094f8383f9bcaca127e591336b2aad1e0d0301ad78e332a3ce173f",
+  "after": "678bdb1d914a3971516212e53e9115a05a6798290707988cee6f0da1ae05ae39"
+}

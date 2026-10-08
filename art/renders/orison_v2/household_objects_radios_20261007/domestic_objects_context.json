@@ -1,0 +1,917 @@
+{
+  "evidence_class": "INERT",
+  "installations": 17,
+  "bearings": [
+    {
+      "id": "2A_pinboard",
+      "point": [
+        -13.367499351501465,
+        4.429999828338623,
+        6.269999980926514
+      ],
+      "space": "F02_A_BED",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_A_KITCHEN",
+          "side": "north",
+          "face": 6.2700000000000005
+        }
+      ]
+    },
+    {
+      "id": "2A_pinboard",
+      "point": [
+        -13.367499351501465,
+        4.869999885559082,
+        6.269999980926514
+      ],
+      "space": "F02_A_BED",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_A_KITCHEN",
+          "side": "north",
+          "face": 6.2700000000000005
+        }
+      ]
+    },
+    {
+      "id": "2A_pinboard",
+      "point": [
+        -14.032500267028809,
+        4.429999828338623,
+        6.269999980926514
+      ],
+      "space": "F02_A_BED",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_A_KITCHEN",
+          "side": "north",
+          "face": 6.2700000000000005
+        }
+      ]
+    },
+    {
+      "id": "2A_pinboard",
+      "point": [
+        -14.032500267028809,
+        4.869999885559082,
+        6.269999980926514
+      ],
+      "space": "F02_A_BED",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_A_KITCHEN",
+          "side": "north",
+          "face": 6.2700000000000005
+        }
+      ]
+    },
+    {
+      "id": "2B_story_pattern_board",
+      "point": [
+        12.418999671936035,
+        4.429999828338623,
+        0.22999998927116394
+      ],
+      "space": "F02_B_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_B_MAIN",
+          "side": "north",
+          "face": 0.22999999999999998
+        },
+        {
+          "space": "F02_SERVICE_CORE",
+          "side": "south",
+          "face": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "id": "2B_story_pattern_board",
+      "point": [
+        12.418999671936035,
+        4.929999828338623,
+        0.22999998927116394
+      ],
+      "space": "F02_B_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_B_MAIN",
+          "side": "north",
+          "face": 0.22999999999999998
+        },
+        {
+          "space": "F02_SERVICE_CORE",
+          "side": "south",
+          "face": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "id": "2B_story_pattern_board",
+      "point": [
+        12.880999565124512,
+        4.429999828338623,
+        0.22999998927116394
+      ],
+      "space": "F02_B_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_B_MAIN",
+          "side": "north",
+          "face": 0.22999999999999998
+        },
+        {
+          "space": "F02_SERVICE_CORE",
+          "side": "south",
+          "face": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "id": "2B_story_pattern_board",
+      "point": [
+        12.880999565124512,
+        4.929999828338623,
+        0.22999998927116394
+      ],
+      "space": "F02_B_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F02_B_MAIN",
+          "side": "north",
+          "face": 0.22999999999999998
+        },
+        {
+          "space": "F02_SERVICE_CORE",
+          "side": "south",
+          "face": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "id": "3B_toolboard",
+      "point": [
+        13.085000038146973,
+        8.029999732971191,
+        0.22999998927116394
+      ],
+      "space": "F03_B_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_SERVICE_CORE",
+          "side": "south",
+          "face": 0.22999999999999998
+        },
+        {
+          "space": "F03_B_MAIN",
+          "side": "north",
+          "face": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "id": "3B_toolboard",
+      "point": [
+        13.085000038146973,
+        8.519999504089355,
+        0.22999998927116394
+      ],
+      "space": "F03_B_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_SERVICE_CORE",
+          "side": "south",
+          "face": 0.22999999999999998
+        },
+        {
+          "space": "F03_B_MAIN",
+          "side": "north",
+          "face": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "id": "3B_toolboard",
+      "point": [
+        13.714999198913574,
+        8.029999732971191,
+        0.22999998927116394
+      ],
+      "space": "F03_B_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_B_MAIN",
+          "side": "north",
+          "face": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "id": "3B_toolboard",
+      "point": [
+        13.714999198913574,
+        8.519999504089355,
+        0.22999998927116394
+      ],
+      "space": "F03_B_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F03_B_MAIN",
+          "side": "north",
+          "face": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "id": "3B_partscrate",
+      "point": [
+        15.002999305725098,
+        6.400000095367432,
+        -4.527500152587891
+      ],
+      "space": "F03_B_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "3B_partscrate",
+      "point": [
+        15.002999305725098,
+        6.400000095367432,
+        -4.772500038146973
+      ],
+      "space": "F03_B_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "3B_partscrate",
+      "point": [
+        15.29699993133545,
+        6.400000095367432,
+        -4.527500152587891
+      ],
+      "space": "F03_B_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "3B_partscrate",
+      "point": [
+        15.29699993133545,
+        6.400000095367432,
+        -4.772500038146973
+      ],
+      "space": "F03_B_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "2A_deck",
+      "point": [
+        -11.980000495910645,
+        3.583880662918091,
+        -1.6299999952316284
+      ],
+      "space": "F02_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "2A_deck",
+      "point": [
+        -11.980000495910645,
+        3.583880662918091,
+        -1.8700000047683716
+      ],
+      "space": "F02_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "2A_deck",
+      "point": [
+        -11.619999885559082,
+        3.583880662918091,
+        -1.6299999952316284
+      ],
+      "space": "F02_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "2A_deck",
+      "point": [
+        -11.619999885559082,
+        3.583880662918091,
+        -1.8700000047683716
+      ],
+      "space": "F02_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "3A_story_specimen",
+      "point": [
+        -15.0,
+        6.400000095367432,
+        2.25
+      ],
+      "space": "F03_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "5A_pins1",
+      "point": [
+        -15.579999923706055,
+        13.930000305175781,
+        -5.887499809265137
+      ],
+      "space": "F05_A_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_MAIN",
+          "side": "west",
+          "face": -15.58
+        }
+      ]
+    },
+    {
+      "id": "5A_pins1",
+      "point": [
+        -15.579999923706055,
+        14.620000839233398,
+        -5.887499809265137
+      ],
+      "space": "F05_A_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_MAIN",
+          "side": "west",
+          "face": -15.58
+        }
+      ]
+    },
+    {
+      "id": "5A_pins1",
+      "point": [
+        -15.580000877380371,
+        13.930000305175781,
+        -5.012499809265137
+      ],
+      "space": "F05_A_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_MAIN",
+          "side": "west",
+          "face": -15.58
+        }
+      ]
+    },
+    {
+      "id": "5A_pins1",
+      "point": [
+        -15.580000877380371,
+        14.620000839233398,
+        -5.012499809265137
+      ],
+      "space": "F05_A_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_MAIN",
+          "side": "west",
+          "face": -15.58
+        }
+      ]
+    },
+    {
+      "id": "5A_pins2",
+      "point": [
+        -11.130000114440918,
+        14.029999732971191,
+        -11.917500495910645
+      ],
+      "space": "F05_A_STUDY",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_BED",
+          "side": "east",
+          "face": -11.129999999999999
+        }
+      ]
+    },
+    {
+      "id": "5A_pins2",
+      "point": [
+        -11.130000114440918,
+        14.569999694824219,
+        -11.917500495910645
+      ],
+      "space": "F05_A_STUDY",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_BED",
+          "side": "east",
+          "face": -11.129999999999999
+        }
+      ]
+    },
+    {
+      "id": "5A_pins2",
+      "point": [
+        -11.130000114440918,
+        14.029999732971191,
+        -11.182499885559082
+      ],
+      "space": "F05_A_STUDY",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_BED",
+          "side": "east",
+          "face": -11.129999999999999
+        }
+      ]
+    },
+    {
+      "id": "5A_pins2",
+      "point": [
+        -11.130000114440918,
+        14.569999694824219,
+        -11.182499885559082
+      ],
+      "space": "F05_A_STUDY",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_A_BED",
+          "side": "east",
+          "face": -11.129999999999999
+        }
+      ]
+    },
+    {
+      "id": "5A_floorstack",
+      "point": [
+        -14.899999618530273,
+        12.800000190734863,
+        -4.599999904632568
+      ],
+      "space": "F05_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "5C_story_colorboard",
+      "point": [
+        -5.53000020980835,
+        14.039999961853027,
+        7.114999771118164
+      ],
+      "space": "F05_C_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_C_MAIN",
+          "side": "west",
+          "face": -5.529999999999999
+        }
+      ]
+    },
+    {
+      "id": "5C_story_colorboard",
+      "point": [
+        -5.53000020980835,
+        14.680000305175781,
+        7.114999771118164
+      ],
+      "space": "F05_C_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_C_MAIN",
+          "side": "west",
+          "face": -5.529999999999999
+        }
+      ]
+    },
+    {
+      "id": "5C_story_colorboard",
+      "point": [
+        -5.53000020980835,
+        14.039999961853027,
+        7.884999752044678
+      ],
+      "space": "F05_C_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_C_MAIN",
+          "side": "west",
+          "face": -5.529999999999999
+        }
+      ]
+    },
+    {
+      "id": "5C_story_colorboard",
+      "point": [
+        -5.53000020980835,
+        14.680000305175781,
+        7.884999752044678
+      ],
+      "space": "F05_C_MAIN",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "F05_C_MAIN",
+          "side": "west",
+          "face": -5.529999999999999
+        }
+      ]
+    },
+    {
+      "id": "6A_tripod",
+      "point": [
+        -13.899999618530273,
+        16.0,
+        -4.599999904632568
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_tripod",
+      "point": [
+        -14.34999942779541,
+        16.0,
+        -4.85980749130249
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_tripod",
+      "point": [
+        -14.34999942779541,
+        16.0,
+        -4.3401923179626465
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_soft1",
+      "point": [
+        -14.074833869934082,
+        16.0,
+        -5.46999979019165
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_soft1",
+      "point": [
+        -14.300000190734863,
+        16.0,
+        -5.860000133514404
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_soft1",
+      "point": [
+        -14.525166511535645,
+        16.0,
+        -5.46999979019165
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_soft2",
+      "point": [
+        -14.300000190734863,
+        16.0,
+        -3.440000057220459
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_soft2",
+      "point": [
+        -14.074833869934082,
+        16.0,
+        -3.8299999237060547
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_soft2",
+      "point": [
+        -14.525166511535645,
+        16.0,
+        -3.830000162124634
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_gearcrate",
+      "point": [
+        -15.26213264465332,
+        16.0,
+        -1.4452805519104004
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_gearcrate",
+      "point": [
+        -15.28653621673584,
+        16.0,
+        -1.724215030670166
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_gearcrate",
+      "point": [
+        -14.913464546203613,
+        16.0,
+        -1.4757850170135498
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_gearcrate",
+      "point": [
+        -14.937868118286133,
+        16.0,
+        -1.7547194957733154
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_coil1",
+      "point": [
+        -13.104737281799316,
+        16.0,
+        -4.554999828338623
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_coil1",
+      "point": [
+        -13.255000114440918,
+        16.0,
+        -4.5952630043029785
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_coil1",
+      "point": [
+        -13.295262336730957,
+        16.0,
+        -4.445000171661377
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_coil1",
+      "point": [
+        -13.144999504089355,
+        16.0,
+        -4.4047369956970215
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_coil1",
+      "point": [
+        -12.916701316833496,
+        16.0,
+        -4.784198760986328
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_coil2",
+      "point": [
+        -14.244999885559082,
+        16.0,
+        -3.02205753326416
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_coil2",
+      "point": [
+        -14.122057914733887,
+        16.0,
+        -3.054999828338623
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_coil2",
+      "point": [
+        -14.154999732971191,
+        16.0,
+        -3.1779422760009766
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_coil2",
+      "point": [
+        -14.277941703796387,
+        16.0,
+        -3.1449999809265137
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "6A_coil2",
+      "point": [
+        -14.28707504272461,
+        16.0,
+        -2.721708059310913
+      ],
+      "space": "F06_A_MAIN",
+      "owner": "support",
+      "wall": []
+    },
+    {
+      "id": "b1_toolboard",
+      "point": [
+        6.485000133514404,
+        -1.5700000524520874,
+        5.730000019073486
+      ],
+      "space": "B1_MAINTENANCE_SHOP",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "B1_MAINTENANCE_SHOP",
+          "side": "north",
+          "face": 5.7299999999999995
+        }
+      ]
+    },
+    {
+      "id": "b1_toolboard",
+      "point": [
+        6.485000133514404,
+        -1.0800001621246338,
+        5.730000019073486
+      ],
+      "space": "B1_MAINTENANCE_SHOP",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "B1_MAINTENANCE_SHOP",
+          "side": "north",
+          "face": 5.7299999999999995
+        }
+      ]
+    },
+    {
+      "id": "b1_toolboard",
+      "point": [
+        7.115000247955322,
+        -1.5700000524520874,
+        5.730000019073486
+      ],
+      "space": "B1_MAINTENANCE_SHOP",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "B1_MAINTENANCE_SHOP",
+          "side": "north",
+          "face": 5.7299999999999995
+        }
+      ]
+    },
+    {
+      "id": "b1_toolboard",
+      "point": [
+        7.115000247955322,
+        -1.0800001621246338,
+        5.730000019073486
+      ],
+      "space": "B1_MAINTENANCE_SHOP",
+      "owner": "wall",
+      "wall": [
+        {
+          "space": "B1_MAINTENANCE_SHOP",
+          "side": "north",
+          "face": 5.7299999999999995
+        }
+      ]
+    }
+  ],
+  "nearby_pairs": [],
+  "retained_stock_bearings": [],
+  "retained_radio_bearings": [
+    {
+      "id": "3B_radio",
+      "support": "3B_tools0",
+      "local_point": [
+        -0.16,
+        0,
+        -0.08
+      ]
+    },
+    {
+      "id": "3B_radio",
+      "support": "3B_tools0",
+      "local_point": [
+        -0.16,
+        0,
+        0.08
+      ]
+    },
+    {
+      "id": "3B_radio",
+      "support": "3B_tools0",
+      "local_point": [
+        0.16,
+        0,
+        -0.08
+      ]
+    },
+    {
+      "id": "3B_radio",
+      "support": "3B_tools0",
+      "local_point": [
+        0.16,
+        0,
+        0.08
+      ]
+    }
+  ],
+  "failures": [],
+  "scope": "All passive object anchors against native furniture, actual rear-wall faces and floor/coffee-table bearings. Runtime composition remains required."
+}

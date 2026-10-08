@@ -1,0 +1,24 @@
+{
+  "evidence_class": "INERT",
+  "reason": "Only source-plan status prose and its report binding change after review. Exports, runtime payloads and all other fixture semantics remain exact.",
+  "families": {
+    "domestic_objects": {
+      "plan_before": "c81eb55925566045b4a10e0998064e9ce811389caa92416c3a9a0752e3ca940f",
+      "plan_after": "6fb0d08dfb3b7eec76527c49744267bea7ed737a1338f84693af98fb885b13f3",
+      "unchanged": {
+        "game\\assets\\props\\domestic_objects.glb": "7940870f6ece99b0da4008f1d1e89835ad6a5d417fe62f85e1ebd85ba5fc37be",
+        "game\\data\\orison_v2\\domestic_objects.json": "22bf54307c376dadda1116792a5223b5298c8b1e39143ceeca339bf3c0f15e1b",
+        "art\\blender\\domestic_objects.blend": "99a7d3e1f3f6ecb06d740608bb6ec5556a540ab8653b925b19041fe3ba9d2fe0"
+      }
+    },
+    "household_radios": {
+      "plan_before": "be41939acf364893cb3c1ea0100892aa4165dc7392b77fc307dba24ebaec05b1",
+      "plan_after": "8611bf65a1a31a052851c7fee41c3096f3b0cd755476e21de17dc5a72bfa1faa",
+      "unchanged": {
+        "game\\assets\\props\\household_radios.glb": "40834a2cd5c7db6c9a903441cc5c21d38fabdfa3e88e63d5062038daf73f96be",
+        "game\\data\\orison_v2\\household_radios.json": "411e1a7a10d6678839adef6f21185bb4278ce05ac9524e14e20ff06370960947",
+        "art\\blender\\household_radios.blend": "606812711e2b477c08826e727021d04fa9850ddc2cca6c491cb5ff3775467fb3"
+      }
+    }
+  }
+}

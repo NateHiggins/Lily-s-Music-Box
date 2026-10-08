@@ -1,0 +1,37 @@
+{
+	"batch_checks": 7,
+	"elapsed_ms": 33346,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 318,
+	"modules": {
+		"household_radios": {
+			"actors": 5,
+			"captured": true,
+			"checks": 318,
+			"elapsed_ms": 2540,
+			"failures": [],
+			"fixture_sha256": "1f1f982345d40baf455b39800788f53a7855a2801aa3f9dbfc9b3170347340f9",
+			"parts": 50,
+			"unique_triangles": 11916,
+			"validator_sha256": "87f9f305211be89df5c6016a5335a0f158e0ce46488cf50ddebc9a090230b517",
+			"views": [
+				{
+					"bucket": "native household radio with original power control",
+					"feet": [
+						-12.6349992752075,
+						6.42000007629395,
+						-8.15000057220459
+					],
+					"id": "3B_radio_native",
+					"image": "3B_radio_native.png",
+					"owner": "3B_radio",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

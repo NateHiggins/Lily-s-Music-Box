@@ -1,0 +1,693 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 51,
+  "connected_groups": [
+    {
+      "assembly": "HouseholdRadio_CabinetAndSeatedControls",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "HouseholdRadio_Bottom",
+          "HouseholdRadio_Side-0.19"
+        ],
+        [
+          "HouseholdRadio_Bottom",
+          "HouseholdRadio_Side0.184"
+        ],
+        [
+          "HouseholdRadio_Bottom",
+          "HouseholdRadio_Back"
+        ],
+        [
+          "HouseholdRadio_Bottom",
+          "HouseholdRadio_FrontStile-0.185"
+        ],
+        [
+          "HouseholdRadio_Bottom",
+          "HouseholdRadio_FrontStile0.125"
+        ],
+        [
+          "HouseholdRadio_Bottom",
+          "HouseholdRadio_Sill"
+        ],
+        [
+          "HouseholdRadio_Top",
+          "HouseholdRadio_Side-0.19"
+        ],
+        [
+          "HouseholdRadio_Top",
+          "HouseholdRadio_Side0.184"
+        ],
+        [
+          "HouseholdRadio_Top",
+          "HouseholdRadio_Back"
+        ],
+        [
+          "HouseholdRadio_Top",
+          "HouseholdRadio_FrontStile-0.185"
+        ],
+        [
+          "HouseholdRadio_Top",
+          "HouseholdRadio_FrontStile0.125"
+        ],
+        [
+          "HouseholdRadio_Top",
+          "HouseholdRadio_Crown"
+        ],
+        [
+          "HouseholdRadio_Side-0.19",
+          "HouseholdRadio_Back"
+        ],
+        [
+          "HouseholdRadio_Side-0.19",
+          "HouseholdRadio_FrontStile-0.185"
+        ],
+        [
+          "HouseholdRadio_Side0.184",
+          "HouseholdRadio_Back"
+        ],
+        [
+          "HouseholdRadio_Side0.184",
+          "HouseholdRadio_FrontStile0.125"
+        ],
+        [
+          "HouseholdRadio_FrontStile-0.185",
+          "HouseholdRadio_Sill"
+        ],
+        [
+          "HouseholdRadio_FrontStile-0.185",
+          "HouseholdRadio_Middle"
+        ],
+        [
+          "HouseholdRadio_FrontStile-0.185",
+          "HouseholdRadio_Crown"
+        ],
+        [
+          "HouseholdRadio_FrontStile-0.185",
+          "HouseholdRadio_DialJamb-0.126"
+        ],
+        [
+          "HouseholdRadio_FrontStile-0.185",
+          "HouseholdRadio_GrilleBacking"
+        ],
+        [
+          "HouseholdRadio_FrontStile-0.185",
+          "HouseholdRadio_WovenGrille"
+        ],
+        [
+          "HouseholdRadio_FrontStile-0.185",
+          "HouseholdRadio_GrilleBead-0.127"
+        ],
+        [
+          "HouseholdRadio_FrontStile-0.185",
+          "HouseholdRadio_GrilleBead0.113"
+        ],
+        [
+          "HouseholdRadio_FrontStile-0.185",
+          "HouseholdRadio_GrilleBead0.244"
+        ],
+        [
+          "HouseholdRadio_FrontStile-0.185",
+          "HouseholdRadio_ControlSeat0"
+        ],
+        [
+          "HouseholdRadio_FrontStile-0.185",
+          "HouseholdRadio_Spindle0"
+        ],
+        [
+          "HouseholdRadio_FrontStile0.125",
+          "HouseholdRadio_Sill"
+        ],
+        [
+          "HouseholdRadio_FrontStile0.125",
+          "HouseholdRadio_Middle"
+        ],
+        [
+          "HouseholdRadio_FrontStile0.125",
+          "HouseholdRadio_Crown"
+        ],
+        [
+          "HouseholdRadio_FrontStile0.125",
+          "HouseholdRadio_DialJamb0.1"
+        ],
+        [
+          "HouseholdRadio_FrontStile0.125",
+          "HouseholdRadio_GrilleBacking"
+        ],
+        [
+          "HouseholdRadio_FrontStile0.125",
+          "HouseholdRadio_WovenGrille"
+        ],
+        [
+          "HouseholdRadio_FrontStile0.125",
+          "HouseholdRadio_GrilleBead0.124"
+        ],
+        [
+          "HouseholdRadio_FrontStile0.125",
+          "HouseholdRadio_GrilleBead0.113"
+        ],
+        [
+          "HouseholdRadio_FrontStile0.125",
+          "HouseholdRadio_GrilleBead0.244"
+        ],
+        [
+          "HouseholdRadio_FrontStile0.125",
+          "HouseholdRadio_ControlSeat1"
+        ],
+        [
+          "HouseholdRadio_FrontStile0.125",
+          "HouseholdRadio_Spindle1"
+        ],
+        [
+          "HouseholdRadio_Sill",
+          "HouseholdRadio_DialJamb-0.126"
+        ],
+        [
+          "HouseholdRadio_Sill",
+          "HouseholdRadio_DialJamb0.1"
+        ],
+        [
+          "HouseholdRadio_Sill",
+          "HouseholdRadio_ScaleBack"
+        ],
+        [
+          "HouseholdRadio_Sill",
+          "HouseholdRadio_Scale"
+        ],
+        [
+          "HouseholdRadio_Sill",
+          "HouseholdRadio_DialGlass"
+        ],
+        [
+          "HouseholdRadio_Sill",
+          "HouseholdRadio_DialBead-0.102"
+        ],
+        [
+          "HouseholdRadio_Sill",
+          "HouseholdRadio_DialBead0.1"
+        ],
+        [
+          "HouseholdRadio_Sill",
+          "HouseholdRadio_DialBead0.048"
+        ],
+        [
+          "HouseholdRadio_Sill",
+          "HouseholdRadio_ControlSeat0"
+        ],
+        [
+          "HouseholdRadio_Sill",
+          "HouseholdRadio_ControlSeat1"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_DialJamb-0.126"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_DialJamb0.1"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_GrilleBacking"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_WovenGrille"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_GrilleBead-0.127"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_GrilleBead0.124"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_GrilleBead0.113"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_ScaleBack"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_Scale"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_DialGlass"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_DialBead-0.102"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_DialBead0.1"
+        ],
+        [
+          "HouseholdRadio_Middle",
+          "HouseholdRadio_DialBead0.085"
+        ],
+        [
+          "HouseholdRadio_Crown",
+          "HouseholdRadio_GrilleBacking"
+        ],
+        [
+          "HouseholdRadio_Crown",
+          "HouseholdRadio_WovenGrille"
+        ],
+        [
+          "HouseholdRadio_Crown",
+          "HouseholdRadio_GrilleBead-0.127"
+        ],
+        [
+          "HouseholdRadio_Crown",
+          "HouseholdRadio_GrilleBead0.124"
+        ],
+        [
+          "HouseholdRadio_Crown",
+          "HouseholdRadio_GrilleBead0.244"
+        ],
+        [
+          "HouseholdRadio_DialJamb-0.126",
+          "HouseholdRadio_ScaleBack"
+        ],
+        [
+          "HouseholdRadio_DialJamb-0.126",
+          "HouseholdRadio_Scale"
+        ],
+        [
+          "HouseholdRadio_DialJamb-0.126",
+          "HouseholdRadio_DialGlass"
+        ],
+        [
+          "HouseholdRadio_DialJamb-0.126",
+          "HouseholdRadio_DialBead-0.102"
+        ],
+        [
+          "HouseholdRadio_DialJamb-0.126",
+          "HouseholdRadio_DialBead0.048"
+        ],
+        [
+          "HouseholdRadio_DialJamb-0.126",
+          "HouseholdRadio_DialBead0.085"
+        ],
+        [
+          "HouseholdRadio_DialJamb-0.126",
+          "HouseholdRadio_ControlSeat0"
+        ],
+        [
+          "HouseholdRadio_DialJamb0.1",
+          "HouseholdRadio_ScaleBack"
+        ],
+        [
+          "HouseholdRadio_DialJamb0.1",
+          "HouseholdRadio_Scale"
+        ],
+        [
+          "HouseholdRadio_DialJamb0.1",
+          "HouseholdRadio_DialGlass"
+        ],
+        [
+          "HouseholdRadio_DialJamb0.1",
+          "HouseholdRadio_DialBead0.1"
+        ],
+        [
+          "HouseholdRadio_DialJamb0.1",
+          "HouseholdRadio_DialBead0.048"
+        ],
+        [
+          "HouseholdRadio_DialJamb0.1",
+          "HouseholdRadio_DialBead0.085"
+        ],
+        [
+          "HouseholdRadio_DialJamb0.1",
+          "HouseholdRadio_ControlSeat1"
+        ],
+        [
+          "HouseholdRadio_GrilleBacking",
+          "HouseholdRadio_WovenGrille"
+        ],
+        [
+          "HouseholdRadio_GrilleBacking",
+          "HouseholdRadio_GrilleBead-0.127"
+        ],
+        [
+          "HouseholdRadio_GrilleBacking",
+          "HouseholdRadio_GrilleBead0.124"
+        ],
+        [
+          "HouseholdRadio_GrilleBacking",
+          "HouseholdRadio_GrilleBead0.113"
+        ],
+        [
+          "HouseholdRadio_GrilleBacking",
+          "HouseholdRadio_GrilleBead0.244"
+        ],
+        [
+          "HouseholdRadio_WovenGrille",
+          "HouseholdRadio_GrilleBead-0.127"
+        ],
+        [
+          "HouseholdRadio_WovenGrille",
+          "HouseholdRadio_GrilleBead0.124"
+        ],
+        [
+          "HouseholdRadio_WovenGrille",
+          "HouseholdRadio_GrilleBead0.113"
+        ],
+        [
+          "HouseholdRadio_WovenGrille",
+          "HouseholdRadio_GrilleBead0.244"
+        ],
+        [
+          "HouseholdRadio_GrilleBead-0.127",
+          "HouseholdRadio_GrilleBead0.113"
+        ],
+        [
+          "HouseholdRadio_GrilleBead-0.127",
+          "HouseholdRadio_GrilleBead0.244"
+        ],
+        [
+          "HouseholdRadio_GrilleBead0.124",
+          "HouseholdRadio_GrilleBead0.113"
+        ],
+        [
+          "HouseholdRadio_GrilleBead0.124",
+          "HouseholdRadio_GrilleBead0.244"
+        ],
+        [
+          "HouseholdRadio_ScaleBack",
+          "HouseholdRadio_Scale"
+        ],
+        [
+          "HouseholdRadio_ScaleBack",
+          "HouseholdRadio_DialBead-0.102"
+        ],
+        [
+          "HouseholdRadio_ScaleBack",
+          "HouseholdRadio_DialBead0.1"
+        ],
+        [
+          "HouseholdRadio_ScaleBack",
+          "HouseholdRadio_DialBead0.048"
+        ],
+        [
+          "HouseholdRadio_ScaleBack",
+          "HouseholdRadio_DialBead0.085"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_OriginalPointer"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick0"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick1"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick2"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick3"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick4"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick5"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick6"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick7"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick8"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick9"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick10"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick11"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick12"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick13"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick14"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick15"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_ScaleTick16"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_DialBead-0.102"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_DialBead0.1"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_DialBead0.048"
+        ],
+        [
+          "HouseholdRadio_Scale",
+          "HouseholdRadio_DialBead0.085"
+        ],
+        [
+          "HouseholdRadio_OriginalPointer",
+          "HouseholdRadio_ScaleTick7"
+        ],
+        [
+          "HouseholdRadio_DialGlass",
+          "HouseholdRadio_DialBead-0.102"
+        ],
+        [
+          "HouseholdRadio_DialGlass",
+          "HouseholdRadio_DialBead0.1"
+        ],
+        [
+          "HouseholdRadio_DialGlass",
+          "HouseholdRadio_DialBead0.048"
+        ],
+        [
+          "HouseholdRadio_DialGlass",
+          "HouseholdRadio_DialBead0.085"
+        ],
+        [
+          "HouseholdRadio_DialBead-0.102",
+          "HouseholdRadio_DialBead0.048"
+        ],
+        [
+          "HouseholdRadio_DialBead-0.102",
+          "HouseholdRadio_DialBead0.085"
+        ],
+        [
+          "HouseholdRadio_DialBead0.1",
+          "HouseholdRadio_DialBead0.048"
+        ],
+        [
+          "HouseholdRadio_DialBead0.1",
+          "HouseholdRadio_DialBead0.085"
+        ],
+        [
+          "HouseholdRadio_ControlSeat0",
+          "HouseholdRadio_Spindle0"
+        ],
+        [
+          "HouseholdRadio_ControlSeat0",
+          "HouseholdRadio_PassiveKnob"
+        ],
+        [
+          "HouseholdRadio_Spindle0",
+          "HouseholdRadio_PassiveKnob"
+        ],
+        [
+          "HouseholdRadio_ControlSeat1",
+          "HouseholdRadio_Spindle1"
+        ],
+        [
+          "HouseholdRadio_Spindle1",
+          "HouseholdRadio_ActiveKnob"
+        ],
+        [
+          "HouseholdRadio_PassiveKnob",
+          "HouseholdRadio_PassiveIndex"
+        ],
+        [
+          "HouseholdRadio_ActiveKnob",
+          "HouseholdRadio_ActiveIndex"
+        ]
+      ]
+    }
+  ],
+  "distinct_object_separations": [],
+  "uv": [
+    {
+      "part": "HouseholdRadio__Body_ON_bakelite",
+      "minimum_metres_per_uv": 0.9986398248580103,
+      "maximum_metres_per_uv": 1.001852278875656,
+      "maximum_edge_excess_m": 3.165230934602456e-08,
+      "maximum_edge_ratio": 1.000031124527664
+    },
+    {
+      "part": "HouseholdRadio__Body_ON_brass",
+      "minimum_metres_per_uv": 0.9994445690452464,
+      "maximum_metres_per_uv": 1.0007438026000774,
+      "maximum_edge_excess_m": 7.810398253539977e-07,
+      "maximum_edge_ratio": 1.0004188096802027
+    },
+    {
+      "part": "HouseholdRadio__Body_ON_glassish",
+      "minimum_metres_per_uv": 0.9981747440241913,
+      "maximum_metres_per_uv": 1.0023059248119854,
+      "maximum_edge_excess_m": 9.657274233421174e-08,
+      "maximum_edge_ratio": 1.001441508347134
+    },
+    {
+      "part": "HouseholdRadio__Body_ON_linen",
+      "minimum_metres_per_uv": 0.9996874805204283,
+      "maximum_metres_per_uv": 1.0002309120645765,
+      "maximum_edge_excess_m": 5.4461466078142015e-08,
+      "maximum_edge_ratio": 1.0002745253329963
+    },
+    {
+      "part": "HouseholdRadio__Body_ON_metal",
+      "minimum_metres_per_uv": 0.9992244335727309,
+      "maximum_metres_per_uv": 1.0000000000000009,
+      "maximum_edge_excess_m": 5.078306786277312e-07,
+      "maximum_edge_ratio": 1.00077616839742
+    },
+    {
+      "part": "HouseholdRadio__Body_ON_paper",
+      "minimum_metres_per_uv": 0.9996952866463739,
+      "maximum_metres_per_uv": 1.0002880252375992,
+      "maximum_edge_excess_m": 2.617370104221364e-08,
+      "maximum_edge_ratio": 1.0002638663223302
+    },
+    {
+      "part": "HouseholdRadio__Body_ON_rubber_aged",
+      "minimum_metres_per_uv": 0.999915795313129,
+      "maximum_metres_per_uv": 1.0000622409868052,
+      "maximum_edge_excess_m": 2.068653094081021e-08,
+      "maximum_edge_ratio": 1.0000800358816457
+    },
+    {
+      "part": "HouseholdRadio__Body_ON_wood_dark",
+      "minimum_metres_per_uv": 0.9993721125196239,
+      "maximum_metres_per_uv": 1.0004271423873796,
+      "maximum_edge_excess_m": 7.453533634738108e-08,
+      "maximum_edge_ratio": 1.0005407086590663
+    },
+    {
+      "part": "HouseholdRadio__PowerTuningKnob_ON_bakelite",
+      "minimum_metres_per_uv": 0.9999707353499507,
+      "maximum_metres_per_uv": 1.00002804664987,
+      "maximum_edge_excess_m": 2.288536946710648e-08,
+      "maximum_edge_ratio": 1.0000285057871579
+    },
+    {
+      "part": "HouseholdRadio__PowerTuningKnob_ON_brass",
+      "minimum_metres_per_uv": 0.9994878734768223,
+      "maximum_metres_per_uv": 1.0006074994910852,
+      "maximum_edge_excess_m": 2.597749051162963e-08,
+      "maximum_edge_ratio": 1.0003790794729843
+    }
+  ],
+  "local_bearings": [
+    {
+      "assembly": "HouseholdRadio",
+      "owner": "support",
+      "point": [
+        -0.16,
+        0,
+        0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original cabinet base"
+    },
+    {
+      "assembly": "HouseholdRadio",
+      "owner": "support",
+      "point": [
+        -0.16,
+        0,
+        -0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original cabinet base"
+    },
+    {
+      "assembly": "HouseholdRadio",
+      "owner": "support",
+      "point": [
+        0.16,
+        0,
+        0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original cabinet base"
+    },
+    {
+      "assembly": "HouseholdRadio",
+      "owner": "support",
+      "point": [
+        0.16,
+        0,
+        -0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original cabinet base"
+    }
+  ],
+  "views": [],
+  "scope": "Local construction and chart preflight only. External support context and rendering are still required."
+}

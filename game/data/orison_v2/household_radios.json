@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/household_radios.glb",
+  "floor_y": 0,
+  "assemblies": [
+    {
+      "id": "HouseholdRadio",
+      "parts": [
+        {
+          "name": "HouseholdRadio__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.42
+          }
+        },
+        {
+          "name": "HouseholdRadio__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.42
+          }
+        },
+        {
+          "name": "HouseholdRadio__Body_ON_glassish",
+          "component": "Body",
+          "key": "glassish",
+          "tile": 1.6,
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.42
+          }
+        },
+        {
+          "name": "HouseholdRadio__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.75
+          }
+        },
+        {
+          "name": "HouseholdRadio__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.42
+          }
+        },
+        {
+          "name": "HouseholdRadio__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.75
+          }
+        },
+        {
+          "name": "HouseholdRadio__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.75
+          }
+        },
+        {
+          "name": "HouseholdRadio__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.42
+          }
+        },
+        {
+          "name": "HouseholdRadio__PowerTuningKnob_ON_bakelite",
+          "component": "PowerTuningKnob",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.42
+          }
+        },
+        {
+          "name": "HouseholdRadio__PowerTuningKnob_ON_brass",
+          "component": "PowerTuningKnob",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.42
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    }
+  ],
+  "instances": [
+    {
+      "id": "3B_radio",
+      "variant": "HouseholdRadio"
+    },
+    {
+      "id": "5B_k_hob_radio0",
+      "variant": "HouseholdRadio"
+    },
+    {
+      "id": "5B_k_hob_radio1",
+      "variant": "HouseholdRadio"
+    },
+    {
+      "id": "5B_story_radio",
+      "variant": "HouseholdRadio"
+    },
+    {
+      "id": "6C_story_old_radio",
+      "variant": "HouseholdRadio"
+    }
+  ],
+  "tint_space": "linear",
+  "local_materials": {
+    "glassish": {
+      "files": [
+        null,
+        "T_glass_rough.png",
+        "T_glass_normal.png"
+      ],
+      "metallic": 0,
+      "roughness": 0.42,
+      "normal_scale": 0.025,
+      "color": [
+        0.7599999904632568,
+        0.8500000238418579,
+        0.8899999856948853,
+        0.1599999964237213
+      ],
+      "alpha": true
+    }
+  },
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06
+  }
+}

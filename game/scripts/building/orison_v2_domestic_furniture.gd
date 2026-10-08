@@ -11,8 +11,11 @@ const NativeFurniture := preload("res://scripts/building/orison_v2_native_domest
 const NativeStorage := preload("res://scripts/building/orison_v2_native_domestic_storage.gd")
 const NativePrep := preload("res://scripts/building/orison_v2_native_prep_cabinets.gd")
 const NativeWardrobes := preload("res://scripts/building/orison_v2_native_household_wardrobes.gd")
+const NativeRadios := preload("res://scripts/building/orison_v2_native_household_radios.gd")
+const NativeObjects := preload("res://scripts/building/orison_v2_native_domestic_objects.gd")
 const NATIVE_KINDS := ["chair", "sofa", "nightstand", "table_round", "table_rect", "coffee"]
 const STORAGE_KINDS := ["shelf", "cupboard", "counter"]
+const OBJECT_KINDS := ["pinboard","toolboard","crate","softbox","cablecoil","plant","bookpile","tripod","reeldeck"]
 const MATERIAL_ALIASES := {"floor_oak": "oak_quartered", "fabric_cool": "linen", "fabric_green": "linen"}
 const GARMENT_TINTS := {"fabric_cool": Color(0.36, 0.42, 0.51), "fabric_green": Color(0.38, 0.46, 0.36)}
 var errors: Array[String] = []
@@ -60,10 +63,29 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 			errors.append("native household wardrobes refused")
 			return false
 		adapter.root.set_meta("v2_native_wardrobe_factory",wardrobes)
+	var objects: NativeObjects
+	if adapter.root.has_meta("v2_native_object_factory"):
+		objects = adapter.root.get_meta("v2_native_object_factory") as NativeObjects
+	if objects == null:
+		objects = NativeObjects.new()
+		if not objects.prepare():
+			errors.append("native household objects refused")
+			return false
+		adapter.root.set_meta("v2_native_object_factory",objects)
+	var radios: NativeRadios
+	if adapter.root.has_meta("v2_native_radio_factory"):
+		radios = adapter.root.get_meta("v2_native_radio_factory") as NativeRadios
+	if radios == null:
+		radios = NativeRadios.new()
+		if not radios.prepare():
+			errors.append("native household radios refused")
+			return false
+		adapter.root.set_meta("v2_native_radio_factory",radios)
 	for record: Dictionary in source.furniture:
 		var native_table: bool = str(record.id) in WorkTables.IDS
 		var native_furniture: bool = record.kind in NATIVE_KINDS and not native_table
 		var native_storage: bool = record.kind in STORAGE_KINDS
+		var native_object: bool = record.kind in OBJECT_KINDS
 		var body: StaticBody3D
 		if record.kind == "toilet":
 			body = WaterCloset.new()
@@ -76,10 +98,11 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 		elif record.kind == "radio":
 			body = SpecialistRadio.new()
 			body.call("setup", record.mechanism)
+			body.set_meta("v2_radio_factory",radios)
 		else:
 			body = PrepCabinet.new() if record.kind == "prep_cabinet" else StaticBody3D.new()
 			if record.kind == "prep_cabinet": body.call("setup", str(record.mechanism.unit))
-			if not native_table and not native_furniture and not native_storage and record.kind != "bed" and not record.get("collision_from_surfaces", false):
+			if not native_table and not native_furniture and not native_storage and not native_object and record.kind != "bed" and not record.get("collision_from_surfaces", false):
 				for box: Array in record.get("collision_boxes", [record.bounds]):
 					var collision := CollisionShape3D.new()
 					var shape := BoxShape3D.new()
@@ -105,14 +128,19 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 				body.free(); storage.finish()
 				errors.append("native storage mount refused: " + str(record.id))
 				return false
+		elif native_object:
+			if not objects.mount_on(body,str(record.id)):
+				body.free(); objects.finish()
+				errors.append("native household object mount refused: " + str(record.id))
+				return false
 		elif record.kind == "prep_cabinet":
 			if not prep.mount_on(body,str(record.id)):
 				body.free(); prep.finish()
 				errors.append("native preparation cabinet mount refused: " + str(record.id))
 				return false
 		elif record.kind == "bed": _add_bed(body,record)
-		elif record.kind not in ["toilet","wardrobe"]: _add_surfaces(body, record.surfaces)
-		if not native_table and not native_furniture and not native_storage and record.get("collision_from_surfaces", false):
+		elif record.kind not in ["toilet","wardrobe","radio"]: _add_surfaces(body, record.surfaces)
+		if not native_table and not native_furniture and not native_storage and not native_object and record.get("collision_from_surfaces", false):
 			# Separate tabletop/paper/leg triangles preserve the actual bearings;
 			# one enclosing box would fill the space above a desk up to its stock.
 			for child: Node in body.get_children():
@@ -126,8 +154,8 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 			body.free()
 			errors.append("furniture mount refused: " + str(record.id))
 			return false
-		if record.kind == "wardrobe" and not body.get("native_ready"):
-			errors.append("native wardrobe hinge mount refused: " + str(record.id))
+		if record.kind in ["wardrobe","radio"] and not body.get("native_ready"):
+			errors.append("native household mechanism mount refused: " + str(record.id))
 			return false
 	return true
 

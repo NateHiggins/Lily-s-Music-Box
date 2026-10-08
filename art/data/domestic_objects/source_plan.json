@@ -1,0 +1,570 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_ids": [
+    "2A_pinboard",
+    "2B_story_pattern_board",
+    "3B_toolboard",
+    "3B_partscrate",
+    "2A_deck",
+    "3A_story_specimen",
+    "5A_pins1",
+    "5A_pins2",
+    "5A_floorstack",
+    "5C_story_colorboard",
+    "6A_tripod",
+    "6A_soft1",
+    "6A_soft2",
+    "6A_gearcrate",
+    "6A_coil1",
+    "6A_coil2"
+  ],
+  "variants": [
+    {
+      "id": "DomesticObject00",
+      "kind": "pinboard",
+      "source_id": "2A_pinboard",
+      "params": {
+        "id": "2A_pinboard",
+        "asm": "pinboard",
+        "at": [
+          -13.645,
+          -5.5
+        ],
+        "yaw": -90,
+        "z0": 1.05,
+        "W": 0.95,
+        "cards": 15,
+        "neat": true
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject01",
+      "kind": "pinboard",
+      "source_id": "2B_story_pattern_board",
+      "params": {
+        "id": "2B_story_pattern_board",
+        "asm": "pinboard",
+        "at": [
+          -13.645,
+          6.16
+        ],
+        "yaw": -90,
+        "z0": 1.01,
+        "W": 0.66,
+        "H": 0.66,
+        "cards": 0,
+        "neat": false
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject02",
+      "kind": "toolboard",
+      "source_id": "3B_toolboard",
+      "params": {
+        "id": "3B_toolboard",
+        "asm": "toolboard",
+        "at": [
+          -13.645,
+          5.94
+        ],
+        "yaw": -90,
+        "z0": 1.15,
+        "W": 0.9,
+        "H": 0.65
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject03",
+      "kind": "crate",
+      "source_id": "3B_partscrate",
+      "params": {
+        "id": "3B_partscrate",
+        "asm": "crate",
+        "at": [
+          -13.27,
+          2.97
+        ],
+        "yaw": 8,
+        "fill": "metal"
+      }
+    },
+    {
+      "id": "DomesticObject04",
+      "kind": "reeldeck",
+      "source_id": "2A_deck",
+      "params": {
+        "id": "2A_deck",
+        "asm": "reeldeck",
+        "at": [
+          -11.23,
+          -5.47
+        ],
+        "yaw": 0,
+        "z0": 0.735
+      }
+    },
+    {
+      "id": "DomesticObject05",
+      "kind": "plant",
+      "source_id": "3A_story_specimen",
+      "params": {
+        "id": "3A_story_specimen",
+        "asm": "plant",
+        "at": [
+          -12.72,
+          -1.82
+        ],
+        "yaw": 155,
+        "big": true,
+        "species": "rubber"
+      }
+    },
+    {
+      "id": "DomesticObject06",
+      "kind": "pinboard",
+      "source_id": "5A_pins1",
+      "params": {
+        "id": "5A_pins1",
+        "asm": "pinboard",
+        "at": [
+          -13.695,
+          -5.2
+        ],
+        "yaw": -90,
+        "z0": 1.0,
+        "W": 1.25,
+        "H": 0.85,
+        "cards": 18,
+        "neat": false
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject07",
+      "kind": "pinboard",
+      "source_id": "5A_pins2",
+      "params": {
+        "id": "5A_pins2",
+        "asm": "pinboard",
+        "at": [
+          -13.695,
+          -1.7
+        ],
+        "yaw": -90,
+        "z0": 1.15,
+        "W": 1.05,
+        "H": 0.7,
+        "cards": 14,
+        "neat": false
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject08",
+      "kind": "bookpile",
+      "source_id": "5A_floorstack",
+      "params": {
+        "id": "5A_floorstack",
+        "asm": "bookpile",
+        "at": [
+          -11.3,
+          -1.07
+        ],
+        "yaw": 5,
+        "n": 6
+      }
+    },
+    {
+      "id": "DomesticObject09",
+      "kind": "pinboard",
+      "source_id": "5C_story_colorboard",
+      "params": {
+        "id": "5C_story_colorboard",
+        "asm": "pinboard",
+        "at": [
+          13.695,
+          4.385
+        ],
+        "yaw": 90,
+        "z0": 1.16,
+        "W": 1.1,
+        "H": 0.8,
+        "cards": 22,
+        "neat": false
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject10",
+      "kind": "tripod",
+      "source_id": "6A_tripod",
+      "params": {
+        "id": "6A_tripod",
+        "asm": "tripod",
+        "at": [
+          -11.3,
+          -5.05
+        ],
+        "yaw": 90
+      }
+    },
+    {
+      "id": "DomesticObject11",
+      "kind": "softbox",
+      "source_id": "6A_soft1",
+      "params": {
+        "id": "6A_soft1",
+        "asm": "softbox",
+        "at": [
+          -11.65,
+          -5.9
+        ],
+        "yaw": 50
+      }
+    },
+    {
+      "id": "DomesticObject12",
+      "kind": "crate",
+      "source_id": "6A_gearcrate",
+      "params": {
+        "id": "6A_gearcrate",
+        "asm": "crate",
+        "at": [
+          -13.2,
+          -3.2
+        ],
+        "yaw": 355,
+        "fill": "soot",
+        "W": 0.5,
+        "D": 0.4,
+        "H": 0.36
+      }
+    },
+    {
+      "id": "DomesticObject13",
+      "kind": "cablecoil",
+      "source_id": "6A_coil1",
+      "params": {
+        "id": "6A_coil1",
+        "asm": "cablecoil",
+        "at": [
+          -12.15,
+          -4.35
+        ],
+        "yaw": 30
+      }
+    },
+    {
+      "id": "DomesticObject14",
+      "kind": "cablecoil",
+      "source_id": "6A_coil2",
+      "params": {
+        "id": "6A_coil2",
+        "asm": "cablecoil",
+        "at": [
+          -11.05,
+          -5.6
+        ],
+        "yaw": 240,
+        "r": 0.09
+      }
+    },
+    {
+      "id": "DomesticObject15",
+      "kind": "toolboard",
+      "source_id": "3B_toolboard",
+      "params": {
+        "id": "3B_toolboard",
+        "asm": "toolboard",
+        "at": [
+          -13.645,
+          5.94
+        ],
+        "yaw": -90,
+        "z0": 1.15,
+        "W": 0.9,
+        "H": 0.65
+      },
+      "rear_wall_y": -0.13
+    }
+  ],
+  "instances": [
+    {
+      "id": "2A_pinboard",
+      "variant": "DomesticObject00"
+    },
+    {
+      "id": "2B_story_pattern_board",
+      "variant": "DomesticObject01"
+    },
+    {
+      "id": "3B_toolboard",
+      "variant": "DomesticObject02"
+    },
+    {
+      "id": "3B_partscrate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "2A_deck",
+      "variant": "DomesticObject04"
+    },
+    {
+      "id": "3A_story_specimen",
+      "variant": "DomesticObject05"
+    },
+    {
+      "id": "5A_pins1",
+      "variant": "DomesticObject06"
+    },
+    {
+      "id": "5A_pins2",
+      "variant": "DomesticObject07"
+    },
+    {
+      "id": "5A_floorstack",
+      "variant": "DomesticObject08"
+    },
+    {
+      "id": "5C_story_colorboard",
+      "variant": "DomesticObject09"
+    },
+    {
+      "id": "6A_tripod",
+      "variant": "DomesticObject10"
+    },
+    {
+      "id": "6A_soft1",
+      "variant": "DomesticObject11"
+    },
+    {
+      "id": "6A_soft2",
+      "variant": "DomesticObject11"
+    },
+    {
+      "id": "6A_gearcrate",
+      "variant": "DomesticObject12"
+    },
+    {
+      "id": "6A_coil1",
+      "variant": "DomesticObject13"
+    },
+    {
+      "id": "6A_coil2",
+      "variant": "DomesticObject14"
+    },
+    {
+      "id": "b1_toolboard",
+      "variant": "DomesticObject15"
+    }
+  ],
+  "runtime_keys": [
+    "bakelite",
+    "book_brown",
+    "book_burgundy",
+    "book_green",
+    "book_navy",
+    "book_ochre",
+    "book_teal",
+    "brass",
+    "enamel",
+    "linen",
+    "metal",
+    "milk_glass",
+    "paper",
+    "plant",
+    "plywood",
+    "rubber_aged",
+    "soil",
+    "soot",
+    "terracotta",
+    "timber",
+    "wood_dark",
+    "cane",
+    "leaf_rib"
+  ],
+  "catalog_variants": {
+    "bakelite": "bakelite",
+    "book_brown": "book_brown",
+    "book_burgundy": "book_burgundy",
+    "book_green": "book_green",
+    "book_navy": "book_navy",
+    "book_ochre": "book_ochre",
+    "book_teal": "book_teal",
+    "brass": "brass_dull",
+    "enamel": "enamel_appliance",
+    "linen": "linen",
+    "metal": "nickel_plated",
+    "milk_glass": "milk_glass",
+    "paper": "paper",
+    "plant": "plant",
+    "plywood": "plywood",
+    "rubber_aged": "rubber_aged",
+    "soil": "soil",
+    "soot": "bakelite",
+    "terracotta": "terracotta",
+    "timber": "oak_work_surface",
+    "wood_dark": "oak_work_surface",
+    "cane": "oak_work_surface",
+    "leaf_rib": "plant"
+  },
+  "material_tints": {
+    "wood_dark": [
+      0.27,
+      0.14,
+      0.065,
+      1
+    ],
+    "milk_glass": [
+      0.02,
+      0.027,
+      0.034,
+      1
+    ],
+    "plant": [
+      0.1,
+      0.25,
+      0.06,
+      1
+    ],
+    "leaf_rib": [
+      0.32,
+      0.36,
+      0.11,
+      1
+    ],
+    "cane": [
+      0.38,
+      0.34,
+      0.23,
+      1
+    ],
+    "bakelite": [
+      0.3,
+      0.32,
+      0.34,
+      1
+    ],
+    "soot": [
+      0.3,
+      0.32,
+      0.34,
+      1
+    ]
+  },
+  "finish_parameters": {
+    "enamel": {
+      "normal_scale": 0.015,
+      "roughness": 0.32
+    },
+    "paper": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "milk_glass": {
+      "normal_scale": 0.015,
+      "roughness": 0.12
+    },
+    "terracotta": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "bakelite": {
+      "normal_scale": 0.02,
+      "roughness": 0.42
+    },
+    "book_ochre": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "book_teal": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "linen": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "metal": {
+      "normal_scale": 0.018,
+      "roughness": 0.4
+    },
+    "plant": {
+      "normal_scale": 0.012,
+      "roughness": 0.35
+    },
+    "soil": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "wood_dark": {
+      "normal_scale": 0.04,
+      "roughness": 0.5
+    },
+    "book_green": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "rubber_aged": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "book_brown": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "timber": {
+      "normal_scale": 0.04,
+      "roughness": 0.5
+    },
+    "soot": {
+      "normal_scale": 0.02,
+      "roughness": 0.42
+    },
+    "plywood": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "book_burgundy": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "brass": {
+      "normal_scale": 0.04,
+      "roughness": 0.5
+    },
+    "book_navy": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "leaf_rib": {
+      "normal_scale": 0.008,
+      "roughness": 0.45
+    },
+    "cane": {
+      "normal_scale": 0.015,
+      "roughness": 0.85
+    }
+  },
+  "placement": {
+    "floor_y": 0,
+    "frame": "Original passive furniture actors; wall spacers extend to actual existing wall faces."
+  },
+  "adaptations": [
+    "Preserve all original source object counts, actor poses and passive ownership.",
+    "Source-equivalent forms share a variant only when their source geometry and rear-wall fit match.",
+    "Rubber plant retains six source-sized leaves and their node heights; tapered living stem, radial leaf directions and curved blades replace the legacy post and aligned discs. Fine existing catalogue nickel and dark moulded bakelite replace oversized galvanized and pebbled finishes locally."
+  ],
+  "support_by_id": {
+    "2A_deck": "2A_cof"
+  },
+  "open_work": [
+    "Broad room lighting and surface calibration remain open. Native form, supports and runtime controls validated in the scoped object/radio batch.",
+    "3B parts crate production image is partly masked by the adjacent pier; retain its native close-up and capture a clearer room view with the next planned batch."
+  ],
+  "tint_space": "linear"
+}

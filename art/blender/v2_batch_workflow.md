@@ -239,3 +239,10 @@ degree candidate angles fit around nearby furniture. A corrective capture can
 set **ORISON_FABRICATION_ACTORS** to one known representative ID; all actor
 geometry checks still run, but unchanged screenshots and other modules need
 not repeat. Actual capture feet are recorded in the module result.
+
+For live controls, await the original tween completion signal before checking
+its final pose; a fixed timer can expire before tweens during a heavy startup
+frame. For high-mounted cabinets, require the full projected bounding box and
+visible front controls. Do not require visibility through its actual shelf to
+rear underside corners. Preserve failed frames and receipts when improving
+these checks. Review occluding piers and noncollision trim visually as well.

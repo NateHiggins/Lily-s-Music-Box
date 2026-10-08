@@ -1,0 +1,141 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_ids": [
+    "3B_radio",
+    "5B_k_hob_radio0",
+    "5B_k_hob_radio1",
+    "5B_story_radio",
+    "6C_story_old_radio"
+  ],
+  "variants": [
+    {
+      "id": "HouseholdRadio",
+      "kind": "radio",
+      "source_id": "3B_radio",
+      "params": {
+        "id": "3B_radio",
+        "asm": "radio",
+        "at": [
+          -11.4,
+          5.89
+        ],
+        "yaw": 180,
+        "z0": 0.91
+      }
+    }
+  ],
+  "instances": [
+    {
+      "id": "3B_radio",
+      "variant": "HouseholdRadio"
+    },
+    {
+      "id": "5B_k_hob_radio0",
+      "variant": "HouseholdRadio"
+    },
+    {
+      "id": "5B_k_hob_radio1",
+      "variant": "HouseholdRadio"
+    },
+    {
+      "id": "5B_story_radio",
+      "variant": "HouseholdRadio"
+    },
+    {
+      "id": "6C_story_old_radio",
+      "variant": "HouseholdRadio"
+    }
+  ],
+  "runtime_keys": [
+    "wood_dark",
+    "linen",
+    "paper",
+    "brass",
+    "bakelite",
+    "metal",
+    "rubber_aged",
+    "glassish"
+  ],
+  "catalog_variants": {
+    "wood_dark": "oak_work_surface",
+    "linen": "linen",
+    "paper": "paper",
+    "brass": "brass_dull",
+    "bakelite": "bakelite",
+    "metal": "nickel_plated",
+    "rubber_aged": "rubber_aged"
+  },
+  "material_tints": {
+    "wood_dark": [
+      0.27,
+      0.14,
+      0.065,
+      1
+    ],
+    "bakelite": [
+      0.3,
+      0.32,
+      0.34,
+      1
+    ]
+  },
+  "finish_parameters": {
+    "wood_dark": {
+      "normal_scale": 0.025,
+      "roughness": 0.42
+    },
+    "linen": {
+      "normal_scale": 0.025,
+      "roughness": 0.75
+    },
+    "paper": {
+      "normal_scale": 0.025,
+      "roughness": 0.75
+    },
+    "brass": {
+      "normal_scale": 0.025,
+      "roughness": 0.42
+    },
+    "bakelite": {
+      "normal_scale": 0.025,
+      "roughness": 0.42
+    },
+    "metal": {
+      "normal_scale": 0.025,
+      "roughness": 0.42
+    },
+    "rubber_aged": {
+      "normal_scale": 0.025,
+      "roughness": 0.75
+    },
+    "glassish": {
+      "normal_scale": 0.025,
+      "roughness": 0.42
+    }
+  },
+  "placement": {
+    "floor_y": 0,
+    "frame": "Original radio actor origins and tuning pivot; cabinet base retains source support."
+  },
+  "adaptations": [
+    "Hollow eased case, recessed grille and glazed scale replace solid source blocks. Original right-hand power/tuning pivot owns the native knob. Source count, pose, audio, controls and broad collision remain unchanged."
+  ],
+  "support_by_id": {
+    "3B_radio": "3B_tools0",
+    "5B_k_hob_radio0": "5B_comparison_table",
+    "5B_k_hob_radio1": "5B_comparison_table",
+    "5B_story_radio": "5B_din_t",
+    "6C_story_old_radio": "6C_din_t"
+  },
+  "optics": {
+    "role": "Glazing",
+    "room_class": "public",
+    "shader": "res://shaders/lamp_glass_surface.gdshader",
+    "surface_roughness": 0.06
+  },
+  "open_work": [
+    "Broad room lighting and surface calibration remain open. Native form, supports and runtime controls validated in the scoped object/radio batch."
+  ],
+  "tint_space": "linear"
+}

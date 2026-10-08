@@ -1,0 +1,400 @@
+{
+	"batch_checks": 30,
+	"elapsed_ms": 71687,
+	"evidence_class": "INERT",
+	"failures": [
+		"household_radios: unobstructed installed radio view: 3B_radio"
+	],
+	"module_checks": 10141,
+	"modules": {
+		"domestic_objects": {
+			"actors": 17,
+			"captured": true,
+			"checks": 879,
+			"elapsed_ms": 21965,
+			"failures": [],
+			"fixture_sha256": "8069bdb2c7a0124879da4fe27a8038deb0fd79f90d3987e7f01c310d09ae27a5",
+			"parts": 66,
+			"shared_validator_sha256": "1710f1b37e028ca36c821175317ef7c3efb8164cd9764fd60df6f29b7bfe7bfc",
+			"unique_triangles": 134772,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 16,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						14.4187517166138,
+						3.22000002861023,
+						-19.1849098205566
+					],
+					"id": "2A_pinboard_native",
+					"image": "2A_pinboard_native.png",
+					"owner": "2A_pinboard",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-12.649998664856,
+						3.22000002861023,
+						-10.7100009918213
+					],
+					"id": "2B_story_pattern_board_native",
+					"image": "2B_story_pattern_board_native.png",
+					"owner": "2B_story_pattern_board",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-13.399998664856,
+						6.42000007629395,
+						-10.7100009918213
+					],
+					"id": "3B_toolboard_native",
+					"image": "3B_toolboard_native.png",
+					"owner": "3B_toolboard",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.3368263244629,
+						6.42000007629395,
+						-6.18682813644409
+					],
+					"id": "3B_partscrate_native",
+					"image": "3B_partscrate_native.png",
+					"owner": "3B_partscrate",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						10.8040714263916,
+						3.22000002861023,
+						-9.32499885559082
+					],
+					"id": "2A_deck_native",
+					"image": "2A_deck_native.png",
+					"owner": "2A_deck",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						13.5779781341553,
+						6.42000007629395,
+						-14.1507387161255
+					],
+					"id": "3A_story_specimen_native",
+					"image": "3A_story_specimen_native.png",
+					"owner": "3A_story_specimen",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						14.4100017547607,
+						12.8199996948242,
+						-6.19999837875366
+					],
+					"id": "5A_pins1_native",
+					"image": "5A_pins1_native.png",
+					"owner": "5A_pins1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						9.99918460845947,
+						12.8199996948242,
+						-0.397640526294708
+					],
+					"id": "5A_pins2_native",
+					"image": "5A_pins2_native.png",
+					"owner": "5A_pins2",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						15.0002298355103,
+						12.8199996948242,
+						-5.90437412261963
+					],
+					"id": "5A_floorstack_native",
+					"image": "5A_floorstack_native.png",
+					"owner": "5A_floorstack",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.36000108718872,
+						12.8199996948242,
+						-19.1499996185303
+					],
+					"id": "5C_story_colorboard_native",
+					"image": "5C_story_colorboard_native.png",
+					"owner": "5C_story_colorboard",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						12.6960144042969,
+						16.0200004577637,
+						-7.04999828338623
+					],
+					"id": "6A_tripod_native",
+					"image": "6A_tripod_native.png",
+					"owner": "6A_tripod",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						12.5829238891602,
+						16.0200004577637,
+						-6.51008749008179
+					],
+					"id": "6A_soft1_native",
+					"image": "6A_soft1_native.png",
+					"owner": "6A_soft1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						15.2002305984497,
+						16.0200004577637,
+						-8.90437412261963
+					],
+					"id": "6A_gearcrate_native",
+					"image": "6A_gearcrate_native.png",
+					"owner": "6A_gearcrate",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						13.4976425170898,
+						16.0200004577637,
+						-6.03918409347534
+					],
+					"id": "6A_coil1_native",
+					"image": "6A_coil1_native.png",
+					"owner": "6A_coil1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						13.0891857147217,
+						16.0200004577637,
+						-8.84764003753662
+					],
+					"id": "6A_coil2_native",
+					"image": "6A_coil2_native.png",
+					"owner": "6A_coil2",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-6.79999876022339,
+						-3.1800000667572,
+						-16.1000003814697
+					],
+					"id": "b1_toolboard_native",
+					"image": "b1_toolboard_native.png",
+					"owner": "b1_toolboard",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"domestic_seating": {
+			"actors": 41,
+			"captured": false,
+			"checks": 542,
+			"elapsed_ms": 318,
+			"failures": [],
+			"fixture_sha256": "6e60f3022d08168de29c1443224939c90b6d56d2b325f68d926be782f0a77ded",
+			"parts": 47,
+			"shared_validator_sha256": "1710f1b37e028ca36c821175317ef7c3efb8164cd9764fd60df6f29b7bfe7bfc",
+			"unique_triangles": 37376,
+			"validator_sha256": "b075531e93b4cbd387afc38fd9f538a4c1c76b004cbea419fc914d1a1b3829f1",
+			"variants": 4,
+			"views": []
+		},
+		"domestic_storage": {
+			"actors": 43,
+			"captured": false,
+			"checks": 820,
+			"elapsed_ms": 518,
+			"failures": [],
+			"fixture_sha256": "5902907a646cc5adca3cef72a9b1c233409a3b158e5d507aa88f39ae1acc7f50",
+			"parts": 87,
+			"shared_validator_sha256": "1710f1b37e028ca36c821175317ef7c3efb8164cd9764fd60df6f29b7bfe7bfc",
+			"unique_triangles": 79344,
+			"validator_sha256": "a85a8676f999707509246faefe9178fda39e4d9cbd57b27239cc08dccd1f2675",
+			"variants": 8,
+			"views": []
+		},
+		"domestic_tables": {
+			"actors": 62,
+			"captured": false,
+			"checks": 1167,
+			"elapsed_ms": 581,
+			"failures": [],
+			"fixture_sha256": "204d6055cdcc8cc37879307885e247e0ce5552cf8c675adacd81a1e4e19d48dc",
+			"parts": 130,
+			"shared_validator_sha256": "1710f1b37e028ca36c821175317ef7c3efb8164cd9764fd60df6f29b7bfe7bfc",
+			"unique_triangles": 44424,
+			"validator_sha256": "50d0993b4c1c1e3b59157f591202428fcd751803249a6c0032e33541f472cc48",
+			"variants": 13,
+			"views": []
+		},
+		"household_radios": {
+			"actors": 5,
+			"captured": true,
+			"checks": 321,
+			"elapsed_ms": 5386,
+			"failures": [
+				"unobstructed installed radio view: 3B_radio"
+			],
+			"fixture_sha256": "1f1f982345d40baf455b39800788f53a7855a2801aa3f9dbfc9b3170347340f9",
+			"parts": 50,
+			"unique_triangles": 11916,
+			"validator_sha256": "15ec43a38239110263b489d10319862fe54672aabe31b15efabbdd981acec685",
+			"views": [
+				{
+					"bucket": "native household radio with original power control",
+					"feet": [
+						8.18500137329102,
+						12.8199996948242,
+						-22.0299987792969
+					],
+					"id": "5B_k_hob_radio0_native",
+					"image": "5B_k_hob_radio0_native.png",
+					"owner": "5B_k_hob_radio0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native household radio with original power control",
+					"feet": [
+						8.18500137329102,
+						12.8199996948242,
+						-22.5699996948242
+					],
+					"id": "5B_k_hob_radio1_native",
+					"image": "5B_k_hob_radio1_native.png",
+					"owner": "5B_k_hob_radio1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native household radio with original power control",
+					"feet": [
+						11.100001335144,
+						12.8199996948242,
+						-13.729998588562
+					],
+					"id": "5B_story_radio_native",
+					"image": "5B_story_radio_native.png",
+					"owner": "5B_story_radio",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native household radio with original power control",
+					"feet": [
+						1.70000183582306,
+						16.0200004577637,
+						-19.3999996185303
+					],
+					"id": "6C_story_old_radio_native",
+					"image": "6C_story_old_radio_native.png",
+					"owner": "6C_story_old_radio",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"household_wardrobes": {
+			"actors": 21,
+			"captured": false,
+			"checks": 2073,
+			"elapsed_ms": 2493,
+			"failures": [],
+			"fixture_sha256": "4e0dcf6a7328eff4a0666595bb76174cb096aa1a7c7c04676a063a74f2ef3f16",
+			"parts": 231,
+			"unique_triangles": 447616,
+			"validator_sha256": "24b178789f4404b90636cd8cbd25915371403c635627cf93ad8cead61fe1c267",
+			"views": []
+		},
+		"prep_cabinets": {
+			"actors": 12,
+			"captured": false,
+			"checks": 589,
+			"elapsed_ms": 1443,
+			"failures": [],
+			"fixture_sha256": "db202fdd3dcf7c5bb32212ab9fc324837d2594c7c7454b7aa0afdc45b334ffcb",
+			"parts": 96,
+			"unique_triangles": 7096,
+			"validator_sha256": "fe33c7c901bda8430752c72d705df4c73c5dd8cbe33533f7150acd027f3660e4"
+		},
+		"reading_nook": {
+			"captured": false,
+			"checks": 1434,
+			"elapsed_ms": 1080,
+			"failures": [],
+			"fixture_sha256": "229392d24e010bed208b6da9f27e05c09754345f52b652c9db4b4a17e5fc33b6",
+			"parts": 31,
+			"production_lamps": 5,
+			"triangles": 58596,
+			"validator_sha256": "f64bdf98f0f4255d7604bff0ecd3d8b5e5f5820502298f8642e13dbcd47e32f2"
+		},
+		"signal_terminal": {
+			"captured": false,
+			"checks": 71,
+			"elapsed_ms": 1528,
+			"failures": [],
+			"fixture_sha256": "fde37259494468a62dca732430e044e5d6323e22dd742dfac7ce64fda4eae00b",
+			"validator_sha256": "ee0430d88bd4ba647f7564ed24b32124a0a2f5f8fb142c8c5115b22a9ccdf760"
+		},
+		"surface_stock": {
+			"captured": false,
+			"checks": 1618,
+			"elapsed_ms": 2035,
+			"failures": [],
+			"fixture_sha256": "c6745b20915158a8e1a82d510f187f1977b3889892b8bcbf1adbafecc07e4bd9",
+			"parts": 130,
+			"triangles": 520548,
+			"validator_sha256": "789e736b505b0868b89cf9cf3e8a97eba87709561907bddb2b338ba4fee4a88b"
+		},
+		"task_lamps": {
+			"captured": false,
+			"checks": 416,
+			"elapsed_ms": 735,
+			"failures": [],
+			"fixture_sha256": "39056492316798954ec1795ce99c583caac120bc9dd6dc678ba88e897c715541",
+			"library_variants": 5,
+			"parts": 34,
+			"production_actors": 1,
+			"triangles": 61596,
+			"validator_sha256": "3192db39959f7da70ac0f2a9c9c0c65e2e1a9eb63de88117ba138512c83ac698"
+		},
+		"work_tables": {
+			"captured": false,
+			"checks": 211,
+			"elapsed_ms": 359,
+			"failures": [],
+			"fixture_sha256": "6ed68b5413c5841bc0b4085eac2e5d26fafb4931e7a570becbe8e23d12cf7a98",
+			"parts": 13,
+			"triangles": 21072,
+			"validator_sha256": "429fc9d1cf302d978b3ad77a1ccf9d38aca89598067f77dac60f0b9f3a8b733a"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}
