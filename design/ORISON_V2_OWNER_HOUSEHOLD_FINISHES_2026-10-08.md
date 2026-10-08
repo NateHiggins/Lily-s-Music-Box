@@ -74,7 +74,11 @@ validation failures through teardown. All nine modules pass after these fixes.
 Gates: reader NEW=0, no missing planner inputs, and the same 36 pre-existing
 source-drifting families. The shared runtime change appropriately invalidates
 the planner's broader queue; scoped testing does not claim every V2 family was
-rerun. Candidate verification is recorded separately after the code commit.
+rerun. Initial fresh verification found only four new test-anchor inventory records.
+The manifest appends their exact reviewed records, preserving every previous
+entry; all are non-gameplay test references to existing boiler, washer, radiator
+and shower anchors. Candidate verification is recorded separately after this
+classification update.
 This INERT document promotes no completeness-ledger requirement.
 
 Worktree clean at report time: no. Owner dossier files, in-situ shots, unrelated
