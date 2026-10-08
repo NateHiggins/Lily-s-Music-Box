@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 67.0,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T08:02:42Z",
+  "started_utc": "2026-10-08T08:01:35Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/dossier-capture-02.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/dossier-capture-02.log",
+  "stdout_sha256": "24b990baef4db7dc00dc210b07c854c7f44232a804a5eff62078b41bee085696"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2DossierCapture.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/dossier-capture-02",
+ "source": {
+  "dirty_paths": 122,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  DOCS.md",
+   "A  art/blender/household_stoves.blend",
+   "A  art/blender/household_stoves.md",
+   "A  art/blender/household_stoves_construction.json",
+   "A  art/blender/scripts/build_household_stoves.py",
+   "A  art/blender/scripts/household_stoves_geometry.py",
+   "A  art/blender/scripts/inspect_household_stove_motion.py",
+   "A  art/blender/scripts/inspect_household_stoves.py",
+   "A  art/blender/scripts/inspect_household_stoves_context.py",
+   "A  art/blender/scripts/render_household_stoves.py",
+   "A  art/data/household_stoves/source_plan.json",
+   " M art/renders/insitu/shots.md",
+   "A  art/renders/orison_v2/household_stoves_20261008/image_manifest.json",
+   "A  art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_closed.png",
+   "A  art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_open.png",
+   "A  art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_service0.png",
+   "A  art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_service1.png",
+   "A  art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_service2.png",
+   "A  art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_service3.png"
+  ],
+  "repository_head": "74056323e122ac76b6fe05cf477120c0fbe4e19c",
+  "repository_tree": "055a2d38b0ee237b38221511a78731fc3fb7dbd2",
+  "runtime_inputs_sha256": "16bb0399e70e921ec7ac00ecf8b6e8e148d15e7097be81d50fb2ea97ec9831ff",
+  "test_path": "game/tests/orison_v2_dossier_capture.gd",
+  "test_sha256": "852132ee64f75e03e36b73c6e3a3b1a39eac34a02d17b83c9eb6b167cb80c89c"
+ },
+ "windowed": true
+}

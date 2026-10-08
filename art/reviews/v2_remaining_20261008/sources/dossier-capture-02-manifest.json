@@ -1,0 +1,803 @@
+{
+	"contexts": [
+		{
+			"bucket": "dossier current production context",
+			"feet": [
+				-1.70000004768372,
+				-2.29999995231628,
+				25.0049991607666
+			],
+			"id": "C01_piano",
+			"image": "C01_piano.png",
+			"owner": "C01_piano",
+			"status": "captured_pending_visual_review"
+		},
+		{
+			"bucket": "dossier current production context",
+			"feet": [
+				-0.200000002980232,
+				-2.79999995231628,
+				23.605001449585
+			],
+			"id": "C02_stage",
+			"image": "C02_stage.png",
+			"owner": "C02_stage",
+			"status": "captured_pending_visual_review"
+		},
+		{
+			"bucket": "dossier current production context",
+			"feet": [
+				-9.10000038146973,
+				-2.79999995231628,
+				23.3049983978271
+			],
+			"id": "C03_darts",
+			"image": "C03_darts.png",
+			"owner": "C03_darts",
+			"status": "captured_pending_visual_review"
+		},
+		{
+			"bucket": "dossier current production context",
+			"feet": [
+				1.64999997615814,
+				-2.79999995231628,
+				26.0049991607666
+			],
+			"id": "C04_bar_receivers",
+			"image": "C04_bar_receivers.png",
+			"owner": "C04_bar_receivers",
+			"status": "captured_pending_visual_review"
+		},
+		{
+			"bucket": "dossier current production context",
+			"feet": [
+				-1.63199961185455,
+				0.0299999918788671,
+				-1.60799980163574
+			],
+			"id": "C_F01_VESTIBULE",
+			"image": "C_F01_VESTIBULE.png",
+			"owner": "C_F01_VESTIBULE",
+			"status": "captured_pending_visual_review"
+		},
+		{
+			"bucket": "dossier current production context",
+			"feet": [
+				-3.67199969291687,
+				0.0299999918788671,
+				-6.93599987030029
+			],
+			"id": "C_F01_LOBBY",
+			"image": "C_F01_LOBBY.png",
+			"owner": "C_F01_LOBBY",
+			"status": "captured_pending_visual_review"
+		},
+		{
+			"bucket": "dossier current production context",
+			"feet": [
+				8.84600067138672,
+				3.22999978065491,
+				-13.6379985809326
+			],
+			"id": "C_F02_A_MAIN",
+			"image": "C_F02_A_MAIN.png",
+			"owner": "C_F02_A_MAIN",
+			"status": "captured_pending_visual_review"
+		},
+		{
+			"bucket": "dossier current production context",
+			"feet": [
+				11.1140022277832,
+				3.22999978065491,
+				-21.5014991760254
+			],
+			"id": "C_F02_A_BED",
+			"image": "C_F02_A_BED.png",
+			"owner": "C_F02_A_BED",
+			"status": "captured_pending_visual_review"
+		},
+		{
+			"bucket": "dossier current production context",
+			"feet": [
+				3.44800114631653,
+				-3.17000031471252,
+				-14.2679986953735
+			],
+			"id": "C_B1_LAUNDRY",
+			"image": "C_B1_LAUNDRY.png",
+			"owner": "C_B1_LAUNDRY",
+			"status": "captured_pending_visual_review"
+		},
+		{
+			"bucket": "dossier current production context",
+			"feet": [
+				-14.6659994125366,
+				-3.17000031471252,
+				-14.1300010681152
+			],
+			"id": "C_B1_BOILER_ROOM",
+			"image": "C_B1_BOILER_ROOM.png",
+			"owner": "C_B1_BOILER_ROOM",
+			"status": "captured_pending_visual_review"
+		},
+		{
+			"bucket": "dossier current production context",
+			"feet": [
+				-14.280499458313,
+				6.42999982833862,
+				-7.28800058364868
+			],
+			"id": "C_F03_B_MAIN",
+			"image": "C_F03_B_MAIN.png",
+			"owner": "C_F03_B_MAIN",
+			"status": "captured_pending_visual_review"
+		}
+	],
+	"evidence_class": "INERT",
+	"failures": [],
+	"plates": [
+		{
+			"actor": "F02_A_RADIATOR_01",
+			"id": "M19",
+			"images": [
+				"M19_0.png",
+				"M19_1.png",
+				"M19_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2822"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2823"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2824"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2825"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2826"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2827"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2828"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2829"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2830"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2831"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2797"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "UnionNut"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2819"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2820"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2821"
+				},
+				{
+					"class": "MultiMesh",
+					"instances": 8,
+					"name": "SharedCastSections"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/building/orison_v2_household_radiator.gd",
+			"size": [
+				1.12431609630585,
+				0.780284702777863,
+				0.347999304533005
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "3B_wc",
+			"id": "M33",
+			"images": [
+				"M33_0.png",
+				"M33_1.png",
+				"M33_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_mdsm4",
+					"name": "Lid"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_rfd1o",
+					"name": "ClosetPedestal"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_xhhea",
+					"name": "FloorBolt"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_8545w",
+					"name": "FloorBolt_001"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_lr6hp",
+					"name": "FlushConnection"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_y7id0",
+					"name": "HandleRose"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_wqxfw",
+					"name": "HollowWashDownBowl"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_ybdkj",
+					"name": "LowCistern"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_0vhs5",
+					"name": "PolishedWoodSeat"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_6bdpc",
+					"name": "RemovableCisternLid"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_im7q6",
+					"name": "SeatHinge"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_mwlgp",
+					"name": "SeatHinge_001"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_i1m0y",
+					"name": "SupplyPipe"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_p1tgj",
+					"name": "SupplyShutoff"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_p28l2",
+					"name": "WaterSeal"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_water_closet.glb::ArrayMesh_x4mau",
+					"name": "FlushLever"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_paper_holder.glb::ArrayMesh_y8v12",
+					"name": "LoosePaperEnd"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_paper_holder.glb::ArrayMesh_fsstg",
+					"name": "PaperBracket"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_paper_holder.glb::ArrayMesh_0tbsq",
+					"name": "PaperBracketWall"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_paper_holder.glb::ArrayMesh_oa6hc",
+					"name": "PaperRoll"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_paper_holder.glb::ArrayMesh_qgcpy",
+					"name": "PaperSpindle"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_paper_holder.glb::ArrayMesh_30mo2",
+					"name": "SpindleButton"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_paper_holder.glb::ArrayMesh_454at",
+					"name": "SpindleButton_001"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/building/orison_v2_water_closet.gd",
+			"size": [
+				0.592899978160858,
+				0.930464565753937,
+				0.751500010490417
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "UnmountedV1_chandelier",
+			"id": "U_chandelier",
+			"images": [
+				"U_chandelier_0.png",
+				"U_chandelier_1.png",
+				"U_chandelier_2.png"
+			],
+			"meshes": [
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25417"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25418"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25419"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25420"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25421"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25422"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25423"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25424"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25425"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25426"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25427"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25428"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25429"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25430"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25431"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25432"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25433"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25434"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25435"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25436"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25437"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25438"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25439"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25440"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25441"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25442"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25443"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25444"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25445"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25446"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_candle_0"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25448"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25449"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25450"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25451"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_candle_1"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25453"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25454"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25455"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25456"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_candle_2"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25458"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25459"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25460"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25461"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_candle_3"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25463"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25464"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25465"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25466"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_candle_4"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25468"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25469"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25470"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25471"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_candle_5"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25473"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25474"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25475"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_bowl_0"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_bowl_1"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_bowl_2"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_bowl_3"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_bowl_4"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25481"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25482"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25483"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/light_fixture_prop.gd",
+			"size": [
+				0.716000020503998,
+				0.893999993801117,
+				0.716000020503998
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "UnmountedV1_eye_pendant",
+			"id": "U_eye_pendant",
+			"images": [
+				"U_eye_pendant_0.png",
+				"U_eye_pendant_1.png",
+				"U_eye_pendant_2.png"
+			],
+			"meshes": [
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25561"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25562"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "bulb_fruit"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/light_fixture_prop.gd",
+			"size": [
+				0.224200278520584,
+				0.385000020265579,
+				0.227658927440643
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "UnmountedV1_street_lamp",
+			"id": "U_street_lamp",
+			"images": [
+				"U_street_lamp_0.png",
+				"U_street_lamp_1.png",
+				"U_street_lamp_2.png"
+			],
+			"meshes": [
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@25576"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "stained_lens"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "bulb_core"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/light_fixture_prop.gd",
+			"size": [
+				0.311976909637451,
+				0.21000000834465,
+				0.319999992847443
+			],
+			"status": "captured_pending_review"
+		}
+	],
+	"scope": "Current production geometry/materials copied into neutral isolated review lighting; not an in-situ photoreal or runtime-contract acceptance. U_ plates instantiate retained V1 forms that are not installed in V2.",
+	"stove_verification": {
+		"checks": 3065,
+		"factory_sha256": "dd4a0b9d11df813fb29841142314ffbe4eb2cac4ed839cd8f9c9336c245f64cc",
+		"failures": [],
+		"fixture_sha256": "a2661ca9ccfaaaffa9326d651c0288d85d11895da2fd7c14a735dc3037ffc413",
+		"validator_sha256": "860028d03a65715bfdd197fd6c2e7e64287c4b2f90615d6ca0e608e273c85ea7"
+	}
+}

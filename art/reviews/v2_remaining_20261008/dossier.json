@@ -1,0 +1,953 @@
+{
+  "evidence_class": "INERT",
+  "title": "V2 geometry and texture review dossier",
+  "date": "2026-10-08",
+  "model_source_commit": "c0f0f169a4603aa0c83535a273b26ef7103745a3",
+  "sets": [
+    {
+      "id": "G01",
+      "title": "Lobby call board and detector clock",
+      "category": "Geometry + finish",
+      "what": "The porter call annunciator and the watchman detector clock; both are working lobby instruments with retained controls and text.",
+      "condition": "The cases read as shallow rectangular boxes. Brown surfaces are largely uniform; sharp case edges and simple brass plates dominate. The clock face is legible, but depth, cabinet joinery and small hardware remain schematic.",
+      "prompt": "Case construction, timber character, dial depth and the amount of handling wear.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M01_2.png",
+          "caption": "LobbyPorterBoard | current model / neutral light",
+          "source_sha256": "876503cb7341aab74d08be0740b44510e3ded2d9b99e23b2e7088b17a07a5b62",
+          "file": "images/G01_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M03_2.png",
+          "caption": "F01_WATCHMAN_DETECTOR | current model / neutral light",
+          "source_sha256": "9554f9524d2d4a0a65bfa760564d81254fd46437d326e7743f5616e3d84dae4d",
+          "file": "images/G01_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "G02",
+      "title": "Night register, signal register and tour key",
+      "category": "Geometry + finish",
+      "what": "Three related service stations: a shelf and key board, a signal recording cabinet, and the guarded tour key.",
+      "condition": "Distinct functions are already readable. Shelf supports, blank brown panels, simple hooks and broad flat brass pieces still look assembled from basic shapes. Existing labels and paper content belong to the live interface.",
+      "prompt": "Shared cabinet style, joints, metal thickness, paper seating and restrained wear.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M04_2.png",
+          "caption": "F01_NIGHT_REGISTER | current model / neutral light",
+          "source_sha256": "688cb1096e070ae75379b17d3e7e309199629fd2bf66d0dca2e21281a5bc5ec5",
+          "file": "images/G02_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M05_2.png",
+          "caption": "F01_SIGNAL_REGISTER | current model / neutral light",
+          "source_sha256": "dce9acf456e1c2a726dec78cfc363494d69c57c1fc2c4774607e06d074983ac0",
+          "file": "images/G02_2.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M06_2.png",
+          "caption": "F01_TOUR_KEY_GUARD | current model / neutral light",
+          "source_sha256": "8aa524bdbadb7e9ecd21b675fd6568ae0c5e1bbaeb35ffcf77bae37de8cc3096",
+          "file": "images/G02_3.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "G03",
+      "title": "House telephone switchboard",
+      "category": "Geometry + finish",
+      "what": "The lobby house-line board, with repeated sockets, indicators and trunk controls.",
+      "condition": "The dark face and brass socket grid read clearly. The enclosing timber frame is severe and uniform; socket recesses, wiring, panel fasteners and layered construction need closer art direction.",
+      "prompt": "Socket detail, frame profiles, face material and visible cabling.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M08_0.png",
+          "caption": "Front three-quarter | current model / neutral light",
+          "source_sha256": "5ccaff1e88b3b201d915e9b3fbc28b4a350b2bdd3e6ae9d2008dcf286c86fe86",
+          "file": "images/G03_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M08_1.png",
+          "caption": "Opposite front | current model / neutral light",
+          "source_sha256": "06e4a6debeb7eb0df59ee45982cb29d6f13856b2e9a40254ec1d23fac89add5e",
+          "file": "images/G03_2.png"
+        }
+      ],
+      "references": "F01_HOUSE_TELEPHONE_BOARD"
+    },
+    {
+      "id": "G04",
+      "title": "Service dumbwaiter",
+      "category": "Geometry + finish",
+      "what": "The small lobby service lift with its original shaft opening, car, brake and overhead wheels.",
+      "condition": "The frame, car and wheel silhouettes remain basic. The car looks like a plain solid box; the overhead parts have little surface detail. A neutral isolated view removes the surrounding wall, so it does not prove the installed shaft fit.",
+      "prompt": "Car construction, ropes and sheaves, hatch framing and worn working surfaces.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M09_2.png",
+          "caption": "Opening and car | current model / neutral light",
+          "source_sha256": "57eac74df61fcf84a3fef88dc076806023317f7597ac2ac1fb52739068ce606a",
+          "file": "images/G04_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M09_0.png",
+          "caption": "Back and overhead wheels | current model / neutral light",
+          "source_sha256": "bf0a50f0358982fee973c9af621cc341ead50d7f556150bdc6178a0415a07aca",
+          "file": "images/G04_2.png"
+        }
+      ],
+      "references": "LobbyServiceDumbwaiter"
+    },
+    {
+      "id": "G05",
+      "title": "Basement fuse panel",
+      "category": "Geometry + finish",
+      "what": "The original electrical panel and its live service controls.",
+      "condition": "The open cabinet is readable, but the outer material resembles coarse stone or concrete more than thin sheet metal. Interior parts are sparse blocks and bars. Door thickness, edges, fasteners and control detailing are still schematic.",
+      "prompt": "Painted-metal finish, cabinet section, period components and localized wear.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M07_2.png",
+          "caption": "Interior | current model / neutral light",
+          "source_sha256": "1503dd3abb93dacae9bc004f65f16a2bd6b79f9fb10a28c98daa6826d55921f6",
+          "file": "images/G05_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M07_0.png",
+          "caption": "Exterior sheet and door | current model / neutral light",
+          "source_sha256": "4227a10afa010e05708228aa3208974de4c6f550d885a6cfecbc00fa3e1c7864",
+          "file": "images/G05_2.png"
+        }
+      ],
+      "references": "B1_FUSE_PANEL"
+    },
+    {
+      "id": "G06",
+      "title": "House-tank level mechanism",
+      "category": "Geometry + finish",
+      "what": "The roof tank ballcock assembly: a tall level/mechanical linkage with narrow brass and metal components.",
+      "condition": "Thin rods and flat levers establish the mechanism, but much of the assembly looks smooth and minimally jointed. Several pieces are hard to distinguish at room distance. This is the mechanism alone, without the tank enclosure.",
+      "prompt": "Mechanical joints, bearing housings, metal variation and readable scale.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M02_0.png",
+          "caption": "Linkage and valve | current model / neutral light",
+          "source_sha256": "674ff5ad124ff3def2a3b634228cfee71de5ae11799804bd816b1ebb78a89acf",
+          "file": "images/G06_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M02_2.png",
+          "caption": "Reverse side | current model / neutral light",
+          "source_sha256": "bc441c4d17455c5dea14990d7e39b20127ba15726a838b339466935f684a116f",
+          "file": "images/G06_2.png"
+        }
+      ],
+      "references": "ROOF_TANK_BALLCOCK"
+    },
+    {
+      "id": "G07",
+      "title": "Six alley and shed work lights",
+      "category": "Geometry + finish",
+      "what": "Four alley and two shed cage-bulb fixtures still use the older visual form. The shed entry lamp is the representative shown.",
+      "condition": "A bright bulb sits inside a simple cage beneath a long straight stem. The small cap and cage are legible but lack the fitted mount, socket layering and local finish refinement of the newer indoor family.",
+      "prompt": "Cage construction, weathering, stem or cable treatment and mounting detail.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M10_0.png",
+          "caption": "ShedEntryWorkLamp | current model / neutral light",
+          "source_sha256": "1c98b2070dfe9cb363f25f40997c6cff8c39dc87165362be5a06108865f6fb79",
+          "file": "images/G07_1.png"
+        },
+        {
+          "source": "art/renders/orison_v2/fixed_lighting_20261008/native/cage_bulb_rise250.png",
+          "caption": "Newer indoor cage family for comparison | native family review",
+          "source_sha256": "7e2bb409dae910f6a4b496d6212be83bfec29e9df2d358e04edf0e800d719c27",
+          "file": "images/G07_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "G08",
+      "title": "Harukiya loudspeakers",
+      "category": "Geometry + finish",
+      "what": "The two stage loudspeakers; the first speaker is shown from front and back.",
+      "condition": "The case is a plain box with prominent, uniform wood grain. The driver, central disc and small controls are readable but simplified. Cabinet seams, grille or cloth treatment, hardware and surface age need a coherent direction.",
+      "prompt": "Cabinet construction, driver and grille detail, wood scale and mounting.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M11_2.png",
+          "caption": "Speaker front | current model / neutral light",
+          "source_sha256": "6e85ec9b323b30b6fd352fd54ac14e3f08524380fdc8c2a378141249d1102e82",
+          "file": "images/G08_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M11_0.png",
+          "caption": "Speaker case | current model / neutral light",
+          "source_sha256": "baf3d8936d0d92659433b0ed4c2d1332cffad5db3465318d979b92cc07bc6140",
+          "file": "images/G08_2.png"
+        }
+      ],
+      "references": "F01_KARAOKE_SPK_0 / F01_KARAOKE_SPK_1"
+    },
+    {
+      "id": "G09",
+      "title": "Harukiya piano and stage microphone",
+      "category": "Geometry + finish",
+      "what": "The upright piano and slender microphone on the small stage. The red stage drapes already have a separate native fabrication pass.",
+      "condition": "The piano is still a few large timber blocks with a pale keyboard strip. Individual keys, pedals, legs, panels and lid construction are not clearly modeled. The microphone is a thin angular stem with a minimal head and base.",
+      "prompt": "Piano proportions and construction, visible key and pedal detail, microphone form.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/C01_piano.png",
+          "caption": "Piano and microphone | current production light",
+          "source_sha256": "955d503e50c6d9dd4bdf0ade1d008f1475236b8838d7b2d985108cc81487a8a6",
+          "file": "images/G09_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/C02_stage.png",
+          "caption": "Stage context | current production light",
+          "source_sha256": "21b5df19b0eb845ed73d5ae1edb687f1d5d70c3a61ca28d03065dca7f69ce273",
+          "file": "images/G09_2.png"
+        }
+      ],
+      "references": "retail_bar_piano_body / retail_bar_piano_lid / retail_bar_piano_keys"
+    },
+    {
+      "id": "G10",
+      "title": "Songbook playback apparatus",
+      "category": "Geometry + finish",
+      "what": "The bar songbook terminal, presented as mechanical playback apparatus on a small timber base.",
+      "condition": "The horn, drum and drive components are strongly faceted; several parts appear to hover or lack an obvious physical connection. Broad smooth colors and the simple base make the assembly look schematic.",
+      "prompt": "Mechanical connections, horn profile, base construction and metal finishes.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M13_0.png",
+          "caption": "Drive and horn | current model / neutral light",
+          "source_sha256": "201fa93404f1a9cb39be47e9919a41696436e2dbaa033fc5cb349db88915d8c1",
+          "file": "images/G10_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M13_2.png",
+          "caption": "Reverse assembly | current model / neutral light",
+          "source_sha256": "07c55196454dabd07f5b02c1fda6af3c21b9fdd5a84be9482688cf3d61208142",
+          "file": "images/G10_2.png"
+        }
+      ],
+      "references": "F01_BAR_SONGBOOK"
+    },
+    {
+      "id": "G11",
+      "title": "Darts board, score panel and loose darts",
+      "category": "Geometry + finish",
+      "what": "The wall-mounted dartboard and scoring panel, plus the small live darts holder on the adjacent ledge.",
+      "condition": "The board reads as a coarse colored radial emblem rather than a detailed target. Cabinet doors are large plain slabs; the score panel has a strong mottled texture. Loose darts are straight stems with flat rectangular flights.",
+      "prompt": "Target sectors and wire divisions, cabinet joinery, score surface and dart construction.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/C03_darts.png",
+          "caption": "Complete wall installation | current production light",
+          "source_sha256": "13b4992fc2cfdf5265d7d4db38b2ae94ff70b9c966741898e7c5d319a8f1895e",
+          "file": "images/G11_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M12_0.png",
+          "caption": "Loose darts and holder | current model / neutral light",
+          "source_sha256": "15583a67400ff8653eb03f3ab698052e09600537a8d001de2d5c9f829954593c",
+          "file": "images/G11_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "G12",
+      "title": "Harukiya receiving cabinets",
+      "category": "Geometry + finish",
+      "what": "The two complete bar receiving cabinets, including original live scopes, programme headers and controls.",
+      "condition": "Tall flat cabinets with broad material bands still resemble the earlier chassis. Their circular live displays are distinct, but case section, lower panels, feet and service detailing are simple. Actor-only images omitted the static cases; this production view includes them.",
+      "prompt": "Period cabinet construction, face hierarchy, vents, feet, hardware and material treatment.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/C04_bar_receivers.png",
+          "caption": "Both complete bar cabinets | current production light",
+          "source_sha256": "b00f5c4935f1cb688351bdbed024618a04da45b880745c4b17304c9450cd82ca",
+          "file": "images/G12_1.png"
+        }
+      ],
+      "references": "retail_bar_cab01 / retail_bar_cab02"
+    },
+    {
+      "id": "G13",
+      "title": "Bar, bodega and Orison signage",
+      "category": "Geometry + finish",
+      "what": "Existing sign housings and supports; the lettering is retained scene text, not a generated texture.",
+      "condition": "Harukiya has flat dark panels and simple lanterns. The bodega fascia is intensely yellow with very thin returns. The Orison blade is a narrow dark box with exposed lettering and small brackets. Mounts, case depth and weathering need consistency.",
+      "prompt": "Sign case sections, brackets, lanterns, saturation and surface age; retain wording.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M14_2.png",
+          "caption": "Harukiya | current model / neutral light",
+          "source_sha256": "04901fc3314edaea686f4f4bcfbb79eb7bba8bb55671b67d86ffaad50caee5bf",
+          "file": "images/G13_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M17_2.png",
+          "caption": "Bodega fascia | current model / neutral light",
+          "source_sha256": "938ef40d26187a0dc3d0eab93a8d035ddfe5f230d4d0eda5069e96e01097ba48",
+          "file": "images/G13_2.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M26_0.png",
+          "caption": "Orison blade | current model / neutral light",
+          "source_sha256": "e8d312d3fbaaa9c4c17674bcf3be119e6fc4cb16ecc346ef0d1e59d9cd137d03",
+          "file": "images/G13_3.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "G14",
+      "title": "Task-lamp supply cords",
+      "category": "Detail completion",
+      "what": "Five existing apartment task lamps already have native body geometry. This landlord lamp represents the external supply-cord work that remains.",
+      "condition": "The shade, stem, base and switch are fitted and readable. The visible base entry ends without a routed supply flex in this isolated view. Surface response is slightly grainy and bright, so cord detail and finish should be reviewed together.",
+      "prompt": "Flex route, plug and entry detail; preferred enamel roughness and wear.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M24_0.png",
+          "caption": "Front of landlord lamp | current model / neutral light",
+          "source_sha256": "d43b01cd42a76da510cd8e36dfd1895015a770a0cae14550699d6a0cdbac0608",
+          "file": "images/G14_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M24_2.png",
+          "caption": "Cable-entry side | current model / neutral light",
+          "source_sha256": "be0e4aed5bc3b1ec7f9bca7f1d1ab2f8a278a86e7efd38e650ee1dd4e649c5a0",
+          "file": "images/G14_2.png"
+        }
+      ],
+      "references": "F04_B_LAMP_01; five task-lamp variants"
+    },
+    {
+      "id": "G15",
+      "title": "Retained V1 lights not installed in V2",
+      "category": "Uninstalled source forms",
+      "what": "The source chandelier, eye pendant and street-lamp form. These are current source prototypes instantiated for review, not evidence of V2 placement.",
+      "condition": "The chandelier has visible polygonal bowls and simple gold-colored links. The eye pendant is a low-detail white oval on a short stem. The street form is a faceted dark hood with an orange lower bowl. Their installation and native replacement remain separate decisions.",
+      "prompt": "Which forms to carry forward, then proportions, mounting and material character.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/U_chandelier_0.png",
+          "caption": "Chandelier source | current model / neutral light",
+          "source_sha256": "627a9c51c75d6730d478244567389b3cb2fb8780046dbfe29ba7e4e116fbd675",
+          "file": "images/G15_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/U_eye_pendant_0.png",
+          "caption": "Eye-pendant source | current model / neutral light",
+          "source_sha256": "458448d2a5438b5a539949fdcda909bce32596c3566240f6e6cdd1296367e0c5",
+          "file": "images/G15_2.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/U_street_lamp_0.png",
+          "caption": "Street-lamp source | current model / neutral light",
+          "source_sha256": "15a66d557dcbcaec4dd5b0ef932e98d20d3a5dd6f08bf186b742b03a2276ca9a",
+          "file": "images/G15_3.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T01",
+      "title": "Boiler, radiators and heating metals",
+      "category": "Finish + detail review",
+      "what": "The current boiler and a household radiator, including the repeated cast sections omitted by the first capture draft.",
+      "condition": "The boiler has fitted doors, fittings and instruments but broad pale bands and dark slabs remain visually dominant. Radiator metal has a strong mottled surface and simple repeated lobes. Brass valves are very saturated relative to the iron.",
+      "prompt": "Paint, casting texture, soot placement, brass age and small edge detail.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M18_0.png",
+          "caption": "B1_BOILER_01 | current model / neutral light",
+          "source_sha256": "d3ea8e9b4769f63a6a6e7cb4825d556c73a36908a7ff07d9ba0b2755da34d83b",
+          "file": "images/T01_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/M19_0.png",
+          "caption": "F02_A_RADIATOR_01 with all cast sections | current model / neutral light",
+          "source_sha256": "c8a209a8a3b43c323de28046a0741657e0a0e87491a99d211dd2374cca400268",
+          "file": "images/T01_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T02",
+      "title": "Basement washer, tubs and airer",
+      "category": "Finish + detail review",
+      "what": "The wringer washer and the shared wash tubs with overhead drying rack.",
+      "condition": "The operating components and supports are present. Tub surfaces have a pronounced pale granular pattern; enamel, zinc and cast-metal parts are not always visually distinct. Cloth pieces on the rack remain simple flat shapes. The room itself is sparsely furnished.",
+      "prompt": "Metal/enamel separation, wash wear, wet-use details and cloth treatment.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M20_1.png",
+          "caption": "Wringer washer | current model / neutral light",
+          "source_sha256": "be9bdb1568b22f58e67e302d37467676517406b5a1e3801300d7a91d5522db2c",
+          "file": "images/T02_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M21_0.png",
+          "caption": "Tubs and airer | current model / neutral light",
+          "source_sha256": "34495500ba4163d7dfc14942957ac7b9b6c2f6c76e2a2f9987b57bebed462789",
+          "file": "images/T02_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T03",
+      "title": "Bathroom porcelain, chrome and cloth",
+      "category": "Finish review",
+      "what": "Current pedestal lavatory, water closet and curtained shower; representative of repeated household bathroom fittings.",
+      "condition": "The forms are coherent and curved, but broad white regions are nearly featureless in neutral light. Chrome is pale and low in contrast. The toilet seat grain is strong, while the curtain has repeated regular folds with little visible fabric variation.",
+      "prompt": "Glaze roughness, chrome contrast, seat grain and curtain fabric/wear.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M23_0.png",
+          "caption": "Pedestal lavatory | current model / neutral light",
+          "source_sha256": "fbc3c705bcd7cf21549f7d9d3fb671584272bf9e1298eab271cad45bfd9987bb",
+          "file": "images/T03_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/M33_0.png",
+          "caption": "Water closet | current model / neutral light",
+          "source_sha256": "2d59f5cf0dc1020183308a79d8ab3fe71994cac4fec48bee7979eeb669ba0b84",
+          "file": "images/T03_2.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M22_2.png",
+          "caption": "Shower interior | current model / neutral light",
+          "source_sha256": "cb0ae681e115573164e89c2bc9269bde5da3ad7c9181fe0de4a7f7270f2eb74e",
+          "file": "images/T03_3.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T04",
+      "title": "Wardrobes and kept clothing",
+      "category": "Finish review",
+      "what": "The fitted household wardrobe family, with original moving leaves and household garment sets.",
+      "condition": "Paneling and cornice profiles are present. The 3B case has bright and conspicuous oak grain; garment material and folds need to sit convincingly beside the timber. The native open view supplements the current closed studio view; the earlier 3B room view remains partly obstructed.",
+      "prompt": "Oak tone and scale, edge wear, garment weight and variation.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M28_0.png",
+          "caption": "Current 3B closed case | current model / neutral light",
+          "source_sha256": "7bb906d571682fbf2578b04cb283ea2d15d0d01785933ba84efbccc835f24d67",
+          "file": "images/T04_1.png"
+        },
+        {
+          "source": "art/renders/orison_v2/household_wardrobes_20261007/native/Wardrobe00_open.png",
+          "caption": "3B native open contents | native family review",
+          "source_sha256": "1be6478aa5b5e633dc41e70abdf1c2a08e2c476e9bfedb0355e0fcca29611cda",
+          "file": "images/T04_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T05",
+      "title": "Seating and household tables",
+      "category": "Finish review",
+      "what": "The fitted chair, sofa and table families used throughout the apartments.",
+      "condition": "The native forms now have joined frames and shaped stock. Wood and upholstery still need a consistent level of grain, roughness and wear across families; room lighting can push the timber strongly orange. Review these as surface references, not requests to replace accepted supports.",
+      "prompt": "Wood color/grain, upholstery weave and compression, restrained wear.",
+      "images": [
+        {
+          "source": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/ChairOak_front.png",
+          "caption": "Oak dining chair | native family review",
+          "source_sha256": "5820d88573ec637bf61594c5c9e6e797ee73fbb03e7757746373a142f7089468",
+          "file": "images/T05_1.png"
+        },
+        {
+          "source": "art/renders/orison_v2/apartment_furniture_20261007/domestic-seating-native/Sofa195_front.png",
+          "caption": "Sofa | native family review",
+          "source_sha256": "6ed67931d59da379dfb8e61a32746f68335eee660f6ef5dd38092697e2ab5835",
+          "file": "images/T05_2.png"
+        },
+        {
+          "source": "art/renders/orison_v2/apartment_furniture_20261007/domestic-tables-native/TableRound03_front.png",
+          "caption": "Round table | native family review",
+          "source_sha256": "f8185bb93f12c98ba224c438a416a92fa93e569eb116841a0c31482661fca81d",
+          "file": "images/T05_3.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T06",
+      "title": "Household storage, books and small objects",
+      "category": "Finish + detail review",
+      "what": "The current bookshelf, 3B parts crate and photography softbox; representatives of storage, loose stock and portable equipment.",
+      "condition": "These have fitted native forms. The crate grain remains conspicuous and its contents read as a plain metal strip from this angle. Books have simple pastel covers, and the softbox is a dark rectangular face with a clean thin stand. Surface variety and object-specific wear remain open.",
+      "prompt": "Book and paper edges, crate age and contents, softbox cloth and stand detail.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M25_2.png",
+          "caption": "Bookshelf front | current model / neutral light",
+          "source_sha256": "7e53e081a68041a5aab1da9b8af65cc1bb510208df625cf99b99b957bf3b43ae",
+          "file": "images/T06_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M30_0.png",
+          "caption": "3B parts crate | current model / neutral light",
+          "source_sha256": "945fd1cd7e6f0a625a8799f2c8b959eb618862aef0e8896b49624622d6c1c13e",
+          "file": "images/T06_2.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M32_0.png",
+          "caption": "Photography softbox | current model / neutral light",
+          "source_sha256": "f02ad68058d891a76309bba2e6e67074194c18dee4056e5321cb14be77e2556f",
+          "file": "images/T06_3.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T07",
+      "title": "Refrigerators and gas ranges",
+      "category": "Finish review / latest completed batch",
+      "what": "The newly completed household refrigerator and stove geometry, with original moving controls and stocked interiors.",
+      "condition": "Cabinets now have hollow interiors, supported shelves/racks and fitted moving parts. Neutral views read clearly. In production, amber lighting turns pale enamel yellow and obscures dark cooking parts; broader finish calibration remains distinct from the completed local geometry work.",
+      "prompt": "Enamel color, iron roughness, subtle wear and room-light balance.",
+      "images": [
+        {
+          "source": "art/renders/orison_v2/household_stoves_20261008/native/HouseholdGasRange_open.png",
+          "caption": "Current stove | native family review",
+          "source_sha256": "913ed637b04e9b9412d1ed148dcc4de267969197d9d0aba5ff378d122494e65b",
+          "file": "images/T07_1.png"
+        },
+        {
+          "source": "art/renders/orison_v2/household_fridges_20261008/native/FridgeIcebox_open.png",
+          "caption": "Icebox shell and shelves | native family review",
+          "source_sha256": "1d0be7dec85b540920ec7ac51bfc2e818b19af03f71b028d3d3065362f66759b",
+          "file": "images/T07_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T08",
+      "title": "Small appliances and medicine stock",
+      "category": "Finish review",
+      "what": "Native toaster bodies, medicine cabinets and kept personal items; original controls and contents remain.",
+      "condition": "Small-scale construction is present, but bright nickel, plain pale packaging and glass response still need a consistent finish language. Tiny repeated items can read as generic shapes unless roughness, thickness and local contrast are balanced.",
+      "prompt": "Nickel polish, bottle glass, packaging edges and restrained household wear.",
+      "images": [
+        {
+          "source": "art/renders/orison_v2/household_accessories_20261007/native/household_toasters/ToasterFront.png",
+          "caption": "Toaster | native family review",
+          "source_sha256": "263ef7b251a96e923ceaa9938d8e03e3532b406de352bf230d778b1a54f91f8e",
+          "file": "images/T08_1.png"
+        },
+        {
+          "source": "art/renders/orison_v2/household_accessories_20261007/native/medicine_cabinets/2A_cabinet_open.png",
+          "caption": "Stocked medicine cabinet | native family review",
+          "source_sha256": "f41f5473992575614601c3462cd94d5abd21b53da8ad0cf554a763fa81fdb1ee",
+          "file": "images/T08_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T09",
+      "title": "Installed indoor lighting family",
+      "category": "Finish review",
+      "what": "The completed native indoor fixture family: 199 room, passage and bar actors across 27 fitted variants.",
+      "condition": "The new forms have fitted stock and supports. Opal glass, shade interiors and metal finishes still need to be judged against powered room appearance. Neutral review images intentionally omit the existing glow/halo, so they show the fixture rather than its light pool.",
+      "prompt": "Opal translucency, metal/enamel finish and powered color balance.",
+      "images": [
+        {
+          "source": "art/renders/orison_v2/fixed_lighting_20261008/native/flush_dome.png",
+          "caption": "Flush dome | native family review",
+          "source_sha256": "b77b6c62b85367393af5df409a9059fe643ad84b472d220131116148bfc43d8d",
+          "file": "images/T09_1.png"
+        },
+        {
+          "source": "art/renders/orison_v2/fixed_lighting_20261008/native/pendant_shade.png",
+          "caption": "Pendant shade | native family review",
+          "source_sha256": "c32c3fcaf735ec0e695257a18c8ac4c7056fbbdba13fc449f2cdb5f8a05d2879",
+          "file": "images/T09_2.png"
+        },
+        {
+          "source": "art/renders/orison_v2/fixed_lighting_20261008/native/sconce_globe_back050.png",
+          "caption": "Wall globe | native family review",
+          "source_sha256": "2956f3b387af298bc4c4e9848d052b1e43ab30c0d3d451917d2c6fa1c8837b8a",
+          "file": "images/T09_3.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T10",
+      "title": "Pawnbroker cases and window stock",
+      "category": "Finish review",
+      "what": "The fitted glazed display cases and passive watches, field glasses and telescope stock.",
+      "condition": "Case framing, hollow display volume and supported stock are modeled. Glass, brass and timber still need a shared level of gloss and aging. Small unlettered merchandise is readable by silhouette; reflections can conceal it in the production window.",
+      "prompt": "Glazing clarity, metal patina, timber finish and merchandise contrast.",
+      "images": [
+        {
+          "source": "art/renders/orison_v2/pawn_display_20261007/images/native/storm_shop_pawnbroker_case_e_front.jpg",
+          "caption": "East display case | native family review",
+          "source_sha256": "4f00a108e2dbf878dad32563dc6c83c970d0f0b7274b0db267650ed064796236",
+          "file": "images/T10_1.jpg"
+        },
+        {
+          "source": "art/renders/orison_v2/pawn_display_20261007/images/native/watch_stock.jpg",
+          "caption": "Watch stock | native family review",
+          "source_sha256": "a64f161b6b3f490cdac7e765db46c9b99ea3da3586bd374830c4fdc2641e5819",
+          "file": "images/T10_2.jpg"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T11",
+      "title": "Hardware and locksmith stock",
+      "category": "Finish review",
+      "what": "Key blanks, counter machinery, hand tools, glass racks, drawers and stock trays.",
+      "condition": "Native pieces are separated and supported. The repeated stock is geometrically legible, but dark wood, brass and painted tools need consistent microtexture and edge wear. Keep the intentionally empty tool slot and original stock identities.",
+      "prompt": "Metal thickness and finish, tool-handle wear, cabinet timber and stock variation.",
+      "images": [
+        {
+          "source": "art/renders/orison_v2/locksmith_fittings_20261005/native/storm_shop_keys_cut_cutter_front.jpg",
+          "caption": "Key-cutting machine | native family review",
+          "source_sha256": "ee3bf4d24bb229ad9de7071f7fb04b6227d5a63f611d8180ed3a08cd8e722946",
+          "file": "images/T11_1.jpg"
+        },
+        {
+          "source": "art/renders/orison_v2/wood_grain_20261007/native/hardware_tools/tool_forms_detail.jpg",
+          "caption": "Hand-tool stock | native family review",
+          "source_sha256": "37031d853abb32359bd2a8f93e130077bae1a3d3a35138d171bc51721e7e43c5",
+          "file": "images/T11_2.jpg"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T12",
+      "title": "Cobbler machinery and shoe stock",
+      "category": "Geometry + finish review",
+      "what": "The passive finisher, sewing apparatus, shoe stock and work furniture.",
+      "condition": "Mechanical frames, wheels and stock are fitted. The finisher and patcher remain very dark and blocky in these native views. Wheel, belt, tool-bed and housing details need art direction alongside iron, wood, leather, dust and rubber finishes. Live machine operation is a separate task.",
+      "prompt": "Oiled metal, leather finish, dust placement and working-surface wear.",
+      "images": [
+        {
+          "source": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_finisher_front.jpg",
+          "caption": "Finisher | native family review",
+          "source_sha256": "3804cfc5c1c7a4e823d8a66b6d0e98139e8f527f6d98e5f068b42fbc39849455",
+          "file": "images/T12_1.jpg"
+        },
+        {
+          "source": "art/renders/orison_v2/cobbler_fittings_20261005/native/storm_shop_shoe_rebuilding_patcher_treadle_front.jpg",
+          "caption": "Treadle patcher | native family review",
+          "source_sha256": "8e70f3707aa09e083d033ffcdf1af0f48df93cde15b5e61347cb242df7369ea0",
+          "file": "images/T12_2.jpg"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T13",
+      "title": "Druggist glass, bottles and stonework",
+      "category": "Finish review",
+      "what": "The window carboys and marble fountain, representative of the dispensary, jars and counter apparatus.",
+      "condition": "The fitted vessels and stone carcass are modeled. The carboys have visibly faceted shoulders and opaque-looking colored liquid; bright marble can flatten the fountain panels. Small metal spouts and supports need enough contrast to remain readable beside bright stone and saturated glass.",
+      "prompt": "Glass thickness and color, liquid appearance, marble scale and metal contrast.",
+      "images": [
+        {
+          "source": "art/renders/orison_v2/druggist_carboys_20261006/native/composed_rear.jpg",
+          "caption": "Window carboys | native family review",
+          "source_sha256": "adaa4f9c13e2c7a08959b8f89092ab1b1eaf354945b73a8ed8b058c2ae7d88f5",
+          "file": "images/T13_1.jpg"
+        },
+        {
+          "source": "art/renders/orison_v2/druggist_fountain_20261006/native/cabinet_front.jpg",
+          "caption": "Marble fountain | native family review",
+          "source_sha256": "265448ccf50b633a831462827b80feb4ebb5364fb3fbac36c9fe4a39e689742d",
+          "file": "images/T13_2.jpg"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T14",
+      "title": "Diner counters and plated apparatus",
+      "category": "Finish review",
+      "what": "The fitted counter, griddle, soda pumps, urns and other passive service apparatus.",
+      "condition": "Hollow cases and slender supports have replaced the original blocks. Plated metal, stone and dark cooking iron remain visually uneven across the family; reflections can flatten the shapes. Controls and food-service wear need deliberate restraint.",
+      "prompt": "Nickel/chrome response, heat staining, countertop scale and edge wear.",
+      "images": [
+        {
+          "source": "art/renders/orison_v2/diner_apparatus_20261006/native/griddle_front.jpg",
+          "caption": "Griddle | native family review",
+          "source_sha256": "6c6f58b9b4e17be0c62fc0d8e5d79ff733ef0a2049f25375dcaf4208ba7d2bcd",
+          "file": "images/T14_1.jpg"
+        },
+        {
+          "source": "art/renders/orison_v2/diner_apparatus_20261006/native/five_pumps.jpg",
+          "caption": "Five soda pumps | native family review",
+          "source_sha256": "ddc0b16580993101b61b76c7ebf4c6f874589dc41c9f930381bba08c0d746210",
+          "file": "images/T14_2.jpg"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T15",
+      "title": "Photo and radio shop equipment",
+      "category": "Finish review",
+      "what": "Darkroom apparatus, photographic equipment, radio cabinets, batteries and wire stock.",
+      "condition": "Current native forms include framed furniture, lenses, vessels and fine wire. Finish balance remains open between dark lacquer, timber, bright metal and glass. Some material detail is stronger than the size of the object warrants.",
+      "prompt": "Optical glass, lacquer, brass, copper and timber scale across related equipment.",
+      "images": [
+        {
+          "source": "art/renders/orison_v2/wood_grain_20261007/native/photo_cameras/storm_shop_photo_supplies_camera_body0_front.jpg",
+          "caption": "Bellows camera | native family review",
+          "source_sha256": "1c9c0e9fdc22b0286565b054ad64c5f479ea09e9dd4a8629245d585d4f399083",
+          "file": "images/T15_1.jpg"
+        },
+        {
+          "source": "art/renders/orison_v2/wood_grain_20261007/native/radio_wire/stock_front.jpg",
+          "caption": "Radio wire stock | native family review",
+          "source_sha256": "78f651b92e4f162451c57a437179f7b58caa51f96de51d23863918e7bd0cba05",
+          "file": "images/T15_2.jpg"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T16",
+      "title": "Laundry parcels and hanging cloth",
+      "category": "Finish review",
+      "what": "The retail laundry parcel wall and the funeral-room hanging fabric; representatives of paper wraps, ties and large cloth surfaces.",
+      "condition": "Parcels, supports, pleats, hems and suspension details are present. Repeated cloth folds and parcel shapes need believable material variation without losing the ordered layout. Textile roughness and localized dirt remain open.",
+      "prompt": "Fabric weight, weave scale, paper wrinkles, ties and subtle variation.",
+      "images": [
+        {
+          "source": "art/renders/orison_v2/laundry_trade_20261007/native/parcel_wall.jpg",
+          "caption": "Laundry parcel wall | native family review",
+          "source_sha256": "a9e7dfa50b741516e713549b78ac8dd25a7d625f20c77cbf5c06bec55e5bb710",
+          "file": "images/T16_1.jpg"
+        },
+        {
+          "source": "art/renders/orison_v2/funeral_drapes_20261006/native/run0_header.jpg",
+          "caption": "Drape header and suspension | native family review",
+          "source_sha256": "873418c989f787b7759246210eab5c365656fc60800ce7fd70f3fafbfd05a5e7",
+          "file": "images/T16_2.jpg"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "T17",
+      "title": "Plants and funeral foliage",
+      "category": "Finish + detail review",
+      "what": "The household specimen plant and larger funeral palm/wreath family.",
+      "condition": "The small plant is very sparse, with a thin straight stem and a few regular leaves; pot and soil are simple. Larger fronds add silhouette detail but still need convincing leaf thickness, translucency, color variation and natural irregularity.",
+      "prompt": "Species character, leaf density and shape, leaf translucency, soil and pot wear.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M31_1.png",
+          "caption": "Household specimen | current model / neutral light",
+          "source_sha256": "f785396bfc06a297a548829232a347e7aba7720afa2c8ee047689d011a756e84",
+          "file": "images/T17_1.png"
+        },
+        {
+          "source": "art/renders/orison_v2/funeral_foliage_20261006/native/palm2_front.jpg",
+          "caption": "Funeral palm | native family review",
+          "source_sha256": "7f2f14f13707783fe39ed7189bef0bcf8cceadbcab8ce880a32d659fee910f88",
+          "file": "images/T17_2.jpg"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "A01",
+      "title": "Apartment light, plaster and floor grain",
+      "category": "Building-wide finish",
+      "what": "Representative current apartment rooms, including Mina's living room and the 3B main room.",
+      "condition": "The warm light strongly shifts white surfaces toward yellow and timber toward orange. Floor grain and plank contrast dominate the rooms; plaster has large visible noise. The same materials look substantially different across bright and dim rooms.",
+      "prompt": "Target warmth, contrast, floor grain scale, plaster relief and room-to-room balance.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/C_F02_A_MAIN.png",
+          "caption": "2A main room | current production light",
+          "source_sha256": "b4ea700eb24ca3c99319c7a7e166dac159c60eef3b59c52ac196c8df5ccf54d8",
+          "file": "images/A01_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/C_F03_B_MAIN.png",
+          "caption": "3B main room | current production light",
+          "source_sha256": "e85a1576a831334febbcbeb8c5db6f2cef1449960ae4bc0f15e470322e19b9e0",
+          "file": "images/A01_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "A02",
+      "title": "Public floors, paneling and door joinery",
+      "category": "Building-wide finish",
+      "what": "The current vestibule and lobby: stone/terrazzo floor, timber dado, painted trim and doors.",
+      "condition": "Large mottled floor patterns and strong dark paneling set the visual balance. Door/casing profiles are present, but edges, paint sheen and junctions need closer finish review. Bright seams and local changes in lighting make adjacent materials feel inconsistent.",
+      "prompt": "Floor aggregate scale, timber tone, painted trim and junction wear.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/C_F01_VESTIBULE.png",
+          "caption": "Vestibule | current production light",
+          "source_sha256": "b81fe685c61ffe2179b8cd886d76400f148a720c8a2f19295b3c739c7adf4b09",
+          "file": "images/A02_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/C_F01_LOBBY.png",
+          "caption": "Lobby | current production light",
+          "source_sha256": "e693223e965db49e6c93df19f688e87bbed7c3329779e63b2117d177aedc707d",
+          "file": "images/A02_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "A03",
+      "title": "Bedrooms and bedding",
+      "category": "Building-wide finish",
+      "what": "Current bedroom furniture and bedding in 2A, shown under the production lighting.",
+      "condition": "Bed frame and pillows are recognizable. The cover is broad and smooth, and the pillows have simple rounded silhouettes with limited visible seams, compression or folds. Warm wall and floor colors reduce separation between materials.",
+      "prompt": "Bedding weight and folds, seams, mattress compression and bedroom light.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/C_F02_A_BED.png",
+          "caption": "2A bedroom | current production light",
+          "source_sha256": "c3794a6deed87e6a5fba4c7a39115b378cc3bb26c1744e5e0c9c1a3788ce0927",
+          "file": "images/A03_1.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "A04",
+      "title": "Basement walls, floors and service context",
+      "category": "Building-wide finish",
+      "what": "The complete current laundry and boiler-room settings surrounding the fitted service equipment.",
+      "condition": "Large uninterrupted wall and floor areas are visually plain while a few practicals create bright pools. Equipment can look detached from the room. Surface scale, believable local use marks and coherent light levels need review.",
+      "prompt": "Concrete/plaster character, floor use patterns, service-room lighting and context detail.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/C_B1_LAUNDRY.png",
+          "caption": "Shared laundry | current production light",
+          "source_sha256": "ed2cb18ac13544472525274f5fd2f2b1f0de7fc999121644f470aca68a7c363d",
+          "file": "images/A04_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-02/C_B1_BOILER_ROOM.png",
+          "caption": "Boiler room | current production light",
+          "source_sha256": "19a53ac2f7ea62422d518609891560650017f70b6f36925a64714af49b6c2264",
+          "file": "images/A04_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "A05",
+      "title": "Exterior stone trim and entry frontage",
+      "category": "Building-wide finish",
+      "what": "The current facade trim and entry assembly. The isolated native view shows this component only; masonry and windows belong to other building owners.",
+      "condition": "Bands and opening outlines are very regular. The entry has more depth than the upper trim, and the full facade needs a coherent stone, brick, painted-metal and glass response. The saved native material study is useful for shape; the labeled production reference shows the assembled frontage.",
+      "prompt": "Stone scale and joints, reveal depth, brick contrast, glass and entry wear.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-native/front_facade_0.png",
+          "caption": "Current facade component | saved Blender materials",
+          "source_sha256": "a8b95ec72969624f96e92262544eec75e7ea4ec818a95b4b232e9cf8d6e5fa08",
+          "file": "images/A05_1.png"
+        },
+        {
+          "source": "art/renders/orison_v2/front_facade_20261005/approach.png",
+          "caption": "Assembled facade reference / 2026-10-05 | prior production capture",
+          "source_sha256": "4ba116a425699436df29ab79fef178510c28a71d001f9899d27d0094a7930e79",
+          "file": "images/A05_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "A06",
+      "title": "Roof field, drainage and ventilator housings",
+      "category": "Building-wide finish",
+      "what": "The current east roof membrane component and a production ventilator. Flashings, outlets, leaders and their junctions belong to the same wider roof review.",
+      "condition": "The isolated membrane shows a broad repeated surface with faint seams. The ventilator has a simple cap and box housing with small fitted hardware. Roof-scale weathering, material contrast, seam readability and junction details remain open; the isolated membrane does not show the entire drainage system.",
+      "prompt": "Membrane scale, seam character, galvanized metal and localized weathering.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-native/roof_membrane_0.png",
+          "caption": "East membrane component | saved Blender materials",
+          "source_sha256": "b4cd736bc8619121568b4a57c185b0653320837670c75d5b617aa0a25b8ba212",
+          "file": "images/A06_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-capture-01/M27_0.png",
+          "caption": "Current roof ventilator | current model / neutral light",
+          "source_sha256": "45c7044a1a7e0e54e9676ba579575627c5f47f719f1fcebbacbf34a3f08b0c3f",
+          "file": "images/A06_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "A07",
+      "title": "Neighboring rooftop tanks and aerials",
+      "category": "Building-wide finish",
+      "what": "One current tank assembly and one dish assembly from the neighboring skyline families, shown as isolated native geometry.",
+      "condition": "Tank bands, slender legs and diagonal braces are present, as are the dish support and feed. The saved Blender materials are pale and simple; these plates establish current shapes, not final runtime weathering. Stave definition, metal joins and variation across the skyline need final art direction.",
+      "prompt": "Timber stave character, galvanized-metal weathering, dish finish and readable supports.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-native/city_tanks_0.png",
+          "caption": "Current tank geometry | saved Blender materials",
+          "source_sha256": "973e1fd4646669c264e08a3a2b73f3dde31af092a3f126314b60363d33a0416e",
+          "file": "images/A07_1.png"
+        },
+        {
+          "source": "tmp/v2-finish-review/dossier-native/city_aerials_1.png",
+          "caption": "Current dish geometry | saved Blender materials",
+          "source_sha256": "e4599a64a123f8dd4b3097258b6263dd5319244a3cdf704d651cd8b5ddd910fb",
+          "file": "images/A07_2.png"
+        }
+      ],
+      "references": ""
+    },
+    {
+      "id": "A08",
+      "title": "Lift cab paneling and public metalwork",
+      "category": "Building-wide finish",
+      "what": "The current lift joinery component: lower panel fields and backing around the mirror opening. Other cab, gate, rail and indicator owners are deliberately absent from this isolated component view.",
+      "condition": "Panel divisions and layered fields are fitted but very plain in the saved native material study. The remaining full-cab review is about timber scale, paint or varnish, metal contrast and wear at touch points; this view must not be read as a cab missing its other parts.",
+      "prompt": "Panel finish, molding edge character, hand-wear and consistency with public joinery.",
+      "images": [
+        {
+          "source": "tmp/v2-finish-review/dossier-native/lift_joinery_0.png",
+          "caption": "Current cab joinery component | saved Blender materials",
+          "source_sha256": "4e6a328bf1704f87e3702e0b33801074b97c619de029be74f246793baad8ae34",
+          "file": "images/A08_1.png"
+        }
+      ],
+      "references": ""
+    }
+  ],
+  "scope": "Representative model sets and shared finish work remaining for owner art direction. Current runtime plates were captured 2026-10-08. Reused native views are labeled and retain their source paths/hashes. This is an art review, not whole-V2 acceptance or runtime-contract proof."
+}

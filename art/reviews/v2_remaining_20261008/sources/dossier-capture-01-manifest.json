@@ -1,0 +1,3302 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"plates": [
+		{
+			"actor": "LobbyPorterBoard",
+			"id": "M01",
+			"images": [
+				"M01_0.png",
+				"M01_1.png",
+				"M01_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2549"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2550"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2551"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2552"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2553"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2554"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2555"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2556"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2557"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2558"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2559"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2560"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2561"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2562"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2563"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2564"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2565"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2566"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2567"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2568"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2569"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2570"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2571"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2572"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2573"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2574"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2575"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2576"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/otis_prop.gd",
+			"size": [
+				0.259999990463257,
+				0.620000004768372,
+				0.125499606132507
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "ROOF_TANK_BALLCOCK",
+			"id": "M02",
+			"images": [
+				"M02_0.png",
+				"M02_1.png",
+				"M02_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2580"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "FloatColumn"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2582"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2583"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2584"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2585"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "Float"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "FloatRod"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "LeverArm"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "LeverWeight"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "CockBody"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "ValveSeat"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "InletRiser"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "RiserStop"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2594"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2595"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2596"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "OverflowPipe"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2598"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "OverflowWitness"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "OverflowStream"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2602"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "TellTale"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/roof_tank_ballcock_prop.gd",
+			"size": [
+				0.860301852226257,
+				3.33500099182129,
+				0.265000224113464
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F01_WATCHMAN_DETECTOR",
+			"id": "M03",
+			"images": [
+				"M03_0.png",
+				"M03_1.png",
+				"M03_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "DetectorCase"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2608"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2609"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2610"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2611"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "DriveSpindle"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "DrivePin"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "PaperDial"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2613"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2614"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2615"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2616"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2617"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2618"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2619"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2620"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2621"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2622"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2623"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2624"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2625"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2626"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2627"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2628"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2629"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2630"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2631"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2632"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2633"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2634"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2635"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2636"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "IndexHole"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "NightMark0"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "NightMark1"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "NightMark2"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "NightMark3"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "NightMark4"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "NightMark5"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "MovementHand"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "GlassLid"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "StopLever"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "StationKey"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ReadingIndex"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "PunchHead"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2655"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/watchman_clock_prop.gd",
+			"size": [
+				0.357999920845032,
+				0.417999982833862,
+				0.183000832796097
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F01_NIGHT_REGISTER",
+			"id": "M04",
+			"images": [
+				"M04_0.png",
+				"M04_1.png",
+				"M04_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterBoard"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2659"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2660"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2661"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterShelf"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShelfBracket0"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShelfBracket1"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "SpindleFoot"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "ReportSpindle"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "Hook_apartment"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "HookLip_apartment"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "Tag_apartment"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "TagStamp_apartment"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "Hook_plant"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "HookLip_plant"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "Tag_plant"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "TagStamp_plant"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "Key_apartment"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "KeyShank_apartment"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "KeyBit_apartment"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "Key_plant"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "KeyShank_plant"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "KeyBit_plant"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterBook"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterPage"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterGutter"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterLine0"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterLine1"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterLine2"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterLine3"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterLine4"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "RegisterPen"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ConclusionPlate"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "CardRail"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2701"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2703"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2705"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "IndexGroove"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "CardTitleRule"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "IndexBody"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "IndexKnurl"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "IndexTongue"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "IndexNib"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "IndexStop"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2714"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/night_register_prop.gd",
+			"size": [
+				0.720000028610229,
+				0.51500004529953,
+				0.247780293226242
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F01_SIGNAL_REGISTER",
+			"id": "M05",
+			"images": [
+				"M05_0.png",
+				"M05_1.png",
+				"M05_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterCase"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterBacking"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "CaseCheek"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "CaseCheek2"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2724"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2725"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RegisterHead"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "RegisterConduit"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "ConduitElbow"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "PilotClosed"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "RelayCoil"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RelayArmature"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterFrame1"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterGuide1"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterGuide2"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterLeaf1"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterFace1"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterFrame2"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterGuide3"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterGuide4"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterLeaf2"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterFace2"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterFrame3"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterGuide5"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterGuide6"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterLeaf3"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterFace3"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterFrame4"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterGuide7"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterGuide8"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterLeaf4"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterFace4"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterHood"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "ShutterHoodLip"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "CounterPlate"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "CounterWindow"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "RegisterGong"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "LeverArm"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "LeverKnob"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/watch_register_prop.gd",
+			"size": [
+				0.402000486850739,
+				0.536000072956085,
+				0.115999862551689
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F01_TOUR_KEY_GUARD",
+			"id": "M06",
+			"images": [
+				"M06_0.png",
+				"M06_1.png",
+				"M06_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "GuardPlate"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "GuardStile"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "GuardStile2"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "GuardHead"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "GuardHook"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "HookLip"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "LatchBar"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "LatchKnob"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "KeyBow"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "KeyEye"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "KeyBarrel"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "KeyWard"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/tour_key_guard_prop.gd",
+			"size": [
+				0.160000711679459,
+				0.259999990463257,
+				0.0445001684129238
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "B1_FUSE_PANEL",
+			"id": "M07",
+			"images": [
+				"M07_0.png",
+				"M07_1.png",
+				"M07_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14556"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14559"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14560"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14561"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "SwitchJaws"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "SwitchBlades"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "SwitchHandle"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "FuseBlock"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14566"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14567"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14568"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "PlugFuse"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "FuseWindow"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "FuseLink"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "RatingStamp"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "CircuitCard"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "ConductorTail"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "SpareDrawer"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14576"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14577"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14578"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "PanelDoor"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "LampIndex"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/fuse_panel_prop.gd",
+			"size": [
+				0.770756602287292,
+				0.899999976158142,
+				0.776577889919281
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F01_HOUSE_TELEPHONE_BOARD",
+			"id": "M08",
+			"images": [
+				"M08_0.png",
+				"M08_1.png",
+				"M08_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16199"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16200"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16205"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16206"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16207"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16208"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16209"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16210"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16211"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16212"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16213"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16214"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16215"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16216"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16217"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16218"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16219"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16220"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16221"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16222"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16223"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16225"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/house_switchboard_prop.gd",
+			"size": [
+				0.660000026226044,
+				0.680000066757202,
+				0.212499886751175
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "LobbyServiceDumbwaiter",
+			"id": "M09",
+			"images": [
+				"M09_0.png",
+				"M09_1.png",
+				"M09_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "Shaftway"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16238"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16239"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16240"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "Car"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "Counterweight"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16243"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16244"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16245"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16246"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16247"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "LiftSheave"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16249"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "BrakeBand"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "HoldingPawl"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "HandRope"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/dumbwaiter_prop.gd",
+			"size": [
+				0.840000033378601,
+				1.12199997901917,
+				0.424999684095383
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "ShedEntryWorkLamp",
+			"id": "M10",
+			"images": [
+				"M10_0.png",
+				"M10_1.png",
+				"M10_2.png"
+			],
+			"meshes": [
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@19807"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "bulb"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@19808"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@19809"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@19810"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@19811"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/light_fixture_prop.gd",
+			"size": [
+				0.158000007271767,
+				0.568999946117401,
+				0.140832021832466
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F01_KARAOKE_SPK_0",
+			"id": "M11",
+			"images": [
+				"M11_0.png",
+				"M11_1.png",
+				"M11_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20629"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20630"
+				},
+				{
+					"class": "TorusMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20631"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20632"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20633"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20634"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20635"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20636"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20637"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/speaker_prop.gd",
+			"size": [
+				0.340000003576279,
+				0.556000113487244,
+				0.31950044631958
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F01_BAR_DARTS",
+			"id": "M12",
+			"images": [
+				"M12_0.png",
+				"M12_1.png",
+				"M12_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20831"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20832"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20833"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20834"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20835"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20836"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20837"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/darts_prop.gd",
+			"size": [
+				0.0750000029802322,
+				0.211000025272369,
+				0.0750000029802322
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F01_BAR_SONGBOOK",
+			"id": "M13",
+			"images": [
+				"M13_0.png",
+				"M13_1.png",
+				"M13_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20916"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20917"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20918"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20919"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20920"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20921"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20922"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20923"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20924"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20925"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20926"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20927"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20928"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20929"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20930"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20931"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20932"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20933"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20934"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/songbook_terminal_prop.gd",
+			"size": [
+				0.660000026226044,
+				0.446364641189575,
+				0.399999558925629
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F01_BAR_SIGNAGE",
+			"id": "M14",
+			"images": [
+				"M14_0.png",
+				"M14_1.png",
+				"M14_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20938"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20939"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20940"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20941"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20942"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20943"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20944"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20945"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20946"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20947"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20948"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20949"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20950"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20951"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20952"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20953"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20954"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20955"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20956"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20957"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20958"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20959"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20960"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20961"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20963"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20964"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20965"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20966"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20968"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20969"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20970"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20971"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20973"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20975"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20976"
+				},
+				{
+					"class": "CapsuleMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20977"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20978"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20980"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20981"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20982"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20983"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20984"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20985"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20986"
+				},
+				{
+					"class": "SphereMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@20987"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/harukiya_signage_prop.gd",
+			"size": [
+				2.78730535507202,
+				1.50500011444092,
+				0.599998593330383
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "Arcade_retail_bar_cab01",
+			"id": "M15",
+			"images": [
+				"M15_0.png",
+				"M15_1.png",
+				"M15_2.png"
+			],
+			"meshes": [
+				{
+					"class": "QuadMesh",
+					"mesh": "",
+					"name": "Screen"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21133"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21137"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21138"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21139"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21140"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21141"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21142"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21143"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21144"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21145"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21146"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21147"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21148"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21149"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21150"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21151"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/arcade_cabinet_prop.gd",
+			"size": [
+				0.610000014305115,
+				0.784799933433533,
+				0.124000012874603
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "Arcade_retail_bar_cab02",
+			"id": "M16",
+			"images": [
+				"M16_0.png",
+				"M16_1.png",
+				"M16_2.png"
+			],
+			"meshes": [
+				{
+					"class": "QuadMesh",
+					"mesh": "",
+					"name": "Screen"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21154"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21158"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21159"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21160"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21161"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/arcade_cabinet_prop.gd",
+			"size": [
+				0.610000014305115,
+				0.832399845123291,
+				0.0900000333786011
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "ExteriorFunctionalProp",
+			"id": "M17",
+			"images": [
+				"M17_0.png",
+				"M17_1.png",
+				"M17_2.png"
+			],
+			"meshes": [
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16542"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16543"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16544"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16548"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16549"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16550"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@16552"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/bodega_signage_prop.gd",
+			"size": [
+				4.39999866485596,
+				1.76499998569489,
+				1.07500004768372
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "B1_BOILER_01",
+			"id": "M18",
+			"images": [
+				"M18_0.png",
+				"M18_1.png",
+				"M18_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3955"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3956"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3957"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3958"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3959"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3960"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3961"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3962"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3963"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/boiler_body.glb::ArrayMesh_ekls4",
+					"name": "LiveCoal"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3919"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3922"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "GaugeWaterLevel"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3926"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "WaterWitnessMarker"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3976"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3975"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3973"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@3974"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/boiler_prop.gd",
+			"size": [
+				1.44000005722046,
+				2.01999998092651,
+				1.84500002861023
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F02_A_RADIATOR_01",
+			"id": "M19",
+			"images": [
+				"M19_0.png",
+				"M19_1.png",
+				"M19_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2822"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2823"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2824"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2825"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2826"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2827"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2828"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2829"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2830"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2831"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2797"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "UnionNut"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2819"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2820"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2821"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/building/orison_v2_household_radiator.gd",
+			"size": [
+				1.12431609630585,
+				0.69141298532486,
+				0.341999351978302
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "B1_WASHER_01",
+			"id": "M20",
+			"images": [
+				"M20_0.png",
+				"M20_1.png",
+				"M20_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14818"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14819"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14820"
+				},
+				{
+					"class": "BoxMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14795"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14821"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14803"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14810"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14811"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14812"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14813"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14814"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14815"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14816"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14817"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/washer_prop.gd",
+			"size": [
+				0.700000047683716,
+				1.34267401695251,
+				0.700000047683716
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "B1_LAUNDRY_AIRER_01",
+			"id": "M21",
+			"images": [
+				"M21_0.png",
+				"M21_1.png",
+				"M21_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14946"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14947"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14948"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14949"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14950"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@14951"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/laundry_airer_prop.gd",
+			"size": [
+				1.39249992370605,
+				2.47500014305115,
+				0.638499975204468
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F04_4B_SHOWER_01",
+			"id": "M22",
+			"images": [
+				"M22_0.png",
+				"M22_1.png",
+				"M22_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_shower.glb::ArrayMesh_edwq2",
+					"name": "ShowerCasting_enamel"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_shower.glb::ArrayMesh_fgm3c",
+					"name": "ShowerCasting_nickel_plated"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_shower.glb::ArrayMesh_8vife",
+					"name": "ShowerCasting_rubber_aged"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_shower.glb::ArrayMesh_4gmbq",
+					"name": "HotValve_enamel"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_shower.glb::ArrayMesh_hvae8",
+					"name": "HotValve_nickel_plated"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_shower.glb::ArrayMesh_2md30",
+					"name": "ColdValve_enamel"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_shower.glb::ArrayMesh_p5xtn",
+					"name": "ColdValve_nickel_plated"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_shower.glb::ArrayMesh_pri2t",
+					"name": "CurtainDrawn_nickel_plated"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_shower.glb::ArrayMesh_08jqr",
+					"name": "CurtainDrawn_shower_duck"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@6201"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/tap_prop.gd",
+			"size": [
+				0.754343748092651,
+				2.20300078392029,
+				0.754000008106232
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F01_BAR_WC_SINK_01",
+			"id": "M23",
+			"images": [
+				"M23_0.png",
+				"M23_1.png",
+				"M23_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_lavatory.glb::ArrayMesh_wkem8",
+					"name": "CastAndPlumbing_nickel_plated"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_lavatory.glb::ArrayMesh_v8720",
+					"name": "CastAndPlumbing_porcelain_fixture"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_lavatory.glb::ArrayMesh_21q3o",
+					"name": "CastAndPlumbing_rubber_aged"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_lavatory.glb::ArrayMesh_hab7n",
+					"name": "HotValve_nickel_plated"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_lavatory.glb::ArrayMesh_xbdtb",
+					"name": "HotValve_porcelain_fixture"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_lavatory.glb::ArrayMesh_t7wg8",
+					"name": "ColdValve_nickel_plated"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_lavatory.glb::ArrayMesh_08kl6",
+					"name": "ColdValve_porcelain_fixture"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_lavatory.glb::ArrayMesh_ox3na",
+					"name": "Stopper_nickel_plated"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/bath_lavatory.glb::ArrayMesh_ffy8t",
+					"name": "Stopper_rubber_aged"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/building/orison_v2_bar_sink.gd",
+			"size": [
+				0.625999987125397,
+				0.977331042289734,
+				0.481500715017319
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F04_B_LAMP_01",
+			"id": "M24",
+			"images": [
+				"M24_0.png",
+				"M24_1.png",
+				"M24_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "TaskLamp_landlord_enamel__bakelite"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "TaskLamp_landlord_enamel__bulb_opal"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "TaskLamp_landlord_enamel__enamel"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "TaskLamp_landlord_enamel__iron_blackened"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "TaskLamp_landlord_enamel__nickel_plated"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "TaskLamp_landlord_enamel__rubber_aged"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "TaskLamp_landlord_enamel__switch_bakelite"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/native_task_lamp.gd",
+			"size": [
+				0.278406381607056,
+				0.383900552988052,
+				0.184000000357628
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F02_2A_BOOKSHELF_01",
+			"id": "M25",
+			"images": [
+				"M25_0.png",
+				"M25_1.png",
+				"M25_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@23903"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@23904"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@23905"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@24020"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@24021"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/building/orison_v2_bookshelf.gd",
+			"size": [
+				0.748000025749207,
+				1.22000002861023,
+				0.27700001001358
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "F01_NEON_BLADE",
+			"id": "M26",
+			"images": [
+				"M26_0.png",
+				"M26_1.png",
+				"M26_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21768"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21769"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21770"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21771"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21772"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21773"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21774"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21775"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21776"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21777"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21778"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21779"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21780"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21781"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21782"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21783"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21784"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21785"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21786"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21787"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21788"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21789"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21790"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21791"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21792"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21793"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21794"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21795"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21796"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21797"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21798"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21799"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21800"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21801"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21802"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21803"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21758"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21759"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21760"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21761"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21762"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21763"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21764"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21765"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21766"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@21767"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/neon_sign_prop.gd",
+			"size": [
+				0.414000302553177,
+				6.38999938964844,
+				1.26750004291534
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "ROOF_VENT_FAN_A",
+			"id": "M27",
+			"images": [
+				"M27_0.png",
+				"M27_1.png",
+				"M27_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/roof_ventilator.glb::ArrayMesh_rjxf1",
+					"name": "Rotor"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/roof_ventilator.glb::ArrayMesh_w37fu",
+					"name": "Shutter"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/roof_ventilator.glb::ArrayMesh_s5n2y",
+					"name": "Brass"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/roof_ventilator.glb::ArrayMesh_iai2x",
+					"name": "Iron"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/roof_ventilator.glb::ArrayMesh_qyr5t",
+					"name": "Paint"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/roof_ventilator.glb::ArrayMesh_go2sa",
+					"name": "Panel"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "res://assets/props/roof_ventilator.glb::ArrayMesh_i7fve",
+					"name": "Rubber"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/building/orison_v2_roof_fan.gd",
+			"size": [
+				0.871999979019165,
+				0.944000005722046,
+				0.871999979019165
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "3B_aw_wardrobe",
+			"id": "M28",
+			"images": [
+				"M28_0.png",
+				"M28_1.png",
+				"M28_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "Wardrobe00__LeftLeaf_ON_brass"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "Wardrobe00__LeftLeaf_ON_oak_quartered"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "Wardrobe00__RightLeaf_ON_brass"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "Wardrobe00__RightLeaf_ON_oak_quartered"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "Wardrobe00__Body_ON_brass"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "Wardrobe00__Body_ON_fabric_cool"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "Wardrobe00__Body_ON_fabric_green"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "Wardrobe00__Body_ON_fabric_warm"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "Wardrobe00__Body_ON_linen"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "Wardrobe00__Body_ON_metal"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "Wardrobe00__Body_ON_oak_quartered"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/building/orison_v2_wardrobe.gd",
+			"size": [
+				1.36000001430511,
+				1.94500005245209,
+				0.666999936103821
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "@Node3D@2357",
+			"id": "M29",
+			"images": [
+				"M29_0.png",
+				"M29_1.png",
+				"M29_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2383"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2384"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2385"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2386"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2387"
+				},
+				{
+					"class": "CylinderMesh",
+					"mesh": "",
+					"name": "@MeshInstance3D@2382"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "res://scripts/props/vantry_point_prop.gd",
+			"size": [
+				0.312116712331772,
+				0.0750000029802322,
+				0.230000004172325
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "3B_partscrate",
+			"id": "M30",
+			"images": [
+				"M30_0.png",
+				"M30_1.png",
+				"M30_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "DomesticObject03__Body_ON_metal"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "DomesticObject03__Body_ON_timber"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "",
+			"size": [
+				0.44200000166893,
+				0.330000013113022,
+				0.372000008821487
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "3A_story_specimen",
+			"id": "M31",
+			"images": [
+				"M31_0.png",
+				"M31_1.png",
+				"M31_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "DomesticObject05__Body_ON_cane"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "DomesticObject05__Body_ON_leaf_rib"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "DomesticObject05__Body_ON_plant"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "DomesticObject05__Body_ON_soil"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "DomesticObject05__Body_ON_terracotta"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "",
+			"size": [
+				0.534600019454956,
+				1.37520003318787,
+				0.534600019454956
+			],
+			"status": "captured_pending_review"
+		},
+		{
+			"actor": "6A_soft1",
+			"id": "M32",
+			"images": [
+				"M32_0.png",
+				"M32_1.png",
+				"M32_2.png"
+			],
+			"meshes": [
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "DomesticObject11__Body_ON_linen"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "DomesticObject11__Body_ON_metal"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "DomesticObject11__Body_ON_rubber_aged"
+				},
+				{
+					"class": "ArrayMesh",
+					"mesh": "",
+					"name": "DomesticObject11__Body_ON_soot"
+				}
+			],
+			"note": "Existing visible meshes and label text; neutral review lighting. Original material resources retained. LightFixtureProp additive halo omitted from isolated model bounds.",
+			"script": "",
+			"size": [
+				0.480333209037781,
+				1.69299793243408,
+				0.498260676860809
+			],
+			"status": "captured_pending_review"
+		}
+	],
+	"scope": "Current production geometry/materials copied into neutral isolated review lighting; not an in-situ photoreal or runtime-contract acceptance.",
+	"stove_verification": {
+		"checks": 3065,
+		"factory_sha256": "dd4a0b9d11df813fb29841142314ffbe4eb2cac4ed839cd8f9c9336c245f64cc",
+		"failures": [],
+		"fixture_sha256": "a2661ca9ccfaaaffa9326d651c0288d85d11895da2fd7c14a735dc3037ffc413",
+		"validator_sha256": "860028d03a65715bfdd197fd6c2e7e64287c4b2f90615d6ca0e608e273c85ea7"
+	}
+}
