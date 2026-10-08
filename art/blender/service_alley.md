@@ -22,8 +22,12 @@ iron gratings occupy Boolean-cut paving pockets. Four retained cage fixtures
 hang from fitted iron plates and cantilever arms. The narrow side stretch has
 more than two metres of clear width, including the pier projections. Geometry
 exports as 22,556 triangles in four finish batches; collision uses those exact mesh triangles.
-Materials reuse **concrete**, **brick**, **limestone** and **cast_iron**, with
-metre UVs. Broad material calibration is still pending.
+The October 8 finish pass replaces the absent **limestone** catalogue lookup
+with local **concrete** mineral maps and reuses **iron_neutral** for ironwork.
+Brick/paving response is calibrated alongside them. Boundary world projection
+is retained; groundworks use metric UVs. Native geometry is unchanged. See
+**design/V2_ALLEY_FINISH_2026-10-08.md** and the read-only
+**review_service_alley_finish.py**.
 
 The rear door now uses the existing production DoorProp, fabricated hinges and
 knob, with an outward swing onto the receiving approach. State and interaction

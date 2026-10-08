@@ -1712,3 +1712,9 @@ game/scripts/building/orison_v2_street_paving_details.gd -text
 game/tests/orison_v2_street_paving_details_test.gd -text
 game/tests/orison_v2_front_pavement_test.gd -text
 art/renders/orison_v2/street_paving_20261008/** -text
+# Rear alley local finish review (native geometry reused).
+game/data/orison_v2/service_alley_finish.json -text
+game/scripts/building/orison_v2_service_alley.gd -text
+game/tests/orison_v2_alley_finish_test.gd -text
+art/blender/scripts/review_service_alley_finish.py -text
+art/renders/orison_v2/alley_finish_20261008/** -text

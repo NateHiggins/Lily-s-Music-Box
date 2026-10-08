@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Rear service alley coping, neutral iron and retained geometry | `design/V2_ALLEY_FINISH_2026-10-08.md` |
 | Native street paving detail, fitted curb endpoint and original street crossing | `design/V2_STREET_PAVING_2026-10-08.md` and `art/blender/street_paving_details.md` |
 | Next V1-to-V2 import batch, discovery baseline and dossier closeout | `design/V2_IMPORT_RESUME_2026-10-08.md` |
 | Completed owner 40-card dossier scope, 39 reviewed items and conditional G15 | `design/ORISON_V2_OWNER_BUILDING_FINISHES_2026-10-08.md` and `output/pdf/V2_dossier_implementation_review.pdf` |

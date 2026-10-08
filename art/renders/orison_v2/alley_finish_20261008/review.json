@@ -1,0 +1,63 @@
+{
+  "evidence_class": "INERT",
+  "failures": [],
+  "finish_checks": 274,
+  "finish_groups": 34,
+  "mapping_checks": 195,
+  "waypoints": 32,
+  "schema": "orison.alley-finish-review.v1",
+  "runtime_inputs_sha256": "bc82cbacb498b08a79a08e905dad27fc747de6adc7318dfa041f8d892472bf9e",
+  "test_sha256": "b25f7feb5be67ea22bc4fb9d3a008f6a83d434bae13b27580ef696fc0bd88c4b",
+  "runtime_contract": false,
+  "scope": "Scoped visual/route inspection only. Native assets unchanged; no ledger promotion. Failed run01 is diagnostic. Seven Texture-RID shutdown warnings remain.",
+  "images": [
+    {
+      "path": "native/boundary_after.png",
+      "sha256": "63dbdb8a45bca454189ec016a5d7d2734517a6237828d20442283b3c5a5b5971"
+    },
+    {
+      "path": "native/boundary_before.png",
+      "sha256": "41085980b23078e25f04aed570734533c5fc1a7172d6f20da67f2a476d868fea"
+    },
+    {
+      "path": "native/grate_after.png",
+      "sha256": "52f4fd77356ed7848c6b2474c543e7506f395b80224a7d2920317e523d471c4d"
+    },
+    {
+      "path": "native/grate_before.png",
+      "sha256": "e85a40b31bd03eb636956a5f33e7faade2cb715bd09e300d7ce44a3ecd27bca3"
+    },
+    {
+      "path": "runtime02/out_4_after.png",
+      "sha256": "5e63285fb05c030495ba8abaa142a558d69296019b022260c3dfa06c6301cce6"
+    },
+    {
+      "path": "runtime02/out_4_before.png",
+      "sha256": "61c36cad0853fbcc429801269b57e7cd2fb3d238cf382ddd38e9804f5718625a"
+    },
+    {
+      "path": "runtime02/out_6_after.png",
+      "sha256": "d14360192af85a145b2a225b1b8807ed2621f186472f1167fac192885f05d30a"
+    },
+    {
+      "path": "runtime02/out_6_before.png",
+      "sha256": "d8a3aa87024a46f8e429452b5e04310d559b94cab10573f07c6e6a7f30e27e98"
+    },
+    {
+      "path": "runtime02/well_crossing_29_after.png",
+      "sha256": "e7d6e5000e831a58eb4c07bcc9f42d5cf2178bece3d42ae3c47bf04eda497c46"
+    },
+    {
+      "path": "runtime02/well_crossing_29_before.png",
+      "sha256": "9695730b5540bf8ed2aa161f0086b2079e6c3ae0ca64598d0ee977f2c0de6809"
+    },
+    {
+      "path": "runtime02/well_crossing_31_after.png",
+      "sha256": "d3a21a88e777a9963e5fdf71093337571550a1e37e78bc10ba0ae4a32a53672f"
+    },
+    {
+      "path": "runtime02/well_crossing_31_before.png",
+      "sha256": "24a80befaafd2a0c78ac716e9e27e6817765569bcc827b9e82ea732b5839ab4b"
+    }
+  ]
+}
