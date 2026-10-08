@@ -1,0 +1,558 @@
+{
+  "schema": 1,
+  "groups": [
+    {
+      "id": "heating",
+      "recipes": [
+        {
+          "source_key": "cast_iron",
+          "catalog": "iron_neutral",
+          "color": [
+            0.72,
+            0.72,
+            0.72,
+            1
+          ],
+          "normal": 0.35,
+          "roughness": 0.9,
+          "metallic": 0.15
+        },
+        {
+          "source_key": "metal",
+          "catalog": "iron_neutral",
+          "color": [
+            0.82,
+            0.82,
+            0.82,
+            1
+          ],
+          "normal": 0.18,
+          "roughness": 0.65,
+          "metallic": 0.75
+        },
+        {
+          "source_key": "brass_dull",
+          "untextured": true,
+          "color": [
+            0.58,
+            0.52,
+            0.36,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.37,
+          "metallic": 0.85
+        },
+        {
+          "source_key": "linen",
+          "color": [
+            0.75,
+            0.74,
+            0.68,
+            1
+          ],
+          "normal": 0.09,
+          "roughness": 0.92,
+          "metallic": 0.0
+        }
+      ]
+    },
+    {
+      "id": "washer",
+      "recipes": [
+        {
+          "source_key": "zinc_liner",
+          "catalog": "zinc_quiet",
+          "color": [
+            0.82,
+            0.83,
+            0.83,
+            1
+          ],
+          "normal": 0.15,
+          "roughness": 1.0,
+          "metallic": 0.82
+        },
+        {
+          "source_key": "enamel",
+          "catalog": "enamel_appliance",
+          "color": [
+            0.97,
+            0.97,
+            0.96,
+            1
+          ],
+          "normal": 0.05,
+          "roughness": 1.0,
+          "metallic": 0.0
+        },
+        {
+          "source_key": "brass_dull",
+          "untextured": true,
+          "color": [
+            0.58,
+            0.52,
+            0.36,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.37,
+          "metallic": 0.85
+        }
+      ]
+    },
+    {
+      "id": "bath",
+      "recipes": [
+        {
+          "source_key": "porcelain_fixture",
+          "catalog": "porcelain_fixture",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1
+          ],
+          "normal": 0.035,
+          "roughness": 0.78,
+          "metallic": 0.0
+        },
+        {
+          "source_key": "porcelain",
+          "catalog": "porcelain_fixture",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1
+          ],
+          "normal": 0.035,
+          "roughness": 0.78,
+          "metallic": 0.0
+        },
+        {
+          "source_key": "enamel",
+          "catalog": "enamel_appliance",
+          "color": [
+            0.97,
+            0.97,
+            0.96,
+            1
+          ],
+          "normal": 0.05,
+          "roughness": 1.0,
+          "metallic": 0.0
+        },
+        {
+          "source_key": "nickel_plated",
+          "untextured": true,
+          "color": [
+            0.68,
+            0.68,
+            0.65,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.24,
+          "metallic": 0.95
+        },
+        {
+          "source_key": "chrome",
+          "untextured": true,
+          "color": [
+            0.68,
+            0.68,
+            0.65,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.24,
+          "metallic": 0.95
+        },
+        {
+          "source_key": "linen",
+          "color": [
+            0.95,
+            0.94,
+            0.9,
+            1
+          ],
+          "normal": 0.12,
+          "roughness": 0.64,
+          "metallic": 0.0
+        },
+        {
+          "source_key": "wood_dark",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.07,
+          "roughness": 0.65,
+          "metallic": 0.0,
+          "pigment": 0.3
+        }
+      ]
+    },
+    {
+      "id": "domestic",
+      "recipes": [
+        {
+          "source_key": "oak_quartered",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.06,
+          "roughness": 0.66,
+          "metallic": 0.0,
+          "pigment": 0.38
+        },
+        {
+          "source_key": "oak_work_surface",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.08,
+          "roughness": 0.72,
+          "metallic": 0.0,
+          "pigment": 0.5
+        },
+        {
+          "source_key": "wood_dark",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.07,
+          "roughness": 0.68,
+          "metallic": 0.0,
+          "pigment": 0.38
+        },
+        {
+          "source_key": "timber",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.08,
+          "roughness": 0.8,
+          "metallic": 0.0,
+          "pigment": 0.42
+        },
+        {
+          "source_key": "linen",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.11,
+          "roughness": 0.94,
+          "metallic": 0.0,
+          "pigment": 0.6
+        },
+        {
+          "source_key": "fabric_warm",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.1,
+          "roughness": 0.94,
+          "metallic": 0.0,
+          "pigment": 0.45
+        },
+        {
+          "source_key": "paper",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.04,
+          "roughness": 0.95,
+          "metallic": 0.0,
+          "pigment": 0.5
+        },
+        {
+          "source_key": "book_burgundy",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.04,
+          "roughness": 0.88,
+          "metallic": 0.0,
+          "pigment": 0.5
+        },
+        {
+          "source_key": "book_green",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.04,
+          "roughness": 0.88,
+          "metallic": 0.0,
+          "pigment": 0.5
+        },
+        {
+          "source_key": "book_navy",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.04,
+          "roughness": 0.88,
+          "metallic": 0.0,
+          "pigment": 0.5
+        },
+        {
+          "source_key": "book_ochre",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.04,
+          "roughness": 0.88,
+          "metallic": 0.0,
+          "pigment": 0.5
+        },
+        {
+          "source_key": "book_teal",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.04,
+          "roughness": 0.88,
+          "metallic": 0.0,
+          "pigment": 0.5
+        },
+        {
+          "source_key": "book_brown",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.04,
+          "roughness": 0.88,
+          "metallic": 0.0,
+          "pigment": 0.5
+        }
+      ]
+    },
+    {
+      "id": "small_appliance",
+      "recipes": [
+        {
+          "source_key": "nickel_plated",
+          "untextured": true,
+          "color": [
+            0.68,
+            0.68,
+            0.65,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.24,
+          "metallic": 0.95
+        },
+        {
+          "source_key": "chrome",
+          "untextured": true,
+          "color": [
+            0.68,
+            0.68,
+            0.65,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.24,
+          "metallic": 0.95
+        },
+        {
+          "source_key": "enamel",
+          "catalog": "enamel_appliance",
+          "color": [
+            0.97,
+            0.97,
+            0.96,
+            1
+          ],
+          "normal": 0.05,
+          "roughness": 1.0,
+          "metallic": 0.0
+        },
+        {
+          "source_key": "paper",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.04,
+          "roughness": 0.96,
+          "metallic": 0.0,
+          "pigment": 0.45
+        },
+        {
+          "source_key": "brass_dull",
+          "untextured": true,
+          "color": [
+            0.58,
+            0.52,
+            0.36,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.37,
+          "metallic": 0.85
+        }
+      ]
+    },
+    {
+      "id": "bedding_Pillows",
+      "recipes": [
+        {
+          "source_key": "linen",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "roughness": 0.87,
+          "normal": 0.08,
+          "metallic": 0.0,
+          "pigment": 0.5
+        },
+        {
+          "source_key": "fabric_warm",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "roughness": 0.87,
+          "normal": 0.08,
+          "metallic": 0.0,
+          "pigment": 0.5
+        }
+      ]
+    },
+    {
+      "id": "bedding_Mattress",
+      "recipes": [
+        {
+          "source_key": "linen",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "roughness": 0.98,
+          "normal": 0.1,
+          "metallic": 0.0,
+          "pigment": 0.6
+        },
+        {
+          "source_key": "fabric_warm",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "roughness": 0.98,
+          "normal": 0.1,
+          "metallic": 0.0,
+          "pigment": 0.6
+        }
+      ]
+    },
+    {
+      "id": "bedding_Blanket",
+      "recipes": [
+        {
+          "source_key": "linen",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "roughness": 0.96,
+          "normal": 0.11,
+          "metallic": 0.0,
+          "pigment": 0.45
+        },
+        {
+          "source_key": "fabric_warm",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "roughness": 0.96,
+          "normal": 0.11,
+          "metallic": 0.0,
+          "pigment": 0.45
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+SCRIPT ERROR: Parse Error: Function "_clear_station()" not found in base self.
+   at: GDScript::reload (res://tests/orison_v2_bedding_test.gd:78)
+SCRIPT ERROR: Parse Error: Identifier "checks" not declared in the current scope.
+   at: GDScript::reload (res://tests/orison_v2_bedding_test.gd:91)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/orison_v2_fabrication_batch.gd:0)
+ERROR: Failed to load script "res://tests/orison_v2_fabrication_batch.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+ERROR: validator compiled before world loading: bedding
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/orison_v2_floor_surface_test.gd:5)
+       [1] check (res://tests/orison_v2_ventilation_throat_test.gd:9)
+       [2] _run (res://tests/orison_v2_fabrication_batch.gd:66)

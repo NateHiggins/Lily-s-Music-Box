@@ -505,6 +505,7 @@ func _compose_authorities() -> void:
 	notebook.care = care
 	notebook.economy = economy
 	add_child(notebook)
+	preload("res://scripts/building/orison_v2_owner_finishes.gd").new().apply_service_actors(self)
 
 func arrival_placement() -> Dictionary:
 	return (_connection.get("arrival", {}) as Dictionary).duplicate(true)

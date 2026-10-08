@@ -31,7 +31,7 @@ RUNTIME_POLICY = {
     "book_burgundy": {}, "book_green": {}, "book_navy": {},
     "book_ochre": {}, "book_teal": {}, "book_brown": {},
     "enamel": {}, "enamel_appliance": {}, "appliance": {},
-    "metal": {}, "chrome": {}, "iron_neutral": {},
+    "metal": {}, "chrome": {}, "iron_neutral": {}, "zinc_quiet": {},
     "bakelite": {}, "cast_iron": {"roughness_multiplier": 0.60},
     "soot": {"roughness_multiplier": 0.90},
     "fx_grease": {"roughness_multiplier": 0.78, "alpha": True,

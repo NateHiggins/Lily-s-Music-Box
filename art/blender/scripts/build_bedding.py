@@ -5,6 +5,7 @@ import bpy, bmesh
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
+bpy.context.preferences.filepaths.save_version=0
 mats={}
 for name,color in {'Frame':(.3,.19,.1),'Mattress':(.78,.74,.62),'Blanket':(.27,.31,.36),'Pillows':(.79,.75,.65)}.items():
  m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);mats[name]=m
@@ -36,7 +37,13 @@ def sheet(name,owner,W,L,fold=False):
     a=(t-.85)/.09*math.pi/2;x=edge+.035*math.sin(a);y=.511-.035*(1-math.cos(a))
    else:x=edge+.035;y=.476-.105*(t-.94)/.06
    x*=1 if u>=0 else -1
-   y=min(y,foot_y)+.003*math.sin(x*37+z*5)*math.sin(z*19)+.002*math.sin(x*14-z*8)
+   # The 4 mm sheet rests on the 0.500 m mattress top. All slack lifts
+   # upward from that contact instead of floating the whole cover above it.
+   y=min(y,foot_y)-.009+.0015*(1+math.sin(x*37+z*5)*math.sin(z*19))+.001*(1+math.sin(x*14-z*8))
+   # Local slack spreads from the turnback and tucked foot, not a tiled wrinkle.
+   if not fold:
+    y+=.0035*math.exp(-((z-head-.22)/.18)**2)*(1+math.sin(x*10+z*3))*(1-t*t)
+    y+=.002*math.exp(-((z-foot+.20)/.15)**2)*(1+math.sin(x*16-1.1))*(1-t*t)
    if fold:y+=.009+.007*math.sin(v*math.pi)
    vertices.append((x,y,-z))
  for j in range(nz):
@@ -61,11 +68,16 @@ for record in records:
  for side in [-1,1]:
   vertices=[];faces=[];rings=16;n=40
   for j in range(rings+1):
-   latitude=-math.pi/2+j*math.pi/rings;r=math.cos(latitude);y=.557+.053*math.sin(latitude)
+   latitude=-math.pi/2+j*math.pi/rings;r=math.cos(latitude)
+   # A tucked perimeter seam and a flattened lower contact face.
+   seam=math.exp(-(latitude/.14)**2)
+   r*=1-.028*seam
+   y=.500+.057*(1+math.sin(latitude))**2 if latitude<0 else .557+.053*math.sin(latitude)
    for i in range(n):
     a=i*math.tau/n;c=math.cos(a);s=math.sin(a)
     x=side*.29+math.copysign(abs(c)**.55,c)*.285*r;z=-L/2+.33+math.copysign(abs(s)**.55,s)*.18*r
-    vertices.append((x,y+.003*math.sin(a*4)*r*r,-z))
+    crease=.004*math.exp(-((latitude-.20)/.30)**2)*(math.sin(a*3+side*.5)**8)
+    vertices.append((x,y+.002*math.sin(a*4)*r*r-crease,-z))
   for j in range(rings):
    for i in range(n):k=j*n+i;q=j*n+(i+1)%n;faces.append((k,q,q+n,k+n))
   o=mesh('PuffedPillow',vertices,faces,owner,'Pillows')

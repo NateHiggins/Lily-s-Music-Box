@@ -187,49 +187,49 @@
       "id": "T01",
       "title": "Boiler, radiators and heating metals",
       "priority": "P2",
-      "status": "pending",
+      "status": "implemented_reviewed",
       "source_page": 18,
-      "result": null
+      "result": "Scoped boiler/radiator finishes use neutral iron, quieter brass and restrained lagging. Original heat colours, fire/ash leaves, valve state and owners retained. Native and occupied views reviewed; included in 11,848 checks, zero failures. Independent network pipework remains source-owned."
     },
     {
       "id": "T02",
       "title": "Basement washer, tubs and airer",
       "priority": "P2",
-      "status": "pending",
+      "status": "in_progress",
       "source_page": 19,
-      "result": null
+      "result": "New generated finely spangled zinc and distinct enamel applied to both original washers; all lid/wringer/release/agitation state checks pass. Shared tubs, airer cloth/hem refinement and local wet-use masks remain open."
     },
     {
       "id": "T03",
       "title": "Bathroom porcelain, chrome and cloth",
       "priority": "P2",
-      "status": "pending",
+      "status": "in_progress",
       "source_page": 20,
-      "result": null
+      "result": "Scoped glaze, plated fittings and quiet seat-grain response reviewed with original water and curtain controls retained. Local residue masks and nonuniform curtain fold/hem refinement remain open."
     },
     {
       "id": "T04",
       "title": "Wardrobes and kept clothing",
       "priority": "P2",
-      "status": "pending",
+      "status": "in_progress",
       "source_page": 21,
-      "result": null
+      "result": "Oak/cloth pigment and relief quieter; 21 cases retain source stock and both original 92-degree leaf controls. Native and installed views reviewed. Garment seam cues and a clearer installed view into the partly obscured 3B case remain open."
     },
     {
       "id": "T05",
       "title": "Seating and household tables",
       "priority": "P2",
-      "status": "pending",
+      "status": "implemented_reviewed",
       "source_page": 22,
-      "result": null
+      "result": "Quieter board-scale timber and cloth pigment/relief on accepted seating and table geometry. Existing cushion seams, rounded edges and metre charts retained after native/production review. All 41 seating and 62 table actors retain exact shared meshes and support checks; no new simulation or save owner."
     },
     {
       "id": "T06",
       "title": "Household storage, books and small objects",
       "priority": "P2",
-      "status": "pending",
+      "status": "in_progress",
       "source_page": 23,
-      "result": null
+      "result": "Household timber, book/paper and cloth finishes restrained across original storage/objects. Source stock and supports retained; paired sink/support capture repaired without moving either owner. Crate metal response, localized handling wear and diffuser-face detail remain open."
     },
     {
       "id": "T07",
@@ -243,9 +243,9 @@
       "id": "T08",
       "title": "Small appliances and medicine stock",
       "priority": "P2",
-      "status": "pending",
+      "status": "implemented_reviewed",
       "source_page": 25,
-      "result": null
+      "result": "Plated toaster, enamel cabinet and paper finishes separated through scoped recipes. Native details and installed open/closed cabinet views reviewed; all 10 toaster cycles and 12 original cabinet controls, moving collisions, stock and retirement pass. Glass and heat resources retained."
     },
     {
       "id": "T09",
@@ -339,9 +339,9 @@
       "id": "A03",
       "title": "Bedrooms and bedding",
       "priority": "P2",
-      "status": "pending",
+      "status": "implemented_reviewed",
       "source_page": 37,
-      "result": null
+      "result": "Three native bed sizes retain 22 placements and four material roles. Thin blanket slack and pillow seam/compression refined; imported pillow contact within 0.11 mm, 88 physical contacts, no obsolete top box, 12 shared meshes and clear inspection stances pass. Native and occupied views reviewed; disk-save/wake routes not rerun."
     },
     {
       "id": "A04",
@@ -384,8 +384,8 @@
       "result": null
     }
   ],
-  "evidence_root": "art/renders/orison_v2/bar_furniture_20261008",
-  "last_verified_batch": "G09/G11 bar furniture: 1143 module checks, zero failures, 4 installed and 8 native views reviewed",
-  "code_candidate": "e7574e788e5b6eba62acda24596015f8c8919348",
-  "candidate_verification": "art/renders/orison_v2/bar_furniture_20261008/verification.json"
+  "evidence_root": "art/renders/orison_v2/service_finishes_20261008",
+  "last_verified_batch": "Service and household finishes: 11848 module checks, zero failures, one world",
+  "code_candidate": null,
+  "candidate_verification": null
 }

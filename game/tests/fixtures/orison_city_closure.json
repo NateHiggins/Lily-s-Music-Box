@@ -8147,7 +8147,7 @@
     "art/blender/scripts/build_city_closure.py": "26102671b91835476021ef757ccad7ef98d4bcb4db18cf5029ef01d8c28a4eb2",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/city_registration.py": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
-    "game/data/runtime_material_sets.json": "ddd24115b335237603b9807c3d09ab38d41da2970310aa87609137abae7c0d30",
+    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
     "game/assets/building/textures/T_ai_materials_brick_albedo.png": "832731a0eb590c719c2df4d18269d900fba901409ad959b7250fcfa7ccbd47a6",
     "game/assets/building/textures/T_ai_materials_brick_rough.png": "13981cad068720de19ae2108c4f3fa38b92f6fa016527c382632d65d6c43674a",
     "game/assets/building/textures/T_ai_materials_brick_normal.png": "c6a75f76f4053be29629bb1a8b235eebef29d60d60b01cc66332abdaf8711a19",
@@ -8179,11 +8179,11 @@
     "art/textures/procedural/galvanized_roof/height.png": "e075b701b00fd083b9bc1c1c903e106cfb0052779644b0ffa2f0182b9dc3bd85",
     "art/textures/procedural/galvanized_roof/normal.png": "7a9573c366d01395fb428ae29d300fbecaca3b1b8905ecd26d7332e931347ebf",
     "game/assets/props/city_masts.glb": "37ab64c754f28adc3e5a307d82c3b0cf6155d1b3ae4ca88887dadc8f749a126b",
-    "game/tests/fixtures/orison_city_masts.json": "c769b318e8bc7e78137b4f333ce7c38383bedb8c198f5df02c48513485bbc150",
+    "game/tests/fixtures/orison_city_masts.json": "986426f36262bcee5260aac0330c545d3e9cc64f74c786d59f3cd3a374dc7a2f",
     "game/assets/props/city_aerials.glb": "092ae72b844bd96c75f6d1b4b214879dbd274840b3f3245f17577fd4fb67c3f0",
-    "game/tests/fixtures/orison_city_aerials.json": "cc2964f7138d9720c052033d4640c1386507c3acecf3792d5d275ff4fadc8084",
+    "game/tests/fixtures/orison_city_aerials.json": "9ea81801897b228eee0f6794fe9cc0d16b0f45b7fdda734ced17d19cd5edd037",
     "game/assets/props/city_tanks.glb": "d0ab1ddbd28af3af4bcf22034c60d37b17b6993ba7b37410c0c1791efc2f0f36",
-    "game/tests/fixtures/orison_city_tanks.json": "5426dc1ae41f0ed18e1aaede4947faa8030b99a81eb996a0e60c349925150534"
+    "game/tests/fixtures/orison_city_tanks.json": "916bc9d597eec00bb2e20ffcdf7e2aa2c616c45efbd86d15dca7dc57ed8ea037"
   },
   "open_work": "Original city boundary masses only. Join original parapet corner overlaps without moving source envelopes, occupied spaces, services, roof attachments or active controls. Main roof drainage, weather capacity, broader room/city finishes and street/courtyard closure remain open."
 }

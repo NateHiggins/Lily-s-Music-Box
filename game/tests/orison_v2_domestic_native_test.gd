@@ -123,6 +123,10 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			if family in ["domestic_storage","domestic_objects"]:
 				for draw: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
 					bounds = bounds.merge(body.global_transform.affine_inverse()*draw.global_transform*draw.mesh.get_aabb())
+				var basin := _supported_basin(world,body)
+				if basin != null:
+					for draw: MeshInstance3D in basin.find_children("*","MeshInstance3D",true,false):
+						bounds = bounds.merge(body.global_transform.affine_inverse()*draw.global_transform*draw.mesh.get_aabb())
 				if identity=="3B_tools0":
 					var radio := world.adapter.resolve("3B_radio") as Node3D
 					for draw: MeshInstance3D in radio.find_children("*","MeshInstance3D",true,false):
@@ -155,6 +159,11 @@ func _framed_at(world: OrisonV2RuntimeRoot,body: Node3D,bounds: AABB,feet: Vecto
 	var camera: Camera3D = world.player.camera
 	var frame := camera.get_viewport().get_visible_rect().grow(-16)
 	var excluded: Array[RID] = [world.player.get_rid(),(body as CollisionObject3D).get_rid()]
+	# This stand and the original basin are one inspection subject. The basin
+	# legitimately occludes its rear support corners; unrelated walls still block.
+	var basin := _supported_basin(world,body)
+	if basin != null:
+		for collider: CollisionObject3D in basin.find_children("*","CollisionObject3D",true,false): excluded.append(collider.get_rid())
 	if body.get_meta("v2_furniture_id")=="3B_tools0":excluded.append((world.adapter.resolve("3B_radio") as CollisionObject3D).get_rid())
 	for corner in 8:
 		var point := body.to_global(bounds.get_endpoint(corner))
@@ -163,6 +172,13 @@ func _framed_at(world: OrisonV2RuntimeRoot,body: Node3D,bounds: AABB,feet: Vecto
 		var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(camera.global_position,probe,1,excluded))
 		if not hit.is_empty() and hit.position.distance_to(probe)>.02:return false
 	return true
+
+func _supported_basin(world: OrisonV2RuntimeRoot,body: Node3D) -> TapProp:
+	var identity := str(body.get_meta("v2_furniture_id",""))
+	if not identity.ends_with("_sink_support"): return null
+	var unit := identity.get_slice("_",0)
+	var key := "F%02d_%s_KITCHEN_SINK_01" % [int(unit.left(1)),unit]
+	return world.adapter.resolve(key) as TapProp
 
 func validate_after_teardown() -> Dictionary:
 	for id: int in mounted_ids: check(not is_instance_id_valid(id),"native furniture actor retires with original owner")

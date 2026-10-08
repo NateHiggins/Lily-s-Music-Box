@@ -1,0 +1,17 @@
+{
+  "material": "zinc_quiet",
+  "source": "art/textures/ai_sources/zinc_quiet_20261008.png",
+  "source_sha256": "edbf1eb0726842f65f8492887e059ef014708d0b336e44c8d6acae4904b6d541",
+  "generator": "art/tools/build_quiet_zinc.py",
+  "meters_per_tile": 0.6,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "relief_mm": 0.008,
+  "height_model": "independent_periodic_zinc_coating_v1",
+  "base_color_policy": "Generated pixels copied byte-exact. Spangle is pigment, never raised aggregate.",
+  "roughness_mean": 0.58
+}

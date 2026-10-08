@@ -909,6 +909,20 @@
       "meters_per_tile": 0.55,
       "roughness_multiplier": 0.82,
       "visual_lock": false
+    },
+    "zinc_quiet": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.6,
+      "catalog_mapping": "ai_materials/zinc_quiet",
+      "files": [
+        "T_ai_materials_zinc_quiet_albedo.png",
+        "T_ai_materials_zinc_quiet_rough.png",
+        "T_ai_materials_zinc_quiet_normal.png"
+      ],
+      "metallic": 0.82,
+      "meters_per_tile": 0.6,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
     }
   },
   "schema": 1,

@@ -1643,3 +1643,26 @@ art/textures/ai_materials/iron_neutral/* -text
 art/blender/scripts/render_neutral_iron.py -text
 art/renders/orison_v2/iron_neutral_20261008/** -text -whitespace
 game/assets/building/textures/T_ai_materials_iron_neutral_*.png.import -text
+
+# Owner-directed shared service finish recipes and generated zinc.
+art/tools/build_quiet_zinc.py -text
+art/textures/ai_sources/zinc_quiet_20261008* -text
+art/textures/ai_materials/zinc_quiet/* -text
+art/blender/scripts/review_owner_service_finishes.py -text
+art/renders/orison_v2/zinc_quiet_20261008/** -text -whitespace
+art/renders/orison_v2/service_finishes_20261008/** -text -whitespace
+game/data/orison_v2/owner_finish_profiles.json -text
+game/scripts/building/orison_v2_owner_finishes.gd -text
+game/tests/orison_v2_owner_service_finish_test.gd -text
+game/tests/fixtures/orison_owner_service_finish.json -text
+game/assets/building/textures/T_ai_materials_zinc_quiet_*.png.import -text
+
+# Hash-bound native bedding and shared finish inspection sources.
+art/blender/scripts/build_bedding.py -text
+art/blender/scripts/owner_finish_materials.py -text
+art/blender/scripts/render_quiet_zinc.py -text
+art/blender/scripts/review_owner_bedding.py -text
+art/blender/scripts/review_owner_domestic_finishes.py -text
+art/blender/scripts/review_owner_small_appliances.py -text
+game/tests/orison_v2_bedding_test.gd -text
+game/tests/fixtures/orison_bedding.json -text

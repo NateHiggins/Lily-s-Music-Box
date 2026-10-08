@@ -25,6 +25,7 @@ const SETS := {
 	'metal': ["T_library_appliances_galvanized_metal_worn_metal_albedo.png", "T_library_appliances_galvanized_metal_worn_metal_rough.png", "T_library_appliances_galvanized_metal_normal.png", 0.9, 0.9], # visual lock
 	'chrome': ["T_library_appliances_brushed_steel_albedo.png", "T_library_appliances_brushed_steel_rough.png", "T_library_appliances_brushed_steel_normal.png", 0.8, 1], # visual lock
 	'iron_neutral': ["T_ai_materials_iron_neutral_albedo.png", "T_ai_materials_iron_neutral_rough.png", "T_ai_materials_iron_neutral_normal.png", 0.4, 0.65],
+	'zinc_quiet': ["T_ai_materials_zinc_quiet_albedo.png", "T_ai_materials_zinc_quiet_rough.png", "T_ai_materials_zinc_quiet_normal.png", 0.6, 0.82],
 	'bakelite': ["T_library_appliances_bakelite_albedo.png", "T_library_appliances_bakelite_rough.png", "T_library_appliances_bakelite_normal.png", 0.35, 0], # visual lock
 	'cast_iron': ["T_ai_materials_cast_iron_albedo.png", "T_ai_materials_cast_iron_rough.png", "T_ai_materials_cast_iron_normal.png", 0.4, 0.35, 0.6],
 	'soot': ["T_ai_materials_soot_worn_soot_albedo.png", "T_ai_materials_soot_worn_soot_rough.png", "T_ai_materials_soot_normal.png", 0.55, 0, 0.9], # visual lock

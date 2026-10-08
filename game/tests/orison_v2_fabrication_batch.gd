@@ -2,6 +2,8 @@ extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
 const MODULES := {
+	"bedding": preload("res://tests/orison_v2_bedding_test.gd"),
+	"owner_service_finish": preload("res://tests/orison_v2_owner_service_finish_test.gd"),
 	"bodega_frontage": preload("res://tests/orison_v2_bodega_frontage_test.gd"),
 	"signage": preload("res://tests/orison_v2_signage_test.gd"),
 	"bar_receiving": preload("res://tests/orison_v2_bar_receiving_test.gd"),
@@ -115,8 +117,8 @@ func _run() -> void:
 			# A script error can unwind a validator with an empty dictionary.
 			# Record that failure and finish the batch instead of hanging until
 			# the serial lane's timeout with no final diagnostic packet.
+			module.failures.append("validator returned no complete result; inspect engine errors")
 			var incomplete: Array = module.failures.duplicate()
-			incomplete.append("validator returned no complete result; inspect engine errors")
 			result = {"checks":int(module.checks), "failures":incomplete}
 		result["elapsed_ms"] = Time.get_ticks_msec() - module_started
 		result["captured"] = module.capture_enabled

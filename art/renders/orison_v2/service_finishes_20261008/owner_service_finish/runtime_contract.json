@@ -1,0 +1,37 @@
+{
+	"checks": 3653,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 30.192,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Scoped service and household finish overrides: loaded mip chains, deployed opaque pigment shaders, retained service mechanism controls, state restoration and owner retirement. Furniture fit, player approach routes and save reconstruction are not exercised by this module.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "f32c09f354c59123d66a04452a887b61f6f11bcc",
+		"runtime_inputs_sha256": "5e52780ee92dbacfb24eb8f1fc5d62dff9a4ce69ac720c0e1fb4119f9b4fe0a5",
+		"test_path": "game/tests/orison_v2_owner_service_finish_test.gd",
+		"test_sha256": "091de90243f02b3b7c9b22273e5f084aba602a4f2f0ad8c9fd6f9dff5ab8e638"
+	}
+}

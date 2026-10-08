@@ -1,6 +1,7 @@
 extends RefCounted
 ## Individual source-derived assemblies. Adapter owns placement and teardown.
 const PATH := "res://data/orison_v2/domestic_furniture.json"
+var _owner_finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd").new()
 const BEDDING := preload("res://assets/props/bedding.glb")
 const WaterCloset := preload("res://scripts/building/orison_v2_water_closet.gd")
 const Wardrobe := preload("res://scripts/building/orison_v2_wardrobe.gd")
@@ -255,10 +256,13 @@ func _add_bed(body: StaticBody3D, record: Dictionary) -> void:
 	for mesh: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		var role := str(mesh.name).trim_prefix(str(model.name)+"_")
 		mesh.material_override=_material(wood if role=="Frame" else (blanket if role=="Blanket" else "linen"))
+		mesh.material_override=_owner_finishes.material_for(mesh.material_override,"domestic" if role=="Frame" else "bedding_"+role)
 		var collision := CollisionShape3D.new()
 		collision.shape=mesh.mesh.create_trimesh_shape()
 		collision.transform=model.transform*mesh.transform
 		body.add_child(collision)
+	body.set_meta("v2_owner_finish_group","bedding")
+	body.set_meta("v2_owner_finish_slots",4)
 
 func _add_surfaces(body: Node3D, surfaces: Array) -> void:
 	for surface: Dictionary in surfaces:

@@ -1,0 +1,1039 @@
+{
+  "evidence_class": "INERT",
+  "base": "f32c09f3",
+  "retained_materials": 65,
+  "added": [
+    "zinc_quiet"
+  ],
+  "old_visual_locks_unchanged": true,
+  "reports": [
+    {
+      "report": "art/blender/bar_ceiling_finish_construction.json",
+      "fixture": "game/tests/fixtures/orison_bar_ceiling_finish.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/bar_fixture_mounts_construction.json",
+      "fixture": "game/tests/fixtures/orison_bar_fixture_mounts.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "art/data/material_catalog.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/bar_furniture_construction.json",
+      "fixture": "game/tests/fixtures/orison_bar_furniture.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/bar_instruments_construction.json",
+      "fixture": "game/tests/fixtures/orison_bar_instruments.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/bar_pipe_supports_construction.json",
+      "fixture": "game/tests/fixtures/orison_bar_pipe_supports.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "art/data/material_catalog.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/bar_pool_construction.json",
+      "fixture": "game/tests/fixtures/orison_bar_pool.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/bar_receiving_construction.json",
+      "fixture": "game/tests/fixtures/orison_bar_receiving.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/city_aerials_construction.json",
+      "fixture": "game/tests/fixtures/orison_city_aerials.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/city_beacons_construction.json",
+      "fixture": "game/tests/fixtures/orison_city_beacons.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/city_closure_construction.json",
+      "fixture": "game/tests/fixtures/orison_city_closure.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/city_foundations_construction.json",
+      "fixture": "game/tests/fixtures/orison_city_foundations_construction.json",
+      "changed_bindings": [],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/city_masts_construction.json",
+      "fixture": "game/tests/fixtures/orison_city_masts.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/city_tanks_construction.json",
+      "fixture": "game/tests/fixtures/orison_city_tanks.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/cobbler_fittings_construction.json",
+      "fixture": "game/tests/fixtures/orison_cobbler_fittings.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/diner_apparatus_construction.json",
+      "fixture": "game/tests/fixtures/orison_diner_apparatus.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/diner_backbar_construction.json",
+      "fixture": "game/tests/fixtures/orison_diner_backbar.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/diner_counter_construction.json",
+      "fixture": "game/tests/fixtures/orison_diner_counter.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/diner_overhead_construction.json",
+      "fixture": "game/tests/fixtures/orison_diner_overhead.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/diner_receiving_construction.json",
+      "fixture": "game/tests/fixtures/orison_diner_receiving.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/diner_till_construction.json",
+      "fixture": "game/tests/fixtures/orison_diner_till.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/diner_urns_construction.json",
+      "fixture": "game/tests/fixtures/orison_diner_urns.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/domestic_objects_construction.json",
+      "fixture": "game/tests/fixtures/orison_domestic_objects.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/domestic_seating_construction.json",
+      "fixture": "game/tests/fixtures/orison_domestic_seating.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/domestic_storage_construction.json",
+      "fixture": "game/tests/fixtures/orison_domestic_storage.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/domestic_tables_construction.json",
+      "fixture": "game/tests/fixtures/orison_domestic_tables.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/druggist_carboys_construction.json",
+      "fixture": "game/tests/fixtures/orison_druggist_carboys.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/druggist_counter_construction.json",
+      "fixture": "game/tests/fixtures/orison_druggist_counter.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/druggist_cupboard_construction.json",
+      "fixture": "game/tests/fixtures/orison_druggist_cupboard.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/druggist_dispensary_construction.json",
+      "fixture": "game/tests/fixtures/orison_druggist_dispensary.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/druggist_drawers_construction.json",
+      "fixture": "game/tests/fixtures/orison_druggist_drawers.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/druggist_fountain_construction.json",
+      "fixture": "game/tests/fixtures/orison_druggist_fountain.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/druggist_mortar_construction.json",
+      "fixture": "game/tests/fixtures/orison_druggist_mortar.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/fixed_lighting_construction.json",
+      "fixture": "game/tests/fixtures/orison_fixed_lighting.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/funeral_drapes_construction.json",
+      "fixture": "game/tests/fixtures/orison_funeral_drapes.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/funeral_fittings_construction.json",
+      "fixture": "game/tests/fixtures/orison_funeral_fittings.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/funeral_foliage_construction.json",
+      "fixture": "game/tests/fixtures/orison_funeral_foliage.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/hardware_apparatus_construction.json",
+      "fixture": "game/tests/fixtures/orison_hardware_apparatus.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/hardware_drawers_construction.json",
+      "fixture": "game/tests/fixtures/orison_hardware_drawers.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/hardware_stock_construction.json",
+      "fixture": "game/tests/fixtures/orison_hardware_stock.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/hardware_tools_construction.json",
+      "fixture": "game/tests/fixtures/orison_hardware_tools.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/household_fridges_construction.json",
+      "fixture": "game/tests/fixtures/orison_household_fridges.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/household_radios_construction.json",
+      "fixture": "game/tests/fixtures/orison_household_radios.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/household_stoves_construction.json",
+      "fixture": "game/tests/fixtures/orison_household_stoves.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/household_toasters_construction.json",
+      "fixture": "game/tests/fixtures/orison_household_toasters.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/household_wardrobes_construction.json",
+      "fixture": "game/tests/fixtures/orison_household_wardrobes.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/laundry_apparatus_construction.json",
+      "fixture": "game/tests/fixtures/orison_laundry_apparatus.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/laundry_fittings_construction.json",
+      "fixture": "game/tests/fixtures/orison_laundry_fittings.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/laundry_receiving_construction.json",
+      "fixture": "game/tests/fixtures/orison_laundry_receiving.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/laundry_trade_construction.json",
+      "fixture": "game/tests/fixtures/orison_laundry_trade.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/locksmith_fittings_construction.json",
+      "fixture": "game/tests/fixtures/orison_locksmith_fittings.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/medicine_cabinets_construction.json",
+      "fixture": "game/tests/fixtures/orison_medicine_cabinets.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/news_fittings_construction.json",
+      "fixture": "game/tests/fixtures/orison_news_fittings.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/news_receiving_construction.json",
+      "fixture": "game/tests/fixtures/orison_news_receiving.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/orison_ground_construction.json",
+      "fixture": "game/tests/fixtures/orison_ground_construction.json",
+      "changed_bindings": [],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/pawn_clocks_construction.json",
+      "fixture": "game/tests/fixtures/orison_pawn_clocks.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/pawn_display_construction.json",
+      "fixture": "game/tests/fixtures/orison_pawn_display.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/pawn_fittings_construction.json",
+      "fixture": "game/tests/fixtures/orison_pawn_fittings.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/pawn_receiving_construction.json",
+      "fixture": "game/tests/fixtures/orison_pawn_receiving.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/photo_cameras_construction.json",
+      "fixture": "game/tests/fixtures/orison_photo_cameras.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/photo_counter_construction.json",
+      "fixture": "game/tests/fixtures/orison_photo_counter.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/photo_enlargers_construction.json",
+      "fixture": "game/tests/fixtures/orison_photo_enlargers.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/photo_glazing_construction.json",
+      "fixture": "game/tests/fixtures/orison_photo_glazing.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/photo_portraits_construction.json",
+      "fixture": "game/tests/fixtures/orison_photo_portraits.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/photo_process_construction.json",
+      "fixture": "game/tests/fixtures/orison_photo_process.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/photo_radio_fittings_construction.json",
+      "fixture": "game/tests/fixtures/orison_photo_radio_fittings.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/photo_receiving_construction.json",
+      "fixture": "game/tests/fixtures/orison_photo_receiving.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/photo_stock_construction.json",
+      "fixture": "game/tests/fixtures/orison_photo_stock.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/prep_cabinets_construction.json",
+      "fixture": "game/tests/fixtures/orison_prep_cabinets.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/radio_apparatus_construction.json",
+      "fixture": "game/tests/fixtures/orison_radio_apparatus.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/radio_battery_construction.json",
+      "fixture": "game/tests/fixtures/orison_radio_battery.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/radio_bench_construction.json",
+      "fixture": "game/tests/fixtures/orison_radio_bench.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/radio_display_construction.json",
+      "fixture": "game/tests/fixtures/orison_radio_display.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/radio_receiving_construction.json",
+      "fixture": "game/tests/fixtures/orison_radio_receiving.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/radio_stock_construction.json",
+      "fixture": "game/tests/fixtures/orison_radio_stock.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/radio_wire_construction.json",
+      "fixture": "game/tests/fixtures/orison_radio_wire.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/reading_nook_construction.json",
+      "fixture": "game/tests/fixtures/orison_reading_nook.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/service_instruments_construction.json",
+      "fixture": "game/tests/fixtures/orison_service_instruments.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/shop_clerestories_construction.json",
+      "fixture": "game/tests/fixtures/orison_shop_clerestories.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/shop_joinery_construction.json",
+      "fixture": "game/tests/fixtures/orison_shop_joinery.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/shop_seating_construction.json",
+      "fixture": "game/tests/fixtures/orison_shop_seating.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/signage_construction.json",
+      "fixture": "game/tests/fixtures/orison_signage.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/signal_terminal_construction.json",
+      "fixture": "game/tests/fixtures/orison_signal_terminal.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/surface_stock_construction.json",
+      "fixture": "game/tests/fixtures/orison_surface_stock.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/task_lamp_supply_construction.json",
+      "fixture": "game/tests/fixtures/orison_task_lamp_supply.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/task_lamps_construction.json",
+      "fixture": "game/tests/fixtures/orison_task_lamps.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": "art/blender/work_tables_construction.json",
+      "fixture": "game/tests/fixtures/orison_work_tables.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "game/scripts/generated/material_sets.gd",
+        "art/data/material_catalog.json",
+        "art/textures/catalog_mapping.json",
+        "art/tools/generate_runtime_materials.py"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": null,
+      "fixture": "game/tests/fixtures/orison_bar_stage.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "art/data/material_catalog.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    },
+    {
+      "report": null,
+      "fixture": "game/tests/fixtures/orison_bar_gallery.json",
+      "changed_bindings": [
+        "game/data/runtime_material_sets.json",
+        "art/data/material_catalog.json"
+      ],
+      "geometry_data_unchanged": true,
+      "native_and_export_unchanged": true
+    }
+  ],
+  "preexisting_stale_bindings_preserved": [
+    {
+      "report": "art/blender/city_foundations_construction.json",
+      "binding": "game/data/runtime_material_sets.json",
+      "retained_sha256": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198"
+    },
+    {
+      "report": "art/blender/orison_ground_construction.json",
+      "binding": "game/data/runtime_material_sets.json",
+      "retained_sha256": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198"
+    }
+  ]
+}
