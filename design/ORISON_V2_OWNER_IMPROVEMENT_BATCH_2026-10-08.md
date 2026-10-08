@@ -31,8 +31,9 @@ It is not a claim of load capacity or an exact reconstruction of that patent.
 shader sampling. Architecture pigment/detail contrast is restrained without
 changing practical lighting or physical texture scales. Three billiard texture
 imports now retain mipmaps. Six calibrated production stations have zero
-missing sampled mipmaps. The later concrete/trim refinement remains in the
-final architecture review queue; these sets are not closed by this report.
+missing sampled mipmaps. The final six-station capture includes concrete and
+trim refinement; the wider per-card interaction review remains open, so these
+sets are not closed by this report.
 
 Gates and evidence: the reader reports zero NEW fields; the spatial inventory
 records the new preserved identities without changing earlier classifications.
@@ -50,7 +51,11 @@ dumbwaiter camera-station checks and is not claimed as a passing suite.
 
 Protected 17/17: no protected source paths were edited. Selector: V2 with
 explicit V1 rollback retained. Ledger requirements and claims are unchanged;
-this INERT report promotes none. Candidate gate comparison is recorded separately.
+this INERT report promotes none. Fresh candidate verification of
+1d351fd9c856190a5aceb8c079e18a0d1f2a5c49 reports zero static gate regressions,
+all 17 protected paths preserved and selector V2. Its
+[verification record](../art/renders/orison_v2/service_instruments_20261008/candidate_verification.json)
+uses the prior clean main baseline; Godot was not rerun in that temporary checkout.
 
 Worktree clean at report time: no. Owner dossier inputs and unrelated in-situ
 shots remain outside this batch, along with generated untracked Godot UIDs.
@@ -66,4 +71,4 @@ not claimed. Task-lamp supply routing awaits owner direction on outlet placement
 Decision needed from owner: existing source plans specify no outlets for the
 five task lamps; the pending question offers designed placements or deferred routes.
 
-Last line: implementation batch ready for candidate verification; remaining dossier work continues.
+Last line: MERGE-CANDIDATE 1d351fd9c856190a5aceb8c079e18a0d1f2a5c49 — remaining dossier work continues.

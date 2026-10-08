@@ -237,7 +237,7 @@
       "priority": "P2",
       "status": "implemented_pending_final_review",
       "source_page": 24,
-      "result": "Linear source-color mean calibration, restrained architecture pigment/detail response, mipmaps checked in six composed views. Concrete/trim refinement awaiting final capture."
+      "result": "Linear mean and restrained architecture response reviewed in six final composed views; zero failures or missing sampled mipmaps. Original appliance geometry and lighting owners retained. Wider per-card approach, moving-door and powered/unpowered review remains open."
     },
     {
       "id": "T08",
@@ -253,7 +253,7 @@
       "priority": "P2",
       "status": "implemented_pending_final_review",
       "source_page": 26,
-      "result": "Linear source-color mean calibration, restrained architecture pigment/detail response, mipmaps checked in six composed views. Concrete/trim refinement awaiting final capture."
+      "result": "Linear mean and restrained architecture response reviewed in six final composed views; zero failures or missing sampled mipmaps. Original appliance geometry and lighting owners retained. Wider per-card approach, moving-door and powered/unpowered review remains open."
     },
     {
       "id": "T10",
@@ -325,7 +325,7 @@
       "priority": "P1",
       "status": "implemented_pending_final_review",
       "source_page": 35,
-      "result": "Linear source-color mean calibration, restrained architecture pigment/detail response, mipmaps checked in six composed views. Concrete/trim refinement awaiting final capture."
+      "result": "Linear mean and restrained architecture response reviewed in six final composed views; zero failures or missing sampled mipmaps. Original appliance geometry and lighting owners retained. Wider per-card approach, moving-door and powered/unpowered review remains open."
     },
     {
       "id": "A02",
@@ -333,7 +333,7 @@
       "priority": "P2",
       "status": "implemented_pending_final_review",
       "source_page": 36,
-      "result": "Linear source-color mean calibration, restrained architecture pigment/detail response, mipmaps checked in six composed views. Concrete/trim refinement awaiting final capture."
+      "result": "Linear mean and restrained architecture response reviewed in six final composed views; zero failures or missing sampled mipmaps. Original appliance geometry and lighting owners retained. Wider per-card approach, moving-door and powered/unpowered review remains open."
     },
     {
       "id": "A03",
@@ -385,5 +385,7 @@
     }
   ],
   "evidence_root": "art/renders/orison_v2/service_instruments_20261008",
-  "last_verified_batch": "G01-G07, nine original instruments and six work lights"
+  "last_verified_batch": "G01-G07, nine original instruments and six work lights",
+  "code_candidate": "1d351fd9c856190a5aceb8c079e18a0d1f2a5c49",
+  "candidate_verification": "Fresh checkout: zero gate regressions, protected 17/17 PASS, V2 selector PASS. Godot evidence is from the canonical checkout, not the verifier."
 }
