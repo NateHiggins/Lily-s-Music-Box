@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 47.1,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T07:43:08Z",
+  "started_utc": "2026-10-08T07:42:20Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/stoves-runtime-02.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/stoves-runtime-02.log",
+  "stdout_sha256": "42ab8f6697382913e2a222d3aa3ed0a2c326f0f799d08f9779447fc977f899b9"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-finish-review/stoves-runtime-02",
+ "source": {
+  "dirty_paths": 291,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/scripts/building/orison_v2_domestic_fittings.gd",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/household_stoves.blend",
+   "?? art/blender/household_stoves_construction.json",
+   "?? art/blender/scripts/build_household_stoves.py",
+   "?? art/blender/scripts/household_stoves_geometry.py",
+   "?? art/blender/scripts/inspect_household_stove_motion.py",
+   "?? art/blender/scripts/inspect_household_stoves.py",
+   "?? art/blender/scripts/inspect_household_stoves_context.py",
+   "?? art/blender/scripts/render_household_stoves.py",
+   "?? art/data/household_stoves/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? game/assets/props/household_stoves.glb"
+  ],
+  "repository_head": "74056323e122ac76b6fe05cf477120c0fbe4e19c",
+  "repository_tree": "055a2d38b0ee237b38221511a78731fc3fb7dbd2",
+  "runtime_inputs_sha256": "f03b482984a30f2988151d13e8541f11edab01b6ce0e0a50aea533f0598509ac",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "b4cd7bfa43628585c8bed1fbbfe1b514acd48111fe3a5880e292db2f90c78153"
+ },
+ "windowed": true
+}

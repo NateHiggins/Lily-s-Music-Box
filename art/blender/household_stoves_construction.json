@@ -1,0 +1,3394 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_records": [
+    {
+      "id": "F03_3B_STOVE_01",
+      "kind": "stove",
+      "unit": "3B",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_B_STOVE_01",
+      "kind": "stove",
+      "unit": "4B",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F02_2A_STOVE_01",
+      "kind": "stove",
+      "unit": "2A",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F02_2B_STOVE_01",
+      "kind": "stove",
+      "unit": "2B",
+      "properties": {
+        "ambient_lit": true
+      }
+    },
+    {
+      "id": "F03_3A_STOVE_01",
+      "kind": "stove",
+      "unit": "3A",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_4A_STOVE_01",
+      "kind": "stove",
+      "unit": "4A",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F05_5A_STOVE_01",
+      "kind": "stove",
+      "unit": "5A",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F05_5B_STOVE_01",
+      "kind": "stove",
+      "unit": "5B",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F05_5C_STOVE_01",
+      "kind": "stove",
+      "unit": "5C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F06_6A_STOVE_01",
+      "kind": "stove",
+      "unit": "6A",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F06_6B_STOVE_01",
+      "kind": "stove",
+      "unit": "6B",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F06_6C_STOVE_01",
+      "kind": "stove",
+      "unit": "6C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F02_2C_STOVE_01",
+      "kind": "stove",
+      "unit": "2C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_4C_STOVE_01",
+      "kind": "stove",
+      "unit": "4C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F01_1D_STOVE_01",
+      "kind": "stove",
+      "unit": "1D",
+      "properties": {
+        "ambient_lit": true
+      }
+    },
+    {
+      "id": "F01_1A_STOVE_01",
+      "unit": "1A",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F03_3D_STOVE_01",
+      "unit": "3D",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_4D_STOVE_01",
+      "unit": "4D",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      }
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "HouseholdGasRange",
+      "kind": "stove",
+      "cell": "shared",
+      "source_record": "stove / 1922 fired-enamel gas range"
+    }
+  ],
+  "closed_stocks": [
+    {
+      "name": "HouseholdGasRange_Foot(-0.275, -0.245)",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.00017846795261244782
+    },
+    {
+      "name": "HouseholdGasRange_Foot(-0.275, 0.245)",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.0001784679526125095
+    },
+    {
+      "name": "HouseholdGasRange_Foot(0.275, -0.245)",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.00017846795261250962
+    },
+    {
+      "name": "HouseholdGasRange_Foot(0.275, 0.245)",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.0001784679526124477
+    },
+    {
+      "name": "HouseholdGasRange_FootRail-0.245",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.00020847624426574714
+    },
+    {
+      "name": "HouseholdGasRange_FootRail0.245",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.00020847624426574714
+    },
+    {
+      "name": "HouseholdGasRange_Base",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.018219508977844738
+    },
+    {
+      "name": "HouseholdGasRange_SideSkin-1",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0011264688915686703
+    },
+    {
+      "name": "HouseholdGasRange_SideReturn(-1, 0.2175)",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0003368303216837662
+    },
+    {
+      "name": "HouseholdGasRange_SideReturn(-1, 0.835)",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.00033683034852698135
+    },
+    {
+      "name": "HouseholdGasRange_SideEdge(-1, -0.3)",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0005689315479841894
+    },
+    {
+      "name": "HouseholdGasRange_SideEdge(-1, 0.285)",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0005689315479841894
+    },
+    {
+      "name": "HouseholdGasRange_Frame-1",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.007505372270338666
+    },
+    {
+      "name": "HouseholdGasRange_SideSkin1",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0011264688915686703
+    },
+    {
+      "name": "HouseholdGasRange_SideReturn(1, 0.2175)",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.00033683032168376576
+    },
+    {
+      "name": "HouseholdGasRange_SideReturn(1, 0.835)",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0003368303485269796
+    },
+    {
+      "name": "HouseholdGasRange_SideEdge(1, -0.3)",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0005689315479841894
+    },
+    {
+      "name": "HouseholdGasRange_SideEdge(1, 0.285)",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0005689315479841894
+    },
+    {
+      "name": "HouseholdGasRange_Frame1",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.007505372270338668
+    },
+    {
+      "name": "HouseholdGasRange_DeckRim",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.01074063274463892
+    },
+    {
+      "name": "HouseholdGasRange_HobTray",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.0016788351924749007
+    },
+    {
+      "name": "HouseholdGasRange_UpperFascia",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0021012121870583756
+    },
+    {
+      "name": "HouseholdGasRange_LowerFascia",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.00036591902208217325
+    },
+    {
+      "name": "HouseholdGasRange_OvenBack",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.0036828926812182902
+    },
+    {
+      "name": "HouseholdGasRange_OvenSide-0.229",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.001494523259579922
+    },
+    {
+      "name": "HouseholdGasRange_OvenSide0.22",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.001494523259579922
+    },
+    {
+      "name": "HouseholdGasRange_OvenShelf0.331",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.00446723330933867
+    },
+    {
+      "name": "HouseholdGasRange_OvenShelf0.671",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.0044672334123683766
+    },
+    {
+      "name": "HouseholdGasRange_RackSlide-0.222",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 5.8231706751848836e-05
+    },
+    {
+      "name": "HouseholdGasRange_RackSlide0.207",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 5.8231706751848836e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackCross-0.19",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1869277311915784e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackCross0.2",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1869277311915784e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire0",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277207917359247e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire1",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277207917359339e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire2",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277207917359247e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire3",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277204794080056e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire4",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277204794080071e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire5",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277204794080056e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire6",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.127720422489088e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire7",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.127720561366886e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire8",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277205521314149e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire9",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.127720561366878e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire10",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.127720422489088e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire11",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277204794079951e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire12",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277204794080071e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire13",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277204794079951e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire14",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277207917359247e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire15",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277207917359325e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenRackWire16",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 1.1277207917359247e-05
+    },
+    {
+      "name": "HouseholdGasRange_BroilerBack",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.0005901566746532686
+    },
+    {
+      "name": "HouseholdGasRange_BroilerFloor",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.0028924403409981703
+    },
+    {
+      "name": "HouseholdGasRange_BroilerSide-0.229",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.0003971752579234392
+    },
+    {
+      "name": "HouseholdGasRange_BroilerSide0.22",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.0003971752579234392
+    },
+    {
+      "name": "HouseholdGasRange_BackSplash",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0042644317434910525
+    },
+    {
+      "name": "HouseholdGasRange_CondimentShelf",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.003538654929213271
+    },
+    {
+      "name": "HouseholdGasRange_ShelfRailPost-0.27",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 2.4058526149477888e-06
+    },
+    {
+      "name": "HouseholdGasRange_ShelfRailPost0.27",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 2.4058526149477888e-06
+    },
+    {
+      "name": "HouseholdGasRange_ShelfRail",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 0.00010826353861420694
+    },
+    {
+      "name": "HouseholdGasRange_GasRail",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 0.0002481012236649154
+    },
+    {
+      "name": "HouseholdGasRange_GasRailBracket-0.26",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.955395925631973e-05
+    },
+    {
+      "name": "HouseholdGasRange_GasRailFixing-0.26-1",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 3.2439821756678914e-08
+    },
+    {
+      "name": "HouseholdGasRange_GasRailFixing-0.261",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 3.244018035944262e-08
+    },
+    {
+      "name": "HouseholdGasRange_GasRailBracket0.26",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.95539592563197e-05
+    },
+    {
+      "name": "HouseholdGasRange_GasRailFixing0.26-1",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 3.243982175667849e-08
+    },
+    {
+      "name": "HouseholdGasRange_GasRailFixing0.261",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 3.24401803594422e-08
+    },
+    {
+      "name": "HouseholdGasRange_OvenSkin",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.004605549713693892
+    },
+    {
+      "name": "HouseholdGasRange_OvenHeatShield",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.0018615866077082155
+    },
+    {
+      "name": "HouseholdGasRange_OvenPressedPanel",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0008296028805236623
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge-0.16_Pin",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.070111503496013e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge-0.16_FixedNeck",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 8.312549870186206e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge-0.16_Knuckle-0.187",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.918006965484507e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge-0.16_LeafNeck-0.187",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.999691333708887e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge-0.16_Knuckle-0.133",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.9180093811351677e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge-0.16_LeafNeck-0.133",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.9996938370961753e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge0.16_Pin",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.07011150349601e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge0.16_FixedNeck",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 8.312549870186206e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge0.16_Knuckle0.133",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.918009381135158e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge0.16_LeafNeck0.133",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.9996938370961753e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge0.16_Knuckle0.187",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.9180069654845024e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHinge0.16_LeafNeck0.187",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.999691333708887e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenHandleFoot-0.1892",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 1.994429740750399e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenHandleFoot0.1892",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 1.994429740750395e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenHandle",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 0.00011903941012792351
+    },
+    {
+      "name": "HouseholdGasRange_BroilerSkin",
+      "assembly": "HouseholdGasRange",
+      "key": "enamel",
+      "volume_m3": 0.0010176481661137023
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge-0.15_Pin",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.070111652279646e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge-0.15_FixedNeck",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 8.312553707715188e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge-0.15_Knuckle-0.177",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.9180093811351694e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge-0.15_LeafNeck-0.177",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.9996982387399316e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge-0.15_Knuckle-0.123",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.9180081733098313e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge-0.15_LeafNeck-0.123",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.999696987044602e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge0.15_Pin",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.070111652279646e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge0.15_FixedNeck",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 8.312553707715188e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge0.15_Knuckle0.123",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.9180081733098283e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge0.15_LeafNeck0.123",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.9996969870446e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge0.15_Knuckle0.177",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.918009381135167e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerHinge0.15_LeafNeck0.177",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 2.9996982387399316e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerInset",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 4.18674929600604e-05
+    },
+    {
+      "name": "HouseholdGasRange_BroilerFastener-0.13",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.564693606004657e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerScrew-0.13-1",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 3.2439436222441026e-08
+    },
+    {
+      "name": "HouseholdGasRange_BroilerScrew-0.131",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 3.2439168914598745e-08
+    },
+    {
+      "name": "HouseholdGasRange_BroilerFastener0.13",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.564693606004659e-06
+    },
+    {
+      "name": "HouseholdGasRange_BroilerScrew0.13-1",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 3.2439436222441026e-08
+    },
+    {
+      "name": "HouseholdGasRange_BroilerScrew0.131",
+      "assembly": "HouseholdGasRange",
+      "key": "nickel",
+      "volume_m3": 3.243916891459832e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve1_Stem",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 8.119696830836127e-06
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve1_Grip",
+      "assembly": "HouseholdGasRange",
+      "key": "bakelite",
+      "volume_m3": 3.9285116264626494e-05
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve1_Pointer",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 5.18624364592746e-06
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve2_Stem",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 8.119693044772395e-06
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve2_Grip",
+      "assembly": "HouseholdGasRange",
+      "key": "bakelite",
+      "volume_m3": 3.92851144882894e-05
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve2_Pointer",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 5.1862515028252365e-06
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve3_Stem",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 8.119694176741646e-06
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve3_Grip",
+      "assembly": "HouseholdGasRange",
+      "key": "bakelite",
+      "volume_m3": 3.928511479291703e-05
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve3_Pointer",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 5.186248549978868e-06
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve4_Stem",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 8.11969304477244e-06
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve4_Grip",
+      "assembly": "HouseholdGasRange",
+      "key": "bakelite",
+      "volume_m3": 3.928511448829194e-05
+    },
+    {
+      "name": "HouseholdGasRange_BurnerValve4_Pointer",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 5.1862515028252365e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenValve_Stem",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 8.119696830836109e-06
+    },
+    {
+      "name": "HouseholdGasRange_OvenValve_Grip",
+      "assembly": "HouseholdGasRange",
+      "key": "bakelite",
+      "volume_m3": 3.928511626462709e-05
+    },
+    {
+      "name": "HouseholdGasRange_OvenValve_Pointer",
+      "assembly": "HouseholdGasRange",
+      "key": "brass",
+      "volume_m3": 5.18624364592746e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Rim",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.00015907743817727705
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Finger0",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Finger1",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839999077493709e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Finger2",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Finger3",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.8399997096963045e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Finger4",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Finger5",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839999762379943e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Finger6",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555719e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Finger7",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839999130177518e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Foot0.7853981633974483",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.84198942528795e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Foot2.356194490192345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419894100787351e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Foot3.9269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.841989346287328e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate1_Foot5.497787143782138",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419893614953455e-06
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Head",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.00011016231552715491
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_PortCrown",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.2177242669798463e-05
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port0.0",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port0.19634954084936207",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644989853131e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port0.39269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644891896638845e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port0.5890486225480862",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.76448920775658e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port0.7853981633974483",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764483643893611e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port0.9817477042468103",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487311108557e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port1.1780972450961724",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764479851160763e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port1.3744467859455345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644976269904355e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port1.5707963267948966",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port1.7671458676442586",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764497059600428e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port1.9634954084936207",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644820767924215e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port2.1598449493429825",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764486508685379e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port2.356194490192345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764480042283421e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port2.552544031041707",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487311108557e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port2.748893571891069",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487139170305e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port2.945243112740431",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644976269904355e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port3.141592653589793",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port3.3379421944391554",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764488981443615e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port3.5342917352885173",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.76449525880999e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port3.730641276137879",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764488732444657e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port3.9269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644974294087066e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port4.123340357836604",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487591952885e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port4.319689898685965",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764485620940465e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port4.516039439535327",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764499552726306e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port4.71238898038469",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329487e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port4.908738521234052",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644989853130626e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port5.105088062083414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644891896636437e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port5.301437602932776",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.76448920775671e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port5.497787143782138",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764495640811351e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port5.6941366846315",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644914317515495e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port5.890486225480862",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644942970663887e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap1_Port6.086835766330224",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644898544224943e-08
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Rim",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.0001590774381772816
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Finger0",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Finger1",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.83999970969629e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Finger2",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Finger3",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839999077493709e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Finger4",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Finger5",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.83999913017751e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Finger6",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555719e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Finger7",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839999762379938e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Foot0.7853981633974483",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419894100787368e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Foot2.356194490192345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419894252879296e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Foot3.9269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419893614953349e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate2_Foot5.497787143782138",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419893462873284e-06
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Head",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.00011016231552715576
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_PortCrown",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.2177242669798609e-05
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port0.0",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port0.19634954084936207",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764497059600428e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port0.39269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764489364802116e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port0.5890486225480862",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764486508685171e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port0.7853981633974483",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764480042283193e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port0.9817477042468103",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644873111086654e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port1.1780972450961724",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764479851160763e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port1.3744467859455345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644976269904355e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port1.5707963267948966",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port1.7671458676442586",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764497059600428e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port1.9634954084936207",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644820767924215e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port2.1598449493429825",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764486508685171e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port2.356194490192345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764483129991315e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port2.552544031041707",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487591952882e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port2.748893571891069",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764485620940431e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port2.945243112740431",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764499552726285e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port3.141592653589793",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port3.3379421944391554",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764490138019876e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port3.5342917352885173",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764495083656913e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port3.730641276137879",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644914315075444e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port3.9269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644982112555354e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port4.123340357836604",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487591952661e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port4.319689898685965",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764485620940465e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port4.516039439535327",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764499552726306e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port4.71238898038469",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329487e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port4.908738521234052",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644989853130626e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port5.105088062083414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644891896636437e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port5.301437602932776",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.76448920775675e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port5.497787143782138",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764495372870614e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port5.6941366846315",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764491150898639e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port5.890486225480862",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644958152944624e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap2_Port6.086835766330224",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644886978309486e-08
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Rim",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.0001590774383564908
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Finger0",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Finger1",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839999709696291e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Finger2",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Finger3",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.840000341898863e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Finger4",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Finger5",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.840000974101449e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Finger6",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Finger7",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.840000341898872e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Foot0.7853981633974483",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419892704929968e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Foot2.356194490192345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419892552839153e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Foot3.9269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419887079989357e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate3_Foot5.497787143782138",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419887232054874e-06
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Head",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.00011016231792734559
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_PortCrown",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.2177241627664097e-05
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port0.0",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port0.19634954084936207",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644989853131e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port0.39269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764495083656913e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port0.5890486225480862",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764491431507529e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port0.7853981633974483",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644982112555354e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port0.9817477042468103",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487591952882e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port1.1780972450961724",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764485620940431e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port1.3744467859455345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764499552726306e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port1.5707963267948966",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port1.7671458676442586",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644989853130626e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port1.9634954084936207",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644891896638845e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port2.1598449493429825",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764489207756674e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port2.356194490192345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764495372870614e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port2.552544031041707",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644911508986143e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port2.748893571891069",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644958152944624e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port2.945243112740431",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644976269904355e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port3.141592653589793",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port3.3379421944391554",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764497059600428e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port3.5342917352885173",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764489364802116e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port3.730641276137879",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764486508685379e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port3.9269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644872323209396e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port4.123340357836604",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644873111086654e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port4.319689898685965",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487139170305e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port4.516039439535327",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644976269904355e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port4.71238898038469",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port4.908738521234052",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764497059600428e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port5.105088062083414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764489364802116e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port5.301437602932776",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764486508685171e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port5.497787143782138",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764490717923577e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port5.6941366846315",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487591952774e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port5.890486225480862",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764485620940431e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap3_Port6.086835766330224",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764499552726285e-08
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Rim",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 0.00015907743835649193
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Finger0",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Finger1",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.840000341898872e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Finger2",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Finger3",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839999709696291e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Finger4",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Finger5",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.840000341898863e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Finger6",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.839995212555713e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Finger7",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 3.840000974101449e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Foot0.7853981633974483",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419892552839072e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Foot2.356194490192345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.841989270493e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Foot3.9269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.8419887232054607e-06
+    },
+    {
+      "name": "HouseholdGasRange_Grate4_Foot5.497787143782138",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.841988707998923e-06
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Head",
+      "assembly": "HouseholdGasRange",
+      "key": "dark",
+      "volume_m3": 0.00011016231792734514
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_PortCrown",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 1.2177241627663762e-05
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port0.0",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port0.19634954084936207",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764497059600428e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port0.39269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.76449525880999e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port0.5890486225480862",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.76448873244461e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port0.7853981633974483",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644974294087066e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port0.9817477042468103",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487591952774e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port1.1780972450961724",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764485620940431e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port1.3744467859455345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764499552726306e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port1.5707963267948966",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port1.7671458676442586",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644989853130626e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port1.9634954084936207",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644891896638845e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port2.1598449493429825",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.76448920775658e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port2.356194490192345",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764495640811351e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port2.552544031041707",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644914317514946e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port2.748893571891069",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644942970663887e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port2.945243112740431",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764499552726285e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port3.141592653589793",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port3.3379421944391554",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644989853131e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port3.5342917352885173",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644891896638845e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port3.730641276137879",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764489207756674e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port3.9269908169872414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764491231825762e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port4.123340357836604",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487311108557e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port4.319689898685965",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487139170305e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port4.516039439535327",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644976269904355e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port4.71238898038469",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644907919329004e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port4.908738521234052",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764497059600428e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port5.105088062083414",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764489364802116e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port5.301437602932776",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764486508685379e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port5.497787143782138",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644872323209396e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port5.6941366846315",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644873111086654e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port5.890486225480862",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.764487139170305e-08
+    },
+    {
+      "name": "HouseholdGasRange_BurnerCap4_Port6.086835766330224",
+      "assembly": "HouseholdGasRange",
+      "key": "iron",
+      "volume_m3": 4.7644976269904355e-08
+    }
+  ],
+  "contacts": [
+    {
+      "assembly": "HouseholdGasRange",
+      "owner": "support",
+      "point": [
+        -0.275,
+        0,
+        0.245
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original range foot"
+    },
+    {
+      "assembly": "HouseholdGasRange",
+      "owner": "support",
+      "point": [
+        -0.275,
+        0,
+        -0.245
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original range foot"
+    },
+    {
+      "assembly": "HouseholdGasRange",
+      "owner": "support",
+      "point": [
+        0.275,
+        0,
+        0.245
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original range foot"
+    },
+    {
+      "assembly": "HouseholdGasRange",
+      "owner": "support",
+      "point": [
+        0.275,
+        0,
+        -0.245
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original range foot"
+    }
+  ],
+  "parts": [
+    {
+      "name": "HouseholdGasRange__Body_ON_brass",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 752
+    },
+    {
+      "name": "HouseholdGasRange__Body_ON_dark",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "dark",
+      "triangles": 1504
+    },
+    {
+      "name": "HouseholdGasRange__Body_ON_enamel",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 2820
+    },
+    {
+      "name": "HouseholdGasRange__Body_ON_iron",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 6260
+    },
+    {
+      "name": "HouseholdGasRange__Body_ON_nickel",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 3828
+    },
+    {
+      "name": "HouseholdGasRange__BroilerDrawer_ON_dark",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "dark",
+      "triangles": 188
+    },
+    {
+      "name": "HouseholdGasRange__BroilerDrawer_ON_enamel",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 188
+    },
+    {
+      "name": "HouseholdGasRange__BroilerDrawer_ON_iron",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 2664
+    },
+    {
+      "name": "HouseholdGasRange__BroilerDrawer_ON_nickel",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 256
+    },
+    {
+      "name": "HouseholdGasRange__BurnerCap1_ON_dark",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "dark",
+      "triangles": 480
+    },
+    {
+      "name": "HouseholdGasRange__BurnerCap1_ON_iron",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 6784
+    },
+    {
+      "name": "HouseholdGasRange__BurnerCap2_ON_dark",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "dark",
+      "triangles": 480
+    },
+    {
+      "name": "HouseholdGasRange__BurnerCap2_ON_iron",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 6784
+    },
+    {
+      "name": "HouseholdGasRange__BurnerCap3_ON_dark",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "dark",
+      "triangles": 480
+    },
+    {
+      "name": "HouseholdGasRange__BurnerCap3_ON_iron",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 6784
+    },
+    {
+      "name": "HouseholdGasRange__BurnerCap4_ON_dark",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "dark",
+      "triangles": 480
+    },
+    {
+      "name": "HouseholdGasRange__BurnerCap4_ON_iron",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 6784
+    },
+    {
+      "name": "HouseholdGasRange__BurnerValve1_ON_bakelite",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 640
+    },
+    {
+      "name": "HouseholdGasRange__BurnerValve1_ON_brass",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 380
+    },
+    {
+      "name": "HouseholdGasRange__BurnerValve2_ON_bakelite",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 640
+    },
+    {
+      "name": "HouseholdGasRange__BurnerValve2_ON_brass",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 380
+    },
+    {
+      "name": "HouseholdGasRange__BurnerValve3_ON_bakelite",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 640
+    },
+    {
+      "name": "HouseholdGasRange__BurnerValve3_ON_brass",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 380
+    },
+    {
+      "name": "HouseholdGasRange__BurnerValve4_ON_bakelite",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 640
+    },
+    {
+      "name": "HouseholdGasRange__BurnerValve4_ON_brass",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 380
+    },
+    {
+      "name": "HouseholdGasRange__Grate1_ON_iron",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 2400
+    },
+    {
+      "name": "HouseholdGasRange__Grate2_ON_iron",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 2400
+    },
+    {
+      "name": "HouseholdGasRange__Grate3_ON_iron",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 2400
+    },
+    {
+      "name": "HouseholdGasRange__Grate4_ON_iron",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 2400
+    },
+    {
+      "name": "HouseholdGasRange__OvenDoor_ON_brass",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 764
+    },
+    {
+      "name": "HouseholdGasRange__OvenDoor_ON_enamel",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 376
+    },
+    {
+      "name": "HouseholdGasRange__OvenDoor_ON_iron",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 2476
+    },
+    {
+      "name": "HouseholdGasRange__OvenValve_ON_bakelite",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 640
+    },
+    {
+      "name": "HouseholdGasRange__OvenValve_ON_brass",
+      "assembly": "HouseholdGasRange",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 380
+    }
+  ],
+  "triangles": 65832,
+  "precision_chart_fallbacks": 0,
+  "runtime": {
+    "schema_version": 1,
+    "asset": "res://assets/props/household_stoves.glb",
+    "floor_y": 0,
+    "assemblies": [
+      {
+        "id": "HouseholdGasRange",
+        "parts": [
+          {
+            "name": "HouseholdGasRange__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "tint": [
+              0.6382832153523972,
+              0.5070785101492276,
+              0.23302199930143813,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__Body_ON_dark",
+            "component": "Body",
+            "key": "dark",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.033104766570885055,
+              0.030074104146591292,
+              0.027211780951381357,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.82
+            }
+          },
+          {
+            "name": "HouseholdGasRange__Body_ON_iron",
+            "component": "Body",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.147318999244498,
+              0.13286832155381798,
+              0.1192801876221121,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BroilerDrawer_ON_dark",
+            "component": "BroilerDrawer",
+            "key": "dark",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.033104766570885055,
+              0.030074104146591292,
+              0.027211780951381357,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BroilerDrawer_ON_enamel",
+            "component": "BroilerDrawer",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.82
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BroilerDrawer_ON_iron",
+            "component": "BroilerDrawer",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.147318999244498,
+              0.13286832155381798,
+              0.1192801876221121,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BroilerDrawer_ON_nickel",
+            "component": "BroilerDrawer",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerCap1_ON_dark",
+            "component": "BurnerCap1",
+            "key": "dark",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.033104766570885055,
+              0.030074104146591292,
+              0.027211780951381357,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerCap1_ON_iron",
+            "component": "BurnerCap1",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.147318999244498,
+              0.13286832155381798,
+              0.1192801876221121,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerCap2_ON_dark",
+            "component": "BurnerCap2",
+            "key": "dark",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.033104766570885055,
+              0.030074104146591292,
+              0.027211780951381357,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerCap2_ON_iron",
+            "component": "BurnerCap2",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.147318999244498,
+              0.13286832155381798,
+              0.1192801876221121,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerCap3_ON_dark",
+            "component": "BurnerCap3",
+            "key": "dark",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.033104766570885055,
+              0.030074104146591292,
+              0.027211780951381357,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerCap3_ON_iron",
+            "component": "BurnerCap3",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.147318999244498,
+              0.13286832155381798,
+              0.1192801876221121,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerCap4_ON_dark",
+            "component": "BurnerCap4",
+            "key": "dark",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.033104766570885055,
+              0.030074104146591292,
+              0.027211780951381357,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerCap4_ON_iron",
+            "component": "BurnerCap4",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.147318999244498,
+              0.13286832155381798,
+              0.1192801876221121,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerValve1_ON_bakelite",
+            "component": "BurnerValve1",
+            "key": "bakelite",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black",
+            "tint": [
+              0.27383841647314605,
+              0.12596738774090202,
+              0.06372379528489175,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.82
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerValve1_ON_brass",
+            "component": "BurnerValve1",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "tint": [
+              0.6382832153523972,
+              0.5070785101492276,
+              0.23302199930143813,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerValve2_ON_bakelite",
+            "component": "BurnerValve2",
+            "key": "bakelite",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black",
+            "tint": [
+              0.27383841647314605,
+              0.12596738774090202,
+              0.06372379528489175,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.82
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerValve2_ON_brass",
+            "component": "BurnerValve2",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "tint": [
+              0.6382832153523972,
+              0.5070785101492276,
+              0.23302199930143813,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerValve3_ON_bakelite",
+            "component": "BurnerValve3",
+            "key": "bakelite",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black",
+            "tint": [
+              0.27383841647314605,
+              0.12596738774090202,
+              0.06372379528489175,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.82
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerValve3_ON_brass",
+            "component": "BurnerValve3",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "tint": [
+              0.6382832153523972,
+              0.5070785101492276,
+              0.23302199930143813,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerValve4_ON_bakelite",
+            "component": "BurnerValve4",
+            "key": "bakelite",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black",
+            "tint": [
+              0.27383841647314605,
+              0.12596738774090202,
+              0.06372379528489175,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.82
+            }
+          },
+          {
+            "name": "HouseholdGasRange__BurnerValve4_ON_brass",
+            "component": "BurnerValve4",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "tint": [
+              0.6382832153523972,
+              0.5070785101492276,
+              0.23302199930143813,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__Grate1_ON_iron",
+            "component": "Grate1",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.147318999244498,
+              0.13286832155381798,
+              0.1192801876221121,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__Grate2_ON_iron",
+            "component": "Grate2",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.147318999244498,
+              0.13286832155381798,
+              0.1192801876221121,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__Grate3_ON_iron",
+            "component": "Grate3",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.147318999244498,
+              0.13286832155381798,
+              0.1192801876221121,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__Grate4_ON_iron",
+            "component": "Grate4",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.147318999244498,
+              0.13286832155381798,
+              0.1192801876221121,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__OvenDoor_ON_brass",
+            "component": "OvenDoor",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "tint": [
+              0.6382832153523972,
+              0.5070785101492276,
+              0.23302199930143813,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__OvenDoor_ON_enamel",
+            "component": "OvenDoor",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.13,
+              "roughness": 0.82
+            }
+          },
+          {
+            "name": "HouseholdGasRange__OvenDoor_ON_iron",
+            "component": "OvenDoor",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.147318999244498,
+              0.13286832155381798,
+              0.1192801876221121,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "HouseholdGasRange__OvenValve_ON_bakelite",
+            "component": "OvenValve",
+            "key": "bakelite",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black",
+            "tint": [
+              0.27383841647314605,
+              0.12596738774090202,
+              0.06372379528489175,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.82
+            }
+          },
+          {
+            "name": "HouseholdGasRange__OvenValve_ON_brass",
+            "component": "OvenValve",
+            "key": "brass",
+            "tile": 0.6,
+            "catalog_key": "bronze_sheet",
+            "tint": [
+              0.6382832153523972,
+              0.5070785101492276,
+              0.23302199930143813,
+              1.0
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.72
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      }
+    ],
+    "instances": [
+      {
+        "id": "F03_3B_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F04_B_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F02_2A_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F02_2B_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F03_3A_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F04_4A_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F05_5A_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F05_5B_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F05_5C_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F06_6A_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F06_6B_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F06_6C_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F02_2C_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F04_4C_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F01_1D_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F01_1A_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F03_3D_STOVE_01",
+        "variant": "HouseholdGasRange"
+      },
+      {
+        "id": "F04_4D_STOVE_01",
+        "variant": "HouseholdGasRange"
+      }
+    ],
+    "tint_space": "linear",
+    "native_service": {
+      "grate_parking": [
+        {
+          "blender_center": [
+            -0.2,
+            -0.19995570945709254,
+            0.9949429460718783
+          ],
+          "angle_degrees": -60
+        },
+        {
+          "blender_center": [
+            0.2,
+            -0.19995570945709254,
+            0.9949429460718783
+          ],
+          "angle_degrees": -60
+        },
+        {
+          "blender_center": [
+            -0.2,
+            -0.19995571526854508,
+            0.9831109440102771
+          ],
+          "angle_degrees": -60
+        },
+        {
+          "blender_center": [
+            0.2,
+            -0.19995571526854508,
+            0.9831109440102771
+          ],
+          "angle_degrees": -60
+        }
+      ],
+      "grate_lift_m": 0.085,
+      "cap_lift_m": 0.055,
+      "cap_end_blender_delta": [
+        [
+          0.12,
+          0.1,
+          0.0
+        ],
+        [
+          -0.12,
+          0.1,
+          0.0
+        ],
+        [
+          0.12,
+          0.1,
+          0.0
+        ],
+        [
+          -0.12,
+          0.1,
+          0.0
+        ]
+      ],
+      "grate_forward_m": 0.06
+    }
+  },
+  "asset_sha256": "47384bdbde523074cb1000a0f53958e5aea862f34fd0bf5584c0f9501b54acb1",
+  "source_bindings": {
+    "art/data/household_stoves/source_plan.json": "fac7df1441d4569cd8a1d2c244838a4a5ad8e4e9c197dc076e7b4ca80516df1e",
+    "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
+    "art/blender/scripts/build_household_stoves.py": "3556008fd5d5d2781024c31916b669854ac84976b8d233b679af187c75e9b667",
+    "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
+    "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
+    "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
+    "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
+    "game/data/runtime_material_sets.json": "72c3b6a823928a5b0539f8953f0d066b91ca1575976dd9a4b7829f91ad520b73",
+    "game/scripts/generated/material_sets.gd": "51b0c6cf899b87bb34cd49191413be9f930b12d0a11db0b009616a0a1c8fee65",
+    "game/assets/props/household_stoves.glb.import": "4b93abc53defc54026f23a84023cfc26dfe579d1343e614f02126a76d0cd7a66",
+    "art/textures/ai_materials/enamel_appliance/material.json": "ef9f6349657d4c690bd96267408d0143d7ff0b8cb0218bb6d42ead47a53b8dcf",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "art/textures/procedural/bronze_sheet/material.json": "050aa2312ce10e0d1e2793ac0a3390c157d951b64a61ac111728d09146ac6004",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_albedo.png": "10338ada0e24529e8ba0efa45e87607c1d5a51cdbe74285815a90a518c100e95",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_rough.png": "379412b367ed15d1b1afc467953c9dc0fd56961ee5fe750ff43a09a0a9922e17",
+    "game/assets/building/textures/T_ai_materials_enamel_appliance_normal.png": "576f07029fd6bb414d96db93b82f1e88a2fb8fb50bd1c90e33b5da202f6112ef",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_albedo.png": "b8eeb6d6334ce7a3b4341a85d30d9921319035a12c714df004794ca2fffcb4d1",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_rough.png": "8b31d1b5452167fedcff25f765efdc3cb97a4340e15d37c848c763dfd60d8222",
+    "game/assets/building/textures/T_ai_materials_bronze_sheet_normal.png": "6602a22eeed34132da9cf3c5c67a659462f0eb23a5dc9eced5bc2aead51d409d",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
+    "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
+    "art/data/material_catalog.json": "562d8c15879f12404d443d227a2ccda373c68a6af810e63cc214ce23c79ee1e1",
+    "art/textures/catalog_mapping.json": "d4f3e411ac9b1f942bed184b34a4cf19f4418a4220044c86ed917513c2421686",
+    "art/tools/generate_runtime_materials.py": "4156d34f776a3cd57c2dcdc016f0f147a0741530ef20a16d0b610e28dd8198a6",
+    "art/blender/scripts/inspect_household_stoves.py": "f0e353f8a2a4e4d366e3ff78a77e703d6af0cbe83aa73621882aba2cfb98553d",
+    "art/blender/scripts/render_household_stoves.py": "299fba6620d1ffd99df944c298141bfe826a318b3e86ce305d9e97effdcd6a4e",
+    "art/blender/scripts/household_stoves_geometry.py": "407d55ee785c32aa4f8582d3cabefe124b0518b5471f3308d6e068b5c7884622",
+    "art/blender/scripts/inspect_household_stoves_context.py": "931569d3b57eb06718890ad94d1d6a4dd94db0a4c21cb9715b4b7a97b860d299",
+    "art/blender/scripts/inspect_household_stove_motion.py": "96a8bd83bf73ea93e2b831d3937a95a6d988075d4a0d0a5539ad452aaab35386",
+    "art/blender/scripts/surface_stock_geometry.py": "aa8245d785858c296761d420ec6302e18da3646d386c0b37c4d164c94c8beb12",
+    "art/blender/scripts/inspect_household_toaster_motion.py": "9019c8b4a08f01cd6e80f582ad5d76813eb11452db98a74c1a9782ad25553bb8",
+    "art/blender/scripts/inspect_medicine_cabinets_context.py": "6b426ed36fa3d7e5d275f2ad81164e01e5ee0b3f0910fc22bd70fcf0f11f7295",
+    "game/scripts/props/stove_prop.gd": "76535eef344128982515d30d0693380ce47d80633f662608384cbe3cba0b015e",
+    "game/scripts/props/functional_prop.gd": "f33126057cad4c7fc00cf132ba523d9e4fa915b6922aa9470ed10be47b2806ee",
+    "game/data/orison_v2/domestic_fittings.json": "09294039d42e7a1c90b942aeb00855757586231da29d6bdf4264ca915aa7a248",
+    "game/data/orison_v2/completion_interiors.json": "5fa82dc7867693816be370e8a6cea7a5bc71787cb51bdac1892c637e6746505f",
+    "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707",
+    "game/data/orison_v2_blockout.json": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab",
+    "art/data/orison_v2/completion_interiors_source.json": "9c2cc8459d7c93733aa047e426145f2e468ade34f14f988f44e522b2160cf0e9",
+    "art/blender/domestic_objects.blend": "99a7d3e1f3f6ecb06d740608bb6ec5556a540ab8653b925b19041fe3ba9d2fe0",
+    "game/tests/fixtures/orison_domestic_objects.json": "27bcad2cec7f9e5fa6a94a07f4640bc8cf0f3921b31c380e6812fcaea0a54746",
+    "art/blender/household_wardrobes.blend": "ed34e76d54efba76a5e2ef7e862d2b432c199ae8856b29f63793b69a04e77ad7",
+    "game/tests/fixtures/orison_household_wardrobes.json": "e234a93acacf20fd5d67ea3a85f534190763df5e567a11c0e52fcd1cf25c2bf3",
+    "art/blender/prep_cabinets.blend": "6c3cfa636a09f138a4b5f1939939149ee2ac98dc7eea068d8bd118b97e4062b3",
+    "game/tests/fixtures/orison_prep_cabinets.json": "773e6774b918dc11366ba657fe9b976f88090825062cb9adf76a6d7a36970495",
+    "art/blender/domestic_storage.blend": "2ecf3c03e229cb313a07fd549e6d21f9421a7305c6b349f2c68d2387cfc07684",
+    "game/tests/fixtures/orison_domestic_storage.json": "c42acdf04c7b3bec60de8848643a1c4efefa4b8e6af6cede0ca9435c0daf075a",
+    "art/blender/domestic_seating.blend": "b38976cbf3603ee75878320139027f17d6d732b6c27111d99c83719243b46efe",
+    "game/tests/fixtures/orison_domestic_seating.json": "ddb031013e8ffc11e62c7a24b63251d926ff3b0cbe68de606daf903fb0dcfa90",
+    "art/blender/domestic_tables.blend": "c408c7b2e9d545f519e0b269ca8691ced4bec2373d98d831228653f7e476b3ea",
+    "game/tests/fixtures/orison_domestic_tables.json": "83e825f44da20dfa2cb4a77f184382210c58dd1c25322d596c46570854944a01",
+    "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
+    "game/tests/fixtures/orison_work_tables.json": "6ed68b5413c5841bc0b4085eac2e5d26fafb4931e7a570becbe8e23d12cf7a98",
+    "art/blender/household_fridges.blend": "4cc68a16a8c29cfc8ee2063b94465d1215b3220ccb9fc9b2cd98bc3ea9b0ff17",
+    "game/tests/fixtures/orison_household_fridges.json": "3745366dbc294c0705e6e1987cb9404752a71443ec72437c7040e86f6477cf97",
+    "art/blender/household_radios.blend": "606812711e2b477c08826e727021d04fa9850ddc2cca6c491cb5ff3775467fb3",
+    "game/tests/fixtures/orison_household_radios.json": "63579014ec14924b67d0141768fcb128fd3279ed25c81b62d94a643d55809ff3"
+  },
+  "retained_stock": [],
+  "construction_groups": [
+    {
+      "assembly": "HouseholdGasRange",
+      "id": "HouseholdGasRange_GasRange",
+      "stocks": [
+        "HouseholdGasRange_Foot(-0.275, -0.245)",
+        "HouseholdGasRange_Foot(-0.275, 0.245)",
+        "HouseholdGasRange_Foot(0.275, -0.245)",
+        "HouseholdGasRange_Foot(0.275, 0.245)",
+        "HouseholdGasRange_FootRail-0.245",
+        "HouseholdGasRange_FootRail0.245",
+        "HouseholdGasRange_Base",
+        "HouseholdGasRange_SideSkin-1",
+        "HouseholdGasRange_SideReturn(-1, 0.2175)",
+        "HouseholdGasRange_SideReturn(-1, 0.835)",
+        "HouseholdGasRange_SideEdge(-1, -0.3)",
+        "HouseholdGasRange_SideEdge(-1, 0.285)",
+        "HouseholdGasRange_Frame-1",
+        "HouseholdGasRange_SideSkin1",
+        "HouseholdGasRange_SideReturn(1, 0.2175)",
+        "HouseholdGasRange_SideReturn(1, 0.835)",
+        "HouseholdGasRange_SideEdge(1, -0.3)",
+        "HouseholdGasRange_SideEdge(1, 0.285)",
+        "HouseholdGasRange_Frame1",
+        "HouseholdGasRange_DeckRim",
+        "HouseholdGasRange_HobTray",
+        "HouseholdGasRange_UpperFascia",
+        "HouseholdGasRange_LowerFascia",
+        "HouseholdGasRange_OvenBack",
+        "HouseholdGasRange_OvenSide-0.229",
+        "HouseholdGasRange_OvenSide0.22",
+        "HouseholdGasRange_OvenShelf0.331",
+        "HouseholdGasRange_OvenShelf0.671",
+        "HouseholdGasRange_RackSlide-0.222",
+        "HouseholdGasRange_RackSlide0.207",
+        "HouseholdGasRange_OvenRackCross-0.19",
+        "HouseholdGasRange_OvenRackCross0.2",
+        "HouseholdGasRange_OvenRackWire0",
+        "HouseholdGasRange_OvenRackWire1",
+        "HouseholdGasRange_OvenRackWire2",
+        "HouseholdGasRange_OvenRackWire3",
+        "HouseholdGasRange_OvenRackWire4",
+        "HouseholdGasRange_OvenRackWire5",
+        "HouseholdGasRange_OvenRackWire6",
+        "HouseholdGasRange_OvenRackWire7",
+        "HouseholdGasRange_OvenRackWire8",
+        "HouseholdGasRange_OvenRackWire9",
+        "HouseholdGasRange_OvenRackWire10",
+        "HouseholdGasRange_OvenRackWire11",
+        "HouseholdGasRange_OvenRackWire12",
+        "HouseholdGasRange_OvenRackWire13",
+        "HouseholdGasRange_OvenRackWire14",
+        "HouseholdGasRange_OvenRackWire15",
+        "HouseholdGasRange_OvenRackWire16",
+        "HouseholdGasRange_BroilerBack",
+        "HouseholdGasRange_BroilerFloor",
+        "HouseholdGasRange_BroilerSide-0.229",
+        "HouseholdGasRange_BroilerSide0.22",
+        "HouseholdGasRange_BackSplash",
+        "HouseholdGasRange_CondimentShelf",
+        "HouseholdGasRange_ShelfRailPost-0.27",
+        "HouseholdGasRange_ShelfRailPost0.27",
+        "HouseholdGasRange_ShelfRail",
+        "HouseholdGasRange_GasRail",
+        "HouseholdGasRange_GasRailBracket-0.26",
+        "HouseholdGasRange_GasRailFixing-0.26-1",
+        "HouseholdGasRange_GasRailFixing-0.261",
+        "HouseholdGasRange_GasRailBracket0.26",
+        "HouseholdGasRange_GasRailFixing0.26-1",
+        "HouseholdGasRange_GasRailFixing0.261",
+        "HouseholdGasRange_OvenSkin",
+        "HouseholdGasRange_OvenHeatShield",
+        "HouseholdGasRange_OvenPressedPanel",
+        "HouseholdGasRange_OvenHinge-0.16_Pin",
+        "HouseholdGasRange_OvenHinge-0.16_FixedNeck",
+        "HouseholdGasRange_OvenHinge-0.16_Knuckle-0.187",
+        "HouseholdGasRange_OvenHinge-0.16_LeafNeck-0.187",
+        "HouseholdGasRange_OvenHinge-0.16_Knuckle-0.133",
+        "HouseholdGasRange_OvenHinge-0.16_LeafNeck-0.133",
+        "HouseholdGasRange_OvenHinge0.16_Pin",
+        "HouseholdGasRange_OvenHinge0.16_FixedNeck",
+        "HouseholdGasRange_OvenHinge0.16_Knuckle0.133",
+        "HouseholdGasRange_OvenHinge0.16_LeafNeck0.133",
+        "HouseholdGasRange_OvenHinge0.16_Knuckle0.187",
+        "HouseholdGasRange_OvenHinge0.16_LeafNeck0.187",
+        "HouseholdGasRange_OvenHandleFoot-0.1892",
+        "HouseholdGasRange_OvenHandleFoot0.1892",
+        "HouseholdGasRange_OvenHandle",
+        "HouseholdGasRange_BroilerSkin",
+        "HouseholdGasRange_BroilerHinge-0.15_Pin",
+        "HouseholdGasRange_BroilerHinge-0.15_FixedNeck",
+        "HouseholdGasRange_BroilerHinge-0.15_Knuckle-0.177",
+        "HouseholdGasRange_BroilerHinge-0.15_LeafNeck-0.177",
+        "HouseholdGasRange_BroilerHinge-0.15_Knuckle-0.123",
+        "HouseholdGasRange_BroilerHinge-0.15_LeafNeck-0.123",
+        "HouseholdGasRange_BroilerHinge0.15_Pin",
+        "HouseholdGasRange_BroilerHinge0.15_FixedNeck",
+        "HouseholdGasRange_BroilerHinge0.15_Knuckle0.123",
+        "HouseholdGasRange_BroilerHinge0.15_LeafNeck0.123",
+        "HouseholdGasRange_BroilerHinge0.15_Knuckle0.177",
+        "HouseholdGasRange_BroilerHinge0.15_LeafNeck0.177",
+        "HouseholdGasRange_BroilerInset",
+        "HouseholdGasRange_BroilerFastener-0.13",
+        "HouseholdGasRange_BroilerScrew-0.13-1",
+        "HouseholdGasRange_BroilerScrew-0.131",
+        "HouseholdGasRange_BroilerFastener0.13",
+        "HouseholdGasRange_BroilerScrew0.13-1",
+        "HouseholdGasRange_BroilerScrew0.131",
+        "HouseholdGasRange_BurnerValve1_Stem",
+        "HouseholdGasRange_BurnerValve1_Grip",
+        "HouseholdGasRange_BurnerValve1_Pointer",
+        "HouseholdGasRange_BurnerValve2_Stem",
+        "HouseholdGasRange_BurnerValve2_Grip",
+        "HouseholdGasRange_BurnerValve2_Pointer",
+        "HouseholdGasRange_BurnerValve3_Stem",
+        "HouseholdGasRange_BurnerValve3_Grip",
+        "HouseholdGasRange_BurnerValve3_Pointer",
+        "HouseholdGasRange_BurnerValve4_Stem",
+        "HouseholdGasRange_BurnerValve4_Grip",
+        "HouseholdGasRange_BurnerValve4_Pointer",
+        "HouseholdGasRange_OvenValve_Stem",
+        "HouseholdGasRange_OvenValve_Grip",
+        "HouseholdGasRange_OvenValve_Pointer",
+        "HouseholdGasRange_Grate1_Rim",
+        "HouseholdGasRange_Grate1_Finger0",
+        "HouseholdGasRange_Grate1_Finger1",
+        "HouseholdGasRange_Grate1_Finger2",
+        "HouseholdGasRange_Grate1_Finger3",
+        "HouseholdGasRange_Grate1_Finger4",
+        "HouseholdGasRange_Grate1_Finger5",
+        "HouseholdGasRange_Grate1_Finger6",
+        "HouseholdGasRange_Grate1_Finger7",
+        "HouseholdGasRange_Grate1_Foot0.7853981633974483",
+        "HouseholdGasRange_Grate1_Foot2.356194490192345",
+        "HouseholdGasRange_Grate1_Foot3.9269908169872414",
+        "HouseholdGasRange_Grate1_Foot5.497787143782138",
+        "HouseholdGasRange_BurnerCap1_Head",
+        "HouseholdGasRange_BurnerCap1_PortCrown",
+        "HouseholdGasRange_BurnerCap1_Port0.0",
+        "HouseholdGasRange_BurnerCap1_Port0.19634954084936207",
+        "HouseholdGasRange_BurnerCap1_Port0.39269908169872414",
+        "HouseholdGasRange_BurnerCap1_Port0.5890486225480862",
+        "HouseholdGasRange_BurnerCap1_Port0.7853981633974483",
+        "HouseholdGasRange_BurnerCap1_Port0.9817477042468103",
+        "HouseholdGasRange_BurnerCap1_Port1.1780972450961724",
+        "HouseholdGasRange_BurnerCap1_Port1.3744467859455345",
+        "HouseholdGasRange_BurnerCap1_Port1.5707963267948966",
+        "HouseholdGasRange_BurnerCap1_Port1.7671458676442586",
+        "HouseholdGasRange_BurnerCap1_Port1.9634954084936207",
+        "HouseholdGasRange_BurnerCap1_Port2.1598449493429825",
+        "HouseholdGasRange_BurnerCap1_Port2.356194490192345",
+        "HouseholdGasRange_BurnerCap1_Port2.552544031041707",
+        "HouseholdGasRange_BurnerCap1_Port2.748893571891069",
+        "HouseholdGasRange_BurnerCap1_Port2.945243112740431",
+        "HouseholdGasRange_BurnerCap1_Port3.141592653589793",
+        "HouseholdGasRange_BurnerCap1_Port3.3379421944391554",
+        "HouseholdGasRange_BurnerCap1_Port3.5342917352885173",
+        "HouseholdGasRange_BurnerCap1_Port3.730641276137879",
+        "HouseholdGasRange_BurnerCap1_Port3.9269908169872414",
+        "HouseholdGasRange_BurnerCap1_Port4.123340357836604",
+        "HouseholdGasRange_BurnerCap1_Port4.319689898685965",
+        "HouseholdGasRange_BurnerCap1_Port4.516039439535327",
+        "HouseholdGasRange_BurnerCap1_Port4.71238898038469",
+        "HouseholdGasRange_BurnerCap1_Port4.908738521234052",
+        "HouseholdGasRange_BurnerCap1_Port5.105088062083414",
+        "HouseholdGasRange_BurnerCap1_Port5.301437602932776",
+        "HouseholdGasRange_BurnerCap1_Port5.497787143782138",
+        "HouseholdGasRange_BurnerCap1_Port5.6941366846315",
+        "HouseholdGasRange_BurnerCap1_Port5.890486225480862",
+        "HouseholdGasRange_BurnerCap1_Port6.086835766330224",
+        "HouseholdGasRange_Grate2_Rim",
+        "HouseholdGasRange_Grate2_Finger0",
+        "HouseholdGasRange_Grate2_Finger1",
+        "HouseholdGasRange_Grate2_Finger2",
+        "HouseholdGasRange_Grate2_Finger3",
+        "HouseholdGasRange_Grate2_Finger4",
+        "HouseholdGasRange_Grate2_Finger5",
+        "HouseholdGasRange_Grate2_Finger6",
+        "HouseholdGasRange_Grate2_Finger7",
+        "HouseholdGasRange_Grate2_Foot0.7853981633974483",
+        "HouseholdGasRange_Grate2_Foot2.356194490192345",
+        "HouseholdGasRange_Grate2_Foot3.9269908169872414",
+        "HouseholdGasRange_Grate2_Foot5.497787143782138",
+        "HouseholdGasRange_BurnerCap2_Head",
+        "HouseholdGasRange_BurnerCap2_PortCrown",
+        "HouseholdGasRange_BurnerCap2_Port0.0",
+        "HouseholdGasRange_BurnerCap2_Port0.19634954084936207",
+        "HouseholdGasRange_BurnerCap2_Port0.39269908169872414",
+        "HouseholdGasRange_BurnerCap2_Port0.5890486225480862",
+        "HouseholdGasRange_BurnerCap2_Port0.7853981633974483",
+        "HouseholdGasRange_BurnerCap2_Port0.9817477042468103",
+        "HouseholdGasRange_BurnerCap2_Port1.1780972450961724",
+        "HouseholdGasRange_BurnerCap2_Port1.3744467859455345",
+        "HouseholdGasRange_BurnerCap2_Port1.5707963267948966",
+        "HouseholdGasRange_BurnerCap2_Port1.7671458676442586",
+        "HouseholdGasRange_BurnerCap2_Port1.9634954084936207",
+        "HouseholdGasRange_BurnerCap2_Port2.1598449493429825",
+        "HouseholdGasRange_BurnerCap2_Port2.356194490192345",
+        "HouseholdGasRange_BurnerCap2_Port2.552544031041707",
+        "HouseholdGasRange_BurnerCap2_Port2.748893571891069",
+        "HouseholdGasRange_BurnerCap2_Port2.945243112740431",
+        "HouseholdGasRange_BurnerCap2_Port3.141592653589793",
+        "HouseholdGasRange_BurnerCap2_Port3.3379421944391554",
+        "HouseholdGasRange_BurnerCap2_Port3.5342917352885173",
+        "HouseholdGasRange_BurnerCap2_Port3.730641276137879",
+        "HouseholdGasRange_BurnerCap2_Port3.9269908169872414",
+        "HouseholdGasRange_BurnerCap2_Port4.123340357836604",
+        "HouseholdGasRange_BurnerCap2_Port4.319689898685965",
+        "HouseholdGasRange_BurnerCap2_Port4.516039439535327",
+        "HouseholdGasRange_BurnerCap2_Port4.71238898038469",
+        "HouseholdGasRange_BurnerCap2_Port4.908738521234052",
+        "HouseholdGasRange_BurnerCap2_Port5.105088062083414",
+        "HouseholdGasRange_BurnerCap2_Port5.301437602932776",
+        "HouseholdGasRange_BurnerCap2_Port5.497787143782138",
+        "HouseholdGasRange_BurnerCap2_Port5.6941366846315",
+        "HouseholdGasRange_BurnerCap2_Port5.890486225480862",
+        "HouseholdGasRange_BurnerCap2_Port6.086835766330224",
+        "HouseholdGasRange_Grate3_Rim",
+        "HouseholdGasRange_Grate3_Finger0",
+        "HouseholdGasRange_Grate3_Finger1",
+        "HouseholdGasRange_Grate3_Finger2",
+        "HouseholdGasRange_Grate3_Finger3",
+        "HouseholdGasRange_Grate3_Finger4",
+        "HouseholdGasRange_Grate3_Finger5",
+        "HouseholdGasRange_Grate3_Finger6",
+        "HouseholdGasRange_Grate3_Finger7",
+        "HouseholdGasRange_Grate3_Foot0.7853981633974483",
+        "HouseholdGasRange_Grate3_Foot2.356194490192345",
+        "HouseholdGasRange_Grate3_Foot3.9269908169872414",
+        "HouseholdGasRange_Grate3_Foot5.497787143782138",
+        "HouseholdGasRange_BurnerCap3_Head",
+        "HouseholdGasRange_BurnerCap3_PortCrown",
+        "HouseholdGasRange_BurnerCap3_Port0.0",
+        "HouseholdGasRange_BurnerCap3_Port0.19634954084936207",
+        "HouseholdGasRange_BurnerCap3_Port0.39269908169872414",
+        "HouseholdGasRange_BurnerCap3_Port0.5890486225480862",
+        "HouseholdGasRange_BurnerCap3_Port0.7853981633974483",
+        "HouseholdGasRange_BurnerCap3_Port0.9817477042468103",
+        "HouseholdGasRange_BurnerCap3_Port1.1780972450961724",
+        "HouseholdGasRange_BurnerCap3_Port1.3744467859455345",
+        "HouseholdGasRange_BurnerCap3_Port1.5707963267948966",
+        "HouseholdGasRange_BurnerCap3_Port1.7671458676442586",
+        "HouseholdGasRange_BurnerCap3_Port1.9634954084936207",
+        "HouseholdGasRange_BurnerCap3_Port2.1598449493429825",
+        "HouseholdGasRange_BurnerCap3_Port2.356194490192345",
+        "HouseholdGasRange_BurnerCap3_Port2.552544031041707",
+        "HouseholdGasRange_BurnerCap3_Port2.748893571891069",
+        "HouseholdGasRange_BurnerCap3_Port2.945243112740431",
+        "HouseholdGasRange_BurnerCap3_Port3.141592653589793",
+        "HouseholdGasRange_BurnerCap3_Port3.3379421944391554",
+        "HouseholdGasRange_BurnerCap3_Port3.5342917352885173",
+        "HouseholdGasRange_BurnerCap3_Port3.730641276137879",
+        "HouseholdGasRange_BurnerCap3_Port3.9269908169872414",
+        "HouseholdGasRange_BurnerCap3_Port4.123340357836604",
+        "HouseholdGasRange_BurnerCap3_Port4.319689898685965",
+        "HouseholdGasRange_BurnerCap3_Port4.516039439535327",
+        "HouseholdGasRange_BurnerCap3_Port4.71238898038469",
+        "HouseholdGasRange_BurnerCap3_Port4.908738521234052",
+        "HouseholdGasRange_BurnerCap3_Port5.105088062083414",
+        "HouseholdGasRange_BurnerCap3_Port5.301437602932776",
+        "HouseholdGasRange_BurnerCap3_Port5.497787143782138",
+        "HouseholdGasRange_BurnerCap3_Port5.6941366846315",
+        "HouseholdGasRange_BurnerCap3_Port5.890486225480862",
+        "HouseholdGasRange_BurnerCap3_Port6.086835766330224",
+        "HouseholdGasRange_Grate4_Rim",
+        "HouseholdGasRange_Grate4_Finger0",
+        "HouseholdGasRange_Grate4_Finger1",
+        "HouseholdGasRange_Grate4_Finger2",
+        "HouseholdGasRange_Grate4_Finger3",
+        "HouseholdGasRange_Grate4_Finger4",
+        "HouseholdGasRange_Grate4_Finger5",
+        "HouseholdGasRange_Grate4_Finger6",
+        "HouseholdGasRange_Grate4_Finger7",
+        "HouseholdGasRange_Grate4_Foot0.7853981633974483",
+        "HouseholdGasRange_Grate4_Foot2.356194490192345",
+        "HouseholdGasRange_Grate4_Foot3.9269908169872414",
+        "HouseholdGasRange_Grate4_Foot5.497787143782138",
+        "HouseholdGasRange_BurnerCap4_Head",
+        "HouseholdGasRange_BurnerCap4_PortCrown",
+        "HouseholdGasRange_BurnerCap4_Port0.0",
+        "HouseholdGasRange_BurnerCap4_Port0.19634954084936207",
+        "HouseholdGasRange_BurnerCap4_Port0.39269908169872414",
+        "HouseholdGasRange_BurnerCap4_Port0.5890486225480862",
+        "HouseholdGasRange_BurnerCap4_Port0.7853981633974483",
+        "HouseholdGasRange_BurnerCap4_Port0.9817477042468103",
+        "HouseholdGasRange_BurnerCap4_Port1.1780972450961724",
+        "HouseholdGasRange_BurnerCap4_Port1.3744467859455345",
+        "HouseholdGasRange_BurnerCap4_Port1.5707963267948966",
+        "HouseholdGasRange_BurnerCap4_Port1.7671458676442586",
+        "HouseholdGasRange_BurnerCap4_Port1.9634954084936207",
+        "HouseholdGasRange_BurnerCap4_Port2.1598449493429825",
+        "HouseholdGasRange_BurnerCap4_Port2.356194490192345",
+        "HouseholdGasRange_BurnerCap4_Port2.552544031041707",
+        "HouseholdGasRange_BurnerCap4_Port2.748893571891069",
+        "HouseholdGasRange_BurnerCap4_Port2.945243112740431",
+        "HouseholdGasRange_BurnerCap4_Port3.141592653589793",
+        "HouseholdGasRange_BurnerCap4_Port3.3379421944391554",
+        "HouseholdGasRange_BurnerCap4_Port3.5342917352885173",
+        "HouseholdGasRange_BurnerCap4_Port3.730641276137879",
+        "HouseholdGasRange_BurnerCap4_Port3.9269908169872414",
+        "HouseholdGasRange_BurnerCap4_Port4.123340357836604",
+        "HouseholdGasRange_BurnerCap4_Port4.319689898685965",
+        "HouseholdGasRange_BurnerCap4_Port4.516039439535327",
+        "HouseholdGasRange_BurnerCap4_Port4.71238898038469",
+        "HouseholdGasRange_BurnerCap4_Port4.908738521234052",
+        "HouseholdGasRange_BurnerCap4_Port5.105088062083414",
+        "HouseholdGasRange_BurnerCap4_Port5.301437602932776",
+        "HouseholdGasRange_BurnerCap4_Port5.497787143782138",
+        "HouseholdGasRange_BurnerCap4_Port5.6941366846315",
+        "HouseholdGasRange_BurnerCap4_Port5.890486225480862",
+        "HouseholdGasRange_BurnerCap4_Port6.086835766330224"
+      ]
+    }
+  ],
+  "placement": {
+    "floor_y": 0
+  },
+  "open_work": [
+    "Native geometry, service poses and surrounding stock require visual and production verification.",
+    "Whole-room lighting and broad floor/plaster finish calibration remain open."
+  ]
+}

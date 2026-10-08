@@ -1,0 +1,14 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "tmp/v2-finish-review/stoves-pose-bounds.py",
+      "elapsed_s": 0.332
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_stoves_context.py",
+      "elapsed_s": 3.099
+    }
+  ]
+}

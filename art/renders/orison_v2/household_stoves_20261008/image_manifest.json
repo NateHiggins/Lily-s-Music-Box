@@ -1,0 +1,168 @@
+{
+  "evidence_class": "INERT",
+  "native": [
+    {
+      "id": "HouseholdGasRange",
+      "file": "native/HouseholdGasRange_closed.png",
+      "state": "closed",
+      "scope": "Native fixed and service geometry; original dynamic flame, grease and plugged jet remain runtime owners.",
+      "sha256": "016b1b828efc95badc57aea0d6cb8f2610d3809074ff9930f403e28cbcc81dba",
+      "status": "visually reviewed"
+    },
+    {
+      "id": "HouseholdGasRange",
+      "file": "native/HouseholdGasRange_open.png",
+      "state": "open",
+      "scope": "Native fixed and service geometry; original dynamic flame, grease and plugged jet remain runtime owners.",
+      "sha256": "913ed637b04e9b9412d1ed148dcc4de267969197d9d0aba5ff378d122494e65b",
+      "status": "visually reviewed"
+    },
+    {
+      "id": "HouseholdGasRange",
+      "file": "native/HouseholdGasRange_service0.png",
+      "state": "service0",
+      "scope": "Native fixed and service geometry; original dynamic flame, grease and plugged jet remain runtime owners.",
+      "sha256": "edd854318b47e0abd9b92f9e0766025c80d2e2e3129155cb3cb4f91f2dec313a",
+      "status": "visually reviewed"
+    },
+    {
+      "id": "HouseholdGasRange",
+      "file": "native/HouseholdGasRange_service1.png",
+      "state": "service1",
+      "scope": "Native fixed and service geometry; original dynamic flame, grease and plugged jet remain runtime owners.",
+      "sha256": "fd51cc072f7856fb37ed55065e7a040b06134e61bb79b7d5c0bbba7f90b28694",
+      "status": "visually reviewed"
+    },
+    {
+      "id": "HouseholdGasRange",
+      "file": "native/HouseholdGasRange_service2.png",
+      "state": "service2",
+      "scope": "Native fixed and service geometry; original dynamic flame, grease and plugged jet remain runtime owners.",
+      "sha256": "53f18ce6f01dc50b35a53b4975b0f8e5d08aa3933830b5850ede84671c166a02",
+      "status": "visually reviewed"
+    },
+    {
+      "id": "HouseholdGasRange",
+      "file": "native/HouseholdGasRange_service3.png",
+      "state": "service3",
+      "scope": "Native fixed and service geometry; original dynamic flame, grease and plugged jet remain runtime owners.",
+      "sha256": "3b9ea4ee3c20011735aa805b3bea4dbede0d14f3984cc16b21e2cc0cc5e3a5e2",
+      "status": "visually reviewed"
+    }
+  ],
+  "production": [
+    {
+      "bucket": "native gas range and original service controls",
+      "feet": [
+        -11.560001373291,
+        3.22000002861023,
+        -5.75000047683716
+      ],
+      "id": "F02_2B_STOVE_01_native_open",
+      "image": "F02_2B_STOVE_01_native_open.png",
+      "owner": "F02_2B_STOVE_01",
+      "status": "visually reviewed; model form and service endpoints accepted; room finish remains open",
+      "file": "production/F02_2B_STOVE_01_native_open.png",
+      "sha256": "c77c4ecef613d75c226c2a6f2983db003cc1aa256ab45d2fa2075037221507cf"
+    },
+    {
+      "bucket": "native gas range and original service controls",
+      "feet": [
+        8.5200023651123,
+        12.8200006484985,
+        -20.75
+      ],
+      "id": "F05_5B_STOVE_01_native_open",
+      "image": "F05_5B_STOVE_01_native_open.png",
+      "owner": "F05_5B_STOVE_01",
+      "status": "visually reviewed; model form and service endpoints accepted; room finish remains open",
+      "file": "production/F05_5B_STOVE_01_native_open.png",
+      "sha256": "caa7ce3071f3740759018595f7eabbb577a5a8a3df6459d3453c223c926a08d0"
+    },
+    {
+      "bucket": "native gas range and original service controls",
+      "feet": [
+        9.37432956695557,
+        0.0199999995529652,
+        -2.97153854370117
+      ],
+      "id": "F01_1A_STOVE_01_native_open",
+      "image": "F01_1A_STOVE_01_native_open.png",
+      "owner": "F01_1A_STOVE_01",
+      "status": "visually reviewed; model form and service endpoints accepted; room finish remains open",
+      "file": "production/F01_1A_STOVE_01_native_open.png",
+      "sha256": "2a1bef71eafaf20d3d4bbe47add8131d6f2c741c11c2236a467c9a42c2f50198"
+    },
+    {
+      "bucket": "native gas range and original service controls",
+      "feet": [
+        -11.560001373291,
+        3.22000002861023,
+        -5.75000047683716
+      ],
+      "id": "F02_2B_STOVE_01_native_service0",
+      "image": "F02_2B_STOVE_01_native_service0.png",
+      "owner": "F02_2B_STOVE_01",
+      "status": "visually reviewed; model form and service endpoints accepted; room finish remains open",
+      "file": "production/F02_2B_STOVE_01_native_service0.png",
+      "sha256": "a9451a7ee5ac839e424e33574274c5c371b45fd428f7647b9cb5401a26d3195d"
+    },
+    {
+      "bucket": "native gas range and original service controls",
+      "feet": [
+        -11.560001373291,
+        3.22000002861023,
+        -5.75000047683716
+      ],
+      "id": "F02_2B_STOVE_01_native_service2",
+      "image": "F02_2B_STOVE_01_native_service2.png",
+      "owner": "F02_2B_STOVE_01",
+      "status": "visually reviewed; model form and service endpoints accepted; room finish remains open",
+      "file": "production/F02_2B_STOVE_01_native_service2.png",
+      "sha256": "ce1c439baabe5bdf827ed701f7e29741850f63ce7977b307f7e7171f25ebca50"
+    },
+    {
+      "bucket": "native gas range and original service controls",
+      "feet": [
+        -11.560001373291,
+        3.22000002861023,
+        -5.75000047683716
+      ],
+      "id": "F02_2B_STOVE_01_native_closed",
+      "image": "F02_2B_STOVE_01_native_closed.png",
+      "owner": "F02_2B_STOVE_01",
+      "status": "visually reviewed; model form and service endpoints accepted; room finish remains open",
+      "file": "production/F02_2B_STOVE_01_native_closed.png",
+      "sha256": "8a4a3798c874c1c9661b03e0bf38910f9d347fb343502207e9d3d07ffad9b36c"
+    },
+    {
+      "bucket": "native gas range and original service controls",
+      "feet": [
+        8.5200023651123,
+        12.8200006484985,
+        -20.75
+      ],
+      "id": "F05_5B_STOVE_01_native_closed",
+      "image": "F05_5B_STOVE_01_native_closed.png",
+      "owner": "F05_5B_STOVE_01",
+      "status": "visually reviewed; model form and service endpoints accepted; room finish remains open",
+      "file": "production/F05_5B_STOVE_01_native_closed.png",
+      "sha256": "96d3138442f2e040ffa0c282b763d1173990d1a8a3089667304e5eee2c0c0243"
+    },
+    {
+      "bucket": "native gas range and original service controls",
+      "feet": [
+        10.7996959686279,
+        0.0199999995529652,
+        -2.86746978759766
+      ],
+      "id": "F01_1A_STOVE_01_native_closed",
+      "image": "F01_1A_STOVE_01_native_closed.png",
+      "owner": "F01_1A_STOVE_01",
+      "status": "visually reviewed; model form and service endpoints accepted; room finish remains open",
+      "file": "production/F01_1A_STOVE_01_native_closed.png",
+      "sha256": "03c93ee0b4d8cbb4e52943e7a64b9a4904c3732b992009402f1870c2914e1903"
+    }
+  ],
+  "scope": "Final native04 geometry and runtime01 frames; runtime02 corrects only the validator expected initial valve angle for the two source ambient-lit households. Identical native fixture and asset. These are fabrication QA, not runtime_contract proof. Original runtime01 four validator failures remain in raw evidence."
+}

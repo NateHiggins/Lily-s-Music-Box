@@ -1,0 +1,85 @@
+FABRICATION STAGE: art/blender/scripts/build_household_stoves.py
+C:\PleaseRemainOnTheLine\art\blender\scripts\build_household_stoves.py:72: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(key);mat.use_nodes=True;materials[key]=mat
+Info: Saved as "household_stoves.blend"
+INFO Draco is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at C:\Program Files\Blender Foundation\Blender 5.2\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+03:10:28 | INFO: Starting glTF 2.0 export
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__Body_ON_brass
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__Body_ON_dark
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__Body_ON_enamel
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__Body_ON_iron
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__Body_ON_nickel
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BroilerDrawer_ON_dark
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BroilerDrawer_ON_enamel
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BroilerDrawer_ON_iron
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BroilerDrawer_ON_nickel
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerCap1_ON_dark
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerCap1_ON_iron
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerCap2_ON_dark
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerCap2_ON_iron
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerCap3_ON_dark
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerCap3_ON_iron
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerCap4_ON_dark
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerCap4_ON_iron
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerValve1_ON_bakelite
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerValve1_ON_brass
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerValve2_ON_bakelite
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerValve2_ON_brass
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerValve3_ON_bakelite
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerValve3_ON_brass
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerValve4_ON_bakelite
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__BurnerValve4_ON_brass
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__Grate1_ON_iron
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__Grate2_ON_iron
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__Grate3_ON_iron
+03:10:28 | INFO: Primitives created: 1
+03:10:28 | INFO: Extracting primitive: HouseholdGasRange__Grate4_ON_iron
+03:10:29 | INFO: Primitives created: 1
+03:10:29 | INFO: Extracting primitive: HouseholdGasRange__OvenDoor_ON_brass
+03:10:29 | INFO: Primitives created: 1
+03:10:29 | INFO: Extracting primitive: HouseholdGasRange__OvenDoor_ON_enamel
+03:10:29 | INFO: Primitives created: 1
+03:10:29 | INFO: Extracting primitive: HouseholdGasRange__OvenDoor_ON_iron
+03:10:29 | INFO: Primitives created: 1
+03:10:29 | INFO: Extracting primitive: HouseholdGasRange__OvenValve_ON_bakelite
+03:10:29 | INFO: Primitives created: 1
+03:10:29 | INFO: Extracting primitive: HouseholdGasRange__OvenValve_ON_brass
+03:10:29 | INFO: Primitives created: 1
+03:10:29 | INFO: Finished glTF 2.0 export in 0.16257810592651367 s
+
+HOUSEHOLD STOVES 18 original records; 1 assemblies; 306 closed stocks; 34 parts; 65832 triangles; 4 foot contacts
+FABRICATION STAGE: art/blender/scripts/inspect_household_stoves.py
+00:03.469  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\household_stoves.blend"
+HOUSEHOLD STOVES LOCAL: 306 closed stocks; 1 physical groups; 4 local bearings; 34 mapped parts
+{"completed_stages": 2, "elapsed_s": 5.583}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

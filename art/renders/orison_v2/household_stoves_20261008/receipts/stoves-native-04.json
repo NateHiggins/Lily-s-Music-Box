@@ -1,0 +1,26 @@
+{
+  "evidence_class": "INERT",
+  "completed": true,
+  "completed_stages": [
+    {
+      "script": "art/blender/scripts/build_household_stoves.py",
+      "elapsed_s": 2.119
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_stoves.py",
+      "elapsed_s": 3.424
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_stove_motion.py",
+      "elapsed_s": 13.452
+    },
+    {
+      "script": "art/blender/scripts/inspect_household_stoves_context.py",
+      "elapsed_s": 3.217
+    },
+    {
+      "script": "art/blender/scripts/render_household_stoves.py",
+      "elapsed_s": 22.13
+    }
+  ]
+}

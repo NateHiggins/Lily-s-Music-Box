@@ -1,0 +1,50 @@
+{
+  "evidence_class": "INERT",
+  "endpoints": [
+    {
+      "index": 0,
+      "blender_center": [
+        -0.2,
+        -0.19995570945709254,
+        0.9949429460718783
+      ],
+      "angle_degrees": -60,
+      "floor_gap_m": 0.011833992770156176,
+      "rear_gap_m": 2e-06
+    },
+    {
+      "index": 1,
+      "blender_center": [
+        0.2,
+        -0.19995570945709254,
+        0.9949429460718783
+      ],
+      "angle_degrees": -60,
+      "floor_gap_m": 0.011833992770156176,
+      "rear_gap_m": 2e-06
+    },
+    {
+      "index": 2,
+      "blender_center": [
+        -0.2,
+        -0.19995571526854508,
+        0.9831109440102771
+      ],
+      "angle_degrees": -60,
+      "floor_gap_m": 2.0000000000575113e-06,
+      "rear_gap_m": 2e-06
+    },
+    {
+      "index": 3,
+      "blender_center": [
+        0.2,
+        -0.19995571526854508,
+        0.9831109440102771
+      ],
+      "angle_degrees": -60,
+      "floor_gap_m": 2.0000000000575113e-06,
+      "rear_gap_m": 2e-06
+    }
+  ],
+  "method": "Exact native surface fit between deck, backsplash, condiment shelf and retained other burner stock. Endpoints seated at first collision boundary with two-micrometre clearance."
+}

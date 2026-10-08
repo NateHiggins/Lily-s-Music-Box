@@ -7,7 +7,7 @@ const Sink := preload("res://scripts/building/orison_v2_sink.gd")
 const SCRIPTS := {
 	"sink": preload("res://scripts/props/tap_prop.gd"),
 	"shower": preload("res://scripts/props/tap_prop.gd"),
-	"stove": preload("res://scripts/props/stove_prop.gd"),
+	"stove": preload("res://scripts/building/orison_v2_stove.gd"),
 	"fridge": preload("res://scripts/building/orison_v2_fridge.gd")}
 const PROPERTY_TYPES := {
 	"sink": {"fixture": TYPE_STRING, "drain_side": TYPE_INT,
@@ -33,6 +33,15 @@ func mount_source(adapter: Variant, parsed: Variant) -> bool:
 			errors.append("native refrigerator preparation failed")
 			return false
 		adapter.root.set_meta("v2_native_fridge_factory", native)
+	var native_stoves: RefCounted
+	if adapter.root.has_meta("v2_native_stove_factory"):
+		native_stoves = adapter.root.get_meta("v2_native_stove_factory")
+	if native_stoves == null:
+		native_stoves = preload("res://scripts/building/orison_v2_native_household_stoves.gd").new()
+		if not native_stoves.prepare():
+			errors.append("native stove preparation failed")
+			return false
+		adapter.root.set_meta("v2_native_stove_factory",native_stoves)
 	var acoustic_ids: Array[String] = []
 	for record: Dictionary in parsed.fittings:
 		if AcousticGraphData.nodes.has(record.id):
@@ -45,6 +54,7 @@ func mount_source(adapter: Variant, parsed: Variant) -> bool:
 		consumer.prop_type = str(record.kind)
 		consumer.set("unit", str(record.unit))
 		if record.kind == "fridge": consumer.set_meta("native_fridge_factory", native)
+		if record.kind == "stove": consumer.set_meta("native_stove_factory",native_stoves)
 		for property: String in record.properties:
 			var value: Variant = record.properties[property]
 			consumer.set(property, int(value) if PROPERTY_TYPES[record.kind][property] == TYPE_INT else value)
@@ -55,8 +65,8 @@ func mount_source(adapter: Variant, parsed: Variant) -> bool:
 			errors.append("domestic fitting mount failed: " + str(record.id))
 			return false
 		if record.kind in ["stove", "fridge"]:
-			if record.kind == "fridge" and not consumer.get("native_ready"):
-				errors.append("native refrigerator installation failed: " + str(record.id))
+			if not consumer.get("native_ready"):
+				errors.append("native appliance installation failed: " + str(record.id))
 				return false
 			# The primary Area supplies the E target, not movement
 			# collision. V2 has no baked fixture hull beneath the live mesh.

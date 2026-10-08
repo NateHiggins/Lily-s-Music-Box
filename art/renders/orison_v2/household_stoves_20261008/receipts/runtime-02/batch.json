@@ -1,0 +1,23 @@
+{
+	"batch_checks": 6,
+	"elapsed_ms": 36577,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 3065,
+	"modules": {
+		"household_stoves": {
+			"actors": 18,
+			"captured": false,
+			"checks": 3065,
+			"elapsed_ms": 3543,
+			"failures": [],
+			"fixture_sha256": "a2661ca9ccfaaaffa9326d651c0288d85d11895da2fd7c14a735dc3037ffc413",
+			"unique_triangles": 65832,
+			"validator_sha256": "860028d03a65715bfdd197fd6c2e7e64287c4b2f90615d6ca0e608e273c85ea7",
+			"views": []
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

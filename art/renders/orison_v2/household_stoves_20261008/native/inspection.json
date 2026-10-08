@@ -1,0 +1,1809 @@
+{
+  "evidence_class": "INERT",
+  "closed_stocks": 306,
+  "connected_groups": [
+    {
+      "assembly": "HouseholdGasRange_GasRange",
+      "connected_components": 1,
+      "surface_contact_edges": [
+        [
+          "HouseholdGasRange_Foot(-0.275, -0.245)",
+          "HouseholdGasRange_FootRail-0.245"
+        ],
+        [
+          "HouseholdGasRange_Foot(-0.275, -0.245)",
+          "HouseholdGasRange_Base"
+        ],
+        [
+          "HouseholdGasRange_Foot(-0.275, 0.245)",
+          "HouseholdGasRange_FootRail0.245"
+        ],
+        [
+          "HouseholdGasRange_Foot(-0.275, 0.245)",
+          "HouseholdGasRange_Base"
+        ],
+        [
+          "HouseholdGasRange_Foot(0.275, -0.245)",
+          "HouseholdGasRange_FootRail-0.245"
+        ],
+        [
+          "HouseholdGasRange_Foot(0.275, -0.245)",
+          "HouseholdGasRange_Base"
+        ],
+        [
+          "HouseholdGasRange_Foot(0.275, 0.245)",
+          "HouseholdGasRange_FootRail0.245"
+        ],
+        [
+          "HouseholdGasRange_Foot(0.275, 0.245)",
+          "HouseholdGasRange_Base"
+        ],
+        [
+          "HouseholdGasRange_Base",
+          "HouseholdGasRange_SideReturn(-1, 0.2175)"
+        ],
+        [
+          "HouseholdGasRange_Base",
+          "HouseholdGasRange_Frame-1"
+        ],
+        [
+          "HouseholdGasRange_Base",
+          "HouseholdGasRange_SideReturn(1, 0.2175)"
+        ],
+        [
+          "HouseholdGasRange_Base",
+          "HouseholdGasRange_Frame1"
+        ],
+        [
+          "HouseholdGasRange_Base",
+          "HouseholdGasRange_BroilerBack"
+        ],
+        [
+          "HouseholdGasRange_Base",
+          "HouseholdGasRange_BroilerFloor"
+        ],
+        [
+          "HouseholdGasRange_Base",
+          "HouseholdGasRange_BroilerHinge-0.15_FixedNeck"
+        ],
+        [
+          "HouseholdGasRange_Base",
+          "HouseholdGasRange_BroilerHinge0.15_FixedNeck"
+        ],
+        [
+          "HouseholdGasRange_SideSkin-1",
+          "HouseholdGasRange_SideReturn(-1, 0.2175)"
+        ],
+        [
+          "HouseholdGasRange_SideSkin-1",
+          "HouseholdGasRange_SideReturn(-1, 0.835)"
+        ],
+        [
+          "HouseholdGasRange_SideSkin-1",
+          "HouseholdGasRange_SideEdge(-1, -0.3)"
+        ],
+        [
+          "HouseholdGasRange_SideSkin-1",
+          "HouseholdGasRange_SideEdge(-1, 0.285)"
+        ],
+        [
+          "HouseholdGasRange_SideReturn(-1, 0.2175)",
+          "HouseholdGasRange_SideEdge(-1, -0.3)"
+        ],
+        [
+          "HouseholdGasRange_SideReturn(-1, 0.2175)",
+          "HouseholdGasRange_SideEdge(-1, 0.285)"
+        ],
+        [
+          "HouseholdGasRange_SideReturn(-1, 0.835)",
+          "HouseholdGasRange_SideEdge(-1, -0.3)"
+        ],
+        [
+          "HouseholdGasRange_SideReturn(-1, 0.835)",
+          "HouseholdGasRange_SideEdge(-1, 0.285)"
+        ],
+        [
+          "HouseholdGasRange_SideReturn(-1, 0.835)",
+          "HouseholdGasRange_DeckRim"
+        ],
+        [
+          "HouseholdGasRange_SideEdge(-1, 0.285)",
+          "HouseholdGasRange_UpperFascia"
+        ],
+        [
+          "HouseholdGasRange_SideEdge(-1, 0.285)",
+          "HouseholdGasRange_LowerFascia"
+        ],
+        [
+          "HouseholdGasRange_SideEdge(-1, 0.285)",
+          "HouseholdGasRange_GasRailBracket-0.26"
+        ],
+        [
+          "HouseholdGasRange_Frame-1",
+          "HouseholdGasRange_UpperFascia"
+        ],
+        [
+          "HouseholdGasRange_Frame-1",
+          "HouseholdGasRange_LowerFascia"
+        ],
+        [
+          "HouseholdGasRange_SideSkin1",
+          "HouseholdGasRange_SideReturn(1, 0.2175)"
+        ],
+        [
+          "HouseholdGasRange_SideSkin1",
+          "HouseholdGasRange_SideReturn(1, 0.835)"
+        ],
+        [
+          "HouseholdGasRange_SideSkin1",
+          "HouseholdGasRange_SideEdge(1, -0.3)"
+        ],
+        [
+          "HouseholdGasRange_SideSkin1",
+          "HouseholdGasRange_SideEdge(1, 0.285)"
+        ],
+        [
+          "HouseholdGasRange_SideReturn(1, 0.2175)",
+          "HouseholdGasRange_SideEdge(1, -0.3)"
+        ],
+        [
+          "HouseholdGasRange_SideReturn(1, 0.2175)",
+          "HouseholdGasRange_SideEdge(1, 0.285)"
+        ],
+        [
+          "HouseholdGasRange_SideReturn(1, 0.835)",
+          "HouseholdGasRange_SideEdge(1, -0.3)"
+        ],
+        [
+          "HouseholdGasRange_SideReturn(1, 0.835)",
+          "HouseholdGasRange_SideEdge(1, 0.285)"
+        ],
+        [
+          "HouseholdGasRange_SideReturn(1, 0.835)",
+          "HouseholdGasRange_DeckRim"
+        ],
+        [
+          "HouseholdGasRange_SideEdge(1, 0.285)",
+          "HouseholdGasRange_UpperFascia"
+        ],
+        [
+          "HouseholdGasRange_SideEdge(1, 0.285)",
+          "HouseholdGasRange_LowerFascia"
+        ],
+        [
+          "HouseholdGasRange_SideEdge(1, 0.285)",
+          "HouseholdGasRange_GasRailBracket0.26"
+        ],
+        [
+          "HouseholdGasRange_Frame1",
+          "HouseholdGasRange_UpperFascia"
+        ],
+        [
+          "HouseholdGasRange_Frame1",
+          "HouseholdGasRange_LowerFascia"
+        ],
+        [
+          "HouseholdGasRange_DeckRim",
+          "HouseholdGasRange_HobTray"
+        ],
+        [
+          "HouseholdGasRange_DeckRim",
+          "HouseholdGasRange_BackSplash"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_BackSplash"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate1_Foot0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate1_Foot2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate1_Foot3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate1_Foot5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_BurnerCap1_Head"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate2_Foot0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate2_Foot2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate2_Foot3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate2_Foot5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_BurnerCap2_Head"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate3_Foot0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate3_Foot2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate3_Foot3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate3_Foot5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_BurnerCap3_Head"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate4_Foot0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate4_Foot2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate4_Foot3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_Grate4_Foot5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_HobTray",
+          "HouseholdGasRange_BurnerCap4_Head"
+        ],
+        [
+          "HouseholdGasRange_UpperFascia",
+          "HouseholdGasRange_GasRailBracket-0.26"
+        ],
+        [
+          "HouseholdGasRange_UpperFascia",
+          "HouseholdGasRange_GasRailBracket0.26"
+        ],
+        [
+          "HouseholdGasRange_LowerFascia",
+          "HouseholdGasRange_OvenShelf0.331"
+        ],
+        [
+          "HouseholdGasRange_LowerFascia",
+          "HouseholdGasRange_BroilerSide-0.229"
+        ],
+        [
+          "HouseholdGasRange_LowerFascia",
+          "HouseholdGasRange_BroilerSide0.22"
+        ],
+        [
+          "HouseholdGasRange_LowerFascia",
+          "HouseholdGasRange_OvenHinge-0.16_FixedNeck"
+        ],
+        [
+          "HouseholdGasRange_LowerFascia",
+          "HouseholdGasRange_OvenHinge0.16_FixedNeck"
+        ],
+        [
+          "HouseholdGasRange_OvenBack",
+          "HouseholdGasRange_OvenShelf0.331"
+        ],
+        [
+          "HouseholdGasRange_OvenBack",
+          "HouseholdGasRange_OvenShelf0.671"
+        ],
+        [
+          "HouseholdGasRange_OvenSide-0.229",
+          "HouseholdGasRange_OvenShelf0.331"
+        ],
+        [
+          "HouseholdGasRange_OvenSide-0.229",
+          "HouseholdGasRange_OvenShelf0.671"
+        ],
+        [
+          "HouseholdGasRange_OvenSide-0.229",
+          "HouseholdGasRange_RackSlide-0.222"
+        ],
+        [
+          "HouseholdGasRange_OvenSide0.22",
+          "HouseholdGasRange_OvenShelf0.331"
+        ],
+        [
+          "HouseholdGasRange_OvenSide0.22",
+          "HouseholdGasRange_OvenShelf0.671"
+        ],
+        [
+          "HouseholdGasRange_OvenSide0.22",
+          "HouseholdGasRange_RackSlide0.207"
+        ],
+        [
+          "HouseholdGasRange_RackSlide-0.222",
+          "HouseholdGasRange_OvenRackCross-0.19"
+        ],
+        [
+          "HouseholdGasRange_RackSlide-0.222",
+          "HouseholdGasRange_OvenRackCross0.2"
+        ],
+        [
+          "HouseholdGasRange_RackSlide0.207",
+          "HouseholdGasRange_OvenRackCross-0.19"
+        ],
+        [
+          "HouseholdGasRange_RackSlide0.207",
+          "HouseholdGasRange_OvenRackCross0.2"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire0"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire1"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire2"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire3"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire4"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire5"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire6"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire7"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire8"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire9"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire10"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire11"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire12"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire13"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire14"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire15"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross-0.19",
+          "HouseholdGasRange_OvenRackWire16"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire0"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire1"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire2"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire3"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire4"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire5"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire6"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire7"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire8"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire9"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire10"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire11"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire12"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire13"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire14"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire15"
+        ],
+        [
+          "HouseholdGasRange_OvenRackCross0.2",
+          "HouseholdGasRange_OvenRackWire16"
+        ],
+        [
+          "HouseholdGasRange_BroilerBack",
+          "HouseholdGasRange_BroilerFloor"
+        ],
+        [
+          "HouseholdGasRange_BroilerBack",
+          "HouseholdGasRange_BroilerSide-0.229"
+        ],
+        [
+          "HouseholdGasRange_BroilerBack",
+          "HouseholdGasRange_BroilerSide0.22"
+        ],
+        [
+          "HouseholdGasRange_BackSplash",
+          "HouseholdGasRange_CondimentShelf"
+        ],
+        [
+          "HouseholdGasRange_CondimentShelf",
+          "HouseholdGasRange_ShelfRailPost-0.27"
+        ],
+        [
+          "HouseholdGasRange_CondimentShelf",
+          "HouseholdGasRange_ShelfRailPost0.27"
+        ],
+        [
+          "HouseholdGasRange_CondimentShelf",
+          "HouseholdGasRange_ShelfRail"
+        ],
+        [
+          "HouseholdGasRange_ShelfRailPost-0.27",
+          "HouseholdGasRange_ShelfRail"
+        ],
+        [
+          "HouseholdGasRange_ShelfRailPost0.27",
+          "HouseholdGasRange_ShelfRail"
+        ],
+        [
+          "HouseholdGasRange_GasRail",
+          "HouseholdGasRange_GasRailBracket-0.26"
+        ],
+        [
+          "HouseholdGasRange_GasRail",
+          "HouseholdGasRange_GasRailFixing-0.26-1"
+        ],
+        [
+          "HouseholdGasRange_GasRail",
+          "HouseholdGasRange_GasRailBracket0.26"
+        ],
+        [
+          "HouseholdGasRange_GasRail",
+          "HouseholdGasRange_GasRailFixing0.26-1"
+        ],
+        [
+          "HouseholdGasRange_GasRail",
+          "HouseholdGasRange_BurnerValve1_Stem"
+        ],
+        [
+          "HouseholdGasRange_GasRail",
+          "HouseholdGasRange_BurnerValve2_Stem"
+        ],
+        [
+          "HouseholdGasRange_GasRail",
+          "HouseholdGasRange_BurnerValve3_Stem"
+        ],
+        [
+          "HouseholdGasRange_GasRail",
+          "HouseholdGasRange_BurnerValve4_Stem"
+        ],
+        [
+          "HouseholdGasRange_GasRail",
+          "HouseholdGasRange_OvenValve_Stem"
+        ],
+        [
+          "HouseholdGasRange_GasRailBracket-0.26",
+          "HouseholdGasRange_GasRailFixing-0.26-1"
+        ],
+        [
+          "HouseholdGasRange_GasRailBracket-0.26",
+          "HouseholdGasRange_GasRailFixing-0.261"
+        ],
+        [
+          "HouseholdGasRange_GasRailBracket0.26",
+          "HouseholdGasRange_GasRailFixing0.26-1"
+        ],
+        [
+          "HouseholdGasRange_GasRailBracket0.26",
+          "HouseholdGasRange_GasRailFixing0.261"
+        ],
+        [
+          "HouseholdGasRange_OvenSkin",
+          "HouseholdGasRange_OvenHeatShield"
+        ],
+        [
+          "HouseholdGasRange_OvenSkin",
+          "HouseholdGasRange_OvenPressedPanel"
+        ],
+        [
+          "HouseholdGasRange_OvenSkin",
+          "HouseholdGasRange_OvenHinge-0.16_LeafNeck-0.187"
+        ],
+        [
+          "HouseholdGasRange_OvenSkin",
+          "HouseholdGasRange_OvenHinge-0.16_LeafNeck-0.133"
+        ],
+        [
+          "HouseholdGasRange_OvenSkin",
+          "HouseholdGasRange_OvenHinge0.16_LeafNeck0.133"
+        ],
+        [
+          "HouseholdGasRange_OvenSkin",
+          "HouseholdGasRange_OvenHinge0.16_LeafNeck0.187"
+        ],
+        [
+          "HouseholdGasRange_OvenSkin",
+          "HouseholdGasRange_OvenHandleFoot-0.1892"
+        ],
+        [
+          "HouseholdGasRange_OvenSkin",
+          "HouseholdGasRange_OvenHandleFoot0.1892"
+        ],
+        [
+          "HouseholdGasRange_OvenHinge-0.16_Pin",
+          "HouseholdGasRange_OvenHinge-0.16_FixedNeck"
+        ],
+        [
+          "HouseholdGasRange_OvenHinge-0.16_Pin",
+          "HouseholdGasRange_OvenHinge-0.16_Knuckle-0.187"
+        ],
+        [
+          "HouseholdGasRange_OvenHinge-0.16_Pin",
+          "HouseholdGasRange_OvenHinge-0.16_Knuckle-0.133"
+        ],
+        [
+          "HouseholdGasRange_OvenHinge-0.16_Knuckle-0.187",
+          "HouseholdGasRange_OvenHinge-0.16_LeafNeck-0.187"
+        ],
+        [
+          "HouseholdGasRange_OvenHinge-0.16_Knuckle-0.133",
+          "HouseholdGasRange_OvenHinge-0.16_LeafNeck-0.133"
+        ],
+        [
+          "HouseholdGasRange_OvenHinge0.16_Pin",
+          "HouseholdGasRange_OvenHinge0.16_FixedNeck"
+        ],
+        [
+          "HouseholdGasRange_OvenHinge0.16_Pin",
+          "HouseholdGasRange_OvenHinge0.16_Knuckle0.133"
+        ],
+        [
+          "HouseholdGasRange_OvenHinge0.16_Pin",
+          "HouseholdGasRange_OvenHinge0.16_Knuckle0.187"
+        ],
+        [
+          "HouseholdGasRange_OvenHinge0.16_Knuckle0.133",
+          "HouseholdGasRange_OvenHinge0.16_LeafNeck0.133"
+        ],
+        [
+          "HouseholdGasRange_OvenHinge0.16_Knuckle0.187",
+          "HouseholdGasRange_OvenHinge0.16_LeafNeck0.187"
+        ],
+        [
+          "HouseholdGasRange_OvenHandleFoot-0.1892",
+          "HouseholdGasRange_OvenHandle"
+        ],
+        [
+          "HouseholdGasRange_OvenHandleFoot0.1892",
+          "HouseholdGasRange_OvenHandle"
+        ],
+        [
+          "HouseholdGasRange_BroilerSkin",
+          "HouseholdGasRange_BroilerHinge-0.15_LeafNeck-0.177"
+        ],
+        [
+          "HouseholdGasRange_BroilerSkin",
+          "HouseholdGasRange_BroilerHinge-0.15_LeafNeck-0.123"
+        ],
+        [
+          "HouseholdGasRange_BroilerSkin",
+          "HouseholdGasRange_BroilerHinge0.15_LeafNeck0.123"
+        ],
+        [
+          "HouseholdGasRange_BroilerSkin",
+          "HouseholdGasRange_BroilerHinge0.15_LeafNeck0.177"
+        ],
+        [
+          "HouseholdGasRange_BroilerSkin",
+          "HouseholdGasRange_BroilerInset"
+        ],
+        [
+          "HouseholdGasRange_BroilerSkin",
+          "HouseholdGasRange_BroilerFastener-0.13"
+        ],
+        [
+          "HouseholdGasRange_BroilerSkin",
+          "HouseholdGasRange_BroilerScrew-0.13-1"
+        ],
+        [
+          "HouseholdGasRange_BroilerSkin",
+          "HouseholdGasRange_BroilerScrew-0.131"
+        ],
+        [
+          "HouseholdGasRange_BroilerSkin",
+          "HouseholdGasRange_BroilerFastener0.13"
+        ],
+        [
+          "HouseholdGasRange_BroilerSkin",
+          "HouseholdGasRange_BroilerScrew0.13-1"
+        ],
+        [
+          "HouseholdGasRange_BroilerSkin",
+          "HouseholdGasRange_BroilerScrew0.131"
+        ],
+        [
+          "HouseholdGasRange_BroilerHinge-0.15_Pin",
+          "HouseholdGasRange_BroilerHinge-0.15_FixedNeck"
+        ],
+        [
+          "HouseholdGasRange_BroilerHinge-0.15_Pin",
+          "HouseholdGasRange_BroilerHinge-0.15_Knuckle-0.177"
+        ],
+        [
+          "HouseholdGasRange_BroilerHinge-0.15_Pin",
+          "HouseholdGasRange_BroilerHinge-0.15_Knuckle-0.123"
+        ],
+        [
+          "HouseholdGasRange_BroilerHinge-0.15_Knuckle-0.177",
+          "HouseholdGasRange_BroilerHinge-0.15_LeafNeck-0.177"
+        ],
+        [
+          "HouseholdGasRange_BroilerHinge-0.15_Knuckle-0.123",
+          "HouseholdGasRange_BroilerHinge-0.15_LeafNeck-0.123"
+        ],
+        [
+          "HouseholdGasRange_BroilerHinge0.15_Pin",
+          "HouseholdGasRange_BroilerHinge0.15_FixedNeck"
+        ],
+        [
+          "HouseholdGasRange_BroilerHinge0.15_Pin",
+          "HouseholdGasRange_BroilerHinge0.15_Knuckle0.123"
+        ],
+        [
+          "HouseholdGasRange_BroilerHinge0.15_Pin",
+          "HouseholdGasRange_BroilerHinge0.15_Knuckle0.177"
+        ],
+        [
+          "HouseholdGasRange_BroilerHinge0.15_Knuckle0.123",
+          "HouseholdGasRange_BroilerHinge0.15_LeafNeck0.123"
+        ],
+        [
+          "HouseholdGasRange_BroilerHinge0.15_Knuckle0.177",
+          "HouseholdGasRange_BroilerHinge0.15_LeafNeck0.177"
+        ],
+        [
+          "HouseholdGasRange_BurnerValve1_Stem",
+          "HouseholdGasRange_BurnerValve1_Grip"
+        ],
+        [
+          "HouseholdGasRange_BurnerValve1_Grip",
+          "HouseholdGasRange_BurnerValve1_Pointer"
+        ],
+        [
+          "HouseholdGasRange_BurnerValve2_Stem",
+          "HouseholdGasRange_BurnerValve2_Grip"
+        ],
+        [
+          "HouseholdGasRange_BurnerValve2_Grip",
+          "HouseholdGasRange_BurnerValve2_Pointer"
+        ],
+        [
+          "HouseholdGasRange_BurnerValve3_Stem",
+          "HouseholdGasRange_BurnerValve3_Grip"
+        ],
+        [
+          "HouseholdGasRange_BurnerValve3_Grip",
+          "HouseholdGasRange_BurnerValve3_Pointer"
+        ],
+        [
+          "HouseholdGasRange_BurnerValve4_Stem",
+          "HouseholdGasRange_BurnerValve4_Grip"
+        ],
+        [
+          "HouseholdGasRange_BurnerValve4_Grip",
+          "HouseholdGasRange_BurnerValve4_Pointer"
+        ],
+        [
+          "HouseholdGasRange_OvenValve_Stem",
+          "HouseholdGasRange_OvenValve_Grip"
+        ],
+        [
+          "HouseholdGasRange_OvenValve_Grip",
+          "HouseholdGasRange_OvenValve_Pointer"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Finger0"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Finger1"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Finger2"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Finger3"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Finger4"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Finger5"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Finger6"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Finger7"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Foot0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Foot2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Foot3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_Grate1_Rim",
+          "HouseholdGasRange_Grate1_Foot5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_Head",
+          "HouseholdGasRange_BurnerCap1_PortCrown"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port0.0"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port0.19634954084936207"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port0.39269908169872414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port0.5890486225480862"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port0.9817477042468103"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port1.1780972450961724"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port1.3744467859455345"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port1.5707963267948966"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port1.7671458676442586"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port1.9634954084936207"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port2.1598449493429825"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port2.552544031041707"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port2.748893571891069"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port2.945243112740431"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port3.141592653589793"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port3.3379421944391554"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port3.5342917352885173"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port3.730641276137879"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port4.123340357836604"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port4.319689898685965"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port4.516039439535327"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port4.71238898038469"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port4.908738521234052"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port5.105088062083414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port5.301437602932776"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port5.6941366846315"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port5.890486225480862"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap1_PortCrown",
+          "HouseholdGasRange_BurnerCap1_Port6.086835766330224"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Finger0"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Finger1"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Finger2"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Finger3"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Finger4"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Finger5"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Finger6"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Finger7"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Foot0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Foot2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Foot3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_Grate2_Rim",
+          "HouseholdGasRange_Grate2_Foot5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_Head",
+          "HouseholdGasRange_BurnerCap2_PortCrown"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port0.0"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port0.19634954084936207"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port0.39269908169872414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port0.5890486225480862"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port0.9817477042468103"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port1.1780972450961724"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port1.3744467859455345"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port1.5707963267948966"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port1.7671458676442586"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port1.9634954084936207"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port2.1598449493429825"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port2.552544031041707"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port2.748893571891069"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port2.945243112740431"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port3.141592653589793"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port3.3379421944391554"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port3.5342917352885173"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port3.730641276137879"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port4.123340357836604"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port4.319689898685965"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port4.516039439535327"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port4.71238898038469"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port4.908738521234052"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port5.105088062083414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port5.301437602932776"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port5.6941366846315"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port5.890486225480862"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap2_PortCrown",
+          "HouseholdGasRange_BurnerCap2_Port6.086835766330224"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Finger0"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Finger1"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Finger2"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Finger3"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Finger4"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Finger5"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Finger6"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Finger7"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Foot0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Foot2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Foot3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_Grate3_Rim",
+          "HouseholdGasRange_Grate3_Foot5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_Head",
+          "HouseholdGasRange_BurnerCap3_PortCrown"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port0.0"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port0.19634954084936207"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port0.39269908169872414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port0.5890486225480862"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port0.9817477042468103"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port1.1780972450961724"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port1.3744467859455345"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port1.5707963267948966"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port1.7671458676442586"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port1.9634954084936207"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port2.1598449493429825"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port2.552544031041707"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port2.748893571891069"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port2.945243112740431"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port3.141592653589793"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port3.3379421944391554"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port3.5342917352885173"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port3.730641276137879"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port4.123340357836604"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port4.319689898685965"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port4.516039439535327"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port4.71238898038469"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port4.908738521234052"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port5.105088062083414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port5.301437602932776"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port5.6941366846315"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port5.890486225480862"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap3_PortCrown",
+          "HouseholdGasRange_BurnerCap3_Port6.086835766330224"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Finger0"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Finger1"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Finger2"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Finger3"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Finger4"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Finger5"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Finger6"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Finger7"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Foot0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Foot2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Foot3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_Grate4_Rim",
+          "HouseholdGasRange_Grate4_Foot5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_Head",
+          "HouseholdGasRange_BurnerCap4_PortCrown"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port0.0"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port0.19634954084936207"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port0.39269908169872414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port0.5890486225480862"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port0.7853981633974483"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port0.9817477042468103"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port1.1780972450961724"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port1.3744467859455345"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port1.5707963267948966"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port1.7671458676442586"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port1.9634954084936207"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port2.1598449493429825"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port2.356194490192345"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port2.552544031041707"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port2.748893571891069"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port2.945243112740431"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port3.141592653589793"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port3.3379421944391554"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port3.5342917352885173"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port3.730641276137879"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port3.9269908169872414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port4.123340357836604"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port4.319689898685965"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port4.516039439535327"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port4.71238898038469"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port4.908738521234052"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port5.105088062083414"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port5.301437602932776"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port5.497787143782138"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port5.6941366846315"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port5.890486225480862"
+        ],
+        [
+          "HouseholdGasRange_BurnerCap4_PortCrown",
+          "HouseholdGasRange_BurnerCap4_Port6.086835766330224"
+        ]
+      ]
+    }
+  ],
+  "distinct_object_separations": [],
+  "uv": [
+    {
+      "part": "HouseholdGasRange__Body_ON_brass",
+      "minimum_metres_per_uv": 0.999511141532567,
+      "maximum_metres_per_uv": 1.0005318661635665,
+      "maximum_edge_excess_m": 5.130497496741611e-08,
+      "maximum_edge_ratio": 1.0000489979976181
+    },
+    {
+      "part": "HouseholdGasRange__Body_ON_dark",
+      "minimum_metres_per_uv": 0.9999272816414927,
+      "maximum_metres_per_uv": 1.0000847300863653,
+      "maximum_edge_excess_m": 2.981338076413209e-08,
+      "maximum_edge_ratio": 1.000068576721041
+    },
+    {
+      "part": "HouseholdGasRange__Body_ON_enamel",
+      "minimum_metres_per_uv": 0.9998648607344752,
+      "maximum_metres_per_uv": 1.000110198136775,
+      "maximum_edge_excess_m": 8.424901409842533e-08,
+      "maximum_edge_ratio": 1.0001137805844527
+    },
+    {
+      "part": "HouseholdGasRange__Body_ON_iron",
+      "minimum_metres_per_uv": 0.9991173066390546,
+      "maximum_metres_per_uv": 1.0001707824835646,
+      "maximum_edge_excess_m": 2.1722247088937913e-06,
+      "maximum_edge_ratio": 1.0007281359156412
+    },
+    {
+      "part": "HouseholdGasRange__Body_ON_nickel",
+      "minimum_metres_per_uv": 0.9989849187935035,
+      "maximum_metres_per_uv": 1.0010093374192277,
+      "maximum_edge_excess_m": 2.5306874019916017e-08,
+      "maximum_edge_ratio": 1.0000644955229216
+    },
+    {
+      "part": "HouseholdGasRange__BroilerDrawer_ON_dark",
+      "minimum_metres_per_uv": 0.9999766070754956,
+      "maximum_metres_per_uv": 1.000022127980483,
+      "maximum_edge_excess_m": 2.817933104307807e-08,
+      "maximum_edge_ratio": 1.0000220083944436
+    },
+    {
+      "part": "HouseholdGasRange__BroilerDrawer_ON_enamel",
+      "minimum_metres_per_uv": 0.9999588199583105,
+      "maximum_metres_per_uv": 1.0000321318762626,
+      "maximum_edge_excess_m": 4.45759457154242e-08,
+      "maximum_edge_ratio": 1.000028623386634
+    },
+    {
+      "part": "HouseholdGasRange__BroilerDrawer_ON_iron",
+      "minimum_metres_per_uv": 0.9992115680922977,
+      "maximum_metres_per_uv": 1.000094607003285,
+      "maximum_edge_excess_m": 7.726281171837115e-07,
+      "maximum_edge_ratio": 1.000789054023071
+    },
+    {
+      "part": "HouseholdGasRange__BroilerDrawer_ON_nickel",
+      "minimum_metres_per_uv": 0.9999615424532864,
+      "maximum_metres_per_uv": 1.000031373029664,
+      "maximum_edge_excess_m": 2.43666006068035e-08,
+      "maximum_edge_ratio": 1.0000384590257534
+    },
+    {
+      "part": "HouseholdGasRange__BurnerCap1_ON_dark",
+      "minimum_metres_per_uv": 0.9992837211657681,
+      "maximum_metres_per_uv": 1.0000059766101992,
+      "maximum_edge_excess_m": 6.469502373164168e-06,
+      "maximum_edge_ratio": 1.0007167922573545
+    },
+    {
+      "part": "HouseholdGasRange__BurnerCap1_ON_iron",
+      "minimum_metres_per_uv": 0.9978989820454727,
+      "maximum_metres_per_uv": 1.0020405212390322,
+      "maximum_edge_excess_m": 5.630923177173119e-06,
+      "maximum_edge_ratio": 1.0007174627775435
+    },
+    {
+      "part": "HouseholdGasRange__BurnerCap2_ON_dark",
+      "minimum_metres_per_uv": 0.9992836672152836,
+      "maximum_metres_per_uv": 1.000005148318677,
+      "maximum_edge_excess_m": 6.469989659359937e-06,
+      "maximum_edge_ratio": 1.0007168462852123
+    },
+    {
+      "part": "HouseholdGasRange__BurnerCap2_ON_iron",
+      "minimum_metres_per_uv": 0.9977546444642168,
+      "maximum_metres_per_uv": 1.002197386637534,
+      "maximum_edge_excess_m": 5.632200900447526e-06,
+      "maximum_edge_ratio": 1.0007176256951897
+    },
+    {
+      "part": "HouseholdGasRange__BurnerCap3_ON_dark",
+      "minimum_metres_per_uv": 0.9992834313461152,
+      "maximum_metres_per_uv": 1.0000059131231958,
+      "maximum_edge_excess_m": 6.472120053377384e-06,
+      "maximum_edge_ratio": 1.0007170824927212
+    },
+    {
+      "part": "HouseholdGasRange__BurnerCap3_ON_iron",
+      "minimum_metres_per_uv": 0.9978989820454727,
+      "maximum_metres_per_uv": 1.0023261914431327,
+      "maximum_edge_excess_m": 5.613683425720328e-06,
+      "maximum_edge_ratio": 1.000717256873919
+    },
+    {
+      "part": "HouseholdGasRange__BurnerCap4_ON_dark",
+      "minimum_metres_per_uv": 0.9992831429342389,
+      "maximum_metres_per_uv": 1.0000058751051644,
+      "maximum_edge_excess_m": 6.47472501841273e-06,
+      "maximum_edge_ratio": 1.0007173713184596
+    },
+    {
+      "part": "HouseholdGasRange__BurnerCap4_ON_iron",
+      "minimum_metres_per_uv": 0.998006941921523,
+      "maximum_metres_per_uv": 1.0023269802269101,
+      "maximum_edge_excess_m": 5.613683425720328e-06,
+      "maximum_edge_ratio": 1.000717256873919
+    },
+    {
+      "part": "HouseholdGasRange__BurnerValve1_ON_bakelite",
+      "minimum_metres_per_uv": 0.9994671904308388,
+      "maximum_metres_per_uv": 1.0002757802595026,
+      "maximum_edge_excess_m": 1.364511600508711e-06,
+      "maximum_edge_ratio": 1.0004117246581463
+    },
+    {
+      "part": "HouseholdGasRange__BurnerValve1_ON_brass",
+      "minimum_metres_per_uv": 0.9992404891500518,
+      "maximum_metres_per_uv": 1.000078645847023,
+      "maximum_edge_excess_m": 8.948142206715529e-07,
+      "maximum_edge_ratio": 1.0007600881451415
+    },
+    {
+      "part": "HouseholdGasRange__BurnerValve2_ON_bakelite",
+      "minimum_metres_per_uv": 0.9994667510045111,
+      "maximum_metres_per_uv": 1.0002756066047205,
+      "maximum_edge_excess_m": 1.3430815770055712e-06,
+      "maximum_edge_ratio": 1.0004160568891538
+    },
+    {
+      "part": "HouseholdGasRange__BurnerValve2_ON_brass",
+      "minimum_metres_per_uv": 0.9992404891500518,
+      "maximum_metres_per_uv": 1.0000863905848596,
+      "maximum_edge_excess_m": 8.948142206715529e-07,
+      "maximum_edge_ratio": 1.0007600881451415
+    },
+    {
+      "part": "HouseholdGasRange__BurnerValve3_ON_bakelite",
+      "minimum_metres_per_uv": 0.9994676190000168,
+      "maximum_metres_per_uv": 1.0002756863534303,
+      "maximum_edge_excess_m": 1.3549090169557437e-06,
+      "maximum_edge_ratio": 1.0004093162760235
+    },
+    {
+      "part": "HouseholdGasRange__BurnerValve3_ON_brass",
+      "minimum_metres_per_uv": 0.9992427569740814,
+      "maximum_metres_per_uv": 1.00005504130801,
+      "maximum_edge_excess_m": 8.921423942035833e-07,
+      "maximum_edge_ratio": 1.0007578168774642
+    },
+    {
+      "part": "HouseholdGasRange__BurnerValve4_ON_bakelite",
+      "minimum_metres_per_uv": 0.9994667510045111,
+      "maximum_metres_per_uv": 1.0002285961567012,
+      "maximum_edge_excess_m": 1.3621708207060823e-06,
+      "maximum_edge_ratio": 1.0004160568891538
+    },
+    {
+      "part": "HouseholdGasRange__BurnerValve4_ON_brass",
+      "minimum_metres_per_uv": 0.9992404891500518,
+      "maximum_metres_per_uv": 1.000094180958768,
+      "maximum_edge_excess_m": 8.948142206715529e-07,
+      "maximum_edge_ratio": 1.0007600881451415
+    },
+    {
+      "part": "HouseholdGasRange__Grate1_ON_iron",
+      "minimum_metres_per_uv": 0.9992680041914257,
+      "maximum_metres_per_uv": 1.0000325242384287,
+      "maximum_edge_excess_m": 1.38116398524981e-06,
+      "maximum_edge_ratio": 1.0007325320189417
+    },
+    {
+      "part": "HouseholdGasRange__Grate2_ON_iron",
+      "minimum_metres_per_uv": 0.9992568756591009,
+      "maximum_metres_per_uv": 1.0000360574961347,
+      "maximum_edge_excess_m": 1.3789491178483465e-06,
+      "maximum_edge_ratio": 1.0007436769853686
+    },
+    {
+      "part": "HouseholdGasRange__Grate3_ON_iron",
+      "minimum_metres_per_uv": 0.999265390550394,
+      "maximum_metres_per_uv": 1.0000277559912363,
+      "maximum_edge_excess_m": 1.379472134956268e-06,
+      "maximum_edge_ratio": 1.0007351494973735
+    },
+    {
+      "part": "HouseholdGasRange__Grate4_ON_iron",
+      "minimum_metres_per_uv": 0.9992730901938827,
+      "maximum_metres_per_uv": 1.0000310164483337,
+      "maximum_edge_excess_m": 1.377769907993584e-06,
+      "maximum_edge_ratio": 1.0007274385883604
+    },
+    {
+      "part": "HouseholdGasRange__OvenDoor_ON_brass",
+      "minimum_metres_per_uv": 0.9983644217642093,
+      "maximum_metres_per_uv": 1.0008689574269567,
+      "maximum_edge_excess_m": 3.1307480890287176e-06,
+      "maximum_edge_ratio": 1.0007407822115748
+    },
+    {
+      "part": "HouseholdGasRange__OvenDoor_ON_enamel",
+      "minimum_metres_per_uv": 0.9999691049449411,
+      "maximum_metres_per_uv": 1.0000317311521885,
+      "maximum_edge_excess_m": 6.02812860461821e-08,
+      "maximum_edge_ratio": 1.0000308145707806
+    },
+    {
+      "part": "HouseholdGasRange__OvenDoor_ON_iron",
+      "minimum_metres_per_uv": 0.9992259759355842,
+      "maximum_metres_per_uv": 1.0000670794022688,
+      "maximum_edge_excess_m": 7.680133518594978e-07,
+      "maximum_edge_ratio": 1.0007746236417554
+    },
+    {
+      "part": "HouseholdGasRange__OvenValve_ON_bakelite",
+      "minimum_metres_per_uv": 0.9994692682818762,
+      "maximum_metres_per_uv": 1.0002755814715314,
+      "maximum_edge_excess_m": 1.364511600508711e-06,
+      "maximum_edge_ratio": 1.0004107091939058
+    },
+    {
+      "part": "HouseholdGasRange__OvenValve_ON_brass",
+      "minimum_metres_per_uv": 0.9992404891500518,
+      "maximum_metres_per_uv": 1.000078645847023,
+      "maximum_edge_excess_m": 8.948142206715529e-07,
+      "maximum_edge_ratio": 1.0007600881451415
+    }
+  ],
+  "local_bearings": [
+    {
+      "assembly": "HouseholdGasRange",
+      "owner": "support",
+      "point": [
+        -0.275,
+        0,
+        0.245
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original range foot"
+    },
+    {
+      "assembly": "HouseholdGasRange",
+      "owner": "support",
+      "point": [
+        -0.275,
+        0,
+        -0.245
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original range foot"
+    },
+    {
+      "assembly": "HouseholdGasRange",
+      "owner": "support",
+      "point": [
+        0.275,
+        0,
+        0.245
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original range foot"
+    },
+    {
+      "assembly": "HouseholdGasRange",
+      "owner": "support",
+      "point": [
+        0.275,
+        0,
+        -0.245
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original range foot"
+    }
+  ],
+  "views": [],
+  "scope": "Local construction and chart preflight only. External support context and rendering are still required."
+}

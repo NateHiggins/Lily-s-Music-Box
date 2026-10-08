@@ -1,0 +1,419 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "original_fittings": [
+    {
+      "id": "F03_3B_STOVE_01",
+      "kind": "stove",
+      "unit": "3B",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_B_STOVE_01",
+      "kind": "stove",
+      "unit": "4B",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F02_2A_STOVE_01",
+      "kind": "stove",
+      "unit": "2A",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F02_2B_STOVE_01",
+      "kind": "stove",
+      "unit": "2B",
+      "properties": {
+        "ambient_lit": true
+      }
+    },
+    {
+      "id": "F03_3A_STOVE_01",
+      "kind": "stove",
+      "unit": "3A",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_4A_STOVE_01",
+      "kind": "stove",
+      "unit": "4A",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F05_5A_STOVE_01",
+      "kind": "stove",
+      "unit": "5A",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F05_5B_STOVE_01",
+      "kind": "stove",
+      "unit": "5B",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F05_5C_STOVE_01",
+      "kind": "stove",
+      "unit": "5C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F06_6A_STOVE_01",
+      "kind": "stove",
+      "unit": "6A",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F06_6B_STOVE_01",
+      "kind": "stove",
+      "unit": "6B",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F06_6C_STOVE_01",
+      "kind": "stove",
+      "unit": "6C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F02_2C_STOVE_01",
+      "kind": "stove",
+      "unit": "2C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_4C_STOVE_01",
+      "kind": "stove",
+      "unit": "4C",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F01_1D_STOVE_01",
+      "kind": "stove",
+      "unit": "1D",
+      "properties": {
+        "ambient_lit": true
+      }
+    },
+    {
+      "id": "F01_1A_STOVE_01",
+      "unit": "1A",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F03_3D_STOVE_01",
+      "unit": "3D",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      }
+    },
+    {
+      "id": "F04_4D_STOVE_01",
+      "unit": "4D",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      }
+    }
+  ],
+  "mechanism_source": "game/scripts/props/stove_prop.gd",
+  "mechanism_sha256": "76535eef344128982515d30d0693380ce47d80633f662608384cbe3cba0b015e",
+  "variants": [
+    {
+      "id": "HouseholdGasRange",
+      "kind": "stove",
+      "source_id": "stove / 1922 fired-enamel gas range"
+    }
+  ],
+  "instances": [
+    {
+      "id": "F03_3B_STOVE_01",
+      "unit": "3B",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F04_B_STOVE_01",
+      "unit": "4B",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F02_2A_STOVE_01",
+      "unit": "2A",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F02_2B_STOVE_01",
+      "unit": "2B",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F03_3A_STOVE_01",
+      "unit": "3A",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F04_4A_STOVE_01",
+      "unit": "4A",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F05_5A_STOVE_01",
+      "unit": "5A",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F05_5B_STOVE_01",
+      "unit": "5B",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F05_5C_STOVE_01",
+      "unit": "5C",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F06_6A_STOVE_01",
+      "unit": "6A",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F06_6B_STOVE_01",
+      "unit": "6B",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F06_6C_STOVE_01",
+      "unit": "6C",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F02_2C_STOVE_01",
+      "unit": "2C",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F04_4C_STOVE_01",
+      "unit": "4C",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F01_1D_STOVE_01",
+      "unit": "1D",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F01_1A_STOVE_01",
+      "unit": "1A",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F03_3D_STOVE_01",
+      "unit": "3D",
+      "variant": "HouseholdGasRange"
+    },
+    {
+      "id": "F04_4D_STOVE_01",
+      "unit": "4D",
+      "variant": "HouseholdGasRange"
+    }
+  ],
+  "runtime_keys": [
+    "enamel",
+    "iron",
+    "dark",
+    "brass",
+    "bakelite",
+    "nickel"
+  ],
+  "catalog_variants": {
+    "enamel": "enamel_appliance",
+    "iron": "iron_blackened",
+    "dark": "iron_blackened",
+    "brass": "bronze_sheet",
+    "bakelite": "bakelite_black",
+    "nickel": "nickel_plated"
+  },
+  "material_tints": {
+    "iron": [
+      0.147318999244498,
+      0.13286832155381798,
+      0.1192801876221121,
+      1.0
+    ],
+    "dark": [
+      0.033104766570885055,
+      0.030074104146591292,
+      0.027211780951381357,
+      1.0
+    ],
+    "brass": [
+      0.6382832153523972,
+      0.5070785101492276,
+      0.23302199930143813,
+      1.0
+    ],
+    "bakelite": [
+      0.27383841647314605,
+      0.12596738774090202,
+      0.06372379528489175,
+      1.0
+    ]
+  },
+  "finish_parameters": {
+    "enamel": {
+      "normal_scale": 0.13,
+      "roughness": 0.82
+    },
+    "iron": {
+      "normal_scale": 0.12,
+      "roughness": 0.72
+    },
+    "dark": {
+      "normal_scale": 0.12,
+      "roughness": 0.72
+    },
+    "brass": {
+      "normal_scale": 0.12,
+      "roughness": 0.72
+    },
+    "bakelite": {
+      "normal_scale": 0.25,
+      "roughness": 0.82
+    },
+    "nickel": {
+      "normal_scale": 0.13,
+      "roughness": 0.72
+    }
+  },
+  "tint_space": "linear",
+  "placement": {
+    "floor_y": 0
+  },
+  "open_work": [
+    "Native geometry, service poses and surrounding stock require visual and production verification.",
+    "Whole-room lighting and broad floor/plaster finish calibration remain open."
+  ],
+  "source_owners": {
+    "Body": "StaticCarcass",
+    "OvenDoor": "OvenDoor",
+    "BroilerDrawer": "BroilerDrawer",
+    "BurnerValve1": "BurnerValve1",
+    "BurnerValve2": "BurnerValve2",
+    "BurnerValve3": "BurnerValve3",
+    "BurnerValve4": "BurnerValve4",
+    "OvenValve": "OvenValve",
+    "Grate1": "Grate1",
+    "Grate2": "Grate2",
+    "Grate3": "Grate3",
+    "Grate4": "Grate4",
+    "BurnerCap1": "BurnerCap1",
+    "BurnerCap2": "BurnerCap2",
+    "BurnerCap3": "BurnerCap3",
+    "BurnerCap4": "BurnerCap4"
+  },
+  "native_service": {
+    "grate_parking": [
+      {
+        "index": 0,
+        "blender_center": [
+          -0.2,
+          -0.19995570945709254,
+          0.9949429460718783
+        ],
+        "angle_degrees": -60,
+        "floor_gap_m": 0.011833992770156176,
+        "rear_gap_m": 2e-06
+      },
+      {
+        "index": 1,
+        "blender_center": [
+          0.2,
+          -0.19995570945709254,
+          0.9949429460718783
+        ],
+        "angle_degrees": -60,
+        "floor_gap_m": 0.011833992770156176,
+        "rear_gap_m": 2e-06
+      },
+      {
+        "index": 2,
+        "blender_center": [
+          -0.2,
+          -0.19995571526854508,
+          0.9831109440102771
+        ],
+        "angle_degrees": -60,
+        "floor_gap_m": 2.0000000000575113e-06,
+        "rear_gap_m": 2e-06
+      },
+      {
+        "index": 3,
+        "blender_center": [
+          0.2,
+          -0.19995571526854508,
+          0.9831109440102771
+        ],
+        "angle_degrees": -60,
+        "floor_gap_m": 2.0000000000575113e-06,
+        "rear_gap_m": 2e-06
+      }
+    ],
+    "grate_lift_m": 0.085,
+    "cap_lift_m": 0.055,
+    "cap_end_blender_delta": [
+      [
+        0.12,
+        0.1,
+        0.0
+      ],
+      [
+        -0.12,
+        0.1,
+        0.0
+      ],
+      [
+        0.12,
+        0.1,
+        0.0
+      ],
+      [
+        -0.12,
+        0.1,
+        0.0
+      ]
+    ],
+    "scope": "Native presentation only; all original actor owners, source transforms, service methods and logical controls remain authoritative. One indexed maintenance station per service pose.",
+    "grate_forward_m": 0.06
+  }
+}

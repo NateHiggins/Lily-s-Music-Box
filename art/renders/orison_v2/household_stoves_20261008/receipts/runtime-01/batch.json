@@ -1,0 +1,143 @@
+{
+	"batch_checks": 9,
+	"elapsed_ms": 51250,
+	"evidence_class": "INERT",
+	"failures": [
+		"household_stoves: rest partition matches native frame",
+		"household_stoves: rest partition matches native frame",
+		"household_stoves: rest partition matches native frame",
+		"household_stoves: rest partition matches native frame"
+	],
+	"module_checks": 4768,
+	"modules": {
+		"household_fridges": {
+			"actors": 18,
+			"captured": false,
+			"checks": 1695,
+			"elapsed_ms": 1210,
+			"failures": [],
+			"fixture_sha256": "3745366dbc294c0705e6e1987cb9404752a71443ec72437c7040e86f6477cf97",
+			"inventory_items": 50,
+			"monitors": 7,
+			"unique_triangles": 140808,
+			"validator_sha256": "3ab4f42a7506c912cd6fbb4eedc885ef1c735a6c97045c0dec02593c42e4fbe1",
+			"views": []
+		},
+		"household_stoves": {
+			"actors": 18,
+			"captured": true,
+			"checks": 3073,
+			"elapsed_ms": 14387,
+			"failures": [
+				"rest partition matches native frame",
+				"rest partition matches native frame",
+				"rest partition matches native frame",
+				"rest partition matches native frame"
+			],
+			"fixture_sha256": "a2661ca9ccfaaaffa9326d651c0288d85d11895da2fd7c14a735dc3037ffc413",
+			"unique_triangles": 65832,
+			"validator_sha256": "8c529e4511defa82c387ef9a378dd4cc59e54a0e0f6157b4bd97234b285c33c9",
+			"views": [
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_open",
+					"image": "F02_2B_STOVE_01_native_open.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						8.5200023651123,
+						12.8200006484985,
+						-20.75
+					],
+					"id": "F05_5B_STOVE_01_native_open",
+					"image": "F05_5B_STOVE_01_native_open.png",
+					"owner": "F05_5B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						9.37432956695557,
+						0.0199999995529652,
+						-2.97153854370117
+					],
+					"id": "F01_1A_STOVE_01_native_open",
+					"image": "F01_1A_STOVE_01_native_open.png",
+					"owner": "F01_1A_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_service0",
+					"image": "F02_2B_STOVE_01_native_service0.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_service2",
+					"image": "F02_2B_STOVE_01_native_service2.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_closed",
+					"image": "F02_2B_STOVE_01_native_closed.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						8.5200023651123,
+						12.8200006484985,
+						-20.75
+					],
+					"id": "F05_5B_STOVE_01_native_closed",
+					"image": "F05_5B_STOVE_01_native_closed.png",
+					"owner": "F05_5B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						10.7996959686279,
+						0.0199999995529652,
+						-2.86746978759766
+					],
+					"id": "F01_1A_STOVE_01_native_closed",
+					"image": "F01_1A_STOVE_01_native_closed.png",
+					"owner": "F01_1A_STOVE_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

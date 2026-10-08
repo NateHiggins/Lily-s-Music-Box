@@ -1,0 +1,737 @@
+{
+  "evidence_class": "INERT",
+  "actors": [
+    {
+      "id": "F03_3B_STOVE_01",
+      "kind": "stove",
+      "unit": "3B",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F03_3B_STOVE_01",
+        "level": "F03",
+        "space": "F03_B_KITCHEN",
+        "position": [
+          11.65,
+          0,
+          -5.72
+        ],
+        "yaw": 0,
+        "kind": "interaction"
+      }
+    },
+    {
+      "id": "F04_B_STOVE_01",
+      "kind": "stove",
+      "unit": "4B",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F04_B_STOVE_01",
+        "level": "F04",
+        "space": "F04_B_KITCHEN",
+        "position": [
+          -13.25,
+          0,
+          5.85
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F02_2A_STOVE_01",
+      "kind": "stove",
+      "unit": "2A",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F02_2A_STOVE_01",
+        "level": "F02",
+        "space": "F02_A_KITCHEN",
+        "position": [
+          -12.8,
+          0,
+          5.72
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F02_2B_STOVE_01",
+      "kind": "stove",
+      "unit": "2B",
+      "properties": {
+        "ambient_lit": true
+      },
+      "anchor": {
+        "id": "F02_2B_STOVE_01",
+        "level": "F02",
+        "space": "F02_B_KITCHEN",
+        "position": [
+          9.96,
+          0,
+          -5.9
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F03_3A_STOVE_01",
+      "kind": "stove",
+      "unit": "3A",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F03_3A_STOVE_01",
+        "level": "F03",
+        "space": "F03_A_KITCHEN",
+        "position": [
+          -12.8,
+          0,
+          5.72
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F04_4A_STOVE_01",
+      "kind": "stove",
+      "unit": "4A",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F04_4A_STOVE_01",
+        "level": "F04",
+        "space": "F04_A_KITCHEN",
+        "position": [
+          9.96,
+          0,
+          -5.9
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F05_5A_STOVE_01",
+      "kind": "stove",
+      "unit": "5A",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F05_5A_STOVE_01",
+        "level": "F05",
+        "space": "F05_A_KITCHEN",
+        "position": [
+          -10.77,
+          0,
+          -7.25
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F05_5B_STOVE_01",
+      "kind": "stove",
+      "unit": "5B",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F05_5B_STOVE_01",
+        "level": "F05",
+        "space": "F05_B_KITCHEN",
+        "position": [
+          -6.92,
+          0,
+          9.1
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F05_5C_STOVE_01",
+      "kind": "stove",
+      "unit": "5C",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F05_5C_STOVE_01",
+        "level": "F05",
+        "space": "F05_C_KITCHEN",
+        "position": [
+          6.68,
+          0,
+          4.42
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F06_6A_STOVE_01",
+      "kind": "stove",
+      "unit": "6A",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F06_6A_STOVE_01",
+        "level": "F06",
+        "space": "F06_A_KITCHEN",
+        "position": [
+          -10.77,
+          0,
+          -7.25
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F06_6B_STOVE_01",
+      "kind": "stove",
+      "unit": "6B",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F06_6B_STOVE_01",
+        "level": "F06",
+        "space": "F06_B_KITCHEN",
+        "position": [
+          -6.92,
+          0,
+          9.1
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F06_6C_STOVE_01",
+      "kind": "stove",
+      "unit": "6C",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F06_6C_STOVE_01",
+        "level": "F06",
+        "space": "F06_C_KITCHEN",
+        "position": [
+          6.68,
+          0,
+          4.42
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F02_2C_STOVE_01",
+      "kind": "stove",
+      "unit": "2C",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F02_2C_STOVE_01",
+        "level": "F02",
+        "space": "F02_C_KITCHEN",
+        "position": [
+          6.68,
+          0,
+          4.42
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F04_4C_STOVE_01",
+      "kind": "stove",
+      "unit": "4C",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F04_4C_STOVE_01",
+        "level": "F04",
+        "space": "F04_C_KITCHEN",
+        "position": [
+          6.68,
+          0,
+          4.42
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F01_1D_STOVE_01",
+      "kind": "stove",
+      "unit": "1D",
+      "properties": {
+        "ambient_lit": true
+      },
+      "anchor": {
+        "id": "F01_1D_STOVE_01",
+        "level": "F01",
+        "space": "F01_D_KITCHEN",
+        "position": [
+          9.96,
+          0,
+          -5.9
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F01_1A_STOVE_01",
+      "unit": "1A",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F01_1A_STOVE_01",
+        "level": "F01",
+        "position": [
+          -10.6,
+          0,
+          -7.65
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F03_3D_STOVE_01",
+      "unit": "3D",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F03_3D_STOVE_01",
+        "level": "F03",
+        "position": [
+          -10.6,
+          0,
+          -7.65
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      }
+    },
+    {
+      "id": "F04_4D_STOVE_01",
+      "unit": "4D",
+      "kind": "stove",
+      "properties": {
+        "ambient_lit": false
+      },
+      "anchor": {
+        "id": "F04_4D_STOVE_01",
+        "level": "F04",
+        "position": [
+          -10.6,
+          0,
+          -7.65
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      }
+    }
+  ],
+  "related_runtime": [
+    {
+      "id": "2B_k_wall_cupboard",
+      "kind": "cupboard",
+      "bounds": [
+        [
+          -0.55,
+          0.0,
+          -0.073
+        ],
+        [
+          0.55,
+          0.7000000000000002,
+          0.3
+        ]
+      ]
+    },
+    {
+      "id": "5B_k_wall_cupboard",
+      "kind": "cupboard",
+      "bounds": [
+        [
+          -0.55,
+          0.0,
+          -0.073
+        ],
+        [
+          0.55,
+          0.7000000000000002,
+          0.3
+        ]
+      ]
+    },
+    {
+      "id": "5B_k_hob_radio0",
+      "kind": "radio",
+      "bounds": [
+        [
+          -0.24,
+          -0.03,
+          -0.19
+        ],
+        [
+          0.24,
+          0.31,
+          0.15
+        ]
+      ],
+      "mechanism": {
+        "id": "5B_k_hob_radio0",
+        "asm": "radio"
+      }
+    },
+    {
+      "id": "5B_k_hob_radio1",
+      "kind": "radio",
+      "bounds": [
+        [
+          -0.24,
+          -0.03,
+          -0.19
+        ],
+        [
+          0.24,
+          0.31,
+          0.15
+        ]
+      ],
+      "mechanism": {
+        "id": "5B_k_hob_radio1",
+        "asm": "radio"
+      }
+    }
+  ],
+  "original": [
+    {
+      "id": "2B_k",
+      "asm": "kitchen",
+      "at": [
+        -5.83,
+        7.6
+      ],
+      "yaw": 90,
+      "L": 1.85
+    },
+    {
+      "id": "2B_k_kmug",
+      "asm": "mug",
+      "at": [
+        -5.7,
+        7.93
+      ],
+      "yaw": 90,
+      "z0": 0.905
+    },
+    {
+      "id": "2B_k_kdishrack",
+      "asm": "dishrack",
+      "at": [
+        -5.95,
+        8.04
+      ],
+      "yaw": 90,
+      "z0": 0.905,
+      "W": 0.12,
+      "D": 0.26,
+      "n": 4
+    },
+    {
+      "id": "2B_k_lino",
+      "rect": [
+        -7.969999999999999,
+        7.050000000000001,
+        -5.489999999999998,
+        9.530000000000001
+      ],
+      "z0": 0.013,
+      "h": 0.004,
+      "mat": "linoleum"
+    },
+    {
+      "id": "2B_k_linobar_w",
+      "rect": [
+        -7.969999999999999,
+        7.050000000000001,
+        -7.919999999999999,
+        9.530000000000001
+      ],
+      "z0": 0.013,
+      "h": 0.008,
+      "mat": "brass_dull"
+    },
+    {
+      "id": "2B_k_linobar_n",
+      "rect": [
+        -7.969999999999999,
+        9.48,
+        -5.489999999999998,
+        9.530000000000001
+      ],
+      "z0": 0.013,
+      "h": 0.008,
+      "mat": "brass_dull"
+    },
+    {
+      "id": "2B_k_linobar_s",
+      "rect": [
+        -7.969999999999999,
+        7.050000000000001,
+        -5.489999999999998,
+        7.1000000000000005
+      ],
+      "z0": 0.013,
+      "h": 0.008,
+      "mat": "brass_dull"
+    },
+    {
+      "id": "2C_k",
+      "asm": "kitchen",
+      "at": [
+        5.87,
+        1.675
+      ],
+      "yaw": -90,
+      "L": 1.9
+    },
+    {
+      "id": "2C_k_kmug",
+      "asm": "mug",
+      "at": [
+        6.0,
+        2.02
+      ],
+      "yaw": 90,
+      "z0": 0.905
+    },
+    {
+      "id": "2C_k_kdishrack",
+      "asm": "dishrack",
+      "at": [
+        5.75,
+        2.135
+      ],
+      "yaw": 90,
+      "z0": 0.905,
+      "W": 0.12,
+      "D": 0.26,
+      "n": 4
+    },
+    {
+      "id": "2C_k_hob_tape0",
+      "rect": [
+        5.66,
+        2.44,
+        5.880000000000001,
+        2.6
+      ],
+      "z0": 0.9,
+      "h": 0.055,
+      "mat": "bakelite"
+    },
+    {
+      "id": "2C_k_hob_tape1",
+      "rect": [
+        5.85,
+        2.52,
+        6.07,
+        2.68
+      ],
+      "z0": 0.9550000000000001,
+      "h": 0.055,
+      "mat": "bakelite"
+    },
+    {
+      "id": "2C_k_hob_tape2",
+      "rect": [
+        5.74,
+        2.6,
+        5.960000000000001,
+        2.7600000000000002
+      ],
+      "z0": 1.01,
+      "h": 0.055,
+      "mat": "bakelite"
+    },
+    {
+      "id": "2C_k_lino",
+      "rect": [
+        5.550000000000001,
+        1.1000000000000003,
+        8.08,
+        3.63
+      ],
+      "z0": 0.013,
+      "h": 0.004,
+      "mat": "linoleum"
+    },
+    {
+      "id": "2C_k_linobar_e",
+      "rect": [
+        8.03,
+        1.1000000000000003,
+        8.08,
+        3.63
+      ],
+      "z0": 0.013,
+      "h": 0.008,
+      "mat": "brass_dull"
+    },
+    {
+      "id": "2C_k_linobar_n",
+      "rect": [
+        5.550000000000001,
+        3.58,
+        8.08,
+        3.63
+      ],
+      "z0": 0.013,
+      "h": 0.008,
+      "mat": "brass_dull"
+    },
+    {
+      "id": "2C_k_linobar_s",
+      "rect": [
+        5.550000000000001,
+        1.1000000000000003,
+        8.08,
+        1.1500000000000004
+      ],
+      "z0": 0.013,
+      "h": 0.008,
+      "mat": "brass_dull"
+    },
+    {
+      "id": "5B_k",
+      "asm": "kitchen",
+      "at": [
+        -5.83,
+        7.6
+      ],
+      "yaw": 90,
+      "L": 1.85
+    },
+    {
+      "id": "5B_k_kmug",
+      "asm": "mug",
+      "at": [
+        -5.7,
+        7.93
+      ],
+      "yaw": 90,
+      "z0": 0.905
+    },
+    {
+      "id": "5B_k_kdishrack",
+      "asm": "dishrack",
+      "at": [
+        -5.95,
+        8.04
+      ],
+      "yaw": 90,
+      "z0": 0.905,
+      "W": 0.12,
+      "D": 0.26,
+      "n": 4
+    },
+    {
+      "id": "5B_k_hob_radio0",
+      "asm": "radio",
+      "at": [
+        -5.95,
+        8.48
+      ],
+      "yaw": 180,
+      "z0": 0.9
+    },
+    {
+      "id": "5B_k_hob_radio1",
+      "asm": "radio",
+      "at": [
+        -5.72,
+        8.44
+      ],
+      "yaw": 180,
+      "z0": 0.9
+    },
+    {
+      "id": "5B_k_lino",
+      "rect": [
+        -7.969999999999999,
+        7.050000000000001,
+        -5.489999999999998,
+        9.530000000000001
+      ],
+      "z0": 0.013,
+      "h": 0.004,
+      "mat": "linoleum"
+    },
+    {
+      "id": "5B_k_linobar_w",
+      "rect": [
+        -7.969999999999999,
+        7.050000000000001,
+        -7.919999999999999,
+        9.530000000000001
+      ],
+      "z0": 0.013,
+      "h": 0.008,
+      "mat": "brass_dull"
+    },
+    {
+      "id": "5B_k_linobar_n",
+      "rect": [
+        -7.969999999999999,
+        9.48,
+        -5.489999999999998,
+        9.530000000000001
+      ],
+      "z0": 0.013,
+      "h": 0.008,
+      "mat": "brass_dull"
+    },
+    {
+      "id": "5B_k_linobar_s",
+      "rect": [
+        -7.969999999999999,
+        7.050000000000001,
+        -5.489999999999998,
+        7.1000000000000005
+      ],
+      "z0": 0.013,
+      "h": 0.008,
+      "mat": "brass_dull"
+    }
+  ]
+}
