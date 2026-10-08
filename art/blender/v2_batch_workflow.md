@@ -290,3 +290,12 @@ owners for powered/off pairs, including variants whose first representative
 is another actor. **ORISON_FABRICATION_ACTORS** does not replace this selector.
 The owner building packet records rejected diagnostic runs as well as final
 proof; check stderr and helper completion, not just the wrapper exit.
+
+## Street paving continuation (2026-10-08)
+
+The batch accepts **front_pavement** and **street_paving_details**. The original
+fitted-slab checks run in the shared world. **ORISON_STREET_CAPTURE_IDS** selects
+named views for correction without repeating unchanged photographs; all source,
+material, support and original crossing checks remain active. Source drift for
+the slab uses an explicit consumed-field/native-mask comparison, preserving
+original fixture pins. A blocked camera is a failed run, not visual acceptance.

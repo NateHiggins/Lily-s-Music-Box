@@ -1,0 +1,11 @@
+00:01.500  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\street_paving_details.blend"
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_street_paving_details.py", line 60, in <module>
+    assert hit is not None and abs(hit.z)<.00003 and n.z>.999,row
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'id': 'pavement_long_joint', 'point': [-2.839999981224537, 0, 3.02], 'owner': 'front_pavement'}
+
+Error: script failed, file: 'art/blender/scripts/inspect_street_paving_details.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

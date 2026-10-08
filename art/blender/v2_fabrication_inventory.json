@@ -10090,6 +10090,90 @@
         }
       ]
     },
+    "game/data/orison_v2/street_paving_details.json": {
+      "parts": [
+        {
+          "id": "pavement_long_joint",
+          "kind": "joint"
+        },
+        {
+          "id": "pavement_cross_joint_01",
+          "kind": "joint"
+        },
+        {
+          "id": "pavement_cross_joint_02",
+          "kind": "joint"
+        },
+        {
+          "id": "pavement_cross_joint_03",
+          "kind": "joint"
+        },
+        {
+          "id": "pavement_cross_joint_04",
+          "kind": "joint"
+        },
+        {
+          "id": "pavement_cross_joint_05",
+          "kind": "joint"
+        },
+        {
+          "id": "pavement_cross_joint_06",
+          "kind": "joint"
+        },
+        {
+          "id": "pavement_cross_joint_07",
+          "kind": "joint"
+        },
+        {
+          "id": "curb_coping_west",
+          "kind": "coping"
+        },
+        {
+          "id": "curb_coping_midwest",
+          "kind": "coping"
+        },
+        {
+          "id": "curb_coping_middle",
+          "kind": "coping"
+        },
+        {
+          "id": "curb_coping_mideast",
+          "kind": "coping"
+        },
+        {
+          "id": "curb_coping_east",
+          "kind": "coping"
+        },
+        {
+          "id": "passage_pavement_slab_west",
+          "kind": "panel"
+        },
+        {
+          "id": "passage_pavement_slab_east",
+          "kind": "panel"
+        },
+        {
+          "id": "passage_pavement_slab_street",
+          "kind": "panel"
+        },
+        {
+          "id": "passage_pavement_slab_arcade",
+          "kind": "panel"
+        },
+        {
+          "id": "pavement_wet_west",
+          "kind": "damp"
+        },
+        {
+          "id": "pavement_wet_middle",
+          "kind": "damp"
+        },
+        {
+          "id": "pavement_wet_east",
+          "kind": "damp"
+        }
+      ]
+    },
     "game/data/orison_v2/surface_stock.json": {
       "assemblies": [
         {
@@ -10588,6 +10672,9 @@
       "res://assets/props/stair_ironwork_court.glb",
       "res://assets/props/stair_ironwork_service.glb"
     ],
+    "game/scripts/building/orison_v2_street_paving_details.gd": [
+      "res://assets/props/street_paving_details.glb"
+    ],
     "game/scripts/building/orison_v2_upper_wall_seats.gd": [
       "res://assets/props/upper_wall_seats.glb"
     ],
@@ -10768,6 +10855,7 @@
     "art/blender/scripts/build_signage.py",
     "art/blender/scripts/build_signal_terminal.py",
     "art/blender/scripts/build_stair_ironwork.py",
+    "art/blender/scripts/build_street_paving_details.py",
     "art/blender/scripts/build_surface_stock.py",
     "art/blender/scripts/build_task_lamp_supply.py",
     "art/blender/scripts/build_task_lamps.py",

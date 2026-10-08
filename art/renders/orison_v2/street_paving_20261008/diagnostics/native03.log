@@ -1,0 +1,7 @@
+00:01.500  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\street_paving_details.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_street_paving_details.py:77: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('NeutralStreetReview');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.65,.72,.8,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.5
+STREET NATIVE REVIEW {"evidence_class": "INERT", "parts": 20, "closed_positive_stocks": 186, "triangles": 9048, "support_samples": 223, "maximum_front_support_error_m": 7.450580596923828e-09, "native_sha256": "7bea1e69fd708caceb4d7d93f0e20eec6fa8d9cc4d25b4c8c6c0e2891919f65c", "asset_sha256": "c99c6be32702ee5375683a4a8863f6ca31b3ec2fe17af213e4c901437d2bc30c", "views": ["paving", "coping", "passage"], "scope": "Native solids, metric export, actual fitted-floor BVH bearings and retained collider bounds. Neutral daylight reference, not installed lighting or route proof."}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

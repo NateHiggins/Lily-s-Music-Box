@@ -6,7 +6,7 @@ This is an implementation work index, not acceptance evidence. Regenerate
 **v2_fabrication_inventory.json** with **tools/inventory_v2_fabrication.py**.
 The index names all 200 semantic spaces, 111 doors, 87 openings, 72 windows,
 74 envelopes, 85 fixtures, 67 platforms, 12 lift landings, 14 stairs and seven
-risers, plus 90 installed-data files and building-script asset references.
+risers, plus 91 installed-data files and building-script asset references.
 Discovery does not classify a hidden reservation as an unfinished visible prop.
 The production root, its exterior/passage composition and rendered inspection
 remain necessary to establish what the player actually sees.
@@ -42,8 +42,9 @@ do not close unrelated services, capacity, narrative or whole-world acceptance.
 The new discovery baseline has 102 registered families, 34 requiring source-drift
 review, no missing registered inputs, and 69 builders outside the planner's
 fixture convention. Neither drift nor an unregistered builder means missing art.
-Use **design/V2_IMPORT_RESUME_2026-10-08.md** for the next street/paving batch,
-exact retained source records and the unchanged-input comparison command.
+The prepared street/paving batch is now reviewed in **design/V2_STREET_PAVING_2026-10-08.md**.
+The earlier **design/V2_IMPORT_RESUME_2026-10-08.md** retains the discovery
+baseline and subsequent rear/service and city-boundary queue.
 
 ## Work order and acceptance
 
@@ -125,6 +126,7 @@ has yet been demonstrated; none is silently marked complete.
 | Apartment furniture and built-ins | domestic_furniture_source and installed surfaces | Existing source-derived surfaces are not automatically placeholders. All 22 installed beds, including eight completion templates, use three Blender variants and matching collision; 88 contacts and clear installed views inspected. Other furniture kinds, hardware, pivots and UVs still require detail review. |
 | Household radiators and accessories | heating/accessory source and mechanism owners | Preserve one-pipe steam and service semantics; inspect support, union and vent geometry. |
 | Room lights and switches | lighting data / light_switch Blender generator | Retain completed switches; fixture bodies and mounting clearance need complete sweep. |
+| Street paving joints, coping, passage panels and damp films | build_street_paving_details / twenty retained street records / original physics owners | 186 positive closed stocks, 20 groups, 9,048 triangles and 223 supports. Main fitted slab reused after exact consumed-source/native-mask review. Scoped installed crossing and finish review in street_paving_details.md. Broader street and weather/service acceptance remains separate. |
 | Street, entry, passage, shop installations | exterior cell / passage composition | Rear service alley fabricated and joined to the existing sidewalk, with an operating rear door. Include imported architecture and shop props in the sweep; semantic interior index alone does not prove exterior coverage. |
 | Bounded courtyard subgrade and alley groundworks | build_orison_ground / build_alley_groundworks / retained-grade authoring map | Fitted source volume, graded original paving, grated boiler well, open catches and hollow construction-stage collector; scoped native and walking checks in groundworks.md. Street-main connection, residual courtyard drainage, full weather/terrain closure remain open. Operating glazing is covered by boiler_window.md. |
 | Neighboring city bedding and terrain | build_city_shells / shared city_registration / build_city_foundations / build_orison_ground | Northwest and southwest assembly overlaps removed; 23 ground-level native undersides fitted around retained owners. Finite grade extends across the source city envelope; scoped source, mapping and terrain checks in city_foundations.md and city_grade.md. Weather, drainage and broader surface review remain open. |

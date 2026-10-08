@@ -1,0 +1,15 @@
+00:01.532  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\street_paving_details.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\inspect_street_paving_details.py:88: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('NeutralStreetReview');scene.world.use_nodes=True;scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.65,.72,.8,1);scene.world.node_tree.nodes['Background'].inputs[1].default_value=.5
+00:04.328  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-street-finish\native\paving.png'
+00:06.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-street-finish\native\paving_before.png'
+00:09.578  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-street-finish\native\coping.png'
+00:12.453  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-street-finish\native\coping_before.png'
+00:14.844  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-street-finish\native\passage.png'
+00:17.141  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-street-finish\native\passage_before.png'
+00:19.844  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-street-finish\native\coping_end.png'
+00:22.547  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-street-finish\native\coping_end_before.png'
+STREET NATIVE REVIEW {"evidence_class": "INERT", "parts": 20, "closed_positive_stocks": 186, "triangles": 9048, "support_samples": 223, "maximum_front_support_error_m": 7.450580596923828e-09, "native_sha256": "94d7061f72b29db7fc0a65984101db0d1fd987136739f9a4dca487223d518eaf", "asset_sha256": "c99c6be32702ee5375683a4a8863f6ca31b3ec2fe17af213e4c901437d2bc30c", "views": ["paving", "coping", "passage", "coping_end"], "scope": "Native solids, metric export, actual fitted-floor BVH bearings and retained collider bounds. Neutral daylight reference; before shows original proxy geometry with catalogue reference finishes, not original lighting/material acceptance. No route proof."}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

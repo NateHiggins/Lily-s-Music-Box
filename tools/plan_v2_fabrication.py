@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT = {'.json', '.gd', '.gdshader', '.gdshaderinc', '.py', '.gltf', '.import', '.tscn', '.tres', '.godot'}
-BATCH_MODULES = {'bodega_frontage', 'signage', 'bar_receiving', 'bar_furniture', 'bar_instruments', 'task_lamp_supply', 'service_instruments', 'household_stoves', 'household_fridges', 'fixed_lighting', 'household_toasters', 'medicine_cabinets', 'domestic_objects', 'household_radios', 'household_wardrobes', 'domestic_storage', 'prep_cabinets', 'domestic_seating', 'domestic_tables', 'surface_stock', 'signal_terminal', 'work_tables', 'reading_nook', 'task_lamps', 'photo_radio_fittings', 'radio_display', 'cobbler_fittings', 'druggist_cupboard', 'locksmith_fittings', 'hardware_stock', 'news_fittings', 'shop_clerestories', 'shop_joinery', 'diner_counter', 'diner_till', 'hardware_tools', 'photo_cameras',
+BATCH_MODULES = {'front_pavement_construction', 'street_paving_details', 'bodega_frontage', 'signage', 'bar_receiving', 'bar_furniture', 'bar_instruments', 'task_lamp_supply', 'service_instruments', 'household_stoves', 'household_fridges', 'fixed_lighting', 'household_toasters', 'medicine_cabinets', 'domestic_objects', 'household_radios', 'household_wardrobes', 'domestic_storage', 'prep_cabinets', 'domestic_seating', 'domestic_tables', 'surface_stock', 'signal_terminal', 'work_tables', 'reading_nook', 'task_lamps', 'photo_radio_fittings', 'radio_display', 'cobbler_fittings', 'druggist_cupboard', 'locksmith_fittings', 'hardware_stock', 'news_fittings', 'shop_clerestories', 'shop_joinery', 'diner_counter', 'diner_till', 'hardware_tools', 'photo_cameras',
                  'photo_counter', 'photo_enlargers', 'photo_portraits', 'photo_stock', 'radio_wire',
                  'pawn_clocks', 'pawn_display', 'pawn_fittings',
                  'laundry_fittings', 'laundry_apparatus', 'laundry_trade'}
@@ -58,6 +58,9 @@ def make_plan(root: Path, baseline: dict | None = None, selected: list[str] | No
         data = json.loads(fixture.read_text(encoding='utf-8'))
         if not isinstance(data, dict) or not data.get('source_bindings'):
             continue
+        # A consumed-source comparison reuses an existing family; it is not another asset.
+        if data.get('schema') == 'orison.front-pavement-consumed-source-review.v1':
+            continue
         family = fixture.stem.removeprefix('orison_')
         stem = ALIASES.get(family, family)
         sources = data['source_bindings']
@@ -93,7 +96,7 @@ def make_plan(root: Path, baseline: dict | None = None, selected: list[str] | No
         families.append({
             'family': family, 'builder': builder if (root / builder).is_file() else None,
             'inspector': inspector if (root / inspector).is_file() else None,
-            'batch_module': family if family in BATCH_MODULES else None,
+            'batch_module': stem if family in BATCH_MODULES else None,
             'source_status': 'REVIEW_DRIFT' if stale else 'BOUND',
             'stale_bindings': stale, 'missing': [p for p, h in current.items() if h == 'MISSING'],
             'dirty': dirty, 'changed_inputs': changed, 'shared_runtime_changed': runtime_changed,

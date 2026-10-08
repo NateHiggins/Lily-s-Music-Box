@@ -1,0 +1,554 @@
+{
+	"batch_checks": 10,
+	"elapsed_ms": 81951,
+	"evidence_class": "INERT",
+	"failures": [
+		"street_paving_details: supported clear standing view: damp_edges"
+	],
+	"module_checks": 1627,
+	"modules": {
+		"front_pavement": {
+			"captured": false,
+			"checks": 1132,
+			"elapsed_ms": 654,
+			"failures": [],
+			"fixture_sha256": "6b224e0f26be0002a0c510a977fba9938b28a57cd63df521c9009483878a97c0",
+			"parts": 37,
+			"room_floor_stations": [
+				{
+					"first_owner": "OrisonV2Blockout/F01_D_BED/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_D_BED/Floor/Collision",
+					"owner": "F01_D_BED",
+					"point": [
+						10.1599998474121,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_D_BED/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_D_BED/Floor/Collision",
+					"owner": "F01_D_BED",
+					"point": [
+						11.1499996185303,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_D_BED/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_D_BED/Floor/Collision",
+					"owner": "F01_D_BED",
+					"point": [
+						12.1400003433228,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_1D_SHOWER_01/FixtureBody",
+					"first_y": 0.0189999993890524,
+					"floor_owner": "OrisonV2Blockout/F01_D_BATH/Floor/Collision",
+					"owner": "F01_D_BATH",
+					"point": [
+						13.3699998855591,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_D_BATH/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_D_BATH/Floor/Collision",
+					"owner": "F01_D_BATH",
+					"point": [
+						14.2250003814697,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_D_BATH/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_D_BATH/Floor/Collision",
+					"owner": "F01_D_BATH",
+					"point": [
+						15.0799999237061,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_A_BATH/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_A_BATH/Floor/Collision",
+					"owner": "F01_A_BATH",
+					"point": [
+						-7.6399998664856,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_A_BATH/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_A_BATH/Floor/Collision",
+					"owner": "F01_A_BATH",
+					"point": [
+						-6.80000019073486,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_1A_SHOWER_01/FixtureBody",
+					"first_y": 0.0189999993890524,
+					"floor_owner": "OrisonV2Blockout/F01_A_BATH/Floor/Collision",
+					"owner": "F01_A_BATH",
+					"point": [
+						-5.96000003814697,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_A_BED/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_A_BED/Floor/Collision",
+					"owner": "F01_A_BED",
+					"point": [
+						-14.7799997329712,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_A_BED/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_A_BED/Floor/Collision",
+					"owner": "F01_A_BED",
+					"point": [
+						-13.4750003814697,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_A_BED/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_A_BED/Floor/Collision",
+					"owner": "F01_A_BED",
+					"point": [
+						-12.1700000762939,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_A_STUDY/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_A_STUDY/Floor/Collision",
+					"owner": "F01_A_STUDY",
+					"point": [
+						-10.6800003051758,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_A_STUDY/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_A_STUDY/Floor/Collision",
+					"owner": "F01_A_STUDY",
+					"point": [
+						-9.75,
+						0.0,
+						-12.0
+					]
+				},
+				{
+					"first_owner": "OrisonV2Blockout/F01_A_STUDY/Floor/Collision",
+					"first_y": 0.0,
+					"floor_owner": "OrisonV2Blockout/F01_A_STUDY/Floor/Collision",
+					"owner": "F01_A_STUDY",
+					"point": [
+						-8.81999969482422,
+						0.0,
+						-12.0
+					]
+				}
+			],
+			"surface_contacts": 800,
+			"triangles": 2136,
+			"validator_sha256": "04b72b918e84213f14c413c691596a5784c82f89789fb3594cbdfa16a499e13b"
+		},
+		"street_paving_details": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"captures": [
+				{
+					"bucket": "street detail",
+					"feet": [
+						3.0,
+						0.0299999993294477,
+						2.0
+					],
+					"id": "street_paving",
+					"image": "street_paving.png",
+					"owner": "StreetPavingDetails",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "street detail",
+					"feet": [
+						6.0,
+						0.0299999993294477,
+						3.65000009536743
+					],
+					"id": "curb_joints",
+					"image": "curb_joints.png",
+					"owner": "StreetPavingDetails",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "street detail",
+					"feet": [
+						19.0,
+						0.0299999993294477,
+						3.70000004768372
+					],
+					"id": "coping_end",
+					"image": "coping_end.png",
+					"owner": "StreetPavingDetails",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "street detail",
+					"feet": [
+						14.0,
+						0.0299999993294477,
+						17.0
+					],
+					"id": "passage_panels",
+					"image": "passage_panels.png",
+					"owner": "StreetPavingDetails",
+					"status": "captured_pending_visual_review"
+				}
+			],
+			"checks": 495,
+			"elapsed_ms": 43096,
+			"failures": [
+				"supported clear standing view: damp_edges"
+			],
+			"fixture_sha256": "4884d23319aa1c1659a9a1f052659209e0bcbdfe099ba58fa4262f36ad221b7c",
+			"parts": 20,
+			"route": [
+				{
+					"actual": [
+						1.92499971389771,
+						0.000837462663184851,
+						-6.40357637405396
+					],
+					"ok": true,
+					"target": [
+						1.92499995231628,
+						0.0,
+						-6.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						0.0737056061625481,
+						0.000837462663184851,
+						-8.03504657745361
+					],
+					"ok": true,
+					"target": [
+						0.0,
+						0.0,
+						-8.10000038146973
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						0.00332845468074083,
+						0.000859255495015532,
+						-10.101541519165
+					],
+					"ok": true,
+					"target": [
+						0.0,
+						0.0,
+						-10.1999998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						0.000152706532389857,
+						0.000859255495015532,
+						-12.103720664978
+					],
+					"ok": true,
+					"target": [
+						0.0,
+						0.0,
+						-12.1999998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						0.0000054984338930808,
+						0.000859255495015532,
+						-14.5539264678955
+					],
+					"ok": true,
+					"target": [
+						-0.000000262268315509573,
+						0.0,
+						-14.6499996185303
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9035320281982,
+						0.000859255495015532,
+						-14.6493368148804
+					],
+					"ok": true,
+					"target": [
+						-14.0,
+						0.0,
+						-14.649998664856
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9922361373901,
+						0.000859255495015532,
+						-15.7533645629883
+					],
+					"ok": true,
+					"target": [
+						-14.0,
+						0.0,
+						-15.8499984741211
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9998092651367,
+						-0.0191860962659121,
+						-19.5539989471436
+					],
+					"ok": true,
+					"target": [
+						-14.0000009536743,
+						-0.100000001490116,
+						-19.6499977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9999971389771,
+						-0.0191860962659121,
+						-25.1539573669434
+					],
+					"ok": true,
+					"target": [
+						-14.0000009536743,
+						-0.100000001490116,
+						-25.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9999980926514,
+						0.000532988458871841,
+						-26.5540618896484
+					],
+					"ok": true,
+					"target": [
+						-14.0000009536743,
+						0.0,
+						-26.6499977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9999990463257,
+						0.000532988458871841,
+						-29.7539558410645
+					],
+					"ok": true,
+					"target": [
+						-14.0000019073486,
+						0.0,
+						-29.8499984741211
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9999990463257,
+						0.000532988458871841,
+						-29.7539558410645
+					],
+					"ok": true,
+					"target": [
+						-14.0000019073486,
+						0.0,
+						-29.8499984741211
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9999980926514,
+						0.000532988458871841,
+						-26.7468795776367
+					],
+					"ok": true,
+					"target": [
+						-14.0000009536743,
+						0.0,
+						-26.6499977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9999980926514,
+						-0.0191590841859579,
+						-25.3460693359375
+					],
+					"ok": true,
+					"target": [
+						-14.0000009536743,
+						-0.100000001490116,
+						-25.25
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9999980926514,
+						-0.0191590841859579,
+						-19.7460498809814
+					],
+					"ok": true,
+					"target": [
+						-14.0000009536743,
+						-0.100000001490116,
+						-19.6499977111816
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9999971389771,
+						0.000802351802121848,
+						-15.9458503723145
+					],
+					"ok": true,
+					"target": [
+						-14.0,
+						0.0,
+						-15.8499984741211
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-13.9999971389771,
+						0.000802351802121848,
+						-14.7460308074951
+					],
+					"ok": true,
+					"target": [
+						-14.0,
+						0.0,
+						-14.649998664856
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.0964800044894218,
+						0.000802351802121848,
+						-14.6506614685059
+					],
+					"ok": true,
+					"target": [
+						-0.000000262268315509573,
+						0.0,
+						-14.6499996185303
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.00209425995126367,
+						0.000802351802121848,
+						-10.2966089248657
+					],
+					"ok": true,
+					"target": [
+						0.0,
+						0.0,
+						-10.1999998092651
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-0.000112031797470991,
+						0.000802351802121848,
+						-8.59610939025879
+					],
+					"ok": true,
+					"target": [
+						0.0,
+						0.0,
+						-8.5
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						1.84964859485626,
+						0.000938393000978976,
+						-6.56347036361694
+					],
+					"ok": true,
+					"target": [
+						1.92499995231628,
+						0.0,
+						-6.5
+					],
+					"wall_contacts": {
+						"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F01_INNER_DOOR/F01_INNER_DOOR_Leaf/HingedLeaf": "(-0.502, 1.194938, -3.516)"
+					}
+				}
+			],
+			"support_samples": 223,
+			"triangles": 9048,
+			"validator_sha256": "84fdc8132351863efde4cf4f5790feab6d476c57b87429ad3c7a091ebd488509"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

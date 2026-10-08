@@ -651,6 +651,7 @@ func _compose_exterior() -> bool:
 	city_shells.name = "CityShells"
 	add_child(city_shells)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
+	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false
 	var signage := preload("res://scripts/building/orison_v2_native_signage.gd").new()
 	if not signage.install(self):
 		push_error("V2 SIGNAGE: %s" % [signage.errors])

@@ -2,6 +2,8 @@ extends "res://tests/orison_v2_city_sweep.gd"
 ## One production world, independent detailed validators, changed-area captures.
 ## This is visual/static-fit QA, not a runtime_contract or ledger promotion.
 const MODULES := {
+	"front_pavement": preload("res://tests/orison_v2_front_pavement_test.gd"),
+	"street_paving_details": preload("res://tests/orison_v2_street_paving_details_test.gd"),
 	"owner_building_finish": preload("res://tests/orison_v2_owner_building_finish_test.gd"),
 	"owner_building_routes": preload("res://tests/orison_v2_owner_building_routes_test.gd"),
 	"owner_shop_finish": preload("res://tests/orison_v2_owner_shop_finish_test.gd"),
@@ -143,7 +145,8 @@ func _run() -> void:
 		result["elapsed_ms"] = Time.get_ticks_msec() - module_started
 		result["captured"] = module.capture_enabled
 		result["validator_sha256"] = FileAccess.get_sha256(MODULES[id].resource_path)
-		result["fixture_sha256"] = FileAccess.get_sha256("res://tests/fixtures/orison_" + id + ".json")
+		var fixture_id: String = "front_pavement_construction" if id == "front_pavement" else id
+		result["fixture_sha256"] = FileAccess.get_sha256("res://tests/fixtures/orison_" + fixture_id + ".json")
 		results[id] = result
 		total += int(result.checks)
 		for message: String in result.failures: failures.append(id + ": " + message)

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "source_geometry_sha256": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
+  "finishes": {
+    "joint": {
+      "catalog_key": "concrete",
+      "tint": [
+        0.43,
+        0.42,
+        0.39,
+        1
+      ],
+      "normal": 0.12,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "coping": {
+      "catalog_key": "concrete",
+      "tint": [
+        0.92,
+        0.9,
+        0.84,
+        1
+      ],
+      "normal": 0.17,
+      "roughness": 0.93,
+      "pigment": 1.0
+    },
+    "panel": {
+      "catalog_key": "concrete",
+      "tint": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "normal": 0.24,
+      "roughness": 1.0,
+      "pigment": 1.0
+    },
+    "damp": {
+      "catalog_key": "concrete",
+      "tint": [
+        0.73,
+        0.76,
+        0.73,
+        1
+      ],
+      "normal": 0.12,
+      "roughness": 0.32,
+      "pigment": 1.0
+    }
+  },
+  "parts": [
+    {
+      "id": "pavement_long_joint",
+      "kind": "joint"
+    },
+    {
+      "id": "pavement_cross_joint_01",
+      "kind": "joint"
+    },
+    {
+      "id": "pavement_cross_joint_02",
+      "kind": "joint"
+    },
+    {
+      "id": "pavement_cross_joint_03",
+      "kind": "joint"
+    },
+    {
+      "id": "pavement_cross_joint_04",
+      "kind": "joint"
+    },
+    {
+      "id": "pavement_cross_joint_05",
+      "kind": "joint"
+    },
+    {
+      "id": "pavement_cross_joint_06",
+      "kind": "joint"
+    },
+    {
+      "id": "pavement_cross_joint_07",
+      "kind": "joint"
+    },
+    {
+      "id": "curb_coping_west",
+      "kind": "coping"
+    },
+    {
+      "id": "curb_coping_midwest",
+      "kind": "coping"
+    },
+    {
+      "id": "curb_coping_middle",
+      "kind": "coping"
+    },
+    {
+      "id": "curb_coping_mideast",
+      "kind": "coping"
+    },
+    {
+      "id": "curb_coping_east",
+      "kind": "coping"
+    },
+    {
+      "id": "passage_pavement_slab_west",
+      "kind": "panel"
+    },
+    {
+      "id": "passage_pavement_slab_east",
+      "kind": "panel"
+    },
+    {
+      "id": "passage_pavement_slab_street",
+      "kind": "panel"
+    },
+    {
+      "id": "passage_pavement_slab_arcade",
+      "kind": "panel"
+    },
+    {
+      "id": "pavement_wet_west",
+      "kind": "damp"
+    },
+    {
+      "id": "pavement_wet_middle",
+      "kind": "damp"
+    },
+    {
+      "id": "pavement_wet_east",
+      "kind": "damp"
+    }
+  ]
+}

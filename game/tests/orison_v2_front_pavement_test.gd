@@ -1,5 +1,10 @@
 extends "res://tests/orison_v2_ceiling_top_closures_test.gd"
 ## INERT installed public-floor ownership check against retained real owners.
+var batch_mode := false
+var capture_enabled := true
+func _ready() -> void:
+	if not batch_mode:call_deferred("_run")
+
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,12*60)
@@ -8,14 +13,22 @@ func _run() -> void:
 	await get_tree().physics_frame;await get_tree().physics_frame
 	check(world.player!=null and not world.startup_failed,"production world initializes")
 	if world.player==null:world.free();get_tree().quit(1);return
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	world.player.set_physics_process(false);world.player.set_lamp_enabled(false)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
 	var root: Node3D=world.adapter.root
 	var source_report: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_front_pavement_construction.json"))
+	var reviewed: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_front_pavement_review.json"))
+	check(FileAccess.get_file_as_string("res://tests/fixtures/orison_front_pavement_construction.json").replace("\r\n","\n").sha256_text()==str(reviewed.original_fixture_sha256),"original construction fixture remains unchanged")
 	for relative: String in source_report.source_bindings:
 		if not relative.begins_with("game/"):continue
 		var path: String="res://"+relative.trim_prefix("game/")
-		check(FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()==str(source_report.source_bindings[relative]),"installed paving binds actual source: "+relative)
+		var expected: String=str(source_report.source_bindings[relative])
+		if relative in ["game/data/orison_v2_blockout.json","game/data/orison_v2/world_connection.json"]:expected=str(reviewed.source_bindings[relative])
+		check(FileAccess.get_file_as_string(path).replace("\r\n","\n").sha256_text()==expected,"installed paving binds original or explicitly compared source: "+relative)
 	check(FileAccess.get_sha256("res://assets/props/front_pavement.glb")==source_report.asset_sha256,"construction metadata binds the actual native asset")
 	var envelope: Array=source_report.envelope;var y: Array=source_report.y
 	var old_bounds:=AABB(Vector3(envelope[0],y[0],envelope[1]),Vector3(envelope[2]-envelope[0],y[1]-y[0],envelope[3]-envelope[1]))
@@ -82,6 +95,7 @@ func _run() -> void:
 		["west_front_oblique",Vector3(-17,1.524,-14.6),Vector3(-13,0,-12.65)],
 		["east_bath_front",Vector3(14.2,1.524,-14.2),Vector3(14.2,0,-12.65)],
 		["alley_street_join",Vector3(16.8,1.524,-13.8),Vector3(16.8,0,-11.65)]]:
+		if not capture_enabled:break
 		camera.global_position=root.to_global(view[1]);camera.look_at(root.to_global(view[2]))
 		world.player.global_position=camera.global_position-Vector3.UP*world.player.STANDING_EYE
 		world.player.camera.global_transform=camera.global_transform;world.player.set_lamp_enabled(true)
@@ -97,7 +111,8 @@ func _run() -> void:
 		file.store_string(JSON.stringify({"evidence_class":"INERT","parts":parts,"triangles":triangles,"original_duplicate_pairs":duplicate_pairs,"retained_room_floor_contacts":retained_contacts,"retained_shower_foregrounds":fixture_foregrounds,"room_floor_stations":floor_records,"new_surface_contacts":surface_contacts,"render_observations":observations,"checks":checks,"failures":failures,"note":"Installed slab ownership check. Drainage and whole-shell readiness remain open."},"\t")+"\n");file.close()
 	print("INERT FRONT PAVEMENT NATIVE: parts=%d triangles=%d old_duplicates=%d room_contacts=%d new_contacts=%d checks=%d failures=%d" % [parts,triangles,duplicate_pairs,retained_contacts,surface_contacts,checks,failures.size()])
 	for failure: String in failures:print("FRONT PAVEMENT FAIL: ",failure)
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	camera.free();world.player.camera.make_current()
+	return {"checks":checks,"failures":failures,"parts":parts,"triangles":triangles,"surface_contacts":surface_contacts,"room_floor_stations":floor_records}
 
 func _pavement_render_stats() -> Dictionary:
 	var viewport:=get_viewport().get_viewport_rid()
