@@ -37,6 +37,14 @@ illumination. Seven historical Texture-RID shutdown warnings remain, with no
 script errors. Reader NEW=0. Inspection records and wrapper receipts are INERT;
 no new runtime-contract or completeness-ledger acceptance is claimed.
 
+Fresh static candidate **a172324c** passes 49 comparisons with zero regressions
+or timeouts, a clean checkout, 17 protected paths and selector V2. The existing
+incomplete ledger is unchanged. Baseline **b6d8c10e** reuses its actual verified
+board; intervening **fdc9d443** contains only review metadata/documentation.
+See [verification](../art/renders/orison_v2/city_roof_finish_20261008/verification.md)
+and [committed byte comparison](../art/renders/orison_v2/city_roof_finish_20261008/committed_binding.json).
+Godot was not repeated by the static verifier. Its temporary checkout was removed.
+
 ## Closeout
 
 Worktree clean at end: no; pre-existing owner insitu files, two EOL-only edits,
