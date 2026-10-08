@@ -39,6 +39,14 @@ No asset import or new texture generation. Reader NEW=0 and syntax preflight
 pass. The inherited test writes inspection records, not a schema-2 runtime
 contract; no ledger promotion or full service/weather acceptance is claimed.
 
+Fresh static candidate **b6d8c10e** passes all 49 comparisons with zero
+regressions or timeouts, a clean checkout, 17 protected paths and selector V2.
+The existing incomplete ledger is unchanged. The reused verified baseline is
+**e02cfdc5**; intervening **8ecceb4e** changes only documentation/review metadata.
+See [verification](../art/renders/orison_v2/alley_finish_20261008/verification.md)
+and [committed byte comparison](../art/renders/orison_v2/alley_finish_20261008/committed_binding.json).
+Godot is not repeated by the static verifier. Its temporary checkout was removed.
+
 ## Closeout
 
 Worktree clean at end: no; owner insitu files, supplied review inputs, two

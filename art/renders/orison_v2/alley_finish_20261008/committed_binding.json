@@ -1,0 +1,23 @@
+{
+  "evidence_class": "INERT",
+  "candidate": "b6d8c10eb66c12401cee54e2e498ac00d88d38f5",
+  "runtime_inputs_sha256": "bc82cbacb498b08a79a08e905dad27fc747de6adc7318dfa041f8d892472bf9e",
+  "files": [
+    {
+      "path": "game/scripts/building/orison_v2_service_alley.gd",
+      "sha256": "3bdfec3db1850f81f499515c85950e98fe24889e5db790f2ab7dff4a7f6c9955",
+      "committed_bytes_match": true
+    },
+    {
+      "path": "game/data/orison_v2/service_alley_finish.json",
+      "sha256": "be0167318573c69579f6efa727328a73a25d18bcbd81650fb1406875c9c5dd7a",
+      "committed_bytes_match": true
+    },
+    {
+      "path": "game/tests/orison_v2_alley_finish_test.gd",
+      "sha256": "b25f7feb5be67ea22bc4fb9d3a008f6a83d434bae13b27580ef696fc0bd88c4b",
+      "committed_bytes_match": true
+    }
+  ],
+  "scope": "Canonical executed wrapper binds to current inputs; changed production and test bytes match the commit. This comparison is not a runtime contract and claims no fresh-checkout runtime execution."
+}
