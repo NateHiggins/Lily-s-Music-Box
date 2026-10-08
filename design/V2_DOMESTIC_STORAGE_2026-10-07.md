@@ -7,8 +7,8 @@ REPORT - V2-DOMESTIC-STORAGE - 2026-10-07
 Branch / HEAD / origin/main / merge-base: canonical **main**, source parent
 **9e08a579a3f7a08f219b82ff46691b97fe6a71a0**. No push. Exact verified source
 binding follows after static verification. Worktree clean at end: no; owner
-**shots.md** and **shot_024..027.png** are excluded. Protected 17/17: pending
-candidate check. Selector: V2, with explicit V1 rollback retained.
+**shots.md** and **shot_024..027.png** are excluded. Protected 17/17: unchanged
+in the final candidate check. Selector: V2, with explicit V1 rollback retained.
 
 Ledger before -> after: **7 / 8 / 127 / 42 / 151 / 153** unchanged;
 requirements_changed: none claimed. This is not runtime-contract evidence.
@@ -73,4 +73,15 @@ service capacity, continuous route or ledger promotion is claimed. V2 is incompl
 Evidence: **art/renders/orison_v2/domestic_storage_20261007/image_manifest.json**.
 All entries are INERT geometry/visual QA. Decision needed from owner: none.
 
-BLOCKED pending static candidate verification
+Verified source **65eafb1e053fa270c35cbdd984bc154c06bcafe4** has exactly tree
+**29f06849b4211fd8ede44eaff23c122f2bc03dd0**, matching candidate
+**6c85a183395d54a23bffc8f2f894091e84521434**. The cached complete baseline
+**1c319e582f57bc9a505093f1a89146c78562756e** was reused with no additional
+Godot launches. Final static comparison reports zero regressions, all 17
+protected paths unchanged, and unchanged ledger counts. The verifier removed
+its temporary checkout. The manifest adds 55 data consumers and four explicit
+test references; every preceding record is retained. Post-runtime status and
+dependency refreshes prove identical exports, runtime JSON and nonmetadata
+fixture fields.
+
+MERGE-CANDIDATE 65eafb1e053fa270c35cbdd984bc154c06bcafe4
