@@ -9,6 +9,13 @@ func _run() -> void:
 	if world.startup_failed:world.free();get_tree().quit(1);return
 	world.player.set_physics_process(false);world.service_set_carrier.set_capture_hidden(true)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var old_camera_pose := world.player.camera.transform
+	var old_player_pose := world.player.global_transform
+	var old_fov: float = world.player.camera.fov
 	var root: Node3D=world.adapter.root;var model: Node3D=root.get_node("FrontFacade")
 	var anchor:=world.adapter.resolve("F01_DOOR_06") as Node3D
 	var door:=anchor.get_node("F01_DOOR_06_Leaf") as DoorProp
@@ -25,7 +32,7 @@ func _run() -> void:
 			check(draw.mesh.get_faces().size()==int(spec.triangles)*3,"precise partition retains every native triangle")
 			check(draw.mesh.get_aabb().size.max_axis_index()>=0 and maxf(draw.mesh.get_aabb().size.x,maxf(draw.mesh.get_aabb().size.y,draw.mesh.get_aabb().size.z))<=4.00001,"draw is spatially bounded")
 			_check_planar_mapping(draw.mesh,true)
-			var material:=draw.get_active_material(0)
+			var material: Material=draw.get_meta("v2_building_source",draw.get_active_material(0))
 			if spec.key=="glass":check(material is ShaderMaterial and material.shader==preload("res://shaders/lamp_glass_surface.gdshader"),"real panes use the established clear dielectric")
 			else:
 				check(material is StandardMaterial3D and not material.uv1_triplanar and material.uv1_scale.is_equal_approx(Vector3.ONE/float(spec.tile)),"local metre charts retain original catalogue scale")
@@ -79,4 +86,10 @@ func _run() -> void:
 	print("FACADE INSPECTION ",world.get_world_3d().direct_space_state.intersect_ray(inspect_ray)," prompt=",world.player._prompt.text)
 	check(world.player._prompt.text.contains("Inspect ORISON neon"),"original low transformer inspection is reachable from the pavement")
 	print("FRONT FACADE TEST: parts=",parts," triangles=",triangles," checks=",checks," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	world.player.global_transform=old_player_pose
+	world.player.camera.transform=old_camera_pose
+	world.player.camera.fov=old_fov
+	world.player.camera.make_current()
+	world.mirror_renderer._main_camera=world.player.camera
+	camera.free()
+	return {"checks":batch_checks,"failures":failures}

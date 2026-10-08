@@ -1,0 +1,67 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 18.92,
+  "exit_code": 1,
+  "finished_utc": "2026-10-08T19:27:18Z",
+  "started_utc": "2026-10-08T19:26:59Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 4,
+  "script_error_lines": [
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"at\" variable because the value doesn't have a set type.",
+   "SCRIPT ERROR: Parse Error: Cannot infer the type of \"target\" variable because the value doesn't have a set type.",
+   "SCRIPT ERROR: Compile Error: Failed to compile depended scripts.",
+   "ERROR: Failed to load script \"res://tests/orison_v2_fabrication_batch.gd\" with error \"Compilation failed\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/building-final-01.log.stderr",
+  "stderr_sha256": "ec440b2e426ef68c16fca72a2ea50f9df06dc5b7e399eb82aa9e469c8483dbce",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/building-final-01.log",
+  "stdout_sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/building-final-01",
+ "source": {
+  "dirty_paths": 291,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/scripts/owner_finish_materials.py",
+   " M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/data/orison_v2/owner_finish_profiles.json",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/tests/fixtures/orison_owner_service_finish.json",
+   " M game/tests/orison_v2_city_aerials_test.gd",
+   " M game/tests/orison_v2_city_tanks_test.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_fixed_lighting_test.gd",
+   " M game/tests/orison_v2_floor_surface_test.gd",
+   " M game/tests/orison_v2_front_facade_test.gd",
+   " M game/tests/orison_v2_lift_gate_test.gd",
+   " M game/tests/orison_v2_lift_joinery_test.gd",
+   " M game/tests/orison_v2_roof_membrane_test.gd",
+   " M game/tests/orison_v2_roof_ventilator_test.gd",
+   "?? art/blender/scripts/review_owner_building_finishes.py",
+   "?? art/renders/insitu/shot_024.png"
+  ],
+  "repository_head": "fdf01a36a17b370e820a7065bad235acdfadeed7",
+  "repository_tree": "685d683b20dad2b4a27e1464526758f5516c8ca9",
+  "runtime_inputs_sha256": "1486194ecb6d9e4324a8d97e2b0dbc7fe66a8707a84816b080982e15857657d4",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "4a8a7653b1ed1105ac98e646ee41d3cf3a4e511fbe5ca40ac2a40478c95243a7"
+ },
+ "windowed": true
+}

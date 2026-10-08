@@ -1,0 +1,1101 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Full03 installed inspection, final04 explicit-reader validation, capture_final06 corrected supported skyline views. Historical01/02/05 are rejected diagnostics. The older installed skyline_day/street_skyline images are occluded and superseded by capture_final06.",
+  "files": [
+    {
+      "file": "installed/batch.json",
+      "source": "tmp/v2-improvement/building-final-03/batch.json",
+      "sha256": "5cbc1a36e02d3a04e26a90648ae84c5e7d386a066aef59f6dd8218672ed09a85"
+    },
+    {
+      "file": "installed/domestic_objects/3A_story_specimen_native.png",
+      "source": "tmp/v2-improvement/building-final-03/domestic_objects/3A_story_specimen_native.png",
+      "sha256": "78a81c744e20f56140de4b18202406879d69ee468e5e20bd9c1faba9b3e60be6"
+    },
+    {
+      "file": "installed/fixed_lighting/3B_LT_SCONCE_off.png",
+      "source": "tmp/v2-improvement/building-final-03/fixed_lighting/3B_LT_SCONCE_off.png",
+      "sha256": "2d7276cfe35c350243de73645468862d557440c7652a83bade6c5fbe1994efd0"
+    },
+    {
+      "file": "installed/fixed_lighting/3B_LT_SCONCE_powered.png",
+      "source": "tmp/v2-improvement/building-final-03/fixed_lighting/3B_LT_SCONCE_powered.png",
+      "sha256": "f21d5205124a87fd2023fa0fe113a09ffdf3539dfe2413fe8eb8187181d27030"
+    },
+    {
+      "file": "installed/fixed_lighting/F01_BAR_LT_WEST1_off.png",
+      "source": "tmp/v2-improvement/building-final-03/fixed_lighting/F01_BAR_LT_WEST1_off.png",
+      "sha256": "780254d5141673a26e8c1031eabc18ca53ba9b461d26b3f9935a10772069b1f3"
+    },
+    {
+      "file": "installed/fixed_lighting/F01_BAR_LT_WEST1_powered.png",
+      "source": "tmp/v2-improvement/building-final-03/fixed_lighting/F01_BAR_LT_WEST1_powered.png",
+      "sha256": "d913f0cb382e49bec9ddfcc050d8332a4b0720fd8437635befd9b43aac02b7cf"
+    },
+    {
+      "file": "installed/fixed_lighting/F04_B_BATH_LT_FLUSH_DOME_off.png",
+      "source": "tmp/v2-improvement/building-final-03/fixed_lighting/F04_B_BATH_LT_FLUSH_DOME_off.png",
+      "sha256": "9347cbc832d7a7a557dc1ef1f2ee02ccfe12bc2c15d219e0d04e9de7b7caeafc"
+    },
+    {
+      "file": "installed/fixed_lighting/F04_B_BATH_LT_FLUSH_DOME_powered.png",
+      "source": "tmp/v2-improvement/building-final-03/fixed_lighting/F04_B_BATH_LT_FLUSH_DOME_powered.png",
+      "sha256": "e91e4fed2425241918437f5fe87b9dde0986491ac06e3e26e3946d6ed737afcc"
+    },
+    {
+      "file": "installed/fixed_lighting/F04_B_MAIN_LT_PENDANT_SHADE_off.png",
+      "source": "tmp/v2-improvement/building-final-03/fixed_lighting/F04_B_MAIN_LT_PENDANT_SHADE_off.png",
+      "sha256": "94c25bada15a4a83cc410243e3c1d0ff368a3dd4d736ec7a69c0c7d80ebdedb9"
+    },
+    {
+      "file": "installed/fixed_lighting/F04_B_MAIN_LT_PENDANT_SHADE_powered.png",
+      "source": "tmp/v2-improvement/building-final-03/fixed_lighting/F04_B_MAIN_LT_PENDANT_SHADE_powered.png",
+      "sha256": "a7dba6d30848e880b35799d380cd89f064cea3f93b54eaede46d79ca8d5eebcc"
+    },
+    {
+      "file": "installed/household_fridges/F01_1A_FRIDGE_01_native_closed.png",
+      "source": "tmp/v2-improvement/building-final-03/household_fridges/F01_1A_FRIDGE_01_native_closed.png",
+      "sha256": "6b7dd4ea0421555b4c8c4f6efebdef34ba07d5420e299865db088e00ea3e6654"
+    },
+    {
+      "file": "installed/household_fridges/F01_1A_FRIDGE_01_native_open.png",
+      "source": "tmp/v2-improvement/building-final-03/household_fridges/F01_1A_FRIDGE_01_native_open.png",
+      "sha256": "3f336c2d7136a508ac72585c0a9b84e504ba9cfce48ab0c19e112a8429b24a38"
+    },
+    {
+      "file": "installed/household_fridges/F02_2A_FRIDGE_01_native_closed.png",
+      "source": "tmp/v2-improvement/building-final-03/household_fridges/F02_2A_FRIDGE_01_native_closed.png",
+      "sha256": "fa118579f3c7410e17a7eea5afe05e2d2983ec7a826886687be90b15556e8446"
+    },
+    {
+      "file": "installed/household_fridges/F02_2A_FRIDGE_01_native_open.png",
+      "source": "tmp/v2-improvement/building-final-03/household_fridges/F02_2A_FRIDGE_01_native_open.png",
+      "sha256": "855dde6c96e86ca1ba8e29bee587d9fa0278f3cd43bbecdbeda20c507b75fe72"
+    },
+    {
+      "file": "installed/household_fridges/F03_3B_FRIDGE_01_native_closed.png",
+      "source": "tmp/v2-improvement/building-final-03/household_fridges/F03_3B_FRIDGE_01_native_closed.png",
+      "sha256": "43be1afc947bfdcd7c39deb4875d0c3f7ecefbdf94dd664c2450ad3051d2a8d5"
+    },
+    {
+      "file": "installed/household_fridges/F03_3B_FRIDGE_01_native_open.png",
+      "source": "tmp/v2-improvement/building-final-03/household_fridges/F03_3B_FRIDGE_01_native_open.png",
+      "sha256": "8cae753811e1e63ce8a969e53bbd3d3903fad3eb79c4cd72f1e630cdda4e587f"
+    },
+    {
+      "file": "installed/household_fridges/F04_B_FRIDGE_01_native_closed.png",
+      "source": "tmp/v2-improvement/building-final-03/household_fridges/F04_B_FRIDGE_01_native_closed.png",
+      "sha256": "ce1f19d7b7f2039df5c5f85e77cffb1d98ae723d02770370a0bfeec80d51e336"
+    },
+    {
+      "file": "installed/household_fridges/F04_B_FRIDGE_01_native_open.png",
+      "source": "tmp/v2-improvement/building-final-03/household_fridges/F04_B_FRIDGE_01_native_open.png",
+      "sha256": "0c62c2a415112a34d99731a64864a8c9212f1da2329b7326de4dd9530594ba9f"
+    },
+    {
+      "file": "installed/household_fridges/F06_6B_FRIDGE_01_native_closed.png",
+      "source": "tmp/v2-improvement/building-final-03/household_fridges/F06_6B_FRIDGE_01_native_closed.png",
+      "sha256": "8f361d61ed80a21420776b4ff5ad8cab582b93f2d2d82797001a50514ab3746e"
+    },
+    {
+      "file": "installed/household_fridges/F06_6B_FRIDGE_01_native_open.png",
+      "source": "tmp/v2-improvement/building-final-03/household_fridges/F06_6B_FRIDGE_01_native_open.png",
+      "sha256": "7b069b718ddd7d55772fa8b11c6605267bdcf047d8c5823d62a4c8178052f8b1"
+    },
+    {
+      "file": "installed/household_stoves/F01_1A_STOVE_01_native_closed.png",
+      "source": "tmp/v2-improvement/building-final-03/household_stoves/F01_1A_STOVE_01_native_closed.png",
+      "sha256": "e0ca541c7ff752acc17666d5d0d19bcf190be6a997d298bda6cfacb5d8b52775"
+    },
+    {
+      "file": "installed/household_stoves/F01_1A_STOVE_01_native_open.png",
+      "source": "tmp/v2-improvement/building-final-03/household_stoves/F01_1A_STOVE_01_native_open.png",
+      "sha256": "f832ce3c08e7ebb3f2bbdfe8342af1d1b6ce62fdac46f00465098e407690266c"
+    },
+    {
+      "file": "installed/household_stoves/F02_2B_STOVE_01_native_closed.png",
+      "source": "tmp/v2-improvement/building-final-03/household_stoves/F02_2B_STOVE_01_native_closed.png",
+      "sha256": "cbcaf5c66b0fd54ec85313306fa42083d173d9c9b40b2aab3a1a85838f54edf6"
+    },
+    {
+      "file": "installed/household_stoves/F02_2B_STOVE_01_native_open.png",
+      "source": "tmp/v2-improvement/building-final-03/household_stoves/F02_2B_STOVE_01_native_open.png",
+      "sha256": "d42a516eda22876bf89ff333a61db27ea0ef2148f33170bab8adc08b18ad4713"
+    },
+    {
+      "file": "installed/household_stoves/F02_2B_STOVE_01_native_service0.png",
+      "source": "tmp/v2-improvement/building-final-03/household_stoves/F02_2B_STOVE_01_native_service0.png",
+      "sha256": "b475a66f0c7db64c66096ee5ea9e9084ac196ba4745c913c961767ce2e16f891"
+    },
+    {
+      "file": "installed/household_stoves/F02_2B_STOVE_01_native_service2.png",
+      "source": "tmp/v2-improvement/building-final-03/household_stoves/F02_2B_STOVE_01_native_service2.png",
+      "sha256": "6a8246931b27e2460cb2cc8be43f2511b032b89b904f15c654e51753e5d8945e"
+    },
+    {
+      "file": "installed/household_stoves/F05_5B_STOVE_01_native_closed.png",
+      "source": "tmp/v2-improvement/building-final-03/household_stoves/F05_5B_STOVE_01_native_closed.png",
+      "sha256": "3940ee5e55eac7544f7cee2bc0ee8a4c240cea5937fe61fc762e6a35ce0cdb39"
+    },
+    {
+      "file": "installed/household_stoves/F05_5B_STOVE_01_native_open.png",
+      "source": "tmp/v2-improvement/building-final-03/household_stoves/F05_5B_STOVE_01_native_open.png",
+      "sha256": "99a3027f13f8796105b3eeac2b786192e596136e27c51040e2a2e46458b76d19"
+    },
+    {
+      "file": "installed/household_stoves/visual_census.json",
+      "source": "tmp/v2-improvement/building-final-03/household_stoves/visual_census.json",
+      "sha256": "19e494791da3344b49383f3828c69dc559de7c767dfe7b0a237b29e61975b275"
+    },
+    {
+      "file": "installed/owner_building_finish/bright_3B_off.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/bright_3B_off.png",
+      "sha256": "141425ad3d007f79a5f0ab6fa160698bd0a4cd324580d428159872c30211c7d9"
+    },
+    {
+      "file": "installed/owner_building_finish/bright_3B_production.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/bright_3B_production.png",
+      "sha256": "f270eddbb4cb5cb3f2799175d021e0e86dc5ce1fc3861dd4069fcf8bd6ef1611"
+    },
+    {
+      "file": "installed/owner_building_finish/dim_2A_off.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/dim_2A_off.png",
+      "sha256": "225aca9f8fbffcb7dbb885cac6e2f3fe6ec78cedd443d4b2659b105bb1debf84"
+    },
+    {
+      "file": "installed/owner_building_finish/dim_2A_production.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/dim_2A_production.png",
+      "sha256": "206fa3d94bf5ed8b021a0d9d4d54f5e949ae02b5547cd723644efc08e799b461"
+    },
+    {
+      "file": "installed/owner_building_finish/lobby_off.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/lobby_off.png",
+      "sha256": "a4d571e9f1efb7e6201fc2783c577aa5895f8e481e54a7ac3ec18249f59df079"
+    },
+    {
+      "file": "installed/owner_building_finish/lobby_production.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/lobby_production.png",
+      "sha256": "8218947c9e2e91496084c82e3dcb572bf4a28b18f8d996da8d7ae2a565fbc8d9"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_day.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_day.png",
+      "sha256": "d6b550318107ef440f1f34733ae0936ceadd6893667dc72a2f3d20e866fb14c6"
+    },
+    {
+      "file": "installed/owner_building_finish/runtime_contract.json",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/runtime_contract.json",
+      "sha256": "5cf76706f7319d261588903922060c6a9520301fedca9cfcffc2ad84c254c949"
+    },
+    {
+      "file": "installed/owner_building_finish/skyline_day.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/skyline_day.png",
+      "sha256": "2dcea4af1deb06fa46c26c06f53d9f5fad95353c0956ad0456a7a3b84ddbdfea"
+    },
+    {
+      "file": "installed/owner_building_finish/vestibule_off.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/vestibule_off.png",
+      "sha256": "baf84bd64d987df95677e4eb85407b71c392611c50e208f1403020ce53fa67f1"
+    },
+    {
+      "file": "installed/owner_building_finish/vestibule_production.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/vestibule_production.png",
+      "sha256": "9d04eed8214dd3a1663b53631707eb8bdab57a098b30fd5f5a2cef85aaf20072"
+    },
+    {
+      "file": "installed/owner_building_routes/runtime_contract.json",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/runtime_contract.json",
+      "sha256": "e59fe81cc9aea2735b52046a7868ae936ce30d69454392a5244c3c80e9fc0d23"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/east_roof.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/east_roof.png",
+      "sha256": "120c87220db9b6dcd61a35591ea8ef9e05432bf788eea40fd2efb137acfc86cf"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/east_roof_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/east_roof_before.png",
+      "sha256": "d57b874abf3a229c3d71cf34a807235b73847820c671049ea0dbf8ecf63afa85"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/north_roof.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/north_roof.png",
+      "sha256": "57c96a3281297d66cff719e86a506161233c74e0bd552c508f717b7c733b95b4"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/north_roof_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/north_roof_before.png",
+      "sha256": "48d32fbc2e156d638bf0346611a16253fbd23d3858df385cfdef299c547468c6"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_back_e_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_back_e_dish_front.png",
+      "sha256": "00e878e910299436ee744b351b56e92f57c39db63c6b596c4ef24f0478cb8370"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_back_w_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_back_w_dish_front.png",
+      "sha256": "fad39f0a1566b6adb0c148b1247a728407c3760408e6a9eba5c973f0d38d00ab"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_far_ne_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_far_ne_dish_front.png",
+      "sha256": "50f847baabff683a107a95470ecdcd69a68f95009d099d2a9b720f230a5ad595"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_far_nw_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_far_nw_dish_front.png",
+      "sha256": "241104887d06780ec472b07b7c620fa48acfe241963fe0acf8da7fce2ae14627"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_far_n_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_far_n_dish_front.png",
+      "sha256": "bd40cedeb0d1507bca488e7e61bff50cf42fee2e4277c47cdf792691f4a33e14"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_far_n_dish_rear.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_far_n_dish_rear.png",
+      "sha256": "d731256460ba450a01cf9db8abd5344c6ea6891801a59da0a0c0c830286cf6fd"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_far_se_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_far_se_dish_front.png",
+      "sha256": "44a49c2fa83f6bcd8eb57477b99b6c61daef59f7965cf46ac4b7d76acbda340c"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_far_sw_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_far_sw_dish_front.png",
+      "sha256": "f6862e63a06c18fda450e9af58ee6d1e4e3de1248cbb4d7d195e75ee4e0f8744"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_far_s_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_far_s_dish_front.png",
+      "sha256": "0f0b791cae866c9283d7ac5f148969150ca2ed916106b72a0f871fcaf26f3d5a"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_far_w_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_far_w_dish_front.png",
+      "sha256": "75603f7dafafeed9e7c7912260536c7fb91941fcac3c13e4fe288ba77b0a3377"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_nbr_s2_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_nbr_s2_dish_front.png",
+      "sha256": "3a1443bce4899ac0eee62b773a75a08c45f7ddf6dab26359e70cb04442de047b"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_nbr_s2_dish_rear.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_nbr_s2_dish_rear.png",
+      "sha256": "9553ab0ccea483a6e263fd7aa28830e842524cd38c5d889cb0c81b8f39c07ea8"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_nbr_s2_downlead_foot.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_nbr_s2_downlead_foot.png",
+      "sha256": "39c26bc3bbb3e9c14a87ede64931c4a7653fb6e3a29e5712d4ebbd52f72e0109"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_ne2_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_ne2_dish_front.png",
+      "sha256": "84a1c3978ee833b49c10fe419dc39779737ea7a56660775082bcba15f36bc93f"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_ne2_downlead_foot.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_ne2_downlead_foot.png",
+      "sha256": "c0bf86656273e90bdcce621cc4714110bb93d7901236216c6cfd7b0a3d70714f"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_ne4_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_ne4_dish_front.png",
+      "sha256": "b327c9551e148632574ccede398e3495312a5bb13ac4212300328464d2cca8af"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_nw1_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_nw1_dish_front.png",
+      "sha256": "2d8b2072469512a49d4a9f71cbcd69e70f5ddce7489efddf569eb9c03eac42b9"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_nw1_dish_rear.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_nw1_dish_rear.png",
+      "sha256": "fd658f15f0789924c2779f6b3a58d13e4e00f496213fbed58dd8ffd35ac28735"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_nw1_spread0_foot.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_nw1_spread0_foot.png",
+      "sha256": "e556c0718aa871db77dbd84f86fcaca38647f057020bcd2244481a1dbbfcfc95"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_nw3_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_nw3_dish_front.png",
+      "sha256": "6b2837db2d0c107457c7075dc8f82173e1521b6a333047ab8bb7e30fd54dc456"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_se2_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_se2_dish_front.png",
+      "sha256": "23ef7a50f298c972e31a0a42744543378b84686916672b3b2248609f5ee9e72a"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/site_sw3_dish_front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/site_sw3_dish_front.png",
+      "sha256": "506bc625e1aef139a0980cfde435c3e3e547743c41d85db5157d65f5b1472cf9"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/street_skyline.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/street_skyline.png",
+      "sha256": "8848c040c77410cc922914b22a107f7a2598ebba1bafce9f8edd3a635463db36"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/street_skyline_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/street_skyline_before.png",
+      "sha256": "89e89b5f50f33cadec2573583addb858be6ab0f3e9dd6995abc2991133e23aa6"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/west_roof.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/west_roof.png",
+      "sha256": "34d969820d1ee3a44935e93a78f4b23e8ea201d5938817ebd389111645ec38df"
+    },
+    {
+      "file": "installed/owner_building_finish/city_aerials/west_roof_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_aerials/west_roof_before.png",
+      "sha256": "afc8c894ff85647053c5de458447db96914198cdb226f80ab89dfce785b63bba"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/east_roof.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/east_roof.png",
+      "sha256": "520e61045bdbf13ba3d099e1a0e2a8438564e3e0a4ba144b064f339f4f771a75"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/east_roof_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/east_roof_before.png",
+      "sha256": "4da363e43594e7c30b32aabcfa9d5187dbd947a74f50fb8e4e3dec6675dd1d83"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/north_roof.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/north_roof.png",
+      "sha256": "e6b7a0496683984998ce5fce1675c0516e3565382fc71a9c28bbde87a1a5af88"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/north_roof_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/north_roof_before.png",
+      "sha256": "155662bf678d1b8737bd264ddc055ab0365b9c90933a7468bb627c139e1a9a8d"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_back_e_wleg-1-1_foot.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_back_e_wleg-1-1_foot.png",
+      "sha256": "cde9694f5dd40327592758a2e00f8f23635e2335c88bb74829272ff9a75ecf30"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_back_e_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_back_e_wtank_assembly.png",
+      "sha256": "aeb6d0d24e55910f72f9cb15ad45f6c6421fcab599d07188d26873cc312ffe36"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_back_e_wtank_cap.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_back_e_wtank_cap.png",
+      "sha256": "afbe6a96104689164ca8cd87db711fda358876433f40639eaf302439331ec5e9"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_far_e_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_far_e_wtank_assembly.png",
+      "sha256": "bb28e414b87ec3f217ed989d9f69370df4a0d5e844432396132e283fcedac2b8"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_far_ne_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_far_ne_wtank_assembly.png",
+      "sha256": "28342d6d6b303ef4cd107c4c749da1635ac6caecb1773643b5dac332aa45cf71"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_far_nw_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_far_nw_wtank_assembly.png",
+      "sha256": "d474b0fa1acb60af53b63fd552ff9703a496b00267e1e9581df48cf2029b6994"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_far_n_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_far_n_wtank_assembly.png",
+      "sha256": "f04b1704c7d65edab0f1bc2e11c0d8472c18e1631e5c410c37e553e5dc40ec12"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_far_se_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_far_se_wtank_assembly.png",
+      "sha256": "e02473dd5ae0e1b4ca58d0bfd6ba371eca72cc925d101d657e3b777b58cdd7dd"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_far_sw_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_far_sw_wtank_assembly.png",
+      "sha256": "4e8cd321352aeded990fa947832c527728cd0f498207f7b840cb6512bdf2902a"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_far_s_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_far_s_wtank_assembly.png",
+      "sha256": "ca12a8c2a8a3a8713f11b6fb3a192bc5bc531f5370645ec3c1d15d6b034cbd65"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_far_w_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_far_w_wtank_assembly.png",
+      "sha256": "8e92a44dd9176582de0bbf32b80fef8bca57edf01df5b0d9760abe8509a19f2d"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_ne2_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_ne2_wtank_assembly.png",
+      "sha256": "bfed04831aa7693f319b3bb28dbb4ca62740d40d32191b1d61c0cccfb7da383a"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_ne4_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_ne4_wtank_assembly.png",
+      "sha256": "eaf67a82aefae42475e96ae2ede603c56d9eded8ad54a049da0f2acd5db34f51"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_nw3_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_nw3_wtank_assembly.png",
+      "sha256": "2e82fc95d7a81c952f94fc78beb10c7700ebcca44cdd25b7a3e0c2368862db2b"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_se2_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_se2_wtank_assembly.png",
+      "sha256": "5b76901e13b42a6b5f084e68c08480f349ef73ea09f4a65de47233c15acde0c9"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_sw3_wleg11_foot.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_sw3_wleg11_foot.png",
+      "sha256": "07d9940e209d9bf7171feea68b057529a45a255f1d16daf5971c3df7b2a00505"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_sw3_wtank_assembly.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_sw3_wtank_assembly.png",
+      "sha256": "f30a9a34584866907c0b9cf2ca6dd43107f4e40b1c84e3df1e6fa29da5f5399b"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/site_sw3_wtank_cap.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/site_sw3_wtank_cap.png",
+      "sha256": "caa64d83bae6bb4b9d1516c7718d1707250e9be67c390e0c74844ebbebd3cc55"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/street_skyline.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/street_skyline.png",
+      "sha256": "ae819c2f9c22490c9db573d7aa84d9216ed0b115b885e95ab71e79a2b0dcf337"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/street_skyline_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/street_skyline_before.png",
+      "sha256": "c48149e7f782e2ed153fef58289b69e0c79e34d30b519c3e3658721332cc99dc"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/west_roof.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/west_roof.png",
+      "sha256": "a74636db48d1c3379c4623db85abb95214d76ea45e2d062f55eb3073e3fa1419"
+    },
+    {
+      "file": "installed/owner_building_finish/city_tanks/west_roof_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/city_tanks/west_roof_before.png",
+      "sha256": "8b62aa30b0191dadec2b440e641e51d95e006b5fedacb8ccfa037aeef9deb9f7"
+    },
+    {
+      "file": "installed/owner_building_finish/facade_day/approach.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/facade_day/approach.png",
+      "sha256": "0c2b913354a5dd372f71949058371f5e1db648e5617a9f14bc4121ff65c40bcf"
+    },
+    {
+      "file": "installed/owner_building_finish/facade_day/blade.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/facade_day/blade.png",
+      "sha256": "be83a4b34bc2a72e6b4a3daf0ac55aa2a753a021937c663bcf05971bd0fcad9f"
+    },
+    {
+      "file": "installed/owner_building_finish/facade_day/canopy.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/facade_day/canopy.png",
+      "sha256": "2f3b523ee518a86ae7f2a87e04dd2170c12aa71c5dfb31f22c5b6be503d26f6c"
+    },
+    {
+      "file": "installed/owner_building_finish/facade_day/door.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/facade_day/door.png",
+      "sha256": "14de5f43c981a13cdb8d9e551ea69a0d72455c42ceab70ddc55b5e52fa5c915f"
+    },
+    {
+      "file": "installed/owner_building_finish/facade_day/front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/facade_day/front.png",
+      "sha256": "a60a5acea1f4ba4d2a11d6b736a1a5a203c090eb16e0144a274436a8fbd38fd0"
+    },
+    {
+      "file": "installed/owner_building_finish/facade_day/front_wide.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/facade_day/front_wide.png",
+      "sha256": "44b63fc89729ce042cb769f236a2500c937c5cf15e8dcb25ae912112dab502ce"
+    },
+    {
+      "file": "installed/owner_building_finish/front_facade/approach.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/front_facade/approach.png",
+      "sha256": "adbbb2b9b450b5645eba8e588449dc11a6dcecafb87b7e903aecaf2d5fcd9494"
+    },
+    {
+      "file": "installed/owner_building_finish/front_facade/blade.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/front_facade/blade.png",
+      "sha256": "57c01d4b04aee7cb8934c480686d5ad3c76e80d25d9e5d513e5789b4e293fdf4"
+    },
+    {
+      "file": "installed/owner_building_finish/front_facade/canopy.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/front_facade/canopy.png",
+      "sha256": "8ab27e116fafd424da0d074dc231b16707990c829952f6a530f63b9e84c74427"
+    },
+    {
+      "file": "installed/owner_building_finish/front_facade/door.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/front_facade/door.png",
+      "sha256": "40095a9f506b016c28af5b2e8a7e893ab1e92c05ff5b66a8ddee8b7053e759b3"
+    },
+    {
+      "file": "installed/owner_building_finish/front_facade/front.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/front_facade/front.png",
+      "sha256": "90d73370efb2a1be634ae92d138209e9fce6d02a99b58ffbc261f91ed327f8c3"
+    },
+    {
+      "file": "installed/owner_building_finish/front_facade/front_wide.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/front_facade/front_wide.png",
+      "sha256": "4ba134877679ed06437f476d4e503b1e930b4ed5d60e04798afbe71e55547ac8"
+    },
+    {
+      "file": "installed/owner_building_finish/lift_gate/car_gate_0.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/lift_gate/car_gate_0.png",
+      "sha256": "8a7ea895406e418f1b61d410f7c84592d81be132f82c6fd2ea4a6ec00cd7b07b"
+    },
+    {
+      "file": "installed/owner_building_finish/lift_gate/car_gate_100.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/lift_gate/car_gate_100.png",
+      "sha256": "5b92a8441e40e96a6d797defce671a52e4c8a9d7639a8c589e777ad949978f15"
+    },
+    {
+      "file": "installed/owner_building_finish/lift_gate/car_gate_50.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/lift_gate/car_gate_50.png",
+      "sha256": "cde7207f000c3b46bc4cb8b2e6e19e4fdbe0812ae252865d27eb0eabc9dcfd59"
+    },
+    {
+      "file": "installed/owner_building_finish/lift_gate/landing_gate_separation.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/lift_gate/landing_gate_separation.png",
+      "sha256": "d8afa4a426f8ed4a9e772151c11e19771da0816ed8ce7877d3b4db9c4e3dc136"
+    },
+    {
+      "file": "installed/owner_building_finish/lift_joinery/finished_cab_joinery.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/lift_joinery/finished_cab_joinery.png",
+      "sha256": "de3ac0011a879523c73360e4209704981578e5607fdddc57480ce31e5e32a5ad"
+    },
+    {
+      "file": "installed/owner_building_finish/lift_joinery/raised_panel_detail.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/lift_joinery/raised_panel_detail.png",
+      "sha256": "062e2e98ec89a67d4dcf754c2efb643ed19b838e270e8b50da13d773acce6757"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_membrane/roof-membrane-inspection.json",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_membrane/roof-membrane-inspection.json",
+      "sha256": "73f5d69a89cc520e6f77bea34d8675bee69e0a9338865523ef84dff4a1268494"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_membrane/roof_east.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_membrane/roof_east.png",
+      "sha256": "3ed16d5ff6644ea3f4dd9e42a22d270b9ad2010475841f67835637cac8f368e7"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_membrane/roof_east_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_membrane/roof_east_before.png",
+      "sha256": "99a6ae68e547f9f1a1911cc158aedaf9e95ad2b110100e3b382d635c8246f936"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_membrane/roof_field.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_membrane/roof_field.png",
+      "sha256": "a7ae0d558bebbc51c39a1e5f506ac0a9f22d7849a7e235e623f377f3b9ebe670"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_membrane/roof_field_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_membrane/roof_field_before.png",
+      "sha256": "6a4e69c016a7cad9ffbc921f167569054083e5b315574020a684f65fad750dd3"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_membrane/roof_parapet.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_membrane/roof_parapet.png",
+      "sha256": "13b3f0cd00e8e6d1b94abfaf01eb19ad9e8dc3b53f05b4ed75a01354648e7c7d"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_membrane/roof_parapet_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_membrane/roof_parapet_before.png",
+      "sha256": "9a1a883f53c136478405665cf833214d2ad759f13f71bb398b0599504b73c728"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_membrane/roof_seam_close.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_membrane/roof_seam_close.png",
+      "sha256": "4e549decdcc53cf1d68b68202a8053b546965ea34de8011db9fba5743687c579"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_membrane/roof_seam_close_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_membrane/roof_seam_close_before.png",
+      "sha256": "0adbe92f10ee65482da7a30ad942071304c5c5b617cfb31b10aa25704cf5a00c"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_membrane/roof_west.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_membrane/roof_west.png",
+      "sha256": "332e354d77e5ea014fa0ddc8db244045e43c21ceed52747cf403e6af73e17f74"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_membrane/roof_west_before.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_membrane/roof_west_before.png",
+      "sha256": "90c89f2bc32f9f726d27b2225922692718605c972d50fa77bc9d59572dc72b24"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_ventilator/roof_ventilator_reverse.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_ventilator/roof_ventilator_reverse.png",
+      "sha256": "7b1e07860630a6efbae6c847f8c94d5673914f2b5e2958b8a7c822e156760ddf"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_ventilator/roof_ventilator_V-A.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_ventilator/roof_ventilator_V-A.png",
+      "sha256": "737f1471551388d92115dc584b1e2d1bff78398f150a6f6bd90c5f5ce27cb172"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_ventilator/roof_ventilator_V-B.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_ventilator/roof_ventilator_V-B.png",
+      "sha256": "2dafc9d9dbc6827ec2005fce752be206bc6a654af7a225dab7447571196e6972"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_ventilator/roof_ventilator_V-C.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_ventilator/roof_ventilator_V-C.png",
+      "sha256": "e908bfba4335313cf66198250e2c638c910c12981bb3dac7d83018cd8244224f"
+    },
+    {
+      "file": "installed/owner_building_finish/roof_ventilator/roof_ventilator_V-D.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_finish/roof_ventilator/roof_ventilator_V-D.png",
+      "sha256": "b5e383b39665a003c164d536bdaaeb40e8f635dda939c32acb9aaa7b496b8f7f"
+    },
+    {
+      "file": "installed/owner_building_routes/front/inside_close.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/front/inside_close.png",
+      "sha256": "fc99e19e76797de03fec6f3513559a37421295055fb3ca57ba4fc149cb58812c"
+    },
+    {
+      "file": "installed/owner_building_routes/front/inside_open.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/front/inside_open.png",
+      "sha256": "b068e672344ae478aac2afd9f045d6ca4ff85d51dabf154243dafcb3dc138da8"
+    },
+    {
+      "file": "installed/owner_building_routes/front/outside_close.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/front/outside_close.png",
+      "sha256": "219f8c64c302d5d0a63a2110755ea1368270a33e798054234d31654bd140af8d"
+    },
+    {
+      "file": "installed/owner_building_routes/front/outside_open.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/front/outside_open.png",
+      "sha256": "c633dad6414f4d86cffa190c3ad16431b1c53255939de23f71c42c4119583ace"
+    },
+    {
+      "file": "installed/owner_building_routes/inner/F01_INNER_DOOR_Leaf_closing.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/inner/F01_INNER_DOOR_Leaf_closing.png",
+      "sha256": "411ded5d033422d5dc79b9ba5a6187be12e294fdba5a9f417f3c4bbc6b55bafa"
+    },
+    {
+      "file": "installed/owner_building_routes/inner/F01_INNER_DOOR_Leaf_opening.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/inner/F01_INNER_DOOR_Leaf_opening.png",
+      "sha256": "c5003143179c9e7af9eb4bdf8d11fefdc39c38d5442eea5ee6fdd402c7f7b5e7"
+    },
+    {
+      "file": "installed/owner_building_routes/inner/inner_closed_-1.0.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/inner/inner_closed_-1.0.png",
+      "sha256": "a70500391bd0d11caeb54b9560137005a57559ed56b71c8a23dc2a4acefad943"
+    },
+    {
+      "file": "installed/owner_building_routes/inner/inner_closed_1.0.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/inner/inner_closed_1.0.png",
+      "sha256": "08fa07ecc2e0165d26aa6c717e6ff41221096a644f0fd507774dfd2a6b02c3df"
+    },
+    {
+      "file": "installed/owner_building_routes/inner/inner_open_-1.0.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/inner/inner_open_-1.0.png",
+      "sha256": "3743e021566974ac460f29241ac05795b5856d71d1b457d314cb311d1eed77c8"
+    },
+    {
+      "file": "installed/owner_building_routes/inner/inner_open_1.0.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/inner/inner_open_1.0.png",
+      "sha256": "e4a3a3ad6853fb3724d3d33e33655835511ac514cafe6da6c96f5da9aaba6a00"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_landing_B1.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_landing_B1.png",
+      "sha256": "e3adc71bab8de5a5b2384d3c377216f93a45fae508b66372d1922d7048ffc357"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_landing_F01.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_landing_F01.png",
+      "sha256": "f7432b6f9984515e40b351dcef6c4731e96305d2866e8ce21a059a599e9c47cf"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_landing_F02.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_landing_F02.png",
+      "sha256": "70ed28ded31476056fb1135148d01dcb91bda35d0f48404580ade61f5d161a7a"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_landing_F03.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_landing_F03.png",
+      "sha256": "3391586525b97d2355eb31bbf90adb8ca94b60710846306120bdb0009136e8b2"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_landing_F04.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_landing_F04.png",
+      "sha256": "e4dab13283de4fe20555a0b807f27abf39ccbb036f33c604b24195e704cf6e76"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_landing_F05.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_landing_F05.png",
+      "sha256": "3a4eed57049ebaee39ab318e41d09ec44d8429295c4ef1120c42d4ee9a300f50"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_landing_F06.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_landing_F06.png",
+      "sha256": "6d9a21e270c10931c154b2b56c4922029cbc744863c9534d114fdb4b419ed536"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_recall.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_recall.png",
+      "sha256": "f80985ed17670e64228c2565ca70d7b582ca853c59ecacbf66112cae91223e15"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_select_B1.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_select_B1.png",
+      "sha256": "c40be532275c7bbaf910a6f807d51fcccfc4d191b30a4a046ca7ce4dde9d53d5"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_select_F01.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_select_F01.png",
+      "sha256": "31b54b016569ed56c3fdb7df1d1d0913e6b14bd4550d6b34ce15a98b72c3a049"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_select_F02.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_select_F02.png",
+      "sha256": "a94b1022e0bef8d58d356710cfa955e08a51484598679cdd79d17901c1329334"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_select_F03.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_select_F03.png",
+      "sha256": "8f41cff7e2adf8064e70e75282efecb28e5578a76636facc3431efb14c098c99"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_select_F04.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_select_F04.png",
+      "sha256": "eb0661f945c303b8694c12f1340e43a5214802a2214b3f7bb67ff25f854e9dff"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_select_F05.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_select_F05.png",
+      "sha256": "dd2d55b0ec5a2fb0ccc30a41a1615456adf0a0e229b9198173a9aa0a94db3fc7"
+    },
+    {
+      "file": "installed/owner_building_routes/lift/lift_select_F06.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/lift/lift_select_F06.png",
+      "sha256": "4660747165bd3bc29a5dcd279aa32c6b7723ad0bf1fe978b75a6a69e2d2432a7"
+    },
+    {
+      "file": "installed/owner_building_routes/roof/ROOF_PUBLIC_DOOR.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/roof/ROOF_PUBLIC_DOOR.png",
+      "sha256": "e4a8a86a82159eb2b15d2ee1c0a11cec58a3f8d67e257edb9aa019f21b6034f4"
+    },
+    {
+      "file": "installed/owner_building_routes/roof/ROOF_PUBLIC_DOOR_close.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/roof/ROOF_PUBLIC_DOOR_close.png",
+      "sha256": "685fc60794e5250fa428f3407b46f2ef5aa6c5d7af1eef8a87e2e4a1af0ff4a8"
+    },
+    {
+      "file": "installed/owner_building_routes/roof/roof_service_approach.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/roof/roof_service_approach.png",
+      "sha256": "1115b37fe7fb84f82a2a16491769baf350eabb6d1f26bdf7f4349f2b0ae653a6"
+    },
+    {
+      "file": "installed/owner_building_routes/roof/ROOF_SERVICE_DOOR.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/roof/ROOF_SERVICE_DOOR.png",
+      "sha256": "7f8070de828afc297ae40f7ec93f6d6c092be75e5179628752b7de1d243abfdd"
+    },
+    {
+      "file": "installed/owner_building_routes/roof/ROOF_SERVICE_DOOR_close.png",
+      "source": "tmp/v2-improvement/building-final-03/owner_building_routes/roof/ROOF_SERVICE_DOOR_close.png",
+      "sha256": "d9db61770b57a75e0c25cc1ede55ffca9a2bbb86c69ebf076369a1d596af6975"
+    },
+    {
+      "file": "installed/stdout.log",
+      "source": "tmp/v2-improvement/building-final-03.log",
+      "sha256": "124e1bee2a882dae7f53359d1940d812dbab0e323109b3b4406980ba3659eee6"
+    },
+    {
+      "file": "installed/stderr.log",
+      "source": "tmp/v2-improvement/building-final-03.log.stderr",
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "file": "installed/suite_run.json",
+      "source": "tmp/v2-improvement/building-final-03.log.receipt.json",
+      "sha256": "31b391bb281b27bb0fda075e3b0c075cc3467f4a22e32468732a05647a473ba5"
+    },
+    {
+      "file": "native/city_aerials.png",
+      "source": "tmp/v2-improvement/building-native/city_aerials.png",
+      "sha256": "a8554ec7c53eeaeee9c5d7e9b87fa37cebafdf3c0e9e2aa07fa150a0bcdaaf46"
+    },
+    {
+      "file": "native/city_tanks.png",
+      "source": "tmp/v2-improvement/building-native/city_tanks.png",
+      "sha256": "17186503225b0db0fa69679754a09d41dabc841adf209c5a8b0d29e6d7918d0b"
+    },
+    {
+      "file": "native/fan_review.json",
+      "source": "tmp/v2-improvement/building-native/fan_review.json",
+      "sha256": "9421bd583e0e50390d9268e10209624f4a085a6cfbc5f34f333945b340cf8d19"
+    },
+    {
+      "file": "native/front_facade.png",
+      "source": "tmp/v2-improvement/building-native/front_facade.png",
+      "sha256": "e68671b69e9789374a4643301ba347173c44794385cbc56bca3dfa082c11d37d"
+    },
+    {
+      "file": "native/lift_handrails.png",
+      "source": "tmp/v2-improvement/building-native/lift_handrails.png",
+      "sha256": "0e4bd2ca25c035c7628d676966cb1794d26e98bffb0c76a22b0f425091fcbd37"
+    },
+    {
+      "file": "native/lift_joinery.png",
+      "source": "tmp/v2-improvement/building-native/lift_joinery.png",
+      "sha256": "3d88a62dcd8de56ef53d865381d7f9acd83bdf14bcf247d7a4bdcd4486cd27a7"
+    },
+    {
+      "file": "native/review.json",
+      "source": "tmp/v2-improvement/building-native/review.json",
+      "sha256": "81a091676090728bdf138e2177f3ddde531f604605699599c76e9808503c2de4"
+    },
+    {
+      "file": "native/roof_membrane.png",
+      "source": "tmp/v2-improvement/building-native/roof_membrane.png",
+      "sha256": "f4cfba3d3ef76af353f394c13405b61cfac668e1645afe7d8fc7ff5d005f1be0"
+    },
+    {
+      "file": "native/roof_ventilator.png",
+      "source": "tmp/v2-improvement/building-native/roof_ventilator.png",
+      "sha256": "783a295d097589be783d316989383aeb1a8c54e6c115b8a48216c58d584b7366"
+    },
+    {
+      "file": "native/DomesticObject05.png",
+      "source": "tmp/v2-improvement/plant-final-native/DomesticObject05.png",
+      "sha256": "a1d2ffc74af05d834af394c8a5fbf523a43ea8bb39675b3db7c6326407d97973"
+    },
+    {
+      "file": "native/plant_views.json",
+      "source": "tmp/v2-improvement/plant-final-native/views.json",
+      "sha256": "528b793985c283e0c55f2f68708c2dbb905cbc1324eda110f05d3fb95ae1a997"
+    },
+    {
+      "file": "history/run01/stdout.log",
+      "source": "tmp/v2-improvement/building-final-01.log",
+      "sha256": "a815079d45990b2a6db629fcf61737dc81753ba1a7418c35a1613940be7fd336"
+    },
+    {
+      "file": "history/run01/stderr.log",
+      "source": "tmp/v2-improvement/building-final-01.log.stderr",
+      "sha256": "ec440b2e426ef68c16fca72a2ea50f9df06dc5b7e399eb82aa9e469c8483dbce"
+    },
+    {
+      "file": "history/run01/suite_run.json",
+      "source": "tmp/v2-improvement/building-final-01.log.receipt.json",
+      "sha256": "a8c46bac11aef6e82643654f6a0c35643d3c1360457cfbbc39a1d30fda4b05d7"
+    },
+    {
+      "file": "history/run02/stdout.log",
+      "source": "tmp/v2-improvement/building-final-02.log",
+      "sha256": "cfb51050ab43c12bf7d83900f5c6368eff1ef21b68c5b34f8c9aa4afedbc2ab5"
+    },
+    {
+      "file": "history/run02/stderr.log",
+      "source": "tmp/v2-improvement/building-final-02.log.stderr",
+      "sha256": "0d50dba87b91b74b1c1f4bd2ddcd2936ae19aed2a92b0dfb55a17e691f37b04e"
+    },
+    {
+      "file": "history/run02/suite_run.json",
+      "source": "tmp/v2-improvement/building-final-02.log.receipt.json",
+      "sha256": "f8ac3b886d8f37ccfff179a2013dcfdf2b541a4d482eff5e921541820cdf6728"
+    },
+    {
+      "file": "history/run02/batch.json",
+      "source": "tmp/v2-improvement/building-final-02/batch.json",
+      "sha256": "0be63f503275d32837f47c30a0be958ba0cfa5cb196ef05abb528fa1da20615a"
+    },
+    {
+      "file": "final/batch.json",
+      "sha256": "9774f1883d525554466b7b887df860e6de0086666ac0ee8c9eaa92957ca8bc60"
+    },
+    {
+      "file": "final/stderr.log",
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "file": "final/stdout.log",
+      "sha256": "4faea5df70d798305b9eb113b758807ccb06b048109e304c3c43c3cef6608e37"
+    },
+    {
+      "file": "final/suite_run.json",
+      "sha256": "d3e0764563d80ed993f77affad889c8adb70a0480843423e75b4ec410be73057"
+    },
+    {
+      "file": "final/owner_building_finish/runtime_contract.json",
+      "sha256": "e2be0faabc3f7409477ab40fa3657e2c062deb52dd04d01cd3df2b1e7b0d4bdb"
+    },
+    {
+      "file": "capture_final/batch.json",
+      "source": "tmp/v2-improvement/building-final-06/batch.json",
+      "sha256": "3ffde74baa43be7a78c3386393282c8a61621642060b03aaae2b02b6ff3d1810"
+    },
+    {
+      "file": "capture_final/owner_building_finish/bright_3B_off.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/bright_3B_off.png",
+      "sha256": "979d0e27d5c04957250604bd991e7c02a596e263d36de1d6d1f82a006db4c41b"
+    },
+    {
+      "file": "capture_final/owner_building_finish/bright_3B_production.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/bright_3B_production.png",
+      "sha256": "4d9125bb1f6c60fd975ea57aff3e7490e2185de2505d2dee459c73a84352c31c"
+    },
+    {
+      "file": "capture_final/owner_building_finish/dim_2A_off.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/dim_2A_off.png",
+      "sha256": "bf4331da43df4b7e16be4783b7b853a990dea49465b7800960a6a6f5ecc7c204"
+    },
+    {
+      "file": "capture_final/owner_building_finish/dim_2A_production.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/dim_2A_production.png",
+      "sha256": "b385b1288a8672d6f6d0e9dc79e4103e0989665bcd82044d06645bbe58f72369"
+    },
+    {
+      "file": "capture_final/owner_building_finish/lobby_off.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/lobby_off.png",
+      "sha256": "105196d9cdeff9516602a0a31820854cb814f7b41f46b694bf1c3390ed9429ef"
+    },
+    {
+      "file": "capture_final/owner_building_finish/lobby_production.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/lobby_production.png",
+      "sha256": "90916fd596c84fdd6b6c1286da2529a845f7d57c52f18ae926f25525e9cc95ef"
+    },
+    {
+      "file": "capture_final/owner_building_finish/roof_day.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/roof_day.png",
+      "sha256": "0433b17620958663b79809ac4b876bcad8b61f4a66f37406b825a14261d054f3"
+    },
+    {
+      "file": "capture_final/owner_building_finish/runtime_contract.json",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/runtime_contract.json",
+      "sha256": "978265e433201a2026a069dc2ba260c6ba0f0cac44aa30448a5200bbd8db7610"
+    },
+    {
+      "file": "capture_final/owner_building_finish/skyline_roof_day.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/skyline_roof_day.png",
+      "sha256": "951fa28488e681a0140b5aa1736c62f4e14a21e0a419231810fab3323e137e34"
+    },
+    {
+      "file": "capture_final/owner_building_finish/skyline_street_day.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/skyline_street_day.png",
+      "sha256": "e829f2a16002dfdf43ab5fca038576118c52ddcc152e9a29dcc9d1ba42fc27af"
+    },
+    {
+      "file": "capture_final/owner_building_finish/vestibule_off.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/vestibule_off.png",
+      "sha256": "18fbcec7c6908d6b649bf719a60004a4a39e44da8f1b5721904815dadf5ccc9d"
+    },
+    {
+      "file": "capture_final/owner_building_finish/vestibule_production.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/vestibule_production.png",
+      "sha256": "3dda0ead59b2fc6e474349bfecf8fbdee067b4b3db523ec946dbbef3567f62ab"
+    },
+    {
+      "file": "capture_final/owner_building_finish/facade_day/approach.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/facade_day/approach.png",
+      "sha256": "cd1cb57ae5c4ce51e132ec459e55ddf74c81356f481bc7a5488487bd2c66fa41"
+    },
+    {
+      "file": "capture_final/owner_building_finish/facade_day/blade.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/facade_day/blade.png",
+      "sha256": "943ed335f94694ad8817c83d959bc7fc3a16e0321ad583c87b30a38201b3c5eb"
+    },
+    {
+      "file": "capture_final/owner_building_finish/facade_day/canopy.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/facade_day/canopy.png",
+      "sha256": "c31391b44b03f14d8f939672d9d0233aea56ed684f3f2af2c00185c852d91954"
+    },
+    {
+      "file": "capture_final/owner_building_finish/facade_day/door.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/facade_day/door.png",
+      "sha256": "97f4f41ae60ddb2df780148460130a3d3ca9799124f00dcd1d69d24b4c297916"
+    },
+    {
+      "file": "capture_final/owner_building_finish/facade_day/front.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/facade_day/front.png",
+      "sha256": "c93d7b38db9cc2359c72209f68596a83195c370fd881669f8eebf73125a2aed9"
+    },
+    {
+      "file": "capture_final/owner_building_finish/facade_day/front_wide.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/facade_day/front_wide.png",
+      "sha256": "486d6bc3d4958f19503a1c06232b4558e2f871581187d8e82b2bf62310b10d74"
+    },
+    {
+      "file": "capture_final/owner_building_finish/front_facade/approach.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/front_facade/approach.png",
+      "sha256": "a021a4c61c5634f09329e920efa7cccc5accebe2cf0ca6b6e44291d51faeda2a"
+    },
+    {
+      "file": "capture_final/owner_building_finish/front_facade/blade.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/front_facade/blade.png",
+      "sha256": "240dfb06e6b22f132e0736aba6e90ebb8d6cb5d9c4cacb4beb519e310ff3f812"
+    },
+    {
+      "file": "capture_final/owner_building_finish/front_facade/canopy.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/front_facade/canopy.png",
+      "sha256": "137dcbf58845fdcb091f84c1b4eb4774db2c8690db7aee7ca189631eb926927f"
+    },
+    {
+      "file": "capture_final/owner_building_finish/front_facade/door.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/front_facade/door.png",
+      "sha256": "0270558a885f0c006d58a07034f0f54301935453d7a213f3e7333ccaa38d1258"
+    },
+    {
+      "file": "capture_final/owner_building_finish/front_facade/front.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/front_facade/front.png",
+      "sha256": "dd07bf3c540486fb444fccb39d4106ecb1d5afac377cc6ad5f701e93ab7e82e6"
+    },
+    {
+      "file": "capture_final/owner_building_finish/front_facade/front_wide.png",
+      "source": "tmp/v2-improvement/building-final-06/owner_building_finish/front_facade/front_wide.png",
+      "sha256": "ba019225fdfdb9b298b26139138f4c067301d21059f0c328a55d1298d1ef5cee"
+    },
+    {
+      "file": "capture_final/stdout.log",
+      "source": "tmp/v2-improvement/building-final-06.log",
+      "sha256": "7607ef82e68cee4fa751202e6f95f597e0b3f6c2ba7e27a1afb99e3dd5c1ebe9"
+    },
+    {
+      "file": "capture_final/stderr.log",
+      "source": "tmp/v2-improvement/building-final-06.log.stderr",
+      "sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d"
+    },
+    {
+      "file": "capture_final/suite_run.json",
+      "source": "tmp/v2-improvement/building-final-06.log.receipt.json",
+      "sha256": "d86f0ed7922717cf336dbb2cd69e4b237efc7f4472e28efd5108c02f429a5310"
+    },
+    {
+      "file": "history/run05/batch.json",
+      "source": "tmp/v2-improvement/building-final-05/batch.json",
+      "sha256": "6ea334444c82a362c1f17b59f1ba6f1c2cbf807cabe17dd322adb9018a81abf6"
+    },
+    {
+      "file": "history/run05/owner_building_finish/runtime_contract.json",
+      "source": "tmp/v2-improvement/building-final-05/owner_building_finish/runtime_contract.json",
+      "sha256": "580cb810f6f8153b19577af1fe6353176e1a399370099366f7c608380a6fb3e4"
+    },
+    {
+      "file": "history/run05/stdout.log",
+      "source": "tmp/v2-improvement/building-final-05.log",
+      "sha256": "832f252ba4bd7ea48d35a26a8869b900d3e4dc664c8d73dc7bd9642dd6038d69"
+    },
+    {
+      "file": "history/run05/stderr.log",
+      "source": "tmp/v2-improvement/building-final-05.log.stderr",
+      "sha256": "1d7eec9d33e8d33a34a5c2924569946a393d938d53c429232b46b3b9f4ff15d4"
+    },
+    {
+      "file": "history/run05/suite_run.json",
+      "source": "tmp/v2-improvement/building-final-05.log.receipt.json",
+      "sha256": "926a7a0ce683857fa11bc4a9e1ef7ed48e3718f5359e9d53ed262266f9aefc55"
+    }
+  ]
+}

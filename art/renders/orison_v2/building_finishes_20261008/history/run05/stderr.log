@@ -1,0 +1,8 @@
+SCRIPT ERROR: Trying to assign an array of type "Array" to a variable of type "Array[Vector3]".
+   at: _skyline_review (res://tests/orison_v2_owner_building_finish_test.gd:120)
+   GDScript backtrace (most recent call first):
+       [0] _skyline_review (res://tests/orison_v2_owner_building_finish_test.gd:120)
+       [1] _city_capture (res://tests/orison_v2_city_sweep.gd:124)
+       [2] shot (res://tests/orison_v2_floor_surface_test.gd:203)
+WARNING: 7 RIDs of type "Texture" were leaked.
+   at: finalize (servers/rendering/rendering_device.cpp:8900)

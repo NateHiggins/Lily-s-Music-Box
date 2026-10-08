@@ -201,6 +201,7 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("V2 lamp optical state could not be restored")
 		return
+	preload("res://scripts/building/orison_v2_owner_building_finishes.gd").new().apply(self)
 	_compose_debug_controls()
 	get_node("CaretakerNotebook").debug = building_debug
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0

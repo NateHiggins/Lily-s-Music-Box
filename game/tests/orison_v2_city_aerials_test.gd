@@ -8,17 +8,24 @@ func _run() -> void:
 	if world.startup_failed:world.free();get_tree().quit(1);return
 	world.player.set_physics_process(false);world.service_set_carrier.set_capture_hidden(true)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var old_camera_pose := world.player.camera.transform
+	var old_player_pose := world.player.global_transform
+	var old_fov: float = world.player.camera.fov
 	var city: Node3D=world.get_node("CityShells")
 	var model: Node3D=city.get_node("RooftopAerials")
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_aerials.json"))
 	check(FileAccess.get_sha256("res://assets/props/city_aerials.glb")==fixture.asset_sha256,"installed original aerials bind the native export")
-	check(FileAccess.get_file_as_string("res://data/orison_v2_blockout.json").replace("\r\n","\n").sha256_text()==fixture.source_bindings["game/data/orison_v2_blockout.json"],"current geometry registration binds the current blockout")
+	check(_registration_matches(fixture),"current city registration matches exact reviewed construction inputs")
 	var parts:=0;var triangles:=0
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		parts+=1;triangles+=draw.mesh.get_faces().size()/3
 		_check_cap_mapping(draw.mesh,true)
 		var key:=str(draw.name).split("__")[-1]
-		var material:=draw.material_override as StandardMaterial3D
+		var material: StandardMaterial3D=draw.get_meta("v2_building_source",draw.material_override) as StandardMaterial3D
 		check(material!=null and material.albedo_texture!=null and material.roughness_texture!=null and material.normal_texture!=null and not material.uv1_triplanar,"all original aerials receive existing catalogue maps with native metre charts")
 		check(material!=MatLib.get_mat(key) and MatLib.get_mat(key).uv1_triplanar,"each local native chart preserves its shared catalogue projection")
 		check(material.albedo_texture==MatLib.get_mat(key).albedo_texture and material.roughness_texture==MatLib.get_mat(key).roughness_texture and material.normal_texture==MatLib.get_mat(key).normal_texture,"installed local finish uses all three exact catalogue maps")
@@ -101,4 +108,8 @@ func _run() -> void:
 		model.hide();await _settled_optics();await shot(view[0]+"_before");var before:=_visible_counts();model.show()
 		print("CITY AERIAL OBSERVATION: ",view[0]," before=",before," after=",after)
 	print("CITY AERIALS: checks=",checks," parts=",parts," triangles=",triangles," supports=",fixture.contacts.size()," bearing_samples=",footprint_checks," clear_spans=",span_checks," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
+	world.player.global_transform=old_player_pose
+	world.player.camera.transform=old_camera_pose
+	world.player.camera.fov=old_fov
+	world.player.camera.make_current()
+	return {"checks":batch_checks,"failures":failures}

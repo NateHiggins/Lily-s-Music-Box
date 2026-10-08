@@ -1,7 +1,10 @@
 extends Node
 var failures: Array[String]=[]
-func _ready() -> void: call_deferred("_run")
+var batch_checks := 0
+func _ready() -> void:
+	if not bool(get_meta("shared_world_validation",false)): call_deferred("_run")
 func check(ok: bool, message: String) -> void:
+	batch_checks += 1
 	if not ok: failures.append(message); push_error(message)
 func _world_scene() -> PackedScene:
 	return preload("res://scenes/building/orison_v2_runtime.tscn")
@@ -190,6 +193,7 @@ func _run() -> void:
 	world.shutdown_for_tests(); world.free()
 	get_tree().quit(0 if failures.is_empty() else 1)
 func shot(label: String) -> void:
+	if not bool(get_meta("capture_enabled",true)): return
 	if DisplayServer.get_name()=="headless": return
 	var directory := OS.get_environment("SHOT_DIR")
 	if directory.is_empty(): return

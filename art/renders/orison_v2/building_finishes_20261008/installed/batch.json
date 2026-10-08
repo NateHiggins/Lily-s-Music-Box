@@ -1,0 +1,1747 @@
+{
+	"batch_checks": 24,
+	"elapsed_ms": 375924,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 27383,
+	"modules": {
+		"domestic_objects": {
+			"actors": 17,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 850,
+			"elapsed_ms": 1766,
+			"failures": [],
+			"fixture_sha256": "8bcf9dd3e7ae428f30b438d3f40bc1c2c8781cf24f3aae7b4608c52842fe68d0",
+			"parts": 66,
+			"shared_validator_sha256": "634c1235da90cb17304bef9bad78ae4cbeb8d829df7e2846677e410693cf94b4",
+			"unique_triangles": 137688,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 16,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						13.5779781341553,
+						6.42000007629395,
+						-14.1507387161255
+					],
+					"id": "3A_story_specimen_native",
+					"image": "3A_story_specimen_native.png",
+					"owner": "3A_story_specimen",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"fixed_lighting": {
+			"actors": 199,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 5952,
+			"elapsed_ms": 12073,
+			"failures": [],
+			"fixture_sha256": "d95098e1bce18c554008a5f6e5f56bfb8f1c942947a8a31a17c6ff0e4ea8a021",
+			"parts": 746,
+			"unique_triangles": 480680,
+			"validator_sha256": "28a23b6b051d548ae24f64bbd2f645d5efa05fbea082c31295884db301aa461d",
+			"variants": 27,
+			"views": [
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-14.4674816131592,
+						6.41499996185303,
+						-0.26529923081398
+					],
+					"id": "3B_LT_SCONCE_powered",
+					"image": "3B_LT_SCONCE_powered.png",
+					"owner": "3B_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-14.4674816131592,
+						6.41499996185303,
+						-0.26529923081398
+					],
+					"id": "3B_LT_SCONCE_off",
+					"image": "3B_LT_SCONCE_off.png",
+					"owner": "3B_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						11.7000007629395,
+						9.61500072479248,
+						-10.3499984741211
+					],
+					"id": "F04_B_MAIN_LT_PENDANT_SHADE_powered",
+					"image": "F04_B_MAIN_LT_PENDANT_SHADE_powered.png",
+					"owner": "F04_B_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						11.7000007629395,
+						9.61500072479248,
+						-10.3499984741211
+					],
+					"id": "F04_B_MAIN_LT_PENDANT_SHADE_off",
+					"image": "F04_B_MAIN_LT_PENDANT_SHADE_off.png",
+					"owner": "F04_B_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						8.27781867980957,
+						9.61500072479248,
+						-15.622181892395
+					],
+					"id": "F04_B_BATH_LT_FLUSH_DOME_powered",
+					"image": "F04_B_BATH_LT_FLUSH_DOME_powered.png",
+					"owner": "F04_B_BATH_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						8.27781867980957,
+						9.61500072479248,
+						-15.622181892395
+					],
+					"id": "F04_B_BATH_LT_FLUSH_DOME_off",
+					"image": "F04_B_BATH_LT_FLUSH_DOME_off.png",
+					"owner": "F04_B_BATH_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-11.0552988052368,
+						-2.78500008583069,
+						22.5675182342529
+					],
+					"id": "F01_BAR_LT_WEST1_powered",
+					"image": "F01_BAR_LT_WEST1_powered.png",
+					"owner": "F01_BAR_LT_WEST1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-11.0552988052368,
+						-2.78500008583069,
+						22.5675182342529
+					],
+					"id": "F01_BAR_LT_WEST1_off",
+					"image": "F01_BAR_LT_WEST1_off.png",
+					"owner": "F01_BAR_LT_WEST1",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"household_fridges": {
+			"actors": 18,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 1723,
+			"elapsed_ms": 14761,
+			"failures": [],
+			"fixture_sha256": "4cd3cdac271f48b1683cdb3baa70b7a5f980980cfb8b5d35296d0b545857465a",
+			"inventory_items": 50,
+			"monitors": 7,
+			"unique_triangles": 140808,
+			"validator_sha256": "062bf9d112ec5780290f8cf9d88d223b5042b66156fe896a4be5c709afa08249",
+			"views": [
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						12.0550518035889,
+						3.22000002861023,
+						-15.0207672119141
+					],
+					"id": "F02_2A_FRIDGE_01_native_open",
+					"image": "F02_2A_FRIDGE_01_native_open.png",
+					"owner": "F02_2A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						-13.5500011444092,
+						6.42000007629395,
+						-4.02474498748779
+					],
+					"id": "F03_3B_FRIDGE_01_native_open",
+					"image": "F03_3B_FRIDGE_01_native_open.png",
+					"owner": "F03_3B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						11.8500022888184,
+						9.6200008392334,
+						-15.8999996185303
+					],
+					"id": "F04_B_FRIDGE_01_native_open",
+					"image": "F04_B_FRIDGE_01_native_open.png",
+					"owner": "F04_B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						8.82525825500488,
+						16.0200004577637,
+						-21.3999996185303
+					],
+					"id": "F06_6B_FRIDGE_01_native_open",
+					"image": "F06_6B_FRIDGE_01_native_open.png",
+					"owner": "F06_6B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						10.5199995040894,
+						0.0199999995529652,
+						-3.14999866485596
+					],
+					"id": "F01_1A_FRIDGE_01_native_open",
+					"image": "F01_1A_FRIDGE_01_native_open.png",
+					"owner": "F01_1A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						11.2000017166138,
+						3.22000002861023,
+						-15.769998550415
+					],
+					"id": "F02_2A_FRIDGE_01_native_closed",
+					"image": "F02_2A_FRIDGE_01_native_closed.png",
+					"owner": "F02_2A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						-12.4500007629395,
+						6.42000007629395,
+						-4.33000087738037
+					],
+					"id": "F03_3B_FRIDGE_01_native_closed",
+					"image": "F03_3B_FRIDGE_01_native_closed.png",
+					"owner": "F03_3B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						11.8500022888184,
+						9.6200008392334,
+						-15.8999996185303
+					],
+					"id": "F04_B_FRIDGE_01_native_closed",
+					"image": "F04_B_FRIDGE_01_native_closed.png",
+					"owner": "F04_B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						8.5200023651123,
+						16.0200004577637,
+						-22.5
+					],
+					"id": "F06_6B_FRIDGE_01_native_closed",
+					"image": "F06_6B_FRIDGE_01_native_closed.png",
+					"owner": "F06_6B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						10.2200002670288,
+						0.0199999995529652,
+						-3.14999866485596
+					],
+					"id": "F01_1A_FRIDGE_01_native_closed",
+					"image": "F01_1A_FRIDGE_01_native_closed.png",
+					"owner": "F01_1A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"household_stoves": {
+			"actors": 18,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 3073,
+			"elapsed_ms": 13707,
+			"failures": [],
+			"fixture_sha256": "857de5b23bee0a3062981321bfcdfb0a56dbda33f2329bb8be65d2878ebd6e22",
+			"unique_triangles": 65832,
+			"validator_sha256": "860028d03a65715bfdd197fd6c2e7e64287c4b2f90615d6ca0e608e273c85ea7",
+			"views": [
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_open",
+					"image": "F02_2B_STOVE_01_native_open.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						8.5200023651123,
+						12.8200006484985,
+						-20.75
+					],
+					"id": "F05_5B_STOVE_01_native_open",
+					"image": "F05_5B_STOVE_01_native_open.png",
+					"owner": "F05_5B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						9.37432956695557,
+						0.0199999995529652,
+						-2.97153854370117
+					],
+					"id": "F01_1A_STOVE_01_native_open",
+					"image": "F01_1A_STOVE_01_native_open.png",
+					"owner": "F01_1A_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_service0",
+					"image": "F02_2B_STOVE_01_native_service0.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_service2",
+					"image": "F02_2B_STOVE_01_native_service2.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_closed",
+					"image": "F02_2B_STOVE_01_native_closed.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						8.5200023651123,
+						12.8200006484985,
+						-20.75
+					],
+					"id": "F05_5B_STOVE_01_native_closed",
+					"image": "F05_5B_STOVE_01_native_closed.png",
+					"owner": "F05_5B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						10.7996959686279,
+						0.0199999995529652,
+						-2.86746978759766
+					],
+					"id": "F01_1A_STOVE_01_native_closed",
+					"image": "F01_1A_STOVE_01_native_closed.png",
+					"owner": "F01_1A_STOVE_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"owner_building_finish": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 15770,
+			"elapsed_ms": 114402,
+			"failures": [],
+			"finish_slots": {
+				"facade": 52,
+				"lift": 71,
+				"roof": 158,
+				"skyline": 441
+			},
+			"fixture_sha256": "afdbe5c8ec28ee4f427268761d65097ef2271246af1921c38acfe0b00f47d37f",
+			"inspectors": {
+				"city_aerials": {
+					"checks": 3792,
+					"failures": []
+				},
+				"city_tanks": {
+					"checks": 2464,
+					"failures": []
+				},
+				"facade_day": {
+					"checks": 665,
+					"failures": []
+				},
+				"front_facade": {
+					"checks": 665,
+					"failures": []
+				},
+				"lift_gate": {
+					"checks": 1720,
+					"failures": []
+				},
+				"lift_joinery": {
+					"checks": 67,
+					"failures": []
+				},
+				"roof_membrane": {
+					"checks": 1640,
+					"failures": []
+				},
+				"roof_ventilator": {
+					"checks": 49,
+					"failures": []
+				}
+			},
+			"loaded_maps": 33,
+			"local_weather_slots": 190,
+			"validator_sha256": "c061b05b818b11d5f02a8360548a6213a5931baf3fe7f327bc45b5733a72e451",
+			"views": [
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						8.84600067138672,
+						3.23000001907349,
+						-13.6379985809326
+					],
+					"id": "dim_2A_production",
+					"image": "dim_2A_production.png",
+					"owner": "dim_2A",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						8.84600067138672,
+						3.23000001907349,
+						-13.6379985809326
+					],
+					"id": "dim_2A_off",
+					"image": "dim_2A_off.png",
+					"owner": "dim_2A",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						-14.280499458313,
+						6.42999982833862,
+						-7.28800106048584
+					],
+					"id": "bright_3B_production",
+					"image": "bright_3B_production.png",
+					"owner": "bright_3B",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						-14.280499458313,
+						6.42999982833862,
+						-7.28800106048584
+					],
+					"id": "bright_3B_off",
+					"image": "bright_3B_off.png",
+					"owner": "bright_3B",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						-1.63199973106384,
+						0.0299999993294477,
+						-1.60799980163574
+					],
+					"id": "vestibule_production",
+					"image": "vestibule_production.png",
+					"owner": "vestibule",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						-1.63199973106384,
+						0.0299999993294477,
+						-1.60799980163574
+					],
+					"id": "vestibule_off",
+					"image": "vestibule_off.png",
+					"owner": "vestibule",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						-3.67199945449829,
+						0.0299999993294477,
+						-6.93599987030029
+					],
+					"id": "lobby_production",
+					"image": "lobby_production.png",
+					"owner": "lobby",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						-3.67199945449829,
+						0.0299999993294477,
+						-6.93599987030029
+					],
+					"id": "lobby_off",
+					"image": "lobby_off.png",
+					"owner": "lobby",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "production daylight; existing camera station",
+					"feet": [
+						12.0,
+						19.2399997711182,
+						-2.64999866485596
+					],
+					"id": "roof_day",
+					"image": "roof_day.png",
+					"owner": "roof_day",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "production daylight; existing camera station",
+					"feet": [
+						5.99999952316284,
+						0.0199999995529652,
+						2.15000152587891
+					],
+					"id": "skyline_day",
+					"image": "skyline_day.png",
+					"owner": "skyline_day",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"owner_building_routes": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 15,
+			"elapsed_ms": 177293,
+			"failures": [],
+			"fixture_sha256": "",
+			"routes": {
+				"front": [
+					{
+						"actual": [
+							0.00000000612993034110332,
+							0.000843202578835189,
+							-10.3964242935181
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.0,
+							-10.3000001907349
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.00000000604588024089026,
+							0.000843202578835189,
+							-13.0531644821167
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.0,
+							-13.1499996185303
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.00693259155377746,
+							0.000250207260251045,
+							-10.3963174819946
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.0,
+							-10.3000001907349
+						],
+						"wall_contacts": {}
+					}
+				],
+				"inner": [
+					{
+						"actual": [
+							0.00000000533057686880056,
+							0.000821914989501238,
+							-10.3037738800049
+						],
+						"ok": true,
+						"target": [
+							-0.000000000000056843418860808,
+							0.0,
+							-10.3999996185303
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.000000000234138042287668,
+							0.000821914989501238,
+							-8.19685745239258
+						],
+						"ok": true,
+						"target": [
+							-0.000000000000056843418860808,
+							0.0,
+							-8.10000038146973
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.00000000611728978583415,
+							0.000859871273860335,
+							-8.19622611999512
+						],
+						"ok": true,
+						"target": [
+							-0.000000000000056843418860808,
+							0.0,
+							-8.10000038146973
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.00363561883568764,
+							0.000940098718274385,
+							-10.3008794784546
+						],
+						"ok": true,
+						"target": [
+							-0.000000000000056843418860808,
+							0.0,
+							-10.3999996185303
+						],
+						"wall_contacts": {}
+					}
+				],
+				"lift": [
+					{
+						"actual": [
+							1.5926319360733,
+							0.000859374180436134,
+							-3.42179584503174
+						],
+						"ok": true,
+						"target": [
+							1.5,
+							0.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.095738373696804,
+							0.000859374180436134,
+							-3.40131092071533
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.00528824701905251,
+							0.120834633708,
+							-1.74673748016357
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.119999997317791,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.000309473689412698,
+							3.20083951950073,
+							-3.30325126647949
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							3.20000004768372,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.65337526798248,
+							3.20083951950073,
+							-3.39466094970703
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							3.20000004768372,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.74726688861847,
+							3.20083951950073,
+							-0.0960206985473633
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							3.20000004768372,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.879075288772583,
+							3.20083951950073,
+							2.60939598083496
+						],
+						"ok": true,
+						"target": [
+							-0.850000023841858,
+							3.20000004768372,
+							2.70000004768372
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.71943712234497,
+							3.20083951950073,
+							0.0915689468383789
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							3.20000004768372,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.40531158447266,
+							3.20083951950073,
+							0.00311756134033203
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							3.20000004768372,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49820232391357,
+							3.20083951950073,
+							-5.00311326980591
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							3.20000004768372,
+							-5.09999990463257
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49996519088745,
+							3.20083951950073,
+							-0.0968027114868164
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							3.20000004768372,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.84656608104706,
+							3.20083951950073,
+							-0.00339984893798828
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							3.20000004768372,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.7517055273056,
+							3.20094132423401,
+							-3.30241870880127
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							3.20000004768372,
+							-3.40000009536743
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F02_SOUTHWEST_HALL/WallEast_00/Collision": "(2.130001, 4.394941, -11.05)"
+						}
+					},
+					{
+						"actual": [
+							-0.0967889949679375,
+							3.20094132423401,
+							-3.39460849761963
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							3.20000004768372,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00532747618854046,
+							3.32083463668823,
+							-1.74602603912354
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							3.3199999332428,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.000311978335957974,
+							6.40072917938232,
+							-3.30314159393311
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							6.40000009536743,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.65344476699829,
+							6.40072917938232,
+							-3.39465618133545
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							6.40000009536743,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.74726903438568,
+							6.40072917938232,
+							-0.0960206985473633
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							6.40000009536743,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.87907600402832,
+							6.40072917938232,
+							2.60939598083496
+						],
+						"ok": true,
+						"target": [
+							-0.850000023841858,
+							6.40000009536743,
+							2.70000004768372
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.71943616867065,
+							6.40072917938232,
+							0.0915746688842773
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							6.40000009536743,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.40531015396118,
+							6.40072917938232,
+							0.00311756134033203
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							6.40000009536743,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49820232391357,
+							6.40072917938232,
+							-5.00311326980591
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							6.40000009536743,
+							-5.09999990463257
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49996519088745,
+							6.40072917938232,
+							-0.0968027114868164
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							6.40000009536743,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.84656798839569,
+							6.40072917938232,
+							-0.00339984893798828
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							6.40000009536743,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.7517055273056,
+							6.40094375610352,
+							-3.30241870880127
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							6.40000009536743,
+							-3.40000009536743
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F03_PUBLIC_CORE/WallWest_00/Collision": "(2.130001, 7.594944, -11.05)"
+						}
+					},
+					{
+						"actual": [
+							-0.0967907533049583,
+							6.40094375610352,
+							-3.39460849761963
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							6.40000009536743,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00532764429226518,
+							6.52084636688232,
+							-1.74602794647217
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							6.51999998092651,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.000311986834276468,
+							9.60075187683105,
+							-3.30313968658447
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							9.60000038146973,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.65344285964966,
+							9.60075187683105,
+							-3.39465618133545
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							9.60000038146973,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.74726867675781,
+							9.60075187683105,
+							-0.0960273742675781
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							9.60000038146973,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.879077315330505,
+							9.60075187683105,
+							2.60938930511475
+						],
+						"ok": true,
+						"target": [
+							-0.850000023841858,
+							9.60000038146973,
+							2.70000004768372
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.71943521499634,
+							9.60075187683105,
+							0.0915746688842773
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							9.60000038146973,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.40530586242676,
+							9.60075187683105,
+							0.00311756134033203
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							9.60000038146973,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49820184707642,
+							9.60075187683105,
+							-5.00310230255127
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							9.60000038146973,
+							-5.09999990463257
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49996471405029,
+							9.60075187683105,
+							-0.0968103408813477
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							9.60000038146973,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.84657227993011,
+							9.60075187683105,
+							-0.00339984893798828
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							9.60000038146973,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.75171840190887,
+							9.60094165802002,
+							-3.30244064331055
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							9.60000038146973,
+							-3.40000009536743
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F04_SOUTHWEST_HALL/WallEast_00/Collision": "(2.130001, 10.79494, -11.05)"
+						}
+					},
+					{
+						"actual": [
+							-0.096794493496418,
+							9.60094165802002,
+							-3.39460849761963
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							9.60000038146973,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00532800192013383,
+							9.72082328796387,
+							-1.74602890014648
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							9.72000026702881,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.000312020361889154,
+							12.8007278442383,
+							-3.30313968658447
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							12.8000001907349,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.653440117836,
+							12.8007278442383,
+							-3.39465618133545
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							12.8000001907349,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.74726855754852,
+							12.8007278442383,
+							-0.0960292816162109
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							12.8000001907349,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.879078269004822,
+							12.8007278442383,
+							2.60938930511475
+						],
+						"ok": true,
+						"target": [
+							-0.850000023841858,
+							12.8000001907349,
+							2.70000004768372
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.71943402290344,
+							12.8007278442383,
+							0.0915803909301758
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							12.8000001907349,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.40530300140381,
+							12.8007278442383,
+							0.00311851501464844
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							12.8000001907349,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.84705233573914,
+							12.8007278442383,
+							0.000113487243652344
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							12.8000001907349,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.75172662734985,
+							12.8009443283081,
+							-3.30199337005615
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							12.8000001907349,
+							-3.40000009536743
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallWest_00/Collision": "(2.130001, 13.99494, -11.05)"
+						}
+					},
+					{
+						"actual": [
+							-0.0967995524406433,
+							12.8009443283081,
+							-3.39458465576172
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							12.8000001907349,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00532830040901899,
+							12.9208364486694,
+							-1.7460298538208
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							12.9200000762939,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.000312045362079516,
+							16.0007076263428,
+							-3.30313491821289
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							16.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.65343856811523,
+							16.0007076263428,
+							-3.39465522766113
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							16.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.74726831912994,
+							16.0007076263428,
+							-0.096034049987793
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							16.0,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.879079282283783,
+							16.0007076263428,
+							2.60938358306885
+						],
+						"ok": true,
+						"target": [
+							-0.850000023841858,
+							16.0,
+							2.70000004768372
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.71943330764771,
+							16.0007076263428,
+							0.0915794372558594
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							16.0,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.40530014038086,
+							16.0007076263428,
+							0.00311851501464844
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							16.0,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.84705424308777,
+							16.0007076263428,
+							0.000113487243652344
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							16.0,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.75172543525696,
+							16.0009441375732,
+							-3.30198860168457
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							16.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallWest_00/Collision": "(2.130001, 17.19494, -11.05)"
+						}
+					},
+					{
+						"actual": [
+							-0.0968016684055328,
+							16.0009441375732,
+							-3.39458465576172
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							16.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.61690616607666,
+							16.0009441375732,
+							-3.40104198455811
+						],
+						"ok": true,
+						"target": [
+							-0.699999988079071,
+							16.0,
+							-3.45000004768372
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@24250": "(0.096802, 17.19494, -8.9025)"
+						}
+					},
+					{
+						"actual": [
+							-0.0983732715249062,
+							16.0009441375732,
+							-3.40016555786133
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							16.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00543104857206345,
+							16.1208477020264,
+							-1.74662494659424
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							16.1200008392334,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.000317880243528634,
+							-3.19916605949402,
+							-3.30322933197021
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							-3.20000004768372,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.0000186146517080488,
+							-3.08041644096375,
+							-1.74681091308594
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							-3.07999992370605,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00000107863024823018,
+							0.000833909783978015,
+							-3.30325222015381
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					}
+				],
+				"roof": [
+					{
+						"actual": [
+							-3.50359463691711,
+							19.3354644775391,
+							0.0
+						],
+						"ok": true,
+						"target": [
+							-3.59999990463257,
+							19.3342514038086,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-11.9011154174805,
+							19.2520542144775,
+							-0.000397682189941406
+						],
+						"ok": true,
+						"target": [
+							-12.0,
+							19.2502498626709,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-11.998950958252,
+							19.2598075866699,
+							-8.90348625183105
+						],
+						"ok": true,
+						"target": [
+							-12.0,
+							19.2602500915527,
+							-9.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.096499539911747,
+							19.311466217041,
+							-8.99922943115234
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							19.3122501373291,
+							-9.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							13.9039402008057,
+							19.241569519043,
+							-9.00000190734863
+						],
+						"ok": true,
+						"target": [
+							14.0,
+							19.2402496337891,
+							-9.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							13.9995431900024,
+							19.2485637664795,
+							10.7034664154053
+						],
+						"ok": true,
+						"target": [
+							14.0,
+							19.2472515106201,
+							10.8000001907349
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							7.59651565551758,
+							19.2515029907227,
+							10.7985973358154
+						],
+						"ok": true,
+						"target": [
+							7.5,
+							19.2522506713867,
+							10.8000001907349
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							7.50125408172607,
+							19.3268871307373,
+							3.09646606445313
+						],
+						"ok": true,
+						"target": [
+							7.5,
+							19.3252506256104,
+							3.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							7.9044451713562,
+							19.3215141296387,
+							3.01848220825195
+						],
+						"ok": true,
+						"target": [
+							8.0,
+							19.3202514648438,
+							3.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							10.2041139602661,
+							19.2008037567139,
+							3.00074005126953
+						],
+						"ok": true,
+						"target": [
+							10.3000001907349,
+							19.2000007629395,
+							3.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							8.19691467285156,
+							19.3182048797607,
+							3.00001525878906
+						],
+						"ok": true,
+						"target": [
+							8.10000038146973,
+							19.3192501068115,
+							3.0
+						],
+						"wall_contacts": {}
+					}
+				]
+			},
+			"validator_sha256": "104db135de1ea84e5d8501aaf5e7739c15f51f297acd4ed7713314ecd8db35a9"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

@@ -1,0 +1,70 @@
+{
+	"checks": 1640,
+	"contacts": 570,
+	"evidence_class": "INERT",
+	"failures": [],
+	"observations": [
+		{
+			"after": {
+				"draws": 5105,
+				"primitives": 5179316
+			},
+			"before": {
+				"draws": 5038,
+				"primitives": 5157690
+			},
+			"note": "Same-camera rendering substitution; normal eye height except labelled close detail. No new lighting or physics and no FPS acceptance.",
+			"view": "roof_west"
+		},
+		{
+			"after": {
+				"draws": 6370,
+				"primitives": 7235412
+			},
+			"before": {
+				"draws": 6306,
+				"primitives": 7215182
+			},
+			"note": "Same-camera rendering substitution; normal eye height except labelled close detail. No new lighting or physics and no FPS acceptance.",
+			"view": "roof_field"
+		},
+		{
+			"after": {
+				"draws": 7063,
+				"primitives": 9977724
+			},
+			"before": {
+				"draws": 7055,
+				"primitives": 9973522
+			},
+			"note": "Same-camera rendering substitution; normal eye height except labelled close detail. No new lighting or physics and no FPS acceptance.",
+			"view": "roof_seam_close"
+		},
+		{
+			"after": {
+				"draws": 754,
+				"primitives": 79168
+			},
+			"before": {
+				"draws": 753,
+				"primitives": 78860
+			},
+			"note": "Same-camera rendering substitution; normal eye height except labelled close detail. No new lighting or physics and no FPS acceptance.",
+			"view": "roof_parapet"
+		},
+		{
+			"after": {
+				"draws": 633,
+				"primitives": 150531
+			},
+			"before": {
+				"draws": 627,
+				"primitives": 149015
+			},
+			"note": "Same-camera rendering substitution; normal eye height except labelled close detail. No new lighting or physics and no FPS acceptance.",
+			"view": "roof_east"
+		}
+	],
+	"parts": 73,
+	"triangles": 23348
+}

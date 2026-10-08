@@ -1,0 +1,37 @@
+{
+	"checks": 15770,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 335.063,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Scoped facade, roof, skyline and lift optical deployment; original native triangles/charts/collisions/roof bearings, fan actuation, gate articulation, immutable source materials, mipmaps, matched day/night facade and powered/unpowered room observations, and owner retirement. Separate route module supplies passenger and entrance input proof. No save reconstruction or utility capacity claim.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "fdf01a36a17b370e820a7065bad235acdfadeed7",
+		"runtime_inputs_sha256": "09074a2fd825b3e6254d2b0805de0d74777ceb195038b80b1557cf8a266e63b1",
+		"test_path": "game/tests/orison_v2_owner_building_finish_test.gd",
+		"test_sha256": "c061b05b818b11d5f02a8360548a6213a5931baf3fe7f327bc45b5733a72e451"
+	}
+}

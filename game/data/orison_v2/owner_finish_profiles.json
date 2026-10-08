@@ -829,16 +829,16 @@
         {
           "source_key": "soil",
           "color": [
-            1,
-            1,
-            1,
+            0.24,
+            0.18,
+            0.115,
             1
           ],
-          "retain_tint": true,
-          "normal": 0.1,
+          "retain_tint": false,
+          "normal": 0.14,
           "roughness": 0.98,
           "metallic": 0,
-          "pigment": 0.45
+          "pigment": 0.7
         }
       ]
     },
@@ -1296,6 +1296,353 @@
           "roughness": 0.54,
           "metallic": 0,
           "pigment": 0.18
+        }
+      ]
+    },
+    {
+      "id": "facade",
+      "recipes": [
+        {
+          "source_key": "limestone",
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normal": 0.075,
+          "roughness": 0.88,
+          "metallic": 0,
+          "retain_tint": true,
+          "pigment": 0.55
+        },
+        {
+          "source_key": "oak_quartered",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.06,
+          "roughness": 0.66,
+          "metallic": 0.0,
+          "pigment": 0.38
+        },
+        {
+          "source_key": "cast_iron",
+          "color": [
+            0.45,
+            0.46,
+            0.45,
+            1
+          ],
+          "normal": 0.12,
+          "roughness": 0.82,
+          "metallic": 0.2,
+          "catalog": "iron_neutral",
+          "pigment": 0.7
+        },
+        {
+          "source_key": "metal",
+          "color": [
+            0.62,
+            0.64,
+            0.62,
+            1
+          ],
+          "normal": 0.1,
+          "roughness": 0.6,
+          "metallic": 0.7,
+          "catalog": "iron_neutral",
+          "pigment": 0.65
+        },
+        {
+          "source_key": "brass",
+          "color": [
+            0.6,
+            0.53,
+            0.38,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.45,
+          "metallic": 0.78,
+          "untextured": true
+        }
+      ]
+    },
+    {
+      "id": "roof",
+      "recipes": [
+        {
+          "source_key": "roof_bitumen",
+          "color": [
+            0.9,
+            0.9,
+            0.9,
+            1
+          ],
+          "normal": 0.18,
+          "roughness": 0.92,
+          "metallic": 0,
+          "pigment": 0.62
+        },
+        {
+          "source_key": "galvanized_roof",
+          "color": [
+            0.83,
+            0.86,
+            0.84,
+            1
+          ],
+          "normal": 0.09,
+          "roughness": 0.74,
+          "metallic": 0.65,
+          "catalog": "zinc_quiet",
+          "pigment": 0.72
+        },
+        {
+          "source_key": "enamel",
+          "color": [
+            0.85,
+            0.86,
+            0.81,
+            1
+          ],
+          "normal": 0.045,
+          "roughness": 0.66,
+          "metallic": 0,
+          "retain_tint": true,
+          "pigment": 0.45
+        },
+        {
+          "source_key": "trim",
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normal": 0.05,
+          "roughness": 0.71,
+          "metallic": 0,
+          "retain_tint": true,
+          "pigment": 0.45
+        },
+        {
+          "source_key": "cast_iron",
+          "color": [
+            0.45,
+            0.46,
+            0.45,
+            1
+          ],
+          "normal": 0.12,
+          "roughness": 0.82,
+          "metallic": 0.2,
+          "catalog": "iron_neutral",
+          "pigment": 0.7
+        },
+        {
+          "source_key": "brass_dull",
+          "color": [
+            0.6,
+            0.53,
+            0.38,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.45,
+          "metallic": 0.78,
+          "untextured": true
+        },
+        {
+          "source_key": "rubber_aged",
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normal": 0.08,
+          "roughness": 0.96,
+          "metallic": 0,
+          "retain_tint": true,
+          "pigment": 0.45
+        }
+      ]
+    },
+    {
+      "id": "skyline",
+      "recipes": [
+        {
+          "source_key": "tank_staves",
+          "color": [
+            0.87,
+            0.85,
+            0.8,
+            1
+          ],
+          "normal": 0.17,
+          "roughness": 0.91,
+          "metallic": 0,
+          "pigment": 0.64
+        },
+        {
+          "source_key": "galvanized_roof",
+          "color": [
+            0.85,
+            0.88,
+            0.86,
+            1
+          ],
+          "normal": 0.1,
+          "roughness": 0.73,
+          "metallic": 0.65,
+          "catalog": "zinc_quiet",
+          "pigment": 0.72
+        },
+        {
+          "source_key": "bronze_sheet",
+          "color": [
+            0.82,
+            0.83,
+            0.77,
+            1
+          ],
+          "normal": 0.08,
+          "roughness": 0.67,
+          "metallic": 0.75,
+          "pigment": 0.65
+        },
+        {
+          "source_key": "brass",
+          "color": [
+            0.6,
+            0.53,
+            0.38,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.45,
+          "metallic": 0.78,
+          "untextured": true
+        },
+        {
+          "source_key": "porcelain_fixture",
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normal": 0.025,
+          "roughness": 0.31,
+          "metallic": 0,
+          "retain_tint": true,
+          "pigment": 0.38
+        }
+      ]
+    },
+    {
+      "id": "lift",
+      "recipes": [
+        {
+          "source_key": "oak_quartered",
+          "color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "retain_tint": true,
+          "normal": 0.06,
+          "roughness": 0.66,
+          "metallic": 0.0,
+          "pigment": 0.38
+        },
+        {
+          "source_key": "enamel",
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "normal": 0.035,
+          "roughness": 0.54,
+          "metallic": 0,
+          "retain_tint": true,
+          "pigment": 0.3
+        },
+        {
+          "source_key": "brass_bright",
+          "color": [
+            0.6,
+            0.53,
+            0.38,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.45,
+          "metallic": 0.78,
+          "untextured": true
+        },
+        {
+          "source_key": "brass_dull",
+          "color": [
+            0.6,
+            0.53,
+            0.38,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.45,
+          "metallic": 0.78,
+          "untextured": true
+        },
+        {
+          "source_key": "brass",
+          "color": [
+            0.6,
+            0.53,
+            0.38,
+            1
+          ],
+          "normal": 0,
+          "roughness": 0.45,
+          "metallic": 0.78,
+          "untextured": true
+        },
+        {
+          "source_key": "cast_iron",
+          "color": [
+            0.45,
+            0.46,
+            0.45,
+            1
+          ],
+          "normal": 0.12,
+          "roughness": 0.82,
+          "metallic": 0.2,
+          "catalog": "iron_neutral",
+          "pigment": 0.7
+        },
+        {
+          "source_key": "metal",
+          "color": [
+            0.5,
+            0.51,
+            0.5,
+            1
+          ],
+          "normal": 0.06,
+          "roughness": 0.61,
+          "metallic": 0.6,
+          "catalog": "iron_neutral",
+          "pigment": 0.7
         }
       ]
     }

@@ -273,3 +273,20 @@ the original closed collision body cannot describe an open door. The
 household_fridges module applies these checks to every actor while allowing
 only failed views to be recaptured. Reuse unchanged views only after exact
 asset/runtime comparison, and keep failed run receipts with the final packet.
+
+## Owner building finish review (2026-10-08)
+
+The batch also accepts **owner_building_finish** and **owner_building_routes**.
+The finish module embeds the existing facade, roof membrane, fan, city tank,
+aerial, lift joinery and gate validators in the same production world.
+**ORISON_BUILDING_INSPECTORS** narrows those embedded validators by comma-separated
+names; omit it for all seven. **ORISON_BUILDING_ROUTES** similarly selects
+front, inner, roof or lift routes. Runtime contracts are test-written and
+explicitly exclude save reconstruction. Keep unrelated family evidence when
+its geometry and authority inputs are unchanged.
+
+**ORISON_FIXED_LIGHTING_CAPTURE_IDS** selects the actual installed fixture
+owners for powered/off pairs, including variants whose first representative
+is another actor. **ORISON_FABRICATION_ACTORS** does not replace this selector.
+The owner building packet records rejected diagnostic runs as well as final
+proof; check stderr and helper completion, not just the wrapper exit.

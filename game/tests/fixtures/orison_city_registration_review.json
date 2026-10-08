@@ -1,0 +1,54 @@
+{
+  "evidence_class": "INERT",
+  "historical_commit": "3fbba2e5dbe298602bf71a066912718b663ece04",
+  "historical_sha256": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab",
+  "current_sha256": "a4eb64d3f886c75d5e3a46d5629d5c364fc199f564b451df0f730f4787315843",
+  "registration_inputs_unchanged": true,
+  "source_projection": {
+    "dimensions": {
+      "outer_bounds": [
+        -16.0,
+        -12.5,
+        16.0,
+        12.0
+      ],
+      "floor_to_floor": 3.2,
+      "clear_height": 3.0,
+      "slab_thickness": 0.2,
+      "outer_wall": 0.35,
+      "core_wall": 0.25,
+      "partition_wall": 0.14
+    },
+    "west": {
+      "id": "F01_D_MAIN",
+      "level": "F01",
+      "class": "private",
+      "rect": [
+        11.5,
+        -4.2,
+        15.65,
+        0.3
+      ],
+      "purpose": "Teresa Vale living, meals and conversation",
+      "wall_sides": [
+        "south",
+        "north",
+        "west"
+      ],
+      "exterior_sides": [
+        "east"
+      ],
+      "wall_extensions": [
+        {
+          "side": "east",
+          "start": -4.2,
+          "end": 0.3
+        }
+      ],
+      "unit": "1D"
+    }
+  },
+  "scope": "Exact fields consumed from V2 blockout by unchanged city_registration. All native asset and support checks remain required.",
+  "derivation_sha256": "c2e7cd1a8dfd981bb9f68c5c834a202626c42851efc8b40fb1a2dc551522b5ca",
+  "other_registration_inputs": "building_layout and city_shells_registration remain exactly fixture-bound"
+}

@@ -1,0 +1,2362 @@
+{
+	"batch_checks": 25,
+	"elapsed_ms": 432865,
+	"evidence_class": "INERT",
+	"failures": [
+		"owner_building_finish: finish group deployed: lift",
+		"owner_building_finish: city_tanks: current geometry registration binds the current blockout",
+		"owner_building_finish: city_aerials: current geometry registration binds the current blockout",
+		"household_fridges: monitor motor and original lamp retained",
+		"household_fridges: monitor motor and original lamp retained",
+		"household_fridges: monitor motor and original lamp retained",
+		"household_fridges: monitor motor and original lamp retained",
+		"household_fridges: source service pivots retained",
+		"household_fridges: native partition correctly rebased under source mechanism",
+		"household_fridges: native partition correctly rebased under source mechanism",
+		"household_fridges: native partition correctly rebased under source mechanism",
+		"household_fridges: monitor motor and original lamp retained",
+		"household_fridges: source ice hatch and pan close at original datums",
+		"fixed_lighting: actual retained-surface light attachment: F01_BAR_LT_WEST1",
+		"fixed_lighting: actual retained-surface light attachment: F01_BAR_LT_WEST1",
+		"fixed_lighting: unobstructed standing view of native fixture: F01_BAR_LT_DECK0"
+	],
+	"module_checks": 26845,
+	"modules": {
+		"domestic_objects": {
+			"actors": 17,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 850,
+			"elapsed_ms": 1803,
+			"failures": [],
+			"fixture_sha256": "8bcf9dd3e7ae428f30b438d3f40bc1c2c8781cf24f3aae7b4608c52842fe68d0",
+			"parts": 66,
+			"shared_validator_sha256": "634c1235da90cb17304bef9bad78ae4cbeb8d829df7e2846677e410693cf94b4",
+			"unique_triangles": 137688,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 16,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						13.5779781341553,
+						6.42000007629395,
+						-14.1507387161255
+					],
+					"id": "3A_story_specimen_native",
+					"image": "3A_story_specimen_native.png",
+					"owner": "3A_story_specimen",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"fixed_lighting": {
+			"actors": 199,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 6001,
+			"elapsed_ms": 70808,
+			"failures": [
+				"actual retained-surface light attachment: F01_BAR_LT_WEST1",
+				"actual retained-surface light attachment: F01_BAR_LT_WEST1",
+				"unobstructed standing view of native fixture: F01_BAR_LT_DECK0"
+			],
+			"fixture_sha256": "d95098e1bce18c554008a5f6e5f56bfb8f1c942947a8a31a17c6ff0e4ea8a021",
+			"parts": 746,
+			"unique_triangles": 480680,
+			"validator_sha256": "5d5eb7dacf5f05f52c96ea1ccf27ac704d0216d93b49998ade59e615ee20d093",
+			"variants": 27,
+			"views": [
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						6.00000095367432,
+						-3.18499994277954,
+						-10.5499982833862
+					],
+					"id": "B1_LAUNDRY_LT_FLUSH_DOME_powered",
+					"image": "B1_LAUNDRY_LT_FLUSH_DOME_powered.png",
+					"owner": "B1_LAUNDRY_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						6.00000095367432,
+						-3.18499994277954,
+						-10.5499982833862
+					],
+					"id": "B1_LAUNDRY_LT_FLUSH_DOME_off",
+					"image": "B1_LAUNDRY_LT_FLUSH_DOME_off.png",
+					"owner": "B1_LAUNDRY_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						12.3000011444092,
+						3.21500015258789,
+						-12.399998664856
+					],
+					"id": "F02_A_MAIN_LT_PENDANT_SHADE_powered",
+					"image": "F02_A_MAIN_LT_PENDANT_SHADE_powered.png",
+					"owner": "F02_A_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						12.3000011444092,
+						3.21500015258789,
+						-12.399998664856
+					],
+					"id": "F02_A_MAIN_LT_PENDANT_SHADE_off",
+					"image": "F02_A_MAIN_LT_PENDANT_SHADE_off.png",
+					"owner": "F02_A_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-13.0499992370605,
+						6.41499996185303,
+						-8.29737281799316
+					],
+					"id": "F03_B_MAIN_LT_PENDANT_SHADE_powered",
+					"image": "F03_B_MAIN_LT_PENDANT_SHADE_powered.png",
+					"owner": "F03_B_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-13.0499992370605,
+						6.41499996185303,
+						-8.29737281799316
+					],
+					"id": "F03_B_MAIN_LT_PENDANT_SHADE_off",
+					"image": "F03_B_MAIN_LT_PENDANT_SHADE_off.png",
+					"owner": "F03_B_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.5221824645996,
+						6.41499996185303,
+						-4.22218322753906
+					],
+					"id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR_powered",
+					"image": "F03_B_KITCHEN_LT_KITCHEN_LINEAR_powered.png",
+					"owner": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.5221824645996,
+						6.41499996185303,
+						-4.22218322753906
+					],
+					"id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR_off",
+					"image": "F03_B_KITCHEN_LT_KITCHEN_LINEAR_off.png",
+					"owner": "F03_B_KITCHEN_LT_KITCHEN_LINEAR",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.6499996185303,
+						6.41499996185303,
+						-2.3026282787323
+					],
+					"id": "F03_B_ALCOVE_LT_FLUSH_DOME_powered",
+					"image": "F03_B_ALCOVE_LT_FLUSH_DOME_powered.png",
+					"owner": "F03_B_ALCOVE_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.6499996185303,
+						6.41499996185303,
+						-2.3026282787323
+					],
+					"id": "F03_B_ALCOVE_LT_FLUSH_DOME_off",
+					"image": "F03_B_ALCOVE_LT_FLUSH_DOME_off.png",
+					"owner": "F03_B_ALCOVE_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-14.4674816131592,
+						6.41499996185303,
+						-0.26529923081398
+					],
+					"id": "3B_LT_SCONCE_powered",
+					"image": "3B_LT_SCONCE_powered.png",
+					"owner": "3B_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-14.4674816131592,
+						6.41499996185303,
+						-0.26529923081398
+					],
+					"id": "3B_LT_SCONCE_off",
+					"image": "3B_LT_SCONCE_off.png",
+					"owner": "3B_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						11.7000007629395,
+						9.61500072479248,
+						-10.3499984741211
+					],
+					"id": "F04_B_MAIN_LT_PENDANT_SHADE_powered",
+					"image": "F04_B_MAIN_LT_PENDANT_SHADE_powered.png",
+					"owner": "F04_B_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						11.7000007629395,
+						9.61500072479248,
+						-10.3499984741211
+					],
+					"id": "F04_B_MAIN_LT_PENDANT_SHADE_off",
+					"image": "F04_B_MAIN_LT_PENDANT_SHADE_off.png",
+					"owner": "F04_B_MAIN_LT_PENDANT_SHADE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						8.27781867980957,
+						9.61500072479248,
+						-15.622181892395
+					],
+					"id": "F04_B_BATH_LT_FLUSH_DOME_powered",
+					"image": "F04_B_BATH_LT_FLUSH_DOME_powered.png",
+					"owner": "F04_B_BATH_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						8.27781867980957,
+						9.61500072479248,
+						-15.622181892395
+					],
+					"id": "F04_B_BATH_LT_FLUSH_DOME_off",
+					"image": "F04_B_BATH_LT_FLUSH_DOME_off.png",
+					"owner": "F04_B_BATH_LT_FLUSH_DOME",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						9.75,
+						12.8150005340576,
+						-2.69999885559082
+					],
+					"id": "F05_A_KITCHEN_LT_KITCHEN_LINEAR_powered",
+					"image": "F05_A_KITCHEN_LT_KITCHEN_LINEAR_powered.png",
+					"owner": "F05_A_KITCHEN_LT_KITCHEN_LINEAR",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						9.75,
+						12.8150005340576,
+						-2.69999885559082
+					],
+					"id": "F05_A_KITCHEN_LT_KITCHEN_LINEAR_off",
+					"image": "F05_A_KITCHEN_LT_KITCHEN_LINEAR_off.png",
+					"owner": "F05_A_KITCHEN_LT_KITCHEN_LINEAR",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						12.5425176620483,
+						0.0149999996647239,
+						18.0057010650635
+					],
+					"id": "PASSAGE_PORTAL_LT_W_powered",
+					"image": "PASSAGE_PORTAL_LT_W_powered.png",
+					"owner": "PASSAGE_PORTAL_LT_W",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						12.5425176620483,
+						0.0149999996647239,
+						18.0057010650635
+					],
+					"id": "PASSAGE_PORTAL_LT_W_off",
+					"image": "PASSAGE_PORTAL_LT_W_off.png",
+					"owner": "PASSAGE_PORTAL_LT_W",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						20.0452995300293,
+						0.0149999996647239,
+						16.6584815979004
+					],
+					"id": "PASSAGE_PORTAL_LT_E_powered",
+					"image": "PASSAGE_PORTAL_LT_E_powered.png",
+					"owner": "PASSAGE_PORTAL_LT_E",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						20.0452995300293,
+						0.0149999996647239,
+						16.6584815979004
+					],
+					"id": "PASSAGE_PORTAL_LT_E_off",
+					"image": "PASSAGE_PORTAL_LT_E_off.png",
+					"owner": "PASSAGE_PORTAL_LT_E",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						14.0,
+						0.0149999996647239,
+						22.5050010681152
+					],
+					"id": "PASSAGE_AISLE_LT_00_powered",
+					"image": "PASSAGE_AISLE_LT_00_powered.png",
+					"owner": "PASSAGE_AISLE_LT_00",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						14.0,
+						0.0149999996647239,
+						22.5050010681152
+					],
+					"id": "PASSAGE_AISLE_LT_00_off",
+					"image": "PASSAGE_AISLE_LT_00_off.png",
+					"owner": "PASSAGE_AISLE_LT_00",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.5299997329712,
+						-2.78500008583069,
+						24.1576271057129
+					],
+					"id": "F01_BAR_LT_DARTS_powered",
+					"image": "F01_BAR_LT_DARTS_powered.png",
+					"owner": "F01_BAR_LT_DARTS",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.5299997329712,
+						-2.78500008583069,
+						24.1576271057129
+					],
+					"id": "F01_BAR_LT_DARTS_off",
+					"image": "F01_BAR_LT_DARTS_off.png",
+					"owner": "F01_BAR_LT_DARTS",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						5.15970087051392,
+						0.0149999996647239,
+						18.4424800872803
+					],
+					"id": "F01_BAR_LT_LOBBY_powered",
+					"image": "F01_BAR_LT_LOBBY_powered.png",
+					"owner": "F01_BAR_LT_LOBBY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						5.15970087051392,
+						0.0149999996647239,
+						18.4424800872803
+					],
+					"id": "F01_BAR_LT_LOBBY_off",
+					"image": "F01_BAR_LT_LOBBY_off.png",
+					"owner": "F01_BAR_LT_LOBBY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-1.49999988079071,
+						-2.78500008583069,
+						23.605001449585
+					],
+					"id": "F01_BAR_LT_WELL_powered",
+					"image": "F01_BAR_LT_WELL_powered.png",
+					"owner": "F01_BAR_LT_WELL",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-1.49999988079071,
+						-2.78500008583069,
+						23.605001449585
+					],
+					"id": "F01_BAR_LT_WELL_off",
+					"image": "F01_BAR_LT_WELL_off.png",
+					"owner": "F01_BAR_LT_WELL",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						4.78236198425293,
+						-2.78500008583069,
+						24.7368507385254
+					],
+					"id": "F01_BAR_LT_STAIR_powered",
+					"image": "F01_BAR_LT_STAIR_powered.png",
+					"owner": "F01_BAR_LT_STAIR",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						4.78236198425293,
+						-2.78500008583069,
+						24.7368507385254
+					],
+					"id": "F01_BAR_LT_STAIR_off",
+					"image": "F01_BAR_LT_STAIR_off.png",
+					"owner": "F01_BAR_LT_STAIR",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-3.20000004768372,
+						-2.78500008583069,
+						21.0050010681152
+					],
+					"id": "F01_BAR_LT_CAN0_powered",
+					"image": "F01_BAR_LT_CAN0_powered.png",
+					"owner": "F01_BAR_LT_CAN0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-3.20000004768372,
+						-2.78500008583069,
+						21.0050010681152
+					],
+					"id": "F01_BAR_LT_CAN0_off",
+					"image": "F01_BAR_LT_CAN0_off.png",
+					"owner": "F01_BAR_LT_CAN0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-7.40000009536743,
+						-2.78500008583069,
+						22.5550003051758
+					],
+					"id": "F01_BAR_LT_POOL_powered",
+					"image": "F01_BAR_LT_POOL_powered.png",
+					"owner": "F01_BAR_LT_POOL",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-7.40000009536743,
+						-2.78500008583069,
+						22.5550003051758
+					],
+					"id": "F01_BAR_LT_POOL_off",
+					"image": "F01_BAR_LT_POOL_off.png",
+					"owner": "F01_BAR_LT_POOL",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-7.91529893875122,
+						-2.78500008583069,
+						26.5675182342529
+					],
+					"id": "F01_BAR_LT_TAB0_powered",
+					"image": "F01_BAR_LT_TAB0_powered.png",
+					"owner": "F01_BAR_LT_TAB0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-7.91529893875122,
+						-2.78500008583069,
+						26.5675182342529
+					],
+					"id": "F01_BAR_LT_TAB0_off",
+					"image": "F01_BAR_LT_TAB0_off.png",
+					"owner": "F01_BAR_LT_TAB0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-5.19999980926514,
+						-2.78500008583069,
+						26.6049995422363
+					],
+					"id": "F01_BAR_LT_TAB1_powered",
+					"image": "F01_BAR_LT_TAB1_powered.png",
+					"owner": "F01_BAR_LT_TAB1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-5.19999980926514,
+						-2.78500008583069,
+						26.6049995422363
+					],
+					"id": "F01_BAR_LT_TAB1_off",
+					"image": "F01_BAR_LT_TAB1_off.png",
+					"owner": "F01_BAR_LT_TAB1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-2.67781734466553,
+						-2.78500008583069,
+						25.9771823883057
+					],
+					"id": "F01_BAR_LT_STAGE0_powered",
+					"image": "F01_BAR_LT_STAGE0_powered.png",
+					"owner": "F01_BAR_LT_STAGE0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-2.67781734466553,
+						-2.78500008583069,
+						25.9771823883057
+					],
+					"id": "F01_BAR_LT_STAGE0_off",
+					"image": "F01_BAR_LT_STAGE0_off.png",
+					"owner": "F01_BAR_LT_STAGE0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.2774820327759,
+						-2.78500008583069,
+						25.8897018432617
+					],
+					"id": "F01_BAR_LT_WEST0_powered",
+					"image": "F01_BAR_LT_WEST0_powered.png",
+					"owner": "F01_BAR_LT_WEST0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.2774820327759,
+						-2.78500008583069,
+						25.8897018432617
+					],
+					"id": "F01_BAR_LT_WEST0_off",
+					"image": "F01_BAR_LT_WEST0_off.png",
+					"owner": "F01_BAR_LT_WEST0",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-11.0552988052368,
+						-2.78500008583069,
+						22.5675182342529
+					],
+					"id": "F01_BAR_LT_WEST1_powered",
+					"image": "F01_BAR_LT_WEST1_powered.png",
+					"owner": "F01_BAR_LT_WEST1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-11.0552988052368,
+						-2.78500008583069,
+						22.5675182342529
+					],
+					"id": "F01_BAR_LT_WEST1_off",
+					"image": "F01_BAR_LT_WEST1_off.png",
+					"owner": "F01_BAR_LT_WEST1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.1957359313965,
+						-2.78500008583069,
+						26.8807334899902
+					],
+					"id": "F01_BAR_LT_WC_powered",
+					"image": "F01_BAR_LT_WC_powered.png",
+					"owner": "F01_BAR_LT_WC",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.1957359313965,
+						-2.78500008583069,
+						26.8807334899902
+					],
+					"id": "F01_BAR_LT_WC_off",
+					"image": "F01_BAR_LT_WC_off.png",
+					"owner": "F01_BAR_LT_WC",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						11.744701385498,
+						0.0149999996647239,
+						35.0925178527832
+					],
+					"id": "SITE_SHOP_LT_MODEL_LAUNDRY_powered",
+					"image": "SITE_SHOP_LT_MODEL_LAUNDRY_powered.png",
+					"owner": "SITE_SHOP_LT_MODEL_LAUNDRY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						11.744701385498,
+						0.0149999996647239,
+						35.0925178527832
+					],
+					"id": "SITE_SHOP_LT_MODEL_LAUNDRY_off",
+					"image": "SITE_SHOP_LT_MODEL_LAUNDRY_off.png",
+					"owner": "SITE_SHOP_LT_MODEL_LAUNDRY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						9.27218246459961,
+						0.0149999996647239,
+						31.4271850585938
+					],
+					"id": "SITE_SHOP_IN0_MODEL_LAUNDRY_powered",
+					"image": "SITE_SHOP_IN0_MODEL_LAUNDRY_powered.png",
+					"owner": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						9.27218246459961,
+						0.0149999996647239,
+						31.4271850585938
+					],
+					"id": "SITE_SHOP_IN0_MODEL_LAUNDRY_off",
+					"image": "SITE_SHOP_IN0_MODEL_LAUNDRY_off.png",
+					"owner": "SITE_SHOP_IN0_MODEL_LAUNDRY",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-11.06529712677,
+						-1.58500003814697,
+						-19.9625205993652
+					],
+					"id": "B1_SERVICE_CORE_LT_powered",
+					"image": "B1_SERVICE_CORE_LT_powered.png",
+					"owner": "B1_SERVICE_CORE_LT",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-11.06529712677,
+						-1.58500003814697,
+						-19.9625205993652
+					],
+					"id": "B1_SERVICE_CORE_LT_off",
+					"image": "B1_SERVICE_CORE_LT_off.png",
+					"owner": "B1_SERVICE_CORE_LT",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-0.100000023841858,
+						-2.78500008583069,
+						25.105001449585
+					],
+					"id": "F01_BAR_LT_TAB2_powered",
+					"image": "F01_BAR_LT_TAB2_powered.png",
+					"owner": "F01_BAR_LT_TAB2",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-0.100000023841858,
+						-2.78500008583069,
+						25.105001449585
+					],
+					"id": "F01_BAR_LT_TAB2_off",
+					"image": "F01_BAR_LT_TAB2_off.png",
+					"owner": "F01_BAR_LT_TAB2",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"household_fridges": {
+			"actors": 18,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 1705,
+			"elapsed_ms": 14293,
+			"failures": [
+				"monitor motor and original lamp retained",
+				"monitor motor and original lamp retained",
+				"monitor motor and original lamp retained",
+				"monitor motor and original lamp retained",
+				"source service pivots retained",
+				"native partition correctly rebased under source mechanism",
+				"native partition correctly rebased under source mechanism",
+				"native partition correctly rebased under source mechanism",
+				"monitor motor and original lamp retained",
+				"source ice hatch and pan close at original datums"
+			],
+			"fixture_sha256": "4cd3cdac271f48b1683cdb3baa70b7a5f980980cfb8b5d35296d0b545857465a",
+			"inventory_items": 50,
+			"monitors": 7,
+			"unique_triangles": 140808,
+			"validator_sha256": "3ab4f42a7506c912cd6fbb4eedc885ef1c735a6c97045c0dec02593c42e4fbe1",
+			"views": [
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						12.0550518035889,
+						3.22000002861023,
+						-15.0207672119141
+					],
+					"id": "F02_2A_FRIDGE_01_native_open",
+					"image": "F02_2A_FRIDGE_01_native_open.png",
+					"owner": "F02_2A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						-13.5500011444092,
+						6.42000007629395,
+						-4.02474498748779
+					],
+					"id": "F03_3B_FRIDGE_01_native_open",
+					"image": "F03_3B_FRIDGE_01_native_open.png",
+					"owner": "F03_3B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						11.8500022888184,
+						9.6200008392334,
+						-15.8999996185303
+					],
+					"id": "F04_B_FRIDGE_01_native_open",
+					"image": "F04_B_FRIDGE_01_native_open.png",
+					"owner": "F04_B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						8.82525825500488,
+						16.0200004577637,
+						-21.3999996185303
+					],
+					"id": "F06_6B_FRIDGE_01_native_open",
+					"image": "F06_6B_FRIDGE_01_native_open.png",
+					"owner": "F06_6B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						10.5199995040894,
+						0.0199999995529652,
+						-3.14999866485596
+					],
+					"id": "F01_1A_FRIDGE_01_native_open",
+					"image": "F01_1A_FRIDGE_01_native_open.png",
+					"owner": "F01_1A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						11.2000017166138,
+						3.22000002861023,
+						-15.769998550415
+					],
+					"id": "F02_2A_FRIDGE_01_native_closed",
+					"image": "F02_2A_FRIDGE_01_native_closed.png",
+					"owner": "F02_2A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						-12.4500007629395,
+						6.42000007629395,
+						-4.33000087738037
+					],
+					"id": "F03_3B_FRIDGE_01_native_closed",
+					"image": "F03_3B_FRIDGE_01_native_closed.png",
+					"owner": "F03_3B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						11.8500022888184,
+						9.6200008392334,
+						-15.8999996185303
+					],
+					"id": "F04_B_FRIDGE_01_native_closed",
+					"image": "F04_B_FRIDGE_01_native_closed.png",
+					"owner": "F04_B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						8.5200023651123,
+						16.0200004577637,
+						-22.5
+					],
+					"id": "F06_6B_FRIDGE_01_native_closed",
+					"image": "F06_6B_FRIDGE_01_native_closed.png",
+					"owner": "F06_6B_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						10.2200002670288,
+						0.0199999995529652,
+						-3.14999866485596
+					],
+					"id": "F01_1A_FRIDGE_01_native_closed",
+					"image": "F01_1A_FRIDGE_01_native_closed.png",
+					"owner": "F01_1A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"household_stoves": {
+			"actors": 18,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 3073,
+			"elapsed_ms": 13489,
+			"failures": [],
+			"fixture_sha256": "857de5b23bee0a3062981321bfcdfb0a56dbda33f2329bb8be65d2878ebd6e22",
+			"unique_triangles": 65832,
+			"validator_sha256": "860028d03a65715bfdd197fd6c2e7e64287c4b2f90615d6ca0e608e273c85ea7",
+			"views": [
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_open",
+					"image": "F02_2B_STOVE_01_native_open.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						8.5200023651123,
+						12.8200006484985,
+						-20.75
+					],
+					"id": "F05_5B_STOVE_01_native_open",
+					"image": "F05_5B_STOVE_01_native_open.png",
+					"owner": "F05_5B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						9.37432956695557,
+						0.0199999995529652,
+						-2.97153854370117
+					],
+					"id": "F01_1A_STOVE_01_native_open",
+					"image": "F01_1A_STOVE_01_native_open.png",
+					"owner": "F01_1A_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_service0",
+					"image": "F02_2B_STOVE_01_native_service0.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_service2",
+					"image": "F02_2B_STOVE_01_native_service2.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						-11.560001373291,
+						3.22000002861023,
+						-5.75000047683716
+					],
+					"id": "F02_2B_STOVE_01_native_closed",
+					"image": "F02_2B_STOVE_01_native_closed.png",
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						8.5200023651123,
+						12.8200006484985,
+						-20.75
+					],
+					"id": "F05_5B_STOVE_01_native_closed",
+					"image": "F05_5B_STOVE_01_native_closed.png",
+					"owner": "F05_5B_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						10.7996959686279,
+						0.0199999995529652,
+						-2.86746978759766
+					],
+					"id": "F01_1A_STOVE_01_native_closed",
+					"image": "F01_1A_STOVE_01_native_closed.png",
+					"owner": "F01_1A_STOVE_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"owner_building_finish": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 15201,
+			"elapsed_ms": 114703,
+			"failures": [
+				"finish group deployed: lift",
+				"city_tanks: current geometry registration binds the current blockout",
+				"city_aerials: current geometry registration binds the current blockout"
+			],
+			"finish_slots": {
+				"facade": 52,
+				"roof": 130,
+				"skyline": 441
+			},
+			"fixture_sha256": "",
+			"inspectors": {
+				"city_aerials": {
+					"checks": 3792,
+					"failures": [
+						"current geometry registration binds the current blockout"
+					]
+				},
+				"city_tanks": {
+					"checks": 2464,
+					"failures": [
+						"current geometry registration binds the current blockout"
+					]
+				},
+				"facade_day": {
+					"checks": 665,
+					"failures": []
+				},
+				"front_facade": {
+					"checks": 665,
+					"failures": []
+				},
+				"lift_gate": {
+					"checks": 1720,
+					"failures": []
+				},
+				"lift_joinery": {
+					"checks": 67,
+					"failures": []
+				},
+				"roof_membrane": {
+					"checks": 1640,
+					"failures": []
+				},
+				"roof_ventilator": {
+					"checks": 49,
+					"failures": []
+				}
+			},
+			"loaded_maps": 27,
+			"local_weather_slots": 179,
+			"validator_sha256": "f9b2eb6884a7c984a7a684e5c014be21654a63195cc46456d19d37828c2090c3",
+			"views": [
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						8.84600067138672,
+						3.23000001907349,
+						-13.6379985809326
+					],
+					"id": "dim_2A_production",
+					"image": "dim_2A_production.png",
+					"owner": "dim_2A",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						8.84600067138672,
+						3.23000001907349,
+						-13.6379985809326
+					],
+					"id": "dim_2A_off",
+					"image": "dim_2A_off.png",
+					"owner": "dim_2A",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						-14.280499458313,
+						6.42999982833862,
+						-7.28800106048584
+					],
+					"id": "bright_3B_production",
+					"image": "bright_3B_production.png",
+					"owner": "bright_3B",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						-14.280499458313,
+						6.42999982833862,
+						-7.28800106048584
+					],
+					"id": "bright_3B_off",
+					"image": "bright_3B_off.png",
+					"owner": "bright_3B",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						-1.63199973106384,
+						0.0299999993294477,
+						-1.60799980163574
+					],
+					"id": "vestibule_production",
+					"image": "vestibule_production.png",
+					"owner": "vestibule",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						-1.63199973106384,
+						0.0299999993294477,
+						-1.60799980163574
+					],
+					"id": "vestibule_off",
+					"image": "vestibule_off.png",
+					"owner": "vestibule",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						-3.67199945449829,
+						0.0299999993294477,
+						-6.93599987030029
+					],
+					"id": "lobby_production",
+					"image": "lobby_production.png",
+					"owner": "lobby",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						-3.67199945449829,
+						0.0299999993294477,
+						-6.93599987030029
+					],
+					"id": "lobby_off",
+					"image": "lobby_off.png",
+					"owner": "lobby",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "production daylight; existing camera station",
+					"feet": [
+						12.0,
+						19.2399997711182,
+						-2.64999866485596
+					],
+					"id": "roof_day",
+					"image": "roof_day.png",
+					"owner": "roof_day",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "production daylight; existing camera station",
+					"feet": [
+						5.99999952316284,
+						0.0199999995529652,
+						2.15000152587891
+					],
+					"id": "skyline_day",
+					"image": "skyline_day.png",
+					"owner": "skyline_day",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"owner_building_routes": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 15,
+			"elapsed_ms": 176883,
+			"failures": [],
+			"fixture_sha256": "",
+			"routes": {
+				"front": [
+					{
+						"actual": [
+							0.00000000612990902482125,
+							0.000831816403660923,
+							-10.3964242935181
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.0,
+							-10.3000001907349
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.00000000604568128892424,
+							0.000831816403660923,
+							-13.0531644821167
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.0,
+							-13.1499996185303
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.0069094393402338,
+							0.000257989566307515,
+							-10.3963565826416
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.0,
+							-10.3000001907349
+						],
+						"wall_contacts": {}
+					}
+				],
+				"inner": [
+					{
+						"actual": [
+							0.00000000533051291995434,
+							0.000821914989501238,
+							-10.3037738800049
+						],
+						"ok": true,
+						"target": [
+							-0.000000000000056843418860808,
+							0.0,
+							-10.3999996185303
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.000000000234166463997099,
+							0.000821914989501238,
+							-8.19685745239258
+						],
+						"ok": true,
+						"target": [
+							-0.000000000000056843418860808,
+							0.0,
+							-8.10000038146973
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.00000000611726136412472,
+							0.000821914989501238,
+							-8.19622611999512
+						],
+						"ok": true,
+						"target": [
+							-0.000000000000056843418860808,
+							0.0,
+							-8.10000038146973
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.00370930135250092,
+							0.000822525762487203,
+							-10.3012428283691
+						],
+						"ok": true,
+						"target": [
+							-0.000000000000056843418860808,
+							0.0,
+							-10.3999996185303
+						],
+						"wall_contacts": {}
+					}
+				],
+				"lift": [
+					{
+						"actual": [
+							1.5926319360733,
+							0.000859374180436134,
+							-3.42179489135742
+						],
+						"ok": true,
+						"target": [
+							1.5,
+							0.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.0957381352782249,
+							0.000859374180436134,
+							-3.40131092071533
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.00528822047635913,
+							0.120846569538116,
+							-1.74673748016357
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.119999997317791,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							0.000309475988615304,
+							3.19987082481384,
+							-3.30325031280518
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							3.20000004768372,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.65337562561035,
+							3.19987082481384,
+							-3.39466094970703
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							3.20000004768372,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.74726688861847,
+							3.19987082481384,
+							-0.0960206985473633
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							3.20000004768372,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.879075348377228,
+							3.19987082481384,
+							2.60939693450928
+						],
+						"ok": true,
+						"target": [
+							-0.850000023841858,
+							3.20000004768372,
+							2.70000004768372
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.71943700313568,
+							3.19987082481384,
+							0.0915689468383789
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							3.20000004768372,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.40531158447266,
+							3.20080995559692,
+							0.00311756134033203
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							3.20000004768372,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49820232391357,
+							3.20080995559692,
+							-5.00311422348022
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							3.20000004768372,
+							-5.09999990463257
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49996519088745,
+							3.20080995559692,
+							-0.0967998504638672
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							3.20000004768372,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.84656584262848,
+							3.20080995559692,
+							-0.00339984893798828
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							3.20000004768372,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.75171685218811,
+							3.200923204422,
+							-3.30244159698486
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							3.20000004768372,
+							-3.40000009536743
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F02_SOUTHWEST_HALL/WallEast_00/Collision": "(2.130001, 4.39494, -11.05)"
+						}
+					},
+					{
+						"actual": [
+							-0.0967897698283196,
+							3.200923204422,
+							-3.39460849761963
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							3.20000004768372,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00532747805118561,
+							3.32082486152649,
+							-1.74602603912354
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							3.3199999332428,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.000311973097268492,
+							6.40072774887085,
+							-3.30314350128174
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							6.40000009536743,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.65344548225403,
+							6.40072774887085,
+							-3.39465618133545
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							6.40000009536743,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.74726903438568,
+							6.40072774887085,
+							-0.0960206985473633
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							6.40000009536743,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.879075646400452,
+							6.40072774887085,
+							2.60939598083496
+						],
+						"ok": true,
+						"target": [
+							-0.850000023841858,
+							6.40000009536743,
+							2.70000004768372
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.71943628787994,
+							6.40072774887085,
+							0.0915737152099609
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							6.40000009536743,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.40531015396118,
+							6.40072774887085,
+							0.00311756134033203
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							6.40000009536743,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49820232391357,
+							6.40072774887085,
+							-5.00311326980591
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							6.40000009536743,
+							-5.09999990463257
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49996519088745,
+							6.40072774887085,
+							-0.0968027114868164
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							6.40000009536743,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.8465678691864,
+							6.40072774887085,
+							-0.00339984893798828
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							6.40000009536743,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.75170516967773,
+							6.40094375610352,
+							-3.30241870880127
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							6.40000009536743,
+							-3.40000009536743
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F03_PUBLIC_CORE/WallWest_00/Collision": "(2.130001, 7.594944, -11.05)"
+						}
+					},
+					{
+						"actual": [
+							-0.0967900827527046,
+							6.40094375610352,
+							-3.39460849761963
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							6.40000009536743,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00532759074121714,
+							6.5208215713501,
+							-1.74602794647217
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							6.51999998092651,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00031198127544485,
+							9.60070705413818,
+							-3.30314350128174
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							9.60000038146973,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.65344345569611,
+							9.60070705413818,
+							-3.39465618133545
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							9.60000038146973,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.74726891517639,
+							9.60070705413818,
+							-0.0960245132446289
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							9.60000038146973,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.879077076911926,
+							9.60070705413818,
+							2.60939025878906
+						],
+						"ok": true,
+						"target": [
+							-0.850000023841858,
+							9.60000038146973,
+							2.70000004768372
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.7194356918335,
+							9.60070705413818,
+							0.0915746688842773
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							9.60000038146973,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.40530681610107,
+							9.60070705413818,
+							0.00311756134033203
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							9.60000038146973,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49820184707642,
+							9.60070705413818,
+							-5.00310230255127
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							9.60000038146973,
+							-5.09999990463257
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.49996471405029,
+							9.60070705413818,
+							-0.0968103408813477
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							9.60000038146973,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.84657156467438,
+							9.60070705413818,
+							-0.00339984893798828
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							9.60000038146973,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.75171089172363,
+							9.60094356536865,
+							-3.30242538452148
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							9.60000038146973,
+							-3.40000009536743
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F04_SOUTHWEST_HALL/WallEast_00/Collision": "(2.130001, 10.79494, -11.05)"
+						}
+					},
+					{
+						"actual": [
+							-0.0967936590313911,
+							9.60094356536865,
+							-3.39460849761963
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							9.60000038146973,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.0053279553540051,
+							9.7208366394043,
+							-1.74602890014648
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							9.72000026702881,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.000312011688947678,
+							12.8007297515869,
+							-3.30313873291016
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							12.8000001907349,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.653440117836,
+							12.8007297515869,
+							-3.39465618133545
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							12.8000001907349,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.74726855754852,
+							12.8007297515869,
+							-0.0960292816162109
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							12.8000001907349,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.879078269004822,
+							12.8007297515869,
+							2.60938930511475
+						],
+						"ok": true,
+						"target": [
+							-0.850000023841858,
+							12.8000001907349,
+							2.70000004768372
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.71943402290344,
+							12.8007297515869,
+							0.0915803909301758
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							12.8000001907349,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.40530300140381,
+							12.8007297515869,
+							0.00311851501464844
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							12.8000001907349,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.84705233573914,
+							12.8007297515869,
+							0.000113487243652344
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							12.8000001907349,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.75172662734985,
+							12.8009443283081,
+							-3.30199337005615
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							12.8000001907349,
+							-3.40000009536743
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F05_PUBLIC_CORE/WallWest_00/Collision": "(2.130001, 13.99494, -11.05)"
+						}
+					},
+					{
+						"actual": [
+							-0.0967995524406433,
+							12.8009443283081,
+							-3.39458465576172
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							12.8000001907349,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00532830040901899,
+							12.9208364486694,
+							-1.7460298538208
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							12.9200000762939,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.000312045362079516,
+							16.0007076263428,
+							-3.30313491821289
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							16.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.65343856811523,
+							16.0007076263428,
+							-3.39465522766113
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							16.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.74726831912994,
+							16.0007076263428,
+							-0.096034049987793
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							16.0,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.879079282283783,
+							16.0007076263428,
+							2.60938358306885
+						],
+						"ok": true,
+						"target": [
+							-0.850000023841858,
+							16.0,
+							2.70000004768372
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.71943330764771,
+							16.0007076263428,
+							0.0915794372558594
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							16.0,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-4.40530014038086,
+							16.0007076263428,
+							0.00311851501464844
+						],
+						"ok": true,
+						"target": [
+							-4.5,
+							16.0,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.84705436229706,
+							16.0007076263428,
+							0.000113487243652344
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							16.0,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-1.75172746181488,
+							16.0009441375732,
+							-3.30198955535889
+						],
+						"ok": true,
+						"target": [
+							-1.75,
+							16.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/F06_PUBLIC_CORE/WallWest_00/Collision": "(2.130001, 17.19494, -11.05)"
+						}
+					},
+					{
+						"actual": [
+							-0.0968009829521179,
+							16.0009441375732,
+							-3.39458465576172
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							16.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.616906344890594,
+							16.0009441375732,
+							-3.40104198455811
+						],
+						"ok": true,
+						"target": [
+							-0.699999988079071,
+							16.0,
+							-3.45000004768372
+						],
+						"wall_contacts": {
+							"/root/OrisonV2FabricationBatch/OrisonV2Runtime/OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@24250": "(0.096802, 17.19494, -8.9025)"
+						}
+					},
+					{
+						"actual": [
+							-0.0983729884028435,
+							16.0009441375732,
+							-3.40016555786133
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							16.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00543102156370878,
+							16.1208362579346,
+							-1.74662113189697
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							16.1200008392334,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.000317876983899623,
+							-3.19916296005249,
+							-3.30323028564453
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							-3.20000004768372,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.0000186143261089455,
+							-3.08041334152222,
+							-1.74681091308594
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							-3.07999992370605,
+							-1.64999997615814
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.00000107856317299593,
+							0.000826381205115467,
+							-3.30325222015381
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							0.0,
+							-3.40000009536743
+						],
+						"wall_contacts": {}
+					}
+				],
+				"roof": [
+					{
+						"actual": [
+							-3.50359416007996,
+							19.3354644775391,
+							0.0
+						],
+						"ok": true,
+						"target": [
+							-3.59999990463257,
+							19.3342514038086,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-11.9024496078491,
+							19.2522602081299,
+							-0.000337600708007813
+						],
+						"ok": true,
+						"target": [
+							-12.0,
+							19.2502498626709,
+							0.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-11.9989652633667,
+							19.2598075866699,
+							-8.90347290039063
+						],
+						"ok": true,
+						"target": [
+							-12.0,
+							19.2602500915527,
+							-9.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							-0.0964945778250694,
+							19.311466217041,
+							-8.99922943115234
+						],
+						"ok": true,
+						"target": [
+							0.0,
+							19.3122501373291,
+							-9.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							13.9039421081543,
+							19.241569519043,
+							-9.00000190734863
+						],
+						"ok": true,
+						"target": [
+							14.0,
+							19.2402496337891,
+							-9.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							13.9995431900024,
+							19.2483768463135,
+							10.7034587860107
+						],
+						"ok": true,
+						"target": [
+							14.0,
+							19.2472515106201,
+							10.8000001907349
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							7.59651470184326,
+							19.2515029907227,
+							10.7985954284668
+						],
+						"ok": true,
+						"target": [
+							7.5,
+							19.2522506713867,
+							10.8000001907349
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							7.50125360488892,
+							19.3268871307373,
+							3.09646606445313
+						],
+						"ok": true,
+						"target": [
+							7.5,
+							19.3252506256104,
+							3.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							7.9044451713562,
+							19.3215141296387,
+							3.01848220825195
+						],
+						"ok": true,
+						"target": [
+							8.0,
+							19.3202514648438,
+							3.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							10.2041139602661,
+							19.200834274292,
+							3.00074005126953
+						],
+						"ok": true,
+						"target": [
+							10.3000001907349,
+							19.2000007629395,
+							3.0
+						],
+						"wall_contacts": {}
+					},
+					{
+						"actual": [
+							8.19691467285156,
+							19.3182048797607,
+							3.00001525878906
+						],
+						"ok": true,
+						"target": [
+							8.10000038146973,
+							19.3192501068115,
+							3.0
+						],
+						"wall_contacts": {}
+					}
+				]
+			},
+			"validator_sha256": "104db135de1ea84e5d8501aaf5e7739c15f51f297acd4ed7713314ecd8db35a9"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}
