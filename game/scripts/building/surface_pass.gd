@@ -688,7 +688,10 @@ static func texture_stats(original: BaseMaterial3D) -> Dictionary:
 		var sum := Vector3.ZERO
 		for y in 32:
 			for x in 32:
-				var c := img.get_pixel(x, y)
+				# source_color samplers deliver linear RGB to the shader. The
+				# image readback is sRGB; mixing its encoded mean with a linear
+				# texel darkened self-detail and biased stochastic coverage.
+				var c := img.get_pixel(x, y).srgb_to_linear()
 				sum += Vector3(c.r, c.g, c.b)
 		out.albedo_mean = sum / 1024.0
 	if original.roughness_texture != null:

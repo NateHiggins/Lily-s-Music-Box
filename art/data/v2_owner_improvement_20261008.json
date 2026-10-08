@@ -1,0 +1,389 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Implement owner-requested visual improvements; conditional installation stays conditional. No ledger promotion implied.",
+  "source_pdf": "output/pdf/V2_asset_improvement_answering_dossier.pdf",
+  "source_pdf_sha256": "ac5b5c8c71000406f13083a0c721a2b480050bf30e6093f15d1384c910e25fd6",
+  "base_commit": "e305675f95e60ec2ec610d31f6cb3128d9204428",
+  "batches": {
+    "B0": [
+      "A01",
+      "A02",
+      "T07",
+      "T09"
+    ],
+    "B1": [
+      "G01",
+      "G02",
+      "G03",
+      "G05"
+    ],
+    "B2": [
+      "G04",
+      "G06",
+      "G07",
+      "G14"
+    ],
+    "B3": [
+      "G08",
+      "G09",
+      "G10",
+      "G11",
+      "G12",
+      "G13"
+    ],
+    "B4": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05",
+      "T06",
+      "T08",
+      "A03",
+      "A04"
+    ],
+    "B5": [
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17"
+    ],
+    "B6": [
+      "A05",
+      "A06",
+      "A07",
+      "A08"
+    ],
+    "conditional": [
+      "G15"
+    ]
+  },
+  "items": [
+    {
+      "id": "G01",
+      "title": "Lobby call board and detector clock",
+      "priority": "P2",
+      "status": "implemented_reviewed",
+      "source_page": 3,
+      "result": "Native fabrication installed, neutral and production views reviewed; 2354 composed geometry/control/restoration/retirement checks pass. Runtime contract excludes player approach routing and save reconstruction."
+    },
+    {
+      "id": "G02",
+      "title": "Night register, signal register and tour key",
+      "priority": "P2",
+      "status": "implemented_reviewed",
+      "source_page": 4,
+      "result": "Native fabrication installed, neutral and production views reviewed; 2354 composed geometry/control/restoration/retirement checks pass. Runtime contract excludes player approach routing and save reconstruction."
+    },
+    {
+      "id": "G03",
+      "title": "House telephone switchboard",
+      "priority": "P2",
+      "status": "implemented_reviewed",
+      "source_page": 5,
+      "result": "Native fabrication installed, neutral and production views reviewed; 2354 composed geometry/control/restoration/retirement checks pass. Runtime contract excludes player approach routing and save reconstruction."
+    },
+    {
+      "id": "G04",
+      "title": "Service dumbwaiter",
+      "priority": "P1",
+      "status": "implemented_reviewed",
+      "source_page": 6,
+      "result": "Native fabrication installed, neutral and production views reviewed; 2354 composed geometry/control/restoration/retirement checks pass. Runtime contract excludes player approach routing and save reconstruction."
+    },
+    {
+      "id": "G05",
+      "title": "Basement fuse panel",
+      "priority": "P1",
+      "status": "implemented_reviewed",
+      "source_page": 7,
+      "result": "Native fabrication installed, neutral and production views reviewed; 2354 composed geometry/control/restoration/retirement checks pass. Runtime contract excludes player approach routing and save reconstruction."
+    },
+    {
+      "id": "G06",
+      "title": "House-tank level mechanism",
+      "priority": "P2",
+      "status": "implemented_reviewed",
+      "source_page": 8,
+      "result": "Native fabrication installed, neutral and production views reviewed; 2354 composed geometry/control/restoration/retirement checks pass. Runtime contract excludes player approach routing and save reconstruction."
+    },
+    {
+      "id": "G07",
+      "title": "Six alley and shed work lights",
+      "priority": "P2",
+      "status": "implemented_reviewed",
+      "source_page": 9,
+      "result": "Native fabrication installed, neutral and production views reviewed; 2354 composed geometry/control/restoration/retirement checks pass. Runtime contract excludes player approach routing and save reconstruction."
+    },
+    {
+      "id": "G08",
+      "title": "Harukiya loudspeakers",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 10,
+      "result": null
+    },
+    {
+      "id": "G09",
+      "title": "Harukiya piano and stage microphone",
+      "priority": "P1",
+      "status": "pending",
+      "source_page": 11,
+      "result": null
+    },
+    {
+      "id": "G10",
+      "title": "Songbook recording apparatus / phonautograph",
+      "priority": "P1",
+      "status": "pending",
+      "source_page": 12,
+      "result": null
+    },
+    {
+      "id": "G11",
+      "title": "Darts board, score panel and loose darts",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 13,
+      "result": null
+    },
+    {
+      "id": "G12",
+      "title": "Harukiya receiving cabinets",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 14,
+      "result": null
+    },
+    {
+      "id": "G13",
+      "title": "Bar, bodega and Orison signage",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 15,
+      "result": null
+    },
+    {
+      "id": "G14",
+      "title": "Task-lamp supply cords",
+      "priority": "P2",
+      "status": "awaiting_outlet_direction",
+      "source_page": 16,
+      "result": "Five original lamps retained. No existing outlet coordinates in source; question sent to owner. Other work continues."
+    },
+    {
+      "id": "G15",
+      "title": "Retained V1 lights not installed in V2",
+      "priority": "P3",
+      "status": "conditional_uninstalled",
+      "source_page": 17,
+      "result": null
+    },
+    {
+      "id": "T01",
+      "title": "Boiler, radiators and heating metals",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 18,
+      "result": null
+    },
+    {
+      "id": "T02",
+      "title": "Basement washer, tubs and airer",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 19,
+      "result": null
+    },
+    {
+      "id": "T03",
+      "title": "Bathroom porcelain, chrome and cloth",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 20,
+      "result": null
+    },
+    {
+      "id": "T04",
+      "title": "Wardrobes and kept clothing",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 21,
+      "result": null
+    },
+    {
+      "id": "T05",
+      "title": "Seating and household tables",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 22,
+      "result": null
+    },
+    {
+      "id": "T06",
+      "title": "Household storage, books and small objects",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 23,
+      "result": null
+    },
+    {
+      "id": "T07",
+      "title": "Refrigerators and gas ranges",
+      "priority": "P2",
+      "status": "implemented_pending_final_review",
+      "source_page": 24,
+      "result": "Linear source-color mean calibration, restrained architecture pigment/detail response, mipmaps checked in six composed views. Concrete/trim refinement awaiting final capture."
+    },
+    {
+      "id": "T08",
+      "title": "Small appliances and medicine stock",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 25,
+      "result": null
+    },
+    {
+      "id": "T09",
+      "title": "Installed indoor lighting family",
+      "priority": "P2",
+      "status": "implemented_pending_final_review",
+      "source_page": 26,
+      "result": "Linear source-color mean calibration, restrained architecture pigment/detail response, mipmaps checked in six composed views. Concrete/trim refinement awaiting final capture."
+    },
+    {
+      "id": "T10",
+      "title": "Pawnbroker cases and window stock",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 27,
+      "result": null
+    },
+    {
+      "id": "T11",
+      "title": "Hardware and locksmith stock",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 28,
+      "result": null
+    },
+    {
+      "id": "T12",
+      "title": "Cobbler machinery and shoe stock",
+      "priority": "P1",
+      "status": "pending",
+      "source_page": 29,
+      "result": null
+    },
+    {
+      "id": "T13",
+      "title": "Druggist glass, bottles and stonework",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 30,
+      "result": null
+    },
+    {
+      "id": "T14",
+      "title": "Diner counters and plated apparatus",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 31,
+      "result": null
+    },
+    {
+      "id": "T15",
+      "title": "Photo and radio shop equipment",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 32,
+      "result": null
+    },
+    {
+      "id": "T16",
+      "title": "Laundry parcels and hanging cloth",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 33,
+      "result": null
+    },
+    {
+      "id": "T17",
+      "title": "Plants and funeral foliage",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 34,
+      "result": null
+    },
+    {
+      "id": "A01",
+      "title": "Apartment light, plaster and floor grain",
+      "priority": "P1",
+      "status": "implemented_pending_final_review",
+      "source_page": 35,
+      "result": "Linear source-color mean calibration, restrained architecture pigment/detail response, mipmaps checked in six composed views. Concrete/trim refinement awaiting final capture."
+    },
+    {
+      "id": "A02",
+      "title": "Public floors, paneling and door joinery",
+      "priority": "P2",
+      "status": "implemented_pending_final_review",
+      "source_page": 36,
+      "result": "Linear source-color mean calibration, restrained architecture pigment/detail response, mipmaps checked in six composed views. Concrete/trim refinement awaiting final capture."
+    },
+    {
+      "id": "A03",
+      "title": "Bedrooms and bedding",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 37,
+      "result": null
+    },
+    {
+      "id": "A04",
+      "title": "Basement walls, floors and service context",
+      "priority": "P1",
+      "status": "pending",
+      "source_page": 38,
+      "result": null
+    },
+    {
+      "id": "A05",
+      "title": "Exterior stone trim and entry frontage",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 39,
+      "result": null
+    },
+    {
+      "id": "A06",
+      "title": "Roof field, drainage and ventilator housings",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 40,
+      "result": null
+    },
+    {
+      "id": "A07",
+      "title": "Neighboring rooftop tanks and aerials",
+      "priority": "P3",
+      "status": "pending",
+      "source_page": 41,
+      "result": null
+    },
+    {
+      "id": "A08",
+      "title": "Lift cab paneling and public metalwork",
+      "priority": "P2",
+      "status": "pending",
+      "source_page": 42,
+      "result": null
+    }
+  ],
+  "evidence_root": "art/renders/orison_v2/service_instruments_20261008",
+  "last_verified_batch": "G01-G07, nine original instruments and six work lights"
+}

@@ -1,0 +1,3544 @@
+{
+	"evidence_class": "INERT",
+	"failures": [],
+	"frames": [
+		{
+			"draw_calls": 46752.0,
+			"exposure": 1.0,
+			"image": "dim_2A_production.png",
+			"lamp_color": "(1.0, 0.6749, 0.3887, 1.0)",
+			"lamp_energy": 4.05554151535034,
+			"primitive_count": 47890713.0,
+			"render_objects": 48886.0,
+			"state": "production",
+			"view": "dim_2A"
+		},
+		{
+			"draw_calls": 41503.0,
+			"exposure": 1.0,
+			"image": "bright_3B_production.png",
+			"lamp_color": "(1.0, 0.6749, 0.3887, 1.0)",
+			"lamp_energy": 4.05554151535034,
+			"primitive_count": 44752510.0,
+			"render_objects": 45576.0,
+			"state": "production",
+			"view": "bright_3B"
+		},
+		{
+			"draw_calls": 38326.0,
+			"exposure": 1.0,
+			"image": "vestibule_production.png",
+			"lamp_color": "(1.0, 0.6749, 0.3887, 1.0)",
+			"lamp_energy": 4.05554151535034,
+			"primitive_count": 37411154.0,
+			"render_objects": 39735.0,
+			"state": "production",
+			"view": "vestibule"
+		},
+		{
+			"draw_calls": 48722.0,
+			"exposure": 1.0,
+			"image": "lobby_production.png",
+			"lamp_color": "(1.0, 0.6749, 0.3887, 1.0)",
+			"lamp_energy": 4.05554151535034,
+			"primitive_count": 48724350.0,
+			"render_objects": 51582.0,
+			"state": "production",
+			"view": "lobby"
+		},
+		{
+			"draw_calls": 36971.0,
+			"exposure": 1.0,
+			"image": "laundry_production.png",
+			"lamp_color": "(1.0, 0.6749, 0.3887, 1.0)",
+			"lamp_energy": 4.05554151535034,
+			"primitive_count": 34304303.0,
+			"render_objects": 38379.0,
+			"state": "production",
+			"view": "laundry"
+		},
+		{
+			"draw_calls": 10148.0,
+			"exposure": 1.0,
+			"image": "roof_production.png",
+			"lamp_color": "(1.0, 0.6749, 0.3887, 1.0)",
+			"lamp_energy": 4.05554151535034,
+			"primitive_count": 9536760.0,
+			"render_objects": 10958.0,
+			"state": "production",
+			"view": "roof"
+		}
+	],
+	"materials": [
+		{
+			"mean_bound": "(0.285589, 0.271352, 0.241544)",
+			"mean_linear": "(0.285062, 0.271021, 0.241277)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_albedo.png"
+		},
+		{
+			"mean_bound": "(0.782249, 0.745244, 0.640556)",
+			"mean_linear": "(0.781091, 0.744103, 0.638872)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_architectural_painted_trim_albedo.png"
+		},
+		{
+			"mean_bound": "(0.285589, 0.271352, 0.241544)",
+			"mean_linear": "(0.285062, 0.271021, 0.241277)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_albedo.png"
+		},
+		{
+			"mean_bound": "(0.488608, 0.446936, 0.371482)",
+			"mean_linear": "(0.489624, 0.448184, 0.372608)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_albedo.png"
+		},
+		{
+			"mean_bound": "(0.481857, 0.393383, 0.276683)",
+			"mean_linear": "(0.482343, 0.394284, 0.277248)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terrazzo_albedo.png"
+		},
+		{
+			"mean_bound": "(0.357327, 0.120359, 0.025146)",
+			"mean_linear": "(0.359079, 0.120961, 0.025266)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_floor_oak_albedo.png"
+		},
+		{
+			"mean_bound": "(0.69724, 0.670596, 0.645788)",
+			"mean_linear": "(0.701373, 0.674941, 0.649364)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_ceramic_albedo.png"
+		},
+		{
+			"mean_bound": "(0.776753, 0.726948, 0.643722)",
+			"mean_linear": "(0.749939, 0.701331, 0.6214)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_subway_tile_albedo.png"
+		},
+		{
+			"mean_bound": "(0.285589, 0.271352, 0.241544)",
+			"mean_linear": "(0.285062, 0.271021, 0.241277)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_albedo.png"
+		},
+		{
+			"mean_bound": "(0.782249, 0.745244, 0.640556)",
+			"mean_linear": "(0.781091, 0.744103, 0.638872)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_architectural_painted_trim_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.192113, 0.055301, 0.037678)",
+			"mean_linear": "(0.179168, 0.049403, 0.033065)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brick_albedo.png"
+		},
+		{
+			"mean_bound": "(0.192113, 0.055301, 0.037678)",
+			"mean_linear": "(0.179168, 0.049403, 0.033065)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brick_albedo.png"
+		},
+		{
+			"mean_bound": "(0.192113, 0.055301, 0.037678)",
+			"mean_linear": "(0.179168, 0.049403, 0.033065)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brick_albedo.png"
+		},
+		{
+			"mean_bound": "(0.192113, 0.055301, 0.037678)",
+			"mean_linear": "(0.179168, 0.049403, 0.033065)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brick_albedo.png"
+		},
+		{
+			"mean_bound": "(0.251639, 0.133996, 0.056958)",
+			"mean_linear": "(0.251955, 0.134005, 0.056918)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_albedo.png"
+		},
+		{
+			"mean_bound": "(0.41693, 0.378061, 0.336096)",
+			"mean_linear": "(0.417035, 0.378855, 0.336819)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_cast_iron_albedo.png"
+		},
+		{
+			"mean_bound": "(0.011562, 0.011418, 0.011778)",
+			"mean_linear": "(0.011703, 0.011557, 0.011931)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png"
+		},
+		{
+			"mean_bound": "(0.602741, 0.584175, 0.571127)",
+			"mean_linear": "(0.60296, 0.583892, 0.570603)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_stair_albedo.png"
+		},
+		{
+			"mean_bound": "(0.326265, 0.341325, 0.355376)",
+			"mean_linear": "(0.329673, 0.344948, 0.359417)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_appliances_galvanized_metal_worn_metal_albedo.png"
+		},
+		{
+			"mean_bound": "(0.392992, 0.188832, 0.102577)",
+			"mean_linear": "(0.402008, 0.191129, 0.102973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_common_brick_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.279468, 0.235133, 0.206421)",
+			"mean_linear": "(0.275527, 0.232018, 0.203661)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_cast_iron_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.112972, 0.041789, 0.03277)",
+			"mean_linear": "(0.114542, 0.046826, 0.035549)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_face_brick_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.539147, 0.489613, 0.396243)",
+			"mean_linear": "(0.539822, 0.490625, 0.397024)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_limestone_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.024778, 0.024264, 0.024014)",
+			"mean_linear": "(0.025077, 0.024532, 0.024218)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_soot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.762375, 0.687617, 0.620092)",
+			"mean_linear": "(0.749481, 0.6761, 0.609938)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_subway_tile_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.266386, 0.145644, 0.040609)",
+			"mean_linear": "(0.265864, 0.14522, 0.040242)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.279468, 0.235133, 0.206421)",
+			"mean_linear": "(0.275527, 0.232018, 0.203661)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_cast_iron_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.392992, 0.188832, 0.102577)",
+			"mean_linear": "(0.402008, 0.191129, 0.102973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_common_brick_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.539147, 0.489613, 0.396243)",
+			"mean_linear": "(0.539822, 0.490625, 0.397024)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_limestone_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.024778, 0.024264, 0.024014)",
+			"mean_linear": "(0.025077, 0.024532, 0.024218)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_soot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.479807, 0.398193, 0.280586)",
+			"mean_linear": "(0.479948, 0.39784, 0.278859)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terrazzo_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.077416, 0.062823, 0.046545)",
+			"mean_linear": "(0.07556, 0.061493, 0.045802)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terrazzo_dark_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.693671, 0.60918, 0.411935)",
+			"mean_linear": "(0.694, 0.609542, 0.412357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_enamel_appliance_albedo.png"
+		},
+		{
+			"mean_bound": "(0.268983, 0.147754, 0.043332)",
+			"mean_linear": "(0.268244, 0.147102, 0.043075)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+		},
+		{
+			"mean_bound": "(0.488608, 0.446936, 0.371482)",
+			"mean_linear": "(0.489624, 0.448184, 0.372608)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_albedo.png"
+		},
+		{
+			"mean_bound": "(0.632444, 0.450324, 0.014934)",
+			"mean_linear": "(0.635914, 0.451952, 0.013354)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_awning_vinyl_albedo.png"
+		},
+		{
+			"mean_bound": "(0.047959, 0.01978, 0.011386)",
+			"mean_linear": "(0.047655, 0.019599, 0.011298)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.059354, 0.08236, 0.058973)",
+			"mean_linear": "(0.056851, 0.080492, 0.058353)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_book_teal_albedo.png"
+		},
+		{
+			"mean_bound": "(0.270188, 0.147604, 0.043135)",
+			"mean_linear": "(0.266759, 0.145756, 0.042449)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795752, 0.670663, 0.537469)",
+			"mean_linear": "(0.795597, 0.670677, 0.537516)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_enamel_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.330863, 0.061504, 0.025081)",
+			"mean_linear": "(0.347787, 0.064379, 0.026212)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_quarry_tile_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.410483, 0.123309, 0.059558)",
+			"mean_linear": "(0.411972, 0.1238, 0.059659)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terracotta_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.774942, 0.728483, 0.556285)",
+			"mean_linear": "(0.780907, 0.733772, 0.560408)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795894, 0.721801, 0.591514)",
+			"mean_linear": "(0.797577, 0.724352, 0.594762)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_linen_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795894, 0.721801, 0.591514)",
+			"mean_linear": "(0.797577, 0.724352, 0.594762)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_linen_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.029975, 0.026522, 0.022936)",
+			"mean_linear": "(0.029045, 0.025693, 0.022221)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_rubber_aged_albedo.png"
+		},
+		{
+			"mean_bound": "(0.400919, 0.416248, 0.413477)",
+			"mean_linear": "(0.398197, 0.413516, 0.411098)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_zinc_liner_albedo.png"
+		},
+		{
+			"mean_bound": "(0.251639, 0.133996, 0.056958)",
+			"mean_linear": "(0.251955, 0.134005, 0.056918)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.706248, 0.619761, 0.44105)",
+			"mean_linear": "(0.706408, 0.619922, 0.441811)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.855251, 0.688531, 0.431236)",
+			"mean_linear": "(0.85782, 0.691253, 0.433429)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795894, 0.721801, 0.591514)",
+			"mean_linear": "(0.797577, 0.724352, 0.594762)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_linen_albedo.png"
+		},
+		{
+			"mean_bound": "(0.486987, 0.343168, 0.178928)",
+			"mean_linear": "(0.487216, 0.343023, 0.178973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plywood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.354853, 0.118592, 0.024627)",
+			"mean_linear": "(0.359841, 0.12091, 0.025265)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_floor_oak_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.498911, 0.015704, 0.00849)",
+			"mean_linear": "(0.500205, 0.015854, 0.008776)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_lacquer_red_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.774942, 0.728483, 0.556285)",
+			"mean_linear": "(0.780907, 0.733772, 0.560408)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710358, 0.620371, 0.442592)",
+			"mean_linear": "(0.70876, 0.619051, 0.44135)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.011742, 0.011545, 0.011683)",
+			"mean_linear": "(0.01174, 0.011532, 0.011672)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_smoked_plaster_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.029975, 0.026522, 0.022936)",
+			"mean_linear": "(0.029045, 0.025693, 0.022221)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_rubber_aged_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795894, 0.721801, 0.591514)",
+			"mean_linear": "(0.797577, 0.724352, 0.594762)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_linen_albedo.png"
+		},
+		{
+			"mean_bound": "(0.10951, 0.016911, 0.016662)",
+			"mean_linear": "(0.110132, 0.017136, 0.016937)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_vinyl_oxblood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.10951, 0.016911, 0.016662)",
+			"mean_linear": "(0.110132, 0.017136, 0.016937)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_vinyl_oxblood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.486987, 0.343168, 0.178928)",
+			"mean_linear": "(0.487216, 0.343023, 0.178973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plywood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.270188, 0.147604, 0.043135)",
+			"mean_linear": "(0.266759, 0.145756, 0.042449)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.392992, 0.188832, 0.102577)",
+			"mean_linear": "(0.402008, 0.191129, 0.102973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_common_brick_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.774942, 0.728483, 0.556285)",
+			"mean_linear": "(0.780907, 0.733772, 0.560408)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.159564, 0.103968, 0.040898)",
+			"mean_linear": "(0.159526, 0.103893, 0.040841)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bronze_sheet_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.486987, 0.343168, 0.178928)",
+			"mean_linear": "(0.487216, 0.343023, 0.178973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plywood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710358, 0.620371, 0.442592)",
+			"mean_linear": "(0.70876, 0.619051, 0.44135)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.10951, 0.016911, 0.016662)",
+			"mean_linear": "(0.110132, 0.017136, 0.016937)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_vinyl_oxblood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795894, 0.721801, 0.591514)",
+			"mean_linear": "(0.797577, 0.724352, 0.594762)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_linen_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.207613, 0.196934, 0.065937)",
+			"mean_linear": "(0.208425, 0.197829, 0.066781)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_fabric_green_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.774942, 0.728483, 0.556285)",
+			"mean_linear": "(0.780907, 0.733772, 0.560408)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.266386, 0.145644, 0.040609)",
+			"mean_linear": "(0.265864, 0.14522, 0.040242)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.218865, 0.086887, 0.024718)",
+			"mean_linear": "(0.22206, 0.088741, 0.025332)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710358, 0.620371, 0.442592)",
+			"mean_linear": "(0.70876, 0.619051, 0.44135)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.486987, 0.343168, 0.178928)",
+			"mean_linear": "(0.487216, 0.343023, 0.178973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plywood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.486987, 0.343168, 0.178928)",
+			"mean_linear": "(0.487216, 0.343023, 0.178973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plywood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.011742, 0.011545, 0.011683)",
+			"mean_linear": "(0.01174, 0.011532, 0.011672)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_smoked_plaster_albedo.png"
+		},
+		{
+			"mean_bound": "(0.488608, 0.446936, 0.371482)",
+			"mean_linear": "(0.489624, 0.448184, 0.372608)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_albedo.png"
+		},
+		{
+			"mean_bound": "(0.632444, 0.450324, 0.014934)",
+			"mean_linear": "(0.635914, 0.451952, 0.013354)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_awning_vinyl_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.061911, 0.052255, 0.030149)",
+			"mean_linear": "(0.060501, 0.050649, 0.02932)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bronze_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.354853, 0.118592, 0.024627)",
+			"mean_linear": "(0.359841, 0.12091, 0.025265)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_floor_oak_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.539147, 0.489613, 0.396243)",
+			"mean_linear": "(0.539822, 0.490625, 0.397024)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_limestone_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.770699, 0.669907, 0.448909)",
+			"mean_linear": "(0.769689, 0.669147, 0.448942)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_linen_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.218865, 0.086887, 0.024718)",
+			"mean_linear": "(0.22206, 0.088741, 0.025332)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.024778, 0.024264, 0.024014)",
+			"mean_linear": "(0.025077, 0.024532, 0.024218)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_soot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.680591, 0.627782, 0.47746)",
+			"mean_linear": "(0.676968, 0.624444, 0.474903)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_tin_ceiling_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.774942, 0.728483, 0.556285)",
+			"mean_linear": "(0.780907, 0.733772, 0.560408)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.486987, 0.343168, 0.178928)",
+			"mean_linear": "(0.487216, 0.343023, 0.178973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plywood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.855251, 0.688531, 0.431236)",
+			"mean_linear": "(0.85782, 0.691253, 0.433429)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.218865, 0.086887, 0.024718)",
+			"mean_linear": "(0.22206, 0.088741, 0.025332)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+		},
+		{
+			"mean_bound": "(0.298354, 0.11433, 0.034362)",
+			"mean_linear": "(0.302042, 0.115362, 0.034235)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_upholstery_rust_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.063349, 0.155455, 0.0019)",
+			"mean_linear": "(0.062844, 0.154941, 0.001904)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_organic_leaf_surface_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.011562, 0.011418, 0.011778)",
+			"mean_linear": "(0.011703, 0.011557, 0.011931)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_soot_worn_soot_albedo.png"
+		},
+		{
+			"mean_bound": "(0.632444, 0.450324, 0.014934)",
+			"mean_linear": "(0.635914, 0.451952, 0.013354)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_awning_vinyl_albedo.png"
+		},
+		{
+			"mean_bound": "(0.047959, 0.01978, 0.011386)",
+			"mean_linear": "(0.047655, 0.019599, 0.011298)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.270188, 0.147604, 0.043135)",
+			"mean_linear": "(0.266759, 0.145756, 0.042449)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795752, 0.670663, 0.537469)",
+			"mean_linear": "(0.795597, 0.670677, 0.537516)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_enamel_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.041525, 0.016948, 0.159448)",
+			"mean_linear": "(0.042013, 0.017226, 0.160212)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_felt_violet_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.465092, 0.255701, 0.136745)",
+			"mean_linear": "(0.464757, 0.254436, 0.136372)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_linoleum_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.457053, 0.421995, 0.35313)",
+			"mean_linear": "(0.458514, 0.423599, 0.35468)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.410483, 0.123309, 0.059558)",
+			"mean_linear": "(0.411972, 0.1238, 0.059659)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terracotta_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.680591, 0.627782, 0.47746)",
+			"mean_linear": "(0.676968, 0.624444, 0.474903)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_tin_ceiling_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.774942, 0.728483, 0.556285)",
+			"mean_linear": "(0.780907, 0.733772, 0.560408)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.298354, 0.11433, 0.034362)",
+			"mean_linear": "(0.302042, 0.115362, 0.034235)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_upholstery_rust_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.486987, 0.343168, 0.178928)",
+			"mean_linear": "(0.487216, 0.343023, 0.178973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plywood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.855251, 0.688531, 0.431236)",
+			"mean_linear": "(0.85782, 0.691253, 0.433429)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png"
+		},
+		{
+			"mean_bound": "(0.855251, 0.688531, 0.431236)",
+			"mean_linear": "(0.85782, 0.691253, 0.433429)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png"
+		},
+		{
+			"mean_bound": "(0.855251, 0.688531, 0.431236)",
+			"mean_linear": "(0.85782, 0.691253, 0.433429)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.693671, 0.60918, 0.411935)",
+			"mean_linear": "(0.694, 0.609542, 0.412357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_enamel_appliance_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.400919, 0.416248, 0.413477)",
+			"mean_linear": "(0.398197, 0.413516, 0.411098)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_zinc_liner_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.457053, 0.421995, 0.35313)",
+			"mean_linear": "(0.458514, 0.423599, 0.35468)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.225944, 0.166766, 0.117752)",
+			"mean_linear": "(0.223729, 0.165509, 0.116761)",
+			"mipmaps": true,
+			"texture": "res://assets/props/photo_portraits/portrait_atlas.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.225944, 0.166766, 0.117752)",
+			"mean_linear": "(0.223729, 0.165509, 0.116761)",
+			"mipmaps": true,
+			"texture": "res://assets/props/photo_portraits/portrait_atlas.png"
+		},
+		{
+			"mean_bound": "(0.225944, 0.166766, 0.117752)",
+			"mean_linear": "(0.223729, 0.165509, 0.116761)",
+			"mipmaps": true,
+			"texture": "res://assets/props/photo_portraits/portrait_atlas.png"
+		},
+		{
+			"mean_bound": "(0.225944, 0.166766, 0.117752)",
+			"mean_linear": "(0.223729, 0.165509, 0.116761)",
+			"mipmaps": true,
+			"texture": "res://assets/props/photo_portraits/portrait_atlas.png"
+		},
+		{
+			"mean_bound": "(0.225944, 0.166766, 0.117752)",
+			"mean_linear": "(0.223729, 0.165509, 0.116761)",
+			"mipmaps": true,
+			"texture": "res://assets/props/photo_portraits/portrait_atlas.png"
+		},
+		{
+			"mean_bound": "(0.225944, 0.166766, 0.117752)",
+			"mean_linear": "(0.223729, 0.165509, 0.116761)",
+			"mipmaps": true,
+			"texture": "res://assets/props/photo_portraits/portrait_atlas.png"
+		},
+		{
+			"mean_bound": "(0.225944, 0.166766, 0.117752)",
+			"mean_linear": "(0.223729, 0.165509, 0.116761)",
+			"mipmaps": true,
+			"texture": "res://assets/props/photo_portraits/portrait_atlas.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.632444, 0.450324, 0.014934)",
+			"mean_linear": "(0.635914, 0.451952, 0.013354)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_awning_vinyl_albedo.png"
+		},
+		{
+			"mean_bound": "(0.047959, 0.01978, 0.011386)",
+			"mean_linear": "(0.047655, 0.019599, 0.011298)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.270188, 0.147604, 0.043135)",
+			"mean_linear": "(0.266759, 0.145756, 0.042449)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795752, 0.670663, 0.537469)",
+			"mean_linear": "(0.795597, 0.670677, 0.537516)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_enamel_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.465092, 0.255701, 0.136745)",
+			"mean_linear": "(0.464757, 0.254436, 0.136372)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_linoleum_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.457053, 0.421995, 0.35313)",
+			"mean_linear": "(0.458514, 0.423599, 0.35468)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.101993, 0.238351, 0.172236)",
+			"mean_linear": "(0.101555, 0.237274, 0.171591)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_stairwell_teal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.410483, 0.123309, 0.059558)",
+			"mean_linear": "(0.411972, 0.1238, 0.059659)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terracotta_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.774942, 0.728483, 0.556285)",
+			"mean_linear": "(0.780907, 0.733772, 0.560408)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.500462, 0.329451, 0.178782)",
+			"mean_linear": "(0.501677, 0.330929, 0.179987)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plywood_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.457053, 0.421995, 0.35313)",
+			"mean_linear": "(0.458514, 0.423599, 0.35468)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png"
+		},
+		{
+			"mean_bound": "(0.457053, 0.421995, 0.35313)",
+			"mean_linear": "(0.458514, 0.423599, 0.35468)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.693671, 0.60918, 0.411935)",
+			"mean_linear": "(0.694, 0.609542, 0.412357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_enamel_appliance_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.457053, 0.421995, 0.35313)",
+			"mean_linear": "(0.458514, 0.423599, 0.35468)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png"
+		},
+		{
+			"mean_bound": "(0.294037, 0.1112, 0.045764)",
+			"mean_linear": "(0.293611, 0.111398, 0.046074)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_copper_aged_albedo.png"
+		},
+		{
+			"mean_bound": "(0.457053, 0.421995, 0.35313)",
+			"mean_linear": "(0.458514, 0.423599, 0.35468)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.279468, 0.235133, 0.206421)",
+			"mean_linear": "(0.275527, 0.232018, 0.203661)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_cast_iron_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.294037, 0.1112, 0.045764)",
+			"mean_linear": "(0.293611, 0.111398, 0.046074)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_copper_aged_albedo.png"
+		},
+		{
+			"mean_bound": "(0.251639, 0.133996, 0.056958)",
+			"mean_linear": "(0.251955, 0.134005, 0.056918)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_albedo.png"
+		},
+		{
+			"mean_bound": "(0.41693, 0.378061, 0.336096)",
+			"mean_linear": "(0.417035, 0.378855, 0.336819)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_cast_iron_albedo.png"
+		},
+		{
+			"mean_bound": "(0.381293, 0.077814, 0.023322)",
+			"mean_linear": "(0.379744, 0.077449, 0.023239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_fabric_warm_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710358, 0.620371, 0.442592)",
+			"mean_linear": "(0.70876, 0.619051, 0.44135)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.266386, 0.145644, 0.040609)",
+			"mean_linear": "(0.265864, 0.14522, 0.040242)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.047959, 0.01978, 0.011386)",
+			"mean_linear": "(0.047655, 0.019599, 0.011298)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.270188, 0.147604, 0.043135)",
+			"mean_linear": "(0.266759, 0.145756, 0.042449)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.061911, 0.052255, 0.030149)",
+			"mean_linear": "(0.060501, 0.050649, 0.02932)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bronze_albedo.png"
+		},
+		{
+			"mean_bound": "(0.392992, 0.188832, 0.102577)",
+			"mean_linear": "(0.402008, 0.191129, 0.102973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_common_brick_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795752, 0.670663, 0.537469)",
+			"mean_linear": "(0.795597, 0.670677, 0.537516)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_enamel_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.067308, 0.121771, 0.161495)",
+			"mean_linear": "(0.066449, 0.121134, 0.160804)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_fabric_cool_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.354853, 0.118592, 0.024627)",
+			"mean_linear": "(0.359841, 0.12091, 0.025265)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_floor_oak_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.410483, 0.123309, 0.059558)",
+			"mean_linear": "(0.411972, 0.1238, 0.059659)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terracotta_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.680591, 0.627782, 0.47746)",
+			"mean_linear": "(0.676968, 0.624444, 0.474903)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_tin_ceiling_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.774942, 0.728483, 0.556285)",
+			"mean_linear": "(0.780907, 0.733772, 0.560408)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.298354, 0.11433, 0.034362)",
+			"mean_linear": "(0.302042, 0.115362, 0.034235)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_upholstery_rust_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.486987, 0.343168, 0.178928)",
+			"mean_linear": "(0.487216, 0.343023, 0.178973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plywood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.810054, 0.791317, 0.715249)",
+			"mean_linear": "(0.810116, 0.791034, 0.714513)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_porcelain_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.810054, 0.791317, 0.715249)",
+			"mean_linear": "(0.810116, 0.791034, 0.714513)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_porcelain_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.298354, 0.11433, 0.034362)",
+			"mean_linear": "(0.302042, 0.115362, 0.034235)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_upholstery_rust_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.251639, 0.133996, 0.056958)",
+			"mean_linear": "(0.251955, 0.134005, 0.056918)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_albedo.png"
+		},
+		{
+			"mean_bound": "(0.706248, 0.619761, 0.44105)",
+			"mean_linear": "(0.706408, 0.619922, 0.441811)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795894, 0.721801, 0.591514)",
+			"mean_linear": "(0.797577, 0.724352, 0.594762)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_linen_albedo.png"
+		},
+		{
+			"mean_bound": "(0.855251, 0.688531, 0.431236)",
+			"mean_linear": "(0.85782, 0.691253, 0.433429)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.834281, 0.760543, 0.499433)",
+			"mean_linear": "(0.833987, 0.760897, 0.500723)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_appliances_aged_enamel_worn_enamel_albedo.png"
+		},
+		{
+			"mean_bound": "(0.047959, 0.01978, 0.011386)",
+			"mean_linear": "(0.047655, 0.019599, 0.011298)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.270188, 0.147604, 0.043135)",
+			"mean_linear": "(0.266759, 0.145756, 0.042449)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795752, 0.670663, 0.537469)",
+			"mean_linear": "(0.795597, 0.670677, 0.537516)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_enamel_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.465092, 0.255701, 0.136745)",
+			"mean_linear": "(0.464757, 0.254436, 0.136372)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_linoleum_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.559361, 0.02954, 0.021465)",
+			"mean_linear": "(0.560149, 0.029895, 0.021807)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_safety_orange_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.410483, 0.123309, 0.059558)",
+			"mean_linear": "(0.411972, 0.1238, 0.059659)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terracotta_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.774942, 0.728483, 0.556285)",
+			"mean_linear": "(0.780907, 0.733772, 0.560408)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.011742, 0.011545, 0.011683)",
+			"mean_linear": "(0.01174, 0.011532, 0.011672)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_smoked_plaster_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710358, 0.620371, 0.442592)",
+			"mean_linear": "(0.70876, 0.619051, 0.44135)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.632444, 0.450324, 0.014934)",
+			"mean_linear": "(0.635914, 0.451952, 0.013354)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_awning_vinyl_albedo.png"
+		},
+		{
+			"mean_bound": "(0.059354, 0.08236, 0.058973)",
+			"mean_linear": "(0.056851, 0.080492, 0.058353)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_book_teal_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.061911, 0.052255, 0.030149)",
+			"mean_linear": "(0.060501, 0.050649, 0.02932)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bronze_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.539147, 0.489613, 0.396243)",
+			"mean_linear": "(0.539822, 0.490625, 0.397024)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_limestone_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.479807, 0.398193, 0.280586)",
+			"mean_linear": "(0.479948, 0.39784, 0.278859)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terrazzo_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.680591, 0.627782, 0.47746)",
+			"mean_linear": "(0.676968, 0.624444, 0.474903)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_tin_ceiling_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.774942, 0.728483, 0.556285)",
+			"mean_linear": "(0.780907, 0.733772, 0.560408)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.10951, 0.016911, 0.016662)",
+			"mean_linear": "(0.110132, 0.017136, 0.016937)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_vinyl_oxblood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710358, 0.620371, 0.442592)",
+			"mean_linear": "(0.70876, 0.619051, 0.44135)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.268983, 0.147754, 0.043332)",
+			"mean_linear": "(0.268244, 0.147102, 0.043075)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+		},
+		{
+			"mean_bound": "(0.810054, 0.791317, 0.715249)",
+			"mean_linear": "(0.810116, 0.791034, 0.714513)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_porcelain_albedo.png"
+		},
+		{
+			"mean_bound": "(0.218865, 0.086887, 0.024718)",
+			"mean_linear": "(0.22206, 0.088741, 0.025332)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+		},
+		{
+			"mean_bound": "(0.855251, 0.688531, 0.431236)",
+			"mean_linear": "(0.85782, 0.691253, 0.433429)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.268983, 0.147754, 0.043332)",
+			"mean_linear": "(0.268244, 0.147102, 0.043075)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710527, 0.691151, 0.645872)",
+			"mean_linear": "(0.707204, 0.68787, 0.642346)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_marble_lobby_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.268983, 0.147754, 0.043332)",
+			"mean_linear": "(0.268244, 0.147102, 0.043075)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710358, 0.620371, 0.442592)",
+			"mean_linear": "(0.70876, 0.619051, 0.44135)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.810054, 0.791317, 0.715249)",
+			"mean_linear": "(0.810116, 0.791034, 0.714513)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_porcelain_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.810054, 0.791317, 0.715249)",
+			"mean_linear": "(0.810116, 0.791034, 0.714513)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_porcelain_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.268983, 0.147754, 0.043332)",
+			"mean_linear": "(0.268244, 0.147102, 0.043075)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.486987, 0.343168, 0.178928)",
+			"mean_linear": "(0.487216, 0.343023, 0.178973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plywood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710527, 0.691151, 0.645872)",
+			"mean_linear": "(0.707204, 0.68787, 0.642346)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_marble_lobby_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.632444, 0.450324, 0.014934)",
+			"mean_linear": "(0.635914, 0.451952, 0.013354)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_awning_vinyl_albedo.png"
+		},
+		{
+			"mean_bound": "(0.047959, 0.01978, 0.011386)",
+			"mean_linear": "(0.047655, 0.019599, 0.011298)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.270188, 0.147604, 0.043135)",
+			"mean_linear": "(0.266759, 0.145756, 0.042449)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795752, 0.670663, 0.537469)",
+			"mean_linear": "(0.795597, 0.670677, 0.537516)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_enamel_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.067308, 0.121771, 0.161495)",
+			"mean_linear": "(0.066449, 0.121134, 0.160804)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_fabric_cool_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.498911, 0.015704, 0.00849)",
+			"mean_linear": "(0.500205, 0.015854, 0.008776)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_lacquer_red_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.712475, 0.654849, 0.550832)",
+			"mean_linear": "(0.7135, 0.65592, 0.552334)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.410483, 0.123309, 0.059558)",
+			"mean_linear": "(0.411972, 0.1238, 0.059659)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terracotta_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.479807, 0.398193, 0.280586)",
+			"mean_linear": "(0.479948, 0.39784, 0.278859)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terrazzo_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.680591, 0.627782, 0.47746)",
+			"mean_linear": "(0.676968, 0.624444, 0.474903)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_tin_ceiling_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.774942, 0.728483, 0.556285)",
+			"mean_linear": "(0.780907, 0.733772, 0.560408)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wainscot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.10951, 0.016911, 0.016662)",
+			"mean_linear": "(0.110132, 0.017136, 0.016937)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_vinyl_oxblood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.345735, 0.201268, 0.028093)",
+			"mean_linear": "(0.346137, 0.201606, 0.028147)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_metals_aged_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710358, 0.620371, 0.442592)",
+			"mean_linear": "(0.70876, 0.619051, 0.44135)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.268983, 0.147754, 0.043332)",
+			"mean_linear": "(0.268244, 0.147102, 0.043075)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.457053, 0.421995, 0.35313)",
+			"mean_linear": "(0.458514, 0.423599, 0.35468)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710358, 0.620371, 0.442592)",
+			"mean_linear": "(0.70876, 0.619051, 0.44135)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.266386, 0.145644, 0.040609)",
+			"mean_linear": "(0.265864, 0.14522, 0.040242)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.251639, 0.133996, 0.056958)",
+			"mean_linear": "(0.251955, 0.134005, 0.056918)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_albedo.png"
+		},
+		{
+			"mean_bound": "(0.457053, 0.421995, 0.35313)",
+			"mean_linear": "(0.458514, 0.423599, 0.35468)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png"
+		},
+		{
+			"mean_bound": "(0.279468, 0.235133, 0.206421)",
+			"mean_linear": "(0.275527, 0.232018, 0.203661)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_cast_iron_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795752, 0.670663, 0.537469)",
+			"mean_linear": "(0.795597, 0.670677, 0.537516)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_enamel_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.457053, 0.421995, 0.35313)",
+			"mean_linear": "(0.458514, 0.423599, 0.35468)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_nickel_plated_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710527, 0.691151, 0.645872)",
+			"mean_linear": "(0.707204, 0.68787, 0.642346)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_marble_lobby_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.047959, 0.01978, 0.011386)",
+			"mean_linear": "(0.047655, 0.019599, 0.011298)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.059354, 0.08236, 0.058973)",
+			"mean_linear": "(0.056851, 0.080492, 0.058353)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_book_teal_albedo.png"
+		},
+		{
+			"mean_bound": "(0.270188, 0.147604, 0.043135)",
+			"mean_linear": "(0.266759, 0.145756, 0.042449)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.21057, 0.118008, 0.029113)",
+			"mean_linear": "(0.211773, 0.118794, 0.029357)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_bright_albedo.png"
+		},
+		{
+			"mean_bound": "(0.138153, 0.082037, 0.022533)",
+			"mean_linear": "(0.148835, 0.088804, 0.024881)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_mesh_albedo.png"
+		},
+		{
+			"mean_bound": "(0.279468, 0.235133, 0.206421)",
+			"mean_linear": "(0.275527, 0.232018, 0.203661)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_cast_iron_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795752, 0.670663, 0.537469)",
+			"mean_linear": "(0.795597, 0.670677, 0.537516)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_enamel_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.067308, 0.121771, 0.161495)",
+			"mean_linear": "(0.066449, 0.121134, 0.160804)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_fabric_cool_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.207613, 0.196934, 0.065937)",
+			"mean_linear": "(0.208425, 0.197829, 0.066781)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_fabric_green_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.381293, 0.077814, 0.023322)",
+			"mean_linear": "(0.379744, 0.077449, 0.023239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_fabric_warm_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.041525, 0.016948, 0.159448)",
+			"mean_linear": "(0.042013, 0.017226, 0.160212)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_felt_violet_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.354853, 0.118592, 0.024627)",
+			"mean_linear": "(0.359841, 0.12091, 0.025265)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_floor_oak_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_handrail_wood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.498911, 0.015704, 0.00849)",
+			"mean_linear": "(0.500205, 0.015854, 0.008776)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_lacquer_red_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.770699, 0.669907, 0.448909)",
+			"mean_linear": "(0.769689, 0.669147, 0.448942)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_linen_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.736274, 0.706819, 0.638376)",
+			"mean_linear": "(0.737376, 0.708278, 0.639644)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_milk_glass_albedo.png"
+		},
+		{
+			"mean_bound": "(0.218865, 0.086887, 0.024718)",
+			"mean_linear": "(0.22206, 0.088741, 0.025332)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.063318, 0.087866, 0.0465)",
+			"mean_linear": "(0.064219, 0.088875, 0.046885)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plant_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.84123, 0.805557, 0.640141)",
+			"mean_linear": "(0.839689, 0.803533, 0.63793)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_porcelain_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.029975, 0.026522, 0.022936)",
+			"mean_linear": "(0.029045, 0.025693, 0.022221)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_rubber_aged_albedo.png"
+		},
+		{
+			"mean_bound": "(0.335916, 0.111312, 0.082847)",
+			"mean_linear": "(0.335903, 0.112261, 0.083293)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_rug_warm_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.559361, 0.02954, 0.021465)",
+			"mean_linear": "(0.560149, 0.029895, 0.021807)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_safety_orange_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.044184, 0.029847, 0.021046)",
+			"mean_linear": "(0.040366, 0.027354, 0.019345)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_soil_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.024778, 0.024264, 0.024014)",
+			"mean_linear": "(0.025077, 0.024532, 0.024218)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_soot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.101993, 0.238351, 0.172236)",
+			"mean_linear": "(0.101555, 0.237274, 0.171591)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_stairwell_teal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.410483, 0.123309, 0.059558)",
+			"mean_linear": "(0.411972, 0.1238, 0.059659)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_terracotta_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.731539, 0.633768, 0.461511)",
+			"mean_linear": "(0.725698, 0.627458, 0.453606)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_trim_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.10951, 0.016911, 0.016662)",
+			"mean_linear": "(0.110132, 0.017136, 0.016937)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_vinyl_oxblood_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.019057, 0.015696, 0.012938)",
+			"mean_linear": "(0.018739, 0.015416, 0.012688)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bakelite_black_albedo.png"
+		},
+		{
+			"mean_bound": "(0.164872, 0.180675, 0.034138)",
+			"mean_linear": "(0.165046, 0.180637, 0.03415)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bar_wall_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.097898, 0.010549, 0.009569)",
+			"mean_linear": "(0.097948, 0.010833, 0.009795)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_bar_wall_red_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.270188, 0.147604, 0.043135)",
+			"mean_linear": "(0.266759, 0.145756, 0.042449)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.279468, 0.235133, 0.206421)",
+			"mean_linear": "(0.275527, 0.232018, 0.203661)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_cast_iron_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.29624, 0.299835, 0.299765)",
+			"mean_linear": "(0.295083, 0.29891, 0.298564)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_chrome_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.392992, 0.188832, 0.102577)",
+			"mean_linear": "(0.402008, 0.191129, 0.102973)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_common_brick_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.287537, 0.271887, 0.241671)",
+			"mean_linear": "(0.286343, 0.27029, 0.240647)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_concrete_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.710358, 0.620371, 0.442592)",
+			"mean_linear": "(0.70876, 0.619051, 0.44135)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_countertop_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.381293, 0.077814, 0.023322)",
+			"mean_linear": "(0.379744, 0.077449, 0.023239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_fabric_warm_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.498911, 0.015704, 0.00849)",
+			"mean_linear": "(0.500205, 0.015854, 0.008776)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_lacquer_red_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.539147, 0.489613, 0.396243)",
+			"mean_linear": "(0.539822, 0.490625, 0.397024)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_limestone_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.770699, 0.669907, 0.448909)",
+			"mean_linear": "(0.769689, 0.669147, 0.448942)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_linen_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.315633, 0.339696, 0.340872)",
+			"mean_linear": "(0.315221, 0.338872, 0.340008)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_metal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.414163, 0.419823, 0.398408)",
+			"mean_linear": "(0.41398, 0.419525, 0.398022)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_mirror_aged_albedo.png"
+		},
+		{
+			"mean_bound": "(0.218865, 0.086887, 0.024718)",
+			"mean_linear": "(0.22206, 0.088741, 0.025332)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_oak_quartered_albedo.png"
+		},
+		{
+			"mean_bound": "(0.727949, 0.607482, 0.382538)",
+			"mean_linear": "(0.728467, 0.60805, 0.383261)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_paper_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.490364, 0.449149, 0.373391)",
+			"mean_linear": "(0.489356, 0.447828, 0.372239)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_plaster_stained_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.330863, 0.061504, 0.025081)",
+			"mean_linear": "(0.347787, 0.064379, 0.026212)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_quarry_tile_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.335916, 0.111312, 0.082847)",
+			"mean_linear": "(0.335903, 0.112261, 0.083293)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_rug_warm_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.024778, 0.024264, 0.024014)",
+			"mean_linear": "(0.025077, 0.024532, 0.024218)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_soot_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.011742, 0.011545, 0.011683)",
+			"mean_linear": "(0.01174, 0.011532, 0.011672)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_smoked_plaster_albedo.png"
+		},
+		{
+			"mean_bound": "(0.101993, 0.238351, 0.172236)",
+			"mean_linear": "(0.101555, 0.237274, 0.171591)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_stairwell_teal_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.249703, 0.134622, 0.058341)",
+			"mean_linear": "(0.250048, 0.134742, 0.058518)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_timber_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.274606, 0.189931, 0.092407)",
+			"mean_linear": "(0.274126, 0.188547, 0.091199)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_architectural_haunted_wallpaper_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.870311, 0.870311, 0.870311)",
+			"mean_linear": "(0.870414, 0.870414, 0.870414)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_billiard_resin_albedo.png"
+		},
+		{
+			"mean_bound": "(0.870311, 0.870311, 0.870311)",
+			"mean_linear": "(0.870414, 0.870414, 0.870414)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_billiard_resin_albedo.png"
+		},
+		{
+			"mean_bound": "(0.870311, 0.870311, 0.870311)",
+			"mean_linear": "(0.870414, 0.870414, 0.870414)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_billiard_resin_albedo.png"
+		},
+		{
+			"mean_bound": "(0.870311, 0.870311, 0.870311)",
+			"mean_linear": "(0.870414, 0.870414, 0.870414)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_billiard_resin_albedo.png"
+		},
+		{
+			"mean_bound": "(0.870311, 0.870311, 0.870311)",
+			"mean_linear": "(0.870414, 0.870414, 0.870414)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_billiard_resin_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.041525, 0.016948, 0.159448)",
+			"mean_linear": "(0.042013, 0.017226, 0.160212)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_felt_violet_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.795894, 0.721801, 0.591514)",
+			"mean_linear": "(0.797577, 0.724352, 0.594762)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_linen_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.268983, 0.147754, 0.043332)",
+			"mean_linear": "(0.268244, 0.147102, 0.043075)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.268983, 0.147754, 0.043332)",
+			"mean_linear": "(0.268244, 0.147102, 0.043075)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_brass_dull_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.855251, 0.688531, 0.431236)",
+			"mean_linear": "(0.85782, 0.691253, 0.433429)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_aged_paper_albedo.png"
+		},
+		{
+			"mean_bound": "(0.108784, 0.041356, 0.014937)",
+			"mean_linear": "(0.109974, 0.041564, 0.014716)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_wood_dark_b_albedo.png"
+		},
+		{
+			"mean_bound": "(0.298354, 0.11433, 0.034362)",
+			"mean_linear": "(0.302042, 0.115362, 0.034235)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_upholstery_rust_albedo.png"
+		},
+		{
+			"mean_bound": "(0.03409, 0.035346, 0.036628)",
+			"mean_linear": "(0.03418, 0.035437, 0.036721)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_ai_materials_iron_blackened_albedo.png"
+		},
+		{
+			"mean_bound": "(0.103153, 0.040133, 0.016473)",
+			"mean_linear": "(0.104431, 0.040501, 0.016582)",
+			"mipmaps": true,
+			"texture": "res://assets/building/textures/T_library_furniture_walnut_albedo.png"
+		}
+	],
+	"renderer": "forward_plus",
+	"scope": "Matched in-world diagnostic; no runtime-contract proof"
+}

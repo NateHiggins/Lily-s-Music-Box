@@ -188,6 +188,12 @@ func _ready() -> void:
 		push_error("V2 native fixed lighting refused: %s" % [fixed_lighting.errors])
 		return
 	adapter.root.set_meta("v2_native_fixed_lighting_factory", fixed_lighting)
+	var work_lights := preload("res://scripts/building/orison_v2_native_service_work_lights.gd").new()
+	if not work_lights.mount(self,fixed_lighting,adapter.root.get_meta("v2_native_service_instruments")):
+		startup_failed=true
+		push_error("V2 service work lights refused: %s" % [work_lights.errors])
+		return
+	adapter.root.set_meta("v2_native_service_work_lights",work_lights)
 	var lamp_air := preload("res://scripts/building/orison_v2_lamp_atmosphere.gd").new()
 	lamp_air.name = "LampAtmosphere"
 	add_child(lamp_air)
@@ -393,6 +399,15 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: bookshelves refused: %s" % [bookshelves.errors])
 		return
+	var service_instruments := preload("res://scripts/building/orison_v2_native_service_instruments.gd").new()
+	if not service_instruments.mount(self):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: service instrument fabrication refused: %s" % [service_instruments.errors])
+		return
+	adapter.root.set_meta("v2_native_service_instruments",service_instruments)
+	for identity in ["F01_WATCHMAN_DETECTOR_BODY","F01_NIGHT_REGISTER_BODY",
+			"F01_SIGNAL_REGISTER_BODY","F01_TOUR_KEY_GUARD_BODY"]:
+		_retire_blockout_fixture(identity)
 	mirror_renderer = PlanarMirrorRenderer.new()
 	add_child(mirror_renderer)
 	mirror_renderer.setup(player.camera)

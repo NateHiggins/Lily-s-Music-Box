@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 55.9,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T09:43:03Z",
+  "started_utc": "2026-10-08T09:42:06Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/b0-final-01.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/b0-final-01.log",
+  "stdout_sha256": "05b2972004f598b6466c2291f8f53f13368b1efa37627f6dd0612cb071a204f2"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FinishCalibration.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/b0-final-01",
+ "source": {
+  "dirty_paths": 279,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/assets/building/textures/T_ai_materials_billiard_resin_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_billiard_resin_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_billiard_resin_rough.png.import",
+   " M game/scripts/building/orison_v2_architectural_materials.gd",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/scripts/building/surface_pass.gd",
+   " M game/shaders/orison_surface.gdshaderinc",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? art/reviews/v2_improvement_20261008/",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_flue.gd.uid",
+   "?? game/scripts/building/orison_v2_boiler_pipework.gd.uid"
+  ],
+  "repository_head": "e305675f95e60ec2ec610d31f6cb3128d9204428",
+  "repository_tree": "2030c91210493e4e7efeefa003cb24f9382791bf",
+  "runtime_inputs_sha256": "67b19393c7d60eae46ecefff6b76107c6907693a2228c4c0712ee08c9c418a99",
+  "test_path": "game/tests/orison_v2_finish_calibration.gd",
+  "test_sha256": "d1e29a63bc91546d4531c955a485589ba5bf16763163550d00749981db67cb00"
+ },
+ "windowed": true
+}

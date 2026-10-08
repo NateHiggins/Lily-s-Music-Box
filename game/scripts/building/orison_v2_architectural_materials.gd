@@ -4,6 +4,27 @@ extends RefCounted
 var cache: Dictionary = {}
 var calibrated_inputs: Dictionary = {}
 
+# Shared catalogue-key finish calibration, reviewed at fixed production light.
+# Existing pigment maps, physical tile sizes and material identities remain.
+# This only quiets the broad architecture; props retain their own finishes.
+const FINISH := {
+	"concrete": {"pigment_variation":0.65, "detail_albedo_strength":0.015,
+		"detail_normal_strength":0.10, "normal_scale":0.12,
+		"mask_amount":Vector4(0.0,0.05,0.0,0.05)},
+	"trim": {"pigment_variation":0.75, "detail_albedo_strength":0.015,
+		"detail_normal_strength":0.10, "normal_scale":0.10,
+		"mask_amount":Vector4(0.0,0.04,0.0,0.04)},
+	"floor_oak": {"pigment_variation":0.55, "detail_albedo_strength":0.025,
+		"detail_normal_strength":0.18, "normal_scale":0.20,
+		"mask_amount":Vector4(0.0,0.08,0.0,0.06)},
+	"plaster_stained": {"pigment_variation":0.60, "detail_albedo_strength":0.025,
+		"detail_normal_strength":0.18, "normal_scale":0.20,
+		"mask_amount":Vector4(0.0,0.08,0.0,0.06)},
+	"terrazzo": {"pigment_variation":0.60, "detail_albedo_strength":0.025,
+		"detail_normal_strength":0.18, "normal_scale":0.20,
+		"mask_amount":Vector4(0.0,0.08,0.0,0.06)},
+}
+
 func key_for(part: String, room_class: String) -> String:
 	if part.begins_with("B1_COAL_HEAP_"): return "soot"
 	if part == "ROOF_TANK_BODY" or part.begins_with("ROOF_TANK_BUTT_"): return "timber"
@@ -41,8 +62,9 @@ func material_for(part: String, room_class: String) -> Material:
 	var recipe: Dictionary = {}
 	for entry: Dictionary in SurfacePass.CLASSES:
 		if entry.key == family:
-			recipe = entry.recipe
+			recipe = entry.recipe.duplicate()
 			break
+	if FINISH.has(key): recipe.merge(FINISH[key],true)
 	var base := MatLib.get_mat(key)
 	if key in ["stair", "concrete"]:
 		# A semantic material needs the same catalogue identity as an imported

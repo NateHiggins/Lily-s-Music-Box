@@ -1,0 +1,52 @@
+{
+	"checks": 2354,
+	"contracts": {
+		"premature_action_denial": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 26.966,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"exercised_controls": [
+		"annunciator reset and cancel",
+		"detector stop, paper seating, datum and cancel",
+		"night register key custody, duplicate denial and cancel",
+		"signal circuit refusal, shutter release, indication fields and cancel",
+		"tour key custody, duplicate denial and cancel",
+		"fuse live denial, main isolation, plug withdrawal and cancel",
+		"telephone request, answer, carry, visible cord and release",
+		"dumbwaiter unsupported denial, strain, pawl, full travel and cancel",
+		"tank live denial, isolation, float lift, weight extreme and cancel"
+	],
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Native service instruments in the composed V2 world: original mechanism ownership, reversible service controls, transient custody, ordinary telephone line and world retirement. Player approach routing and save reconstruction are not exercised.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "e305675f95e60ec2ec610d31f6cb3128d9204428",
+		"runtime_inputs_sha256": "95740f6e03fe50f73e537407a4a29faa248e3772c9e3c3c5ac3a4185a42768ca",
+		"test_path": "game/tests/orison_v2_service_instruments_test.gd",
+		"test_sha256": "55dd709331229495844a653be264024a404020066bff32fe37cddc2544328da4"
+	}
+}

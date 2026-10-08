@@ -81,6 +81,9 @@ group_uniforms coverage;
 // modes, same uniforms, so FloorCoveragePass's RULES carry over unchanged.
 uniform int coverage : hint_range(0, 3) = 0;
 uniform vec3 albedo_mean = vec3(0.5);
+// Identity by default. A calibrated catalogue-key recipe can quiet pigment
+// variation without changing texture scale, geometry or the material's mean.
+uniform float pigment_variation : hint_range(0.0, 1.0) = 1.0;
 uniform float rough_mean = 0.5;
 uniform float hex_scale = 1.0;
 uniform float lattice_cells = 3.0;
@@ -654,7 +657,7 @@ OrisonSurface orison_surface(vec2 mesh_uv, vec3 vertex, vec3 normal, vec3 tangen
 			rgh = os_covered(rough_tex, uv, ddx, ddy, vec4(rough_mean));
 		}
 	}
-	vec3 albedo = alb.rgb * albedo_color.rgb;
+	vec3 albedo = mix(albedo_mean, alb.rgb, pigment_variation) * albedo_color.rgb;
 	float alpha = alb.a * albedo_color.a;
 	float rough = 1.0;
 	float metal = metallic;

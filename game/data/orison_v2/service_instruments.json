@@ -1,0 +1,3430 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/service_instruments.glb",
+  "actors": [
+    {
+      "id": "LobbyPorterBoard",
+      "script": "res://scripts/props/otis_prop.gd",
+      "source_mesh_count": 28,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M01_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.259999990463257,
+            0.620000004768372,
+            0.0599999986588955
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 1,
+          "mesh": "M01_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.209999993443489,
+            0.550000011920929,
+            0.0120000001043081
+          ],
+          "preserve_material": false,
+          "materials": [
+            "brass"
+          ]
+        },
+        {
+          "index": 2,
+          "mesh": "M01_P002",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0549999997019768,
+            0.0350000001490116,
+            0.00800000037997961
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 3,
+          "mesh": "M01_P003",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0750000029802322,
+            0.0299999993294477,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 4,
+          "mesh": "M01_P004",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0579999983310699,
+            0.0209999997168779,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 5,
+          "mesh": "M01_P005",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0549999997019768,
+            0.0350000001490116,
+            0.00800000037997961
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 6,
+          "mesh": "M01_P006",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0750000029802322,
+            0.0299999993294477,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 7,
+          "mesh": "M01_P007",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0579999983310699,
+            0.0209999997168779,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 8,
+          "mesh": "M01_P008",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0549999997019768,
+            0.0350000001490116,
+            0.00800000037997961
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 9,
+          "mesh": "M01_P009",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0750000029802322,
+            0.0299999993294477,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 10,
+          "mesh": "M01_P010",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0579999983310699,
+            0.0209999997168779,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 11,
+          "mesh": "M01_P011",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0549999997019768,
+            0.0350000001490116,
+            0.00800000037997961
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 12,
+          "mesh": "M01_P012",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0750000029802322,
+            0.0299999993294477,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 13,
+          "mesh": "M01_P013",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0579999983310699,
+            0.0209999997168779,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 14,
+          "mesh": "M01_P014",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0549999997019768,
+            0.0350000001490116,
+            0.00800000037997961
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 15,
+          "mesh": "M01_P015",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0750000029802322,
+            0.0299999993294477,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 16,
+          "mesh": "M01_P016",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0579999983310699,
+            0.0209999997168779,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 17,
+          "mesh": "M01_P017",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0549999997019768,
+            0.0350000001490116,
+            0.00800000037997961
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 18,
+          "mesh": "M01_P018",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0750000029802322,
+            0.0299999993294477,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 19,
+          "mesh": "M01_P019",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0579999983310699,
+            0.0209999997168779,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 20,
+          "mesh": "M01_P020",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0549999997019768,
+            0.0350000001490116,
+            0.00800000037997961
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 21,
+          "mesh": "M01_P021",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0750000029802322,
+            0.0299999993294477,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 22,
+          "mesh": "M01_P022",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0579999983310699,
+            0.0209999997168779,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 23,
+          "mesh": "M01_P023",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0549999997019768,
+            0.0350000001490116,
+            0.00800000037997961
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 24,
+          "mesh": "M01_P024",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0750000029802322,
+            0.0299999993294477,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 25,
+          "mesh": "M01_P025",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0579999983310699,
+            0.0209999997168779,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 26,
+          "mesh": "M01_P026",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0860000029206276,
+            0.0140000004321337,
+            0.0120000001043081
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 27,
+          "mesh": "M01_P027",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M01_Fixed",
+          "materials": [
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ROOF_TANK_BALLCOCK",
+      "script": "res://scripts/props/roof_tank_ballcock_prop.gd",
+      "source_mesh_count": 24,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M02_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.340000003576279,
+            0.259999990463257,
+            0.0500000007450581
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 1,
+          "mesh": "M02_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.200000002980232,
+            1.85000002384186,
+            0.0350000001490116
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 2,
+          "mesh": "M02_P002",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0280000008642673,
+            1.85000002384186,
+            0.109999999403954
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 3,
+          "mesh": "M02_P003",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0280000008642673,
+            1.85000002384186,
+            0.109999999403954
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 4,
+          "mesh": "M02_P004",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 5,
+          "mesh": "M02_P005",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 6,
+          "mesh": "M02_P006",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 7,
+          "mesh": "M02_P007",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0219999998807907,
+            1.0,
+            0.0219999998807907
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 8,
+          "mesh": "M02_P008",
+          "source_type": "BoxMesh",
+          "size": [
+            0.519999980926514,
+            0.0299999993294477,
+            0.0299999993294477
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 9,
+          "mesh": "M02_P009",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0780000016093254,
+            0.0780000016093254,
+            0.0780000016093254
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 10,
+          "mesh": "M02_P010",
+          "source_type": "BoxMesh",
+          "size": [
+            0.150000005960464,
+            0.170000001788139,
+            0.140000000596046
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 11,
+          "mesh": "M02_P011",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 12,
+          "mesh": "M02_P012",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 13,
+          "mesh": "M02_P013",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 14,
+          "mesh": "M02_P014",
+          "source_type": "BoxMesh",
+          "size": [
+            0.155000001192093,
+            0.0140000004321337,
+            0.0140000004321337
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 15,
+          "mesh": "M02_P015",
+          "source_type": "BoxMesh",
+          "size": [
+            0.155000001192093,
+            0.0140000004321337,
+            0.0140000004321337
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 16,
+          "mesh": "M02_P016",
+          "source_type": "BoxMesh",
+          "size": [
+            0.155000001192093,
+            0.0140000004321337,
+            0.0140000004321337
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 17,
+          "mesh": "M02_P017",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 18,
+          "mesh": "M02_P018",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 19,
+          "mesh": "M02_P019",
+          "source_type": "BoxMesh",
+          "size": [
+            0.119999997317791,
+            0.0549999997019768,
+            0.119999997317791
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 20,
+          "mesh": "M02_P020",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0520000010728836,
+            0.600000023841858,
+            0.0520000010728836
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 21,
+          "mesh": "M02_P021",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0199999995529652,
+            0.300000011920929,
+            0.0199999995529652
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 22,
+          "mesh": "M02_P022",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0549999997019768,
+            0.0120000001043081,
+            0.0120000001043081
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 23,
+          "mesh": "M02_P023",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0750000029802322,
+            0.0199999995529652,
+            0.0260000005364418
+          ],
+          "preserve_material": true,
+          "materials": []
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M02_Fixed",
+          "materials": [
+            "brass",
+            "cast_iron",
+            "metal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_WATCHMAN_DETECTOR",
+      "script": "res://scripts/props/watchman_clock_prop.gd",
+      "source_mesh_count": 49,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M03_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.340000003576279,
+            0.400000005960464,
+            0.0500000007450581
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 1,
+          "mesh": "M03_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0280000008642673,
+            0.400000005960464,
+            0.129999995231628
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 2,
+          "mesh": "M03_P002",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0280000008642673,
+            0.400000005960464,
+            0.129999995231628
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 3,
+          "mesh": "M03_P003",
+          "source_type": "BoxMesh",
+          "size": [
+            0.340000003576279,
+            0.0280000008642673,
+            0.129999995231628
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 4,
+          "mesh": "M03_P004",
+          "source_type": "BoxMesh",
+          "size": [
+            0.340000003576279,
+            0.0280000008642673,
+            0.129999995231628
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 5,
+          "mesh": "M03_P005",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 6,
+          "mesh": "M03_P006",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 7,
+          "mesh": "M03_P007",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 8,
+          "mesh": "M03_P008",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.0160000007599592,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 9,
+          "mesh": "M03_P009",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 10,
+          "mesh": "M03_P010",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 11,
+          "mesh": "M03_P011",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 12,
+          "mesh": "M03_P012",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 13,
+          "mesh": "M03_P013",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 14,
+          "mesh": "M03_P014",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.0160000007599592,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 15,
+          "mesh": "M03_P015",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 16,
+          "mesh": "M03_P016",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 17,
+          "mesh": "M03_P017",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 18,
+          "mesh": "M03_P018",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 19,
+          "mesh": "M03_P019",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 20,
+          "mesh": "M03_P020",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.0160000007599592,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 21,
+          "mesh": "M03_P021",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 22,
+          "mesh": "M03_P022",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 23,
+          "mesh": "M03_P023",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 24,
+          "mesh": "M03_P024",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 25,
+          "mesh": "M03_P025",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 26,
+          "mesh": "M03_P026",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.0160000007599592,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 27,
+          "mesh": "M03_P027",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 28,
+          "mesh": "M03_P028",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 29,
+          "mesh": "M03_P029",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 30,
+          "mesh": "M03_P030",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 31,
+          "mesh": "M03_P031",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00899999961256981,
+            0.0020000000949949
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 32,
+          "mesh": "M03_P032",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 33,
+          "mesh": "M03_P033",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 34,
+          "mesh": "M03_P034",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 35,
+          "mesh": "M03_P035",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 36,
+          "mesh": "M03_P036",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 37,
+          "mesh": "M03_P037",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 38,
+          "mesh": "M03_P038",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 39,
+          "mesh": "M03_P039",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 40,
+          "mesh": "M03_P040",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 41,
+          "mesh": "M03_P041",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 42,
+          "mesh": "M03_P042",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.0700000002980232,
+            0.00300000002607703
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 43,
+          "mesh": "M03_P043",
+          "source_type": "BoxMesh",
+          "size": [
+            0.300000011920929,
+            0.360000014305115,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 44,
+          "mesh": "M03_P044",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0700000002980232,
+            0.0179999992251396,
+            0.0179999992251396
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 45,
+          "mesh": "M03_P045",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0160000007599592,
+            0.0520000010728836,
+            0.0160000007599592
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 46,
+          "mesh": "M03_P046",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00499999988824129,
+            0.115000002086163,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 47,
+          "mesh": "M03_P047",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 48,
+          "mesh": "M03_P048",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M03_Fixed",
+          "materials": [
+            "brass",
+            "wood_dark"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_NIGHT_REGISTER",
+      "script": "res://scripts/props/night_register_prop.gd",
+      "source_mesh_count": 53,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M04_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.620000004768372,
+            0.5,
+            0.0260000005364418
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 1,
+          "mesh": "M04_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0219999998807907,
+            0.5,
+            0.0399999991059303
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 2,
+          "mesh": "M04_P002",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0219999998807907,
+            0.5,
+            0.0399999991059303
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 3,
+          "mesh": "M04_P003",
+          "source_type": "BoxMesh",
+          "size": [
+            0.620000004768372,
+            0.0219999998807907,
+            0.0399999991059303
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 4,
+          "mesh": "M04_P004",
+          "source_type": "BoxMesh",
+          "size": [
+            0.720000028610229,
+            0.0199999995529652,
+            0.239999994635582
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 5,
+          "mesh": "M04_P005",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0160000007599592,
+            0.0700000002980232,
+            0.129999995231628
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 6,
+          "mesh": "M04_P006",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0160000007599592,
+            0.0700000002980232,
+            0.129999995231628
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 7,
+          "mesh": "M04_P007",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 8,
+          "mesh": "M04_P008",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 9,
+          "mesh": "M04_P009",
+          "source_type": "BoxMesh",
+          "size": [
+            0.180000007152557,
+            0.204999998211861,
+            0.00249999994412065
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 10,
+          "mesh": "M04_P010",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0379999987781048,
+            0.0299999993294477,
+            0.00249999994412065
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 11,
+          "mesh": "M04_P011",
+          "source_type": "BoxMesh",
+          "size": [
+            0.150000005960464,
+            0.00179999996908009,
+            0.000600000028498471
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 12,
+          "mesh": "M04_P012",
+          "source_type": "BoxMesh",
+          "size": [
+            0.150000005960464,
+            0.00179999996908009,
+            0.000600000028498471
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 13,
+          "mesh": "M04_P013",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 14,
+          "mesh": "M04_P014",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 15,
+          "mesh": "M04_P015",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0860000029206276,
+            0.0299999993294477,
+            0.00350000010803342
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 16,
+          "mesh": "M04_P016",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0579999983310699,
+            0.00350000010803342,
+            0.0007999999797903
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 17,
+          "mesh": "M04_P017",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 18,
+          "mesh": "M04_P018",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 19,
+          "mesh": "M04_P019",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0860000029206276,
+            0.0299999993294477,
+            0.00350000010803342
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 20,
+          "mesh": "M04_P020",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0579999983310699,
+            0.00350000010803342,
+            0.0007999999797903
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 21,
+          "mesh": "M04_P021",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 22,
+          "mesh": "M04_P022",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.0520000010728836,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 23,
+          "mesh": "M04_P023",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0160000007599592,
+            0.0120000001043081,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 24,
+          "mesh": "M04_P024",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 25,
+          "mesh": "M04_P025",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00899999961256981,
+            0.0860000029206276,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 26,
+          "mesh": "M04_P026",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0260000005364418,
+            0.0219999998807907,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 27,
+          "mesh": "M04_P027",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 28,
+          "mesh": "M04_P028",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0189999993890524,
+            0.00549999997019768,
+            0.00100000004749745
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 29,
+          "mesh": "M04_P029",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 30,
+          "mesh": "M04_P030",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0189999993890524,
+            0.00549999997019768,
+            0.00100000004749745
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 31,
+          "mesh": "M04_P031",
+          "source_type": "BoxMesh",
+          "size": [
+            0.233999997377396,
+            0.0219999998807907,
+            0.151999995112419
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 32,
+          "mesh": "M04_P032",
+          "source_type": "BoxMesh",
+          "size": [
+            0.219999998807907,
+            0.00400000018998981,
+            0.140000000596046
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 33,
+          "mesh": "M04_P033",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00400000018998981,
+            0.00350000010803342,
+            0.137999996542931
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 34,
+          "mesh": "M04_P034",
+          "source_type": "BoxMesh",
+          "size": [
+            0.181999996304512,
+            0.00179999996908009,
+            0.00419999985024333
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 35,
+          "mesh": "M04_P035",
+          "source_type": "BoxMesh",
+          "size": [
+            0.181999996304512,
+            0.00179999996908009,
+            0.00419999985024333
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 36,
+          "mesh": "M04_P036",
+          "source_type": "BoxMesh",
+          "size": [
+            0.181999996304512,
+            0.00179999996908009,
+            0.00419999985024333
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 37,
+          "mesh": "M04_P037",
+          "source_type": "BoxMesh",
+          "size": [
+            0.181999996304512,
+            0.00179999996908009,
+            0.00419999985024333
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 38,
+          "mesh": "M04_P038",
+          "source_type": "BoxMesh",
+          "size": [
+            0.181999996304512,
+            0.00179999996908009,
+            0.00419999985024333
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 39,
+          "mesh": "M04_P039",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 40,
+          "mesh": "M04_P040",
+          "source_type": "BoxMesh",
+          "size": [
+            0.280000001192093,
+            0.00300000002607703,
+            0.219999998807907
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 41,
+          "mesh": "M04_P041",
+          "source_type": "BoxMesh",
+          "size": [
+            0.280000001192093,
+            0.00600000005215406,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 42,
+          "mesh": "M04_P042",
+          "source_type": "BoxMesh",
+          "size": [
+            0.280000001192093,
+            0.00600000005215406,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 43,
+          "mesh": "M04_P043",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.00600000005215406,
+            0.219999998807907
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 44,
+          "mesh": "M04_P044",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.00600000005215406,
+            0.219999998807907
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 45,
+          "mesh": "M04_P045",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0160000007599592,
+            0.00350000010803342,
+            0.195999994874001
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 46,
+          "mesh": "M04_P046",
+          "source_type": "BoxMesh",
+          "size": [
+            0.230000004172325,
+            0.00350000010803342,
+            0.00219999998807907
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 47,
+          "mesh": "M04_P047",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0260000005364418,
+            0.0109999999403954,
+            0.0240000002086163
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 48,
+          "mesh": "M04_P048",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0260000005364418,
+            0.00400000018998981,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 49,
+          "mesh": "M04_P049",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0260000005364418,
+            0.00400000018998981,
+            0.00499999988824129
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 50,
+          "mesh": "M04_P050",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00700000021606684,
+            0.00400000018998981,
+            0.0109999999403954
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 51,
+          "mesh": "M04_P051",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 52,
+          "mesh": "M04_P052",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M04_Fixed",
+          "materials": [
+            "brass",
+            "wood_dark"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_SIGNAL_REGISTER",
+      "script": "res://scripts/props/watch_register_prop.gd",
+      "source_mesh_count": 40,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M05_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.400000005960464,
+            0.46000000834465,
+            0.0240000002086163
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 1,
+          "mesh": "M05_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.361999988555908,
+            0.421999990940094,
+            0.00300000002607703
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 2,
+          "mesh": "M05_P002",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0140000004321337,
+            0.46000000834465,
+            0.100000001490116
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 3,
+          "mesh": "M05_P003",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0140000004321337,
+            0.46000000834465,
+            0.100000001490116
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 4,
+          "mesh": "M05_P004",
+          "source_type": "BoxMesh",
+          "size": [
+            0.400000005960464,
+            0.0160000007599592,
+            0.100000001490116
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 5,
+          "mesh": "M05_P005",
+          "source_type": "BoxMesh",
+          "size": [
+            0.400000005960464,
+            0.0160000007599592,
+            0.100000001490116
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 6,
+          "mesh": "M05_P006",
+          "source_type": "BoxMesh",
+          "size": [
+            0.372000008821487,
+            0.0399999991059303,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 7,
+          "mesh": "M05_P007",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 8,
+          "mesh": "M05_P008",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 9,
+          "mesh": "M05_P009",
+          "source_type": "BoxMesh",
+          "size": [
+            0.150000005960464,
+            0.0439999997615814,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 10,
+          "mesh": "M05_P010",
+          "source_type": "BoxMesh",
+          "size": [
+            0.150000005960464,
+            0.0439999997615814,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 11,
+          "mesh": "M05_P011",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 12,
+          "mesh": "M05_P012",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0560000017285347,
+            0.00800000037997961,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 13,
+          "mesh": "M05_P013",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0740000009536743,
+            0.0920000001788139,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 14,
+          "mesh": "M05_P014",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.175999999046326,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 15,
+          "mesh": "M05_P015",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.175999999046326,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 16,
+          "mesh": "M05_P016",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0640000030398369,
+            0.0799999982118607,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 17,
+          "mesh": "M05_P017",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0520000010728836,
+            0.0659999996423721,
+            0.00300000002607703
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 18,
+          "mesh": "M05_P018",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0740000009536743,
+            0.0920000001788139,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 19,
+          "mesh": "M05_P019",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.175999999046326,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 20,
+          "mesh": "M05_P020",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.175999999046326,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 21,
+          "mesh": "M05_P021",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0640000030398369,
+            0.0799999982118607,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 22,
+          "mesh": "M05_P022",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0520000010728836,
+            0.0659999996423721,
+            0.00300000002607703
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 23,
+          "mesh": "M05_P023",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0740000009536743,
+            0.0920000001788139,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 24,
+          "mesh": "M05_P024",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.175999999046326,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 25,
+          "mesh": "M05_P025",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.175999999046326,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 26,
+          "mesh": "M05_P026",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0640000030398369,
+            0.0799999982118607,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 27,
+          "mesh": "M05_P027",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0520000010728836,
+            0.0659999996423721,
+            0.00300000002607703
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 28,
+          "mesh": "M05_P028",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0740000009536743,
+            0.0920000001788139,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 29,
+          "mesh": "M05_P029",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.175999999046326,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 30,
+          "mesh": "M05_P030",
+          "source_type": "BoxMesh",
+          "size": [
+            0.00600000005215406,
+            0.175999999046326,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 31,
+          "mesh": "M05_P031",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0640000030398369,
+            0.0799999982118607,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 32,
+          "mesh": "M05_P032",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0520000010728836,
+            0.0659999996423721,
+            0.00300000002607703
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 33,
+          "mesh": "M05_P033",
+          "source_type": "BoxMesh",
+          "size": [
+            0.375999987125397,
+            0.0820000022649765,
+            0.0120000001043081
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 34,
+          "mesh": "M05_P034",
+          "source_type": "BoxMesh",
+          "size": [
+            0.375999987125397,
+            0.00800000037997961,
+            0.0199999995529652
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 35,
+          "mesh": "M05_P035",
+          "source_type": "BoxMesh",
+          "size": [
+            0.129999995231628,
+            0.0560000017285347,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 36,
+          "mesh": "M05_P036",
+          "source_type": "BoxMesh",
+          "size": [
+            0.061999998986721,
+            0.0399999991059303,
+            0.00300000002607703
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 37,
+          "mesh": "M05_P037",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 38,
+          "mesh": "M05_P038",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0120000001043081,
+            0.061999998986721,
+            0.00999999977648258
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 39,
+          "mesh": "M05_P039",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M05_Fixed",
+          "materials": [
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_TOUR_KEY_GUARD",
+      "script": "res://scripts/props/tour_key_guard_prop.gd",
+      "source_mesh_count": 13,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M06_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.159999996423721,
+            0.259999990463257,
+            0.0219999998807907
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 1,
+          "mesh": "M06_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0120000001043081,
+            0.259999990463257,
+            0.034000001847744
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 2,
+          "mesh": "M06_P002",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0120000001043081,
+            0.259999990463257,
+            0.034000001847744
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 3,
+          "mesh": "M06_P003",
+          "source_type": "BoxMesh",
+          "size": [
+            0.129999995231628,
+            0.0299999993294477,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 4,
+          "mesh": "M06_P004",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 5,
+          "mesh": "M06_P005",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 6,
+          "mesh": "M06_P006",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0439999997615814,
+            0.00700000021606684,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 7,
+          "mesh": "M06_P007",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 8,
+          "mesh": "M06_P008",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 9,
+          "mesh": "",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 10,
+          "mesh": "M06_P010",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 11,
+          "mesh": "M06_P011",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0140000004321337,
+            0.0140000004321337,
+            0.00499999988824129
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 12,
+          "mesh": "M06_P012",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M06_Fixed",
+          "materials": [
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "B1_FUSE_PANEL",
+      "script": "res://scripts/props/fuse_panel_prop.gd",
+      "source_mesh_count": 24,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M07_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.660000026226044,
+            0.899999976158142,
+            0.119999997317791
+          ],
+          "preserve_material": false,
+          "materials": [
+            "cast_iron"
+          ]
+        },
+        {
+          "index": 1,
+          "mesh": "M07_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.620000004768372,
+            0.860000014305115,
+            0.0299999993294477
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 2,
+          "mesh": "M07_P002",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0299999993294477,
+            0.860000014305115,
+            0.129999995231628
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 3,
+          "mesh": "M07_P003",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0299999993294477,
+            0.860000014305115,
+            0.129999995231628
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 4,
+          "mesh": "M07_P004",
+          "source_type": "BoxMesh",
+          "size": [
+            0.300000011920929,
+            0.0450000017881393,
+            0.0450000017881393
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 5,
+          "mesh": "M07_P005",
+          "source_type": "BoxMesh",
+          "size": [
+            0.259999990463257,
+            0.0299999993294477,
+            0.0299999993294477
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 6,
+          "mesh": "M07_P006",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0399999991059303,
+            0.109999999403954,
+            0.0399999991059303
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 7,
+          "mesh": "M07_P007",
+          "source_type": "BoxMesh",
+          "size": [
+            0.46000000834465,
+            0.200000002980232,
+            0.0750000029802322
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 8,
+          "mesh": "M07_P008",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 9,
+          "mesh": "M07_P009",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 10,
+          "mesh": "M07_P010",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 11,
+          "mesh": "M07_P011",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 12,
+          "mesh": "M07_P012",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 13,
+          "mesh": "M07_P013",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0299999993294477,
+            0.00600000005215406,
+            0.00600000005215406
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 14,
+          "mesh": "M07_P014",
+          "source_type": "BoxMesh",
+          "size": [
+            0.034000001847744,
+            0.0160000007599592,
+            0.00400000018998981
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 15,
+          "mesh": "M07_P015",
+          "source_type": "BoxMesh",
+          "size": [
+            0.200000002980232,
+            0.129999995231628,
+            0.00499999988824129
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 16,
+          "mesh": "M07_P016",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 17,
+          "mesh": "M07_P017",
+          "source_type": "BoxMesh",
+          "size": [
+            0.200000002980232,
+            0.0750000029802322,
+            0.109999999403954
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 18,
+          "mesh": "M07_P018",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 19,
+          "mesh": "M07_P019",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 20,
+          "mesh": "M07_P020",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 21,
+          "mesh": "M07_P021",
+          "source_type": "BoxMesh",
+          "size": [
+            0.639999985694885,
+            0.899999976158142,
+            0.0219999998807907
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 22,
+          "mesh": "M07_P022",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0500000007450581,
+            0.0199999995529652,
+            0.0260000005364418
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 23,
+          "mesh": "M07_P023",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M07_Fixed",
+          "materials": [
+            "ceramic",
+            "metal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F01_HOUSE_TELEPHONE_BOARD",
+      "script": "res://scripts/props/house_switchboard_prop.gd",
+      "source_mesh_count": 31,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M08_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.660000026226044,
+            0.680000007152557,
+            0.159999996423721
+          ],
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 1,
+          "mesh": "M08_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.600000023841858,
+            0.550000011920929,
+            0.025000000372529
+          ],
+          "preserve_material": false,
+          "materials": [
+            "bakelite"
+          ]
+        },
+        {
+          "index": 2,
+          "mesh": "M08_P002",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 3,
+          "mesh": "M08_P003",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 4,
+          "mesh": "M08_P004",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 5,
+          "mesh": "M08_P005",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 6,
+          "mesh": "M08_P006",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 7,
+          "mesh": "M08_P007",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 8,
+          "mesh": "M08_P008",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 9,
+          "mesh": "M08_P009",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 10,
+          "mesh": "M08_P010",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 11,
+          "mesh": "M08_P011",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 12,
+          "mesh": "M08_P012",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 13,
+          "mesh": "M08_P013",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 14,
+          "mesh": "M08_P014",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 15,
+          "mesh": "M08_P015",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 16,
+          "mesh": "M08_P016",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 17,
+          "mesh": "M08_P017",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 18,
+          "mesh": "M08_P018",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 19,
+          "mesh": "M08_P019",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "bakelite",
+            "brass"
+          ]
+        },
+        {
+          "index": 20,
+          "mesh": "M08_P020",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 21,
+          "mesh": "M08_P021",
+          "source_type": "BoxMesh",
+          "size": [
+            0.025000000372529,
+            0.129999995231628,
+            0.025000000372529
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 22,
+          "mesh": "M08_P022",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": false,
+          "materials": [
+            "brass",
+            "rubber_aged"
+          ]
+        },
+        {
+          "index": 23,
+          "mesh": "",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 24,
+          "mesh": "",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 25,
+          "mesh": "",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 26,
+          "mesh": "",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 27,
+          "mesh": "",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 28,
+          "mesh": "",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 29,
+          "mesh": "",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 30,
+          "mesh": "",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M08_Fixed",
+          "materials": [
+            "brass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LobbyServiceDumbwaiter",
+      "script": "res://scripts/props/dumbwaiter_prop.gd",
+      "source_mesh_count": 16,
+      "replacements": [
+        {
+          "index": 0,
+          "mesh": "M09_P000",
+          "source_type": "BoxMesh",
+          "size": [
+            0.839999973773956,
+            0.800000011920929,
+            0.0299999993294477
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 1,
+          "mesh": "M09_P001",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0299999993294477,
+            0.620000004768372,
+            0.259999990463257
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 2,
+          "mesh": "M09_P002",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0299999993294477,
+            0.620000004768372,
+            0.259999990463257
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 3,
+          "mesh": "M09_P003",
+          "source_type": "BoxMesh",
+          "size": [
+            0.660000026226044,
+            0.0299999993294477,
+            0.259999990463257
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 4,
+          "mesh": "M09_P004",
+          "source_type": "BoxMesh",
+          "size": [
+            0.419999986886978,
+            0.300000011920929,
+            0.200000002980232
+          ],
+          "preserve_material": false,
+          "materials": [
+            "metal",
+            "timber"
+          ]
+        },
+        {
+          "index": 5,
+          "mesh": "M09_P005",
+          "source_type": "BoxMesh",
+          "size": [
+            0.109999999403954,
+            0.239999994635582,
+            0.109999999403954
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 6,
+          "mesh": "M09_P006",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0900000035762787,
+            0.800000011920929,
+            0.0900000035762787
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 7,
+          "mesh": "M09_P007",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0900000035762787,
+            0.800000011920929,
+            0.0900000035762787
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 8,
+          "mesh": "M09_P008",
+          "source_type": "BoxMesh",
+          "size": [
+            0.660000026226044,
+            0.0900000035762787,
+            0.0900000035762787
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 9,
+          "mesh": "M09_P009",
+          "source_type": "BoxMesh",
+          "size": [
+            0.839999973773956,
+            0.116999998688698,
+            0.150000005960464
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 10,
+          "mesh": "M09_P010",
+          "source_type": "BoxMesh",
+          "size": [
+            0.839999973773956,
+            0.0549999997019768,
+            0.200000002980232
+          ],
+          "preserve_material": false,
+          "materials": [
+            "wood_dark"
+          ]
+        },
+        {
+          "index": 11,
+          "mesh": "M09_P011",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 12,
+          "mesh": "M09_P012",
+          "source_type": "CylinderMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 13,
+          "mesh": "M09_P013",
+          "source_type": "TorusMesh",
+          "size": [],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 14,
+          "mesh": "M09_P014",
+          "source_type": "BoxMesh",
+          "size": [
+            0.150000005960464,
+            0.0280000008642673,
+            0.0280000008642673
+          ],
+          "preserve_material": true,
+          "materials": []
+        },
+        {
+          "index": 15,
+          "mesh": "M09_P015",
+          "source_type": "BoxMesh",
+          "size": [
+            0.0260000005364418,
+            0.980000019073486,
+            0.0260000005364418
+          ],
+          "preserve_material": true,
+          "materials": []
+        }
+      ],
+      "additions": [
+        {
+          "mesh": "M09_Fixed",
+          "materials": [
+            "M09_015_source",
+            "brass",
+            "cast_iron",
+            "metal"
+          ]
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "key": "wood_dark",
+      "catalog": "wood_dark",
+      "tile": 1.2,
+      "normal": 0.12,
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "brass",
+      "catalog": "brass",
+      "tile": 0.5,
+      "normal": 0.25,
+      "roughness": 1.0,
+      "metallic": 0.85,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "metal",
+      "catalog": "metal",
+      "tile": 0.9,
+      "normal": 0.25,
+      "roughness": 1.0,
+      "metallic": 0.9,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "cast_iron",
+      "catalog": "cast_iron",
+      "tile": 0.4,
+      "normal": 0.12,
+      "roughness": 0.6,
+      "metallic": 0.0,
+      "tint": [
+        0.3,
+        0.28,
+        0.25,
+        1.0
+      ]
+    },
+    {
+      "key": "ceramic",
+      "catalog": "ceramic",
+      "tile": 0.65,
+      "normal": 0.25,
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "bakelite",
+      "catalog": "bakelite",
+      "tile": 0.35,
+      "normal": 0.12,
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "rubber_aged",
+      "catalog": "rubber_aged",
+      "tile": 0.26,
+      "normal": 0.25,
+      "roughness": 0.82,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "key": "timber",
+      "catalog": "timber",
+      "tile": 1.0,
+      "normal": 0.12,
+      "roughness": 1.0,
+      "metallic": 0.0,
+      "tint": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ],
+  "source_materials": [
+    {
+      "key": "M09_015_source",
+      "actor": "LobbyServiceDumbwaiter",
+      "index": 15
+    }
+  ],
+  "work_lights": [
+    {
+      "variant": "AlleyEast",
+      "mesh": "WorkLightAlleyEast",
+      "materials": [
+        "cast_iron"
+      ],
+      "seat": [
+        0.2,
+        -0.14,
+        0
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "variant": "AlleyWest",
+      "mesh": "WorkLightAlleyWest",
+      "materials": [
+        "cast_iron"
+      ],
+      "seat": [
+        -0.2,
+        -0.14,
+        0
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "variant": "Shed",
+      "mesh": "WorkLightShed",
+      "materials": [
+        "cast_iron"
+      ],
+      "seat": [
+        0,
+        0.23,
+        0
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ]
+    }
+  ],
+  "dumbwaiter_ropes": [
+    {
+      "mesh": "DumbwaiterRopeUnit",
+      "materials": []
+    },
+    {
+      "mesh": "DumbwaiterHandReturn",
+      "materials": []
+    }
+  ]
+}

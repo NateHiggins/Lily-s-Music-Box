@@ -1540,3 +1540,21 @@ art/renders/orison_v2/household_stoves_20261008/** -text -whitespace
 # Owner-facing V2 visual review dossier.
 art/reviews/v2_remaining_20261008/** -text -whitespace
 output/pdf/V2_remaining_geometry_texture_dossier.pdf binary
+
+# Owner dossier: source-bound service instruments and calibrated review.
+art/blender/scripts/build_service_instruments.py -text
+art/blender/scripts/service_instruments_geometry.py -text
+art/blender/scripts/render_service_instruments.py -text
+art/data/service_instruments/source_plan.json -text
+art/blender/service_instruments.blend -text
+art/blender/service_instruments_construction.json -text
+game/assets/props/service_instruments.glb -text
+game/assets/props/service_instruments.glb.import -text
+game/data/orison_v2/service_instruments.json -text
+game/tests/fixtures/orison_service_instruments.json -text
+game/tests/orison_v2_service_instruments_test.gd -text
+game/tests/orison_v2_finish_calibration.gd -text
+game/scripts/building/orison_v2_native_service_instruments.gd -text
+game/scripts/building/orison_v2_native_service_work_lights.gd -text
+game/scripts/building/orison_v2_dumbwaiter_rope_visual.gd -text
+art/renders/orison_v2/service_instruments_20261008/** -text -whitespace
