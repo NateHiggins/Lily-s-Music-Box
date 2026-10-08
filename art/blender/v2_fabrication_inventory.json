@@ -3941,6 +3941,273 @@
     ]
   },
   "installed": {
+    "game/data/orison_v2/bar_ceiling_finish.json": {
+      "replace": [
+        {
+          "id": "retail_bar_ceil0"
+        },
+        {
+          "id": "retail_bar_ceil1"
+        },
+        {
+          "id": "retail_bar_ceil2"
+        },
+        {
+          "id": "retail_bar_ceil3"
+        }
+      ]
+    },
+    "game/data/orison_v2/bar_furniture.json": {
+      "source_records": [
+        {
+          "id": "retail_bar_piano_body"
+        },
+        {
+          "id": "retail_bar_piano_lid"
+        },
+        {
+          "id": "retail_bar_piano_keys"
+        },
+        {
+          "id": "retail_bar_mic"
+        },
+        {
+          "id": "retail_bar_darts_case"
+        },
+        {
+          "id": "retail_bar_darts_door-1"
+        },
+        {
+          "id": "retail_bar_darts_door1"
+        },
+        {
+          "id": "retail_bar_darts_back"
+        },
+        {
+          "id": "retail_bar_darts_face"
+        },
+        {
+          "id": "retail_bar_darts_slice0_62"
+        },
+        {
+          "id": "retail_bar_darts_slice0_118"
+        },
+        {
+          "id": "retail_bar_darts_slice0_174"
+        },
+        {
+          "id": "retail_bar_darts_slice1_62"
+        },
+        {
+          "id": "retail_bar_darts_slice1_118"
+        },
+        {
+          "id": "retail_bar_darts_slice1_174"
+        },
+        {
+          "id": "retail_bar_darts_slice2_62"
+        },
+        {
+          "id": "retail_bar_darts_slice2_118"
+        },
+        {
+          "id": "retail_bar_darts_slice2_174"
+        },
+        {
+          "id": "retail_bar_darts_slice3_62"
+        },
+        {
+          "id": "retail_bar_darts_slice3_118"
+        },
+        {
+          "id": "retail_bar_darts_slice3_174"
+        },
+        {
+          "id": "retail_bar_darts_slice4_62"
+        },
+        {
+          "id": "retail_bar_darts_slice4_118"
+        },
+        {
+          "id": "retail_bar_darts_slice4_174"
+        },
+        {
+          "id": "retail_bar_darts_slice5_62"
+        },
+        {
+          "id": "retail_bar_darts_slice5_118"
+        },
+        {
+          "id": "retail_bar_darts_slice5_174"
+        },
+        {
+          "id": "retail_bar_darts_slice6_62"
+        },
+        {
+          "id": "retail_bar_darts_slice6_118"
+        },
+        {
+          "id": "retail_bar_darts_slice6_174"
+        },
+        {
+          "id": "retail_bar_darts_treble"
+        },
+        {
+          "id": "retail_bar_darts_double"
+        },
+        {
+          "id": "retail_bar_darts_bull"
+        },
+        {
+          "id": "retail_bar_darts_score"
+        },
+        {
+          "id": "retail_bar_darts_score_rim"
+        }
+      ]
+    },
+    "game/data/orison_v2/bar_gallery.json": {
+      "pictures": [
+        {
+          "id": "retail_bar_gal12_art"
+        },
+        {
+          "id": "retail_bar_gal1_art"
+        },
+        {
+          "id": "retail_bar_gal16_art"
+        },
+        {
+          "id": "retail_bar_gal5_art"
+        },
+        {
+          "id": "retail_bar_gal20_art"
+        },
+        {
+          "id": "retail_bar_gal9_art"
+        },
+        {
+          "id": "retail_bar_gal10_art"
+        },
+        {
+          "id": "retail_bar_gal21_art"
+        },
+        {
+          "id": "retail_bar_gal13_art"
+        },
+        {
+          "id": "retail_bar_gal2_art"
+        },
+        {
+          "id": "retail_bar_gal17_art"
+        },
+        {
+          "id": "retail_bar_gal6_art"
+        },
+        {
+          "id": "retail_bar_gal18_art"
+        },
+        {
+          "id": "retail_bar_gal7_art"
+        },
+        {
+          "id": "retail_bar_gal14_art"
+        },
+        {
+          "id": "retail_bar_gal3_art"
+        },
+        {
+          "id": "retail_bar_gal15_art"
+        },
+        {
+          "id": "retail_bar_gal4_art"
+        },
+        {
+          "id": "retail_bar_gal19_art"
+        },
+        {
+          "id": "retail_bar_gal8_art"
+        },
+        {
+          "id": "retail_bar_gal0_art"
+        },
+        {
+          "id": "retail_bar_gal11_art"
+        }
+      ]
+    },
+    "game/data/orison_v2/bar_instruments.json": {
+      "actors": [
+        {
+          "id": "F01_KARAOKE_SPK_0"
+        },
+        {
+          "id": "F01_BAR_DARTS"
+        },
+        {
+          "id": "F01_BAR_SONGBOOK"
+        },
+        {
+          "id": "F01_KARAOKE_SPK_1"
+        }
+      ]
+    },
+    "game/data/orison_v2/bar_pool.json": {
+      "cells": [
+        {
+          "id": "shop_bar"
+        }
+      ]
+    },
+    "game/data/orison_v2/bar_receiving.json": {
+      "source_records": [
+        {
+          "id": "retail_bar_cab01"
+        },
+        {
+          "id": "retail_bar_cab02"
+        }
+      ],
+      "retirement": [
+        {
+          "kind": "draw"
+        },
+        {
+          "kind": "draw"
+        },
+        {
+          "kind": "draw"
+        },
+        {
+          "kind": "draw"
+        },
+        {
+          "kind": "draw"
+        },
+        {
+          "kind": "hull"
+        },
+        {
+          "kind": "draw"
+        },
+        {
+          "kind": "draw"
+        },
+        {
+          "kind": "draw"
+        },
+        {
+          "kind": "draw"
+        }
+      ]
+    },
+    "game/data/orison_v2/bar_stage.json": {
+      "cells": [
+        {
+          "id": "shop_bar"
+        }
+      ]
+    },
     "game/data/orison_v2/bath_details.json": {
       "props": [
         {
@@ -4224,6 +4491,13 @@
         {
           "id": "F02_A_CalibratorTable",
           "anchor": "F02_A_CAPTION_WORK_ZONE"
+        }
+      ]
+    },
+    "game/data/orison_v2/cobbler_fittings.json": {
+      "cells": [
+        {
+          "id": "shop_shoe_rebuilding"
         }
       ]
     },
@@ -4844,6 +5118,58 @@
         {
           "id": "b1_parts_shelf",
           "unit": "B1"
+        }
+      ]
+    },
+    "game/data/orison_v2/diner_apparatus.json": {
+      "cells": [
+        {
+          "id": "shop_luncheonette"
+        }
+      ]
+    },
+    "game/data/orison_v2/diner_backbar.json": {
+      "cells": [
+        {
+          "id": "shop_luncheonette"
+        }
+      ]
+    },
+    "game/data/orison_v2/diner_counter.json": {
+      "cells": [
+        {
+          "id": "shop_luncheonette"
+        }
+      ]
+    },
+    "game/data/orison_v2/diner_overhead.json": {
+      "cells": [
+        {
+          "id": "shop_luncheonette"
+        }
+      ]
+    },
+    "game/data/orison_v2/diner_receiving.json": {
+      "source_records": [
+        {
+          "id": "storm_shopcab_luncheonette0"
+        },
+        {
+          "id": "storm_shopcab_luncheonette1"
+        }
+      ]
+    },
+    "game/data/orison_v2/diner_till.json": {
+      "cells": [
+        {
+          "id": "shop_luncheonette"
+        }
+      ]
+    },
+    "game/data/orison_v2/diner_urns.json": {
+      "cells": [
+        {
+          "id": "shop_luncheonette"
         }
       ]
     },
@@ -5927,6 +6253,111 @@
         }
       ]
     },
+    "game/data/orison_v2/domestic_objects.json": {
+      "assemblies": [
+        {
+          "id": "DomesticObject00"
+        },
+        {
+          "id": "DomesticObject01"
+        },
+        {
+          "id": "DomesticObject02"
+        },
+        {
+          "id": "DomesticObject03"
+        },
+        {
+          "id": "DomesticObject04"
+        },
+        {
+          "id": "DomesticObject05"
+        },
+        {
+          "id": "DomesticObject06"
+        },
+        {
+          "id": "DomesticObject07"
+        },
+        {
+          "id": "DomesticObject08"
+        },
+        {
+          "id": "DomesticObject09"
+        },
+        {
+          "id": "DomesticObject10"
+        },
+        {
+          "id": "DomesticObject11"
+        },
+        {
+          "id": "DomesticObject12"
+        },
+        {
+          "id": "DomesticObject13"
+        },
+        {
+          "id": "DomesticObject14"
+        },
+        {
+          "id": "DomesticObject15"
+        }
+      ],
+      "instances": [
+        {
+          "id": "2A_pinboard"
+        },
+        {
+          "id": "2B_story_pattern_board"
+        },
+        {
+          "id": "3B_toolboard"
+        },
+        {
+          "id": "3B_partscrate"
+        },
+        {
+          "id": "2A_deck"
+        },
+        {
+          "id": "3A_story_specimen"
+        },
+        {
+          "id": "5A_pins1"
+        },
+        {
+          "id": "5A_pins2"
+        },
+        {
+          "id": "5A_floorstack"
+        },
+        {
+          "id": "5C_story_colorboard"
+        },
+        {
+          "id": "6A_tripod"
+        },
+        {
+          "id": "6A_soft1"
+        },
+        {
+          "id": "6A_soft2"
+        },
+        {
+          "id": "6A_gearcrate"
+        },
+        {
+          "id": "6A_coil1"
+        },
+        {
+          "id": "6A_coil2"
+        },
+        {
+          "id": "b1_toolboard"
+        }
+      ]
+    },
     "game/data/orison_v2/domestic_projectors.json": {
       "projectors": [
         {
@@ -5992,6 +6423,306 @@
         {
           "id": "DomesticRadio_6C",
           "unit": "6C"
+        }
+      ]
+    },
+    "game/data/orison_v2/domestic_seating.json": {
+      "assemblies": [
+        {
+          "id": "Sofa195"
+        },
+        {
+          "id": "Sofa210"
+        },
+        {
+          "id": "ChairDark"
+        },
+        {
+          "id": "ChairOak"
+        }
+      ],
+      "instances": [
+        {
+          "id": "2A_sofa"
+        },
+        {
+          "id": "4B_couch"
+        },
+        {
+          "id": "2A_din_dc1"
+        },
+        {
+          "id": "2A_din_dc2"
+        },
+        {
+          "id": "2A_desk_dkch"
+        },
+        {
+          "id": "2B_din_dc1"
+        },
+        {
+          "id": "2B_din_dc2"
+        },
+        {
+          "id": "3B_din_dc1"
+        },
+        {
+          "id": "3B_din_dc2"
+        },
+        {
+          "id": "3B_stool"
+        },
+        {
+          "id": "4B_meal_chair_01"
+        },
+        {
+          "id": "4B_meal_chair_02"
+        },
+        {
+          "id": "4B_desk_chair"
+        },
+        {
+          "id": "3A_din_dc1"
+        },
+        {
+          "id": "3A_din_dc2"
+        },
+        {
+          "id": "4A_din_dc1"
+        },
+        {
+          "id": "4A_din_dc2"
+        },
+        {
+          "id": "5A_din_dc1"
+        },
+        {
+          "id": "5A_din_dc2"
+        },
+        {
+          "id": "5B_din_dc1"
+        },
+        {
+          "id": "5B_din_dc2"
+        },
+        {
+          "id": "5C_din_dc1"
+        },
+        {
+          "id": "5C_din_dc2"
+        },
+        {
+          "id": "6A_din_dc1"
+        },
+        {
+          "id": "6A_din_dc2"
+        },
+        {
+          "id": "6B_din_dc1"
+        },
+        {
+          "id": "6B_din_dc2"
+        },
+        {
+          "id": "6C_din_dc1"
+        },
+        {
+          "id": "6C_din_dc2"
+        },
+        {
+          "id": "5A_stool"
+        },
+        {
+          "id": "6A_deskchair"
+        },
+        {
+          "id": "6C_sofa"
+        },
+        {
+          "id": "2C_din_dc1"
+        },
+        {
+          "id": "2C_din_dc2"
+        },
+        {
+          "id": "4C_din_dc1"
+        },
+        {
+          "id": "4C_din_dc2"
+        },
+        {
+          "id": "1D_din_dc1"
+        },
+        {
+          "id": "1D_din_dc2"
+        },
+        {
+          "id": "1A_chair"
+        },
+        {
+          "id": "3D_chair"
+        },
+        {
+          "id": "4D_chair"
+        }
+      ]
+    },
+    "game/data/orison_v2/domestic_storage.json": {
+      "assemblies": [
+        {
+          "id": "Shelf01"
+        },
+        {
+          "id": "Shelf02"
+        },
+        {
+          "id": "Counter03"
+        },
+        {
+          "id": "Shelf04"
+        },
+        {
+          "id": "Counter05"
+        },
+        {
+          "id": "Cupboard06"
+        },
+        {
+          "id": "Shelf07"
+        },
+        {
+          "id": "Cupboard08"
+        }
+      ],
+      "instances": [
+        {
+          "id": "3B_tools0"
+        },
+        {
+          "id": "3B_tools1"
+        },
+        {
+          "id": "4B_equipment_shelf"
+        },
+        {
+          "id": "2B_fabric_shelf_01"
+        },
+        {
+          "id": "2B_fabric_shelf_02"
+        },
+        {
+          "id": "b1_parts_shelf"
+        },
+        {
+          "id": "4B_shelf"
+        },
+        {
+          "id": "4B_sink_counter"
+        },
+        {
+          "id": "2A_shelf0"
+        },
+        {
+          "id": "2A_shelf1"
+        },
+        {
+          "id": "2A_shelf2"
+        },
+        {
+          "id": "2A_sink_support"
+        },
+        {
+          "id": "2B_sink_support"
+        },
+        {
+          "id": "3A_sink_support"
+        },
+        {
+          "id": "4A_sink_support"
+        },
+        {
+          "id": "5A_sink_support"
+        },
+        {
+          "id": "5B_sink_support"
+        },
+        {
+          "id": "5C_sink_support"
+        },
+        {
+          "id": "6A_sink_support"
+        },
+        {
+          "id": "6B_sink_support"
+        },
+        {
+          "id": "6C_sink_support"
+        },
+        {
+          "id": "2C_sink_support"
+        },
+        {
+          "id": "4C_sink_support"
+        },
+        {
+          "id": "1D_sink_support"
+        },
+        {
+          "id": "1A_sink_support"
+        },
+        {
+          "id": "3D_sink_support"
+        },
+        {
+          "id": "4D_sink_support"
+        },
+        {
+          "id": "2A_k_wall_cupboard"
+        },
+        {
+          "id": "2B_k_wall_cupboard"
+        },
+        {
+          "id": "3B_k_wall_cupboard"
+        },
+        {
+          "id": "4B_wall_cupboard"
+        },
+        {
+          "id": "3A_k_wall_cupboard"
+        },
+        {
+          "id": "4A_k_wall_cupboard"
+        },
+        {
+          "id": "5A_k_wall_cupboard"
+        },
+        {
+          "id": "5B_k_wall_cupboard"
+        },
+        {
+          "id": "5C_k_wall_cupboard"
+        },
+        {
+          "id": "6A_k_wall_cupboard"
+        },
+        {
+          "id": "6B_k_wall_cupboard"
+        },
+        {
+          "id": "6C_k_wall_cupboard"
+        },
+        {
+          "id": "2C_k_wall_cupboard"
+        },
+        {
+          "id": "4C_k_wall_cupboard"
+        },
+        {
+          "id": "1D_k_wall_cupboard"
+        },
+        {
+          "id": "5A_planshelf"
         }
       ]
     },
@@ -6271,6 +7002,1019 @@
           "id": "6C_story_catalogues",
           "kind": "bookpile",
           "unit": "6C"
+        }
+      ]
+    },
+    "game/data/orison_v2/domestic_tables.json": {
+      "assemblies": [
+        {
+          "id": "Nightstand01"
+        },
+        {
+          "id": "Nightstand02"
+        },
+        {
+          "id": "TableRound03"
+        },
+        {
+          "id": "TableRect04"
+        },
+        {
+          "id": "TableRect05"
+        },
+        {
+          "id": "Coffee06"
+        },
+        {
+          "id": "TableRect07"
+        },
+        {
+          "id": "TableRect08"
+        },
+        {
+          "id": "TableRect09"
+        },
+        {
+          "id": "TableRound10"
+        },
+        {
+          "id": "TableRect11"
+        },
+        {
+          "id": "TableRect12"
+        },
+        {
+          "id": "TableRect13"
+        }
+      ],
+      "instances": [
+        {
+          "id": "3B_abed_ns"
+        },
+        {
+          "id": "4B_wake_nightstand"
+        },
+        {
+          "id": "2A_bed0_ns"
+        },
+        {
+          "id": "2A_din_t"
+        },
+        {
+          "id": "2B_din_t"
+        },
+        {
+          "id": "3B_din_t"
+        },
+        {
+          "id": "4B_meal_table"
+        },
+        {
+          "id": "2B_fabric_worktable"
+        },
+        {
+          "id": "2A_cof"
+        },
+        {
+          "id": "4B_coffee"
+        },
+        {
+          "id": "2A_wireless_table"
+        },
+        {
+          "id": "2B_wireless_table"
+        },
+        {
+          "id": "3B_wireless_table"
+        },
+        {
+          "id": "4B_wireless_table"
+        },
+        {
+          "id": "2A_projector_stand"
+        },
+        {
+          "id": "3B_projector_stand"
+        },
+        {
+          "id": "4B_projector_stand"
+        },
+        {
+          "id": "3A_din_t"
+        },
+        {
+          "id": "3A_bed0_ns"
+        },
+        {
+          "id": "3A_potting_bench"
+        },
+        {
+          "id": "4A_din_t"
+        },
+        {
+          "id": "4A_bed0_ns"
+        },
+        {
+          "id": "4A_writing_table"
+        },
+        {
+          "id": "3A_wireless_table"
+        },
+        {
+          "id": "4A_wireless_table"
+        },
+        {
+          "id": "5A_bed0_ns"
+        },
+        {
+          "id": "5A_din_t"
+        },
+        {
+          "id": "5B_abed_ns"
+        },
+        {
+          "id": "5B_din_t"
+        },
+        {
+          "id": "5C_bed0_ns"
+        },
+        {
+          "id": "5C_bed1_ns"
+        },
+        {
+          "id": "5C_din_t"
+        },
+        {
+          "id": "6A_bed0_ns"
+        },
+        {
+          "id": "6A_din_t"
+        },
+        {
+          "id": "6B_abed_ns"
+        },
+        {
+          "id": "6B_din_t"
+        },
+        {
+          "id": "6C_bed0_ns"
+        },
+        {
+          "id": "6C_bed1_ns"
+        },
+        {
+          "id": "6C_din_t"
+        },
+        {
+          "id": "5A_modtable"
+        },
+        {
+          "id": "6C_cof"
+        },
+        {
+          "id": "5A_wireless_table"
+        },
+        {
+          "id": "5B_wireless_table"
+        },
+        {
+          "id": "5C_wireless_table"
+        },
+        {
+          "id": "6A_wireless_table"
+        },
+        {
+          "id": "6B_wireless_table"
+        },
+        {
+          "id": "6C_wireless_table"
+        },
+        {
+          "id": "5B_comparison_table"
+        },
+        {
+          "id": "2C_bed0_ns"
+        },
+        {
+          "id": "2C_bed1_ns"
+        },
+        {
+          "id": "2C_din_t"
+        },
+        {
+          "id": "2C_wireless_table"
+        },
+        {
+          "id": "4C_bed0_ns"
+        },
+        {
+          "id": "4C_bed1_ns"
+        },
+        {
+          "id": "4C_din_t"
+        },
+        {
+          "id": "4C_wireless_table"
+        },
+        {
+          "id": "1D_din_t"
+        },
+        {
+          "id": "1D_fabric_worktable"
+        },
+        {
+          "id": "1D_wireless_table"
+        },
+        {
+          "id": "1A_table"
+        },
+        {
+          "id": "3D_table"
+        },
+        {
+          "id": "4D_table"
+        }
+      ]
+    },
+    "game/data/orison_v2/druggist_carboys.json": {
+      "cells": [
+        {
+          "id": "shop_otis_son"
+        }
+      ]
+    },
+    "game/data/orison_v2/druggist_counter.json": {
+      "cells": [
+        {
+          "id": "shop_otis_son"
+        }
+      ]
+    },
+    "game/data/orison_v2/druggist_cupboard.json": {
+      "cells": [
+        {
+          "id": "shop_otis_son"
+        }
+      ]
+    },
+    "game/data/orison_v2/druggist_dispensary.json": {
+      "cells": [
+        {
+          "id": "shop_otis_son"
+        }
+      ]
+    },
+    "game/data/orison_v2/druggist_drawers.json": {
+      "cells": [
+        {
+          "id": "shop_otis_son"
+        }
+      ]
+    },
+    "game/data/orison_v2/druggist_fountain.json": {
+      "cells": [
+        {
+          "id": "shop_otis_son"
+        }
+      ]
+    },
+    "game/data/orison_v2/druggist_mortar.json": {
+      "cells": [
+        {
+          "id": "shop_otis_son"
+        }
+      ]
+    },
+    "game/data/orison_v2/fixed_lighting.json": {
+      "assemblies": [
+        {
+          "id": "pendant_shade"
+        },
+        {
+          "id": "flush_dome"
+        },
+        {
+          "id": "kitchen_linear"
+        },
+        {
+          "id": "flush_dome_rise150"
+        },
+        {
+          "id": "pendant_shade_rise360"
+        },
+        {
+          "id": "pendant_shade_rise100"
+        },
+        {
+          "id": "kitchen_linear_rise100"
+        },
+        {
+          "id": "flush_dome_rise100"
+        },
+        {
+          "id": "sconce_globe_back050"
+        },
+        {
+          "id": "cage_bulb_rise960"
+        },
+        {
+          "id": "cage_bulb_wall0x-255"
+        },
+        {
+          "id": "cage_bulb_rise160"
+        },
+        {
+          "id": "cage_bulb_rise140"
+        },
+        {
+          "id": "cage_bulb_rise250"
+        },
+        {
+          "id": "cage_bulb_rise60"
+        },
+        {
+          "id": "cage_bulb_rise2000"
+        },
+        {
+          "id": "kitchen_linear_rise80"
+        },
+        {
+          "id": "pendant_shade_rise450"
+        },
+        {
+          "id": "pendant_shade_rise470"
+        },
+        {
+          "id": "pendant_shade_retained_rod"
+        },
+        {
+          "id": "cage_bulb_rise800"
+        },
+        {
+          "id": "sconce_globe_back80"
+        },
+        {
+          "id": "sconce_globe_back100"
+        },
+        {
+          "id": "cage_bulb_rise300"
+        },
+        {
+          "id": "cage_bulb_wall0x200"
+        },
+        {
+          "id": "cage_bulb_rise380"
+        },
+        {
+          "id": "sconce_globe_back160"
+        }
+      ],
+      "instances": [
+        {
+          "id": "B1_LAUNDRY_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_A_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F03_B_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F03_B_KITCHEN_LT_KITCHEN_LINEAR"
+        },
+        {
+          "id": "F03_B_ALCOVE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "3B_LT_SCONCE"
+        },
+        {
+          "id": "F04_B_ALCOVE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_B_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F04_B_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_B_KITCHEN_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_B_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_B_CLOSET_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_A_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_A_KITCHEN_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_A_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_A_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_A_BED_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_B_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_B_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F02_B_KITCHEN_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_B_BED_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_B_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_B_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F03_B_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F03_B_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_B_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F03_A_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F03_A_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F03_A_KITCHEN_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F03_A_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F03_A_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F03_A_BED_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_A_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_A_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F04_A_KITCHEN_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_A_BED_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_A_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_A_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_A_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F05_A_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_A_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_A_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_A_BED_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_A_KITCHEN_LT_KITCHEN_LINEAR"
+        },
+        {
+          "id": "F05_A_STUDY_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_B_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F05_B_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_B_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_B_ALCOVE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_B_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_B_KITCHEN_LT_KITCHEN_LINEAR"
+        },
+        {
+          "id": "F05_C_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_C_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F05_C_STUDIO_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_C_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_C_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_C_KITCHEN_LT_KITCHEN_LINEAR"
+        },
+        {
+          "id": "F05_C_BED1_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F05_C_BED2_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_A_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F06_A_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_A_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_A_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_A_BED_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_A_KITCHEN_LT_KITCHEN_LINEAR"
+        },
+        {
+          "id": "F06_A_STUDY_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_B_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F06_B_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_B_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_B_ALCOVE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_B_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_B_KITCHEN_LT_KITCHEN_LINEAR"
+        },
+        {
+          "id": "F06_C_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_C_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F06_C_STUDIO_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_C_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_C_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_C_KITCHEN_LT_KITCHEN_LINEAR"
+        },
+        {
+          "id": "F06_C_BED1_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F06_C_BED2_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_C_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_C_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F02_C_STUDIO_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_C_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_C_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_C_KITCHEN_LT_KITCHEN_LINEAR"
+        },
+        {
+          "id": "F02_C_BED1_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F02_C_BED2_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_C_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_C_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F04_C_STUDIO_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_C_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_C_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_C_KITCHEN_LT_KITCHEN_LINEAR"
+        },
+        {
+          "id": "F04_C_BED1_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F04_C_BED2_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F01_D_VESTIBULE_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F01_D_MAIN_LT_PENDANT_SHADE"
+        },
+        {
+          "id": "F01_D_KITCHEN_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F01_D_BED_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F01_D_PRIVATE_HALL_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F01_D_BATH_LT_FLUSH_DOME"
+        },
+        {
+          "id": "F01_A_VESTIBULE_LT"
+        },
+        {
+          "id": "F01_A_MAIN_LT"
+        },
+        {
+          "id": "F01_A_PRIVATE_HALL_LT"
+        },
+        {
+          "id": "F01_A_BATH_LT"
+        },
+        {
+          "id": "F01_A_KITCHEN_LT"
+        },
+        {
+          "id": "F01_A_BED_LT"
+        },
+        {
+          "id": "F01_A_STUDY_LT"
+        },
+        {
+          "id": "F03_D_VESTIBULE_LT"
+        },
+        {
+          "id": "F03_D_MAIN_LT"
+        },
+        {
+          "id": "F03_D_PRIVATE_HALL_LT"
+        },
+        {
+          "id": "F03_D_BATH_LT"
+        },
+        {
+          "id": "F03_D_KITCHEN_LT"
+        },
+        {
+          "id": "F03_D_BED_LT"
+        },
+        {
+          "id": "F03_D_STUDY_LT"
+        },
+        {
+          "id": "F04_D_VESTIBULE_LT"
+        },
+        {
+          "id": "F04_D_MAIN_LT"
+        },
+        {
+          "id": "F04_D_PRIVATE_HALL_LT"
+        },
+        {
+          "id": "F04_D_BATH_LT"
+        },
+        {
+          "id": "F04_D_KITCHEN_LT"
+        },
+        {
+          "id": "F04_D_BED_LT"
+        },
+        {
+          "id": "F04_D_STUDY_LT"
+        },
+        {
+          "id": "F02_SOUTHWEST_HALL_LT"
+        },
+        {
+          "id": "F03_SOUTHWEST_HALL_LT"
+        },
+        {
+          "id": "F04_SOUTHWEST_HALL_LT"
+        },
+        {
+          "id": "F01_STAFF_RESTROOM_LT"
+        },
+        {
+          "id": "B1_ELECTRICAL_LT"
+        },
+        {
+          "id": "B1_MAINTENANCE_SHOP_LT"
+        },
+        {
+          "id": "B1_COAL_ROOM_LT"
+        },
+        {
+          "id": "B1_RESIDENT_STORAGE_LT"
+        },
+        {
+          "id": "B1_SERVICE_CORE_LT"
+        },
+        {
+          "id": "PASSAGE_PORTAL_LT_W"
+        },
+        {
+          "id": "PASSAGE_PORTAL_LT_E"
+        },
+        {
+          "id": "PASSAGE_AISLE_LT_00"
+        },
+        {
+          "id": "PASSAGE_AISLE_LT_01"
+        },
+        {
+          "id": "PASSAGE_AISLE_LT_02"
+        },
+        {
+          "id": "PASSAGE_AISLE_LT_03"
+        },
+        {
+          "id": "PASSAGE_AISLE_LT_04"
+        },
+        {
+          "id": "PASSAGE_AISLE_LT_05"
+        },
+        {
+          "id": "PASSAGE_AISLE_LT_06"
+        },
+        {
+          "id": "PASSAGE_AISLE_LT_07"
+        },
+        {
+          "id": "F01_BAR_LT_DARTS"
+        },
+        {
+          "id": "F01_BAR_LT_LOBBY"
+        },
+        {
+          "id": "F01_BAR_LT_WELL"
+        },
+        {
+          "id": "F01_BAR_LT_STAIR"
+        },
+        {
+          "id": "F01_BAR_LT_CAN0"
+        },
+        {
+          "id": "F01_BAR_LT_CAN1"
+        },
+        {
+          "id": "F01_BAR_LT_POOL"
+        },
+        {
+          "id": "F01_BAR_LT_TAB0"
+        },
+        {
+          "id": "F01_BAR_LT_TAB1"
+        },
+        {
+          "id": "F01_BAR_LT_TAB2"
+        },
+        {
+          "id": "F01_BAR_LT_STAGE0"
+        },
+        {
+          "id": "F01_BAR_LT_STAGE1"
+        },
+        {
+          "id": "F01_BAR_LT_DECK0"
+        },
+        {
+          "id": "F01_BAR_LT_DECK1"
+        },
+        {
+          "id": "F01_BAR_LT_DECK2"
+        },
+        {
+          "id": "F01_BAR_LT_WEST0"
+        },
+        {
+          "id": "F01_BAR_LT_WEST1"
+        },
+        {
+          "id": "F01_BAR_LT_WC"
+        },
+        {
+          "id": "SITE_SHOP_LT_MODEL_LAUNDRY"
+        },
+        {
+          "id": "SITE_SHOP_IN0_MODEL_LAUNDRY"
+        },
+        {
+          "id": "SITE_SHOP_IN1_MODEL_LAUNDRY"
+        },
+        {
+          "id": "SITE_SHOP_IN2_MODEL_LAUNDRY"
+        },
+        {
+          "id": "SITE_SHOP_LT_SHOE_REBUILDING"
+        },
+        {
+          "id": "SITE_SHOP_IN0_SHOE_REBUILDING"
+        },
+        {
+          "id": "SITE_SHOP_IN1_SHOE_REBUILDING"
+        },
+        {
+          "id": "SITE_SHOP_LT_KEYS_CUT"
+        },
+        {
+          "id": "SITE_SHOP_IN0_KEYS_CUT"
+        },
+        {
+          "id": "SITE_SHOP_IN1_KEYS_CUT"
+        },
+        {
+          "id": "SITE_SHOP_LT_HARDWARE_PAINT"
+        },
+        {
+          "id": "SITE_SHOP_IN0_HARDWARE_PAINT"
+        },
+        {
+          "id": "SITE_SHOP_IN1_HARDWARE_PAINT"
+        },
+        {
+          "id": "SITE_SHOP_IN2_HARDWARE_PAINT"
+        },
+        {
+          "id": "SITE_SHOP_LT_FUNERAL_PARLOUR"
+        },
+        {
+          "id": "SITE_SHOP_IN0_FUNERAL_PARLOUR"
+        },
+        {
+          "id": "SITE_SHOP_IN1_FUNERAL_PARLOUR"
+        },
+        {
+          "id": "SITE_SHOP_IN2_FUNERAL_PARLOUR"
+        },
+        {
+          "id": "SITE_SHOP_LT_PHOTO_SUPPLIES"
+        },
+        {
+          "id": "SITE_SHOP_IN0_PHOTO_SUPPLIES"
+        },
+        {
+          "id": "SITE_SHOP_IN1_PHOTO_SUPPLIES"
+        },
+        {
+          "id": "SITE_SHOP_LT_RADIO_SERVICE"
+        },
+        {
+          "id": "SITE_SHOP_IN0_RADIO_SERVICE"
+        },
+        {
+          "id": "SITE_SHOP_IN1_RADIO_SERVICE"
+        },
+        {
+          "id": "SITE_SHOP_LT_PAWNBROKER"
+        },
+        {
+          "id": "SITE_SHOP_IN0_PAWNBROKER"
+        },
+        {
+          "id": "SITE_SHOP_IN1_PAWNBROKER"
+        },
+        {
+          "id": "SITE_SHOP_LT_NEWS_CIGARS"
+        },
+        {
+          "id": "SITE_SHOP_IN0_NEWS_CIGARS"
+        },
+        {
+          "id": "SITE_SHOP_IN1_NEWS_CIGARS"
+        },
+        {
+          "id": "SITE_SHOP_LT_OTIS___SON"
+        },
+        {
+          "id": "SITE_SHOP_IN0_OTIS___SON"
+        },
+        {
+          "id": "SITE_SHOP_IN1_OTIS___SON"
+        },
+        {
+          "id": "SITE_SHOP_IN2_OTIS___SON"
+        },
+        {
+          "id": "SITE_SHOP_LT_LUNCHEONETTE"
+        },
+        {
+          "id": "SITE_SHOP_IN0_LUNCHEONETTE"
+        },
+        {
+          "id": "SITE_SHOP_IN1_LUNCHEONETTE"
+        },
+        {
+          "id": "SITE_SHOP_IN2_LUNCHEONETTE"
+        }
+      ]
+    },
+    "game/data/orison_v2/funeral_drapes.json": {
+      "cells": [
+        {
+          "id": "shop_funeral_parlour"
+        }
+      ]
+    },
+    "game/data/orison_v2/funeral_fittings.json": {
+      "cells": [
+        {
+          "id": "shop_funeral_parlour"
+        }
+      ]
+    },
+    "game/data/orison_v2/funeral_foliage.json": {
+      "cells": [
+        {
+          "id": "shop_funeral_parlour"
+        }
+      ]
+    },
+    "game/data/orison_v2/hardware_apparatus.json": {
+      "cells": [
+        {
+          "id": "shop_hardware_paint"
+        }
+      ]
+    },
+    "game/data/orison_v2/hardware_drawers.json": {
+      "cells": [
+        {
+          "id": "shop_hardware_paint"
+        }
+      ]
+    },
+    "game/data/orison_v2/hardware_stock.json": {
+      "cells": [
+        {
+          "id": "shop_hardware_paint"
+        }
+      ]
+    },
+    "game/data/orison_v2/hardware_tools.json": {
+      "cells": [
+        {
+          "id": "shop_hardware_paint"
         }
       ]
     },
@@ -6581,7 +8325,461 @@
         }
       ]
     },
+    "game/data/orison_v2/household_fridges.json": {
+      "assemblies": [
+        {
+          "id": "FridgeIcebox"
+        },
+        {
+          "id": "FridgeMonitor"
+        },
+        {
+          "id": "FridgeItem_01"
+        },
+        {
+          "id": "FridgeItem_02"
+        },
+        {
+          "id": "FridgeItem_03"
+        },
+        {
+          "id": "FridgeItem_04"
+        },
+        {
+          "id": "FridgeItem_05"
+        },
+        {
+          "id": "FridgeItem_06"
+        },
+        {
+          "id": "FridgeItem_07"
+        },
+        {
+          "id": "FridgeItem_08"
+        },
+        {
+          "id": "FridgeItem_09"
+        },
+        {
+          "id": "FridgeItem_10"
+        },
+        {
+          "id": "FridgeItem_11"
+        },
+        {
+          "id": "FridgeItem_12"
+        },
+        {
+          "id": "FridgeItem_13"
+        },
+        {
+          "id": "FridgeItem_14"
+        },
+        {
+          "id": "FridgeItem_15"
+        },
+        {
+          "id": "FridgeItem_16"
+        },
+        {
+          "id": "FridgeItem_17"
+        },
+        {
+          "id": "FridgeItem_18"
+        },
+        {
+          "id": "FridgeItem_19"
+        },
+        {
+          "id": "FridgeItem_20"
+        },
+        {
+          "id": "FridgeItem_21"
+        },
+        {
+          "id": "FridgeItem_22"
+        }
+      ],
+      "instances": [
+        {
+          "id": "F02_2A_FRIDGE_01"
+        },
+        {
+          "id": "F03_3B_FRIDGE_01"
+        },
+        {
+          "id": "F04_B_FRIDGE_01"
+        },
+        {
+          "id": "F02_2B_FRIDGE_01"
+        },
+        {
+          "id": "F03_3A_FRIDGE_01"
+        },
+        {
+          "id": "F04_4A_FRIDGE_01"
+        },
+        {
+          "id": "F05_5A_FRIDGE_01"
+        },
+        {
+          "id": "F05_5B_FRIDGE_01"
+        },
+        {
+          "id": "F05_5C_FRIDGE_01"
+        },
+        {
+          "id": "F06_6A_FRIDGE_01"
+        },
+        {
+          "id": "F06_6B_FRIDGE_01"
+        },
+        {
+          "id": "F06_6C_FRIDGE_01"
+        },
+        {
+          "id": "F02_2C_FRIDGE_01"
+        },
+        {
+          "id": "F04_4C_FRIDGE_01"
+        },
+        {
+          "id": "F01_1D_FRIDGE_01"
+        },
+        {
+          "id": "F01_1A_FRIDGE_01"
+        },
+        {
+          "id": "F03_3D_FRIDGE_01"
+        },
+        {
+          "id": "F04_4D_FRIDGE_01"
+        }
+      ],
+      "foods": [
+        {
+          "id": "FridgeItem_01"
+        },
+        {
+          "id": "FridgeItem_02"
+        },
+        {
+          "id": "FridgeItem_03"
+        },
+        {
+          "id": "FridgeItem_04"
+        },
+        {
+          "id": "FridgeItem_05"
+        },
+        {
+          "id": "FridgeItem_06"
+        },
+        {
+          "id": "FridgeItem_07"
+        },
+        {
+          "id": "FridgeItem_08"
+        },
+        {
+          "id": "FridgeItem_09"
+        },
+        {
+          "id": "FridgeItem_10"
+        },
+        {
+          "id": "FridgeItem_11"
+        },
+        {
+          "id": "FridgeItem_12"
+        },
+        {
+          "id": "FridgeItem_13"
+        },
+        {
+          "id": "FridgeItem_14"
+        },
+        {
+          "id": "FridgeItem_15"
+        },
+        {
+          "id": "FridgeItem_16"
+        },
+        {
+          "id": "FridgeItem_17"
+        },
+        {
+          "id": "FridgeItem_18"
+        },
+        {
+          "id": "FridgeItem_19"
+        },
+        {
+          "id": "FridgeItem_20"
+        },
+        {
+          "id": "FridgeItem_21"
+        },
+        {
+          "id": "FridgeItem_22"
+        }
+      ]
+    },
+    "game/data/orison_v2/household_radios.json": {
+      "assemblies": [
+        {
+          "id": "HouseholdRadio"
+        }
+      ],
+      "instances": [
+        {
+          "id": "3B_radio"
+        },
+        {
+          "id": "5B_k_hob_radio0"
+        },
+        {
+          "id": "5B_k_hob_radio1"
+        },
+        {
+          "id": "5B_story_radio"
+        },
+        {
+          "id": "6C_story_old_radio"
+        }
+      ]
+    },
+    "game/data/orison_v2/household_stoves.json": {
+      "assemblies": [
+        {
+          "id": "HouseholdGasRange"
+        }
+      ],
+      "instances": [
+        {
+          "id": "F03_3B_STOVE_01"
+        },
+        {
+          "id": "F04_B_STOVE_01"
+        },
+        {
+          "id": "F02_2A_STOVE_01"
+        },
+        {
+          "id": "F02_2B_STOVE_01"
+        },
+        {
+          "id": "F03_3A_STOVE_01"
+        },
+        {
+          "id": "F04_4A_STOVE_01"
+        },
+        {
+          "id": "F05_5A_STOVE_01"
+        },
+        {
+          "id": "F05_5B_STOVE_01"
+        },
+        {
+          "id": "F05_5C_STOVE_01"
+        },
+        {
+          "id": "F06_6A_STOVE_01"
+        },
+        {
+          "id": "F06_6B_STOVE_01"
+        },
+        {
+          "id": "F06_6C_STOVE_01"
+        },
+        {
+          "id": "F02_2C_STOVE_01"
+        },
+        {
+          "id": "F04_4C_STOVE_01"
+        },
+        {
+          "id": "F01_1D_STOVE_01"
+        },
+        {
+          "id": "F01_1A_STOVE_01"
+        },
+        {
+          "id": "F03_3D_STOVE_01"
+        },
+        {
+          "id": "F04_4D_STOVE_01"
+        }
+      ]
+    },
+    "game/data/orison_v2/household_toasters.json": {
+      "assemblies": [
+        {
+          "id": "ToasterFront"
+        },
+        {
+          "id": "ToasterEnd"
+        },
+        {
+          "id": "ToasterCrumb"
+        }
+      ],
+      "instances": [
+        {
+          "id": "F02_2A_TOASTER_01"
+        },
+        {
+          "id": "F02_2B_TOASTER_01"
+        },
+        {
+          "id": "F03_3A_TOASTER_01"
+        },
+        {
+          "id": "F03_3B_TOASTER_01"
+        },
+        {
+          "id": "F04_4A_TOASTER_01"
+        },
+        {
+          "id": "F04_B_TOASTER_01"
+        },
+        {
+          "id": "F05_5A_TOASTER_01"
+        },
+        {
+          "id": "F06_6A_TOASTER_01"
+        },
+        {
+          "id": "F06_6B_TOASTER_01"
+        },
+        {
+          "id": "F06_6C_TOASTER_01"
+        }
+      ]
+    },
+    "game/data/orison_v2/household_wardrobes.json": {
+      "assemblies": [
+        {
+          "id": "Wardrobe00"
+        },
+        {
+          "id": "Wardrobe01"
+        },
+        {
+          "id": "Wardrobe02"
+        },
+        {
+          "id": "Wardrobe03"
+        },
+        {
+          "id": "Wardrobe04"
+        },
+        {
+          "id": "Wardrobe05"
+        },
+        {
+          "id": "Wardrobe06"
+        },
+        {
+          "id": "Wardrobe07"
+        },
+        {
+          "id": "Wardrobe08"
+        },
+        {
+          "id": "Wardrobe09"
+        },
+        {
+          "id": "Wardrobe10"
+        },
+        {
+          "id": "Wardrobe11"
+        },
+        {
+          "id": "Wardrobe12"
+        }
+      ],
+      "instances": [
+        {
+          "id": "3B_aw_wardrobe"
+        },
+        {
+          "id": "2A_w0_wardrobe"
+        },
+        {
+          "id": "2B_aw_wardrobe"
+        },
+        {
+          "id": "1D_aw_wardrobe"
+        },
+        {
+          "id": "3A_w0_wardrobe"
+        },
+        {
+          "id": "4A_w0_wardrobe"
+        },
+        {
+          "id": "5A_w0_wardrobe"
+        },
+        {
+          "id": "5B_aw_wardrobe"
+        },
+        {
+          "id": "5C_w0_wardrobe"
+        },
+        {
+          "id": "2C_w0_wardrobe"
+        },
+        {
+          "id": "4C_w0_wardrobe"
+        },
+        {
+          "id": "1A_wardrobe"
+        },
+        {
+          "id": "3D_wardrobe"
+        },
+        {
+          "id": "4D_wardrobe"
+        },
+        {
+          "id": "5C_w1_wardrobe"
+        },
+        {
+          "id": "2C_w1_wardrobe"
+        },
+        {
+          "id": "4C_w1_wardrobe"
+        },
+        {
+          "id": "6A_w0_wardrobe"
+        },
+        {
+          "id": "6B_aw_wardrobe"
+        },
+        {
+          "id": "6C_w0_wardrobe"
+        },
+        {
+          "id": "6C_w1_wardrobe"
+        }
+      ]
+    },
+    "game/data/orison_v2/laundry_apparatus.json": {
+      "cells": [
+        {
+          "id": "shop_model_laundry"
+        }
+      ]
+    },
     "game/data/orison_v2/laundry_fittings.json": {
+      "cells": [
+        {
+          "id": "shop_model_laundry"
+        }
+      ]
+    },
+    "game/data/orison_v2/laundry_trade.json": {
       "cells": [
         {
           "id": "shop_model_laundry"
@@ -6631,6 +8829,386 @@
         },
         {
           "id": "F01_LightCourtGuard_CourtStop"
+        }
+      ]
+    },
+    "game/data/orison_v2/locksmith_fittings.json": {
+      "cells": [
+        {
+          "id": "shop_keys_cut"
+        }
+      ]
+    },
+    "game/data/orison_v2/medicine_cabinets.json": {
+      "assemblies": [
+        {
+          "id": "MedicineLeft"
+        },
+        {
+          "id": "MedicineRight"
+        },
+        {
+          "id": "MedicineItem_aspirin"
+        },
+        {
+          "id": "MedicineItem_cold_cream"
+        },
+        {
+          "id": "MedicineItem_thimble_tin"
+        },
+        {
+          "id": "MedicineItem_iodine"
+        },
+        {
+          "id": "MedicineItem_razor"
+        },
+        {
+          "id": "MedicineItem_shaving_stick"
+        },
+        {
+          "id": "MedicineItem_plasters"
+        },
+        {
+          "id": "MedicineItem_brown_bottle"
+        },
+        {
+          "id": "MedicineItem_turpentine"
+        },
+        {
+          "id": "MedicineItem_QUELL_TONIC"
+        }
+      ],
+      "instances": [
+        {
+          "id": "F02_2A_MIRROR_01"
+        },
+        {
+          "id": "F02_2B_MIRROR_01"
+        },
+        {
+          "id": "F03_3A_MIRROR_01"
+        },
+        {
+          "id": "F03_3B_MIRROR_01"
+        },
+        {
+          "id": "F04_4A_MIRROR_01"
+        },
+        {
+          "id": "F04_4B_MIRROR_01"
+        },
+        {
+          "id": "F05_5A_MIRROR_01"
+        },
+        {
+          "id": "F05_5B_MIRROR_01"
+        },
+        {
+          "id": "F05_5C_MIRROR_01"
+        },
+        {
+          "id": "F06_6A_MIRROR_01"
+        },
+        {
+          "id": "F06_6B_MIRROR_01"
+        },
+        {
+          "id": "F06_6C_MIRROR_01"
+        }
+      ]
+    },
+    "game/data/orison_v2/news_fittings.json": {
+      "cells": [
+        {
+          "id": "shop_news_cigars"
+        }
+      ]
+    },
+    "game/data/orison_v2/owner_finish_profiles.json": {
+      "groups": [
+        {
+          "id": "heating"
+        },
+        {
+          "id": "washer"
+        },
+        {
+          "id": "bath"
+        },
+        {
+          "id": "domestic"
+        },
+        {
+          "id": "small_appliance"
+        },
+        {
+          "id": "bedding_Pillows"
+        },
+        {
+          "id": "bedding_Mattress"
+        },
+        {
+          "id": "bedding_Blanket"
+        },
+        {
+          "id": "airer"
+        },
+        {
+          "id": "domestic_objects"
+        },
+        {
+          "id": "shop"
+        },
+        {
+          "id": "facade"
+        },
+        {
+          "id": "roof"
+        },
+        {
+          "id": "skyline"
+        },
+        {
+          "id": "lift"
+        }
+      ]
+    },
+    "game/data/orison_v2/pawn_clocks.json": {
+      "cells": [
+        {
+          "id": "shop_pawnbroker"
+        }
+      ]
+    },
+    "game/data/orison_v2/pawn_display.json": {
+      "cells": [
+        {
+          "id": "shop_pawnbroker"
+        }
+      ]
+    },
+    "game/data/orison_v2/pawn_fittings.json": {
+      "cells": [
+        {
+          "id": "shop_pawnbroker"
+        }
+      ]
+    },
+    "game/data/orison_v2/photo_cameras.json": {
+      "cells": [
+        {
+          "id": "shop_photo_supplies"
+        }
+      ]
+    },
+    "game/data/orison_v2/photo_counter.json": {
+      "cells": [
+        {
+          "id": "shop_photo_supplies"
+        }
+      ]
+    },
+    "game/data/orison_v2/photo_enlargers.json": {
+      "cells": [
+        {
+          "id": "shop_photo_supplies"
+        }
+      ]
+    },
+    "game/data/orison_v2/photo_glazing.json": {
+      "cells": [
+        {
+          "id": "shop_photo_supplies"
+        }
+      ]
+    },
+    "game/data/orison_v2/photo_portraits.json": {
+      "cells": [
+        {
+          "id": "shop_photo_supplies"
+        }
+      ],
+      "portraits": [
+        {
+          "id": "storm_shop_photo_supplies_portrait0"
+        },
+        {
+          "id": "storm_shop_photo_supplies_portrait1"
+        },
+        {
+          "id": "storm_shop_photo_supplies_portrait2"
+        },
+        {
+          "id": "storm_shop_photo_supplies_portrait3"
+        },
+        {
+          "id": "storm_shop_photo_supplies_portrait4"
+        },
+        {
+          "id": "storm_shop_photo_supplies_portrait5"
+        },
+        {
+          "id": "storm_shop_photo_supplies_portrait6"
+        }
+      ]
+    },
+    "game/data/orison_v2/photo_process.json": {
+      "cells": [
+        {
+          "id": "shop_photo_supplies"
+        }
+      ]
+    },
+    "game/data/orison_v2/photo_radio_fittings.json": {
+      "cells": [
+        {
+          "id": "shop_photo_supplies"
+        },
+        {
+          "id": "shop_radio_service"
+        }
+      ]
+    },
+    "game/data/orison_v2/photo_stock.json": {
+      "cells": [
+        {
+          "id": "shop_photo_supplies"
+        }
+      ]
+    },
+    "game/data/orison_v2/prep_cabinets.json": {
+      "assemblies": [
+        {
+          "id": "PrepCabinet"
+        }
+      ],
+      "instances": [
+        {
+          "id": "2A_prep_cabinet"
+        },
+        {
+          "id": "2B_prep_cabinet"
+        },
+        {
+          "id": "3B_prep_cabinet"
+        },
+        {
+          "id": "4B_prep_cabinet"
+        },
+        {
+          "id": "3A_prep_cabinet"
+        },
+        {
+          "id": "4A_prep_cabinet"
+        },
+        {
+          "id": "5A_prep_cabinet"
+        },
+        {
+          "id": "5B_prep_cabinet"
+        },
+        {
+          "id": "5C_prep_cabinet"
+        },
+        {
+          "id": "6A_prep_cabinet"
+        },
+        {
+          "id": "6B_prep_cabinet"
+        },
+        {
+          "id": "6C_prep_cabinet"
+        }
+      ]
+    },
+    "game/data/orison_v2/radio_apparatus.json": {
+      "cells": [
+        {
+          "id": "shop_radio_service"
+        }
+      ]
+    },
+    "game/data/orison_v2/radio_battery.json": {
+      "cells": [
+        {
+          "id": "shop_radio_service"
+        }
+      ]
+    },
+    "game/data/orison_v2/radio_bench.json": {
+      "cells": [
+        {
+          "id": "shop_radio_service"
+        }
+      ]
+    },
+    "game/data/orison_v2/radio_display.json": {
+      "cells": [
+        {
+          "id": "shop_radio_service"
+        }
+      ]
+    },
+    "game/data/orison_v2/radio_stock.json": {
+      "cells": [
+        {
+          "id": "shop_radio_service"
+        }
+      ]
+    },
+    "game/data/orison_v2/radio_wire.json": {
+      "cells": [
+        {
+          "id": "shop_radio_service"
+        }
+      ]
+    },
+    "game/data/orison_v2/reading_nook.json": {
+      "assemblies": [
+        {
+          "id": "nook_rug"
+        },
+        {
+          "id": "nook_seat_n"
+        },
+        {
+          "id": "nook_apron_n"
+        },
+        {
+          "id": "nook_seat_w"
+        },
+        {
+          "id": "nook_apron_w"
+        },
+        {
+          "id": "nook_seat_e"
+        },
+        {
+          "id": "nook_apron_e"
+        },
+        {
+          "id": "nook_cush1"
+        },
+        {
+          "id": "nook_cush2"
+        },
+        {
+          "id": "nook_throw"
+        },
+        {
+          "id": "nook_books"
+        },
+        {
+          "id": "nook_table"
+        },
+        {
+          "id": "nook_mug"
+        },
+        {
+          "id": "nook_pile"
+        },
+        {
+          "id": "nook_plant"
         }
       ]
     },
@@ -7374,6 +9952,111 @@
         }
       ]
     },
+    "game/data/orison_v2/service_instruments.json": {
+      "actors": [
+        {
+          "id": "LobbyPorterBoard"
+        },
+        {
+          "id": "ROOF_TANK_BALLCOCK"
+        },
+        {
+          "id": "F01_WATCHMAN_DETECTOR"
+        },
+        {
+          "id": "F01_NIGHT_REGISTER"
+        },
+        {
+          "id": "F01_SIGNAL_REGISTER"
+        },
+        {
+          "id": "F01_TOUR_KEY_GUARD"
+        },
+        {
+          "id": "B1_FUSE_PANEL"
+        },
+        {
+          "id": "F01_HOUSE_TELEPHONE_BOARD"
+        },
+        {
+          "id": "LobbyServiceDumbwaiter"
+        }
+      ]
+    },
+    "game/data/orison_v2/shop_clerestories.json": {
+      "cells": [
+        {
+          "id": "shop_funeral_parlour"
+        },
+        {
+          "id": "shop_hardware_paint"
+        },
+        {
+          "id": "shop_keys_cut"
+        },
+        {
+          "id": "shop_luncheonette"
+        },
+        {
+          "id": "shop_model_laundry"
+        },
+        {
+          "id": "shop_news_cigars"
+        },
+        {
+          "id": "shop_otis_son"
+        },
+        {
+          "id": "shop_pawnbroker"
+        },
+        {
+          "id": "shop_photo_supplies"
+        },
+        {
+          "id": "shop_radio_service"
+        },
+        {
+          "id": "shop_shoe_rebuilding"
+        }
+      ]
+    },
+    "game/data/orison_v2/shop_joinery.json": {
+      "cells": [
+        {
+          "id": "shop_funeral_parlour"
+        },
+        {
+          "id": "shop_hardware_paint"
+        },
+        {
+          "id": "shop_keys_cut"
+        },
+        {
+          "id": "shop_luncheonette"
+        },
+        {
+          "id": "shop_model_laundry"
+        },
+        {
+          "id": "shop_news_cigars"
+        },
+        {
+          "id": "shop_otis_son"
+        },
+        {
+          "id": "shop_pawnbroker"
+        },
+        {
+          "id": "shop_photo_supplies"
+        },
+        {
+          "id": "shop_radio_service"
+        },
+        {
+          "id": "shop_shoe_rebuilding"
+        }
+      ]
+    },
     "game/data/orison_v2/shop_seating.json": {
       "cells": [
         {
@@ -7384,6 +10067,257 @@
         },
         {
           "id": "shop_otis_son"
+        }
+      ]
+    },
+    "game/data/orison_v2/signage.json": {
+      "actors": [
+        {
+          "id": "F01_BAR_SIGNAGE"
+        },
+        {
+          "id": "FittedBodegaSignage"
+        },
+        {
+          "id": "F01_NEON_BLADE"
+        }
+      ]
+    },
+    "game/data/orison_v2/signal_terminal.json": {
+      "assemblies": [
+        {
+          "id": "VantryFixed"
+        }
+      ]
+    },
+    "game/data/orison_v2/surface_stock.json": {
+      "assemblies": [
+        {
+          "id": "2A_k_kmug"
+        },
+        {
+          "id": "2A_k_kdishrack"
+        },
+        {
+          "id": "2B_k_kmug"
+        },
+        {
+          "id": "2B_k_kdishrack"
+        },
+        {
+          "id": "3B_k_kmug"
+        },
+        {
+          "id": "3B_k_kdishrack"
+        },
+        {
+          "id": "4B_mug"
+        },
+        {
+          "id": "4B_dishrack"
+        },
+        {
+          "id": "2A_papers"
+        },
+        {
+          "id": "2A_mug"
+        },
+        {
+          "id": "2A_phones"
+        },
+        {
+          "id": "2B_story_patterns"
+        },
+        {
+          "id": "2B_story_notions"
+        },
+        {
+          "id": "3B_tray1"
+        },
+        {
+          "id": "3B_tray2"
+        },
+        {
+          "id": "3B_jars"
+        },
+        {
+          "id": "3B_manuals"
+        },
+        {
+          "id": "3B_mug"
+        },
+        {
+          "id": "3B_coil"
+        },
+        {
+          "id": "3A_k_kmug"
+        },
+        {
+          "id": "3A_k_kdishrack"
+        },
+        {
+          "id": "4A_k_kmug"
+        },
+        {
+          "id": "4A_k_kdishrack"
+        },
+        {
+          "id": "3A_story_cuttings"
+        },
+        {
+          "id": "3A_story_seed_jars"
+        },
+        {
+          "id": "4A_story_briefs"
+        },
+        {
+          "id": "5A_k_kmug"
+        },
+        {
+          "id": "5A_k_kdishrack"
+        },
+        {
+          "id": "5B_k_kmug"
+        },
+        {
+          "id": "5B_k_kdishrack"
+        },
+        {
+          "id": "5C_k_kmug"
+        },
+        {
+          "id": "5C_k_kdishrack"
+        },
+        {
+          "id": "6A_k_kmug"
+        },
+        {
+          "id": "6A_k_kdishrack"
+        },
+        {
+          "id": "6B_k_kmug"
+        },
+        {
+          "id": "6B_k_kdishrack"
+        },
+        {
+          "id": "6C_k_kdishrack"
+        },
+        {
+          "id": "5A_model"
+        },
+        {
+          "id": "5A_papers1"
+        },
+        {
+          "id": "5A_papers2"
+        },
+        {
+          "id": "5A_mug1"
+        },
+        {
+          "id": "5A_mug2"
+        },
+        {
+          "id": "5B_story_headphones"
+        },
+        {
+          "id": "5B_story_lead"
+        },
+        {
+          "id": "5C_story_solvents"
+        },
+        {
+          "id": "5C_story_studies"
+        },
+        {
+          "id": "6A_phones"
+        },
+        {
+          "id": "6A_cans"
+        },
+        {
+          "id": "6A_detail_capture_papers"
+        },
+        {
+          "id": "6A_detail_capture_mug"
+        },
+        {
+          "id": "6B_story_draft"
+        },
+        {
+          "id": "6B_story_references"
+        },
+        {
+          "id": "6B_story_cold_coffee"
+        },
+        {
+          "id": "6C_story_oddments"
+        },
+        {
+          "id": "6C_story_catalogues"
+        }
+      ]
+    },
+    "game/data/orison_v2/task_lamp_installations.json": {
+      "lamps": [
+        {
+          "id": "B1_NOOK_LAMP",
+          "unit": "ATRIUM"
+        },
+        {
+          "id": "F02_A_LAMP_01",
+          "unit": "2A"
+        },
+        {
+          "id": "F03_B_LAMP_01",
+          "unit": "3B"
+        },
+        {
+          "id": "F04_B_LAMP_01",
+          "unit": "4B"
+        },
+        {
+          "id": "F05_A_LAMP_01",
+          "unit": "5A"
+        }
+      ]
+    },
+    "game/data/orison_v2/task_lamp_supply.json": {
+      "installations": [
+        {
+          "id": "B1_NOOK_LAMP"
+        },
+        {
+          "id": "F02_A_LAMP_01"
+        },
+        {
+          "id": "F03_B_LAMP_01"
+        },
+        {
+          "id": "F04_B_LAMP_01"
+        },
+        {
+          "id": "F05_A_LAMP_01"
+        }
+      ]
+    },
+    "game/data/orison_v2/task_lamps.json": {
+      "variants": [
+        {
+          "id": "emeralite"
+        },
+        {
+          "id": "office_green"
+        },
+        {
+          "id": "bench_friction"
+        },
+        {
+          "id": "landlord_enamel"
+        },
+        {
+          "id": "architect_counterweight"
         }
       ]
     },
@@ -7414,6 +10348,25 @@
           "unit": "6D"
         }
       ]
+    },
+    "game/data/orison_v2/work_tables.json": {
+      "assemblies": [
+        {
+          "id": "2A_desk"
+        },
+        {
+          "id": "3B_workbench"
+        },
+        {
+          "id": "4B_terminal_desk"
+        },
+        {
+          "id": "5A_plantable"
+        },
+        {
+          "id": "6A_deskwall"
+        }
+      ]
     }
   },
   "building_asset_references": {
@@ -7424,9 +10377,15 @@
     "game/scripts/building/orison_v2_bar_region.gd": [
       "res://assets/building/floor_01_cells/shop_bar.gltf"
     ],
+    "game/scripts/building/orison_v2_bar_wc_door.gd": [
+      "res://assets/props/wc_swing_clear_hinge.glb"
+    ],
     "game/scripts/building/orison_v2_bath_details.gd": [
       "res://assets/props/bath_paper_holder.glb",
       "res://assets/props/bath_towel.glb"
+    ],
+    "game/scripts/building/orison_v2_bodega_fittings.gd": [
+      "res://assets/props/bodega_fittings.glb"
     ],
     "game/scripts/building/orison_v2_bodega_frontage.gd": [
       "res://assets/props/bodega_frontage.glb"
@@ -7509,6 +10468,13 @@
     "game/scripts/building/orison_v2_foundations.gd": [
       "res://assets/props/orison_foundations.glb"
     ],
+    "game/scripts/building/orison_v2_front_court_roof.gd": [
+      "res://assets/props/front_court_roof.glb"
+    ],
+    "game/scripts/building/orison_v2_front_facade.gd": [
+      "res://assets/building/floor_01.gltf",
+      "res://assets/props/front_facade.glb"
+    ],
     "game/scripts/building/orison_v2_front_pavement.gd": [
       "res://assets/props/front_pavement.glb"
     ],
@@ -7520,6 +10486,9 @@
     ],
     "game/scripts/building/orison_v2_house_tank.gd": [
       "res://assets/props/house_tank.glb"
+    ],
+    "game/scripts/building/orison_v2_laundry_airer.gd": [
+      "res://assets/props/basement_airer.glb"
     ],
     "game/scripts/building/orison_v2_lift_controls.gd": [
       "res://assets/props/lift_call_plate.glb"
@@ -7567,6 +10536,9 @@
     "game/scripts/building/orison_v2_reading_furniture.gd": [
       "res://assets/props/reading_furniture.glb"
     ],
+    "game/scripts/building/orison_v2_reading_nook.gd": [
+      "res://assets/building/textures/"
+    ],
     "game/scripts/building/orison_v2_rear_wing_a_support.gd": [
       "res://assets/props/rear_wing_a_support.glb"
     ],
@@ -7584,6 +10556,14 @@
     ],
     "game/scripts/building/orison_v2_roof_coping.gd": [
       "res://assets/props/roof_coping.glb"
+    ],
+    "game/scripts/building/orison_v2_roof_drainage.gd": [
+      "res://assets/props/roof_drainage_door_weather.glb",
+      "res://assets/props/roof_drainage_falls.glb",
+      "res://assets/props/roof_drainage_leaders.glb",
+      "res://assets/props/roof_drainage_plant_weather.glb",
+      "res://assets/props/roof_drainage_ports.glb",
+      "res://assets/props/roof_drainage_receivers.glb"
     ],
     "game/scripts/building/orison_v2_roof_edge_support.gd": [
       "res://assets/props/roof_edge_support.glb"
@@ -7632,9 +10612,20 @@
   },
   "blender_generators": [
     "art/blender/scripts/build_alley_groundworks.py",
+    "art/blender/scripts/build_bar_ceiling_finish.py",
+    "art/blender/scripts/build_bar_fixture_mounts.py",
+    "art/blender/scripts/build_bar_furniture.py",
+    "art/blender/scripts/build_bar_gallery.py",
+    "art/blender/scripts/build_bar_instruments.py",
+    "art/blender/scripts/build_bar_pipe_supports.py",
+    "art/blender/scripts/build_bar_pool.py",
+    "art/blender/scripts/build_bar_receiving.py",
+    "art/blender/scripts/build_bar_stage.py",
+    "art/blender/scripts/build_basement_airer.py",
     "art/blender/scripts/build_bath_lavatory.py",
     "art/blender/scripts/build_bathroom_details.py",
     "art/blender/scripts/build_bedding.py",
+    "art/blender/scripts/build_bodega_fittings.py",
     "art/blender/scripts/build_bodega_frontage.py",
     "art/blender/scripts/build_bodega_power.py",
     "art/blender/scripts/build_bodega_receiving.py",
@@ -7655,19 +10646,56 @@
     "art/blender/scripts/build_city_tanks.py",
     "art/blender/scripts/build_coal_delivery.py",
     "art/blender/scripts/build_coal_heap.py",
+    "art/blender/scripts/build_cobbler_fittings.py",
     "art/blender/scripts/build_court_roof_bridge.py",
+    "art/blender/scripts/build_diner_apparatus.py",
+    "art/blender/scripts/build_diner_backbar.py",
+    "art/blender/scripts/build_diner_counter.py",
+    "art/blender/scripts/build_diner_overhead.py",
+    "art/blender/scripts/build_diner_receiving.py",
+    "art/blender/scripts/build_diner_till.py",
+    "art/blender/scripts/build_diner_urns.py",
+    "art/blender/scripts/build_domestic_objects.py",
+    "art/blender/scripts/build_domestic_seating.py",
+    "art/blender/scripts/build_domestic_storage.py",
+    "art/blender/scripts/build_domestic_tables.py",
     "art/blender/scripts/build_door_butt_hinge.py",
     "art/blender/scripts/build_door_knob_set.py",
     "art/blender/scripts/build_dream_critter.py",
     "art/blender/scripts/build_dream_tentacle.py",
+    "art/blender/scripts/build_druggist_carboys.py",
+    "art/blender/scripts/build_druggist_counter.py",
+    "art/blender/scripts/build_druggist_cupboard.py",
+    "art/blender/scripts/build_druggist_dispensary.py",
+    "art/blender/scripts/build_druggist_drawers.py",
+    "art/blender/scripts/build_druggist_fountain.py",
+    "art/blender/scripts/build_druggist_mortar.py",
     "art/blender/scripts/build_duct_hanger.py",
     "art/blender/scripts/build_exterior_masonry.py",
     "art/blender/scripts/build_first_upper_hall_seats.py",
+    "art/blender/scripts/build_fixed_lighting.py",
+    "art/blender/scripts/build_front_court_roof.py",
+    "art/blender/scripts/build_front_facade.py",
     "art/blender/scripts/build_front_pavement.py",
+    "art/blender/scripts/build_funeral_drapes.py",
+    "art/blender/scripts/build_funeral_fittings.py",
+    "art/blender/scripts/build_funeral_foliage.py",
     "art/blender/scripts/build_gesture_library.py",
     "art/blender/scripts/build_ground_core_transfer.py",
+    "art/blender/scripts/build_hardware_apparatus.py",
+    "art/blender/scripts/build_hardware_drawers.py",
+    "art/blender/scripts/build_hardware_stock.py",
+    "art/blender/scripts/build_hardware_tools.py",
     "art/blender/scripts/build_house_tank.py",
+    "art/blender/scripts/build_household_fridges.py",
+    "art/blender/scripts/build_household_radios.py",
+    "art/blender/scripts/build_household_stoves.py",
+    "art/blender/scripts/build_household_toasters.py",
+    "art/blender/scripts/build_household_wardrobes.py",
+    "art/blender/scripts/build_laundry_apparatus.py",
     "art/blender/scripts/build_laundry_fittings.py",
+    "art/blender/scripts/build_laundry_receiving.py",
+    "art/blender/scripts/build_laundry_trade.py",
     "art/blender/scripts/build_lift_cab_controls.py",
     "art/blender/scripts/build_lift_call_plate.py",
     "art/blender/scripts/build_lift_ceiling_lamp.py",
@@ -7681,13 +10709,39 @@
     "art/blender/scripts/build_light_court_stair.py",
     "art/blender/scripts/build_light_court_structure.py",
     "art/blender/scripts/build_light_switch.py",
+    "art/blender/scripts/build_locksmith_fittings.py",
+    "art/blender/scripts/build_medicine_cabinets.py",
     "art/blender/scripts/build_millwork_profile.py",
+    "art/blender/scripts/build_news_fittings.py",
+    "art/blender/scripts/build_news_receiving.py",
     "art/blender/scripts/build_orison.py",
     "art/blender/scripts/build_orison_foundations.py",
     "art/blender/scripts/build_orison_ground.py",
+    "art/blender/scripts/build_pawn_clocks.py",
+    "art/blender/scripts/build_pawn_display.py",
+    "art/blender/scripts/build_pawn_fittings.py",
+    "art/blender/scripts/build_pawn_receiving.py",
+    "art/blender/scripts/build_photo_cameras.py",
+    "art/blender/scripts/build_photo_counter.py",
+    "art/blender/scripts/build_photo_enlargers.py",
+    "art/blender/scripts/build_photo_glazing.py",
+    "art/blender/scripts/build_photo_portraits.py",
+    "art/blender/scripts/build_photo_process.py",
+    "art/blender/scripts/build_photo_radio_fittings.py",
+    "art/blender/scripts/build_photo_receiving.py",
+    "art/blender/scripts/build_photo_stock.py",
+    "art/blender/scripts/build_prep_cabinets.py",
     "art/blender/scripts/build_public_furnishings.py",
     "art/blender/scripts/build_radiator_wall_tie.py",
+    "art/blender/scripts/build_radio_apparatus.py",
+    "art/blender/scripts/build_radio_battery.py",
+    "art/blender/scripts/build_radio_bench.py",
+    "art/blender/scripts/build_radio_display.py",
+    "art/blender/scripts/build_radio_receiving.py",
+    "art/blender/scripts/build_radio_stock.py",
+    "art/blender/scripts/build_radio_wire.py",
     "art/blender/scripts/build_reading_furniture.py",
+    "art/blender/scripts/build_reading_nook.py",
     "art/blender/scripts/build_rear_wing_a_support.py",
     "art/blender/scripts/build_rear_wing_c_support.py",
     "art/blender/scripts/build_remaining_upper_transfers.py",
@@ -7695,14 +10749,28 @@
     "art/blender/scripts/build_roof_base_flashings.py",
     "art/blender/scripts/build_roof_bulkhead_caps.py",
     "art/blender/scripts/build_roof_coping.py",
+    "art/blender/scripts/build_roof_drainage_door_weather.py",
+    "art/blender/scripts/build_roof_drainage_falls.py",
+    "art/blender/scripts/build_roof_drainage_leaders.py",
+    "art/blender/scripts/build_roof_drainage_plant_weather.py",
+    "art/blender/scripts/build_roof_drainage_ports.py",
+    "art/blender/scripts/build_roof_drainage_receivers.py",
     "art/blender/scripts/build_roof_edge_support.py",
     "art/blender/scripts/build_roof_membrane.py",
     "art/blender/scripts/build_roof_public_weathering.py",
     "art/blender/scripts/build_roof_service_weathering.py",
     "art/blender/scripts/build_roof_ventilator.py",
     "art/blender/scripts/build_service_alley.py",
+    "art/blender/scripts/build_service_instruments.py",
+    "art/blender/scripts/build_shop_clerestories.py",
+    "art/blender/scripts/build_shop_joinery.py",
     "art/blender/scripts/build_shop_seating.py",
+    "art/blender/scripts/build_signage.py",
+    "art/blender/scripts/build_signal_terminal.py",
     "art/blender/scripts/build_stair_ironwork.py",
+    "art/blender/scripts/build_surface_stock.py",
+    "art/blender/scripts/build_task_lamp_supply.py",
+    "art/blender/scripts/build_task_lamps.py",
     "art/blender/scripts/build_traffic_vehicle.py",
     "art/blender/scripts/build_upper_wall_seats.py",
     "art/blender/scripts/build_vent_register.py",
@@ -7710,7 +10778,10 @@
     "art/blender/scripts/build_ventilation_fabric_lining.py",
     "art/blender/scripts/build_ventilation_slab_sleeve.py",
     "art/blender/scripts/build_wayfinding_plate.py",
-    "art/blender/scripts/build_window_joinery.py"
+    "art/blender/scripts/build_wc_swing_clear_hinge.py",
+    "art/blender/scripts/build_window_joinery.py",
+    "art/blender/scripts/build_work_oak_material.py",
+    "art/blender/scripts/build_work_tables.py"
   ],
   "city_composition": {
     "interpretation": "INERT source discovery; active/dormant is composition, not acceptance.",

@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Next V1-to-V2 import batch, discovery baseline and dossier closeout | `design/V2_IMPORT_RESUME_2026-10-08.md` |
 | Completed owner 40-card dossier scope, 39 reviewed items and conditional G15 | `design/ORISON_V2_OWNER_BUILDING_FINISHES_2026-10-08.md` and `output/pdf/V2_dossier_implementation_review.pdf` |
 | Current room/city geometry and texture review, fitted door motion and honest ledger refresh | `design/V2_BUILDING_SURFACE_FINISH_2026-10-05.md` and `art/blender/building_surface_finish.md` |
 | Pawnbroker original passive clock wall, fitted cases/dials and real party-wall bearings | `art/blender/pawn_clocks.md` and `design/V2_PAWN_CLOCKS_2026-10-07.md` |
