@@ -418,5 +418,8 @@
   "last_verified_batch": "B4 cloth plus B5 shops: final runtime08, 12207 module +17 batch checks, zero failures, one world; fresh static candidate verification passed with zero regressions.",
   "code_candidate": "ec0fc63371a0c69a8d22e5e344177c179a4f0b96",
   "candidate_verification": "art/renders/orison_v2/cloth_shops_20261008/verification.json",
-  "dossier_implementation_scope": "39 scoped visual items reviewed; G15 remains conditional and uninstalled by default. Broader V2 fabrication/world acceptance remains incomplete."
+  "dossier_implementation_scope": "39 scoped visual items reviewed; G15 remains conditional and uninstalled by default. Broader V2 fabrication/world acceptance remains incomplete.",
+  "implementation_commit": "37db375a4917dda98717e5240ed44e2223f69a58",
+  "implementation_review_pdf": "output/pdf/V2_dossier_implementation_review.pdf",
+  "final_static_verification": "art/renders/orison_v2/building_finishes_20261008/verification.json"
 }

@@ -1,0 +1,10 @@
+{
+  "evidence_class": "INERT",
+  "candidate": "37db375a4917dda98717e5240ed44e2223f69a58",
+  "runtime_inputs_sha256": "ed0370b520cbf2c6501dc73fccfde6dfc2220aba9db8ddbdc1189ec345b12d3a",
+  "test_path": "game/tests/orison_v2_owner_building_finish_test.gd",
+  "test_sha256": "20c7b080932882cb9c8f301e0be19065237547ddd6a19a4006f4cde6927ac5c7",
+  "receipt": "capture_final/owner_building_finish/runtime_contract.json",
+  "exact_runtime_and_test_match": true,
+  "scope": "Post-commit byte comparison. This comparison is not a separate runtime contract."
+}

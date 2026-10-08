@@ -106,9 +106,16 @@ require floor, capsule-clearance and visible-tank ray checks. Run05 is rejected
 despite its wrapper exit: a typed-array script error interrupted that helper.
 Run06 fixes the type and requires an explicit helper-completion check before
 issuing a passing contract. Native and final PDF pages were visually reviewed.
-Candidate static verification is recorded below before delivery.
+Fresh static [candidate verification](../art/renders/orison_v2/building_finishes_20261008/verification.json)
+passes with zero regressions against **fdf01a36**, a clean verification
+checkout, all 17 protected paths and selector V2. It launches no extra Godot
+processes. The only changed gate file is the reviewed append-only spatial
+manifest. The committed runtime digest and final test bytes exactly match
+the capture_final06 test-written receipt.
 
 Worktree clean at end: no. Owner in-situ notes/images, supplied dossier inputs,
 unrelated generated UIDs and the two preceding line-ending-only changes are
 excluded. No owner decision is required. The broader V1 fabrication census,
 unregistered builders and historical source drift remain separate V2 work.
+
+MERGE-CANDIDATE 37db375a4917dda98717e5240ed44e2223f69a58
