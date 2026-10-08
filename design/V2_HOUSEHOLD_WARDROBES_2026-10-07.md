@@ -5,10 +5,8 @@ Evidence class: **INERT**
 REPORT - V2-HOUSEHOLD-WARDROBES - 2026-10-07
 
 Branch / HEAD / origin/main / merge-base: canonical **main**, source parent
-**836f315132b2f06c12de0d1233b191852b74455b**. No push. Source-tree verification
-is pending. Worktree clean at end: no; the owner's **shots.md** and
-**shot_024..027.png** are excluded. Protected 17/17: candidate verification
-pending. Selector remains V2 with explicit V1 rollback.
+**836f315132b2f06c12de0d1233b191852b74455b**. No push. Source-tree verification passes with zero regressions. Worktree clean at end: no; the owner's **shots.md** and
+**shot_024..027.png** are excluded. Protected 17/17: unchanged in the verified candidate. Selector remains V2 with explicit V1 rollback.
 
 Ledger before -> after: **7 / 8 / 127 / 42 / 151 / 153**; no requirement change
 or runtime-contract proof claimed. Whole V2 remains incomplete.
@@ -70,3 +68,14 @@ No whole-room photorealism, route/service capacity or ledger promotion claimed.
 
 Evidence: **art/renders/orison_v2/household_wardrobes_20261007/image_manifest.json**.
 All receipts here are INERT geometry/visual QA. Decision needed from owner: none.
+
+Verified source **810b7d2e5e444a742a5ead53f2ff614071872cb2** has exactly tree
+**e05fb2112926a218e83fd6e9e33c578f1d4342ed**, matching candidate
+**8cad63bc9fa4b8d933d13759bd8a94211c4b3e2f**. The cached complete baseline
+**1c319e582f57bc9a505093f1a89146c78562756e** was reused without further
+Godot runs. Static verification reports zero regressions, unchanged ledger
+counts, all 17 protected paths unchanged and no contradicted report claims.
+The verifier removed its temporary checkout. The manifest only appends the
+25 classified references and preserves all 7,997 prior records.
+
+MERGE-CANDIDATE 810b7d2e5e444a742a5ead53f2ff614071872cb2
