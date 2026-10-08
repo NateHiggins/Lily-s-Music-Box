@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 61.82,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T13:22:15Z",
+  "started_utc": "2026-10-08T13:21:13Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/bar-furniture-runtime-03.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/bar-furniture-runtime-03.log",
+  "stdout_sha256": "abb799b1ec08c6d014c8de02fd3321dbc58b9b4fdeff943b55bd73183e4e4af1"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/bar-furniture-runtime-03",
+ "source": {
+  "dirty_paths": 291,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/scripts/building/orison_v2_bar_region.gd",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M tools/orison_spatial_dependency_manifest.json",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/bar_furniture.blend",
+   "?? art/blender/bar_furniture_construction.json",
+   "?? art/blender/scripts/bar_furniture_geometry.py",
+   "?? art/blender/scripts/build_bar_furniture.py",
+   "?? art/blender/scripts/inspect_bar_furniture.py",
+   "?? art/blender/scripts/prepare_bar_furniture.py",
+   "?? art/blender/scripts/render_bar_furniture.py",
+   "?? art/data/bar_furniture/",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? art/reviews/v2_improvement_20261008/"
+  ],
+  "repository_head": "5d5da5a6937c4f2a9c3da10f8cf96a5f9f0c381e",
+  "repository_tree": "8eca1b0b42bb0cab26c5424cce41f14ec9e8686f",
+  "runtime_inputs_sha256": "ebb5677e7232098b2331f0db08e2964d5fc71f769e68a733f272f1a5e8036369",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "893affdf8a896c4a20b41c686077527fee6e2d48bc0910f4c6762a56668ff9d9"
+ },
+ "windowed": true
+}

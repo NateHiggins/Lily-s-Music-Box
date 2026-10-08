@@ -1,0 +1,88 @@
+{
+	"batch_checks": 11,
+	"elapsed_ms": 51024,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 1143,
+	"modules": {
+		"bar_furniture": {
+			"captured": true,
+			"checks": 539,
+			"elapsed_ms": 5642,
+			"failures": [],
+			"fixture_sha256": "d2cbba16a2aef4decb8e4c4b55a77146b38b02f657d40afe17e736ef2d1b8ea1",
+			"validator_sha256": "fc6fb9559161428b349dbc304d702746e6c0722e9068210a9742869af5720a36",
+			"views": [
+				{
+					"bucket": "bar",
+					"feet": [
+						-0.150000005960464,
+						-2.76999998092651,
+						25.0049991607666
+					],
+					"id": "stage_audience",
+					"image": "stage_audience.png",
+					"owner": "G09",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "bar",
+					"feet": [
+						-1.89999997615814,
+						-2.54999995231628,
+						26.4549999237061
+					],
+					"id": "piano_keys",
+					"image": "piano_keys.png",
+					"owner": "G09",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "bar",
+					"feet": [
+						-9.05000019073486,
+						-2.76999998092651,
+						23.2049999237061
+					],
+					"id": "darts_oche",
+					"image": "darts_oche.png",
+					"owner": "G11",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "bar",
+					"feet": [
+						-10.3000001907349,
+						-2.76999998092651,
+						21.7049999237061
+					],
+					"id": "darts_score_oblique",
+					"image": "darts_score_oblique.png",
+					"owner": "G11",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"bar_instruments": {
+			"captured": false,
+			"checks": 364,
+			"elapsed_ms": 230,
+			"failures": [],
+			"fixture_sha256": "707dbacf584532f18004fe65cf5229c7ba61ed13c4cb48eb2095ce5ba40146bd",
+			"validator_sha256": "a707296c3d4a7f1f51f74706cfd192eb343fde77ffe3e1b247b7a1a621461536",
+			"views": []
+		},
+		"task_lamp_supply": {
+			"captured": false,
+			"checks": 240,
+			"elapsed_ms": 1279,
+			"failures": [],
+			"fixture_sha256": "a270fad826f4b93358353bddc7b34e304f8e07661e657a7472c283db8d4298b0",
+			"validator_sha256": "b0aa36a531b8920e85034759b3c6b8b0fdea2dc52c4d55388fadb8ca894a8b00",
+			"views": []
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

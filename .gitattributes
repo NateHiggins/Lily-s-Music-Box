@@ -1584,3 +1584,21 @@ game/tests/fixtures/orison_task_lamp_supply.json -text
 game/tests/orison_v2_task_lamp_supply_test.gd -text
 game/scripts/building/orison_v2_task_lamp_supply.gd -text
 art/renders/orison_v2/bar_and_supply_20261008/** -text -whitespace
+
+# Source-bound passive bar piano, microphone and Rainbow Round case.
+art/blender/scripts/prepare_bar_furniture.py -text
+art/blender/scripts/build_bar_furniture.py -text
+art/blender/scripts/inspect_bar_furniture.py -text
+art/blender/scripts/render_bar_furniture.py -text
+art/blender/scripts/bar_furniture_geometry.py -text
+art/data/bar_furniture/source_plan.json -text
+art/blender/bar_furniture.blend -text
+art/blender/bar_furniture_construction.json -text
+game/assets/props/bar_furniture.glb -text
+game/assets/props/bar_furniture.glb.import -text
+game/data/orison_v2/bar_furniture.json -text
+game/tests/fixtures/orison_bar_furniture.json -text
+game/tests/orison_v2_bar_furniture_test.gd -text
+game/tests/orison_v2_bar_furniture_preflight.gd -text
+game/scripts/building/orison_v2_bar_furniture.gd -text
+art/renders/orison_v2/bar_furniture_20261008/** -text -whitespace

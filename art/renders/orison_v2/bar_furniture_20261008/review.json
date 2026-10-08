@@ -1,0 +1,41 @@
+{
+  "evidence_class": "INERT",
+  "scope": "Debug history; failed attempts are not passing evidence.",
+  "iterations": [
+    {
+      "run": "runtime-01",
+      "result": "Startup failure: score retirement assumed a single surface; preserved the existing ceiling finish surface and remapped its material index."
+    },
+    {
+      "run": "runtime-02",
+      "result": "19 failures: incorrect ceiling index assertion, station too close to keys, and 17 short physics-ray misses. Gallery overlap also found in captured views."
+    },
+    {
+      "run": "preflight-09",
+      "result": "28/28 fields reached with metre-long rays. Native and imported front triangles were correct; short segment determinant fell below engine tolerance."
+    },
+    {
+      "native": "build-03 / inspection-03",
+      "result": "Restored left leaf parked 90 degrees, zero retained-gallery crossings."
+    },
+    {
+      "native": "build-06 / inspection-06",
+      "result": "42 measured closed target depressions, fixed transform update before slotted-screw booleans, 73 separated keys, no drape/gallery crossings."
+    },
+    {
+      "run": "runtime-03",
+      "result": "PASS: 1143 module checks, zero failures, one world, four installed captures, original darts interaction and teardown exercised."
+    }
+  ],
+  "review": {
+    "installed_images": 4,
+    "native_images": 8,
+    "observations": [
+      "Piano cabinet darker than floor; key geometry and narrow ivory variation visible. Warm original lamp partly occludes close production keyboard view; native close view resolves construction.",
+      "Left fixed cabinet leaf clears both gallery frames in front and oblique installed views.",
+      "Target retains seven colours and original four radial scoring boundaries.",
+      "Microphone and pedals bear on original stage. No lights added."
+    ],
+    "remaining_scope": "No playable piano, microphone capture, physical projectile gameplay or save reconstruction claimed."
+  }
+}

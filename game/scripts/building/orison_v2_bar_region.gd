@@ -75,9 +75,14 @@ func _ready() -> void:
 		geometry.free()
 		_fail("native stage curtains do not fit their retained source boundaries")
 		return
+	if not preload("res://scripts/building/orison_v2_bar_furniture.gd").mount_cell(geometry, source_layout):
+		geometry.free()
+		_fail("native stage furniture and target differ from their exact source triangles")
+		return
 	add_child(geometry)
 	surface_pass = Surface.new()
 	surface_pass.apply({"shop_bar": geometry})
+	preload("res://scripts/building/orison_v2_bar_furniture.gd").calibrate(geometry)
 	actors = Node3D.new()
 	actors.name = "BarActors"
 	add_child(actors)

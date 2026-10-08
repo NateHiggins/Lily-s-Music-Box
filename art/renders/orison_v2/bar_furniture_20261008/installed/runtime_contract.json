@@ -1,0 +1,41 @@
+{
+	"checks": 539,
+	"contracts": {
+		"premature_action_denial": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 9.137,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Passive stage and target construction, exact source retirement, bearings and reach, original Rainbow Round ray/open/throw/opponent/reveal/next/close, saved-state stability and teardown. No playable piano, microphone capture, physical projectiles or save reconstruction is exercised.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "5d5da5a6937c4f2a9c3da10f8cf96a5f9f0c381e",
+		"runtime_inputs_sha256": "ebb5677e7232098b2331f0db08e2964d5fc71f769e68a733f272f1a5e8036369",
+		"test_path": "game/tests/orison_v2_bar_furniture_test.gd",
+		"test_sha256": "fc6fb9559161428b349dbc304d702746e6c0722e9068210a9742869af5720a36"
+	}
+}

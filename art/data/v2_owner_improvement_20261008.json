@@ -131,9 +131,9 @@
       "id": "G09",
       "title": "Harukiya piano and stage microphone",
       "priority": "P1",
-      "status": "pending",
+      "status": "implemented_reviewed",
       "source_page": 11,
-      "result": null
+      "result": "Joined upright case, separate 73 passive keys (explicit adaptation to source span), connected pedals and fitted microphone/cloth flex. Native key and drape clearances and production floor bearings/approach pass. Native and installed views reviewed in the 1143-check composed batch."
     },
     {
       "id": "G10",
@@ -147,9 +147,9 @@
       "id": "G11",
       "title": "Darts board, score panel and loose darts",
       "priority": "P2",
-      "status": "partially_implemented",
+      "status": "implemented_reviewed",
       "source_page": 13,
-      "result": "Three native darts have turned barrels and seated finite flights; original Rainbow Round panel opens, cancels and retires unchanged. The target, cabinet and score panel remain pending."
+      "result": "Earlier native loose darts retained; fitted cabinet, quiet framed score surface and timber target with seven exact source scoring fields, thin wires and 42 shallow point impressions. Recovered omitted left leaf parked 90 degrees to clear retained gallery. Original player ray/open/throw/opponent/reveal/next/close and teardown pass; no physical projectile or new scoring owner."
     },
     {
       "id": "G12",
@@ -384,8 +384,8 @@
       "result": null
     }
   ],
-  "evidence_root": "art/renders/orison_v2/service_instruments_20261008",
-  "last_verified_batch": "G01-G07, nine original instruments and six work lights",
+  "evidence_root": "art/renders/orison_v2/bar_furniture_20261008",
+  "last_verified_batch": "G09/G11 bar furniture: 1143 module checks, zero failures, 4 installed and 8 native views reviewed",
   "code_candidate": "1d351fd9c856190a5aceb8c079e18a0d1f2a5c49",
   "candidate_verification": "Fresh checkout: zero gate regressions, protected 17/17 PASS, V2 selector PASS. Godot evidence is from the canonical checkout, not the verifier."
 }
