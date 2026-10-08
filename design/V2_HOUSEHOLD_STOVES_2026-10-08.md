@@ -8,7 +8,11 @@ Branch / HEAD / origin/main / merge-base: canonical **main**, source parent
 **74056323e122ac76b6fe05cf477120c0fbe4e19c**. Remote at start is
 **db2187c48ca8f6aab8109ad0fc203e55386b3097**. Owner shots.md and shot_024..027.png
 remain excluded; the working tree is not clean. Selector remains V2 with V1
-rollback. Candidate verification is pending.
+rollback. Source **3a4298636907a2f2bf5d890d5b3f3410e85cd1be** has the exact verified tree
+**d39a3faa996cf17443eacf8fc2a37f70139af33c** of candidate **6c5bd90e5045e948c599c42b71f8ebd29f7dce05**.
+Fresh-checkout verification reports zero regressions, 17/17 protected paths
+unchanged, no blocking findings and unchanged ledger counts. Completed
+production receipts are reused. Temporary verification checkouts are retired.
 
 Ledger before -> after: **7 / 8 / 127 / 42 / 151 / 153**. No runtime-contract
 proof or requirement promotion. Whole V2 photoreal completion remains open.
