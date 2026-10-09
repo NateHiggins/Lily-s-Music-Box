@@ -334,6 +334,18 @@
       "kind": "blanket",
       "cell": "shared",
       "source_record": "2C_blanket_a"
+    },
+    {
+      "id": "DomesticObject25",
+      "kind": "hamper",
+      "cell": "shared",
+      "source_record": "2A_hall_hamper"
+    },
+    {
+      "id": "DomesticObject26",
+      "kind": "boottray",
+      "cell": "shared",
+      "source_record": "4B_hall_boots"
     }
   ],
   "closed_stocks": [
@@ -4692,6 +4704,144 @@
       "assembly": "DomesticObject24",
       "key": "linen",
       "volume_m3": 3.818842787956336e-06
+    },
+    {
+      "name": "DomesticObject25_Foot(-0.21, -0.13)",
+      "assembly": "DomesticObject25",
+      "key": "wood_dark",
+      "volume_m3": 3.4805631404383465e-05
+    },
+    {
+      "name": "DomesticObject25_Foot(-0.21, 0.13)",
+      "assembly": "DomesticObject25",
+      "key": "wood_dark",
+      "volume_m3": 3.4805631404383465e-05
+    },
+    {
+      "name": "DomesticObject25_Foot(0.21, -0.13)",
+      "assembly": "DomesticObject25",
+      "key": "wood_dark",
+      "volume_m3": 3.4805631404383465e-05
+    },
+    {
+      "name": "DomesticObject25_Foot(0.21, 0.13)",
+      "assembly": "DomesticObject25",
+      "key": "wood_dark",
+      "volume_m3": 3.480563140438347e-05
+    },
+    {
+      "name": "DomesticObject25_Body",
+      "assembly": "DomesticObject25",
+      "key": "cane",
+      "volume_m3": 0.07467370459776153
+    },
+    {
+      "name": "DomesticObject25_Band0.02",
+      "assembly": "DomesticObject25",
+      "key": "wood_dark",
+      "volume_m3": 0.005197782091781742
+    },
+    {
+      "name": "DomesticObject25_Band0.43",
+      "assembly": "DomesticObject25",
+      "key": "wood_dark",
+      "volume_m3": 0.00519778198062704
+    },
+    {
+      "name": "DomesticObject25_Lid",
+      "assembly": "DomesticObject25",
+      "key": "cane",
+      "volume_m3": 0.007617128696049403
+    },
+    {
+      "name": "DomesticObject25_Handle-0.245",
+      "assembly": "DomesticObject25",
+      "key": "cane",
+      "volume_m3": 2.089812810458578e-05
+    },
+    {
+      "name": "DomesticObject25_Handle0.245",
+      "assembly": "DomesticObject25",
+      "key": "cane",
+      "volume_m3": 2.0898128104585745e-05
+    },
+    {
+      "name": "DomesticObject25_Linen",
+      "assembly": "DomesticObject25",
+      "key": "linen",
+      "volume_m3": 0.00010477158197219096
+    },
+    {
+      "name": "DomesticObject26_TrayPlate",
+      "assembly": "DomesticObject26",
+      "key": "metal",
+      "volume_m3": 0.0012950358190348254
+    },
+    {
+      "name": "DomesticObject26_RimLong-0.18",
+      "assembly": "DomesticObject26",
+      "key": "metal",
+      "volume_m3": 0.00011959577204660347
+    },
+    {
+      "name": "DomesticObject26_RimLong0.172",
+      "assembly": "DomesticObject26",
+      "key": "metal",
+      "volume_m3": 0.00011959577204660347
+    },
+    {
+      "name": "DomesticObject26_RimEnd-0.3",
+      "assembly": "DomesticObject26",
+      "key": "metal",
+      "volume_m3": 6.895844896739204e-05
+    },
+    {
+      "name": "DomesticObject26_RimEnd0.292",
+      "assembly": "DomesticObject26",
+      "key": "metal",
+      "volume_m3": 6.895844896739204e-05
+    },
+    {
+      "name": "DomesticObject26_Mud",
+      "assembly": "DomesticObject26",
+      "key": "soil",
+      "volume_m3": 0.00011507470074211988
+    },
+    {
+      "name": "DomesticObject26_Sole0",
+      "assembly": "DomesticObject26",
+      "key": "rubber_aged",
+      "volume_m3": 0.0007400457077382845
+    },
+    {
+      "name": "DomesticObject26_Vamp0",
+      "assembly": "DomesticObject26",
+      "key": "rubber_aged",
+      "volume_m3": 0.0013223419562066777
+    },
+    {
+      "name": "DomesticObject26_Shaft0",
+      "assembly": "DomesticObject26",
+      "key": "rubber_aged",
+      "volume_m3": 0.0025672940638817193
+    },
+    {
+      "name": "DomesticObject26_Sole1",
+      "assembly": "DomesticObject26",
+      "key": "rubber_aged",
+      "volume_m3": 0.0007400457077382845
+    },
+    {
+      "name": "DomesticObject26_Vamp1",
+      "assembly": "DomesticObject26",
+      "key": "rubber_aged",
+      "volume_m3": 0.0013223420303299209
+    },
+    {
+      "name": "DomesticObject26_Shaft1",
+      "assembly": "DomesticObject26",
+      "key": "rubber_aged",
+      "volume_m3": 0.002567293952803896
     }
   ],
   "contacts": [
@@ -6104,6 +6254,126 @@
         -1
       ],
       "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject25",
+      "owner": "support",
+      "point": [
+        -0.21,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "hamper foot (-0.21, -0.13)"
+    },
+    {
+      "assembly": "DomesticObject25",
+      "owner": "support",
+      "point": [
+        -0.21,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "hamper foot (-0.21, 0.13)"
+    },
+    {
+      "assembly": "DomesticObject25",
+      "owner": "support",
+      "point": [
+        0.21,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "hamper foot (0.21, -0.13)"
+    },
+    {
+      "assembly": "DomesticObject25",
+      "owner": "support",
+      "point": [
+        0.21,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "hamper foot (0.21, 0.13)"
+    },
+    {
+      "assembly": "DomesticObject26",
+      "owner": "support",
+      "point": [
+        -0.28,
+        0,
+        0.16
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray corner (-0.28, -0.16)"
+    },
+    {
+      "assembly": "DomesticObject26",
+      "owner": "support",
+      "point": [
+        0.28,
+        0,
+        0.16
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray corner (0.28, -0.16)"
+    },
+    {
+      "assembly": "DomesticObject26",
+      "owner": "support",
+      "point": [
+        -0.28,
+        0,
+        -0.16
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray corner (-0.28, 0.16)"
+    },
+    {
+      "assembly": "DomesticObject26",
+      "owner": "support",
+      "point": [
+        0.28,
+        0,
+        -0.16
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray corner (0.28, 0.16)"
     }
   ],
   "parts": [
@@ -6876,9 +7146,51 @@
       "cell": "shared",
       "key": "wood_dark",
       "triangles": 376
+    },
+    {
+      "name": "DomesticObject25__Body_ON_cane",
+      "assembly": "DomesticObject25",
+      "cell": "shared",
+      "key": "cane",
+      "triangles": 560
+    },
+    {
+      "name": "DomesticObject25__Body_ON_linen",
+      "assembly": "DomesticObject25",
+      "cell": "shared",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject25__Body_ON_wood_dark",
+      "assembly": "DomesticObject25",
+      "cell": "shared",
+      "key": "wood_dark",
+      "triangles": 1128
+    },
+    {
+      "name": "DomesticObject26__Body_ON_metal",
+      "assembly": "DomesticObject26",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 940
+    },
+    {
+      "name": "DomesticObject26__Body_ON_rubber_aged",
+      "assembly": "DomesticObject26",
+      "cell": "shared",
+      "key": "rubber_aged",
+      "triangles": 1128
+    },
+    {
+      "name": "DomesticObject26__Body_ON_soil",
+      "assembly": "DomesticObject26",
+      "cell": "shared",
+      "key": "soil",
+      "triangles": 188
     }
   ],
-  "triangles": 181928,
+  "triangles": 186060,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -8573,6 +8885,106 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "DomesticObject25",
+        "parts": [
+          {
+            "name": "DomesticObject25__Body_ON_cane",
+            "component": "Body",
+            "key": "cane",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.38,
+              0.34,
+              0.23,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.015,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "DomesticObject25__Body_ON_linen",
+            "component": "Body",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject25__Body_ON_wood_dark",
+            "component": "Body",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject26",
+        "parts": [
+          {
+            "name": "DomesticObject26__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "DomesticObject26__Body_ON_rubber_aged",
+            "component": "Body",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject26__Body_ON_soil",
+            "component": "Body",
+            "key": "soil",
+            "tile": 0.35,
+            "catalog_key": "soil",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -8775,15 +9187,87 @@
       {
         "id": "3D_blanket_b",
         "variant": "DomesticObject24"
+      },
+      {
+        "id": "1A_hall_hamper",
+        "variant": "DomesticObject25"
+      },
+      {
+        "id": "1D_hall_boots",
+        "variant": "DomesticObject26"
+      },
+      {
+        "id": "2A_hall_hamper",
+        "variant": "DomesticObject25"
+      },
+      {
+        "id": "2B_hall_hamper",
+        "variant": "DomesticObject25"
+      },
+      {
+        "id": "2C_hall_boots",
+        "variant": "DomesticObject26"
+      },
+      {
+        "id": "3A_hall_boots",
+        "variant": "DomesticObject26"
+      },
+      {
+        "id": "3B_hall_crate",
+        "variant": "DomesticObject03"
+      },
+      {
+        "id": "3D_hall_hamper",
+        "variant": "DomesticObject25"
+      },
+      {
+        "id": "4A_hall_boots",
+        "variant": "DomesticObject26"
+      },
+      {
+        "id": "4B_hall_boots",
+        "variant": "DomesticObject26"
+      },
+      {
+        "id": "4C_hall_hamper",
+        "variant": "DomesticObject25"
+      },
+      {
+        "id": "4D_hall_crate",
+        "variant": "DomesticObject03"
+      },
+      {
+        "id": "5A_hall_boots",
+        "variant": "DomesticObject26"
+      },
+      {
+        "id": "5B_hall_hamper",
+        "variant": "DomesticObject25"
+      },
+      {
+        "id": "5C_hall_boots",
+        "variant": "DomesticObject26"
+      },
+      {
+        "id": "6A_hall_crate",
+        "variant": "DomesticObject12"
+      },
+      {
+        "id": "6B_hall_hamper",
+        "variant": "DomesticObject25"
+      },
+      {
+        "id": "6C_hall_boots",
+        "variant": "DomesticObject26"
       }
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "fdf05d6bfd1bcc6b25b0bf5be4026e129e48805b9afc0d3219c551e8cc2c462d",
+  "asset_sha256": "4389a0c779cc7402f7d1984269e18480c408fe0d1cdb25db194575ac11c4fa88",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "309fb6873e6596349ff6094c5b82716f5a26f68f7314884cadac3023416696cf",
+    "art/data/domestic_objects/source_plan.json": "20113648f36899de88e25d3ea30c1130bde8168133832fd552a21e9da8b67c79",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_objects.py": "8cb98fa076a4a209a1ff3e21452f6416e9a3826ac2b046dee537d9d50b6f6177",
+    "art/blender/scripts/build_domestic_objects.py": "495800885632e25c93ea2140879e1656c72a94053961c62e42ff55490358184e",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -8873,25 +9357,25 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "5c6ad225e6ede75bd4fcc6a4adcb6325dcf1375e6cd0410ec816008dff1bd166",
+    "art/blender/scripts/domestic_objects_geometry.py": "1f3aaf8ba7108ddd154d40e47f6b7728e26b28a53d1a4860bbaa785fa15da35e",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "7388f5e75815f139cb4628e20ec8eca4ffe1ab3332c46d7ecf883608e16b944c",
-    "game/data/orison_v2/completion_interiors.json": "fce0f5a32bae871e2ba04e3729c1635ae9457b002bceb53ef86c7876f9e50dcb",
-    "art/data/orison_v2/completion_interiors_source.json": "da9b674f27850145afb6456538abd5b8eabf0468d3cb8a933f1de3556cfcd14c",
+    "game/data/orison_v2/domestic_furniture.json": "9b79e9419563d35adb5f567bcfcab16a32a7486ad4b92caa2eb6126195d6664e",
+    "game/data/orison_v2/completion_interiors.json": "ac0a44d27c11476ed18bbc4a616743705de3acf4ff1be60c3a89197f4470433d",
+    "art/data/orison_v2/completion_interiors_source.json": "80c254d97a13c0287a851e21e4605a159ced6dba202c32b19e4d652aa1ed5272",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "74c6f86eb5499f387460880d4b1400ddd3515f0cf02f1f677ad8ca4129b6db57",
-    "game/data/orison_v2_blockout.json": "859d1e01ebd11b2e56d9638889e5645228ac30fd84dd4e043e6a13fd6dece228",
+    "game/data/orison_v2_blockout.json": "41614a87e17611fca0038d83295db074a172b0481847ebeb00371313ac5cd7ca",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
     "game/data/orison_v2/domestic_surface_props.json": "77c704b249438b8ed83b3cc9dd1b68649f1e0a55938f06e5c244d90e662ac276",
-    "game/tests/fixtures/orison_surface_stock.json": "ad4d1980693ffb550eb6bf8902da4cc0e7712e50718c6737ed2038d8f97514b4",
-    "art/blender/domestic_storage.blend": "da0adc0a38fe052ddffe8e3a62912e3fb3ef94c8640a6ea1adc778b52b3e0fcb",
-    "art/blender/prep_cabinets.blend": "7cf836f1277a9ce5a8d92d88e7ef412e3cef74093c7637e5561e9a7df406622b",
-    "art/blender/household_wardrobes.blend": "d27bbd2f294c605aee90f7cf884838c1d1ae2de5ddad70e3f8b9f8a9e30b2543",
+    "game/tests/fixtures/orison_surface_stock.json": "5fd2fc0c9f62587a5bf9100ef6ad492bcc6a944bbc4d1ab6e015ac254c750378",
+    "art/blender/domestic_storage.blend": "9e1ed83bd2749f604fdb740b59d6af912585fcfb3ca3bd0a06b427a1b2d8a57c",
+    "art/blender/prep_cabinets.blend": "9c7529f4806a0a4c19c3cf059766869a3815dcabaaa34b02d2fd4a760193e524",
+    "art/blender/household_wardrobes.blend": "0d30c9c7ad9546f29d9eb5ad7a9974b5acad3d113b4fcb4cc2037f446114c8b0",
     "art/blender/scripts/surface_stock_geometry.py": "6008a0074b244db478735ae54c6c026a6c36f8af6353f8ed793b32988b453986",
-    "art/blender/domestic_seating.blend": "b4ff41e164e3cfdc4de21820e290560563a291a78e58c8a2891b4c035a9b0a73",
-    "art/blender/domestic_tables.blend": "f5c54338313b4e2e89de344a111f405e5f284ce5ffbb5e7e7b6ea90b08d5987f"
+    "art/blender/domestic_seating.blend": "50e5abda294c2c608e4e8491d218127e6fdc727cbdbce0ada4dee56f1f751e69",
+    "art/blender/domestic_tables.blend": "27c8a681cced5a06183e18da6bbebe2937760f4753e5ef437ba32de9fcb40314"
   },
   "retained_stock": [
     {
@@ -11793,6 +12277,41 @@
         "DomesticObject24_Stitch3",
         "DomesticObject24_Stitch4",
         "DomesticObject24_Stitch5"
+      ]
+    },
+    {
+      "assembly": "DomesticObject25",
+      "id": "DomesticObject25_Hamper",
+      "stocks": [
+        "DomesticObject25_Foot(-0.21, -0.13)",
+        "DomesticObject25_Foot(-0.21, 0.13)",
+        "DomesticObject25_Foot(0.21, -0.13)",
+        "DomesticObject25_Foot(0.21, 0.13)",
+        "DomesticObject25_Body",
+        "DomesticObject25_Band0.02",
+        "DomesticObject25_Band0.43",
+        "DomesticObject25_Lid",
+        "DomesticObject25_Handle-0.245",
+        "DomesticObject25_Handle0.245",
+        "DomesticObject25_Linen"
+      ]
+    },
+    {
+      "assembly": "DomesticObject26",
+      "id": "DomesticObject26_BootTray",
+      "stocks": [
+        "DomesticObject26_TrayPlate",
+        "DomesticObject26_RimLong-0.18",
+        "DomesticObject26_RimLong0.172",
+        "DomesticObject26_RimEnd-0.3",
+        "DomesticObject26_RimEnd0.292",
+        "DomesticObject26_Mud",
+        "DomesticObject26_Sole0",
+        "DomesticObject26_Vamp0",
+        "DomesticObject26_Shaft0",
+        "DomesticObject26_Sole1",
+        "DomesticObject26_Vamp1",
+        "DomesticObject26_Shaft1"
       ]
     }
   ],

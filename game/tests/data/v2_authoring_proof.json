@@ -336,6 +336,78 @@
         "component": "2C_blanket_a",
         "note": "V2 environment dossier F02_C_BED2-002 (slice 13): second blanket"
       }
+    },
+    "2A_hall_hamper": {
+      "source_component": {
+        "component": "hamper",
+        "note": "V2 environment dossier private-hall use evidence (slice 14); no V1 counterpart"
+      }
+    },
+    "4B_hall_boots": {
+      "source_component": {
+        "component": "boottray",
+        "note": "V2 environment dossier private-hall use evidence (slice 14); no V1 counterpart"
+      }
+    },
+    "2B_hall_hamper": {
+      "source_component": {
+        "component": "2A_hall_hamper",
+        "note": "V2 environment dossier F02_B_PRIVATE_HALL-001 (slice 14): hall use evidence"
+      }
+    },
+    "3A_hall_boots": {
+      "source_component": {
+        "component": "4B_hall_boots",
+        "note": "V2 environment dossier F03_A_PRIVATE_HALL-001 (slice 14): hall use evidence"
+      }
+    },
+    "3B_hall_crate": {
+      "source_component": {
+        "component": "3B_partscrate",
+        "note": "V2 environment dossier F03_B_PRIVATE_HALL-001 (slice 14): hall use evidence"
+      }
+    },
+    "4A_hall_boots": {
+      "source_component": {
+        "component": "4B_hall_boots",
+        "note": "V2 environment dossier F04_A_PRIVATE_HALL-001 (slice 14): hall use evidence"
+      }
+    },
+    "5A_hall_boots": {
+      "source_component": {
+        "component": "4B_hall_boots",
+        "note": "V2 environment dossier F05_A_PRIVATE_HALL-001 (slice 14): hall use evidence"
+      }
+    },
+    "5B_hall_hamper": {
+      "source_component": {
+        "component": "2A_hall_hamper",
+        "note": "V2 environment dossier F05_B_PRIVATE_HALL-001 (slice 14): hall use evidence"
+      }
+    },
+    "5C_hall_boots": {
+      "source_component": {
+        "component": "4B_hall_boots",
+        "note": "V2 environment dossier F05_C_PRIVATE_HALL-001 (slice 14): hall use evidence"
+      }
+    },
+    "6A_hall_crate": {
+      "source_component": {
+        "component": "6A_gearcrate",
+        "note": "V2 environment dossier F06_A_PRIVATE_HALL-001 (slice 14): hall use evidence"
+      }
+    },
+    "6B_hall_hamper": {
+      "source_component": {
+        "component": "2A_hall_hamper",
+        "note": "V2 environment dossier F06_B_PRIVATE_HALL-001 (slice 14): hall use evidence"
+      }
+    },
+    "6C_hall_boots": {
+      "source_component": {
+        "component": "4B_hall_boots",
+        "note": "V2 environment dossier F06_C_PRIVATE_HALL-001 (slice 14): hall use evidence"
+      }
     }
   },
   "receivers": {

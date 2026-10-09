@@ -102,6 +102,10 @@ Slices landed so far (evidence folders in parentheses):
 13. Cloth: a garment-rail form (2B's repair rail, 4B's closet rail) and a
     hung-blanket form (2C's second bedroom, 3D's study), with five tinted
     cloth keys on the catalogue linen (`slice13`).
+14. One use object in each of the eighteen private halls: a wicker hamper,
+    a boot tray with galoshes or a crate (`slice14b`, `slice14c` after two
+    narrow-hall objects moved out of the door route; `slice14base` is the
+    upper-furniture baseline at slice 13).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

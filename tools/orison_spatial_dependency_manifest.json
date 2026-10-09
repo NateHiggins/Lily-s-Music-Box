@@ -4,7 +4,7 @@
  "layout_path": "art/data/building_layout.json",
  "universe_counts": {
   "floor": 8,
-  "v2_blockout": 2141,
+  "v2_blockout": 2159,
   "unit": 22,
   "room": 127,
   "marker": 631,
@@ -52673,6 +52673,32 @@
    "target_exists": true
   },
   {
+   "key": "79ddd0d197b1ff22",
+   "kind": "id_reference",
+   "token": "1A_hall_hamper",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "94408818e63ce8e0",
    "kind": "id_reference",
    "token": "1A_hallstand",
@@ -53147,6 +53173,32 @@
    "target_exists": true
   },
   {
+   "key": "c071755f06214cb4",
+   "kind": "id_reference",
+   "token": "1D_hall_boots",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "e6585998a01a616c",
    "kind": "id_reference",
    "token": "1D_hallstand",
@@ -53333,6 +53385,34 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6c74a5104bc75a52",
+   "kind": "id_reference",
+   "token": "2A_hall_hamper",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/template"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -53863,6 +53943,32 @@
    "target_exists": true
   },
   {
+   "key": "0c44b5aedc76c1e9",
+   "kind": "id_reference",
+   "token": "2C_hall_boots",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "e2fc6191c5d6f498",
    "kind": "id_reference",
    "token": "2C_hallstand",
@@ -54153,6 +54259,34 @@
    "target_exists": true
   },
   {
+   "key": "263d29640285143f",
+   "kind": "id_reference",
+   "token": "3B_partscrate",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/template"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "f7220d21f9caab97",
    "kind": "id_reference",
    "token": "3B_toolboard",
@@ -54369,6 +54503,32 @@
    "target_exists": true
   },
   {
+   "key": "c2170631df384e30",
+   "kind": "id_reference",
+   "token": "3D_hall_hamper",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "0401b2ae60e5f499",
    "kind": "id_reference",
    "token": "3D_hallstand",
@@ -54530,6 +54690,33 @@
    "key": "a0c9a6b91ede2f25",
    "kind": "id_reference",
    "token": "4A_frame_a",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/template"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c39d4d1f9e3b9e82",
+   "kind": "id_reference",
+   "token": "4B_hall_boots",
    "file": "game/data/orison_v2/completion_interiors.json",
    "tier": "data",
    "subsystem": "data",
@@ -54774,6 +54961,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F04/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6b3358df8c342674",
+   "kind": "id_reference",
+   "token": "4C_hall_hamper",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -55072,6 +55285,32 @@
    "key": "013d0e085141971e",
    "kind": "id_reference",
    "token": "4D_chair2",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a3b3816ae24e5dbc",
+   "kind": "id_reference",
+   "token": "4D_hall_crate",
    "file": "game/data/orison_v2/completion_interiors.json",
    "tier": "data",
    "subsystem": "data",
@@ -62735,7 +62974,7 @@
     0,
     0
    ],
-   "count": 30,
+   "count": 31,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -62784,7 +63023,7 @@
     0,
     0
    ],
-   "count": 22,
+   "count": 23,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -62842,7 +63081,7 @@
     0,
     0
    ],
-   "count": 26,
+   "count": 27,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -62947,7 +63186,7 @@
     0,
     0
    ],
-   "count": 23,
+   "count": 24,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -62996,7 +63235,7 @@
     0,
     0
    ],
-   "count": 26,
+   "count": 27,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -63045,7 +63284,7 @@
     0,
     0
    ],
-   "count": 23,
+   "count": 24,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -66444,6 +66683,32 @@
    "target_exists": true
   },
   {
+   "key": "63e2c160c0974759",
+   "kind": "id_reference",
+   "token": "2A_hall_hamper",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "6c2e3d2e8eb92c75",
    "kind": "id_reference",
    "token": "2A_hallstand",
@@ -67018,6 +67283,32 @@
    "target_exists": true
   },
   {
+   "key": "aff2d92cf3f1535a",
+   "kind": "id_reference",
+   "token": "2B_hall_hamper",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "95321bf97d7b8b88",
    "kind": "id_reference",
    "token": "2B_hallstand",
@@ -67419,6 +67710,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bb077e19ccecdb43",
+   "kind": "id_reference",
+   "token": "3A_hall_boots",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -67831,6 +68148,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "de703ee3d98ee6e2",
+   "kind": "id_reference",
+   "token": "3B_hall_crate",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -68408,6 +68751,32 @@
    "target_exists": true
   },
   {
+   "key": "b59b35d32dd68711",
+   "kind": "id_reference",
+   "token": "4A_hall_boots",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "4afd87a113d05ac7",
    "kind": "id_reference",
    "token": "4A_hallstand",
@@ -68761,6 +69130,32 @@
    "key": "5781e3288aa904bb",
    "kind": "id_reference",
    "token": "4B_equipment_shelf",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "31f400d6c6d4a9bc",
+   "kind": "id_reference",
+   "token": "4B_hall_boots",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -69317,6 +69712,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b86f05795dc87747",
+   "kind": "id_reference",
+   "token": "5A_hall_boots",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -69950,6 +70371,32 @@
    "target_exists": true
   },
   {
+   "key": "548481fc95312b2c",
+   "kind": "id_reference",
+   "token": "5B_hall_hamper",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "c4ff0849c25570e0",
    "kind": "id_reference",
    "token": "5B_hallstand",
@@ -70465,6 +70912,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4b2df325715c6ea2",
+   "kind": "id_reference",
+   "token": "5C_hall_boots",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -71046,6 +71519,32 @@
    "target_exists": true
   },
   {
+   "key": "65ac0842e8366679",
+   "kind": "id_reference",
+   "token": "6A_hall_crate",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "db443f85e969c145",
    "kind": "id_reference",
    "token": "6A_hallstand",
@@ -71488,6 +71987,32 @@
    "target_exists": true
   },
   {
+   "key": "7b9dac19767e63b5",
+   "kind": "id_reference",
+   "token": "6B_hall_hamper",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "ed854969985a016c",
    "kind": "id_reference",
    "token": "6B_hallstand",
@@ -71889,6 +72414,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F06/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "da6619a23dcb06f8",
+   "kind": "id_reference",
+   "token": "6C_hall_boots",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -72622,9 +73173,61 @@
    "target_exists": true
   },
   {
+   "key": "b6dbd9ada0b5255d",
+   "kind": "id_reference",
+   "token": "1A_hall_hamper",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "fcfea29750e66d9a",
    "kind": "id_reference",
    "token": "1A_hallstand",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "89a320f68a68e453",
+   "kind": "id_reference",
+   "token": "1D_hall_boots",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -72702,6 +73305,32 @@
    "target_exists": true
   },
   {
+   "key": "0abf39542ac0955e",
+   "kind": "id_reference",
+   "token": "2A_hall_hamper",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "efb0412908423703",
    "kind": "id_reference",
    "token": "2A_hallstand",
@@ -72753,6 +73382,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6607e5012eaeb0b9",
+   "kind": "id_reference",
+   "token": "2B_hall_hamper",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -72888,9 +73543,61 @@
    "target_exists": true
   },
   {
+   "key": "4a0182bdf2bb8d1a",
+   "kind": "id_reference",
+   "token": "2C_hall_boots",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "9a237adda8a58b06",
    "kind": "id_reference",
    "token": "2C_hallstand",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f8fc22d549935784",
+   "kind": "id_reference",
+   "token": "3A_hall_boots",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -72965,6 +73672,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "af669f23f73dd069",
+   "kind": "id_reference",
+   "token": "3B_hall_crate",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -73102,6 +73835,32 @@
    "target_exists": true
   },
   {
+   "key": "90462e187a409e59",
+   "kind": "id_reference",
+   "token": "3D_hall_hamper",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "263e794270a187e7",
    "kind": "id_reference",
    "token": "3D_hallstand",
@@ -73157,6 +73916,32 @@
    "key": "1d2ea9ec197ac4ff",
    "kind": "id_reference",
    "token": "4A_frame_b",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a93aace8b39ddade",
+   "kind": "id_reference",
+   "token": "4A_hall_boots",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -73258,6 +74043,32 @@
    "target_exists": true
   },
   {
+   "key": "fd25baf6927e75a7",
+   "kind": "id_reference",
+   "token": "4B_hall_boots",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "f7799e49f795b110",
    "kind": "id_reference",
    "token": "4B_hallstand",
@@ -73284,9 +74095,61 @@
    "target_exists": true
   },
   {
+   "key": "3d7dce68283eebb8",
+   "kind": "id_reference",
+   "token": "4C_hall_hamper",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "4da904b49b108d55",
    "kind": "id_reference",
    "token": "4C_hallstand",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8864ecb1d49b1e6c",
+   "kind": "id_reference",
+   "token": "4D_hall_crate",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -73361,6 +74224,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F05/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b30445e9f47135c8",
+   "kind": "id_reference",
+   "token": "5A_hall_boots",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -73498,6 +74387,32 @@
    "target_exists": true
   },
   {
+   "key": "d9fcdfd44c6f6184",
+   "kind": "id_reference",
+   "token": "5B_hall_hamper",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "1c8dfdd0b69a0ca9",
    "kind": "id_reference",
    "token": "5B_hallstand",
@@ -73553,6 +74468,32 @@
    "key": "6bc3f8bd3d706b67",
    "kind": "id_reference",
    "token": "5C_canvas_b",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5ffce35098bad3dd",
+   "kind": "id_reference",
+   "token": "5C_hall_boots",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -73714,6 +74655,32 @@
    "target_exists": true
   },
   {
+   "key": "5b6a3117a2c0ea74",
+   "kind": "id_reference",
+   "token": "6A_hall_crate",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "046198b83de8c452",
    "kind": "id_reference",
    "token": "6A_hallstand",
@@ -73824,9 +74791,61 @@
    "target_exists": true
   },
   {
+   "key": "ab4990be7494c807",
+   "kind": "id_reference",
+   "token": "6B_hall_hamper",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "286e12e4b4c8a642",
    "kind": "id_reference",
    "token": "6B_hallstand",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "20d2aa14d723c3da",
+   "kind": "id_reference",
+   "token": "6C_hall_boots",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -135251,7 +136270,7 @@
     0,
     0
    ],
-   "count": 224,
+   "count": 226,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -135309,7 +136328,7 @@
     0,
     0
    ],
-   "count": 338,
+   "count": 341,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -135367,7 +136386,7 @@
     0,
     0
    ],
-   "count": 274,
+   "count": 277,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -135425,7 +136444,7 @@
     0,
     0
    ],
-   "count": 379,
+   "count": 383,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -135482,7 +136501,7 @@
     0,
     0
    ],
-   "count": 299,
+   "count": 302,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -135539,7 +136558,7 @@
     0,
     0
    ],
-   "count": 294,
+   "count": 297,
    "context": [],
    "gameplay_binding": false,
    "authority": [

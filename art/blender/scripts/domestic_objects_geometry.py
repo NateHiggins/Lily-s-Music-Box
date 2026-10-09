@@ -345,6 +345,34 @@ def blanket(source):
   z=i*.3;stock('Stitch'+str(i),(-width/2+.03,.0398,z-.0012),(width/2-.03,.0412,z+.0012),'linen',.0001)
  group('HungBlanket',start)
 
+def hamper(source):
+ # Dossier slice 14: a lidded wicker laundry hamper on four feet, a linen
+ # corner caught under the lid at the front.
+ start=len(stock_checks)
+ for x in [-.21,.21]:
+  for y in [-.13,.13]:stock('Foot'+str((x,y)),(x-.02,y-.02,0),(x+.02,y+.02,.022),'wood_dark',.002);bearing('hamper foot '+str((x,y)),(x,y,0))
+ stock('Body',(-.25,-.17,.02),(.25,.17,.46),'cane',.01)
+ for z in [.02,.43]:stock('Band'+str(z),(-.252,-.172,z),(.252,.172,z+.03),'wood_dark',.002)
+ stock('Lid',(-.26,-.18,.459),(.26,.18,.5),'cane',.008)
+ for x in [-.245,.245]:wire('Handle'+str(x),[(x,-.07,.33),(x+(.035 if x>0 else -.035),-.07,.36),(x+(.035 if x>0 else -.035),.07,.36),(x,.07,.33)],.006,'cane')
+ stock('Linen',(.05,.165,.40),(.2,.175,.47),'linen',.001)
+ group('Hamper',start)
+
+def boottray(source):
+ # Dossier slice 14: a galvanised boot tray with a pair of rubber galoshes and
+ # a little dried mud.
+ start=len(stock_checks)
+ stock('TrayPlate',(-.3,-.18,0),(.3,.18,.006),'metal',.001)
+ for y in [-.18,.172]:stock('RimLong'+str(y),(-.3,y,.005),(.3,y+.008,.03),'metal',.0008)
+ for x in [-.3,.292]:stock('RimEnd'+str(x),(x,-.173,.005),(x+.008,.173,.03),'metal',.0008)
+ for x,y in [(-.28,-.16),(.28,-.16),(-.28,.16),(.28,.16)]:bearing('tray corner '+str((x,y)),(x,y,0))
+ stock('Mud',(-.2,-.08,.0055),(.12,.1,.0075),'soil',.0005)
+ for i,(x,y) in enumerate([(-.1,0),(.1,.02)]):
+  stock('Sole'+str(i),(x-.055,y-.14,.0055),(x+.055,y+.14,.03),'rubber_aged',.006)
+  stock('Vamp'+str(i),(x-.047,y-.12,.029),(x+.047,y+.06,.11),'rubber_aged',.012)
+  stock('Shaft'+str(i),(x-.048,y+.03,.029),(x+.048,y+.135,.29),'rubber_aged',.012)
+ group('BootTray',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -363,4 +391,6 @@ for assembly in assemblies:
  elif kind=='artframe':artframe(source)
  elif kind=='garmentrail':garmentrail(source)
  elif kind=='blanket':blanket(source)
+ elif kind=='hamper':hamper(source)
+ elif kind=='boottray':boottray(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

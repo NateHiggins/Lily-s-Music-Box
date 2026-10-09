@@ -448,6 +448,18 @@
     "key": "blanket_grey"
    },
    "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject25",
+   "kind": "hamper",
+   "source_id": "2A_hall_hamper",
+   "params": {}
+  },
+  {
+   "id": "DomesticObject26",
+   "kind": "boottray",
+   "source_id": "4B_hall_boots",
+   "params": {}
   }
  ],
  "instances": [
@@ -650,6 +662,78 @@
   {
    "id": "3D_blanket_b",
    "variant": "DomesticObject24"
+  },
+  {
+   "id": "1A_hall_hamper",
+   "variant": "DomesticObject25"
+  },
+  {
+   "id": "1D_hall_boots",
+   "variant": "DomesticObject26"
+  },
+  {
+   "id": "2A_hall_hamper",
+   "variant": "DomesticObject25"
+  },
+  {
+   "id": "2B_hall_hamper",
+   "variant": "DomesticObject25"
+  },
+  {
+   "id": "2C_hall_boots",
+   "variant": "DomesticObject26"
+  },
+  {
+   "id": "3A_hall_boots",
+   "variant": "DomesticObject26"
+  },
+  {
+   "id": "3B_hall_crate",
+   "variant": "DomesticObject03"
+  },
+  {
+   "id": "3D_hall_hamper",
+   "variant": "DomesticObject25"
+  },
+  {
+   "id": "4A_hall_boots",
+   "variant": "DomesticObject26"
+  },
+  {
+   "id": "4B_hall_boots",
+   "variant": "DomesticObject26"
+  },
+  {
+   "id": "4C_hall_hamper",
+   "variant": "DomesticObject25"
+  },
+  {
+   "id": "4D_hall_crate",
+   "variant": "DomesticObject03"
+  },
+  {
+   "id": "5A_hall_boots",
+   "variant": "DomesticObject26"
+  },
+  {
+   "id": "5B_hall_hamper",
+   "variant": "DomesticObject25"
+  },
+  {
+   "id": "5C_hall_boots",
+   "variant": "DomesticObject26"
+  },
+  {
+   "id": "6A_hall_crate",
+   "variant": "DomesticObject12"
+  },
+  {
+   "id": "6B_hall_hamper",
+   "variant": "DomesticObject25"
+  },
+  {
+   "id": "6C_hall_boots",
+   "variant": "DomesticObject26"
   }
  ],
  "runtime_keys": [
@@ -911,7 +995,8 @@
   "Slice 8 of the V2 environment dossier adds the hall stand (DomesticObject16) to the seventeen apartment vestibules, standing clear of every leaf's swing and switch approach; the sixteen V1 records are unchanged.",
   "Slice 11 of the V2 environment dossier adds a second reel deck (DomesticObject04) on 5B's deck table; it bears on that table like 2A's on the coffee table.",
   "Slice 12 of the V2 environment dossier adds two pinboards (4B's case wall, 5A's plan wall) and a wall-art form (artframe: stretched canvas with painted fields and edge tacks, or a moulded frame holding a document with a brass seal) for 5C's diptych and the framed pairs in 4A and 1A.",
-  "Slice 13 of the V2 environment dossier adds cloth: a garment rail (header board, brackets, rail, garments on wooden hangers, optional repair tags) and a hung moving blanket (batten, bound edges, quilted rows), with five tinted cloth keys on the catalogue linen."
+  "Slice 13 of the V2 environment dossier adds cloth: a garment rail (header board, brackets, rail, garments on wooden hangers, optional repair tags) and a hung moving blanket (batten, bound edges, quilted rows), with five tinted cloth keys on the catalogue linen.",
+  "Slice 14 of the V2 environment dossier puts one object in each of the eighteen private halls by the resident's routine: a lidded wicker hamper (new form), a galvanised boot tray with galoshes (new form) or a copy of an existing crate, each against a wall clear of every door and opening approach."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

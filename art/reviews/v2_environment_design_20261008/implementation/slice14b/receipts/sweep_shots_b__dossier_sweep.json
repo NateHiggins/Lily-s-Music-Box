@@ -1,0 +1,1188 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						9.66500186920166,
+						11.039999961853,
+						-17.6519966125488
+					],
+					"feet": [
+						-9.66499996185303,
+						9.63000011444092,
+						6.00199890136719
+					],
+					"forward": [
+						0.326581239700317,
+						-0.350478112697601,
+						0.877786934375763
+					],
+					"image": "F04_B_PRIVATE_HALL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.0749998092651,
+						10.6000003814697,
+						4.90000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						10.4850015640259,
+						11.039999961853,
+						-15.9700002670288
+					],
+					"feet": [
+						-10.4850006103516,
+						9.63000011444092,
+						4.32000160217285
+					],
+					"forward": [
+						-0.49071142077446,
+						-0.526615619659424,
+						-0.694174528121948
+					],
+					"image": "F04_B_PRIVATE_HALL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.0749998092651,
+						10.6000003814697,
+						4.90000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						10.0500011444092,
+						11.039999961853,
+						-14.0999984741211
+					],
+					"feet": [
+						-10.0500001907349,
+						9.63000011444092,
+						2.44999980926514
+					],
+					"forward": [
+						0.010154789313674,
+						-0.0974873900413513,
+						-0.99518495798111
+					],
+					"image": "F04_B_PRIVATE_HALL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F04_B_HALL_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.0749998092651,
+						10.8000001907349,
+						4.90000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						10.0750017166138,
+						11.039999961853,
+						-15.9700002670288
+					],
+					"feet": [
+						-10.0750007629395,
+						9.63000011444092,
+						4.32000160217285
+					],
+					"forward": [
+						0.398800522089005,
+						-0.285234719514847,
+						-0.871549963951111
+					],
+					"image": "F04_B_PRIVATE_HALL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4B_hall_boots",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.8299999237061,
+						10.5,
+						5.96999979019165
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 11,
+			"floor_y": 9.6,
+			"id": "F04_B_PRIVATE_HALL",
+			"level": "F04",
+			"purpose": "bath and sleeping-zone distribution",
+			"rect": [
+				-11.1,
+				3.45,
+				-9.05,
+				6.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						6.41000032424927,
+						14.2400007247925,
+						-7.19999933242798
+					],
+					"feet": [
+						-6.40999984741211,
+						12.8300008773804,
+						-4.44999980926514
+					],
+					"forward": [
+						0.266843199729919,
+						-0.21742807328701,
+						0.938892841339111
+					],
+					"image": "F05_A_PRIVATE_HALL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						13.8000001907349,
+						-6.34999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.48999929428101,
+						14.2400007247925,
+						-3.39999866485596
+					],
+					"feet": [
+						-7.48999929428101,
+						12.8300008773804,
+						-8.25
+					],
+					"forward": [
+						-0.266842722892761,
+						-0.217428058385849,
+						-0.938892960548401
+					],
+					"image": "F05_A_PRIVATE_HALL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						13.8000001907349,
+						-6.34999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.94999980926514,
+						14.2400007247925,
+						-1.79999732971191
+					],
+					"feet": [
+						-6.94999980926514,
+						12.8300008773804,
+						-9.85000133514404
+					],
+					"forward": [
+						0.00000013591993308637,
+						-0.0684109404683113,
+						-0.997657239437103
+					],
+					"image": "F05_A_PRIVATE_HALL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F05_A_PRIVATE_HALL_BATH_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						14.0,
+						-6.34999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.49000024795532,
+						14.2400007247925,
+						-4.29999923706055
+					],
+					"feet": [
+						-7.48999977111816,
+						12.8300008773804,
+						-7.34999990463257
+					],
+					"forward": [
+						-0.791148006916046,
+						-0.263716399669647,
+						0.551850080490112
+					],
+					"image": "F05_A_PRIVATE_HALL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "5A_hall_boots",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-5.86999988555908,
+						13.6999998092651,
+						-8.47999954223633
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 17,
+			"floor_y": 12.8,
+			"id": "F05_A_PRIVATE_HALL",
+			"level": "F05",
+			"purpose": "Nadia Quell: bed and sanitary distribution",
+			"rect": [
+				-8.3,
+				-8.85,
+				-5.6,
+				-3.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						10.6300020217896,
+						14.2400007247925,
+						-18.6359977722168
+					],
+					"feet": [
+						-10.6300001144409,
+						12.8300008773804,
+						6.98599815368652
+					],
+					"forward": [
+						-0.181277543306351,
+						-0.209900483489037,
+						-0.960770666599274
+					],
+					"image": "F05_B_PRIVATE_HALL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.25,
+						13.8000001907349,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.87000179290771,
+						14.2400007247925,
+						-22.6639976501465
+					],
+					"feet": [
+						-9.86999988555908,
+						12.8300008773804,
+						11.0139980316162
+					],
+					"forward": [
+						0.18127752840519,
+						-0.209900498390198,
+						0.960770666599274
+					],
+					"image": "F05_B_PRIVATE_HALL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.25,
+						13.8000001907349,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						12.2000017166138,
+						14.2400007247925,
+						-20.4500007629395
+					],
+					"feet": [
+						-12.1999998092651,
+						12.8300008773804,
+						8.80000114440918
+					],
+					"forward": [
+						-0.987408339977264,
+						-0.121527567505836,
+						-0.101271122694016
+					],
+					"image": "F05_B_PRIVATE_HALL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F05_B_PRIVATE_HALL_ALCOVE_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.25,
+						14.0,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.87000179290771,
+						14.2400007247925,
+						-21.7099990844727
+					],
+					"feet": [
+						-9.86999988555908,
+						12.8300008773804,
+						10.0599994659424
+					],
+					"forward": [
+						0.558403849601746,
+						-0.314102709293365,
+						-0.767805099487305
+					],
+					"image": "F05_B_PRIVATE_HALL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "5B_hall_hamper",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.8299999237061,
+						13.6999998092651,
+						11.3800001144409
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 14,
+			"floor_y": 12.8,
+			"id": "F05_B_PRIVATE_HALL",
+			"level": "F05",
+			"purpose": "Cal Dwyer: sleep and kitchen distribution",
+			"rect": [
+				-11.2,
+				6.35,
+				-9.3,
+				11.65
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-6.30799865722656,
+						14.2400007247925,
+						-19.0499992370605
+					],
+					"feet": [
+						6.30800008773804,
+						12.8300008773804,
+						7.39999961853027
+					],
+					"forward": [
+						0.978191256523132,
+						-0.171612679958344,
+						0.117008209228516
+					],
+					"image": "F05_C_PRIVATE_HALL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						3.79999995231628,
+						13.8000001907349,
+						7.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-1.29199838638306,
+						14.2400007247925,
+						-18.4500007629395
+					],
+					"feet": [
+						1.29200005531311,
+						12.8300008773804,
+						6.80000114440918
+					],
+					"forward": [
+						-0.978191256523132,
+						-0.171612709760666,
+						-0.117008231580257
+					],
+					"image": "F05_C_PRIVATE_HALL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						3.79999995231628,
+						13.8000001907349,
+						7.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.09999847412109,
+						14.2400007247925,
+						-17.0
+					],
+					"feet": [
+						2.09999990463257,
+						12.8300008773804,
+						5.35000038146973
+					],
+					"forward": [
+						-0.693438708782196,
+						-0.0978975370526314,
+						-0.71383398771286
+					],
+					"image": "F05_C_PRIVATE_HALL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F05_C_PRIVATE_HALL_BATH_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						3.79999995231628,
+						14.0,
+						7.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.11999797821045,
+						14.2400007247925,
+						-19.0499992370605
+					],
+					"feet": [
+						5.11999940872192,
+						12.8300008773804,
+						7.39999961853027
+					],
+					"forward": [
+						-0.852924108505249,
+						-0.29714822769165,
+						0.42921257019043
+					],
+					"image": "F05_C_PRIVATE_HALL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "5C_hall_boots",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.67000007629395,
+						13.6999998092651,
+						6.61999988555908
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 14,
+			"floor_y": 12.8,
+			"id": "F05_C_PRIVATE_HALL",
+			"level": "F05",
+			"purpose": "Iris Bell: private bed and service distribution",
+			"rect": [
+				0.5,
+				6.35,
+				7.1,
+				7.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						6.41000032424927,
+						17.4400005340576,
+						-7.19999933242798
+					],
+					"feet": [
+						-6.40999984741211,
+						16.0300006866455,
+						-4.44999980926514
+					],
+					"forward": [
+						0.266843229532242,
+						-0.21742807328701,
+						0.938892841339111
+					],
+					"image": "F06_A_PRIVATE_HALL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						17.0,
+						-6.34999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.48999929428101,
+						17.4400005340576,
+						-3.39999866485596
+					],
+					"feet": [
+						-7.48999929428101,
+						16.0300006866455,
+						-8.25
+					],
+					"forward": [
+						-0.266842722892761,
+						-0.21742807328701,
+						-0.938893020153046
+					],
+					"image": "F06_A_PRIVATE_HALL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						17.0,
+						-6.34999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.94999980926514,
+						17.4400005340576,
+						-1.79999732971191
+					],
+					"feet": [
+						-6.94999980926514,
+						16.0300006866455,
+						-9.85000133514404
+					],
+					"forward": [
+						0.00000013591993308637,
+						-0.0684106796979904,
+						-0.997657239437103
+					],
+					"image": "F06_A_PRIVATE_HALL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F06_A_PRIVATE_HALL_BATH_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						17.2000007629395,
+						-6.34999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.49000024795532,
+						17.4400005340576,
+						-4.29999923706055
+					],
+					"feet": [
+						-7.48999977111816,
+						16.0300006866455,
+						-7.34999990463257
+					],
+					"forward": [
+						-0.791148006916046,
+						-0.263716399669647,
+						0.551850080490112
+					],
+					"image": "F06_A_PRIVATE_HALL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6A_hall_crate",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-5.86999988555908,
+						16.8999996185303,
+						-8.47999954223633
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 17,
+			"floor_y": 16.0,
+			"id": "F06_A_PRIVATE_HALL",
+			"level": "F06",
+			"purpose": "Sacha Reed: bed and sanitary distribution",
+			"rect": [
+				-8.3,
+				-8.85,
+				-5.6,
+				-3.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						10.6300020217896,
+						17.4400005340576,
+						-18.6359977722168
+					],
+					"feet": [
+						-10.6300001144409,
+						16.0300006866455,
+						6.98599815368652
+					],
+					"forward": [
+						-0.181277543306351,
+						-0.209900483489037,
+						-0.960770666599274
+					],
+					"image": "F06_B_PRIVATE_HALL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.25,
+						17.0,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.87000179290771,
+						17.4400005340576,
+						-22.6639976501465
+					],
+					"feet": [
+						-9.86999988555908,
+						16.0300006866455,
+						11.0139980316162
+					],
+					"forward": [
+						0.18127752840519,
+						-0.209900498390198,
+						0.960770666599274
+					],
+					"image": "F06_B_PRIVATE_HALL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.25,
+						17.0,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						12.2000017166138,
+						17.4400005340576,
+						-20.4500007629395
+					],
+					"feet": [
+						-12.1999998092651,
+						16.0300006866455,
+						8.80000114440918
+					],
+					"forward": [
+						-0.987408399581909,
+						-0.121527090668678,
+						-0.101271137595177
+					],
+					"image": "F06_B_PRIVATE_HALL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F06_B_PRIVATE_HALL_ALCOVE_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.25,
+						17.2000007629395,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.87000179290771,
+						17.4400005340576,
+						-21.7099990844727
+					],
+					"feet": [
+						-9.86999988555908,
+						16.0300006866455,
+						10.0599994659424
+					],
+					"forward": [
+						0.558403849601746,
+						-0.314102709293365,
+						-0.767805099487305
+					],
+					"image": "F06_B_PRIVATE_HALL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6B_hall_hamper",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.8299999237061,
+						16.8999996185303,
+						11.3800001144409
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 14,
+			"floor_y": 16.0,
+			"id": "F06_B_PRIVATE_HALL",
+			"level": "F06",
+			"purpose": "Jonah Price: sleep and kitchen distribution",
+			"rect": [
+				-11.2,
+				6.35,
+				-9.3,
+				11.65
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-6.30799865722656,
+						17.4400005340576,
+						-19.0499992370605
+					],
+					"feet": [
+						6.30800008773804,
+						16.0300006866455,
+						7.39999961853027
+					],
+					"forward": [
+						0.978191256523132,
+						-0.171612679958344,
+						0.117008209228516
+					],
+					"image": "F06_C_PRIVATE_HALL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						3.79999995231628,
+						17.0,
+						7.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-1.29199838638306,
+						17.4400005340576,
+						-18.4500007629395
+					],
+					"feet": [
+						1.29200005531311,
+						16.0300006866455,
+						6.80000114440918
+					],
+					"forward": [
+						-0.978191256523132,
+						-0.171612709760666,
+						-0.117008231580257
+					],
+					"image": "F06_C_PRIVATE_HALL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						3.79999995231628,
+						17.0,
+						7.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.09999847412109,
+						17.4400005340576,
+						-17.0
+					],
+					"feet": [
+						2.09999990463257,
+						16.0300006866455,
+						5.35000038146973
+					],
+					"forward": [
+						-0.693438708782196,
+						-0.0978971496224403,
+						-0.71383398771286
+					],
+					"image": "F06_C_PRIVATE_HALL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F06_C_PRIVATE_HALL_BATH_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						3.79999995231628,
+						17.2000007629395,
+						7.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.11999797821045,
+						17.4400005340576,
+						-19.0499992370605
+					],
+					"feet": [
+						5.11999940872192,
+						16.0300006866455,
+						7.39999961853027
+					],
+					"forward": [
+						-0.852924108505249,
+						-0.29714822769165,
+						0.42921257019043
+					],
+					"image": "F06_C_PRIVATE_HALL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6C_hall_boots",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.67000007629395,
+						16.8999996185303,
+						6.61999988555908
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 14,
+			"floor_y": 16.0,
+			"id": "F06_C_PRIVATE_HALL",
+			"level": "F06",
+			"purpose": "Mae Kessler: private bed and service distribution",
+			"rect": [
+				0.5,
+				6.35,
+				7.1,
+				7.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-6.30799865722656,
+						11.039999961853,
+						-19.0499992370605
+					],
+					"feet": [
+						6.30800008773804,
+						9.63000011444092,
+						7.39999961853027
+					],
+					"forward": [
+						0.978191316127777,
+						-0.171612337231636,
+						0.117008216679096
+					],
+					"image": "F04_C_PRIVATE_HALL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						3.79999995231628,
+						10.6000003814697,
+						7.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-1.29199838638306,
+						11.039999961853,
+						-18.4500007629395
+					],
+					"feet": [
+						1.29200005531311,
+						9.63000011444092,
+						6.80000114440918
+					],
+					"forward": [
+						-0.978191316127777,
+						-0.171612367033958,
+						-0.117008239030838
+					],
+					"image": "F04_C_PRIVATE_HALL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						3.79999995231628,
+						10.6000003814697,
+						7.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.09999847412109,
+						11.039999961853,
+						-17.0
+					],
+					"feet": [
+						2.09999990463257,
+						9.63000011444092,
+						5.35000038146973
+					],
+					"forward": [
+						-0.693438708782196,
+						-0.0978971496224403,
+						-0.71383398771286
+					],
+					"image": "F04_C_PRIVATE_HALL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F04_C_PRIVATE_HALL_BATH_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						3.79999995231628,
+						10.8000001907349,
+						7.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.11999797821045,
+						11.039999961853,
+						-19.0499992370605
+					],
+					"feet": [
+						5.11999940872192,
+						9.63000011444092,
+						7.39999961853027
+					],
+					"forward": [
+						-0.852924227714539,
+						-0.297147691249847,
+						0.429212629795074
+					],
+					"image": "F04_C_PRIVATE_HALL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4C_hall_hamper",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.67000007629395,
+						10.5,
+						6.61999988555908
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 13,
+			"floor_y": 9.6,
+			"id": "F04_C_PRIVATE_HALL",
+			"level": "F04",
+			"purpose": "private bed and service distribution",
+			"rect": [
+				0.5,
+				6.35,
+				7.1,
+				7.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						6.90000057220459,
+						11.039999961853,
+						-2.37199878692627
+					],
+					"feet": [
+						-6.90000057220459,
+						9.63000011444092,
+						-9.27799987792969
+					],
+					"forward": [
+						0.0,
+						-0.349902898073196,
+						-0.936785995960236
+					],
+					"image": "F04_D_PRIVATE_HALL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.90000009536743,
+						10.6000003814697,
+						-8.10000038146973
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.90000057220459,
+						11.039999961853,
+						-4.72799873352051
+					],
+					"feet": [
+						-6.90000009536743,
+						9.63000011444092,
+						-6.92200040817261
+					],
+					"forward": [
+						0.0,
+						-0.349902629852295,
+						0.936786115169525
+					],
+					"image": "F04_D_PRIVATE_HALL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.90000009536743,
+						10.6000003814697,
+						-8.10000038146973
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.80000066757202,
+						11.039999961853,
+						-6.09999895095825
+					],
+					"feet": [
+						-6.80000019073486,
+						9.63000011444092,
+						-5.55000019073486
+					],
+					"forward": [
+						0.0390133671462536,
+						-0.0936321094632149,
+						0.994842231273651
+					],
+					"image": "F04_D_PRIVATE_HALL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F04_D_VESTIBULE_PRIVATE_HALL_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.90000009536743,
+						10.8000001907349,
+						-8.10000038146973
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.38000059127808,
+						11.039999961853,
+						-4.16999912261963
+					],
+					"feet": [
+						-6.38000011444092,
+						9.63000011444092,
+						-7.48000001907349
+					],
+					"forward": [
+						-0.261911004781723,
+						-0.27731716632843,
+						0.924390554428101
+					],
+					"image": "F04_D_PRIVATE_HALL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4D_hall_crate",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-5.86999988555908,
+						10.5,
+						-9.27999973297119
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 12,
+			"floor_y": 9.6,
+			"id": "F04_D_PRIVATE_HALL",
+			"level": "F04",
+			"purpose": "Transient guests bed and bath distribution",
+			"rect": [
+				-8.2,
+				-9.65,
+				-5.6,
+				-6.55
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

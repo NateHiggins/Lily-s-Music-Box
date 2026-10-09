@@ -1691,6 +1691,106 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject25",
+      "parts": [
+        {
+          "name": "DomesticObject25__Body_ON_cane",
+          "component": "Body",
+          "key": "cane",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.38,
+            0.34,
+            0.23,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "DomesticObject25__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject25__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject26",
+      "parts": [
+        {
+          "name": "DomesticObject26__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject26__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject26__Body_ON_soil",
+          "component": "Body",
+          "key": "soil",
+          "tile": 0.35,
+          "catalog_key": "soil",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -1893,6 +1993,78 @@
     {
       "id": "3D_blanket_b",
       "variant": "DomesticObject24"
+    },
+    {
+      "id": "1A_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "1D_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "2A_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "2B_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "2C_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "3A_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "3B_hall_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "3D_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "4A_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "4B_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "4C_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "4D_hall_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "5A_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "5B_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "5C_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "6A_hall_crate",
+      "variant": "DomesticObject12"
+    },
+    {
+      "id": "6B_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "6C_hall_boots",
+      "variant": "DomesticObject26"
     }
   ],
   "tint_space": "linear"

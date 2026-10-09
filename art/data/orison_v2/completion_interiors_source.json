@@ -6145,6 +6145,78 @@
         ],
         "yaw": 1.5707963267948966,
         "kind": "furniture"
+      },
+      {
+        "id": "1A_hall_hamper",
+        "level": "F01",
+        "space": "F01_A_PRIVATE_HALL",
+        "position": [
+          -5.67,
+          0,
+          -9.28
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_hall_boots",
+        "level": "F01",
+        "space": "F01_D_PRIVATE_HALL",
+        "position": [
+          13.07,
+          0,
+          -4.58
+        ],
+        "yaw": -1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_hall_boots",
+        "level": "F02",
+        "space": "F02_C_PRIVATE_HALL",
+        "position": [
+          6.67,
+          0,
+          6.62
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "3D_hall_hamper",
+        "level": "F03",
+        "space": "F03_D_PRIVATE_HALL",
+        "position": [
+          -5.87,
+          0,
+          -9.28
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_hall_hamper",
+        "level": "F04",
+        "space": "F04_C_PRIVATE_HALL",
+        "position": [
+          6.67,
+          0,
+          6.62
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "4D_hall_crate",
+        "level": "F04",
+        "space": "F04_D_PRIVATE_HALL",
+        "position": [
+          -5.87,
+          0,
+          -9.28
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "furniture"
       }
     ],
     "stairs": [
@@ -7767,6 +7839,36 @@
         "id": "3D_blanket_b",
         "template": "2C_blanket_a",
         "unit": "3D"
+      },
+      {
+        "id": "1A_hall_hamper",
+        "template": "2A_hall_hamper",
+        "unit": "1A"
+      },
+      {
+        "id": "1D_hall_boots",
+        "template": "4B_hall_boots",
+        "unit": "1D"
+      },
+      {
+        "id": "2C_hall_boots",
+        "template": "4B_hall_boots",
+        "unit": "2C"
+      },
+      {
+        "id": "3D_hall_hamper",
+        "template": "2A_hall_hamper",
+        "unit": "3D"
+      },
+      {
+        "id": "4C_hall_hamper",
+        "template": "2A_hall_hamper",
+        "unit": "4C"
+      },
+      {
+        "id": "4D_hall_crate",
+        "template": "3B_partscrate",
+        "unit": "4D"
       }
     ],
     "lighting": {
