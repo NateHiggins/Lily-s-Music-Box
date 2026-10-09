@@ -5068,7 +5068,9 @@
    "preserve": "Window light, radiator valve reach, route to the kitchen opening",
    "acceptance": "Overview from the vestibule reads two windows of jars with one gap",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_A_MAIN"
+   "area": "F03_A_MAIN",
+   "status": "verified",
+   "owner_notes": "3A_prop_shelf_s/_n: two low oak shelves (Shelf09 1.5 m and Shelf10 1.2 m, two boards, 0.72 m, so they stand under the 0.75 m sills) under the two west windows either side of the potting bench, each with two rows of lidded glass seed jars (seedjars form); the north row lacks one jar at its end (seedjarsgap form). Deviations: two shelves rather than one 2.4 m span because the potting bench stands between the windows; jars hold no soil or seedlings yet (no soil or plant key in the stock family). Verified at 7813b06c (slice19): the thirteen families pass the fabrication batch (27,146 checks, 0 failures; storage 52, objects 84, stock 187, every jar, cover and fold bearing on its board), apartment batch 236 as before, completion route 4C 9 waypoints as before, upper lighting and the household save owner 0 failures, the three-space sweep 0 failures; close-ups in implementation/slice19."
   },
   {
    "id": "F03_A_MAIN-002",
@@ -7211,7 +7213,7 @@
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "F04_C_MAIN",
    "status": "verified",
-   "owner_notes": "4C_museum_shelf (Shelf01) on the window wall beside the window; the covered objects, cloth and the courier corner's floor stock stay with the desktop_stock items. (implementation/slice6/images/F04_C_MAIN_OV.jpg)"
+   "owner_notes": "4C_museum_shelf (Shelf01) on the window wall beside the window; the courier corner's floor stock stays with the desktop_stock items. (implementation/slice6/images/F04_C_MAIN_OV.jpg) Slice 19 adds Noel's museum bay on it: three cloth-covered objects and a folded cloth (covered and foldedcloth forms), verified at 7813b06c (implementation/slice19/images/4C_covered_a_stock.jpg)."
   },
   {
    "id": "F04_C_MAIN-003",
@@ -10316,7 +10318,9 @@
    "preserve": "Door swing and route",
    "acceptance": "Threshold view from the hall reads an archive",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_BED2"
+   "area": "F06_C_BED2",
+   "status": "verified",
+   "owner_notes": "Three cloth-covered objects (covered form: an object under a linen drape) on the existing 6C_archive_shelf_01/02 boards, and 6C_card_cabinet (new cardcabinet form: twelve drawers with brass pulls and blank label frames, one drawer with a brass lock plate for the provenance drawer) against the south wall west of the door. Deviations: the cabinet stands by the door because the archive table holds the window; the locked drawer is passive (its RESIST-REFUSE owner waits for the matrix pass). Verified at 7813b06c (slice19): the thirteen families pass the fabrication batch (27,146 checks, 0 failures; storage 52, objects 84, stock 187, every jar, cover and fold bearing on its board), apartment batch 236 as before, completion route 4C 9 waypoints as before, upper lighting and the household save owner 0 failures, the three-space sweep 0 failures; close-ups in implementation/slice19."
   },
   {
    "id": "F06_D_RESTRICTED-001",

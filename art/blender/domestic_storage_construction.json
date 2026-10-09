@@ -135,6 +135,18 @@
       "kind": "cupboard",
       "cell": "shared",
       "source_record": "2A_k_wall_cupboard"
+    },
+    {
+      "id": "Shelf09",
+      "kind": "shelf",
+      "cell": "shared",
+      "source_record": "3A_prop_shelf_s"
+    },
+    {
+      "id": "Shelf10",
+      "kind": "shelf",
+      "cell": "shared",
+      "source_record": "3A_prop_shelf_n"
     }
   ],
   "closed_stocks": [
@@ -2663,6 +2675,126 @@
       "assembly": "Cupboard08",
       "key": "trim",
       "volume_m3": 7.996401310487845e-05
+    },
+    {
+      "name": "Shelf09_Upright00",
+      "assembly": "Shelf09",
+      "key": "floor_oak",
+      "volume_m3": 0.0007341577111532537
+    },
+    {
+      "name": "Shelf09_Upright01",
+      "assembly": "Shelf09",
+      "key": "floor_oak",
+      "volume_m3": 0.0007341577111532537
+    },
+    {
+      "name": "Shelf09_Upright10",
+      "assembly": "Shelf09",
+      "key": "floor_oak",
+      "volume_m3": 0.0007341577111532537
+    },
+    {
+      "name": "Shelf09_Upright11",
+      "assembly": "Shelf09",
+      "key": "floor_oak",
+      "volume_m3": 0.0007341577111532537
+    },
+    {
+      "name": "Shelf09_Board0",
+      "assembly": "Shelf09",
+      "key": "floor_oak",
+      "volume_m3": 0.008998183572492394
+    },
+    {
+      "name": "Shelf09_Rail0_-1",
+      "assembly": "Shelf09",
+      "key": "floor_oak",
+      "volume_m3": 7.458563098788575e-05
+    },
+    {
+      "name": "Shelf09_Rail0_1",
+      "assembly": "Shelf09",
+      "key": "floor_oak",
+      "volume_m3": 7.458563098788574e-05
+    },
+    {
+      "name": "Shelf09_Board1",
+      "assembly": "Shelf09",
+      "key": "floor_oak",
+      "volume_m3": 0.008998200285588204
+    },
+    {
+      "name": "Shelf09_Rail1_-1",
+      "assembly": "Shelf09",
+      "key": "floor_oak",
+      "volume_m3": 7.458545076239882e-05
+    },
+    {
+      "name": "Shelf09_Rail1_1",
+      "assembly": "Shelf09",
+      "key": "floor_oak",
+      "volume_m3": 7.458545076239904e-05
+    },
+    {
+      "name": "Shelf10_Upright00",
+      "assembly": "Shelf10",
+      "key": "floor_oak",
+      "volume_m3": 0.0007341577111532537
+    },
+    {
+      "name": "Shelf10_Upright01",
+      "assembly": "Shelf10",
+      "key": "floor_oak",
+      "volume_m3": 0.0007341577111532537
+    },
+    {
+      "name": "Shelf10_Upright10",
+      "assembly": "Shelf10",
+      "key": "floor_oak",
+      "volume_m3": 0.0007341577111532537
+    },
+    {
+      "name": "Shelf10_Upright11",
+      "assembly": "Shelf10",
+      "key": "floor_oak",
+      "volume_m3": 0.0007341577111532537
+    },
+    {
+      "name": "Shelf10_Board0",
+      "assembly": "Shelf10",
+      "key": "floor_oak",
+      "volume_m3": 0.007198483444631973
+    },
+    {
+      "name": "Shelf10_Rail0_-1",
+      "assembly": "Shelf10",
+      "key": "floor_oak",
+      "volume_m3": 7.458563098788574e-05
+    },
+    {
+      "name": "Shelf10_Rail0_1",
+      "assembly": "Shelf10",
+      "key": "floor_oak",
+      "volume_m3": 7.458563098788575e-05
+    },
+    {
+      "name": "Shelf10_Board1",
+      "assembly": "Shelf10",
+      "key": "floor_oak",
+      "volume_m3": 0.007198496813054928
+    },
+    {
+      "name": "Shelf10_Rail1_-1",
+      "assembly": "Shelf10",
+      "key": "floor_oak",
+      "volume_m3": 7.458545076239904e-05
+    },
+    {
+      "name": "Shelf10_Rail1_1",
+      "assembly": "Shelf10",
+      "key": "floor_oak",
+      "volume_m3": 7.458545076239882e-05
     }
   ],
   "contacts": [
@@ -3145,6 +3277,126 @@
         -1
       ],
       "label": "cabinet rear bearing"
+    },
+    {
+      "assembly": "Shelf09",
+      "owner": "support",
+      "point": [
+        -0.73,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot00"
+    },
+    {
+      "assembly": "Shelf09",
+      "owner": "support",
+      "point": [
+        -0.73,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot01"
+    },
+    {
+      "assembly": "Shelf09",
+      "owner": "support",
+      "point": [
+        0.73,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot10"
+    },
+    {
+      "assembly": "Shelf09",
+      "owner": "support",
+      "point": [
+        0.73,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot11"
+    },
+    {
+      "assembly": "Shelf10",
+      "owner": "support",
+      "point": [
+        -0.58,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot00"
+    },
+    {
+      "assembly": "Shelf10",
+      "owner": "support",
+      "point": [
+        -0.58,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot01"
+    },
+    {
+      "assembly": "Shelf10",
+      "owner": "support",
+      "point": [
+        0.58,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot10"
+    },
+    {
+      "assembly": "Shelf10",
+      "owner": "support",
+      "point": [
+        0.58,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shelf foot11"
     }
   ],
   "parts": [
@@ -3315,9 +3567,23 @@
       "cell": "shared",
       "key": "trim",
       "triangles": 4700
+    },
+    {
+      "name": "Shelf09__floor_oak",
+      "assembly": "Shelf09",
+      "cell": "shared",
+      "key": "floor_oak",
+      "triangles": 1880
+    },
+    {
+      "name": "Shelf10__floor_oak",
+      "assembly": "Shelf10",
+      "cell": "shared",
+      "key": "floor_oak",
+      "triangles": 1880
     }
   ],
-  "triangles": 79344,
+  "triangles": 83104,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -3605,6 +3871,48 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "Shelf09",
+        "parts": [
+          {
+            "name": "Shelf09__floor_oak",
+            "key": "floor_oak",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "Shelf10",
+        "parts": [
+          {
+            "name": "Shelf10__floor_oak",
+            "key": "floor_oak",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -3807,15 +4115,23 @@
       {
         "id": "3B_outgoing_shelf",
         "variant": "Shelf01"
+      },
+      {
+        "id": "3A_prop_shelf_s",
+        "variant": "Shelf09"
+      },
+      {
+        "id": "3A_prop_shelf_n",
+        "variant": "Shelf10"
       }
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "647399700ce3b9551a64fe699de2762fe843e78dbc59a1f1e1004a2d989e9fbc",
+  "asset_sha256": "5c7b38f185c140831f20fe0e8ae2cb9c8c7942cc68c4d8faa3037e80104f50a8",
   "source_bindings": {
-    "art/data/domestic_storage/source_plan.json": "facc08b7a35b7845c3a64c45ce17c6f460f61070a56dc8749fb92d09a98d0780",
+    "art/data/domestic_storage/source_plan.json": "343cfb62610ae8781ade651e7411acc872f6d22e7fa54bec2555870ca7123428",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_storage.py": "4fa3bea0305474fb72c1d4dd14436c9d1fa18e8ed431d3b0cb250ef2be4ababc",
+    "art/blender/scripts/build_domestic_storage.py": "a78cf3a006d9c1624ef894c465a012888f8161010fc916c149f8ad40e3b189a4",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -3879,16 +4195,16 @@
     "art/blender/scripts/render_domestic_storage.py": "8947b65d2e99d41ca1acbeb33075a5852bfbe2d7d8e7158c04657db20912e6b5",
     "art/blender/scripts/domestic_storage_geometry.py": "f743ec16b8ae16820a4721dd87da3d370a88502d280f36b1b811d34a3f2c3a81",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "56dcd53954f08a60e9414d1f5d038cccccac6737f9c64fb26fbc07902cc18063",
+    "game/data/orison_v2/domestic_furniture.json": "b5b543c0112ce4454a41211636a95193fb12b749d00c51ac595b0db3fa7590f6",
     "game/data/orison_v2/completion_interiors.json": "9327e3340adb18af83217c2690e197a7a87012e034bbac5f9c9892917d3b5273",
     "art/data/orison_v2/completion_interiors_source.json": "27aad59a37c902ece56ee67725a694a84de7af9b1f73f7e2984018f911c198fb",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_storage_context.py": "ab912be72c857d6931850336322a5b151ced26783da15f3ba75c2f9b94367b6d",
-    "game/data/orison_v2_blockout.json": "4cff8dddd3080de42c149c34828e29e144b7ccfe5b30f52c325b30168a219666",
+    "game/data/orison_v2_blockout.json": "10f1aea9c91eeed0b4b78ee248ea27b3b97375445f25103e2c0909ec4ffbb773",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_surface_props.json": "7d379333cea1db426cf205b2a7d7fa19cad8e51db210f64d90b6573461486a04",
+    "game/data/orison_v2/domestic_surface_props.json": "2bf1f04b5c624515ef72a38b061e72696db9be086b0cfb9967d726f51ca0f1fb",
     "game/tests/fixtures/orison_surface_stock.json": "856a1a1a0afaac239e64f897418c8c41d7c3882a7ec143a3d338abeffa6eda1e"
   },
   "retained_stock": [
@@ -4123,6 +4439,20 @@
       "closed_passive_leaves": 2,
       "shelves": 1,
       "back_plane_godot_z": 0.3
+    },
+    {
+      "assembly": "Shelf09",
+      "kind": "shelf",
+      "boards": 2,
+      "height": 0.72,
+      "books": 0
+    },
+    {
+      "assembly": "Shelf10",
+      "kind": "shelf",
+      "boards": 2,
+      "height": 0.72,
+      "books": 0
     }
   ],
   "construction_groups": [
@@ -4593,6 +4923,38 @@
         "Cupboard08_RightRecess",
         "Cupboard08_RightLeafBatton",
         "Cupboard08_RightHingeSeat"
+      ]
+    },
+    {
+      "assembly": "Shelf09",
+      "id": "Shelf09_JoinedStorage",
+      "stocks": [
+        "Shelf09_Upright00",
+        "Shelf09_Upright01",
+        "Shelf09_Upright10",
+        "Shelf09_Upright11",
+        "Shelf09_Board0",
+        "Shelf09_Rail0_-1",
+        "Shelf09_Rail0_1",
+        "Shelf09_Board1",
+        "Shelf09_Rail1_-1",
+        "Shelf09_Rail1_1"
+      ]
+    },
+    {
+      "assembly": "Shelf10",
+      "id": "Shelf10_JoinedStorage",
+      "stocks": [
+        "Shelf10_Upright00",
+        "Shelf10_Upright01",
+        "Shelf10_Upright10",
+        "Shelf10_Upright11",
+        "Shelf10_Board0",
+        "Shelf10_Rail0_-1",
+        "Shelf10_Rail0_1",
+        "Shelf10_Board1",
+        "Shelf10_Rail1_-1",
+        "Shelf10_Rail1_1"
       ]
     }
   ],

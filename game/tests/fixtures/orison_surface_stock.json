@@ -1689,6 +1689,60 @@
       "kind": "can",
       "cell": "3A",
       "source_record": "3A_compost_pail"
+    },
+    {
+      "id": "3A_jars_s",
+      "kind": "seedjars",
+      "cell": "3A",
+      "source_record": "3A_jars_s"
+    },
+    {
+      "id": "3A_jars_n",
+      "kind": "seedjarsgap",
+      "cell": "3A",
+      "source_record": "3A_jars_n"
+    },
+    {
+      "id": "6C_covered_a",
+      "kind": "covered",
+      "cell": "6C",
+      "source_record": "6C_covered_a"
+    },
+    {
+      "id": "6C_covered_b",
+      "kind": "covered",
+      "cell": "6C",
+      "source_record": "6C_covered_b"
+    },
+    {
+      "id": "6C_covered_c",
+      "kind": "covered",
+      "cell": "6C",
+      "source_record": "6C_covered_c"
+    },
+    {
+      "id": "4C_covered_a",
+      "kind": "covered",
+      "cell": "4C",
+      "source_record": "4C_covered_a"
+    },
+    {
+      "id": "4C_covered_b",
+      "kind": "covered",
+      "cell": "4C",
+      "source_record": "4C_covered_b"
+    },
+    {
+      "id": "4C_covered_c",
+      "kind": "covered",
+      "cell": "4C",
+      "source_record": "4C_covered_c"
+    },
+    {
+      "id": "4C_folded_cloth",
+      "kind": "foldedcloth",
+      "cell": "4C",
+      "source_record": "4C_folded_cloth"
     }
   ],
   "closed_stocks": [
@@ -12485,6 +12539,474 @@
       "assembly": "3A_compost_pail",
       "key": "metal",
       "volume_m3": 1.1158947051154325e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(0, 0)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.0003073276208416842
+    },
+    {
+      "name": "3A_jars_s_Lid(0, 0)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.947177716768176e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(0, 1)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.0003073275710543836
+    },
+    {
+      "name": "3A_jars_s_Lid(0, 1)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.947177289462676e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(0, 2)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.00030732757211004183
+    },
+    {
+      "name": "3A_jars_s_Lid(0, 2)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.9471774775258306e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(0, 3)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.00030732757374689963
+    },
+    {
+      "name": "3A_jars_s_Lid(0, 3)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.9471773731965125e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(0, 4)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.0003073275737468995
+    },
+    {
+      "name": "3A_jars_s_Lid(0, 4)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.947177373196512e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(0, 5)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.00030732757211004183
+    },
+    {
+      "name": "3A_jars_s_Lid(0, 5)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.9471774775258316e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(0, 6)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.00030732757105438345
+    },
+    {
+      "name": "3A_jars_s_Lid(0, 6)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.9471772894626724e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(0, 7)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.0003073276208416844
+    },
+    {
+      "name": "3A_jars_s_Lid(0, 7)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.9471777167681758e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(1, 0)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.00030732762084168436
+    },
+    {
+      "name": "3A_jars_s_Lid(1, 0)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.947177716768174e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(1, 1)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.00030732757105438334
+    },
+    {
+      "name": "3A_jars_s_Lid(1, 1)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.947177289462672e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(1, 2)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.00030732757211004183
+    },
+    {
+      "name": "3A_jars_s_Lid(1, 2)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.9471774775258343e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(1, 3)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.0003073275737468995
+    },
+    {
+      "name": "3A_jars_s_Lid(1, 3)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.947177373196516e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(1, 4)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.0003073275737468995
+    },
+    {
+      "name": "3A_jars_s_Lid(1, 4)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.9471773731965145e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(1, 5)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.00030732757211004183
+    },
+    {
+      "name": "3A_jars_s_Lid(1, 5)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.9471774775258296e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(1, 6)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.0003073275710543835
+    },
+    {
+      "name": "3A_jars_s_Lid(1, 6)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.947177289462672e-05
+    },
+    {
+      "name": "3A_jars_s_Jar(1, 7)",
+      "assembly": "3A_jars_s",
+      "key": "glassish",
+      "volume_m3": 0.00030732762084168403
+    },
+    {
+      "name": "3A_jars_s_Lid(1, 7)",
+      "assembly": "3A_jars_s",
+      "key": "bakelite",
+      "volume_m3": 2.9471777167681748e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(0, 0)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.0003073276208416842
+    },
+    {
+      "name": "3A_jars_n_Lid(0, 0)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.947177716768176e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(0, 1)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.0003073275710543836
+    },
+    {
+      "name": "3A_jars_n_Lid(0, 1)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.947177289462676e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(0, 2)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.00030732757211004183
+    },
+    {
+      "name": "3A_jars_n_Lid(0, 2)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.9471774775258306e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(0, 3)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.00030732757374689963
+    },
+    {
+      "name": "3A_jars_n_Lid(0, 3)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.9471773731965125e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(0, 4)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.0003073275737468995
+    },
+    {
+      "name": "3A_jars_n_Lid(0, 4)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.947177373196512e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(0, 5)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.00030732757211004183
+    },
+    {
+      "name": "3A_jars_n_Lid(0, 5)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.9471774775258316e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(0, 6)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.00030732757105438345
+    },
+    {
+      "name": "3A_jars_n_Lid(0, 6)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.9471772894626724e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(0, 7)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.0003073276208416844
+    },
+    {
+      "name": "3A_jars_n_Lid(0, 7)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.9471777167681758e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(1, 0)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.00030732762084168436
+    },
+    {
+      "name": "3A_jars_n_Lid(1, 0)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.947177716768174e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(1, 1)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.00030732757105438334
+    },
+    {
+      "name": "3A_jars_n_Lid(1, 1)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.947177289462672e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(1, 2)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.00030732757211004183
+    },
+    {
+      "name": "3A_jars_n_Lid(1, 2)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.9471774775258343e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(1, 3)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.0003073275737468995
+    },
+    {
+      "name": "3A_jars_n_Lid(1, 3)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.947177373196516e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(1, 4)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.0003073275737468995
+    },
+    {
+      "name": "3A_jars_n_Lid(1, 4)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.9471773731965145e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(1, 5)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.00030732757211004183
+    },
+    {
+      "name": "3A_jars_n_Lid(1, 5)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.9471774775258296e-05
+    },
+    {
+      "name": "3A_jars_n_Jar(1, 6)",
+      "assembly": "3A_jars_n",
+      "key": "glassish",
+      "volume_m3": 0.0003073275710543835
+    },
+    {
+      "name": "3A_jars_n_Lid(1, 6)",
+      "assembly": "3A_jars_n",
+      "key": "bakelite",
+      "volume_m3": 2.947177289462672e-05
+    },
+    {
+      "name": "6C_covered_a_Object",
+      "assembly": "6C_covered_a",
+      "key": "paper",
+      "volume_m3": 0.0030200860304245725
+    },
+    {
+      "name": "6C_covered_a_Drape",
+      "assembly": "6C_covered_a",
+      "key": "linen",
+      "volume_m3": 0.003072990152833272
+    },
+    {
+      "name": "6C_covered_b_Object",
+      "assembly": "6C_covered_b",
+      "key": "paper",
+      "volume_m3": 0.0030200860304245725
+    },
+    {
+      "name": "6C_covered_b_Drape",
+      "assembly": "6C_covered_b",
+      "key": "linen",
+      "volume_m3": 0.003072990152833272
+    },
+    {
+      "name": "6C_covered_c_Object",
+      "assembly": "6C_covered_c",
+      "key": "paper",
+      "volume_m3": 0.0030200860304245725
+    },
+    {
+      "name": "6C_covered_c_Drape",
+      "assembly": "6C_covered_c",
+      "key": "linen",
+      "volume_m3": 0.003072990152833272
+    },
+    {
+      "name": "4C_covered_a_Object",
+      "assembly": "4C_covered_a",
+      "key": "paper",
+      "volume_m3": 0.0030200860304245725
+    },
+    {
+      "name": "4C_covered_a_Drape",
+      "assembly": "4C_covered_a",
+      "key": "linen",
+      "volume_m3": 0.003072990152833272
+    },
+    {
+      "name": "4C_covered_b_Object",
+      "assembly": "4C_covered_b",
+      "key": "paper",
+      "volume_m3": 0.0030200860304245725
+    },
+    {
+      "name": "4C_covered_b_Drape",
+      "assembly": "4C_covered_b",
+      "key": "linen",
+      "volume_m3": 0.003072990152833272
+    },
+    {
+      "name": "4C_covered_c_Object",
+      "assembly": "4C_covered_c",
+      "key": "paper",
+      "volume_m3": 0.0030200860304245725
+    },
+    {
+      "name": "4C_covered_c_Drape",
+      "assembly": "4C_covered_c",
+      "key": "linen",
+      "volume_m3": 0.003072990152833272
+    },
+    {
+      "name": "4C_folded_cloth_Fold0",
+      "assembly": "4C_folded_cloth",
+      "key": "linen",
+      "volume_m3": 0.00029574946901007095
+    },
+    {
+      "name": "4C_folded_cloth_Fold1",
+      "assembly": "4C_folded_cloth",
+      "key": "linen",
+      "volume_m3": 0.00029574943645659595
+    },
+    {
+      "name": "4C_folded_cloth_Fold2",
+      "assembly": "4C_folded_cloth",
+      "key": "linen",
+      "volume_m3": 0.0002957494026432025
+    },
+    {
+      "name": "4C_folded_cloth_Fold3",
+      "assembly": "4C_folded_cloth",
+      "key": "linen",
+      "volume_m3": 0.0002957494072980002
     }
   ],
   "contacts": [
@@ -18427,6 +18949,891 @@
         0
       ],
       "label": "can base"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        -0.258,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 0)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        -0.17800000000000002,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 1)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        -0.09800000000000003,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 2)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        -0.018000000000000037,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 3)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        0.06199999999999998,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 4)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        0.142,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 5)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        0.22199999999999995,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 6)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        0.30200000000000005,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 7)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        -0.258,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 0)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        -0.17800000000000002,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 1)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        -0.09800000000000003,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 2)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        -0.018000000000000037,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 3)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        0.06199999999999998,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 4)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        0.142,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 5)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        0.22199999999999995,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 6)"
+    },
+    {
+      "assembly": "3A_jars_s",
+      "owner": "support",
+      "point": [
+        0.30200000000000005,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 7)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        -0.258,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 0)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        -0.17800000000000002,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 1)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        -0.09800000000000003,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 2)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        -0.018000000000000037,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 3)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        0.06199999999999998,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 4)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        0.142,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 5)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        0.22199999999999995,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 6)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        0.30200000000000005,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (0, 7)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        -0.258,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 0)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        -0.17800000000000002,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 1)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        -0.09800000000000003,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 2)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        -0.018000000000000037,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 3)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        0.06199999999999998,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 4)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        0.142,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 5)"
+    },
+    {
+      "assembly": "3A_jars_n",
+      "owner": "support",
+      "point": [
+        0.22199999999999995,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "jar (1, 6)"
+    },
+    {
+      "assembly": "6C_covered_a",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, -0.05)"
+    },
+    {
+      "assembly": "6C_covered_a",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, 0.05)"
+    },
+    {
+      "assembly": "6C_covered_a",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, -0.05)"
+    },
+    {
+      "assembly": "6C_covered_a",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, 0.05)"
+    },
+    {
+      "assembly": "6C_covered_b",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, -0.05)"
+    },
+    {
+      "assembly": "6C_covered_b",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, 0.05)"
+    },
+    {
+      "assembly": "6C_covered_b",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, -0.05)"
+    },
+    {
+      "assembly": "6C_covered_b",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, 0.05)"
+    },
+    {
+      "assembly": "6C_covered_c",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, -0.05)"
+    },
+    {
+      "assembly": "6C_covered_c",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, 0.05)"
+    },
+    {
+      "assembly": "6C_covered_c",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, -0.05)"
+    },
+    {
+      "assembly": "6C_covered_c",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, 0.05)"
+    },
+    {
+      "assembly": "4C_covered_a",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, -0.05)"
+    },
+    {
+      "assembly": "4C_covered_a",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, 0.05)"
+    },
+    {
+      "assembly": "4C_covered_a",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, -0.05)"
+    },
+    {
+      "assembly": "4C_covered_a",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, 0.05)"
+    },
+    {
+      "assembly": "4C_covered_b",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, -0.05)"
+    },
+    {
+      "assembly": "4C_covered_b",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, 0.05)"
+    },
+    {
+      "assembly": "4C_covered_b",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, -0.05)"
+    },
+    {
+      "assembly": "4C_covered_b",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, 0.05)"
+    },
+    {
+      "assembly": "4C_covered_c",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, -0.05)"
+    },
+    {
+      "assembly": "4C_covered_c",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (-0.07, 0.05)"
+    },
+    {
+      "assembly": "4C_covered_c",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, -0.05)"
+    },
+    {
+      "assembly": "4C_covered_c",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "covered (0.07, 0.05)"
+    },
+    {
+      "assembly": "4C_folded_cloth",
+      "owner": "support",
+      "point": [
+        -0.09,
+        0,
+        0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cloth (-0.09, -0.06)"
+    },
+    {
+      "assembly": "4C_folded_cloth",
+      "owner": "support",
+      "point": [
+        -0.09,
+        0,
+        -0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cloth (-0.09, 0.06)"
+    },
+    {
+      "assembly": "4C_folded_cloth",
+      "owner": "support",
+      "point": [
+        0.09,
+        0,
+        0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cloth (0.09, -0.06)"
+    },
+    {
+      "assembly": "4C_folded_cloth",
+      "owner": "support",
+      "point": [
+        0.09,
+        0,
+        -0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cloth (0.09, 0.06)"
     }
   ],
   "parts": [
@@ -20578,9 +21985,128 @@
       "cell": "3A",
       "key": "metal",
       "triangles": 860
+    },
+    {
+      "name": "3A_jars_s__bakelite",
+      "assembly": "3A_jars_s",
+      "cell": "3A",
+      "key": "bakelite",
+      "triangles": 3072
+    },
+    {
+      "name": "3A_jars_s__glassish",
+      "assembly": "3A_jars_s",
+      "cell": "3A",
+      "key": "glassish",
+      "triangles": 7680
+    },
+    {
+      "name": "3A_jars_n__bakelite",
+      "assembly": "3A_jars_n",
+      "cell": "3A",
+      "key": "bakelite",
+      "triangles": 2880
+    },
+    {
+      "name": "3A_jars_n__glassish",
+      "assembly": "3A_jars_n",
+      "cell": "3A",
+      "key": "glassish",
+      "triangles": 7200
+    },
+    {
+      "name": "6C_covered_a__linen",
+      "assembly": "6C_covered_a",
+      "cell": "6C",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "6C_covered_a__paper",
+      "assembly": "6C_covered_a",
+      "cell": "6C",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "6C_covered_b__linen",
+      "assembly": "6C_covered_b",
+      "cell": "6C",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "6C_covered_b__paper",
+      "assembly": "6C_covered_b",
+      "cell": "6C",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "6C_covered_c__linen",
+      "assembly": "6C_covered_c",
+      "cell": "6C",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "6C_covered_c__paper",
+      "assembly": "6C_covered_c",
+      "cell": "6C",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "4C_covered_a__linen",
+      "assembly": "4C_covered_a",
+      "cell": "4C",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "4C_covered_a__paper",
+      "assembly": "4C_covered_a",
+      "cell": "4C",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "4C_covered_b__linen",
+      "assembly": "4C_covered_b",
+      "cell": "4C",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "4C_covered_b__paper",
+      "assembly": "4C_covered_b",
+      "cell": "4C",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "4C_covered_c__linen",
+      "assembly": "4C_covered_c",
+      "cell": "4C",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "4C_covered_c__paper",
+      "assembly": "4C_covered_c",
+      "cell": "4C",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "4C_folded_cloth__linen",
+      "assembly": "4C_folded_cloth",
+      "cell": "4C",
+      "key": "linen",
+      "triangles": 752
     }
   ],
-  "triangles": 699220,
+  "triangles": 723060,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -25188,6 +26714,241 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "3A_jars_s",
+        "parts": [
+          {
+            "name": "3A_jars_s__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "3A_jars_s__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3A_jars_n",
+        "parts": [
+          {
+            "name": "3A_jars_n__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "3A_jars_n__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6C_covered_a",
+        "parts": [
+          {
+            "name": "6C_covered_a__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "6C_covered_a__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6C_covered_b",
+        "parts": [
+          {
+            "name": "6C_covered_b__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "6C_covered_b__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6C_covered_c",
+        "parts": [
+          {
+            "name": "6C_covered_c__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "6C_covered_c__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4C_covered_a",
+        "parts": [
+          {
+            "name": "4C_covered_a__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "4C_covered_a__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4C_covered_b",
+        "parts": [
+          {
+            "name": "4C_covered_b__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "4C_covered_b__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4C_covered_c",
+        "parts": [
+          {
+            "name": "4C_covered_c__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "4C_covered_c__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4C_folded_cloth",
+        "parts": [
+          {
+            "name": "4C_folded_cloth__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -25216,9 +26977,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "54a8ecab3e81d0e3859b71001b4ce9f2da7ae09252ead916947de5fdbb3e2a09",
+  "asset_sha256": "f056bb44c91b9a153fcd1d24dd735bb834c7ceeadf3dc417eef098f0160f8852",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "c92332acb4d3b7e27739128f7f4cdcf9e9922021febaa481d09abb628cb9d45e",
+    "art/data/surface_stock/source_plan.json": "6d75ebaa958330772e5731a1d301535a16e387d972c70e4d8f41c255efa387c5",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -25248,6 +27009,7 @@
     "art/textures/ai_materials/rubber_aged/material.json": "356c7af1c52350241145dbd506dc002162024b9a902f595b96be211b091555bd",
     "art/textures/ai_materials/oak_work_surface/material.json": "e6f67c0a42f610648b57189f1f2d8ed7e567742ef8c4af32e104fd73acbe7f89",
     "art/textures/ai_materials/trim/material.json": "7f7ce266fc6d291f2c15ea67ce60be610579f45ba215460e77aa2e671b5feecf",
+    "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
     "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
     "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
     "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
@@ -25307,6 +27069,9 @@
     "game/assets/building/textures/T_library_architectural_painted_trim_albedo.png": "f4beb89801df323f60c42c30dfad97af0d5243fc8846296903b2b1ebee3e6be7",
     "game/assets/building/textures/T_library_architectural_painted_trim_rough.png": "e7e87c348ac238fff6c31ba35f0b4ed7663e3a68ab9f83d1d781a5bd3f8cd9c4",
     "game/assets/building/textures/T_library_architectural_painted_trim_normal.png": "416bbfb7fe054518f7e23a0701085bceae724bb318182aca2437c10e33022ee7",
+    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
     "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
     "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
     "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
@@ -25318,13 +27083,13 @@
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "0866b89112f29acd3a97f6d25044ce4a08b361dabeed13cafc7c32d39bf8f257",
+    "art/blender/scripts/surface_stock_geometry.py": "8f01e7ee0d6723a0bd8b64b4dc6c27ebdedd8d4b2b7c851a6238101544bc33cd",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "7d379333cea1db426cf205b2a7d7fa19cad8e51db210f64d90b6573461486a04",
+    "game/data/orison_v2/domestic_surface_props.json": "2bf1f04b5c624515ef72a38b061e72696db9be086b0cfb9967d726f51ca0f1fb",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "e3167af350c3225de4674fa019c2978b56c400aee4b36bbf2fb4089ff4051023"
+    "game/data/orison_v2/domestic_furniture.json": "b5b543c0112ce4454a41211636a95193fb12b749d00c51ac595b0db3fa7590f6"
   },
   "retained_stock": [
     {
@@ -31759,6 +33524,312 @@
         "3A_compost_pail_Body",
         "3A_compost_pail_Lid",
         "3A_compost_pail_LidHandle"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(0, 0)",
+      "stocks": [
+        "3A_jars_s_Jar(0, 0)",
+        "3A_jars_s_Lid(0, 0)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(0, 1)",
+      "stocks": [
+        "3A_jars_s_Jar(0, 1)",
+        "3A_jars_s_Lid(0, 1)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(0, 2)",
+      "stocks": [
+        "3A_jars_s_Jar(0, 2)",
+        "3A_jars_s_Lid(0, 2)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(0, 3)",
+      "stocks": [
+        "3A_jars_s_Jar(0, 3)",
+        "3A_jars_s_Lid(0, 3)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(0, 4)",
+      "stocks": [
+        "3A_jars_s_Jar(0, 4)",
+        "3A_jars_s_Lid(0, 4)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(0, 5)",
+      "stocks": [
+        "3A_jars_s_Jar(0, 5)",
+        "3A_jars_s_Lid(0, 5)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(0, 6)",
+      "stocks": [
+        "3A_jars_s_Jar(0, 6)",
+        "3A_jars_s_Lid(0, 6)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(0, 7)",
+      "stocks": [
+        "3A_jars_s_Jar(0, 7)",
+        "3A_jars_s_Lid(0, 7)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(1, 0)",
+      "stocks": [
+        "3A_jars_s_Jar(1, 0)",
+        "3A_jars_s_Lid(1, 0)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(1, 1)",
+      "stocks": [
+        "3A_jars_s_Jar(1, 1)",
+        "3A_jars_s_Lid(1, 1)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(1, 2)",
+      "stocks": [
+        "3A_jars_s_Jar(1, 2)",
+        "3A_jars_s_Lid(1, 2)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(1, 3)",
+      "stocks": [
+        "3A_jars_s_Jar(1, 3)",
+        "3A_jars_s_Lid(1, 3)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(1, 4)",
+      "stocks": [
+        "3A_jars_s_Jar(1, 4)",
+        "3A_jars_s_Lid(1, 4)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(1, 5)",
+      "stocks": [
+        "3A_jars_s_Jar(1, 5)",
+        "3A_jars_s_Lid(1, 5)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(1, 6)",
+      "stocks": [
+        "3A_jars_s_Jar(1, 6)",
+        "3A_jars_s_Lid(1, 6)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_s",
+      "id": "3A_jars_s_Jar(1, 7)",
+      "stocks": [
+        "3A_jars_s_Jar(1, 7)",
+        "3A_jars_s_Lid(1, 7)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(0, 0)",
+      "stocks": [
+        "3A_jars_n_Jar(0, 0)",
+        "3A_jars_n_Lid(0, 0)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(0, 1)",
+      "stocks": [
+        "3A_jars_n_Jar(0, 1)",
+        "3A_jars_n_Lid(0, 1)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(0, 2)",
+      "stocks": [
+        "3A_jars_n_Jar(0, 2)",
+        "3A_jars_n_Lid(0, 2)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(0, 3)",
+      "stocks": [
+        "3A_jars_n_Jar(0, 3)",
+        "3A_jars_n_Lid(0, 3)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(0, 4)",
+      "stocks": [
+        "3A_jars_n_Jar(0, 4)",
+        "3A_jars_n_Lid(0, 4)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(0, 5)",
+      "stocks": [
+        "3A_jars_n_Jar(0, 5)",
+        "3A_jars_n_Lid(0, 5)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(0, 6)",
+      "stocks": [
+        "3A_jars_n_Jar(0, 6)",
+        "3A_jars_n_Lid(0, 6)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(0, 7)",
+      "stocks": [
+        "3A_jars_n_Jar(0, 7)",
+        "3A_jars_n_Lid(0, 7)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(1, 0)",
+      "stocks": [
+        "3A_jars_n_Jar(1, 0)",
+        "3A_jars_n_Lid(1, 0)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(1, 1)",
+      "stocks": [
+        "3A_jars_n_Jar(1, 1)",
+        "3A_jars_n_Lid(1, 1)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(1, 2)",
+      "stocks": [
+        "3A_jars_n_Jar(1, 2)",
+        "3A_jars_n_Lid(1, 2)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(1, 3)",
+      "stocks": [
+        "3A_jars_n_Jar(1, 3)",
+        "3A_jars_n_Lid(1, 3)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(1, 4)",
+      "stocks": [
+        "3A_jars_n_Jar(1, 4)",
+        "3A_jars_n_Lid(1, 4)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(1, 5)",
+      "stocks": [
+        "3A_jars_n_Jar(1, 5)",
+        "3A_jars_n_Lid(1, 5)"
+      ]
+    },
+    {
+      "assembly": "3A_jars_n",
+      "id": "3A_jars_n_Jar(1, 6)",
+      "stocks": [
+        "3A_jars_n_Jar(1, 6)",
+        "3A_jars_n_Lid(1, 6)"
+      ]
+    },
+    {
+      "assembly": "6C_covered_a",
+      "id": "6C_covered_a_CoveredObject",
+      "stocks": [
+        "6C_covered_a_Object",
+        "6C_covered_a_Drape"
+      ]
+    },
+    {
+      "assembly": "6C_covered_b",
+      "id": "6C_covered_b_CoveredObject",
+      "stocks": [
+        "6C_covered_b_Object",
+        "6C_covered_b_Drape"
+      ]
+    },
+    {
+      "assembly": "6C_covered_c",
+      "id": "6C_covered_c_CoveredObject",
+      "stocks": [
+        "6C_covered_c_Object",
+        "6C_covered_c_Drape"
+      ]
+    },
+    {
+      "assembly": "4C_covered_a",
+      "id": "4C_covered_a_CoveredObject",
+      "stocks": [
+        "4C_covered_a_Object",
+        "4C_covered_a_Drape"
+      ]
+    },
+    {
+      "assembly": "4C_covered_b",
+      "id": "4C_covered_b_CoveredObject",
+      "stocks": [
+        "4C_covered_b_Object",
+        "4C_covered_b_Drape"
+      ]
+    },
+    {
+      "assembly": "4C_covered_c",
+      "id": "4C_covered_c_CoveredObject",
+      "stocks": [
+        "4C_covered_c_Object",
+        "4C_covered_c_Drape"
+      ]
+    },
+    {
+      "assembly": "4C_folded_cloth",
+      "id": "4C_folded_cloth_FoldedCloth",
+      "stocks": [
+        "4C_folded_cloth_Fold0",
+        "4C_folded_cloth_Fold1",
+        "4C_folded_cloth_Fold2",
+        "4C_folded_cloth_Fold3"
       ]
     }
   ],

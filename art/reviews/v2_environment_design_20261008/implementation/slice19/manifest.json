@@ -1,0 +1,114 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/3A_prop_shelf_s_native.jpg",
+   "source": "fabrication_shots/domestic_storage/3A_prop_shelf_s_native.png",
+   "sha256": "41494a9087cff091ffd07ca8e3038c2e30977fd64a2f4d49c76dbf43800f1ac0",
+   "bytes": 116361
+  },
+  {
+   "path": "images/3A_jars_n_stock.jpg",
+   "source": "fabrication_shots/surface_stock/3A_jars_n_stock.png",
+   "sha256": "874a444434bbbf03b717f92a833014d34505f424f2bc6de572fb7fa49a5e389d",
+   "bytes": 59530
+  },
+  {
+   "path": "images/6C_card_cabinet_native.jpg",
+   "source": "fabrication_shots/domestic_objects/6C_card_cabinet_native.png",
+   "sha256": "4e8c3ed7809278f1c202fb76de1aad75914d9ab7b9ff4efc3389c50bc22d7366",
+   "bytes": 95353
+  },
+  {
+   "path": "images/6C_covered_a_stock.jpg",
+   "source": "fabrication_shots/surface_stock/6C_covered_a_stock.png",
+   "sha256": "e02b5441a66cfcefc50b6abbf2d89878c05bfd23d0164f19dc018d94c0d2a98d",
+   "bytes": 79640
+  },
+  {
+   "path": "images/4C_covered_a_stock.jpg",
+   "source": "fabrication_shots/surface_stock/4C_covered_a_stock.png",
+   "sha256": "325ced6d3b94bfa8641613769c755f93887ee354c7433ba6ac80357ff1b69064",
+   "bytes": 96530
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "68ee4dba6fd31cc50d50d1017e709da969861e16b8abd5ffd0781e4d9b345d34",
+   "bytes": 3394
+  },
+  {
+   "path": "receipts/completion_4C.log.receipt.json",
+   "source": "completion_4C.log.receipt.json",
+   "sha256": "5b84fe9390bbbe7a8254cc74e205925b3e692f51a9a37993c7aa30ad07e4398d",
+   "bytes": 3201
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "400e2ef502ebe149fe271e8baba308b78260ff2a5b669cf623f558e5fde0eea5",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/household_state.log.receipt.json",
+   "source": "household_state.log.receipt.json",
+   "sha256": "9d4944f87bd364a9b9aa10ee63fef36829785b6764fb72203288cf94b46e8e10",
+   "bytes": 3195
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "400b6f00e06a788b5830752ba931e691e0200811a855fbbf60dcee615347f1ec",
+   "bytes": 3138
+  },
+  {
+   "path": "receipts/sweep_a.log.receipt.json",
+   "source": "sweep_a.log.receipt.json",
+   "sha256": "fb9bb51369368db764fb40056da439cefd16fbce46719b0d820338de7c22de0b",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/sweep_b.log.receipt.json",
+   "source": "sweep_b.log.receipt.json",
+   "sha256": "3e20e14f76c98d18d0400474b155cce4098e5c0b704bd6aa67ba353edc0a59c7",
+   "bytes": 3226
+  },
+  {
+   "path": "receipts/upper_lighting.log.receipt.json",
+   "source": "upper_lighting.log.receipt.json",
+   "sha256": "9a630027f4b4196aca5dfd2e9afc7d976bde5361768a1ba3740a8042c97bf181",
+   "bytes": 3191
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "a2b4766d4bc026df094b3e80ed382c628a5d1d8d93d1bce0dbc123e570695fc5",
+   "bytes": 6608
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "4d6cc8b517ad6740c24ea1f41ae516ca78ee3ae3a16678c804cc481fd08a0b65",
+   "bytes": 758972
+  },
+  {
+   "path": "receipts/sweep_shots_b__node_census.json",
+   "source": "sweep_shots_b/node_census.json",
+   "sha256": "4d6cc8b517ad6740c24ea1f41ae516ca78ee3ae3a16678c804cc481fd08a0b65",
+   "bytes": 758972
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "59335948e043c8b4d0233bffbcecd1d07a727e9ba42f3cdb6da0dfe32440fbbb",
+   "bytes": 8004
+  },
+  {
+   "path": "receipts/sweep_shots_b__dossier_sweep.json",
+   "source": "sweep_shots_b/dossier_sweep.json",
+   "sha256": "6322df3d86512816ce684b441ac68887982179b9fcfe4474a588939c02d44a9c",
+   "bytes": 4226
+  }
+ ]
+}

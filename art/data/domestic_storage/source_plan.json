@@ -138,6 +138,32 @@
       "params": {
         "back_plane": 0.3
       }
+    },
+    {
+      "id": "Shelf09",
+      "kind": "shelf",
+      "source_id": "3A_prop_shelf_s",
+      "params": {
+        "id": "3A_prop_shelf_s",
+        "asm": "shelf",
+        "W": 1.5,
+        "H": 0.72,
+        "books": true,
+        "posts": "oak"
+      }
+    },
+    {
+      "id": "Shelf10",
+      "kind": "shelf",
+      "source_id": "3A_prop_shelf_n",
+      "params": {
+        "id": "3A_prop_shelf_n",
+        "asm": "shelf",
+        "W": 1.2,
+        "H": 0.72,
+        "books": true,
+        "posts": "oak"
+      }
     }
   ],
   "instances": [
@@ -340,6 +366,14 @@
     {
       "id": "3B_outgoing_shelf",
       "variant": "Shelf01"
+    },
+    {
+      "id": "3A_prop_shelf_s",
+      "variant": "Shelf09"
+    },
+    {
+      "id": "3A_prop_shelf_n",
+      "variant": "Shelf10"
     }
   ],
   "runtime_keys": [
@@ -407,7 +441,8 @@
     "Five actual boards per source shelf; source book and container envelopes remain. Hollow cabinet, fitted passive leaves and recessed grips; original operation owners are unchanged.",
     "Original 4B sink opening and worktop height remain. Other sink frames use folded metal stock within their original envelopes.",
     "Existing catalogue maps and linear-light local tints; no new bitmap or global finish.",
-    "Slice 11 of the V2 environment dossier adds 5B's two tape shelves and 3B's outgoing shelf as Shelf01 copies."
+    "Slice 11 of the V2 environment dossier adds 5B's two tape shelves and 3B's outgoing shelf as Shelf01 copies.",
+    "Slice 19 of the V2 environment dossier adds two low oak shelves (Shelf09, Shelf10: two boards, 0.72 m) under 3A's west windows for the propagation jars."
   ],
   "open_work": [
     "Scoped native construction, production support and mechanism validation complete. Whole-room light/material balance, wardrobes, remaining appliances and fixed lighting remain in the wider V2 pass."

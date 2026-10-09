@@ -116,6 +116,8 @@ Slices landed so far (evidence folders in parentheses):
     suitcase form) (`slice17b`; `slice17` stood the chair in the door route).
 18. Studio forms: 2B's treadle sewing machine, 3B's radio teardown, 5C's
     easel and failed canvases (`slice18`).
+19. 3A's propagation shelves and seed jars, covered objects on 6C's
+    archive shelves and 4C's museum shelf, 6C's card cabinet (`slice19`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

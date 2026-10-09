@@ -1,0 +1,196 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						4.86800193786621,
+						11.039999961853,
+						-18.6359996795654
+					],
+					"feet": [
+						-4.86800050735474,
+						9.63000011444092,
+						6.98600006103516
+					],
+					"forward": [
+						-0.747239887714386,
+						-0.141840055584908,
+						-0.649241089820862
+					],
+					"image": "F04_C_MAIN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-2.54999995231628,
+						10.6000003814697,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						0.232002019882202,
+						11.039999961853,
+						-22.6639995574951
+					],
+					"feet": [
+						-0.232000038027763,
+						9.63000011444092,
+						11.0139999389648
+					],
+					"forward": [
+						0.747239768505096,
+						-0.141840025782585,
+						0.649241209030151
+					],
+					"image": "F04_C_MAIN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-2.54999995231628,
+						10.6000003814697,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						0.850001513957977,
+						11.039999961853,
+						-17.0
+					],
+					"feet": [
+						-0.850000023841858,
+						9.63000011444092,
+						5.35000038146973
+					],
+					"forward": [
+						0.421457588672638,
+						-0.0594998337328434,
+						-0.904894113540649
+					],
+					"image": "F04_C_MAIN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F04_C_VESTIBULE_MAIN_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-2.54999995231628,
+						10.8000001907349,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						3.77000188827515,
+						11.039999961853,
+						-18.6359996795654
+					],
+					"feet": [
+						-3.77000021934509,
+						9.63000011444092,
+						6.98600006103516
+					],
+					"forward": [
+						0.947810888290405,
+						-0.152521193027496,
+						-0.279985576868057
+					],
+					"image": "F04_C_MAIN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4C_story_colorboard",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-5.51000022888184,
+						10.7600002288818,
+						7.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						0.232002019882202,
+						11.039999961853,
+						-22.6639995574951
+					],
+					"feet": [
+						-0.232000038027763,
+						9.63000011444092,
+						11.0139999389648
+					],
+					"forward": [
+						0.642174005508423,
+						-0.273481070995331,
+						0.71611499786377
+					],
+					"image": "F04_C_MAIN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4C_din_t",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-1.5,
+						10.5,
+						9.60000038146973
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						3.77000188827515,
+						11.039999961853,
+						-18.6359996795654
+					],
+					"feet": [
+						-3.77000021934509,
+						9.63000011444092,
+						6.98600006103516
+					],
+					"forward": [
+						-0.940598487854004,
+						-0.271616697311401,
+						0.203712835907936
+					],
+					"image": "F04_C_MAIN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F04_4C_BOOKSHELF_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-1.89999997615814,
+						10.5,
+						6.58099985122681
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 21,
+			"floor_y": 9.6,
+			"id": "F04_C_MAIN",
+			"level": "F04",
+			"purpose": "Cam Ortiz and Noel Price living, meals and conversation",
+			"rect": [
+				-5.6,
+				6.35,
+				0.5,
+				11.65
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		}
+	]
+}

@@ -373,6 +373,28 @@ def hammer(source):
  stock('Head',(.09,-.035,0),(.125,.035,.03),'metal',.002)
  for p in [(-.12,0,0),(.11,-.025,0),(.11,.025,0)]:bearing('hammer '+str(p),p)
  group('Hammer',start)
+# Dossier slice 19: seed jars, cloth-covered objects, a folded cloth.
+def seedjars(source,gap=False):
+ for row,y in enumerate([-.045,.045]):
+  for i in range(8):
+   if gap and row==1 and i==7:continue
+   start=len(stock_checks);x=-.28+i*.08
+   lathe('Jar'+str((row,i)),x,y,0,[(0,0),(.03,0),(.032,.004),(.032,.085),(.026,.092),(.026,.1),(0,.1)],'glassish')
+   lathe('Lid'+str((row,i)),x,y,.0985,[(0,0),(.028,0),(.028,.012),(0,.012)],'bakelite')
+   bearing('jar '+str((row,i)),(x+.022,y,0));group('Jar'+str((row,i)),start)
+def covered(source):
+ start=len(stock_checks)
+ stock('Object',(-.09,-.07,0),(.09,.07,.12),'paper',.003)
+ stock('Drape',(-.1,-.08,.03),(.1,.08,.128),'linen',.012)
+ for x in [-.07,.07]:
+  for y in [-.05,.05]:bearing('covered '+str((x,y)),(x,y,0))
+ group('CoveredObject',start)
+def foldedcloth(source):
+ start=len(stock_checks)
+ for i in range(4):stock('Fold'+str(i),(-.11,-.08,i*.008),(.11,.08,i*.008+.0085),'linen',.003)
+ for x in [-.09,.09]:
+  for y in [-.06,.06]:bearing('cloth '+str((x,y)),(x,y,0))
+ group('FoldedCloth',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -410,4 +432,8 @@ for assembly in assemblies:
  elif kind=='case':case(source)
  elif kind=='gloves':gloves(source)
  elif kind=='hammer':hammer(source)
+ elif kind=='seedjars':seedjars(source)
+ elif kind=='seedjarsgap':seedjars(source,True)
+ elif kind=='covered':covered(source)
+ elif kind=='foldedcloth':foldedcloth(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

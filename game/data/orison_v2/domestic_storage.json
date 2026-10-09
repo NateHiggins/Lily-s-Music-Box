@@ -284,6 +284,48 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "Shelf09",
+      "parts": [
+        {
+          "name": "Shelf09__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Shelf10",
+      "parts": [
+        {
+          "name": "Shelf10__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -486,6 +528,14 @@
     {
       "id": "3B_outgoing_shelf",
       "variant": "Shelf01"
+    },
+    {
+      "id": "3A_prop_shelf_s",
+      "variant": "Shelf09"
+    },
+    {
+      "id": "3A_prop_shelf_n",
+      "variant": "Shelf10"
     }
   ],
   "tint_space": "linear"

@@ -236,7 +236,16 @@
   "5C_tack_tin",
   "2B_photo",
   "2B_finished_parcel",
-  "3A_compost_pail"
+  "3A_compost_pail",
+  "3A_jars_s",
+  "3A_jars_n",
+  "6C_covered_a",
+  "6C_covered_b",
+  "6C_covered_c",
+  "4C_covered_a",
+  "4C_covered_b",
+  "4C_covered_c",
+  "4C_folded_cloth"
  ],
  "runtime_keys": [
   "bakelite",
@@ -259,7 +268,8 @@
   "rubber_aged",
   "timber",
   "trim",
-  "wood_dark"
+  "wood_dark",
+  "linen"
  ],
  "catalog_variants": {
   "bakelite": "bakelite",
@@ -281,7 +291,8 @@
   "rubber_aged": "rubber_aged",
   "timber": "oak_work_surface",
   "trim": "trim",
-  "wood_dark": "oak_work_surface"
+  "wood_dark": "oak_work_surface",
+  "linen": "linen"
  },
  "material_aliases": {},
  "material_tints": {
@@ -309,7 +320,8 @@
   "Slice 11 of the V2 environment dossier adds 11 records of four further forms (card cartons, reel boxes, rows of standing reel boxes, a wire wastebasket) and three more parcels: 5B's tape catalogue, 3B's outgoing parcels, 2A's unlabelled box and 6B's wastebasket.",
   "Slice 13 of the V2 environment dossier adds 4B's capsule tin and bulb carton on the closet shelf.",
   "Slice 16 of the V2 environment dossier adds eight bedside and bench forms (spectacles, pencil, booklet, wallet, folding rule, open case, gloves, hammer) and 11 records on nightstands and 5C's table.",
-  "Slice 17 of the V2 environment dossier adds 2B's bedside photograph, the parcel on 2B's client chair and 3A's compost pail."
+  "Slice 17 of the V2 environment dossier adds 2B's bedside photograph, the parcel on 2B's client chair and 3A's compost pail.",
+  "Slice 19 of the V2 environment dossier adds seed-jar rows (one with the gap), cloth-covered objects and a folded cloth."
  ],
  "open_work": [
   "Final room lighting and adjacent furniture remain in the wider V2 pass; this family has scoped native and composed runtime verification."
@@ -342,6 +354,10 @@
   "brass": {
    "normal_scale": 0.03,
    "roughness": 0.45
+  },
+  "linen": {
+   "normal_scale": 0.12,
+   "roughness": 0.85
   }
  },
  "optics": {

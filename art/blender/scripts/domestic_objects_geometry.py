@@ -452,6 +452,23 @@ def canvasstack(source):
   for x in [-w/2+.015,w/2-.015]:bearing('canvas foot '+str((i,x)),(x,y0+.015,0))
   group('Canvas'+str(i),start)
 
+def cardcabinet(source):
+ # Dossier slice 19: an oak card-index cabinet, three columns of four
+ # drawers with brass pulls and blank label frames; one drawer carries a
+ # brass lock plate (the provenance drawer: locked, RESIST-REFUSE later).
+ start=len(stock_checks)
+ stock('Case',(-.3,-.2,.05),(.3,.2,.8),'timber',.004)
+ for x in [-.27,.27]:
+  for y in [-.17,.17]:stock('Foot'+str((x,y)),(x-.025,y-.025,0),(x+.025,y+.025,.051),'wood_dark',.002);bearing('cabinet foot '+str((x,y)),(x,y,0))
+ for c in range(3):
+  for r in range(4):
+   x0=-.28+c*.19;z0=.08+r*.175
+   stock('Drawer'+str((c,r)),(x0,.195,z0),(x0+.18,.215,z0+.165),'wood_dark',.002)
+   stock('Label'+str((c,r)),(x0+.06,.2145,z0+.11),(x0+.12,.2175,z0+.145),'brass',.0005)
+   stock('Pull'+str((c,r)),(x0+.07,.2145,z0+.05),(x0+.11,.232,z0+.07),'brass',.001)
+ stock('LockPlate',(-.09+.0,.2145,.33),(-.05,.219,.37),'brass',.0005)
+ group('CardCabinet',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -477,4 +494,5 @@ for assembly in assemblies:
  elif kind=='teardown':teardown(source)
  elif kind=='easel':easel(source)
  elif kind=='canvasstack':canvasstack(source)
+ elif kind=='cardcabinet':cardcabinet(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))
