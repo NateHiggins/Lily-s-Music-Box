@@ -4079,7 +4079,9 @@
    "preserve": "Window light, route to the kitchen door",
    "acceptance": "Overview shows the machine under the window; E turns the treadle",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_B_MAIN"
+   "area": "F02_B_MAIN",
+   "status": "verified",
+   "owner_notes": "2B_sewing_machine (new sewingmachine form: cast-iron legs, rails and treadle on an axle, an oak top and drawer, a black japanned head with its needle, needle plate and handwheel) under the east window with the treadle toward the room. Deviation: passive; the treadle OPERATE owner (treadle turns, needle drops) waits for a mechanism pass. Verified at d0108d15 (slice18): the thirteen families pass the fabrication batch (26,770 checks, 0 failures; objects 83 actors, every new piece standing on its floor inside its room and clear of its neighbours), apartment batch 236 as before, the apartment door route 45 and the 4B route 32 waypoints with 0 failures, upper lighting and the household save owner 0 failures, the three-space sweep 0 failures; native close-ups in implementation/slice18."
   },
   {
    "id": "F02_B_MAIN-002",
@@ -5366,7 +5368,9 @@
    "preserve": "Bench aisle and workbench stance, the task lamp's cord route (G14)",
    "acceptance": "Detail view from the bench stance",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "F03_B_MAIN"
+   "area": "F03_B_MAIN",
+   "status": "verified",
+   "owner_notes": "3B_teardown (new teardown form: a newspaper sheet, an open chassis with three empty valve sockets, three loose valves standing on the sheet, a saucer of screws) on the floor north of the parts crate, beside the hall opening's approach. Passive, never a live receiver; the INSPECT card waits for the matrix pass. Verified at d0108d15 (slice18): the thirteen families pass the fabrication batch (26,770 checks, 0 failures; objects 83 actors, every new piece standing on its floor inside its room and clear of its neighbours), apartment batch 236 as before, the apartment door route 45 and the 4B route 32 waypoints with 0 failures, upper lighting and the household save owner 0 failures, the three-space sweep 0 failures; native close-ups in implementation/slice18."
   },
   {
    "id": "F03_B_MAIN-002",
@@ -9157,7 +9161,9 @@
    "preserve": "Door swing and the route",
    "acceptance": "Threshold view from the hall reads a studio; the canvases' faces are not visible from any station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_C_BED2"
+   "area": "F05_C_BED2",
+   "status": "verified",
+   "owner_notes": "5C_easel (new easel form: splayed front legs and a back leg on foot pads, a ledge holding a blank canvas under the top clamp) by the window east of the stool, the canvas facing the stool so the window is on the painter's left; 5C_failed_canvases (new canvasstack form: six canvases standing face to the wall, stretcher backs to the room, a pencil mark on each) west of the door, outside its swing. The pigment table and stool were already placed; the drying rack, wash jar and drop cloth wait for their forms. Verified at d0108d15 (slice18): the thirteen families pass the fabrication batch (26,770 checks, 0 failures; objects 83 actors, every new piece standing on its floor inside its room and clear of its neighbours), apartment batch 236 as before, the apartment door route 45 and the 4B route 32 waypoints with 0 failures, upper lighting and the household save owner 0 failures, the three-space sweep 0 failures; native close-ups in implementation/slice18."
   },
   {
    "id": "F05_D_RESTRICTED-001",

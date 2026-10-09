@@ -497,6 +497,30 @@
     "H": 0.42,
     "key": "book_brown"
    }
+  },
+  {
+   "id": "DomesticObject30",
+   "kind": "sewingmachine",
+   "source_id": "2B_sewing_machine",
+   "params": {}
+  },
+  {
+   "id": "DomesticObject31",
+   "kind": "teardown",
+   "source_id": "3B_teardown",
+   "params": {}
+  },
+  {
+   "id": "DomesticObject32",
+   "kind": "easel",
+   "source_id": "5C_easel",
+   "params": {}
+  },
+  {
+   "id": "DomesticObject33",
+   "kind": "canvasstack",
+   "source_id": "5C_failed_canvases",
+   "params": {}
   }
  ],
  "instances": [
@@ -815,6 +839,22 @@
   {
    "id": "4D_case",
    "variant": "DomesticObject29"
+  },
+  {
+   "id": "2B_sewing_machine",
+   "variant": "DomesticObject30"
+  },
+  {
+   "id": "3B_teardown",
+   "variant": "DomesticObject31"
+  },
+  {
+   "id": "5C_easel",
+   "variant": "DomesticObject32"
+  },
+  {
+   "id": "5C_failed_canvases",
+   "variant": "DomesticObject33"
   }
  ],
  "runtime_keys": [
@@ -1079,7 +1119,8 @@
   "Slice 13 of the V2 environment dossier adds cloth: a garment rail (header board, brackets, rail, garments on wooden hangers, optional repair tags) and a hung moving blanket (batten, bound edges, quilted rows), with five tinted cloth keys on the catalogue linen.",
   "Slice 14 of the V2 environment dossier puts one object in each of the eighteen private halls by the resident's routine: a lidded wicker hamper (new form), a galvanised boot tray with galoshes (new form) or a copy of an existing crate, each against a wall clear of every door and opening approach.",
   "Slice 15 of the V2 environment dossier adds a photograph style to the wall-art form (a toned print under a mat) and hangs wall art in 2C, 3D, 3A and 5B, with 2A's caption wall as a 1.2 x 0.9 m pinboard.",
-  "Slice 17 of the V2 environment dossier adds a suitcase form (a leather case on its edge with straps, brass feet and a handle) for 4D's luggage in the vestibule."
+  "Slice 17 of the V2 environment dossier adds a suitcase form (a leather case on its edge with straps, brass feet and a handle) for 4D's luggage in the vestibule.",
+  "Slice 18 of the V2 environment dossier adds four studio forms: a treadle sewing machine (2B), a radio teardown on newspaper (3B), an easel with a blank canvas and a stack of six failed canvases face to the wall (5C)."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

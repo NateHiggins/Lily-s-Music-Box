@@ -364,6 +364,30 @@
       "kind": "suitcase",
       "cell": "shared",
       "source_record": "4D_case"
+    },
+    {
+      "id": "DomesticObject30",
+      "kind": "sewingmachine",
+      "cell": "shared",
+      "source_record": "2B_sewing_machine"
+    },
+    {
+      "id": "DomesticObject31",
+      "kind": "teardown",
+      "cell": "shared",
+      "source_record": "3B_teardown"
+    },
+    {
+      "id": "DomesticObject32",
+      "kind": "easel",
+      "cell": "shared",
+      "source_record": "5C_easel"
+    },
+    {
+      "id": "DomesticObject33",
+      "kind": "canvasstack",
+      "cell": "shared",
+      "source_record": "5C_failed_canvases"
     }
   ],
   "closed_stocks": [
@@ -5298,6 +5322,474 @@
       "assembly": "DomesticObject29",
       "key": "book_brown",
       "volume_m3": 2.8432509722791737e-05
+    },
+    {
+      "name": "DomesticObject30_Leg(-0.38, -0.18)",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.0011887135562626077
+    },
+    {
+      "name": "DomesticObject30_Leg(-0.38, 0.18)",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.0011887135562626077
+    },
+    {
+      "name": "DomesticObject30_Rail(-0.38, 0.09)",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.00035817356873210626
+    },
+    {
+      "name": "DomesticObject30_Rail(-0.38, 0.45)",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.000358173601797411
+    },
+    {
+      "name": "DomesticObject30_Leg(0.38, -0.18)",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.0011887135562626077
+    },
+    {
+      "name": "DomesticObject30_Leg(0.38, 0.18)",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.0011887135562626077
+    },
+    {
+      "name": "DomesticObject30_Rail(0.38, 0.09)",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.0003581735687321063
+    },
+    {
+      "name": "DomesticObject30_Rail(0.38, 0.45)",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.000358173601797411
+    },
+    {
+      "name": "DomesticObject30_Axle",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.00035185271025311933
+    },
+    {
+      "name": "DomesticObject30_Treadle",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.002747033440552062
+    },
+    {
+      "name": "DomesticObject30_Top",
+      "assembly": "DomesticObject30",
+      "key": "timber",
+      "volume_m3": 0.013833837833734389
+    },
+    {
+      "name": "DomesticObject30_Drawer",
+      "assembly": "DomesticObject30",
+      "key": "timber",
+      "volume_m3": 0.008497071593665452
+    },
+    {
+      "name": "DomesticObject30_Bed",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.0019787278126550695
+    },
+    {
+      "name": "DomesticObject30_Pillar",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.0012417087735322376
+    },
+    {
+      "name": "DomesticObject30_Arm",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.0019423657166006405
+    },
+    {
+      "name": "DomesticObject30_NeedleHead",
+      "assembly": "DomesticObject30",
+      "key": "soot",
+      "volume_m3": 0.0006674687061448354
+    },
+    {
+      "name": "DomesticObject30_Needle",
+      "assembly": "DomesticObject30",
+      "key": "metal",
+      "volume_m3": 1.2154583644835103e-06
+    },
+    {
+      "name": "DomesticObject30_NeedlePlate",
+      "assembly": "DomesticObject30",
+      "key": "brass",
+      "volume_m3": 4.495195825589488e-05
+    },
+    {
+      "name": "DomesticObject30_Handwheel",
+      "assembly": "DomesticObject30",
+      "key": "metal",
+      "volume_m3": 0.00022474355874071687
+    },
+    {
+      "name": "DomesticObject31_Newspaper",
+      "assembly": "DomesticObject31",
+      "key": "paper",
+      "volume_m3": 0.0007919583296318629
+    },
+    {
+      "name": "DomesticObject31_Chassis",
+      "assembly": "DomesticObject31",
+      "key": "metal",
+      "volume_m3": 0.0036428235939844947
+    },
+    {
+      "name": "DomesticObject31_Socket0",
+      "assembly": "DomesticObject31",
+      "key": "bakelite",
+      "volume_m3": 4.911962491385365e-06
+    },
+    {
+      "name": "DomesticObject31_Socket1",
+      "assembly": "DomesticObject31",
+      "key": "bakelite",
+      "volume_m3": 4.911962830021308e-06
+    },
+    {
+      "name": "DomesticObject31_Socket2",
+      "assembly": "DomesticObject31",
+      "key": "bakelite",
+      "volume_m3": 4.91196251580988e-06
+    },
+    {
+      "name": "DomesticObject31_Valve0",
+      "assembly": "DomesticObject31",
+      "key": "milk_glass",
+      "volume_m3": 5.6387305698430586e-05
+    },
+    {
+      "name": "DomesticObject31_Valve1",
+      "assembly": "DomesticObject31",
+      "key": "milk_glass",
+      "volume_m3": 5.638732512134446e-05
+    },
+    {
+      "name": "DomesticObject31_Valve2",
+      "assembly": "DomesticObject31",
+      "key": "milk_glass",
+      "volume_m3": 5.638732159166089e-05
+    },
+    {
+      "name": "DomesticObject31_Saucer",
+      "assembly": "DomesticObject31",
+      "key": "enamel",
+      "volume_m3": 3.141817709474205e-05
+    },
+    {
+      "name": "DomesticObject31_Screw0",
+      "assembly": "DomesticObject31",
+      "key": "metal",
+      "volume_m3": 1.613534669830929e-07
+    },
+    {
+      "name": "DomesticObject31_Screw1",
+      "assembly": "DomesticObject31",
+      "key": "metal",
+      "volume_m3": 1.613534669830929e-07
+    },
+    {
+      "name": "DomesticObject31_Screw2",
+      "assembly": "DomesticObject31",
+      "key": "metal",
+      "volume_m3": 1.613534669830929e-07
+    },
+    {
+      "name": "DomesticObject31_Screw3",
+      "assembly": "DomesticObject31",
+      "key": "metal",
+      "volume_m3": 1.613534669830929e-07
+    },
+    {
+      "name": "DomesticObject32_FrontPad-1",
+      "assembly": "DomesticObject32",
+      "key": "timber",
+      "volume_m3": 1.9109712014789856e-05
+    },
+    {
+      "name": "DomesticObject32_FrontLeg-1",
+      "assembly": "DomesticObject32",
+      "key": "timber",
+      "volume_m3": 0.0011351587421946905
+    },
+    {
+      "name": "DomesticObject32_FrontPad1",
+      "assembly": "DomesticObject32",
+      "key": "timber",
+      "volume_m3": 1.9109712014789856e-05
+    },
+    {
+      "name": "DomesticObject32_FrontLeg1",
+      "assembly": "DomesticObject32",
+      "key": "timber",
+      "volume_m3": 0.001135158699691614
+    },
+    {
+      "name": "DomesticObject32_TopBlock",
+      "assembly": "DomesticObject32",
+      "key": "timber",
+      "volume_m3": 0.0003910139184022626
+    },
+    {
+      "name": "DomesticObject32_BackPad",
+      "assembly": "DomesticObject32",
+      "key": "timber",
+      "volume_m3": 1.9109697962733527e-05
+    },
+    {
+      "name": "DomesticObject32_BackLeg",
+      "assembly": "DomesticObject32",
+      "key": "timber",
+      "volume_m3": 0.001169985735525573
+    },
+    {
+      "name": "DomesticObject32_Ledge",
+      "assembly": "DomesticObject32",
+      "key": "timber",
+      "volume_m3": 0.0008976546883233405
+    },
+    {
+      "name": "DomesticObject32_Canvas",
+      "assembly": "DomesticObject32",
+      "key": "linen",
+      "volume_m3": 0.010509708976350923
+    },
+    {
+      "name": "DomesticObject32_Clamp",
+      "assembly": "DomesticObject32",
+      "key": "timber",
+      "volume_m3": 0.0003873937758388829
+    },
+    {
+      "name": "DomesticObject33_Face0",
+      "assembly": "DomesticObject33",
+      "key": "linen",
+      "volume_m3": 0.0028785954385989066
+    },
+    {
+      "name": "DomesticObject33_Stile(0, -0.3)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.00046461565385720496
+    },
+    {
+      "name": "DomesticObject33_Stile(0, 0.27)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.00046461565385720496
+    },
+    {
+      "name": "DomesticObject33_Rail(0, 0)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.0003147176057875599
+    },
+    {
+      "name": "DomesticObject33_Rail(0, 0.77)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.0003147180276265116
+    },
+    {
+      "name": "DomesticObject33_Mark0",
+      "assembly": "DomesticObject33",
+      "key": "soot",
+      "volume_m3": 1.2536476562684894e-07
+    },
+    {
+      "name": "DomesticObject33_Face1",
+      "assembly": "DomesticObject33",
+      "key": "linen",
+      "volume_m3": 0.002098796026846357
+    },
+    {
+      "name": "DomesticObject33_Stile(1, -0.25)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.00040651566187334387
+    },
+    {
+      "name": "DomesticObject33_Stile(1, 0.22)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.00040651566187334387
+    },
+    {
+      "name": "DomesticObject33_Rail(1, 0)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.00025661763527393437
+    },
+    {
+      "name": "DomesticObject33_Rail(1, 0.6699999999999999)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.00025661739173295315
+    },
+    {
+      "name": "DomesticObject33_Mark1",
+      "assembly": "DomesticObject33",
+      "key": "soot",
+      "volume_m3": 1.2536208529814554e-07
+    },
+    {
+      "name": "DomesticObject33_Face2",
+      "assembly": "DomesticObject33",
+      "key": "linen",
+      "volume_m3": 0.0024736978057193658
+    },
+    {
+      "name": "DomesticObject33_Stile(2, -0.275)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.0004355656802183523
+    },
+    {
+      "name": "DomesticObject33_Stile(2, 0.24500000000000002)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.0004355656802183523
+    },
+    {
+      "name": "DomesticObject33_Rail(2, 0)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.00028566765179900954
+    },
+    {
+      "name": "DomesticObject33_Rail(2, 0.72)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.00028566738068742784
+    },
+    {
+      "name": "DomesticObject33_Mark2",
+      "assembly": "DomesticObject33",
+      "key": "soot",
+      "volume_m3": 1.2536353309276563e-07
+    },
+    {
+      "name": "DomesticObject33_Face3",
+      "assembly": "DomesticObject33",
+      "key": "linen",
+      "volume_m3": 0.0016189469845048928
+    },
+    {
+      "name": "DomesticObject33_Stile(3, -0.225)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.000348415682079466
+    },
+    {
+      "name": "DomesticObject33_Stile(3, 0.195)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.000348415682079466
+    },
+    {
+      "name": "DomesticObject33_Rail(3, 0)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.0002275676339036425
+    },
+    {
+      "name": "DomesticObject33_Rail(3, 0.57)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.0002275678068379901
+    },
+    {
+      "name": "DomesticObject33_Mark3",
+      "assembly": "DomesticObject33",
+      "key": "soot",
+      "volume_m3": 1.2536506549393827e-07
+    },
+    {
+      "name": "DomesticObject33_Face4",
+      "assembly": "DomesticObject33",
+      "key": "linen",
+      "volume_m3": 0.002338744641870717
+    },
+    {
+      "name": "DomesticObject33_Stile(4, -0.3)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.0003774656583722259
+    },
+    {
+      "name": "DomesticObject33_Stile(4, 0.27)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.0003774656583722259
+    },
+    {
+      "name": "DomesticObject33_Rail(4, 0)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.00031471763604196216
+    },
+    {
+      "name": "DomesticObject33_Rail(4, 0.62)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.0003147173373232615
+    },
+    {
+      "name": "DomesticObject33_Mark4",
+      "assembly": "DomesticObject33",
+      "key": "soot",
+      "volume_m3": 1.253650810656988e-07
+    },
+    {
+      "name": "DomesticObject33_Face5",
+      "assembly": "DomesticObject33",
+      "key": "linen",
+      "volume_m3": 0.0011990951588293222
+    },
+    {
+      "name": "DomesticObject33_Stile(5, -0.2)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.0002903156621969488
+    },
+    {
+      "name": "DomesticObject33_Stile(5, 0.17)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.0002903156621969488
+    },
+    {
+      "name": "DomesticObject33_Rail(5, 0)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.00019851763839818135
+    },
+    {
+      "name": "DomesticObject33_Rail(5, 0.47)",
+      "assembly": "DomesticObject33",
+      "key": "timber",
+      "volume_m3": 0.00019851765070026206
+    },
+    {
+      "name": "DomesticObject33_Mark5",
+      "assembly": "DomesticObject33",
+      "key": "soot",
+      "volume_m3": 1.2536387133644193e-07
     }
   ],
   "contacts": [
@@ -7010,6 +7502,351 @@
         0
       ],
       "label": "case foot (0.27999999999999997, 0.08)"
+    },
+    {
+      "assembly": "DomesticObject30",
+      "owner": "support",
+      "point": [
+        -0.38,
+        0,
+        0.18
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "treadle foot (-0.38, -0.18)"
+    },
+    {
+      "assembly": "DomesticObject30",
+      "owner": "support",
+      "point": [
+        -0.38,
+        0,
+        -0.18
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "treadle foot (-0.38, 0.18)"
+    },
+    {
+      "assembly": "DomesticObject30",
+      "owner": "support",
+      "point": [
+        0.38,
+        0,
+        0.18
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "treadle foot (0.38, -0.18)"
+    },
+    {
+      "assembly": "DomesticObject30",
+      "owner": "support",
+      "point": [
+        0.38,
+        0,
+        -0.18
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "treadle foot (0.38, 0.18)"
+    },
+    {
+      "assembly": "DomesticObject31",
+      "owner": "support",
+      "point": [
+        -0.27,
+        0,
+        0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "sheet (-0.27, -0.19, 0)"
+    },
+    {
+      "assembly": "DomesticObject31",
+      "owner": "support",
+      "point": [
+        0.27,
+        0,
+        0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "sheet (0.27, -0.19, 0)"
+    },
+    {
+      "assembly": "DomesticObject31",
+      "owner": "support",
+      "point": [
+        -0.27,
+        0,
+        -0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "sheet (-0.27, 0.19, 0)"
+    },
+    {
+      "assembly": "DomesticObject31",
+      "owner": "support",
+      "point": [
+        0.27,
+        0,
+        -0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "sheet (0.27, 0.19, 0)"
+    },
+    {
+      "assembly": "DomesticObject32",
+      "owner": "support",
+      "point": [
+        -0.28,
+        0,
+        -0.1
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "front foot -1"
+    },
+    {
+      "assembly": "DomesticObject32",
+      "owner": "support",
+      "point": [
+        0.28,
+        0,
+        -0.1
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "front foot 1"
+    },
+    {
+      "assembly": "DomesticObject32",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0.45
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "back foot"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        -0.285,
+        0,
+        -0.027
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (0, -0.285)"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        0.285,
+        0,
+        -0.027
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (0, 0.285)"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        -0.235,
+        0,
+        -0.056999999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (1, -0.235)"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        0.235,
+        0,
+        -0.056999999999999995
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (1, 0.235)"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        -0.26,
+        0,
+        -0.087
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (2, -0.26)"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        0.26,
+        0,
+        -0.087
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (2, 0.26)"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        -0.21000000000000002,
+        0,
+        -0.11699999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (3, -0.21000000000000002)"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        0.21000000000000002,
+        0,
+        -0.11699999999999999
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (3, 0.21000000000000002)"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        -0.285,
+        0,
+        -0.14700000000000002
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (4, -0.285)"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        0.285,
+        0,
+        -0.14700000000000002
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (4, 0.285)"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        -0.185,
+        0,
+        -0.177
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (5, -0.185)"
+    },
+    {
+      "assembly": "DomesticObject33",
+      "owner": "support",
+      "point": [
+        0.185,
+        0,
+        -0.177
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "canvas foot (5, 0.185)"
     }
   ],
   "parts": [
@@ -7901,9 +8738,107 @@
       "cell": "shared",
       "key": "rubber_aged",
       "triangles": 376
+    },
+    {
+      "name": "DomesticObject30__Body_ON_brass",
+      "assembly": "DomesticObject30",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject30__Body_ON_metal",
+      "assembly": "DomesticObject30",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 316
+    },
+    {
+      "name": "DomesticObject30__Body_ON_soot",
+      "assembly": "DomesticObject30",
+      "cell": "shared",
+      "key": "soot",
+      "triangles": 2632
+    },
+    {
+      "name": "DomesticObject30__Body_ON_timber",
+      "assembly": "DomesticObject30",
+      "cell": "shared",
+      "key": "timber",
+      "triangles": 376
+    },
+    {
+      "name": "DomesticObject31__Body_ON_bakelite",
+      "assembly": "DomesticObject31",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 576
+    },
+    {
+      "name": "DomesticObject31__Body_ON_enamel",
+      "assembly": "DomesticObject31",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 480
+    },
+    {
+      "name": "DomesticObject31__Body_ON_metal",
+      "assembly": "DomesticObject31",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 940
+    },
+    {
+      "name": "DomesticObject31__Body_ON_milk_glass",
+      "assembly": "DomesticObject31",
+      "cell": "shared",
+      "key": "milk_glass",
+      "triangles": 1440
+    },
+    {
+      "name": "DomesticObject31__Body_ON_paper",
+      "assembly": "DomesticObject31",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject32__Body_ON_linen",
+      "assembly": "DomesticObject32",
+      "cell": "shared",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject32__Body_ON_timber",
+      "assembly": "DomesticObject32",
+      "cell": "shared",
+      "key": "timber",
+      "triangles": 1692
+    },
+    {
+      "name": "DomesticObject33__Body_ON_linen",
+      "assembly": "DomesticObject33",
+      "cell": "shared",
+      "key": "linen",
+      "triangles": 1128
+    },
+    {
+      "name": "DomesticObject33__Body_ON_soot",
+      "assembly": "DomesticObject33",
+      "cell": "shared",
+      "key": "soot",
+      "triangles": 1128
+    },
+    {
+      "name": "DomesticObject33__Body_ON_timber",
+      "assembly": "DomesticObject33",
+      "cell": "shared",
+      "key": "timber",
+      "triangles": 4512
     }
   ],
-  "triangles": 199784,
+  "triangles": 215568,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -9864,6 +10799,228 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "DomesticObject30",
+        "parts": [
+          {
+            "name": "DomesticObject30__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          },
+          {
+            "name": "DomesticObject30__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "DomesticObject30__Body_ON_soot",
+            "component": "Body",
+            "key": "soot",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "DomesticObject30__Body_ON_timber",
+            "component": "Body",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject31",
+        "parts": [
+          {
+            "name": "DomesticObject31__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "DomesticObject31__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.015,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "DomesticObject31__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "DomesticObject31__Body_ON_milk_glass",
+            "component": "Body",
+            "key": "milk_glass",
+            "tile": 0.5,
+            "catalog_key": "milk_glass",
+            "tint": [
+              0.02,
+              0.027,
+              0.034,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.015,
+              "roughness": 0.12
+            }
+          },
+          {
+            "name": "DomesticObject31__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject32",
+        "parts": [
+          {
+            "name": "DomesticObject32__Body_ON_linen",
+            "component": "Body",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject32__Body_ON_timber",
+            "component": "Body",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject33",
+        "parts": [
+          {
+            "name": "DomesticObject33__Body_ON_linen",
+            "component": "Body",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject33__Body_ON_soot",
+            "component": "Body",
+            "key": "soot",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "DomesticObject33__Body_ON_timber",
+            "component": "Body",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -10182,15 +11339,31 @@
       {
         "id": "4D_case",
         "variant": "DomesticObject29"
+      },
+      {
+        "id": "2B_sewing_machine",
+        "variant": "DomesticObject30"
+      },
+      {
+        "id": "3B_teardown",
+        "variant": "DomesticObject31"
+      },
+      {
+        "id": "5C_easel",
+        "variant": "DomesticObject32"
+      },
+      {
+        "id": "5C_failed_canvases",
+        "variant": "DomesticObject33"
       }
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "f6e1cc5c1257da27a15179c8fa839e23515212b1bc2486166ce34d191d62637d",
+  "asset_sha256": "b6feae537da619465d0941f336a7dbdf0817f5e408f0939bdfb85a9dbdae4117",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "b2b2165f2a274e737d8c1f72dff3f2b586db497eac6fde457ede00d93f4ee3a4",
+    "art/data/domestic_objects/source_plan.json": "9e4357a58d556d6e7e1d129cac55e74aa9acf94117527f3e5e4982e413828d86",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_objects.py": "acbd8140b830ea2b30c93dc58c9669d7cc9459051dbe9e0ad7403350a400d023",
+    "art/blender/scripts/build_domestic_objects.py": "b35a8c2a6f10889c79e07dde643e8efed738c82589c9ed42781246f61bda8822",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -10280,25 +11453,25 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "1776f9d6adad1791397d66ee429bd8e9e5b2c8f1735ae2ef0eef57413a11a7e5",
+    "art/blender/scripts/domestic_objects_geometry.py": "a304978fff0b968f220f050478b05b2d9115be656359288ea24417f0eb7d7507",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "e3167af350c3225de4674fa019c2978b56c400aee4b36bbf2fb4089ff4051023",
+    "game/data/orison_v2/domestic_furniture.json": "56dcd53954f08a60e9414d1f5d038cccccac6737f9c64fb26fbc07902cc18063",
     "game/data/orison_v2/completion_interiors.json": "9327e3340adb18af83217c2690e197a7a87012e034bbac5f9c9892917d3b5273",
     "art/data/orison_v2/completion_interiors_source.json": "27aad59a37c902ece56ee67725a694a84de7af9b1f73f7e2984018f911c198fb",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "74c6f86eb5499f387460880d4b1400ddd3515f0cf02f1f677ad8ca4129b6db57",
-    "game/data/orison_v2_blockout.json": "11f6a02cf9c42f3eb904b6758af42cda2182ae812847d511e746b36bff5f0a86",
+    "game/data/orison_v2_blockout.json": "4cff8dddd3080de42c149c34828e29e144b7ccfe5b30f52c325b30168a219666",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
     "game/data/orison_v2/domestic_surface_props.json": "7d379333cea1db426cf205b2a7d7fa19cad8e51db210f64d90b6573461486a04",
     "game/tests/fixtures/orison_surface_stock.json": "856a1a1a0afaac239e64f897418c8c41d7c3882a7ec143a3d338abeffa6eda1e",
-    "art/blender/domestic_storage.blend": "151eef49bf3b3801726048caee52fb1d524c69f2ae6a4dcc6a0c86dd739600d0",
-    "art/blender/prep_cabinets.blend": "51f6d96a941296a168e2d592465bf72b05043455897a52494c82d61660b5c740",
-    "art/blender/household_wardrobes.blend": "5ba967eabf31e4e89b680d92a076cb8e7cc9576428f5a200dc03310c08e9c0c4",
+    "art/blender/domestic_storage.blend": "9fe91c2bba19eb70668d55878449800332176e1db5dff2fb94bed800ab09b6b8",
+    "art/blender/prep_cabinets.blend": "b70281ea4b3019bfed1ebbe151b6e39d1d03929750dcabed5ff34263de7e8285",
+    "art/blender/household_wardrobes.blend": "2c6ea095cfa2eb42d0b30aa34a024d3154fbe7938bfb4b12787fc2b108d8748b",
     "art/blender/scripts/surface_stock_geometry.py": "0866b89112f29acd3a97f6d25044ce4a08b361dabeed13cafc7c32d39bf8f257",
-    "art/blender/domestic_seating.blend": "69d7c4c86b5eead6f0adcc56fb2c103db071f9cc5f13abb3bd66dba96846873a",
-    "art/blender/domestic_tables.blend": "e506fa512cf9b462173b41948f8761c0acb8812fc63928364099e0b0c72c0f24"
+    "art/blender/domestic_seating.blend": "e540f4e2dfd9ef21d75db206f85f187b5ced5ce78c3e1f06257a5b3e48468979",
+    "art/blender/domestic_tables.blend": "980fdeebffdbbaa9c85f7105048332dd01e9bc667d81a8c37a3bd5f2eb4554fc"
   },
   "retained_stock": [
     {
@@ -13686,6 +14859,138 @@
         "DomesticObject29_Strap-0.15",
         "DomesticObject29_Strap0.15",
         "DomesticObject29_Handle"
+      ]
+    },
+    {
+      "assembly": "DomesticObject30",
+      "id": "DomesticObject30_SewingMachine",
+      "stocks": [
+        "DomesticObject30_Leg(-0.38, -0.18)",
+        "DomesticObject30_Leg(-0.38, 0.18)",
+        "DomesticObject30_Rail(-0.38, 0.09)",
+        "DomesticObject30_Rail(-0.38, 0.45)",
+        "DomesticObject30_Leg(0.38, -0.18)",
+        "DomesticObject30_Leg(0.38, 0.18)",
+        "DomesticObject30_Rail(0.38, 0.09)",
+        "DomesticObject30_Rail(0.38, 0.45)",
+        "DomesticObject30_Axle",
+        "DomesticObject30_Treadle",
+        "DomesticObject30_Top",
+        "DomesticObject30_Drawer",
+        "DomesticObject30_Bed",
+        "DomesticObject30_Pillar",
+        "DomesticObject30_Arm",
+        "DomesticObject30_NeedleHead",
+        "DomesticObject30_Needle",
+        "DomesticObject30_NeedlePlate",
+        "DomesticObject30_Handwheel"
+      ]
+    },
+    {
+      "assembly": "DomesticObject31",
+      "id": "DomesticObject31_Teardown",
+      "stocks": [
+        "DomesticObject31_Newspaper",
+        "DomesticObject31_Chassis",
+        "DomesticObject31_Socket0",
+        "DomesticObject31_Socket1",
+        "DomesticObject31_Socket2",
+        "DomesticObject31_Valve0",
+        "DomesticObject31_Valve1",
+        "DomesticObject31_Valve2",
+        "DomesticObject31_Saucer",
+        "DomesticObject31_Screw0",
+        "DomesticObject31_Screw1",
+        "DomesticObject31_Screw2",
+        "DomesticObject31_Screw3"
+      ]
+    },
+    {
+      "assembly": "DomesticObject32",
+      "id": "DomesticObject32_Easel",
+      "stocks": [
+        "DomesticObject32_FrontPad-1",
+        "DomesticObject32_FrontLeg-1",
+        "DomesticObject32_FrontPad1",
+        "DomesticObject32_FrontLeg1",
+        "DomesticObject32_TopBlock",
+        "DomesticObject32_BackPad",
+        "DomesticObject32_BackLeg",
+        "DomesticObject32_Ledge",
+        "DomesticObject32_Canvas",
+        "DomesticObject32_Clamp"
+      ]
+    },
+    {
+      "assembly": "DomesticObject33",
+      "id": "DomesticObject33_Canvas0",
+      "stocks": [
+        "DomesticObject33_Face0",
+        "DomesticObject33_Stile(0, -0.3)",
+        "DomesticObject33_Stile(0, 0.27)",
+        "DomesticObject33_Rail(0, 0)",
+        "DomesticObject33_Rail(0, 0.77)",
+        "DomesticObject33_Mark0"
+      ]
+    },
+    {
+      "assembly": "DomesticObject33",
+      "id": "DomesticObject33_Canvas1",
+      "stocks": [
+        "DomesticObject33_Face1",
+        "DomesticObject33_Stile(1, -0.25)",
+        "DomesticObject33_Stile(1, 0.22)",
+        "DomesticObject33_Rail(1, 0)",
+        "DomesticObject33_Rail(1, 0.6699999999999999)",
+        "DomesticObject33_Mark1"
+      ]
+    },
+    {
+      "assembly": "DomesticObject33",
+      "id": "DomesticObject33_Canvas2",
+      "stocks": [
+        "DomesticObject33_Face2",
+        "DomesticObject33_Stile(2, -0.275)",
+        "DomesticObject33_Stile(2, 0.24500000000000002)",
+        "DomesticObject33_Rail(2, 0)",
+        "DomesticObject33_Rail(2, 0.72)",
+        "DomesticObject33_Mark2"
+      ]
+    },
+    {
+      "assembly": "DomesticObject33",
+      "id": "DomesticObject33_Canvas3",
+      "stocks": [
+        "DomesticObject33_Face3",
+        "DomesticObject33_Stile(3, -0.225)",
+        "DomesticObject33_Stile(3, 0.195)",
+        "DomesticObject33_Rail(3, 0)",
+        "DomesticObject33_Rail(3, 0.57)",
+        "DomesticObject33_Mark3"
+      ]
+    },
+    {
+      "assembly": "DomesticObject33",
+      "id": "DomesticObject33_Canvas4",
+      "stocks": [
+        "DomesticObject33_Face4",
+        "DomesticObject33_Stile(4, -0.3)",
+        "DomesticObject33_Stile(4, 0.27)",
+        "DomesticObject33_Rail(4, 0)",
+        "DomesticObject33_Rail(4, 0.62)",
+        "DomesticObject33_Mark4"
+      ]
+    },
+    {
+      "assembly": "DomesticObject33",
+      "id": "DomesticObject33_Canvas5",
+      "stocks": [
+        "DomesticObject33_Face5",
+        "DomesticObject33_Stile(5, -0.2)",
+        "DomesticObject33_Stile(5, 0.17)",
+        "DomesticObject33_Rail(5, 0)",
+        "DomesticObject33_Rail(5, 0.47)",
+        "DomesticObject33_Mark5"
       ]
     }
   ],

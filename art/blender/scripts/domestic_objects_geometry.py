@@ -388,6 +388,70 @@ def suitcase(source):
  wire('Handle',[(-.06,0,h-.002),(-.05,0,h+.03),(.05,0,h+.03),(.06,0,h-.002)],.008,key)
  group('Suitcase',start)
 
+def sewingmachine(source):
+ # Dossier slice 18: a treadle sewing machine. Cast-iron side frames and
+ # treadle, an oak cabinet top, a black japanned head with its handwheel.
+ start=len(stock_checks)
+ for sx in [-.38,.38]:
+  for sy in [-.18,.18]:
+   stock('Leg'+str((sx,sy)),(sx-.02,sy-.02,0),(sx+.02,sy+.02,.745),'soot',.002);bearing('treadle foot '+str((sx,sy)),(sx,sy,0))
+  for z in [.09,.45]:stock('Rail'+str((sx,z)),(sx-.015,-.2,z),(sx+.015,.2,z+.03),'soot',.002)
+ tube('Axle',(-.39,0,.105),(.39,0,.105),.012,'soot')
+ stock('Treadle',(-.25,-.1,.09),(.25,.12,.115),'soot',.002)
+ stock('Top',(-.43,-.23,.74),(.43,.23,.775),'timber',.003)
+ stock('Drawer',(-.4,-.2,.66),(-.15,.2,.745),'timber',.002)
+ stock('Bed',(-.2,-.08,.774),(.2,.08,.805),'soot',.003)
+ stock('Pillar',(.12,-.04,.80),(.18,.04,1.06),'soot',.004)
+ stock('Arm',(-.17,-.035,.98),(.18,.035,1.06),'soot',.006)
+ stock('NeedleHead',(-.21,-.03,.9),(-.14,.03,1.06),'soot',.004)
+ tube('Needle',(-.175,0,.905),(-.175,0,.808),.002,'metal')
+ stock('NeedlePlate',(-.22,-.05,.803),(-.13,.05,.808),'brass',.0005)
+ axial(identity+'_Handwheel',.205,.985,[(0,.035),(.06,.035),(.06,.055),(0,.055)],identity,'metal',32)
+ group('SewingMachine',start)
+
+def teardown(source):
+ # Dossier slice 18: a radio chassis with its valves out, on a newspaper
+ # sheet, screws in a saucer. Passive; never a live receiver.
+ start=len(stock_checks)
+ stock('Newspaper',(-.3,-.22,0),(.3,.22,.003),'paper',.0002)
+ for p in [(-.27,-.19,0),(.27,-.19,0),(-.27,.19,0),(.27,.19,0)]:bearing('sheet '+str(p),p)
+ stock('Chassis',(-.17,-.1,.0025),(.13,.08,.07),'metal',.002)
+ for i,x in enumerate([-.11,-.05,.01]):
+  lathe('Socket'+str(i),x,.0,.069,[(0,0),(.014,0),(.014,.008),(0,.008)],'bakelite')
+ for i,(x,y) in enumerate([(.18,-.12),(.22,-.05),(.2,.05)]):
+  lathe('Valve'+str(i),x,y,.0025,[(0,0),(.013,0),(.013,.015),(.015,.02),(.015,.07),(.01,.09),(0,.092)],'milk_glass')
+ lathe('Saucer',-.2,.14,.0025,[(0,0),(.03,0),(.05,.012),(.052,.014),(.048,.014),(.028,.004),(0,.004)],'enamel')
+ for i in range(4):stock('Screw'+str(i),(-.215+i*.008,.135,.0065),(-.209+i*.008,.141,.011),'metal',.0002)
+ group('Teardown',start)
+
+def easel(source):
+ # Dossier slice 18: a studio easel, two splayed front legs and a back leg,
+ # a ledge holding a blank canvas, the top clamp down on it.
+ start=len(stock_checks)
+ # Tilted legs stand on small foot pads so their cut ends stay above the floor.
+ for sx in [-1,1]:
+  stock('FrontPad'+str(sx),(sx*.28-.02,.08,0),(sx*.28+.02,.12,.012),'timber',.001);bearing('front foot '+str(sx),(sx*.28,.10,0))
+  tube('FrontLeg'+str(sx),(sx*.28,.10,.008),(sx*.05,.02,1.6),.015,'timber')
+ stock('TopBlock',(-.07,0,1.55),(.07,.04,1.62),'timber',.002)
+ stock('BackPad',(-.02,-.47,0),(.02,-.43,.012),'timber',.001);bearing('back foot',(0,-.45,0))
+ tube('BackLeg',(0,.02,1.6),(0,-.45,.008),.015,'timber')
+ stock('Ledge',(-.25,.03,.69),(.25,.09,.72),'timber',.002)
+ stock('Canvas',(-.3,.04,.719),(.3,.065,1.42),'linen',.002)
+ stock('Clamp',(-.03,.035,1.415),(.03,.07,1.6),'timber',.002)
+ group('Easel',start)
+
+def canvasstack(source):
+ # Dossier slice 18: six failed canvases standing face to the wall, their
+ # stretcher backs to the room, one pencil mark on each.
+ for i in range(6):
+  start=len(stock_checks);w=(.6,.5,.55,.45,.6,.4)[i];h=(.8,.7,.75,.6,.65,.5)[i];y0=.012+i*.03
+  stock('Face'+str(i),(-w/2,y0,0),(w/2,y0+.006,h),'linen',.001)
+  for x in [-w/2,w/2-.03]:stock('Stile'+str((i,x)),(x,y0+.0055,0),(x+.03,y0+.025,h),'timber',.002)
+  for z in [0,h-.03]:stock('Rail'+str((i,z)),(-w/2+.029,y0+.0055,z),(w/2-.029,y0+.025,z+.03),'timber',.002)
+  stock('Mark'+str(i),(-w/2+.08,y0+.0249,h-.025),(-w/2+.14,y0+.0256,h-.022),'soot',.0001)
+  for x in [-w/2+.015,w/2-.015]:bearing('canvas foot '+str((i,x)),(x,y0+.015,0))
+  group('Canvas'+str(i),start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -409,4 +473,8 @@ for assembly in assemblies:
  elif kind=='hamper':hamper(source)
  elif kind=='boottray':boottray(source)
  elif kind=='suitcase':suitcase(source)
+ elif kind=='sewingmachine':sewingmachine(source)
+ elif kind=='teardown':teardown(source)
+ elif kind=='easel':easel(source)
+ elif kind=='canvasstack':canvasstack(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

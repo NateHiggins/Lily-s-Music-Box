@@ -1,0 +1,383 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-14.4049987792969,
+						4.6399998664856,
+						-7.98999977111816
+					],
+					"feet": [
+						14.4049997329712,
+						3.22999978065491,
+						-3.66000080108643
+					],
+					"forward": [
+						0.425411522388458,
+						-0.225519388914108,
+						-0.876450836658478
+					],
+					"image": "F02_B_MAIN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						13.5749998092651,
+						4.19999980926514,
+						-1.95000004768372
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.9979991912842,
+						4.6399998664856,
+						-10.6000003814697
+					],
+					"feet": [
+						11.9980001449585,
+						3.22999978065491,
+						-1.05000019073486
+					],
+					"forward": [
+						-0.844084799289703,
+						-0.235508814454079,
+						0.481722354888916
+					],
+					"image": "F02_B_MAIN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						13.5749998092651,
+						4.19999980926514,
+						-1.95000004768372
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.4999990463257,
+						4.6399998664856,
+						-9.15000057220459
+					],
+					"feet": [
+						10.5,
+						3.22999978065491,
+						-2.5
+					],
+					"forward": [
+						-0.981485605239868,
+						-0.0766037106513977,
+						-0.175550371408463
+					],
+					"image": "F02_B_MAIN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_B_MAIN_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						13.5749998092651,
+						4.40000009536743,
+						-1.95000004768372
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-12.7449989318848,
+						4.6399998664856,
+						-9.70000076293945
+					],
+					"feet": [
+						12.7449998855591,
+						3.22999978065491,
+						-1.94999980926514
+					],
+					"forward": [
+						0.0435491427779198,
+						-0.132939085364342,
+						-0.990167021751404
+					],
+					"image": "F02_B_MAIN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2B_story_pattern_board",
+					"status": "captured_pending_visual_review",
+					"target": [
+						12.6499996185303,
+						4.34999990463257,
+						0.209999993443489
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-12.7449989318848,
+						4.6399998664856,
+						-10.6000003814697
+					],
+					"feet": [
+						12.7449998855591,
+						3.22999978065491,
+						-1.05000019073486
+					],
+					"forward": [
+						-0.948160111904144,
+						-0.255364775657654,
+						-0.189159378409386
+					],
+					"image": "F02_B_MAIN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2B_din_t",
+					"status": "captured_pending_visual_review",
+					"target": [
+						14.75,
+						4.09999990463257,
+						-0.649999976158142
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.9979991912842,
+						4.6399998664856,
+						-9.70000076293945
+					],
+					"feet": [
+						11.9980001449585,
+						3.22999978065491,
+						-1.94999980926514
+					],
+					"forward": [
+						-0.327778548002243,
+						-0.271473318338394,
+						-0.904910802841187
+					],
+					"image": "F02_B_MAIN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2B_fabric_worktable",
+					"status": "captured_pending_visual_review",
+					"target": [
+						12.6499996185303,
+						4.09999990463257,
+						-0.150000005960464
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 11,
+			"floor_y": 3.2,
+			"id": "F02_B_MAIN",
+			"level": "F02",
+			"purpose": "Lena living, conversation and fabric repair",
+			"rect": [
+				11.5,
+				-4.2,
+				15.65,
+				0.3
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-14.4049987792969,
+						7.84000015258789,
+						-7.06600046157837
+					],
+					"feet": [
+						14.4049997329712,
+						6.42999982833862,
+						-4.58400058746338
+					],
+					"forward": [
+						0.359499931335449,
+						-0.19057834148407,
+						-0.913476765155792
+					],
+					"image": "F03_B_MAIN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						13.5749998092651,
+						7.40000009536743,
+						-2.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-12.7449989318848,
+						7.84000015258789,
+						-10.2850008010864
+					],
+					"feet": [
+						12.7449998855591,
+						6.42999982833862,
+						-1.36499977111816
+					],
+					"forward": [
+						-0.570773780345917,
+						-0.302578955888748,
+						0.763323903083801
+					],
+					"image": "F03_B_MAIN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						13.5749998092651,
+						7.40000009536743,
+						-2.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.4999990463257,
+						7.84000015258789,
+						-9.15000057220459
+					],
+					"feet": [
+						10.5,
+						6.42999982833862,
+						-2.5
+					],
+					"forward": [
+						-0.996935307979584,
+						-0.077809676527977,
+						-0.00810535252094269
+					],
+					"image": "F03_B_MAIN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F03_B_MAIN_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						13.5749998092651,
+						7.59999990463257,
+						-2.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-12.7449989318848,
+						7.84000015258789,
+						-10.2850008010864
+					],
+					"feet": [
+						12.7449998855591,
+						6.42999982833862,
+						-1.36499977111816
+					],
+					"forward": [
+						-0.576088428497314,
+						-0.343743413686752,
+						-0.741594672203064
+					],
+					"image": "F03_B_MAIN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "3B_workbench",
+					"status": "captured_pending_visual_review",
+					"target": [
+						13.6499996185303,
+						7.30000019073486,
+						-0.200000002980232
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-13.5749988555908,
+						7.84000015258789,
+						-7.06600046157837
+					],
+					"feet": [
+						13.5749998092651,
+						6.42999982833862,
+						-4.58400011062622
+					],
+					"forward": [
+						-0.0121578732505441,
+						-0.262604057788849,
+						-0.964827120304108
+					],
+					"image": "F03_B_MAIN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "3B_din_t",
+					"status": "captured_pending_visual_review",
+					"target": [
+						13.6000003814697,
+						7.30000019073486,
+						-2.59999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-13.5749988555908,
+						7.84000015258789,
+						-10.2850008010864
+					],
+					"feet": [
+						13.5749998092651,
+						6.42999982833862,
+						-1.36499977111816
+					],
+					"forward": [
+						0.862123131752014,
+						-0.268326550722122,
+						-0.429819256067276
+					],
+					"image": "F03_B_MAIN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "3B_wireless_table",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.8400001525879,
+						7.30000019073486,
+						-0.5
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 9,
+			"floor_y": 6.4,
+			"id": "F03_B_MAIN",
+			"level": "F03",
+			"purpose": "Omar Bell living, meals and categorized repair work",
+			"rect": [
+				11.5,
+				-5.25,
+				15.65,
+				0.3
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		}
+	]
+}

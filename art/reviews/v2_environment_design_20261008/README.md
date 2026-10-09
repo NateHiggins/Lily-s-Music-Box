@@ -114,6 +114,8 @@ Slices landed so far (evidence folders in parentheses):
     suite now takes ORISON_STOCK_CAPTURE_IDS).
 17. 2B's bedside and client chair, 3A's compost pail, 4D's luggage (a
     suitcase form) (`slice17b`; `slice17` stood the chair in the door route).
+18. Studio forms: 2B's treadle sewing machine, 3B's radio teardown, 5C's
+    easel and failed canvases (`slice18`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

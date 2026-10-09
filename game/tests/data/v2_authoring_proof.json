@@ -468,6 +468,30 @@
         "component": "suitcase",
         "note": "V2 environment dossier F04_D_VESTIBULE-003 (slice 17); no V1 counterpart"
       }
+    },
+    "2B_sewing_machine": {
+      "source_component": {
+        "component": "sewingmachine",
+        "note": "V2 environment dossier F02_B_MAIN-001 (slice 18); no V1 counterpart"
+      }
+    },
+    "3B_teardown": {
+      "source_component": {
+        "component": "teardown",
+        "note": "V2 environment dossier F03_B_MAIN-001 (slice 18); no V1 counterpart"
+      }
+    },
+    "5C_easel": {
+      "source_component": {
+        "component": "easel",
+        "note": "V2 environment dossier F05_C_BED2-002 (slice 18); no V1 counterpart"
+      }
+    },
+    "5C_failed_canvases": {
+      "source_component": {
+        "component": "canvasstack",
+        "note": "V2 environment dossier F05_C_BED2-002 (slice 18); no V1 counterpart"
+      }
     }
   },
   "receivers": {
