@@ -792,6 +792,7 @@ func _wall_segment(parent: Node3D, node_name: String, axis: String, fixed: float
 		for piece: AABB in pieces: remaining.append_array(_subtract_box(piece,_service_box(opening.bounds)))
 		pieces=remaining
 	var draw:=_box(parent,node_name,at,size,cls,true)
+	_far_face_skin(parent,node_name,axis,fixed,at,size,pieces,cls)
 	if pieces.size()==1 and pieces[0]==bounds: return
 	var body:=draw.get_node("Collision") as StaticBody3D
 	for shape: CollisionShape3D in body.get_children(): shape.free()
@@ -812,6 +813,50 @@ func _wall_segment(parent: Node3D, node_name: String, axis: String, fixed: float
 		shape.position=local
 		body.add_child(shape)
 	draw.mesh=surface.commit()
+
+## Dossier BW-004: a wet room's wall carries tile on both faces, so the hall or
+## bedroom beyond sees subway tile. A 4 mm skin on the far face takes the
+## neighbouring space's finish, cut by the same openings. Exterior and
+## service-opening walls are left alone; the skin has no collision.
+func _far_face_skin(parent: Node3D, node_name: String, axis: String, fixed: float,
+		at: Vector3, size: Vector3, pieces: Array[AABB], cls: String) -> void:
+	if cls != "wet": return
+	var owner: Dictionary = {}
+	for space: Dictionary in layout.spaces:
+		if str(space.id) == str(parent.name): owner = space
+	if owner.is_empty(): return
+	var r: Array = owner.rect
+	var centre_fixed: float = (float(r[1]) + float(r[3])) * .5 if axis == "x" else (float(r[0]) + float(r[2])) * .5
+	var outward: float = 1.0 if fixed > centre_fixed else -1.0
+	var start: float = (at.x - size.x * .5) if axis == "x" else (at.z - size.z * .5)
+	var finish: float = (at.x + size.x * .5) if axis == "x" else (at.z + size.z * .5)
+	var neighbour := ""
+	for space: Dictionary in layout.spaces:
+		if str(space.level) != str(owner.level) or str(space.id) == str(owner.id): continue
+		var q: Array = space.rect
+		var edge: float = (float(q[1]) if outward > 0.0 else float(q[3])) if axis == "x" else (float(q[0]) if outward > 0.0 else float(q[2]))
+		if not is_equal_approx(edge, fixed): continue
+		var lo: float = float(q[0]) if axis == "x" else float(q[1])
+		var hi: float = float(q[2]) if axis == "x" else float(q[3])
+		if hi <= start + .05 or lo >= finish - .05: continue
+		neighbour = str(space.get("class", "private"))
+		break
+	if neighbour.is_empty() or neighbour == "wet": return
+	var thickness: float = size.z if axis == "x" else size.x
+	var shift: float = outward * (thickness * .5 + .002)
+	var skin_at := at + (Vector3(0, 0, shift) if axis == "x" else Vector3(shift, 0, 0))
+	var skin_size := Vector3(size.x, size.y, .004) if axis == "x" else Vector3(.004, size.y, size.z)
+	var skin := _box(parent, node_name + "_FarSkin", skin_at, skin_size, neighbour, false)
+	var surface := SurfaceTool.new()
+	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for piece: AABB in pieces:
+		var box := BoxMesh.new()
+		box.size = Vector3(piece.size.x, piece.size.y, .004) if axis == "x" else Vector3(.004, piece.size.y, piece.size.z)
+		var local := piece.get_center() - at
+		if axis == "x": local.z = 0.0
+		else: local.x = 0.0
+		surface.append_from(box, 0, Transform3D(Basis.IDENTITY, local))
+	skin.mesh = surface.commit()
 
 static func _valid_service_bounds(bounds: Variant) -> bool:
 	if bounds is not Array or bounds.size()!=6: return false

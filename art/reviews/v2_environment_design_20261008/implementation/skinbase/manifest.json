@@ -1,0 +1,36 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F05_A_PRIVATE_HALL_OV.jpg",
+   "source": "sweep_shots/F05_A_PRIVATE_HALL_OV.png",
+   "sha256": "329a5d347ed0bfd3baf3bce192829f9260c33af78e755ee1d3ff56854e2d0923",
+   "bytes": 122513
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "3c7609b26e3b8af3d6c9f684e3fafd5ad72707a165f335cab21d9b903485b617",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/sweep.log.receipt.json",
+   "source": "sweep.log.receipt.json",
+   "sha256": "392f590101563104064b111e98703e9fcf1024c21afe3fb77f18aae4fd70dfdb",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "b67920b98930cf7bf597fe316e07b21e213a94f28620178296bf462363f5d4ed",
+   "bytes": 730119
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "7c891bb7cdf1bdb024f349bcc79312327cb795efa8bc0b038e10470b40a0f8c4",
+   "bytes": 8706
+  }
+ ]
+}

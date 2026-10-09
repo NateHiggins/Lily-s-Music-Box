@@ -481,7 +481,9 @@
    "preserve": "All 41 seating and 62 table actor identities, supports and the exact shared-mesh contract",
    "acceptance": "No tulip pedestal or chrome wire in any overview; apartment furniture batch passes",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "verified",
+   "owner_notes": "At the family recipes: TableRound03/TableRound10 carry an Edwardian turned oak column on a cruciform base of capped feet (column, feet and base in the variant's wood; worktop unchanged); Sofa195/Sofa210 carry rolled arms over the padded arm; Shelf01/02/04/07 stand on square oak posts with oak rails. Plans record column=turned, arms=rolled, posts=oak. The slab seat cushions and the shelves' painted-bin and tin stock (source surfaces) stay as they were. Verified at 4e589c0c: fabrication batch of the twelve rebuilt families exit 0 (tables 64, seating 43, storage 45 instances), upper lighting 9,257 checks with 0 failures, ten-room sweep with 0 failures; native captures of 2A_din_t, 2A_sofa, 2A_shelf0 and 5A_planshelf and the room overviews are under implementation/slice34."
   },
   {
    "id": "BW-004",
@@ -499,7 +501,9 @@
    ],
    "acceptance": "No tile visible from any hall, bedroom or kitchen station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "verified",
+   "owner_notes": "Root cause: a wall segment is one box finished with its owning space's class, and a wet room owns the shared wall, so the hall or bedroom beyond saw subway tile. orison_v2_blockout.gd now adds a 4 mm far-face skin on every interior wet wall, finished with the neighbouring space's class and cut by the same openings; exterior walls and wet-to-wet walls are left alone; no collision, no new owner. Verified at 67c233a5 and 47d93679: the private-hall overviews of 5A, 4C and 2C read plaster where implementation/skinbase (the pre-skin tree at 9f95732c, same station) still shows the bath's subway tile; the bath interiors keep their tile (implementation/slice5, slice5b). OrisonV2FloorSurfaceTest reports the same 57 failures (bath floor/ceiling face ownership and the roof decks) before and after the skin, byte-identical stderr sets (implementation/floorbase vs slice5), so they pre-exist. A speckled patch at the 5A hall corner in the first capture did not reproduce at the same station in the second run and is a screen-space transient, not geometry."
   },
   {
    "id": "BW-005",
@@ -704,7 +708,9 @@
    ],
    "acceptance": "Night overviews show cream panelled leaves",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "verified",
+   "owner_notes": "Room-leaf paints a step lower (door_prop.gd interior palette); the entry leaves keep their darker corridor paints. The panel relief already exists; the transom blow-out over 4A stays open. Verified at 67c233a5: F05_B_VESTIBULE_OV shows the darker entry leaf beside the lighter room leaf with panel relief intact; F05_A_PRIVATE_HALL_OV and F04_C_PRIVATE_HALL_OV read the room leaves without the white blow-out (implementation/slice5)."
   },
   {
    "id": "BW-017",
@@ -725,7 +731,9 @@
    "preserve": "Existing SOUTHWEST_HALL_LT fixtures, the lift landing plates and the door-glow authority",
    "acceptance": "West and east hall overviews on every floor show a practical and legible door leaves with the hand lamp off",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "verified",
+   "owner_notes": "Twelve flush domes (flush_dome_rise100 at 2.9 m) on the west and east public halls of F02-F06 (two on the 6.1 m halls of F05/F06), each hall on a landlord's switch beside the stair end or the unit door jamb; blockout anchors, room_lighting records, fixed_lighting plan instances and mirror; family rebuilt. Landings and cores (open stair voids) still have no practical: they need a wall sconce placed against the stair geometry and stay open. Verified at 4e589c0c: upper lighting 9,257 checks, 0 failures (the first run's four F05_C standing-capsule failures cleared with the 5C wardrobe and pigment-table moves); the hall sweep overviews show the domes lit and the switches on the wainscot (implementation/slice3b)."
   },
   {
    "id": "BW-018",
@@ -825,7 +833,9 @@
    ],
    "acceptance": "Hall threshold stations read the unit numeral",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "verified",
+   "owner_notes": "Every apartment entry leaf carries an enamel numeral plate (0.11 x 0.075 m porcelain-finish plate, single-sided Label3D numeral in cobalt) on its hall face at 1.6 m, placed by orison_v2_domestic_doors.gd from the door's connected spaces, seated on the leaf's actual painted face by a vertex probe (the panel rails stand proud of the slab). The readability cues' debug portal masses stay off in production, but their floating 2A, 4B and PUBLIC ENTRANCE labels remain: OrisonV2DoorCasingsTest holds every portal to exactly one Label3D child, so retiring them is the test owner's call, not this slice's. Verified at 0b5f8a7b: both door-route suites and OrisonV2DoorCasingsTest exit 0, and the hall sweep shows the enamel plates reading 4B, 2B and 3D on the leaves (implementation/numerals2; the earlier implementation/numerals run showed why the plate had to move onto the panel bed). "
   },
   {
    "id": "BW-023",
@@ -863,7 +873,9 @@
    ],
    "acceptance": "Hall detail views",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "rejected",
+   "owner_notes": "The peephole is a brass lens cylinder (door_prop.gd), not an emitter; the bright disc in the reviews is the lamp's specular on brass. The wainscot relief stays open."
   },
   {
    "id": "CITY_STREET-001",
@@ -4154,7 +4166,9 @@
    "purpose": "Review: bright chrome posts read post-1950; see BW-003",
    "acceptance": "Hall threshold view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_B_PRIVATE_HALL"
+   "area": "F02_B_PRIVATE_HALL",
+   "status": "verified",
+   "owner_notes": "2B_fabric_shelf_01/02 posts are oak (BW-003). (implementation/slice34)"
   },
   {
    "id": "F02_B_BED-001",
@@ -5875,7 +5889,9 @@
    ],
    "acceptance": "Landing station with the hand lamp off reads the lift plate and the 4B transom",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_LANDING"
+   "area": "F04_LANDING",
+   "status": "deferred",
+   "owner_notes": "The landing has no ceiling (stair void); a sconce on the core wall is the remaining item after BW-017's hall domes."
   },
   {
    "id": "F04_WEST_HALL-001",
@@ -5921,7 +5937,9 @@
    "purpose": "Review: the ceiling plane and door head read lit although no fixture is visible; chips oversized",
    "acceptance": "Hall OV shows the practical",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_WEST_HALL"
+   "area": "F04_WEST_HALL",
+   "status": "verified",
+   "owner_notes": "F04_WEST_HALL_LT dome (BW-017, implementation/slice3b); the terrazzo scale stays with BW-020."
   },
   {
    "id": "F04_SOUTHWEST_HALL-001",
@@ -5967,7 +5985,9 @@
    "purpose": "Review: the rental door carries no unit number",
    "acceptance": "DT3 reads 4D",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_SOUTHWEST_HALL"
+   "area": "F04_SOUTHWEST_HALL",
+   "status": "verified",
+   "owner_notes": "4D's entry leaf carries its numeral (BW-022). (implementation/numerals2/images/F03_SOUTHWEST_HALL_OV.jpg shows 3D's plate; 4D's leaf carries the same assembly.)"
   },
   {
    "id": "F04_PUBLIC_CORE-001",
@@ -6065,7 +6085,9 @@
    "purpose": "Review: the approach to 4A reads unlit except for an overexposed transom, so the door glows",
    "acceptance": "East hall OV with the lamp off",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_EAST_HALL"
+   "area": "F04_EAST_HALL",
+   "status": "verified",
+   "owner_notes": "F04_EAST_HALL_LT dome (BW-017, implementation/slice3b/images/F04_EAST_HALL_OV.jpg); the transom blow-out stays with BW-016."
   },
   {
    "id": "F04_SERVICE_CROSSING-001",
@@ -7843,7 +7865,9 @@
    "purpose": "Review: the two unit doors are this hall's story and they are unreadable at this exposure; a hall practical and the leaf finish (BW-016) fix it",
    "acceptance": "Hall OV with the lamp off reads both doors",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_WEST_HALL"
+   "area": "F05_WEST_HALL",
+   "status": "verified",
+   "owner_notes": "F05_WEST_HALL_LT_A/_B domes (BW-017, implementation/slice3b/images/F05_WEST_HALL_OV.jpg); the leaf finish stays with BW-016."
   },
   {
    "id": "F05_A_VESTIBULE-001",
@@ -8187,7 +8211,9 @@
    ],
    "acceptance": "Study OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_A_STUDY"
+   "area": "F05_A_STUDY",
+   "status": "verified",
+   "owner_notes": "5A_planshelf posts are oak (BW-003); the placeholder blocks on it stay as source stock. (implementation/slice34/images/F05_A_STUDY_OV.jpg)"
   },
   {
    "id": "F05_B_VESTIBULE-001",
@@ -8326,7 +8352,9 @@
    "purpose": "Review: the most visible anachronism on the floor sits under the room's hero object",
    "acceptance": "Main OV shows a turned-leg table",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_B_MAIN"
+   "area": "F05_B_MAIN",
+   "status": "verified",
+   "owner_notes": "5B_din_t is the pedestal form now (BW-003). (implementation/slice34)"
   },
   {
    "id": "F05_B_MAIN-006",
@@ -9798,7 +9826,9 @@
    "purpose": "Review; see BW-003 (rolled-arm sprung sofa variant)",
    "acceptance": "Main OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_MAIN"
+   "area": "F06_C_MAIN",
+   "status": "verified",
+   "owner_notes": "6C_sofa carries rolled arms (BW-003); 6C_cof (Coffee06) is unchanged. (implementation/slice34/images/F06_C_MAIN_OV.jpg)"
   },
   {
    "id": "F06_C_KITCHEN-001",

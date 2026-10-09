@@ -119,9 +119,11 @@ func _build_leaf() -> void:
 ## security hardware; room leaves are the same stock joinery without pretending
 ## every bedroom needs a closer, peephole and kick plate.
 func _build_domestic(is_entry: bool) -> void:
+	# Dossier BW-016: room leaves blew out to white under the carried lamp at
+	# night; the cream paints sit a step lower so panels keep their relief.
 	var palette := [Color(0.38, 0.34, 0.25), Color(0.25, 0.34, 0.29),
-		Color(0.35, 0.27, 0.24)] if is_entry else [Color(0.78, 0.75, 0.67),
-		Color(0.66, 0.69, 0.61), Color(0.70, 0.63, 0.57)]
+		Color(0.35, 0.27, 0.24)] if is_entry else [Color(0.69, 0.66, 0.58),
+		Color(0.58, 0.61, 0.53), Color(0.62, 0.55, 0.50)]
 	var tint: Color = palette[finish_variant % palette.size()]
 	var paint := MatLib.get_mat("trim", tint, 0.85)
 	var shadow := MatLib.get_mat("trim", tint.darkened(0.18), 0.85)

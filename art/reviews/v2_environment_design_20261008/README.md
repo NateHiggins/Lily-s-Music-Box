@@ -59,6 +59,24 @@ route suites that cross the changed rooms (pointer suites need `-Windowed`),
 and this packet's sweep scene over the changed spaces. The register's
 `status` column and `implementation/<slice>/` record the outcome.
 
+Slices landed so far (evidence folders in parentheses):
+
+1. Fridge count, living-room pendants, 4D closet lock (`slice1`, `slice1b`,
+   `baths` for the water-closet measurements).
+2. Second beds out, radios in six homes, moves and sign fixes (`slice2`,
+   `slice2b`, `slice2c`).
+3. Public-hall flush domes on landlord switches, enamel unit numerals on the
+   entry leaves, 5C stance moves (`slice3b`, `numerals`, `numerals2`).
+4. Period furniture forms: pedestal round tables, rolled sofa arms, oak shelf
+   posts (`slice34`).
+5. Bath tile on one face only (a far-face skin on interior wet walls) and
+   room leaves a step lower (`slice5`, `slice5b`; `skinbase` is the pre-skin
+   comparison, `floorbase` the pre-skin floor-surface baseline).
+
+Verification runs are made at WIP commits that are later squashed; the game
+and art paths of each squashed commit are byte-identical to the WIP tree the
+receipts name, which `git diff --stat <wip> <commit> -- game art` confirms.
+
 ## Reading the register
 
 Priority P1 = reads wrong from the doorway or the resident is not legible;
