@@ -6265,6 +6265,18 @@
         ],
         "yaw": -1.5707963267948966,
         "kind": "furniture"
+      },
+      {
+        "id": "3D_card_index",
+        "level": "F03",
+        "space": "F03_D_STUDY",
+        "position": [
+          -10.85,
+          0,
+          -12.07
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
       }
     ],
     "stairs": [
@@ -7931,6 +7943,11 @@
       {
         "id": "3D_image_c",
         "template": "2C_album_a",
+        "unit": "3D"
+      },
+      {
+        "id": "3D_card_index",
+        "template": "6C_card_cabinet",
         "unit": "3D"
       }
     ],

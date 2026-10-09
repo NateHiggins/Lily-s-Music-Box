@@ -57,6 +57,13 @@ func _ready() -> void:
 			check(not cup.has_method("interact"), "wall cupboard retains fixed source behavior")
 			for body: StaticBody3D in [cabinet,cup]:
 				for mesh: MeshInstance3D in body.find_children("*","MeshInstance3D",true,false):
+					# Passive surface stock resting on the cabinet is not the cabinet's authored material.
+					var owner_node: Node = mesh
+					var passive := false
+					while owner_node != body:
+						if owner_node.has_meta("v2_surface_prop"): passive = true; break
+						owner_node = owner_node.get_parent()
+					if passive: continue
 					check(mesh.mesh != null and mesh.material_override != null, "authored material is bound: " + str(probe.unit))
 			var panel := cabinet.get_node("SlidingPanel") as AnimatableBody3D
 			refs.append(weakref(panel))

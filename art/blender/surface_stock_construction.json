@@ -1857,6 +1857,30 @@
       "kind": "driptray",
       "cell": "6B",
       "source_record": "6B_drip_tray"
+    },
+    {
+      "id": "2A_out_tray",
+      "kind": "outtray",
+      "cell": "2A",
+      "source_record": "2A_out_tray"
+    },
+    {
+      "id": "5A_torch",
+      "kind": "torch",
+      "cell": "5A",
+      "source_record": "5A_torch"
+    },
+    {
+      "id": "5B_battery_case",
+      "kind": "batterycase",
+      "cell": "5B",
+      "source_record": "5B_battery_case"
+    },
+    {
+      "id": "4B_old_cap",
+      "kind": "cap",
+      "cell": "4B",
+      "source_record": "4B_old_cap"
     }
   ],
   "closed_stocks": [
@@ -14255,6 +14279,138 @@
       "assembly": "6B_drip_tray",
       "key": "glassish",
       "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "2A_out_tray_Tray",
+      "assembly": "2A_out_tray",
+      "key": "wood_dark",
+      "volume_m3": 0.00033551571159398457
+    },
+    {
+      "name": "2A_out_tray_Side-0.1",
+      "assembly": "2A_out_tray",
+      "key": "wood_dark",
+      "volume_m3": 8.92737206657673e-05
+    },
+    {
+      "name": "2A_out_tray_Side0.092",
+      "assembly": "2A_out_tray",
+      "key": "wood_dark",
+      "volume_m3": 8.92737206657673e-05
+    },
+    {
+      "name": "2A_out_tray_End-0.14",
+      "assembly": "2A_out_tray",
+      "key": "wood_dark",
+      "volume_m3": 5.9287717258408195e-05
+    },
+    {
+      "name": "2A_out_tray_End0.132",
+      "assembly": "2A_out_tray",
+      "key": "wood_dark",
+      "volume_m3": 5.9287717258408195e-05
+    },
+    {
+      "name": "2A_out_tray_Receipt0",
+      "assembly": "2A_out_tray",
+      "key": "paper",
+      "volume_m3": 0.00014718423708975415
+    },
+    {
+      "name": "2A_out_tray_Receipt1",
+      "assembly": "2A_out_tray",
+      "key": "paper",
+      "volume_m3": 0.00014196451965737113
+    },
+    {
+      "name": "2A_out_tray_Receipt2",
+      "assembly": "2A_out_tray",
+      "key": "paper",
+      "volume_m3": 0.00013678472402723496
+    },
+    {
+      "name": "2A_out_tray_Receipt3",
+      "assembly": "2A_out_tray",
+      "key": "paper",
+      "volume_m3": 0.0001316449973161036
+    },
+    {
+      "name": "2A_out_tray_Receipt4",
+      "assembly": "2A_out_tray",
+      "key": "paper",
+      "volume_m3": 0.00012654517817430315
+    },
+    {
+      "name": "5A_torch_Barrel",
+      "assembly": "5A_torch",
+      "key": "nickel_plated",
+      "volume_m3": 0.00018269474215279274
+    },
+    {
+      "name": "5A_torch_Head",
+      "assembly": "5A_torch",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010588349761148127
+    },
+    {
+      "name": "5A_torch_Lens",
+      "assembly": "5A_torch",
+      "key": "glassish",
+      "volume_m3": 5.525902769769997e-06
+    },
+    {
+      "name": "5A_torch_Switch",
+      "assembly": "5A_torch",
+      "key": "bakelite",
+      "volume_m3": 2.1482117917838974e-06
+    },
+    {
+      "name": "5B_battery_case_Case",
+      "assembly": "5B_battery_case",
+      "key": "wood_dark",
+      "volume_m3": 0.0061351485269418565
+    },
+    {
+      "name": "5B_battery_case_Cell0",
+      "assembly": "5B_battery_case",
+      "key": "glassish",
+      "volume_m3": 0.0001761539688615478
+    },
+    {
+      "name": "5B_battery_case_Terminal0",
+      "assembly": "5B_battery_case",
+      "key": "brass",
+      "volume_m3": 1.6916194976428327e-06
+    },
+    {
+      "name": "5B_battery_case_Cell1",
+      "assembly": "5B_battery_case",
+      "key": "glassish",
+      "volume_m3": 0.00017615396886154779
+    },
+    {
+      "name": "5B_battery_case_Terminal1",
+      "assembly": "5B_battery_case",
+      "key": "brass",
+      "volume_m3": 1.6916194976428327e-06
+    },
+    {
+      "name": "4B_old_cap_Crown",
+      "assembly": "4B_old_cap",
+      "key": "book_navy",
+      "volume_m3": 0.001977471866249148
+    },
+    {
+      "name": "4B_old_cap_Peak",
+      "assembly": "4B_old_cap",
+      "key": "bakelite",
+      "volume_m3": 7.64839697419714e-05
+    },
+    {
+      "name": "4B_old_cap_Band",
+      "assembly": "4B_old_cap",
+      "key": "bakelite",
+      "volume_m3": 2.2674713504448646e-05
     }
   ],
   "contacts": [
@@ -22447,6 +22603,201 @@
         0
       ],
       "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "2A_out_tray",
+      "owner": "support",
+      "point": [
+        -0.12,
+        0,
+        0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray (-0.12, -0.08, 0)"
+    },
+    {
+      "assembly": "2A_out_tray",
+      "owner": "support",
+      "point": [
+        0.12,
+        0,
+        0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray (0.12, -0.08, 0)"
+    },
+    {
+      "assembly": "2A_out_tray",
+      "owner": "support",
+      "point": [
+        -0.12,
+        0,
+        -0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray (-0.12, 0.08, 0)"
+    },
+    {
+      "assembly": "2A_out_tray",
+      "owner": "support",
+      "point": [
+        0.12,
+        0,
+        -0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray (0.12, 0.08, 0)"
+    },
+    {
+      "assembly": "5A_torch",
+      "owner": "support",
+      "point": [
+        -0.08,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "torch (-0.08, 0, 0)"
+    },
+    {
+      "assembly": "5A_torch",
+      "owner": "support",
+      "point": [
+        0.1,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "torch (0.1, 0, 0)"
+    },
+    {
+      "assembly": "5B_battery_case",
+      "owner": "support",
+      "point": [
+        -0.1,
+        0,
+        0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (-0.1, -0.06, 0)"
+    },
+    {
+      "assembly": "5B_battery_case",
+      "owner": "support",
+      "point": [
+        0.1,
+        0,
+        0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (0.1, -0.06, 0)"
+    },
+    {
+      "assembly": "5B_battery_case",
+      "owner": "support",
+      "point": [
+        -0.1,
+        0,
+        -0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (-0.1, 0.06, 0)"
+    },
+    {
+      "assembly": "5B_battery_case",
+      "owner": "support",
+      "point": [
+        0.1,
+        0,
+        -0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (0.1, 0.06, 0)"
+    },
+    {
+      "assembly": "4B_old_cap",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cap (-0.07, 0, 0)"
+    },
+    {
+      "assembly": "4B_old_cap",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cap (0.07, 0, 0)"
+    },
+    {
+      "assembly": "4B_old_cap",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0.07
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cap (0, -0.07, 0)"
     }
   ],
   "parts": [
@@ -25123,9 +25474,79 @@
       "cell": "6B",
       "key": "nickel_plated",
       "triangles": 940
+    },
+    {
+      "name": "2A_out_tray__paper",
+      "assembly": "2A_out_tray",
+      "cell": "2A",
+      "key": "paper",
+      "triangles": 940
+    },
+    {
+      "name": "2A_out_tray__wood_dark",
+      "assembly": "2A_out_tray",
+      "cell": "2A",
+      "key": "wood_dark",
+      "triangles": 940
+    },
+    {
+      "name": "5A_torch__bakelite",
+      "assembly": "5A_torch",
+      "cell": "5A",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "5A_torch__glassish",
+      "assembly": "5A_torch",
+      "cell": "5A",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "5A_torch__nickel_plated",
+      "assembly": "5A_torch",
+      "cell": "5A",
+      "key": "nickel_plated",
+      "triangles": 376
+    },
+    {
+      "name": "5B_battery_case__brass",
+      "assembly": "5B_battery_case",
+      "cell": "5B",
+      "key": "brass",
+      "triangles": 376
+    },
+    {
+      "name": "5B_battery_case__glassish",
+      "assembly": "5B_battery_case",
+      "cell": "5B",
+      "key": "glassish",
+      "triangles": 576
+    },
+    {
+      "name": "5B_battery_case__wood_dark",
+      "assembly": "5B_battery_case",
+      "cell": "5B",
+      "key": "wood_dark",
+      "triangles": 188
+    },
+    {
+      "name": "4B_old_cap__bakelite",
+      "assembly": "4B_old_cap",
+      "cell": "4B",
+      "key": "bakelite",
+      "triangles": 376
+    },
+    {
+      "name": "4B_old_cap__book_navy",
+      "assembly": "4B_old_cap",
+      "cell": "4B",
+      "key": "book_navy",
+      "triangles": 384
     }
   ],
-  "triangles": 758592,
+  "triangles": 763124,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -30588,6 +31009,136 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "2A_out_tray",
+        "parts": [
+          {
+            "name": "2A_out_tray__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          },
+          {
+            "name": "2A_out_tray__wood_dark",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ]
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5A_torch",
+        "parts": [
+          {
+            "name": "5A_torch__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "5A_torch__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "5A_torch__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5B_battery_case",
+        "parts": [
+          {
+            "name": "5B_battery_case__brass",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.45
+            }
+          },
+          {
+            "name": "5B_battery_case__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "5B_battery_case__wood_dark",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ]
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4B_old_cap",
+        "parts": [
+          {
+            "name": "4B_old_cap__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "4B_old_cap__book_navy",
+            "key": "book_navy",
+            "tile": 0.32,
+            "catalog_key": "book_navy"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -30616,9 +31167,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "7db39263fa6b731ed89e5698beb89c071fd08fa9e903741c82ebbe15ee6f05ed",
+  "asset_sha256": "8f5129fb540c6e887de50e797ff43af77a5fb17a58e8e9f874b14db0663af45b",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "f1dc6f4e3b9dea3ef4203059c1ffeefac587c7052c68cf86b9ef7ca90354c609",
+    "art/data/surface_stock/source_plan.json": "897ee40ff31ee9df7b6cedfb8d4e63a4c188a3aab011e47d9b6253ff969e9b0c",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -30722,13 +31273,13 @@
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "81bc24f954b74a2711b99584a1efda73e49efda1c7eb9afb822e33917289073e",
+    "art/blender/scripts/surface_stock_geometry.py": "f516b798bf5c61ea7038156558be47ca2da1ef3bde5039f7ea9d8b75a249d8a7",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "8abbd4a22587b26353c985f595871d0de91112c14e21d6f6b6f86284e49b345d",
+    "game/data/orison_v2/domestic_surface_props.json": "210160efd6d10392a793c817e29b4e4b90479c7d14238676ba911c6ff9cb0d96",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "65059da7626436713f7147869a2c1db7a4dc5d17f4bf100c1115defbb3e38bf9"
+    "game/data/orison_v2/domestic_furniture.json": "81f92ad79e9261fe988c5793a740021f884adb3e3da46216b078f50ee0cf4678"
   },
   "retained_stock": [
     {
@@ -37952,6 +38503,52 @@
         "6B_drip_tray_RimEnd-0.24",
         "6B_drip_tray_RimEnd0.232",
         "6B_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "2A_out_tray",
+      "id": "2A_out_tray_OutTray",
+      "stocks": [
+        "2A_out_tray_Tray",
+        "2A_out_tray_Side-0.1",
+        "2A_out_tray_Side0.092",
+        "2A_out_tray_End-0.14",
+        "2A_out_tray_End0.132",
+        "2A_out_tray_Receipt0",
+        "2A_out_tray_Receipt1",
+        "2A_out_tray_Receipt2",
+        "2A_out_tray_Receipt3",
+        "2A_out_tray_Receipt4"
+      ]
+    },
+    {
+      "assembly": "5A_torch",
+      "id": "5A_torch_Torch",
+      "stocks": [
+        "5A_torch_Barrel",
+        "5A_torch_Head",
+        "5A_torch_Lens",
+        "5A_torch_Switch"
+      ]
+    },
+    {
+      "assembly": "5B_battery_case",
+      "id": "5B_battery_case_BatteryCase",
+      "stocks": [
+        "5B_battery_case_Case",
+        "5B_battery_case_Cell0",
+        "5B_battery_case_Terminal0",
+        "5B_battery_case_Cell1",
+        "5B_battery_case_Terminal1"
+      ]
+    },
+    {
+      "assembly": "4B_old_cap",
+      "id": "4B_old_cap_ServiceCap",
+      "stocks": [
+        "4B_old_cap_Crown",
+        "4B_old_cap_Peak",
+        "4B_old_cap_Band"
       ]
     }
   ],

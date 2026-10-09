@@ -5459,6 +5459,136 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "2A_out_tray",
+      "parts": [
+        {
+          "name": "2A_out_tray__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "2A_out_tray__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "5A_torch",
+      "parts": [
+        {
+          "name": "5A_torch__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "5A_torch__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "5A_torch__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "5B_battery_case",
+      "parts": [
+        {
+          "name": "5B_battery_case__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        },
+        {
+          "name": "5B_battery_case__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "5B_battery_case__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4B_old_cap",
+      "parts": [
+        {
+          "name": "4B_old_cap__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "4B_old_cap__book_navy",
+          "key": "book_navy",
+          "tile": 0.32,
+          "catalog_key": "book_navy"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "local_materials": {

@@ -1,0 +1,402 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						7.31600093841553,
+						4.6399998664856,
+						-11.649998664856
+					],
+					"feet": [
+						-7.31599998474121,
+						3.22999978065491,
+						0.0
+					],
+					"forward": [
+						-0.859838843345642,
+						-0.510565519332886,
+						-0.00000000000000305476122031806
+					],
+					"image": "F02_A_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.57499980926514,
+						4.19999980926514,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.18500089645386,
+						4.6399998664856,
+						-11.1099987030029
+					],
+					"feet": [
+						-6.18499994277954,
+						3.22999978065491,
+						-0.539999961853027
+					],
+					"forward": [
+						0.4885313808918,
+						-0.551164031028748,
+						-0.676428318023682
+					],
+					"image": "F02_A_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.57499980926514,
+						4.19999980926514,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.60000085830688,
+						4.6399998664856,
+						-11.6499996185303
+					],
+					"feet": [
+						-4.59999990463257,
+						3.22999978065491,
+						0.0
+					],
+					"forward": [
+						0.992697358131409,
+						-0.120631463825703,
+						0.000000479346851989249
+					],
+					"image": "F02_A_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_DOOR_02",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.57499980926514,
+						4.40000009536743,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.18500089645386,
+						4.6399998664856,
+						-12.189998626709
+					],
+					"feet": [
+						-6.18499994277954,
+						3.22999978065491,
+						0.539999961853027
+					],
+					"forward": [
+						0.4211605489254,
+						-0.279051125049591,
+						0.862991511821747
+					],
+					"image": "F02_A_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2A_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.0,
+						4.09999990463257,
+						-1.12999999523163
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 3.2,
+			"id": "F02_A_VESTIBULE",
+			"level": "F02",
+			"purpose": "2A privacy and distribution",
+			"rect": [
+				-7.55,
+				-1.35,
+				-5.6,
+				1.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						8.9640007019043,
+						14.2400007247925,
+						-13.4999990463257
+					],
+					"feet": [
+						-8.96399974822998,
+						12.8300008773804,
+						1.85000038146973
+					],
+					"forward": [
+						-0.924101293087006,
+						-0.38214772939682,
+						0.0
+					],
+					"image": "F05_B_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						13.8000001907349,
+						1.85000002384186
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.34000015258789,
+						14.2400007247925,
+						-13.9999990463257
+					],
+					"feet": [
+						-7.33999919891357,
+						12.8300008773804,
+						2.35000038146973
+					],
+					"forward": [
+						0.643551051616669,
+						-0.50564706325531,
+						0.57459831237793
+					],
+					"image": "F05_B_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						13.8000001907349,
+						1.85000002384186
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.10000085830688,
+						14.2400007247925,
+						-11.5
+					],
+					"feet": [
+						-7.09999990463257,
+						12.8300008773804,
+						-0.149998664855957
+					],
+					"forward": [
+						0.369106978178024,
+						-0.110732421278954,
+						-0.92276668548584
+					],
+					"image": "F05_B_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F05_DOOR_03",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						14.0,
+						1.85000002384186
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						8.46000099182129,
+						14.2400007247925,
+						-13.9999990463257
+					],
+					"feet": [
+						-8.46000003814697,
+						12.8300008773804,
+						2.35000038146973
+					],
+					"forward": [
+						-0.921008706092834,
+						-0.285830825567245,
+						0.264657646417618
+					],
+					"image": "F05_B_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "5B_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.71999979019165,
+						13.6999998092651,
+						1.85000002384186
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 11,
+			"floor_y": 12.8,
+			"id": "F05_B_VESTIBULE",
+			"level": "F05",
+			"purpose": "Cal Dwyer: private arrival and coat storage",
+			"rect": [
+				-9.3,
+				0.6,
+				-6.5,
+				3.1
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						10.9280004501343,
+						7.83999967575073,
+						-1.18999862670898
+					],
+					"feet": [
+						-10.9280004501343,
+						6.42999982833862,
+						-10.460000038147
+					],
+					"forward": [
+						-0.860775589942932,
+						-0.321511656045914,
+						0.394582897424698
+					],
+					"image": "F03_D_STUDY_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						7.40000009536743,
+						-11.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.13000011444092,
+						7.83999967575073,
+						-0.10999870300293
+					],
+					"feet": [
+						-9.13000011444092,
+						6.42999982833862,
+						-11.539999961853
+					],
+					"forward": [
+						0.66486269235611,
+						-0.4718376994133,
+						-0.579074084758759
+					],
+					"image": "F03_D_STUDY_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						7.40000009536743,
+						-11.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						12.3000001907349,
+						7.83999967575073,
+						-0.849998474121094
+					],
+					"feet": [
+						-12.3000001907349,
+						6.42999982833862,
+						-10.8000001907349
+					],
+					"forward": [
+						-0.992578685283661,
+						-0.0934190899133682,
+						0.0778492391109467
+					],
+					"image": "F03_D_STUDY_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F03_D_BED_STORAGE_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						7.59999990463257,
+						-11.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						10.9280004501343,
+						7.83999967575073,
+						-1.18999862670898
+					],
+					"feet": [
+						-10.9280004501343,
+						6.42999982833862,
+						-10.460000038147
+					],
+					"forward": [
+						-0.603437662124634,
+						0.747893989086151,
+						0.276618152856827
+					],
+					"image": "F03_D_STUDY_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F03_D_STUDY_LT",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						9.30000019073486,
+						-11.0
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 11,
+			"floor_y": 6.4,
+			"id": "F03_D_STUDY",
+			"level": "F03",
+			"purpose": "Rhea Sato quiet work and household storage",
+			"rect": [
+				-11.3,
+				-12.35,
+				-8.2,
+				-9.65
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

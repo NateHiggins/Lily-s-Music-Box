@@ -127,6 +127,8 @@ Slices landed so far (evidence folders in parentheses):
 23. Basement: one household object in each of sixteen storage bays, five
     laundry baskets (`slice23`, `slice23b`, `slice23c`; `slice23base`,
     `slice23mina` and `slice23mina_base` hold the basement suites).
+24. 2A's out-tray, 5A's torch, 5B's battery case, 4B's old cap, 3D's card
+    index (`slice24`, `slice24c`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

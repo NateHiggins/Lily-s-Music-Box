@@ -1,0 +1,271 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						7.07000160217285,
+						11.039999961853,
+						-18.3599987030029
+					],
+					"feet": [
+						-7.07000017166138,
+						9.63000011444092,
+						6.70999908447266
+					],
+					"forward": [
+						-0.45732969045639,
+						-0.628827512264252,
+						-0.628828763961792
+					],
+					"image": "F04_B_CLOSET_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.75,
+						10.6000003814697,
+						7.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.75000143051147,
+						11.039999961853,
+						-18.7999992370605
+					],
+					"feet": [
+						-6.75,
+						9.63000011444092,
+						7.14999961853027
+					],
+					"forward": [
+						0.0,
+						-0.53217077255249,
+						0.846637070178986
+					],
+					"image": "F04_B_CLOSET_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.75,
+						10.6000003814697,
+						7.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						8.5500020980835,
+						11.039999961853,
+						-18.8999977111816
+					],
+					"feet": [
+						-8.55000019073486,
+						9.63000011444092,
+						7.24999809265137
+					],
+					"forward": [
+						-0.989728450775146,
+						-0.131963640451431,
+						0.0549840591847897
+					],
+					"image": "F04_B_CLOSET_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F04_B_CLOSET_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.75,
+						10.8000001907349,
+						7.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.07000160217285,
+						11.039999961853,
+						-18.3599987030029
+					],
+					"feet": [
+						-7.07000017166138,
+						9.63000011444092,
+						6.70999908447266
+					],
+					"forward": [
+						-0.762139678001404,
+						-0.501896739006042,
+						-0.408953428268433
+					],
+					"image": "F04_B_CLOSET_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4B_equipment_shelf",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.25,
+						10.5,
+						7.15000009536743
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 4,
+			"floor_y": 9.6,
+			"id": "F04_B_CLOSET",
+			"level": "F04",
+			"purpose": "clothes and equipment storage",
+			"rect": [
+				-7.55,
+				6.05,
+				-5.95,
+				8.25
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						9.75,
+						17.4400005340576,
+						-2.65999889373779
+					],
+					"feet": [
+						-9.75,
+						16.0300006866455,
+						-8.98999977111816
+					],
+					"forward": [
+						0.0,
+						-0.360076010227203,
+						-0.932923018932343
+					],
+					"image": "F06_A_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						17.0,
+						-7.84999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.17000007629395,
+						17.4400005340576,
+						-4.39999866485596
+					],
+					"feet": [
+						-9.17000007629395,
+						16.0300006866455,
+						-7.25
+					],
+					"forward": [
+						0.614798605442047,
+						-0.466399550437927,
+						0.635998547077179
+					],
+					"image": "F06_A_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						17.0,
+						-7.84999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.30000066757202,
+						17.4400005340576,
+						-4.14999914169312
+					],
+					"feet": [
+						-7.30000019073486,
+						16.0300006866455,
+						-7.5
+					],
+					"forward": [
+						0.985327303409576,
+						-0.0965218096971512,
+						0.140761241316795
+					],
+					"image": "F06_A_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F06_A_PRIVATE_HALL_KITCHEN_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						17.2000007629395,
+						-7.84999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.75,
+						17.4400005340576,
+						-2.65999889373779
+					],
+					"feet": [
+						-9.75,
+						16.0300006866455,
+						-8.98999977111816
+					],
+					"forward": [
+						0.488514006137848,
+						-0.258625417947769,
+						-0.833346903324127
+					],
+					"image": "F06_A_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F06_6A_STOVE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.7700004577637,
+						16.8999996185303,
+						-7.25
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 4,
+			"floor_y": 16.0,
+			"id": "F06_A_KITCHEN",
+			"level": "F06",
+			"purpose": "Sacha Reed: cooking and washing",
+			"rect": [
+				-11.2,
+				-9.35,
+				-8.3,
+				-6.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}
