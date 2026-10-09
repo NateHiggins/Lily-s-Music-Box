@@ -58,7 +58,7 @@ for key in plan['runtime_keys']:
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n')).hexdigest()
 selected=[rows[identity] for identity in plan['source_ids']]
-assert len(selected)==30 and len(plan['instances'])==41
+assert len(selected)==30 and len(plan['instances'])==43
 assemblies=[{'id':v['id'],'kind':v['kind'],'cell':'shared','members':[table_records[v['source_id']]],'body':{'rect':[0,0,0,0],'z0':0.}} for v in plan['variants']]
 # Reject future source/template drift before sharing a native variant.
 completion={row['id']:row['template'] for row in json.loads((ROOT/'game/data/orison_v2/completion_interiors.json').read_text(encoding='utf-8'))['furniture']}

@@ -13,7 +13,7 @@ func check(ok: bool, label: String) -> void:
 func _ready() -> void:
 	RealityState.persistence_enabled = false
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/data/v2_upper_furniture_probes.json"))
-	check(source.furniture.size() == 50, "complete furniture category roster")
+	check(source.furniture.size() == 51, "complete furniture category roster")
 	for cycle in 2:
 		RealityState.reset_campaign_for_tests()
 		var world := Runtime.instantiate() as OrisonV2RuntimeRoot

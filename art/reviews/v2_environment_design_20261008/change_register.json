@@ -402,7 +402,9 @@
    ],
    "acceptance": "Aisle stations show labels only on bay fronts, never mirrored",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_RESIDENT_STORAGE"
+   "area": "B1_RESIDENT_STORAGE",
+   "status": "implemented",
+   "owner_notes": "Bay cage labels are single-sided (Label3D double_sided false) on the bay fronts."
   },
   {
    "id": "B1_SERVICE_CORE-001",
@@ -455,7 +457,9 @@
    ],
    "acceptance": "Sleeper count equals resident count in every unit",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "implemented",
+   "owner_notes": "2C_bed1, 5C_bed1 and 6C_bed1 (with nightstands) removed at their owners (completion source; domestic_furniture_source; blockout anchors); 4C keeps its two beds (re-templated on 5C_bed0). Conversions started with existing variants: 2C session table and chair under the window, 5C pigment table (TableRect09) on the inner wall with a stool, 6C archive table under the window and two shelves on the east wall. Hero props (blanket walls, easel, drying rack, catalogue drawers) stay open on their room entries. Bedding validator expects 19 beds; tables 64, seating 43, storage 45 instances rebuilt. Suites: OrisonV2BeddingTest passes; the fabrication batch for the twelve rebuilt families passes; OrisonV2UpperFurnitureTest stays red on a pre-existing check (mesh material overrides: 394 failures on main at 16f1d353, 400 here, the six new native meshes counted the same way); the C-unit completion route stops at the 2C bath leg exactly as on main."
   },
   {
    "id": "BW-003",
@@ -590,7 +594,9 @@
    ],
    "acceptance": "Public core night stations show only warm practical light",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "implemented",
+   "owner_notes": "The readability cues' nine ungoverned light pools (blue and orange OmniLights beside the stair on F01-F03, at the 2A/4B doors and the 4B terminal) are gated off in production (show_light_pools false in orison_v2_runtime_root). Remaining leaks, if any, need a capture to name."
   },
   {
    "id": "BW-010",
@@ -625,7 +631,9 @@
    ],
    "acceptance": "Twelve radios become eighteen; each operates",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "implemented",
+   "owner_notes": "DomesticRadio_1A/1D/2C/3D/4C/4D added to domestic_radios_source (families from the 1928 catalogue: radiola table, Crosley Pup, homebrew regenerative); wireless tables (TableRect07 template) added to 1A, 3D and 4D on the south wall between the doors; orison_v2_radios.gd now places 18 units; the apartment batch test expects 18 receivers. DomesticRadioTest passes; in OrisonV2ApartmentBatchTest the new receivers pass their clearance and operator-stance checks, and the only remaining receiver failures are the pre-existing texture-backed-parts check (98 on main for the twelve, 142 for eighteen); the other red groups (46 fixed-furniture collisions, 18 wood, 12 category, 10 plant, 6 coffee, 2 plant) are identical on main."
   },
   {
    "id": "BW-012",
@@ -2062,7 +2070,9 @@
    "purpose": "Review: the sign's lettering is mirrored through the glass; make the Label3D single-sided with an opaque back",
    "acceptance": "Vestibule OV shows no mirrored lettering",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_VESTIBULE"
+   "area": "F01_VESTIBULE",
+   "status": "implemented",
+   "owner_notes": "Entry sign labels single-sided; no mirrored read through the glass."
   },
   {
    "id": "F01_LOBBY-001",
@@ -2332,7 +2342,9 @@
    "purpose": "Review: a block-out plane is visible in the public core at eye level",
    "acceptance": "Core detail stations show finished surfaces only",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_PUBLIC_CORE"
+   "area": "F01_PUBLIC_CORE",
+   "status": "implemented",
+   "owner_notes": "The orange-tan plane was the readability cues' WARM light pool on the core wall; gated off with BW-009."
   },
   {
    "id": "F01_CORE_TO_SERVICE-001",
@@ -2529,7 +2541,9 @@
    "preserve": "FurnitureInteractionPass radio knob/switch owner",
    "acceptance": "Reverse view shows the radio lit; the radio operates with E",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "F01_A_MAIN"
+   "area": "F01_A_MAIN",
+   "status": "implemented",
+   "owner_notes": "1A_wireless_table at (-12.0, -6.95) yaw 180 and DomesticRadio_1A on it (BW-011)."
   },
   {
    "id": "F01_A_MAIN-002",
@@ -2983,7 +2997,9 @@
    "preserve": "Route, radiator, radio table",
    "acceptance": "Overview shows no cutting table or pattern board",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_D_MAIN"
+   "area": "F01_D_MAIN",
+   "status": "implemented",
+   "owner_notes": "1D_fabric_worktable record and anchor removed; the 1D_story_pattern_board anchor had no consumer and is gone."
   },
   {
    "id": "F01_D_MAIN-002",
@@ -3027,7 +3043,9 @@
    ],
    "acceptance": "Radio present and operable",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "F01_D_MAIN"
+   "area": "F01_D_MAIN",
+   "status": "implemented",
+   "owner_notes": "DomesticRadio_1D on the existing 1D_wireless_table (BW-011)."
   },
   {
    "id": "F01_D_MAIN-004",
@@ -3217,7 +3235,9 @@
    ],
    "acceptance": "Hall shows a hamper, not fabric shelves",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_D_PRIVATE_HALL"
+   "area": "F01_D_PRIVATE_HALL",
+   "status": "implemented",
+   "owner_notes": "The 1D_fabric_shelf_01/02 anchors removed (they had no furniture consumer; the review's shelves were the baked template surfaces)."
   },
   {
    "id": "F01_D_BATH-001",
@@ -4504,7 +4524,9 @@
    ],
    "acceptance": "No bed in the room; the completion-interiors test's sleeper count equals one",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_C_BED2"
+   "area": "F02_C_BED2",
+   "status": "implemented",
+   "owner_notes": "Removed with BW-002."
   },
   {
    "id": "F02_C_BED2-002",
@@ -4709,7 +4731,9 @@
    "purpose": "A placeholder plane in a public hall",
    "acceptance": "Hall OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_EAST_HALL"
+   "area": "F03_EAST_HALL",
+   "status": "implemented",
+   "owner_notes": "The powder-blue plane was the readability cues' PUBLIC light pool beside the stair; gated off with BW-009."
   },
   {
    "id": "F03_SERVICE_CROSSING-001",
@@ -5396,7 +5420,9 @@
    "preserve": "Leaf motions and the 42-leaf test",
    "acceptance": "Overview from the main room shows no raw back",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_B_ALCOVE"
+   "area": "F03_B_ALCOVE",
+   "status": "rejected",
+   "owner_notes": "Measured, not a bug: 3B_aw_wardrobe at yaw 0 on the north wall shows its two leaves and knobs to the room and the bed foot (implementation/slice2/images/F03_B_ALCOVE_DT3.jpg); the punchlist's back-to-room reading does not hold at this station. No data change."
   },
   {
    "id": "F03_B_ALCOVE-002",
@@ -7497,7 +7523,9 @@
    "preserve": "Switch interaction and the light it owns",
    "acceptance": "DT at the basin shows tile only; the switch is reachable from the door",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_D_BATH"
+   "area": "F04_D_BATH",
+   "status": "implemented",
+   "owner_notes": "F04_D_BATH_SWITCH anchor moved to (-6.1, 1.12, -9.75) yaw 0: the north wall beside the bath door, off the basin wall."
   },
   {
    "id": "F04_D_BED-001",
@@ -8487,7 +8515,9 @@
    ],
    "acceptance": "Bath OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_B_BATH"
+   "area": "F05_B_BATH",
+   "status": "rejected",
+   "owner_notes": "Misread: the 'column radiator standing mid-room' is the shower's closed curtain pose (the fluted cream cylinder on its enamel tray); the heating data places no radiator in 5B's bath. The curtain's look is BW-008's item."
   },
   {
    "id": "F05_C_VESTIBULE-001",
@@ -8801,7 +8831,9 @@
    "preserve": "Wardrobe leaf motion",
    "acceptance": "Bedroom OV shows the wardrobe; the closet holds one",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_C_BED1"
+   "area": "F05_C_BED1",
+   "status": "implemented",
+   "owner_notes": "5C_w0_wardrobe and its stance moved to the bedroom's east wall (3.45, 9.3) facing west; 5C_w1_wardrobe stays in the closet for F05_C_STUDIO-001."
   },
   {
    "id": "F05_C_BED2-001",
@@ -8819,7 +8851,9 @@
    ],
    "acceptance": "No bed; sleeper count one",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_C_BED2"
+   "area": "F05_C_BED2",
+   "status": "implemented",
+   "owner_notes": "Removed with BW-002."
   },
   {
    "id": "F05_C_BED2-002",
@@ -9585,7 +9619,9 @@
    "preserve": "Bedside clearance and the route",
    "acceptance": "Overview from the door shows the bed foot-on",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_B_ALCOVE"
+   "area": "F06_B_ALCOVE",
+   "status": "implemented",
+   "owner_notes": "6B_abed turned to yaw -90 with its head at the west wall (-14.6, 9.9) so the foot faces the hall door; nightstand at the window side (-15.35, 11.2); stances moved."
   },
   {
    "id": "F06_B_BATH-001",
@@ -9925,7 +9961,9 @@
    ],
    "acceptance": "No bed; sleeper count one",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_BED2"
+   "area": "F06_C_BED2",
+   "status": "implemented",
+   "owner_notes": "Removed with BW-002."
   },
   {
    "id": "F06_C_BED2-002",
@@ -10038,7 +10076,9 @@
    ],
    "acceptance": "RV station shows readable text and finished walls",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_PUBLIC_CORE"
+   "area": "ROOF_PUBLIC_CORE",
+   "status": "implemented",
+   "owner_notes": "Lift-drive sign single-sided (the bulkhead finish part stays open)."
   },
   {
    "id": "ROOF_SERVICE_CORE-001",

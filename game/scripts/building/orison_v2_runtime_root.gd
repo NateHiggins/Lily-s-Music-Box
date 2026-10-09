@@ -145,6 +145,7 @@ func _ready() -> void:
 	cues.show_floor_context = false
 	cues.show_portal_masses = false
 	cues.show_route_bands = false
+	cues.show_light_pools = false  # Accord 15: every lumen has a fixture; the cue pools are development aids
 	_blockout.add_child(cues)
 	var wayfinding := preload("res://scripts/building/orison_v2_wayfinding.gd").new()
 	wayfinding.name = "Wayfinding"

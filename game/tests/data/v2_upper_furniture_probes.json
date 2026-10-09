@@ -350,52 +350,6 @@
       }
     },
     {
-      "id": "5C_bed1",
-      "kind": "bed",
-      "bounds": [
-        [
-          -0.75,
-          0.0,
-          -1.025
-        ],
-        [
-          0.75,
-          0.99,
-          1.025
-        ]
-      ],
-      "materials": [
-        "oak_quartered",
-        "linen",
-        "fabric_warm",
-        "paper"
-      ],
-      "mechanism": {}
-    },
-    {
-      "id": "5C_bed1_ns",
-      "kind": "nightstand",
-      "bounds": [
-        [
-          -0.23,
-          0.0,
-          -0.246
-        ],
-        [
-          0.23,
-          0.625,
-          0.22
-        ]
-      ],
-      "materials": [
-        "oak_quartered",
-        "brass",
-        "paper",
-        "glassish"
-      ],
-      "mechanism": {}
-    },
-    {
       "id": "5C_w1_wardrobe",
       "kind": "wardrobe",
       "bounds": [
@@ -835,52 +789,6 @@
       }
     },
     {
-      "id": "6C_bed1",
-      "kind": "bed",
-      "bounds": [
-        [
-          -0.75,
-          0.0,
-          -1.025
-        ],
-        [
-          0.75,
-          0.99,
-          1.025
-        ]
-      ],
-      "materials": [
-        "wood_dark",
-        "linen",
-        "fabric_cool",
-        "paper"
-      ],
-      "mechanism": {}
-    },
-    {
-      "id": "6C_bed1_ns",
-      "kind": "nightstand",
-      "bounds": [
-        [
-          -0.23,
-          0.0,
-          -0.246
-        ],
-        [
-          0.23,
-          0.625,
-          0.22
-        ]
-      ],
-      "materials": [
-        "wood_dark",
-        "brass",
-        "paper",
-        "glassish"
-      ],
-      "mechanism": {}
-    },
-    {
       "id": "6C_w1_wardrobe",
       "kind": "wardrobe",
       "bounds": [
@@ -1136,6 +1044,110 @@
       "materials": [
         "wood_dark",
         "glassish"
+      ],
+      "mechanism": {}
+    },
+    {
+      "id": "5C_pigment_table",
+      "kind": "table_rect",
+      "bounds": [
+        [
+          -0.6,
+          0.0,
+          -0.4
+        ],
+        [
+          0.6,
+          0.75,
+          0.4
+        ]
+      ],
+      "materials": [
+        "wood_dark"
+      ],
+      "mechanism": {}
+    },
+    {
+      "id": "5C_studio_stool",
+      "kind": "chair",
+      "bounds": [
+        [
+          -0.22,
+          -0.003231483457181407,
+          -0.22
+        ],
+        [
+          0.22,
+          0.9791109786446532,
+          0.2596782467748012
+        ]
+      ],
+      "materials": [
+        "oak_quartered"
+      ],
+      "mechanism": {}
+    },
+    {
+      "id": "6C_archive_table",
+      "kind": "table_rect",
+      "bounds": [
+        [
+          -0.6,
+          0.0,
+          -0.4
+        ],
+        [
+          0.6,
+          0.75,
+          0.4
+        ]
+      ],
+      "materials": [
+        "wood_dark"
+      ],
+      "mechanism": {}
+    },
+    {
+      "id": "6C_archive_shelf_01",
+      "kind": "shelf",
+      "bounds": [
+        [
+          -0.5,
+          0.0,
+          -0.15
+        ],
+        [
+          0.5,
+          1.85,
+          0.15
+        ]
+      ],
+      "materials": [
+        "metal",
+        "floor_oak",
+        "trim"
+      ],
+      "mechanism": {}
+    },
+    {
+      "id": "6C_archive_shelf_02",
+      "kind": "shelf",
+      "bounds": [
+        [
+          -0.5,
+          0.0,
+          -0.15
+        ],
+        [
+          0.5,
+          1.85,
+          0.15
+        ]
+      ],
+      "materials": [
+        "metal",
+        "floor_oak",
+        "trim"
       ],
       "mechanism": {}
     }

@@ -546,7 +546,7 @@ func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -
 		for mesh: MeshInstance3D in radio.find_children("*", "MeshInstance3D", true, false):
 			var material := mesh.material_override as StandardMaterial3D
 			check(material != null and material.albedo_texture != null, "all receiver parts have texture-backed materials")
-	check(radios.size() == 12 and emitters.size() == 12, "all twelve developed households have complete receivers")
+	check(radios.size() == 18 and emitters.size() == 18, "all eighteen households have complete receivers")
 	var loader := preload("res://scripts/building/orison_v2_radios.gd").new()
 	check(loader.validate(source, catalog, dry_adapter), "complete household source accepts supports")
 	check(not loader.validate(source, catalog, world.adapter), "duplicate radio installation is refused")

@@ -1,0 +1,70 @@
+{
+	"batch_checks": 13,
+	"elapsed_ms": 23740,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 2893,
+	"modules": {
+		"domestic_seating": {
+			"actors": 43,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 564,
+			"elapsed_ms": 347,
+			"failures": [],
+			"fixture_sha256": "628644563c1f5b52616f072ccc8fcb4fd8db5432312bc82055d37b019a50a07b",
+			"parts": 49,
+			"shared_validator_sha256": "634c1235da90cb17304bef9bad78ae4cbeb8d829df7e2846677e410693cf94b4",
+			"unique_triangles": 37376,
+			"validator_sha256": "b075531e93b4cbd387afc38fd9f538a4c1c76b004cbea419fc914d1a1b3829f1",
+			"variants": 4,
+			"views": []
+		},
+		"domestic_storage": {
+			"actors": 45,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 854,
+			"elapsed_ms": 530,
+			"failures": [],
+			"fixture_sha256": "0261b991ca5562bcfa0797486c7d93644462586a446bea7df4002c6c748c0d79",
+			"parts": 93,
+			"shared_validator_sha256": "634c1235da90cb17304bef9bad78ae4cbeb8d829df7e2846677e410693cf94b4",
+			"unique_triangles": 79344,
+			"validator_sha256": "a85a8676f999707509246faefe9178fda39e4d9cbd57b27239cc08dccd1f2675",
+			"variants": 8,
+			"views": []
+		},
+		"domestic_tables": {
+			"actors": 64,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 1159,
+			"elapsed_ms": 617,
+			"failures": [],
+			"fixture_sha256": "8f7c5a32fdb68201f95b065471d495ac70e9cc044ab97d0cdbbf8fc8dfdb5bf9",
+			"parts": 122,
+			"shared_validator_sha256": "634c1235da90cb17304bef9bad78ae4cbeb8d829df7e2846677e410693cf94b4",
+			"unique_triangles": 44424,
+			"validator_sha256": "50d0993b4c1c1e3b59157f591202428fcd751803249a6c0032e33541f472cc48",
+			"variants": 13,
+			"views": []
+		},
+		"household_radios": {
+			"actors": 5,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 316,
+			"elapsed_ms": 264,
+			"failures": [],
+			"fixture_sha256": "b3493c70ffcd5388ee04a4785157282e38fb83a02dc0a26d3a9f112a396c3195",
+			"parts": 50,
+			"unique_triangles": 11916,
+			"validator_sha256": "87f9f305211be89df5c6016a5335a0f158e0ce46488cf50ddebc9a090230b517",
+			"views": []
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

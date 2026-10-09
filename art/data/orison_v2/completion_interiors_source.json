@@ -2582,54 +2582,6 @@
         "kind": "clearance"
       },
       {
-        "id": "2C_bed1",
-        "level": "F02",
-        "space": "F02_C_BED2",
-        "position": [
-          4.699999999999999,
-          0,
-          10.5
-        ],
-        "yaw": 0,
-        "kind": "furniture"
-      },
-      {
-        "id": "2C_bed1_STANCE",
-        "level": "F02",
-        "space": "F02_C_BED2",
-        "position": [
-          5.8,
-          0,
-          9.0
-        ],
-        "yaw": 2.50884381858761,
-        "kind": "clearance"
-      },
-      {
-        "id": "2C_bed1_ns",
-        "level": "F02",
-        "space": "F02_C_BED2",
-        "position": [
-          6.6,
-          0,
-          11.15
-        ],
-        "yaw": 0,
-        "kind": "furniture"
-      },
-      {
-        "id": "2C_bed1_ns_STANCE",
-        "level": "F02",
-        "space": "F02_C_BED2",
-        "position": [
-          5.9,
-          0,
-          11.05
-        ],
-        "yaw": -1.7126933813990601,
-        "kind": "clearance"
-      },
-      {
         "id": "2C_w1_wardrobe",
         "level": "F02",
         "space": "F02_C_STUDIO",
@@ -4466,78 +4418,6 @@
         "kind": "clearance"
       },
       {
-        "id": "1D_fabric_worktable",
-        "level": "F01",
-        "space": "F01_D_MAIN",
-        "position": [
-          12.65,
-          0,
-          -0.15
-        ],
-        "yaw": 0,
-        "kind": "furniture"
-      },
-      {
-        "id": "1D_fabric_shelf_01",
-        "level": "F01",
-        "space": "F01_D_PRIVATE_HALL",
-        "position": [
-          15.25,
-          0,
-          -5.25
-        ],
-        "yaw": 1.5707963267948966,
-        "kind": "furniture"
-      },
-      {
-        "id": "1D_fabric_shelf_02",
-        "level": "F01",
-        "space": "F01_D_PRIVATE_HALL",
-        "position": [
-          15.25,
-          0,
-          -8.25
-        ],
-        "yaw": 1.5707963267948966,
-        "kind": "furniture"
-      },
-      {
-        "id": "1D_fabric_worktable_STANCE",
-        "level": "F01",
-        "space": "F01_D_MAIN",
-        "position": [
-          12.65,
-          0,
-          -1.25
-        ],
-        "yaw": 3.141592653589793,
-        "kind": "clearance"
-      },
-      {
-        "id": "1D_fabric_shelf_01_STANCE",
-        "level": "F01",
-        "space": "F01_D_PRIVATE_HALL",
-        "position": [
-          14.35,
-          0,
-          -5.25
-        ],
-        "yaw": -1.5707963267948966,
-        "kind": "clearance"
-      },
-      {
-        "id": "1D_fabric_shelf_02_STANCE",
-        "level": "F01",
-        "space": "F01_D_PRIVATE_HALL",
-        "position": [
-          14.35,
-          0,
-          -8.25
-        ],
-        "yaw": -1.5707963267948966,
-        "kind": "clearance"
-      },
-      {
         "id": "1D_k_wall_cupboard",
         "level": "F01",
         "space": "F01_D_KITCHEN",
@@ -4547,18 +4427,6 @@
           -7.3
         ],
         "yaw": -1.5707963267948966,
-        "kind": "furniture"
-      },
-      {
-        "id": "1D_story_pattern_board",
-        "level": "F01",
-        "space": "F01_D_MAIN",
-        "position": [
-          12.65,
-          1.15,
-          0.21
-        ],
-        "yaw": 0,
         "kind": "furniture"
       },
       {
@@ -5275,11 +5143,11 @@
         "id": "F04_D_BATH_SWITCH",
         "level": "F04",
         "position": [
-          -7.449999999999999,
+          -6.1,
           1.12,
-          -12.25
+          -9.75
         ],
-        "yaw": 3.141592653589793,
+        "yaw": 0,
         "kind": "interaction",
         "space": "F04_D_BATH"
       },
@@ -5857,6 +5725,114 @@
         "yaw": -1.5707963267948966,
         "kind": "fixture",
         "space": "B1_MAINTENANCE_SHOP"
+      },
+      {
+        "id": "1A_wireless_table",
+        "level": "F01",
+        "space": "F01_A_MAIN",
+        "position": [
+          -12.0,
+          0,
+          -6.95
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "3D_wireless_table",
+        "level": "F03",
+        "space": "F03_D_MAIN",
+        "position": [
+          -12.0,
+          0,
+          -6.95
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "4D_wireless_table",
+        "level": "F04",
+        "space": "F04_D_MAIN",
+        "position": [
+          -12.0,
+          0,
+          -6.95
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_session_table",
+        "level": "F02",
+        "space": "F02_C_BED2",
+        "position": [
+          5.4,
+          0,
+          11.23
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_session_table_STANCE",
+        "level": "F02",
+        "space": "F02_C_BED2",
+        "position": [
+          5.4,
+          0,
+          10.2
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "clearance"
+      },
+      {
+        "id": "2C_session_chair",
+        "level": "F02",
+        "space": "F02_C_BED2",
+        "position": [
+          5.4,
+          0,
+          10.55
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "DomesticRadio_1A_STANCE",
+        "level": "F01",
+        "space": "F01_A_MAIN",
+        "position": [
+          -12.0,
+          0,
+          -5.83
+        ],
+        "yaw": 0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "DomesticRadio_3D_STANCE",
+        "level": "F03",
+        "space": "F03_D_MAIN",
+        "position": [
+          -12.0,
+          0,
+          -5.83
+        ],
+        "yaw": 0.0,
+        "kind": "clearance"
+      },
+      {
+        "id": "DomesticRadio_4D_STANCE",
+        "level": "F04",
+        "space": "F04_D_MAIN",
+        "position": [
+          -12.0,
+          0,
+          -5.83
+        ],
+        "yaw": 0.0,
+        "kind": "clearance"
       }
     ],
     "stairs": [
@@ -7061,16 +7037,6 @@
         "unit": "2C"
       },
       {
-        "id": "2C_bed1",
-        "template": "5C_bed1",
-        "unit": "2C"
-      },
-      {
-        "id": "2C_bed1_ns",
-        "template": "5C_bed1_ns",
-        "unit": "2C"
-      },
-      {
         "id": "2C_w1_wardrobe",
         "template": "5C_w1_wardrobe",
         "unit": "2C"
@@ -7127,12 +7093,12 @@
       },
       {
         "id": "4C_bed1",
-        "template": "5C_bed1",
+        "template": "5C_bed0",
         "unit": "4C"
       },
       {
         "id": "4C_bed1_ns",
-        "template": "5C_bed1_ns",
+        "template": "5C_bed0_ns",
         "unit": "4C"
       },
       {
@@ -7198,11 +7164,6 @@
       {
         "id": "1D_din_dc2",
         "template": "2B_din_dc2",
-        "unit": "1D"
-      },
-      {
-        "id": "1D_fabric_worktable",
-        "template": "2B_fabric_worktable",
         "unit": "1D"
       },
       {
@@ -7324,6 +7285,31 @@
         "id": "b1_parts_shelf",
         "template": "3B_tools0",
         "unit": "B1"
+      },
+      {
+        "id": "1A_wireless_table",
+        "template": "5C_wireless_table",
+        "unit": "1A"
+      },
+      {
+        "id": "3D_wireless_table",
+        "template": "5C_wireless_table",
+        "unit": "3D"
+      },
+      {
+        "id": "4D_wireless_table",
+        "template": "5C_wireless_table",
+        "unit": "4D"
+      },
+      {
+        "id": "2C_session_table",
+        "template": "5C_din_t",
+        "unit": "2C"
+      },
+      {
+        "id": "2C_session_chair",
+        "template": "5C_din_dc1",
+        "unit": "2C"
       }
     ],
     "lighting": {

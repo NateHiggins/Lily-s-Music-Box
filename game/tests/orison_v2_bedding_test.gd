@@ -92,7 +92,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			captured=true
 		check(captured,"a clear installed bed inspection stance exists: "+str(record.id))
 		beds+=1
-	check(beds==22,"all original and completion-template installed beds inspected")
+	check(beds==19,"all original and completion-template installed beds inspected")
 	check(unique_meshes.size()==12,"three shared variants with four material batches each")
 	print("BEDDING: beds=%d contacts=%d shared_meshes=%d failures=%d" % [beds,contacts,unique_meshes.size(),failures.size()])
 	return {"checks":checks,"failures":failures,"beds":beds,"contacts":contacts,"shared_meshes":unique_meshes.size()}

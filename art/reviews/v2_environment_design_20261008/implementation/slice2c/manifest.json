@@ -1,0 +1,54 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F04_D_BATH_OV.jpg",
+   "source": "sweep_shots/F04_D_BATH_OV.png",
+   "sha256": "eb3e88e3ad01125b6cbbeb7bb1b899d6338a5746fa43c2d100708d808a05594b",
+   "bytes": 233527
+  },
+  {
+   "path": "images/B1_RESIDENT_STORAGE_DT2.jpg",
+   "source": "sweep_shots/B1_RESIDENT_STORAGE_DT2.png",
+   "sha256": "4ae68a4dfbe588d52752958d953d9d64fc902d323986bbf95d937a3c65945d50",
+   "bytes": 164971
+  },
+  {
+   "path": "images/F01_VESTIBULE_TH.jpg",
+   "source": "sweep_shots/F01_VESTIBULE_TH.png",
+   "sha256": "49d792c95372fd35042c7533fd9b29655f041763fdcce11b36d74306cfd81059",
+   "bytes": 102160
+  },
+  {
+   "path": "images/F03_B_ALCOVE_DT3.jpg",
+   "source": "sweep_shots/F03_B_ALCOVE_DT3.png",
+   "sha256": "001c307cd05e174ef30d62a5dc36dc3866b6756bdd82fbd5390e3b756036f3fb",
+   "bytes": 79751
+  },
+  {
+   "path": "images/F04_D_MAIN_OV.jpg",
+   "source": "sweep_shots/F04_D_MAIN_OV.png",
+   "sha256": "c993e8befe0f1472b996343e1423d7098cff91d289f07424745d45087e65cdcc",
+   "bytes": 117693
+  },
+  {
+   "path": "receipts/sweep.log.receipt.json",
+   "source": "sweep.log.receipt.json",
+   "sha256": "c4895416adbbd80025d60b9e1b9d0497343d040d85e619962c463d3542afa26d",
+   "bytes": 3220
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "ef143864e600c933027aae5c22380502acaa0f6efb0cc19f29dcf354efe4e69a",
+   "bytes": 720661
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "466b208640e9a9844b558807a43d740d84b1b8e9eb0ec6e2f0297ae2f964db8e",
+   "bytes": 18249
+  }
+ ]
+}

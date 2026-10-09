@@ -87,4 +87,5 @@ func _add_label(value: String, at: Vector3, size: int,
 	label.position = at
 	label.pixel_size = 0.00155
 	label.no_depth_test = false
+	label.double_sided = false
 	add_child(label)

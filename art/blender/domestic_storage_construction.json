@@ -3792,15 +3792,23 @@
       {
         "id": "5A_planshelf",
         "variant": "Shelf07"
+      },
+      {
+        "id": "6C_archive_shelf_01",
+        "variant": "Shelf01"
+      },
+      {
+        "id": "6C_archive_shelf_02",
+        "variant": "Shelf01"
       }
     ],
     "tint_space": "linear"
   },
   "asset_sha256": "d64650c6da209ae2478604d4b5aeae6b6fb8cc86ece1eb1634d8a47c345d3881",
   "source_bindings": {
-    "art/data/domestic_storage/source_plan.json": "1dd75157acb30b89b69536f2d899e0c8b7a294100164662b806d06e204611814",
+    "art/data/domestic_storage/source_plan.json": "2a9286e903f0badbd90ab66d8ccc1fd28bef8b64839ec60b8ab739af31087c01",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_storage.py": "20d9462f5627faf46089f16f965887d1f0b6a320638a4e42578de34e92e299fa",
+    "art/blender/scripts/build_domestic_storage.py": "efdf54856653f5c372b14f190c03ab1923bd54ab6d64eea9915e953887853caf",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -3864,14 +3872,14 @@
     "art/blender/scripts/render_domestic_storage.py": "8947b65d2e99d41ca1acbeb33075a5852bfbe2d7d8e7158c04657db20912e6b5",
     "art/blender/scripts/domestic_storage_geometry.py": "92f03ce5f713c87e4706f86e827b5176d3ff06359b9ad7854864cfd4aa38c0f5",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707",
-    "game/data/orison_v2/completion_interiors.json": "5fa82dc7867693816be370e8a6cea7a5bc71787cb51bdac1892c637e6746505f",
-    "art/data/orison_v2/completion_interiors_source.json": "9c2cc8459d7c93733aa047e426145f2e468ade34f14f988f44e522b2160cf0e9",
+    "game/data/orison_v2/domestic_furniture.json": "73c5ebb895a51ffd60a48ae3462ac8b8d38c35e8cb6c057d84ede8ee2c67a597",
+    "game/data/orison_v2/completion_interiors.json": "ebade1e8fc00b2bd11a5ea8fd213c78d61f27a141f5e8f5d7ebad17a10810eaf",
+    "art/data/orison_v2/completion_interiors_source.json": "15ea878ca0ad01935308a4382eec27124771cd9ad93ea495e042bce156802bc2",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
-    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_storage_context.py": "ab912be72c857d6931850336322a5b151ced26783da15f3ba75c2f9b94367b6d",
-    "game/data/orison_v2_blockout.json": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab",
+    "game/data/orison_v2_blockout.json": "87a67c240fc2fd659a5fe0fcbae9d1e0bd6aae81905d8953b2dd88691ea0bd6e",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
     "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e",
     "game/tests/fixtures/orison_surface_stock.json": "046a968349c75f946cff600f351552ca45dfcf85568fa264e4e94ffe2d975ad8"

@@ -71,6 +71,7 @@ func configure(source: OrisonElevator) -> bool:
 	label.pixel_size = .0015
 	label.modulate = Color(.8,.78,.7)
 	label.position = Vector3(0,2.13,1.09)
+	label.double_sided = false
 	add_child(label)
 	_update_drive()
 	return true

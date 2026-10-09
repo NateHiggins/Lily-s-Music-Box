@@ -40,6 +40,7 @@ func mount(adapter: OrisonV2AnchorAdapter) -> bool:
 			label.pixel_size = .003
 			label.position = Vector3(x+width*.5+.025,2.12,front+(.06 if row==0 else -.06))
 			label.rotation.y = 0 if row==0 else PI
+			label.double_sided = false  # bay fronts only; no mirrored read from the next aisle
 			bays.add_child(label)
 	var draw := MultiMeshInstance3D.new()
 	draw.name = "StorageTimberPartitions"

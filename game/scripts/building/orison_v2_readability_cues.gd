@@ -12,6 +12,7 @@ var show_terminal_context := true
 var show_floor_context := true
 var show_portal_masses := true
 var show_route_bands := true
+var show_light_pools := true
 
 func _ready() -> void:
 	_portal(Vector3(0, 0, -11.65), 0.0, 1.1, 2.13, PUBLIC, "PUBLIC ENTRANCE")
@@ -107,6 +108,7 @@ func _box(parent: Node3D, size: Vector3, at: Vector3, color: Color) -> void:
 	parent.add_child(node)
 
 func _light(at: Vector3, color: Color, range_m: float, energy: float) -> void:
+	if not show_light_pools: return
 	var light := OmniLight3D.new()
 	light.position = at
 	light.light_color = color.lightened(0.35)

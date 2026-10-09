@@ -1,0 +1,77 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 20.84,
+  "exit_code": 1,
+  "finished_utc": "2026-10-09T02:08:04Z",
+  "started_utc": "2026-10-09T02:07:43Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 2,
+  "fail_lines": [
+   "ORISON V2 M08 INTEGRATION: FAIL (1)",
+   "ERROR:   FAIL  04 continuous street-to-bedside controller traversal"
+  ],
+  "pass_count": 11,
+  "pass_lines": [
+   "PASS  01 deterministic v2 schema and generation selection",
+   "PASS  02 generated construction and scene startup",
+   "PASS  03 unique compatibility anchors",
+   "PASS  05 F01 arrival and lobby interaction compatibility",
+   "PASS  06 F02 Mina/chirp/job/case and acoustic compatibility",
+   "PASS  07 F04 terminal/call/audio compatibility",
+   "PASS  08 real save/reload reconstruction and separate v1 bed fallback",
+   "PASS  09 essential service stacks remain continuous",
+   "PASS  10 proportional startup/node/collision budget",
+   "PASS  production layout remains byte-stable",
+   "PASS  adapter/acoustic teardown restores global state"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/envimpl_out/baseline_integrated/suite.log.stderr",
+  "stderr_sha256": "472115f9c9e50860b54a82ad88a9db970e5a1e52a154631a217eed3b080a76a1",
+  "stdout": "C:/ov/envimpl_out/baseline_integrated/suite.log",
+  "stdout_sha256": "e2dd3301ce99567e7f3c7d00f71be24b956809f3d090da24587bcf309e0ee372"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2IntegratedTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 400,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_normal.png.import"
+  ],
+  "repository_head": "16f1d35311c0ec2b88228d1960c4b5c9ede2c47f",
+  "repository_tree": "cd9ace47276c3c1d09e81da4a6da93307158aeeb",
+  "runtime_inputs_sha256": "01afc50b112ead91e5e91b161dda0fea4d9f537d32fd287da0bfb352ba99bfbe",
+  "test_path": "game/tests/orison_v2_integrated_test.gd",
+  "test_sha256": "6d51a2d4599606d60f0098c3ccd2ec4d7f681e2964d4464e44d64dd6c2fd7f94"
+ },
+ "windowed": true
+}
