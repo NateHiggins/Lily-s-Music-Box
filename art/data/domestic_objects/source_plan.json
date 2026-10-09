@@ -486,6 +486,17 @@
     "neat": true
    },
    "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject29",
+   "kind": "suitcase",
+   "source_id": "4D_case",
+   "params": {
+    "W": 0.6,
+    "D": 0.2,
+    "H": 0.42,
+    "key": "book_brown"
+   }
   }
  ],
  "instances": [
@@ -800,6 +811,10 @@
   {
    "id": "3D_image_c",
    "variant": "DomesticObject27"
+  },
+  {
+   "id": "4D_case",
+   "variant": "DomesticObject29"
   }
  ],
  "runtime_keys": [
@@ -1063,7 +1078,8 @@
   "Slice 12 of the V2 environment dossier adds two pinboards (4B's case wall, 5A's plan wall) and a wall-art form (artframe: stretched canvas with painted fields and edge tacks, or a moulded frame holding a document with a brass seal) for 5C's diptych and the framed pairs in 4A and 1A.",
   "Slice 13 of the V2 environment dossier adds cloth: a garment rail (header board, brackets, rail, garments on wooden hangers, optional repair tags) and a hung moving blanket (batten, bound edges, quilted rows), with five tinted cloth keys on the catalogue linen.",
   "Slice 14 of the V2 environment dossier puts one object in each of the eighteen private halls by the resident's routine: a lidded wicker hamper (new form), a galvanised boot tray with galoshes (new form) or a copy of an existing crate, each against a wall clear of every door and opening approach.",
-  "Slice 15 of the V2 environment dossier adds a photograph style to the wall-art form (a toned print under a mat) and hangs wall art in 2C, 3D, 3A and 5B, with 2A's caption wall as a 1.2 x 0.9 m pinboard."
+  "Slice 15 of the V2 environment dossier adds a photograph style to the wall-art form (a toned print under a mat) and hangs wall art in 2C, 3D, 3A and 5B, with 2A's caption wall as a 1.2 x 0.9 m pinboard.",
+  "Slice 17 of the V2 environment dossier adds a suitcase form (a leather case on its edge with straps, brass feet and a handle) for 4D's luggage in the vestibule."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

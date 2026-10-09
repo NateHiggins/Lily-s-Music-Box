@@ -1,0 +1,327 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.2599992752075,
+						4.6399998664856,
+						-9.15000057220459
+					],
+					"feet": [
+						11.2600002288818,
+						3.22999978065491,
+						-2.5
+					],
+					"forward": [
+						0.865426301956177,
+						-0.50103622674942,
+						0.00000000000000307461186095344
+					],
+					"image": "F02_B_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						4.19999980926514,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.0999994277954,
+						4.6399998664856,
+						-8.61000061035156
+					],
+					"feet": [
+						10.1000003814697,
+						3.22999978065491,
+						-3.03999996185303
+					],
+					"forward": [
+						-0.497980713844299,
+						-0.547779381275177,
+						-0.672274529933929
+					],
+					"image": "F02_B_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						4.19999980926514,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-8.49999904632568,
+						4.6399998664856,
+						-8.40000057220459
+					],
+					"feet": [
+						8.5,
+						3.22999978065491,
+						-3.25
+					],
+					"forward": [
+						-0.930474162101746,
+						-0.111656792461872,
+						-0.348927825689316
+					],
+					"image": "F02_B_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_B_ENTRY_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						4.40000009536743,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.899998664856,
+						4.6399998664856,
+						-8.61000061035156
+					],
+					"feet": [
+						10.8999996185303,
+						3.22999978065491,
+						-3.03999996185303
+					],
+					"forward": [
+						0.49504342675209,
+						-0.267323434352875,
+						-0.82672256231308
+					],
+					"image": "F02_B_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2B_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.89999961853027,
+						4.09999990463257,
+						-1.37000000476837
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.0999994277954,
+						4.6399998664856,
+						-8.61000061035156
+					],
+					"feet": [
+						10.1000003814697,
+						3.22999978065491,
+						-3.03999996185303
+					],
+					"forward": [
+						-0.541085958480835,
+						-0.278273016214371,
+						-0.793593227863312
+					],
+					"image": "F02_B_VESTIBULE_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2B_client_chair",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						4.09999990463257,
+						-1.5
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 9,
+			"floor_y": 3.2,
+			"id": "F02_B_VESTIBULE",
+			"level": "F02",
+			"purpose": "2B privacy, coat storage and distribution",
+			"rect": [
+				9.5,
+				-3.85,
+				11.5,
+				-1.15
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-12.4040002822876,
+						4.6399998664856,
+						-2.82000064849854
+					],
+					"feet": [
+						12.4040002822876,
+						3.22999978065491,
+						-8.82999992370605
+					],
+					"forward": [
+						0.621087849140167,
+						-0.217925488948822,
+						0.752833604812622
+					],
+					"image": "F02_B_BED_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						4.19999980926514,
+						-10.3500003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						4.6399998664856,
+						-1.30000019073486
+					],
+					"feet": [
+						11.8100004196167,
+						3.22999978065491,
+						-10.3500003814697
+					],
+					"forward": [
+						0.832050621509552,
+						-0.554699778556824,
+						0.0
+					],
+					"image": "F02_B_BED_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						4.19999980926514,
+						-10.3500003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-13.8000001907349,
+						4.6399998664856,
+						-2.80000019073486
+					],
+					"feet": [
+						13.8000001907349,
+						3.22999978065491,
+						-8.85000038146973
+					],
+					"forward": [
+						0.867566466331482,
+						-0.0785719826817513,
+						0.491075247526169
+					],
+					"image": "F02_B_BED_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_B_BED_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						4.40000009536743,
+						-10.3500003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						4.6399998664856,
+						-2.10000038146973
+					],
+					"feet": [
+						11.8100004196167,
+						3.22999978065491,
+						-9.55000019073486
+					],
+					"forward": [
+						0.61161196231842,
+						-0.284715682268143,
+						0.738151669502258
+					],
+					"image": "F02_B_BED_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2B_abed",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.6499996185303,
+						4.09999990463257,
+						-10.9499998092651
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						4.6399998664856,
+						-2.10000038146973
+					],
+					"feet": [
+						11.8100004196167,
+						3.22999978065491,
+						-9.55000019073486
+					],
+					"forward": [
+						0.00451111234724522,
+						-0.243594497442245,
+						0.969866693019867
+					],
+					"image": "F02_B_BED_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2B_bedside",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.8000001907349,
+						4.09999990463257,
+						-11.6999998092651
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 6,
+			"floor_y": 3.2,
+			"id": "F02_B_BED",
+			"level": "F02",
+			"purpose": "sleep and clothes storage",
+			"rect": [
+				9.5,
+				-12.35,
+				12.8,
+				-8.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

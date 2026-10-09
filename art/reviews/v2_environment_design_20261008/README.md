@@ -112,6 +112,8 @@ Slices landed so far (evidence folders in parentheses):
 16. Bedside and tabletop stock: eight small forms on the nightstands and
     5C's table (`slice16`, `slice16c` with close-ups; the surface-stock
     suite now takes ORISON_STOCK_CAPTURE_IDS).
+17. 2B's bedside and client chair, 3A's compost pail, 4D's luggage (a
+    suitcase form) (`slice17b`; `slice17` stood the chair in the door route).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

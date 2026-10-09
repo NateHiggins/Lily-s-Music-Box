@@ -358,6 +358,12 @@
       "kind": "pinboard",
       "cell": "shared",
       "source_record": "2A_caption_wall"
+    },
+    {
+      "id": "DomesticObject29",
+      "kind": "suitcase",
+      "cell": "shared",
+      "source_record": "4D_case"
     }
   ],
   "closed_stocks": [
@@ -5244,6 +5250,54 @@
       "assembly": "DomesticObject28",
       "key": "brass",
       "volume_m3": 6.056522065173067e-08
+    },
+    {
+      "name": "DomesticObject29_Body",
+      "assembly": "DomesticObject29",
+      "key": "book_brown",
+      "volume_m3": 0.049508126767853725
+    },
+    {
+      "name": "DomesticObject29_Foot(-0.27999999999999997, -0.08)",
+      "assembly": "DomesticObject29",
+      "key": "brass",
+      "volume_m3": 3.5396182608397575e-06
+    },
+    {
+      "name": "DomesticObject29_Foot(-0.27999999999999997, 0.08)",
+      "assembly": "DomesticObject29",
+      "key": "brass",
+      "volume_m3": 3.539618260839758e-06
+    },
+    {
+      "name": "DomesticObject29_Foot(0.27999999999999997, -0.08)",
+      "assembly": "DomesticObject29",
+      "key": "brass",
+      "volume_m3": 3.5396182608397575e-06
+    },
+    {
+      "name": "DomesticObject29_Foot(0.27999999999999997, 0.08)",
+      "assembly": "DomesticObject29",
+      "key": "brass",
+      "volume_m3": 3.539618260839758e-06
+    },
+    {
+      "name": "DomesticObject29_Strap-0.15",
+      "assembly": "DomesticObject29",
+      "key": "rubber_aged",
+      "volume_m3": 0.0025766431061628103
+    },
+    {
+      "name": "DomesticObject29_Strap0.15",
+      "assembly": "DomesticObject29",
+      "key": "rubber_aged",
+      "volume_m3": 0.0025766431061628103
+    },
+    {
+      "name": "DomesticObject29_Handle",
+      "assembly": "DomesticObject29",
+      "key": "book_brown",
+      "volume_m3": 2.8432509722791737e-05
     }
   ],
   "contacts": [
@@ -6896,6 +6950,66 @@
         -1
       ],
       "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject29",
+      "owner": "support",
+      "point": [
+        -0.27999999999999997,
+        0,
+        0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case foot (-0.27999999999999997, -0.08)"
+    },
+    {
+      "assembly": "DomesticObject29",
+      "owner": "support",
+      "point": [
+        -0.27999999999999997,
+        0,
+        -0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case foot (-0.27999999999999997, 0.08)"
+    },
+    {
+      "assembly": "DomesticObject29",
+      "owner": "support",
+      "point": [
+        0.27999999999999997,
+        0,
+        0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case foot (0.27999999999999997, -0.08)"
+    },
+    {
+      "assembly": "DomesticObject29",
+      "owner": "support",
+      "point": [
+        0.27999999999999997,
+        0,
+        -0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case foot (0.27999999999999997, 0.08)"
     }
   ],
   "parts": [
@@ -7766,9 +7880,30 @@
       "cell": "shared",
       "key": "wood_dark",
       "triangles": 1316
+    },
+    {
+      "name": "DomesticObject29__Body_ON_book_brown",
+      "assembly": "DomesticObject29",
+      "cell": "shared",
+      "key": "book_brown",
+      "triangles": 280
+    },
+    {
+      "name": "DomesticObject29__Body_ON_brass",
+      "assembly": "DomesticObject29",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 752
+    },
+    {
+      "name": "DomesticObject29__Body_ON_rubber_aged",
+      "assembly": "DomesticObject29",
+      "cell": "shared",
+      "key": "rubber_aged",
+      "triangles": 376
     }
   ],
-  "triangles": 198376,
+  "triangles": 199784,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -9685,6 +9820,50 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "DomesticObject29",
+        "parts": [
+          {
+            "name": "DomesticObject29__Body_ON_book_brown",
+            "component": "Body",
+            "key": "book_brown",
+            "tile": 0.32,
+            "catalog_key": "book_brown",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject29__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          },
+          {
+            "name": "DomesticObject29__Body_ON_rubber_aged",
+            "component": "Body",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -9999,15 +10178,19 @@
       {
         "id": "3D_image_c",
         "variant": "DomesticObject27"
+      },
+      {
+        "id": "4D_case",
+        "variant": "DomesticObject29"
       }
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "3b2710e93029c112eab99e56bef877252fd01dde5b9876967a490b0552e07995",
+  "asset_sha256": "f6e1cc5c1257da27a15179c8fa839e23515212b1bc2486166ce34d191d62637d",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "0c6c488d8ed216307a355cb8566e4772bb61aba3d4205330d23970716ef21edb",
+    "art/data/domestic_objects/source_plan.json": "b2b2165f2a274e737d8c1f72dff3f2b586db497eac6fde457ede00d93f4ee3a4",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_objects.py": "594a7734bf8e4c37699682ceb83953eb1f552e2e31db378c1c1326d35db21f3d",
+    "art/blender/scripts/build_domestic_objects.py": "acbd8140b830ea2b30c93dc58c9669d7cc9459051dbe9e0ad7403350a400d023",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -10097,25 +10280,25 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "b5c0831517e31c2517c79913e0441b332559f5af9a88fd35e23b348895d4ef52",
+    "art/blender/scripts/domestic_objects_geometry.py": "1776f9d6adad1791397d66ee429bd8e9e5b2c8f1735ae2ef0eef57413a11a7e5",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "311716221897b325229341ece7258049ee2b02a875f25c73237ee3222cc8699b",
+    "game/data/orison_v2/domestic_furniture.json": "e3167af350c3225de4674fa019c2978b56c400aee4b36bbf2fb4089ff4051023",
     "game/data/orison_v2/completion_interiors.json": "9327e3340adb18af83217c2690e197a7a87012e034bbac5f9c9892917d3b5273",
-    "art/data/orison_v2/completion_interiors_source.json": "c384b90ad93f399cd2ccc30a8374542bb6b2082f2d165334e44a57193b39423b",
+    "art/data/orison_v2/completion_interiors_source.json": "27aad59a37c902ece56ee67725a694a84de7af9b1f73f7e2984018f911c198fb",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "74c6f86eb5499f387460880d4b1400ddd3515f0cf02f1f677ad8ca4129b6db57",
-    "game/data/orison_v2_blockout.json": "e1db4f4cb8c96e8050fa3fc61b0eb6819d02a7c5e7ba59ced3ae8b1886572e6d",
+    "game/data/orison_v2_blockout.json": "11f6a02cf9c42f3eb904b6758af42cda2182ae812847d511e746b36bff5f0a86",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_surface_props.json": "77c704b249438b8ed83b3cc9dd1b68649f1e0a55938f06e5c244d90e662ac276",
-    "game/tests/fixtures/orison_surface_stock.json": "5fd2fc0c9f62587a5bf9100ef6ad492bcc6a944bbc4d1ab6e015ac254c750378",
-    "art/blender/domestic_storage.blend": "34835c83896c61c190160b1044a5b16995a9fbe291c7df861f704085e3cd83bc",
-    "art/blender/prep_cabinets.blend": "94f4ce66329795e21d48219da04839642e3a49f739d58c9457bdb9b3e7495998",
-    "art/blender/household_wardrobes.blend": "b784d486180089f2c48b1e2d2bf6d5c0394b573258640f44654b729bf22a51e3",
-    "art/blender/scripts/surface_stock_geometry.py": "6008a0074b244db478735ae54c6c026a6c36f8af6353f8ed793b32988b453986",
-    "art/blender/domestic_seating.blend": "45f9a4d9b12694fdf8e4149d2b3425fca63dfa4b067b7513d2da5322bbdf7ba7",
-    "art/blender/domestic_tables.blend": "343d48f02c2ec365d34e6aa093a7e6777a2082c13bc2fc770eb52d22d987d57d"
+    "game/data/orison_v2/domestic_surface_props.json": "7d379333cea1db426cf205b2a7d7fa19cad8e51db210f64d90b6573461486a04",
+    "game/tests/fixtures/orison_surface_stock.json": "856a1a1a0afaac239e64f897418c8c41d7c3882a7ec143a3d338abeffa6eda1e",
+    "art/blender/domestic_storage.blend": "151eef49bf3b3801726048caee52fb1d524c69f2ae6a4dcc6a0c86dd739600d0",
+    "art/blender/prep_cabinets.blend": "51f6d96a941296a168e2d592465bf72b05043455897a52494c82d61660b5c740",
+    "art/blender/household_wardrobes.blend": "5ba967eabf31e4e89b680d92a076cb8e7cc9576428f5a200dc03310c08e9c0c4",
+    "art/blender/scripts/surface_stock_geometry.py": "0866b89112f29acd3a97f6d25044ce4a08b361dabeed13cafc7c32d39bf8f257",
+    "art/blender/domestic_seating.blend": "69d7c4c86b5eead6f0adcc56fb2c103db071f9cc5f13abb3bd66dba96846873a",
+    "art/blender/domestic_tables.blend": "e506fa512cf9b462173b41948f8761c0acb8812fc63928364099e0b0c72c0f24"
   },
   "retained_stock": [
     {
@@ -13489,6 +13672,20 @@
         "DomesticObject28_CardPin22",
         "DomesticObject28_Card23",
         "DomesticObject28_CardPin23"
+      ]
+    },
+    {
+      "assembly": "DomesticObject29",
+      "id": "DomesticObject29_Suitcase",
+      "stocks": [
+        "DomesticObject29_Body",
+        "DomesticObject29_Foot(-0.27999999999999997, -0.08)",
+        "DomesticObject29_Foot(-0.27999999999999997, 0.08)",
+        "DomesticObject29_Foot(0.27999999999999997, -0.08)",
+        "DomesticObject29_Foot(0.27999999999999997, 0.08)",
+        "DomesticObject29_Strap-0.15",
+        "DomesticObject29_Strap0.15",
+        "DomesticObject29_Handle"
       ]
     }
   ],

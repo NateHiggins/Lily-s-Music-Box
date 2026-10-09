@@ -377,6 +377,17 @@ def boottray(source):
   stock('Shaft'+str(i),(x-.048,y+.03,.029),(x+.048,y+.135,.29),'rubber_aged',.012)
  group('BootTray',start)
 
+def suitcase(source):
+ # Dossier slice 17: a leather case standing on its long edge against a
+ # wall, two straps, brass corner caps and a handle on top.
+ start=len(stock_checks);w=source['W'];d=source['D'];h=source['H'];key=source['key']
+ stock('Body',(-w/2,-d/2,.006),(w/2,d/2,h),key,.012)
+ for x in [-w/2+.02,w/2-.02]:
+  for y in [-d/2+.02,d/2-.02]:stock('Foot'+str((x,y)),(x-.012,y-.012,0),(x+.012,y+.012,.0065),'brass',.002);bearing('case foot '+str((x,y)),(x,y,0))
+ for x in [-w/4,w/4]:stock('Strap'+str(x),(x-.015,-d/2-.003,.006),(x+.015,d/2+.003,h+.003),'rubber_aged',.0008)
+ wire('Handle',[(-.06,0,h-.002),(-.05,0,h+.03),(.05,0,h+.03),(.06,0,h-.002)],.008,key)
+ group('Suitcase',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -397,4 +408,5 @@ for assembly in assemblies:
  elif kind=='blanket':blanket(source)
  elif kind=='hamper':hamper(source)
  elif kind=='boottray':boottray(source)
+ elif kind=='suitcase':suitcase(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

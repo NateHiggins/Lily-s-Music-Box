@@ -4052,7 +4052,9 @@
    "preserve": "Route to the main opening",
    "acceptance": "Threshold view from the crossing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_B_VESTIBULE"
+   "area": "F02_B_VESTIBULE",
+   "status": "verified",
+   "owner_notes": "2B_client_chair (a ChairOak copy) in the vestibule corner north of the opening, facing into the vestibule, clear of the entry-leaf sweep and the route to the main room (the first placement, south of the opening, stood in the door route: slice17); 2B_finished_parcel (parcel form) on its seat. Verified at 7eeaa0ef (slice17b): the thirteen families pass the fabrication batch (26,568 checks, 0 failures; tables 73, seating 52, objects 79, stock 178, the parcel bearing on the chair seat and the pail on the floor), apartment batch 236 as before, the apartment door route 45 and the 4B route 32 waypoints with 0 failures, completion route 4D 12 waypoints as before, upper lighting and the household save owner 0 failures, the four-space sweep 0 failures; captures in implementation/slice17b."
   },
   {
    "id": "F02_B_MAIN-001",
@@ -4261,7 +4263,9 @@
    ],
    "acceptance": "Detail view of the nightstand",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_B_BED"
+   "area": "F02_B_BED",
+   "status": "verified",
+   "owner_notes": "2B_bedside (a Nightstand01 copy) at the head of the bed on the door side, with 2B_photo (standing frame form) in the clear back strip beside the nightstand's own book and glass. The mirror waits for the mirror family's wall variant. Verified at 7eeaa0ef (slice17b): the thirteen families pass the fabrication batch (26,568 checks, 0 failures; tables 73, seating 52, objects 79, stock 178, the parcel bearing on the chair seat and the pail on the floor), apartment batch 236 as before, the apartment door route 45 and the 4B route 32 waypoints with 0 failures, completion route 4D 12 waypoints as before, upper lighting and the household save owner 0 failures, the four-space sweep 0 failures; captures in implementation/slice17b."
   },
   {
    "id": "F02_B_BATH-001",
@@ -5212,7 +5216,9 @@
    "purpose": "Kitchen set jars_and_compost",
    "acceptance": "Reverse view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_A_KITCHEN"
+   "area": "F03_A_KITCHEN",
+   "status": "verified",
+   "owner_notes": "3A_compost_pail (the galvanised can form) on the floor at the east end of the sink support, clear of the tap and stove stances. Deviation: beside the sink support rather than under it (the frame's underside is not a clear bearing), galvanised rather than enamel. Verified at 7eeaa0ef (slice17b): the thirteen families pass the fabrication batch (26,568 checks, 0 failures; tables 73, seating 52, objects 79, stock 178, the parcel bearing on the chair seat and the pail on the floor), apartment batch 236 as before, the apartment door route 45 and the 4B route 32 waypoints with 0 failures, completion route 4D 12 waypoints as before, upper lighting and the household save owner 0 failures, the four-space sweep 0 failures; captures in implementation/slice17b."
   },
   {
    "id": "F03_A_PRIVATE_HALL-001",
@@ -7499,7 +7505,9 @@
    "purpose": "Entry set rolling_luggage; decor profile hotel wayfinding",
    "acceptance": "Threshold view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_D_VESTIBULE"
+   "area": "F04_D_VESTIBULE",
+   "status": "verified",
+   "owner_notes": "4D_case (new suitcase form: a leather case on its long edge with two straps, brass feet and a handle) in the vestibule's north-west corner, clear of the three doors' approaches. The gladstone and the rules card on the door back wait for their forms. Verified at 7eeaa0ef (slice17b): the thirteen families pass the fabrication batch (26,568 checks, 0 failures; tables 73, seating 52, objects 79, stock 178, the parcel bearing on the chair seat and the pail on the floor), apartment batch 236 as before, the apartment door route 45 and the 4B route 32 waypoints with 0 failures, completion route 4D 12 waypoints as before, upper lighting and the household save owner 0 failures, the four-space sweep 0 failures; captures in implementation/slice17b."
   },
   {
    "id": "F04_D_MAIN-001",

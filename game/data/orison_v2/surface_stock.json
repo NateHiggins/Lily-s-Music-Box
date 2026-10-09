@@ -4527,6 +4527,83 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "2B_photo",
+      "parts": [
+        {
+          "name": "2B_photo__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "2B_photo__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "2B_finished_parcel",
+      "parts": [
+        {
+          "name": "2B_finished_parcel__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "2B_finished_parcel__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "3A_compost_pail",
+      "parts": [
+        {
+          "name": "3A_compost_pail__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.4
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "local_materials": {

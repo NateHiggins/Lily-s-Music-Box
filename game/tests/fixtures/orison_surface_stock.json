@@ -1671,6 +1671,24 @@
       "kind": "tin",
       "cell": "5C",
       "source_record": "5C_tack_tin"
+    },
+    {
+      "id": "2B_photo",
+      "kind": "frame",
+      "cell": "2B",
+      "source_record": "2B_photo"
+    },
+    {
+      "id": "2B_finished_parcel",
+      "kind": "parcel",
+      "cell": "2B",
+      "source_record": "2B_finished_parcel"
+    },
+    {
+      "id": "3A_compost_pail",
+      "kind": "can",
+      "cell": "3A",
+      "source_record": "3A_compost_pail"
     }
   ],
   "closed_stocks": [
@@ -12413,6 +12431,60 @@
       "assembly": "5C_tack_tin",
       "key": "nickel_plated",
       "volume_m3": 0.0001172981332062072
+    },
+    {
+      "name": "2B_photo_Face",
+      "assembly": "2B_photo",
+      "key": "wood_dark",
+      "volume_m3": 0.00017983320448927952
+    },
+    {
+      "name": "2B_photo_Print",
+      "assembly": "2B_photo",
+      "key": "paper",
+      "volume_m3": 7.288141748642645e-06
+    },
+    {
+      "name": "2B_photo_Strut",
+      "assembly": "2B_photo",
+      "key": "wood_dark",
+      "volume_m3": 4.6757526417414515e-05
+    },
+    {
+      "name": "2B_finished_parcel_Box",
+      "assembly": "2B_finished_parcel",
+      "key": "paper",
+      "volume_m3": 0.0034556808507341104
+    },
+    {
+      "name": "2B_finished_parcel_StringAlong",
+      "assembly": "2B_finished_parcel",
+      "key": "bakelite",
+      "volume_m3": 2.9901188801643865e-06
+    },
+    {
+      "name": "2B_finished_parcel_StringAcross",
+      "assembly": "2B_finished_parcel",
+      "key": "bakelite",
+      "volume_m3": 2.242511392801139e-06
+    },
+    {
+      "name": "3A_compost_pail_Body",
+      "assembly": "3A_compost_pail",
+      "key": "metal",
+      "volume_m3": 0.022044072903397646
+    },
+    {
+      "name": "3A_compost_pail_Lid",
+      "assembly": "3A_compost_pail",
+      "key": "metal",
+      "volume_m3": 0.0017917045720554877
+    },
+    {
+      "name": "3A_compost_pail_LidHandle",
+      "assembly": "3A_compost_pail",
+      "key": "metal",
+      "volume_m3": 1.1158947051154325e-05
     }
   ],
   "contacts": [
@@ -18295,6 +18367,66 @@
         0
       ],
       "label": "tin base"
+    },
+    {
+      "assembly": "2B_photo",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "frame foot"
+    },
+    {
+      "assembly": "2B_photo",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "strut foot"
+    },
+    {
+      "assembly": "2B_finished_parcel",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "parcel base"
+    },
+    {
+      "assembly": "3A_compost_pail",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "can base"
     }
   ],
   "parts": [
@@ -20411,9 +20543,44 @@
       "cell": "5C",
       "key": "nickel_plated",
       "triangles": 768
+    },
+    {
+      "name": "2B_photo__paper",
+      "assembly": "2B_photo",
+      "cell": "2B",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "2B_photo__wood_dark",
+      "assembly": "2B_photo",
+      "cell": "2B",
+      "key": "wood_dark",
+      "triangles": 376
+    },
+    {
+      "name": "2B_finished_parcel__bakelite",
+      "assembly": "2B_finished_parcel",
+      "cell": "2B",
+      "key": "bakelite",
+      "triangles": 376
+    },
+    {
+      "name": "2B_finished_parcel__paper",
+      "assembly": "2B_finished_parcel",
+      "cell": "2B",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "3A_compost_pail__metal",
+      "assembly": "3A_compost_pail",
+      "cell": "3A",
+      "key": "metal",
+      "triangles": 860
     }
   ],
-  "triangles": 697232,
+  "triangles": 699220,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -24944,6 +25111,83 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "2B_photo",
+        "parts": [
+          {
+            "name": "2B_photo__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          },
+          {
+            "name": "2B_photo__wood_dark",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ]
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "2B_finished_parcel",
+        "parts": [
+          {
+            "name": "2B_finished_parcel__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "2B_finished_parcel__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3A_compost_pail",
+        "parts": [
+          {
+            "name": "3A_compost_pail__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.4
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -24972,9 +25216,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "518f98155c38c9670758a7805ae364dd16660a46b7d1b24775295bffa7600537",
+  "asset_sha256": "54a8ecab3e81d0e3859b71001b4ce9f2da7ae09252ead916947de5fdbb3e2a09",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "616389abaa7a231e1dfbdabaa3e7fd1639b3eb5ac5697e5eda705775ccba564d",
+    "art/data/surface_stock/source_plan.json": "c92332acb4d3b7e27739128f7f4cdcf9e9922021febaa481d09abb628cb9d45e",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -25076,11 +25320,11 @@
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
     "art/blender/scripts/surface_stock_geometry.py": "0866b89112f29acd3a97f6d25044ce4a08b361dabeed13cafc7c32d39bf8f257",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "833a67b9231709c44da9ffbabee936c3f56509e480fd96537ccfa3f34a746fbf",
+    "game/data/orison_v2/domestic_surface_props.json": "7d379333cea1db426cf205b2a7d7fa19cad8e51db210f64d90b6573461486a04",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "311716221897b325229341ece7258049ee2b02a875f25c73237ee3222cc8699b"
+    "game/data/orison_v2/domestic_furniture.json": "e3167af350c3225de4674fa019c2978b56c400aee4b36bbf2fb4089ff4051023"
   },
   "retained_stock": [
     {
@@ -31488,6 +31732,33 @@
       "stocks": [
         "5C_tack_tin_Can",
         "5C_tack_tin_Lid"
+      ]
+    },
+    {
+      "assembly": "2B_photo",
+      "id": "2B_photo_StandingFrame",
+      "stocks": [
+        "2B_photo_Face",
+        "2B_photo_Print",
+        "2B_photo_Strut"
+      ]
+    },
+    {
+      "assembly": "2B_finished_parcel",
+      "id": "2B_finished_parcel_Parcel",
+      "stocks": [
+        "2B_finished_parcel_Box",
+        "2B_finished_parcel_StringAlong",
+        "2B_finished_parcel_StringAcross"
+      ]
+    },
+    {
+      "assembly": "3A_compost_pail",
+      "id": "3A_compost_pail_GalvanisedCan",
+      "stocks": [
+        "3A_compost_pail_Body",
+        "3A_compost_pail_Lid",
+        "3A_compost_pail_LidHandle"
       ]
     }
   ],

@@ -477,6 +477,10 @@
     {
       "id": "5B_deck_table",
       "variant": "TableRect05"
+    },
+    {
+      "id": "2B_bedside",
+      "variant": "Nightstand01"
     }
   ],
   "runtime_keys": [
@@ -546,7 +550,8 @@
     "Keep elliptical coffee glass dimensions and actual source top height; saw the original two crossing fins to floor and glass planes so they bear without penetrating the glass.",
     "Existing fine oak, paper, trim, brass and clear-glass owners provide local finish. No new texture or global material policy.",
     "Native material tint values are linear light; runtime encodes them to sRGB for StandardMaterial3D albedo_color so the same finish matches Blender.",
-    "Slice 11 of the V2 environment dossier adds 5B's reel-deck table as a TableRect05 copy."
+    "Slice 11 of the V2 environment dossier adds 5B's reel-deck table as a TableRect05 copy.",
+    "Slice 17 of the V2 environment dossier adds 2B's bedside nightstand as a Nightstand01 copy."
   ],
   "open_work": [
     "Scoped native and all-instance runtime verification complete. Broader room material/light balance, remaining storage/kitchen furniture and whole-building visual acceptance remain open."

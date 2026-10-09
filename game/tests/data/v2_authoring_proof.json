@@ -450,6 +450,24 @@
         "component": "pinboard",
         "note": "V2 environment dossier F02_A_MAIN-002 (slice 15); no V1 counterpart"
       }
+    },
+    "2B_bedside": {
+      "source_component": {
+        "component": "3B_abed_ns",
+        "note": "V2 environment dossier F02_B_BED-001 (slice 17): a copy of 3B_abed_ns"
+      }
+    },
+    "2B_client_chair": {
+      "source_component": {
+        "component": "3B_din_dc1",
+        "note": "V2 environment dossier F02_B_VESTIBULE-003 (slice 17): a copy of 3B_din_dc1"
+      }
+    },
+    "4D_case": {
+      "source_component": {
+        "component": "suitcase",
+        "note": "V2 environment dossier F04_D_VESTIBULE-003 (slice 17); no V1 counterpart"
+      }
     }
   },
   "receivers": {
