@@ -1,0 +1,138 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/B1_BOILER_ROOM_RV.jpg",
+   "source": "sweep_shots/B1_BOILER_ROOM_RV.png",
+   "sha256": "d2a739ebfdc59424390750cb5c91ad7a14956957aa6f39bb2f1dc084855a4315",
+   "bytes": 68579
+  },
+  {
+   "path": "images/B1_ELECTRICAL_OV.jpg",
+   "source": "sweep_shots/B1_ELECTRICAL_OV.png",
+   "sha256": "46e907ad4fa7485802641ac4b3977dbbb0122bc18934d21d4e128add9349b9a8",
+   "bytes": 81648
+  },
+  {
+   "path": "images/B1_boiler_ash_can_native.jpg",
+   "source": "fabrication_shots/domestic_objects/B1_boiler_ash_can_native.png",
+   "sha256": "3fce7476520f92b491125cb149176ababbe6918e6e154ac41f83aa0f032310b5",
+   "bytes": 78397
+  },
+  {
+   "path": "images/B1_boiler_rake_native.jpg",
+   "source": "fabrication_shots/domestic_objects/B1_boiler_rake_native.png",
+   "sha256": "cd94dbf8846de2900c57ba618950e4628ce23e82fe217a9b1207fc20a93de985",
+   "bytes": 80135
+  },
+  {
+   "path": "images/B1_signal_frame_native.jpg",
+   "source": "fabrication_shots/domestic_objects/B1_signal_frame_native.png",
+   "sha256": "0525b08263da6c6e4f4c570b9fc7680b0acdb15fef1f4313fa95d336913167f6",
+   "bytes": 93319
+  },
+  {
+   "path": "images/B1_fuse_conduit_native.jpg",
+   "source": "fabrication_shots/domestic_objects/B1_fuse_conduit_native.png",
+   "sha256": "80146525c333ede0e1b47b67a3a2e42f8f1d30c430f89b8abe2cf414d1c463ab",
+   "bytes": 87227
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "cf144d7302fb6f3d99eebada81bbd4c0fd16c09ba56db3ce7b0b237c3bf44f94",
+   "bytes": 3394
+  },
+  {
+   "path": "receipts/basement_ground.log.receipt.json",
+   "source": "basement_ground.log.receipt.json",
+   "sha256": "14de4475f276a754c70379dbc1282a81a0c671ba2c8df6e0daf35213129451bc",
+   "bytes": 3195
+  },
+  {
+   "path": "receipts/basement_route.log.receipt.json",
+   "source": "basement_route.log.receipt.json",
+   "sha256": "12a4fc76966269faa6a9d77fc2da884537250ff95e0f25dd665c417c42760b8d",
+   "bytes": 3192
+  },
+  {
+   "path": "receipts/boiler_body.log.receipt.json",
+   "source": "boiler_body.log.receipt.json",
+   "sha256": "6c1d4f11d8b778664883099eec4d6c3c47d2de322cfd544846c576a7e263fcbc",
+   "bytes": 3179
+  },
+  {
+   "path": "receipts/boiler_instruments.log.receipt.json",
+   "source": "boiler_instruments.log.receipt.json",
+   "sha256": "9ef81762f347de387f42ebc69a1e4de1864e4ff42c11913e72f8bc5cb634d456",
+   "bytes": 3206
+  },
+  {
+   "path": "receipts/boiler_pipework.log.receipt.json",
+   "source": "boiler_pipework.log.receipt.json",
+   "sha256": "2a53f3497ba8e4d142d450cd9819fdd20190d69f7a36c629edb1201dbb0c42bc",
+   "bytes": 3195
+  },
+  {
+   "path": "receipts/boiler_route.log.receipt.json",
+   "source": "boiler_route.log.receipt.json",
+   "sha256": "6bc80a8a49be647dbf34b323e7b19817a9cc43f981aac17586e1b661d71e5bc1",
+   "bytes": 3183
+  },
+  {
+   "path": "receipts/breeching.log.receipt.json",
+   "source": "breeching.log.receipt.json",
+   "sha256": "aaa88fcf574f95a38b8833ba24242354d614f06ffa8b53a9b3b623d6217ba3b8",
+   "bytes": 3172
+  },
+  {
+   "path": "receipts/door_swing.log.receipt.json",
+   "source": "door_swing.log.receipt.json",
+   "sha256": "4c9ab3ec1437a58dac7b3f7c1b46f8ff5d4276a9cf77ddc8c5b66d71f0d9401b",
+   "bytes": 3188
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "49a8de865a9ffb1af1dd8649712b42e3ed7ebab5fbb87d8dee152aab1c6117f7",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/household_state.log.receipt.json",
+   "source": "household_state.log.receipt.json",
+   "sha256": "2135cb12c016ab37a9cd48b17d6dbd3064ae21460bcdee9a447e48e76274279d",
+   "bytes": 3195
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "711c81eef08398f55d794be3918aa18278bc0932aba76cfc80218e7042e8f2cb",
+   "bytes": 3139
+  },
+  {
+   "path": "receipts/sweep_a.log.receipt.json",
+   "source": "sweep_a.log.receipt.json",
+   "sha256": "150c71d6fc4284f2d11433258c4599a65d4d7efa404a7a9b9f4cfd6b941f9939",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "4ca1d63121005b9dc638e72b6a437fb40c39f3a7df42142af7b08cec5b0f9cd0",
+   "bytes": 7560
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "d635e5aa1e2da2ba8f544d499c76bac0a7d06431041d8b937bcabe6842a1931e",
+   "bytes": 773223
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "9e31cd4b1ff85f9fbd088b2d4cd4f1e5689f299cae2fc95eea94aad7e8901524",
+   "bytes": 8143
+  }
+ ]
+}

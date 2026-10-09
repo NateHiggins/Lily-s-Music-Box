@@ -746,6 +746,36 @@
         "component": "6A_coil1",
         "note": "V2 environment dossier F01_MAIL_TELEPHONE-002 (slice 28): a copy of 6A_coil1"
       }
+    },
+    "B1_boiler_shovel": {
+      "source_component": {
+        "component": "shovel",
+        "note": "V2 environment dossier B1_BOILER_ROOM-001 (slice 29); no V1 counterpart"
+      }
+    },
+    "B1_boiler_rake": {
+      "source_component": {
+        "component": "rakerack",
+        "note": "V2 environment dossier B1_BOILER_ROOM-001 (slice 29); no V1 counterpart"
+      }
+    },
+    "B1_boiler_ash_can": {
+      "source_component": {
+        "component": "ashcan",
+        "note": "V2 environment dossier B1_BOILER_ROOM-001 (slice 29); no V1 counterpart"
+      }
+    },
+    "B1_signal_frame": {
+      "source_component": {
+        "component": "signalframe",
+        "note": "V2 environment dossier B1_ELECTRICAL-001 (slice 29); no V1 counterpart"
+      }
+    },
+    "B1_fuse_conduit": {
+      "source_component": {
+        "component": "conduit",
+        "note": "V2 environment dossier B1_ELECTRICAL-003 (slice 29); no V1 counterpart"
+      }
     }
   },
   "receivers": {

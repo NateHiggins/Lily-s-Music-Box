@@ -173,7 +173,9 @@
    "preserve": "Firing and ash door swings, the control aisle, the water-column stance, the damper route around the south end",
    "acceptance": "Overview from the fire door; door-swing test unchanged",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_BOILER_ROOM"
+   "area": "B1_BOILER_ROOM",
+   "status": "verified",
+   "owner_notes": "The firing tools: a coal shovel leaning on the west wall south of the fire door (outside its swing), the clinker rake on two nails at 1.3 m north of the door, and a lidded, ribbed ash can by the west wall with an oil can standing on a folded rag beside it (implementation/slice29/images: B1_boiler_ash_can_native, B1_boiler_rake_native, B1_BOILER_ROOM_RV). The ash can stands by the wall rather than under the ash door so the firing and ash door swings, the control aisle and the damper route stay clear; the ring decal is not made. Verified at WIP d53988d8 (implementation/slice29): fabrication batch 0 failures; apartment batch 236 (the branch baseline); boiler door swing 0, boiler route 17, basement route 88 and foundation 11 waypoints with 0 failures; boiler body, instruments, pipework and breeching 0 failures; household state 154 checks, 0 failures; the two-room sweep 0 failures."
   },
   {
    "id": "B1_BOILER_ROOM-002",
@@ -226,7 +228,9 @@
    "preserve": "Fuse panel working front and activity",
    "acceptance": "Overview reads two eras of electricity; fuse activity unchanged",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "B1_ELECTRICAL"
+   "area": "B1_ELECTRICAL",
+   "status": "implemented",
+   "owner_notes": "The Vantry signal frame hangs on the wall opposite the fuse panel (east of the door, clear of its swing): six bakelite terminal strips with brass terminals and blank tag cards on a board, cloth leads dressed into a bundle and a trunk cleated up the wall to the ceiling (B1_signal_frame_native, B1_ELECTRICAL_OV). Not made: the INSPECT owner; the frame is ambient. Verified at WIP d53988d8 (implementation/slice29): fabrication 0 failures, apartment batch 236, the eight boiler and basement suites unchanged (door swing, boiler route 17, basement route 88, body, instruments, pipework, breeching, foundation 11), household state 154 checks, 0 failures."
   },
   {
    "id": "B1_ELECTRICAL-002",
@@ -257,7 +261,9 @@
    "preserve": "Panel working front and activity",
    "acceptance": "Panel detail station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_ELECTRICAL"
+   "area": "B1_ELECTRICAL",
+   "status": "verified",
+   "owner_notes": "Steel conduit rises from a floor flange into the fuse panel's backing box and leaves its top for a junction box under the ceiling, each run saddled to the wall, clear of the panel's door and working front (B1_fuse_conduit_native). Verified at WIP d53988d8 (implementation/slice29): fabrication batch 0 failures; apartment batch 236 (the branch baseline); boiler door swing 0, boiler route 17, basement route 88 and foundation 11 waypoints with 0 failures; boiler body, instruments, pipework and breeching 0 failures; household state 154 checks, 0 failures; the two-room sweep 0 failures."
   },
   {
    "id": "B1_ELECTRICAL_RECESS-001",

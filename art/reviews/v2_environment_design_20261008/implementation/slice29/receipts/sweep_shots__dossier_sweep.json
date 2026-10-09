@@ -1,0 +1,383 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.2379989624023,
+						-1.76000034809113,
+						-7.28999996185303
+					],
+					"feet": [
+						10.2379999160767,
+						-3.17000031471252,
+						-4.36000061035156
+					],
+					"forward": [
+						-0.540612041950226,
+						-0.101783990859985,
+						-0.835092008113861
+					],
+					"image": "B1_BOILER_ROOM_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						12.5749998092651,
+						-2.20000004768372,
+						-0.75
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-14.9119987487793,
+						-1.76000034809113,
+						-14.5100002288818
+					],
+					"feet": [
+						14.9119997024536,
+						-3.17000031471252,
+						2.85999965667725
+					],
+					"forward": [
+						0.540612161159515,
+						-0.101784005761147,
+						0.835091948509216
+					],
+					"image": "B1_BOILER_ROOM_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						12.5749998092651,
+						-2.20000004768372,
+						-0.75
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.0749998092651,
+						-1.60000002384186,
+						-16.6500015258789
+					],
+					"feet": [
+						11.0750007629395,
+						-3.00999999046326,
+						5.0
+					],
+					"forward": [
+						-0.251851826906204,
+						-0.0671605169773102,
+						0.965432643890381
+					],
+					"image": "B1_BOILER_ROOM_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "B1_BOILER_STAIR_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						12.5749998092651,
+						-2.0,
+						-0.75
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-12.5749988555908,
+						-1.76000034809113,
+						-12.8000011444092
+					],
+					"feet": [
+						12.5749998092651,
+						-3.17000031471252,
+						1.15000057220459
+					],
+					"forward": [
+						0.073004275560379,
+						-0.256974905729294,
+						0.963656723499298
+					],
+					"image": "B1_BOILER_ROOM_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_BOILER_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						12.4499998092651,
+						-2.20000004768372,
+						-0.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.3449993133545,
+						-1.76000034809113,
+						-10.9000005722046
+					],
+					"feet": [
+						11.3450002670288,
+						-3.17000031471252,
+						-0.75
+					],
+					"forward": [
+						0.867354333400726,
+						-0.266878098249435,
+						0.420086324214935
+					],
+					"image": "B1_BOILER_ROOM_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_boiler_shovel",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.59000015258789,
+						-2.29999995231628,
+						-1.60000002384186
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.2379989624023,
+						-1.76000034809113,
+						-14.5100002288818
+					],
+					"feet": [
+						10.2379999160767,
+						-3.17000031471252,
+						2.85999965667725
+					],
+					"forward": [
+						0.351344376802444,
+						-0.130127400159836,
+						0.927159070968628
+					],
+					"image": "B1_BOILER_ROOM_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_boiler_rake",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.59000015258789,
+						-2.0,
+						1.14999997615814
+					]
+				}
+			],
+			"class": "service",
+			"clear_stations": 23,
+			"floor_y": -3.2,
+			"id": "B1_BOILER_ROOM",
+			"level": "B1",
+			"purpose": "heat plant, water-column comparison and firing access",
+			"rect": [
+				9.5,
+				-5.5,
+				15.65,
+				4.0
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-9.00800228118896,
+						-1.76000034809113,
+						-5.86600017547607
+					],
+					"feet": [
+						9.00800228118896,
+						-3.17000031471252,
+						-5.78400039672852
+					],
+					"forward": [
+						0.677333176136017,
+						-0.191287457942963,
+						-0.710372388362885
+					],
+					"image": "B1_ELECTRICAL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						7.44999980926514,
+						-2.20000004768372,
+						-4.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.8919997215271,
+						-1.76000034809113,
+						-9.13399887084961
+					],
+					"feet": [
+						5.89200067520142,
+						-3.17000031471252,
+						-2.51600170135498
+					],
+					"forward": [
+						-0.677332580089569,
+						-0.191287681460381,
+						0.710372924804688
+					],
+					"image": "B1_ELECTRICAL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						7.44999980926514,
+						-2.20000004768372,
+						-4.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-7.39999914169312,
+						-1.76000034809113,
+						-10.6500005722046
+					],
+					"feet": [
+						7.40000009536743,
+						-3.17000031471252,
+						-1.0
+					],
+					"forward": [
+						-0.0158252194523811,
+						-0.075960673391819,
+						0.996985256671906
+					],
+					"image": "B1_ELECTRICAL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "B1_ELECTRICAL_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						7.44999980926514,
+						-2.0,
+						-4.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-7.44999933242798,
+						-1.76000034809113,
+						-7.5
+					],
+					"feet": [
+						7.44999980926514,
+						-3.17000031471252,
+						-4.15000009536743
+					],
+					"forward": [
+						-0.0698696002364159,
+						-0.391269266605377,
+						0.917620062828064
+					],
+					"image": "B1_ELECTRICAL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_FUSE_PANEL",
+					"status": "captured_pending_visual_review",
+					"target": [
+						7.59999990463257,
+						-2.59999990463257,
+						-6.11999988555908
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-8.2700023651123,
+						-1.76000034809113,
+						-5.86600017547607
+					],
+					"feet": [
+						8.2700023651123,
+						-3.17000031471252,
+						-5.78400039672852
+					],
+					"forward": [
+						0.355167388916016,
+						0.61071252822876,
+						-0.707733273506165
+					],
+					"image": "B1_ELECTRICAL_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_ELECTRICAL_LT",
+					"status": "captured_pending_visual_review",
+					"target": [
+						7.44999980926514,
+						-0.349999994039536,
+						-4.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-7.45000028610229,
+						-1.76000034809113,
+						-8.36000061035156
+					],
+					"feet": [
+						7.45000076293945,
+						-3.17000031471252,
+						-3.28999996185303
+					],
+					"forward": [
+						-0.670204818248749,
+						-0.369953334331512,
+						-0.643397271633148
+					],
+					"image": "B1_ELECTRICAL_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_signal_frame",
+					"status": "captured_pending_visual_review",
+					"target": [
+						8.69999980926514,
+						-2.45000004768372,
+						-2.08999991416931
+					]
+				}
+			],
+			"class": "service",
+			"clear_stations": 25,
+			"floor_y": -3.2,
+			"id": "B1_ELECTRICAL",
+			"level": "B1",
+			"purpose": "dry main panel room with clear working front",
+			"rect": [
+				5.4,
+				-6.3,
+				9.5,
+				-2.0
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

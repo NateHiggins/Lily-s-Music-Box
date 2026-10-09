@@ -597,6 +597,50 @@
    "kind": "foldedcot",
    "source_id": "F01_watch_cot",
    "params": {}
+  },
+  {
+   "id": "DomesticObject42",
+   "kind": "shovel",
+   "source_id": "B1_boiler_shovel",
+   "params": {},
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject43",
+   "kind": "rakerack",
+   "source_id": "B1_boiler_rake",
+   "params": {
+    "L": 1.5
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject44",
+   "kind": "ashcan",
+   "source_id": "B1_boiler_ash_can",
+   "params": {}
+  },
+  {
+   "id": "DomesticObject45",
+   "kind": "signalframe",
+   "source_id": "B1_signal_frame",
+   "params": {
+    "W": 1.2,
+    "H": 0.9,
+    "top": 2.23
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject46",
+   "kind": "conduit",
+   "source_id": "B1_fuse_conduit",
+   "params": {
+    "low": 0.645,
+    "high": 1.555,
+    "top": 2.98
+   },
+   "rear_wall_y": -0.02
   }
  ],
  "instances": [
@@ -1083,6 +1127,26 @@
   {
    "id": "F01_cord_pile",
    "variant": "DomesticObject13"
+  },
+  {
+   "id": "B1_boiler_shovel",
+   "variant": "DomesticObject42"
+  },
+  {
+   "id": "B1_boiler_rake",
+   "variant": "DomesticObject43"
+  },
+  {
+   "id": "B1_boiler_ash_can",
+   "variant": "DomesticObject44"
+  },
+  {
+   "id": "B1_signal_frame",
+   "variant": "DomesticObject45"
+  },
+  {
+   "id": "B1_fuse_conduit",
+   "variant": "DomesticObject46"
   }
  ],
  "runtime_keys": [
@@ -1356,7 +1420,8 @@
   "Slice 24 of the V2 environment dossier adds 3D's error-archive card index as a completion copy of 6C's card cabinet.",
   "Slice 25 of the V2 environment dossier adds a cable hook strip form (batten, five hooks, taped cable loops) and copies: a third reel deck on 2C's rig table, 4D's print over the settee, 6A's three archive crates under the desk wall.",
   "Slice 26 of the V2 environment dossier mounts 4C's colour board (a completion copy of 5C's) at its existing anchor.",
-  "Slice 28 of the V2 environment dossier adds three forms for the ground-floor service rooms (the operator's headset on its hook, a coat on a wall hook, the night watch's folded camp cot) and a copy of 6A's cable coil as the cord pile under the house board."
+  "Slice 28 of the V2 environment dossier adds three forms for the ground-floor service rooms (the operator's headset on its hook, a coat on a wall hook, the night watch's folded camp cot) and a copy of 6A's cable coil as the cord pile under the house board.",
+  "Slice 29 of the V2 environment dossier adds five basement forms: the boiler room's leaning coal shovel, the clinker rake on two nails, the lidded ash can with an oil can on a rag, the Vantry signal frame (terminal strips, blank tag cards, cloth leads in a trunk cleated to the ceiling) and the steel conduit into and out of the fuse panel."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

@@ -553,6 +553,91 @@ def foldedcot(source):
   for y in [-.035,.035]:bearing('cot foot '+str((x,y)),(x,y,0))
  group('FoldedCot',start)
 
+def shovel(source):
+ # Dossier slice 29: a coal shovel leaning on the wall beside the fire door, blade on the floor.
+ start=len(stock_checks)
+ stock('Blade',(-.13,.22,0),(.13,.5,.012),'metal',.002)
+ for x in [-.13,.122]:stock('Lip'+str(x),(x,.22,.005),(x+.008,.5,.06),'metal',.001)
+ stock('Back',(-.13,.22,.005),(.13,.23,.08),'metal',.001)
+ stock('Socket',(-.025,.2,0),(.025,.29,.07),'metal',.002)
+ tube('Shaft',(0,.245,.05),(0,.005,1.0),.017,'timber')
+ stock('Grip',(-.07,-.02,.98),(.07,.025,1.05),'timber',.004)
+ for p in [(-.12,.24,0),(.12,.24,0),(-.12,.49,0),(.12,.49,0)]:bearing('shovel blade '+str(p),p)
+ support(identity,'wall',(0,-.02,1.015),(0,1,0),'grip resting on the wall')
+ group('Shovel',start)
+
+def rakerack(source):
+ # Dossier slice 29: the clinker rake resting on two nails driven into the wall.
+ start=len(stock_checks);length=source['L'];back=variants[identity]['rear_wall_y']
+ for x in [-.45,.45]:
+  tube('Nail'+str(x),(x,back,.1),(x,.07,.1),.004,'metal')
+  stock('NailHead'+str(x),(x-.007,.066,.093),(x+.007,.072,.107),'metal',.0004)
+  support(identity,'wall',(x,back,.1),(0,1,0),'nail driven into the wall')
+ tube('Handle',(-length/2,.045,.118),(length/2-.04,.045,.118),.016,'timber')
+ stock('Ferrule',(length/2-.06,.03,.1),(length/2-.02,.06,.136),'metal',.001)
+ stock('Head',(length/2-.025,0,.02),(length/2-.005,.09,.25),'metal',.002)
+ group('ClinkerRake',start)
+
+def ashcan(source):
+ # Dossier slice 29: the lidded ash can, and an oil can standing on a folded rag beside it.
+ start=len(stock_checks)
+ lathe('Can',0,0,0,[(0,0),(.19,0),(.2,.01),(.215,.47),(.222,.48),(0,.48)],'metal')
+ for z in [.12,.3]:ring('Rib'+str(z),0,0,z,.214,.19,.018,'metal')
+ lathe('Lid',0,0,.475,[(0,0),(.228,0),(.228,.014),(.2,.03),(0,.04)],'metal')
+ stock('LidGrip',(-.05,-.012,.51),(.05,.012,.535),'metal',.002)
+ for x in [-1,1]:wire('Handle'+str(x),[(x*.205,0,.38),(x*.245,0,.395),(x*.245,0,.425),(x*.21,0,.44)],.006,'metal')
+ for p in [(.14,0,0),(-.14,0,0),(0,.14,0),(0,-.14,0)]:bearing('ash can '+str(p),p)
+ group('AshCan',start)
+ start=len(stock_checks)
+ stock('Rag',(.27,-.2,0),(.49,-.06,.02),'linen',.004)
+ lathe('OilCan',.38,-.13,.019,[(0,0),(.06,0),(.06,.09),(.035,.12),(.012,.13),(0,.13)],'metal')
+ tube('Spout',(.38,-.13,.12),(.46,-.13,.22),.005,'brass')
+ for p in [(.3,-.18,0),(.46,-.18,0),(.3,-.08,0),(.46,-.08,0)]:bearing('rag '+str(p),p)
+ group('OilCanOnRag',start)
+
+def signalframe(source):
+ # Dossier slice 29: the Vantry signal frame. Brass terminals on bakelite strips on a board, cloth
+ # leads dressed into a bundle and a trunk cleated up the wall to the ceiling; blank tag cards.
+ start=len(stock_checks);width=source['W'];height=source['H'];top=source['top']
+ wall_mount(source,width,height)
+ stock('Board',(-width/2,0,0),(width/2,.022,height),'wood_dark',.002)
+ for z in [.06,height-.06]:stock('Rail'+str(z),(-width/2+.04,.02,z-.015),(width/2-.04,.035,z+.015),'brass',.001)
+ rows=6;cols=12;bx=width/2-.05
+ for i in range(rows):
+  z=.17+i*(height-.34)/(rows-1)
+  stock('Strip'+str(i),(-width/2+.08,.02,z-.012),(width/2-.1,.032,z+.012),'bakelite',.001)
+  for j in range(cols):
+   x=-width/2+.12+j*(width-.26)/(cols-1)
+   stock('Terminal'+str(i)+'_'+str(j),(x-.006,.031,z-.006),(x+.006,.042,z+.006),'brass',.0004)
+   if j%3==1:stock('Tag'+str(i)+'_'+str(j),(x-.02,.02,z-.04),(x+.02,.024,z-.02),'paper',.0002)
+  tube('Lead'+str(i),(x-.004,.04,z),(bx,.06,z),.008,'linen')
+ tube('Bundle',(bx,.06,.12),(bx,.06,height),.03,'linen')
+ tube('Trunk',(bx,.06,height-.01),(bx,.06,top),.035,'linen')
+ for z in [height+.25,(height+top)/2,top-.12]:
+  stock('Cleat'+str(round(z,2)),(bx-.05,-.02,z-.015),(bx+.05,.1,z+.015),'wood_dark',.001)
+  support(identity,'wall',(bx,-.02,z),(0,1,0),'trunk cleat on the wall')
+ group('SignalFrame',start)
+
+def conduit(source):
+ # Dossier slice 29: steel conduit from the floor into the fuse panel's backing box and out of
+ # its top to a junction box under the ceiling; two runs, each saddled to the wall.
+ low=source['low'];high=source['high'];top=source['top'];back=variants[identity]['rear_wall_y'];y=.04
+ for label,z0,z1 in [('Riser',0,low),('Trunk',high,top)]:
+  start=len(stock_checks)
+  tube(label,(0,y,z0),(0,y,z1),.016,'metal')
+  if z0==0:
+   lathe(label+'Flange',0,y,0,[(0,0),(.035,0),(.035,.012),(.02,.02),(0,.02)],'metal')
+   for p in [(.03,y,0),(-.03,y,0),(0,y+.03,0)]:bearing('flange '+str(p),p)
+   saddles=[.2,low-.12]
+  else:
+   stock(label+'Junction',(-.07,back,top-.45),(.07,y+.04,top-.31),'metal',.002)
+   support(identity,'wall',(0,back,top-.38),(0,1,0),'junction box screwed to the wall')
+   saddles=[high+.15]
+  for z in saddles:
+   stock(label+'Saddle'+str(round(z,2)),(-.028,back,z-.012),(.028,y+.02,z+.012),'metal',.0006)
+   support(identity,'wall',(0,back,z),(0,1,0),'saddle screwed to the wall')
+  group(label,start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -585,4 +670,9 @@ for assembly in assemblies:
  elif kind=='coathook':coathook(source)
  elif kind=='headsethook':headsethook(source)
  elif kind=='foldedcot':foldedcot(source)
+ elif kind=='shovel':shovel(source)
+ elif kind=='rakerack':rakerack(source)
+ elif kind=='ashcan':ashcan(source)
+ elif kind=='signalframe':signalframe(source)
+ elif kind=='conduit':conduit(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

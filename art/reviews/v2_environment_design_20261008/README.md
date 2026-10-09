@@ -137,6 +137,8 @@ Slices landed so far (evidence folders in parentheses):
 28. The ground-floor service rooms: parcels, the parcel book, a scale and a stamp
     pad on the parcel racks; the operator's chair, headset and cord coil at the
     house board; the watchman's chair, coat and folded cot (`slice28b`).
+29. The basement plant rooms: the boiler room's shovel, clinker rake, ash can and
+    oil can; the electrical room's signal frame and fuse-panel conduit (`slice29`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the
