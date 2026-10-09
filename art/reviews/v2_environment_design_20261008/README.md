@@ -72,6 +72,10 @@ Slices landed so far (evidence folders in parentheses):
 5. Bath tile on one face only (a far-face skin on interior wet walls) and
    room leaves a step lower (`slice5`, `slice5b`; `skinbase` is the pre-skin
    comparison, `floorbase` the pre-skin floor-surface baseline).
+6. Resident furniture for the six completion homes from existing variants,
+   signal outlets beside every switch, the ducts measured (`slice6`,
+   `slice6d`, `routes6b`, `ducts`; `bisect_*` hold the route-test receipts
+   at main, slice 1 and slice 5).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

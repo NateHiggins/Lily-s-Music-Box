@@ -29,16 +29,23 @@ func _route() -> void:
 		for point in [Vector3(-13.5,y,-8),Vector3(-12.4,y,-10)]:
 			if not await _walk(point): return
 		await _roof_capture(unit+"_bedroom",Vector3(-14,y+1,-10.8))
-		if not await _walk(Vector3(-12.25,y,-10.8)): return
+		# Stand clear of the storage leaf's quarter turn (hinge on the north jamb,
+		# 1.05 m leaf into the bedroom) and of the wardrobe beside the door: at
+		# (-12.25, -10.8) the opening leaf swept the player's capsule and could park
+		# it against the leaf tip, which made the walk into the study depend on
+		# frame timing.
+		if not await _walk(Vector3(-12.6,y,-10.95)): return
 		if unit=="4D":
 			# The rental's closet is the owner's locked store (dossier F04_D_STUDY-001):
 			# the leaf exists, reads locked and refuses ordinary E; its interior is unseen in play.
 			if not await _refuse_locked_door(prefix+"BED_STORAGE_DOOR"): return
 		else:
 			if not await _open_door(prefix+"BED_STORAGE_DOOR"): return
-			if not await _walk(Vector3(-9.7,y,-10.8)): return
+			for point in [Vector3(-12.0,y,-10.95),Vector3(-9.7,y,-10.8)]:
+				if not await _walk(point): return
 			await _roof_capture(unit+"_storage",Vector3(-9.7,y+1,-12))
-			if not await _walk(Vector3(-12.25,y,-10.8)): return
+			for point in [Vector3(-12.0,y,-10.95),Vector3(-12.6,y,-10.95)]:
+				if not await _walk(point): return
 		for point in [Vector3(-13.5,y,-8),Vector3(-13.5,y,-5.7),Vector3(-9.6,y,-5.7)]:
 			if not await _walk(point): return
 		if not await _open_door(prefix+"MAIN_KITCHEN_DOOR"): return

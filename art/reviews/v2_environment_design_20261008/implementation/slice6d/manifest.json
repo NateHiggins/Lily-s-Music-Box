@@ -1,0 +1,48 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/2A_sofa_native.jpg",
+   "source": "fabrication_shots/domestic_seating/2A_sofa_native.png",
+   "sha256": "324d45195235971ddba0d098bc1a16fbdb021c5f332a1cc5b339ec8954238bee",
+   "bytes": 97283
+  },
+  {
+   "path": "images/3B_tools0_native.jpg",
+   "source": "fabrication_shots/domestic_storage/3B_tools0_native.png",
+   "sha256": "4544363d49faca510dc9afaa19bba7cefc186a7b7b48765d9a5dbf61a02c40dd",
+   "bytes": 123531
+  },
+  {
+   "path": "images/2B_fabric_worktable_native.jpg",
+   "source": "fabrication_shots/domestic_tables/2B_fabric_worktable_native.png",
+   "sha256": "c01af19e2cbd583abb97f698ad1046e1a18108ac88719ac8ea91b5c75a873e1d",
+   "bytes": 113539
+  },
+  {
+   "path": "images/4B_wake_nightstand_native.jpg",
+   "source": "fabrication_shots/domestic_tables/4B_wake_nightstand_native.png",
+   "sha256": "257296153d5a70d5af238f0360ed7760873088cc36c56aba632d6ce42237ff99",
+   "bytes": 96351
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "b12a1a6c7c527024d7e3d11964c5a1d03c4c75358241c717b8c5e3a62c9068de",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "a225d86f157b71100da6827200c54f5de0e431d3b5726fa22fad178b8170fa9f",
+   "bytes": 3137
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "49599e5914f6fc77bd4d9da9e83993eee3ed1f153b09fcbaa41a9d5875d188eb",
+   "bytes": 6850
+  }
+ ]
+}
