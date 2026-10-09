@@ -13528,15 +13528,19 @@
       {
         "id": "6A_archive_box_c",
         "variant": "DomesticObject03"
+      },
+      {
+        "id": "4C_story_colorboard",
+        "variant": "DomesticObject09"
       }
     ],
     "tint_space": "linear"
   },
   "asset_sha256": "024408ac18c7bf2d05c42b87f76c2990053d01d110af9e71cf5c88e7aab46141",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "b58aea2ae0d213b5eb82e8a33932c8bd6f778f1531b22c6b06e3f03e4bf0604a",
+    "art/data/domestic_objects/source_plan.json": "a8d321967f8a66a258d2a48d5589b6c27d8680b01db54bc5dac6c56be6dc3170",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_objects.py": "d9b1195cafe47624f83a574f37bdb07069ed17242f6e7838a48c153dc2819735",
+    "art/blender/scripts/build_domestic_objects.py": "3dff2de227f40e15ca16256a0507eadee2b6f41b1d8c586294870dc3d72a9e7a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -13629,8 +13633,8 @@
     "art/blender/scripts/domestic_objects_geometry.py": "d1d3d632bf5bc3d92b179b50b0c8e3e7378afca9ba79946b67d79141b2e6174f",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "game/data/orison_v2/domestic_furniture.json": "bafd67b3e8c5ea39e358396e01f404e81356fa5974f8964d1aa0a8938c5d387e",
-    "game/data/orison_v2/completion_interiors.json": "760de85b2ac3445beac08ea6b448c987bde34f9caf8df0f8ed3e34c7aeccf2a8",
-    "art/data/orison_v2/completion_interiors_source.json": "c164f3431d8bcc4c73ab66ed94636548fd1a329490c8ba3d1c6a3091674933e2",
+    "game/data/orison_v2/completion_interiors.json": "fff86022df8762864cbb2a1672ad1d8ea1bfd36313f2d995d160098897605da0",
+    "art/data/orison_v2/completion_interiors_source.json": "4cc5e84f7547d778c97aebcfff8cc92b68872735b93322dc540aac8dd56f665e",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
@@ -13639,12 +13643,12 @@
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
     "game/data/orison_v2/domestic_surface_props.json": "210160efd6d10392a793c817e29b4e4b90479c7d14238676ba911c6ff9cb0d96",
     "game/tests/fixtures/orison_surface_stock.json": "57dd6bb997d7dadc8d31033c18b784cee7229808fea9313354604017e28dd801",
-    "art/blender/domestic_storage.blend": "ba0a3c9502fcad6b63f57c00f8b1e21c1bd01e648d4c1bb5199599dd9606541e",
-    "art/blender/prep_cabinets.blend": "6a2aadd7ec09f4c745a19d868ffcec47be39f9d02b8f13d26e42e52e378d92dd",
-    "art/blender/household_wardrobes.blend": "18859b3c3ca7dddec1217db5f4f0ada0b3af0adb794e28f0fae004eca49fbba9",
+    "art/blender/domestic_storage.blend": "e48d55a428fb31be302c41bfd78437f4dc9c4eace98a769baea19ba0221ec88f",
+    "art/blender/prep_cabinets.blend": "76a321b30ce94f4cab14460649efd724a9342c5180877c82756b592daba31a31",
+    "art/blender/household_wardrobes.blend": "b68d78df35db46e9199fc56cb648f134c6176a2cd0f254668478d446dd71fca3",
     "art/blender/scripts/surface_stock_geometry.py": "f516b798bf5c61ea7038156558be47ca2da1ef3bde5039f7ea9d8b75a249d8a7",
-    "art/blender/domestic_seating.blend": "502dc5f3bfafaedb6f6e89965a88951c6aa9ba3d7a89b479ce7c776e0ea0959d",
-    "art/blender/domestic_tables.blend": "9233e4598a42ab32662eb66121119c160becf60203b509614e7e1ef31dd638d8"
+    "art/blender/domestic_seating.blend": "5203f23b9a34ff5901717aff8f15f71995f273efe578b44c2e51f968cd2e56fc",
+    "art/blender/domestic_tables.blend": "952c3397fc228a21ddc2bbe8a493af53ea6de76574d3d3b68ce7f262155d7615"
   },
   "retained_stock": [
     {

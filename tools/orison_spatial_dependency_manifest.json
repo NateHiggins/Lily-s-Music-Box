@@ -50552,6 +50552,32 @@
    "target_exists": true
   },
   {
+   "key": "dae27ab227b540df",
+   "kind": "id_reference",
+   "token": "F02_2C_BOOKSHELF_01",
+   "file": "game/data/orison_v2/bookshelves.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/shelves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "b1e262c494ea8dc4",
    "kind": "id_reference",
    "token": "F03_3A_BOOKSHELF_01",
@@ -50605,6 +50631,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F04/marker+bookshelf+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2d97485893e840ee",
+   "kind": "id_reference",
+   "token": "F04_4C_BOOKSHELF_01",
+   "file": "game/data/orison_v2/bookshelves.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/shelves[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -50776,6 +50828,34 @@
    "target_exists": true
   },
   {
+   "key": "e6c81f1786999ce5",
+   "kind": "unit_reference",
+   "token": "2C",
+   "file": "game/data/orison_v2/bookshelves.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/shelves[*]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "5fe9a7b2859cff2e",
    "kind": "unit_reference",
    "token": "3A",
@@ -50812,6 +50892,34 @@
    "subsystem": "data",
    "symbols": [
     "/shelves[2]/unit"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "33f9f5e4dd918c65",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/data/orison_v2/bookshelves.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/shelves[*]/unit"
    ],
    "lines": [
     0
@@ -55252,6 +55360,32 @@
    "target_exists": true
   },
   {
+   "key": "121c8a8b086a1ef9",
+   "kind": "id_reference",
+   "token": "4C_story_colorboard",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "531167f3489a8294",
    "kind": "id_reference",
    "token": "4C_w0_wardrobe",
@@ -55943,6 +56077,34 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "80aa09e5ac67d939",
+   "kind": "id_reference",
+   "token": "5C_story_colorboard",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/template"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/furniture+v2_blockout",
    "target_exists": true
   },
   {
@@ -63393,7 +63555,7 @@
     0,
     0
    ],
-   "count": 27,
+   "count": 28,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -75894,6 +76056,32 @@
    "key": "4da904b49b108d55",
    "kind": "id_reference",
    "token": "4C_hallstand",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4e0c201884b4173d",
+   "kind": "id_reference",
+   "token": "4C_story_colorboard",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -166008,6 +166196,36 @@
    "target_exists": true
   },
   {
+   "key": "3a0f38a9179ac77f",
+   "kind": "unit_reference",
+   "token": "2C",
+   "file": "game/scripts/building/orison_v2_bookshelves.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "\"2C\":[\"Juno Kells\",\"plain\"], \"4C\":[\"Noel Price\",\"plain\"]}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "0cf2469ee13fca52",
    "kind": "unit_reference",
    "token": "3A",
@@ -166053,6 +166271,36 @@
    "count": 1,
    "context": [
     "\"4A\":[\"Peter Wren\",\"sectional\"], \"5A\":[\"Nadia Quell\",\"plain\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "a81ee86d34294407",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/scripts/building/orison_v2_bookshelves.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "\"2C\":[\"Juno Kells\",\"plain\"], \"4C\":[\"Noel Price\",\"plain\"]}"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -166172,7 +166420,7 @@
    ],
    "count": 1,
    "context": [
-    "\"6B\":[\"Jonah Price\",\"plain\"], \"6C\":[\"Mae Kessler\",\"sectional\"]}"
+    "\"6B\":[\"Jonah Price\",\"plain\"], \"6C\":[\"Mae Kessler\",\"sectional\"],"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -166200,11 +166448,11 @@
    ],
    "lines": [
     8,
-    57
+    58
    ],
    "count": 2,
    "context": [
-    "\"6B\":[\"Jonah Price\",\"plain\"], \"6C\":[\"Mae Kessler\",\"sectional\"]}",
+    "\"6B\":[\"Jonah Price\",\"plain\"], \"6C\":[\"Mae Kessler\",\"sectional\"],",
     "if seen.has(unit_id) or record.get(\"id\") != identity or record.get(\"owner\") != ROSTER[unit_id][0] or record.get(\"style\") != ROSTER[unit_id][1] or record.get(\"ca"
    ],
    "gameplay_binding": false,

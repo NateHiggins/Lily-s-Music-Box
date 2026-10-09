@@ -5,7 +5,8 @@ const ROSTER := {
 	"2A":["Mina Vale","repaired"], "3A":["Malcolm Reed","repaired"],
 	"4A":["Peter Wren","sectional"], "5A":["Nadia Quell","plain"],
 	"5C":["Iris Bell","plain"], "6A":["Sacha Reed","repaired"],
-	"6B":["Jonah Price","plain"], "6C":["Mae Kessler","sectional"]}
+	"6B":["Jonah Price","plain"], "6C":["Mae Kessler","sectional"],
+	"2C":["Juno Kells","plain"], "4C":["Noel Price","plain"]}
 var errors: Array[String] = []
 
 func mount(adapter: Variant) -> bool:

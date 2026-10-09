@@ -7295,7 +7295,9 @@
    ],
    "acceptance": "DT1 shows the board; DT3 shows the shelf",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_C_MAIN"
+   "area": "F04_C_MAIN",
+   "status": "verified",
+   "owner_notes": "Both actors were absent, not misplaced: 4C_story_colorboard's anchor had no furniture record and F04_4C_BOOKSHELF_01 was missing from the bookshelf roster (as was 2C's F02_2C_BOOKSHELF_01). Slice 26 mounts the colour board as a completion copy of 5C's and adds both shelves to the roster (plain cases, Noel Price's and Juno Kells' libraries), registered with the household save owner (203 controls). Verified at WIP c9bc2317 + 432ad0a5 (implementation/slice26): fabrication batch 0 failures; apartment batch 236 (the branch baseline); household state 154 checks, 0 failures; bookshelves 144 checks, 0 failures once 6C is kept last in the manifest (its suite blanks the last record's canonical book); completion 2C and 4C 9 waypoints with their one pre-existing kitchen-leg failure; upper lighting 0 failures; F04_C_MAIN_DT1 shows the board, F04_C_MAIN_RV and F02_C_MAIN_RV show the new cases."
   },
   {
    "id": "F04_C_KITCHEN-001",

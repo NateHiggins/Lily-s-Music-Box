@@ -131,6 +131,7 @@ Slices landed so far (evidence folders in parentheses):
     index (`slice24`, `slice24c`).
 25. 2C's rig deck and cable hook strip, 4D's print, 6A's archive crates
     (`slice25`).
+26. 2C's and 4C's bookcases and 4C's colour board (`slice26`, `slice26b`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the
