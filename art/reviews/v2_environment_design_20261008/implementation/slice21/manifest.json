@@ -1,0 +1,72 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F01_COMMON_B_OV.jpg",
+   "source": "sweep_shots/F01_COMMON_B_OV.png",
+   "sha256": "ebc6c2b7755cde179d42adba58f5030f8087b7644dc02c076756ebc9ea67c322",
+   "bytes": 71069
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "75678c976b84821831b6fbabd6567c1b5baf67610b6b795043bfa6b206605de3",
+   "bytes": 3394
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "125918f9777c980790ccb7bcf4ab5d11b35a38f20932b98d3b07acd684216f38",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "9cf89bc704a8172731bbc38046dc3698f0640d56e55401dd61c8a42d4f9601f4",
+   "bytes": 3138
+  },
+  {
+   "path": "receipts/OrisonV2BlockoutTest.log.receipt.json",
+   "source": "OrisonV2BlockoutTest.log.receipt.json",
+   "sha256": "a23c8c6afef23b8660da2c51acd3c93d14ac53a1949335759100bbbfdf844274",
+   "bytes": 5911
+  },
+  {
+   "path": "receipts/OrisonV2PublicFurnishingsTest.log.receipt.json",
+   "source": "OrisonV2PublicFurnishingsTest.log.receipt.json",
+   "sha256": "3a231953404ab7507b43aed3c96fe7b393560d35c212eb57c5b54b5e3135b742",
+   "bytes": 3229
+  },
+  {
+   "path": "receipts/OrisonV2ReadingFurnitureTest.log.receipt.json",
+   "source": "OrisonV2ReadingFurnitureTest.log.receipt.json",
+   "sha256": "4b49211512a8cc86a7defa9508aec412717c7191812d8644cc833ca4a7180800",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/sweep.log.receipt.json",
+   "source": "sweep.log.receipt.json",
+   "sha256": "20de8629b71b233f4b40ddb248dadcdddc87f8208493d944a042888bb09d48b2",
+   "bytes": 3220
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "ea406623a86462d2e67d21b521f73de6a110d665a0221bd5b18f0f03826ed807",
+   "bytes": 6290
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "b226c126f243706a733ab1a5092aa887999a64da0ed3d11e2e12348f3e147fe9",
+   "bytes": 760508
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "eab930d81571b89a494ae7489ee71f103be38b1a36c07f2f550a62653bc448d7",
+   "bytes": 6924
+  }
+ ]
+}

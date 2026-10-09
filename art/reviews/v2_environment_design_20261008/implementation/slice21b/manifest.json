@@ -1,0 +1,60 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/5A_plan_wall_native.jpg",
+   "source": "fabrication_shots/domestic_objects/5A_plan_wall_native.png",
+   "sha256": "654f7eb753a5f9bb71b49f5ec36972f62657658ec4cd91cfd9202e8e1e697edf",
+   "bytes": 98470
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "a723fd4771731e8fd3a8063729c2616932aee2dd95fa8b870869d3d5dba6476d",
+   "bytes": 3396
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "6c3c6a1060481b7dcff8c37f8d2c049e600d75a451b8f3fe5ca7c06f19d6bc87",
+   "bytes": 3226
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "37f19ac50e0e8ab7d40250ab863fd6df577e5dbdd06c5357d33fb0c34202d4da",
+   "bytes": 3139
+  },
+  {
+   "path": "receipts/OrisonV2PublicFurnishingsTest.log.receipt.json",
+   "source": "OrisonV2PublicFurnishingsTest.log.receipt.json",
+   "sha256": "0dd8c33d36221ed4a66f344ee02ebb63e0d3a6aea74b1112b3fabae16f823085",
+   "bytes": 3231
+  },
+  {
+   "path": "receipts/sweep.log.receipt.json",
+   "source": "sweep.log.receipt.json",
+   "sha256": "5685e070f479c059d8b92b87b7504b6e09fbab4ab5f8a405f1684057c236c565",
+   "bytes": 3222
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "f6495d9d4cc7bddc0329e8382d84044070da06d9fc1e44c210a8d4ea636dd2aa",
+   "bytes": 6597
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "b0fd7d1402bca281f99ad4cd620c6836f823f6f117046d79617c832e14e2de39",
+   "bytes": 760496
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "c5378ebf113cbca697b5f90f3977cec1bcb2ea4f5d832e815a8f4235c701ccde",
+   "bytes": 6930
+  }
+ ]
+}

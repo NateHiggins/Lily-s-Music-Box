@@ -522,6 +522,24 @@
         "component": "printline",
         "note": "V2 environment dossier F06_A_MAIN-002 (slice 20); no V1 counterpart"
       }
+    },
+    "F01_lobby_board": {
+      "source_component": {
+        "component": "pinboard",
+        "note": "V2 environment dossier F01_LOBBY-001 (slice 21); no V1 counterpart"
+      }
+    },
+    "F01_lobby_photo": {
+      "source_component": {
+        "component": "2C_album_a",
+        "note": "V2 environment dossier F01_LOBBY-002 (slice 21): a copy of 2C_album_a"
+      }
+    },
+    "F01_common_armchair": {
+      "source_component": {
+        "component": "5B_radio_chair",
+        "note": "V2 environment dossier F01_COMMON_B-001 (slice 21): a copy of 5B_radio_chair"
+      }
     }
   },
   "receivers": {

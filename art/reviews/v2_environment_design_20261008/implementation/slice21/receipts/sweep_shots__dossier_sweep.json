@@ -1,0 +1,327 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-4.10400056838989,
+						1.43999993801117,
+						-3.04799842834473
+					],
+					"feet": [
+						4.10400056838989,
+						0.0299999918788671,
+						-8.60200119018555
+					],
+					"forward": [
+						0.890342950820923,
+						-0.0954558327794075,
+						-0.445171564817429
+					],
+					"image": "F01_LOBBY_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						0.0,
+						1.0,
+						-6.55000019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.10400056838989,
+						1.43999993801117,
+						-7.15199899673462
+					],
+					"feet": [
+						-4.10400009155273,
+						0.0299999918788671,
+						-4.4980001449585
+					],
+					"forward": [
+						-0.890343010425568,
+						-0.0954558774828911,
+						0.445171386003494
+					],
+					"image": "F01_LOBBY_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						0.0,
+						1.0,
+						-6.55000019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						0.000000122391952572798,
+						1.43999993801117,
+						-1.39999961853027
+					],
+					"feet": [
+						-0.000000000000042632564145606,
+						0.0299999918788671,
+						-10.25
+					],
+					"forward": [
+						0.000000087239421020513,
+						-0.0647288113832474,
+						-0.997902870178223
+					],
+					"image": "F01_LOBBY_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F01_INNER_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						0.0,
+						1.20000004768372,
+						-6.55000019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						0.000000266464667220134,
+						1.43999993801117,
+						-3.04799938201904
+					],
+					"feet": [
+						-0.000000000000028421709430404,
+						0.0299999918788671,
+						-8.60200023651123
+					],
+					"forward": [
+						0.941082835197449,
+						-0.155950844287872,
+						0.300070732831955
+					],
+					"image": "F01_LOBBY_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_lobby_board",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-1.75,
+						1.14999997615814,
+						-9.15999984741211
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.15999960899353,
+						1.43999993801117,
+						-4.01999950408936
+					],
+					"feet": [
+						2.15999984741211,
+						0.0299999918788671,
+						-7.63000011444092
+					],
+					"forward": [
+						0.61871749162674,
+						-0.0715871527791023,
+						0.782345235347748
+					],
+					"image": "F01_LOBBY_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_lobby_photo",
+					"status": "captured_pending_visual_review",
+					"target": [
+						0.949999988079071,
+						1.29999995231628,
+						-9.15999984741211
+					]
+				}
+			],
+			"class": "public",
+			"clear_stations": 25,
+			"floor_y": 0.0,
+			"id": "F01_LOBBY",
+			"level": "F01",
+			"purpose": "arrival, waiting and orientation",
+			"rect": [
+				-5.4,
+				-9.25,
+				5.4,
+				-3.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						14.8760013580322,
+						1.43999993801117,
+						-16.1599979400635
+					],
+					"feet": [
+						-14.8760004043579,
+						0.0299999918788671,
+						4.51000022888184
+					],
+					"forward": [
+						-0.558880209922791,
+						-0.100329346954823,
+						0.823156714439392
+					],
+					"image": "F01_COMMON_B_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.4250001907349,
+						1.0,
+						0.899999976158142
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.97400093078613,
+						1.43999993801117,
+						-8.93999862670898
+					],
+					"feet": [
+						-9.97399997711182,
+						0.0299999918788671,
+						-2.71000003814697
+					],
+					"forward": [
+						0.558880269527435,
+						-0.100329346954823,
+						-0.823156654834747
+					],
+					"image": "F01_COMMON_B_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.4250001907349,
+						1.0,
+						0.899999976158142
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						8.20000076293945,
+						1.43999993801117,
+						-14.0499992370605
+					],
+					"feet": [
+						-8.19999980926514,
+						0.0299999918788671,
+						2.40000057220459
+					],
+					"forward": [
+						0.941023707389832,
+						-0.0534545853734016,
+						0.334091424942017
+					],
+					"image": "F01_COMMON_B_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F01_PACKAGE_COMMON_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.4250001907349,
+						1.20000004768372,
+						0.899999976158142
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						14.8760013580322,
+						1.43999993801117,
+						-10.649998664856
+					],
+					"feet": [
+						-14.8760004043579,
+						0.0299999918788671,
+						-1.0
+					],
+					"forward": [
+						0.011583992280066,
+						-0.260648399591446,
+						0.965364277362823
+					],
+					"image": "F01_COMMON_B_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_common_armchair",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-14.8999996185303,
+						0.899999976158142,
+						-3.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						14.8760013580322,
+						1.43999993801117,
+						-10.649998664856
+					],
+					"feet": [
+						-14.8760004043579,
+						0.0299999918788671,
+						-1.0
+					],
+					"forward": [
+						0.011583992280066,
+						-0.260648399591446,
+						0.965364277362823
+					],
+					"image": "F01_COMMON_B_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_common_armchair_Semantic",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-14.8999996185303,
+						0.899999976158142,
+						-3.0
+					]
+				}
+			],
+			"class": "public",
+			"clear_stations": 21,
+			"floor_y": 0.0,
+			"id": "F01_COMMON_B",
+			"level": "F01",
+			"purpose": "resident meeting and reading",
+			"rect": [
+				-15.65,
+				-3.85,
+				-9.2,
+				5.65
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

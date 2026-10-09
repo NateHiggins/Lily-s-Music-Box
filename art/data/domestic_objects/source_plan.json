@@ -321,7 +321,7 @@
     "W": 1.6,
     "H": 1.0,
     "cards": 20,
-    "neat": false
+    "neat": true
    },
    "rear_wall_y": -0.02
   },
@@ -544,6 +544,20 @@
    "source_id": "6A_print_line",
    "params": {
     "W": 1.6
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject37",
+   "kind": "pinboard",
+   "source_id": "F01_lobby_board",
+   "params": {
+    "id": "F01_lobby_board",
+    "asm": "pinboard",
+    "W": 1.2,
+    "H": 0.9,
+    "cards": 23,
+    "neat": true
    },
    "rear_wall_y": -0.02
   }
@@ -892,6 +906,14 @@
   {
    "id": "6A_print_line",
    "variant": "DomesticObject36"
+  },
+  {
+   "id": "F01_lobby_board",
+   "variant": "DomesticObject37"
+  },
+  {
+   "id": "F01_lobby_photo",
+   "variant": "DomesticObject27"
   }
  ],
  "runtime_keys": [
@@ -1159,7 +1181,8 @@
   "Slice 17 of the V2 environment dossier adds a suitcase form (a leather case on its edge with straps, brass feet and a handle) for 4D's luggage in the vestibule.",
   "Slice 18 of the V2 environment dossier adds four studio forms: a treadle sewing machine (2B), a radio teardown on newspaper (3B), an easel with a blank canvas and a stack of six failed canvases face to the wall (5C).",
   "Slice 19 of the V2 environment dossier adds a card-index cabinet form (twelve drawers, brass pulls and blank label frames, one brass lock plate) for 6C's archive.",
-  "Slice 20 of the V2 environment dossier adds a backdrop rail (header, brackets, rail, paper roll and hanging sheet) and a print line (two hook plates, a string, six pegged contact sheets) for 6A's studio."
+  "Slice 20 of the V2 environment dossier adds a backdrop rail (header, brackets, rail, paper roll and hanging sheet) and a print line (two hook plates, a string, six pegged contact sheets) for 6A's studio.",
+  "Slice 21 of the V2 environment dossier adds the lobby noticeboard (a 1.2 x 0.9 m pinboard of 23 drifted notices) and the 1928 photograph (a copy of the photograph frame) beside the inner door."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

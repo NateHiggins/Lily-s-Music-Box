@@ -1,0 +1,66 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F01_lobby_board_native.jpg",
+   "source": "fabrication_shots/domestic_objects/F01_lobby_board_native.png",
+   "sha256": "ab9aa038dfa6ba544ede35ac450b8f35eb126a6d351cf773bff02426a4eea4bc",
+   "bytes": 94838
+  },
+  {
+   "path": "images/F01_LOBBY_RV.jpg",
+   "source": "sweep_shots/F01_LOBBY_RV.png",
+   "sha256": "84776b680f43bee04f5787245363f0ea2aa0a725377fe939c3c3ab91f1066264",
+   "bytes": 95053
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "1d830824bc852a7fda870b0b8b66a1caf276a7e852124abd129a275d558af906",
+   "bytes": 3396
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "f5beb488d3a0ebbe921338665edb0ed60567b86c48a27b68993aafbdb4aa6e1f",
+   "bytes": 3225
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "5946a3ca756f3c247a9dac6854fdc6f69d7d9f4b445051905308c896e0099146",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/OrisonV2PublicFurnishingsTest.log.receipt.json",
+   "source": "OrisonV2PublicFurnishingsTest.log.receipt.json",
+   "sha256": "26bacb6f0aba56c470febbcb9e565177659ad9b80f16bcade9697845e5276e1e",
+   "bytes": 3231
+  },
+  {
+   "path": "receipts/sweep.log.receipt.json",
+   "source": "sweep.log.receipt.json",
+   "sha256": "2054b6f188eb471e9442f8de3c0b589d898f8dd0ae46c6ceaa32550ba3f4974d",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "31444c6a664729798ee701d46de0b12660c7c9c7b41c8c866103258cfcb075b8",
+   "bytes": 6290
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "58c1b3644b6380e0169446c137744d6792ee96ea2af355096486f90f68cdea96",
+   "bytes": 760508
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "7f6d6f946bcdbd33f98e7818076bbf64d65737069e831d150f9d48da00a0aa5f",
+   "bytes": 3649
+  }
+ ]
+}

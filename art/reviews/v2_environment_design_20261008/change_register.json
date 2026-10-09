@@ -2110,7 +2110,9 @@
    "preserve": "Bulletin board owner",
    "acceptance": "Detail view reads layers of paper",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_LOBBY"
+   "area": "F01_LOBBY",
+   "status": "verified",
+   "owner_notes": "F01_lobby_board: a 1.2 x 0.9 m noticeboard (pinboard form, 23 notices in rows, one brass pin each, no lettering) on the south wall between the west window and the inner door, its lower edge above the dado cap at 1.42 m. Deviation: the notices are blank cards in rows (the drifted layout collapses into streaks), and the board is a passive pinboard rather than the 23-piece authored LobbyBulletinBoard owner. Verified at 9120c99a (slice21: reading furniture 25 and public furnishings 29 waypoints with 0 failures and the blockout suite passing, as at 858fb707 in slice21base; apartment batch 236 as before) and at 85f7dfc0 (slice21c, after the board moved above the dado and the boards took the card grid): the thirteen families pass the fabrication batch (27,682 checks, 0 failures; every board and frame on its actual wall face), public furnishings 29 waypoints with 0 failures, apartment batch 236, the lobby sweep 0 failures; captures in implementation/slice21, slice21b and slice21c."
   },
   {
    "id": "F01_LOBBY-002",
@@ -2129,7 +2131,9 @@
    "preserve": "Clock refusal and house time",
    "acceptance": "Overview from the inner door reads clock and photograph",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "F01_LOBBY"
+   "area": "F01_LOBBY",
+   "status": "verified",
+   "owner_notes": "F01_lobby_photo: the 1928 photograph (a copy of the photograph frame) at 1.5 m beside the inner door. The sealed Vantry reference clock over the core opening waits for a V2 clock owner (ClockProp is mounted only by the V1 building). Verified at 9120c99a (slice21: reading furniture 25 and public furnishings 29 waypoints with 0 failures and the blockout suite passing, as at 858fb707 in slice21base; apartment batch 236 as before) and at 85f7dfc0 (slice21c, after the board moved above the dado and the boards took the card grid): the thirteen families pass the fabrication batch (27,682 checks, 0 failures; every board and frame on its actual wall face), public furnishings 29 waypoints with 0 failures, apartment batch 236, the lobby sweep 0 failures; captures in implementation/slice21, slice21b and slice21c."
   },
   {
    "id": "F01_LOBBY-003",
@@ -2285,7 +2289,9 @@
    "preserve": "Table and chairs' walking clearance",
    "acceptance": "Overview from the door",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_COMMON_B"
+   "area": "F01_COMMON_B",
+   "status": "verified",
+   "owner_notes": "F01_common_armchair (an Armchair copy) in the common room's south-west window corner, facing into the room, clear of the reading table, its chairs and the bookcases. The minutes, jug and glasses wait for the reading table to become a stock support; the floor lamp waits for the task-lamp installations. Verified at 9120c99a (slice21: reading furniture 25 and public furnishings 29 waypoints with 0 failures and the blockout suite passing, as at 858fb707 in slice21base; apartment batch 236 as before) and at 85f7dfc0 (slice21c, after the board moved above the dado and the boards took the card grid): the thirteen families pass the fabrication batch (27,682 checks, 0 failures; every board and frame on its actual wall face), public furnishings 29 waypoints with 0 failures, apartment batch 236, the lobby sweep 0 failures; captures in implementation/slice21, slice21b and slice21c."
   },
   {
    "id": "F01_COMMON_B-002",
@@ -8166,7 +8172,7 @@
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "F05_A_MAIN",
    "status": "verified",
-   "owner_notes": "5A_plan_wall: a 1.6 x 1.0 m pinboard (DomesticObject18, 20 drifted sheets) on the north wall between the radiator and the bookshelf at 1.4 m. Deviations: the wall opposite the window is two openings and the switch, so the board takes the clear north wall; plan-line decals and red strokes wait for a sheet form (no lettering in textures). Verified at 76d0a584 (slice12) with the apartment batch at 394a9c3c (slice12b): the thirteen families pass the fabrication batch (25,164 checks, 0 failures; objects 44 actors, every board, canvas and frame bearing on its actual wall face), apartment batch 236 with failure labels identical to slice 11 once its category roster holds the original V1 set, upper lighting 0 failures, completion route 1A 15 waypoints as before, the household save owner 0 failures, the five-space sweep 0 failures; the rooms and native close-ups are in implementation/slice12."
+   "owner_notes": "5A_plan_wall: a 1.6 x 1.0 m pinboard (DomesticObject18, 20 sheets; in rows since slice 21, the drifted layout collapsing into streaks) on the north wall between the radiator and the bookshelf at 1.4 m. Deviations: the wall opposite the window is two openings and the switch, so the board takes the clear north wall; plan-line decals and red strokes wait for a sheet form (no lettering in textures). Verified at 76d0a584 (slice12) with the apartment batch at 394a9c3c (slice12b): the thirteen families pass the fabrication batch (25,164 checks, 0 failures; objects 44 actors, every board, canvas and frame bearing on its actual wall face), apartment batch 236 with failure labels identical to slice 11 once its category roster holds the original V1 set, upper lighting 0 failures, completion route 1A 15 waypoints as before, the household save owner 0 failures, the five-space sweep 0 failures; the rooms and native close-ups are in implementation/slice12."
   },
   {
    "id": "F05_A_MAIN-002",

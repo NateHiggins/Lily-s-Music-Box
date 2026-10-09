@@ -1,0 +1,30 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "d24648f5ca2a45c523e365e5ca3581dcc4d4a8c8e1eeef128ba264f3f5d68e19",
+   "bytes": 3146
+  },
+  {
+   "path": "receipts/OrisonV2BlockoutTest.log.receipt.json",
+   "source": "OrisonV2BlockoutTest.log.receipt.json",
+   "sha256": "80fcda3a92029c1209568c56473c1c8f130c3db3de203dbdb26771d6708a59ee",
+   "bytes": 5919
+  },
+  {
+   "path": "receipts/OrisonV2PublicFurnishingsTest.log.receipt.json",
+   "source": "OrisonV2PublicFurnishingsTest.log.receipt.json",
+   "sha256": "17755d4a2d492d2e98f81df0fb35a4b4afd50388fe6f7328746cad2c1e76f38c",
+   "bytes": 3237
+  },
+  {
+   "path": "receipts/OrisonV2ReadingFurnitureTest.log.receipt.json",
+   "source": "OrisonV2ReadingFurnitureTest.log.receipt.json",
+   "sha256": "bfcd4b0c3d867f459e6a570430a2d6c361bc438b54b50a406a8d394e20af3787",
+   "bytes": 3232
+  }
+ ]
+}
