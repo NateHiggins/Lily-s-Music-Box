@@ -408,6 +408,48 @@
         "component": "4B_hall_boots",
         "note": "V2 environment dossier F06_C_PRIVATE_HALL-001 (slice 14): hall use evidence"
       }
+    },
+    "2C_album_a": {
+      "source_component": {
+        "component": "artframe",
+        "note": "V2 environment dossier F02_C_MAIN-002 (slice 15); no V1 counterpart"
+      }
+    },
+    "2C_album_b": {
+      "source_component": {
+        "component": "2C_album_a",
+        "note": "V2 environment dossier F02_C_MAIN-002 (slice 15): a copy of 2C_album_a"
+      }
+    },
+    "3A_portrait": {
+      "source_component": {
+        "component": "2C_album_a",
+        "note": "V2 environment dossier F03_A_MAIN-003 (slice 15): a copy of 2C_album_a"
+      }
+    },
+    "3A_diagram": {
+      "source_component": {
+        "component": "4A_frame_a",
+        "note": "V2 environment dossier F03_A_MAIN-003 (slice 15): a copy of 4A_frame_a"
+      }
+    },
+    "5B_work_a": {
+      "source_component": {
+        "component": "5C_canvas_a",
+        "note": "V2 environment dossier F05_B_MAIN-004 (slice 15): a copy of 5C_canvas_a"
+      }
+    },
+    "5B_work_b": {
+      "source_component": {
+        "component": "5C_canvas_b",
+        "note": "V2 environment dossier F05_B_MAIN-004 (slice 15): a copy of 5C_canvas_b"
+      }
+    },
+    "2A_caption_wall": {
+      "source_component": {
+        "component": "pinboard",
+        "note": "V2 environment dossier F02_A_MAIN-002 (slice 15); no V1 counterpart"
+      }
     }
   },
   "receivers": {

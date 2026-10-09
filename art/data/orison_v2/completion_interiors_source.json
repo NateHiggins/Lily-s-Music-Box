@@ -6217,6 +6217,42 @@
         ],
         "yaw": 1.5707963267948966,
         "kind": "furniture"
+      },
+      {
+        "id": "3D_image_a",
+        "level": "F03",
+        "space": "F03_D_MAIN",
+        "position": [
+          -14.2,
+          1.3,
+          -3.94
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "3D_image_b",
+        "level": "F03",
+        "space": "F03_D_MAIN",
+        "position": [
+          -11.84,
+          1.3,
+          -3.94
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "3D_image_c",
+        "level": "F03",
+        "space": "F03_D_MAIN",
+        "position": [
+          -9.5,
+          1.3,
+          -3.94
+        ],
+        "yaw": 0,
+        "kind": "furniture"
       }
     ],
     "stairs": [
@@ -7869,6 +7905,21 @@
         "id": "4D_hall_crate",
         "template": "3B_partscrate",
         "unit": "4D"
+      },
+      {
+        "id": "3D_image_a",
+        "template": "2C_album_a",
+        "unit": "3D"
+      },
+      {
+        "id": "3D_image_b",
+        "template": "2C_album_a",
+        "unit": "3D"
+      },
+      {
+        "id": "3D_image_c",
+        "template": "2C_album_a",
+        "unit": "3D"
       }
     ],
     "lighting": {

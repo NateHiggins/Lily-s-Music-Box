@@ -1791,6 +1791,128 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject27",
+      "parts": [
+        {
+          "name": "DomesticObject27__Body_ON_book_brown",
+          "component": "Body",
+          "key": "book_brown",
+          "tile": 0.32,
+          "catalog_key": "book_brown",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject27__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject27__Body_ON_plywood",
+          "component": "Body",
+          "key": "plywood",
+          "tile": 1.2,
+          "catalog_key": "plywood",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject27__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject28",
+      "parts": [
+        {
+          "name": "DomesticObject28__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject28__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject28__Body_ON_timber",
+          "component": "Body",
+          "key": "timber",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject28__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -2065,6 +2187,46 @@
     {
       "id": "6C_hall_boots",
       "variant": "DomesticObject26"
+    },
+    {
+      "id": "2C_album_a",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "2C_album_b",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "3A_portrait",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "3A_diagram",
+      "variant": "DomesticObject21"
+    },
+    {
+      "id": "5B_work_a",
+      "variant": "DomesticObject19"
+    },
+    {
+      "id": "5B_work_b",
+      "variant": "DomesticObject20"
+    },
+    {
+      "id": "2A_caption_wall",
+      "variant": "DomesticObject28"
+    },
+    {
+      "id": "3D_image_a",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "3D_image_b",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "3D_image_c",
+      "variant": "DomesticObject27"
     }
   ],
   "tint_space": "linear"

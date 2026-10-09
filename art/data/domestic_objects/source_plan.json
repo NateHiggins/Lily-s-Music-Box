@@ -460,6 +460,32 @@
    "kind": "boottray",
    "source_id": "4B_hall_boots",
    "params": {}
+  },
+  {
+   "id": "DomesticObject27",
+   "kind": "artframe",
+   "source_id": "2C_album_a",
+   "params": {
+    "W": 0.3,
+    "H": 0.4,
+    "style": "photo",
+    "print": "book_brown"
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject28",
+   "kind": "pinboard",
+   "source_id": "2A_caption_wall",
+   "params": {
+    "id": "2A_caption_wall",
+    "asm": "pinboard",
+    "W": 1.2,
+    "H": 0.9,
+    "cards": 24,
+    "neat": true
+   },
+   "rear_wall_y": -0.02
   }
  ],
  "instances": [
@@ -734,6 +760,46 @@
   {
    "id": "6C_hall_boots",
    "variant": "DomesticObject26"
+  },
+  {
+   "id": "2C_album_a",
+   "variant": "DomesticObject27"
+  },
+  {
+   "id": "2C_album_b",
+   "variant": "DomesticObject27"
+  },
+  {
+   "id": "3A_portrait",
+   "variant": "DomesticObject27"
+  },
+  {
+   "id": "3A_diagram",
+   "variant": "DomesticObject21"
+  },
+  {
+   "id": "5B_work_a",
+   "variant": "DomesticObject19"
+  },
+  {
+   "id": "5B_work_b",
+   "variant": "DomesticObject20"
+  },
+  {
+   "id": "2A_caption_wall",
+   "variant": "DomesticObject28"
+  },
+  {
+   "id": "3D_image_a",
+   "variant": "DomesticObject27"
+  },
+  {
+   "id": "3D_image_b",
+   "variant": "DomesticObject27"
+  },
+  {
+   "id": "3D_image_c",
+   "variant": "DomesticObject27"
   }
  ],
  "runtime_keys": [
@@ -996,7 +1062,8 @@
   "Slice 11 of the V2 environment dossier adds a second reel deck (DomesticObject04) on 5B's deck table; it bears on that table like 2A's on the coffee table.",
   "Slice 12 of the V2 environment dossier adds two pinboards (4B's case wall, 5A's plan wall) and a wall-art form (artframe: stretched canvas with painted fields and edge tacks, or a moulded frame holding a document with a brass seal) for 5C's diptych and the framed pairs in 4A and 1A.",
   "Slice 13 of the V2 environment dossier adds cloth: a garment rail (header board, brackets, rail, garments on wooden hangers, optional repair tags) and a hung moving blanket (batten, bound edges, quilted rows), with five tinted cloth keys on the catalogue linen.",
-  "Slice 14 of the V2 environment dossier puts one object in each of the eighteen private halls by the resident's routine: a lidded wicker hamper (new form), a galvanised boot tray with galoshes (new form) or a copy of an existing crate, each against a wall clear of every door and opening approach."
+  "Slice 14 of the V2 environment dossier puts one object in each of the eighteen private halls by the resident's routine: a lidded wicker hamper (new form), a galvanised boot tray with galoshes (new form) or a copy of an existing crate, each against a wall clear of every door and opening approach.",
+  "Slice 15 of the V2 environment dossier adds a photograph style to the wall-art form (a toned print under a mat) and hangs wall art in 2C, 3D, 3A and 5B, with 2A's caption wall as a 1.2 x 0.9 m pinboard."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

@@ -306,9 +306,13 @@ def artframe(source):
  else:
   stock('Backing',(-width/2+.01,0,.01),(width/2-.01,.006,height-.01),'plywood',.0004)
   stock('Mat',(-width/2+.02,.0055,.02),(width/2-.02,.009,height-.02),'linen',.0003)
-  stock('Document',(-width/2+.055,.0085,.065),(width/2-.055,.0105,height-.055),'paper',.0002)
-  axial(identity+'_Seal',width/2-.105,.115,[(0,.0100),(.021,.0100),(.021,.0118),(.017,.0128),(0,.0128)],identity,'brass',32)
-  stock('Signature',(-width/2+.08,.0102,.1),(-width/2+.17,.0110,.103),'soot',.0001)
+  if source['style']=='photo':
+   # A toned print under the mat window (slice 15).
+   stock('Print',(-width/2+.055,.0085,.065),(width/2-.055,.0105,height-.065),source.get('print','book_brown'),.0002)
+  else:
+   stock('Document',(-width/2+.055,.0085,.065),(width/2-.055,.0105,height-.055),'paper',.0002)
+   axial(identity+'_Seal',width/2-.105,.115,[(0,.0100),(.021,.0100),(.021,.0118),(.017,.0128),(0,.0128)],identity,'brass',32)
+   stock('Signature',(-width/2+.08,.0102,.1),(-width/2+.17,.0110,.103),'soot',.0001)
   for x in [-width/2,width/2-.025]:stock('Moulding'+str(x),(x,0,0),(x+.025,.028,height),'wood_dark',.001)
   for z in [0,height-.025]:stock('MouldingRail'+str(z),(-width/2+.024,0,z),(width/2-.024,.028,z+.025),'wood_dark',.001)
  wall_mount(source,width,height)

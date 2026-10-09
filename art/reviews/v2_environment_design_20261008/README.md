@@ -106,6 +106,9 @@ Slices landed so far (evidence folders in parentheses):
     a boot tray with galoshes or a crate (`slice14b`, `slice14c` after two
     narrow-hall objects moved out of the door route; `slice14base` is the
     upper-furniture baseline at slice 13).
+15. Wall art in the residents' rooms: a photograph style for the wall-art
+    form, 2C's album pair, 3D's three images, 3A's diagram and portrait,
+    5B's two works and 2A's caption wall (`slice15`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

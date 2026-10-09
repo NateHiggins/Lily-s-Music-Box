@@ -3732,7 +3732,9 @@
    "preserve": "Case 01 owners (F02_A_MONITOR_01, F02_A_CAPTION_WORK_ZONE, Vantry point, calibrator, letter) untouched; WallArtLaw hook",
    "acceptance": "Detail view from the hall door shows the board centred between the windows",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_A_MAIN"
+   "area": "F02_A_MAIN",
+   "status": "verified",
+   "owner_notes": "2A_caption_wall: a 1.2 x 0.9 m pinboard (24 cards in rows) on the west wall between the two windows. Deviations: it hangs above 2A_shelf1 (bottom 1.62 m, centre 2.07 m) because the shelf stands 1.6 m tall on that wall; the red threads and the one deliberately blank card wait for a thread form and a card-level distinction. Verified at 260cffe6 (slice15): the thirteen families pass the fabrication batch (26,116 checks, 0 failures; objects 78 actors, every frame, canvas and board bearing on its actual wall face), apartment batch 236 as before, upper lighting 0 failures, completion route 3D 16 waypoints as before, the household save owner 0 failures, the five-space sweep 0 failures; captures in implementation/slice15."
   },
   {
    "id": "F02_A_MAIN-003",
@@ -4389,7 +4391,9 @@
    "purpose": "Decor profile composition",
    "acceptance": "Detail view shows two frames with nothing between",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_C_MAIN"
+   "area": "F02_C_MAIN",
+   "status": "verified",
+   "owner_notes": "2C_album_a/b: two photographs (artframe form, photo style: moulding, linen mat, a toned print) 0.5 m apart at 1.5 m on the window wall west of the window, nothing between them. Verified at 260cffe6 (slice15): the thirteen families pass the fabrication batch (26,116 checks, 0 failures; objects 78 actors, every frame, canvas and board bearing on its actual wall face), apartment batch 236 as before, upper lighting 0 failures, completion route 3D 16 waypoints as before, the household save owner 0 failures, the five-space sweep 0 failures; captures in implementation/slice15."
   },
   {
    "id": "F02_C_MAIN-003",
@@ -5089,7 +5093,9 @@
    "purpose": "Decor profile: evidence, not decor; the only photograph of a plant in the building is Sacha's (web II.8)",
    "acceptance": "Detail view shows two frames clear of the shelf",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_A_MAIN"
+   "area": "F03_A_MAIN",
+   "status": "verified",
+   "owner_notes": "3A_diagram (a copy of 4A's document frame standing for the propagation diagram) and 3A_portrait (photo style, the sepia plate) 0.4 m apart at 1.5 m on the north wall between the kitchen opening and the private-hall door, clear of the plants. The diagram's line drawing is a blank sheet (no lettering or line decals in textures). Verified at 260cffe6 (slice15): the thirteen families pass the fabrication batch (26,116 checks, 0 failures; objects 78 actors, every frame, canvas and board bearing on its actual wall face), apartment batch 236 as before, upper lighting 0 failures, completion route 3D 16 waypoints as before, the household save owner 0 failures, the five-space sweep 0 failures; captures in implementation/slice15."
   },
   {
    "id": "F03_A_MAIN-004",
@@ -5702,7 +5708,9 @@
    "purpose": "Decor profile: each image gets its own pool of negative space; avoid a salon wall",
    "acceptance": "Overview reads three isolated frames",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_D_MAIN"
+   "area": "F03_D_MAIN",
+   "status": "verified",
+   "owner_notes": "3D_image_a/b/c: three photographs (completion copies of 2C's) at 1.5 m on the long north wall, 2.3 m apart, the middle one over the chaise. Verified at 260cffe6 (slice15): the thirteen families pass the fabrication batch (26,116 checks, 0 failures; objects 78 actors, every frame, canvas and board bearing on its actual wall face), apartment batch 236 as before, upper lighting 0 failures, completion route 3D 16 waypoints as before, the household save owner 0 failures, the five-space sweep 0 failures; captures in implementation/slice15."
   },
   {
    "id": "F03_D_MAIN-004",
@@ -8545,7 +8553,9 @@
    "purpose": "Decor profile: call and response; avoid perfect centering",
    "acceptance": "Overview",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_B_MAIN"
+   "area": "F05_B_MAIN",
+   "status": "verified",
+   "owner_notes": "5B_work_a/b: two canvases (copies of 5C's diptych forms) 1.0 m apart at 1.5 m on the window wall south of the window, off the window's centre line. Verified at 260cffe6 (slice15): the thirteen families pass the fabrication batch (26,116 checks, 0 failures; objects 78 actors, every frame, canvas and board bearing on its actual wall face), apartment batch 236 as before, upper lighting 0 failures, completion route 3D 16 waypoints as before, the household save owner 0 failures, the five-space sweep 0 failures; captures in implementation/slice15."
   },
   {
    "id": "F05_B_MAIN-005",
