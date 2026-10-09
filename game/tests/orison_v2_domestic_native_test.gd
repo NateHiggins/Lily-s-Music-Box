@@ -98,7 +98,9 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 				var p: Array = contact.point
 				var at := prop.to_global(Vector3(p[0],p[1],p[2]))
 				var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+Vector3.UP*.004,at-Vector3.UP*.004,1))
-				check(not hit.is_empty() and hit.collider == support and hit.position.distance_to(at)<.00004 and hit.normal.y>.99,"actual native table supports retained stock: "+str(row.id))
+				# Stock standing on the floor beside its support (position y 0) bears on the floor.
+				var floor_stance := is_zero_approx(float(row.position[1]))
+				check(not hit.is_empty() and (floor_stance or hit.collider == support) and hit.position.distance_to(at)<.00004 and hit.normal.y>.99,"actual native table supports retained stock: "+str(row.id))
 	if family in ["domestic_storage","domestic_objects"]:
 		var radio := world.adapter.resolve("3B_radio") as StaticBody3D
 		var shelf := world.adapter.resolve("3B_tools0") as StaticBody3D

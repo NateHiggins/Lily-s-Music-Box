@@ -1,0 +1,60 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "b69ec7c32b82d085f3bc9067e24fce3a1b981bfa5a38e78731851c84b0bcf71b",
+   "bytes": 3393
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "c249acf49bc99cd7b2219ebc7b1c11d9b4e66fbe63ec8203ecdaafc6705e73e1",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/household_state.log.receipt.json",
+   "source": "household_state.log.receipt.json",
+   "sha256": "5b596fd510abb9bd21c0be06e5b26bc81dd7150f9abe18fe861e2bba5f32d660",
+   "bytes": 3195
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "db3d8bb11d79755b57b2d9926b61b93f00f280521f104682fd606d6205ca5dda",
+   "bytes": 3138
+  },
+  {
+   "path": "receipts/sweep.log.receipt.json",
+   "source": "sweep.log.receipt.json",
+   "sha256": "f7e80d20d08ac9d89d2b86f0b7f510ab892c689f81f8e1bce56c835572603fa4",
+   "bytes": 3220
+  },
+  {
+   "path": "receipts/upper_lighting.log.receipt.json",
+   "source": "upper_lighting.log.receipt.json",
+   "sha256": "c5c194c6f475343ce38609a1c2a448e6f5c380382cf10411d176fab6f04a8537",
+   "bytes": 3192
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "26902d4c0830d94b03cd49d759a14d1168bafbe57540ae6e81c9c41485b79e33",
+   "bytes": 6866
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "8864276ed4ab942c198d33e5c0f8985c0d0a4bae4e967ede64ea93462b72113f",
+   "bytes": 743202
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "4e78a7d344e0a4b5f479a875d6ad0b11f7f6821fdefd3ab8616b743aa714ed34",
+   "bytes": 15948
+  }
+ ]
+}

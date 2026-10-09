@@ -238,6 +238,44 @@
         "component": "armchair",
         "note": "V2 environment dossier F05_B_MAIN-001 (slice 10); no V1 counterpart"
       }
+    },
+    "5B_deck_table": {
+      "source_component": {
+        "component": "2B_fabric_worktable",
+        "note": "V2 environment dossier F05_B_MAIN-002 (slice 11): TableRect05 copy as Elias's reel-deck table"
+      }
+    },
+    "5B_deck": {
+      "source_component": {
+        "component": "2A_deck",
+        "note": "V2 environment dossier F05_B_MAIN-002 (slice 11): a second reel deck, passive, on 5B_deck_table"
+      },
+      "support_source": {
+        "id": "5B_deck_table",
+        "position": [
+          0,
+          0.745,
+          0
+        ]
+      }
+    },
+    "5B_tape_shelf_a": {
+      "source_component": {
+        "component": "3B_tools0",
+        "note": "V2 environment dossier F05_B_MAIN-002 (slice 11): Shelf01 copy for the tape catalogue"
+      }
+    },
+    "5B_tape_shelf_b": {
+      "source_component": {
+        "component": "3B_tools0",
+        "note": "V2 environment dossier F05_B_MAIN-002 (slice 11): Shelf01 copy for the tape catalogue"
+      }
+    },
+    "3B_outgoing_shelf": {
+      "source_component": {
+        "component": "3B_tools0",
+        "note": "V2 environment dossier F03_B_MAIN-002 (slice 11): Shelf01 copy for the outgoing parcels"
+      }
     }
   },
   "receivers": {

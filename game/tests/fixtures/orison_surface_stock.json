@@ -1527,6 +1527,72 @@
       "kind": "can",
       "cell": "4B",
       "source_record": "4B_trash"
+    },
+    {
+      "id": "5B_tapes_a1",
+      "kind": "boxrow",
+      "cell": "5B",
+      "source_record": "5B_tapes_a1"
+    },
+    {
+      "id": "5B_tapes_a2",
+      "kind": "boxrow",
+      "cell": "5B",
+      "source_record": "5B_tapes_a2"
+    },
+    {
+      "id": "5B_tapes_a3",
+      "kind": "boxrow",
+      "cell": "5B",
+      "source_record": "5B_tapes_a3"
+    },
+    {
+      "id": "5B_tapes_b1",
+      "kind": "boxrow",
+      "cell": "5B",
+      "source_record": "5B_tapes_b1"
+    },
+    {
+      "id": "5B_tapes_b2",
+      "kind": "boxrow",
+      "cell": "5B",
+      "source_record": "5B_tapes_b2"
+    },
+    {
+      "id": "5B_tape_plain",
+      "kind": "reelbox",
+      "cell": "5B",
+      "source_record": "5B_tape_plain"
+    },
+    {
+      "id": "3B_out_parcel_a",
+      "kind": "parcel",
+      "cell": "3B",
+      "source_record": "3B_out_parcel_a"
+    },
+    {
+      "id": "3B_out_parcel_b",
+      "kind": "parcel",
+      "cell": "3B",
+      "source_record": "3B_out_parcel_b"
+    },
+    {
+      "id": "3B_out_parcel_c",
+      "kind": "parcel",
+      "cell": "3B",
+      "source_record": "3B_out_parcel_c"
+    },
+    {
+      "id": "2A_plain_box",
+      "kind": "carton",
+      "cell": "2A",
+      "source_record": "2A_plain_box"
+    },
+    {
+      "id": "6B_wastebasket",
+      "kind": "basket",
+      "cell": "6B",
+      "source_record": "6B_wastebasket"
     }
   ],
   "closed_stocks": [
@@ -11003,6 +11069,960 @@
       "assembly": "4B_trash",
       "key": "metal",
       "volume_m3": 1.1158947051154325e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box0",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a1_Seam0",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box1",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106538939363206
+    },
+    {
+      "name": "5B_tapes_a1_Seam1",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box2",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a1_Seam2",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box3",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106536249738628
+    },
+    {
+      "name": "5B_tapes_a1_Seam3",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069071181522535e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box4",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a1_Seam4",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box5",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a1_Seam5",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box6",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.00101065342296204
+    },
+    {
+      "name": "5B_tapes_a1_Seam6",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074787827676e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box7",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106534229620404
+    },
+    {
+      "name": "5B_tapes_a1_Seam7",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074787827676e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box8",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a1_Seam8",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box9",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a1_Seam9",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box10",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106536249738628
+    },
+    {
+      "name": "5B_tapes_a1_Seam10",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069071181522589e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box11",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a1_Seam11",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box12",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106538939363206
+    },
+    {
+      "name": "5B_tapes_a1_Seam12",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_a1_Box13",
+      "assembly": "5B_tapes_a1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a1_Seam13",
+      "assembly": "5B_tapes_a1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box0",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a2_Seam0",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box1",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106538939363206
+    },
+    {
+      "name": "5B_tapes_a2_Seam1",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box2",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a2_Seam2",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box3",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106536249738628
+    },
+    {
+      "name": "5B_tapes_a2_Seam3",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069071181522535e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box4",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a2_Seam4",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box5",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a2_Seam5",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box6",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.00101065342296204
+    },
+    {
+      "name": "5B_tapes_a2_Seam6",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074787827676e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box7",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106534229620404
+    },
+    {
+      "name": "5B_tapes_a2_Seam7",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074787827676e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box8",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a2_Seam8",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box9",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a2_Seam9",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box10",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106536249738628
+    },
+    {
+      "name": "5B_tapes_a2_Seam10",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069071181522589e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box11",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a2_Seam11",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box12",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106538939363206
+    },
+    {
+      "name": "5B_tapes_a2_Seam12",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_a2_Box13",
+      "assembly": "5B_tapes_a2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a2_Seam13",
+      "assembly": "5B_tapes_a2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box0",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a3_Seam0",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box1",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106538939363206
+    },
+    {
+      "name": "5B_tapes_a3_Seam1",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box2",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a3_Seam2",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box3",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106536249738628
+    },
+    {
+      "name": "5B_tapes_a3_Seam3",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069071181522535e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box4",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a3_Seam4",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box5",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a3_Seam5",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box6",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.00101065342296204
+    },
+    {
+      "name": "5B_tapes_a3_Seam6",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074787827676e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box7",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106534229620404
+    },
+    {
+      "name": "5B_tapes_a3_Seam7",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074787827676e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box8",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a3_Seam8",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box9",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a3_Seam9",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box10",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106536249738628
+    },
+    {
+      "name": "5B_tapes_a3_Seam10",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069071181522589e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box11",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a3_Seam11",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box12",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106538939363206
+    },
+    {
+      "name": "5B_tapes_a3_Seam12",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_a3_Box13",
+      "assembly": "5B_tapes_a3",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_a3_Seam13",
+      "assembly": "5B_tapes_a3",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box0",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b1_Seam0",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box1",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106538939363206
+    },
+    {
+      "name": "5B_tapes_b1_Seam1",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box2",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b1_Seam2",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box3",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106536249738628
+    },
+    {
+      "name": "5B_tapes_b1_Seam3",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069071181522535e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box4",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b1_Seam4",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box5",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b1_Seam5",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box6",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.00101065342296204
+    },
+    {
+      "name": "5B_tapes_b1_Seam6",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074787827676e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box7",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106534229620404
+    },
+    {
+      "name": "5B_tapes_b1_Seam7",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074787827676e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box8",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b1_Seam8",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box9",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b1_Seam9",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box10",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106536249738628
+    },
+    {
+      "name": "5B_tapes_b1_Seam10",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069071181522589e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box11",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b1_Seam11",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box12",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106538939363206
+    },
+    {
+      "name": "5B_tapes_b1_Seam12",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_b1_Box13",
+      "assembly": "5B_tapes_b1",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b1_Seam13",
+      "assembly": "5B_tapes_b1",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box0",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b2_Seam0",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box1",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106538939363206
+    },
+    {
+      "name": "5B_tapes_b2_Seam1",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box2",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b2_Seam2",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box3",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106536249738628
+    },
+    {
+      "name": "5B_tapes_b2_Seam3",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069071181522535e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box4",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b2_Seam4",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box5",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b2_Seam5",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box6",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.00101065342296204
+    },
+    {
+      "name": "5B_tapes_b2_Seam6",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074787827676e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box7",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106534229620404
+    },
+    {
+      "name": "5B_tapes_b2_Seam7",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074787827676e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box8",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b2_Seam8",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box9",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b2_Seam9",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box10",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106536249738628
+    },
+    {
+      "name": "5B_tapes_b2_Seam10",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069071181522589e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box11",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b2_Seam11",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330813e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box12",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106538939363206
+    },
+    {
+      "name": "5B_tapes_b2_Seam12",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tapes_b2_Box13",
+      "assembly": "5B_tapes_b2",
+      "key": "paper",
+      "volume_m3": 0.0010106533560105923
+    },
+    {
+      "name": "5B_tapes_b2_Seam13",
+      "assembly": "5B_tapes_b2",
+      "key": "bakelite",
+      "volume_m3": 1.1069074027330868e-05
+    },
+    {
+      "name": "5B_tape_plain_Body",
+      "assembly": "5B_tape_plain",
+      "key": "paper",
+      "volume_m3": 0.0007940556174998164
+    },
+    {
+      "name": "5B_tape_plain_Lid",
+      "assembly": "5B_tape_plain",
+      "key": "paper",
+      "volume_m3": 0.0003009457978547178
+    },
+    {
+      "name": "3B_out_parcel_a_Box",
+      "assembly": "3B_out_parcel_a",
+      "key": "paper",
+      "volume_m3": 0.0034556808507341104
+    },
+    {
+      "name": "3B_out_parcel_a_StringAlong",
+      "assembly": "3B_out_parcel_a",
+      "key": "bakelite",
+      "volume_m3": 2.9901188801643865e-06
+    },
+    {
+      "name": "3B_out_parcel_a_StringAcross",
+      "assembly": "3B_out_parcel_a",
+      "key": "bakelite",
+      "volume_m3": 2.242511392801139e-06
+    },
+    {
+      "name": "3B_out_parcel_b_Box",
+      "assembly": "3B_out_parcel_b",
+      "key": "paper",
+      "volume_m3": 0.0034556808507341104
+    },
+    {
+      "name": "3B_out_parcel_b_StringAlong",
+      "assembly": "3B_out_parcel_b",
+      "key": "bakelite",
+      "volume_m3": 2.9901188801643865e-06
+    },
+    {
+      "name": "3B_out_parcel_b_StringAcross",
+      "assembly": "3B_out_parcel_b",
+      "key": "bakelite",
+      "volume_m3": 2.242511392801139e-06
+    },
+    {
+      "name": "3B_out_parcel_c_Box",
+      "assembly": "3B_out_parcel_c",
+      "key": "paper",
+      "volume_m3": 0.0034556808507341104
+    },
+    {
+      "name": "3B_out_parcel_c_StringAlong",
+      "assembly": "3B_out_parcel_c",
+      "key": "bakelite",
+      "volume_m3": 2.9901188801643865e-06
+    },
+    {
+      "name": "3B_out_parcel_c_StringAcross",
+      "assembly": "3B_out_parcel_c",
+      "key": "bakelite",
+      "volume_m3": 2.242511392801139e-06
+    },
+    {
+      "name": "2A_plain_box_Body",
+      "assembly": "2A_plain_box",
+      "key": "paper",
+      "volume_m3": 0.005039636376261541
+    },
+    {
+      "name": "2A_plain_box_Lid",
+      "assembly": "2A_plain_box",
+      "key": "paper",
+      "volume_m3": 0.0017377490112485204
+    },
+    {
+      "name": "6B_wastebasket_Wall",
+      "assembly": "6B_wastebasket",
+      "key": "metal",
+      "volume_m3": 0.0010962239192571228
+    },
+    {
+      "name": "6B_wastebasket_Paper0",
+      "assembly": "6B_wastebasket",
+      "key": "paper",
+      "volume_m3": 0.0008763110278578106
+    },
+    {
+      "name": "6B_wastebasket_Paper1",
+      "assembly": "6B_wastebasket",
+      "key": "paper",
+      "volume_m3": 0.0006749812329976999
+    },
+    {
+      "name": "6B_wastebasket_Paper2",
+      "assembly": "6B_wastebasket",
+      "key": "paper",
+      "volume_m3": 0.0005071247523377319
+    },
+    {
+      "name": "6B_wastebasket_Paper3",
+      "assembly": "6B_wastebasket",
+      "key": "paper",
+      "volume_m3": 0.00036969050508536507
+    },
+    {
+      "name": "6B_wastebasket_Paper4",
+      "assembly": "6B_wastebasket",
+      "key": "paper",
+      "volume_m3": 0.000259647324731362
     }
   ],
   "contacts": [
@@ -15205,6 +16225,1146 @@
         0
       ],
       "label": "can base"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        -0.22100000000000003,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 0"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        -0.18700000000000003,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 1"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        -0.15300000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 2"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        -0.11900000000000002,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 3"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        -0.08500000000000002,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 4"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        -0.05100000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 5"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        -0.017000000000000015,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 6"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        0.016999999999999987,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 7"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        0.05099999999999999,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 8"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        0.08500000000000002,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 9"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        0.119,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 10"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        0.15299999999999997,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 11"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        0.187,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 12"
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "owner": "support",
+      "point": [
+        0.22100000000000003,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 13"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        -0.22100000000000003,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 0"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        -0.18700000000000003,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 1"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        -0.15300000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 2"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        -0.11900000000000002,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 3"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        -0.08500000000000002,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 4"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        -0.05100000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 5"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        -0.017000000000000015,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 6"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        0.016999999999999987,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 7"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        0.05099999999999999,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 8"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        0.08500000000000002,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 9"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        0.119,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 10"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        0.15299999999999997,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 11"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        0.187,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 12"
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "owner": "support",
+      "point": [
+        0.22100000000000003,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 13"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        -0.22100000000000003,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 0"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        -0.18700000000000003,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 1"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        -0.15300000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 2"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        -0.11900000000000002,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 3"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        -0.08500000000000002,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 4"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        -0.05100000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 5"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        -0.017000000000000015,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 6"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        0.016999999999999987,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 7"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        0.05099999999999999,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 8"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        0.08500000000000002,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 9"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        0.119,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 10"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        0.15299999999999997,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 11"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        0.187,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 12"
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "owner": "support",
+      "point": [
+        0.22100000000000003,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 13"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        -0.22100000000000003,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 0"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        -0.18700000000000003,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 1"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        -0.15300000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 2"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        -0.11900000000000002,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 3"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        -0.08500000000000002,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 4"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        -0.05100000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 5"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        -0.017000000000000015,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 6"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        0.016999999999999987,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 7"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        0.05099999999999999,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 8"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        0.08500000000000002,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 9"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        0.119,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 10"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        0.15299999999999997,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 11"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        0.187,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 12"
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "owner": "support",
+      "point": [
+        0.22100000000000003,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 13"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        -0.22100000000000003,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 0"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        -0.18700000000000003,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 1"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        -0.15300000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 2"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        -0.11900000000000002,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 3"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        -0.08500000000000002,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 4"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        -0.05100000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 5"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        -0.017000000000000015,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 6"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        0.016999999999999987,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 7"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        0.05099999999999999,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 8"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        0.08500000000000002,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 9"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        0.119,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 10"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        0.15299999999999997,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 11"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        0.187,
+        0,
+        -0.004
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 12"
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "owner": "support",
+      "point": [
+        0.22100000000000003,
+        0,
+        0.003
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box 13"
+    },
+    {
+      "assembly": "5B_tape_plain",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "reel box base"
+    },
+    {
+      "assembly": "3B_out_parcel_a",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "parcel base"
+    },
+    {
+      "assembly": "3B_out_parcel_b",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "parcel base"
+    },
+    {
+      "assembly": "3B_out_parcel_c",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "parcel base"
+    },
+    {
+      "assembly": "2A_plain_box",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "carton base"
+    },
+    {
+      "assembly": "6B_wastebasket",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "basket base"
     }
   ],
   "parts": [
@@ -17027,9 +19187,149 @@
       "cell": "4B",
       "key": "metal",
       "triangles": 860
+    },
+    {
+      "name": "5B_tapes_a1__bakelite",
+      "assembly": "5B_tapes_a1",
+      "cell": "5B",
+      "key": "bakelite",
+      "triangles": 2632
+    },
+    {
+      "name": "5B_tapes_a1__paper",
+      "assembly": "5B_tapes_a1",
+      "cell": "5B",
+      "key": "paper",
+      "triangles": 2632
+    },
+    {
+      "name": "5B_tapes_a2__bakelite",
+      "assembly": "5B_tapes_a2",
+      "cell": "5B",
+      "key": "bakelite",
+      "triangles": 2632
+    },
+    {
+      "name": "5B_tapes_a2__paper",
+      "assembly": "5B_tapes_a2",
+      "cell": "5B",
+      "key": "paper",
+      "triangles": 2632
+    },
+    {
+      "name": "5B_tapes_a3__bakelite",
+      "assembly": "5B_tapes_a3",
+      "cell": "5B",
+      "key": "bakelite",
+      "triangles": 2632
+    },
+    {
+      "name": "5B_tapes_a3__paper",
+      "assembly": "5B_tapes_a3",
+      "cell": "5B",
+      "key": "paper",
+      "triangles": 2632
+    },
+    {
+      "name": "5B_tapes_b1__bakelite",
+      "assembly": "5B_tapes_b1",
+      "cell": "5B",
+      "key": "bakelite",
+      "triangles": 2632
+    },
+    {
+      "name": "5B_tapes_b1__paper",
+      "assembly": "5B_tapes_b1",
+      "cell": "5B",
+      "key": "paper",
+      "triangles": 2632
+    },
+    {
+      "name": "5B_tapes_b2__bakelite",
+      "assembly": "5B_tapes_b2",
+      "cell": "5B",
+      "key": "bakelite",
+      "triangles": 2632
+    },
+    {
+      "name": "5B_tapes_b2__paper",
+      "assembly": "5B_tapes_b2",
+      "cell": "5B",
+      "key": "paper",
+      "triangles": 2632
+    },
+    {
+      "name": "5B_tape_plain__paper",
+      "assembly": "5B_tape_plain",
+      "cell": "5B",
+      "key": "paper",
+      "triangles": 376
+    },
+    {
+      "name": "3B_out_parcel_a__bakelite",
+      "assembly": "3B_out_parcel_a",
+      "cell": "3B",
+      "key": "bakelite",
+      "triangles": 376
+    },
+    {
+      "name": "3B_out_parcel_a__paper",
+      "assembly": "3B_out_parcel_a",
+      "cell": "3B",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "3B_out_parcel_b__bakelite",
+      "assembly": "3B_out_parcel_b",
+      "cell": "3B",
+      "key": "bakelite",
+      "triangles": 376
+    },
+    {
+      "name": "3B_out_parcel_b__paper",
+      "assembly": "3B_out_parcel_b",
+      "cell": "3B",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "3B_out_parcel_c__bakelite",
+      "assembly": "3B_out_parcel_c",
+      "cell": "3B",
+      "key": "bakelite",
+      "triangles": 376
+    },
+    {
+      "name": "3B_out_parcel_c__paper",
+      "assembly": "3B_out_parcel_c",
+      "cell": "3B",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "2A_plain_box__paper",
+      "assembly": "2A_plain_box",
+      "cell": "2A",
+      "key": "paper",
+      "triangles": 376
+    },
+    {
+      "name": "6B_wastebasket__metal",
+      "assembly": "6B_wastebasket",
+      "cell": "6B",
+      "key": "metal",
+      "triangles": 768
+    },
+    {
+      "name": "6B_wastebasket__paper",
+      "assembly": "6B_wastebasket",
+      "cell": "6B",
+      "key": "paper",
+      "triangles": 4320
     }
   ],
-  "triangles": 651644,
+  "triangles": 685496,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -20989,6 +23289,283 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "5B_tapes_a1",
+        "parts": [
+          {
+            "name": "5B_tapes_a1__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "5B_tapes_a1__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5B_tapes_a2",
+        "parts": [
+          {
+            "name": "5B_tapes_a2__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "5B_tapes_a2__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5B_tapes_a3",
+        "parts": [
+          {
+            "name": "5B_tapes_a3__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "5B_tapes_a3__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5B_tapes_b1",
+        "parts": [
+          {
+            "name": "5B_tapes_b1__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "5B_tapes_b1__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5B_tapes_b2",
+        "parts": [
+          {
+            "name": "5B_tapes_b2__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "5B_tapes_b2__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5B_tape_plain",
+        "parts": [
+          {
+            "name": "5B_tape_plain__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3B_out_parcel_a",
+        "parts": [
+          {
+            "name": "3B_out_parcel_a__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "3B_out_parcel_a__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3B_out_parcel_b",
+        "parts": [
+          {
+            "name": "3B_out_parcel_b__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "3B_out_parcel_b__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3B_out_parcel_c",
+        "parts": [
+          {
+            "name": "3B_out_parcel_c__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "3B_out_parcel_c__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "2A_plain_box",
+        "parts": [
+          {
+            "name": "2A_plain_box__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6B_wastebasket",
+        "parts": [
+          {
+            "name": "6B_wastebasket__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "6B_wastebasket__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -21017,9 +23594,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "5a1319231775f2c0a81412a075bb8d81fea0a55cb4973bab827aad3b8b4fbe67",
+  "asset_sha256": "b27ccc20d33e76320fff0834d389559ccb26259970fbf6140b1cc664395b411f",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "eac376653d4ada3c6d9419b1420b20f5db043d7a24da25b2f75fcb3e1ce131e1",
+    "art/data/surface_stock/source_plan.json": "3f1cb7fb02af1d4d5cca16d9c77d67527d8da462938b5540559ca212ab4a0c98",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -21119,13 +23696,13 @@
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "55bd5c78ea1123733e871b809f23230943ed4bb9375885adebc40327a5909adc",
+    "art/blender/scripts/surface_stock_geometry.py": "6008a0074b244db478735ae54c6c026a6c36f8af6353f8ed793b32988b453986",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "f2a4d4ba584fff524475499c498c7bb37f3b46096cd587d74333c2b6eb8709ef",
+    "game/data/orison_v2/domestic_surface_props.json": "551cae6eba0fad38ef1c87442d433d4d26ed3df90be72ac2daed4aa8d2fc45f4",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "e7ed96e5f73f94b91590a9b600df202c5778c5aa9887af67b12159827a71bcd9"
+    "game/data/orison_v2/domestic_furniture.json": "50304c1c8b24bdb6aa8ce7f4fd27c24b3982d2e7755379d4f27dcb83ac107015"
   },
   "retained_stock": [
     {
@@ -26782,6 +29359,621 @@
         "4B_trash_Body",
         "4B_trash_Lid",
         "4B_trash_LidHandle"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box0",
+      "stocks": [
+        "5B_tapes_a1_Box0",
+        "5B_tapes_a1_Seam0"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box1",
+      "stocks": [
+        "5B_tapes_a1_Box1",
+        "5B_tapes_a1_Seam1"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box2",
+      "stocks": [
+        "5B_tapes_a1_Box2",
+        "5B_tapes_a1_Seam2"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box3",
+      "stocks": [
+        "5B_tapes_a1_Box3",
+        "5B_tapes_a1_Seam3"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box4",
+      "stocks": [
+        "5B_tapes_a1_Box4",
+        "5B_tapes_a1_Seam4"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box5",
+      "stocks": [
+        "5B_tapes_a1_Box5",
+        "5B_tapes_a1_Seam5"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box6",
+      "stocks": [
+        "5B_tapes_a1_Box6",
+        "5B_tapes_a1_Seam6"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box7",
+      "stocks": [
+        "5B_tapes_a1_Box7",
+        "5B_tapes_a1_Seam7"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box8",
+      "stocks": [
+        "5B_tapes_a1_Box8",
+        "5B_tapes_a1_Seam8"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box9",
+      "stocks": [
+        "5B_tapes_a1_Box9",
+        "5B_tapes_a1_Seam9"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box10",
+      "stocks": [
+        "5B_tapes_a1_Box10",
+        "5B_tapes_a1_Seam10"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box11",
+      "stocks": [
+        "5B_tapes_a1_Box11",
+        "5B_tapes_a1_Seam11"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box12",
+      "stocks": [
+        "5B_tapes_a1_Box12",
+        "5B_tapes_a1_Seam12"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a1",
+      "id": "5B_tapes_a1_Box13",
+      "stocks": [
+        "5B_tapes_a1_Box13",
+        "5B_tapes_a1_Seam13"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box0",
+      "stocks": [
+        "5B_tapes_a2_Box0",
+        "5B_tapes_a2_Seam0"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box1",
+      "stocks": [
+        "5B_tapes_a2_Box1",
+        "5B_tapes_a2_Seam1"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box2",
+      "stocks": [
+        "5B_tapes_a2_Box2",
+        "5B_tapes_a2_Seam2"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box3",
+      "stocks": [
+        "5B_tapes_a2_Box3",
+        "5B_tapes_a2_Seam3"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box4",
+      "stocks": [
+        "5B_tapes_a2_Box4",
+        "5B_tapes_a2_Seam4"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box5",
+      "stocks": [
+        "5B_tapes_a2_Box5",
+        "5B_tapes_a2_Seam5"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box6",
+      "stocks": [
+        "5B_tapes_a2_Box6",
+        "5B_tapes_a2_Seam6"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box7",
+      "stocks": [
+        "5B_tapes_a2_Box7",
+        "5B_tapes_a2_Seam7"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box8",
+      "stocks": [
+        "5B_tapes_a2_Box8",
+        "5B_tapes_a2_Seam8"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box9",
+      "stocks": [
+        "5B_tapes_a2_Box9",
+        "5B_tapes_a2_Seam9"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box10",
+      "stocks": [
+        "5B_tapes_a2_Box10",
+        "5B_tapes_a2_Seam10"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box11",
+      "stocks": [
+        "5B_tapes_a2_Box11",
+        "5B_tapes_a2_Seam11"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box12",
+      "stocks": [
+        "5B_tapes_a2_Box12",
+        "5B_tapes_a2_Seam12"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a2",
+      "id": "5B_tapes_a2_Box13",
+      "stocks": [
+        "5B_tapes_a2_Box13",
+        "5B_tapes_a2_Seam13"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box0",
+      "stocks": [
+        "5B_tapes_a3_Box0",
+        "5B_tapes_a3_Seam0"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box1",
+      "stocks": [
+        "5B_tapes_a3_Box1",
+        "5B_tapes_a3_Seam1"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box2",
+      "stocks": [
+        "5B_tapes_a3_Box2",
+        "5B_tapes_a3_Seam2"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box3",
+      "stocks": [
+        "5B_tapes_a3_Box3",
+        "5B_tapes_a3_Seam3"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box4",
+      "stocks": [
+        "5B_tapes_a3_Box4",
+        "5B_tapes_a3_Seam4"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box5",
+      "stocks": [
+        "5B_tapes_a3_Box5",
+        "5B_tapes_a3_Seam5"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box6",
+      "stocks": [
+        "5B_tapes_a3_Box6",
+        "5B_tapes_a3_Seam6"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box7",
+      "stocks": [
+        "5B_tapes_a3_Box7",
+        "5B_tapes_a3_Seam7"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box8",
+      "stocks": [
+        "5B_tapes_a3_Box8",
+        "5B_tapes_a3_Seam8"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box9",
+      "stocks": [
+        "5B_tapes_a3_Box9",
+        "5B_tapes_a3_Seam9"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box10",
+      "stocks": [
+        "5B_tapes_a3_Box10",
+        "5B_tapes_a3_Seam10"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box11",
+      "stocks": [
+        "5B_tapes_a3_Box11",
+        "5B_tapes_a3_Seam11"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box12",
+      "stocks": [
+        "5B_tapes_a3_Box12",
+        "5B_tapes_a3_Seam12"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_a3",
+      "id": "5B_tapes_a3_Box13",
+      "stocks": [
+        "5B_tapes_a3_Box13",
+        "5B_tapes_a3_Seam13"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box0",
+      "stocks": [
+        "5B_tapes_b1_Box0",
+        "5B_tapes_b1_Seam0"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box1",
+      "stocks": [
+        "5B_tapes_b1_Box1",
+        "5B_tapes_b1_Seam1"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box2",
+      "stocks": [
+        "5B_tapes_b1_Box2",
+        "5B_tapes_b1_Seam2"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box3",
+      "stocks": [
+        "5B_tapes_b1_Box3",
+        "5B_tapes_b1_Seam3"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box4",
+      "stocks": [
+        "5B_tapes_b1_Box4",
+        "5B_tapes_b1_Seam4"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box5",
+      "stocks": [
+        "5B_tapes_b1_Box5",
+        "5B_tapes_b1_Seam5"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box6",
+      "stocks": [
+        "5B_tapes_b1_Box6",
+        "5B_tapes_b1_Seam6"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box7",
+      "stocks": [
+        "5B_tapes_b1_Box7",
+        "5B_tapes_b1_Seam7"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box8",
+      "stocks": [
+        "5B_tapes_b1_Box8",
+        "5B_tapes_b1_Seam8"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box9",
+      "stocks": [
+        "5B_tapes_b1_Box9",
+        "5B_tapes_b1_Seam9"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box10",
+      "stocks": [
+        "5B_tapes_b1_Box10",
+        "5B_tapes_b1_Seam10"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box11",
+      "stocks": [
+        "5B_tapes_b1_Box11",
+        "5B_tapes_b1_Seam11"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box12",
+      "stocks": [
+        "5B_tapes_b1_Box12",
+        "5B_tapes_b1_Seam12"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b1",
+      "id": "5B_tapes_b1_Box13",
+      "stocks": [
+        "5B_tapes_b1_Box13",
+        "5B_tapes_b1_Seam13"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box0",
+      "stocks": [
+        "5B_tapes_b2_Box0",
+        "5B_tapes_b2_Seam0"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box1",
+      "stocks": [
+        "5B_tapes_b2_Box1",
+        "5B_tapes_b2_Seam1"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box2",
+      "stocks": [
+        "5B_tapes_b2_Box2",
+        "5B_tapes_b2_Seam2"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box3",
+      "stocks": [
+        "5B_tapes_b2_Box3",
+        "5B_tapes_b2_Seam3"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box4",
+      "stocks": [
+        "5B_tapes_b2_Box4",
+        "5B_tapes_b2_Seam4"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box5",
+      "stocks": [
+        "5B_tapes_b2_Box5",
+        "5B_tapes_b2_Seam5"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box6",
+      "stocks": [
+        "5B_tapes_b2_Box6",
+        "5B_tapes_b2_Seam6"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box7",
+      "stocks": [
+        "5B_tapes_b2_Box7",
+        "5B_tapes_b2_Seam7"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box8",
+      "stocks": [
+        "5B_tapes_b2_Box8",
+        "5B_tapes_b2_Seam8"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box9",
+      "stocks": [
+        "5B_tapes_b2_Box9",
+        "5B_tapes_b2_Seam9"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box10",
+      "stocks": [
+        "5B_tapes_b2_Box10",
+        "5B_tapes_b2_Seam10"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box11",
+      "stocks": [
+        "5B_tapes_b2_Box11",
+        "5B_tapes_b2_Seam11"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box12",
+      "stocks": [
+        "5B_tapes_b2_Box12",
+        "5B_tapes_b2_Seam12"
+      ]
+    },
+    {
+      "assembly": "5B_tapes_b2",
+      "id": "5B_tapes_b2_Box13",
+      "stocks": [
+        "5B_tapes_b2_Box13",
+        "5B_tapes_b2_Seam13"
+      ]
+    },
+    {
+      "assembly": "5B_tape_plain",
+      "id": "5B_tape_plain_ReelBox",
+      "stocks": [
+        "5B_tape_plain_Body",
+        "5B_tape_plain_Lid"
+      ]
+    },
+    {
+      "assembly": "3B_out_parcel_a",
+      "id": "3B_out_parcel_a_Parcel",
+      "stocks": [
+        "3B_out_parcel_a_Box",
+        "3B_out_parcel_a_StringAlong",
+        "3B_out_parcel_a_StringAcross"
+      ]
+    },
+    {
+      "assembly": "3B_out_parcel_b",
+      "id": "3B_out_parcel_b_Parcel",
+      "stocks": [
+        "3B_out_parcel_b_Box",
+        "3B_out_parcel_b_StringAlong",
+        "3B_out_parcel_b_StringAcross"
+      ]
+    },
+    {
+      "assembly": "3B_out_parcel_c",
+      "id": "3B_out_parcel_c_Parcel",
+      "stocks": [
+        "3B_out_parcel_c_Box",
+        "3B_out_parcel_c_StringAlong",
+        "3B_out_parcel_c_StringAcross"
+      ]
+    },
+    {
+      "assembly": "2A_plain_box",
+      "id": "2A_plain_box_Carton",
+      "stocks": [
+        "2A_plain_box_Body",
+        "2A_plain_box_Lid"
+      ]
+    },
+    {
+      "assembly": "6B_wastebasket",
+      "id": "6B_wastebasket_WireBasket",
+      "stocks": [
+        "6B_wastebasket_Wall",
+        "6B_wastebasket_Paper0",
+        "6B_wastebasket_Paper1",
+        "6B_wastebasket_Paper2",
+        "6B_wastebasket_Paper3",
+        "6B_wastebasket_Paper4"
       ]
     }
   ],

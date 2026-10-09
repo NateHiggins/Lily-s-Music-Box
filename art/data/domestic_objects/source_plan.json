@@ -438,6 +438,10 @@
   {
    "id": "4D_hallstand",
    "variant": "DomesticObject16"
+  },
+  {
+   "id": "5B_deck",
+   "variant": "DomesticObject04"
   }
  ],
  "runtime_keys": [
@@ -636,10 +640,12 @@
   "Preserve all original source object counts, actor poses and passive ownership.",
   "Source-equivalent forms share a variant only when their source geometry and rear-wall fit match.",
   "Rubber plant retains six source-sized leaves and their node heights; tapered living stem, radial leaf directions and curved blades replace the legacy post and aligned discs. Fine existing catalogue nickel and dark moulded bakelite replace oversized galvanized and pebbled finishes locally.",
-  "Slice 8 of the V2 environment dossier adds the hall stand (DomesticObject16) to the seventeen apartment vestibules, standing clear of every leaf's swing and switch approach; the sixteen V1 records are unchanged."
+  "Slice 8 of the V2 environment dossier adds the hall stand (DomesticObject16) to the seventeen apartment vestibules, standing clear of every leaf's swing and switch approach; the sixteen V1 records are unchanged.",
+  "Slice 11 of the V2 environment dossier adds a second reel deck (DomesticObject04) on 5B's deck table; it bears on that table like 2A's on the coffee table."
  ],
  "support_by_id": {
-  "2A_deck": "2A_cof"
+  "2A_deck": "2A_cof",
+  "5B_deck": "5B_deck_table"
  },
  "open_work": [
   "Broad room lighting and surface calibration remain open. Native form, supports and runtime controls validated in the scoped object/radio batch.",

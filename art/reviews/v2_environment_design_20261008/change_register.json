@@ -3746,7 +3746,9 @@
    "preserve": "MinaCaseGameplay dialogue anchor if already bound",
    "acceptance": "Detail view of the shelf row reads the one blank box",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_A_MAIN"
+   "area": "F02_A_MAIN",
+   "status": "verified",
+   "owner_notes": "2A_plain_box: a blank card carton (carton form) on 2A_shelf1's middle board, flush with the front edge (the bearing rule refuses a 10 mm overhang; the two lower boards are full of the shelf's own bins and tins), blank face forward. The life profile's hero object conspicuously_unlabeled_box has no instantiating owner, so no INSPECT card is bound; the shelf row it should stand proud of arrives with F02_A_MAIN-001. Verified at ec25cca0 (slice11b; slice11 is the first run, red on the two placements fixed here): the thirteen families pass the fabrication batch (24,724 checks, 0 failures; tables 72, storage 50 and objects 36 actors with the copies, surface stock 3,708 checks with every record bearing on its support, the reel boxes on the clear boards), apartment batch 236 as before, upper lighting 0 failures, the household save owner's 201 controls unchanged (0 failures), the four-space sweep 0 failures; the rooms are shown in implementation/slice11b."
   },
   {
    "id": "F02_A_MAIN-004",
@@ -5347,7 +5349,9 @@
    "purpose": "Life profile surface set repair_intake; story panel repair tags",
    "acceptance": "Overview reads a flow from door to bench to shelf",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_B_MAIN"
+   "area": "F03_B_MAIN",
+   "status": "verified",
+   "owner_notes": "3B_outgoing_shelf (Shelf01 copy) against the south wall west of the private-hall opening, three wrapped parcels (3B_out_parcel_a/b/c) on its 0.97 m board. 3B_partscrate stays at its anchor as the intake crate (the dossier's move to the vestibule opening collides with the radio stance); paper tags wait for a tag form. Verified at ec25cca0 (slice11b; slice11 is the first run, red on the two placements fixed here): the thirteen families pass the fabrication batch (24,724 checks, 0 failures; tables 72, storage 50 and objects 36 actors with the copies, surface stock 3,708 checks with every record bearing on its support, the reel boxes on the clear boards), apartment batch 236 as before, upper lighting 0 failures, the household save owner's 201 controls unchanged (0 failures), the four-space sweep 0 failures; the rooms are shown in implementation/slice11b."
   },
   {
    "id": "F03_B_MAIN-003",
@@ -8468,7 +8472,9 @@
    "preserve": "Bible VII.8: the reel is never audible; no playback path",
    "acceptance": "Overview reads a triangle of chair, set, deck",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "F05_B_MAIN"
+   "area": "F05_B_MAIN",
+   "status": "verified",
+   "owner_notes": "5B_deck_table (TableRect05 copy, 1.6 x 0.5 m) along the private-hall opening at the third point of the listening triangle, with 5B_deck (a second DomesticObject04 reel deck bearing on its top) and, on the east wall beside the vestibule opening, two Shelf01 units (5B_tape_shelf_a/b) carrying five rows of fourteen standing reel boxes (boxrow form) and one plain box (reelbox form). Deviations: the deck is passive with no RESIST-REFUSE owner (nothing prompts; the reel is never audible), and the boxes carry seams instead of date tags (no lettering in textures). Verified at ec25cca0 (slice11b; slice11 is the first run, red on the two placements fixed here): the thirteen families pass the fabrication batch (24,724 checks, 0 failures; tables 72, storage 50 and objects 36 actors with the copies, surface stock 3,708 checks with every record bearing on its support, the reel boxes on the clear boards), apartment batch 236 as before, upper lighting 0 failures, the household save owner's 201 controls unchanged (0 failures), the four-space sweep 0 failures; the rooms are shown in implementation/slice11b."
   },
   {
    "id": "F05_B_MAIN-003",
@@ -9705,7 +9711,9 @@
    ],
    "acceptance": "Overview from the alcove door shows the lit desk",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_B_MAIN"
+   "area": "F06_B_MAIN",
+   "status": "verified",
+   "owner_notes": "6B_din_t turned into the desk: moved square to the private-hall opening at (-10.25, 4.4) with 6B_din_dc1 behind it facing the opening and 6B_din_dc2 at its west side, the stances re-seated; 6B_wastebasket (wire basket with crushed paper, basket form) on the floor at the desk's right. Deviations: the task lamp waits for the task-lamp installations; the three draft boxes wait for a bookshelf support in the stock inspector. Verified at ec25cca0 (slice11b; slice11 is the first run, red on the two placements fixed here): the thirteen families pass the fabrication batch (24,724 checks, 0 failures; tables 72, storage 50 and objects 36 actors with the copies, surface stock 3,708 checks with every record bearing on its support, the reel boxes on the clear boards), apartment batch 236 as before, upper lighting 0 failures, the household save owner's 201 controls unchanged (0 failures), the four-space sweep 0 failures; the rooms are shown in implementation/slice11b."
   },
   {
    "id": "F06_B_MAIN-002",

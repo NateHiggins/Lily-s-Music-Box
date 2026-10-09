@@ -473,6 +473,10 @@
     {
       "id": "4D_lamp_table",
       "variant": "TableRect08"
+    },
+    {
+      "id": "5B_deck_table",
+      "variant": "TableRect05"
     }
   ],
   "runtime_keys": [
@@ -541,7 +545,8 @@
     "Fitted hollow apron rails and rounded turned feet retain original table dimensions. Nightstands receive a closed drawer/cabinet, axial knob, bound bedside book and thin-walled drinking glass.",
     "Keep elliptical coffee glass dimensions and actual source top height; saw the original two crossing fins to floor and glass planes so they bear without penetrating the glass.",
     "Existing fine oak, paper, trim, brass and clear-glass owners provide local finish. No new texture or global material policy.",
-    "Native material tint values are linear light; runtime encodes them to sRGB for StandardMaterial3D albedo_color so the same finish matches Blender."
+    "Native material tint values are linear light; runtime encodes them to sRGB for StandardMaterial3D albedo_color so the same finish matches Blender.",
+    "Slice 11 of the V2 environment dossier adds 5B's reel-deck table as a TableRect05 copy."
   ],
   "open_work": [
     "Scoped native and all-instance runtime verification complete. Broader room material/light balance, remaining storage/kitchen furniture and whole-building visual acceptance remain open."

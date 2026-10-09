@@ -286,6 +286,32 @@ def flask(source):
  lathe('Body',0,0,0,[(0,0),(.04,0),(.042,.003),(.042,.24),(.04,.25),(.03,.255),(.03,.27),(.035,.272),(.035,.29),(0,.29)],'nickel_plated')
  bearing('flask base',(0,0,0));group('VacuumFlask',start)
 
+# Dossier slice 11: card cartons, reel boxes in rows and a wire wastebasket.
+def carton(source):
+ start=len(stock_checks);w,d,h=.28,.2,.12
+ stock('Body',(-w/2,-d/2,0),(w/2,d/2,h-.03),'paper',.0008)
+ stock('Lid',(-w/2-.002,-d/2-.002,h-.03),(w/2+.002,d/2+.002,h),'paper',.0008)
+ bearing('carton base',(0,0,0));group('Carton',start)
+def reelbox(source):
+ start=len(stock_checks);w,h=.19,.03
+ stock('Body',(-w/2,-w/2,0),(w/2,w/2,h-.008),'paper',.0006)
+ stock('Lid',(-w/2-.002,-w/2-.002,h-.008),(w/2+.002,w/2+.002,h),'paper',.0006)
+ bearing('reel box base',(0,0,0));group('ReelBox',start)
+def boxrow(source):
+ count=14;pitch=.034;x0=-pitch*(count-1)/2
+ for i in range(count):
+  # Each standing box is its own physical object: a card box with a seam line.
+  start=len(stock_checks);x=x0+i*pitch;lean=(.004,-.003,0)[i%3]
+  stock('Box'+str(i),(x-.014,-.095+lean,0),(x+.014,.095+lean,.19),'paper',.0006)
+  stock('Seam'+str(i),(x-.0145,-.0955+lean,.165),(x+.0145,.0955+lean,.167),'bakelite',.0002)
+  bearing('box '+str(i),(x,lean,0));group('Box'+str(i),start)
+def basket(source):
+ start=len(stock_checks)
+ lathe('Wall',0,0,0,[(0,0),(.115,0),(.118,.002),(.13,.3),(.133,.3),(.133,.302),(.128,.302),(.126,.3),(.114,.004),(0,.004)],'metal')
+ # Crushed sheets as a chain of overlapping balls from the basket floor over the rim.
+ for i,(x,y,z,rr) in enumerate([(0,0,.063,.06),(.045,.03,.145,.055),(-.03,-.01,.2,.05),(.015,-.045,.265,.045),(-.01,.01,.305,.04)]):
+  lathe('Paper'+str(i),x,y,z,[(0,-rr)]+[(rr*math.sin(t),-rr*math.cos(t)) for t in np.linspace(.2,math.pi-.2,9)]+[(0,rr)],'paper')
+ bearing('basket base',(0,0,0));group('WireBasket',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -311,4 +337,8 @@ for assembly in assemblies:
  elif kind=='can':can(source)
  elif kind=='parcel':parcel(source)
  elif kind=='flask':flask(source)
+ elif kind=='carton':carton(source)
+ elif kind=='reelbox':reelbox(source)
+ elif kind=='boxrow':boxrow(source)
+ elif kind=='basket':basket(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

@@ -91,6 +91,10 @@ Slices landed so far (evidence folders in parentheses):
     the Armchair seating form for 5B's listening chair and 1A's reading
     chair (`slice10`; `slice10b` re-runs the fabrication batch with a valid
     capture actor; `slice10c` is the door-hinge baseline at slice 9).
+11. 5B's reel-deck table, second deck and tape shelves with reel-box rows,
+    3B's outgoing shelf with parcels, 6B's desk arrangement with a wire
+    wastebasket, 2A's unlabelled carton (`slice11b`; `slice11` is the first
+    run, red on two placements fixed before the squash).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the
