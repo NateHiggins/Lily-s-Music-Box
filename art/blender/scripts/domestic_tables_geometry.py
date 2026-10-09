@@ -25,9 +25,26 @@ def rect_table(p):
  retained_stock.append({'assembly':identity,'kind':'table_rect','length':length,'depth':depth,'worktop':.745})
 
 def round_table(p):
- lathe('Pedestal',0,0,0,[(0,0),(.268,0),(.27,.002),(.24,.02),(.075,.10),(.042,.42),(.05,.64),(.11,.685),(0,.685)],'trim')
+ if p.get('column','turned')=='tulip':
+  # The former flared-disc pedestal (a 1957 form); kept only for an explicit request.
+  lathe('Pedestal',0,0,0,[(0,0),(.268,0),(.27,.002),(.24,.02),(.075,.10),(.042,.42),(.05,.64),(.11,.685),(0,.685)],'trim')
+  for i in range(4):bearing('pedestal quarter '+str(i),.15*math.cos(i*math.tau/4),.15*math.sin(i*math.tau/4))
+ else:
+  # Dossier BW-003: an Edwardian oak pedestal table, second-hand in 1927. A turned
+  # column with a bulb and a flared cap stands on a base block over four splayed feet.
+  wood=p.get('wood','wood_dark')
+  stock('BaseBlock',(-.12,-.12,.045),(.12,.12,.08),wood,.004)
+  for i,(dx,dy) in enumerate([(1,0),(-1,0),(0,1),(0,-1)]):
+   # Each foot is a shaped bar: a wider sole and a narrower moulded cap on it.
+   lo=(min(0,dx*.30)-.035*abs(dy),min(0,dy*.30)-.035*abs(dx),0)
+   hi=(max(0,dx*.30)+.035*abs(dy),max(0,dy*.30)+.035*abs(dx),.04)
+   stock('Foot%d'%i,lo,hi,wood,.006)
+   lo=(min(0,dx*.27)-.024*abs(dy),min(0,dy*.27)-.024*abs(dx),.04)
+   hi=(max(0,dx*.27)+.024*abs(dy),max(0,dy*.27)+.024*abs(dx),.065)
+   stock('FootCap%d'%i,lo,hi,wood,.005)
+   bearing('foot %d'%i,dx*.27,dy*.27)
+  lathe('Column',0,0,0,[(0,.078),(.085,.078),(.092,.084),(.07,.13),(.06,.21),(.082,.27),(.088,.31),(.066,.37),(.055,.48),(.06,.56),(.08,.62),(.098,.655),(.13,.678),(.13,.685),(0,.685)],wood)
  lathe('RoundWorktop',0,0,0,[(0,.685),(.50,.685),(.55,.7),(.55,.725),(.50,.735),(0,.735)],p['top'])
- for i in range(4):bearing('pedestal quarter '+str(i),.15*math.cos(i*math.tau/4),.15*math.sin(i*math.tau/4))
  retained_stock.append({'assembly':identity,'kind':'table_round','radius':.55,'worktop':.735})
 
 def nightstand(p):

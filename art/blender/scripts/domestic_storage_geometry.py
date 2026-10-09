@@ -46,17 +46,25 @@ def shelf(row,p):
  width=p['W'];height=p['H'];surfaces={s['material']:s for s in row['surfaces']}
  boards=list(source_boxes(surfaces['floor_oak']))
  assert height>=max(lo[2] for lo,hi in boards)
+ oak=p.get('posts','oak')=='oak'
  for i,x in enumerate([-width/2+.02,width/2-.02]):
   for j,y in enumerate([-.13,.13]):
-   rod(identity+'_Upright%d%d'%(i,j),(x,y,0),(x,y,height),.013,identity,'metal')
+   if oak:
+    # Dossier BW-003: an oak open shelf unit; square posts replace the steel rods.
+    stock('Upright%d%d'%(i,j),(x-.016,y-.016,0),(x+.016,y+.016,height),'floor_oak',.002)
+   else:
+    rod(identity+'_Upright%d%d'%(i,j),(x,y,0),(x,y,height),.013,identity,'metal')
    foot('shelf foot%d%d'%(i,j),x,y)
  for i,(lo,hi) in enumerate(boards):
   stock('Board'+str(i),lo,hi,'floor_oak',.001)
   for sign in [-1,1]:
    x=sign*(width/2-.02)
-   # A welded rung below each board supplies an actual bearing, not just a
+   # A rail below each board supplies an actual bearing, not just a
    # coincident board cut through a vertical post.
-   rod(identity+'_Rung%d_%d'%(i,sign),(x,-.13,lo[2]-.006),(x,.13,lo[2]-.006),.006,identity,'metal')
+   if oak:
+    stock('Rail%d_%d'%(i,sign),(x-.012,-.13,lo[2]-.012),(x+.012,.13,lo[2]),'floor_oak',.001)
+   else:
+    rod(identity+'_Rung%d_%d'%(i,sign),(x,-.13,lo[2]-.006),(x,.13,lo[2]-.006),.006,identity,'metal')
  for key,surface in surfaces.items():
   if key.startswith('book_'):
    for i,(lo,hi) in enumerate(source_boxes(surface)):bound_book(key+str(i),lo,hi,key)

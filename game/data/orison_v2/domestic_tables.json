@@ -105,16 +105,6 @@
       "id": "TableRound03",
       "parts": [
         {
-          "name": "TableRound03__trim",
-          "key": "trim",
-          "tile": 1.2,
-          "catalog_key": "trim",
-          "finish": {
-            "normal_scale": 0.025,
-            "roughness": 0.48
-          }
-        },
-        {
           "name": "TableRound03__wood_dark",
           "key": "wood_dark",
           "tile": 0.9,
@@ -339,12 +329,18 @@
           }
         },
         {
-          "name": "TableRound10__trim",
-          "key": "trim",
-          "tile": 1.2,
-          "catalog_key": "trim",
+          "name": "TableRound10__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
           "finish": {
-            "normal_scale": 0.025,
+            "normal_scale": 0.04,
             "roughness": 0.48
           }
         }

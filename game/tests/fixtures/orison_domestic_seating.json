@@ -355,7 +355,13 @@
       "name": "Sofa195_Arm-1",
       "assembly": "Sofa195",
       "key": "fabric_cool",
-      "volume_m3": 0.06303308350087432
+      "volume_m3": 0.051944796839615476
+    },
+    {
+      "name": "Sofa195_ArmRoll-1",
+      "assembly": "Sofa195",
+      "key": "fabric_cool",
+      "volume_m3": 0.019925487662613782
     },
     {
       "name": "Sofa195_ArmSeat1",
@@ -367,7 +373,13 @@
       "name": "Sofa195_Arm1",
       "assembly": "Sofa195",
       "key": "fabric_cool",
-      "volume_m3": 0.06303308350087432
+      "volume_m3": 0.051944796839615476
+    },
+    {
+      "name": "Sofa195_ArmRoll1",
+      "assembly": "Sofa195",
+      "key": "fabric_cool",
+      "volume_m3": 0.019925487662613768
     },
     {
       "name": "Sofa195_SeatCushion0",
@@ -463,7 +475,13 @@
       "name": "Sofa210_Arm-1",
       "assembly": "Sofa210",
       "key": "fabric_cool",
-      "volume_m3": 0.06303308350087432
+      "volume_m3": 0.051944796839615476
+    },
+    {
+      "name": "Sofa210_ArmRoll-1",
+      "assembly": "Sofa210",
+      "key": "fabric_cool",
+      "volume_m3": 0.019925503548895503
     },
     {
       "name": "Sofa210_ArmSeat1",
@@ -475,7 +493,13 @@
       "name": "Sofa210_Arm1",
       "assembly": "Sofa210",
       "key": "fabric_cool",
-      "volume_m3": 0.06303308350087432
+      "volume_m3": 0.051944796839615476
+    },
+    {
+      "name": "Sofa210_ArmRoll1",
+      "assembly": "Sofa210",
+      "key": "fabric_cool",
+      "volume_m3": 0.019925503548895503
     },
     {
       "name": "Sofa210_SeatCushion0",
@@ -858,7 +882,7 @@
       "assembly": "Sofa195",
       "cell": "shared",
       "key": "fabric_cool",
-      "triangles": 7776
+      "triangles": 9720
     },
     {
       "name": "Sofa195__linen",
@@ -879,7 +903,7 @@
       "assembly": "Sofa210",
       "cell": "shared",
       "key": "fabric_cool",
-      "triangles": 7776
+      "triangles": 9720
     },
     {
       "name": "Sofa210__linen",
@@ -910,7 +934,7 @@
       "triangles": 4664
     }
   ],
-  "triangles": 37376,
+  "triangles": 41264,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -1248,9 +1272,9 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "4bda006bb8cf23a271664b1b77bf5fdbb07b93b7006698f49e1b0711da90716f",
+  "asset_sha256": "04c40bf5a33cbc665483ae4c5db8da08f4a355a4075cd08b117243741c31621e",
   "source_bindings": {
-    "art/data/domestic_seating/source_plan.json": "0828c775ee63c02bb48a38bae596aa037739f8c338e73396ad30b9498b1245b2",
+    "art/data/domestic_seating/source_plan.json": "4da34f21f2904b5f3a116744099225a1776c8c4f14148305868715d32d419b2d",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_domestic_seating.py": "cbbf4ca0192088a0d178080d7b89150a7c688acd05b5ba8f0b5b860289b75c4a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -1274,13 +1298,13 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_seating.py": "ff71654d56aaf25e674a57b4d719a1dec777b11adb7f22692695e086c87d3c69",
     "art/blender/scripts/render_domestic_seating.py": "fd6ed1615a15e1cf564979f43c6cb8a27a1023d634b3242b13420f8b5df77333",
-    "art/blender/scripts/domestic_seating_geometry.py": "90c84203e0452d246b7ba2316c3bb056bab624eaf01bfd1aedd6e5fcebffaec5",
+    "art/blender/scripts/domestic_seating_geometry.py": "ab6737ef97c98f05b0f7ca57803379612fb3d0e54926500d0d4a10ff3fcb711e",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "game/data/orison_v2/domestic_furniture.json": "73c5ebb895a51ffd60a48ae3462ac8b8d38c35e8cb6c057d84ede8ee2c67a597",
     "game/data/orison_v2/completion_interiors.json": "ebade1e8fc00b2bd11a5ea8fd213c78d61f27a141f5e8f5d7ebad17a10810eaf",
     "art/data/orison_v2/completion_interiors_source.json": "15ea878ca0ad01935308a4382eec27124771cd9ad93ea495e042bce156802bc2",
     "art/blender/scripts/inspect_domestic_furniture_context.py": "85da46bed1da8c4f63917ce4f98fc87b5feae49431f8f1e3da4a8a14c9d890ad",
-    "game/data/orison_v2_blockout.json": "87a67c240fc2fd659a5fe0fcbae9d1e0bd6aae81905d8953b2dd88691ea0bd6e",
+    "game/data/orison_v2_blockout.json": "6e83c2d4a55d460d3e6dd33240deb885e154a76924aad7e426a244ca7802a40b",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
     "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e",
     "game/tests/fixtures/orison_surface_stock.json": "046a968349c75f946cff600f351552ca45dfcf85568fa264e4e94ffe2d975ad8"
@@ -1402,8 +1426,10 @@
         "Sofa195_BackShell",
         "Sofa195_ArmSeat-1",
         "Sofa195_Arm-1",
+        "Sofa195_ArmRoll-1",
         "Sofa195_ArmSeat1",
         "Sofa195_Arm1",
+        "Sofa195_ArmRoll1",
         "Sofa195_SeatCushion0",
         "Sofa195_BackCushion0",
         "Sofa195_SeatWelt0",
@@ -1426,8 +1452,10 @@
         "Sofa210_BackShell",
         "Sofa210_ArmSeat-1",
         "Sofa210_Arm-1",
+        "Sofa210_ArmRoll-1",
         "Sofa210_ArmSeat1",
         "Sofa210_Arm1",
+        "Sofa210_ArmRoll1",
         "Sofa210_SeatCushion0",
         "Sofa210_BackCushion0",
         "Sofa210_SeatWelt0",

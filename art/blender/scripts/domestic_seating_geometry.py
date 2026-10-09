@@ -66,7 +66,12 @@ def sofa(params):
   # inside the upholstery to give each real support without widening the actor.
   bridge_low=low-.035 if sign>0 else low+.020;bridge_high=high-.020 if sign>0 else high+.035
   stock('ArmSeat'+str(sign),(bridge_low,-.35,.185),(bridge_high,.35,.28),wood,.005)
-  pad('Arm'+str(sign),(low,-.44,.15),(high,.44,.62),cloth,.05)
+  if params.get('arms','rolled')=='rolled':
+   # Dossier BW-003: a sprung 1910s sofa carries rolled arms, not square slabs.
+   pad('Arm'+str(sign),(low,-.44,.15),(high,.44,.54),cloth,.05)
+   pad('ArmRoll'+str(sign),(low-.01,-.43,.50),(high+.01,.42,.665),cloth,.075)
+  else:
+   pad('Arm'+str(sign),(low,-.44,.15),(high,.44,.62),cloth,.05)
  count=2;cw=(length-.04*(count+1))/count
  for i in range(count):
   x0=-length/2+.04+i*(cw+.04);x1=x0+cw
