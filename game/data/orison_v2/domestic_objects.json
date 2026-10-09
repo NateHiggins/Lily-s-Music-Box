@@ -1411,6 +1411,286 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject22",
+      "parts": [
+        {
+          "name": "DomesticObject22__Body_ON_cape_navy",
+          "component": "Body",
+          "key": "cape_navy",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.05,
+            0.065,
+            0.16,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject22__Body_ON_coat_grey",
+          "component": "Body",
+          "key": "coat_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.22,
+            0.22,
+            0.23,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject22__Body_ON_jersey_maroon",
+          "component": "Body",
+          "key": "jersey_maroon",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.22,
+            0.045,
+            0.06,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject22__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject22__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject22__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject22__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject22__Body_ON_wool_burgundy",
+          "component": "Body",
+          "key": "wool_burgundy",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.3,
+            0.05,
+            0.07,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject23",
+      "parts": [
+        {
+          "name": "DomesticObject23__Body_ON_cape_navy",
+          "component": "Body",
+          "key": "cape_navy",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.05,
+            0.065,
+            0.16,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject23__Body_ON_coat_grey",
+          "component": "Body",
+          "key": "coat_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.22,
+            0.22,
+            0.23,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject23__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject23__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject23__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject24",
+      "parts": [
+        {
+          "name": "DomesticObject24__Body_ON_blanket_grey",
+          "component": "Body",
+          "key": "blanket_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.28,
+            0.27,
+            0.25,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject24__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject24__Body_ON_timber",
+          "component": "Body",
+          "key": "timber",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject24__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -1589,6 +1869,30 @@
     {
       "id": "1A_frame_b",
       "variant": "DomesticObject21"
+    },
+    {
+      "id": "2B_repair_rail",
+      "variant": "DomesticObject22"
+    },
+    {
+      "id": "4B_closet_rail",
+      "variant": "DomesticObject23"
+    },
+    {
+      "id": "2C_blanket_a",
+      "variant": "DomesticObject24"
+    },
+    {
+      "id": "2C_blanket_b",
+      "variant": "DomesticObject24"
+    },
+    {
+      "id": "3D_blanket_a",
+      "variant": "DomesticObject24"
+    },
+    {
+      "id": "3D_blanket_b",
+      "variant": "DomesticObject24"
     }
   ],
   "tint_space": "linear"

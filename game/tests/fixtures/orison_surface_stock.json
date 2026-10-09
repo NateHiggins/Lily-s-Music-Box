@@ -1593,6 +1593,18 @@
       "kind": "basket",
       "cell": "6B",
       "source_record": "6B_wastebasket"
+    },
+    {
+      "id": "4B_capsule_tin",
+      "kind": "tin",
+      "cell": "4B",
+      "source_record": "4B_capsule_tin"
+    },
+    {
+      "id": "4B_bulb_box",
+      "kind": "carton",
+      "cell": "4B",
+      "source_record": "4B_bulb_box"
     }
   ],
   "closed_stocks": [
@@ -12023,6 +12035,30 @@
       "assembly": "6B_wastebasket",
       "key": "paper",
       "volume_m3": 0.000259647324731362
+    },
+    {
+      "name": "4B_capsule_tin_Can",
+      "assembly": "4B_capsule_tin",
+      "key": "nickel_plated",
+      "volume_m3": 0.0009150575196985993
+    },
+    {
+      "name": "4B_capsule_tin_Lid",
+      "assembly": "4B_capsule_tin",
+      "key": "nickel_plated",
+      "volume_m3": 0.0001172981332062072
+    },
+    {
+      "name": "4B_bulb_box_Body",
+      "assembly": "4B_bulb_box",
+      "key": "paper",
+      "volume_m3": 0.005039636376261541
+    },
+    {
+      "name": "4B_bulb_box_Lid",
+      "assembly": "4B_bulb_box",
+      "key": "paper",
+      "volume_m3": 0.0017377490112485204
     }
   ],
   "contacts": [
@@ -17365,6 +17401,36 @@
         0
       ],
       "label": "basket base"
+    },
+    {
+      "assembly": "4B_capsule_tin",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tin base"
+    },
+    {
+      "assembly": "4B_bulb_box",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "carton base"
     }
   ],
   "parts": [
@@ -19327,9 +19393,23 @@
       "cell": "6B",
       "key": "paper",
       "triangles": 4320
+    },
+    {
+      "name": "4B_capsule_tin__nickel_plated",
+      "assembly": "4B_capsule_tin",
+      "cell": "4B",
+      "key": "nickel_plated",
+      "triangles": 768
+    },
+    {
+      "name": "4B_bulb_box__paper",
+      "assembly": "4B_bulb_box",
+      "cell": "4B",
+      "key": "paper",
+      "triangles": 376
     }
   ],
-  "triangles": 685496,
+  "triangles": 686640,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -23566,6 +23646,44 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "4B_capsule_tin",
+        "parts": [
+          {
+            "name": "4B_capsule_tin__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4B_bulb_box",
+        "parts": [
+          {
+            "name": "4B_bulb_box__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -23594,9 +23712,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "b27ccc20d33e76320fff0834d389559ccb26259970fbf6140b1cc664395b411f",
+  "asset_sha256": "47637d730f2da3352d0c7e3df0cbf334b7e838dca47e673fb4d4ebef42793a1c",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "3f1cb7fb02af1d4d5cca16d9c77d67527d8da462938b5540559ca212ab4a0c98",
+    "art/data/surface_stock/source_plan.json": "e22c1d1f7f799e9cfa55586ddab841e1f49c28c1b91a6367b08dad2eb7c80fe0",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -23698,11 +23816,11 @@
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
     "art/blender/scripts/surface_stock_geometry.py": "6008a0074b244db478735ae54c6c026a6c36f8af6353f8ed793b32988b453986",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "551cae6eba0fad38ef1c87442d433d4d26ed3df90be72ac2daed4aa8d2fc45f4",
+    "game/data/orison_v2/domestic_surface_props.json": "77c704b249438b8ed83b3cc9dd1b68649f1e0a55938f06e5c244d90e662ac276",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "50304c1c8b24bdb6aa8ce7f4fd27c24b3982d2e7755379d4f27dcb83ac107015"
+    "game/data/orison_v2/domestic_furniture.json": "7388f5e75815f139cb4628e20ec8eca4ffe1ab3332c46d7ecf883608e16b944c"
   },
   "retained_stock": [
     {
@@ -29974,6 +30092,22 @@
         "6B_wastebasket_Paper2",
         "6B_wastebasket_Paper3",
         "6B_wastebasket_Paper4"
+      ]
+    },
+    {
+      "assembly": "4B_capsule_tin",
+      "id": "4B_capsule_tin_Tin",
+      "stocks": [
+        "4B_capsule_tin_Can",
+        "4B_capsule_tin_Lid"
+      ]
+    },
+    {
+      "assembly": "4B_bulb_box",
+      "id": "4B_bulb_box_Carton",
+      "stocks": [
+        "4B_bulb_box_Body",
+        "4B_bulb_box_Lid"
       ]
     }
   ],

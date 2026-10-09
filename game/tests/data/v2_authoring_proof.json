@@ -312,6 +312,30 @@
         "component": "artframe",
         "note": "V2 environment dossier F04_A_MAIN-002 (slice 12); no V1 counterpart"
       }
+    },
+    "2B_repair_rail": {
+      "source_component": {
+        "component": "garmentrail",
+        "note": "V2 environment dossier F02_B_MAIN-002 (slice 13); no V1 counterpart"
+      }
+    },
+    "4B_closet_rail": {
+      "source_component": {
+        "component": "garmentrail",
+        "note": "V2 environment dossier F04_B_CLOSET-001 (slice 13); no V1 counterpart"
+      }
+    },
+    "2C_blanket_a": {
+      "source_component": {
+        "component": "blanket",
+        "note": "V2 environment dossier F02_C_BED2-002 (slice 13); no V1 counterpart"
+      }
+    },
+    "2C_blanket_b": {
+      "source_component": {
+        "component": "2C_blanket_a",
+        "note": "V2 environment dossier F02_C_BED2-002 (slice 13): second blanket"
+      }
     }
   },
   "receivers": {

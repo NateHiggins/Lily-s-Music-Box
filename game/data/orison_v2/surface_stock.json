@@ -4233,6 +4233,44 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "4B_capsule_tin",
+      "parts": [
+        {
+          "name": "4B_capsule_tin__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4B_bulb_box",
+      "parts": [
+        {
+          "name": "4B_bulb_box__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "local_materials": {

@@ -99,6 +99,9 @@ Slices landed so far (evidence folders in parentheses):
     wall-art form for 5C's diptych and the framed pairs in 4A and 1A
     (`slice12`; `slice12b` re-runs the apartment batch after its roster
     was held to the original category set).
+13. Cloth: a garment-rail form (2B's repair rail, 4B's closet rail) and a
+    hung-blanket form (2C's second bedroom, 3D's study), with five tinted
+    cloth keys on the catalogue linen (`slice13`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

@@ -314,6 +314,37 @@ def artframe(source):
  wall_mount(source,width,height)
  group('WallArt',start)
 
+def garmentrail(source):
+ # Dossier slice 13: a wall rail on a header board with garments on wooden
+ # hangers, hung edge-on to the wall; optional paper repair tags.
+ start=len(stock_checks);width=source['W'];height=source['H'];top=height-.13
+ wall_mount(source,width,height)
+ stock('Header',(-width/2,0,height-.12),(width/2,.022,height),'wood_dark',.001)
+ for x in [-width/2+.03,width/2-.03]:stock('Bracket'+str(x),(x-.008,.021,height-.07),(x+.008,.33,height-.05),'metal',.0004)
+ tube('Rail',(-width/2+.02,.31,height-.06),(width/2-.02,.31,height-.06),.011,'metal')
+ garments=source['garments'];pitch=(width-.16)/max(len(garments)-1,1)
+ for i,key in enumerate(garments):
+  x=-width/2+.08+i*pitch;length=(.55,.65,.72)[i%3]
+  wire('Hook'+str(i),[(x,.31,top+.02),(x,.31,height-.035),(x,.30,height-.03),(x,.29,height-.04)],.003,'metal')
+  tube('Hanger'+str(i),(x,.11,top+.02),(x,.51,top+.02),.006,'wood_dark')
+  stock('Shoulders'+str(i),(x-.02,.12,top-.06),(x+.02,.50,top+.016),key,.004)
+  stock('Body'+str(i),(x-.018,.14,top-.06-length),(x+.018,.48,top-.055),key,.004)
+  if source.get('tags'):stock('Tag'+str(i),(x+.017,.40,top-.2),(x+.021,.45,top-.14),'paper',.0002)
+ group('GarmentRail',start)
+
+def blanket(source):
+ # Dossier slice 13: a moving blanket hung from a batten, edges bound and
+ # quilted in rows.
+ start=len(stock_checks);width=source['W'];height=source['H'];key=source['key']
+ wall_mount(source,width,height)
+ stock('Batten',(-width/2-.03,0,height-.05),(width/2+.03,.02,height),'timber',.0006)
+ stock('Blanket',(-width/2,.0195,0),(width/2,.04,height-.02),key,.003)
+ for side in [-1,1]:stock('Bind'+str(side),(min(side*width/2,side*(width/2-.025)),.018,0),(max(side*width/2,side*(width/2-.025)),.0415,height-.02),'linen',.0004)
+ stock('BindFoot',(-width/2+.024,.018,0),(width/2-.024,.0415,.025),'linen',.0004)
+ for i in range(1,int(height/.3)):
+  z=i*.3;stock('Stitch'+str(i),(-width/2+.03,.0398,z-.0012),(width/2-.03,.0412,z+.0012),'linen',.0001)
+ group('HungBlanket',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -330,4 +361,6 @@ for assembly in assemblies:
  elif kind=='softbox':softbox(source,assembly['members'][0])
  elif kind=='hallstand':hallstand(source)
  elif kind=='artframe':artframe(source)
+ elif kind=='garmentrail':garmentrail(source)
+ elif kind=='blanket':blanket(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

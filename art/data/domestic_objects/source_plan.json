@@ -403,6 +403,51 @@
     "style": "document"
    },
    "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject22",
+   "kind": "garmentrail",
+   "source_id": "2B_repair_rail",
+   "params": {
+    "W": 0.9,
+    "H": 0.95,
+    "garments": [
+     "wool_burgundy",
+     "jersey_maroon",
+     "cape_navy",
+     "coat_grey",
+     "linen"
+    ],
+    "tags": true
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject23",
+   "kind": "garmentrail",
+   "source_id": "4B_closet_rail",
+   "params": {
+    "W": 0.9,
+    "H": 0.95,
+    "garments": [
+     "coat_grey",
+     "linen",
+     "cape_navy",
+     "coat_grey"
+    ]
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject24",
+   "kind": "blanket",
+   "source_id": "2C_blanket_a",
+   "params": {
+    "W": 1.2,
+    "H": 2.0,
+    "key": "blanket_grey"
+   },
+   "rear_wall_y": -0.02
   }
  ],
  "instances": [
@@ -581,6 +626,30 @@
   {
    "id": "1A_frame_b",
    "variant": "DomesticObject21"
+  },
+  {
+   "id": "2B_repair_rail",
+   "variant": "DomesticObject22"
+  },
+  {
+   "id": "4B_closet_rail",
+   "variant": "DomesticObject23"
+  },
+  {
+   "id": "2C_blanket_a",
+   "variant": "DomesticObject24"
+  },
+  {
+   "id": "2C_blanket_b",
+   "variant": "DomesticObject24"
+  },
+  {
+   "id": "3D_blanket_a",
+   "variant": "DomesticObject24"
+  },
+  {
+   "id": "3D_blanket_b",
+   "variant": "DomesticObject24"
   }
  ],
  "runtime_keys": [
@@ -606,7 +675,12 @@
   "timber",
   "wood_dark",
   "cane",
-  "leaf_rib"
+  "leaf_rib",
+  "wool_burgundy",
+  "jersey_maroon",
+  "cape_navy",
+  "coat_grey",
+  "blanket_grey"
  ],
  "catalog_variants": {
   "bakelite": "bakelite",
@@ -631,7 +705,12 @@
   "timber": "oak_work_surface",
   "wood_dark": "oak_work_surface",
   "cane": "oak_work_surface",
-  "leaf_rib": "plant"
+  "leaf_rib": "plant",
+  "wool_burgundy": "linen",
+  "jersey_maroon": "linen",
+  "cape_navy": "linen",
+  "coat_grey": "linen",
+  "blanket_grey": "linen"
  },
  "material_tints": {
   "wood_dark": [
@@ -674,6 +753,36 @@
    0.3,
    0.32,
    0.34,
+   1
+  ],
+  "wool_burgundy": [
+   0.3,
+   0.05,
+   0.07,
+   1
+  ],
+  "jersey_maroon": [
+   0.22,
+   0.045,
+   0.06,
+   1
+  ],
+  "cape_navy": [
+   0.05,
+   0.065,
+   0.16,
+   1
+  ],
+  "coat_grey": [
+   0.22,
+   0.22,
+   0.23,
+   1
+  ],
+  "blanket_grey": [
+   0.28,
+   0.27,
+   0.25,
    1
   ]
  },
@@ -769,6 +878,26 @@
   "cane": {
    "normal_scale": 0.015,
    "roughness": 0.85
+  },
+  "wool_burgundy": {
+   "normal_scale": 0.16,
+   "roughness": 0.9
+  },
+  "jersey_maroon": {
+   "normal_scale": 0.16,
+   "roughness": 0.9
+  },
+  "cape_navy": {
+   "normal_scale": 0.16,
+   "roughness": 0.9
+  },
+  "coat_grey": {
+   "normal_scale": 0.16,
+   "roughness": 0.9
+  },
+  "blanket_grey": {
+   "normal_scale": 0.16,
+   "roughness": 0.9
   }
  },
  "placement": {
@@ -781,7 +910,8 @@
   "Rubber plant retains six source-sized leaves and their node heights; tapered living stem, radial leaf directions and curved blades replace the legacy post and aligned discs. Fine existing catalogue nickel and dark moulded bakelite replace oversized galvanized and pebbled finishes locally.",
   "Slice 8 of the V2 environment dossier adds the hall stand (DomesticObject16) to the seventeen apartment vestibules, standing clear of every leaf's swing and switch approach; the sixteen V1 records are unchanged.",
   "Slice 11 of the V2 environment dossier adds a second reel deck (DomesticObject04) on 5B's deck table; it bears on that table like 2A's on the coffee table.",
-  "Slice 12 of the V2 environment dossier adds two pinboards (4B's case wall, 5A's plan wall) and a wall-art form (artframe: stretched canvas with painted fields and edge tacks, or a moulded frame holding a document with a brass seal) for 5C's diptych and the framed pairs in 4A and 1A."
+  "Slice 12 of the V2 environment dossier adds two pinboards (4B's case wall, 5A's plan wall) and a wall-art form (artframe: stretched canvas with painted fields and edge tacks, or a moulded frame holding a document with a brass seal) for 5C's diptych and the framed pairs in 4A and 1A.",
+  "Slice 13 of the V2 environment dossier adds cloth: a garment rail (header board, brackets, rail, garments on wooden hangers, optional repair tags) and a hung moving blanket (batten, bound edges, quilted rows), with five tinted cloth keys on the catalogue linen."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",
