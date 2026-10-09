@@ -301,6 +301,14 @@
     {
       "id": "F01_common_armchair",
       "variant": "Armchair"
+    },
+    {
+      "id": "F01_watch_chair",
+      "variant": "ChairDark"
+    },
+    {
+      "id": "F01_operator_stool",
+      "variant": "ChairOak"
     }
   ],
   "runtime_keys": [
@@ -359,7 +367,8 @@
     "Native material tint values are linear light; runtime encodes them to sRGB for StandardMaterial3D albedo_color so the same finish matches Blender.",
     "Slice 10 of the V2 environment dossier adds the armchair (Armchair: the sofa recipe at 0.85 m with one cushion and rolled arms) for 5B's listening chair and 1A's reading chair.",
     "Slice 17 of the V2 environment dossier adds 2B's client chair as a ChairOak copy.",
-    "Slice 21 of the V2 environment dossier adds an armchair in the common room's window corner (an Armchair copy)."
+    "Slice 21 of the V2 environment dossier adds an armchair in the common room's window corner (an Armchair copy).",
+    "Slice 28 of the V2 environment dossier seats the watch desk (a ChairDark copy) and the house board (a ChairOak copy)."
   ],
   "open_work": [
     "Scoped native and all-instance runtime verification complete. Broader room material/light balance, remaining storage/kitchen furniture and whole-building visual acceptance remain open."

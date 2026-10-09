@@ -2203,7 +2203,9 @@
    "preserve": "All five instrument owners and their reaches (DetectorReach, Reach_slip, hooks, book, index, reset, line, GuardReach, DispatchReach, CallHardwareReach)",
    "acceptance": "Overview reads a manned room; instrument tests unchanged",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_WATCH"
+   "area": "F01_WATCH",
+   "status": "implemented",
+   "owner_notes": "The watchman's chair (a ChairDark copy) is pulled up to the desk mass facing the lobby opening, a grey coat hangs on a hook between the mail door and the lobby wall, and the night watch's iron camp cot stands folded on end against the core wall with its blanket strapped on. Not made: the desk lamp, because a task lamp needs an acoustic graph node (orison_v2_task_lamp_installations.gd) that this pass does not author. Verified at WIP c6e01928 (implementation/slice28b): fabrication 0 failures, apartment batch 236, M08E with only its pre-existing route failure, M08F 29 checks, mail route 16, public doors 17, public furnishings 29, ground and wall-mount suites unchanged."
   },
   {
    "id": "F01_WATCH-002",
@@ -2250,7 +2252,9 @@
    "preserve": "House switchboard prop reach",
    "acceptance": "Overview reads a manned board",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "F01_MAIL_TELEPHONE"
+   "area": "F01_MAIL_TELEPHONE",
+   "status": "implemented",
+   "owner_notes": "The operator's chair (a ChairOak copy) is pushed aside north of the house board, clear of the board's approach; the headset hangs on a brass hook beside the board with its cord looped below, and a coil of cord lies on the floor south of the board (a copy of 6A's cable coil). Not made: the extensions card, which is lettering and needs a Label3D owner. Verified at WIP c6e01928 with the same runs as F01_WATCH-001 (implementation/slice28b)."
   },
   {
    "id": "F01_MAIL_TELEPHONE-003",
@@ -2278,7 +2282,9 @@
    "preserve": "Shelving and the route between doors",
    "acceptance": "Overview reads a parcel room",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_PACKAGE"
+   "area": "F01_PACKAGE",
+   "status": "verified",
+   "owner_notes": "The parcel racks carry a load each, built into the public furnishings library and seated in the rack's own body (still two racks, four furnishing bodies): eight string-tied brown-paper parcels by size, one of them 6C's slatted auction crate, 2A's bundle of caption envelopes, and on the north rack's chest-height shelf the parcel book, a brass spring scale and a stamp pad with its rubber stamp (implementation/slice28b/images: parcel_racks_clear, F01_PACKAGE_OV). Verified at WIP c6e01928 (implementation/slice28b): fabrication batch 0 failures; apartment batch 236 (the branch baseline); M08E with only its pre-existing boiler-to-radiator route failure; M08F 29 checks; mail route 16, public doors 17 and public furnishings 29 waypoints, 0 failures; ground and wall-mount suites 0 failures; the three-room sweep 0 failures."
   },
   {
    "id": "F01_COMMON_B-001",

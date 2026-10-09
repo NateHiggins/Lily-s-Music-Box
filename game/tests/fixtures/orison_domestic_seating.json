@@ -1544,15 +1544,23 @@
       {
         "id": "F01_common_armchair",
         "variant": "Armchair"
+      },
+      {
+        "id": "F01_watch_chair",
+        "variant": "ChairDark"
+      },
+      {
+        "id": "F01_operator_stool",
+        "variant": "ChairOak"
       }
     ],
     "tint_space": "linear"
   },
   "asset_sha256": "9022764fba693013b977497e1c566081ea5df98dfae2617a37d26bcde23b3802",
   "source_bindings": {
-    "art/data/domestic_seating/source_plan.json": "68fdccb1b0d2e4a8f3edcd06f2ef6621f27e5376a689d2dde8824b7f1813b8fe",
+    "art/data/domestic_seating/source_plan.json": "8bca4f2e07f52ed37650d2d0bda105d32f574c2c1dcab8f634976a4e06350bc2",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_seating.py": "7c7e58853b973e1d1329ddf413c032095ba5afc2c38236c34c525b9c1427c811",
+    "art/blender/scripts/build_domestic_seating.py": "cff82a8d23631cb5919fb61fb08cf9a406ff4deb29250353bbdc256664e9cf17",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -1576,14 +1584,14 @@
     "art/blender/scripts/render_domestic_seating.py": "fd6ed1615a15e1cf564979f43c6cb8a27a1023d634b3242b13420f8b5df77333",
     "art/blender/scripts/domestic_seating_geometry.py": "90cb73d62b899a9322ccfe329d646d4a069c2283fd2830cb5cd1f62a21f3ddd6",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "bafd67b3e8c5ea39e358396e01f404e81356fa5974f8964d1aa0a8938c5d387e",
+    "game/data/orison_v2/domestic_furniture.json": "76c18ab721871246113de3c65fb4f6a7a8cc44b800a514f906a99dd042be1d07",
     "game/data/orison_v2/completion_interiors.json": "fff86022df8762864cbb2a1672ad1d8ea1bfd36313f2d995d160098897605da0",
     "art/data/orison_v2/completion_interiors_source.json": "4cc5e84f7547d778c97aebcfff8cc92b68872735b93322dc540aac8dd56f665e",
     "art/blender/scripts/inspect_domestic_furniture_context.py": "85da46bed1da8c4f63917ce4f98fc87b5feae49431f8f1e3da4a8a14c9d890ad",
-    "game/data/orison_v2_blockout.json": "d05aa98044e78dea9311f1523935e5291359ec961a9200410b3257341fb81bea",
+    "game/data/orison_v2_blockout.json": "9a62b9cf7c683c82fcd5f51c968558440819f24bf1d64a4254e8f725e5337d87",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_surface_props.json": "210160efd6d10392a793c817e29b4e4b90479c7d14238676ba911c6ff9cb0d96",
-    "game/tests/fixtures/orison_surface_stock.json": "57dd6bb997d7dadc8d31033c18b784cee7229808fea9313354604017e28dd801"
+    "game/data/orison_v2/domestic_surface_props.json": "4ed0b4491906878cd65ff3f1dc84f70acb811b185c0bae70ddb82bd694fd6d1d",
+    "game/tests/fixtures/orison_surface_stock.json": "94d61d3cfd90b9a558141ac8e4b0d675dcb59691adb71a4f9b5ef0ae26fb1727"
   },
   "retained_stock": [
     {

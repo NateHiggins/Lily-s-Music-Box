@@ -6,7 +6,8 @@ from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
 bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
 COLORS={'Oak':(.35,.23,.12),'Iron':(.15,.14,.13),'Paper':(.69,.64,.51),
-        'RedCloth':(.25,.095,.07),'GreenCloth':(.13,.19,.11),'BlueCloth':(.11,.14,.20), 'Pine':(.44,.31,.17)}
+        'RedCloth':(.25,.095,.07),'GreenCloth':(.13,.19,.11),'BlueCloth':(.11,.14,.20), 'Pine':(.44,.31,.17),
+        'Kraft':(.42,.30,.18),'Twine':(.62,.55,.40),'Brass':(.55,.42,.20),'Book':(.12,.16,.24)}
 mats={}
 for name,c in COLORS.items():
     mat=bpy.data.materials.new(name); mat.diffuse_color=(*c,1); mat.use_nodes=True
@@ -36,6 +37,57 @@ def beam(name,a,b,width,depth,owner,role='Oak'):
 def root(name):
     obj=bpy.data.objects.new(name,None);bpy.context.collection.objects.link(obj);return obj
 
+def cyl(name,at,radius,depth,owner,role,axis='y'):
+    bpy.ops.mesh.primitive_cylinder_add(vertices=32,radius=radius,depth=depth,location=point(at));obj=bpy.context.object
+    if axis=='z':
+        obj.rotation_euler=(math.pi/2,0,0);bpy.ops.object.transform_apply(location=False,rotation=True,scale=False)
+    return finish(obj,name,role,owner,0)
+
+def parcel(owner,x,y,z,w,h,d):
+    # String-tied brown paper: twine crosses the top and runs down every face; a blank slip sits on top.
+    box('Parcel',(x,y+h/2,z),(w,h,d),owner,'Kraft',.003)
+    box('TwineLong',(x,y+h/2,z),(w+.004,h+.004,.006),owner,'Twine',0)
+    box('TwineCross',(x,y+h/2,z),(.006,h+.004,d+.004),owner,'Twine',0)
+    box('Slip',(x+w*.22,y+h+.0015,z-d*.18),(.075,.003,.048),owner,'Paper',0)
+
+def crate(owner,x,y,z,w,h,d):
+    # An auction-room crate: slatted pine on end boards, a nailed lid, one twine and its slip.
+    box('CrateBody',(x,y+h/2,z),(w-.02,h-.02,d-.02),owner,'Pine',.002)
+    for i in range(3):
+        sy=y+.03+i*(h-.06)/2
+        box('CrateSlatF',(x,sy,z-d/2+.006),(w,.05,.012),owner,'Pine',.002)
+        box('CrateSlatB',(x,sy,z+d/2-.006),(w,.05,.012),owner,'Pine',.002)
+    for sx in [x-w/2+.006,x+w/2-.006]:box('CrateEnd',(sx,y+h/2,z),(.012,h,d),owner,'Pine',.002)
+    box('CrateLid',(x,y+h-.006,z),(w,.012,d),owner,'Pine',.002)
+    box('CrateTwine',(x,y+h/2,z),(.006,h+.004,d+.004),owner,'Twine',0)
+    box('Slip',(x+w*.2,y+h+.0015,z),(.075,.003,.048),owner,'Paper',0)
+
+def envelopes(owner,x,y,z):
+    for i in range(6):box('Envelope',(x+(i%2)*.004,y+.004+i*.008,z),(.24,.008,.16),owner,'Paper',0)
+    box('BundleTwine',(x,y+.025,z),(.006,.054,.164),owner,'Twine',0)
+
+def ledgerbook(owner,x,y,z):
+    box('BookLower',(x,y+.002,z),(.30,.004,.22),owner,'Book',.001)
+    box('BookUpper',(x,y+.043,z),(.30,.004,.22),owner,'Book',.001)
+    box('BookSpine',(x,y+.0225,z+.106),(.30,.045,.008),owner,'Book',.001)
+    box('BookPages',(x,y+.0225,z-.003),(.29,.037,.21),owner,'Paper',0)
+
+def springscale(owner,x,y,z):
+    box('ScaleBase',(x,y+.015,z),(.22,.03,.18),owner,'Iron',.003)
+    box('ScaleColumn',(x,y+.115,z+.05),(.05,.17,.05),owner,'Iron',.002)
+    cyl('ScalePan',(x,y+.206,z+.02),.10,.012,owner,'Brass')
+    cyl('ScaleDial',(x,y+.12,z+.005),.07,.045,owner,'Brass','z')
+    cyl('ScaleFace',(x,y+.12,z-.0185),.06,.003,owner,'Paper','z')
+    box('ScaleNeedle',(x+.008,y+.135,z-.0205),(.004,.05,.0015),owner,'Iron',0)
+
+def stamppad(owner,x,y,z):
+    box('PadTin',(x,y+.007,z),(.11,.014,.07),owner,'Iron',.001)
+    box('PadFelt',(x,y+.016,z),(.096,.004,.056),owner,'RedCloth',0)
+    box('PadLid',(x,y+.049,z+.0365),(.11,.07,.003),owner,'Iron',0)
+    box('StampBlock',(x+.1,y+.0125,z),(.04,.025,.03),owner,'Iron',.001)
+    cyl('StampHandle',(x+.1,y+.0525,z),.011,.055,owner,'Pine')
+
+
 bench=root('LobbyBench')
 # Three-person slatted oak bench, 1.8 m long, with mortised rails and arms.
 for z in [-.18,-.06,.06,.18]: box('SeatSlat',(0,.455,z),(1.80,.035,.112),bench,bevel=.005)
@@ -64,6 +116,20 @@ beam('RearBraceA',(-.78,.1,.223),(.78,1.87,.223),.035,.012,rack,'Iron')
 beam('RearBraceB',(.78,.1,.237),(-.78,1.87,.237),.035,.012,rack,'Iron')
 for x in [-.78,.78]:
     for y in [.16,.62,1.08,1.54]:box('BoltHead',(x,y-.03,-.224),(.012,.012,.006),rack,'Iron',.001)
+# Parcel-room dressing (V2 environment dossier F01_PACKAGE-001): eight parcels by size,
+# 2A's caption envelopes, the parcel book, a spring scale and a stamp pad. Each rack has
+# its own load so the two racks never repeat; the runtime seats a load in its rack's body.
+load_east=root('ParcelLoadEast')
+for x,y,z,w,h,d in [(-.40,.173,-.01,.48,.30,.34),(.28,.173,0,.36,.22,.28),(-.45,.633,0,.30,.20,.24),
+                    (-.10,.633,-.03,.20,.14,.16),(.20,.633,.02,.24,.12,.20),(.45,1.553,0,.26,.16,.22)]:
+    parcel(load_east,x,y,z,w,h,d)
+load_north=root('ParcelLoadNorth')
+crate(load_north,.35,.173,0,.50,.28,.34)
+parcel(load_north,-.40,.633,0,.34,.20,.26)
+envelopes(load_north,.25,.633,-.02)
+ledgerbook(load_north,-.40,1.093,-.02)
+stamppad(load_north,-.05,1.093,-.06)
+springscale(load_north,.42,1.093,0)
 # All faces carry metre coordinates and all exported instances have unit scale.
 for obj in list(bpy.context.scene.objects):
     if obj.type!='MESH':continue
@@ -75,7 +141,7 @@ for obj in list(bpy.context.scene.objects):
             p=obj.matrix_world@obj.data.vertices[obj.data.loops[loop].vertex_index].co
             uv.data[loop].uv=(p[axes[0]],p[axes[1]])
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/public_furnishings.blend'))
-for owner in [bench,rack]:
+for owner in [bench,rack,load_east,load_north]:
     for role,mat in mats.items():
         parts=[o for o in owner.children if o.type=='MESH' and o.data.materials[0]==mat]
         if not parts:continue

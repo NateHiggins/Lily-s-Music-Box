@@ -2473,6 +2473,218 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject39",
+      "parts": [
+        {
+          "name": "DomesticObject39__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.42
+          }
+        },
+        {
+          "name": "DomesticObject39__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject39__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject39__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject39__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject40",
+      "parts": [
+        {
+          "name": "DomesticObject40__Body_ON_bakelite",
+          "component": "Body",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.42
+          }
+        },
+        {
+          "name": "DomesticObject40__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject40__Body_ON_coat_grey",
+          "component": "Body",
+          "key": "coat_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.22,
+            0.22,
+            0.23,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject40__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject41",
+      "parts": [
+        {
+          "name": "DomesticObject41__Body_ON_blanket_grey",
+          "component": "Body",
+          "key": "blanket_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.28,
+            0.27,
+            0.25,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject41__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject41__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject41__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -2943,6 +3155,22 @@
     {
       "id": "4C_story_colorboard",
       "variant": "DomesticObject09"
+    },
+    {
+      "id": "F01_headset_hook",
+      "variant": "DomesticObject39"
+    },
+    {
+      "id": "F01_watch_coat",
+      "variant": "DomesticObject40"
+    },
+    {
+      "id": "F01_watch_cot",
+      "variant": "DomesticObject41"
+    },
+    {
+      "id": "F01_cord_pile",
+      "variant": "DomesticObject13"
     }
   ],
   "tint_space": "linear"

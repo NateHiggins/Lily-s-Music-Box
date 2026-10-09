@@ -511,6 +511,48 @@ def hookstrip(source):
   stock('Link'+str(i),(x-.004,.034,zc+r-.008),(x+.004,.046,height-.05),'rubber_aged',.0005)
  group('HookStrip',start)
 
+def coathook(source):
+ # Dossier slice 28: one coat hung by its loop from a hook on a short board.
+ start=len(stock_checks);width=source['W'];height=source['H'];key=source['key']
+ wall_mount(source,width,height)
+ stock('Board',(-width/2,0,height-.1),(width/2,.018,height),'wood_dark',.001)
+ wire('Hook',[(0,.016,height-.05),(0,.06,height-.05),(0,.07,height-.035),(0,.07,height-.02)],.005,'brass')
+ stock('Collar',(-.06,.035,height-.12),(.06,.075,height-.045),key,.004)
+ stock('Shoulders',(-width/2+.02,.03,height-.2),(width/2-.02,.11,height-.1),key,.006)
+ stock('Body',(-width/2,.025,0),(width/2,.12,height-.18),key,.006)
+ for z in [height*.55,height*.4,height*.25]:stock('Button'+str(round(z,3)),(-.012,.119,z),(.012,.126,z+.022),'bakelite',.0004)
+ group('Coat',start)
+
+def headsethook(source):
+ # Dossier slice 28: the operator's headset hung on its hook beside the house board.
+ start=len(stock_checks);width=source['W'];height=source['H']
+ wall_mount(source,width,height)
+ stock('Plate',(-width/2,0,height-.14),(width/2,.016,height),'wood_dark',.002)
+ stock('Hook',(-.007,.014,height-.075),(.007,.075,height-.061),'brass',.0006)
+ stock('HookTip',(-.007,.061,height-.075),(.007,.075,height-.045),'brass',.0006)
+ zc=height-.135
+ wire('Band',[(.065*math.cos(t),.068,zc+.065*math.sin(t)) for t in np.linspace(0,math.pi,33)],.004,'metal')
+ for side in [-1,1]:tube('Receiver'+str(side),(side*.052,.068,zc-.012),(side*.08,.068,zc-.012),.03,'bakelite')
+ wire('Cord',[(-.066,.06,zc-.04),(-.064,.05,zc-.12),(-.04,.038,zc-.2),(0,.03,zc-.22),(.03,.022,zc-.16),(.035,.01,height-.135)],.0035,'rubber_aged')
+ group('HeadsetHook',start)
+
+def foldedcot(source):
+ # Dossier slice 28: the night watch's iron camp cot folded on end, a grey blanket strapped to it.
+ start=len(stock_checks)
+ for x in [-.34,.34]:
+  stock('Foot'+str(x),(x-.02,-.04,0),(x+.02,.04,.035),'rubber_aged',.002)
+  tube('Rail'+str(x),(x,0,.03),(x,0,.95),.014,'metal')
+ for z in [.06,.93]:tube('Bar'+str(z),(-.34,0,z),(.34,0,z),.012,'metal')
+ stock('Canvas',(-.33,-.02,.07),(.33,.02,.92),'linen',.002)
+ for y in [-.028,.028]:
+  tube('LegA'+str(y),(-.3,y,.1),(.3,y,.52),.01,'metal')
+  tube('LegB'+str(y),(.3,y,.1),(-.3,y,.52),.01,'metal')
+ stock('Blanket',(-.27,-.075,.5),(.27,-.03,.82),'blanket_grey',.008)
+ for z in [.56,.76]:stock('Strap'+str(z),(-.3,-.08,z),(.3,-.015,z+.025),'linen',.0008)
+ for x in [-.34,.34]:
+  for y in [-.035,.035]:bearing('cot foot '+str((x,y)),(x,y,0))
+ group('FoldedCot',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -540,4 +582,7 @@ for assembly in assemblies:
  elif kind=='backdroprail':backdroprail(source)
  elif kind=='printline':printline(source)
  elif kind=='hookstrip':hookstrip(source)
+ elif kind=='coathook':coathook(source)
+ elif kind=='headsethook':headsethook(source)
+ elif kind=='foldedcot':foldedcot(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

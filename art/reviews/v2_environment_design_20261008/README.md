@@ -134,6 +134,9 @@ Slices landed so far (evidence folders in parentheses):
 26. 2C's and 4C's bookcases and 4C's colour board (`slice26`, `slice26b`).
 27. 3A's memorial pot, 6A's plate box, loupe and print rack, 6C's never-opened
     ledger (`slice27b`; its `wake_*` receipts hold the unchanged wake suite).
+28. The ground-floor service rooms: parcels, the parcel book, a scale and a stamp
+    pad on the parcel racks; the operator's chair, headset and cord coil at the
+    house board; the watchman's chair, coat and folded cot (`slice28b`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

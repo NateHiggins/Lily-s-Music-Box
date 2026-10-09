@@ -418,6 +418,24 @@
       "kind": "hookstrip",
       "cell": "shared",
       "source_record": "2C_cable_hooks"
+    },
+    {
+      "id": "DomesticObject39",
+      "kind": "headsethook",
+      "cell": "shared",
+      "source_record": "F01_headset_hook"
+    },
+    {
+      "id": "DomesticObject40",
+      "kind": "coathook",
+      "cell": "shared",
+      "source_record": "F01_watch_coat"
+    },
+    {
+      "id": "DomesticObject41",
+      "kind": "foldedcot",
+      "cell": "shared",
+      "source_record": "F01_watch_cot"
     }
   ],
   "closed_stocks": [
@@ -7104,6 +7122,204 @@
       "assembly": "DomesticObject38",
       "key": "rubber_aged",
       "volume_m3": 7.612116101422304e-07
+    },
+    {
+      "name": "DomesticObject39_RearBatten-0.049",
+      "assembly": "DomesticObject39",
+      "key": "wood_dark",
+      "volume_m3": 0.0002796134733531507
+    },
+    {
+      "name": "DomesticObject39_RearBatten0.049",
+      "assembly": "DomesticObject39",
+      "key": "wood_dark",
+      "volume_m3": 0.00027961347321910833
+    },
+    {
+      "name": "DomesticObject39_Plate",
+      "assembly": "DomesticObject39",
+      "key": "wood_dark",
+      "volume_m3": 0.00031242958903206637
+    },
+    {
+      "name": "DomesticObject39_Hook",
+      "assembly": "DomesticObject39",
+      "key": "brass",
+      "volume_m3": 1.1924327577122332e-05
+    },
+    {
+      "name": "DomesticObject39_HookTip",
+      "assembly": "DomesticObject39",
+      "key": "brass",
+      "volume_m3": 5.859489206312693e-06
+    },
+    {
+      "name": "DomesticObject39_Band",
+      "assembly": "DomesticObject39",
+      "key": "metal",
+      "volume_m3": 9.786327020560172e-06
+    },
+    {
+      "name": "DomesticObject39_Receiver-1",
+      "assembly": "DomesticObject39",
+      "key": "bakelite",
+      "volume_m3": 7.894237216574065e-05
+    },
+    {
+      "name": "DomesticObject39_Receiver1",
+      "assembly": "DomesticObject39",
+      "key": "bakelite",
+      "volume_m3": 7.894237216574065e-05
+    },
+    {
+      "name": "DomesticObject39_Cord",
+      "assembly": "DomesticObject39",
+      "key": "rubber_aged",
+      "volume_m3": 1.5236048368715723e-05
+    },
+    {
+      "name": "DomesticObject40_RearBatten-0.175",
+      "assembly": "DomesticObject40",
+      "key": "wood_dark",
+      "volume_m3": 0.0007708508744679679
+    },
+    {
+      "name": "DomesticObject40_RearBatten0.175",
+      "assembly": "DomesticObject40",
+      "key": "wood_dark",
+      "volume_m3": 0.0007708508744679679
+    },
+    {
+      "name": "DomesticObject40_Board",
+      "assembly": "DomesticObject40",
+      "key": "wood_dark",
+      "volume_m3": 0.0008993838471020059
+    },
+    {
+      "name": "DomesticObject40_Hook",
+      "assembly": "DomesticObject40",
+      "key": "brass",
+      "volume_m3": 5.500058476030931e-06
+    },
+    {
+      "name": "DomesticObject40_Collar",
+      "assembly": "DomesticObject40",
+      "key": "coat_grey",
+      "volume_m3": 0.00035634874941029774
+    },
+    {
+      "name": "DomesticObject40_Shoulders",
+      "assembly": "DomesticObject40",
+      "key": "coat_grey",
+      "volume_m3": 0.0036573282740048766
+    },
+    {
+      "name": "DomesticObject40_Body",
+      "assembly": "DomesticObject40",
+      "key": "coat_grey",
+      "volume_m3": 0.04364582818962382
+    },
+    {
+      "name": "DomesticObject40_Button0.605",
+      "assembly": "DomesticObject40",
+      "key": "bakelite",
+      "volume_m3": 3.6876201474667723e-06
+    },
+    {
+      "name": "DomesticObject40_Button0.44",
+      "assembly": "DomesticObject40",
+      "key": "bakelite",
+      "volume_m3": 3.6876305100933888e-06
+    },
+    {
+      "name": "DomesticObject40_Button0.275",
+      "assembly": "DomesticObject40",
+      "key": "bakelite",
+      "volume_m3": 3.687625508072085e-06
+    },
+    {
+      "name": "DomesticObject41_Foot-0.34",
+      "assembly": "DomesticObject41",
+      "key": "rubber_aged",
+      "volume_m3": 0.00011139367723802373
+    },
+    {
+      "name": "DomesticObject41_Rail-0.34",
+      "assembly": "DomesticObject41",
+      "key": "metal",
+      "volume_m3": 0.000564875530559307
+    },
+    {
+      "name": "DomesticObject41_Foot0.34",
+      "assembly": "DomesticObject41",
+      "key": "rubber_aged",
+      "volume_m3": 0.00011139367723802373
+    },
+    {
+      "name": "DomesticObject41_Rail0.34",
+      "assembly": "DomesticObject41",
+      "key": "metal",
+      "volume_m3": 0.000564875530559307
+    },
+    {
+      "name": "DomesticObject41_Bar0.06",
+      "assembly": "DomesticObject41",
+      "key": "metal",
+      "volume_m3": 0.0003067433907344262
+    },
+    {
+      "name": "DomesticObject41_Bar0.93",
+      "assembly": "DomesticObject41",
+      "key": "metal",
+      "volume_m3": 0.0003067434891233475
+    },
+    {
+      "name": "DomesticObject41_Canvas",
+      "assembly": "DomesticObject41",
+      "key": "linen",
+      "volume_m3": 0.022433814236809204
+    },
+    {
+      "name": "DomesticObject41_LegA-0.028",
+      "assembly": "DomesticObject41",
+      "key": "metal",
+      "volume_m3": 0.00022942957935496002
+    },
+    {
+      "name": "DomesticObject41_LegB-0.028",
+      "assembly": "DomesticObject41",
+      "key": "metal",
+      "volume_m3": 0.000229429579355017
+    },
+    {
+      "name": "DomesticObject41_LegA0.028",
+      "assembly": "DomesticObject41",
+      "key": "metal",
+      "volume_m3": 0.000229429579355017
+    },
+    {
+      "name": "DomesticObject41_LegB0.028",
+      "assembly": "DomesticObject41",
+      "key": "metal",
+      "volume_m3": 0.00022942957935496002
+    },
+    {
+      "name": "DomesticObject41_Blanket",
+      "assembly": "DomesticObject41",
+      "key": "blanket_grey",
+      "volume_m3": 0.007718952697184658
+    },
+    {
+      "name": "DomesticObject41_Strap0.56",
+      "assembly": "DomesticObject41",
+      "key": "linen",
+      "volume_m3": 0.0009745582493214788
+    },
+    {
+      "name": "DomesticObject41_Strap0.76",
+      "assembly": "DomesticObject41",
+      "key": "linen",
+      "volume_m3": 0.0009745606171096474
     }
   ],
   "contacts": [
@@ -9461,6 +9677,186 @@
         -1
       ],
       "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject39",
+      "owner": "wall",
+      "point": [
+        -0.049,
+        0.08,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject39",
+      "owner": "wall",
+      "point": [
+        -0.049,
+        0.37,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject39",
+      "owner": "wall",
+      "point": [
+        0.049,
+        0.08,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject39",
+      "owner": "wall",
+      "point": [
+        0.049,
+        0.37,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject40",
+      "owner": "wall",
+      "point": [
+        -0.175,
+        0.08,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject40",
+      "owner": "wall",
+      "point": [
+        -0.175,
+        1.02,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject40",
+      "owner": "wall",
+      "point": [
+        0.175,
+        0.08,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject40",
+      "owner": "wall",
+      "point": [
+        0.175,
+        1.02,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject41",
+      "owner": "support",
+      "point": [
+        -0.34,
+        0,
+        0.035
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cot foot (-0.34, -0.035)"
+    },
+    {
+      "assembly": "DomesticObject41",
+      "owner": "support",
+      "point": [
+        -0.34,
+        0,
+        -0.035
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cot foot (-0.34, 0.035)"
+    },
+    {
+      "assembly": "DomesticObject41",
+      "owner": "support",
+      "point": [
+        0.34,
+        0,
+        0.035
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cot foot (0.34, -0.035)"
+    },
+    {
+      "assembly": "DomesticObject41",
+      "owner": "support",
+      "point": [
+        0.34,
+        0,
+        -0.035
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cot foot (0.34, 0.035)"
     }
   ],
   "parts": [
@@ -10583,9 +10979,100 @@
       "cell": "shared",
       "key": "wood_dark",
       "triangles": 564
+    },
+    {
+      "name": "DomesticObject39__Body_ON_bakelite",
+      "assembly": "DomesticObject39",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 376
+    },
+    {
+      "name": "DomesticObject39__Body_ON_brass",
+      "assembly": "DomesticObject39",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 376
+    },
+    {
+      "name": "DomesticObject39__Body_ON_metal",
+      "assembly": "DomesticObject39",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 788
+    },
+    {
+      "name": "DomesticObject39__Body_ON_rubber_aged",
+      "assembly": "DomesticObject39",
+      "cell": "shared",
+      "key": "rubber_aged",
+      "triangles": 140
+    },
+    {
+      "name": "DomesticObject39__Body_ON_wood_dark",
+      "assembly": "DomesticObject39",
+      "cell": "shared",
+      "key": "wood_dark",
+      "triangles": 564
+    },
+    {
+      "name": "DomesticObject40__Body_ON_bakelite",
+      "assembly": "DomesticObject40",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 564
+    },
+    {
+      "name": "DomesticObject40__Body_ON_brass",
+      "assembly": "DomesticObject40",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 92
+    },
+    {
+      "name": "DomesticObject40__Body_ON_coat_grey",
+      "assembly": "DomesticObject40",
+      "cell": "shared",
+      "key": "coat_grey",
+      "triangles": 564
+    },
+    {
+      "name": "DomesticObject40__Body_ON_wood_dark",
+      "assembly": "DomesticObject40",
+      "cell": "shared",
+      "key": "wood_dark",
+      "triangles": 564
+    },
+    {
+      "name": "DomesticObject41__Body_ON_blanket_grey",
+      "assembly": "DomesticObject41",
+      "cell": "shared",
+      "key": "blanket_grey",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject41__Body_ON_linen",
+      "assembly": "DomesticObject41",
+      "cell": "shared",
+      "key": "linen",
+      "triangles": 564
+    },
+    {
+      "name": "DomesticObject41__Body_ON_metal",
+      "assembly": "DomesticObject41",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 1504
+    },
+    {
+      "name": "DomesticObject41__Body_ON_rubber_aged",
+      "assembly": "DomesticObject41",
+      "cell": "shared",
+      "key": "rubber_aged",
+      "triangles": 376
     }
   ],
-  "triangles": 259752,
+  "triangles": 266412,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -13062,6 +13549,218 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "DomesticObject39",
+        "parts": [
+          {
+            "name": "DomesticObject39__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "DomesticObject39__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          },
+          {
+            "name": "DomesticObject39__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "DomesticObject39__Body_ON_rubber_aged",
+            "component": "Body",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject39__Body_ON_wood_dark",
+            "component": "Body",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject40",
+        "parts": [
+          {
+            "name": "DomesticObject40__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "DomesticObject40__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          },
+          {
+            "name": "DomesticObject40__Body_ON_coat_grey",
+            "component": "Body",
+            "key": "coat_grey",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.22,
+              0.22,
+              0.23,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.16,
+              "roughness": 0.9
+            }
+          },
+          {
+            "name": "DomesticObject40__Body_ON_wood_dark",
+            "component": "Body",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject41",
+        "parts": [
+          {
+            "name": "DomesticObject41__Body_ON_blanket_grey",
+            "component": "Body",
+            "key": "blanket_grey",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.28,
+              0.27,
+              0.25,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.16,
+              "roughness": 0.9
+            }
+          },
+          {
+            "name": "DomesticObject41__Body_ON_linen",
+            "component": "Body",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject41__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "DomesticObject41__Body_ON_rubber_aged",
+            "component": "Body",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -13532,15 +14231,31 @@
       {
         "id": "4C_story_colorboard",
         "variant": "DomesticObject09"
+      },
+      {
+        "id": "F01_headset_hook",
+        "variant": "DomesticObject39"
+      },
+      {
+        "id": "F01_watch_coat",
+        "variant": "DomesticObject40"
+      },
+      {
+        "id": "F01_watch_cot",
+        "variant": "DomesticObject41"
+      },
+      {
+        "id": "F01_cord_pile",
+        "variant": "DomesticObject13"
       }
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "024408ac18c7bf2d05c42b87f76c2990053d01d110af9e71cf5c88e7aab46141",
+  "asset_sha256": "54652735e04ec913d1fb751460d940c846ca650e2b16cab17143b2e590d9d538",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "a8d321967f8a66a258d2a48d5589b6c27d8680b01db54bc5dac6c56be6dc3170",
+    "art/data/domestic_objects/source_plan.json": "639e275be597e66929dd6d68a468fdbfb7a6da522b36784de795fd74a59a5037",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_objects.py": "3dff2de227f40e15ca16256a0507eadee2b6f41b1d8c586294870dc3d72a9e7a",
+    "art/blender/scripts/build_domestic_objects.py": "63e676fccb584bebf3cbe0882b787a59c6cccd9ce838b65a09725b22360d8ba3",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -13630,25 +14345,25 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "d1d3d632bf5bc3d92b179b50b0c8e3e7378afca9ba79946b67d79141b2e6174f",
+    "art/blender/scripts/domestic_objects_geometry.py": "6aca6e805eaf7f804ef6c8374cf0865b653310cecd365d59a6618475a48375c5",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "bafd67b3e8c5ea39e358396e01f404e81356fa5974f8964d1aa0a8938c5d387e",
+    "game/data/orison_v2/domestic_furniture.json": "76c18ab721871246113de3c65fb4f6a7a8cc44b800a514f906a99dd042be1d07",
     "game/data/orison_v2/completion_interiors.json": "fff86022df8762864cbb2a1672ad1d8ea1bfd36313f2d995d160098897605da0",
     "art/data/orison_v2/completion_interiors_source.json": "4cc5e84f7547d778c97aebcfff8cc92b68872735b93322dc540aac8dd56f665e",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "74c6f86eb5499f387460880d4b1400ddd3515f0cf02f1f677ad8ca4129b6db57",
-    "game/data/orison_v2_blockout.json": "d05aa98044e78dea9311f1523935e5291359ec961a9200410b3257341fb81bea",
+    "game/data/orison_v2_blockout.json": "9a62b9cf7c683c82fcd5f51c968558440819f24bf1d64a4254e8f725e5337d87",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_surface_props.json": "210160efd6d10392a793c817e29b4e4b90479c7d14238676ba911c6ff9cb0d96",
-    "game/tests/fixtures/orison_surface_stock.json": "57dd6bb997d7dadc8d31033c18b784cee7229808fea9313354604017e28dd801",
-    "art/blender/domestic_storage.blend": "e48d55a428fb31be302c41bfd78437f4dc9c4eace98a769baea19ba0221ec88f",
-    "art/blender/prep_cabinets.blend": "76a321b30ce94f4cab14460649efd724a9342c5180877c82756b592daba31a31",
-    "art/blender/household_wardrobes.blend": "b68d78df35db46e9199fc56cb648f134c6176a2cd0f254668478d446dd71fca3",
-    "art/blender/scripts/surface_stock_geometry.py": "f516b798bf5c61ea7038156558be47ca2da1ef3bde5039f7ea9d8b75a249d8a7",
-    "art/blender/domestic_seating.blend": "5203f23b9a34ff5901717aff8f15f71995f273efe578b44c2e51f968cd2e56fc",
-    "art/blender/domestic_tables.blend": "952c3397fc228a21ddc2bbe8a493af53ea6de76574d3d3b68ce7f262155d7615"
+    "game/data/orison_v2/domestic_surface_props.json": "4ed0b4491906878cd65ff3f1dc84f70acb811b185c0bae70ddb82bd694fd6d1d",
+    "game/tests/fixtures/orison_surface_stock.json": "94d61d3cfd90b9a558141ac8e4b0d675dcb59691adb71a4f9b5ef0ae26fb1727",
+    "art/blender/domestic_storage.blend": "47c3d77acb930805226a56381d8ce847ce72946d832027d2dc91cf0011e95267",
+    "art/blender/prep_cabinets.blend": "35578cc92ba30f3a84738ca16ca062b7fea1fd62184c78955e1ba39da3be7d04",
+    "art/blender/household_wardrobes.blend": "744d47233525f1861fce3d9869cbf8c60e01324e639f0452aa8b4d4634805a2f",
+    "art/blender/scripts/surface_stock_geometry.py": "20b66b3492c4b0762e57fae3e4e55dd5f56bebc8f2434d3449091888729a7c65",
+    "art/blender/domestic_seating.blend": "fb05de6a2e8fc9dfcb9588a08c50d4732bb0a72b70a21fd44d59aec91d9dad2e",
+    "art/blender/domestic_tables.blend": "76b2a90cca7526485d7b5b8c3f878494c1c22f59e7c1a08fc8e2600e614bafa7"
   },
   "retained_stock": [
     {
@@ -17757,6 +18472,57 @@
         "DomesticObject38_Loop4",
         "DomesticObject38_Tape4",
         "DomesticObject38_Link4"
+      ]
+    },
+    {
+      "assembly": "DomesticObject39",
+      "id": "DomesticObject39_HeadsetHook",
+      "stocks": [
+        "DomesticObject39_RearBatten-0.049",
+        "DomesticObject39_RearBatten0.049",
+        "DomesticObject39_Plate",
+        "DomesticObject39_Hook",
+        "DomesticObject39_HookTip",
+        "DomesticObject39_Band",
+        "DomesticObject39_Receiver-1",
+        "DomesticObject39_Receiver1",
+        "DomesticObject39_Cord"
+      ]
+    },
+    {
+      "assembly": "DomesticObject40",
+      "id": "DomesticObject40_Coat",
+      "stocks": [
+        "DomesticObject40_RearBatten-0.175",
+        "DomesticObject40_RearBatten0.175",
+        "DomesticObject40_Board",
+        "DomesticObject40_Hook",
+        "DomesticObject40_Collar",
+        "DomesticObject40_Shoulders",
+        "DomesticObject40_Body",
+        "DomesticObject40_Button0.605",
+        "DomesticObject40_Button0.44",
+        "DomesticObject40_Button0.275"
+      ]
+    },
+    {
+      "assembly": "DomesticObject41",
+      "id": "DomesticObject41_FoldedCot",
+      "stocks": [
+        "DomesticObject41_Foot-0.34",
+        "DomesticObject41_Rail-0.34",
+        "DomesticObject41_Foot0.34",
+        "DomesticObject41_Rail0.34",
+        "DomesticObject41_Bar0.06",
+        "DomesticObject41_Bar0.93",
+        "DomesticObject41_Canvas",
+        "DomesticObject41_LegA-0.028",
+        "DomesticObject41_LegB-0.028",
+        "DomesticObject41_LegA0.028",
+        "DomesticObject41_LegB0.028",
+        "DomesticObject41_Blanket",
+        "DomesticObject41_Strap0.56",
+        "DomesticObject41_Strap0.76"
       ]
     }
   ],

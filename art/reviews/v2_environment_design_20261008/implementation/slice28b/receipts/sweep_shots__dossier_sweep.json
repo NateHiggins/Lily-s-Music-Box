@@ -1,0 +1,542 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						1.70400106906891,
+						1.43999993801117,
+						-8.32799911499023
+					],
+					"feet": [
+						-1.70400023460388,
+						0.0299999918788671,
+						-3.32200050354004
+					],
+					"forward": [
+						0.678295791149139,
+						-0.186998888850212,
+						-0.710595667362213
+					],
+					"image": "F01_WATCH_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-3.29999995231628,
+						1.0,
+						-1.64999997615814
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.14000082015991,
+						1.43999993801117,
+						-11.6719989776611
+					],
+					"feet": [
+						-4.1399998664856,
+						0.0299999918788671,
+						0.0219993591308594
+					],
+					"forward": [
+						-0.437003433704376,
+						-0.228906497359276,
+						0.869844734668732
+					],
+					"image": "F01_WATCH_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-3.29999995231628,
+						1.0,
+						-1.64999997615814
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						3.30000066757202,
+						1.43999993801117,
+						-6.79999923706055
+					],
+					"feet": [
+						-3.30000019073486,
+						0.0299999918788671,
+						-4.84999990463257
+					],
+					"forward": [
+						0.0,
+						-0.0747899189591408,
+						-0.997199296951294
+					],
+					"image": "F01_WATCH_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F01_LOBBY_WATCH_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-3.29999995231628,
+						1.20000004768372,
+						-1.64999997615814
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						2.46000051498413,
+						1.43999993801117,
+						-9.99999904632568
+					],
+					"feet": [
+						-2.45999979972839,
+						0.0299999918788671,
+						-1.65000057220459
+					],
+					"forward": [
+						-0.281927466392517,
+						-0.361602753400803,
+						0.888684689998627
+					],
+					"image": "F01_WATCH_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_WATCHMAN_DETECTOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-2.0,
+						0.850000023841858,
+						-3.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.14000082015991,
+						1.43999993801117,
+						-9.99999904632568
+					],
+					"feet": [
+						-4.1399998664856,
+						0.0299999918788671,
+						-1.65000057220459
+					],
+					"forward": [
+						-0.458878606557846,
+						-0.329980105161667,
+						-0.824950635433197
+					],
+					"image": "F01_WATCH_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_NIGHT_REGISTER",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-3.25,
+						0.800000011920929,
+						-0.0500000007450581
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.89600086212158,
+						1.43999993801117,
+						-9.11999893188477
+					],
+					"feet": [
+						-4.89599990844727,
+						0.0299999918788671,
+						-2.53000068664551
+					],
+					"forward": [
+						0.00204962235875428,
+						-0.148590669035912,
+						-0.988896667957306
+					],
+					"image": "F01_WATCH_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_SIGNAL_REGISTER",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-4.90000009536743,
+						1.14999997615814,
+						-0.600000023841858
+					]
+				}
+			],
+			"class": "service",
+			"clear_stations": 13,
+			"floor_y": 0.0,
+			"id": "F01_WATCH",
+			"level": "F01",
+			"purpose": "watch, keys and annunciator",
+			"rect": [
+				-5.4,
+				-3.85,
+				-1.2,
+				0.55
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						5.85600090026855,
+						1.43999993801117,
+						-11.6719989776611
+					],
+					"feet": [
+						-5.85599994659424,
+						0.0299999918788671,
+						0.0220003128051758
+					],
+					"forward": [
+						0.641029953956604,
+						-0.195327609777451,
+						0.742245078086853
+					],
+					"image": "F01_MAIL_TELEPHONE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.30000019073486,
+						1.0,
+						-1.64999997615814
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						8.7440013885498,
+						1.43999993801117,
+						-8.32799911499023
+					],
+					"feet": [
+						-8.74400043487549,
+						0.0299999918788671,
+						-3.32199954986572
+					],
+					"forward": [
+						-0.641029953956604,
+						-0.195327609777451,
+						-0.742245078086853
+					],
+					"image": "F01_MAIL_TELEPHONE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.30000019073486,
+						1.0,
+						-1.64999997615814
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.10000085830688,
+						1.43999993801117,
+						-9.25
+					],
+					"feet": [
+						-6.09999990463257,
+						0.0299999918788671,
+						-2.39999961853027
+					],
+					"forward": [
+						0.83605968952179,
+						-0.167211830615997,
+						-0.52253657579422
+					],
+					"image": "F01_MAIL_TELEPHONE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F01_WATCH_MAIL_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.30000019073486,
+						1.20000004768372,
+						-1.64999997615814
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.30000114440918,
+						1.43999993801117,
+						-9.99999904632568
+					],
+					"feet": [
+						-7.30000019073486,
+						0.0299999918788671,
+						-1.64999961853027
+					],
+					"forward": [
+						0.752133846282959,
+						-0.280105024576187,
+						-0.596519768238068
+					],
+					"image": "F01_MAIL_TELEPHONE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_operator_stool",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-8.75,
+						0.899999976158142,
+						-0.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.30000114440918,
+						1.43999993801117,
+						-11.6719989776611
+					],
+					"feet": [
+						-7.30000019073486,
+						0.0299999918788671,
+						0.0220003128051758
+					],
+					"forward": [
+						0.901077091693878,
+						-0.169263109564781,
+						0.399261951446533
+					],
+					"image": "F01_MAIL_TELEPHONE_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_headset_hook",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.10999965667725,
+						1.10000002384186,
+						-0.779999971389771
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.30000019073486,
+						1.43999993801117,
+						-8.32799911499023
+					],
+					"feet": [
+						-7.29999971389771,
+						0.0299999918788671,
+						-3.32199954986572
+					],
+					"forward": [
+						0.787710011005402,
+						-0.257795929908752,
+						-0.559512555599213
+					],
+					"image": "F01_MAIL_TELEPHONE_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_cord_pile",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-8.94999980926514,
+						0.899999976158142,
+						-2.15000009536743
+					]
+				}
+			],
+			"class": "service",
+			"clear_stations": 22,
+			"floor_y": 0.0,
+			"id": "F01_MAIL_TELEPHONE",
+			"level": "F01",
+			"purpose": "mail and house-line custody",
+			"rect": [
+				-9.2,
+				-3.85,
+				-5.4,
+				0.55
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": false
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						8.74400234222412,
+						1.43999993801117,
+						-15.4559993743896
+					],
+					"feet": [
+						-8.7440013885498,
+						0.0299999918788671,
+						3.80600070953369
+					],
+					"forward": [
+						-0.699984490871429,
+						-0.213291466236115,
+						0.681563317775726
+					],
+					"image": "F01_PACKAGE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.30000019073486,
+						1.0,
+						2.40000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						5.85600137710571,
+						1.43999993801117,
+						-12.6439990997314
+					],
+					"feet": [
+						-5.8560004234314,
+						0.0299999918788671,
+						0.994000434875488
+					],
+					"forward": [
+						0.699984073638916,
+						-0.213291570544243,
+						-0.681563675403595
+					],
+					"image": "F01_PACKAGE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.30000019073486,
+						1.0,
+						2.40000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						10.2000007629395,
+						1.43999993801117,
+						-14.0499992370605
+					],
+					"feet": [
+						-10.1999998092651,
+						0.0299999918788671,
+						2.40000057220459
+					],
+					"forward": [
+						-0.996592998504639,
+						-0.0824766308069229,
+						0.0
+					],
+					"image": "F01_PACKAGE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F01_PACKAGE_COMMON_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.30000019073486,
+						1.20000004768372,
+						2.40000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.30000066757202,
+						1.43999993801117,
+						-14.0499992370605
+					],
+					"feet": [
+						-7.29999971389771,
+						0.0299999918788671,
+						2.40000057220459
+					],
+					"forward": [
+						0.000000250755107344958,
+						-0.231383487582207,
+						0.972862660884857
+					],
+					"image": "F01_PACKAGE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_MAIL_PACKAGE_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.30000019073486,
+						1.0,
+						0.550000011920929
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.30000066757202,
+						1.43999993801117,
+						-14.0499992370605
+					],
+					"feet": [
+						-7.29999971389771,
+						0.0299999918788671,
+						2.40000057220459
+					],
+					"forward": [
+						0.97421807050705,
+						-0.225608348846436,
+						0.0
+					],
+					"image": "F01_PACKAGE_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_PACKAGE_COMMON_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.19999980926514,
+						1.0,
+						2.40000009536743
+					]
+				}
+			],
+			"class": "service",
+			"clear_stations": 17,
+			"floor_y": 0.0,
+			"id": "F01_PACKAGE",
+			"level": "F01",
+			"purpose": "secure parcel handling",
+			"rect": [
+				-9.2,
+				0.55,
+				-5.4,
+				4.25
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

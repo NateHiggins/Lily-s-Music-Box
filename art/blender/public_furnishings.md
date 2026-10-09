@@ -17,6 +17,13 @@ material batches and 14,256 triangles. Runtime bindings reuse oak and iron;
 metre UVs are present. Grain direction and surface response remain part of the
 coordinated material pass. No generated images or new material keys are used.
 
+The V2 environment dossier (F01_PACKAGE-001) adds a separate load to each
+rack: eight string-tied parcels by size, an auction crate, a bundle of
+envelopes, the parcel book, a spring scale and a stamp pad. The runtime seats
+each load in its rack's body, so the racks stay four bodies with the rack's
+collision; the loads use the existing paper, linen, brass and book material
+keys with tints.
+
 These are fixed furnishings, not new sitting or parcel-custody interactions.
 Existing room identities, doors, mail interactions and campaign state retain
 their owners. **OrisonV2PublicFurnishingsTest** checks four contacts against the

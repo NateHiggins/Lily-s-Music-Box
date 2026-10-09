@@ -18,14 +18,19 @@ static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 			_install(furniture,library,"LobbyBench","WestBench",Vector3(float(rect[0])+.44,y,float(rect[1])+2.10),-PI*.5)
 			_install(furniture,library,"LobbyBench","EastBench",Vector3(float(rect[2])-.44,y,float(rect[1])+2.55),PI*.5)
 		else:
-			_install(furniture,library,"ParcelRack","EastRack",Vector3(float(rect[2])-.33,y,(float(rect[1])+float(rect[3]))*.5),PI*.5)
-			_install(furniture,library,"ParcelRack","NorthRack",Vector3((float(rect[0])+float(rect[2]))*.5,y,float(rect[3])-.325),0)
+			_install(furniture,library,"ParcelRack","EastRack",Vector3(float(rect[2])-.33,y,(float(rect[1])+float(rect[3]))*.5),PI*.5,"ParcelLoadEast")
+			_install(furniture,library,"ParcelRack","NorthRack",Vector3((float(rect[0])+float(rect[2]))*.5,y,float(rect[3])-.325),0,"ParcelLoadNorth")
 	library.free()
 
-static func _install(parent: Node3D, library: Node3D, model: String, label: String, at: Vector3, yaw: float) -> void:
+static func _install(parent: Node3D, library: Node3D, model: String, label: String, at: Vector3, yaw: float, dressing := "") -> void:
 	var body := StaticBody3D.new()
 	body.name=label;body.position=at;body.rotation.y=yaw
 	parent.add_child(body)
+	_add_visual(body,library,model)
+	# Parcel-room stock is dressing on the fixed rack: it shares the rack body and adds no custody owner.
+	if not dressing.is_empty(): _add_visual(body,library,dressing)
+
+static func _add_visual(body: StaticBody3D, library: Node3D, model: String) -> void:
 	var source := library.get_node(model) as Node3D
 	var visual := source.duplicate() as Node3D
 	body.add_child(visual)
@@ -38,6 +43,10 @@ static func _install(parent: Node3D, library: Node3D, model: String, label: Stri
 			"RedCloth": mesh.material_override=MatLib.get_mat("linen",Color(.32,.12,.085))
 			"GreenCloth": mesh.material_override=MatLib.get_mat("linen",Color(.17,.24,.14))
 			"BlueCloth": mesh.material_override=MatLib.get_mat("linen",Color(.13,.18,.25))
+			"Kraft": mesh.material_override=MatLib.get_mat("paper",Color(.50,.36,.22))
+			"Twine": mesh.material_override=MatLib.get_mat("linen",Color(.66,.58,.42))
+			"Brass": mesh.material_override=MatLib.get_mat("brass_dull")
+			"Book": mesh.material_override=MatLib.get_mat("book_navy")
 		var shape := CollisionShape3D.new()
 		shape.shape=mesh.mesh.create_trimesh_shape()
 		shape.transform=visual.transform*mesh.transform
