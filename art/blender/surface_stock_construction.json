@@ -1605,6 +1605,72 @@
       "kind": "carton",
       "cell": "4B",
       "source_record": "4B_bulb_box"
+    },
+    {
+      "id": "1A_spectacles",
+      "kind": "spectacles",
+      "cell": "1A",
+      "source_record": "1A_spectacles"
+    },
+    {
+      "id": "1A_red_pencil",
+      "kind": "pencil",
+      "cell": "1A",
+      "source_record": "1A_red_pencil"
+    },
+    {
+      "id": "3A_seed_catalogue",
+      "kind": "booklet",
+      "cell": "3A",
+      "source_record": "3A_seed_catalogue"
+    },
+    {
+      "id": "4A_pocketbook",
+      "kind": "wallet",
+      "cell": "4A",
+      "source_record": "4A_pocketbook"
+    },
+    {
+      "id": "5A_fold_rule",
+      "kind": "foldrule",
+      "cell": "5A",
+      "source_record": "5A_fold_rule"
+    },
+    {
+      "id": "5A_notebook",
+      "kind": "booklet",
+      "cell": "5A",
+      "source_record": "5A_notebook"
+    },
+    {
+      "id": "6A_empty_case",
+      "kind": "case",
+      "cell": "6A",
+      "source_record": "6A_empty_case"
+    },
+    {
+      "id": "4C_gloves",
+      "kind": "gloves",
+      "cell": "4C",
+      "source_record": "4C_gloves"
+    },
+    {
+      "id": "4C_condition_card",
+      "kind": "booklet",
+      "cell": "4C",
+      "source_record": "4C_condition_card"
+    },
+    {
+      "id": "5C_hammer",
+      "kind": "hammer",
+      "cell": "5C",
+      "source_record": "5C_hammer"
+    },
+    {
+      "id": "5C_tack_tin",
+      "kind": "tin",
+      "cell": "5C",
+      "source_record": "5C_tack_tin"
     }
   ],
   "closed_stocks": [
@@ -12059,6 +12125,294 @@
       "assembly": "4B_bulb_box",
       "key": "paper",
       "volume_m3": 0.0017377490112485204
+    },
+    {
+      "name": "1A_spectacles_Rim-1",
+      "assembly": "1A_spectacles",
+      "key": "metal",
+      "volume_m3": 2.070291567079613e-06
+    },
+    {
+      "name": "1A_spectacles_Lens-1",
+      "assembly": "1A_spectacles",
+      "key": "glassish",
+      "volume_m3": 3.2912179496115435e-06
+    },
+    {
+      "name": "1A_spectacles_Temple-1",
+      "assembly": "1A_spectacles",
+      "key": "metal",
+      "volume_m3": 2.9377314146691e-07
+    },
+    {
+      "name": "1A_spectacles_Rim1",
+      "assembly": "1A_spectacles",
+      "key": "metal",
+      "volume_m3": 2.070291567079614e-06
+    },
+    {
+      "name": "1A_spectacles_Lens1",
+      "assembly": "1A_spectacles",
+      "key": "glassish",
+      "volume_m3": 3.291217949611543e-06
+    },
+    {
+      "name": "1A_spectacles_Temple1",
+      "assembly": "1A_spectacles",
+      "key": "metal",
+      "volume_m3": 2.937731387101878e-07
+    },
+    {
+      "name": "1A_spectacles_Bridge",
+      "assembly": "1A_spectacles",
+      "key": "metal",
+      "volume_m3": 1.3392230767893931e-07
+    },
+    {
+      "name": "1A_red_pencil_Shaft",
+      "assembly": "1A_red_pencil",
+      "key": "book_burgundy",
+      "volume_m3": 8.213111889988942e-06
+    },
+    {
+      "name": "1A_red_pencil_Point",
+      "assembly": "1A_red_pencil",
+      "key": "timber",
+      "volume_m3": 3.9100781612081387e-07
+    },
+    {
+      "name": "3A_seed_catalogue_LowerCover",
+      "assembly": "3A_seed_catalogue",
+      "key": "book_teal",
+      "volume_m3": 1.9477430082744107e-05
+    },
+    {
+      "name": "3A_seed_catalogue_Pages",
+      "assembly": "3A_seed_catalogue",
+      "key": "paper",
+      "volume_m3": 0.00012993570256288433
+    },
+    {
+      "name": "3A_seed_catalogue_UpperCover",
+      "assembly": "3A_seed_catalogue",
+      "key": "book_teal",
+      "volume_m3": 1.9477424852466423e-05
+    },
+    {
+      "name": "3A_seed_catalogue_Spine",
+      "assembly": "3A_seed_catalogue",
+      "key": "book_teal",
+      "volume_m3": 4.789606849887e-06
+    },
+    {
+      "name": "4A_pocketbook_Body",
+      "assembly": "4A_pocketbook",
+      "key": "book_brown",
+      "volume_m3": 0.0002143569701138582
+    },
+    {
+      "name": "4A_pocketbook_Note",
+      "assembly": "4A_pocketbook",
+      "key": "paper",
+      "volume_m3": 5.996653175170027e-06
+    },
+    {
+      "name": "5A_fold_rule_Leaf0",
+      "assembly": "5A_fold_rule",
+      "key": "timber",
+      "volume_m3": 7.424827832244315e-06
+    },
+    {
+      "name": "5A_fold_rule_Leaf1",
+      "assembly": "5A_fold_rule",
+      "key": "timber",
+      "volume_m3": 7.424827269605355e-06
+    },
+    {
+      "name": "5A_fold_rule_Leaf2",
+      "assembly": "5A_fold_rule",
+      "key": "timber",
+      "volume_m3": 7.424828398268587e-06
+    },
+    {
+      "name": "5A_fold_rule_Leaf3",
+      "assembly": "5A_fold_rule",
+      "key": "timber",
+      "volume_m3": 7.424828418250168e-06
+    },
+    {
+      "name": "5A_fold_rule_Rivet-0.068",
+      "assembly": "5A_fold_rule",
+      "key": "brass",
+      "volume_m3": 6.265257581493161e-07
+    },
+    {
+      "name": "5A_fold_rule_Rivet0.068",
+      "assembly": "5A_fold_rule",
+      "key": "brass",
+      "volume_m3": 6.265257581493163e-07
+    },
+    {
+      "name": "5A_notebook_LowerCover",
+      "assembly": "5A_notebook",
+      "key": "book_teal",
+      "volume_m3": 1.9477430082744107e-05
+    },
+    {
+      "name": "5A_notebook_Pages",
+      "assembly": "5A_notebook",
+      "key": "paper",
+      "volume_m3": 0.00012993570256288433
+    },
+    {
+      "name": "5A_notebook_UpperCover",
+      "assembly": "5A_notebook",
+      "key": "book_teal",
+      "volume_m3": 1.9477424852466423e-05
+    },
+    {
+      "name": "5A_notebook_Spine",
+      "assembly": "5A_notebook",
+      "key": "book_teal",
+      "volume_m3": 4.789606849887e-06
+    },
+    {
+      "name": "6A_empty_case_Body",
+      "assembly": "6A_empty_case",
+      "key": "book_brown",
+      "volume_m3": 0.0004298409622884587
+    },
+    {
+      "name": "6A_empty_case_Lining",
+      "assembly": "6A_empty_case",
+      "key": "book_burgundy",
+      "volume_m3": 1.535471558898507e-05
+    },
+    {
+      "name": "6A_empty_case_Lid",
+      "assembly": "6A_empty_case",
+      "key": "book_brown",
+      "volume_m3": 3.125824764832565e-05
+    },
+    {
+      "name": "4C_gloves_Palm0",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 1.9325618666969056e-05
+    },
+    {
+      "name": "4C_gloves_Finger(0, 0)",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 1.9616210345033856e-06
+    },
+    {
+      "name": "4C_gloves_Finger(0, 1)",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 2.185620732058074e-06
+    },
+    {
+      "name": "4C_gloves_Finger(0, 2)",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 1.9616210345033856e-06
+    },
+    {
+      "name": "4C_gloves_Finger(0, 3)",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 2.1856205495188646e-06
+    },
+    {
+      "name": "4C_gloves_Thumb0",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 2.209620665426599e-06
+    },
+    {
+      "name": "4C_gloves_Palm1",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 1.9325618666969056e-05
+    },
+    {
+      "name": "4C_gloves_Finger(1, 0)",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 1.9616208705906036e-06
+    },
+    {
+      "name": "4C_gloves_Finger(1, 1)",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 2.185620732058074e-06
+    },
+    {
+      "name": "4C_gloves_Finger(1, 2)",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 1.9616210345033856e-06
+    },
+    {
+      "name": "4C_gloves_Finger(1, 3)",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 2.1856207320580752e-06
+    },
+    {
+      "name": "4C_gloves_Thumb1",
+      "assembly": "4C_gloves",
+      "key": "book_brown",
+      "volume_m3": 2.209620665426599e-06
+    },
+    {
+      "name": "4C_condition_card_LowerCover",
+      "assembly": "4C_condition_card",
+      "key": "book_teal",
+      "volume_m3": 1.9477430082744107e-05
+    },
+    {
+      "name": "4C_condition_card_Pages",
+      "assembly": "4C_condition_card",
+      "key": "paper",
+      "volume_m3": 0.00012993570256288433
+    },
+    {
+      "name": "4C_condition_card_UpperCover",
+      "assembly": "4C_condition_card",
+      "key": "book_teal",
+      "volume_m3": 1.9477424852466423e-05
+    },
+    {
+      "name": "4C_condition_card_Spine",
+      "assembly": "4C_condition_card",
+      "key": "book_teal",
+      "volume_m3": 4.789606849887e-06
+    },
+    {
+      "name": "5C_hammer_Handle",
+      "assembly": "5C_hammer",
+      "key": "timber",
+      "volume_m3": 0.0001241919737481857
+    },
+    {
+      "name": "5C_hammer_Head",
+      "assembly": "5C_hammer",
+      "key": "metal",
+      "volume_m3": 7.297361031913515e-05
+    },
+    {
+      "name": "5C_tack_tin_Can",
+      "assembly": "5C_tack_tin",
+      "key": "nickel_plated",
+      "volume_m3": 0.0009150575196985993
+    },
+    {
+      "name": "5C_tack_tin_Lid",
+      "assembly": "5C_tack_tin",
+      "key": "nickel_plated",
+      "volume_m3": 0.0001172981332062072
     }
   ],
   "contacts": [
@@ -17431,6 +17785,516 @@
         0
       ],
       "label": "carton base"
+    },
+    {
+      "assembly": "1A_spectacles",
+      "owner": "support",
+      "point": [
+        -0.054,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rim (-1, -0.022)"
+    },
+    {
+      "assembly": "1A_spectacles",
+      "owner": "support",
+      "point": [
+        -0.010000000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rim (-1, 0.022)"
+    },
+    {
+      "assembly": "1A_spectacles",
+      "owner": "support",
+      "point": [
+        0.010000000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rim (1, -0.022)"
+    },
+    {
+      "assembly": "1A_spectacles",
+      "owner": "support",
+      "point": [
+        0.054,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rim (1, 0.022)"
+    },
+    {
+      "assembly": "1A_red_pencil",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pencil -0.07"
+    },
+    {
+      "assembly": "1A_red_pencil",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pencil 0.07"
+    },
+    {
+      "assembly": "3A_seed_catalogue",
+      "owner": "support",
+      "point": [
+        -0.06,
+        0,
+        0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (-0.06, -0.04)"
+    },
+    {
+      "assembly": "3A_seed_catalogue",
+      "owner": "support",
+      "point": [
+        -0.06,
+        0,
+        -0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (-0.06, 0.04)"
+    },
+    {
+      "assembly": "3A_seed_catalogue",
+      "owner": "support",
+      "point": [
+        0.06,
+        0,
+        0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (0.06, -0.04)"
+    },
+    {
+      "assembly": "3A_seed_catalogue",
+      "owner": "support",
+      "point": [
+        0.06,
+        0,
+        -0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (0.06, 0.04)"
+    },
+    {
+      "assembly": "4A_pocketbook",
+      "owner": "support",
+      "point": [
+        -0.045,
+        0,
+        0.035
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wallet (-0.045, -0.035)"
+    },
+    {
+      "assembly": "4A_pocketbook",
+      "owner": "support",
+      "point": [
+        -0.045,
+        0,
+        -0.035
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wallet (-0.045, 0.035)"
+    },
+    {
+      "assembly": "4A_pocketbook",
+      "owner": "support",
+      "point": [
+        0.045,
+        0,
+        0.035
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wallet (0.045, -0.035)"
+    },
+    {
+      "assembly": "4A_pocketbook",
+      "owner": "support",
+      "point": [
+        0.045,
+        0,
+        -0.035
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "wallet (0.045, 0.035)"
+    },
+    {
+      "assembly": "5A_fold_rule",
+      "owner": "support",
+      "point": [
+        -0.06,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rule -0.06"
+    },
+    {
+      "assembly": "5A_fold_rule",
+      "owner": "support",
+      "point": [
+        0.06,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rule 0.06"
+    },
+    {
+      "assembly": "5A_notebook",
+      "owner": "support",
+      "point": [
+        -0.06,
+        0,
+        0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (-0.06, -0.04)"
+    },
+    {
+      "assembly": "5A_notebook",
+      "owner": "support",
+      "point": [
+        -0.06,
+        0,
+        -0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (-0.06, 0.04)"
+    },
+    {
+      "assembly": "5A_notebook",
+      "owner": "support",
+      "point": [
+        0.06,
+        0,
+        0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (0.06, -0.04)"
+    },
+    {
+      "assembly": "5A_notebook",
+      "owner": "support",
+      "point": [
+        0.06,
+        0,
+        -0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (0.06, 0.04)"
+    },
+    {
+      "assembly": "6A_empty_case",
+      "owner": "support",
+      "point": [
+        -0.05,
+        0,
+        0.03
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (-0.05, -0.03)"
+    },
+    {
+      "assembly": "6A_empty_case",
+      "owner": "support",
+      "point": [
+        -0.05,
+        0,
+        -0.03
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (-0.05, 0.03)"
+    },
+    {
+      "assembly": "6A_empty_case",
+      "owner": "support",
+      "point": [
+        0.05,
+        0,
+        0.03
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (0.05, -0.03)"
+    },
+    {
+      "assembly": "6A_empty_case",
+      "owner": "support",
+      "point": [
+        0.05,
+        0,
+        -0.03
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (0.05, 0.03)"
+    },
+    {
+      "assembly": "4C_gloves",
+      "owner": "support",
+      "point": [
+        -0.045,
+        0,
+        0.015
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "palm 0"
+    },
+    {
+      "assembly": "4C_gloves",
+      "owner": "support",
+      "point": [
+        0.045,
+        0,
+        0.015
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "palm 1"
+    },
+    {
+      "assembly": "4C_condition_card",
+      "owner": "support",
+      "point": [
+        -0.06,
+        0,
+        0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (-0.06, -0.04)"
+    },
+    {
+      "assembly": "4C_condition_card",
+      "owner": "support",
+      "point": [
+        -0.06,
+        0,
+        -0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (-0.06, 0.04)"
+    },
+    {
+      "assembly": "4C_condition_card",
+      "owner": "support",
+      "point": [
+        0.06,
+        0,
+        0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (0.06, -0.04)"
+    },
+    {
+      "assembly": "4C_condition_card",
+      "owner": "support",
+      "point": [
+        0.06,
+        0,
+        -0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "booklet (0.06, 0.04)"
+    },
+    {
+      "assembly": "5C_hammer",
+      "owner": "support",
+      "point": [
+        -0.12,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "hammer (-0.12, 0, 0)"
+    },
+    {
+      "assembly": "5C_hammer",
+      "owner": "support",
+      "point": [
+        0.11,
+        0,
+        0.025
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "hammer (0.11, -0.025, 0)"
+    },
+    {
+      "assembly": "5C_hammer",
+      "owner": "support",
+      "point": [
+        0.11,
+        0,
+        -0.025
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "hammer (0.11, 0.025, 0)"
+    },
+    {
+      "assembly": "5C_tack_tin",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tin base"
     }
   ],
   "parts": [
@@ -19407,9 +20271,149 @@
       "cell": "4B",
       "key": "paper",
       "triangles": 376
+    },
+    {
+      "name": "1A_spectacles__glassish",
+      "assembly": "1A_spectacles",
+      "cell": "1A",
+      "key": "glassish",
+      "triangles": 384
+    },
+    {
+      "name": "1A_spectacles__metal",
+      "assembly": "1A_spectacles",
+      "cell": "1A",
+      "key": "metal",
+      "triangles": 2100
+    },
+    {
+      "name": "1A_red_pencil__book_burgundy",
+      "assembly": "1A_red_pencil",
+      "cell": "1A",
+      "key": "book_burgundy",
+      "triangles": 188
+    },
+    {
+      "name": "1A_red_pencil__timber",
+      "assembly": "1A_red_pencil",
+      "cell": "1A",
+      "key": "timber",
+      "triangles": 188
+    },
+    {
+      "name": "3A_seed_catalogue__book_teal",
+      "assembly": "3A_seed_catalogue",
+      "cell": "3A",
+      "key": "book_teal",
+      "triangles": 564
+    },
+    {
+      "name": "3A_seed_catalogue__paper",
+      "assembly": "3A_seed_catalogue",
+      "cell": "3A",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "4A_pocketbook__book_brown",
+      "assembly": "4A_pocketbook",
+      "cell": "4A",
+      "key": "book_brown",
+      "triangles": 188
+    },
+    {
+      "name": "4A_pocketbook__paper",
+      "assembly": "4A_pocketbook",
+      "cell": "4A",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "5A_fold_rule__brass",
+      "assembly": "5A_fold_rule",
+      "cell": "5A",
+      "key": "brass",
+      "triangles": 384
+    },
+    {
+      "name": "5A_fold_rule__timber",
+      "assembly": "5A_fold_rule",
+      "cell": "5A",
+      "key": "timber",
+      "triangles": 752
+    },
+    {
+      "name": "5A_notebook__book_teal",
+      "assembly": "5A_notebook",
+      "cell": "5A",
+      "key": "book_teal",
+      "triangles": 564
+    },
+    {
+      "name": "5A_notebook__paper",
+      "assembly": "5A_notebook",
+      "cell": "5A",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "6A_empty_case__book_brown",
+      "assembly": "6A_empty_case",
+      "cell": "6A",
+      "key": "book_brown",
+      "triangles": 376
+    },
+    {
+      "name": "6A_empty_case__book_burgundy",
+      "assembly": "6A_empty_case",
+      "cell": "6A",
+      "key": "book_burgundy",
+      "triangles": 188
+    },
+    {
+      "name": "4C_gloves__book_brown",
+      "assembly": "4C_gloves",
+      "cell": "4C",
+      "key": "book_brown",
+      "triangles": 2256
+    },
+    {
+      "name": "4C_condition_card__book_teal",
+      "assembly": "4C_condition_card",
+      "cell": "4C",
+      "key": "book_teal",
+      "triangles": 564
+    },
+    {
+      "name": "4C_condition_card__paper",
+      "assembly": "4C_condition_card",
+      "cell": "4C",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "5C_hammer__metal",
+      "assembly": "5C_hammer",
+      "cell": "5C",
+      "key": "metal",
+      "triangles": 188
+    },
+    {
+      "name": "5C_hammer__timber",
+      "assembly": "5C_hammer",
+      "cell": "5C",
+      "key": "timber",
+      "triangles": 188
+    },
+    {
+      "name": "5C_tack_tin__nickel_plated",
+      "assembly": "5C_tack_tin",
+      "cell": "5C",
+      "key": "nickel_plated",
+      "triangles": 768
     }
   ],
-  "triangles": 686640,
+  "triangles": 697232,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -23684,6 +24688,262 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "1A_spectacles",
+        "parts": [
+          {
+            "name": "1A_spectacles__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "1A_spectacles__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.4
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "1A_red_pencil",
+        "parts": [
+          {
+            "name": "1A_red_pencil__book_burgundy",
+            "key": "book_burgundy",
+            "tile": 0.32,
+            "catalog_key": "book_burgundy"
+          },
+          {
+            "name": "1A_red_pencil__timber",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3A_seed_catalogue",
+        "parts": [
+          {
+            "name": "3A_seed_catalogue__book_teal",
+            "key": "book_teal",
+            "tile": 0.32,
+            "catalog_key": "book_teal"
+          },
+          {
+            "name": "3A_seed_catalogue__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4A_pocketbook",
+        "parts": [
+          {
+            "name": "4A_pocketbook__book_brown",
+            "key": "book_brown",
+            "tile": 0.32,
+            "catalog_key": "book_brown"
+          },
+          {
+            "name": "4A_pocketbook__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5A_fold_rule",
+        "parts": [
+          {
+            "name": "5A_fold_rule__brass",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.45
+            }
+          },
+          {
+            "name": "5A_fold_rule__timber",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5A_notebook",
+        "parts": [
+          {
+            "name": "5A_notebook__book_teal",
+            "key": "book_teal",
+            "tile": 0.32,
+            "catalog_key": "book_teal"
+          },
+          {
+            "name": "5A_notebook__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6A_empty_case",
+        "parts": [
+          {
+            "name": "6A_empty_case__book_brown",
+            "key": "book_brown",
+            "tile": 0.32,
+            "catalog_key": "book_brown"
+          },
+          {
+            "name": "6A_empty_case__book_burgundy",
+            "key": "book_burgundy",
+            "tile": 0.32,
+            "catalog_key": "book_burgundy"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4C_gloves",
+        "parts": [
+          {
+            "name": "4C_gloves__book_brown",
+            "key": "book_brown",
+            "tile": 0.32,
+            "catalog_key": "book_brown"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4C_condition_card",
+        "parts": [
+          {
+            "name": "4C_condition_card__book_teal",
+            "key": "book_teal",
+            "tile": 0.32,
+            "catalog_key": "book_teal"
+          },
+          {
+            "name": "4C_condition_card__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5C_hammer",
+        "parts": [
+          {
+            "name": "5C_hammer__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "5C_hammer__timber",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5C_tack_tin",
+        "parts": [
+          {
+            "name": "5C_tack_tin__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -23712,9 +24972,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "47637d730f2da3352d0c7e3df0cbf334b7e838dca47e673fb4d4ebef42793a1c",
+  "asset_sha256": "518f98155c38c9670758a7805ae364dd16660a46b7d1b24775295bffa7600537",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "e22c1d1f7f799e9cfa55586ddab841e1f49c28c1b91a6367b08dad2eb7c80fe0",
+    "art/data/surface_stock/source_plan.json": "616389abaa7a231e1dfbdabaa3e7fd1639b3eb5ac5697e5eda705775ccba564d",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -23814,13 +25074,13 @@
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "6008a0074b244db478735ae54c6c026a6c36f8af6353f8ed793b32988b453986",
+    "art/blender/scripts/surface_stock_geometry.py": "0866b89112f29acd3a97f6d25044ce4a08b361dabeed13cafc7c32d39bf8f257",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "77c704b249438b8ed83b3cc9dd1b68649f1e0a55938f06e5c244d90e662ac276",
+    "game/data/orison_v2/domestic_surface_props.json": "833a67b9231709c44da9ffbabee936c3f56509e480fd96537ccfa3f34a746fbf",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "7388f5e75815f139cb4628e20ec8eca4ffe1ab3332c46d7ecf883608e16b944c"
+    "game/data/orison_v2/domestic_furniture.json": "311716221897b325229341ece7258049ee2b02a875f25c73237ee3222cc8699b"
   },
   "retained_stock": [
     {
@@ -30108,6 +31368,126 @@
       "stocks": [
         "4B_bulb_box_Body",
         "4B_bulb_box_Lid"
+      ]
+    },
+    {
+      "assembly": "1A_spectacles",
+      "id": "1A_spectacles_Spectacles",
+      "stocks": [
+        "1A_spectacles_Rim-1",
+        "1A_spectacles_Lens-1",
+        "1A_spectacles_Temple-1",
+        "1A_spectacles_Rim1",
+        "1A_spectacles_Lens1",
+        "1A_spectacles_Temple1",
+        "1A_spectacles_Bridge"
+      ]
+    },
+    {
+      "assembly": "1A_red_pencil",
+      "id": "1A_red_pencil_Pencil",
+      "stocks": [
+        "1A_red_pencil_Shaft",
+        "1A_red_pencil_Point"
+      ]
+    },
+    {
+      "assembly": "3A_seed_catalogue",
+      "id": "3A_seed_catalogue_Booklet",
+      "stocks": [
+        "3A_seed_catalogue_LowerCover",
+        "3A_seed_catalogue_Pages",
+        "3A_seed_catalogue_UpperCover",
+        "3A_seed_catalogue_Spine"
+      ]
+    },
+    {
+      "assembly": "4A_pocketbook",
+      "id": "4A_pocketbook_Wallet",
+      "stocks": [
+        "4A_pocketbook_Body",
+        "4A_pocketbook_Note"
+      ]
+    },
+    {
+      "assembly": "5A_fold_rule",
+      "id": "5A_fold_rule_FoldingRule",
+      "stocks": [
+        "5A_fold_rule_Leaf0",
+        "5A_fold_rule_Leaf1",
+        "5A_fold_rule_Leaf2",
+        "5A_fold_rule_Leaf3",
+        "5A_fold_rule_Rivet-0.068",
+        "5A_fold_rule_Rivet0.068"
+      ]
+    },
+    {
+      "assembly": "5A_notebook",
+      "id": "5A_notebook_Booklet",
+      "stocks": [
+        "5A_notebook_LowerCover",
+        "5A_notebook_Pages",
+        "5A_notebook_UpperCover",
+        "5A_notebook_Spine"
+      ]
+    },
+    {
+      "assembly": "6A_empty_case",
+      "id": "6A_empty_case_OpenCase",
+      "stocks": [
+        "6A_empty_case_Body",
+        "6A_empty_case_Lining",
+        "6A_empty_case_Lid"
+      ]
+    },
+    {
+      "assembly": "4C_gloves",
+      "id": "4C_gloves_Glove0",
+      "stocks": [
+        "4C_gloves_Palm0",
+        "4C_gloves_Finger(0, 0)",
+        "4C_gloves_Finger(0, 1)",
+        "4C_gloves_Finger(0, 2)",
+        "4C_gloves_Finger(0, 3)",
+        "4C_gloves_Thumb0"
+      ]
+    },
+    {
+      "assembly": "4C_gloves",
+      "id": "4C_gloves_Glove1",
+      "stocks": [
+        "4C_gloves_Palm1",
+        "4C_gloves_Finger(1, 0)",
+        "4C_gloves_Finger(1, 1)",
+        "4C_gloves_Finger(1, 2)",
+        "4C_gloves_Finger(1, 3)",
+        "4C_gloves_Thumb1"
+      ]
+    },
+    {
+      "assembly": "4C_condition_card",
+      "id": "4C_condition_card_Booklet",
+      "stocks": [
+        "4C_condition_card_LowerCover",
+        "4C_condition_card_Pages",
+        "4C_condition_card_UpperCover",
+        "4C_condition_card_Spine"
+      ]
+    },
+    {
+      "assembly": "5C_hammer",
+      "id": "5C_hammer_Hammer",
+      "stocks": [
+        "5C_hammer_Handle",
+        "5C_hammer_Head"
+      ]
+    },
+    {
+      "assembly": "5C_tack_tin",
+      "id": "5C_tack_tin_Tin",
+      "stocks": [
+        "5C_tack_tin_Can",
+        "5C_tack_tin_Lid"
       ]
     }
   ],

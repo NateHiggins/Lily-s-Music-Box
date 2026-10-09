@@ -62,7 +62,10 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			var feet: Vector3 = world.adapter.root.to_global(stations[identity]) if stations.has(identity) else support.to_global(Vector3(-1.35,.02,-.65))
 			check(_city_clear_station(world,feet),"surface stock standing station clears furniture")
 			await _city_capture(world,feet,support.to_global(Vector3(0,.92,0)),identity+"_stock","native passive surface stock",identity)
-		for identity: String in ["2A_k_kdishrack","3A_story_cuttings","5A_model","6C_story_oddments"]:
+		# ORISON_STOCK_CAPTURE_IDS (comma-separated record ids) replaces the default close-ups.
+		var close_ups: Array = Array(OS.get_environment("ORISON_STOCK_CAPTURE_IDS").split(",", false))
+		if close_ups.is_empty(): close_ups = ["2A_k_kdishrack","3A_story_cuttings","5A_model","6C_story_oddments"]
+		for identity: String in close_ups:
 			var row: Dictionary = source.props.filter(func(p): return p.id == identity)[0]
 			var support := world.adapter.resolve(str(row.support)) as Node3D
 			var prop := support.get_node(identity) as Node3D

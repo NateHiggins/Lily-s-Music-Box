@@ -312,6 +312,67 @@ def basket(source):
  for i,(x,y,z,rr) in enumerate([(0,0,.063,.06),(.045,.03,.145,.055),(-.03,-.01,.2,.05),(.015,-.045,.265,.045),(-.01,.01,.305,.04)]):
   lathe('Paper'+str(i),x,y,z,[(0,-rr)]+[(rr*math.sin(t),-rr*math.cos(t)) for t in np.linspace(.2,math.pi-.2,9)]+[(0,rr)],'paper')
  bearing('basket base',(0,0,0));group('WireBasket',start)
+# Dossier slice 16: bedside and tabletop pieces.
+def spectacles(source):
+ start=len(stock_checks)
+ for side in [-1,1]:
+  x=side*.032
+  ring('Rim'+str(side),x,0,0,.024,.020,.004,'metal')
+  lathe('Lens'+str(side),x,0,.0005,[(0,0),(.0205,0),(.0205,.0025),(0,.0025)],'glassish')
+  tube('Temple'+str(side),(side*.054,.0,.003),(side*-.01,.012,.003),.0012,'metal')
+  for r in [-.022,.022]:bearing('rim '+str((side,r)),(x+r,0,0))
+ tube('Bridge',(-.0095,0,.003),(.0095,0,.003),.0015,'metal')
+ group('Spectacles',start)
+def pencil(source):
+ start=len(stock_checks)
+ stock('Shaft',(-.085,-.0035,0),(.085,.0035,.007),'book_burgundy',.0008)
+ stock('Point',(.084,-.0025,.001),(.1,.0025,.006),'timber',.0006)
+ for x in [-.07,.07]:bearing('pencil '+str(x),(x,0,0))
+ group('Pencil',start)
+def booklet(source):
+ start=len(stock_checks);key=source.get('mat','book_teal')
+ stock('LowerCover',(-.075,-.05,0),(.075,.05,.0013),key,.0003)
+ stock('Pages',(-.072,-.047,.0012),(.072,.047,.0108),'paper',.0002)
+ stock('UpperCover',(-.075,-.05,.0107),(.075,.05,.012),key,.0003)
+ stock('Spine',(-.075,-.05,0),(-.071,.05,.012),key,.0003)
+ for x in [-.06,.06]:
+  for y in [-.04,.04]:bearing('booklet '+str((x,y)),(x,y,0))
+ group('Booklet',start)
+def wallet(source):
+ start=len(stock_checks)
+ stock('Body',(-.055,-.045,0),(.055,.045,.022),'book_brown',.004)
+ stock('Note',(.02,.03,.008),(.07,.06,.012),'paper',.0002)
+ for x in [-.045,.045]:
+  for y in [-.035,.035]:bearing('wallet '+str((x,y)),(x,y,0))
+ group('Wallet',start)
+def foldrule(source):
+ start=len(stock_checks)
+ for i in range(4):stock('Leaf'+str(i),(-.075,-.008,i*.003),(.075,.008,i*.003+.0031),'timber',.0003)
+ for x in [-.068,.068]:lathe('Rivet'+str(x),x,0,0,[(0,0),(.004,0),(.004,.0125),(0,.0125)],'brass')
+ for x in [-.06,.06]:bearing('rule '+str(x),(x,0,0))
+ group('FoldingRule',start)
+def case(source):
+ start=len(stock_checks)
+ stock('Body',(-.06,-.04,0),(.06,.04,.045),'book_brown',.003)
+ stock('Lining',(-.055,-.035,.044),(.055,.035,.046),'book_burgundy',.0005)
+ stock('Lid',(-.06,.036,.044),(.06,.04,.11),'book_brown',.0015)
+ for x in [-.05,.05]:
+  for y in [-.03,.03]:bearing('case '+str((x,y)),(x,y,0))
+ group('OpenCase',start)
+def gloves(source):
+ for g,cx in enumerate([-.045,.045]):
+  start=len(stock_checks)
+  stock('Palm'+str(g),(cx-.033,-.04,0),(cx+.033,.01,.006),'book_brown',.002)
+  for f in range(4):
+   fx=cx-.024+f*.016;stock('Finger'+str((g,f)),(fx-.006,.009,0),(fx+.006,.045+.004*(f%2),.005),'book_brown',.002)
+  side=1 if g else -1;stock('Thumb'+str(g),(min(cx+side*.032,cx+side*.048),-.03,0),(max(cx+side*.032,cx+side*.048),.0,.005),'book_brown',.002)
+  bearing('palm '+str(g),(cx,-.015,0));group('Glove'+str(g),start)
+def hammer(source):
+ start=len(stock_checks)
+ stock('Handle',(-.14,-.012,0),(.10,.012,.022),'timber',.003)
+ stock('Head',(.09,-.035,0),(.125,.035,.03),'metal',.002)
+ for p in [(-.12,0,0),(.11,-.025,0),(.11,.025,0)]:bearing('hammer '+str(p),p)
+ group('Hammer',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -341,4 +402,12 @@ for assembly in assemblies:
  elif kind=='reelbox':reelbox(source)
  elif kind=='boxrow':boxrow(source)
  elif kind=='basket':basket(source)
+ elif kind=='spectacles':spectacles(source)
+ elif kind=='pencil':pencil(source)
+ elif kind=='booklet':booklet(source)
+ elif kind=='wallet':wallet(source)
+ elif kind=='foldrule':foldrule(source)
+ elif kind=='case':case(source)
+ elif kind=='gloves':gloves(source)
+ elif kind=='hammer':hammer(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

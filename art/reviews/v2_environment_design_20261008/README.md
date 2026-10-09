@@ -109,6 +109,9 @@ Slices landed so far (evidence folders in parentheses):
 15. Wall art in the residents' rooms: a photograph style for the wall-art
     form, 2C's album pair, 3D's three images, 3A's diagram and portrait,
     5B's two works and 2A's caption wall (`slice15`).
+16. Bedside and tabletop stock: eight small forms on the nightstands and
+    5C's table (`slice16`, `slice16c` with close-ups; the surface-stock
+    suite now takes ORISON_STOCK_CAPTURE_IDS).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the
