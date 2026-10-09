@@ -5071,6 +5071,114 @@
         "energy_scale": 1.5,
         "range_clamp": 6.5
       }
+    },
+    {
+      "id": "F02_WEST_HALL_LT",
+      "room": "F02_WEST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F02_EAST_HALL_LT",
+      "room": "F02_EAST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F03_WEST_HALL_LT",
+      "room": "F03_WEST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F03_EAST_HALL_LT",
+      "room": "F03_EAST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F04_WEST_HALL_LT",
+      "room": "F04_WEST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F04_EAST_HALL_LT",
+      "room": "F04_EAST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F05_WEST_HALL_LT_A",
+      "room": "F05_WEST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F05_WEST_HALL_LT_B",
+      "room": "F05_WEST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F05_EAST_HALL_LT",
+      "room": "F05_EAST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F06_WEST_HALL_LT_A",
+      "room": "F06_WEST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F06_WEST_HALL_LT_B",
+      "room": "F06_WEST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
+    },
+    {
+      "id": "F06_EAST_HALL_LT",
+      "room": "F06_EAST_HALL",
+      "kind": "flush_dome",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 1.5
+      }
     }
   ],
   "variants": [
@@ -7311,6 +7419,54 @@
         "exterior": true,
         "zone": "PASSAGE"
       }
+    },
+    {
+      "id": "F02_WEST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F02_EAST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_WEST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F03_EAST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_WEST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F04_EAST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F05_WEST_HALL_LT_A",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F05_WEST_HALL_LT_B",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F05_EAST_HALL_LT",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F06_WEST_HALL_LT_A",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F06_WEST_HALL_LT_B",
+      "variant": "flush_dome_rise100"
+    },
+    {
+      "id": "F06_EAST_HALL_LT",
+      "variant": "flush_dome_rise100"
     }
   ],
   "runtime_keys": [

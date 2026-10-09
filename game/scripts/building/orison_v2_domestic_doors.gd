@@ -88,4 +88,50 @@ func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dict
 		door.rotation.y = PI if right_hinge else 0.0
 		door.set_meta("semantic_id", identity)
 		anchor.add_child(door)
+		if door.door_kind == "apartment_entry" and not door.unit.is_empty():
+			_add_unit_numeral(door, record, layout)
 	return true
+
+## Enamel unit-numeral plate on the hall face of every apartment entry leaf
+## (dossier BW-022). The leaf swings with it; lettering is a single-sided Label3D.
+func _add_unit_numeral(door: OrisonV2FittedDoor, record: Dictionary, layout: Dictionary) -> void:
+	var leaf := door.get_node_or_null("HingedLeaf") as Node3D
+	if leaf == null: return
+	var hall_side := 1.0
+	for space_id: Variant in record.get("connects", []):
+		if str(space_id).contains("_VESTIBULE") or str(space_id).contains("_RESTRICTED"): continue
+		for space: Dictionary in layout.get("spaces", []):
+			if str(space.get("id", "")) != str(space_id): continue
+			var rect: Array = space.rect
+			var centre := door.get_parent_node_3d().to_global(Vector3.ZERO)
+			centre.x = (float(rect[0]) + float(rect[2])) * 0.5
+			centre.z = (float(rect[1]) + float(rect[3])) * 0.5
+			var root := door.get_parent_node_3d()
+			while root.get_parent_node_3d() != null and not root.is_in_group("orison_v2_blockout"): root = root.get_parent_node_3d()
+			var local := leaf.to_local(root.to_global(Vector3(centre.x, 1.6, centre.z)))
+			hall_side = -1.0 if local.z < 0.0 else 1.0
+	var plate := MeshInstance3D.new()
+	plate.name = "UnitNumeralPlate"
+	var box := BoxMesh.new()
+	box.size = Vector3(0.13, 0.09, 0.004)
+	box.material = MatLib.get_mat("porcelain_fixture", Color(0.95, 0.93, 0.86))
+	plate.mesh = box
+	# The slab sits at the hinge setback in the body frame (apply_hinge_setback ran in
+	# _ready). DoorProp._build_domestic lays the upper panel bed 0.006 m thick at
+	# 0.025 m off the slab centre, so the painted face under the plate is at 0.028;
+	# the plate seats on that bed, inside the rails that stand at 0.040.
+	var slab_z: float = float(door.get("_hinge_offset"))
+	var face_z := slab_z + hall_side * 0.028
+	plate.position = Vector3(door.width * 0.5, 1.6, face_z + hall_side * 0.0025)
+	leaf.add_child(plate)
+	var numeral := Label3D.new()
+	numeral.name = "UnitNumeral"
+	numeral.text = door.unit
+	numeral.font_size = 88
+	numeral.pixel_size = 0.0007
+	numeral.modulate = Color(0.09, 0.12, 0.26)
+	numeral.outline_size = 0
+	numeral.double_sided = false
+	numeral.position = Vector3(door.width * 0.5, 1.6, face_z + hall_side * 0.006)
+	numeral.rotation.y = 0.0 if hall_side > 0.0 else PI
+	leaf.add_child(numeral)

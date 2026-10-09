@@ -1,0 +1,72 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F04_WEST_HALL_DT3.jpg",
+   "source": "sweep_shots/F04_WEST_HALL_DT3.png",
+   "sha256": "bdef8ede1732ca240211d691ffdc30599c61983c46ee330555704ab3ffa5c94c",
+   "bytes": 107357
+  },
+  {
+   "path": "images/F04_WEST_HALL_RV.jpg",
+   "source": "sweep_shots/F04_WEST_HALL_RV.png",
+   "sha256": "a50473471eb8646edc1c6cda6fb472faf04827661ffef8e6bdc9eec283bcf284",
+   "bytes": 109620
+  },
+  {
+   "path": "images/F02_EAST_HALL_RV.jpg",
+   "source": "sweep_shots/F02_EAST_HALL_RV.png",
+   "sha256": "69b75cbc8cac79277fc4f617324a7e8ef2be729aa7aaae518f9d2195605afd2d",
+   "bytes": 110576
+  },
+  {
+   "path": "images/F03_SOUTHWEST_HALL_OV.jpg",
+   "source": "sweep_shots/F03_SOUTHWEST_HALL_OV.png",
+   "sha256": "5eecdd49effa816204c31629c4c48f94b7a8fe2cb2fe634995757417276bf5d7",
+   "bytes": 116437
+  },
+  {
+   "path": "images/F05_WEST_HALL_RV.jpg",
+   "source": "sweep_shots/F05_WEST_HALL_RV.png",
+   "sha256": "965e9b99f485f50aa75e32add56e2b33317e5ff3786567397e286c8c9d69c280",
+   "bytes": 91301
+  },
+  {
+   "path": "receipts/doorroute.log.receipt.json",
+   "source": "doorroute.log.receipt.json",
+   "sha256": "32e301d82ada43309bd494ce0ad80ce25bb4b2332dfe76f17f2bd6da6863ff52",
+   "bytes": 3196
+  },
+  {
+   "path": "receipts/doorroute_4b.log.receipt.json",
+   "source": "doorroute_4b.log.receipt.json",
+   "sha256": "25b7290fe30129cc4a990ed6e5a58aee91433fd685e63f1d14a450c84935cac3",
+   "bytes": 3188
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "f49af1220d23decbe6033f3f0cc5bdb0785ee9fd278cce5ff6ce1c8c6b2f12b5",
+   "bytes": 3142
+  },
+  {
+   "path": "receipts/sweep.log.receipt.json",
+   "source": "sweep.log.receipt.json",
+   "sha256": "988a8016c1e00cf12e12151b37cb6b8b529d3ce9f4feed74baa5c21a854840ed",
+   "bytes": 3226
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "821d40d42332a6af08f5955c3c51942258a88d01fc8943d6d4ac0d3c74efe8ea",
+   "bytes": 730119
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "77c1271fe1cdd618c1ce6d536dfe4663dfc4870fa70a979c86cf3b0572bad308",
+   "bytes": 18893
+  }
+ ]
+}

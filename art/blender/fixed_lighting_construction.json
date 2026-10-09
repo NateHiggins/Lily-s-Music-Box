@@ -11128,13 +11128,61 @@
       {
         "id": "SITE_SHOP_IN2_LUNCHEONETTE",
         "variant": "cage_bulb_rise380"
+      },
+      {
+        "id": "F02_WEST_HALL_LT",
+        "variant": "flush_dome_rise100"
+      },
+      {
+        "id": "F02_EAST_HALL_LT",
+        "variant": "flush_dome_rise100"
+      },
+      {
+        "id": "F03_WEST_HALL_LT",
+        "variant": "flush_dome_rise100"
+      },
+      {
+        "id": "F03_EAST_HALL_LT",
+        "variant": "flush_dome_rise100"
+      },
+      {
+        "id": "F04_WEST_HALL_LT",
+        "variant": "flush_dome_rise100"
+      },
+      {
+        "id": "F04_EAST_HALL_LT",
+        "variant": "flush_dome_rise100"
+      },
+      {
+        "id": "F05_WEST_HALL_LT_A",
+        "variant": "flush_dome_rise100"
+      },
+      {
+        "id": "F05_WEST_HALL_LT_B",
+        "variant": "flush_dome_rise100"
+      },
+      {
+        "id": "F05_EAST_HALL_LT",
+        "variant": "flush_dome_rise100"
+      },
+      {
+        "id": "F06_WEST_HALL_LT_A",
+        "variant": "flush_dome_rise100"
+      },
+      {
+        "id": "F06_WEST_HALL_LT_B",
+        "variant": "flush_dome_rise100"
+      },
+      {
+        "id": "F06_EAST_HALL_LT",
+        "variant": "flush_dome_rise100"
       }
     ],
     "tint_space": "linear"
   },
   "asset_sha256": "1a1e3b472f82a7b0d9c356be7b0b26fc8851bfe1d99dc25a787e3778c046d170",
   "source_bindings": {
-    "art/data/fixed_lighting/source_plan.json": "da7bb9344205add50ac365102cbc09d2ad281567d5c31880efbfc68e06135ef1",
+    "art/data/fixed_lighting/source_plan.json": "a1c2ab5931dd42d211fa2f11dc20ce14132c0075f4febe847bce2366235bf729",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_fixed_lighting.py": "f0693aa28e5633093a93b0a5fbb4149cc0c8edef1f23649afd8ccc183f59ff6f",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -11179,9 +11227,9 @@
     "art/blender/scripts/surface_stock_geometry.py": "aa8245d785858c296761d420ec6302e18da3646d386c0b37c4d164c94c8beb12",
     "game/scripts/props/light_fixture_prop.gd": "fb03473169a196be04bcaee3b680af8d11d61844e3da648099e92c696d2ac5b6",
     "game/scripts/props/functional_prop.gd": "f33126057cad4c7fc00cf132ba523d9e4fa915b6922aa9470ed10be47b2806ee",
-    "game/data/orison_v2/room_lighting.json": "e39f70ba434d3331fb4f839df3376a001e781a623094ef9227a33e5188ebceb0",
+    "game/data/orison_v2/room_lighting.json": "40993ad164b6c4ba075ed1db6d66e3a8cab8d3a8142c61f04166ecf69b8da549",
     "game/data/orison_v2/completion_interiors.json": "ebade1e8fc00b2bd11a5ea8fd213c78d61f27a141f5e8f5d7ebad17a10810eaf",
-    "game/data/orison_v2_blockout.json": "87a67c240fc2fd659a5fe0fcbae9d1e0bd6aae81905d8953b2dd88691ea0bd6e",
+    "game/data/orison_v2_blockout.json": "6e83c2d4a55d460d3e6dd33240deb885e154a76924aad7e426a244ca7802a40b",
     "art/blender/scripts/inspect_fixed_lighting_city_context.py": "5c08af2737b7c74140e8d185c1a3bc11c9aa43fa119b86b67998925c6218d996",
     "game/assets/building/floor_01_cells/orison_f01_interior.gltf": "bc6ff5536e374be8385232b65c0404014d5970c9a27f016c0a301d01748c48e4",
     "game/assets/building/floor_01_cells/orison_f01_interior.bin": "42d4bbe5aa6bf9b1772e7c43ec4c1090235b09569793176fcc69e8f18f95f012",

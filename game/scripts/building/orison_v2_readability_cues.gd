@@ -52,6 +52,8 @@ func _portal(at: Vector3, yaw: float, width: float, height: float,
 		_box(portal, Vector3(0.09, height, 0.12), Vector3(-width * 0.5 - 0.045, height * 0.5, 0), color)
 		_box(portal, Vector3(0.09, height, 0.12), Vector3(width * 0.5 + 0.045, height * 0.5, 0), color)
 		_box(portal, Vector3(width + 0.18, 0.16, 0.16), Vector3(0, height + 0.08, 0), color)
+	# The label stays with the masses off: OrisonV2DoorCasingsTest holds every
+	# portal to exactly one Label3D child in production.
 	var plate := Label3D.new()
 	plate.text = words
 	plate.font_size = 64
