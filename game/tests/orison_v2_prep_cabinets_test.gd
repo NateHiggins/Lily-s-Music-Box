@@ -1,5 +1,5 @@
 extends "res://tests/orison_v2_city_sweep.gd"
-## Native visuals under unchanged twelve cabinet mechanisms, in one world.
+## Native visuals under unchanged cabinet mechanisms (twelve V1 homes, three completion copies), in one world.
 const Prep := preload("res://scripts/building/orison_v2_prep_cabinet.gd")
 var batch_mode := true
 var capture_enabled := true
@@ -16,6 +16,10 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	var records: Dictionary = {}
 	for row: Dictionary in source.furniture:
 		if row.kind == "prep_cabinet": records[str(row.id)] = row
+	# Completion homes carry copies of a V1 cabinet (slice 9): same case, bounds and collision.
+	var completion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/completion_interiors.json"))
+	for row: Dictionary in completion.furniture:
+		if records.has(str(row.template)): records[str(row.id)] = records[str(row.template)]
 	var anchors: Dictionary = {}
 	var levels: Dictionary = {}
 	for row: Dictionary in world.layout.anchors: anchors[str(row.id)] = row
@@ -77,7 +81,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+Vector3.UP*.004,at-Vector3.UP*.004,1,[body.get_rid()]))
 			check(not hit.is_empty() and hit.position.distance_to(at)<.00004 and hit.normal.y>.99,"original plinth meets actual floor")
 		body.restore_open_state(false)
-	check(actors.size()==12 and triangles==int(fixture.triangles),"all twelve mechanisms and native partitions accounted for")
+	check(actors.size()==15 and triangles==int(fixture.triangles),"all fifteen mechanisms and native partitions accounted for")
 	var accessories: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/household_accessories.json"))
 	for row: Dictionary in accessories.accessories:
 		if row.kind!="toaster":continue

@@ -104,6 +104,9 @@ func _visual_bounds() -> AABB:
 	var stack: Array[Node] = [self]
 	while not stack.is_empty():
 		var node: Node = stack.pop_back()
+		# Passive surface stock standing on the prop (dossier kitchen sets) is
+		# not the prop's own case; its collision stays sized to the fixture.
+		if node != self and node.has_meta("v2_surface_prop"): continue
 		for child in node.get_children():
 			stack.append(child)
 		if node is MeshInstance3D and (node as MeshInstance3D).mesh != null:

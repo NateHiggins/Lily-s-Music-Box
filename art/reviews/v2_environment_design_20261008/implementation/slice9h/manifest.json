@@ -1,0 +1,24 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "599457df3492b35d36ceeec2efa7cb4f7d2327c8435c9e64c7d25eff6f6f3c93",
+   "bytes": 3138
+  },
+  {
+   "path": "receipts/import2.log.receipt.json",
+   "source": "import2.log.receipt.json",
+   "sha256": "1a87c3bd2cb4f2599ed23c46aa7fd72e712de5a87c87f917b76af62766faad40",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/upper_kitchen.log.receipt.json",
+   "source": "upper_kitchen.log.receipt.json",
+   "sha256": "9c0c4f779b7ece6be0080e18e0ba10e92f77350cdaf90e7f0440d2d60d28562d",
+   "bytes": 3187
+  }
+ ]
+}

@@ -28,10 +28,21 @@ native_ids=set(json.loads((r/'game/data/orison_v2/work_tables.json').read_text()
 with bpy.data.libraries.load(str(r/'art/blender/work_tables.blend'),link=False) as (src,dst):dst.objects=[n for n in src.objects if '__' in n]
 for obj in dst.objects:bpy.context.scene.collection.objects.link(obj);obj.hide_render=True
 bpy.context.view_layer.update()
+completion={row['id']:row['template'] for row in json.loads((r/'game/data/orison_v2/completion_interiors.json').read_text())['furniture']}
+with bpy.data.libraries.load(str(r/'art/blender/domestic_objects.blend'),link=False) as (src2,objects):objects.objects=[n for n in src2.objects if n.startswith('DomesticObject16__')]
+for obj in objects.objects:bpy.context.scene.collection.objects.link(obj);obj.hide_render=True
+bpy.context.view_layer.update()
 supports={}
 for identity in {p['support'] for p in props.values()}:
  if identity in native_ids:supports[identity]=[native_tree(obj) for obj in dst.objects if obj.name.startswith(identity+'__')]
+ elif identity.endswith('_hallstand'):
+  # Native hall stand (slice 8): every instance shares the DomesticObject16 assembly in its own frame.
+  supports[identity]=[native_tree(obj) for obj in objects.objects]
+ elif identity.endswith('_FRIDGE_01'):
+  # Icebox top (household_fridges.md): 1.24 m over the .70 x .58 case.
+  supports[identity]=[box_tree((-.35,1.23,-.29),(.35,1.24,.29))]
  elif identity in furniture:supports[identity]=[source_tree(furniture[identity])]
+ elif identity in completion:supports[identity]=[source_tree(furniture[completion[identity]])]
  elif identity.endswith('_prep_cabinet'):
   # Native prep cabinet worktop (prep_cabinets.md): .9 m over the retained .83 x .535 envelope.
   supports[identity]=[box_tree((-.415,.88,-.29),(.415,.90,.245))]
@@ -74,6 +85,8 @@ for lamp in json.loads((r/'game/data/orison_v2/task_lamp_installations.json').re
   if crossing:failures.append(separations[-1])
 for contact in fixture['contacts']:
  prop=props[contact['assembly']];at=pose(prop)@bp(contact['point']);trees=supports[prop['support']]
+ # A record standing on the floor beside its support bears on the floor plane of that support's frame.
+ if abs(prop['position'][1])<1e-9:trees=[box_tree((-3,-.01,-3),(3,0,3))]
  hits=[t.ray_cast(at+Vector((0,0,.004)),Vector((0,0,-1)),.008) for t in trees]
  valid=any(p is not None and (p-at).length<.00004 and n.z>.9 for p,n,_,_ in hits)
  record={'prop':prop['id'],'support':prop['support'],'label':contact['label'],'point':list(at),'valid':valid}

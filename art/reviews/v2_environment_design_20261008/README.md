@@ -80,6 +80,13 @@ Slices landed so far (evidence folders in parentheses):
    drainboards and prep cabinets of all eighteen kitchens (`slice7`).
 8. Hall stands in the eighteen apartment vestibules, a new domestic-objects
    form (`slice8`, `slice8b` for the corrected D-plan placement).
+9. Paper, book, tray, frame, clock, can, parcel and flask stock on the
+   residents' tables, nightstands, coffee tables, hall stands, an icebox
+   top and a kitchen floor; the 1D, 2C and 4C prep cabinets mounted as
+   completion copies (`slice9`; `slice9e`, `slice9f` and `slice9g` at the
+   final tree, where the household save owner adopts the copies and its
+   suite counts the hall lights of slice 3, stale since then; `slice9h`
+   is the upper-kitchen baseline at slice 8).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

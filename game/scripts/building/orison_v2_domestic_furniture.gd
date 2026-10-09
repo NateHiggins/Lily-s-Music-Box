@@ -181,7 +181,7 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		if record.kind == "prep_cabinet":
 			var mechanism: Variant = record.get("mechanism")
 			if mechanism is not Dictionary or mechanism.size() != 1 \
-					or mechanism.get("unit") not in ["2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C"] \
+					or mechanism.get("unit") not in ["1A", "1D", "2A", "2B", "2C", "3A", "3B", "3D", "4A", "4B", "4C", "4D", "5A", "5B", "5C", "6A", "6B", "6C"] \
 					or not str(record.id).begins_with(str(mechanism.get("unit", "")) + "_") \
 					or not record.has("collision_boxes"):
 				errors.append("invalid preparation cabinet mechanism")

@@ -521,15 +521,27 @@
       {
         "id": "6C_prep_cabinet",
         "variant": "PrepCabinet"
+      },
+      {
+        "id": "1D_prep_cabinet",
+        "variant": "PrepCabinet"
+      },
+      {
+        "id": "2C_prep_cabinet",
+        "variant": "PrepCabinet"
+      },
+      {
+        "id": "4C_prep_cabinet",
+        "variant": "PrepCabinet"
       }
     ],
     "tint_space": "linear"
   },
   "asset_sha256": "c56ff94b5d2471d50e786f05ab009922efef47613e63c3f75b414dd8557e4d04",
   "source_bindings": {
-    "art/data/prep_cabinets/source_plan.json": "b13b7de795ec35dd837de29eebeceb68599af82780d7f9ed0c4b14d716860d12",
+    "art/data/prep_cabinets/source_plan.json": "d7f6786193547e51a22d2755a222c81c191419b50985246fe4fddceb4f9e55db",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_prep_cabinets.py": "a2f214a3c15cd0cd8ce9c9c35c037ade7130642b3c264394197742937cdf4f37",
+    "art/blender/scripts/build_prep_cabinets.py": "9e55e8d09d002bdae47568d83dc6433bbd6808f7e0345326185dc2585b6de30c",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -570,18 +582,18 @@
     "art/blender/scripts/prep_cabinets_geometry.py": "b956a4b997208e471bd3c8ec0f229aebd6e89a3e9a52881c62f568a819052b0d",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "game/data/orison_v2/domestic_furniture.json": "e7ed96e5f73f94b91590a9b600df202c5778c5aa9887af67b12159827a71bcd9",
-    "game/data/orison_v2/completion_interiors.json": "4ec724cfe36bb6e49e206ab1c572d4fbc788bb6a1fe0da53eb0f32ed0cc04b0f",
-    "art/data/orison_v2/completion_interiors_source.json": "04f4a4b2fcd20dec5535461ecd63ce9e04318e47a3f8b7de8ebca70dbfcef26c",
+    "game/data/orison_v2/completion_interiors.json": "d32683e6d39913c52f3b0825c83f735b0255ac5bfb58c9cbdddbb10e6aaba9ef",
+    "art/data/orison_v2/completion_interiors_source.json": "d66392ebb7ec8bc534e1acbe637897e5e44ee6417e025b27386967470de353fb",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_prep_cabinets_context.py": "525e199fa8eab880093c1c09a2f0551995a4f507d03bffbfd7c44951f2709568",
     "game/data/orison_v2_blockout.json": "eb016589faa95da0d6db843ca559973e28034723ec7778845016ffb63a470862",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_surface_props.json": "0690fb9b253fbb764a040070ffb98e85862171fd342aa104cd3c1c083bb9507f",
-    "game/tests/fixtures/orison_surface_stock.json": "a5b191f0770c7bf0eb6a1db19e6839af2533b495b6d83d788d129734b7404e36",
+    "game/data/orison_v2/domestic_surface_props.json": "f2a4d4ba584fff524475499c498c7bb37f3b46096cd587d74333c2b6eb8709ef",
+    "game/tests/fixtures/orison_surface_stock.json": "43c1d837df3a35770695f1b59abf9a90b966a02c46591117558c1c49e80f073e",
     "game/scripts/building/orison_v2_prep_cabinet.gd": "23432ed3c8fca78678f67a6e9dfde1d93c1bdcd2d1a2611267375da77933b63b",
-    "art/blender/domestic_storage.blend": "642a265b35559ddc276939303b7d7d6d31b3c07afd7bf648e5479515ec65b1fc",
+    "art/blender/domestic_storage.blend": "aec22a96960af2ef7e4700fd3133d0588ab935e421a9cf6482afa74ba43ac597",
     "game/scripts/props/toaster_prop.gd": "b10f8d9da4cf4b1ff15a26ee1853fddcaf18179f474d77992f0b260a9f73b69e",
     "game/data/orison_v2/household_accessories.json": "cb5a8580d11fedac2fe7a0b1ae6dfaa82421803b9b7d3c2abc666e81c0ff1a32"
   },

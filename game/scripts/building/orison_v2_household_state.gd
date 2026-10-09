@@ -30,8 +30,14 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	for record: Dictionary in completion.lighting.fixtures:
 		if record.kind != "lamp": _kinds[str(record.id)] = "light"
 	var furniture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/domestic_furniture.json"))
+	var furniture_kinds: Dictionary = {}
 	for record: Dictionary in furniture.furniture:
+		furniture_kinds[str(record.id)] = str(record.kind)
 		if record.kind == "prep_cabinet": _kinds[str(record.id)] = "prep"
+	# Completion homes mount copies of the V1 cabinets (dossier slice 9); each
+	# copy's panel is the same durable control under the copy's identity.
+	for record: Dictionary in completion.furniture:
+		if furniture_kinds.get(str(record.template), "") == "prep_cabinet": _kinds[str(record.id)] = "prep"
 	var accessories: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/household_accessories.json"))
 	for record: Dictionary in accessories.accessories:
 		if record.kind == "mirror": _kinds[str(record.id)] = "mirror"

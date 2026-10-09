@@ -1,0 +1,120 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F01_A_MAIN_DT2.jpg",
+   "source": "sweep_shots/F01_A_MAIN_DT2.png",
+   "sha256": "40d5a70d0b85fde1eac440847e33ffe9a926b94e6302ba3532bdaca35ebf9a9a",
+   "bytes": 110675
+  },
+  {
+   "path": "images/F03_D_MAIN_OV.jpg",
+   "source": "sweep_shots/F03_D_MAIN_OV.png",
+   "sha256": "9d3cf4e7bd668505564bde1ec4a82b1e630ff7644018246604a46e17c32bb7bb",
+   "bytes": 117546
+  },
+  {
+   "path": "images/F04_A_MAIN_DT1.jpg",
+   "source": "sweep_shots/F04_A_MAIN_DT1.png",
+   "sha256": "50892c47d358b826269be7bd250a75121d138c8902d1e0559a79401972b63a86",
+   "bytes": 113271
+  },
+  {
+   "path": "images/F01_D_KITCHEN_OV.jpg",
+   "source": "sweep_shots/F01_D_KITCHEN_OV.png",
+   "sha256": "97a9c1410c06c4568213f7e0a8b80771d879f267adb3516dc5a9631a2b620d4c",
+   "bytes": 119026
+  },
+  {
+   "path": "images/F06_C_MAIN_OV.jpg",
+   "source": "sweep_shots_b/F06_C_MAIN_OV.png",
+   "sha256": "00ae88bd78cb82014214aeae2d7963f42e51188c018689203b25b5a2a39e91ac",
+   "bytes": 87533
+  },
+  {
+   "path": "images/F06_C_BED1_OV.jpg",
+   "source": "sweep_shots_b/F06_C_BED1_OV.png",
+   "sha256": "ee314460f436d03028f07cf587f95f1970b1ebcf37a9a7ba69f10d62ca671feb",
+   "bytes": 98637
+  },
+  {
+   "path": "images/F04_B_MAIN_OV.jpg",
+   "source": "sweep_shots_b/F04_B_MAIN_OV.png",
+   "sha256": "039d3f844326906219e6df1dd41d09a4721debb1862db3a52bb3d5335c46813b",
+   "bytes": 119859
+  },
+  {
+   "path": "images/F05_B_MAIN_OV.jpg",
+   "source": "sweep_shots_b/F05_B_MAIN_OV.png",
+   "sha256": "0f784de5a860a93dfd880bd36edb0160915d70dd79096803f13854e581d4facc",
+   "bytes": 55705
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "14d386097297f54489274f0c373996f7315cf60dfca2651f144b03281a990ea7",
+   "bytes": 3391
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "db8f6a670c71212a3de34ef24a50039ad589d66caa6967e0c76e6c22194c8400",
+   "bytes": 3220
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "bb43813b3e001fc1ceec0e43dc0064d8fe658034811b31e7ae4be1397176b163",
+   "bytes": 3136
+  },
+  {
+   "path": "receipts/sweep_a.log.receipt.json",
+   "source": "sweep_a.log.receipt.json",
+   "sha256": "d9a62956acd4c90cf949e7f49e3aac5e0984b487f2d42aa813bb11090eae5135",
+   "bytes": 3222
+  },
+  {
+   "path": "receipts/sweep_b.log.receipt.json",
+   "source": "sweep_b.log.receipt.json",
+   "sha256": "2a5e32a52fd94328ff6c168e110981ef2d38cbcb94dd1e29e8f3fc2a2f6e2b9b",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/upper_lighting.log.receipt.json",
+   "source": "upper_lighting.log.receipt.json",
+   "sha256": "2a9fbbd3b57b701ca5dac77bbbe4da14765b0ca893e17a5a6e7b9e9acc6aefe8",
+   "bytes": 3190
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "f54f59ea4ce98b9c8731d28d61aca95df4a8fc2e0dff053b23fd492fa4efc212",
+   "bytes": 2669
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "faadaa690d1705dc662e988a2689725dcafa38ffe96f5018d076132d12314b15",
+   "bytes": 740535
+  },
+  {
+   "path": "receipts/sweep_shots_b__node_census.json",
+   "source": "sweep_shots_b/node_census.json",
+   "sha256": "faadaa690d1705dc662e988a2689725dcafa38ffe96f5018d076132d12314b15",
+   "bytes": 740535
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "38923f588984d34c622594d84ce68d904cf480e14f57440ed6e4d64c73644579",
+   "bytes": 29928
+  },
+  {
+   "path": "receipts/sweep_shots_b__dossier_sweep.json",
+   "source": "sweep_shots_b/dossier_sweep.json",
+   "sha256": "cfe952f2993a2f966ce89f8d05c4f0e7df85fe9573a0f3b844a0b3152349f69c",
+   "bytes": 36457
+  }
+ ]
+}

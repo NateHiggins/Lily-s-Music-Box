@@ -2978,6 +2978,984 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "1A_lists",
+      "parts": [
+        {
+          "name": "1A_lists__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "1A_photo_frame",
+      "parts": [
+        {
+          "name": "1A_photo_frame__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "1A_photo_frame__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "1A_tea_tray",
+      "parts": [
+        {
+          "name": "1A_tea_tray__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "1A_cup_good",
+      "parts": [
+        {
+          "name": "1A_cup_good__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "1A_cup_spare",
+      "parts": [
+        {
+          "name": "1A_cup_spare__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "1A_register_open",
+      "parts": [
+        {
+          "name": "1A_register_open__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "1D_alarm_clock",
+      "parts": [
+        {
+          "name": "1D_alarm_clock__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        },
+        {
+          "name": "1D_alarm_clock__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "1D_flask",
+      "parts": [
+        {
+          "name": "1D_flask__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "1D_plate",
+      "parts": [
+        {
+          "name": "1D_plate__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "1D_kettle",
+      "parts": [
+        {
+          "name": "1D_kettle__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "1D_kettle__enamel",
+          "key": "enamel",
+          "tile": 1.0,
+          "catalog_key": "enamel"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "2A_pencil_jar_a",
+      "parts": [
+        {
+          "name": "2A_pencil_jar_a__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "2A_pencil_jar_b",
+      "parts": [
+        {
+          "name": "2A_pencil_jar_b__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "2C_carton_a",
+      "parts": [
+        {
+          "name": "2C_carton_a__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "2C_carton_a__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "2C_carton_b",
+      "parts": [
+        {
+          "name": "2C_carton_b__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "2C_carton_b__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "2C_coffee_mug",
+      "parts": [
+        {
+          "name": "2C_coffee_mug__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "3B_alarm",
+      "parts": [
+        {
+          "name": "3B_alarm__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        },
+        {
+          "name": "3B_alarm__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "3D_take_sheets",
+      "parts": [
+        {
+          "name": "3D_take_sheets__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "3D_hydration_tray",
+      "parts": [
+        {
+          "name": "3D_hydration_tray__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "3D_glass",
+      "parts": [
+        {
+          "name": "3D_glass__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4A_staging_a",
+      "parts": [
+        {
+          "name": "4A_staging_a__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4A_staging_b",
+      "parts": [
+        {
+          "name": "4A_staging_b__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4A_form_11b",
+      "parts": [
+        {
+          "name": "4A_form_11b__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4B_slip_stack",
+      "parts": [
+        {
+          "name": "4B_slip_stack__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4B_couch_mug",
+      "parts": [
+        {
+          "name": "4B_couch_mug__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4B_couch_slip",
+      "parts": [
+        {
+          "name": "4B_couch_slip__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4C_placing_a",
+      "parts": [
+        {
+          "name": "4C_placing_a__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4C_placing_b",
+      "parts": [
+        {
+          "name": "4C_placing_b__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4C_napkin",
+      "parts": [
+        {
+          "name": "4C_napkin__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4D_cartons",
+      "parts": [
+        {
+          "name": "4D_cartons__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "4D_cartons__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4D_stubs",
+      "parts": [
+        {
+          "name": "4D_stubs__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "5A_ledger",
+      "parts": [
+        {
+          "name": "5A_ledger__book_burgundy",
+          "key": "book_burgundy",
+          "tile": 0.32,
+          "catalog_key": "book_burgundy"
+        },
+        {
+          "name": "5A_ledger__book_navy",
+          "key": "book_navy",
+          "tile": 0.32,
+          "catalog_key": "book_navy"
+        },
+        {
+          "name": "5A_ledger__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "5B_solder_tin",
+      "parts": [
+        {
+          "name": "5B_solder_tin__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6B_watercolour",
+      "parts": [
+        {
+          "name": "6B_watercolour__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "6B_watercolour__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6C_card_a",
+      "parts": [
+        {
+          "name": "6C_card_a__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6C_object_under_review",
+      "parts": [
+        {
+          "name": "6C_object_under_review__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "6C_object_under_review__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6C_tea_tray",
+      "parts": [
+        {
+          "name": "6C_tea_tray__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6C_tea_cup_a",
+      "parts": [
+        {
+          "name": "6C_tea_cup_a__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6C_tea_cup_b",
+      "parts": [
+        {
+          "name": "6C_tea_cup_b__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6C_photo_a",
+      "parts": [
+        {
+          "name": "6C_photo_a__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "6C_photo_a__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6C_photo_b",
+      "parts": [
+        {
+          "name": "6C_photo_b__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "6C_photo_b__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6C_bed_frame",
+      "parts": [
+        {
+          "name": "6C_bed_frame__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "6C_bed_frame__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6C_hairpin_tin",
+      "parts": [
+        {
+          "name": "6C_hairpin_tin__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6C_glove_tray",
+      "parts": [
+        {
+          "name": "6C_glove_tray__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4B_trash",
+      "parts": [
+        {
+          "name": "4B_trash__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.4
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "local_materials": {

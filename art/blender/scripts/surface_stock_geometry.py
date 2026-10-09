@@ -234,6 +234,58 @@ def plate(source):
  lathe('Dish',0,0,0,[(0,0),(.095,0),(.105,.003),(.112,.012),(.110,.016),(.104,.015),(.098,.006),(0,.008)],'porcelain')
  bearing('plate foot',(0,0,0));group('Plate',start)
 
+# Dossier resident surfaces (slice 9): eight more self-contained closed forms.
+def sheets(source):
+ start=len(stock_checks);n=int(source.get('n',8));w=source.get('W',.21);d=source.get('D',.30)
+ for layer in range(n):
+  dx=.0012*((layer*7)%3-1);dy=.0015*((layer*5)%3-1)
+  stock('Sheet%d'%layer,(-w/2+dx,-d/2+dy,layer*.0025),(w/2+dx,d/2+dy,(layer+1)*.0025),'paper',.00008)
+ bearing('sheet stack',(0,0,0));group('Sheets',start)
+def volumes(source):
+ start=len(stock_checks)
+ book('Lower',(-.11,-.08,0),(.11,.08,.032),'book_navy')
+ book('Upper',(-.10,-.075,.032),(.10,.07,.058),'book_burgundy')
+ bearing('book pile',(0,0,0));group('Volumes',start)
+def brasstray(source):
+ start=len(stock_checks)
+ stock('Bottom',(-.17,-.12,0),(.17,.12,.004),'brass',.0006)
+ for s in (-1,1):
+  stock('Side'+str(s),(s*.17-.003,-.12,.004),(s*.17+.003,.12,.03),'brass',.0008)
+  stock('End'+str(s),(-.17,s*.12-.003,.004),(.17,s*.12+.003,.03),'brass',.0008)
+ for p in [(-.14,-.09),(.14,-.09),(-.14,.09),(.14,.09)]:bearing('tray foot '+str(p),(p[0],p[1],0))
+ group('BrassTray',start)
+def frame(source):
+ start=len(stock_checks)
+ stock('Face',(-.075,-.006,0),(.075,.006,.10),'wood_dark',.0008)
+ stock('Print',(-.06,-.0068,.012),(.06,-.006,.088),'paper',.0002)
+ stock('Strut',(-.01,.006,0),(.01,.045,.06),'wood_dark',.0006)
+ bearing('frame foot',(0,0,0));bearing('strut foot',(0,.04,0));group('StandingFrame',start)
+def clock(source):
+ start=len(stock_checks)
+ along_x(identity+'_Case',0,0,.047,[(0,-.016),(.045,-.016),(.047,-.013),(.047,.013),(.045,.016),(0,.016)],identity,'nickel_plated')
+ stock_checks.append({'name':identity+'_Case','assembly':identity,'key':'nickel_plated'}) if False else None
+ lathe('Face',0,-.016,.047,[(0,0),(.040,0),(.040,.001),(0,.001)],'porcelain') if False else None
+ for s in (-1,1):lathe('Bell'+str(s),0,s*.022,.090,[(0,0),(.012,0),(.013,.006),(.008,.012),(0,.014)],'brass')
+ stock('Yoke',(-.004,-.026,.086),(.004,.026,.090),'brass',.0003)
+ for s in (-1,1):stock('Leg'+str(s),(-.004,s*.028-.004,0),(.004,s*.028+.004,.012),'nickel_plated',.0003)
+ bearing('clock foot',(0,-.028,0));bearing('clock foot b',(0,.028,0));group('AlarmClock',start)
+def can(source):
+ start=len(stock_checks)
+ lathe('Body',0,0,0,[(0,0),(.14,0),(.145,.004),(.145,.33),(.14,.335),(0,.335)],'metal')
+ lathe('Lid',0,0,.335,[(0,0),(.15,0),(.152,.006),(.15,.012),(.10,.03),(0,.034)],'metal')
+ wire('LidHandle',[(-.06,0,.364),(-.06,0,.39),(.06,0,.39),(.06,0,.364)],.005,'metal')
+ bearing('can base',(0,0,0));group('GalvanisedCan',start)
+def parcel(source):
+ start=len(stock_checks)
+ stock('Box',(-.12,-.09,0),(.12,.09,.08),'paper',.0008)
+ stock('StringAlong',(-.12,-.0025,.08),(.12,.0025,.0825),'bakelite',.0002)
+ stock('StringAcross',(-.0025,-.09,.0825),(.0025,.09,.085),'bakelite',.0002)
+ bearing('parcel base',(0,0,0));group('Parcel',start)
+def flask(source):
+ start=len(stock_checks)
+ lathe('Body',0,0,0,[(0,0),(.04,0),(.042,.003),(.042,.24),(.04,.25),(.03,.255),(.03,.27),(.035,.272),(.035,.29),(0,.29)],'nickel_plated')
+ bearing('flask base',(0,0,0));group('VacuumFlask',start)
+
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -251,4 +303,12 @@ for assembly in assemblies:
  elif kind=='tin':tin(source)
  elif kind=='board':board(source)
  elif kind=='plate':plate(source)
+ elif kind=='sheets':sheets(source)
+ elif kind=='volumes':volumes(source)
+ elif kind=='brasstray':brasstray(source)
+ elif kind=='frame':frame(source)
+ elif kind=='clock':clock(source)
+ elif kind=='can':can(source)
+ elif kind=='parcel':parcel(source)
+ elif kind=='flask':flask(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

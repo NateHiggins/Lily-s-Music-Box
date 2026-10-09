@@ -2630,7 +2630,9 @@
    "purpose": "The contradiction, in porcelain (life profile; Appliance Bible III)",
    "acceptance": "Detail view of the table shows two cups reading differently",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_A_MAIN"
+   "area": "F01_A_MAIN",
+   "status": "verified",
+   "owner_notes": "1A_tea_tray (brass tray) with 1A_cup_good and 1A_cup_spare on the side table by the reading chair. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F01_A_MAIN-005",
@@ -2647,7 +2649,9 @@
    "purpose": "Bible VIII.4: a photograph is an occasion; proposed backstory: her husband's",
    "acceptance": "Visible in the radio detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_A_MAIN"
+   "area": "F01_A_MAIN",
+   "status": "verified",
+   "owner_notes": "1A_photo_frame (standing frame) on the marking table. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F01_A_MAIN-006",
@@ -2936,7 +2940,9 @@
    ],
    "acceptance": "Detail view at the desk shows the double line",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_A_STUDY"
+   "area": "F01_A_STUDY",
+   "status": "verified",
+   "owner_notes": "1A_register_open (sheets) on the study desk; the underlined name is lettering and stays off the texture by rule. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F01_A_STUDY-003",
@@ -3118,7 +3124,9 @@
    "purpose": "Story panel: thermos station; lived-in brief: exhausted half-finished meal",
    "acceptance": "Detail views of both tables",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_D_MAIN"
+   "area": "F01_D_MAIN",
+   "status": "verified",
+   "owner_notes": "1D_flask (vacuum flask), 1D_plate and 1D_kettle on the dining table by the window pier; the cloth over the plate waits for the cloth family. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F01_D_KITCHEN-001",
@@ -3148,7 +3156,7 @@
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "F01_D_KITCHEN",
    "status": "verified",
-   "owner_notes": "thermos_and_leftovers: mug and rack on the drainboard; kettle, tin and plate on the prep cabinet. Surface-stock records on the sink or prep cabinet support, within the dossier's eight-piece cap; grease film, scorch ring and oilcloth wear stay with the finish pass. Verified at 333c8041: the surface-stock fabrication validator passes 2,644 checks with the 107 records mounted (implementation/slice7/receipts/fabrication_shots__batch.json), the prep-cabinet and toaster validators stay clean, the apartment batch keeps the slice-2 count (236) and upper lighting 0 failures; the kitchen sweeps show the pieces (implementation/slice7)."
+   "owner_notes": "thermos_and_leftovers: mug and rack on the drainboard; kettle, tin and plate on the prep cabinet. Surface-stock records on the sink or prep cabinet support, within the dossier's eight-piece cap; grease film, scorch ring and oilcloth wear stay with the finish pass. Verified at 333c8041: the surface-stock fabrication validator passes 2,644 checks with the 107 records mounted (implementation/slice7/receipts/fabrication_shots__batch.json), the prep-cabinet and toaster validators stay clean, the apartment batch keeps the slice-2 count (236) and upper lighting 0 failures; the kitchen sweeps show the pieces (implementation/slice7). Slice 9 found this home had the prep cabinet anchor but no cabinet consumer, so its cabinet pieces hung in the air; the cabinet is now mounted as a completion copy and the pieces stand on it (implementation/slice9b)."
   },
   {
    "id": "F01_D_KITCHEN-002",
@@ -3189,7 +3197,9 @@
    "preserve": "Fridge leaf and ice door travel",
    "acceptance": "Detail view at the icebox shows the clock turned away",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_D_KITCHEN"
+   "area": "F01_D_KITCHEN",
+   "status": "verified",
+   "owner_notes": "1D_alarm_clock on the icebox top of F01_1D_FRIDGE_01 (nickel case, two bells, face turned to the room). Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F01_D_KITCHEN-004",
@@ -3927,7 +3937,9 @@
    "purpose": "Life profile surface set duplicate_tools; story panel: correction tape",
    "acceptance": "Detail view of the desk under the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_A_BED"
+   "area": "F02_A_BED",
+   "status": "verified",
+   "owner_notes": "Two identical pencil jars (tins) on 2A_desk beside the existing papers, mug and headphones; erasers, tape reel and pad wait for their forms. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F02_A_BED-002",
@@ -4367,7 +4379,9 @@
    "purpose": "Kitchen set takeout_plus_coffee spills into the main room",
    "acceptance": "Reverse view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_C_MAIN"
+   "area": "F02_C_MAIN",
+   "status": "verified",
+   "owner_notes": "Two folded cartons (parcels) and the coffee mug on the rig table; the percolator and the menus wait for their forms. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F02_C_KITCHEN-001",
@@ -4397,7 +4411,7 @@
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "F02_C_KITCHEN",
    "status": "verified",
-   "owner_notes": "takeout_plus_coffee: mug and rack on the drainboard; kettle, tin and a second mug on the prep cabinet. Surface-stock records on the sink or prep cabinet support, within the dossier's eight-piece cap; grease film, scorch ring and oilcloth wear stay with the finish pass. Verified at 333c8041: the surface-stock fabrication validator passes 2,644 checks with the 107 records mounted (implementation/slice7/receipts/fabrication_shots__batch.json), the prep-cabinet and toaster validators stay clean, the apartment batch keeps the slice-2 count (236) and upper lighting 0 failures; the kitchen sweeps show the pieces (implementation/slice7)."
+   "owner_notes": "takeout_plus_coffee: mug and rack on the drainboard; kettle, tin and a second mug on the prep cabinet. Surface-stock records on the sink or prep cabinet support, within the dossier's eight-piece cap; grease film, scorch ring and oilcloth wear stay with the finish pass. Verified at 333c8041: the surface-stock fabrication validator passes 2,644 checks with the 107 records mounted (implementation/slice7/receipts/fabrication_shots__batch.json), the prep-cabinet and toaster validators stay clean, the apartment batch keeps the slice-2 count (236) and upper lighting 0 failures; the kitchen sweeps show the pieces (implementation/slice7). Slice 9 found this home had the prep cabinet anchor but no cabinet consumer, so its cabinet pieces hung in the air; the cabinet is now mounted as a completion copy and the pieces stand on it (implementation/slice9b)."
   },
   {
    "id": "F02_C_KITCHEN-002",
@@ -5501,7 +5515,9 @@
    "purpose": "Schedule: wakes 03:00 to check the breaker panel",
    "acceptance": "Detail view of the nightstand",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_B_ALCOVE"
+   "area": "F03_B_ALCOVE",
+   "status": "verified",
+   "owner_notes": "3B_alarm (alarm clock) on 3B_abed_ns; spectacles and torch wait for their forms. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F03_B_BATH-001",
@@ -5612,7 +5628,9 @@
    ],
    "acceptance": "Overview from the vestibule door",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "F03_D_MAIN"
+   "area": "F03_D_MAIN",
+   "status": "verified",
+   "owner_notes": "3D_take_sheets (sheets) and 3D_hydration_tray (brass tray) with a glass (mug) on the edit desk 3D_table; the wireless table and radio came with BW-011. The desk lamp waits for the task-lamp family's floor and desk installations. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F03_D_MAIN-002",
@@ -6363,7 +6381,9 @@
    ],
    "acceptance": "Detail view of the table",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_A_MAIN"
+   "area": "F04_A_MAIN",
+   "status": "verified",
+   "owner_notes": "Three paper stacks (4A_staging_a/b, 4A_form_11b) beside the existing briefs on 4A_writing_table. The brass weights, date stamp, ink pad and ruler wait for their forms. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F04_A_MAIN-002",
@@ -6395,7 +6415,9 @@
    "purpose": "Hero object unresolved_form_11b at every station; proposed backstory: the same form at different stages",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_A_MAIN"
+   "area": "F04_A_MAIN",
+   "status": "verified",
+   "owner_notes": "4A_form_11b (sheets) at the table's end, where the resident would leave it (slice 9). Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F04_A_MAIN-004",
@@ -6667,7 +6689,9 @@
    "purpose": "Punchlist: undressed; the player's own routine",
    "acceptance": "Threshold view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_B_VESTIBULE"
+   "area": "F04_B_VESTIBULE",
+   "status": "verified",
+   "owner_notes": "4B_slip_stack (sheets) on the hall stand's shelf; the key nail and the brass weight wait for a wall-mounted form. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F04_B_MAIN-001",
@@ -6721,7 +6745,9 @@
    "purpose": "Life profile cleanliness 0.5, sleep odd hours; the contrast with the desk",
    "acceptance": "Overview from the vestibule",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_B_MAIN"
+   "area": "F04_B_MAIN",
+   "status": "verified",
+   "owner_notes": "4B_couch_mug and 4B_couch_slip on 4B_coffee; the blanket waits for the cloth family. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F04_B_MAIN-004",
@@ -6800,7 +6826,9 @@
    "preserve": "C1 commensal scatter anchor at the switch",
    "acceptance": "Overview",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_B_KITCHEN"
+   "area": "F04_B_KITCHEN",
+   "status": "verified",
+   "owner_notes": "4B_trash: a galvanised can with a lid on the kitchen floor beside the prep cabinet (surface stock standing on the floor plane). The landlord's fan is a V1 BoxFanProp with no V2 slot yet. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F04_B_KITCHEN-004",
@@ -7075,7 +7103,9 @@
    ],
    "acceptance": "Detail view of the table",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_C_MAIN"
+   "area": "F04_C_MAIN",
+   "status": "verified",
+   "owner_notes": "Two placings (plates) and a folded napkin (sheets) on 4C_din_t; the sandwich, bike lamp, card and chalk-line decal wait for their forms. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F04_C_MAIN-002",
@@ -7175,7 +7205,7 @@
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "F04_C_KITCHEN",
    "status": "verified",
-   "owner_notes": "quick_food_vs_preserved: mug and rack on the drainboard; two tins and a bread board on the prep cabinet. Surface-stock records on the sink or prep cabinet support, within the dossier's eight-piece cap; grease film, scorch ring and oilcloth wear stay with the finish pass. Verified at 333c8041: the surface-stock fabrication validator passes 2,644 checks with the 107 records mounted (implementation/slice7/receipts/fabrication_shots__batch.json), the prep-cabinet and toaster validators stay clean, the apartment batch keeps the slice-2 count (236) and upper lighting 0 failures; the kitchen sweeps show the pieces (implementation/slice7)."
+   "owner_notes": "quick_food_vs_preserved: mug and rack on the drainboard; two tins and a bread board on the prep cabinet. Surface-stock records on the sink or prep cabinet support, within the dossier's eight-piece cap; grease film, scorch ring and oilcloth wear stay with the finish pass. Verified at 333c8041: the surface-stock fabrication validator passes 2,644 checks with the 107 records mounted (implementation/slice7/receipts/fabrication_shots__batch.json), the prep-cabinet and toaster validators stay clean, the apartment batch keeps the slice-2 count (236) and upper lighting 0 failures; the kitchen sweeps show the pieces (implementation/slice7). Slice 9 found this home had the prep cabinet anchor but no cabinet consumer, so its cabinet pieces hung in the air; the cabinet is now mounted as a completion copy and the pieces stand on it (implementation/slice9b)."
   },
   {
    "id": "F04_C_KITCHEN-002",
@@ -7423,7 +7453,9 @@
    "purpose": "Story panel: takeout debris, transit stubs, half-packed bags; surface set left_behind",
    "acceptance": "Reverse view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_D_MAIN"
+   "area": "F04_D_MAIN",
+   "status": "verified",
+   "owner_notes": "4D_cartons (parcel) and 4D_stubs (sheets) on 4D_table; the open case waits for the crate family's open variant. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F04_D_MAIN-003",
@@ -8064,7 +8096,9 @@
    "purpose": "Life profile emergency_supplies; schedule: the rent-strike ledger signed Management",
    "acceptance": "Detail views",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_A_MAIN"
+   "area": "F05_A_MAIN",
+   "status": "verified",
+   "owner_notes": "5A_ledger (bound volumes) on 5A_din_t; the supplies tin by the opening waits for a floor stance clear of the route. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F05_A_MAIN-004",
@@ -8417,7 +8451,9 @@
    "purpose": "Life profile repair_mat; schedule: Omar re-caps a chassis here on Tuesdays",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_B_MAIN"
+   "area": "F05_B_MAIN",
+   "status": "verified",
+   "owner_notes": "5B_solder_tin on 5B_din_t beside the headphones and lead; the cloth mat and chassis wait for their forms. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F05_B_MAIN-004",
@@ -9647,7 +9683,9 @@
    "purpose": "Decor profile writer's pauses",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_B_MAIN"
+   "area": "F06_B_MAIN",
+   "status": "verified",
+   "owner_notes": "6B_watercolour (standing frame) at the far corner of 6B_din_t. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F06_B_MAIN-003",
@@ -9861,7 +9899,9 @@
    "purpose": "Entry set white_gloves_by_the_door; the signature prop",
    "acceptance": "Threshold view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_VESTIBULE"
+   "area": "F06_C_VESTIBULE",
+   "status": "verified",
+   "owner_notes": "6C_glove_tray (brass tray) on the hall stand's shelf; the gloves and the buttonhook wait for the cloth family. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F06_C_MAIN-001",
@@ -9878,7 +9918,9 @@
    ],
    "acceptance": "Detail view of the table",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_MAIN"
+   "area": "F06_C_MAIN",
+   "status": "verified",
+   "owner_notes": "6C_card_a (a card stack beside the existing catalogues) and 6C_object_under_review (a string-tied parcel) on the catalogue table 6C_din_t; the second card and the gloves wait for a smaller card form and the cloth family. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F06_C_MAIN-002",
@@ -9911,7 +9953,9 @@
    "purpose": "Decor profile provenance cabinet",
    "acceptance": "Overview",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_MAIN"
+   "area": "F06_C_MAIN",
+   "status": "verified",
+   "owner_notes": "6C_photo_a/b (standing frames) on 6C_cof; the five framed objects on the wall wait for the wall-art hook. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F06_C_MAIN-004",
@@ -9924,7 +9968,9 @@
    "purpose": "Schedule: tea with Nadia Thursdays 16:00, the good service",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_MAIN"
+   "area": "F06_C_MAIN",
+   "status": "verified",
+   "owner_notes": "6C_tea_tray with 6C_tea_cup_a/b on 6C_cof. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F06_C_MAIN-005",
@@ -10088,7 +10134,9 @@
    "purpose": "Wardrobe bible late-night state; web II.2 as an object",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_BED1"
+   "area": "F06_C_BED1",
+   "status": "verified",
+   "owner_notes": "6C_bed_frame and 6C_hairpin_tin on 6C_bed0_ns; the brooch waits for its form. Verified at dc849111 (slice9e, slice9f) and 266ef28a (slice9g): the thirteen families pass the fabrication batch (24,237 checks, 0 failures; surface stock 3,461 checks with every record bearing on its support, the fifteen prep cabinets with the 1D, 2C and 4C completion copies), apartment batch 236 as before, completion routes 1D 25, 2C 9 and 4C 9 unchanged (the C-plan bath leg), upper lighting 0 failures, upper kitchens 238 as before (the material-binding and three-stance failures are identical at 66994c91, slice9h), the household save owner's 201 controls save and restore (0 failures), the eight-space sweep 0 failures; the resident surfaces are shown in implementation/slice9 (at bc26e9ca) and the kitchens and the 6C vestibule in slice9e."
   },
   {
    "id": "F06_C_BED2-001",

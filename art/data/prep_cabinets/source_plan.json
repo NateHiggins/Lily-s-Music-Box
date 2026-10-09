@@ -1,142 +1,155 @@
 {
-  "evidence_class": "INERT",
-  "classification": "ADAPTATION",
-  "source_ids": [],
-  "interpretation_ids": [
-    "2A_prep_cabinet",
-    "2B_prep_cabinet",
-    "3B_prep_cabinet",
-    "4B_prep_cabinet",
-    "3A_prep_cabinet",
-    "4A_prep_cabinet",
-    "5A_prep_cabinet",
-    "5B_prep_cabinet",
-    "5C_prep_cabinet",
-    "6A_prep_cabinet",
-    "6B_prep_cabinet",
-    "6C_prep_cabinet"
-  ],
-  "variants": [
-    {
-      "id": "PrepCabinet",
-      "kind": "prep_cabinet",
-      "source_id": "2A_prep_cabinet",
-      "params": {}
-    }
-  ],
-  "instances": [
-    {
-      "id": "2A_prep_cabinet",
-      "variant": "PrepCabinet"
-    },
-    {
-      "id": "2B_prep_cabinet",
-      "variant": "PrepCabinet"
-    },
-    {
-      "id": "3B_prep_cabinet",
-      "variant": "PrepCabinet"
-    },
-    {
-      "id": "4B_prep_cabinet",
-      "variant": "PrepCabinet"
-    },
-    {
-      "id": "3A_prep_cabinet",
-      "variant": "PrepCabinet"
-    },
-    {
-      "id": "4A_prep_cabinet",
-      "variant": "PrepCabinet"
-    },
-    {
-      "id": "5A_prep_cabinet",
-      "variant": "PrepCabinet"
-    },
-    {
-      "id": "5B_prep_cabinet",
-      "variant": "PrepCabinet"
-    },
-    {
-      "id": "5C_prep_cabinet",
-      "variant": "PrepCabinet"
-    },
-    {
-      "id": "6A_prep_cabinet",
-      "variant": "PrepCabinet"
-    },
-    {
-      "id": "6B_prep_cabinet",
-      "variant": "PrepCabinet"
-    },
-    {
-      "id": "6C_prep_cabinet",
-      "variant": "PrepCabinet"
-    }
-  ],
-  "runtime_keys": [
-    "wood_dark",
-    "plywood",
-    "trim",
-    "countertop",
-    "brass",
-    "metal"
-  ],
-  "catalog_variants": {
-    "wood_dark": "oak_work_surface",
-    "plywood": "plywood",
-    "trim": "trim",
-    "countertop": "countertop",
-    "brass": "brass_dull",
-    "metal": "metal"
+ "evidence_class": "INERT",
+ "classification": "ADAPTATION",
+ "source_ids": [],
+ "interpretation_ids": [
+  "2A_prep_cabinet",
+  "2B_prep_cabinet",
+  "3B_prep_cabinet",
+  "4B_prep_cabinet",
+  "3A_prep_cabinet",
+  "4A_prep_cabinet",
+  "5A_prep_cabinet",
+  "5B_prep_cabinet",
+  "5C_prep_cabinet",
+  "6A_prep_cabinet",
+  "6B_prep_cabinet",
+  "6C_prep_cabinet"
+ ],
+ "variants": [
+  {
+   "id": "PrepCabinet",
+   "kind": "prep_cabinet",
+   "source_id": "2A_prep_cabinet",
+   "params": {}
+  }
+ ],
+ "instances": [
+  {
+   "id": "2A_prep_cabinet",
+   "variant": "PrepCabinet"
   },
-  "material_tints": {
-    "wood_dark": [
-      0.27,
-      0.14,
-      0.065,
-      1
-    ]
+  {
+   "id": "2B_prep_cabinet",
+   "variant": "PrepCabinet"
   },
-  "finish_parameters": {
-    "wood_dark": {
-      "normal_scale": 0.035,
-      "roughness": 0.48
-    },
-    "plywood": {
-      "normal_scale": 0.035,
-      "roughness": 0.48
-    },
-    "trim": {
-      "normal_scale": 0.035,
-      "roughness": 0.48
-    },
-    "countertop": {
-      "normal_scale": 0.035,
-      "roughness": 0.48
-    },
-    "brass": {
-      "normal_scale": 0.035,
-      "roughness": 0.48
-    },
-    "metal": {
-      "normal_scale": 0.035,
-      "roughness": 0.48
-    }
+  {
+   "id": "3B_prep_cabinet",
+   "variant": "PrepCabinet"
   },
-  "placement": {
-    "floor_y": 0,
-    "frame": "Existing preparation-cabinet frame and SlidingPanel translation owner."
+  {
+   "id": "4B_prep_cabinet",
+   "variant": "PrepCabinet"
   },
-  "adaptations": [
-    "One native cabinet variant replaces fixed and moving visual meshes for all twelve original preparation mechanisms.",
-    "Carcass, 0.9m worktop and original panel envelopes stay fixed; recessed panels, real handles and fitted tracks replace primitive boxes.",
-    "All original mechanism scripts, slide duration/travel, collision shapes, care/save ownership and prompts remain unchanged.",
-    "The original fixed handle enters the bypass sweep. Its replacement is a recessed brass finger cup at the same X/height centre; continuous native swept bounds prove clearance throughout 382mm travel.",
-    "A thin fixed centre underlap closes the source 12mm sightline gap while staying behind the moving leaf throughout its original translation."
-  ],
-  "open_work": [
-    "Scoped native construction, production support and mechanism validation complete. Whole-room light/material balance, wardrobes, remaining appliances and fixed lighting remain in the wider V2 pass."
-  ],
-  "tint_space": "linear"
+  {
+   "id": "3A_prep_cabinet",
+   "variant": "PrepCabinet"
+  },
+  {
+   "id": "4A_prep_cabinet",
+   "variant": "PrepCabinet"
+  },
+  {
+   "id": "5A_prep_cabinet",
+   "variant": "PrepCabinet"
+  },
+  {
+   "id": "5B_prep_cabinet",
+   "variant": "PrepCabinet"
+  },
+  {
+   "id": "5C_prep_cabinet",
+   "variant": "PrepCabinet"
+  },
+  {
+   "id": "6A_prep_cabinet",
+   "variant": "PrepCabinet"
+  },
+  {
+   "id": "6B_prep_cabinet",
+   "variant": "PrepCabinet"
+  },
+  {
+   "id": "6C_prep_cabinet",
+   "variant": "PrepCabinet"
+  },
+  {
+   "id": "1D_prep_cabinet",
+   "variant": "PrepCabinet"
+  },
+  {
+   "id": "2C_prep_cabinet",
+   "variant": "PrepCabinet"
+  },
+  {
+   "id": "4C_prep_cabinet",
+   "variant": "PrepCabinet"
+  }
+ ],
+ "runtime_keys": [
+  "wood_dark",
+  "plywood",
+  "trim",
+  "countertop",
+  "brass",
+  "metal"
+ ],
+ "catalog_variants": {
+  "wood_dark": "oak_work_surface",
+  "plywood": "plywood",
+  "trim": "trim",
+  "countertop": "countertop",
+  "brass": "brass_dull",
+  "metal": "metal"
+ },
+ "material_tints": {
+  "wood_dark": [
+   0.27,
+   0.14,
+   0.065,
+   1
+  ]
+ },
+ "finish_parameters": {
+  "wood_dark": {
+   "normal_scale": 0.035,
+   "roughness": 0.48
+  },
+  "plywood": {
+   "normal_scale": 0.035,
+   "roughness": 0.48
+  },
+  "trim": {
+   "normal_scale": 0.035,
+   "roughness": 0.48
+  },
+  "countertop": {
+   "normal_scale": 0.035,
+   "roughness": 0.48
+  },
+  "brass": {
+   "normal_scale": 0.035,
+   "roughness": 0.48
+  },
+  "metal": {
+   "normal_scale": 0.035,
+   "roughness": 0.48
+  }
+ },
+ "placement": {
+  "floor_y": 0,
+  "frame": "Existing preparation-cabinet frame and SlidingPanel translation owner."
+ },
+ "adaptations": [
+  "One native cabinet variant replaces fixed and moving visual meshes for all twelve original preparation mechanisms.",
+  "Carcass, 0.9m worktop and original panel envelopes stay fixed; recessed panels, real handles and fitted tracks replace primitive boxes.",
+  "All original mechanism scripts, slide duration/travel, collision shapes, care/save ownership and prompts remain unchanged.",
+  "The original fixed handle enters the bypass sweep. Its replacement is a recessed brass finger cup at the same X/height centre; continuous native swept bounds prove clearance throughout 382mm travel.",
+  "A thin fixed centre underlap closes the source 12mm sightline gap while staying behind the moving leaf throughout its original translation.",
+  "Slice 9 of the V2 environment dossier mounts the preparation cabinet in the 1D, 2C and 4C completion homes as copies of 2B's and 5C's; their anchors and stances already existed."
+ ],
+ "open_work": [
+  "Scoped native construction, production support and mechanism validation complete. Whole-room light/material balance, wardrobes, remaining appliances and fixed lighting remain in the wider V2 pass."
+ ],
+ "tint_space": "linear"
 }

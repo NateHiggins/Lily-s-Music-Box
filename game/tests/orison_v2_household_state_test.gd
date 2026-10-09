@@ -37,7 +37,7 @@ func exercise() -> void:
 		return
 	var owner = world.household_state
 	var defaults: Dictionary = owner.snapshot()
-	check(defaults.records.size() == 186, "183 household controls including the boiler window and three completed service results")
+	check(defaults.records.size() == 201, "201 household controls including the boiler window, three completed service results, the twelve public hall lights and the three completion-home kitchen cabinets")
 	var switch_owners := 0
 	for child: Node in world.get_children():
 		if child is SwitchSystem: switch_owners += 1
@@ -107,7 +107,7 @@ func exercise() -> void:
 	owner = world.household_state
 	await get_tree().physics_frame
 	await get_tree().physics_frame
-	check(owner.snapshot() == wanted, "all 186 settings restore onto new physical owners")
+	check(owner.snapshot() == wanted, "all 201 settings restore onto new physical owners")
 	var window: Node3D = owner._subjects["B1_BOILER_AIR_E"]
 	check(window.opened and not window.moving and is_equal_approx(window.angle_degrees,35.0), "saved open window reconstructs its fitted physical sash and stay position")
 	var fuse := world.adapter.resolve("B1_FUSE_PANEL") as FusePanelProp
@@ -123,7 +123,7 @@ func exercise() -> void:
 	var expected_previous := wanted.duplicate(true)
 	expected_previous.records["B1_BOILER_01"] = defaults.records["B1_BOILER_01"].duplicate(true)
 	check(owner.snapshot() == expected_previous and not boiler.column_proved,
-			"184-record saves retain all existing repairs and default only the new boiler record")
+			"200-record saves retain all existing repairs and default only the new boiler record")
 	# Saves made before the upper circuits existed keep their lower-household
 	# facts. Newly installed circuits inherit fresh construction defaults.
 	var legacy := wanted.duplicate(true)
@@ -131,6 +131,11 @@ func exercise() -> void:
 	var completion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/completion_interiors.json"))
 	var added_circuits := {}
 	for fixture: Dictionary in completion.lighting.fixtures: added_circuits[fixture.id] = true
+	for row: Dictionary in completion.furniture: added_circuits[row.id] = true
+	# The public hall domes (dossier slice 3) postdate the legacy roster too.
+	var room_lighting: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/room_lighting.json"))
+	for fixture: Dictionary in room_lighting.fixtures:
+		if fixture.id.begins_with("F0") and (fixture.id.contains("_EAST_HALL_LT") or fixture.id.contains("_WEST_HALL_LT")): added_circuits[fixture.id] = true
 	for unit: String in ["1A","1D","2C","3D","4C","4D"]:
 		added_circuits["F0"+unit[0]+"_"+unit[1]+"_RADIATOR_01"] = true
 	for identity: String in wanted.records:
