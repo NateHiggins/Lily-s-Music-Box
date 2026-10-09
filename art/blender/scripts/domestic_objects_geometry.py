@@ -264,10 +264,30 @@ def softbox(source,member):
   knob=along_x(identity+'_TiltButton'+str(x),x,.052,1.53+offset,[(0,-.004),(.014,-.004),(.014,.004),(0,.004)],identity,'soot')
  group('StudioLightStand',start)
 
+# Dossier entry landing sets (slice 8): a floor-standing hall stand against the
+# vestibule wall. Backboard with four iron hooks at 1.65 m, a shelf at 1.1 m on
+# brackets, a plinth carrying a brass drip tray. All stocks touch; bearings are
+# the plinth's underside corners on the floor.
+def hallstand(source):
+ start=len(stock_checks)
+ stock('Plinth',(-.30,-.15,0),(.30,.14,.05),'wood_dark',.0015)
+ stock('Backboard',(-.30,.10,.05),(.30,.14,1.80),'wood_dark',.0015)
+ stock('Cornice',(-.31,.09,1.80),(.31,.145,1.85),'wood_dark',.001)
+ stock('Shelf',(-.30,-.15,1.10),(.30,.10,1.13),'wood_dark',.0012)
+ for x in [-.27,.27]:stock('Bracket'+str(x),(x-.015,-.03,1.02),(x+.015,.10,1.10),'wood_dark',.0008)
+ stock('Tray',(-.27,-.13,.05),(.27,.08,.07),'brass',.0006)
+ for i,x in enumerate([-.21,-.07,.07,.21]):
+  stock('HookPlate'+str(i),(x-.02,.096,1.62),(x+.02,.10,1.68),'metal',.0004)
+  wire('Hook'+str(i),[(x,.096,1.65),(x,.05,1.65),(x,.04,1.67),(x,.04,1.70)],.006,'metal')
+ for x in [-.27,.27]:
+  for y in [-.13,.12]:bearing('stand foot '+str((x,y)),(x,y,0))
+ group('HallStand',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
- identity=assembly['id'];source=variants[identity]['params'];kind=assembly['kind'];col=Collector();original['asm_'+kind](col,source)
+ identity=assembly['id'];source=variants[identity]['params'];kind=assembly['kind'];col=Collector()
+ if 'asm_'+kind in original:original['asm_'+kind](col,source)
  if kind=='pinboard':pinboard(source,col.rows)
  elif kind=='crate':crate(source,col.rows)
  elif kind=='bookpile':books(source,col.rows)
@@ -277,4 +297,5 @@ for assembly in assemblies:
  elif kind=='plant':plant(source,col.rows)
  elif kind=='tripod':tripod(source,assembly['members'][0])
  elif kind=='softbox':softbox(source,assembly['members'][0])
+ elif kind=='hallstand':hallstand(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

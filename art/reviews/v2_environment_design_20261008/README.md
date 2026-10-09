@@ -78,6 +78,8 @@ Slices landed so far (evidence folders in parentheses):
    at main, slice 1 and slice 5).
 7. Kitchen sets: four new surface-stock forms and fifty-two records on the
    drainboards and prep cabinets of all eighteen kitchens (`slice7`).
+8. Hall stands in the eighteen apartment vestibules, a new domestic-objects
+   form (`slice8`, `slice8b` for the corrected D-plan placement).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

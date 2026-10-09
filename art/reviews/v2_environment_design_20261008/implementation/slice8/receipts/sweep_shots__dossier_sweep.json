@@ -1,0 +1,1325 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						7.31600093841553,
+						4.6399998664856,
+						-11.649998664856
+					],
+					"feet": [
+						-7.31599998474121,
+						3.22999978065491,
+						0.0
+					],
+					"forward": [
+						-0.859838843345642,
+						-0.510565519332886,
+						-0.00000000000000305476122031806
+					],
+					"image": "F02_A_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.57499980926514,
+						4.19999980926514,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.18500089645386,
+						4.6399998664856,
+						-11.1099987030029
+					],
+					"feet": [
+						-6.18499994277954,
+						3.22999978065491,
+						-0.539999961853027
+					],
+					"forward": [
+						0.4885313808918,
+						-0.551164031028748,
+						-0.676428318023682
+					],
+					"image": "F02_A_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.57499980926514,
+						4.19999980926514,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.60000085830688,
+						4.6399998664856,
+						-11.6499996185303
+					],
+					"feet": [
+						-4.59999990463257,
+						3.22999978065491,
+						0.0
+					],
+					"forward": [
+						0.992697358131409,
+						-0.120631463825703,
+						0.000000479346851989249
+					],
+					"image": "F02_A_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_DOOR_02",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.57499980926514,
+						4.40000009536743,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.18500089645386,
+						4.6399998664856,
+						-12.189998626709
+					],
+					"feet": [
+						-6.18499994277954,
+						3.22999978065491,
+						0.539999961853027
+					],
+					"forward": [
+						0.4211605489254,
+						-0.279051125049591,
+						0.862991511821747
+					],
+					"image": "F02_A_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2A_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.0,
+						4.09999990463257,
+						-1.12999999523163
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.31600093841553,
+						4.6399998664856,
+						-11.649998664856
+					],
+					"feet": [
+						-7.31599998474121,
+						3.22999978065491,
+						0.0
+					],
+					"forward": [
+						-0.900159299373627,
+						-0.4355608522892,
+						0.0
+					],
+					"image": "F02_A_VESTIBULE_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_A_THRESHOLD",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.19999980926514,
+						4.09999990463257,
+						0.0
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 3.2,
+			"id": "F02_A_VESTIBULE",
+			"level": "F02",
+			"purpose": "2A privacy and distribution",
+			"rect": [
+				-7.55,
+				-1.35,
+				-5.6,
+				1.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.2599992752075,
+						4.6399998664856,
+						-9.15000057220459
+					],
+					"feet": [
+						11.2600002288818,
+						3.22999978065491,
+						-2.5
+					],
+					"forward": [
+						0.865426361560822,
+						-0.50103622674942,
+						0.00000000000000307461249622815
+					],
+					"image": "F02_B_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						4.19999980926514,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.0999994277954,
+						4.6399998664856,
+						-8.61000061035156
+					],
+					"feet": [
+						10.1000003814697,
+						3.22999978065491,
+						-3.03999996185303
+					],
+					"forward": [
+						-0.497980654239655,
+						-0.547779500484467,
+						-0.672274470329285
+					],
+					"image": "F02_B_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						4.19999980926514,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-8.49999904632568,
+						4.6399998664856,
+						-8.40000057220459
+					],
+					"feet": [
+						8.5,
+						3.22999978065491,
+						-3.25
+					],
+					"forward": [
+						-0.930474162101746,
+						-0.111656792461872,
+						-0.348927825689316
+					],
+					"image": "F02_B_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_B_ENTRY_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						4.40000009536743,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.899998664856,
+						4.6399998664856,
+						-8.61000061035156
+					],
+					"feet": [
+						10.8999996185303,
+						3.22999978065491,
+						-3.03999996185303
+					],
+					"forward": [
+						0.49504342675209,
+						-0.267323464155197,
+						-0.82672256231308
+					],
+					"image": "F02_B_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2B_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.89999961853027,
+						4.09999990463257,
+						-1.37000000476837
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.899998664856,
+						4.6399998664856,
+						-9.69000053405762
+					],
+					"feet": [
+						10.8999996185303,
+						3.22999978065491,
+						-1.96000003814697
+					],
+					"forward": [
+						0.47262442111969,
+						-0.34028959274292,
+						0.81291401386261
+					],
+					"image": "F02_B_VESTIBULE_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_B_THRESHOLD",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.1499996185303,
+						4.09999990463257,
+						-3.25
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 3.2,
+			"id": "F02_B_VESTIBULE",
+			"level": "F02",
+			"purpose": "2B privacy, coat storage and distribution",
+			"rect": [
+				9.5,
+				-3.85,
+				11.5,
+				-1.15
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.2599992752075,
+						7.84000015258789,
+						-9.15000057220459
+					],
+					"feet": [
+						11.2600002288818,
+						6.42999982833862,
+						-2.5
+					],
+					"forward": [
+						0.865426361560822,
+						-0.50103622674942,
+						-0.00000000000000307461249622815
+					],
+					"image": "F03_B_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						7.40000009536743,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.0999994277954,
+						7.84000015258789,
+						-8.61000061035156
+					],
+					"feet": [
+						10.1000003814697,
+						6.42999982833862,
+						-3.03999996185303
+					],
+					"forward": [
+						-0.497980684041977,
+						-0.547779381275177,
+						-0.672274529933929
+					],
+					"image": "F03_B_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						7.40000009536743,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-8.49999904632568,
+						7.84000015258789,
+						-8.40000057220459
+					],
+					"feet": [
+						8.5,
+						6.42999982833862,
+						-3.25
+					],
+					"forward": [
+						-0.930474162101746,
+						-0.111657023429871,
+						-0.348927825689316
+					],
+					"image": "F03_B_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F03_DOOR_03",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						7.59999990463257,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.899998664856,
+						7.84000015258789,
+						-8.61000061035156
+					],
+					"feet": [
+						10.8999996185303,
+						6.42999982833862,
+						-3.03999996185303
+					],
+					"forward": [
+						0.49504342675209,
+						-0.267323434352875,
+						-0.82672256231308
+					],
+					"image": "F03_B_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "3B_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.89999961853027,
+						7.30000019073486,
+						-1.37000000476837
+					]
+				},
+				{
+					"kind": "detail",
+					"owner": "F03_B_VESTIBULE_LT_FLUSH_DOME_Semantic",
+					"status": "no_clear_station_with_sight"
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 6.4,
+			"id": "F03_B_VESTIBULE",
+			"level": "F03",
+			"purpose": "3B privacy, coats and household distribution",
+			"rect": [
+				9.5,
+				-3.85,
+				11.5,
+				-1.15
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						7.31600093841553,
+						7.84000015258789,
+						-11.649998664856
+					],
+					"feet": [
+						-7.31599998474121,
+						6.42999982833862,
+						0.0
+					],
+					"forward": [
+						-0.859838902950287,
+						-0.510565519332886,
+						-0.00000000000000305476185559277
+					],
+					"image": "F03_A_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.57499980926514,
+						7.40000009536743,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.18500089645386,
+						7.84000015258789,
+						-11.1099987030029
+					],
+					"feet": [
+						-6.18499994277954,
+						6.42999982833862,
+						-0.539999961853027
+					],
+					"forward": [
+						0.488531440496445,
+						-0.551163971424103,
+						-0.676428318023682
+					],
+					"image": "F03_A_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.57499980926514,
+						7.40000009536743,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.60000085830688,
+						7.84000015258789,
+						-11.6499996185303
+					],
+					"feet": [
+						-4.59999990463257,
+						6.42999982833862,
+						0.0
+					],
+					"forward": [
+						0.992697358131409,
+						-0.120631687343121,
+						0.000000479346851989249
+					],
+					"image": "F03_A_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F03_DOOR_02",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.57499980926514,
+						7.59999990463257,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.18500089645386,
+						7.84000015258789,
+						-12.189998626709
+					],
+					"feet": [
+						-6.18499994277954,
+						6.42999982833862,
+						0.539999961853027
+					],
+					"forward": [
+						0.4211605489254,
+						-0.279051154851913,
+						0.862991452217102
+					],
+					"image": "F03_A_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "3A_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.0,
+						7.30000019073486,
+						-1.12999999523163
+					]
+				},
+				{
+					"kind": "detail",
+					"owner": "F03_A_VESTIBULE_LT_FLUSH_DOME_Semantic",
+					"status": "no_clear_station_with_sight"
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 6.4,
+			"id": "F03_A_VESTIBULE",
+			"level": "F03",
+			"purpose": "2A privacy and distribution",
+			"rect": [
+				-7.55,
+				-1.35,
+				-5.6,
+				1.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.2599992752075,
+						11.0400009155273,
+						-9.15000057220459
+					],
+					"feet": [
+						11.2600002288818,
+						9.63000011444092,
+						-2.5
+					],
+					"forward": [
+						0.865426063537598,
+						-0.501036763191223,
+						-0.00000000000000307461164919521
+					],
+					"image": "F04_A_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						10.6000003814697,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.0999994277954,
+						11.0400009155273,
+						-8.61000061035156
+					],
+					"feet": [
+						10.1000003814697,
+						9.63000011444092,
+						-3.03999996185303
+					],
+					"forward": [
+						-0.497980445623398,
+						-0.547779858112335,
+						-0.67227429151535
+					],
+					"image": "F04_A_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						10.6000003814697,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-8.49999904632568,
+						11.0400009155273,
+						-8.40000057220459
+					],
+					"feet": [
+						8.5,
+						9.63000011444092,
+						-3.25
+					],
+					"forward": [
+						-0.930474162101746,
+						-0.111657224595547,
+						-0.348927795886993
+					],
+					"image": "F04_A_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F04_DOOR_02",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						10.8000001907349,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.899998664856,
+						11.0400009155273,
+						-8.61000061035156
+					],
+					"feet": [
+						10.8999996185303,
+						9.63000011444092,
+						-3.03999996185303
+					],
+					"forward": [
+						0.495043367147446,
+						-0.267323881387711,
+						-0.82672244310379
+					],
+					"image": "F04_A_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4A_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.89999961853027,
+						10.5,
+						-1.37000000476837
+					]
+				},
+				{
+					"kind": "detail",
+					"owner": "F04_A_VESTIBULE_LT_FLUSH_DOME_Semantic",
+					"status": "no_clear_station_with_sight"
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 9.6,
+			"id": "F04_A_VESTIBULE",
+			"level": "F04",
+			"purpose": "4A privacy, coat storage and distribution",
+			"rect": [
+				9.5,
+				-3.85,
+				11.5,
+				-1.15
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						0.850001573562622,
+						4.64000034332275,
+						-17.7000007629395
+					],
+					"feet": [
+						-0.850000023841858,
+						3.22999978065491,
+						6.05000114440918
+					],
+					"forward": [
+						-0.000000113863535489145,
+						-0.420269399881363,
+						0.907399415969849
+					],
+					"image": "F02_C_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-0.850000023841858,
+						4.19999980926514,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						1.39000141620636,
+						4.64000034332275,
+						-16.25
+					],
+					"feet": [
+						-1.38999998569489,
+						3.22999978065491,
+						4.60000038146973
+					],
+					"forward": [
+						-0.629782855510712,
+						-0.51315712928772,
+						-0.583132386207581
+					],
+					"image": "F02_C_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-0.850000023841858,
+						4.19999980926514,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						0.850001275539398,
+						4.64000034332275,
+						-14.5
+					],
+					"feet": [
+						-0.850000023841858,
+						3.22999978065491,
+						2.85000038146973
+					],
+					"forward": [
+						0.0000000790245664461509,
+						-0.106065087020397,
+						-0.994359195232391
+					],
+					"image": "F02_C_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_C_ENTRY_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-0.850000023841858,
+						4.40000009536743,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						0.310001403093338,
+						4.64000034332275,
+						-16.25
+					],
+					"feet": [
+						-0.310000002384186,
+						3.22999978065491,
+						4.60000038146973
+					],
+					"forward": [
+						0.900338470935822,
+						-0.291127651929855,
+						-0.323474079370499
+					],
+					"image": "F02_C_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2C_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-1.98000001907349,
+						4.09999990463257,
+						5.19999980926514
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						0.850001573562622,
+						4.64000034332275,
+						-17.7000007629395
+					],
+					"feet": [
+						-0.850000023841858,
+						3.22999978065491,
+						6.05000114440918
+					],
+					"forward": [
+						-0.0000000856157384987455,
+						0.890563786029816,
+						0.454858332872391
+					],
+					"image": "F02_C_VESTIBULE_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_C_VESTIBULE_LT_FLUSH_DOME_Semantic",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-0.849999964237213,
+						6.5,
+						5.10000038146973
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 3.2,
+			"id": "F02_C_VESTIBULE",
+			"level": "F02",
+			"purpose": "Juno Kells privacy, coats and distribution",
+			"rect": [
+				-2.2,
+				3.85,
+				0.5,
+				6.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.2599992752075,
+						1.44000053405762,
+						-9.15000057220459
+					],
+					"feet": [
+						11.2600002288818,
+						0.0299999918788671,
+						-2.5
+					],
+					"forward": [
+						0.865426123142242,
+						-0.501036584377289,
+						-0.00000000000000307461186095344
+					],
+					"image": "F01_D_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						1.0,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.0999994277954,
+						1.44000053405762,
+						-8.61000061035156
+					],
+					"feet": [
+						10.1000003814697,
+						0.0299999918788671,
+						-3.03999996185303
+					],
+					"forward": [
+						-0.497980505228043,
+						-0.547779858112335,
+						-0.672274231910706
+					],
+					"image": "F01_D_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						1.0,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-8.74999904632568,
+						1.44000053405762,
+						-8.40000057220459
+					],
+					"feet": [
+						8.75,
+						0.0299999918788671,
+						-3.25
+					],
+					"forward": [
+						-0.911928474903107,
+						-0.125064730644226,
+						-0.390826493501663
+					],
+					"image": "F01_D_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F01_D_ENTRY_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						1.20000004768372,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.899998664856,
+						1.44000053405762,
+						-8.61000061035156
+					],
+					"feet": [
+						10.8999996185303,
+						0.0299999918788671,
+						-3.03999996185303
+					],
+					"forward": [
+						0.495043396949768,
+						-0.267323791980743,
+						-0.826722502708435
+					],
+					"image": "F01_D_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "1D_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.89999961853027,
+						0.899999976158142,
+						-1.37000000476837
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.899998664856,
+						1.44000053405762,
+						-9.69000053405762
+					],
+					"feet": [
+						10.8999996185303,
+						0.0299999918788671,
+						-1.96000003814697
+					],
+					"forward": [
+						0.47262442111969,
+						-0.340289860963821,
+						0.812913835048676
+					],
+					"image": "F01_D_VESTIBULE_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_D_THRESHOLD",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.1499996185303,
+						0.899999976158142,
+						-3.25
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 0.0,
+			"id": "F01_D_VESTIBULE",
+			"level": "F01",
+			"purpose": "Teresa Vale privacy, coats and distribution",
+			"rect": [
+				9.5,
+				-3.85,
+				11.5,
+				-1.15
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						6.24000024795532,
+						1.44000053405762,
+						-6.98999929428101
+					],
+					"feet": [
+						-6.23999977111816,
+						0.0299999918788671,
+						-4.65999984741211
+					],
+					"forward": [
+						0.626569271087646,
+						-0.492304712533951,
+						0.604191243648529
+					],
+					"image": "F01_A_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.80000019073486,
+						1.0,
+						-5.19999980926514
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.36000061035156,
+						1.44000053405762,
+						-5.90999937057495
+					],
+					"feet": [
+						-7.3600001335144,
+						0.0299999918788671,
+						-5.73999977111816
+					],
+					"forward": [
+						-0.626568913459778,
+						-0.49230483174324,
+						-0.604191482067108
+					],
+					"image": "F01_A_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.80000019073486,
+						1.0,
+						-5.19999980926514
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.40000057220459,
+						1.44000053405762,
+						-6.54999923706055
+					],
+					"feet": [
+						-4.40000009536743,
+						0.0299999918788671,
+						-5.09999990463257
+					],
+					"forward": [
+						0.99418306350708,
+						-0.099418506026268,
+						0.0414242520928383
+					],
+					"image": "F01_A_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F01_A_ENTRY_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.80000019073486,
+						1.20000004768372,
+						-5.19999980926514
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.24000024795532,
+						1.44000053405762,
+						-6.44999933242798
+					],
+					"feet": [
+						-6.23999977111816,
+						0.0299999918788671,
+						-5.19999980926514
+					],
+					"forward": [
+						0.369407802820206,
+						-0.302242934703827,
+						-0.878741800785065
+					],
+					"image": "F01_A_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "1A_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.90000009536743,
+						0.899999976158142,
+						-3.63000011444092
+					]
+				},
+				{
+					"kind": "detail",
+					"owner": "F01_A_VESTIBULE_LT",
+					"status": "no_clear_station_with_sight"
+				}
+			],
+			"class": "private",
+			"clear_stations": 9,
+			"floor_y": 0.0,
+			"id": "F01_A_VESTIBULE",
+			"level": "F01",
+			"purpose": "Evelyn Marsh privacy, coats and distribution",
+			"rect": [
+				-8.2,
+				-6.55,
+				-5.4,
+				-3.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						7.4200005531311,
+						7.84000015258789,
+						-6.98999929428101
+					],
+					"feet": [
+						-7.42000007629395,
+						6.42999982833862,
+						-4.65999984741211
+					],
+					"forward": [
+						-0.598215043544769,
+						-0.506182134151459,
+						0.621223330497742
+					],
+					"image": "F03_D_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.90000009536743,
+						7.40000009536743,
+						-5.19999980926514
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.38000059127808,
+						7.84000015258789,
+						-5.90999937057495
+					],
+					"feet": [
+						-6.38000011444092,
+						6.42999982833862,
+						-5.73999977111816
+					],
+					"forward": [
+						0.598215043544769,
+						-0.506182134151459,
+						-0.621223330497742
+					],
+					"image": "F03_D_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.90000009536743,
+						7.40000009536743,
+						-5.19999980926514
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.60000038146973,
+						7.84000015258789,
+						-6.54999923706055
+					],
+					"feet": [
+						-4.59999990463257,
+						6.42999982833862,
+						-5.09999990463257
+					],
+					"forward": [
+						0.993671178817749,
+						-0.103687554597855,
+						0.0432030484080315
+					],
+					"image": "F03_D_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F03_D_ENTRY_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.90000009536743,
+						7.59999990463257,
+						-5.19999980926514
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.90000057220459,
+						7.84000015258789,
+						-5.90999937057495
+					],
+					"feet": [
+						-6.90000009536743,
+						6.42999982833862,
+						-5.73999977111816
+					],
+					"forward": [
+						0.0,
+						-0.247933551669121,
+						-0.968777060508728
+					],
+					"image": "F03_D_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "3D_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.90000009536743,
+						7.30000019073486,
+						-3.63000011444092
+					]
+				},
+				{
+					"kind": "detail",
+					"owner": "F03_D_VESTIBULE_LT",
+					"status": "no_clear_station_with_sight"
+				}
+			],
+			"class": "private",
+			"clear_stations": 9,
+			"floor_y": 6.4,
+			"id": "F03_D_VESTIBULE",
+			"level": "F03",
+			"purpose": "Rhea Sato privacy, coats and distribution",
+			"rect": [
+				-8.2,
+				-6.55,
+				-5.6,
+				-3.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

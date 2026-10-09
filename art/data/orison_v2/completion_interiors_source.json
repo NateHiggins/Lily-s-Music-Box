@@ -6025,6 +6025,78 @@
         ],
         "yaw": -1.5707963267948966,
         "kind": "furniture"
+      },
+      {
+        "id": "1D_hallstand",
+        "level": "F01",
+        "space": "F01_D_VESTIBULE",
+        "position": [
+          9.9,
+          0,
+          -1.37
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "2C_hallstand",
+        "level": "F02",
+        "space": "F02_C_VESTIBULE",
+        "position": [
+          -1.98,
+          0,
+          5.2
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_hallstand",
+        "level": "F04",
+        "space": "F04_C_VESTIBULE",
+        "position": [
+          -1.98,
+          0,
+          5.2
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "furniture"
+      },
+      {
+        "id": "1A_hallstand",
+        "level": "F01",
+        "space": "F01_A_VESTIBULE",
+        "position": [
+          -6.9,
+          0,
+          -4.07
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "3D_hallstand",
+        "level": "F03",
+        "space": "F03_D_VESTIBULE",
+        "position": [
+          -6.9,
+          0,
+          -4.07
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
+      },
+      {
+        "id": "4D_hallstand",
+        "level": "F04",
+        "space": "F04_D_VESTIBULE",
+        "position": [
+          -6.9,
+          0,
+          -4.07
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "furniture"
       }
     ],
     "stairs": [
@@ -7581,6 +7653,36 @@
       {
         "id": "4D_chair2",
         "template": "2A_din_dc1",
+        "unit": "4D"
+      },
+      {
+        "id": "1D_hallstand",
+        "template": "2A_hallstand",
+        "unit": "1D"
+      },
+      {
+        "id": "2C_hallstand",
+        "template": "2A_hallstand",
+        "unit": "2C"
+      },
+      {
+        "id": "4C_hallstand",
+        "template": "2A_hallstand",
+        "unit": "4C"
+      },
+      {
+        "id": "1A_hallstand",
+        "template": "2A_hallstand",
+        "unit": "1A"
+      },
+      {
+        "id": "3D_hallstand",
+        "template": "2A_hallstand",
+        "unit": "3D"
+      },
+      {
+        "id": "4D_hallstand",
+        "template": "2A_hallstand",
         "unit": "4D"
       }
     ],

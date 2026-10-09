@@ -950,6 +950,56 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject16",
+      "parts": [
+        {
+          "name": "DomesticObject16__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject16__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject16__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -1020,6 +1070,78 @@
     {
       "id": "b1_toolboard",
       "variant": "DomesticObject15"
+    },
+    {
+      "id": "2A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "3A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "4B_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "2B_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "3B_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "4A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "5C_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "6C_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "5A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "6A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "5B_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "6B_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "1D_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "2C_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "4C_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "1A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "3D_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "4D_hallstand",
+      "variant": "DomesticObject16"
     }
   ],
   "tint_space": "linear"
