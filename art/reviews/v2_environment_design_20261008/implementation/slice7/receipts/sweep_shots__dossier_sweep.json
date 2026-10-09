@@ -1,0 +1,1600 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						10.8980007171631,
+						4.6399998664856,
+						-15.6799974441528
+					],
+					"feet": [
+						-10.8979997634888,
+						3.22999978065491,
+						4.02999877929688
+					],
+					"forward": [
+						0.937709450721741,
+						-0.201068326830864,
+						-0.283324360847473
+					],
+					"image": "F02_A_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.9499998092651,
+						4.19999980926514,
+						4.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						15.0020008087158,
+						4.6399998664856,
+						-16.2999992370605
+					],
+					"feet": [
+						-15.0019998550415,
+						3.22999978065491,
+						4.65000152587891
+					],
+					"forward": [
+						-0.977774560451508,
+						-0.209659293293953,
+						0.0
+					],
+					"image": "F02_A_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.9499998092651,
+						4.19999980926514,
+						4.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						12.0000009536743,
+						4.6399998664856,
+						-15.4499979019165
+					],
+					"feet": [
+						-12.0,
+						3.22999978065491,
+						3.79999923706055
+					],
+					"forward": [
+						0.732373833656311,
+						-0.185020610690117,
+						-0.655283093452454
+					],
+					"image": "F02_A_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_A_KITCHEN_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.9499998092651,
+						4.40000009536743,
+						4.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						11.8700008392334,
+						4.6399998664856,
+						-15.6799974441528
+					],
+					"feet": [
+						-11.8699998855591,
+						3.22999978065491,
+						4.02999877929688
+					],
+					"forward": [
+						-0.353287220001221,
+						-0.284739464521408,
+						-0.891129434108734
+					],
+					"image": "F02_A_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_2A_FRIDGE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.1999998092651,
+						4.09999990463257,
+						5.71999979019165
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						11.8700008392334,
+						4.6399998664856,
+						-15.6799974441528
+					],
+					"feet": [
+						-11.8699998855591,
+						3.22999978065491,
+						4.02999877929688
+					],
+					"forward": [
+						0.464269578456879,
+						-0.269575476646423,
+						-0.843672275543213
+					],
+					"image": "F02_A_KITCHEN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_2A_STOVE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.8000001907349,
+						4.09999990463257,
+						5.71999979019165
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						12.9500007629395,
+						4.6399998664856,
+						-16.2999992370605
+					],
+					"feet": [
+						-12.9499998092651,
+						3.22999978065491,
+						4.65000152587891
+					],
+					"forward": [
+						0.783742070198059,
+						0.109723821282387,
+						-0.61131751537323
+					],
+					"image": "F02_A_KITCHEN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2A_k_wall_cupboard",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-14.4499998092651,
+						4.84999990463257,
+						5.82000017166138
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 3.2,
+			"id": "F02_A_KITCHEN",
+			"level": "F02",
+			"purpose": "cooking and washing",
+			"rect": [
+				-15.65,
+				3.1,
+				-10.25,
+				6.2
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": false
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						4.6399998664856,
+						-6.95200061798096
+					],
+					"feet": [
+						11.810001373291,
+						3.22999978065491,
+						-4.69799995422363
+					],
+					"forward": [
+						0.373883754014969,
+						-0.249255582690239,
+						0.893354654312134
+					],
+					"image": "F02_B_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						4.19999980926514,
+						-6.27500009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.4899997711182,
+						4.6399998664856,
+						-3.79800033569336
+					],
+					"feet": [
+						10.4899997711182,
+						3.22999978065491,
+						-7.85200023651123
+					],
+					"forward": [
+						-0.373883336782455,
+						-0.249255657196045,
+						-0.893354892730713
+					],
+					"image": "F02_B_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						4.19999980926514,
+						-6.27500009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-13.8000001907349,
+						4.6399998664856,
+						-5.45000123977661
+					],
+					"feet": [
+						13.8000001907349,
+						3.22999978065491,
+						-6.19999980926514
+					],
+					"forward": [
+						0.99552857875824,
+						-0.090160995721817,
+						0.0281756203621626
+					],
+					"image": "F02_B_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_B_KITCHEN_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						4.40000009536743,
+						-6.27500009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						4.6399998664856,
+						-6.20500040054321
+					],
+					"feet": [
+						11.810001373291,
+						3.22999978065491,
+						-5.44500017166138
+					],
+					"forward": [
+						0.934257090091705,
+						-0.272702068090439,
+						0.229776665568352
+					],
+					"image": "F02_B_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_2B_STOVE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.96000003814697,
+						4.09999990463257,
+						-5.90000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						4.6399998664856,
+						-4.5450005531311
+					],
+					"feet": [
+						11.8100004196167,
+						3.22999978065491,
+						-7.10500001907349
+					],
+					"forward": [
+						0.989155232906342,
+						0.107628293335438,
+						0.0999406278133392
+					],
+					"image": "F02_B_KITCHEN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2B_k_wall_cupboard",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.88000011444092,
+						4.84999990463257,
+						-7.30000019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						4.6399998664856,
+						-4.5450005531311
+					],
+					"feet": [
+						11.8100004196167,
+						3.22999978065491,
+						-7.10500001907349
+					],
+					"forward": [
+						0.955065369606018,
+						-0.278775781393051,
+						0.100669115781784
+					],
+					"image": "F02_B_KITCHEN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2B_sink_support",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.96000003814697,
+						4.09999990463257,
+						-7.30000019073486
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 8,
+			"floor_y": 3.2,
+			"id": "F02_B_KITCHEN",
+			"level": "F02",
+			"purpose": "complete cooking and washing provision with wet-stack exhaust",
+			"rect": [
+				9.5,
+				-8.35,
+				12.8,
+				-4.2
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-9.92000007629395,
+						7.84000015258789,
+						-4.44000053405762
+					],
+					"feet": [
+						9.92000007629395,
+						6.42999982833862,
+						-7.21000003814697
+					],
+					"forward": [
+						-0.881568312644959,
+						-0.291646718978882,
+						-0.37118661403656
+					],
+					"image": "F03_B_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.25,
+						7.40000009536743,
+						-6.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-12.5799999237061,
+						7.84000015258789,
+						-5.00000047683716
+					],
+					"feet": [
+						12.5799999237061,
+						6.42999982833862,
+						-6.65000009536743
+					],
+					"forward": [
+						0.949394762516022,
+						-0.314085483551025,
+						0.00000000000000337292860640517
+					],
+					"image": "F03_B_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.25,
+						7.40000009536743,
+						-6.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-8.75,
+						7.84000015258789,
+						-4.85000038146973
+					],
+					"feet": [
+						8.75,
+						6.42999982833862,
+						-6.80000019073486
+					],
+					"forward": [
+						-0.993652939796448,
+						-0.095390796661377,
+						-0.0596192106604576
+					],
+					"image": "F03_B_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F03_B_SERVICE_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.25,
+						7.59999990463257,
+						-6.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.5500001907349,
+						7.84000015258789,
+						-4.44000053405762
+					],
+					"feet": [
+						10.5500001907349,
+						6.42999982833862,
+						-7.21000003814697
+					],
+					"forward": [
+						-0.570192873477936,
+						-0.279913038015366,
+						-0.772352755069733
+					],
+					"image": "F03_B_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F03_3B_STOVE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.6499996185303,
+						7.30000019073486,
+						-5.71999979019165
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.9499998092651,
+						7.84000015258789,
+						-5.00000047683716
+					],
+					"feet": [
+						11.9499998092651,
+						6.42999982833862,
+						-6.65000009536743
+					],
+					"forward": [
+						0.845101952552795,
+						-0.268444240093231,
+						-0.46232071518898
+					],
+					"image": "F03_B_KITCHEN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F03_3B_KITCHEN_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.25,
+						7.30000019073486,
+						-5.71999979019165
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.25,
+						7.84000015258789,
+						-5.00000047683716
+					],
+					"feet": [
+						11.25,
+						6.42999982833862,
+						-6.65000009536743
+					],
+					"forward": [
+						-0.744709670543671,
+						-0.33511945605278,
+						-0.577150225639343
+					],
+					"image": "F03_B_KITCHEN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F03_3B_FRIDGE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						12.4499998092651,
+						7.30000019073486,
+						-5.71999979019165
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 8,
+			"floor_y": 6.4,
+			"id": "F03_B_KITCHEN",
+			"level": "F03",
+			"purpose": "cooking, washing and service access; no sleeping-room through route",
+			"rect": [
+				9.5,
+				-8.05,
+				13.0,
+				-5.25
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						10.8980007171631,
+						7.84000015258789,
+						-15.6799974441528
+					],
+					"feet": [
+						-10.8979997634888,
+						6.42999982833862,
+						4.02999877929688
+					],
+					"forward": [
+						0.937709391117096,
+						-0.201068356633186,
+						-0.283324331045151
+					],
+					"image": "F03_A_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.9499998092651,
+						7.40000009536743,
+						4.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						15.0020008087158,
+						7.84000015258789,
+						-16.2999992370605
+					],
+					"feet": [
+						-15.0019998550415,
+						6.42999982833862,
+						4.65000152587891
+					],
+					"forward": [
+						-0.977774500846863,
+						-0.209659278392792,
+						0.0
+					],
+					"image": "F03_A_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.9499998092651,
+						7.40000009536743,
+						4.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						12.0000009536743,
+						7.84000015258789,
+						-13.7499980926514
+					],
+					"feet": [
+						-12.0,
+						6.42999982833862,
+						2.09999942779541
+					],
+					"forward": [
+						0.347758889198303,
+						-0.0878550037741661,
+						-0.933458805084229
+					],
+					"image": "F03_A_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F03_A_KITCHEN_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.9499998092651,
+						7.59999990463257,
+						4.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						11.8700008392334,
+						7.84000015258789,
+						-15.6799974441528
+					],
+					"feet": [
+						-11.8699998855591,
+						6.42999982833862,
+						4.02999877929688
+					],
+					"forward": [
+						-0.353287249803543,
+						-0.284739375114441,
+						-0.891129434108734
+					],
+					"image": "F03_A_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F03_3A_FRIDGE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.1999998092651,
+						7.30000019073486,
+						5.71999979019165
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						11.8700008392334,
+						7.84000015258789,
+						-15.6799974441528
+					],
+					"feet": [
+						-11.8699998855591,
+						6.42999982833862,
+						4.02999877929688
+					],
+					"forward": [
+						0.464269578456879,
+						-0.269575506448746,
+						-0.843672275543213
+					],
+					"image": "F03_A_KITCHEN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F03_3A_STOVE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.8000001907349,
+						7.30000019073486,
+						5.71999979019165
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						12.9500007629395,
+						7.84000015258789,
+						-16.2999992370605
+					],
+					"feet": [
+						-12.9499998092651,
+						6.42999982833862,
+						4.65000152587891
+					],
+					"forward": [
+						0.783742070198059,
+						0.109723836183548,
+						-0.611317455768585
+					],
+					"image": "F03_A_KITCHEN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "3A_k_wall_cupboard",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-14.4499998092651,
+						8.05000019073486,
+						5.82000017166138
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 6.4,
+			"id": "F03_A_KITCHEN",
+			"level": "F03",
+			"purpose": "cooking and washing",
+			"rect": [
+				-15.65,
+				3.1,
+				-10.25,
+				6.2
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						11.0400009155273,
+						-6.95200061798096
+					],
+					"feet": [
+						11.810001373291,
+						9.63000011444092,
+						-4.69799995422363
+					],
+					"forward": [
+						0.373883724212646,
+						-0.249255821108818,
+						0.893354594707489
+					],
+					"image": "F04_A_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						10.6000003814697,
+						-6.27500009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.4899997711182,
+						11.0400009155273,
+						-3.79800033569336
+					],
+					"feet": [
+						10.4899997711182,
+						9.63000011444092,
+						-7.85200023651123
+					],
+					"forward": [
+						-0.373883306980133,
+						-0.249255925416946,
+						-0.893354773521423
+					],
+					"image": "F04_A_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						10.6000003814697,
+						-6.27500009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-13.8000001907349,
+						11.0400009155273,
+						-5.45000123977661
+					],
+					"feet": [
+						13.8000001907349,
+						9.63000011444092,
+						-6.19999980926514
+					],
+					"forward": [
+						0.995528519153595,
+						-0.0901613384485245,
+						0.0281756166368723
+					],
+					"image": "F04_A_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F04_A_KITCHEN_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						10.8000001907349,
+						-6.27500009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						11.0400009155273,
+						-6.20500040054321
+					],
+					"feet": [
+						11.810001373291,
+						9.63000011444092,
+						-5.44500017166138
+					],
+					"forward": [
+						0.934256970882416,
+						-0.272702515125275,
+						0.229776650667191
+					],
+					"image": "F04_A_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F04_4A_STOVE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.96000003814697,
+						10.5,
+						-5.90000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						11.0400009155273,
+						-4.5450005531311
+					],
+					"feet": [
+						11.8100004196167,
+						9.63000011444092,
+						-7.10500001907349
+					],
+					"forward": [
+						0.989155292510986,
+						0.107627801597118,
+						0.0999406352639198
+					],
+					"image": "F04_A_KITCHEN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4A_k_wall_cupboard",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.88000011444092,
+						11.25,
+						-7.30000019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						11.0400009155273,
+						-4.5450005531311
+					],
+					"feet": [
+						11.8100004196167,
+						9.63000011444092,
+						-7.10500001907349
+					],
+					"forward": [
+						0.955065250396729,
+						-0.278776228427887,
+						0.100669108331203
+					],
+					"image": "F04_A_KITCHEN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F04_4A_KITCHEN_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.96000003814697,
+						10.5,
+						-7.30000019073486
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 8,
+			"floor_y": 9.6,
+			"id": "F04_A_KITCHEN",
+			"level": "F04",
+			"purpose": "complete cooking and washing provision with wet-stack exhaust",
+			"rect": [
+				9.5,
+				-8.35,
+				12.8,
+				-4.2
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-4.78999853134155,
+						4.64000034332275,
+						-17.25
+					],
+					"feet": [
+						4.78999996185303,
+						3.22999978065491,
+						5.60000038146973
+					],
+					"forward": [
+						-0.703882157802582,
+						-0.469255417585373,
+						0.533244132995605
+					],
+					"image": "F02_C_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						5.44999980926514,
+						4.19999980926514,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.44999837875366,
+						4.64000034332275,
+						-16.25
+					],
+					"feet": [
+						5.44999980926514,
+						3.22999978065491,
+						4.60000038146973
+					],
+					"forward": [
+						0.0,
+						-0.660628318786621,
+						-0.750713169574738
+					],
+					"image": "F02_C_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						5.44999980926514,
+						4.19999980926514,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.39999866485596,
+						4.64000034332275,
+						-19.0
+					],
+					"feet": [
+						5.40000009536743,
+						3.22999978065491,
+						7.35000038146973
+					],
+					"forward": [
+						-0.0220913514494896,
+						-0.106039211153984,
+						0.994116544723511
+					],
+					"image": "F02_C_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						5.44999980926514,
+						4.40000009536743,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-4.78999853134155,
+						4.64000034332275,
+						-16.75
+					],
+					"feet": [
+						4.78999996185303,
+						3.22999978065491,
+						5.10000038146973
+					],
+					"forward": [
+						-0.908685266971588,
+						-0.259624660015106,
+						0.326934546232224
+					],
+					"image": "F02_C_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_2C_STOVE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.67999982833862,
+						4.09999990463257,
+						4.42000007629395
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.44999837875366,
+						4.64000034332275,
+						-17.25
+					],
+					"feet": [
+						5.44999980926514,
+						3.22999978065491,
+						5.60000038146973
+					],
+					"forward": [
+						0.87950187921524,
+						0.14429298043251,
+						0.45349308848381
+					],
+					"image": "F02_C_KITCHEN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2C_k_wall_cupboard",
+					"status": "captured_pending_visual_review",
+					"target": [
+						4.17000007629395,
+						4.84999990463257,
+						4.94000005722046
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.44999837875366,
+						4.64000034332275,
+						-17.25
+					],
+					"feet": [
+						5.44999980926514,
+						3.22999978065491,
+						5.60000038146973
+					],
+					"forward": [
+						0.427115082740784,
+						-0.329489141702652,
+						0.842027127742767
+					],
+					"image": "F02_C_KITCHEN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_2C_KITCHEN_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						4.75,
+						4.09999990463257,
+						4.21999979019165
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 5,
+			"floor_y": 3.2,
+			"id": "F02_C_KITCHEN",
+			"level": "F02",
+			"purpose": "cooking and washing",
+			"rect": [
+				3.8,
+				3.85,
+				7.1,
+				6.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						1.44000053405762,
+						-6.95200061798096
+					],
+					"feet": [
+						11.810001373291,
+						0.0299999918788671,
+						-4.69799995422363
+					],
+					"forward": [
+						0.373883754014969,
+						-0.249255895614624,
+						0.893354594707489
+					],
+					"image": "F01_D_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						1.0,
+						-6.27500009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.4899997711182,
+						1.44000053405762,
+						-3.79800033569336
+					],
+					"feet": [
+						10.4899997711182,
+						0.0299999918788671,
+						-7.85200023651123
+					],
+					"forward": [
+						-0.373883277177811,
+						-0.249255910515785,
+						-0.893354773521423
+					],
+					"image": "F01_D_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						1.0,
+						-6.27500009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-13.8000001907349,
+						1.44000053405762,
+						-5.45000123977661
+					],
+					"feet": [
+						13.8000001907349,
+						0.0299999918788671,
+						-6.19999980926514
+					],
+					"forward": [
+						0.995528519153595,
+						-0.0901612564921379,
+						0.0281756166368723
+					],
+					"image": "F01_D_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F01_D_KITCHEN_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.1499996185303,
+						1.20000004768372,
+						-6.27500009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						1.44000053405762,
+						-6.20500040054321
+					],
+					"feet": [
+						11.810001373291,
+						0.0299999918788671,
+						-5.44500017166138
+					],
+					"forward": [
+						0.934257030487061,
+						-0.272702306509018,
+						0.229776650667191
+					],
+					"image": "F01_D_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_1D_STOVE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.96000003814697,
+						0.899999976158142,
+						-5.90000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						1.44000053405762,
+						-4.5450005531311
+					],
+					"feet": [
+						11.8100004196167,
+						0.0299999918788671,
+						-7.10500001907349
+					],
+					"forward": [
+						0.989155292510986,
+						0.107627995312214,
+						0.0999406352639198
+					],
+					"image": "F01_D_KITCHEN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "1D_k_wall_cupboard",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.88000011444092,
+						1.64999997615814,
+						-7.30000019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.8100004196167,
+						1.44000053405762,
+						-3.79800033569336
+					],
+					"feet": [
+						11.8100004196167,
+						0.0299999918788671,
+						-7.85200023651123
+					],
+					"forward": [
+						0.922833323478699,
+						-0.269367873668671,
+						-0.275353521108627
+					],
+					"image": "F01_D_KITCHEN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "1D_sink_support",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.96000003814697,
+						0.899999976158142,
+						-7.30000019073486
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 0.0,
+			"id": "F01_D_KITCHEN",
+			"level": "F01",
+			"purpose": "complete cooking and washing provision with wet-stack exhaust",
+			"rect": [
+				9.5,
+				-8.35,
+				12.8,
+				-4.2
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						10.3699998855591,
+						1.44000053405762,
+						-3.22499847412109
+					],
+					"feet": [
+						-10.3699998855591,
+						0.0299999918788671,
+						-8.42500019073486
+					],
+					"forward": [
+						-0.815506756305695,
+						-0.578747689723969,
+						-0.00000000000000289726370234736
+					],
+					"image": "F01_A_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						1.0,
+						-8.42500019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.75,
+						1.44000053405762,
+						-3.71499872207642
+					],
+					"feet": [
+						-9.75,
+						0.0299999918788671,
+						-7.93499994277954
+					],
+					"forward": [
+						0.00000000000000528678493940792,
+						-0.668125689029694,
+						0.744048416614532
+					],
+					"image": "F01_A_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						1.0,
+						-8.42500019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.19999933242798,
+						1.44000053405762,
+						-3.24999904632568
+					],
+					"feet": [
+						-7.19999933242798,
+						0.0299999918788671,
+						-8.39999961853027
+					],
+					"forward": [
+						0.995552718639374,
+						-0.0936992540955544,
+						0.00976054091006517
+					],
+					"image": "F01_A_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F01_A_KITCHEN_HALL_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						1.20000004768372,
+						-8.42500019073486
+					]
+				},
+				{
+					"kind": "detail",
+					"owner": "F01_A_KITCHEN_LT",
+					"status": "no_clear_station_with_sight"
+				},
+				{
+					"kind": "detail",
+					"owner": "F01_A_KITCHEN_LT_Semantic",
+					"status": "no_clear_station_with_sight"
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.75,
+						1.44000053405762,
+						-3.71499872207642
+					],
+					"feet": [
+						-9.75,
+						0.0299999918788671,
+						-7.93499994277954
+					],
+					"forward": [
+						0.0,
+						-0.367864698171616,
+						0.929879307746887
+					],
+					"image": "F01_A_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_1A_KITCHEN_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						0.899999976158142,
+						-9.30000019073486
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 3,
+			"floor_y": 0.0,
+			"id": "F01_A_KITCHEN",
+			"level": "F01",
+			"purpose": "Evelyn Marsh cooking and washing",
+			"rect": [
+				-11.3,
+				-9.65,
+				-8.2,
+				-7.2
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						10.3699998855591,
+						7.84000015258789,
+						-3.22499847412109
+					],
+					"feet": [
+						-10.3699998855591,
+						6.42999982833862,
+						-8.42500019073486
+					],
+					"forward": [
+						-0.815507054328918,
+						-0.578747093677521,
+						-0.00000000000000289726476113855
+					],
+					"image": "F03_D_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						7.40000009536743,
+						-8.42500019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.75,
+						7.84000015258789,
+						-3.71499872207642
+					],
+					"feet": [
+						-9.75,
+						6.42999982833862,
+						-7.93499994277954
+					],
+					"forward": [
+						0.0,
+						-0.668125212192535,
+						0.744048893451691
+					],
+					"image": "F03_D_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						7.40000009536743,
+						-8.42500019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.19999933242798,
+						7.84000015258789,
+						-3.24999904632568
+					],
+					"feet": [
+						-7.19999933242798,
+						6.42999982833862,
+						-8.39999961853027
+					],
+					"forward": [
+						0.995552718639374,
+						-0.0936991646885872,
+						0.00976054091006517
+					],
+					"image": "F03_D_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F03_D_KITCHEN_HALL_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						7.59999990463257,
+						-8.42500019073486
+					]
+				},
+				{
+					"kind": "detail",
+					"owner": "F03_D_KITCHEN_LT",
+					"status": "no_clear_station_with_sight"
+				},
+				{
+					"kind": "detail",
+					"owner": "F03_D_KITCHEN_LT_Semantic",
+					"status": "no_clear_station_with_sight"
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.75,
+						7.84000015258789,
+						-3.71499872207642
+					],
+					"feet": [
+						-9.75,
+						6.42999982833862,
+						-7.93499994277954
+					],
+					"forward": [
+						0.0,
+						-0.367864340543747,
+						0.929879486560822
+					],
+					"image": "F03_D_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F03_3D_KITCHEN_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						7.30000019073486,
+						-9.30000019073486
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 3,
+			"floor_y": 6.4,
+			"id": "F03_D_KITCHEN",
+			"level": "F03",
+			"purpose": "Rhea Sato cooking and washing",
+			"rect": [
+				-11.3,
+				-9.65,
+				-8.2,
+				-7.2
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		}
+	]
+}

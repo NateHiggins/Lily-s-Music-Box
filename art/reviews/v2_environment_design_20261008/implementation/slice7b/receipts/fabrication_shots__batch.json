@@ -1,0 +1,48 @@
+{
+	"batch_checks": 12,
+	"elapsed_ms": 57400,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 4698,
+	"modules": {
+		"household_toasters": {
+			"actors": 10,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 1465,
+			"elapsed_ms": 5582,
+			"failures": [],
+			"fixture_sha256": "1946da8d1a0603ddfc1b60f3bf73ba42da11be8cbfd500b23666f7e81a807e71",
+			"parts": 110,
+			"unique_triangles": 41144,
+			"validator_sha256": "873ad096d72233edbea28da6f32b98aa033d6e8a8ac8c42f7178dae8f1816b75",
+			"views": []
+		},
+		"prep_cabinets": {
+			"actors": 12,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 589,
+			"elapsed_ms": 1447,
+			"failures": [],
+			"fixture_sha256": "594c73dd705ffd0062ceced738e13dfa6986737d1528f027a82faca4a2d8b292",
+			"parts": 96,
+			"unique_triangles": 7096,
+			"validator_sha256": "fe33c7c901bda8430752c72d705df4c73c5dd8cbe33533f7150acd027f3660e4"
+		},
+		"surface_stock": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 2644,
+			"elapsed_ms": 13486,
+			"failures": [],
+			"fixture_sha256": "a5b191f0770c7bf0eb6a1db19e6839af2533b495b6d83d788d129734b7404e36",
+			"parts": 202,
+			"triangles": 601736,
+			"validator_sha256": "789e736b505b0868b89cf9cf3e8a97eba87709561907bddb2b338ba4fee4a88b"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

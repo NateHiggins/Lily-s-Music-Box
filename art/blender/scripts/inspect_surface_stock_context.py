@@ -1,4 +1,4 @@
-"""Real native/retained support geometry for all 55 passive surface records."""
+"""Real native/retained support geometry for every passive surface record."""
 from pathlib import Path
 import json,math
 import bpy
@@ -32,6 +32,9 @@ supports={}
 for identity in {p['support'] for p in props.values()}:
  if identity in native_ids:supports[identity]=[native_tree(obj) for obj in dst.objects if obj.name.startswith(identity+'__')]
  elif identity in furniture:supports[identity]=[source_tree(furniture[identity])]
+ elif identity.endswith('_prep_cabinet'):
+  # Native prep cabinet worktop (prep_cabinets.md): .9 m over the retained .83 x .535 envelope.
+  supports[identity]=[box_tree((-.415,.88,-.29),(.415,.90,.245))]
  else:
   assert identity.endswith('_KITCHEN_SINK_01'),identity
   script=(r/'game/scripts/props/tap_prop.gd').read_text()

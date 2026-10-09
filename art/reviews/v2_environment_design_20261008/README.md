@@ -76,6 +76,8 @@ Slices landed so far (evidence folders in parentheses):
    signal outlets beside every switch, the ducts measured (`slice6`,
    `slice6d`, `routes6b`, `ducts`; `bisect_*` hold the route-test receipts
    at main, slice 1 and slice 5).
+7. Kitchen sets: four new surface-stock forms and fifty-two records on the
+   drainboards and prep cabinets of all eighteen kitchens (`slice7`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

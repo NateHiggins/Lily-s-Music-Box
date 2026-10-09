@@ -58,7 +58,7 @@ for key in plan['runtime_keys']:
 def digest(path):
  data=path.read_bytes();return hashlib.sha256(data if path.suffix in ['.blend','.glb','.png','.bin'] else data.replace(b'\r\n',b'\n')).hexdigest()
 selected=[rows[identity] for identity in plan['source_ids']]
-assert len(selected)==55 and len(table_records)==55
+assert len(selected)==55 and len(table_records)==len(plan['prop_ids'])
 assemblies=[{'id':identity,'kind':table_records[identity]['kind'],'cell':identity.split('_')[0],'members':[table_records[identity]],'body':{'rect':[0,0,0,0],'z0':0.}} for identity in plan['prop_ids']]
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
 closed=bpy.data.collections.new('ClosedConstruction');bpy.context.scene.collection.children.link(closed);closed.hide_render=True

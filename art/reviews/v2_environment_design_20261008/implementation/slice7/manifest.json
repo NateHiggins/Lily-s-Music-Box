@@ -1,0 +1,126 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F02_A_KITCHEN_OV.jpg",
+   "source": "sweep_shots/F02_A_KITCHEN_OV.png",
+   "sha256": "326baec19e25111b981cfd16a7759bacbf035fbae53a56c92cb76c4252db902a",
+   "bytes": 118213
+  },
+  {
+   "path": "images/F02_A_KITCHEN_DT2.jpg",
+   "source": "sweep_shots/F02_A_KITCHEN_DT2.png",
+   "sha256": "00972e79b305b4296d3ca828b91aafbe160397a613aa1f65a60e0c9aad2cce5a",
+   "bytes": 123312
+  },
+  {
+   "path": "images/F01_A_KITCHEN_OV.jpg",
+   "source": "sweep_shots/F01_A_KITCHEN_OV.png",
+   "sha256": "b3b27574072d31500286dc79040a2622e51dfcbb05de223fa946205b00cc1bf9",
+   "bytes": 109990
+  },
+  {
+   "path": "images/F01_D_KITCHEN_OV.jpg",
+   "source": "sweep_shots/F01_D_KITCHEN_OV.png",
+   "sha256": "697a59edb27abbf26f81e30f9d6f660b2dfd3cbbffb14d77a4773e6fc0503d0c",
+   "bytes": 122394
+  },
+  {
+   "path": "images/F03_D_KITCHEN_OV.jpg",
+   "source": "sweep_shots/F03_D_KITCHEN_OV.png",
+   "sha256": "3ac2ab8bb2825acb2714bc9430a24323088d032a2764d1a58d231e2807d815b2",
+   "bytes": 115698
+  },
+  {
+   "path": "images/F04_B_KITCHEN_OV.jpg",
+   "source": "sweep_shots_b/F04_B_KITCHEN_OV.png",
+   "sha256": "a290e7b5c63748639ad7ac2a473d626dffb39686e65a5fdeaab35d45cb760d04",
+   "bytes": 130465
+  },
+  {
+   "path": "images/F05_B_KITCHEN_OV.jpg",
+   "source": "sweep_shots_b/F05_B_KITCHEN_OV.png",
+   "sha256": "55fc87b9a2d11ac8fde7cf012b13d273a290625aca186231ed6acb41fdc3ec66",
+   "bytes": 101074
+  },
+  {
+   "path": "images/F06_C_KITCHEN_OV.jpg",
+   "source": "sweep_shots_b/F06_C_KITCHEN_OV.png",
+   "sha256": "23654a6c165a1417d5cb005d9cd574a60daad6753a972f9a990a65b58e70f9cb",
+   "bytes": 104758
+  },
+  {
+   "path": "images/F05_A_KITCHEN_OV.jpg",
+   "source": "sweep_shots_b/F05_A_KITCHEN_OV.png",
+   "sha256": "6660a3bcb7daf19ef96127bcfab43ed52cea6b61e18ae971580627b44a129d26",
+   "bytes": 104415
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "b44aac3a7aaeee10b6f588718c0d42d509d1057c62629337088fa7f1f3344e32",
+   "bytes": 3392
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "24b472994be5a0e503cd908a1c744f1178d7338ebed1eb1934e69b9015181e63",
+   "bytes": 3220
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "56360d98470251795ba7d92bacf6184d04cd6bc9eda18fbe68cb23fb6a1f5b17",
+   "bytes": 3136
+  },
+  {
+   "path": "receipts/sweep_a.log.receipt.json",
+   "source": "sweep_a.log.receipt.json",
+   "sha256": "c3cb98b95461e9b8613173f98811bddc726640e97f52edd45890cd2a59e50b40",
+   "bytes": 3222
+  },
+  {
+   "path": "receipts/sweep_b.log.receipt.json",
+   "source": "sweep_b.log.receipt.json",
+   "sha256": "7d55ae094c8a26c2c48dc8a20ad873a413dcc0aad3a2de5f6dd8d2de8c8d88ae",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/upper_lighting.log.receipt.json",
+   "source": "upper_lighting.log.receipt.json",
+   "sha256": "c1d837c637d2a524720a0312efa6d61a6e333bc6d3a633f9efd38b1675d515ae",
+   "bytes": 3190
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "b649c00b21a134d18bfa8f69999423c2a4083260eda04c4d303dc14a2d17ff02",
+   "bytes": 1441
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "97705c4db7e24b482a5d4247f5dbdb77b0198d47089754734d5ef2b5f6753744",
+   "bytes": 735022
+  },
+  {
+   "path": "receipts/sweep_shots_b__node_census.json",
+   "source": "sweep_shots_b/node_census.json",
+   "sha256": "97705c4db7e24b482a5d4247f5dbdb77b0198d47089754734d5ef2b5f6753744",
+   "bytes": 735022
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "ec614a96813d037774cb235384cea36770cabf7d3f6daad417846fff819e9ba4",
+   "bytes": 33516
+  },
+  {
+   "path": "receipts/sweep_shots_b__dossier_sweep.json",
+   "source": "sweep_shots_b/dossier_sweep.json",
+   "sha256": "238cfaa11062eea78b9f7eaec98f7abe8c0dff3322c92f579985f335bc2bae52",
+   "bytes": 33782
+  }
+ ]
+}

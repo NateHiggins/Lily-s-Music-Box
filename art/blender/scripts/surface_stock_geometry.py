@@ -208,8 +208,34 @@ def sitemodel(source,collected):
   retained_stock.append({'assembly':identity,'kind':'model_mass','index':i,'source_args':args})
  bearing('model base',(0,0,0));group('MassingStudy',start)
 
+# Dossier kitchen sets (BW-001 kitchen pages, slice 7): four more closed forms
+# with the same helpers and bearings. Sizes are period domestic ware; each
+# record's retained frame box is authored to the same envelope.
+def kettle(source):
+ start=len(stock_checks)
+ lathe('Body',0,0,0,[(0,0),(.072,0),(.084,.004),(.090,.030),(.088,.100),(.070,.125),(.040,.134),(.040,.140),(0,.140)],'enamel')
+ lathe('Knob',0,0,.140,[(0,0),(.012,0),(.014,.008),(.008,.015),(0,.017)],'bakelite')
+ tube('Spout',(.070,0,.070),(.115,0,.132),.011,'enamel')
+ wire('Handle',[(-.052,0,.118),(-.052,0,.165),(-.030,0,.198),(0,0,.208),(.030,0,.198),(.052,0,.165),(.052,0,.118)],.007,'bakelite')
+ bearing('kettle base',(0,0,0));group('Kettle',start)
+def tin(source):
+ start=len(stock_checks);key=source.get('mat','nickel_plated')
+ lathe('Can',0,0,0,[(0,0),(.048,0),(.050,.002),(.050,.115),(.048,.117),(0,.117)],key)
+ lathe('Lid',0,0,.117,[(0,0),(.051,0),(.052,.004),(.052,.012),(.050,.014),(0,.014)],key)
+ bearing('tin base',(0,0,0));group('Tin',start)
+def board(source):
+ start=len(stock_checks)
+ stock('Slab',(-.17,-.11,0),(.17,.11,.020),'timber',.0015)
+ stock('Handle',(.17,-.03,.004),(.23,.03,.016),'timber',.0012)
+ for p in [(-.12,-.08),(.12,-.08),(-.12,.08),(.12,.08)]:bearing('board corner '+str(p),(p[0],p[1],0))
+ group('BreadBoard',start)
+def plate(source):
+ start=len(stock_checks)
+ lathe('Dish',0,0,0,[(0,0),(.095,0),(.105,.003),(.112,.012),(.110,.016),(.104,.015),(.098,.006),(0,.008)],'porcelain')
+ bearing('plate foot',(0,0,0));group('Plate',start)
+
 for assembly in assemblies:
- identity=assembly['id'];source=rows[identity];kind=table_records[identity]['kind'];col=Collector()
+ identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
  if kind=='mug':mug(source)
  elif kind=='headphones':headphones(source)
@@ -221,4 +247,8 @@ for assembly in assemblies:
  elif kind=='cablecoil':cablecoil(source)
  elif kind=='bottles':bottles(source,col.rows)
  elif kind=='sitemodel':sitemodel(source,col.rows)
+ elif kind=='kettle':kettle(source)
+ elif kind=='tin':tin(source)
+ elif kind=='board':board(source)
+ elif kind=='plate':plate(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))
