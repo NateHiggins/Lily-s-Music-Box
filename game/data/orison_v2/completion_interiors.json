@@ -260,7 +260,7 @@
       "kind": "apartment_interior",
       "unit": "4D",
       "swing_out": false,
-      "leaf_state": "closed"
+      "leaf_state": "locked"
     },
     {
       "id": "F02_D_ENTRY_DOOR",
@@ -546,7 +546,7 @@
       "unit": "3D",
       "kind": "fridge",
       "properties": {
-        "monitor_top": true
+        "monitor_top": false
       }
     },
     {
@@ -589,7 +589,7 @@
       "unit": "4D",
       "kind": "fridge",
       "properties": {
-        "monitor_top": true
+        "monitor_top": false
       }
     },
     {
@@ -1105,7 +1105,7 @@
       {
         "id": "F01_A_MAIN_LT",
         "room": "F01_A_MAIN",
-        "kind": "flush_dome",
+        "kind": "pendant_shade",
         "properties": {
           "energy_scale": 1.5,
           "range_clamp": 6.5
@@ -1168,7 +1168,7 @@
       {
         "id": "F03_D_MAIN_LT",
         "room": "F03_D_MAIN",
-        "kind": "flush_dome",
+        "kind": "pendant_shade",
         "properties": {
           "energy_scale": 1.5,
           "range_clamp": 6.5
@@ -1231,7 +1231,7 @@
       {
         "id": "F04_D_MAIN_LT",
         "room": "F04_D_MAIN",
-        "kind": "flush_dome",
+        "kind": "pendant_shade",
         "properties": {
           "energy_scale": 1.5,
           "range_clamp": 6.5

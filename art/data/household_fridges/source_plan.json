@@ -7,7 +7,7 @@
       "kind": "fridge",
       "unit": "2A",
       "properties": {
-        "monitor_top": true
+        "monitor_top": false
       }
     },
     {
@@ -135,7 +135,7 @@
       "unit": "3D",
       "kind": "fridge",
       "properties": {
-        "monitor_top": true
+        "monitor_top": false
       }
     },
     {
@@ -143,7 +143,7 @@
       "unit": "4D",
       "kind": "fridge",
       "properties": {
-        "monitor_top": true
+        "monitor_top": false
       }
     }
   ],
@@ -1017,7 +1017,7 @@
     {
       "id": "F02_2A_FRIDGE_01",
       "unit": "2A",
-      "variant": "FridgeMonitor"
+      "variant": "FridgeIcebox"
     },
     {
       "id": "F03_3B_FRIDGE_01",
@@ -1097,12 +1097,12 @@
     {
       "id": "F03_3D_FRIDGE_01",
       "unit": "3D",
-      "variant": "FridgeMonitor"
+      "variant": "FridgeIcebox"
     },
     {
       "id": "F04_4D_FRIDGE_01",
       "unit": "4D",
-      "variant": "FridgeMonitor"
+      "variant": "FridgeIcebox"
     }
   ],
   "runtime_keys": [

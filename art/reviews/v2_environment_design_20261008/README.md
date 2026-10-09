@@ -23,6 +23,8 @@ agents (ChatGPT/Codex). It changes no code, no data and no ledger status.
 | `evidence/` | Sweep records (`sweep_run1.json`, `sweep_run2.json`), runtime node census, run receipts and logs, the copied-local-asset manifest and the full-resolution capture inventory (SHA-256 of 1,202 PNGs retained locally at `C:/ov/envdossier_out/<run>/shots`). |
 | `sources/` | The capture scene (`orison_v2_environment_dossier_sweep.gd` + `.tscn`), the stage script, the census, plan, sheet and merge builders. |
 | `content/` | The authored content modules the builder reads (`front_matter.py`, `_common.py`, `areas_*.py`). |
+| `content/status.py` | Implementation status per change id (`proposed`, `implemented`, `verified`, `deferred`, `rejected`) with the owner note and evidence pointer; the builder overlays it on the register (`python build_dossier.py --register-only` rewrites the register without the PDF). |
+| `implementation/<slice>/` | Verification evidence for implemented changes: captures (1280 px JPEG), the fabrication `batch.json`, run receipts, sweep records and a SHA-256 manifest. INERT, never runtime proof. |
 
 Rebuild with `python build_dossier.py` (ReportLab, Pillow, pypdf; openpyxl for
 the XLSX). `pdf_validation.json` records the page count and the file hash.
@@ -45,6 +47,17 @@ played route; nothing here is a runtime contract or an acceptance.
 The capture worktree needed the gitignored machine-local runtime textures
 copied from the canonical checkout at the same commit; their hashes are in
 `evidence/copied_local_assets.json`.
+
+## Implementation
+
+Changes are implemented in slices on this branch. Each slice edits the
+authoring sources (never generated glTF or runtime JSON by hand), re-projects
+(`tools/build_v2_completion_interiors.py` and kin), rebuilds touched Blender
+families with `art/blender/scripts/run_fabrication_batch.py`, then verifies in
+a short-path worktree: the fabrication batch for the touched modules, the
+route suites that cross the changed rooms (pointer suites need `-Windowed`),
+and this packet's sweep scene over the changed spaces. The register's
+`status` column and `implementation/<slice>/` record the outcome.
 
 ## Reading the register
 

@@ -222,6 +222,12 @@ dossier = {"evidence_class": "INERT", "schema": "orison.environment-design-dossi
            "build": FRONT["build"], "lighting_state": FRONT["lighting_state"], "method": FRONT["method"], "areas": AREAS, "coverage": coverage_rows,
            "front_matter": {k: v for k, v in FRONT.items() if k not in ("title", "date", "build", "lighting_state", "method")}}
 (HERE / "dossier.json").write_text(json.dumps(dossier, indent=1, ensure_ascii=False), encoding="utf-8")
+try:
+    from status import STATUS  # content/status.py: implementation status per change id
+except ImportError:
+    STATUS = {}
+for r in register:
+    r.update({k: v for k, v in STATUS.get(r.get("id"), {}).items() if k in ("status", "owner_notes")})
 FIELDS = ["id", "area", "priority", "action", "title", "objects", "placement", "dimensions", "construction", "materials", "wear", "lighting", "sound", "purpose", "sources", "dependencies", "preserve", "acceptance", "status", "owner_notes"]
 with (HERE / "change_register.csv").open("w", newline="", encoding="utf-8") as f:
     w = csv.DictWriter(f, fieldnames=FIELDS, extrasaction="ignore")
@@ -255,6 +261,9 @@ except ImportError:
     pass
 with (HERE / "coverage_checklist.csv").open("w", newline="", encoding="utf-8") as f:
     w = csv.DictWriter(f, fieldnames=list(coverage_rows[0].keys())); w.writeheader(); w.writerows(coverage_rows)
+if "--register-only" in sys.argv:
+    print(json.dumps({"register_only": True, "changes": len(register), "with_status": sum(1 for r in register if r.get("status") not in (None, "proposed"))}))
+    sys.exit(0)
 
 # ---------------------------------------------------------------- PDF
 def header_footer(canvas, doc):

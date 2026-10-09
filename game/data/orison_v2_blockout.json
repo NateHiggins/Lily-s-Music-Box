@@ -97,7 +97,7 @@
     {"id":"F03_A_PRIVATE_HALL","level":"F03","class":"private","rect":[-10.25,3.1,-8.95,7.85],"purpose":"bed and bath distribution","wall_sides":["north","west","east"]},
     {"id":"F03_A_BATH","level":"F03","class":"wet","rect":[-8.95,3.1,-5.95,5.65],"purpose":"private sanitary room","wall_sides":["north","east"],"wall_extensions":[{"side":"south","start":-7.55,"end":-5.95}]},
     {"id":"F03_A_BED","level":"F03","class":"private","rect":[-15.65,6.2,-10.25,11.65],"purpose":"sleep and clothes storage","wall_sides":["north","west"],"exterior_sides":["north","west"],"wall_extensions":[{"side":"east","start":7.85,"end":11.65}]},
-    {"id":"F04_A_VESTIBULE","level":"F04","class":"private","rect":[9.5,-3.85,11.5,-1.15],"purpose":"2B privacy, coat storage and distribution","wall_sides":["south","north","west"]},
+    {"id":"F04_A_VESTIBULE","level":"F04","class":"private","rect":[9.5,-3.85,11.5,-1.15],"purpose":"4A privacy, coat storage and distribution","wall_sides":["south","north","west"]},
     {"id":"F04_A_MAIN","level":"F04","class":"private","rect":[11.5,-4.2,15.65,0.3],"purpose":"Peter Wren living, meals and legal correspondence","wall_sides":["south","north","west"],"exterior_sides":["east"],"wall_extensions":[{"side":"east","start":-4.2,"end":0.3}]},
     {"id":"F04_A_KITCHEN","level":"F04","class":"private","rect":[9.5,-8.35,12.8,-4.2],"purpose":"complete cooking and washing provision with wet-stack exhaust","wall_sides":["south","west","east"],"wall_extensions":[{"side":"north","start":9.5,"end":11.5}]},
     {"id":"F04_A_BED","level":"F04","class":"private","rect":[9.5,-12.35,12.8,-8.35],"purpose":"sleep and clothes storage","wall_sides":["south","west","east"],"exterior_sides":["south"]},

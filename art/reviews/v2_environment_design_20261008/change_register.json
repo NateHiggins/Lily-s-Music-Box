@@ -607,7 +607,9 @@
    ],
    "acceptance": "RoomLumaAudit unchanged",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "verified",
+   "owner_notes": "F01_A_MAIN_LT, F03_D_MAIN_LT, F04_D_MAIN_LT: completion lighting kind pendant_shade and fixed_lighting plan variant pendant_shade_rise100; family rebuilt; fixed_lighting validator 5971 checks, 0 failures on rerun (one contextual standing-view failure at F01_BAR_LT_DECK0 on the first run, absent on rerun and in the owner's final receipts); sweep overviews show the pendants. implementation/slice1 (captures, batch.json, run receipts)"
   },
   {
    "id": "BW-011",
@@ -639,7 +641,9 @@
    ],
    "acceptance": "Seven monitor-tops become four",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "verified",
+   "owner_notes": "2A, 3D, 4D fittings monitor_top false; household_fridges plan instances FridgeIcebox; family rebuilt in Blender; the fabrication batch counts 4 monitors of 18 (test expects 4); 2A native capture and 3D/4D sweep overviews show oak iceboxes. implementation/slice1 (captures, batch.json, run receipts)"
   },
   {
    "id": "BW-013",
@@ -733,7 +737,9 @@
    "preserve": "The flush owner: sound, lever travel, refill time and repeat-use refusal; the paper spindle on the cistern side",
    "acceptance": "Every bath DT station on the WC shows bowl, low cistern and handle; 4B's tanked WC is the reference",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "rejected",
+   "owner_notes": "Measured, not missing: every one of the 19 water closets instantiates bath_water_closet.glb with LowCistern and RemovableCisternLid visible; the cistern is 0.46 x 0.22 x 0.31 m with its top 0.80 m above the floor and at least 0.11 m clear of every bath wall (sweep census probe, implementation/baths/receipts). The raised lid (top 0.94 m) hides it from front-on stations, which is what the review saw. No data change; a lid-down default in unoccupied flats is a possible P3 follow-up."
   },
   {
    "id": "BW-019",
@@ -4368,7 +4374,9 @@
    ],
    "acceptance": "Kitchen OV shows the icebox square to the wall",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_C_KITCHEN"
+   "area": "F02_C_KITCHEN",
+   "status": "rejected",
+   "owner_notes": "Measured, not a bug: the runtime census records F02_2C_FRIDGE_01 at yaw 90.0 degrees exactly (square to the east wall, 0.46 m off it); the skew in the review tiles is wide-angle perspective near the frame edge. No data change. implementation/slice1 (captures, batch.json, run receipts)"
   },
   {
    "id": "F02_C_PRIVATE_HALL-001",
@@ -5711,7 +5719,9 @@
    ],
    "acceptance": "Bath DT3 shows porcelain",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_D_BATH"
+   "area": "F03_D_BATH",
+   "status": "rejected",
+   "owner_notes": "Not reproduced: the bath sweep at 49e5e3a1 renders 3D_wc's cistern in porcelain (implementation/baths/images/F03_D_BATH_OV.jpg); the magenta face in the review tile was transient."
   },
   {
    "id": "F03_D_BED-001",
@@ -6214,7 +6224,9 @@
    ],
    "acceptance": "Sheet caption reads 4A",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_A_VESTIBULE"
+   "area": "F04_A_VESTIBULE",
+   "status": "verified",
+   "owner_notes": "Blockout purpose text now reads 4A; the sweep caption shows it. implementation/slice1 (captures, batch.json, run receipts)"
   },
   {
    "id": "F04_A_MAIN-001",
@@ -6459,7 +6471,9 @@
    "purpose": "Review: no cistern, tank or flush pipe in any tile; the closed pleated curtain reads as a column with no tray under it",
    "acceptance": "Bath DT on the WC shows the low cistern; the tray reads under a gathered curtain",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_A_BATH"
+   "area": "F04_A_BATH",
+   "status": "rejected",
+   "owner_notes": "Cistern present (BW-018 measurement: 4A_wc LowCistern visible, 0.42 m clear of the east wall). The curtain/receptor part stays with BW-008."
   },
   {
    "id": "F04_A_BED-001",
@@ -6794,7 +6808,9 @@
    ],
    "acceptance": "Unchanged",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_B_BATH"
+   "area": "F04_B_BATH",
+   "status": "verified",
+   "owner_notes": "Keep note confirmed by the same probe: 4B's cistern is the family's low cistern, identical to every other unit."
   },
   {
    "id": "F04_B_CLOSET-001",
@@ -7083,7 +7099,9 @@
    ],
    "acceptance": "Kitchen OV shows the icebox square and clear of the wall",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_C_KITCHEN"
+   "area": "F04_C_KITCHEN",
+   "status": "rejected",
+   "owner_notes": "As F02_C_KITCHEN-004: F04_4C_FRIDGE_01 yaw 90.0 in the runtime census; no clipping in the data. implementation/slice1 (captures, batch.json, run receipts)"
   },
   {
    "id": "F04_C_PRIVATE_HALL-001",
@@ -7300,7 +7318,9 @@
    "purpose": "Living-room family",
    "acceptance": "RoomLumaAudit unchanged",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_D_MAIN"
+   "area": "F04_D_MAIN",
+   "status": "verified",
+   "owner_notes": "Resolved by BW-010 (F04_D_MAIN_OV). implementation/slice1 (captures, batch.json, run receipts)"
   },
   {
    "id": "F04_D_KITCHEN-001",
@@ -7362,7 +7382,9 @@
    "purpose": "Bible VIII.5.a four electric flats; the rental's fridge was never run",
    "acceptance": "Fridge module passes",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_D_KITCHEN"
+   "area": "F04_D_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Resolved by BW-012: F04_4D_FRIDGE_01 is a dry icebox (F04_D_KITCHEN_OV). implementation/slice1 (captures, batch.json, run receipts)"
   },
   {
    "id": "F04_D_KITCHEN-004",
@@ -7380,7 +7402,9 @@
    ],
    "acceptance": "Kitchen OV from the hall side shows the range",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_D_KITCHEN"
+   "area": "F04_D_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Runtime census lists F04_4D_STOVE_01 (orison_v2_stove.gd) with four grates and burner caps at (-10.6, -7.65) in F04_D_KITCHEN; the range mounts. The overview station does not frame it; no data change."
   },
   {
    "id": "F04_D_KITCHEN-005",
@@ -7393,7 +7417,9 @@
    "purpose": "The review read the tall cream cabinet with a long pull and a banded dome as a 1940s refrigerator; it is the monitor-top, which F04_D_KITCHEN-003 and BW-012 already replace with a dry icebox",
    "acceptance": "Resolved by F04_D_KITCHEN-003",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_D_KITCHEN"
+   "area": "F04_D_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Keep note closed with the swap above."
   },
   {
    "id": "F04_D_PRIVATE_HALL-001",
@@ -7504,7 +7530,9 @@
    "preserve": "Resident key rules (no guest key)",
    "acceptance": "E rattles with a reason; door route test updated",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_D_STUDY"
+   "area": "F04_D_STUDY",
+   "status": "verified",
+   "owner_notes": "F04_D_BED_STORAGE_DOOR leaf_state locked in completion_interiors_source; the sweep's threshold opening was refused (threshold_door: locked) and OrisonV2CompletionInteriorsTest now expects the refusal and skips the closet: with V2_TEST_UNIT=4D the four lock checks pass (implementation/slice1b/receipts). The suite still ends in its kitchen-to-hall leg (12 waypoints), which fails identically on main at 16f1d353 for 1A (38 waypoints, same target) and for 3D on this branch (14 waypoints): the fridge beside the kitchen door blocks the route line, a pre-existing defect flagged separately. On main the 4D leg already failed earlier, at the walk into the closet after opening its door (7 waypoints; implementation/baseline_completion_4D), so the lock removes a broken step rather than adding one. implementation/slice1 (captures, batch.json, run receipts)"
   },
   {
    "id": "F04_D_STUDY-002",
@@ -8084,7 +8112,9 @@
    ],
    "acceptance": "Bath DT stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_A_BATH"
+   "area": "F05_A_BATH",
+   "status": "rejected",
+   "owner_notes": "Cistern present (BW-018 measurement: 5A_wc LowCistern visible, 0.15 m clear of the south wall). The pipe strip and register parts stay with BW-005 and heating_distribution."
   },
   {
    "id": "F05_A_BED-001",
@@ -8649,7 +8679,9 @@
    ],
    "acceptance": "Kitchen OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_C_KITCHEN"
+   "area": "F05_C_KITCHEN",
+   "status": "rejected",
+   "owner_notes": "As F02_C_KITCHEN-004: F05_5C_FRIDGE_01 yaw 90.0 in the runtime census. implementation/slice1 (captures, batch.json, run receipts)"
   },
   {
    "id": "F05_C_PRIVATE_HALL-001",

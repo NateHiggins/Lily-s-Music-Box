@@ -10741,7 +10741,7 @@
       },
       {
         "id": "F01_A_MAIN_LT",
-        "variant": "flush_dome_rise100"
+        "variant": "pendant_shade_rise100"
       },
       {
         "id": "F01_A_PRIVATE_HALL_LT",
@@ -10769,7 +10769,7 @@
       },
       {
         "id": "F03_D_MAIN_LT",
-        "variant": "flush_dome_rise100"
+        "variant": "pendant_shade_rise100"
       },
       {
         "id": "F03_D_PRIVATE_HALL_LT",
@@ -10797,7 +10797,7 @@
       },
       {
         "id": "F04_D_MAIN_LT",
-        "variant": "flush_dome_rise100"
+        "variant": "pendant_shade_rise100"
       },
       {
         "id": "F04_D_PRIVATE_HALL_LT",
@@ -11134,7 +11134,7 @@
   },
   "asset_sha256": "1a1e3b472f82a7b0d9c356be7b0b26fc8851bfe1d99dc25a787e3778c046d170",
   "source_bindings": {
-    "art/data/fixed_lighting/source_plan.json": "7becf24faf4064d54074a3dec8875b6931782fe095875be7fa99b1651ab06279",
+    "art/data/fixed_lighting/source_plan.json": "da7bb9344205add50ac365102cbc09d2ad281567d5c31880efbfc68e06135ef1",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_fixed_lighting.py": "f0693aa28e5633093a93b0a5fbb4149cc0c8edef1f23649afd8ccc183f59ff6f",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -11180,8 +11180,8 @@
     "game/scripts/props/light_fixture_prop.gd": "fb03473169a196be04bcaee3b680af8d11d61844e3da648099e92c696d2ac5b6",
     "game/scripts/props/functional_prop.gd": "f33126057cad4c7fc00cf132ba523d9e4fa915b6922aa9470ed10be47b2806ee",
     "game/data/orison_v2/room_lighting.json": "e39f70ba434d3331fb4f839df3376a001e781a623094ef9227a33e5188ebceb0",
-    "game/data/orison_v2/completion_interiors.json": "5fa82dc7867693816be370e8a6cea7a5bc71787cb51bdac1892c637e6746505f",
-    "game/data/orison_v2_blockout.json": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab",
+    "game/data/orison_v2/completion_interiors.json": "225a1adf38d15221ced3d42c3678f0a522c5613c4fdeb9b0d32967a832d682d4",
+    "game/data/orison_v2_blockout.json": "44c6cd791ba03ce46fabcaf9e61152729caec18f25f8fec20124559048bcc07f",
     "art/blender/scripts/inspect_fixed_lighting_city_context.py": "5c08af2737b7c74140e8d185c1a3bc11c9aa43fa119b86b67998925c6218d996",
     "game/assets/building/floor_01_cells/orison_f01_interior.gltf": "bc6ff5536e374be8385232b65c0404014d5970c9a27f016c0a301d01748c48e4",
     "game/assets/building/floor_01_cells/orison_f01_interior.bin": "42d4bbe5aa6bf9b1772e7c43ec4c1090235b09569793176fcc69e8f18f95f012",
@@ -11221,7 +11221,7 @@
     "game/assets/building/orison_v2/exterior/../../floor_01_cells/site_street_common.bin": "4b8d4a73f088df1b067f850689c2bc436517ef3e13e2e98e18a90a90b51cafa9",
     "game/assets/building/orison_v2/exterior/passage_gateway_subway.bin": "a6158d5440da0bc74695710e8afb911a97e4d01afef1dce8b4914103c5a6a2e0",
     "art/blender/bar_ceiling_finish.blend": "971ca02f7ba7e893c8d18a2a0f254a6df043c1e9602f656fb5e1f50634067609",
-    "art/data/orison_v2/completion_interiors_source.json": "9c2cc8459d7c93733aa047e426145f2e468ade34f14f988f44e522b2160cf0e9"
+    "art/data/orison_v2/completion_interiors_source.json": "359fbb9b418286adabef50b403827ac3b8a5c3a1894bf991b2d50df31e270263"
   },
   "retained_stock": [],
   "construction_groups": [

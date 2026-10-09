@@ -101,7 +101,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	for prop: Fridge in before_states:
 		prop.state=before_states[prop][0]
 		check([prop.state,prop._open,prop._ice_open,prop._tray_open]==before_states[prop],"original household event/control states restored")
-	check(actors.size()==18 and monitors==7 and inventory_count==50, "all source installations and fifty household items covered")
+	check(actors.size()==18 and monitors==4 and inventory_count==50, "all source installations and fifty household items covered")
 	check(triangles==int(fixture.triangles), "all unique native refrigerator and larder geometry accounted for")
 	return {"checks":checks,"actors":actors.size(),"monitors":monitors,"inventory_items":inventory_count,"unique_triangles":triangles,"views":discovery.duplicate(true),"failures":failures.duplicate()}
 

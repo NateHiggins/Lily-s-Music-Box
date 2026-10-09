@@ -7,7 +7,7 @@
       "kind": "fridge",
       "unit": "2A",
       "properties": {
-        "monitor_top": true
+        "monitor_top": false
       }
     },
     {
@@ -135,7 +135,7 @@
       "unit": "3D",
       "kind": "fridge",
       "properties": {
-        "monitor_top": true
+        "monitor_top": false
       }
     },
     {
@@ -143,7 +143,7 @@
       "unit": "4D",
       "kind": "fridge",
       "properties": {
-        "monitor_top": true
+        "monitor_top": false
       }
     }
   ],
@@ -4786,7 +4786,7 @@
     "instances": [
       {
         "id": "F02_2A_FRIDGE_01",
-        "variant": "FridgeMonitor"
+        "variant": "FridgeIcebox"
       },
       {
         "id": "F03_3B_FRIDGE_01",
@@ -4850,11 +4850,11 @@
       },
       {
         "id": "F03_3D_FRIDGE_01",
-        "variant": "FridgeMonitor"
+        "variant": "FridgeIcebox"
       },
       {
         "id": "F04_4D_FRIDGE_01",
-        "variant": "FridgeMonitor"
+        "variant": "FridgeIcebox"
       }
     ],
     "tint_space": "linear",
@@ -5008,7 +5008,7 @@
   },
   "asset_sha256": "567cdbfa18967c0f85d8d2d0471cfff01412a2c5b2972b94f3208e58529ab485",
   "source_bindings": {
-    "art/data/household_fridges/source_plan.json": "e01789bd1db88f564be2b7f8df21a32d8540b89108951fc6a2bbe364e77c303c",
+    "art/data/household_fridges/source_plan.json": "fea924e819d499549b9f6012e392bd4b8a632f90b8d8193bd3159cf373f4937f",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_household_fridges.py": "8ba1d827036daf38d5fd5ddcfad77ccdf5ca839d4efeeecf4e109fab7131b6d3",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -5072,15 +5072,15 @@
     "art/blender/scripts/inspect_medicine_cabinets_context.py": "6b426ed36fa3d7e5d275f2ad81164e01e5ee0b3f0910fc22bd70fcf0f11f7295",
     "game/scripts/props/fridge_prop.gd": "195f5515ea7ee069e8f22206585ce1258cbb176449cfbb13604425bec9e89f64",
     "game/scripts/props/functional_prop.gd": "f33126057cad4c7fc00cf132ba523d9e4fa915b6922aa9470ed10be47b2806ee",
-    "game/data/orison_v2/domestic_fittings.json": "09294039d42e7a1c90b942aeb00855757586231da29d6bdf4264ca915aa7a248",
-    "game/data/orison_v2/completion_interiors.json": "5fa82dc7867693816be370e8a6cea7a5bc71787cb51bdac1892c637e6746505f",
+    "game/data/orison_v2/domestic_fittings.json": "862d051eee1f7c56e29365b78083019898dfe30be3a0c5522903b0fdce4962fb",
+    "game/data/orison_v2/completion_interiors.json": "225a1adf38d15221ced3d42c3678f0a522c5613c4fdeb9b0d32967a832d682d4",
     "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707",
-    "game/data/orison_v2_blockout.json": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab",
-    "art/data/orison_v2/completion_interiors_source.json": "9c2cc8459d7c93733aa047e426145f2e468ade34f14f988f44e522b2160cf0e9",
-    "art/blender/domestic_objects.blend": "99a7d3e1f3f6ecb06d740608bb6ec5556a540ab8653b925b19041fe3ba9d2fe0",
-    "game/tests/fixtures/orison_domestic_objects.json": "64468a70b72b0b581ac911527733d07600a142337ddc5b6bbf040b68c9e72d8c",
-    "art/blender/household_wardrobes.blend": "ed34e76d54efba76a5e2ef7e862d2b432c199ae8856b29f63793b69a04e77ad7",
-    "game/tests/fixtures/orison_household_wardrobes.json": "c2568d175e103a3f54e85a1d2812fad82c41c8d207dc7b1b6be57068c9a55071",
+    "game/data/orison_v2_blockout.json": "44c6cd791ba03ce46fabcaf9e61152729caec18f25f8fec20124559048bcc07f",
+    "art/data/orison_v2/completion_interiors_source.json": "359fbb9b418286adabef50b403827ac3b8a5c3a1894bf991b2d50df31e270263",
+    "art/blender/domestic_objects.blend": "e9f5423705d6cdf15786a15a4b399ee5f52095687d61b580beff80fcfe8a51f5",
+    "game/tests/fixtures/orison_domestic_objects.json": "8bcf9dd3e7ae428f30b438d3f40bc1c2c8781cf24f3aae7b4608c52842fe68d0",
+    "art/blender/household_wardrobes.blend": "649ced6b089e289b3f3a7923cb4d07f2ed2d94532f978f2e308f242ad9218ca0",
+    "game/tests/fixtures/orison_household_wardrobes.json": "3a2c2a6a527690290f4c51cb35a8a82f8b316316504e7d0d2395b744bf225966",
     "art/blender/prep_cabinets.blend": "6c3cfa636a09f138a4b5f1939939149ee2ac98dc7eea068d8bd118b97e4062b3",
     "game/tests/fixtures/orison_prep_cabinets.json": "7b9a5edeb52a35509755f150699d8e81012c98f1febebe9b0e1894b1324f8509",
     "art/blender/domestic_storage.blend": "2ecf3c03e229cb313a07fd549e6d21f9421a7305c6b349f2c68d2387cfc07684",

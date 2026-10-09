@@ -1,0 +1,507 @@
+census nodes 2048
+
+== fridges (yaw_deg) ==
+F02_2A_FRIDGE_01_Semantic F02_A_KITCHEN    pos=[-11.2, 3.2, 5.72] yaw=0.0
+F02_2A_FRIDGE_01_STANCE F02_A_KITCHEN    pos=[-11.2, 3.2, 4.42] yaw=-180.0
+F03_3B_FRIDGE_01_Semantic F03_B_KITCHEN    pos=[12.45, 6.4, -5.72] yaw=0.0
+F03_3B_FRIDGE_01_STANCE F03_B_KITCHEN    pos=[12.45, 6.4, -6.95] yaw=-180.0
+F04_B_FRIDGE_01_Semantic F04_B_KITCHEN    pos=[-11.85, 9.6, 5.85] yaw=0.0
+F04_B_FRIDGE_01_STANCE F04_B_KITCHEN    pos=[-11.85, 9.6, 4.7] yaw=-180.0
+F02_2B_FRIDGE_01_Semantic F02_B_KITCHEN    pos=[10.9, 3.2, -4.75] yaw=0.0
+F02_2B_FRIDGE_01_STANCE F02_B_KITCHEN    pos=[10.9, 3.2, -5.85] yaw=180.0
+F03_3A_FRIDGE_01_Semantic F03_A_KITCHEN    pos=[-11.2, 6.4, 5.72] yaw=0.0
+F03_3A_FRIDGE_01_STANCE F03_A_KITCHEN    pos=[-11.2, 6.4, 4.42] yaw=-180.0
+F04_4A_FRIDGE_01_Semantic F04_A_KITCHEN    pos=[10.9, 9.6, -4.75] yaw=0.0
+F04_4A_FRIDGE_01_STANCE F04_A_KITCHEN    pos=[10.9, 9.6, -5.85] yaw=180.0
+F05_5A_FRIDGE_01_Semantic F05_A_KITCHEN    pos=[-8.76, 12.8, -8.4] yaw=90.0
+F05_5A_FRIDGE_01_STANCE F05_A_KITCHEN    pos=[-9.65, 12.8, -7.35] yaw=-40.3
+F05_5B_FRIDGE_01_Semantic F05_B_KITCHEN    pos=[-6.92, 12.8, 10.85] yaw=90.0
+F05_5B_FRIDGE_01_STANCE F05_B_KITCHEN    pos=[-8.07, 12.8, 10.1] yaw=-123.1
+F05_5C_FRIDGE_01_Semantic F05_C_KITCHEN    pos=[6.64, 12.8, 5.55] yaw=90.0
+F05_5C_FRIDGE_01_STANCE F05_C_KITCHEN    pos=[5.5, 12.8, 4.8] yaw=-123.3
+F06_6A_FRIDGE_01_Semantic F06_A_KITCHEN    pos=[-8.76, 16.0, -8.4] yaw=90.0
+F06_6A_FRIDGE_01_STANCE F06_A_KITCHEN    pos=[-9.65, 16.0, -7.35] yaw=-40.3
+F06_6B_FRIDGE_01_Semantic F06_B_KITCHEN    pos=[-6.92, 16.0, 10.85] yaw=90.0
+F06_6B_FRIDGE_01_STANCE F06_B_KITCHEN    pos=[-8.07, 16.0, 10.1] yaw=-123.1
+F06_6C_FRIDGE_01_Semantic F06_C_KITCHEN    pos=[6.64, 16.0, 5.55] yaw=90.0
+F06_6C_FRIDGE_01_STANCE F06_C_KITCHEN    pos=[5.5, 16.0, 4.8] yaw=-123.3
+F02_2C_FRIDGE_01_Semantic F02_C_KITCHEN    pos=[6.64, 3.2, 5.55] yaw=90.0
+F02_2C_FRIDGE_01_STANCE F02_C_KITCHEN    pos=[5.5, 3.2, 4.8] yaw=-123.3
+F04_4C_FRIDGE_01_Semantic F04_C_KITCHEN    pos=[6.64, 9.6, 5.55] yaw=90.0
+F04_4C_FRIDGE_01_STANCE F04_C_KITCHEN    pos=[5.5, 9.6, 4.8] yaw=-123.3
+F01_1D_FRIDGE_01_Semantic F01_D_KITCHEN    pos=[10.9, 0.0, -4.75] yaw=0.0
+F01_1D_FRIDGE_01_STANCE F01_D_KITCHEN    pos=[10.9, 0.0, -5.85] yaw=180.0
+F01_1A_FRIDGE_01_Semantic F01_A_KITCHEN    pos=[-8.62, 0.0, -8.5] yaw=90.0
+F03_3D_FRIDGE_01_Semantic F03_D_KITCHEN    pos=[-8.62, 6.4, -8.5] yaw=90.0
+F04_4D_FRIDGE_01_Semantic F04_D_KITCHEN    pos=[-8.62, 9.6, -8.5] yaw=90.0
+F02_2A_FRIDGE_01       F02_A_KITCHEN    pos=[-11.2, 3.2, 5.72] yaw=0.0
+F03_3B_FRIDGE_01       F03_B_KITCHEN    pos=[12.45, 6.4, -5.72] yaw=0.0
+F04_B_FRIDGE_01        F04_B_KITCHEN    pos=[-11.85, 9.6, 5.85] yaw=0.0
+F02_2B_FRIDGE_01       F02_B_KITCHEN    pos=[10.9, 3.2, -4.75] yaw=0.0
+F03_3A_FRIDGE_01       F03_A_KITCHEN    pos=[-11.2, 6.4, 5.72] yaw=0.0
+F04_4A_FRIDGE_01       F04_A_KITCHEN    pos=[10.9, 9.6, -4.75] yaw=0.0
+F05_5A_FRIDGE_01       F05_A_KITCHEN    pos=[-8.76, 12.8, -8.4] yaw=90.0
+F05_5B_FRIDGE_01       F05_B_KITCHEN    pos=[-6.92, 12.8, 10.85] yaw=90.0
+F05_5C_FRIDGE_01       F05_C_KITCHEN    pos=[6.64, 12.8, 5.55] yaw=90.0
+F06_6A_FRIDGE_01       F06_A_KITCHEN    pos=[-8.76, 16.0, -8.4] yaw=90.0
+F06_6B_FRIDGE_01       F06_B_KITCHEN    pos=[-6.92, 16.0, 10.85] yaw=90.0
+F06_6C_FRIDGE_01       F06_C_KITCHEN    pos=[6.64, 16.0, 5.55] yaw=90.0
+F02_2C_FRIDGE_01       F02_C_KITCHEN    pos=[6.64, 3.2, 5.55] yaw=90.0
+F04_4C_FRIDGE_01       F04_C_KITCHEN    pos=[6.64, 9.6, 5.55] yaw=90.0
+F01_1D_FRIDGE_01       F01_D_KITCHEN    pos=[10.9, 0.0, -4.75] yaw=0.0
+F01_1A_FRIDGE_01       F01_A_KITCHEN    pos=[-8.62, 0.0, -8.5] yaw=90.0
+F03_3D_FRIDGE_01       F03_D_KITCHEN    pos=[-8.62, 6.4, -8.5] yaw=90.0
+F04_4D_FRIDGE_01       F04_D_KITCHEN    pos=[-8.62, 9.6, -8.5] yaw=90.0
+
+== water closets ==
+2C_wc F02_C_BATH [3.3, 3.2, 5.4] yaw 90.0
+   Lid                    vis=True x[3.35,3.44] y[3.62,4.14] z[5.20,5.60]
+   ClosetPedestal         vis=True x[3.01,3.43] y[3.21,3.44] z[5.26,5.54]
+   FloorBolt              vis=True x[3.14,3.16] y[3.24,3.25] z[5.48,5.50]
+   FloorBolt_001          vis=True x[3.14,3.16] y[3.24,3.25] z[5.30,5.32]
+   FlushConnection        vis=True x[3.39,3.57] y[3.47,3.71] z[5.37,5.43]
+   HandleRose             vis=True x[3.41,3.42] y[3.82,3.86] z[5.20,5.24]
+   HollowWashDownBowl     vis=True x[2.90,3.44] y[3.38,3.61] z[5.20,5.60]
+   LowCistern             vis=True x[3.42,3.64] y[3.69,4.01] z[5.17,5.63]
+   PolishedWoodSeat       vis=True x[2.90,3.44] y[3.61,3.64] z[5.19,5.60]
+   RemovableCisternLid    vis=True x[3.42,3.65] y[4.00,4.03] z[5.16,5.64]
+   SeatHinge              vis=True x[3.39,3.41] y[3.63,3.65] z[5.47,5.52]
+   SeatHinge_001          vis=True x[3.39,3.41] y[3.63,3.65] z[5.28,5.33]
+   SupplyPipe             vis=True x[3.53,3.65] y[3.42,3.72] z[5.53,5.55]
+   SupplyShutoff          vis=True x[3.61,3.63] y[3.41,3.45] z[5.52,5.56]
+   WaterSeal              vis=True x[3.14,3.30] y[3.42,3.42] z[5.33,5.47]
+   FlushLever             vis=True x[3.39,3.41] y[3.83,3.85] z[5.22,5.32]
+4C_wc F04_C_BATH [3.3, 9.6, 5.4] yaw 90.0
+   Lid                    vis=True x[3.35,3.44] y[10.02,10.54] z[5.20,5.60]
+   ClosetPedestal         vis=True x[3.01,3.43] y[9.61,9.84] z[5.26,5.54]
+   FloorBolt              vis=True x[3.14,3.16] y[9.64,9.65] z[5.48,5.50]
+   FloorBolt_001          vis=True x[3.14,3.16] y[9.64,9.65] z[5.30,5.32]
+   FlushConnection        vis=True x[3.39,3.57] y[9.87,10.11] z[5.37,5.43]
+   HandleRose             vis=True x[3.41,3.42] y[10.22,10.26] z[5.20,5.24]
+   HollowWashDownBowl     vis=True x[2.90,3.44] y[9.78,10.01] z[5.20,5.60]
+   LowCistern             vis=True x[3.42,3.64] y[10.10,10.40] z[5.17,5.63]
+   PolishedWoodSeat       vis=True x[2.90,3.44] y[10.01,10.04] z[5.19,5.60]
+   RemovableCisternLid    vis=True x[3.42,3.65] y[10.40,10.43] z[5.16,5.64]
+   SeatHinge              vis=True x[3.39,3.41] y[10.03,10.05] z[5.47,5.52]
+   SeatHinge_001          vis=True x[3.39,3.41] y[10.03,10.05] z[5.28,5.33]
+   SupplyPipe             vis=True x[3.53,3.65] y[9.82,10.12] z[5.53,5.55]
+   SupplyShutoff          vis=True x[3.61,3.63] y[9.81,9.85] z[5.52,5.56]
+   WaterSeal              vis=True x[3.14,3.30] y[9.82,9.82] z[5.33,5.47]
+   FlushLever             vis=True x[3.39,3.41] y[10.23,10.25] z[5.22,5.32]
+1D_wc F01_D_BATH [15.0, 0.0, -11.8] yaw -180.0
+   Lid                    vis=True x[14.80,15.20] y[0.42,0.94] z[-11.94,-11.85]
+   ClosetPedestal         vis=True x[14.86,15.14] y[0.01,0.24] z[-11.94,-11.52]
+   FloorBolt              vis=True x[15.08,15.10] y[0.04,0.05] z[-11.66,-11.64]
+   FloorBolt_001          vis=True x[14.90,14.92] y[0.04,0.05] z[-11.66,-11.64]
+   FlushConnection        vis=True x[14.97,15.03] y[0.27,0.51] z[-12.07,-11.89]
+   HandleRose             vis=True x[14.80,14.84] y[0.62,0.66] z[-11.92,-11.91]
+   HollowWashDownBowl     vis=True x[14.80,15.20] y[0.18,0.41] z[-11.94,-11.40]
+   LowCistern             vis=True x[14.77,15.23] y[0.49,0.80] z[-12.15,-11.93]
+   PolishedWoodSeat       vis=True x[14.80,15.20] y[0.41,0.44] z[-11.94,-11.40]
+   RemovableCisternLid    vis=True x[14.76,15.24] y[0.80,0.83] z[-12.15,-11.92]
+   SeatHinge              vis=True x[15.07,15.12] y[0.43,0.45] z[-11.92,-11.90]
+   SeatHinge_001          vis=True x[14.88,14.93] y[0.43,0.45] z[-11.92,-11.90]
+   SupplyPipe             vis=True x[15.13,15.15] y[0.22,0.52] z[-12.15,-12.03]
+   SupplyShutoff          vis=True x[15.12,15.16] y[0.21,0.25] z[-12.13,-12.11]
+   WaterSeal              vis=True x[14.93,15.07] y[0.22,0.22] z[-11.80,-11.64]
+   FlushLever             vis=True x[14.82,14.92] y[0.63,0.65] z[-11.91,-11.89]
+1A_wc F01_A_BATH [-5.9, 0.0, -10.95] yaw 90.0
+   Lid                    vis=True x[-5.85,-5.76] y[0.42,0.94] z[-11.15,-10.75]
+   ClosetPedestal         vis=True x[-6.18,-5.76] y[0.01,0.24] z[-11.09,-10.81]
+   FloorBolt              vis=True x[-6.06,-6.04] y[0.04,0.05] z[-10.87,-10.85]
+   FloorBolt_001          vis=True x[-6.06,-6.04] y[0.04,0.05] z[-11.05,-11.03]
+   FlushConnection        vis=True x[-5.81,-5.63] y[0.27,0.51] z[-10.98,-10.92]
+   HandleRose             vis=True x[-5.79,-5.78] y[0.62,0.66] z[-11.15,-11.11]
+   HollowWashDownBowl     vis=True x[-6.30,-5.76] y[0.18,0.41] z[-11.15,-10.75]
+   LowCistern             vis=True x[-5.78,-5.55] y[0.49,0.80] z[-11.18,-10.72]
+   PolishedWoodSeat       vis=True x[-6.30,-5.76] y[0.41,0.44] z[-11.16,-10.74]
+   RemovableCisternLid    vis=True x[-5.78,-5.55] y[0.80,0.83] z[-11.19,-10.71]
+   SeatHinge              vis=True x[-5.81,-5.78] y[0.43,0.45] z[-10.88,-10.83]
+   SeatHinge_001          vis=True x[-5.81,-5.78] y[0.43,0.45] z[-11.07,-11.02]
+   SupplyPipe             vis=True x[-5.67,-5.55] y[0.22,0.52] z[-10.82,-10.80]
+   SupplyShutoff          vis=True x[-5.59,-5.57] y[0.21,0.25] z[-10.83,-10.79]
+   WaterSeal              vis=True x[-6.06,-5.90] y[0.22,0.22] z[-11.02,-10.88]
+   FlushLever             vis=True x[-5.81,-5.79] y[0.63,0.65] z[-11.13,-11.03]
+3D_wc F03_D_BATH [-6.1, 6.4, -10.95] yaw 90.0
+   Lid                    vis=True x[-6.05,-5.96] y[6.82,7.34] z[-11.15,-10.75]
+   ClosetPedestal         vis=True x[-6.38,-5.96] y[6.41,6.64] z[-11.09,-10.81]
+   FloorBolt              vis=True x[-6.26,-6.24] y[6.44,6.45] z[-10.87,-10.85]
+   FloorBolt_001          vis=True x[-6.26,-6.24] y[6.44,6.45] z[-11.05,-11.03]
+   FlushConnection        vis=True x[-6.01,-5.83] y[6.67,6.91] z[-10.98,-10.92]
+   HandleRose             vis=True x[-5.99,-5.98] y[7.02,7.06] z[-11.15,-11.11]
+   HollowWashDownBowl     vis=True x[-6.50,-5.96] y[6.58,6.81] z[-11.15,-10.75]
+   LowCistern             vis=True x[-5.97,-5.75] y[6.89,7.21] z[-11.18,-10.72]
+   PolishedWoodSeat       vis=True x[-6.50,-5.96] y[6.81,6.84] z[-11.16,-10.74]
+   RemovableCisternLid    vis=True x[-5.98,-5.75] y[7.20,7.23] z[-11.19,-10.71]
+   SeatHinge              vis=True x[-6.01,-5.98] y[6.83,6.85] z[-10.88,-10.83]
+   SeatHinge_001          vis=True x[-6.01,-5.98] y[6.83,6.85] z[-11.07,-11.02]
+   SupplyPipe             vis=True x[-5.87,-5.75] y[6.62,6.92] z[-10.82,-10.80]
+   SupplyShutoff          vis=True x[-5.79,-5.77] y[6.61,6.65] z[-10.83,-10.79]
+   WaterSeal              vis=True x[-6.26,-6.10] y[6.62,6.62] z[-11.02,-10.88]
+   FlushLever             vis=True x[-6.01,-5.99] y[7.03,7.05] z[-11.13,-11.03]
+4D_wc F04_D_BATH [-6.1, 9.6, -10.95] yaw 90.0
+   Lid                    vis=True x[-6.05,-5.96] y[10.02,10.54] z[-11.15,-10.75]
+   ClosetPedestal         vis=True x[-6.38,-5.96] y[9.61,9.84] z[-11.09,-10.81]
+   FloorBolt              vis=True x[-6.26,-6.24] y[9.64,9.65] z[-10.87,-10.85]
+   FloorBolt_001          vis=True x[-6.26,-6.24] y[9.64,9.65] z[-11.05,-11.03]
+   FlushConnection        vis=True x[-6.01,-5.83] y[9.87,10.11] z[-10.98,-10.92]
+   HandleRose             vis=True x[-5.99,-5.98] y[10.22,10.26] z[-11.15,-11.11]
+   HollowWashDownBowl     vis=True x[-6.50,-5.96] y[9.78,10.01] z[-11.15,-10.75]
+   LowCistern             vis=True x[-5.97,-5.75] y[10.10,10.40] z[-11.18,-10.72]
+   PolishedWoodSeat       vis=True x[-6.50,-5.96] y[10.01,10.04] z[-11.16,-10.74]
+   RemovableCisternLid    vis=True x[-5.98,-5.75] y[10.40,10.43] z[-11.19,-10.71]
+   SeatHinge              vis=True x[-6.01,-5.98] y[10.03,10.05] z[-10.88,-10.83]
+   SeatHinge_001          vis=True x[-6.01,-5.98] y[10.03,10.05] z[-11.07,-11.02]
+   SupplyPipe             vis=True x[-5.87,-5.75] y[9.82,10.12] z[-10.82,-10.80]
+   SupplyShutoff          vis=True x[-5.79,-5.77] y[9.81,9.85] z[-10.83,-10.79]
+   WaterSeal              vis=True x[-6.26,-6.10] y[9.82,9.82] z[-11.02,-10.88]
+   FlushLever             vis=True x[-6.01,-5.99] y[10.23,10.25] z[-11.13,-11.03]
+F01_STAFF_WC F01_STAFF_RESTROOM [7.75, 0.0, -7.7] yaw -180.0
+   Lid                    vis=True x[7.55,7.95] y[0.42,0.94] z[-7.84,-7.75]
+   ClosetPedestal         vis=True x[7.61,7.89] y[0.01,0.24] z[-7.84,-7.41]
+   FloorBolt              vis=True x[7.83,7.85] y[0.04,0.05] z[-7.56,-7.54]
+   FloorBolt_001          vis=True x[7.65,7.67] y[0.04,0.05] z[-7.56,-7.54]
+   FlushConnection        vis=True x[7.72,7.78] y[0.27,0.51] z[-7.97,-7.79]
+   HandleRose             vis=True x[7.55,7.59] y[0.62,0.66] z[-7.82,-7.81]
+   HollowWashDownBowl     vis=True x[7.55,7.95] y[0.18,0.41] z[-7.84,-7.30]
+   LowCistern             vis=True x[7.52,7.98] y[0.49,0.80] z[-8.05,-7.82]
+   PolishedWoodSeat       vis=True x[7.55,7.95] y[0.41,0.44] z[-7.84,-7.30]
+   RemovableCisternLid    vis=True x[7.51,7.99] y[0.80,0.83] z[-8.05,-7.82]
+   SeatHinge              vis=True x[7.82,7.87] y[0.43,0.45] z[-7.82,-7.80]
+   SeatHinge_001          vis=True x[7.63,7.68] y[0.43,0.45] z[-7.82,-7.80]
+   SupplyPipe             vis=True x[7.88,7.90] y[0.22,0.52] z[-8.05,-7.93]
+   SupplyShutoff          vis=True x[7.87,7.91] y[0.21,0.25] z[-8.03,-8.01]
+   WaterSeal              vis=True x[7.68,7.82] y[0.22,0.22] z[-7.70,-7.54]
+   FlushLever             vis=True x[7.57,7.67] y[0.63,0.65] z[-7.81,-7.79]
+3B_wc F03_B_BATH [15.05, 6.4, -11.9] yaw -180.0
+   Lid                    vis=True x[14.85,15.25] y[6.82,7.34] z[-12.04,-11.95]
+   ClosetPedestal         vis=True x[14.91,15.19] y[6.41,6.64] z[-12.03,-11.61]
+   FloorBolt              vis=True x[15.13,15.15] y[6.44,6.45] z[-11.76,-11.74]
+   FloorBolt_001          vis=True x[14.95,14.97] y[6.44,6.45] z[-11.76,-11.74]
+   FlushConnection        vis=True x[15.02,15.08] y[6.67,6.91] z[-12.17,-11.99]
+   HandleRose             vis=True x[14.85,14.89] y[7.02,7.06] z[-12.02,-12.01]
+   HollowWashDownBowl     vis=True x[14.85,15.25] y[6.58,6.81] z[-12.04,-11.50]
+   LowCistern             vis=True x[14.82,15.28] y[6.89,7.21] z[-12.24,-12.02]
+   PolishedWoodSeat       vis=True x[14.85,15.26] y[6.81,6.84] z[-12.04,-11.50]
+   RemovableCisternLid    vis=True x[14.81,15.29] y[7.20,7.23] z[-12.25,-12.02]
+   SeatHinge              vis=True x[15.12,15.17] y[6.83,6.85] z[-12.02,-11.99]
+   SeatHinge_001          vis=True x[14.93,14.98] y[6.83,6.85] z[-12.02,-11.99]
+   SupplyPipe             vis=True x[15.18,15.20] y[6.62,6.92] z[-12.25,-12.13]
+   SupplyShutoff          vis=True x[15.17,15.21] y[6.61,6.65] z[-12.23,-12.21]
+   WaterSeal              vis=True x[14.98,15.12] y[6.62,6.62] z[-11.90,-11.74]
+   FlushLever             vis=True x[14.87,14.97] y[7.03,7.05] z[-12.01,-11.99]
+   LoosePaperEnd          vis=True x[15.40,15.41] y[6.88,7.03] z[-12.19,-12.08]
+   PaperBracket           vis=True x[15.28,15.36] y[7.02,7.03] z[-12.15,-12.07]
+   PaperBracketWall       vis=True x[15.28,15.29] y[7.00,7.05] z[-12.16,-12.11]
+   PaperRoll              vis=True x[15.31,15.40] y[6.98,7.07] z[-12.19,-12.08]
+   PaperSpindle           vis=True x[15.35,15.36] y[7.02,7.03] z[-12.20,-12.07]
+   SpindleButton          vis=True x[15.34,15.37] y[7.01,7.04] z[-12.08,-12.07]
+   SpindleButton_001      vis=True x[15.34,15.37] y[7.01,7.04] z[-12.20,-12.19]
+4B_wc F04_B_BATH [-7.05, 9.6, 5.5] yaw 0.0
+   Lid                    vis=True x[-7.25,-6.85] y[10.02,10.54] z[5.55,5.64]
+   ClosetPedestal         vis=True x[-7.19,-6.91] y[9.61,9.84] z[5.22,5.64]
+   FloorBolt              vis=True x[-7.15,-7.13] y[9.64,9.65] z[5.34,5.36]
+   FloorBolt_001          vis=True x[-6.97,-6.95] y[9.64,9.65] z[5.34,5.36]
+   FlushConnection        vis=True x[-7.08,-7.02] y[9.87,10.11] z[5.59,5.77]
+   HandleRose             vis=True x[-6.89,-6.85] y[10.22,10.26] z[5.61,5.62]
+   HollowWashDownBowl     vis=True x[-7.25,-6.85] y[9.78,10.01] z[5.10,5.64]
+   LowCistern             vis=True x[-7.28,-6.82] y[10.10,10.40] z[5.62,5.85]
+   PolishedWoodSeat       vis=True x[-7.26,-6.85] y[10.01,10.04] z[5.10,5.64]
+   RemovableCisternLid    vis=True x[-7.29,-6.81] y[10.40,10.43] z[5.62,5.85]
+   SeatHinge              vis=True x[-7.17,-7.12] y[10.03,10.05] z[5.59,5.61]
+   SeatHinge_001          vis=True x[-6.98,-6.93] y[10.03,10.05] z[5.59,5.61]
+   SupplyPipe             vis=True x[-7.20,-7.18] y[9.82,10.12] z[5.73,5.85]
+   SupplyShutoff          vis=True x[-7.21,-7.17] y[9.81,9.85] z[5.81,5.83]
+   WaterSeal              vis=True x[-7.12,-6.98] y[9.82,9.82] z[5.34,5.50]
+   FlushLever             vis=True x[-6.97,-6.87] y[10.23,10.25] z[5.59,5.61]
+   LoosePaperEnd          vis=True x[-7.41,-7.40] y[10.08,10.23] z[5.68,5.79]
+   PaperBracket           vis=True x[-7.36,-7.28] y[10.22,10.23] z[5.67,5.75]
+   PaperBracketWall       vis=True x[-7.29,-7.28] y[10.20,10.25] z[5.71,5.76]
+   PaperRoll              vis=True x[-7.40,-7.31] y[10.18,10.27] z[5.68,5.79]
+   PaperSpindle           vis=True x[-7.36,-7.35] y[10.22,10.23] z[5.67,5.80]
+   SpindleButton          vis=True x[-7.37,-7.34] y[10.21,10.24] z[5.67,5.68]
+   SpindleButton_001      vis=True x[-7.37,-7.34] y[10.21,10.24] z[5.79,5.80]
+2A_wc F02_A_BATH [-6.94, 3.2, 5.16] yaw 0.0
+   Lid                    vis=True x[-7.14,-6.74] y[3.62,4.14] z[5.21,5.30]
+   ClosetPedestal         vis=True x[-7.08,-6.80] y[3.21,3.44] z[4.88,5.30]
+   FloorBolt              vis=True x[-7.04,-7.02] y[3.24,3.25] z[5.00,5.02]
+   FloorBolt_001          vis=True x[-6.86,-6.84] y[3.24,3.25] z[5.00,5.02]
+   FlushConnection        vis=True x[-6.97,-6.91] y[3.47,3.71] z[5.25,5.43]
+   HandleRose             vis=True x[-6.78,-6.74] y[3.82,3.86] z[5.27,5.28]
+   HollowWashDownBowl     vis=True x[-7.14,-6.74] y[3.38,3.61] z[4.76,5.30]
+   LowCistern             vis=True x[-7.17,-6.71] y[3.69,4.01] z[5.28,5.51]
+   PolishedWoodSeat       vis=True x[-7.14,-6.74] y[3.61,3.64] z[4.76,5.30]
+   RemovableCisternLid    vis=True x[-7.18,-6.70] y[4.00,4.03] z[5.28,5.51]
+   SeatHinge              vis=True x[-7.06,-7.01] y[3.63,3.65] z[5.25,5.27]
+   SeatHinge_001          vis=True x[-6.87,-6.82] y[3.63,3.65] z[5.25,5.27]
+   SupplyPipe             vis=True x[-7.09,-7.07] y[3.42,3.72] z[5.39,5.51]
+   SupplyShutoff          vis=True x[-7.10,-7.06] y[3.41,3.45] z[5.47,5.49]
+   WaterSeal              vis=True x[-7.01,-6.87] y[3.42,3.42] z[5.00,5.16]
+   FlushLever             vis=True x[-6.86,-6.76] y[3.83,3.85] z[5.25,5.27]
+   LoosePaperEnd          vis=True x[-7.30,-7.29] y[3.68,3.83] z[5.34,5.45]
+   PaperBracket           vis=True x[-7.25,-7.17] y[3.82,3.83] z[5.33,5.41]
+   PaperBracketWall       vis=True x[-7.18,-7.17] y[3.80,3.85] z[5.37,5.42]
+   PaperRoll              vis=True x[-7.29,-7.20] y[3.78,3.87] z[5.34,5.45]
+   PaperSpindle           vis=True x[-7.25,-7.24] y[3.82,3.83] z[5.33,5.46]
+   SpindleButton          vis=True x[-7.26,-7.23] y[3.81,3.84] z[5.33,5.34]
+   SpindleButton_001      vis=True x[-7.26,-7.23] y[3.81,3.84] z[5.45,5.46]
+2B_wc F02_B_BATH [15.0, 3.2, -11.8] yaw -180.0
+   Lid                    vis=True x[14.80,15.20] y[3.62,4.14] z[-11.94,-11.85]
+   ClosetPedestal         vis=True x[14.86,15.14] y[3.21,3.44] z[-11.94,-11.52]
+   FloorBolt              vis=True x[15.08,15.10] y[3.24,3.25] z[-11.66,-11.64]
+   FloorBolt_001          vis=True x[14.90,14.92] y[3.24,3.25] z[-11.66,-11.64]
+   FlushConnection        vis=True x[14.97,15.03] y[3.47,3.71] z[-12.07,-11.89]
+   HandleRose             vis=True x[14.80,14.84] y[3.82,3.86] z[-11.92,-11.91]
+   HollowWashDownBowl     vis=True x[14.80,15.20] y[3.38,3.61] z[-11.94,-11.40]
+   LowCistern             vis=True x[14.77,15.23] y[3.69,4.01] z[-12.15,-11.93]
+   PolishedWoodSeat       vis=True x[14.80,15.20] y[3.61,3.64] z[-11.94,-11.40]
+   RemovableCisternLid    vis=True x[14.76,15.24] y[4.00,4.03] z[-12.15,-11.92]
+   SeatHinge              vis=True x[15.07,15.12] y[3.63,3.65] z[-11.92,-11.90]
+   SeatHinge_001          vis=True x[14.88,14.93] y[3.63,3.65] z[-11.92,-11.90]
+   SupplyPipe             vis=True x[15.13,15.15] y[3.42,3.72] z[-12.15,-12.03]
+   SupplyShutoff          vis=True x[15.12,15.16] y[3.41,3.45] z[-12.13,-12.11]
+   WaterSeal              vis=True x[14.93,15.07] y[3.42,3.42] z[-11.80,-11.64]
+   FlushLever             vis=True x[14.82,14.92] y[3.83,3.85] z[-11.91,-11.89]
+   LoosePaperEnd          vis=True x[15.35,15.36] y[3.68,3.83] z[-12.09,-11.98]
+   PaperBracket           vis=True x[15.23,15.31] y[3.82,3.83] z[-12.05,-11.97]
+   PaperBracketWall       vis=True x[15.23,15.24] y[3.80,3.85] z[-12.06,-12.01]
+   PaperRoll              vis=True x[15.26,15.35] y[3.78,3.87] z[-12.09,-11.98]
+   PaperSpindle           vis=True x[15.30,15.31] y[3.82,3.83] z[-12.10,-11.97]
+   SpindleButton          vis=True x[15.29,15.32] y[3.81,3.84] z[-11.98,-11.97]
+   SpindleButton_001      vis=True x[15.29,15.32] y[3.81,3.84] z[-12.10,-12.09]
+3A_wc F03_A_BATH [-6.94, 6.4, 5.16] yaw 0.0
+   Lid                    vis=True x[-7.14,-6.74] y[6.82,7.34] z[5.21,5.30]
+   ClosetPedestal         vis=True x[-7.08,-6.80] y[6.41,6.64] z[4.88,5.30]
+   FloorBolt              vis=True x[-7.04,-7.02] y[6.44,6.45] z[5.00,5.02]
+   FloorBolt_001          vis=True x[-6.86,-6.84] y[6.44,6.45] z[5.00,5.02]
+   FlushConnection        vis=True x[-6.97,-6.91] y[6.67,6.91] z[5.25,5.43]
+   HandleRose             vis=True x[-6.78,-6.74] y[7.02,7.06] z[5.27,5.28]
+   HollowWashDownBowl     vis=True x[-7.14,-6.74] y[6.58,6.81] z[4.76,5.30]
+   LowCistern             vis=True x[-7.17,-6.71] y[6.89,7.21] z[5.28,5.51]
+   PolishedWoodSeat       vis=True x[-7.14,-6.74] y[6.81,6.84] z[4.76,5.30]
+   RemovableCisternLid    vis=True x[-7.18,-6.70] y[7.20,7.23] z[5.28,5.51]
+   SeatHinge              vis=True x[-7.06,-7.01] y[6.83,6.85] z[5.25,5.27]
+   SeatHinge_001          vis=True x[-6.87,-6.82] y[6.83,6.85] z[5.25,5.27]
+   SupplyPipe             vis=True x[-7.09,-7.07] y[6.62,6.92] z[5.39,5.51]
+   SupplyShutoff          vis=True x[-7.10,-7.06] y[6.61,6.65] z[5.47,5.49]
+   WaterSeal              vis=True x[-7.01,-6.87] y[6.62,6.62] z[5.00,5.16]
+   FlushLever             vis=True x[-6.86,-6.76] y[7.03,7.05] z[5.25,5.27]
+   LoosePaperEnd          vis=True x[-7.30,-7.29] y[6.88,7.03] z[5.34,5.45]
+   PaperBracket           vis=True x[-7.25,-7.17] y[7.02,7.03] z[5.33,5.41]
+   PaperBracketWall       vis=True x[-7.18,-7.17] y[7.00,7.05] z[5.37,5.42]
+   PaperRoll              vis=True x[-7.29,-7.20] y[6.98,7.07] z[5.34,5.45]
+   PaperSpindle           vis=True x[-7.25,-7.24] y[7.02,7.03] z[5.33,5.46]
+   SpindleButton          vis=True x[-7.26,-7.23] y[7.01,7.04] z[5.33,5.34]
+   SpindleButton_001      vis=True x[-7.26,-7.23] y[7.01,7.04] z[5.45,5.46]
+4A_wc F04_A_BATH [15.0, 9.6, -11.8] yaw -180.0
+   Lid                    vis=True x[14.80,15.20] y[10.02,10.54] z[-11.94,-11.85]
+   ClosetPedestal         vis=True x[14.86,15.14] y[9.61,9.84] z[-11.94,-11.52]
+   FloorBolt              vis=True x[15.08,15.10] y[9.64,9.65] z[-11.66,-11.64]
+   FloorBolt_001          vis=True x[14.90,14.92] y[9.64,9.65] z[-11.66,-11.64]
+   FlushConnection        vis=True x[14.97,15.03] y[9.87,10.11] z[-12.07,-11.89]
+   HandleRose             vis=True x[14.80,14.84] y[10.22,10.26] z[-11.92,-11.91]
+   HollowWashDownBowl     vis=True x[14.80,15.20] y[9.78,10.01] z[-11.94,-11.40]
+   LowCistern             vis=True x[14.77,15.23] y[10.10,10.40] z[-12.15,-11.93]
+   PolishedWoodSeat       vis=True x[14.80,15.20] y[10.01,10.04] z[-11.94,-11.40]
+   RemovableCisternLid    vis=True x[14.76,15.24] y[10.40,10.43] z[-12.15,-11.92]
+   SeatHinge              vis=True x[15.07,15.12] y[10.03,10.05] z[-11.92,-11.90]
+   SeatHinge_001          vis=True x[14.88,14.93] y[10.03,10.05] z[-11.92,-11.90]
+   SupplyPipe             vis=True x[15.13,15.15] y[9.82,10.12] z[-12.15,-12.03]
+   SupplyShutoff          vis=True x[15.12,15.16] y[9.81,9.85] z[-12.13,-12.11]
+   WaterSeal              vis=True x[14.93,15.07] y[9.82,9.82] z[-11.80,-11.64]
+   FlushLever             vis=True x[14.82,14.92] y[10.23,10.25] z[-11.91,-11.89]
+   LoosePaperEnd          vis=True x[15.35,15.36] y[10.08,10.23] z[-12.09,-11.98]
+   PaperBracket           vis=True x[15.23,15.31] y[10.22,10.23] z[-12.05,-11.97]
+   PaperBracketWall       vis=True x[15.23,15.24] y[10.20,10.25] z[-12.06,-12.01]
+   PaperRoll              vis=True x[15.26,15.35] y[10.18,10.27] z[-12.09,-11.98]
+   PaperSpindle           vis=True x[15.30,15.31] y[10.22,10.23] z[-12.10,-11.97]
+   SpindleButton          vis=True x[15.29,15.32] y[10.21,10.24] z[-11.98,-11.97]
+   SpindleButton_001      vis=True x[15.29,15.32] y[10.21,10.24] z[-12.10,-12.09]
+5A_wc F05_A_BATH [-6.18, 12.8, -11.85] yaw -180.0
+   Lid                    vis=True x[-6.38,-5.98] y[13.22,13.74] z[-11.99,-11.90]
+   ClosetPedestal         vis=True x[-6.32,-6.04] y[12.81,13.04] z[-11.99,-11.57]
+   FloorBolt              vis=True x[-6.10,-6.08] y[12.84,12.85] z[-11.71,-11.69]
+   FloorBolt_001          vis=True x[-6.28,-6.26] y[12.84,12.85] z[-11.71,-11.69]
+   FlushConnection        vis=True x[-6.21,-6.15] y[13.07,13.31] z[-12.12,-11.94]
+   HandleRose             vis=True x[-6.38,-6.34] y[13.42,13.46] z[-11.97,-11.96]
+   HollowWashDownBowl     vis=True x[-6.38,-5.98] y[12.98,13.21] z[-11.99,-11.45]
+   LowCistern             vis=True x[-6.41,-5.95] y[13.30,13.60] z[-12.20,-11.98]
+   PolishedWoodSeat       vis=True x[-6.38,-5.97] y[13.21,13.24] z[-11.99,-11.45]
+   RemovableCisternLid    vis=True x[-6.42,-5.94] y[13.60,13.63] z[-12.20,-11.97]
+   SeatHinge              vis=True x[-6.11,-6.06] y[13.23,13.25] z[-11.97,-11.95]
+   SeatHinge_001          vis=True x[-6.30,-6.25] y[13.23,13.25] z[-11.97,-11.95]
+   SupplyPipe             vis=True x[-6.05,-6.03] y[13.02,13.32] z[-12.20,-12.08]
+   SupplyShutoff          vis=True x[-6.06,-6.02] y[13.01,13.05] z[-12.18,-12.16]
+   WaterSeal              vis=True x[-6.25,-6.11] y[13.02,13.02] z[-11.85,-11.69]
+   FlushLever             vis=True x[-6.36,-6.26] y[13.43,13.45] z[-11.96,-11.94]
+   LoosePaperEnd          vis=True x[-5.83,-5.82] y[13.28,13.43] z[-12.14,-12.03]
+   PaperBracket           vis=True x[-5.95,-5.87] y[13.42,13.43] z[-12.10,-12.02]
+   PaperBracketWall       vis=True x[-5.95,-5.94] y[13.40,13.45] z[-12.11,-12.06]
+   PaperRoll              vis=True x[-5.92,-5.83] y[13.38,13.47] z[-12.14,-12.03]
+   PaperSpindle           vis=True x[-5.88,-5.87] y[13.42,13.43] z[-12.15,-12.02]
+   SpindleButton          vis=True x[-5.89,-5.86] y[13.41,13.44] z[-12.03,-12.02]
+   SpindleButton_001      vis=True x[-5.89,-5.86] y[13.41,13.44] z[-12.15,-12.14]
+5B_wc F05_B_BATH [-7.15, 12.8, 5.85] yaw 0.0
+   Lid                    vis=True x[-7.35,-6.95] y[13.22,13.74] z[5.90,5.99]
+   ClosetPedestal         vis=True x[-7.29,-7.01] y[12.81,13.04] z[5.57,5.99]
+   FloorBolt              vis=True x[-7.25,-7.23] y[12.84,12.85] z[5.69,5.71]
+   FloorBolt_001          vis=True x[-7.07,-7.05] y[12.84,12.85] z[5.69,5.71]
+   FlushConnection        vis=True x[-7.18,-7.12] y[13.07,13.31] z[5.94,6.12]
+   HandleRose             vis=True x[-6.99,-6.95] y[13.42,13.46] z[5.96,5.97]
+   HollowWashDownBowl     vis=True x[-7.35,-6.95] y[12.98,13.21] z[5.45,5.99]
+   LowCistern             vis=True x[-7.38,-6.92] y[13.30,13.60] z[5.98,6.20]
+   PolishedWoodSeat       vis=True x[-7.36,-6.95] y[13.21,13.24] z[5.45,5.99]
+   RemovableCisternLid    vis=True x[-7.39,-6.91] y[13.60,13.63] z[5.97,6.20]
+   SeatHinge              vis=True x[-7.27,-7.22] y[13.23,13.25] z[5.94,5.97]
+   SeatHinge_001          vis=True x[-7.08,-7.03] y[13.23,13.25] z[5.94,5.97]
+   SupplyPipe             vis=True x[-7.30,-7.28] y[13.02,13.32] z[6.08,6.20]
+   SupplyShutoff          vis=True x[-7.31,-7.27] y[13.01,13.05] z[6.16,6.18]
+   WaterSeal              vis=True x[-7.22,-7.08] y[13.02,13.02] z[5.69,5.85]
+   FlushLever             vis=True x[-7.07,-6.97] y[13.43,13.45] z[5.94,5.96]
+   LoosePaperEnd          vis=True x[-7.51,-7.50] y[13.28,13.43] z[6.03,6.14]
+   PaperBracket           vis=True x[-7.46,-7.38] y[13.42,13.43] z[6.02,6.10]
+   PaperBracketWall       vis=True x[-7.39,-7.38] y[13.40,13.45] z[6.06,6.11]
+   PaperRoll              vis=True x[-7.50,-7.41] y[13.38,13.47] z[6.03,6.14]
+   PaperSpindle           vis=True x[-7.46,-7.45] y[13.42,13.43] z[6.02,6.15]
+   SpindleButton          vis=True x[-7.47,-7.44] y[13.41,13.44] z[6.02,6.03]
+   SpindleButton_001      vis=True x[-7.47,-7.44] y[13.41,13.44] z[6.14,6.15]
+5C_wc F05_C_BATH [3.3, 12.8, 5.4] yaw 90.0
+   Lid                    vis=True x[3.35,3.44] y[13.22,13.74] z[5.20,5.60]
+   ClosetPedestal         vis=True x[3.01,3.43] y[12.81,13.04] z[5.26,5.54]
+   FloorBolt              vis=True x[3.14,3.16] y[12.84,12.85] z[5.48,5.50]
+   FloorBolt_001          vis=True x[3.14,3.16] y[12.84,12.85] z[5.30,5.32]
+   FlushConnection        vis=True x[3.39,3.57] y[13.07,13.31] z[5.37,5.43]
+   HandleRose             vis=True x[3.41,3.42] y[13.42,13.46] z[5.20,5.24]
+   HollowWashDownBowl     vis=True x[2.90,3.44] y[12.98,13.21] z[5.20,5.60]
+   LowCistern             vis=True x[3.42,3.64] y[13.30,13.60] z[5.17,5.63]
+   PolishedWoodSeat       vis=True x[2.90,3.44] y[13.21,13.24] z[5.19,5.60]
+   RemovableCisternLid    vis=True x[3.42,3.65] y[13.60,13.63] z[5.16,5.64]
+   SeatHinge              vis=True x[3.39,3.41] y[13.23,13.25] z[5.47,5.52]
+   SeatHinge_001          vis=True x[3.39,3.41] y[13.23,13.25] z[5.28,5.33]
+   SupplyPipe             vis=True x[3.53,3.65] y[13.02,13.32] z[5.53,5.55]
+   SupplyShutoff          vis=True x[3.61,3.63] y[13.01,13.05] z[5.52,5.56]
+   WaterSeal              vis=True x[3.14,3.30] y[13.02,13.02] z[5.33,5.47]
+   FlushLever             vis=True x[3.39,3.41] y[13.43,13.45] z[5.22,5.32]
+   LoosePaperEnd          vis=True x[3.48,3.59] y[13.28,13.43] z[5.75,5.76]
+   PaperBracket           vis=True x[3.47,3.55] y[13.42,13.43] z[5.63,5.71]
+   PaperBracketWall       vis=True x[3.51,3.56] y[13.40,13.45] z[5.63,5.64]
+   PaperRoll              vis=True x[3.48,3.59] y[13.38,13.47] z[5.66,5.75]
+   PaperSpindle           vis=True x[3.47,3.60] y[13.42,13.43] z[5.70,5.71]
+   SpindleButton          vis=True x[3.47,3.48] y[13.41,13.44] z[5.69,5.72]
+   SpindleButton_001      vis=True x[3.59,3.60] y[13.41,13.44] z[5.69,5.72]
+6A_wc F06_A_BATH [-6.18, 16.0, -11.85] yaw -180.0
+   Lid                    vis=True x[-6.38,-5.98] y[16.42,16.94] z[-11.99,-11.90]
+   ClosetPedestal         vis=True x[-6.32,-6.04] y[16.01,16.24] z[-11.99,-11.57]
+   FloorBolt              vis=True x[-6.10,-6.08] y[16.04,16.05] z[-11.71,-11.69]
+   FloorBolt_001          vis=True x[-6.28,-6.26] y[16.04,16.05] z[-11.71,-11.69]
+   FlushConnection        vis=True x[-6.21,-6.15] y[16.27,16.51] z[-12.12,-11.94]
+   HandleRose             vis=True x[-6.38,-6.34] y[16.62,16.66] z[-11.97,-11.96]
+   HollowWashDownBowl     vis=True x[-6.38,-5.98] y[16.18,16.41] z[-11.99,-11.45]
+   LowCistern             vis=True x[-6.41,-5.95] y[16.49,16.81] z[-12.20,-11.98]
+   PolishedWoodSeat       vis=True x[-6.38,-5.97] y[16.41,16.44] z[-11.99,-11.45]
+   RemovableCisternLid    vis=True x[-6.42,-5.94] y[16.80,16.83] z[-12.20,-11.97]
+   SeatHinge              vis=True x[-6.11,-6.06] y[16.43,16.45] z[-11.97,-11.95]
+   SeatHinge_001          vis=True x[-6.30,-6.25] y[16.43,16.45] z[-11.97,-11.95]
+   SupplyPipe             vis=True x[-6.05,-6.03] y[16.22,16.52] z[-12.20,-12.08]
+   SupplyShutoff          vis=True x[-6.06,-6.02] y[16.21,16.25] z[-12.18,-12.16]
+   WaterSeal              vis=True x[-6.25,-6.11] y[16.22,16.22] z[-11.85,-11.69]
+   FlushLever             vis=True x[-6.36,-6.26] y[16.63,16.65] z[-11.96,-11.94]
+   LoosePaperEnd          vis=True x[-5.83,-5.82] y[16.48,16.63] z[-12.14,-12.03]
+   PaperBracket           vis=True x[-5.95,-5.87] y[16.62,16.63] z[-12.10,-12.02]
+   PaperBracketWall       vis=True x[-5.95,-5.94] y[16.60,16.65] z[-12.11,-12.06]
+   PaperRoll              vis=True x[-5.92,-5.83] y[16.58,16.67] z[-12.14,-12.03]
+   PaperSpindle           vis=True x[-5.88,-5.87] y[16.62,16.63] z[-12.15,-12.02]
+   SpindleButton          vis=True x[-5.89,-5.86] y[16.61,16.64] z[-12.03,-12.02]
+   SpindleButton_001      vis=True x[-5.89,-5.86] y[16.61,16.64] z[-12.15,-12.14]
+6B_wc F06_B_BATH [-7.15, 16.0, 5.85] yaw 0.0
+   Lid                    vis=True x[-7.35,-6.95] y[16.42,16.94] z[5.90,5.99]
+   ClosetPedestal         vis=True x[-7.29,-7.01] y[16.01,16.24] z[5.57,5.99]
+   FloorBolt              vis=True x[-7.25,-7.23] y[16.04,16.05] z[5.69,5.71]
+   FloorBolt_001          vis=True x[-7.07,-7.05] y[16.04,16.05] z[5.69,5.71]
+   FlushConnection        vis=True x[-7.18,-7.12] y[16.27,16.51] z[5.94,6.12]
+   HandleRose             vis=True x[-6.99,-6.95] y[16.62,16.66] z[5.96,5.97]
+   HollowWashDownBowl     vis=True x[-7.35,-6.95] y[16.18,16.41] z[5.45,5.99]
+   LowCistern             vis=True x[-7.38,-6.92] y[16.49,16.81] z[5.98,6.20]
+   PolishedWoodSeat       vis=True x[-7.36,-6.95] y[16.41,16.44] z[5.45,5.99]
+   RemovableCisternLid    vis=True x[-7.39,-6.91] y[16.80,16.83] z[5.97,6.20]
+   SeatHinge              vis=True x[-7.27,-7.22] y[16.43,16.45] z[5.94,5.97]
+   SeatHinge_001          vis=True x[-7.08,-7.03] y[16.43,16.45] z[5.94,5.97]
+   SupplyPipe             vis=True x[-7.30,-7.28] y[16.22,16.52] z[6.08,6.20]
+   SupplyShutoff          vis=True x[-7.31,-7.27] y[16.21,16.25] z[6.16,6.18]
+   WaterSeal              vis=True x[-7.22,-7.08] y[16.22,16.22] z[5.69,5.85]
+   FlushLever             vis=True x[-7.07,-6.97] y[16.63,16.65] z[5.94,5.96]
+   LoosePaperEnd          vis=True x[-7.51,-7.50] y[16.48,16.63] z[6.03,6.14]
+   PaperBracket           vis=True x[-7.46,-7.38] y[16.62,16.63] z[6.02,6.10]
+   PaperBracketWall       vis=True x[-7.39,-7.38] y[16.60,16.65] z[6.06,6.11]
+   PaperRoll              vis=True x[-7.50,-7.41] y[16.58,16.67] z[6.03,6.14]
+   PaperSpindle           vis=True x[-7.46,-7.45] y[16.62,16.63] z[6.02,6.15]
+   SpindleButton          vis=True x[-7.47,-7.44] y[16.61,16.64] z[6.02,6.03]
+   SpindleButton_001      vis=True x[-7.47,-7.44] y[16.61,16.64] z[6.14,6.15]
+6C_wc F06_C_BATH [3.3, 16.0, 5.4] yaw 90.0
+   Lid                    vis=True x[3.35,3.44] y[16.42,16.94] z[5.20,5.60]
+   ClosetPedestal         vis=True x[3.01,3.43] y[16.01,16.24] z[5.26,5.54]
+   FloorBolt              vis=True x[3.14,3.16] y[16.04,16.05] z[5.48,5.50]
+   FloorBolt_001          vis=True x[3.14,3.16] y[16.04,16.05] z[5.30,5.32]
+   FlushConnection        vis=True x[3.39,3.57] y[16.27,16.51] z[5.37,5.43]
+   HandleRose             vis=True x[3.41,3.42] y[16.62,16.66] z[5.20,5.24]
+   HollowWashDownBowl     vis=True x[2.90,3.44] y[16.18,16.41] z[5.20,5.60]
+   LowCistern             vis=True x[3.42,3.64] y[16.49,16.81] z[5.17,5.63]
+   PolishedWoodSeat       vis=True x[2.90,3.44] y[16.41,16.44] z[5.19,5.60]
+   RemovableCisternLid    vis=True x[3.42,3.65] y[16.80,16.83] z[5.16,5.64]
+   SeatHinge              vis=True x[3.39,3.41] y[16.43,16.45] z[5.47,5.52]
+   SeatHinge_001          vis=True x[3.39,3.41] y[16.43,16.45] z[5.28,5.33]
+   SupplyPipe             vis=True x[3.53,3.65] y[16.22,16.52] z[5.53,5.55]
+   SupplyShutoff          vis=True x[3.61,3.63] y[16.21,16.25] z[5.52,5.56]
+   WaterSeal              vis=True x[3.14,3.30] y[16.22,16.22] z[5.33,5.47]
+   FlushLever             vis=True x[3.39,3.41] y[16.63,16.65] z[5.22,5.32]
+   LoosePaperEnd          vis=True x[3.48,3.59] y[16.48,16.63] z[5.75,5.76]
+   PaperBracket           vis=True x[3.47,3.55] y[16.62,16.63] z[5.63,5.71]
+   PaperBracketWall       vis=True x[3.51,3.56] y[16.60,16.65] z[5.63,5.64]
+   PaperRoll              vis=True x[3.48,3.59] y[16.58,16.67] z[5.66,5.75]
+   PaperSpindle           vis=True x[3.47,3.60] y[16.62,16.63] z[5.70,5.71]
+   SpindleButton          vis=True x[3.47,3.48] y[16.61,16.64] z[5.69,5.72]
+   SpindleButton_001      vis=True x[3.59,3.60] y[16.61,16.64] z[5.69,5.72]
+
+== thresholds / door states ==
+
+== spaces captured == ['F02_B_BATH', 'F04_B_BATH', 'F04_A_BATH', 'F05_A_BATH', 'F05_B_BATH', 'F05_C_BATH', 'F04_C_BATH', 'F01_A_BATH', 'F03_D_BATH', 'F04_D_BATH']
+
+== cistern clearance (root-local, rect = bath interior) ==
+2C_wc    LowCistern           vis=True height=0.31 top=4.01 clear: west=+2.92 east=+0.16 south=+1.32 north=+0.72
+2C_wc    RemovableCisternLid  vis=True height=0.02 top=4.03 clear: west=+2.92 east=+0.15 south=+1.31 north=+0.71
+4C_wc    LowCistern           vis=True height=0.31 top=10.40 clear: west=+2.92 east=+0.16 south=+1.32 north=+0.72
+4C_wc    RemovableCisternLid  vis=True height=0.02 top=10.43 clear: west=+2.92 east=+0.15 south=+1.31 north=+0.71
+1D_wc    LowCistern           vis=True height=0.31 top=0.80 clear: west=+1.97 east=+0.42 south=+0.20 north=+2.58
+1D_wc    RemovableCisternLid  vis=True height=0.02 top=0.83 clear: west=+1.96 east=+0.41 south=+0.20 north=+2.57
+1A_wc    LowCistern           vis=True height=0.31 top=0.80 clear: west=+2.42 east=+0.15 south=+1.17 north=+1.07
+1A_wc    RemovableCisternLid  vis=True height=0.02 top=0.83 clear: west=+2.42 east=+0.15 south=+1.16 north=+1.06
+3D_wc    LowCistern           vis=True height=0.31 top=7.21 clear: west=+2.23 east=+0.15 south=+1.17 north=+1.07
+3D_wc    RemovableCisternLid  vis=True height=0.02 top=7.23 clear: west=+2.22 east=+0.15 south=+1.16 north=+1.06
+4D_wc    LowCistern           vis=True height=0.31 top=10.40 clear: west=+2.23 east=+0.15 south=+1.17 north=+1.07
+4D_wc    RemovableCisternLid  vis=True height=0.02 top=10.43 clear: west=+2.22 east=+0.15 south=+1.16 north=+1.06
+F01_STAFF_WC LowCistern           vis=True height=0.31 top=0.80 clear: west=+2.12 east=+0.32 south=+0.25 north=+3.22
+F01_STAFF_WC RemovableCisternLid  vis=True height=0.02 top=0.83 clear: west=+2.11 east=+0.31 south=+0.25 north=+3.22
+3B_wc    LowCistern           vis=True height=0.31 top=7.21 clear: west=+1.82 east=+0.37 south=+0.11 north=+2.22
+3B_wc    RemovableCisternLid  vis=True height=0.02 top=7.23 clear: west=+1.81 east=+0.36 south=+0.10 north=+2.22
+4B_wc    LowCistern           vis=True height=0.31 top=10.40 clear: west=+1.77 east=+0.87 south=+2.17 north=+0.20
+4B_wc    RemovableCisternLid  vis=True height=0.02 top=10.43 clear: west=+1.76 east=+0.86 south=+2.17 north=+0.20
+2A_wc    LowCistern           vis=True height=0.31 top=4.01 clear: west=+1.78 east=+0.76 south=+2.18 north=+0.14
+2A_wc    RemovableCisternLid  vis=True height=0.02 top=4.03 clear: west=+1.77 east=+0.75 south=+2.18 north=+0.14
+2B_wc    LowCistern           vis=True height=0.31 top=4.01 clear: west=+1.97 east=+0.42 south=+0.20 north=+2.58
+2B_wc    RemovableCisternLid  vis=True height=0.02 top=4.03 clear: west=+1.96 east=+0.41 south=+0.20 north=+2.57
+3A_wc    LowCistern           vis=True height=0.31 top=7.21 clear: west=+1.78 east=+0.76 south=+2.18 north=+0.14
+3A_wc    RemovableCisternLid  vis=True height=0.02 top=7.23 clear: west=+1.77 east=+0.75 south=+2.18 north=+0.14
+4A_wc    LowCistern           vis=True height=0.31 top=10.40 clear: west=+1.97 east=+0.42 south=+0.20 north=+2.58
+4A_wc    RemovableCisternLid  vis=True height=0.02 top=10.43 clear: west=+1.96 east=+0.41 south=+0.20 north=+2.57
+5A_wc    LowCistern           vis=True height=0.31 top=13.60 clear: west=+1.89 east=+0.35 south=+0.15 north=+3.13
+5A_wc    RemovableCisternLid  vis=True height=0.02 top=13.63 clear: west=+1.88 east=+0.34 south=+0.15 north=+3.12
+5B_wc    LowCistern           vis=True height=0.31 top=13.60 clear: west=+1.92 east=+0.42 south=+2.88 north=+0.15
+5B_wc    RemovableCisternLid  vis=True height=0.02 top=13.63 clear: west=+1.91 east=+0.41 south=+2.87 north=+0.15
+5C_wc    LowCistern           vis=True height=0.31 top=13.60 clear: west=+2.92 east=+0.16 south=+1.32 north=+0.72
+5C_wc    RemovableCisternLid  vis=True height=0.02 top=13.63 clear: west=+2.92 east=+0.15 south=+1.31 north=+0.71
+6A_wc    LowCistern           vis=True height=0.31 top=16.81 clear: west=+1.89 east=+0.35 south=+0.15 north=+3.13
+6A_wc    RemovableCisternLid  vis=True height=0.03 top=16.83 clear: west=+1.88 east=+0.34 south=+0.15 north=+3.12
+6B_wc    LowCistern           vis=True height=0.31 top=16.81 clear: west=+1.92 east=+0.42 south=+2.88 north=+0.15
+6B_wc    RemovableCisternLid  vis=True height=0.03 top=16.83 clear: west=+1.91 east=+0.41 south=+2.87 north=+0.15
+6C_wc    LowCistern           vis=True height=0.31 top=16.81 clear: west=+2.92 east=+0.16 south=+1.32 north=+0.72
+6C_wc    RemovableCisternLid  vis=True height=0.03 top=16.83 clear: west=+2.92 east=+0.15 south=+1.31 north=+0.71

@@ -1,0 +1,60 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F05_B_BATH_DT3.jpg",
+   "source": "sweep_shots/F05_B_BATH_DT3.png",
+   "sha256": "7772d1af3e860f81d2a9e69f5ac5f1c3ac78c3229d0d05fbc48a977d31493885",
+   "bytes": 216344
+  },
+  {
+   "path": "images/F04_B_BATH_DT3.jpg",
+   "source": "sweep_shots/F04_B_BATH_DT3.png",
+   "sha256": "b331795a095f745ac7a6be3578a98560f78b11ced65be05cc4c45ec8d710ac18",
+   "bytes": 190079
+  },
+  {
+   "path": "images/F03_D_BATH_OV.jpg",
+   "source": "sweep_shots/F03_D_BATH_OV.png",
+   "sha256": "d997d66716fefe4ba094eb5ed23ea0dedbda0aa2819e1411ffb19a17dbfbf259",
+   "bytes": 233888
+  },
+  {
+   "path": "images/F05_A_BATH_OV.jpg",
+   "source": "sweep_shots/F05_A_BATH_OV.png",
+   "sha256": "1622370c941e829fb78e9e1c7689f3be209f4cfd49682ca66d80caabd5e08aaf",
+   "bytes": 197300
+  },
+  {
+   "path": "images/F05_C_BATH_OV.jpg",
+   "source": "sweep_shots/F05_C_BATH_OV.png",
+   "sha256": "1a5ab328dcd21004871b979f21f67258dd00188b279966fbb0beceef88a06163",
+   "bytes": 167640
+  },
+  {
+   "path": "receipts/sweep.log.receipt.json",
+   "source": "sweep.log.receipt.json",
+   "sha256": "169cfac6dd7c4004dd0acc87abe7686ed450c0b5939d0e18a9d4666c333a06e4",
+   "bytes": 3215
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "41a6f846c2668ce2934e9f595ca58035db7196f213bada612858e0fec3fcbdbc",
+   "bytes": 715737
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "99fbc89309d5550d19ccf18ce67fc3e7fccb6ff541f39d83f4fbb7b21de7a3a3",
+   "bytes": 35780
+  },
+  {
+   "path": "wc_probe.txt",
+   "source": "eval_sweep.py over sweep_shots/node_census.json",
+   "sha256": "377e81a29db13291e155cb19626a5afe99f35ff453c0f3654f021544145e8a68",
+   "bytes": 40215
+  }
+ ]
+}

@@ -84,7 +84,17 @@ func _census() -> void:
 			if str(record.level)!=level:continue
 			var r: Array=record.rect
 			if local.x>=float(r[0])-.05 and local.x<=float(r[2])+.05 and local.z>=float(r[1])-.05 and local.z<=float(r[3])+.05:space=str(record.id);break
-		var row:={"name":str(node.name),"script":script_path.get_file(),"path":str(_world.get_path_to(node)),"position":[local.x,local.y,local.z],"level":level,"space":space}
+		var yaw_deg:=rad_to_deg((root.global_basis.inverse()*(node as Node3D).global_basis).get_euler().y)
+		var row:={"name":str(node.name),"script":script_path.get_file(),"path":str(_world.get_path_to(node)),"position":[local.x,local.y,local.z],"yaw_deg":yaw_deg,"level":level,"space":space}
+		if script_path.ends_with("orison_v2_water_closet.gd"):
+			# BW-018 probe: where the closet's meshes stand relative to the room (root-local AABBs).
+			var meshes:=[]
+			for mesh: MeshInstance3D in node.find_children("*","MeshInstance3D",true,false):
+				var box: AABB=mesh.global_transform*mesh.get_aabb()
+				var lo:=root.to_local(box.position)
+				var hi:=root.to_local(box.end)
+				meshes.append({"name":str(mesh.name),"visible":mesh.is_visible_in_tree(),"lo":[minf(lo.x,hi.x),minf(lo.y,hi.y),minf(lo.z,hi.z)],"hi":[maxf(lo.x,hi.x),maxf(lo.y,hi.y),maxf(lo.z,hi.z)]})
+			row["wc_meshes"]=meshes
 		_node_census.append(row)
 		if not space.is_empty():
 			if not _nodes_by_space.has(space):_nodes_by_space[space]=[]

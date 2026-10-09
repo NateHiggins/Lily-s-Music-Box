@@ -30,10 +30,15 @@ func _route() -> void:
 			if not await _walk(point): return
 		await _roof_capture(unit+"_bedroom",Vector3(-14,y+1,-10.8))
 		if not await _walk(Vector3(-12.25,y,-10.8)): return
-		if not await _open_door(prefix+"BED_STORAGE_DOOR"): return
-		if not await _walk(Vector3(-9.7,y,-10.8)): return
-		await _roof_capture(unit+"_storage",Vector3(-9.7,y+1,-12))
-		if not await _walk(Vector3(-12.25,y,-10.8)): return
+		if unit=="4D":
+			# The rental's closet is the owner's locked store (dossier F04_D_STUDY-001):
+			# the leaf exists, reads locked and refuses ordinary E; its interior is unseen in play.
+			if not await _refuse_locked_door(prefix+"BED_STORAGE_DOOR"): return
+		else:
+			if not await _open_door(prefix+"BED_STORAGE_DOOR"): return
+			if not await _walk(Vector3(-9.7,y,-10.8)): return
+			await _roof_capture(unit+"_storage",Vector3(-9.7,y+1,-12))
+			if not await _walk(Vector3(-12.25,y,-10.8)): return
 		for point in [Vector3(-13.5,y,-8),Vector3(-13.5,y,-5.7),Vector3(-9.6,y,-5.7)]:
 			if not await _walk(point): return
 		if not await _open_door(prefix+"MAIN_KITCHEN_DOOR"): return
@@ -124,3 +129,13 @@ func _teresa_route() -> bool:
 		else:
 			if not await _close_door(str(step.close).replace("F02_B_","F01_D_")): return false
 	return true
+
+func _refuse_locked_door(identity: String) -> bool:
+	var door := _leaf(identity)
+	if not _require(door != null, "production leaf exists: " + identity): return false
+	if not _require(not door.open and door.leaf_state == "locked",
+			"leaf starts closed and locked: " + identity): return false
+	if not await _use(door, door.to_global(Vector3(door.width * .5, 1.1, 0)), identity): return false
+	await get_tree().create_timer(.6).timeout
+	return _require(not door.open and door.leaf_state == "locked",
+			"locked leaf refuses ordinary E and stays shut: " + identity)
