@@ -497,6 +497,20 @@ def printline(source):
    for c in range(3):stock('Frame'+str((i,r,c)),(x-.075+c*.055,.0029,.06+r*.055),(x-.03+c*.055,.0036,.1+r*.055),'soot',.0001)
  group('PrintLine',start)
 
+def hookstrip(source):
+ # Dossier slice 25: a cable hook strip, a batten with five hooks and the
+ # session cables hanging from them in loops, each bound with tape.
+ start=len(stock_checks);width=source['W'];height=source['H']
+ wall_mount(source,width,height)
+ stock('Batten',(-width/2,0,height-.07),(width/2,.022,height),'wood_dark',.002)
+ for i in range(5):
+  x=-width/2+.07+i*(width-.14)/4;r=(.07,.06,.075,.065,.07)[i];zc=height-.05-r
+  stock('Hook'+str(i),(x-.005,.02,height-.055),(x+.005,.05,height-.045),'metal',.0006)
+  wire('Loop'+str(i),[(x+r*math.cos(t),.04,zc+r*math.sin(t)) for t in np.linspace(0,math.tau,41)],.006,'rubber_aged')
+  stock('Tape'+str(i),(x-.012,.032,zc-r-.004),(x+.012,.048,zc-r+.012),'linen',.0005)
+  stock('Link'+str(i),(x-.004,.034,zc+r-.008),(x+.004,.046,height-.05),'rubber_aged',.0005)
+ group('HookStrip',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -525,4 +539,5 @@ for assembly in assemblies:
  elif kind=='cardcabinet':cardcabinet(source)
  elif kind=='backdroprail':backdroprail(source)
  elif kind=='printline':printline(source)
+ elif kind=='hookstrip':hookstrip(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

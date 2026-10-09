@@ -129,6 +129,8 @@ Slices landed so far (evidence folders in parentheses):
     `slice23mina` and `slice23mina_base` hold the basement suites).
 24. 2A's out-tray, 5A's torch, 5B's battery case, 4B's old cap, 3D's card
     index (`slice24`, `slice24c`).
+25. 2C's rig deck and cable hook strip, 4D's print, 6A's archive crates
+    (`slice25`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

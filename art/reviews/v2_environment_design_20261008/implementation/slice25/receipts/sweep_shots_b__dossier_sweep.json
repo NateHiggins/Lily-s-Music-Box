@@ -1,0 +1,140 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						10.3299999237061,
+						17.4400005340576,
+						-1.39999866485596
+					],
+					"feet": [
+						-10.3299999237061,
+						16.0300006866455,
+						-10.25
+					],
+					"forward": [
+						-0.614798367023468,
+						-0.466399431228638,
+						0.635998845100403
+					],
+					"image": "F06_A_STUDY_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						17.0,
+						-10.8500003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.75,
+						17.4400005340576,
+						-0.79999828338623
+					],
+					"feet": [
+						-9.75,
+						16.0300006866455,
+						-10.8500003814697
+					],
+					"forward": [
+						0.0,
+						-0.532172024250031,
+						0.846636235713959
+					],
+					"image": "F06_A_STUDY_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						17.0,
+						-10.8500003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.69999980926514,
+						17.4400005340576,
+						-3.29999828338623
+					],
+					"feet": [
+						-9.69999980926514,
+						16.0300006866455,
+						-8.35000038146973
+					],
+					"forward": [
+						0.0199046041816473,
+						-0.0955416262149811,
+						0.995226442813873
+					],
+					"image": "F06_A_STUDY_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F06_A_KITCHEN_STUDY_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						17.2000007629395,
+						-10.8500003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						10.3299999237061,
+						17.4400005340576,
+						-1.39999866485596
+					],
+					"feet": [
+						-10.3299999237061,
+						16.0300006866455,
+						-10.25
+					],
+					"forward": [
+						-0.324839353561401,
+						-0.302437216043472,
+						0.896108865737915
+					],
+					"image": "F06_A_STUDY_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6A_deskwall",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.75,
+						16.8999996185303,
+						-11.8500003814697
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 4,
+			"floor_y": 16.0,
+			"id": "F06_A_STUDY",
+			"level": "F06",
+			"purpose": "Sacha Reed: photographic documentation and equipment",
+			"rect": [
+				-11.2,
+				-12.35,
+				-8.3,
+				-9.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

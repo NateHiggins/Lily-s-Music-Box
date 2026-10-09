@@ -4404,7 +4404,7 @@
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
    "area": "F02_C_MAIN",
    "status": "verified",
-   "owner_notes": "2C_rig_table (TableRect05) on the window wall facing the vestibule opening with 2C_din_dc2 as the operator's chair; 2C_din_t and 2C_din_dc1 moved against the kitchen-side wall as the late-meal surface, stances moved with them. The mixer (signal family), reel deck, headphones and the hook strip stay open. (implementation/slice6/images/F02_C_MAIN_OV.jpg)"
+   "owner_notes": "2C_rig_table (TableRect05) on the window wall facing the vestibule opening with 2C_din_dc2 as the operator's chair; 2C_din_t and 2C_din_dc1 moved against the kitchen-side wall as the late-meal surface, stances moved with them. (implementation/slice6/images/F02_C_MAIN_OV.jpg) Slice 25 adds 2C_deck (a reel deck copy) on the rig table between the cartons and the mug, and 2C_cable_hooks (new hookstrip form: a batten with five hooks and taped cable loops) on the window wall beside the rig at 1.5 m (implementation/slice25). The mixer and headphones wait for the signal family."
   },
   {
    "id": "F02_C_MAIN-002",
@@ -7571,7 +7571,7 @@
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
    "area": "F04_D_MAIN",
    "status": "verified",
-   "owner_notes": "4D_settee (Sofa195) on the long wall (the window wall carries the radiator), 4D_lamp_table (TableRect08) beside it, 4D_chair2 (ChairDark) at the dining table; the wireless table and radio from BW-011. The landlord's lamp and the print wait for the task-lamp and wall-art hooks. (implementation/slice6/images/F04_D_MAIN_OV.jpg)"
+   "owner_notes": "4D_settee (Sofa195) on the long wall (the window wall carries the radiator), 4D_lamp_table (TableRect08) beside it, 4D_chair2 (ChairDark) at the dining table; the wireless table and radio from BW-011. (implementation/slice6/images/F04_D_MAIN_OV.jpg) Slice 25 hangs 4D_print (a photograph-frame copy) over the settee at 1.5 m (implementation/slice25); the landlord's lamp waits for the task-lamp family."
   },
   {
    "id": "F04_D_MAIN-002",
@@ -9773,7 +9773,9 @@
    "purpose": "Schedule 20:00: backups, the liturgy",
    "acceptance": "Reverse view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_A_STUDY"
+   "area": "F06_A_STUDY",
+   "status": "verified",
+   "owner_notes": "Three archive crates (parts-crate copies, open-topped) under the desk wall against the south wall, clear of the desk's legs, the chair and its stance; the three copies in two locations read as the crates under the desk and the drawers above. Verified at 8877d9df (slice25): the thirteen families pass the fabrication batch (28,681 checks, 0 failures; objects 116, the strip and print on their actual wall faces, the crates inside the study clear of the desk, the deck bearing on the rig table), apartment batch 236, the apartment door route 45 waypoints with 0 failures, completion routes 2C 9 and 4D 12 as before, upper lighting and the household save owner 0 failures, upper kitchens 206 with the baseline's stance labels, the three-space sweep 0 failures; captures in implementation/slice25."
   },
   {
    "id": "F06_A_STUDY-003",

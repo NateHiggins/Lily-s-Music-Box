@@ -2412,6 +2412,67 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject38",
+      "parts": [
+        {
+          "name": "DomesticObject38__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject38__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject38__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject38__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -2854,6 +2915,30 @@
     {
       "id": "3D_card_index",
       "variant": "DomesticObject34"
+    },
+    {
+      "id": "2C_cable_hooks",
+      "variant": "DomesticObject38"
+    },
+    {
+      "id": "2C_deck",
+      "variant": "DomesticObject04"
+    },
+    {
+      "id": "4D_print",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "6A_archive_box_a",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "6A_archive_box_b",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "6A_archive_box_c",
+      "variant": "DomesticObject03"
     }
   ],
   "tint_space": "linear"

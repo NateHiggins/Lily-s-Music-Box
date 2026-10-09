@@ -560,6 +560,16 @@
     "neat": true
    },
    "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject38",
+   "kind": "hookstrip",
+   "source_id": "2C_cable_hooks",
+   "params": {
+    "W": 0.6,
+    "H": 0.5
+   },
+   "rear_wall_y": -0.02
   }
  ],
  "instances": [
@@ -1002,6 +1012,30 @@
   {
    "id": "3D_card_index",
    "variant": "DomesticObject34"
+  },
+  {
+   "id": "2C_cable_hooks",
+   "variant": "DomesticObject38"
+  },
+  {
+   "id": "2C_deck",
+   "variant": "DomesticObject04"
+  },
+  {
+   "id": "4D_print",
+   "variant": "DomesticObject27"
+  },
+  {
+   "id": "6A_archive_box_a",
+   "variant": "DomesticObject03"
+  },
+  {
+   "id": "6A_archive_box_b",
+   "variant": "DomesticObject03"
+  },
+  {
+   "id": "6A_archive_box_c",
+   "variant": "DomesticObject03"
   }
  ],
  "runtime_keys": [
@@ -1272,11 +1306,13 @@
   "Slice 20 of the V2 environment dossier adds a backdrop rail (header, brackets, rail, paper roll and hanging sheet) and a print line (two hook plates, a string, six pegged contact sheets) for 6A's studio.",
   "Slice 21 of the V2 environment dossier adds the lobby noticeboard (a 1.2 x 0.9 m pinboard of 23 drifted notices) and the 1928 photograph (a copy of the photograph frame) beside the inner door.",
   "Slice 23 of the V2 environment dossier stores one household object against the back of sixteen basement bays (two stay padlocked and empty) and sets five wicker baskets along the laundry's north wall, all copies of existing forms.",
-  "Slice 24 of the V2 environment dossier adds 3D's error-archive card index as a completion copy of 6C's card cabinet."
+  "Slice 24 of the V2 environment dossier adds 3D's error-archive card index as a completion copy of 6C's card cabinet.",
+  "Slice 25 of the V2 environment dossier adds a cable hook strip form (batten, five hooks, taped cable loops) and copies: a third reel deck on 2C's rig table, 4D's print over the settee, 6A's three archive crates under the desk wall."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",
-  "5B_deck": "5B_deck_table"
+  "5B_deck": "5B_deck_table",
+  "2C_deck": "2C_rig_table"
  },
  "open_work": [
   "Broad room lighting and surface calibration remain open. Native form, supports and runtime controls validated in the scoped object/radio batch.",

@@ -666,6 +666,50 @@
         "component": "2A_hall_hamper",
         "note": "V2 environment dossier B1_LAUNDRY-001 (slice 23): household basket"
       }
+    },
+    "2C_cable_hooks": {
+      "source_component": {
+        "component": "hookstrip",
+        "note": "V2 environment dossier F02_C_MAIN-001 (slice 25); no V1 counterpart"
+      }
+    },
+    "2C_deck": {
+      "source_component": {
+        "component": "5B_deck",
+        "note": "V2 environment dossier F02_C_MAIN-001 (slice 25): a copy of 5B_deck"
+      },
+      "support_source": {
+        "id": "2C_rig_table",
+        "position": [
+          0,
+          0.745,
+          0
+        ]
+      }
+    },
+    "4D_print": {
+      "source_component": {
+        "component": "2C_album_a",
+        "note": "V2 environment dossier F04_D_MAIN-001 (slice 25): a copy of 2C_album_a"
+      }
+    },
+    "6A_archive_box_a": {
+      "source_component": {
+        "component": "3B_partscrate",
+        "note": "V2 environment dossier F06_A_STUDY-002 (slice 25): a copy of 3B_partscrate"
+      }
+    },
+    "6A_archive_box_b": {
+      "source_component": {
+        "component": "3B_partscrate",
+        "note": "V2 environment dossier F06_A_STUDY-002 (slice 25): a copy of 3B_partscrate"
+      }
+    },
+    "6A_archive_box_c": {
+      "source_component": {
+        "component": "3B_partscrate",
+        "note": "V2 environment dossier F06_A_STUDY-002 (slice 25): a copy of 3B_partscrate"
+      }
     }
   },
   "receivers": {
