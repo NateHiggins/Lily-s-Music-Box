@@ -395,6 +395,15 @@ def foldedcloth(source):
  for x in [-.09,.09]:
   for y in [-.06,.06]:bearing('cloth '+str((x,y)),(x,y,0))
  group('FoldedCloth',start)
+# Dossier slice 20: a row of labelled box files.
+def fileboxes(source):
+ keys=['book_navy','book_green','book_burgundy','book_navy','book_brown','book_green','book_navy']
+ for i,key in enumerate(keys):
+  start=len(stock_checks);x=-.345+i*.115
+  stock('Box'+str(i),(x-.054,-.125,0),(x+.054,.125,.26),key,.002)
+  stock('Label'+str(i),(x-.035,.1245,.15),(x+.035,.127,.21),'paper',.0003)
+  stock('Pull'+str(i),(x-.012,.1245,.06),(x+.012,.131,.075),'brass',.0006)
+  bearing('box file '+str(i),(x,0,0));group('BoxFile'+str(i),start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -436,4 +445,5 @@ for assembly in assemblies:
  elif kind=='seedjarsgap':seedjars(source,True)
  elif kind=='covered':covered(source)
  elif kind=='foldedcloth':foldedcloth(source)
+ elif kind=='fileboxes':fileboxes(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

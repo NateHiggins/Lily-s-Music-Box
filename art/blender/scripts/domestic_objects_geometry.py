@@ -469,6 +469,34 @@ def cardcabinet(source):
  stock('LockPlate',(-.09+.0,.2145,.33),(-.05,.219,.37),'brass',.0005)
  group('CardCabinet',start)
 
+def backdroprail(source):
+ # Dossier slice 20: a photographer's backdrop, a paper roll on a rail in
+ # two brackets under a header strip, the paper hanging almost to the floor.
+ start=len(stock_checks);width=source['W'];height=source['H']
+ wall_mount(source,width,height)
+ stock('Header',(-width/2,0,height-.12),(width/2,.02,height),'wood_dark',.001)
+ for x in [-width/2+.02,width/2-.02]:stock('Bracket'+str(x),(x-.01,.0,height-.1),(x+.01,.1,height-.04),'metal',.0006)
+ tube('Rail',(-width/2+.015,.08,height-.065),(width/2-.015,.08,height-.065),.012,'metal')
+ tube('Roll',(-width/2+.04,.08,height-.065),(width/2-.04,.08,height-.065),.05,'paper')
+ stock('Sheet',(-width/2+.05,.124,.05),(width/2-.05,.13,height-.065),'paper',.0005)
+ group('BackdropRail',start)
+
+def printline(source):
+ # Dossier slice 20: contact sheets pegged to a string between two wall
+ # hooks; each sheet a grid of small dark frames (no lettering).
+ start=len(stock_checks);width=source['W'];back=variants[identity]['rear_wall_y']
+ for x in [-width/2,width/2]:
+  stock('HookPlate'+str(x),(x-.02,back,.27),(x+.02,.004,.33),'metal',.0006)
+  for z in [.28,.32]:support(identity,'wall',(x,back,z),(0,1,0),'wall face behind hook plate')
+ tube('String',(-width/2,.002,.3),(width/2,.002,.3),.0015,'linen')
+ for i in range(6):
+  x=-width/2+.16+i*(width-.32)/5
+  stock('Peg'+str(i),(x-.006,-.004,.285),(x+.006,.009,.32),'timber',.0008)
+  stock('Sheet'+str(i),(x-.1,.001,.04),(x+.1,.003,.292),'paper',.0002)
+  for r in range(4):
+   for c in range(3):stock('Frame'+str((i,r,c)),(x-.075+c*.055,.0029,.06+r*.055),(x-.03+c*.055,.0036,.1+r*.055),'soot',.0001)
+ group('PrintLine',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -495,4 +523,6 @@ for assembly in assemblies:
  elif kind=='easel':easel(source)
  elif kind=='canvasstack':canvasstack(source)
  elif kind=='cardcabinet':cardcabinet(source)
+ elif kind=='backdroprail':backdroprail(source)
+ elif kind=='printline':printline(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

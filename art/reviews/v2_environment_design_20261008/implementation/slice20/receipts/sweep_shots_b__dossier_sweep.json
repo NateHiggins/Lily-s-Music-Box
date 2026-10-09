@@ -1,0 +1,196 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						14.6780014038086,
+						4.6399998664856,
+						-13.9159984588623
+					],
+					"feet": [
+						-14.6780004501343,
+						3.22999978065491,
+						2.26599979400635
+					],
+					"forward": [
+						-0.754498720169067,
+						-0.107855580747128,
+						0.647378444671631
+					],
+					"image": "F02_A_MAIN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.6000003814697,
+						4.19999980926514,
+						-0.375
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						8.52200126647949,
+						4.6399998664856,
+						-9.88499927520752
+					],
+					"feet": [
+						-8.52200031280518,
+						3.22999978065491,
+						-1.76499938964844
+					],
+					"forward": [
+						0.903740406036377,
+						-0.129189684987068,
+						-0.408121734857559
+					],
+					"image": "F02_A_MAIN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.6000003814697,
+						4.19999980926514,
+						-0.375
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.60000228881836,
+						4.6399998664856,
+						-15.7499990463257
+					],
+					"feet": [
+						-9.60000133514404,
+						3.22999978065491,
+						4.10000038146973
+					],
+					"forward": [
+						0.407542139291763,
+						-0.0489050336182117,
+						0.91187596321106
+					],
+					"image": "F02_A_MAIN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_A_HALL_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.6000003814697,
+						4.40000009536743,
+						-0.375
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						13.2200012207031,
+						4.6399998664856,
+						-11.274998664856
+					],
+					"feet": [
+						-13.2200002670288,
+						3.22999978065491,
+						-0.375
+					],
+					"forward": [
+						0.236123278737068,
+						-0.219838932156563,
+						0.946528792381287
+					],
+					"image": "F02_A_MAIN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2A_din_t",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-13.8000001907349,
+						4.09999990463257,
+						-2.70000004768372
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.98000049591064,
+						4.6399998664856,
+						-8.63399887084961
+					],
+					"feet": [
+						-9.97999954223633,
+						3.22999978065491,
+						-3.01599979400635
+					],
+					"forward": [
+						0.956312477588654,
+						-0.283740967512131,
+						0.0704101920127869
+					],
+					"image": "F02_A_MAIN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2A_sofa",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.8000001907349,
+						4.09999990463257,
+						-3.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.98000049591064,
+						4.6399998664856,
+						-8.63399887084961
+					],
+					"feet": [
+						-9.97999954223633,
+						3.22999978065491,
+						-3.01599979400635
+					],
+					"forward": [
+						-0.964012324810028,
+						-0.265595346689224,
+						0.0118043199181557
+					],
+					"image": "F02_A_MAIN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2A_wireless_table",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-8.02000045776367,
+						4.09999990463257,
+						-3.03999996185303
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 16,
+			"floor_y": 3.2,
+			"id": "F02_A_MAIN",
+			"level": "F02",
+			"purpose": "Mina living, caption work and conversation",
+			"rect": [
+				-15.65,
+				-3.85,
+				-7.55,
+				3.1
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

@@ -1,0 +1,196 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						9.18199920654297,
+						17.4400005340576,
+						-5.98999881744385
+					],
+					"feet": [
+						-9.18199920654297,
+						16.0300006866455,
+						-5.65999984741211
+					],
+					"forward": [
+						0.781624495983124,
+						-0.123134598135948,
+						-0.611474573612213
+					],
+					"image": "F06_A_MAIN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.9750003814697,
+						17.0,
+						-3.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						14.7680006027222,
+						17.4400005340576,
+						-9.32499885559082
+					],
+					"feet": [
+						-14.7679996490479,
+						16.0300006866455,
+						-2.32499980926514
+					],
+					"forward": [
+						-0.915027379989624,
+						-0.144150614738464,
+						0.37675666809082
+					],
+					"image": "F06_A_MAIN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.9750003814697,
+						17.0,
+						-3.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.30000114440918,
+						17.4400005340576,
+						-9.44999885559082
+					],
+					"feet": [
+						-7.30000019073486,
+						16.0300006866455,
+						-2.19999980926514
+					],
+					"forward": [
+						0.963582754135132,
+						-0.0494672991335392,
+						0.262795180082321
+					],
+					"image": "F06_A_MAIN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F06_A_VESTIBULE_MAIN_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.9750003814697,
+						17.2000007629395,
+						-3.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						13.4450006484985,
+						17.4400005340576,
+						-8.17499828338623
+					],
+					"feet": [
+						-13.4449996948242,
+						16.0300006866455,
+						-3.47500038146973
+					],
+					"forward": [
+						-0.699263632297516,
+						-0.261317074298859,
+						-0.665389895439148
+					],
+					"image": "F06_A_MAIN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6A_din_t",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.0,
+						16.8999996185303,
+						-2.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.1820011138916,
+						17.4400005340576,
+						-9.32499885559082
+					],
+					"feet": [
+						-9.18200016021729,
+						16.0300006866455,
+						-2.32499980926514
+					],
+					"forward": [
+						0.25236639380455,
+						-0.32602396607399,
+						-0.911054074764252
+					],
+					"image": "F06_A_MAIN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F06_6A_BOOKSHELF_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.60000038146973,
+						16.8999996185303,
+						-0.815999984741211
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						13.4450006484985,
+						17.4400005340576,
+						-7.02499866485596
+					],
+					"feet": [
+						-13.4449996948242,
+						16.0300006866455,
+						-4.625
+					],
+					"forward": [
+						-0.697015166282654,
+						-0.260476619005203,
+						0.668073236942291
+					],
+					"image": "F06_A_MAIN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6A_wireless_table",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.0,
+						16.8999996185303,
+						-6.01000022888184
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 19,
+			"floor_y": 16.0,
+			"id": "F06_A_MAIN",
+			"level": "F06",
+			"purpose": "Sacha Reed: living and meals",
+			"rect": [
+				-15.65,
+				-6.35,
+				-8.3,
+				-0.6
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		}
+	]
+}

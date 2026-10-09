@@ -118,6 +118,7 @@ Slices landed so far (evidence folders in parentheses):
     easel and failed canvases (`slice18`).
 19. 3A's propagation shelves and seed jars, covered objects on 6C's
     archive shelves and 4C's museum shelf, 6C's card cabinet (`slice19`).
+20. 2A's labelled box files, 6A's backdrop rail and print line (`slice20`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

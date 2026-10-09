@@ -394,6 +394,18 @@
       "kind": "cardcabinet",
       "cell": "shared",
       "source_record": "6C_card_cabinet"
+    },
+    {
+      "id": "DomesticObject35",
+      "kind": "backdroprail",
+      "cell": "shared",
+      "source_record": "6A_backdrop_rail"
+    },
+    {
+      "id": "DomesticObject36",
+      "kind": "printline",
+      "cell": "shared",
+      "source_record": "6A_print_line"
     }
   ],
   "closed_stocks": [
@@ -6048,6 +6060,576 @@
       "assembly": "DomesticObject34",
       "key": "brass",
       "volume_m3": 7.17908918849632e-06
+    },
+    {
+      "name": "DomesticObject35_RearBatten-0.5249999999999999",
+      "assembly": "DomesticObject35",
+      "key": "wood_dark",
+      "volume_m3": 0.001639961359155157
+    },
+    {
+      "name": "DomesticObject35_RearBatten0.5249999999999999",
+      "assembly": "DomesticObject35",
+      "key": "wood_dark",
+      "volume_m3": 0.001639961359155157
+    },
+    {
+      "name": "DomesticObject35_Header",
+      "assembly": "DomesticObject35",
+      "key": "wood_dark",
+      "volume_m3": 0.003598358420643606
+    },
+    {
+      "name": "DomesticObject35_Bracket-0.73",
+      "assembly": "DomesticObject35",
+      "key": "metal",
+      "volume_m3": 0.00011993534948748501
+    },
+    {
+      "name": "DomesticObject35_Bracket0.73",
+      "assembly": "DomesticObject35",
+      "key": "metal",
+      "volume_m3": 0.00011993534948748501
+    },
+    {
+      "name": "DomesticObject35_Rail",
+      "assembly": "DomesticObject35",
+      "key": "metal",
+      "volume_m3": 0.0006631016308569978
+    },
+    {
+      "name": "DomesticObject35_Roll",
+      "assembly": "DomesticObject35",
+      "key": "paper",
+      "volume_m3": 0.011120792858643222
+    },
+    {
+      "name": "DomesticObject35_Sheet",
+      "assembly": "DomesticObject35",
+      "key": "paper",
+      "volume_m3": 0.017933105939953967
+    },
+    {
+      "name": "DomesticObject36_HookPlate-0.8",
+      "assembly": "DomesticObject36",
+      "key": "metal",
+      "volume_m3": 5.7555757599712254e-05
+    },
+    {
+      "name": "DomesticObject36_HookPlate0.8",
+      "assembly": "DomesticObject36",
+      "key": "metal",
+      "volume_m3": 5.755575759971226e-05
+    },
+    {
+      "name": "DomesticObject36_String",
+      "assembly": "DomesticObject36",
+      "key": "linen",
+      "volume_m3": 1.1277690177543074e-05
+    },
+    {
+      "name": "DomesticObject36_Peg0",
+      "assembly": "DomesticObject36",
+      "key": "timber",
+      "volume_m3": 5.422480967514014e-06
+    },
+    {
+      "name": "DomesticObject36_Sheet0",
+      "assembly": "DomesticObject36",
+      "key": "paper",
+      "volume_m3": 0.00010078184445273309
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 0, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259143589734943e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 0, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.25914525806909e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 0, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.25914525806909e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 1, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591434199557395e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 1, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591450882896622e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 1, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591450882896622e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 2, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591431096747762e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 2, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591447780082886e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 2, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591447780082886e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 3, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591431269337252e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 3, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591447952672615e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(0, 3, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591447952672615e-06
+    },
+    {
+      "name": "DomesticObject36_Peg1",
+      "assembly": "DomesticObject36",
+      "key": "timber",
+      "volume_m3": 5.4224674265337286e-06
+    },
+    {
+      "name": "DomesticObject36_Sheet1",
+      "assembly": "DomesticObject36",
+      "key": "paper",
+      "volume_m3": 0.00010078184445273308
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 0, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591444239020166e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 0, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591452580690897e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 0, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591452580690897e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 1, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259144254122701e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 1, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591450882896622e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 1, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591450882896622e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 2, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591439438415325e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 2, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259144778008289e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 2, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259144778008289e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 3, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259143961100494e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 3, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259144795267262e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(1, 3, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259144795267262e-06
+    },
+    {
+      "name": "DomesticObject36_Peg2",
+      "assembly": "DomesticObject36",
+      "key": "timber",
+      "volume_m3": 5.4224708117788e-06
+    },
+    {
+      "name": "DomesticObject36_Sheet2",
+      "assembly": "DomesticObject36",
+      "key": "paper",
+      "volume_m3": 0.00010078185144571593
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 0, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591444239020166e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 0, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591448409855533e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 0, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591448465882335e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 1, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259144254122701e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 1, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591446712061815e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 1, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591446768088595e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 2, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591439438415327e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 2, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591443609249108e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 2, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591443665275852e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 3, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591439611004944e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 3, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591443781838783e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(2, 3, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591443837865553e-06
+    },
+    {
+      "name": "DomesticObject36_Peg3",
+      "assembly": "DomesticObject36",
+      "key": "timber",
+      "volume_m3": 5.422470811778801e-06
+    },
+    {
+      "name": "DomesticObject36_Sheet3",
+      "assembly": "DomesticObject36",
+      "key": "paper",
+      "volume_m3": 0.00010078185144571593
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 0, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591447526302637e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 0, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259144632443785e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 0, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591448409855533e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 1, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591445828508968e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 1, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591444626644409e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 1, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591446712061817e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 2, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591442725696403e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 2, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591441523832216e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 2, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591443609249106e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 3, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591442898286133e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 3, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591441696421856e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(3, 3, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591443781838781e-06
+    },
+    {
+      "name": "DomesticObject36_Peg4",
+      "assembly": "DomesticObject36",
+      "key": "timber",
+      "volume_m3": 5.4224674265337286e-06
+    },
+    {
+      "name": "DomesticObject36_Sheet4",
+      "assembly": "DomesticObject36",
+      "key": "paper",
+      "volume_m3": 0.00010078184445273308
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 0, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591452580690897e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 0, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591452580690897e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 0, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591444239020166e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 1, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591450882896622e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 1, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591450882896622e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 1, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591442541227007e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 2, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259144778008289e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 2, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259144778008289e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 2, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591439438415325e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 3, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259144795267262e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 3, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.259144795267262e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(4, 3, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591439611004937e-06
+    },
+    {
+      "name": "DomesticObject36_Peg5",
+      "assembly": "DomesticObject36",
+      "key": "timber",
+      "volume_m3": 5.422480967514017e-06
+    },
+    {
+      "name": "DomesticObject36_Sheet5",
+      "assembly": "DomesticObject36",
+      "key": "paper",
+      "volume_m3": 0.00010078184445273309
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 0, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.25914525806909e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 0, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.25914525806909e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 0, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.25914525806909e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 1, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591450882896622e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 1, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591450882896622e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 1, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591450882896622e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 2, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591447780082886e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 2, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591447780082886e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 2, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591447780082886e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 3, 0)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591447952672619e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 3, 1)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591447952672619e-06
+    },
+    {
+      "name": "DomesticObject36_Frame(5, 3, 2)",
+      "assembly": "DomesticObject36",
+      "key": "soot",
+      "volume_m3": 1.2591447952672619e-06
     }
   ],
   "contacts": [
@@ -8165,6 +8747,126 @@
         0
       ],
       "label": "cabinet foot (0.27, 0.17)"
+    },
+    {
+      "assembly": "DomesticObject35",
+      "owner": "wall",
+      "point": [
+        -0.5249999999999999,
+        0.08,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject35",
+      "owner": "wall",
+      "point": [
+        -0.5249999999999999,
+        2.17,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject35",
+      "owner": "wall",
+      "point": [
+        0.5249999999999999,
+        0.08,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject35",
+      "owner": "wall",
+      "point": [
+        0.5249999999999999,
+        2.17,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject36",
+      "owner": "wall",
+      "point": [
+        -0.8,
+        0.28,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "wall face behind hook plate"
+    },
+    {
+      "assembly": "DomesticObject36",
+      "owner": "wall",
+      "point": [
+        -0.8,
+        0.32,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "wall face behind hook plate"
+    },
+    {
+      "assembly": "DomesticObject36",
+      "owner": "wall",
+      "point": [
+        0.8,
+        0.28,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "wall face behind hook plate"
+    },
+    {
+      "assembly": "DomesticObject36",
+      "owner": "wall",
+      "point": [
+        0.8,
+        0.32,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "wall face behind hook plate"
     }
   ],
   "parts": [
@@ -9175,9 +9877,65 @@
       "cell": "shared",
       "key": "wood_dark",
       "triangles": 3008
+    },
+    {
+      "name": "DomesticObject35__Body_ON_metal",
+      "assembly": "DomesticObject35",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 564
+    },
+    {
+      "name": "DomesticObject35__Body_ON_paper",
+      "assembly": "DomesticObject35",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 376
+    },
+    {
+      "name": "DomesticObject35__Body_ON_wood_dark",
+      "assembly": "DomesticObject35",
+      "cell": "shared",
+      "key": "wood_dark",
+      "triangles": 564
+    },
+    {
+      "name": "DomesticObject36__Body_ON_linen",
+      "assembly": "DomesticObject36",
+      "cell": "shared",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject36__Body_ON_metal",
+      "assembly": "DomesticObject36",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 376
+    },
+    {
+      "name": "DomesticObject36__Body_ON_paper",
+      "assembly": "DomesticObject36",
+      "cell": "shared",
+      "key": "paper",
+      "triangles": 1128
+    },
+    {
+      "name": "DomesticObject36__Body_ON_soot",
+      "assembly": "DomesticObject36",
+      "cell": "shared",
+      "key": "soot",
+      "triangles": 13536
+    },
+    {
+      "name": "DomesticObject36__Body_ON_timber",
+      "assembly": "DomesticObject36",
+      "cell": "shared",
+      "key": "timber",
+      "triangles": 1128
     }
   ],
-  "triangles": 223464,
+  "triangles": 241324,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -11410,6 +12168,128 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "DomesticObject35",
+        "parts": [
+          {
+            "name": "DomesticObject35__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "DomesticObject35__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject35__Body_ON_wood_dark",
+            "component": "Body",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject36",
+        "parts": [
+          {
+            "name": "DomesticObject36__Body_ON_linen",
+            "component": "Body",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject36__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "DomesticObject36__Body_ON_paper",
+            "component": "Body",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject36__Body_ON_soot",
+            "component": "Body",
+            "key": "soot",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.42
+            }
+          },
+          {
+            "name": "DomesticObject36__Body_ON_timber",
+            "component": "Body",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -11748,15 +12628,23 @@
       {
         "id": "6C_card_cabinet",
         "variant": "DomesticObject34"
+      },
+      {
+        "id": "6A_backdrop_rail",
+        "variant": "DomesticObject35"
+      },
+      {
+        "id": "6A_print_line",
+        "variant": "DomesticObject36"
       }
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "a8fa00c4b1b8b1e6255f085c925da406ade40199902d7b97ed67a066a2cc01cb",
+  "asset_sha256": "9372073aa501829c2b4c55687d90ddf86ced460aad3942a21904f877bc825a77",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "fbfbb46b5e9e7e128b799529410ac6bf5d65503866fa86086c5282617f6cbbf6",
+    "art/data/domestic_objects/source_plan.json": "27315f26644513816270d4b461bd99fd0662d223130aded8129f81d633896578",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_objects.py": "18f7b144962614cb3fe127dc5753eca184981742dce44d64304bd0f492fd9162",
+    "art/blender/scripts/build_domestic_objects.py": "133dce4748e823d37c50a63d27bb6c195dc33d4be6c3c19e78225e1487ab04a9",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -11846,25 +12734,25 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "0f4ff04a46833ef5b51c421258ba77d328b9c9ff72c24a09fc8cf6c97123763e",
+    "art/blender/scripts/domestic_objects_geometry.py": "d405cd76506b11c869d2ce1347d7bdc4d1a0fd0f2bf02f99c40888b312db92fd",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "b5b543c0112ce4454a41211636a95193fb12b749d00c51ac595b0db3fa7590f6",
+    "game/data/orison_v2/domestic_furniture.json": "beb84465ca9bfb28b3a640620719171cf7c73fc1858b339d624d2f8c8eee0986",
     "game/data/orison_v2/completion_interiors.json": "9327e3340adb18af83217c2690e197a7a87012e034bbac5f9c9892917d3b5273",
     "art/data/orison_v2/completion_interiors_source.json": "27aad59a37c902ece56ee67725a694a84de7af9b1f73f7e2984018f911c198fb",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "74c6f86eb5499f387460880d4b1400ddd3515f0cf02f1f677ad8ca4129b6db57",
-    "game/data/orison_v2_blockout.json": "10f1aea9c91eeed0b4b78ee248ea27b3b97375445f25103e2c0909ec4ffbb773",
+    "game/data/orison_v2_blockout.json": "08388f3ce0725462ffa34b19b5b8a57b4cb774482102b047dd4c6d2eec7581a2",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_surface_props.json": "2bf1f04b5c624515ef72a38b061e72696db9be086b0cfb9967d726f51ca0f1fb",
-    "game/tests/fixtures/orison_surface_stock.json": "856a1a1a0afaac239e64f897418c8c41d7c3882a7ec143a3d338abeffa6eda1e",
-    "art/blender/domestic_storage.blend": "5e983c7abba21f3be712615e6505f4aab12d22b16d0657518afa56eda310200d",
-    "art/blender/prep_cabinets.blend": "5fda4c467f0a95d4ba04632907c07797a95c504a429ac54127528212a3845c54",
-    "art/blender/household_wardrobes.blend": "f3da6d6f368ce3ab1700a0c6dae547a2fed064e4cef0d9df9e04868f9aba7ac5",
-    "art/blender/scripts/surface_stock_geometry.py": "8f01e7ee0d6723a0bd8b64b4dc6c27ebdedd8d4b2b7c851a6238101544bc33cd",
-    "art/blender/domestic_seating.blend": "09683b13e6145ce3d98f55618967b6a906445c1ab837667b0612f7c7dd3c4ff9",
-    "art/blender/domestic_tables.blend": "609ca47985363fb5653f9000cffc42c20ba8733726dc11b6456b8d05598178d9"
+    "game/data/orison_v2/domestic_surface_props.json": "eabd7e163b1d0fb3ca91bd54f432da96eb2b59aeecbe76fe73147008e3bbac01",
+    "game/tests/fixtures/orison_surface_stock.json": "de481056cafa072817db0f2f8acd8ad57b5effcdacf18fd7768ed2ec9f966eb2",
+    "art/blender/domestic_storage.blend": "169e5fa53d9325d28d4397e4d88ab26324f0d1f37ee6e85ee5d1cedb1339e161",
+    "art/blender/prep_cabinets.blend": "086cdda39c0497a00951b5270b40a1172c52997f8c187dc0c6dc81312541d87e",
+    "art/blender/household_wardrobes.blend": "95007ecf67124e7ffcb52017e9159f26060e88c1ba92f58e1c23570d1a310a6c",
+    "art/blender/scripts/surface_stock_geometry.py": "9463dfc9e9974167e7d5ea71f5a131f688e477974897b414ff3df3180efd7184",
+    "art/blender/domestic_seating.blend": "cbd354f35659bee9a5b03fd57aed5c6bfd53a15b5be00f8043717a564b2e5615",
+    "art/blender/domestic_tables.blend": "8541693ffdd706e643272390a5c760e22eeaf8ad875ed13ffcf8b1d1f57f1867"
   },
   "retained_stock": [
     {
@@ -15432,6 +16320,113 @@
         "DomesticObject34_Label(2, 3)",
         "DomesticObject34_Pull(2, 3)",
         "DomesticObject34_LockPlate"
+      ]
+    },
+    {
+      "assembly": "DomesticObject35",
+      "id": "DomesticObject35_BackdropRail",
+      "stocks": [
+        "DomesticObject35_RearBatten-0.5249999999999999",
+        "DomesticObject35_RearBatten0.5249999999999999",
+        "DomesticObject35_Header",
+        "DomesticObject35_Bracket-0.73",
+        "DomesticObject35_Bracket0.73",
+        "DomesticObject35_Rail",
+        "DomesticObject35_Roll",
+        "DomesticObject35_Sheet"
+      ]
+    },
+    {
+      "assembly": "DomesticObject36",
+      "id": "DomesticObject36_PrintLine",
+      "stocks": [
+        "DomesticObject36_HookPlate-0.8",
+        "DomesticObject36_HookPlate0.8",
+        "DomesticObject36_String",
+        "DomesticObject36_Peg0",
+        "DomesticObject36_Sheet0",
+        "DomesticObject36_Frame(0, 0, 0)",
+        "DomesticObject36_Frame(0, 0, 1)",
+        "DomesticObject36_Frame(0, 0, 2)",
+        "DomesticObject36_Frame(0, 1, 0)",
+        "DomesticObject36_Frame(0, 1, 1)",
+        "DomesticObject36_Frame(0, 1, 2)",
+        "DomesticObject36_Frame(0, 2, 0)",
+        "DomesticObject36_Frame(0, 2, 1)",
+        "DomesticObject36_Frame(0, 2, 2)",
+        "DomesticObject36_Frame(0, 3, 0)",
+        "DomesticObject36_Frame(0, 3, 1)",
+        "DomesticObject36_Frame(0, 3, 2)",
+        "DomesticObject36_Peg1",
+        "DomesticObject36_Sheet1",
+        "DomesticObject36_Frame(1, 0, 0)",
+        "DomesticObject36_Frame(1, 0, 1)",
+        "DomesticObject36_Frame(1, 0, 2)",
+        "DomesticObject36_Frame(1, 1, 0)",
+        "DomesticObject36_Frame(1, 1, 1)",
+        "DomesticObject36_Frame(1, 1, 2)",
+        "DomesticObject36_Frame(1, 2, 0)",
+        "DomesticObject36_Frame(1, 2, 1)",
+        "DomesticObject36_Frame(1, 2, 2)",
+        "DomesticObject36_Frame(1, 3, 0)",
+        "DomesticObject36_Frame(1, 3, 1)",
+        "DomesticObject36_Frame(1, 3, 2)",
+        "DomesticObject36_Peg2",
+        "DomesticObject36_Sheet2",
+        "DomesticObject36_Frame(2, 0, 0)",
+        "DomesticObject36_Frame(2, 0, 1)",
+        "DomesticObject36_Frame(2, 0, 2)",
+        "DomesticObject36_Frame(2, 1, 0)",
+        "DomesticObject36_Frame(2, 1, 1)",
+        "DomesticObject36_Frame(2, 1, 2)",
+        "DomesticObject36_Frame(2, 2, 0)",
+        "DomesticObject36_Frame(2, 2, 1)",
+        "DomesticObject36_Frame(2, 2, 2)",
+        "DomesticObject36_Frame(2, 3, 0)",
+        "DomesticObject36_Frame(2, 3, 1)",
+        "DomesticObject36_Frame(2, 3, 2)",
+        "DomesticObject36_Peg3",
+        "DomesticObject36_Sheet3",
+        "DomesticObject36_Frame(3, 0, 0)",
+        "DomesticObject36_Frame(3, 0, 1)",
+        "DomesticObject36_Frame(3, 0, 2)",
+        "DomesticObject36_Frame(3, 1, 0)",
+        "DomesticObject36_Frame(3, 1, 1)",
+        "DomesticObject36_Frame(3, 1, 2)",
+        "DomesticObject36_Frame(3, 2, 0)",
+        "DomesticObject36_Frame(3, 2, 1)",
+        "DomesticObject36_Frame(3, 2, 2)",
+        "DomesticObject36_Frame(3, 3, 0)",
+        "DomesticObject36_Frame(3, 3, 1)",
+        "DomesticObject36_Frame(3, 3, 2)",
+        "DomesticObject36_Peg4",
+        "DomesticObject36_Sheet4",
+        "DomesticObject36_Frame(4, 0, 0)",
+        "DomesticObject36_Frame(4, 0, 1)",
+        "DomesticObject36_Frame(4, 0, 2)",
+        "DomesticObject36_Frame(4, 1, 0)",
+        "DomesticObject36_Frame(4, 1, 1)",
+        "DomesticObject36_Frame(4, 1, 2)",
+        "DomesticObject36_Frame(4, 2, 0)",
+        "DomesticObject36_Frame(4, 2, 1)",
+        "DomesticObject36_Frame(4, 2, 2)",
+        "DomesticObject36_Frame(4, 3, 0)",
+        "DomesticObject36_Frame(4, 3, 1)",
+        "DomesticObject36_Frame(4, 3, 2)",
+        "DomesticObject36_Peg5",
+        "DomesticObject36_Sheet5",
+        "DomesticObject36_Frame(5, 0, 0)",
+        "DomesticObject36_Frame(5, 0, 1)",
+        "DomesticObject36_Frame(5, 0, 2)",
+        "DomesticObject36_Frame(5, 1, 0)",
+        "DomesticObject36_Frame(5, 1, 1)",
+        "DomesticObject36_Frame(5, 1, 2)",
+        "DomesticObject36_Frame(5, 2, 0)",
+        "DomesticObject36_Frame(5, 2, 1)",
+        "DomesticObject36_Frame(5, 2, 2)",
+        "DomesticObject36_Frame(5, 3, 0)",
+        "DomesticObject36_Frame(5, 3, 1)",
+        "DomesticObject36_Frame(5, 3, 2)"
       ]
     }
   ],

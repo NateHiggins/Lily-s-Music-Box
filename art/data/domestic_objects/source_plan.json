@@ -527,6 +527,25 @@
    "kind": "cardcabinet",
    "source_id": "6C_card_cabinet",
    "params": {}
+  },
+  {
+   "id": "DomesticObject35",
+   "kind": "backdroprail",
+   "source_id": "6A_backdrop_rail",
+   "params": {
+    "W": 1.5,
+    "H": 2.25
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject36",
+   "kind": "printline",
+   "source_id": "6A_print_line",
+   "params": {
+    "W": 1.6
+   },
+   "rear_wall_y": -0.02
   }
  ],
  "instances": [
@@ -865,6 +884,14 @@
   {
    "id": "6C_card_cabinet",
    "variant": "DomesticObject34"
+  },
+  {
+   "id": "6A_backdrop_rail",
+   "variant": "DomesticObject35"
+  },
+  {
+   "id": "6A_print_line",
+   "variant": "DomesticObject36"
   }
  ],
  "runtime_keys": [
@@ -1131,7 +1158,8 @@
   "Slice 15 of the V2 environment dossier adds a photograph style to the wall-art form (a toned print under a mat) and hangs wall art in 2C, 3D, 3A and 5B, with 2A's caption wall as a 1.2 x 0.9 m pinboard.",
   "Slice 17 of the V2 environment dossier adds a suitcase form (a leather case on its edge with straps, brass feet and a handle) for 4D's luggage in the vestibule.",
   "Slice 18 of the V2 environment dossier adds four studio forms: a treadle sewing machine (2B), a radio teardown on newspaper (3B), an easel with a blank canvas and a stack of six failed canvases face to the wall (5C).",
-  "Slice 19 of the V2 environment dossier adds a card-index cabinet form (twelve drawers, brass pulls and blank label frames, one brass lock plate) for 6C's archive."
+  "Slice 19 of the V2 environment dossier adds a card-index cabinet form (twelve drawers, brass pulls and blank label frames, one brass lock plate) for 6C's archive.",
+  "Slice 20 of the V2 environment dossier adds a backdrop rail (header, brackets, rail, paper roll and hanging sheet) and a print line (two hook plates, a string, six pegged contact sheets) for 6A's studio."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",
