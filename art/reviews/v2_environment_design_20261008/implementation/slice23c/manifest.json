@@ -1,0 +1,66 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/B1_LAUNDRY_OV.jpg",
+   "source": "sweep_shots/B1_LAUNDRY_OV.png",
+   "sha256": "551c19f22305e0851c757c7c6b4115a73f55ab7f8a90ee50f8ecfa3cc464b77d",
+   "bytes": 75627
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "2a5f3a164246d32d65dcd6d459fd4736b7785466854c51bee1ab9edb501a0c5e",
+   "bytes": 3226
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "24391314c75b4007d5ab53220562acdc7dadebf373e8447336875e8653579512",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/OrisonV2LaundryApparatusTest.log.receipt.json",
+   "source": "OrisonV2LaundryApparatusTest.log.receipt.json",
+   "sha256": "1bce508962e27c6a4c72511670c55508f9b6633ab9243878656ab34d8e82a126",
+   "bytes": 3227
+  },
+  {
+   "path": "receipts/OrisonV2LaundryFittingsTest.log.receipt.json",
+   "source": "OrisonV2LaundryFittingsTest.log.receipt.json",
+   "sha256": "fd0c1539674e646ecb73a5ba0a19e62a348dbb3605f8419e1ca275eeca85241d",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/OrisonV2LaundryRouteTest.log.receipt.json",
+   "source": "OrisonV2LaundryRouteTest.log.receipt.json",
+   "sha256": "fb28b867c51a6bdd82e465e5d75b5f55d380089b6cb302fa360cd9ebd6069eb8",
+   "bytes": 3211
+  },
+  {
+   "path": "receipts/sweep.log.receipt.json",
+   "source": "sweep.log.receipt.json",
+   "sha256": "65e179755e8b07c3354cd7463b61fd839b1613749dcdd44beaa41f0fe322ae70",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "11e668a803259b2236e13d6ef7bba3962d60b1db60b01077a7892bf9cf943ff1",
+   "bytes": 5973
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "d44b307c20431668b62aba7e673230bc52f1b75a2c71f3bc5d541cde8a28c4d9",
+   "bytes": 767138
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "a311a4ac84a920f95a1c0e31486e5f1c7f0c2ab5787b20ef8ae12a449434ed55",
+   "bytes": 4222
+  }
+ ]
+}

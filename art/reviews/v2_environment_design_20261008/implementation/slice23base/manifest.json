@@ -1,0 +1,60 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "4b72cc7b0ae6684d37d30ab86901e790f887fdd06fb5f4227de02ecc9cb507f2",
+   "bytes": 3146
+  },
+  {
+   "path": "receipts/OrisonV2BasementGroundTest.log.receipt.json",
+   "source": "OrisonV2BasementGroundTest.log.receipt.json",
+   "sha256": "4a79e42e27068d4008dc48398903dd1a5663a9b39401e4aedadd5fb93f5a4304",
+   "bytes": 3225
+  },
+  {
+   "path": "receipts/OrisonV2BasementRouteTest.log.receipt.json",
+   "source": "OrisonV2BasementRouteTest.log.receipt.json",
+   "sha256": "5129b7af8ef2d1372d9053081d3719e7195b311a3b5614c8117196c008d8fe1b",
+   "bytes": 3222
+  },
+  {
+   "path": "receipts/OrisonV2LaundryApparatusTest.log.receipt.json",
+   "source": "OrisonV2LaundryApparatusTest.log.receipt.json",
+   "sha256": "8a2057996ee63bc0129b6f659a5010ba9ec9be192736157b02ea97ac0db0874a",
+   "bytes": 3233
+  },
+  {
+   "path": "receipts/OrisonV2LaundryFittingsTest.log.receipt.json",
+   "source": "OrisonV2LaundryFittingsTest.log.receipt.json",
+   "sha256": "65b0861ea1d38f4d45232d8e2ee260f2d31d8bac97c72b946a577b51af13ea06",
+   "bytes": 3229
+  },
+  {
+   "path": "receipts/OrisonV2LaundryReceivingTest.log.receipt.json",
+   "source": "OrisonV2LaundryReceivingTest.log.receipt.json",
+   "sha256": "75bedb9a5e32063bd1e94ce0e60635755578f59a0c0a2cb76d7f768bab621fc6",
+   "bytes": 3343
+  },
+  {
+   "path": "receipts/OrisonV2LaundryRouteTest.log.receipt.json",
+   "source": "OrisonV2LaundryRouteTest.log.receipt.json",
+   "sha256": "79f0df313861afa4915e0f61bef82dbd9b5d5bad0c7a8bbec5e654ac2d98a4b2",
+   "bytes": 3217
+  },
+  {
+   "path": "receipts/OrisonV2LaundryTradeTest.log.receipt.json",
+   "source": "OrisonV2LaundryTradeTest.log.receipt.json",
+   "sha256": "b97758350d90a884207acd65c0bdf4cf0a801af46df09e534b4a8151eec68788",
+   "bytes": 3217
+  },
+  {
+   "path": "receipts/OrisonV2MinaLaundryRoutineTest.log.receipt.json",
+   "source": "OrisonV2MinaLaundryRoutineTest.log.receipt.json",
+   "sha256": "0dcd2d54e9cb33df57fa0271e3f14df08a2494c973e5d3c0cbb3f7340583c3a7",
+   "bytes": 3238
+  }
+ ]
+}

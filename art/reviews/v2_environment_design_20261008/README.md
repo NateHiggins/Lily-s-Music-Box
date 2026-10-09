@@ -124,6 +124,9 @@ Slices landed so far (evidence folders in parentheses):
     suites at slice 20).
 22. A drip pan under each of the fourteen iceboxes (`slice22`; `slice22b`
     narrows slice 20's backdrop clear of the tripod stance).
+23. Basement: one household object in each of sixteen storage bays, five
+    laundry baskets (`slice23`, `slice23b`, `slice23c`; `slice23base`,
+    `slice23mina` and `slice23mina_base` hold the basement suites).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

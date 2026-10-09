@@ -1,0 +1,102 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/B1_RESIDENT_STORAGE_OV.jpg",
+   "source": "sweep_shots/B1_RESIDENT_STORAGE_OV.png",
+   "sha256": "60317298c778b34f694a320e75aeeef14bc03b0a2cfbdef2e79e0d17746863d1",
+   "bytes": 133452
+  },
+  {
+   "path": "images/B1_RESIDENT_STORAGE_DT1.jpg",
+   "source": "sweep_shots/B1_RESIDENT_STORAGE_DT1.png",
+   "sha256": "9fccee9083923a0cb47651f05f1108b48807e752c5438fbc716ee028fa0666ea",
+   "bytes": 168278
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "15a40c63fabd6a38ee12f63cb9d54b1d8ebace4f1116c4f0602594e480cc2318",
+   "bytes": 3394
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "d48372c8324ae7be78c92c0e1155de2eba964be7bbadebef36b6e6ccbd370a0c",
+   "bytes": 3227
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "b29b617118112b4b64458097e9d3b9d46262a8efeba76918e5d5fd0319ddb92b",
+   "bytes": 3138
+  },
+  {
+   "path": "receipts/OrisonV2BasementGroundTest.log.receipt.json",
+   "source": "OrisonV2BasementGroundTest.log.receipt.json",
+   "sha256": "6ac084724bd7f5dbb7ef73b59f2e7a78fc5794cd8d02b54af6bafc2d5686eb00",
+   "bytes": 3217
+  },
+  {
+   "path": "receipts/OrisonV2BasementRouteTest.log.receipt.json",
+   "source": "OrisonV2BasementRouteTest.log.receipt.json",
+   "sha256": "bba02d0cc20f9e5a4422bcb76f78fd45b374c27b73389d7d058fbe8621809d5a",
+   "bytes": 3214
+  },
+  {
+   "path": "receipts/OrisonV2LaundryApparatusTest.log.receipt.json",
+   "source": "OrisonV2LaundryApparatusTest.log.receipt.json",
+   "sha256": "a974b85fc05ae160abdfa9cfc35b4dc2395689efd2a3b7d5d93550120860af04",
+   "bytes": 3225
+  },
+  {
+   "path": "receipts/OrisonV2LaundryFittingsTest.log.receipt.json",
+   "source": "OrisonV2LaundryFittingsTest.log.receipt.json",
+   "sha256": "020f5d90958e0031746a6271e09d93df304137085719cf10e68614284d506315",
+   "bytes": 3221
+  },
+  {
+   "path": "receipts/OrisonV2LaundryReceivingTest.log.receipt.json",
+   "source": "OrisonV2LaundryReceivingTest.log.receipt.json",
+   "sha256": "b96e33bceaaf885a7577f05058277d4974bdaaf978a6bc7bef1403d2d730674f",
+   "bytes": 3336
+  },
+  {
+   "path": "receipts/OrisonV2LaundryRouteTest.log.receipt.json",
+   "source": "OrisonV2LaundryRouteTest.log.receipt.json",
+   "sha256": "2a27c6e8463c934252211ff13e6083aff93cd15821ed61de676ef9cb0d8cfab5",
+   "bytes": 3209
+  },
+  {
+   "path": "receipts/OrisonV2LaundryTradeTest.log.receipt.json",
+   "source": "OrisonV2LaundryTradeTest.log.receipt.json",
+   "sha256": "8ef1280adc8388a5bf12250863722fb602c79a1fe0ac19416d67ae42689bf360",
+   "bytes": 3209
+  },
+  {
+   "path": "receipts/OrisonV2MinaLaundryRoutineTest.log.receipt.json",
+   "source": "OrisonV2MinaLaundryRoutineTest.log.receipt.json",
+   "sha256": "ba808430e230b1e0b24f3c3845040f7652b6324a257ed671a23a16b3dd5f0af7",
+   "bytes": 3230
+  },
+  {
+   "path": "receipts/sweep.log.receipt.json",
+   "source": "sweep.log.receipt.json",
+   "sha256": "4fe80bc955579f25d66e5c61df40231bd83c69cac9c6b692370faf773fbdbb47",
+   "bytes": 3220
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "145714a73fdef56426eb520447b8c20bb27241a03022e2d29c9740891bceb3d5",
+   "bytes": 767138
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "3502b4e1b4a32c2754ae18cfd62499f48d78e392c1aa57e0b6daae628b75257d",
+   "bytes": 8209
+  }
+ ]
+}

@@ -1,0 +1,383 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						3.13600063323975,
+						-1.76000034809113,
+						-8.72399806976318
+					],
+					"feet": [
+						-3.13599991798401,
+						-3.17000031471252,
+						-2.92600154876709
+					],
+					"forward": [
+						0.707715630531311,
+						-0.105058930814266,
+						-0.698642492294312
+					],
+					"image": "B1_LAUNDRY_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.09999990463257,
+						-2.20000004768372,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.06400108337402,
+						-1.76000034809113,
+						-14.5759992599487
+					],
+					"feet": [
+						-9.06400012969971,
+						-3.17000031471252,
+						2.92600059509277
+					],
+					"forward": [
+						-0.707715690135956,
+						-0.105058908462524,
+						0.698642432689667
+					],
+					"image": "B1_LAUNDRY_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.09999990463257,
+						-2.20000004768372,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						2.90000033378601,
+						-1.76000034809113,
+						-10.149998664856
+					],
+					"feet": [
+						-2.89999961853027,
+						-3.17000031471252,
+						-1.50000095367432
+					],
+					"forward": [
+						0.903378307819366,
+						-0.0677532702684402,
+						-0.423458516597748
+					],
+					"image": "B1_LAUNDRY_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "B1_LAUNDRY_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.09999990463257,
+						-2.0,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.66000080108643,
+						-1.76000034809113,
+						-11.649998664856
+					],
+					"feet": [
+						-7.65999984741211,
+						-3.17000031471252,
+						0.0
+					],
+					"forward": [
+						0.854826390743256,
+						-0.290318191051483,
+						0.430101424455643
+					],
+					"image": "B1_LAUNDRY_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_WASHER_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.25,
+						-2.29999995231628,
+						-0.800000011920929
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.54000091552734,
+						-1.76000034809113,
+						-13.189998626709
+					],
+					"feet": [
+						-4.53999996185303,
+						-3.17000031471252,
+						1.53999900817871
+					],
+					"forward": [
+						0.75205785036087,
+						-0.278158217668533,
+						-0.597525835037231
+					],
+					"image": "B1_LAUNDRY_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_LAUNDRY_AIRER_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.0,
+						-2.29999995231628,
+						2.70000004768372
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.66000080108643,
+						-1.76000034809113,
+						-13.189998626709
+					],
+					"feet": [
+						-7.65999984741211,
+						-3.17000031471252,
+						1.53999996185303
+					],
+					"forward": [
+						0.328231334686279,
+						-0.239520072937012,
+						-0.91372549533844
+					],
+					"image": "B1_LAUNDRY_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_laundry_basket_1",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-8.39999961853027,
+						-2.29999995231628,
+						3.59999990463257
+					]
+				}
+			],
+			"class": "service",
+			"clear_stations": 23,
+			"floor_y": -3.2,
+			"id": "B1_LAUNDRY",
+			"level": "B1",
+			"purpose": "shared wringer washing, rinse tubs and ceiling airer",
+			"rect": [
+				-10.0,
+				-3.85,
+				-2.2,
+				3.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": false
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						8.15200233459473,
+						-1.76000034809113,
+						-18.3249988555908
+					],
+					"feet": [
+						-8.15200042724609,
+						-3.17000031471252,
+						6.67499923706055
+					],
+					"forward": [
+						-0.997185349464417,
+						-0.0749762803316116,
+						-0.000000325013616020442
+					],
+					"image": "B1_RESIDENT_STORAGE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-2.29999995231628,
+						-2.20000004768372,
+						6.67500019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-3.55199885368347,
+						-1.76000034809113,
+						-18.3250007629395
+					],
+					"feet": [
+						3.55200028419495,
+						-3.17000031471252,
+						6.67500114440918
+					],
+					"forward": [
+						0.997185349464417,
+						-0.0749762952327728,
+						-0.00000000000000354271445485816
+					],
+					"image": "B1_RESIDENT_STORAGE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-2.29999995231628,
+						-2.20000004768372,
+						6.67500019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-4.39999866485596,
+						-1.76000010967255,
+						-14.5
+					],
+					"feet": [
+						4.40000009536743,
+						-3.17000007629395,
+						2.85000038146973
+					],
+					"forward": [
+						0.868022561073303,
+						-0.0310933273285627,
+						-0.495550274848938
+					],
+					"image": "B1_RESIDENT_STORAGE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "B1_STORAGE_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-2.29999995231628,
+						-2.0,
+						6.67500019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						2.30000162124634,
+						-1.76000034809113,
+						-19.4549999237061
+					],
+					"feet": [
+						-2.29999995231628,
+						-3.17000031471252,
+						7.80500030517578
+					],
+					"forward": [
+						0.0,
+						-0.357868701219559,
+						-0.933771908283234
+					],
+					"image": "B1_RESIDENT_STORAGE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_bay_5B_crate",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-2.29999995231628,
+						-2.29999995231628,
+						9.21399974822998
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						2.30000162124634,
+						-1.76000034809113,
+						-17.1949996948242
+					],
+					"feet": [
+						-2.30000019073486,
+						-3.17000031471252,
+						5.54500007629395
+					],
+					"forward": [
+						0.652707576751709,
+						-0.271124601364136,
+						0.707435011863709
+					],
+					"image": "B1_RESIDENT_STORAGE_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_bay_2B_crate",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-3.59999990463257,
+						-2.29999995231628,
+						4.13600015640259
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-0.779998302459717,
+						-1.76000034809113,
+						-18.3250007629395
+					],
+					"feet": [
+						0.779999911785126,
+						-3.17000031471252,
+						6.67500114440918
+					],
+					"forward": [
+						0.181832045316696,
+						-0.204561069607735,
+						0.961817026138306
+					],
+					"image": "B1_RESIDENT_STORAGE_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_bay_3B_crate",
+					"status": "captured_pending_visual_review",
+					"target": [
+						0.300000011920929,
+						-2.29999995231628,
+						4.13600015640259
+					]
+				}
+			],
+			"class": "service",
+			"clear_stations": 8,
+			"floor_y": -3.2,
+			"id": "B1_RESIDENT_STORAGE",
+			"level": "B1",
+			"purpose": "eighteen dry household storage bays with central and east aisles",
+			"rect": [
+				-10.0,
+				3.85,
+				5.4,
+				9.5
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

@@ -1,0 +1,196 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						3.13600063323975,
+						-1.76000034809113,
+						-8.72399806976318
+					],
+					"feet": [
+						-3.13599991798401,
+						-3.17000031471252,
+						-2.92600154876709
+					],
+					"forward": [
+						0.707715630531311,
+						-0.105058930814266,
+						-0.698642492294312
+					],
+					"image": "B1_LAUNDRY_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.09999990463257,
+						-2.20000004768372,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.06400108337402,
+						-1.76000034809113,
+						-14.5759992599487
+					],
+					"feet": [
+						-9.06400012969971,
+						-3.17000031471252,
+						2.92600059509277
+					],
+					"forward": [
+						-0.707715690135956,
+						-0.105058908462524,
+						0.698642432689667
+					],
+					"image": "B1_LAUNDRY_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.09999990463257,
+						-2.20000004768372,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						2.90000033378601,
+						-1.76000034809113,
+						-10.149998664856
+					],
+					"feet": [
+						-2.89999961853027,
+						-3.17000031471252,
+						-1.50000095367432
+					],
+					"forward": [
+						0.903378307819366,
+						-0.0677532702684402,
+						-0.423458516597748
+					],
+					"image": "B1_LAUNDRY_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "B1_LAUNDRY_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.09999990463257,
+						-2.0,
+						0.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.66000080108643,
+						-1.76000034809113,
+						-11.649998664856
+					],
+					"feet": [
+						-7.65999984741211,
+						-3.17000031471252,
+						0.0
+					],
+					"forward": [
+						0.854826390743256,
+						-0.290318191051483,
+						0.430101424455643
+					],
+					"image": "B1_LAUNDRY_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_WASHER_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.25,
+						-2.29999995231628,
+						-0.800000011920929
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.54000091552734,
+						-1.76000034809113,
+						-13.189998626709
+					],
+					"feet": [
+						-4.53999996185303,
+						-3.17000031471252,
+						1.53999900817871
+					],
+					"forward": [
+						0.75205785036087,
+						-0.278158217668533,
+						-0.597525835037231
+					],
+					"image": "B1_LAUNDRY_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_LAUNDRY_AIRER_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.0,
+						-2.29999995231628,
+						2.70000004768372
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.66000080108643,
+						-1.76000034809113,
+						-13.189998626709
+					],
+					"feet": [
+						-7.65999984741211,
+						-3.17000031471252,
+						1.53999996185303
+					],
+					"forward": [
+						0.328231334686279,
+						-0.239520072937012,
+						-0.91372549533844
+					],
+					"image": "B1_LAUNDRY_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "B1_laundry_basket_1",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-8.39999961853027,
+						-2.29999995231628,
+						3.59999990463257
+					]
+				}
+			],
+			"class": "service",
+			"clear_stations": 23,
+			"floor_y": -3.2,
+			"id": "B1_LAUNDRY",
+			"level": "B1",
+			"purpose": "shared wringer washing, rinse tubs and ceiling airer",
+			"rect": [
+				-10.0,
+				-3.85,
+				-2.2,
+				3.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": false
+		}
+	]
+}
