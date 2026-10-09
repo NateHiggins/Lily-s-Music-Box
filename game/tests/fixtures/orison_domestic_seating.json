@@ -306,6 +306,12 @@
       "kind": "chair",
       "cell": "shared",
       "source_record": "3B_din_dc1"
+    },
+    {
+      "id": "Armchair",
+      "kind": "sofa",
+      "cell": "shared",
+      "source_record": "5B_radio_chair"
     }
   ],
   "closed_stocks": [
@@ -632,6 +638,102 @@
       "assembly": "ChairOak",
       "key": "oak_quartered",
       "volume_m3": 0.00010213078517255756
+    },
+    {
+      "name": "Armchair_Foot00",
+      "assembly": "Armchair",
+      "key": "wood_dark",
+      "volume_m3": 0.0003143451645604179
+    },
+    {
+      "name": "Armchair_Foot01",
+      "assembly": "Armchair",
+      "key": "wood_dark",
+      "volume_m3": 0.0003143451645604927
+    },
+    {
+      "name": "Armchair_Foot10",
+      "assembly": "Armchair",
+      "key": "wood_dark",
+      "volume_m3": 0.0003143451645604926
+    },
+    {
+      "name": "Armchair_Foot11",
+      "assembly": "Armchair",
+      "key": "wood_dark",
+      "volume_m3": 0.00031434516456041786
+    },
+    {
+      "name": "Armchair_UpholsteredBase",
+      "assembly": "Armchair",
+      "key": "fabric_cool",
+      "volume_m3": 0.12427394358135449
+    },
+    {
+      "name": "Armchair_BackShell",
+      "assembly": "Armchair",
+      "key": "fabric_cool",
+      "volume_m3": 0.052330565328587604
+    },
+    {
+      "name": "Armchair_ArmSeat-1",
+      "assembly": "Armchair",
+      "key": "wood_dark",
+      "volume_m3": 0.011613461367647644
+    },
+    {
+      "name": "Armchair_Arm-1",
+      "assembly": "Armchair",
+      "key": "fabric_cool",
+      "volume_m3": 0.05194481637857802
+    },
+    {
+      "name": "Armchair_ArmRoll-1",
+      "assembly": "Armchair",
+      "key": "fabric_cool",
+      "volume_m3": 0.019925495986980908
+    },
+    {
+      "name": "Armchair_ArmSeat1",
+      "assembly": "Armchair",
+      "key": "wood_dark",
+      "volume_m3": 0.01161346138626357
+    },
+    {
+      "name": "Armchair_Arm1",
+      "assembly": "Armchair",
+      "key": "fabric_cool",
+      "volume_m3": 0.051944816378578035
+    },
+    {
+      "name": "Armchair_ArmRoll1",
+      "assembly": "Armchair",
+      "key": "fabric_cool",
+      "volume_m3": 0.0199254959869809
+    },
+    {
+      "name": "Armchair_SeatCushion0",
+      "assembly": "Armchair",
+      "key": "fabric_cool",
+      "volume_m3": 0.07664041881051706
+    },
+    {
+      "name": "Armchair_BackCushion0",
+      "assembly": "Armchair",
+      "key": "fabric_cool",
+      "volume_m3": 0.05789126635017073
+    },
+    {
+      "name": "Armchair_SeatWelt0",
+      "assembly": "Armchair",
+      "key": "linen",
+      "volume_m3": 1.9426129226689408e-05
+    },
+    {
+      "name": "Armchair_BackWelt0",
+      "assembly": "Armchair",
+      "key": "linen",
+      "volume_m3": 1.4711909747538816e-05
     }
   ],
   "contacts": [
@@ -874,6 +976,66 @@
         0
       ],
       "label": "SplayedLeg3 horizontal foot"
+    },
+    {
+      "assembly": "Armchair",
+      "owner": "support",
+      "point": [
+        -0.32499999999999996,
+        0,
+        0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot00 horizontal foot"
+    },
+    {
+      "assembly": "Armchair",
+      "owner": "support",
+      "point": [
+        -0.32499999999999996,
+        0,
+        -0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot01 horizontal foot"
+    },
+    {
+      "assembly": "Armchair",
+      "owner": "support",
+      "point": [
+        0.32499999999999996,
+        0,
+        0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot10 horizontal foot"
+    },
+    {
+      "assembly": "Armchair",
+      "owner": "support",
+      "point": [
+        0.32499999999999996,
+        0,
+        -0.35
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "Foot11 horizontal foot"
     }
   ],
   "parts": [
@@ -932,9 +1094,30 @@
       "cell": "shared",
       "key": "oak_quartered",
       "triangles": 4664
+    },
+    {
+      "name": "Armchair__fabric_cool",
+      "assembly": "Armchair",
+      "cell": "shared",
+      "key": "fabric_cool",
+      "triangles": 7776
+    },
+    {
+      "name": "Armchair__linen",
+      "assembly": "Armchair",
+      "cell": "shared",
+      "key": "linen",
+      "triangles": 2304
+    },
+    {
+      "name": "Armchair__wood_dark",
+      "assembly": "Armchair",
+      "cell": "shared",
+      "key": "wood_dark",
+      "triangles": 1640
     }
   ],
-  "triangles": 41264,
+  "triangles": 52984,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -1082,6 +1265,59 @@
             "key": "oak_quartered",
             "tile": 0.9,
             "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.48
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "Armchair",
+        "parts": [
+          {
+            "name": "Armchair__fabric_cool",
+            "key": "fabric_cool",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.36,
+              0.42,
+              0.51,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.16,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "Armchair__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "Armchair__wood_dark",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ],
             "finish": {
               "normal_scale": 0.04,
               "roughness": 0.48
@@ -1267,7 +1503,7 @@
       },
       {
         "id": "1A_reading_chair",
-        "variant": "ChairDark"
+        "variant": "Armchair"
       },
       {
         "id": "1A_bed_chair",
@@ -1296,15 +1532,19 @@
       {
         "id": "4D_chair2",
         "variant": "ChairDark"
+      },
+      {
+        "id": "5B_radio_chair",
+        "variant": "Armchair"
       }
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "04c40bf5a33cbc665483ae4c5db8da08f4a355a4075cd08b117243741c31621e",
+  "asset_sha256": "9022764fba693013b977497e1c566081ea5df98dfae2617a37d26bcde23b3802",
   "source_bindings": {
-    "art/data/domestic_seating/source_plan.json": "60e812e1ecab770e7f5f954174ecb5e99f7a01a677223aa3fad80ad44a9e9d96",
+    "art/data/domestic_seating/source_plan.json": "cae75507a5ec0c54d4eab291498895a27dfdd1f0555ea02a021f2898777bfcd5",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_seating.py": "6d90bb4701fcf90430623c88f4b992c8f053b472258551640e9a6b5b31055c6e",
+    "art/blender/scripts/build_domestic_seating.py": "cb28115dd6c77cefaa645404206f8117c75fd5fe173c7d6df80bdf6d7ca33e8e",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -1326,13 +1566,13 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_seating.py": "ff71654d56aaf25e674a57b4d719a1dec777b11adb7f22692695e086c87d3c69",
     "art/blender/scripts/render_domestic_seating.py": "fd6ed1615a15e1cf564979f43c6cb8a27a1023d634b3242b13420f8b5df77333",
-    "art/blender/scripts/domestic_seating_geometry.py": "ab6737ef97c98f05b0f7ca57803379612fb3d0e54926500d0d4a10ff3fcb711e",
+    "art/blender/scripts/domestic_seating_geometry.py": "90cb73d62b899a9322ccfe329d646d4a069c2283fd2830cb5cd1f62a21f3ddd6",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "e7ed96e5f73f94b91590a9b600df202c5778c5aa9887af67b12159827a71bcd9",
-    "game/data/orison_v2/completion_interiors.json": "d32683e6d39913c52f3b0825c83f735b0255ac5bfb58c9cbdddbb10e6aaba9ef",
-    "art/data/orison_v2/completion_interiors_source.json": "d66392ebb7ec8bc534e1acbe637897e5e44ee6417e025b27386967470de353fb",
+    "game/data/orison_v2/domestic_furniture.json": "588b212e228e0b44d03bf27ff01164c14e2733bb5484d74adb8d4998ac085da5",
+    "game/data/orison_v2/completion_interiors.json": "df581be9d430336823b7013bf0fe9c9632f2c6d8f139a1fb60ccf270dc0b27be",
+    "art/data/orison_v2/completion_interiors_source.json": "99c5903e1c24de208d0b190b04857cf1eb2d4c4667a228239918fbe70ef35ddd",
     "art/blender/scripts/inspect_domestic_furniture_context.py": "85da46bed1da8c4f63917ce4f98fc87b5feae49431f8f1e3da4a8a14c9d890ad",
-    "game/data/orison_v2_blockout.json": "eb016589faa95da0d6db843ca559973e28034723ec7778845016ffb63a470862",
+    "game/data/orison_v2_blockout.json": "66679738d519edcd5a0447a6fe75408538288707cfd6b5d4d75bbfd6ca4a4604",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
     "game/data/orison_v2/domestic_surface_props.json": "f2a4d4ba584fff524475499c498c7bb37f3b46096cd587d74333c2b6eb8709ef",
     "game/tests/fixtures/orison_surface_stock.json": "43c1d837df3a35770695f1b59abf9a90b966a02c46591117558c1c49e80f073e"
@@ -1439,6 +1679,14 @@
         ]
       ],
       "original_foot_penetration_m": 0.003231483457181407
+    },
+    {
+      "assembly": "Armchair",
+      "kind": "sofa",
+      "length": 0.85,
+      "cushions": 1,
+      "seat_top": 0.455,
+      "back_top": 0.82
     }
   ],
   "construction_groups": [
@@ -1518,6 +1766,28 @@
         "ChairOak_SplayedLeg3",
         "ChairOak_SteamBentHoop",
         "ChairOak_BackCrossRail"
+      ]
+    },
+    {
+      "assembly": "Armchair",
+      "id": "Armchair_JoinedSeat",
+      "stocks": [
+        "Armchair_Foot00",
+        "Armchair_Foot01",
+        "Armchair_Foot10",
+        "Armchair_Foot11",
+        "Armchair_UpholsteredBase",
+        "Armchair_BackShell",
+        "Armchair_ArmSeat-1",
+        "Armchair_Arm-1",
+        "Armchair_ArmRoll-1",
+        "Armchair_ArmSeat1",
+        "Armchair_Arm1",
+        "Armchair_ArmRoll1",
+        "Armchair_SeatCushion0",
+        "Armchair_BackCushion0",
+        "Armchair_SeatWelt0",
+        "Armchair_BackWelt0"
       ]
     }
   ],

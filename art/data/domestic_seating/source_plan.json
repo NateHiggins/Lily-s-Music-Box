@@ -75,6 +75,18 @@
       "params": {
         "wood": "oak_quartered"
       }
+    },
+    {
+      "id": "Armchair",
+      "kind": "sofa",
+      "source_id": "5B_radio_chair",
+      "params": {
+        "length": 0.85,
+        "wood": "wood_dark",
+        "cloth": "fabric_cool",
+        "arms": "rolled",
+        "cushions": 1
+      }
     }
   ],
   "instances": [
@@ -248,7 +260,7 @@
     },
     {
       "id": "1A_reading_chair",
-      "variant": "ChairDark"
+      "variant": "Armchair"
     },
     {
       "id": "1A_bed_chair",
@@ -277,6 +289,10 @@
     {
       "id": "4D_chair2",
       "variant": "ChairDark"
+    },
+    {
+      "id": "5B_radio_chair",
+      "variant": "Armchair"
     }
   ],
   "runtime_keys": [
@@ -332,7 +348,8 @@
     "Replace segmented primitive chair hoop with continuous bentwood; retain seat outline and back control points. Cut splayed feet at the original floor plane, removing source penetration.",
     "Retain sofa lengths and cushion count; fitted padded shells, softened cushions and fine attached welts replace source blocks and floating stitch marks.",
     "Use existing fine oak and linen catalogue maps with source dark wood and cool fabric tints. No new global finish or map.",
-    "Native material tint values are linear light; runtime encodes them to sRGB for StandardMaterial3D albedo_color so the same finish matches Blender."
+    "Native material tint values are linear light; runtime encodes them to sRGB for StandardMaterial3D albedo_color so the same finish matches Blender.",
+    "Slice 10 of the V2 environment dossier adds the armchair (Armchair: the sofa recipe at 0.85 m with one cushion and rolled arms) for 5B's listening chair and 1A's reading chair."
   ],
   "open_work": [
     "Scoped native and all-instance runtime verification complete. Broader room material/light balance, remaining storage/kitchen furniture and whole-building visual acceptance remain open."

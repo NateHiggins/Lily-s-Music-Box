@@ -72,7 +72,7 @@ def sofa(params):
    pad('ArmRoll'+str(sign),(low-.01,-.43,.50),(high+.01,.42,.665),cloth,.075)
   else:
    pad('Arm'+str(sign),(low,-.44,.15),(high,.44,.62),cloth,.05)
- count=2;cw=(length-.04*(count+1))/count
+ count=int(params.get('cushions',2));cw=(length-.04*(count+1))/count
  for i in range(count):
   x0=-length/2+.04+i*(cw+.04);x1=x0+cw
   pad('SeatCushion'+str(i),(x0,-.28,.309),(x1,.41,.455),cloth,.026)

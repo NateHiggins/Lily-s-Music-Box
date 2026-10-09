@@ -89,14 +89,16 @@ func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dict
 		door.set_meta("semantic_id", identity)
 		anchor.add_child(door)
 		if door.door_kind == "apartment_entry" and not door.unit.is_empty():
-			_add_unit_numeral(door, record, layout)
+			var hall_side := _hall_side(door, record, layout)
+			_add_unit_numeral(door, hall_side)
+			_add_chain_guard(door, hall_side)
 	return true
 
-## Enamel unit-numeral plate on the hall face of every apartment entry leaf
-## (dossier BW-022). The leaf swings with it; lettering is a single-sided Label3D.
-func _add_unit_numeral(door: OrisonV2FittedDoor, record: Dictionary, layout: Dictionary) -> void:
+## Which leaf face looks into the hall: +1 for the leaf's +z face, -1 for -z,
+## from the centre of the connected space that is not the vestibule.
+func _hall_side(door: OrisonV2FittedDoor, record: Dictionary, layout: Dictionary) -> float:
 	var leaf := door.get_node_or_null("HingedLeaf") as Node3D
-	if leaf == null: return
+	if leaf == null: return 1.0
 	var hall_side := 1.0
 	for space_id: Variant in record.get("connects", []):
 		if str(space_id).contains("_VESTIBULE") or str(space_id).contains("_RESTRICTED"): continue
@@ -110,6 +112,13 @@ func _add_unit_numeral(door: OrisonV2FittedDoor, record: Dictionary, layout: Dic
 			while root.get_parent_node_3d() != null and not root.is_in_group("orison_v2_blockout"): root = root.get_parent_node_3d()
 			var local := leaf.to_local(root.to_global(Vector3(centre.x, 1.6, centre.z)))
 			hall_side = -1.0 if local.z < 0.0 else 1.0
+	return hall_side
+
+## Enamel unit-numeral plate on the hall face of every apartment entry leaf
+## (dossier BW-022). The leaf swings with it; lettering is a single-sided Label3D.
+func _add_unit_numeral(door: OrisonV2FittedDoor, hall_side: float) -> void:
+	var leaf := door.get_node_or_null("HingedLeaf") as Node3D
+	if leaf == null: return
 	var plate := MeshInstance3D.new()
 	plate.name = "UnitNumeralPlate"
 	var box := BoxMesh.new()
@@ -135,3 +144,48 @@ func _add_unit_numeral(door: OrisonV2FittedDoor, record: Dictionary, layout: Dic
 	numeral.position = Vector3(door.width * 0.5, 1.6, face_z + hall_side * 0.006)
 	numeral.rotation.y = 0.0 if hall_side > 0.0 else PI
 	leaf.add_child(numeral)
+
+## Chain door guard on the apartment face of every entry leaf (dossier
+## F0x_x_VESTIBULE-002): a brass slotted plate by the latch stile, the anchor
+## plate beside it with its chain hanging unhooked. Passive, no owner.
+func _add_chain_guard(door: OrisonV2FittedDoor, hall_side: float) -> void:
+	var leaf := door.get_node_or_null("HingedLeaf") as Node3D
+	if leaf == null: return
+	var flat_side := -hall_side
+	var slab_z: float = float(door.get("_hinge_offset"))
+	var face_z := slab_z + flat_side * 0.028
+	var brass := MatLib.get_mat("brass_dull", Color(0.80, 0.70, 0.50))
+	var guard := Node3D.new()
+	guard.name = "ChainGuard"
+	leaf.add_child(guard)
+	var slot := MeshInstance3D.new()
+	slot.name = "SlottedPlate"
+	var slot_mesh := BoxMesh.new()
+	slot_mesh.size = Vector3(0.085, 0.026, 0.004)
+	slot_mesh.material = brass
+	slot.mesh = slot_mesh
+	slot.position = Vector3(door.width - 0.16, 1.55, face_z + flat_side * 0.002)
+	guard.add_child(slot)
+	var anchor_plate := MeshInstance3D.new()
+	anchor_plate.name = "AnchorPlate"
+	var anchor_mesh := BoxMesh.new()
+	anchor_mesh.size = Vector3(0.036, 0.04, 0.004)
+	anchor_mesh.material = brass
+	anchor_plate.mesh = anchor_mesh
+	anchor_plate.position = Vector3(door.width - 0.06, 1.55, face_z + flat_side * 0.002)
+	guard.add_child(anchor_plate)
+	# The unhooked chain hangs from the anchor plate: four short links read as
+	# a chain at arm's length without a chain mesh.
+	for index in 4:
+		var link := MeshInstance3D.new()
+		link.name = "Link%d" % index
+		var mesh := CylinderMesh.new()
+		mesh.top_radius = 0.004
+		mesh.bottom_radius = 0.004
+		mesh.height = 0.034
+		mesh.radial_segments = 8
+		mesh.material = brass
+		link.mesh = mesh
+		link.position = Vector3(door.width - 0.06 - 0.004 * index, 1.53 - 0.03 * index - 0.017, face_z + flat_side * 0.009)
+		link.rotation.z = 0.12
+		guard.add_child(link)

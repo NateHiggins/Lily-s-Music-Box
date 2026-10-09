@@ -87,6 +87,10 @@ Slices landed so far (evidence folders in parentheses):
    final tree, where the household save owner adopts the copies and its
    suite counts the hall lights of slice 3, stale since then; `slice9h`
    is the upper-kitchen baseline at slice 8).
+10. Chain door guards on the apartment face of the eighteen entry leaves and
+    the Armchair seating form for 5B's listening chair and 1A's reading
+    chair (`slice10`; `slice10b` re-runs the fabrication batch with a valid
+    capture actor; `slice10c` is the door-hinge baseline at slice 9).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

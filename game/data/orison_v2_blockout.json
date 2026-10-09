@@ -1806,7 +1806,7 @@
     {"id":"F05_EAST_HALL_SWITCH","level":"F05","space":"F05_EAST_HALL","position":[5.9,1.12,-3.75],"yaw":3.141592653589793,"kind":"interaction"},
     {"id":"F06_WEST_HALL_SWITCH","level":"F06","space":"F06_WEST_HALL","position":[-5.0,1.12,-0.5],"yaw":3.141592653589793,"kind":"interaction"},
     {"id":"F06_EAST_HALL_SWITCH","level":"F06","space":"F06_EAST_HALL","position":[5.9,1.12,-3.75],"yaw":3.141592653589793,"kind":"interaction"},
-    {"id":"1A_reading_chair","level":"F01","space":"F01_A_MAIN","position":[-14.6,0,-5.3],"yaw":2.07,"kind":"furniture"},
+    {"id":"1A_reading_chair","level":"F01","space":"F01_A_MAIN","position":[-14.75,0,-5.4],"yaw":1.5707963267948966,"kind":"furniture"},
     {"id":"1A_side_table","level":"F01","space":"F01_A_MAIN","position":[-14.6,0,-4.5],"yaw":0.0,"kind":"furniture"},
     {"id":"1A_dressing_table","level":"F01","space":"F01_A_BED","position":[-15.33,0,-8.6],"yaw":1.5707963267948966,"kind":"furniture"},
     {"id":"1A_bed_chair","level":"F01","space":"F01_A_BED","position":[-14.45,0,-9.4],"yaw":0.0,"kind":"furniture"},
@@ -1840,7 +1840,8 @@
     {"id":"4C_hallstand","level":"F04","space":"F04_C_VESTIBULE","position":[-1.98,0,5.2],"yaw":1.5707963267948966,"kind":"furniture"},
     {"id":"1A_hallstand","level":"F01","space":"F01_A_VESTIBULE","position":[-6.9,0,-4.07],"yaw":3.141592653589793,"kind":"furniture"},
     {"id":"3D_hallstand","level":"F03","space":"F03_D_VESTIBULE","position":[-6.9,0,-4.07],"yaw":3.141592653589793,"kind":"furniture"},
-    {"id":"4D_hallstand","level":"F04","space":"F04_D_VESTIBULE","position":[-6.9,0,-4.07],"yaw":3.141592653589793,"kind":"furniture"}
+    {"id":"4D_hallstand","level":"F04","space":"F04_D_VESTIBULE","position":[-6.9,0,-4.07],"yaw":3.141592653589793,"kind":"furniture"},
+    {"id":"5B_radio_chair","level":"F05","space":"F05_B_MAIN","position":[-13.8,0,5.55],"yaw":-1.5707963267948966,"kind":"furniture"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},

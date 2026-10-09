@@ -1,0 +1,30 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/1A_reading_chair_native.jpg",
+   "source": "fabrication_shots/domestic_seating/1A_reading_chair_native.png",
+   "sha256": "ad7ae5e89b0c24e22eb5490b0ba4d946f5ffec17052f8794ed26654b847bc3b7",
+   "bytes": 112778
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "b05b804b22d60f43194cf0de432d2d0d3e5c4fb52b80fd3758c6e06e4dce0fc1",
+   "bytes": 3226
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "4c9b294106aaf9362b6a31ac353824422fc7115c12c3129dba250224d9b4daa9",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "75756a7e1e10dcffb4df5121882bbb0bc3a96dd05f04fdb12d16d55d0ca24bd4",
+   "bytes": 6291
+  }
+ ]
+}
