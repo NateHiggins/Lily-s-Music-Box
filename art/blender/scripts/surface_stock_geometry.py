@@ -404,6 +404,16 @@ def fileboxes(source):
   stock('Label'+str(i),(x-.035,.1245,.15),(x+.035,.127,.21),'paper',.0003)
   stock('Pull'+str(i),(x-.012,.1245,.06),(x+.012,.131,.075),'brass',.0006)
   bearing('box file '+str(i),(x,0,0));group('BoxFile'+str(i),start)
+# Dossier slice 22: the icebox drip pan, wet or dry.
+def driptray(source,wet=True):
+ start=len(stock_checks)
+ stock('Pan',(-.24,-.25,0),(.24,.25,.004),'nickel_plated',.001)
+ for y in [-.25,.242]:stock('RimLong'+str(y),(-.24,y,.003),(.24,y+.008,.03),'nickel_plated',.0008)
+ for x in [-.24,.232]:stock('RimEnd'+str(x),(x,-.243,.003),(x+.008,.243,.03),'nickel_plated',.0008)
+ if wet:stock('Water',(-.233,-.243,.0035),(.233,.243,.013),'glassish',.0004)
+ else:stock('Dust',(-.233,-.243,.0035),(.233,.243,.0045),'paper',.0002)
+ for p in [(-.22,-.23,0),(.22,-.23,0),(-.22,.23,0),(.22,.23,0)]:bearing('pan corner '+str(p),p)
+ group('DripPan',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -446,4 +456,6 @@ for assembly in assemblies:
  elif kind=='covered':covered(source)
  elif kind=='foldedcloth':foldedcloth(source)
  elif kind=='fileboxes':fileboxes(source)
+ elif kind=='driptray':driptray(source)
+ elif kind=='driptraydry':driptray(source,False)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

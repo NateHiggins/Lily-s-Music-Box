@@ -1,0 +1,36 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/6A_backdrop_rail_native.jpg",
+   "source": "fabrication_shots/domestic_objects/6A_backdrop_rail_native.png",
+   "sha256": "22f4e67f9848d7b900d6cbcfb06c95f50c1ad8a15e1d789bdc36b281c40492ce",
+   "bytes": 87984
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "35750b2ec0a253a7b772534a2f1336f09a0f508b00aa12f32078f17e436a8d4c",
+   "bytes": 3226
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "fb45d760c3ef86815c49abac60e543cf0cbfedafa5f59f719cf289b86198f110",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/upper_kitchen.log.receipt.json",
+   "source": "upper_kitchen.log.receipt.json",
+   "sha256": "5b37e45201e69f6177f8e0f29a03db8aefeb2c6ad188a237f79a74f53115fb46",
+   "bytes": 3188
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "c6fa8dcf43d595907c7dc90cbb1005e2f122e5d13bb88f1c02b612847a1ad50d",
+   "bytes": 6292
+  }
+ ]
+}

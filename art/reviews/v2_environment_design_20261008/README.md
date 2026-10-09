@@ -122,6 +122,8 @@ Slices landed so far (evidence folders in parentheses):
 21. The lobby noticeboard and 1928 photograph, the common room's armchair
     (`slice21`, `slice21b`, `slice21c`; `slice21base` holds the public-room
     suites at slice 20).
+22. A drip pan under each of the fourteen iceboxes (`slice22`; `slice22b`
+    narrows slice 20's backdrop clear of the tripod stance).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

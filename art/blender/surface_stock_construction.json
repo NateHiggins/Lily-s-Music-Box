@@ -1773,6 +1773,90 @@
       "kind": "fileboxes",
       "cell": "2A",
       "source_record": "2A_files_2b"
+    },
+    {
+      "id": "1D_drip_tray",
+      "kind": "driptray",
+      "cell": "1D",
+      "source_record": "1D_drip_tray"
+    },
+    {
+      "id": "2A_drip_tray",
+      "kind": "driptray",
+      "cell": "2A",
+      "source_record": "2A_drip_tray"
+    },
+    {
+      "id": "2B_drip_tray",
+      "kind": "driptray",
+      "cell": "2B",
+      "source_record": "2B_drip_tray"
+    },
+    {
+      "id": "2C_drip_tray",
+      "kind": "driptray",
+      "cell": "2C",
+      "source_record": "2C_drip_tray"
+    },
+    {
+      "id": "3B_drip_tray",
+      "kind": "driptray",
+      "cell": "3B",
+      "source_record": "3B_drip_tray"
+    },
+    {
+      "id": "3D_drip_tray",
+      "kind": "driptray",
+      "cell": "3D",
+      "source_record": "3D_drip_tray"
+    },
+    {
+      "id": "4A_drip_tray",
+      "kind": "driptray",
+      "cell": "4A",
+      "source_record": "4A_drip_tray"
+    },
+    {
+      "id": "4C_drip_tray",
+      "kind": "driptraydry",
+      "cell": "4C",
+      "source_record": "4C_drip_tray"
+    },
+    {
+      "id": "4D_drip_tray",
+      "kind": "driptray",
+      "cell": "4D",
+      "source_record": "4D_drip_tray"
+    },
+    {
+      "id": "4B_drip_tray",
+      "kind": "driptray",
+      "cell": "4B",
+      "source_record": "4B_drip_tray"
+    },
+    {
+      "id": "5A_drip_tray",
+      "kind": "driptray",
+      "cell": "5A",
+      "source_record": "5A_drip_tray"
+    },
+    {
+      "id": "5C_drip_tray",
+      "kind": "driptray",
+      "cell": "5C",
+      "source_record": "5C_drip_tray"
+    },
+    {
+      "id": "6A_drip_tray",
+      "kind": "driptray",
+      "cell": "6A",
+      "source_record": "6A_drip_tray"
+    },
+    {
+      "id": "6B_drip_tray",
+      "kind": "driptray",
+      "cell": "6B",
+      "source_record": "6B_drip_tray"
     }
   ],
   "closed_stocks": [
@@ -13667,6 +13751,510 @@
       "assembly": "2A_files_2b",
       "key": "brass",
       "volume_m3": 2.323986728643896e-06
+    },
+    {
+      "name": "1D_drip_tray_Pan",
+      "assembly": "1D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "1D_drip_tray_RimLong-0.25",
+      "assembly": "1D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "1D_drip_tray_RimLong0.242",
+      "assembly": "1D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "1D_drip_tray_RimEnd-0.24",
+      "assembly": "1D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "1D_drip_tray_RimEnd0.232",
+      "assembly": "1D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "1D_drip_tray_Water",
+      "assembly": "1D_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "2A_drip_tray_Pan",
+      "assembly": "2A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "2A_drip_tray_RimLong-0.25",
+      "assembly": "2A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "2A_drip_tray_RimLong0.242",
+      "assembly": "2A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "2A_drip_tray_RimEnd-0.24",
+      "assembly": "2A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "2A_drip_tray_RimEnd0.232",
+      "assembly": "2A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "2A_drip_tray_Water",
+      "assembly": "2A_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "2B_drip_tray_Pan",
+      "assembly": "2B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "2B_drip_tray_RimLong-0.25",
+      "assembly": "2B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "2B_drip_tray_RimLong0.242",
+      "assembly": "2B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "2B_drip_tray_RimEnd-0.24",
+      "assembly": "2B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "2B_drip_tray_RimEnd0.232",
+      "assembly": "2B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "2B_drip_tray_Water",
+      "assembly": "2B_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "2C_drip_tray_Pan",
+      "assembly": "2C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "2C_drip_tray_RimLong-0.25",
+      "assembly": "2C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "2C_drip_tray_RimLong0.242",
+      "assembly": "2C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "2C_drip_tray_RimEnd-0.24",
+      "assembly": "2C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "2C_drip_tray_RimEnd0.232",
+      "assembly": "2C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "2C_drip_tray_Water",
+      "assembly": "2C_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "3B_drip_tray_Pan",
+      "assembly": "3B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "3B_drip_tray_RimLong-0.25",
+      "assembly": "3B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "3B_drip_tray_RimLong0.242",
+      "assembly": "3B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "3B_drip_tray_RimEnd-0.24",
+      "assembly": "3B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "3B_drip_tray_RimEnd0.232",
+      "assembly": "3B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "3B_drip_tray_Water",
+      "assembly": "3B_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "3D_drip_tray_Pan",
+      "assembly": "3D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "3D_drip_tray_RimLong-0.25",
+      "assembly": "3D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "3D_drip_tray_RimLong0.242",
+      "assembly": "3D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "3D_drip_tray_RimEnd-0.24",
+      "assembly": "3D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "3D_drip_tray_RimEnd0.232",
+      "assembly": "3D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "3D_drip_tray_Water",
+      "assembly": "3D_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "4A_drip_tray_Pan",
+      "assembly": "4A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "4A_drip_tray_RimLong-0.25",
+      "assembly": "4A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "4A_drip_tray_RimLong0.242",
+      "assembly": "4A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "4A_drip_tray_RimEnd-0.24",
+      "assembly": "4A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "4A_drip_tray_RimEnd0.232",
+      "assembly": "4A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "4A_drip_tray_Water",
+      "assembly": "4A_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "4C_drip_tray_Pan",
+      "assembly": "4C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "4C_drip_tray_RimLong-0.25",
+      "assembly": "4C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "4C_drip_tray_RimLong0.242",
+      "assembly": "4C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "4C_drip_tray_RimEnd-0.24",
+      "assembly": "4C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "4C_drip_tray_RimEnd0.232",
+      "assembly": "4C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "4C_drip_tray_Dust",
+      "assembly": "4C_drip_tray",
+      "key": "paper",
+      "volume_m3": 0.00022643782862041644
+    },
+    {
+      "name": "4D_drip_tray_Pan",
+      "assembly": "4D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "4D_drip_tray_RimLong-0.25",
+      "assembly": "4D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "4D_drip_tray_RimLong0.242",
+      "assembly": "4D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "4D_drip_tray_RimEnd-0.24",
+      "assembly": "4D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "4D_drip_tray_RimEnd0.232",
+      "assembly": "4D_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "4D_drip_tray_Water",
+      "assembly": "4D_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "4B_drip_tray_Pan",
+      "assembly": "4B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "4B_drip_tray_RimLong-0.25",
+      "assembly": "4B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "4B_drip_tray_RimLong0.242",
+      "assembly": "4B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "4B_drip_tray_RimEnd-0.24",
+      "assembly": "4B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "4B_drip_tray_RimEnd0.232",
+      "assembly": "4B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "4B_drip_tray_Water",
+      "assembly": "4B_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "5A_drip_tray_Pan",
+      "assembly": "5A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "5A_drip_tray_RimLong-0.25",
+      "assembly": "5A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "5A_drip_tray_RimLong0.242",
+      "assembly": "5A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "5A_drip_tray_RimEnd-0.24",
+      "assembly": "5A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "5A_drip_tray_RimEnd0.232",
+      "assembly": "5A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "5A_drip_tray_Water",
+      "assembly": "5A_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "5C_drip_tray_Pan",
+      "assembly": "5C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "5C_drip_tray_RimLong-0.25",
+      "assembly": "5C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "5C_drip_tray_RimLong0.242",
+      "assembly": "5C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "5C_drip_tray_RimEnd-0.24",
+      "assembly": "5C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "5C_drip_tray_RimEnd0.232",
+      "assembly": "5C_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "5C_drip_tray_Water",
+      "assembly": "5C_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "6A_drip_tray_Pan",
+      "assembly": "6A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "6A_drip_tray_RimLong-0.25",
+      "assembly": "6A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "6A_drip_tray_RimLong0.242",
+      "assembly": "6A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "6A_drip_tray_RimEnd-0.24",
+      "assembly": "6A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "6A_drip_tray_RimEnd0.232",
+      "assembly": "6A_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "6A_drip_tray_Water",
+      "assembly": "6A_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
+    },
+    {
+      "name": "6B_drip_tray_Pan",
+      "assembly": "6B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.000959017686680933
+    },
+    {
+      "name": "6B_drip_tray_RimLong-0.25",
+      "assembly": "6B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898173
+    },
+    {
+      "name": "6B_drip_tray_RimLong0.242",
+      "assembly": "6B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010335128277898172
+    },
+    {
+      "name": "6B_drip_tray_RimEnd-0.24",
+      "assembly": "6B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "6B_drip_tray_RimEnd0.232",
+      "assembly": "6B_drip_tray",
+      "key": "nickel_plated",
+      "volume_m3": 0.00010464344564959555
+    },
+    {
+      "name": "6B_drip_tray_Water",
+      "assembly": "6B_drip_tray",
+      "key": "glassish",
+      "volume_m3": 0.0021513682662485526
     }
   ],
   "contacts": [
@@ -21019,6 +21607,846 @@
         0
       ],
       "label": "box file 6"
+    },
+    {
+      "assembly": "1D_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "1D_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "1D_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "1D_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "2A_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "2A_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "2A_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "2A_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "2B_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "2B_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "2B_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "2B_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "2C_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "2C_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "2C_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "2C_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "3B_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "3B_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "3B_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "3B_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "3D_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "3D_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "3D_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "3D_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "4A_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "4A_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "4A_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "4A_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "4C_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "4C_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "4C_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "4C_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "4D_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "4D_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "4D_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "4D_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "4B_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "4B_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "4B_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "4B_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "5A_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "5A_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "5A_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "5A_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "5C_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "5C_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "5C_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "5C_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "6A_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "6A_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "6A_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "6A_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "6B_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "6B_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, -0.23, 0)"
+    },
+    {
+      "assembly": "6B_drip_tray",
+      "owner": "support",
+      "point": [
+        -0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (-0.22, 0.23, 0)"
+    },
+    {
+      "assembly": "6B_drip_tray",
+      "owner": "support",
+      "point": [
+        0.22,
+        0,
+        -0.23
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pan corner (0.22, 0.23, 0)"
     }
   ],
   "parts": [
@@ -23499,9 +24927,205 @@
       "cell": "2A",
       "key": "paper",
       "triangles": 1316
+    },
+    {
+      "name": "1D_drip_tray__glassish",
+      "assembly": "1D_drip_tray",
+      "cell": "1D",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "1D_drip_tray__nickel_plated",
+      "assembly": "1D_drip_tray",
+      "cell": "1D",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "2A_drip_tray__glassish",
+      "assembly": "2A_drip_tray",
+      "cell": "2A",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "2A_drip_tray__nickel_plated",
+      "assembly": "2A_drip_tray",
+      "cell": "2A",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "2B_drip_tray__glassish",
+      "assembly": "2B_drip_tray",
+      "cell": "2B",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "2B_drip_tray__nickel_plated",
+      "assembly": "2B_drip_tray",
+      "cell": "2B",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "2C_drip_tray__glassish",
+      "assembly": "2C_drip_tray",
+      "cell": "2C",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "2C_drip_tray__nickel_plated",
+      "assembly": "2C_drip_tray",
+      "cell": "2C",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "3B_drip_tray__glassish",
+      "assembly": "3B_drip_tray",
+      "cell": "3B",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "3B_drip_tray__nickel_plated",
+      "assembly": "3B_drip_tray",
+      "cell": "3B",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "3D_drip_tray__glassish",
+      "assembly": "3D_drip_tray",
+      "cell": "3D",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "3D_drip_tray__nickel_plated",
+      "assembly": "3D_drip_tray",
+      "cell": "3D",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "4A_drip_tray__glassish",
+      "assembly": "4A_drip_tray",
+      "cell": "4A",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "4A_drip_tray__nickel_plated",
+      "assembly": "4A_drip_tray",
+      "cell": "4A",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "4C_drip_tray__nickel_plated",
+      "assembly": "4C_drip_tray",
+      "cell": "4C",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "4C_drip_tray__paper",
+      "assembly": "4C_drip_tray",
+      "cell": "4C",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "4D_drip_tray__glassish",
+      "assembly": "4D_drip_tray",
+      "cell": "4D",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "4D_drip_tray__nickel_plated",
+      "assembly": "4D_drip_tray",
+      "cell": "4D",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "4B_drip_tray__glassish",
+      "assembly": "4B_drip_tray",
+      "cell": "4B",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "4B_drip_tray__nickel_plated",
+      "assembly": "4B_drip_tray",
+      "cell": "4B",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "5A_drip_tray__glassish",
+      "assembly": "5A_drip_tray",
+      "cell": "5A",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "5A_drip_tray__nickel_plated",
+      "assembly": "5A_drip_tray",
+      "cell": "5A",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "5C_drip_tray__glassish",
+      "assembly": "5C_drip_tray",
+      "cell": "5C",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "5C_drip_tray__nickel_plated",
+      "assembly": "5C_drip_tray",
+      "cell": "5C",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "6A_drip_tray__glassish",
+      "assembly": "6A_drip_tray",
+      "cell": "6A",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "6A_drip_tray__nickel_plated",
+      "assembly": "6A_drip_tray",
+      "cell": "6A",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "6B_drip_tray__glassish",
+      "assembly": "6B_drip_tray",
+      "cell": "6B",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "6B_drip_tray__nickel_plated",
+      "assembly": "6B_drip_tray",
+      "cell": "6B",
+      "key": "nickel_plated",
+      "triangles": 940
     }
   ],
-  "triangles": 742800,
+  "triangles": 758592,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -28599,6 +30223,371 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "1D_drip_tray",
+        "parts": [
+          {
+            "name": "1D_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "1D_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "2A_drip_tray",
+        "parts": [
+          {
+            "name": "2A_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "2A_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "2B_drip_tray",
+        "parts": [
+          {
+            "name": "2B_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "2B_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "2C_drip_tray",
+        "parts": [
+          {
+            "name": "2C_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "2C_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3B_drip_tray",
+        "parts": [
+          {
+            "name": "3B_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "3B_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3D_drip_tray",
+        "parts": [
+          {
+            "name": "3D_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "3D_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4A_drip_tray",
+        "parts": [
+          {
+            "name": "4A_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "4A_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4C_drip_tray",
+        "parts": [
+          {
+            "name": "4C_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "4C_drip_tray__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4D_drip_tray",
+        "parts": [
+          {
+            "name": "4D_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "4D_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4B_drip_tray",
+        "parts": [
+          {
+            "name": "4B_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "4B_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5A_drip_tray",
+        "parts": [
+          {
+            "name": "5A_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "5A_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5C_drip_tray",
+        "parts": [
+          {
+            "name": "5C_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "5C_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6A_drip_tray",
+        "parts": [
+          {
+            "name": "6A_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "6A_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6B_drip_tray",
+        "parts": [
+          {
+            "name": "6B_drip_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "6B_drip_tray__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -28627,9 +30616,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "7ad1cfdd0808b62ce8b8c8c069b9a337eec90be2c3f2ef7fc8547047a04806f4",
+  "asset_sha256": "7db39263fa6b731ed89e5698beb89c071fd08fa9e903741c82ebbe15ee6f05ed",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "2705fae2b6f58516ab19d1962125e4149bac9c30095fd23d0c69a29b5cba3f96",
+    "art/data/surface_stock/source_plan.json": "f1dc6f4e3b9dea3ef4203059c1ffeefac587c7052c68cf86b9ef7ca90354c609",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -28733,13 +30722,13 @@
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "9463dfc9e9974167e7d5ea71f5a131f688e477974897b414ff3df3180efd7184",
+    "art/blender/scripts/surface_stock_geometry.py": "81bc24f954b74a2711b99584a1efda73e49efda1c7eb9afb822e33917289073e",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "eabd7e163b1d0fb3ca91bd54f432da96eb2b59aeecbe76fe73147008e3bbac01",
+    "game/data/orison_v2/domestic_surface_props.json": "8abbd4a22587b26353c985f595871d0de91112c14e21d6f6b6f86284e49b345d",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "beb84465ca9bfb28b3a640620719171cf7c73fc1858b339d624d2f8c8eee0986"
+    "game/data/orison_v2/domestic_furniture.json": "65059da7626436713f7147869a2c1db7a4dc5d17f4bf100c1115defbb3e38bf9"
   },
   "retained_stock": [
     {
@@ -35795,6 +37784,174 @@
         "2A_files_2b_Box6",
         "2A_files_2b_Label6",
         "2A_files_2b_Pull6"
+      ]
+    },
+    {
+      "assembly": "1D_drip_tray",
+      "id": "1D_drip_tray_DripPan",
+      "stocks": [
+        "1D_drip_tray_Pan",
+        "1D_drip_tray_RimLong-0.25",
+        "1D_drip_tray_RimLong0.242",
+        "1D_drip_tray_RimEnd-0.24",
+        "1D_drip_tray_RimEnd0.232",
+        "1D_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "2A_drip_tray",
+      "id": "2A_drip_tray_DripPan",
+      "stocks": [
+        "2A_drip_tray_Pan",
+        "2A_drip_tray_RimLong-0.25",
+        "2A_drip_tray_RimLong0.242",
+        "2A_drip_tray_RimEnd-0.24",
+        "2A_drip_tray_RimEnd0.232",
+        "2A_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "2B_drip_tray",
+      "id": "2B_drip_tray_DripPan",
+      "stocks": [
+        "2B_drip_tray_Pan",
+        "2B_drip_tray_RimLong-0.25",
+        "2B_drip_tray_RimLong0.242",
+        "2B_drip_tray_RimEnd-0.24",
+        "2B_drip_tray_RimEnd0.232",
+        "2B_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "2C_drip_tray",
+      "id": "2C_drip_tray_DripPan",
+      "stocks": [
+        "2C_drip_tray_Pan",
+        "2C_drip_tray_RimLong-0.25",
+        "2C_drip_tray_RimLong0.242",
+        "2C_drip_tray_RimEnd-0.24",
+        "2C_drip_tray_RimEnd0.232",
+        "2C_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "3B_drip_tray",
+      "id": "3B_drip_tray_DripPan",
+      "stocks": [
+        "3B_drip_tray_Pan",
+        "3B_drip_tray_RimLong-0.25",
+        "3B_drip_tray_RimLong0.242",
+        "3B_drip_tray_RimEnd-0.24",
+        "3B_drip_tray_RimEnd0.232",
+        "3B_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "3D_drip_tray",
+      "id": "3D_drip_tray_DripPan",
+      "stocks": [
+        "3D_drip_tray_Pan",
+        "3D_drip_tray_RimLong-0.25",
+        "3D_drip_tray_RimLong0.242",
+        "3D_drip_tray_RimEnd-0.24",
+        "3D_drip_tray_RimEnd0.232",
+        "3D_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "4A_drip_tray",
+      "id": "4A_drip_tray_DripPan",
+      "stocks": [
+        "4A_drip_tray_Pan",
+        "4A_drip_tray_RimLong-0.25",
+        "4A_drip_tray_RimLong0.242",
+        "4A_drip_tray_RimEnd-0.24",
+        "4A_drip_tray_RimEnd0.232",
+        "4A_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "4C_drip_tray",
+      "id": "4C_drip_tray_DripPan",
+      "stocks": [
+        "4C_drip_tray_Pan",
+        "4C_drip_tray_RimLong-0.25",
+        "4C_drip_tray_RimLong0.242",
+        "4C_drip_tray_RimEnd-0.24",
+        "4C_drip_tray_RimEnd0.232",
+        "4C_drip_tray_Dust"
+      ]
+    },
+    {
+      "assembly": "4D_drip_tray",
+      "id": "4D_drip_tray_DripPan",
+      "stocks": [
+        "4D_drip_tray_Pan",
+        "4D_drip_tray_RimLong-0.25",
+        "4D_drip_tray_RimLong0.242",
+        "4D_drip_tray_RimEnd-0.24",
+        "4D_drip_tray_RimEnd0.232",
+        "4D_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "4B_drip_tray",
+      "id": "4B_drip_tray_DripPan",
+      "stocks": [
+        "4B_drip_tray_Pan",
+        "4B_drip_tray_RimLong-0.25",
+        "4B_drip_tray_RimLong0.242",
+        "4B_drip_tray_RimEnd-0.24",
+        "4B_drip_tray_RimEnd0.232",
+        "4B_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "5A_drip_tray",
+      "id": "5A_drip_tray_DripPan",
+      "stocks": [
+        "5A_drip_tray_Pan",
+        "5A_drip_tray_RimLong-0.25",
+        "5A_drip_tray_RimLong0.242",
+        "5A_drip_tray_RimEnd-0.24",
+        "5A_drip_tray_RimEnd0.232",
+        "5A_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "5C_drip_tray",
+      "id": "5C_drip_tray_DripPan",
+      "stocks": [
+        "5C_drip_tray_Pan",
+        "5C_drip_tray_RimLong-0.25",
+        "5C_drip_tray_RimLong0.242",
+        "5C_drip_tray_RimEnd-0.24",
+        "5C_drip_tray_RimEnd0.232",
+        "5C_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "6A_drip_tray",
+      "id": "6A_drip_tray_DripPan",
+      "stocks": [
+        "6A_drip_tray_Pan",
+        "6A_drip_tray_RimLong-0.25",
+        "6A_drip_tray_RimLong0.242",
+        "6A_drip_tray_RimEnd-0.24",
+        "6A_drip_tray_RimEnd0.232",
+        "6A_drip_tray_Water"
+      ]
+    },
+    {
+      "assembly": "6B_drip_tray",
+      "id": "6B_drip_tray_DripPan",
+      "stocks": [
+        "6B_drip_tray_Pan",
+        "6B_drip_tray_RimLong-0.25",
+        "6B_drip_tray_RimLong0.242",
+        "6B_drip_tray_RimEnd-0.24",
+        "6B_drip_tray_RimEnd0.232",
+        "6B_drip_tray_Water"
       ]
     }
   ],
