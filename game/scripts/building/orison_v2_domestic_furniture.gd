@@ -16,7 +16,7 @@ const NativeRadios := preload("res://scripts/building/orison_v2_native_household
 const NativeObjects := preload("res://scripts/building/orison_v2_native_domestic_objects.gd")
 const NATIVE_KINDS := ["chair", "sofa", "nightstand", "table_round", "table_rect", "coffee"]
 const STORAGE_KINDS := ["shelf", "cupboard", "counter"]
-const OBJECT_KINDS := ["pinboard","toolboard","crate","softbox","cablecoil","plant","bookpile","tripod","reeldeck","hallstand"]
+const OBJECT_KINDS := ["pinboard","toolboard","crate","softbox","cablecoil","plant","bookpile","tripod","reeldeck","hallstand","artframe"]
 const MATERIAL_ALIASES := {"floor_oak": "oak_quartered", "fabric_cool": "linen", "fabric_green": "linen"}
 const GARMENT_TINTS := {"fabric_cool": Color(0.36, 0.42, 0.51), "fabric_green": Color(0.38, 0.46, 0.36)}
 var errors: Array[String] = []
@@ -167,7 +167,7 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		return false
 	var seen: Dictionary = {}
 	for record: Variant in source.furniture:
-		if record is not Dictionary or record.get("id") is not String or record.get("kind") not in ["bed", "workbench", "toilet", "nightstand", "wardrobe", "shelf", "sofa", "counter", "desk", "chair", "table_round", "table_rect", "cupboard", "coffee", "crate", "pinboard", "toolboard", "prep_cabinet", "radio", "reeldeck", "plant", "tripod", "softbox", "cablecoil", "bookpile", "hallstand"]:
+		if record is not Dictionary or record.get("id") is not String or record.get("kind") not in ["bed", "workbench", "toilet", "nightstand", "wardrobe", "shelf", "sofa", "counter", "desk", "chair", "table_round", "table_rect", "cupboard", "coffee", "crate", "pinboard", "toolboard", "prep_cabinet", "radio", "reeldeck", "plant", "tripod", "softbox", "cablecoil", "bookpile", "hallstand", "artframe"]:
 			errors.append("invalid furniture identity or kind")
 			continue
 		if seen.has(record.id) or adapter == null or not adapter.resolve(record.id) is Node3D:

@@ -283,6 +283,37 @@ def hallstand(source):
   for y in [-.13,.12]:bearing('stand foot '+str((x,y)),(x,y,0))
  group('HallStand',start)
 
+def artframe(source):
+ # Dossier slice 11/12 wall art: a stretched canvas or a framed document, hung
+ # on rear battens to the actual wall face (wall_mount). No lettering: a seal
+ # disc and a pen stroke stand for the document's text.
+ start=len(stock_checks);width=source['W'];height=source['H']
+ if source['style']=='canvas':
+  for x in [-width/2,width/2-.035]:stock('Stile'+str(x),(x,0,0),(x+.035,.02,height),'timber',.0006)
+  for z in [0,height-.035]:stock('Rail'+str(z),(-width/2+.034,0,z),(width/2-.034,.02,z+.035),'timber',.0006)
+  # A centre brace takes the rear battens; the canvas wraps both side edges.
+  stock('Brace',(-width/2+.034,0,height/2-.02),(width/2-.034,.02,height/2+.02),'timber',.0006)
+  stock('Canvas',(-width/2-.002,.0195,0),(width/2+.002,.0235,height),'linen',.0004)
+  for side in [-1,1]:stock('Wrap'+str(side),(min(side*width/2,side*(width/2+.002)),.002,0),(max(side*width/2,side*(width/2+.002)),.0236,height),'linen',.0003)
+  fields=source.get('fields',[])
+  for i,(x0,z0,x1,z1,key) in enumerate(fields):
+   stock('Paint'+str(i),(-width/2+x0*width,.023,z0*height),(-width/2+x1*width,.0245+.0004*(i%3),z1*height),key,.0002)
+  for side in [-1,1]:
+   for i in range(5):
+    z=.08+i*(height-.16)/4;x=side*(width/2+.00235)
+    # Tack heads driven through the wrapped canvas edge (wrap .000-.002 m proud).
+    stock('Tack'+str((side,i)),(x-.00115,.009,z-.003),(x+.00115,.013,z+.003),'metal',.0002)
+ else:
+  stock('Backing',(-width/2+.01,0,.01),(width/2-.01,.006,height-.01),'plywood',.0004)
+  stock('Mat',(-width/2+.02,.0055,.02),(width/2-.02,.009,height-.02),'linen',.0003)
+  stock('Document',(-width/2+.055,.0085,.065),(width/2-.055,.0105,height-.055),'paper',.0002)
+  axial(identity+'_Seal',width/2-.105,.115,[(0,.0100),(.021,.0100),(.021,.0118),(.017,.0128),(0,.0128)],identity,'brass',32)
+  stock('Signature',(-width/2+.08,.0102,.1),(-width/2+.17,.0110,.103),'soot',.0001)
+  for x in [-width/2,width/2-.025]:stock('Moulding'+str(x),(x,0,0),(x+.025,.028,height),'wood_dark',.001)
+  for z in [0,height-.025]:stock('MouldingRail'+str(z),(-width/2+.024,0,z),(width/2-.024,.028,z+.025),'wood_dark',.001)
+ wall_mount(source,width,height)
+ group('WallArt',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -298,4 +329,5 @@ for assembly in assemblies:
  elif kind=='tripod':tripod(source,assembly['members'][0])
  elif kind=='softbox':softbox(source,assembly['members'][0])
  elif kind=='hallstand':hallstand(source)
+ elif kind=='artframe':artframe(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

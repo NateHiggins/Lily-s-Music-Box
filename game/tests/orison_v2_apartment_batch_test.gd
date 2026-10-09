@@ -443,6 +443,10 @@ func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary
 	var glass_surfaces := 0
 	for record: Dictionary in source.furniture:
 		if not expected.has(record.kind): continue
+		# This roster is the original category set. Pieces the V2 environment
+		# dossier adds are native-only and held by the fabrication batch.
+		var provenance: Variant = _authoring_proof.get("furniture", {}).get(str(record.id), {})
+		if provenance is Dictionary and str(provenance.get("source_component", {}).get("note", "")).begins_with("V2 environment dossier"): continue
 		seen[record.kind] += 1
 		var body := world.adapter.resolve(record.id) as StaticBody3D
 		check(body != null, "category furniture mounted: " + str(record.id))

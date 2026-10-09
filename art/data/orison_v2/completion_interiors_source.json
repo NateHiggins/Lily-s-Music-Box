@@ -6097,6 +6097,30 @@
         ],
         "yaw": 3.141592653589793,
         "kind": "furniture"
+      },
+      {
+        "id": "1A_frame_a",
+        "level": "F01",
+        "space": "F01_A_MAIN",
+        "position": [
+          -12.39,
+          1.34,
+          -3.94
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "1A_frame_b",
+        "level": "F01",
+        "space": "F01_A_MAIN",
+        "position": [
+          -11.47,
+          1.34,
+          -3.94
+        ],
+        "yaw": 0,
+        "kind": "furniture"
       }
     ],
     "stairs": [
@@ -7699,6 +7723,16 @@
         "id": "4C_prep_cabinet",
         "template": "5C_prep_cabinet",
         "unit": "4C"
+      },
+      {
+        "id": "1A_frame_a",
+        "template": "4A_frame_a",
+        "unit": "1A"
+      },
+      {
+        "id": "1A_frame_b",
+        "template": "4A_frame_a",
+        "unit": "1A"
       }
     ],
     "lighting": {

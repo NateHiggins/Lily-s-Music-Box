@@ -296,6 +296,113 @@
    "kind": "hallstand",
    "source_id": "2A_hallstand",
    "params": {}
+  },
+  {
+   "id": "DomesticObject17",
+   "kind": "pinboard",
+   "source_id": "4B_case_wall",
+   "params": {
+    "id": "4B_case_wall",
+    "asm": "pinboard",
+    "W": 1.0,
+    "H": 1.0,
+    "cards": 24,
+    "neat": true
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject18",
+   "kind": "pinboard",
+   "source_id": "5A_plan_wall",
+   "params": {
+    "id": "5A_plan_wall",
+    "asm": "pinboard",
+    "W": 1.6,
+    "H": 1.0,
+    "cards": 20,
+    "neat": false
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject19",
+   "kind": "artframe",
+   "source_id": "5C_canvas_a",
+   "params": {
+    "W": 0.6,
+    "H": 0.8,
+    "style": "canvas",
+    "fields": [
+     [
+      0.08,
+      0.08,
+      0.92,
+      0.55,
+      "terracotta"
+     ],
+     [
+      0.08,
+      0.6,
+      0.55,
+      0.92,
+      "book_ochre"
+     ],
+     [
+      0.6,
+      0.6,
+      0.92,
+      0.92,
+      "soot"
+     ]
+    ]
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject20",
+   "kind": "artframe",
+   "source_id": "5C_canvas_b",
+   "params": {
+    "W": 0.6,
+    "H": 0.8,
+    "style": "canvas",
+    "fields": [
+     [
+      0.08,
+      0.45,
+      0.92,
+      0.92,
+      "book_teal"
+     ],
+     [
+      0.08,
+      0.08,
+      0.4,
+      0.4,
+      "soot"
+     ],
+     [
+      0.45,
+      0.08,
+      0.92,
+      0.4,
+      "terracotta"
+     ]
+    ]
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject21",
+   "kind": "artframe",
+   "source_id": "4A_frame_a",
+   "params": {
+    "W": 0.32,
+    "H": 0.42,
+    "style": "document"
+   },
+   "rear_wall_y": -0.02
   }
  ],
  "instances": [
@@ -442,6 +549,38 @@
   {
    "id": "5B_deck",
    "variant": "DomesticObject04"
+  },
+  {
+   "id": "4B_case_wall",
+   "variant": "DomesticObject17"
+  },
+  {
+   "id": "5A_plan_wall",
+   "variant": "DomesticObject18"
+  },
+  {
+   "id": "5C_canvas_a",
+   "variant": "DomesticObject19"
+  },
+  {
+   "id": "5C_canvas_b",
+   "variant": "DomesticObject20"
+  },
+  {
+   "id": "4A_frame_a",
+   "variant": "DomesticObject21"
+  },
+  {
+   "id": "4A_frame_b",
+   "variant": "DomesticObject21"
+  },
+  {
+   "id": "1A_frame_a",
+   "variant": "DomesticObject21"
+  },
+  {
+   "id": "1A_frame_b",
+   "variant": "DomesticObject21"
   }
  ],
  "runtime_keys": [
@@ -641,7 +780,8 @@
   "Source-equivalent forms share a variant only when their source geometry and rear-wall fit match.",
   "Rubber plant retains six source-sized leaves and their node heights; tapered living stem, radial leaf directions and curved blades replace the legacy post and aligned discs. Fine existing catalogue nickel and dark moulded bakelite replace oversized galvanized and pebbled finishes locally.",
   "Slice 8 of the V2 environment dossier adds the hall stand (DomesticObject16) to the seventeen apartment vestibules, standing clear of every leaf's swing and switch approach; the sixteen V1 records are unchanged.",
-  "Slice 11 of the V2 environment dossier adds a second reel deck (DomesticObject04) on 5B's deck table; it bears on that table like 2A's on the coffee table."
+  "Slice 11 of the V2 environment dossier adds a second reel deck (DomesticObject04) on 5B's deck table; it bears on that table like 2A's on the coffee table.",
+  "Slice 12 of the V2 environment dossier adds two pinboards (4B's case wall, 5A's plan wall) and a wall-art form (artframe: stretched canvas with painted fields and edge tacks, or a moulded frame holding a document with a brass seal) for 5C's diptych and the framed pairs in 4A and 1A."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

@@ -95,6 +95,10 @@ Slices landed so far (evidence folders in parentheses):
     3B's outgoing shelf with parcels, 6B's desk arrangement with a wire
     wastebasket, 2A's unlabelled carton (`slice11b`; `slice11` is the first
     run, red on two placements fixed before the squash).
+12. Wall pieces: 4B's case wall and 5A's plan wall (pinboard variants), a
+    wall-art form for 5C's diptych and the framed pairs in 4A and 1A
+    (`slice12`; `slice12b` re-runs the apartment batch after its roster
+    was held to the original category set).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the
