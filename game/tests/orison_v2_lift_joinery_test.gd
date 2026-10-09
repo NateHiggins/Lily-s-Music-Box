@@ -11,6 +11,14 @@ func _run() -> void:
 	world.player.set_physics_process(false); world.player.set_lamp_enabled(false)
 	for child in world.player.carried_device.get_children():
 		if child is CanvasLayer: child.hide()
+	await validate_in_world(world)
+	world.shutdown_for_tests(); world.free()
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var old_camera_pose := world.player.camera.transform
+	var old_player_pose := world.player.global_transform
+	var old_fov: float = world.player.camera.fov
 	var lift := world.elevator as OrisonElevator
 	var wood := lift._cab_joinery.find_child("CabJoinery",true,false) as MeshInstance3D
 	var paint := lift._cab_joinery.find_child("RearEnamel",true,false) as MeshInstance3D
@@ -55,8 +63,13 @@ func _run() -> void:
 	camera.look_at(lift._cabin.to_global(Vector3(.725,.58,-.11)))
 	await shot("raised_panel_detail")
 	print("LIFT JOINERY: wall_probes=%d control_bores=2 failures=%d" % [contacts,failures.size()])
-	world.shutdown_for_tests(); world.free()
-	get_tree().quit(0 if failures.is_empty() else 1)
+	world.player.global_transform=old_player_pose
+	world.player.camera.transform=old_camera_pose
+	world.player.camera.fov=old_fov
+	world.player.camera.make_current()
+	world.mirror_renderer._main_camera=world.player.camera
+	camera.free()
+	return {"checks":batch_checks,"failures":failures}
 
 func _mesh_distance(faces: PackedVector3Array, origin: Vector3, direction: Vector3) -> float:
 	var nearest := INF

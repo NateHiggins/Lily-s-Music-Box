@@ -92,3 +92,12 @@ other city/weather joints, courtyard/street closure, independent shop services,
 whole-shell readiness and broader room/material acceptance. Heating cutouts stay
 parked. Decision needed from owner: none for this source-owned correction.
 The candidate verifier determines the publication verdict.
+
+## October 8 local galvanized finish
+
+Eleven installed **galvanized_roof** groups reuse the existing **roof** recipe
+and **zinc_quiet** maps. Original source materials remain immutable; all other
+city finish families are unchanged. Native geometry/export bytes are preserved.
+See **design/V2_CITY_ROOF_FINISH_2026-10-08.md** and the read-only
+**scripts/review_city_roof_finish.py**. **ORISON_CITY_FINISH_VIEWS** limits saved
+comparison photographs while every original corner/contact check still runs.

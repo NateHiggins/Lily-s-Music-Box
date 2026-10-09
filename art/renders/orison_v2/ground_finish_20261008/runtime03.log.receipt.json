@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 80.77,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T22:56:52Z",
+  "started_utc": "2026-10-08T22:55:31Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-ground-finish/runtime03.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-ground-finish/runtime03.log",
+  "stdout_sha256": "64ff56492db530593a2926db1e4a843f8ef65bd4f65ce77435b6f316d2b002b9"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2CityFoundationsTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-ground-finish/runtime03",
+ "source": {
+  "dirty_paths": 284,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M DOCS.md",
+   " M art/blender/groundworks.md",
+   " M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/scripts/building/orison_v2_ground.gd",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/tests/orison_v2_city_foundations_test.gd",
+   "?? art/blender/scripts/review_ground_finish.py",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? art/reviews/v2_improvement_20261008/",
+   "?? design/V2_GROUND_FINISH_2026-10-08.md",
+   "?? game/data/orison_v2/ground_finish.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid",
+   "?? game/scripts/building/orison_v2_basement.gd.uid",
+   "?? game/scripts/building/orison_v2_bath_details.gd.uid"
+  ],
+  "repository_head": "03118dd742820413eb8ffa33adc660b4ddfcd95e",
+  "repository_tree": "9832ec2cdd5d31dc859c36e38a644543a0463429",
+  "runtime_inputs_sha256": "92b2197f17f3ccf60a8fb7e48b367bfe463137e4dc8c926fe5fa664767e98b7e",
+  "test_path": "game/tests/orison_v2_city_foundations_test.gd",
+  "test_sha256": "45233166701a3586ccc34adfe3d1ea904354552d0894f83ca8722fc513dd46e7"
+ },
+ "windowed": true
+}

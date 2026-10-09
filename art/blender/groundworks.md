@@ -170,3 +170,12 @@ The next **city_foundations.md** batch expands the bounded ground around seven
 actual city undersides and reconciles only the obsolete near-neighbor exclusion.
 The 48 original stations remain frozen. Alley/well/collector geometry and controls
 are retained; farther city closure and full shell readiness remain open.
+
+## Ground finish continuation (2026-10-08)
+
+The bounded asphalt finish now uses a local tint/normal/roughness profile while
+retaining the saved native geometry, original maps, metre UVs and soil. Current
+exports contain 2,112 ground partitions, including 1,876 asphalt partitions;
+historical construction counts above describe their original batches. Read-only
+Blender and installed pairs are in **art/renders/orison_v2/ground_finish_20261008**.
+See **design/V2_GROUND_FINISH_2026-10-08.md** for scope and verification limits.

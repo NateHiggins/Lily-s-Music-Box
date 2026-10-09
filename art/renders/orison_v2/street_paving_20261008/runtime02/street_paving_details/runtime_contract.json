@@ -1,0 +1,37 @@
+{
+	"checks": 511,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 37.335,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Twenty installed native street detail groups, exact source records, metre UV/tangent checks, original collision owners and 223 surface bearings; supported player-height captures; original player-input street crossing and return; shared-world owner retirement. No save reconstruction or drainage/weather capacity.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "7023ec99241e01795f7e7347876280c7bdd0d0d2",
+		"runtime_inputs_sha256": "db42187e913955b98d00a1965fd3275356eac8885860875224c6e1b740247d01",
+		"test_path": "game/tests/orison_v2_street_paving_details_test.gd",
+		"test_sha256": "ac2304278744e67a110216e0bb0aaf7d603cfb4930f6eea3575368e90d4c52ad"
+	}
+}

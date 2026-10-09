@@ -248939,6 +248939,491 @@
    "rationale": "Test/capture Godot-space coordinate.",
    "resolved_target": null,
    "target_exists": null
+  },
+  {
+   "key": "ddd88bdbb720e610",
+   "kind": "id_reference",
+   "token": "F01_BAR_LT_WEST1",
+   "file": "game/data/orison_v2/owner_light_fits.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "1fe4888c2a499395",
+   "kind": "id_reference",
+   "token": "F01_BAR_LT_WEST1",
+   "file": "game/scripts/building/orison_v2_native_fixed_lighting.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "prepare"
+   ],
+   "lines": [
+    19,
+    20,
+    21
+   ],
+   "count": 3,
+   "context": [
+    "if not _offsets.has(\"F01_BAR_LT_WEST1\") or current_fits.size()!=1:return false",
+    "var fit: Array=current_fits[\"F01_BAR_LT_WEST1\"]",
+    "_offsets[\"F01_BAR_LT_WEST1\"]+=Vector3(fit[0],fit[1],fit[2])"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "7d939a6e870ecc33",
+   "kind": "id_reference",
+   "token": "F01_DOOR_06",
+   "file": "game/scripts/building/orison_v2_owner_building_finishes.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "apply"
+   ],
+   "lines": [
+    18
+   ],
+   "count": 1,
+   "context": [
+    "var door: Node3D=world.adapter.resolve(\"F01_DOOR_06\").get_node(\"F01_DOOR_06_Leaf\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F01/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4129993e8d9f09df",
+   "kind": "node_path",
+   "token": "F01_DOOR_06_Leaf",
+   "file": "game/scripts/building/orison_v2_owner_building_finishes.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "apply"
+   ],
+   "lines": [
+    18
+   ],
+   "count": 1,
+   "context": [
+    "var door: Node3D=world.adapter.resolve(\"F01_DOOR_06\").get_node(\"F01_DOOR_06_Leaf\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b2c83e1fd3b8ca9a",
+   "kind": "vector3_coordinate",
+   "token": "validate_in_world",
+   "file": "game/tests/orison_v2_city_tanks_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    77,
+    81
+   ],
+   "count": 2,
+   "context": [
+    "world.player.global_position=bottom+Vector3(7,2.3,8)-Vector3.UP*world.player.STANDING_EYE",
+    "world.player.global_position=top+Vector3(2.5,1,3)-Vector3.UP*world.player.STANDING_EYE"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "57185abe1ea07094",
+   "kind": "id_reference",
+   "token": "F01_BAR_LT_WEST1",
+   "file": "game/tests/orison_v2_fixed_lighting_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    106
+   ],
+   "count": 1,
+   "context": [
+    "var bar_sconce: LightFixtureProp=factory.installed[\"F01_BAR_LT_WEST1\"].get_ref()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+acoustic_node+fixture",
+   "target_exists": true
+  },
+  {
+   "key": "28bc0e02c33370a0",
+   "kind": "vector3_coordinate",
+   "token": "validate_in_world",
+   "file": "game/tests/orison_v2_front_facade_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    67,
+    67,
+    67,
+    67,
+    67,
+    67,
+    67,
+    67,
+    67
+   ],
+   "count": 9,
+   "context": [
+    "for view: Array in [[\"front\",Vector3(0,1.43,6),Vector3(0,2.7,0)],[\"approach\",Vector3(3,1.43,4),Vector3(0,2.7,0)],[\"door\",Vector3(.45,1.43,1.55),Vector3(0,1.6,0)"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "cea4843d0342c1d0",
+   "kind": "id_reference",
+   "token": "F01_DOOR_06",
+   "file": "game/tests/orison_v2_owner_building_routes_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "var door:=world.adapter.resolve(\"F01_DOOR_06\").get_node(\"F01_DOOR_06_Leaf\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/marker+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "68c137e2ac5729e9",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_DOOR",
+   "file": "game/tests/orison_v2_owner_building_routes_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    34,
+    36
+   ],
+   "count": 2,
+   "context": [
+    "if not await _open_door(\"ROOF_PUBLIC_DOOR\"):return",
+    "if not await _close_door(\"ROOF_PUBLIC_DOOR\"):return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "18443e79aee3a960",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_DOOR",
+   "file": "game/tests/orison_v2_owner_building_routes_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    40,
+    43
+   ],
+   "count": 2,
+   "context": [
+    "if not await _open_door(\"ROOF_SERVICE_DOOR\"):return",
+    "if not await _close_door(\"ROOF_SERVICE_DOOR\"):return"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ba90757f691ce113",
+   "kind": "node_path",
+   "token": "F01_DOOR_06_Leaf",
+   "file": "game/tests/orison_v2_owner_building_routes_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "var door:=world.adapter.resolve(\"F01_DOOR_06\").get_node(\"F01_DOOR_06_Leaf\") as DoorProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "7100e41e55553282",
+   "kind": "vector3_coordinate",
+   "token": "_prepare_player_start",
+   "file": "game/tests/orison_v2_owner_building_routes_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_prepare_player_start"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [
+    "player.global_position=world.adapter.root.to_global(Vector3(-1.35,19.25,0));player.velocity=Vector3.ZERO"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "07734ea5f961a9f0",
+   "kind": "vector3_coordinate",
+   "token": "_route",
+   "file": "game/tests/orison_v2_owner_building_routes_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_route"
+   ],
+   "lines": [
+    21,
+    23,
+    26,
+    35,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    37,
+    39,
+    41,
+    42
+   ],
+   "count": 15,
+   "context": [
+    "if not await _walk(Vector3(0,0,-10.3)):return",
+    "if not await _walk(Vector3(0,0,-13.15)):return",
+    "if not await _walk(Vector3(-3.6,19.2,0)):return",
+    "for point in [Vector3(-12,19.2,0),Vector3(-12,19.2,-9),Vector3(0,19.2,-9),Vector3(14,19.2,-9),Vector3(14,19.2,10.8),Vector3(7.5,19.2,10.8),Vector3(7.5,19.2,3),V"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "03ab9d8774fec944",
+   "kind": "id_reference",
+   "token": "F01_D_MAIN",
+   "file": "game/tests/orison_v2_roof_membrane_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_registration_matches"
+   ],
+   "lines": [
+    144
+   ],
+   "count": 1,
+   "context": [
+    "var west: Array=live.spaces.filter(func(row):return row.id==\"F01_D_MAIN\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c81d632c77b3cdaa",
+   "kind": "vector3_coordinate",
+   "token": "validate_in_world",
+   "file": "game/tests/orison_v2_owner_building_finish_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    84
+   ],
+   "count": 1,
+   "context": [
+    "await _city_capture(world,world.adapter.root.to_global(Vector3(-12.,19.24,-9.)),world.adapter.root.to_global(Vector3(-7.5,19.2,-7.4)),\"roof_day\",\"production day"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

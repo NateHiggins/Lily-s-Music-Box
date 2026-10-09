@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 15.07,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T20:57:41Z",
+  "started_utc": "2026-10-08T20:57:26Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-street-finish/import01.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-street-finish/import01.log",
+  "stdout_sha256": "c19b00c8c745e9bdc23b5dedf9bd9e01ba2528376b13d66dfd65ac8d5faf2310"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 292,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_front_pavement_test.gd",
+   "?? art/blender/scripts/build_street_paving_details.py",
+   "?? art/blender/scripts/inspect_front_pavement.py",
+   "?? art/blender/scripts/inspect_street_paving_details.py",
+   "?? art/blender/street_paving_details.blend",
+   "?? art/blender/street_paving_details_construction.json",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? art/reviews/v2_improvement_20261008/",
+   "?? game/assets/props/street_paving_details.glb",
+   "?? game/data/orison_v2/street_paving_details.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid",
+   "?? game/scripts/building/orison_v2_atmosphere.gd.uid"
+  ],
+  "repository_head": "7023ec99241e01795f7e7347876280c7bdd0d0d2",
+  "repository_tree": "b096c1115bfffccc0ace11684a78f6baac19d75d",
+  "runtime_inputs_sha256": "db42187e913955b98d00a1965fd3275356eac8885860875224c6e1b740247d01",
+  "test_path": null,
+  "test_sha256": null
+ },
+ "windowed": false
+}

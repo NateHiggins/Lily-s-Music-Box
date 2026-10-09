@@ -11,6 +11,14 @@ func _run() -> void:
 	world.player.set_physics_process(false); world.player.set_lamp_enabled(false)
 	for child in world.player.carried_device.get_children():
 		if child is CanvasLayer: child.hide()
+	await validate_in_world(world)
+	world.shutdown_for_tests(); world.free()
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var old_camera_pose := world.player.camera.transform
+	var old_player_pose := world.player.global_transform
+	var old_fov: float = world.player.camera.fov
 	var camera := Camera3D.new()
 	world.add_child(camera); camera.make_current(); camera.fov=60
 	var fill := OmniLight3D.new()
@@ -36,6 +44,7 @@ func _run() -> void:
 		var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(ray)
 		check(not hit.is_empty() and hit.collider==fan.get_node("PlantCollision"),"original physical curb remains installed")
 		if not hit.is_empty(): check(absf(fan.to_local(hit.position).z+.36)<.001,"fabricated curb matches actual collision front")
+		var was_running: bool=fan.is_running()
 		fan.set_running(true,true)
 		var before: Basis=fan._rotor.basis
 		await get_tree().create_timer(.12).timeout
@@ -54,7 +63,14 @@ func _run() -> void:
 			camera.look_at(fan.to_global(paint.get_aabb().get_center()))
 			fill.global_position=camera.global_position
 			await shot("roof_ventilator_reverse")
+		fan.set_running(was_running,true)
 	check(count==4 and actuations==4,"all four variant machines tested")
 	print("ROOF VENTILATORS: machines=%d actuations=%d failures=%d" % [count,actuations,failures.size()])
-	world.shutdown_for_tests(); world.free()
-	get_tree().quit(0 if failures.is_empty() else 1)
+	world.player.global_transform=old_player_pose
+	world.player.camera.transform=old_camera_pose
+	world.player.camera.fov=old_fov
+	world.player.camera.make_current()
+	world.mirror_renderer._main_camera=world.player.camera
+	camera.free()
+	fill.free()
+	return {"checks":batch_checks,"failures":failures}

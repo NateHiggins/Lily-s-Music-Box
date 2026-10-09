@@ -20,6 +20,16 @@ func _run() -> void:
 	world.player.set_lamp_enabled(false)
 	for child in world.player.carried_device.get_children():
 		if child is CanvasLayer: child.hide()
+	await validate_in_world(world)
+	world.shutdown_for_tests(); world.free()
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var old_camera_pose := world.player.camera.transform
+	var old_player_pose := world.player.global_transform
+	var old_fov: float = world.player.camera.fov
+	var lift := world.elevator as OrisonElevator
+	var original_open: float=lift._doors[lift.current].t
 	var visual := lift._gate.get_node("ArticulatedGate")
 	for child in lift._gate.get_children():
 		if child is MeshInstance3D: check(not child.visible,"primitive gate bars are not double-rendered")
@@ -71,5 +81,13 @@ func _run() -> void:
 	fill.global_position=camera.global_position; fill.light_energy=.35
 	await shot("landing_gate_separation")
 	print("LIFT GATE: articulation_samples=%d failures=%d" % [sample_count,failures.size()])
-	world.shutdown_for_tests(); world.free()
-	get_tree().quit(0 if failures.is_empty() else 1)
+	world.player.global_transform=old_player_pose
+	world.player.camera.transform=old_camera_pose
+	world.player.camera.fov=old_fov
+	world.player.camera.make_current()
+	world.mirror_renderer._main_camera=world.player.camera
+	camera.free()
+	fill.free()
+	lift._set_door_t(lift.current,original_open)
+	lift._drive_cab_hardware()
+	return {"checks":batch_checks,"failures":failures}

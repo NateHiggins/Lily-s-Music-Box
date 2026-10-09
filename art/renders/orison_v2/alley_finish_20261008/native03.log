@@ -1,0 +1,13 @@
+00:01.578  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\alley_groundworks.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\review_service_alley_finish.py:43: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new('OriginalUnmappedCoping');mat.use_nodes=True
+C:\PleaseRemainOnTheLine\art\blender\scripts\review_service_alley_finish.py:59: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('NeutralAlley');scene.world.use_nodes=True
+00:03.781  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-alley-finish\native\boundary_before.png'
+00:05.718  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-alley-finish\native\boundary_after.png'
+00:08.421  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-alley-finish\native\grate_before.png'
+00:11.046  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-alley-finish\native\grate_after.png'
+ALLEY NATIVE REVIEW {"evidence_class": "INERT", "unchanged_native_and_export_sha256": {"art/blender/service_alley.blend": "7955e33c84dd4c587e25febf92d3f252f37b7b283946b97855a1492e7d748688", "art/blender/alley_groundworks.blend": "edbfb2bd80c7213d89e357c902137cb45e6e4adeb79e60959153d7f78491ef91", "game/assets/props/service_alley.glb": "b3dff947da47729aa31213acee5eb7cd5245f2b1759d0d2135376e5e142ee5f9", "game/assets/props/alley_groundworks.glb": "4186dff05f604e3a574b77b4044578ee331369626a3ffcf6cc8e21bd192d7e38"}, "positive_closed_stocks": 342, "finish_recipes_sha256": "be0167318573c69579f6efa727328a73a25d18bcbd81650fb1406875c9c5dd7a", "scope": "Read-only neutral daylight comparison. Groundworks use native metre charts; boundary review copies use world-planar charts approximating retained Godot triplanar projection. Before reproduces catalogue response and plain fallback coping, not production lighting. No geometry rebuild or runtime proof."}
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

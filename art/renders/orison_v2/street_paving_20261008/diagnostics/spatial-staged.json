@@ -1,0 +1,330 @@
+{
+ "mode": "check",
+ "summary": {
+  "records": 8460,
+  "by_tier": {
+   "data": 5092,
+   "production": 1006,
+   "scene": 5,
+   "test": 2357
+  },
+  "by_kind": {
+   "asset_path": 352,
+   "floor_reference": 383,
+   "generated_name": 108,
+   "id_candidate": 111,
+   "id_reference": 5700,
+   "layout_load": 32,
+   "manual_contract": 13,
+   "node_path": 288,
+   "plan_coordinate": 73,
+   "runtime_id": 280,
+   "unit_reference": 872,
+   "vector3_coordinate": 248
+  },
+  "by_authority": {
+   "DATA_FOREIGN_KEY": 5092,
+   "DEBUG_ONLY": 12,
+   "GENERATED_IDENTITY": 389,
+   "RUNTIME_LOOKUP": 847,
+   "SAVE_CONTRACT": 16,
+   "SCENE_NODE_PATH": 288,
+   "TEST_CONTRACT": 2357
+  },
+  "by_spatial": {
+   "ASSET_PATH": 352,
+   "CAMERA_STATION": 276,
+   "CONTAINMENT_ASSUMPTION": 10,
+   "DERIVED_LAYOUT_LOOKUP": 32,
+   "DISTANCE_THRESHOLD": 10,
+   "FLOOR_MEMBERSHIP": 394,
+   "RAW_GODOT_COORDINATE": 249,
+   "RAW_PLAN_COORDINATE": 76,
+   "ROOM_MEMBERSHIP": 684,
+   "SEMANTIC_ANCHOR": 5431,
+   "UNKNOWN_DYNAMIC": 112
+  },
+  "by_disposition": {
+   "MUST_PRESERVE_ID": 119,
+   "OWNER_DECISION": 1,
+   "PRESERVE_OR_ALIAS": 5783,
+   "REGENERATE_CONSUMER": 143,
+   "REPLACE_WITH_NAMED_ANCHOR": 52,
+   "SAFE_TO_CHANGE": 5,
+   "UNRESOLVED": 111,
+   "UPDATE_TEST_FIXTURE": 2246
+  },
+  "by_confidence": {
+   "HIGH": 401,
+   "LOW": 111,
+   "MEDIUM": 7948
+  }
+ },
+ "stats": {
+  "files_scanned": 1463,
+  "vector3_total": 5243,
+  "vector3_stats_only": 4102,
+  "b2g_derived": 337,
+  "gd_strings_seen": 96632
+ },
+ "drift": {
+  "new_failing": [],
+  "new_reported": [],
+  "stale_preserved": [],
+  "cleanup_opportunities": [
+   {
+    "key": "696ad76059d7e47b",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_root.tscn",
+    "file": "game/tests/debug_in_pause_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     28
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "DEBUG_ONLY",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "ec38c048df1ef0c7",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_root.tscn",
+    "file": "game/tests/dream_ecology_entry_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     14
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "ba67dfc6fa3b9703",
+    "kind": "vector3_coordinate",
+    "token": "_run",
+    "file": "game/tests/orison_v2_vertical_route_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     23
+    ],
+    "count": 1,
+    "context": [
+     "player.global_position = world.adapter.root.to_global(Vector3(2.3, 0.02, -3.5))"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "3bdade892942c01b",
+    "kind": "asset_path",
+    "token": "res://scenes/building/orison_root.tscn",
+    "file": "game/tests/zoo_teleport_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     34
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "ASSET_PATH"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "6bc5eea6111d4f8f",
+    "kind": "vector3_coordinate",
+    "token": "_prepare_player_start",
+    "file": "game/tests/orison_v2_basement_route_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_prepare_player_start"
+    ],
+    "lines": [
+     7
+    ],
+    "count": 1,
+    "context": [
+     "player.global_position = world.adapter.root.to_global(Vector3(4.4,-3.18,2.8))"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "a77d70df92368a67",
+    "kind": "vector3_coordinate",
+    "token": "_run",
+    "file": "game/tests/orison_v2_city_tanks_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     69,
+     73
+    ],
+    "count": 2,
+    "context": [
+     "world.player.global_position=bottom+Vector3(7,2.3,8)-Vector3.UP*world.player.STANDING_EYE",
+     "world.player.global_position=top+Vector3(2.5,1,3)-Vector3.UP*world.player.STANDING_EYE"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "20288e5701dac9a2",
+    "kind": "generated_name",
+    "token": "mount_cell",
+    "file": "game/scripts/building/orison_v2_shop_seating.gd",
+    "tier": "production",
+    "subsystem": "building",
+    "symbols": [
+     "mount_cell"
+    ],
+    "lines": [
+     62
+    ],
+    "count": 1,
+    "context": [
+     "\"F01_retail_seating_\"+str(draw.name)"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "MEDIUM",
+    "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "1e1aecab805cf5b4",
+    "kind": "vector3_coordinate",
+    "token": "_run",
+    "file": "game/tests/orison_v2_front_facade_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_run"
+    ],
+    "lines": [
+     59,
+     59,
+     59,
+     59,
+     59,
+     59,
+     59,
+     59,
+     59
+    ],
+    "count": 9,
+    "context": [
+     "for view: Array in [[\"front\",Vector3(0,1.43,6),Vector3(0,2.7,0)],[\"approach\",Vector3(4,1.43,5),Vector3(0,2.7,0)],[\"door\",Vector3(.45,1.43,1.55),Vector3(0,1.6,0)"
+    ],
+    "gameplay_binding": true,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "CAMERA_STATION",
+     "RAW_GODOT_COORDINATE"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test/capture Godot-space coordinate.",
+    "resolved_target": null,
+    "target_exists": null
+   }
+  ],
+  "class_changes": [],
+  "target_vanished": [],
+  "save_unresolved": []
+ },
+ "result": "clean"
+}

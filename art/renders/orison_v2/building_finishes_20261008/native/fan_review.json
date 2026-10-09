@@ -1,0 +1,45 @@
+{
+  "evidence_class": "INERT",
+  "views": [
+    {
+      "family": "roof_ventilator",
+      "identity": "roof_ventilator",
+      "file": "roof_ventilator.png",
+      "changed_materials": [
+        {
+          "material": "brass_dull",
+          "key": "brass_dull"
+        },
+        {
+          "material": "cast_iron",
+          "key": "cast_iron"
+        },
+        {
+          "material": "rubber_aged",
+          "key": "rubber_aged"
+        },
+        {
+          "material": "trim",
+          "key": "trim"
+        },
+        {
+          "material": "trim.panel",
+          "key": "trim"
+        }
+      ],
+      "native_sha256": "ca9ea9e68aff000d69f77b88ea366682b47970255607da3977b84355d15598d7",
+      "eye": [
+        1.4364713430404663,
+        -2.209955930709839,
+        1.7499732971191406
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.42399999499320984
+      ],
+      "scope": "Neutral base-finish/native form; source-local weather masks and full assembly verified in Godot."
+    }
+  ],
+  "profile_sha256": "6e36950dcc525242b9d0d912d1f10322247cda27dfea885199afc1b8557f81f9"
+}

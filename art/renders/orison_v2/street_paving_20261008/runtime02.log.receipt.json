@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 83.04,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T21:02:12Z",
+  "started_utc": "2026-10-08T21:00:49Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-street-finish/runtime02.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-street-finish/runtime02.log",
+  "stdout_sha256": "6f12e5f7e96161e01729bda3692bd996ebe9ff75d4627f92025a20944cf016dc"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-street-finish/runtime02",
+ "source": {
+  "dirty_paths": 293,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_front_pavement_test.gd",
+   " M tools/plan_v2_fabrication.py",
+   "?? art/blender/scripts/build_street_paving_details.py",
+   "?? art/blender/scripts/inspect_front_pavement.py",
+   "?? art/blender/scripts/inspect_street_paving_details.py",
+   "?? art/blender/street_paving_details.blend",
+   "?? art/blender/street_paving_details_construction.json",
+   "?? art/renders/insitu/shot_024.png",
+   "?? art/renders/insitu/shot_025.png",
+   "?? art/renders/insitu/shot_026.png",
+   "?? art/renders/insitu/shot_027.png",
+   "?? art/reviews/v2_improvement_20261008/",
+   "?? game/assets/props/street_paving_details.glb",
+   "?? game/data/orison_v2/street_paving_details.json",
+   "?? game/scripts/building/orison_v2_architectural_materials.gd.uid"
+  ],
+  "repository_head": "7023ec99241e01795f7e7347876280c7bdd0d0d2",
+  "repository_tree": "b096c1115bfffccc0ace11684a78f6baac19d75d",
+  "runtime_inputs_sha256": "db42187e913955b98d00a1965fd3275356eac8885860875224c6e1b740247d01",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "d807f393c409cf45f64332200eb662f9cf2a4954f18ba7d99a04e0ec6ae6fe4e"
+ },
+ "windowed": true
+}

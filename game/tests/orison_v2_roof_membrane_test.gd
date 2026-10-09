@@ -14,6 +14,14 @@ func _run() -> void:
 	world.player.set_physics_process(false)
 	world.service_set_carrier.set_capture_hidden(true)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):layer.hide()
+	await validate_in_world(world)
+	world.shutdown_for_tests();world.free();await _retired_audio()
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var old_camera_pose := world.player.camera.transform
+	var old_player_pose := world.player.global_transform
+	var old_fov: float = world.player.camera.fov
 	var root: Node3D=world.adapter.root
 	var model: Node3D=root.get_node("RoofMembrane")
 	var fixture: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_roof_membrane.json"))
@@ -36,7 +44,7 @@ func _run() -> void:
 		var floor: MeshInstance3D=root.get_node(identity+"/Floor")
 		if floor.mesh==null:
 			check(false,"retained floor sides remain present")
-			world.shutdown_for_tests();world.free();get_tree().quit(1);return
+			return {"checks":batch_checks,"failures":failures}
 		floor_ids[(floor.get_node("Collision") as CollisionObject3D).get_rid()]=true
 		retained[identity]=floor.mesh
 		for surface in floor.mesh.get_surface_count():
@@ -57,7 +65,7 @@ func _run() -> void:
 		var faces: PackedVector3Array=preload("res://scripts/building/orison_v2_native_faces.gd").read(draw.mesh)
 		parts+=1;triangles+=faces.size()/3
 		_check_cap_mapping(draw.mesh,true)
-		var material:=draw.material_override as StandardMaterial3D
+		var material: StandardMaterial3D=draw.get_meta("v2_building_source",draw.material_override) as StandardMaterial3D
 		check(material!=null and material.albedo_texture!=null and material.roughness_texture!=null and material.normal_texture!=null,"three real catalogue maps reach the finish")
 		check(material!=MatLib.get_mat("roof_bitumen") and not material.uv1_triplanar,"fitted chart owns UVs without changing the shared catalogue material")
 		check(material.vertex_color_use_as_albedo and not material.vertex_color_is_srgb,"one physical roof material reads linear bond shading without extra seam draws")
@@ -116,10 +124,22 @@ func _run() -> void:
 	var file:=FileAccess.open(OS.get_environment("SHOT_DIR").path_join("roof-membrane-inspection.json"),FileAccess.WRITE)
 	file.store_string(JSON.stringify({"evidence_class":"INERT","checks":checks,"contacts":contacts,"parts":parts,"triangles":triangles,"failures":failures,"observations":observations},"\t"))
 	print("ROOF MEMBRANE: checks=",checks," contacts=",contacts," parts=",parts," triangles=",triangles," failures=",failures.size())
-	world.shutdown_for_tests();world.free();await _retired_audio()
-	get_tree().quit(0 if failures.is_empty() else 1)
+	world.player.global_transform=old_player_pose
+	world.player.camera.transform=old_camera_pose
+	world.player.camera.fov=old_fov
+	world.player.camera.make_current()
+	return {"checks":batch_checks,"failures":failures}
 
 func _visible_counts() -> Dictionary:
 	var viewport:=get_viewport().get_viewport_rid()
 	return {"draws":RenderingServer.viewport_get_render_info(viewport,RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_DRAW_CALLS_IN_FRAME),
 		"primitives":RenderingServer.viewport_get_render_info(viewport,RenderingServer.VIEWPORT_RENDER_INFO_TYPE_VISIBLE,RenderingServer.VIEWPORT_RENDER_INFO_PRIMITIVES_IN_FRAME)}
+
+func _registration_matches(fixture: Dictionary) -> bool:
+	var source:=FileAccess.get_file_as_string("res://data/orison_v2_blockout.json").replace("\r\n","\n")
+	var original:=str(fixture.source_bindings["game/data/orison_v2_blockout.json"])
+	if source.sha256_text()==original:return true
+	var review: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_city_registration_review.json"))
+	var live: Dictionary=JSON.parse_string(source)
+	var west: Array=live.spaces.filter(func(row):return row.id=="F01_D_MAIN")
+	return review.historical_sha256==original and review.current_sha256==source.sha256_text() and live.dimensions==review.source_projection.dimensions and west.size()==1 and west[0]==review.source_projection.west

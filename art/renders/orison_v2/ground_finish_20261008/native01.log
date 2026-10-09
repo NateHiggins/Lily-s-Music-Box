@@ -1,0 +1,10 @@
+00:04.578  blend            | Read blend: "C:\PleaseRemainOnTheLine\art\blender\orison_ground.blend"
+C:\PleaseRemainOnTheLine\art\blender\scripts\review_ground_finish.py:31: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world=bpy.data.worlds.new('GroundReview');scene.world.use_nodes=True
+00:08.375  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-ground-finish\native\west_city_bedding_before.png'
+00:10.797  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-ground-finish\native\west_city_bedding_after.png'
+00:13.219  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-ground-finish\native\courtyard_city_plinth_before.png'
+00:15.625  render           | Saved: 'C:\PleaseRemainOnTheLine\tmp\v2-ground-finish\native\courtyard_city_plinth_after.png'
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

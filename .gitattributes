@@ -1686,3 +1686,44 @@ game/tests/orison_v2_diner_apparatus_test.gd -text
 game/tests/orison_v2_diner_urns_test.gd -text
 
 art/renders/orison_v2/cloth_shops_20261008/** -text
+
+game/scripts/building/orison_v2_owner_building_finishes.gd -text
+game/shaders/orison_owner_component.gdshader -text
+game/tests/orison_v2_owner_building_finish_test.gd -text
+game/tests/orison_v2_owner_building_routes_test.gd -text
+art/renders/orison_v2/building_finishes_20261008/** -text
+game/data/orison_v2/owner_light_fits.json -text
+game/tests/fixtures/orison_city_registration_review.json -text
+game/tests/fixtures/orison_owner_building_finish.json -text
+
+# Source-bound V2 import continuation baseline and review queue.
+art/data/v2_import_resume_20261008/** -text
+
+# Native street paving and source-bound inspection.
+art/blender/scripts/inspect_front_pavement.py -text
+art/blender/scripts/build_street_paving_details.py -text
+art/blender/scripts/inspect_street_paving_details.py -text
+art/blender/street_paving_details.blend -text
+art/blender/street_paving_details_construction.json -text
+game/data/orison_v2/street_paving_details.json -text
+game/tests/fixtures/orison_front_pavement_review.json -text
+game/tests/fixtures/orison_street_paving_details.json -text
+game/scripts/building/orison_v2_street_paving_details.gd -text
+game/tests/orison_v2_street_paving_details_test.gd -text
+game/tests/orison_v2_front_pavement_test.gd -text
+art/renders/orison_v2/street_paving_20261008/** -text
+# Rear alley local finish review (native geometry reused).
+game/data/orison_v2/service_alley_finish.json -text
+game/scripts/building/orison_v2_service_alley.gd -text
+game/tests/orison_v2_alley_finish_test.gd -text
+art/blender/scripts/review_service_alley_finish.py -text
+art/renders/orison_v2/alley_finish_20261008/** -text
+game/scripts/building/orison_v2_city_shells.gd -text
+game/tests/orison_v2_city_closure_test.gd -text
+art/blender/scripts/review_city_roof_finish.py -text
+art/renders/orison_v2/city_roof_finish_20261008/** -text
+game/data/orison_v2/ground_finish.json -text
+game/scripts/building/orison_v2_ground.gd -text
+game/tests/orison_v2_city_foundations_test.gd -text
+art/blender/scripts/review_ground_finish.py -text
+art/renders/orison_v2/ground_finish_20261008/** -text

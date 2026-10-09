@@ -1,0 +1,691 @@
+{
+	"checks": 28732,
+	"embedded_stations": 2,
+	"evidence_class": "INERT",
+	"failures": [],
+	"note": "Installed bounded ground only. Drainage, air-well, broader city and weather closure remain open.",
+	"original_reproduced": 48,
+	"parts": 2112,
+	"render_observations": [
+		{
+			"hidden": {
+				"draw_calls": 279,
+				"primitives": 255344
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 0,
+				"primitives": 0
+			},
+			"view": "west_grade"
+		},
+		{
+			"hidden": {
+				"draw_calls": 1787,
+				"primitives": 1871145
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 296,
+				"primitives": 255752
+			},
+			"view": "north_grade"
+		},
+		{
+			"hidden": {
+				"draw_calls": 50,
+				"primitives": 58308
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 1967,
+				"primitives": 1874295
+			},
+			"view": "east_grade"
+		},
+		{
+			"hidden": {
+				"draw_calls": 1425,
+				"primitives": 1334481
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 57,
+				"primitives": 58450
+			},
+			"view": "boiler_air_reserved_below_alley"
+		},
+		{
+			"hidden": {
+				"draw_calls": 3333,
+				"primitives": 3742019
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 1893,
+				"primitives": 1337257
+			},
+			"view": "east_maint_route"
+		},
+		{
+			"hidden": {
+				"draw_calls": 507,
+				"primitives": 516489
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 539,
+				"primitives": 519203
+			},
+			"view": "courtyard_city_plinth"
+		},
+		{
+			"hidden": {
+				"draw_calls": 1106,
+				"primitives": 1002556
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 539,
+				"primitives": 519203
+			},
+			"view": "nw_row_clearance"
+		},
+		{
+			"hidden": {
+				"draw_calls": 11,
+				"primitives": 9772
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 1511,
+				"primitives": 1005536
+			},
+			"view": "rear_city_bedding"
+		},
+		{
+			"hidden": {
+				"draw_calls": 31,
+				"primitives": 10352
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 37,
+				"primitives": 10368
+			},
+			"view": "west_city_bedding"
+		},
+		{
+			"hidden": {
+				"draw_calls": 1877,
+				"primitives": 2205065
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 2631,
+				"primitives": 2209037
+			},
+			"view": "west_front_seam"
+		},
+		{
+			"hidden": {
+				"draw_calls": 2380,
+				"primitives": 2432301
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 2631,
+				"primitives": 2209037
+			},
+			"view": "front_east_recess"
+		},
+		{
+			"hidden": {
+				"draw_calls": 2225,
+				"primitives": 2133069
+			},
+			"note": "Matched stationary native ground visibility; collision stays enabled. No timing verdict.",
+			"shown": {
+				"draw_calls": 2786,
+				"primitives": 2435145
+			},
+			"view": "front_west_recess"
+		}
+	],
+	"results": [
+		{
+			"original_reproduced": true,
+			"point": [
+				-16.205,
+				0.0,
+				6.3
+			],
+			"post": "WestSouth",
+			"retained_components": [],
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-15.305,
+				0.0,
+				6.3
+			],
+			"post": "WestSouth",
+			"retained_components": [],
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				5.85
+			],
+			"post": "WestSouth",
+			"retained_components": [
+				"F01_Corner_ConstructionBound.012"
+			],
+			"terrain_y": null
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				6.75
+			],
+			"post": "WestSouth",
+			"retained_components": [],
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-16.205,
+				0.0,
+				9.1
+			],
+			"post": "WestMiddle",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-15.305,
+				0.0,
+				9.1
+			],
+			"post": "WestMiddle",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				8.65
+			],
+			"post": "WestMiddle",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				9.55
+			],
+			"post": "WestMiddle",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-16.205,
+				0.0,
+				11.755
+			],
+			"post": "WestNorth",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-15.305,
+				0.0,
+				11.755
+			],
+			"post": "WestNorth",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				11.305
+			],
+			"post": "WestNorth",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-15.755,
+				0.0,
+				12.205
+			],
+			"post": "WestNorth",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-13.4,
+				0.0,
+				9.1
+			],
+			"post": "BedroomMiddle",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-12.5,
+				0.0,
+				9.1
+			],
+			"post": "BedroomMiddle",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-12.95,
+				0.0,
+				8.65
+			],
+			"post": "BedroomMiddle",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-12.95,
+				0.0,
+				9.55
+			],
+			"post": "BedroomMiddle",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-10.595,
+				0.0,
+				11.755
+			],
+			"post": "EastNorth",
+			"retained_components": [],
+			"terrain_y": -0.0200000070035458
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-9.695,
+				0.0,
+				11.755
+			],
+			"post": "EastNorth",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-10.145,
+				0.0,
+				11.305
+			],
+			"post": "EastNorth",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-10.145,
+				0.0,
+				12.205
+			],
+			"post": "EastNorth",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-6.155,
+				0.0,
+				11.755
+			],
+			"post": "North0",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-5.255,
+				0.0,
+				11.755
+			],
+			"post": "North0",
+			"retained_components": [],
+			"terrain_y": -0.0200000070035458
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-5.705,
+				0.0,
+				11.305
+			],
+			"post": "North0",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-5.705,
+				0.0,
+				12.205
+			],
+			"post": "North0",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-2.755,
+				0.0,
+				11.755
+			],
+			"post": "North1",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-1.855,
+				0.0,
+				11.755
+			],
+			"post": "North1",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-2.305,
+				0.0,
+				11.305
+			],
+			"post": "North1",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				-2.305,
+				0.0,
+				12.205
+			],
+			"post": "North1",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				0.475,
+				0.0,
+				11.755
+			],
+			"post": "North2",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				1.375,
+				0.0,
+				11.755
+			],
+			"post": "North2",
+			"retained_components": [],
+			"terrain_y": -0.0200000070035458
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				0.925,
+				0.0,
+				11.305
+			],
+			"post": "North2",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				0.925,
+				0.0,
+				12.205
+			],
+			"post": "North2",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				3.625,
+				0.0,
+				11.755
+			],
+			"post": "North3",
+			"retained_components": [],
+			"terrain_y": -0.0200000070035458
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				4.525,
+				0.0,
+				11.755
+			],
+			"post": "North3",
+			"retained_components": [],
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				4.075,
+				0.0,
+				11.305
+			],
+			"post": "North3",
+			"retained_components": [],
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				4.075,
+				0.0,
+				12.205
+			],
+			"post": "North3",
+			"retained_components": [],
+			"terrain_y": -0.0200000032782555
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				6.755,
+				0.0,
+				11.755
+			],
+			"post": "North4",
+			"retained_components": [],
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				7.655,
+				0.0,
+				11.755
+			],
+			"post": "North4",
+			"retained_components": [
+				"BoundaryMasonry.002"
+			],
+			"terrain_y": null
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				11.305
+			],
+			"post": "North4",
+			"retained_components": [],
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				12.205
+			],
+			"post": "North4",
+			"retained_components": [],
+			"terrain_y": -0.0200000032782555
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				6.755,
+				0.0,
+				6.3
+			],
+			"post": "EastMiddleLow",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				7.655,
+				0.0,
+				6.3
+			],
+			"post": "EastMiddleLow",
+			"retained_components": [],
+			"terrain_y": -0.0199999995529652
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				5.85
+			],
+			"post": "EastMiddleLow",
+			"retained_components": [],
+			"terrain_y": -0.0200000070035458
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				6.75
+			],
+			"post": "EastMiddleLow",
+			"retained_components": [],
+			"terrain_y": -0.0200000070035458
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				6.755,
+				0.0,
+				9.1
+			],
+			"post": "EastMiddleHigh",
+			"retained_components": [],
+			"terrain_y": -0.0199999883770943
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				7.655,
+				0.0,
+				9.1
+			],
+			"post": "EastMiddleHigh",
+			"retained_components": [],
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				8.65
+			],
+			"post": "EastMiddleHigh",
+			"retained_components": [],
+			"terrain_y": -0.0199999958276749
+		},
+		{
+			"original_reproduced": true,
+			"point": [
+				7.205,
+				0.0,
+				9.55
+			],
+			"post": "EastMiddleHigh",
+			"retained_components": [],
+			"terrain_y": -0.0200000032782555
+		}
+	],
+	"terrain_contacts": 46,
+	"triangles": 9060
+}

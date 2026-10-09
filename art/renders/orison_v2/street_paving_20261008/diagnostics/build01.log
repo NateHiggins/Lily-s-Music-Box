@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_street_paving_details.py", line 87, in <module>
+    pieces.append(box(row['id']+f'_{j}',[(a+b)/2,.13625,z],[b-a,.0325,sz],.0012))
+                  ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_street_paving_details.py", line 46, in box
+    obj=solid(name,[v.co[:] for v in bm.verts],[tuple(v.index for v in f.verts) for f in bm.faces]);bm.free();return obj
+  File "C:\PleaseRemainOnTheLine\art\blender\scripts\build_street_paving_details.py", line 39, in solid
+    assert all(e.is_manifold for e in bm.edges) and bm.calc_volume(signed=True)>0,name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: curb_coping_west_0
+
+Error: script failed, file: 'art/blender/scripts/build_street_paving_details.py', exiting.
+Blender 5.2.0 LTS (hash fbe6228777e7 built 2026-07-14 01:35:40)
+
+Blender quit

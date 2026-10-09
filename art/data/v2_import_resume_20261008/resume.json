@@ -1,0 +1,1177 @@
+{
+  "schema": "orison.v2-import-resume.v1",
+  "evidence_class": "INERT",
+  "date": "2026-10-08",
+  "base_commit": "0aaf3b17b5d6c91540400c1a9eda2ea8a7ba3704",
+  "scope": "Preparation only; no new native exports, runtime runs, acceptance or ledger promotion.",
+  "snapshot_summary": {
+    "registered": 102,
+    "selected": 102,
+    "dirty": 0,
+    "source_drift": 34,
+    "missing": 0,
+    "unregistered_builders": 69
+  },
+  "hash_policy": "Text follows tools/plan_v2_fabrication.py digest: CRLF normalized to LF; binary bytes unchanged.",
+  "source_hashes": {
+    "game/data/orison_v2/exterior/exterior_geometry.json": "1c8f8130ef670f6f3ac052a67fa740be9cb2919aabace1306424827351fcb2d0",
+    "game/data/orison_v2_blockout.json": "a4eb64d3f886c75d5e3a46d5629d5c364fc199f564b451df0f730f4787315843",
+    "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
+    "game/data/orison_v2/exterior/regions.json": "9ed735bbf4016f85dac9128872d25015fd334bdcda01296f7ae4fdd610741b09",
+    "game/data/orison_v2/exterior/construction_shed.json": "adc2740f083de4a85eaf9314f01a503ee76fdd0a5706af5acd197f43522e8baa",
+    "art/blender/exterior_masonry.blend": "3e529ba1738cc26f090fe03107730b208873eabeebca7b89c19cfcc626421ec3",
+    "art/blender/front_pavement.blend": "6dae77b94e0046e4f27f6039b2e4212743cbbd8005f4ab515be7041ca706e040",
+    "art/blender/roof_drainage_reservations.json": "b8925c91e6a8c60e76c282d5bc23a185f55a4af7245b5b17a0381f963f4ef051",
+    "art/blender/scripts/build_front_pavement.py": "3ee27182b7fe15efc3988866ac2c485b74a17a3cb76214cc56ba8d9eb4c754fa",
+    "game/scripts/building/orison_v2_front_facade.gd": "a6e987afa26493c80c9a7f763ceca17df18a18dce86d10c8fc963625c0051c95",
+    "game/scripts/building/orison_v2_exterior_cell.gd": "e4070506c084cd211910d9ad3894f9ead4cfd853ba25b0f430bfffebdf8db350",
+    "game/tests/fixtures/orison_front_pavement_construction.json": "6b224e0f26be0002a0c510a977fba9938b28a57cd63df521c9009483878a97c0",
+    "art/data/v2_owner_improvement_20261008.json": "ea62e267a56c4719f19f2e6c7e244a36a800dad227479b33a82249483c629be0",
+    "output/pdf/V2_dossier_implementation_review.pdf": "62cba71fb6b040749c4e7214d189d5429fc9c8f842f65d20c8ae0cb0564905e1",
+    "art/renders/orison_v2/building_surface_finish_20261005/city/07.jpg": "6da5993784997982533252121cca48527beae31feee4e9565c6e07f3017a895a",
+    "art/data/v2_import_resume_20261008/fabrication_baseline.json": "4bf3a48ba91cefe428fa2eb04bff4f10a93b0b2ea90e7b7c2176e7c72f327933"
+  },
+  "owner_dossier": {
+    "reviewed": 39,
+    "conditional": [
+      "G15"
+    ],
+    "implementation": "37db375a",
+    "verified_metadata": "0aaf3b17"
+  },
+  "next_batch": {
+    "name": "Street paving and entrance boundary detail",
+    "state": "prepared; native comparison and visual construction pending",
+    "source": "game/data/orison_v2/exterior/exterior_geometry.json",
+    "template_id": "TEMPLATE_STREET_SEGMENT_V1",
+    "instance_id": "STREET_ORISON_01",
+    "records": {
+      "pavement_joints": [
+        {
+          "id": "pavement_long_joint",
+          "size_m": [
+            25,
+            0.01,
+            0.035
+          ],
+          "position_m": [
+            9.5,
+            0.011,
+            3.02
+          ],
+          "yaw_degrees": 0,
+          "material_id": "paving_joint",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "pavement_cross_joint_01",
+          "size_m": [
+            0.035,
+            0.01,
+            4.675
+          ],
+          "position_m": [
+            -1.5,
+            0.011,
+            2.4775
+          ],
+          "yaw_degrees": 0,
+          "material_id": "paving_joint",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "pavement_cross_joint_02",
+          "size_m": [
+            0.035,
+            0.01,
+            4.675
+          ],
+          "position_m": [
+            2.5,
+            0.011,
+            2.4775
+          ],
+          "yaw_degrees": 0,
+          "material_id": "paving_joint",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "pavement_cross_joint_03",
+          "size_m": [
+            0.035,
+            0.01,
+            4.675
+          ],
+          "position_m": [
+            6.5,
+            0.011,
+            2.4775
+          ],
+          "yaw_degrees": 0,
+          "material_id": "paving_joint",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "pavement_cross_joint_04",
+          "size_m": [
+            0.035,
+            0.01,
+            4.675
+          ],
+          "position_m": [
+            10.5,
+            0.011,
+            2.4775
+          ],
+          "yaw_degrees": 0,
+          "material_id": "paving_joint",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "pavement_cross_joint_05",
+          "size_m": [
+            0.035,
+            0.01,
+            4.675
+          ],
+          "position_m": [
+            14.5,
+            0.011,
+            2.4775
+          ],
+          "yaw_degrees": 0,
+          "material_id": "paving_joint",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "pavement_cross_joint_06",
+          "size_m": [
+            0.035,
+            0.01,
+            4.675
+          ],
+          "position_m": [
+            18.5,
+            0.011,
+            2.4775
+          ],
+          "yaw_degrees": 0,
+          "material_id": "paving_joint",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "pavement_cross_joint_07",
+          "size_m": [
+            0.035,
+            0.01,
+            4.675
+          ],
+          "position_m": [
+            21.5,
+            0.011,
+            2.4775
+          ],
+          "yaw_degrees": 0,
+          "material_id": "paving_joint",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        }
+      ],
+      "curb_coping": [
+        {
+          "id": "curb_coping_west",
+          "size_m": [
+            4.82,
+            0.035,
+            0.37
+          ],
+          "position_m": [
+            -0.53,
+            0.135,
+            4.785
+          ],
+          "yaw_degrees": 0,
+          "material_id": "limestone",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "curb_coping_midwest",
+          "size_m": [
+            4.82,
+            0.035,
+            0.37
+          ],
+          "position_m": [
+            4.36,
+            0.135,
+            4.785
+          ],
+          "yaw_degrees": 0,
+          "material_id": "limestone",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "curb_coping_middle",
+          "size_m": [
+            4.82,
+            0.035,
+            0.37
+          ],
+          "position_m": [
+            9.25,
+            0.135,
+            4.785
+          ],
+          "yaw_degrees": 0,
+          "material_id": "limestone",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "curb_coping_mideast",
+          "size_m": [
+            4.82,
+            0.035,
+            0.37
+          ],
+          "position_m": [
+            14.14,
+            0.135,
+            4.785
+          ],
+          "yaw_degrees": 0,
+          "material_id": "limestone",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "curb_coping_east",
+          "size_m": [
+            4.82,
+            0.035,
+            0.37
+          ],
+          "position_m": [
+            19.03,
+            0.135,
+            4.785
+          ],
+          "yaw_degrees": 0,
+          "material_id": "limestone",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        }
+      ],
+      "passage_paving": [
+        {
+          "id": "passage_pavement_slab_west",
+          "size_m": [
+            20.255,
+            0.16,
+            4.422000000000001
+          ],
+          "position_m": [
+            -10.172500000000001,
+            -0.08,
+            16.310000000000002
+          ],
+          "yaw_degrees": 0,
+          "material_id": "pavement",
+          "collision": true,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "passage_pavement_slab_east",
+          "size_m": [
+            17.905,
+            0.16,
+            4.422000000000001
+          ],
+          "position_m": [
+            13.0475,
+            -0.08,
+            16.310000000000002
+          ],
+          "yaw_degrees": 0,
+          "material_id": "pavement",
+          "collision": true,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "passage_pavement_slab_street",
+          "size_m": [
+            4.14,
+            0.16,
+            1.3759999999999994
+          ],
+          "position_m": [
+            2.025,
+            -0.08,
+            14.786999999999999
+          ],
+          "yaw_degrees": 0,
+          "material_id": "pavement",
+          "collision": true,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "passage_pavement_slab_arcade",
+          "size_m": [
+            4.14,
+            0.16,
+            1.9960000000000022
+          ],
+          "position_m": [
+            2.025,
+            -0.08,
+            17.523
+          ],
+          "yaw_degrees": 0,
+          "material_id": "pavement",
+          "collision": true,
+          "visible": true,
+          "presentation_role": "environment"
+        }
+      ],
+      "wet_surface_patches": [
+        {
+          "id": "pavement_wet_west",
+          "size_m": [
+            4.8,
+            0.008,
+            1.1
+          ],
+          "position_m": [
+            2,
+            0.006,
+            4.2250000000000005
+          ],
+          "yaw_degrees": 0,
+          "material_id": "pavement_wet",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "pavement_wet_middle",
+          "size_m": [
+            5.5,
+            0.008,
+            0.82
+          ],
+          "position_m": [
+            9,
+            0.007,
+            2.05
+          ],
+          "yaw_degrees": 0,
+          "material_id": "pavement_wet",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "pavement_wet_east",
+          "size_m": [
+            5,
+            0.008,
+            1
+          ],
+          "position_m": [
+            15.4,
+            0.006,
+            4.275
+          ],
+          "yaw_degrees": 0,
+          "material_id": "pavement_wet",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "environment"
+        }
+      ],
+      "retained_collision_context": [
+        {
+          "id": "pavement_slab",
+          "size_m": [
+            45.8,
+            0.16,
+            4.955
+          ],
+          "position_m": [
+            2.6,
+            -0.08,
+            2.4775
+          ],
+          "yaw_degrees": 0,
+          "material_id": "pavement",
+          "collision": true,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "street_lane",
+          "size_m": [
+            41.1,
+            0.12,
+            9.143999999999998
+          ],
+          "position_m": [
+            0.25,
+            -0.16,
+            9.527
+          ],
+          "yaw_degrees": 0,
+          "material_id": "asphalt",
+          "collision": true,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "street_curb",
+          "size_m": [
+            41.1,
+            0.28,
+            0.34
+          ],
+          "position_m": [
+            0.25,
+            -0.02,
+            4.785
+          ],
+          "yaw_degrees": 0,
+          "material_id": "curb",
+          "collision": true,
+          "visible": true,
+          "presentation_role": "environment"
+        },
+        {
+          "id": "passage_street_curb",
+          "size_m": [
+            41.1,
+            0.28,
+            0.34
+          ],
+          "position_m": [
+            0.25,
+            -0.02,
+            14.268999999999998
+          ],
+          "yaw_degrees": 0,
+          "material_id": "curb",
+          "collision": true,
+          "visible": true,
+          "presentation_role": "environment"
+        }
+      ],
+      "retained_route_guides": [
+        {
+          "id": "route_wear_orison",
+          "size_m": [
+            7.2,
+            0.018,
+            0.42
+          ],
+          "position_m": [
+            4.35,
+            0.012,
+            3.72
+          ],
+          "yaw_degrees": 0,
+          "material_id": "route_wear",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "route_guide"
+        },
+        {
+          "id": "route_wear_midblock",
+          "size_m": [
+            8.8,
+            0.018,
+            0.42
+          ],
+          "position_m": [
+            12.35,
+            0.013,
+            3.72
+          ],
+          "yaw_degrees": 0,
+          "material_id": "route_wear",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "route_guide"
+        },
+        {
+          "id": "route_wear_turn",
+          "size_m": [
+            3.4,
+            0.019,
+            0.42
+          ],
+          "position_m": [
+            18.65,
+            0.014,
+            4.2
+          ],
+          "yaw_degrees": 90,
+          "material_id": "route_wear",
+          "collision": false,
+          "visible": true,
+          "presentation_role": "route_guide"
+        }
+      ]
+    },
+    "existing_builder": "art/blender/scripts/build_front_pavement.py",
+    "existing_standalone_validator": "game/tests/orison_v2_front_pavement_test.gd",
+    "integration_todo": "No inspect_front_pavement.py or shared front_pavement module exists yet. Add read-only native comparison/render stage, then extract validate_in_world before the composed batch.",
+    "preserve": [
+      "Original coordinates and source records",
+      "Named floor/collision owners and street crossing heights",
+      "Route-guide roles and visibility controls",
+      "Existing lights/emitters; G15 remains conditional",
+      "Original doors, gameplay, save and acoustic owners"
+    ],
+    "historical_visual_reference": {
+      "path": "art/renders/orison_v2/building_surface_finish_20261005/city/07.jpg",
+      "date": "2026-10-05",
+      "observations": "Street frames show broad dark crossing seams and rectangular wet patches; prior-state visual triage, not current-head acceptance."
+    }
+  },
+  "pavement_preflight": {
+    "historical_commits": {
+      "game/data/orison_v2_blockout.json": "3fbba2e5dbe298602bf71a066912718b663ece04",
+      "game/data/orison_v2/world_connection.json": "118d770362f1c20c9873c4d1165d86a904a637a8"
+    },
+    "historical_sources_match_original_fixture": true,
+    "blockout_consumed_projection_equal": true,
+    "blockout_projection": {
+      "door": {
+        "id": "F01_DOOR_06",
+        "level": "F01",
+        "center": [
+          0.0,
+          -11.65
+        ],
+        "width": 1.1,
+        "height": 2.13,
+        "yaw": 0.0,
+        "hinge": "left",
+        "swing": "out",
+        "connects": [
+          "F01_STREET_APRON",
+          "F01_VESTIBULE"
+        ]
+      },
+      "floors": [
+        {
+          "id": "F01_VESTIBULE",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -2.4,
+            -11.65,
+            2.4,
+            -9.25
+          ]
+        },
+        {
+          "id": "F01_LOBBY",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -5.4,
+            -9.25,
+            5.4,
+            -3.85
+          ]
+        },
+        {
+          "id": "F01_WATCH",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -5.4,
+            -3.85,
+            -1.2,
+            0.55
+          ]
+        },
+        {
+          "id": "F01_MAIL_TELEPHONE",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -9.2,
+            -3.85,
+            -5.4,
+            0.55
+          ]
+        },
+        {
+          "id": "F01_PACKAGE",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -9.2,
+            0.55,
+            -5.4,
+            4.25
+          ]
+        },
+        {
+          "id": "F01_COMMON_B",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -15.65,
+            -3.85,
+            -9.2,
+            5.65
+          ]
+        },
+        {
+          "id": "F01_CORE_TO_SERVICE",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            5.4,
+            -1.0,
+            8.3,
+            1.0
+          ]
+        },
+        {
+          "id": "F01_SERVICE_HALL",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            8.3,
+            -9.25,
+            9.5,
+            9.25
+          ]
+        },
+        {
+          "id": "F01_D_VESTIBULE",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            9.5,
+            -3.85,
+            11.5,
+            -1.15
+          ]
+        },
+        {
+          "id": "F01_D_MAIN",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            11.5,
+            -4.2,
+            15.65,
+            0.3
+          ]
+        },
+        {
+          "id": "F01_D_KITCHEN",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            9.5,
+            -8.35,
+            12.8,
+            -4.2
+          ]
+        },
+        {
+          "id": "F01_D_BED",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            9.5,
+            -12.35,
+            12.8,
+            -8.35
+          ]
+        },
+        {
+          "id": "F01_D_PRIVATE_HALL",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            12.8,
+            -9.35,
+            15.65,
+            -4.2
+          ]
+        },
+        {
+          "id": "F01_D_BATH",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            12.8,
+            -12.35,
+            15.65,
+            -9.35
+          ]
+        },
+        {
+          "id": "F01_A_VESTIBULE",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -8.2,
+            -6.55,
+            -5.4,
+            -3.85
+          ]
+        },
+        {
+          "id": "F01_A_MAIN",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -15.65,
+            -7.2,
+            -8.2,
+            -3.85
+          ]
+        },
+        {
+          "id": "F01_A_PRIVATE_HALL",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -8.2,
+            -9.65,
+            -5.4,
+            -6.55
+          ]
+        },
+        {
+          "id": "F01_A_BATH",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -8.2,
+            -12.35,
+            -5.4,
+            -9.65
+          ]
+        },
+        {
+          "id": "F01_A_KITCHEN",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -11.3,
+            -9.65,
+            -8.2,
+            -7.2
+          ]
+        },
+        {
+          "id": "F01_A_BED",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -15.65,
+            -12.35,
+            -11.3,
+            -7.2
+          ]
+        },
+        {
+          "id": "F01_A_STUDY",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            -11.3,
+            -12.35,
+            -8.2,
+            -9.65
+          ]
+        },
+        {
+          "id": "F01_STAFF_RESTROOM",
+          "level": "F01",
+          "open_shell": null,
+          "no_floor": null,
+          "rect": [
+            5.4,
+            -8.3,
+            8.3,
+            -4.6
+          ]
+        }
+      ]
+    },
+    "world_connection_remove_boxes_equal": true,
+    "world_connection_changed_keys": [
+      "arrival_standoff_m"
+    ],
+    "unresolved": "Saved exterior_masonry PreServiceMasonry masks at pavement height require native comparison. No native or export equivalence claimed.",
+    "fixture_action": "Keep original bindings. Do not repin or rerun builder until complete consumed-input/native comparison determines whether geometry actually changes."
+  },
+  "source_drift_review": [
+    {
+      "family": "boiler_window",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "city_aerials",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "city_beacons",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "city_closure",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "city_masts",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "city_tanks",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "domestic_seating",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "domestic_storage",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd",
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "domestic_tables",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd",
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "druggist_cupboard",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd"
+      ]
+    },
+    {
+      "family": "druggist_dispensary",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd"
+      ]
+    },
+    {
+      "family": "druggist_fountain",
+      "stale_bindings": [
+        "game/assets/props/druggist_carboys.glb"
+      ]
+    },
+    {
+      "family": "fixed_lighting",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "front_pavement_construction",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json",
+        "game/data/orison_v2/world_connection.json",
+        "art/blender/exterior_masonry.blend"
+      ]
+    },
+    {
+      "family": "household_fridges",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json",
+        "art/blender/domestic_objects.blend",
+        "game/tests/fixtures/orison_domestic_objects.json",
+        "art/blender/household_wardrobes.blend",
+        "game/tests/fixtures/orison_household_wardrobes.json"
+      ]
+    },
+    {
+      "family": "household_radios",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd",
+        "game/data/orison_v2_blockout.json",
+        "art/blender/household_wardrobes.blend",
+        "art/blender/domestic_objects.blend"
+      ]
+    },
+    {
+      "family": "household_stoves",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json",
+        "art/blender/domestic_objects.blend",
+        "game/tests/fixtures/orison_domestic_objects.json",
+        "art/blender/household_wardrobes.blend",
+        "game/tests/fixtures/orison_household_wardrobes.json"
+      ]
+    },
+    {
+      "family": "household_toasters",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd",
+        "game/data/orison_v2_blockout.json",
+        "art/blender/household_wardrobes.blend",
+        "art/blender/domestic_objects.blend"
+      ]
+    },
+    {
+      "family": "laundry_trade",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd"
+      ]
+    },
+    {
+      "family": "medicine_cabinets",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd",
+        "game/data/orison_v2_blockout.json",
+        "art/blender/household_wardrobes.blend",
+        "art/blender/domestic_objects.blend"
+      ]
+    },
+    {
+      "family": "pawn_display",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd"
+      ]
+    },
+    {
+      "family": "pawn_fittings",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd"
+      ]
+    },
+    {
+      "family": "photo_glazing",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd"
+      ]
+    },
+    {
+      "family": "photo_radio_fittings",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd"
+      ]
+    },
+    {
+      "family": "prep_cabinets",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd",
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "reading_nook",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json",
+        "game/scripts/building/orison_v2_domestic_furniture.gd"
+      ]
+    },
+    {
+      "family": "roof_base_flashings",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "roof_drainage_falls",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "roof_drainage_plant_weather",
+      "stale_bindings": [
+        "game/data/orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "roof_public_weathering",
+      "stale_bindings": [
+        "game\\data\\orison_v2_blockout.json",
+        "art\\data\\runtime_material_sets.json"
+      ]
+    },
+    {
+      "family": "roof_service_weathering",
+      "stale_bindings": [
+        "game\\data\\orison_v2_blockout.json"
+      ]
+    },
+    {
+      "family": "shop_clerestories",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd",
+        "art/blender/druggist_carboys.blend",
+        "game/assets/props/druggist_carboys.glb",
+        "game/tests/fixtures/orison_druggist_carboys.json"
+      ]
+    },
+    {
+      "family": "shop_joinery",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd",
+        "art/blender/druggist_carboys.blend",
+        "game/assets/props/druggist_carboys.glb",
+        "game/tests/fixtures/orison_druggist_carboys.json"
+      ]
+    },
+    {
+      "family": "surface_stock",
+      "stale_bindings": [
+        "game/scripts/building/orison_v2_architectural_materials.gd"
+      ]
+    }
+  ],
+  "unregistered_builders": [
+    "art/blender/scripts/build_alley_groundworks.py",
+    "art/blender/scripts/build_bath_lavatory.py",
+    "art/blender/scripts/build_bathroom_details.py",
+    "art/blender/scripts/build_bedding.py",
+    "art/blender/scripts/build_bodega_fittings.py",
+    "art/blender/scripts/build_bodega_power.py",
+    "art/blender/scripts/build_bodega_receiving.py",
+    "art/blender/scripts/build_boiler_body.py",
+    "art/blender/scripts/build_boiler_inlet.py",
+    "art/blender/scripts/build_boiler_instruments.py",
+    "art/blender/scripts/build_boiler_pipework.py",
+    "art/blender/scripts/build_breeching.py",
+    "art/blender/scripts/build_ceiling_top_closures.py",
+    "art/blender/scripts/build_chimney_crown.py",
+    "art/blender/scripts/build_city_foundations.py",
+    "art/blender/scripts/build_city_shells.py",
+    "art/blender/scripts/build_coal_delivery.py",
+    "art/blender/scripts/build_coal_heap.py",
+    "art/blender/scripts/build_court_roof_bridge.py",
+    "art/blender/scripts/build_door_butt_hinge.py",
+    "art/blender/scripts/build_door_knob_set.py",
+    "art/blender/scripts/build_dream_critter.py",
+    "art/blender/scripts/build_dream_tentacle.py",
+    "art/blender/scripts/build_duct_hanger.py",
+    "art/blender/scripts/build_exterior_masonry.py",
+    "art/blender/scripts/build_first_upper_hall_seats.py",
+    "art/blender/scripts/build_gesture_library.py",
+    "art/blender/scripts/build_ground_core_transfer.py",
+    "art/blender/scripts/build_house_tank.py",
+    "art/blender/scripts/build_lift_cab_controls.py",
+    "art/blender/scripts/build_lift_call_plate.py",
+    "art/blender/scripts/build_lift_ceiling_lamp.py",
+    "art/blender/scripts/build_lift_drive.py",
+    "art/blender/scripts/build_lift_gate.py",
+    "art/blender/scripts/build_lift_handrails.py",
+    "art/blender/scripts/build_lift_indicator.py",
+    "art/blender/scripts/build_lift_joinery.py",
+    "art/blender/scripts/build_lift_mirror.py",
+    "art/blender/scripts/build_lift_panels.py",
+    "art/blender/scripts/build_light_court_stair.py",
+    "art/blender/scripts/build_light_court_structure.py",
+    "art/blender/scripts/build_light_switch.py",
+    "art/blender/scripts/build_millwork_profile.py",
+    "art/blender/scripts/build_orison.py",
+    "art/blender/scripts/build_orison_foundations.py",
+    "art/blender/scripts/build_orison_ground.py",
+    "art/blender/scripts/build_public_furnishings.py",
+    "art/blender/scripts/build_radiator_wall_tie.py",
+    "art/blender/scripts/build_reading_furniture.py",
+    "art/blender/scripts/build_rear_wing_a_support.py",
+    "art/blender/scripts/build_rear_wing_c_support.py",
+    "art/blender/scripts/build_remaining_upper_transfers.py",
+    "art/blender/scripts/build_resident_key.py",
+    "art/blender/scripts/build_roof_bulkhead_caps.py",
+    "art/blender/scripts/build_roof_coping.py",
+    "art/blender/scripts/build_roof_edge_support.py",
+    "art/blender/scripts/build_roof_ventilator.py",
+    "art/blender/scripts/build_service_alley.py",
+    "art/blender/scripts/build_stair_ironwork.py",
+    "art/blender/scripts/build_traffic_vehicle.py",
+    "art/blender/scripts/build_upper_wall_seats.py",
+    "art/blender/scripts/build_vent_register.py",
+    "art/blender/scripts/build_ventilation_ducts.py",
+    "art/blender/scripts/build_ventilation_fabric_lining.py",
+    "art/blender/scripts/build_ventilation_slab_sleeve.py",
+    "art/blender/scripts/build_wayfinding_plate.py",
+    "art/blender/scripts/build_wc_swing_clear_hinge.py",
+    "art/blender/scripts/build_window_joinery.py",
+    "art/blender/scripts/build_work_oak_material.py"
+  ],
+  "validation": {
+    "baseline_repeat_dirty": 0,
+    "missing_registered_inputs": 0,
+    "godot_runs": 0,
+    "blender_runs": 0,
+    "runtime_proof": "Reused dossier receipts only at their recorded scope; no new claim."
+  }
+}

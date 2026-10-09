@@ -1,0 +1,167 @@
+{
+	"batch_checks": 8,
+	"elapsed_ms": 64970,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 6027,
+	"modules": {
+		"owner_building_finish": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 6027,
+			"elapsed_ms": 29219,
+			"failures": [],
+			"finish_slots": {
+				"facade": 52,
+				"lift": 71,
+				"roof": 158,
+				"skyline": 441
+			},
+			"fixture_sha256": "afdbe5c8ec28ee4f427268761d65097ef2271246af1921c38acfe0b00f47d37f",
+			"inspectors": {
+				"facade_day": {
+					"checks": 665,
+					"failures": []
+				},
+				"front_facade": {
+					"checks": 665,
+					"failures": []
+				}
+			},
+			"loaded_maps": 33,
+			"local_weather_slots": 190,
+			"validator_sha256": "b92fb3817786b433ee315a94b385ee0b47418c613e34c62ba9faf783ca78e4f6",
+			"views": [
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						8.84600067138672,
+						3.23000001907349,
+						-13.6379985809326
+					],
+					"id": "dim_2A_production",
+					"image": "dim_2A_production.png",
+					"owner": "dim_2A",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						8.84600067138672,
+						3.23000001907349,
+						-13.6379985809326
+					],
+					"id": "dim_2A_off",
+					"image": "dim_2A_off.png",
+					"owner": "dim_2A",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						-14.280499458313,
+						6.42999982833862,
+						-7.28800106048584
+					],
+					"id": "bright_3B_production",
+					"image": "bright_3B_production.png",
+					"owner": "bright_3B",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						-14.280499458313,
+						6.42999982833862,
+						-7.28800106048584
+					],
+					"id": "bright_3B_off",
+					"image": "bright_3B_off.png",
+					"owner": "bright_3B",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						-1.63199973106384,
+						0.0299999993294477,
+						-1.60799980163574
+					],
+					"id": "vestibule_production",
+					"image": "vestibule_production.png",
+					"owner": "vestibule",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						-1.63199973106384,
+						0.0299999993294477,
+						-1.60799980163574
+					],
+					"id": "vestibule_off",
+					"image": "vestibule_off.png",
+					"owner": "vestibule",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "fixed production light and calm shared finishes",
+					"feet": [
+						-3.67199945449829,
+						0.0299999993294477,
+						-6.93599987030029
+					],
+					"id": "lobby_production",
+					"image": "lobby_production.png",
+					"owner": "lobby",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same camera; original room circuit off; carried service lamp remains",
+					"feet": [
+						-3.67199945449829,
+						0.0299999993294477,
+						-6.93599987030029
+					],
+					"id": "lobby_off",
+					"image": "lobby_off.png",
+					"owner": "lobby",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "production daylight; existing camera station",
+					"feet": [
+						12.0,
+						19.2399997711182,
+						-2.64999866485596
+					],
+					"id": "roof_day",
+					"image": "roof_day.png",
+					"owner": "roof",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "production daylight; floor/capsule and visible-tank ray verified",
+					"draws": 431,
+					"feet": [
+						-30.0,
+						0.0,
+						15.9999990463257
+					],
+					"id": "skyline_street_day",
+					"image": "skyline_street_day.png",
+					"owner": "site_nw3_wtank",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-42.8491630554199,
+						23.5124626159668,
+						-5.20350885391235
+					]
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

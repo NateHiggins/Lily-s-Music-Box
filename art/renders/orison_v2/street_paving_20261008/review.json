@@ -1,0 +1,137 @@
+{
+  "schema": "orison.street-paving-review.v1",
+  "evidence_class": "INERT",
+  "asset_sha256": "c99c6be32702ee5375683a4a8863f6ca31b3ec2fe17af213e4c901437d2bc30c",
+  "runtime_inputs_sha256": "db42187e913955b98d00a1965fd3275356eac8885860875224c6e1b740247d01",
+  "full_run_status": "FAIL: blocked damp camera only; never full-run acceptance",
+  "retained_slab_module_checks": 1132,
+  "retained_slab_validator_unchanged": true,
+  "final_module_checks": 511,
+  "final_batch_checks": 8,
+  "final_failures": [],
+  "route_waypoints": 21,
+  "production_inputs_identical_between_runs": true,
+  "images": [
+    {
+      "path": "native/coping.png",
+      "sha256": "174aef8400a4a6313af12f9d824cc11adcfcd98cd782d46d081d5aade023c97e",
+      "context": "neutral native; proxy before geometry with reference finishes",
+      "status": "reviewed"
+    },
+    {
+      "path": "native/coping_before.png",
+      "sha256": "bdf4fb148fe9a27647b4692b7236161eb597be4b23b6baad8342c625f44c6c5d",
+      "context": "neutral native; proxy before geometry with reference finishes",
+      "status": "reviewed"
+    },
+    {
+      "path": "native/coping_end.png",
+      "sha256": "447e76729993b0cb6e013e252c2e0f33ab4afc99f353b6ec9d17b576043d39e5",
+      "context": "neutral native; proxy before geometry with reference finishes",
+      "status": "reviewed"
+    },
+    {
+      "path": "native/coping_end_before.png",
+      "sha256": "6e87767bca254636e403d857d159a7fd9dc3250c5b269b794c9d21d3de90f3d5",
+      "context": "neutral native; proxy before geometry with reference finishes",
+      "status": "reviewed"
+    },
+    {
+      "path": "native/passage.png",
+      "sha256": "257a40830b8aed85d6c5aa2ded866c38d2d0c4ad8fc57edeb2406f8f159aaabe",
+      "context": "neutral native; proxy before geometry with reference finishes",
+      "status": "reviewed"
+    },
+    {
+      "path": "native/passage_before.png",
+      "sha256": "5e6bc38fb5bcc02ad71b8236e128d189f340b6eff03d7a1e556c5130a5ff5e36",
+      "context": "neutral native; proxy before geometry with reference finishes",
+      "status": "reviewed"
+    },
+    {
+      "path": "native/paving.png",
+      "sha256": "03feac2f8d57e1085f077d6bff6179345a4696352a6106e9307baba94dda9441",
+      "context": "neutral native; proxy before geometry with reference finishes",
+      "status": "reviewed"
+    },
+    {
+      "path": "native/paving_before.png",
+      "sha256": "b017db8161b0585fbee1f834d8fe6fdfb97cb564222438698b5b63c8fbf289f8",
+      "context": "neutral native; proxy before geometry with reference finishes",
+      "status": "reviewed"
+    },
+    {
+      "path": "runtime01/street_paving_details/coping_end.png",
+      "sha256": "36adefa0472bf6d6e7ba9486691344cfb4d68daa96a52b6e7f81980f589126af",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed scoped visual; runtime01 overall run failed"
+    },
+    {
+      "path": "runtime01/street_paving_details/coping_end_before.png",
+      "sha256": "2cff7207b3e016f08bfe648f9d75ac50151e1655d24e1659ac9ee13d36358140",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed scoped visual; runtime01 overall run failed"
+    },
+    {
+      "path": "runtime01/street_paving_details/curb_joints.png",
+      "sha256": "3bddfe6b9927367a669a64b97746a9cce1fd9f4d33e8440013a4eb69cfe656a8",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed scoped visual; runtime01 overall run failed"
+    },
+    {
+      "path": "runtime01/street_paving_details/curb_joints_before.png",
+      "sha256": "f640bae8cd33acc7a048544f60c0d44eded7acde71b478bc6820bd74c05a1bf9",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed scoped visual; runtime01 overall run failed"
+    },
+    {
+      "path": "runtime01/street_paving_details/passage_panels.png",
+      "sha256": "cdb89f23fa973974993b017ad83e7982c6db9783a9798e1dc1c567d36f0552b9",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed scoped visual; runtime01 overall run failed"
+    },
+    {
+      "path": "runtime01/street_paving_details/passage_panels_before.png",
+      "sha256": "cd4a4465dac0c889a8eb1dd8206120d079d9cf10c68a930ef168c152bed84ac0",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed scoped visual; runtime01 overall run failed"
+    },
+    {
+      "path": "runtime01/street_paving_details/street_from_arcade_line.png",
+      "sha256": "8039275de9d1e55989f8f699334a9751f996005777e7684d5a4b0470febf9424",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed scoped visual; runtime01 overall run failed"
+    },
+    {
+      "path": "runtime01/street_paving_details/street_paving.png",
+      "sha256": "d4f34e21ebf3ef0865bf3b1d40d08f344595a8d14ca3b69b55b7878f7f403c32",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed scoped visual; runtime01 overall run failed"
+    },
+    {
+      "path": "runtime01/street_paving_details/street_paving_before.png",
+      "sha256": "c82d034f98c1ab27c883dd5148d9ead931566b82b868d9f22cd4478c275000ab",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed scoped visual; runtime01 overall run failed"
+    },
+    {
+      "path": "runtime02/street_paving_details/damp_edges.png",
+      "sha256": "892e0c1994c545a06f00fcb4160eabb4b54cf0d61bf0dd8e220449cf6b820b49",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed"
+    },
+    {
+      "path": "runtime02/street_paving_details/damp_edges_before.png",
+      "sha256": "c655ad53121ef537a2a8f4c098ab7bbf9e79e091b770f81d016d20bbaaf339b2",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed"
+    },
+    {
+      "path": "runtime02/street_paving_details/street_from_arcade_line.png",
+      "sha256": "15092d974b9a21cf5afd3d2d769c2236e8a16aefdbd5c122e2306851d2b8bd5d",
+      "context": "production lighting; carried lamp on, device hidden",
+      "status": "reviewed"
+    }
+  ],
+  "scope": "Native and composed street detail review. Source and nonvisual owners retained. No whole-world or weather/service capacity acceptance."
+}

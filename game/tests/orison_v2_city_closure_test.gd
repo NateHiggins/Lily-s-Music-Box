@@ -1,4 +1,44 @@
 extends "res://tests/orison_v2_roof_membrane_test.gd"
+var roof_draws: Array[MeshInstance3D] = []
+var roof_materials: Array[Material] = []
+
+func _city_material(draw: MeshInstance3D, key: String) -> void:
+	var source: Material = draw.get_meta("v2_city_roof_source",draw.material_override)
+	var material := source as StandardMaterial3D
+	var shared := MatLib.get_mat(key)
+	check(material!=null and material!=shared and not material.uv1_triplanar and shared.uv1_triplanar,"native charts are local and shared catalogue projection remains intact")
+	check(material.albedo_texture==shared.albedo_texture and material.roughness_texture==shared.roughness_texture and material.normal_texture==shared.normal_texture,"all three original catalogue maps remain with the local source")
+	if key != "galvanized_roof":
+		check(draw.material_override==source,"unselected city materials unchanged")
+		return
+	roof_draws.append(draw);roof_materials.append(draw.material_override)
+	var tuned := draw.material_override as ShaderMaterial
+	check(tuned!=null and tuned.shader==SurfacePass.OPAQUE,"existing opaque roof finish deployed")
+	if tuned==null:return
+	var profile: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/owner_finish_profiles.json"))
+	var recipe: Dictionary = {}
+	for group: Dictionary in profile.groups:
+		if group.id=="roof":
+			for row: Dictionary in group.recipes:
+				if row.source_key==key:recipe=row
+	var maps := MatLib.get_mat(str(recipe.catalog))
+	for pair: Array in [["albedo_tex",maps.albedo_texture],["rough_tex",maps.roughness_texture],["normal_tex",maps.normal_texture]]:
+		check(tuned.get_shader_parameter(pair[0])==pair[1] and pair[1].get_image().has_mipmaps(),"exact zinc catalogue maps and mip chains")
+	check(is_equal_approx(float(tuned.get_shader_parameter("normal_scale")),float(recipe.normal)) and is_equal_approx(float(tuned.get_shader_parameter("roughness_mul")),float(recipe.roughness)) and is_equal_approx(float(tuned.get_shader_parameter("metallic")),float(recipe.metallic)),"exact existing roof response")
+	check(is_equal_approx(float(tuned.get_shader_parameter("pigment_variation")),float(recipe.pigment)),"existing zinc pigment calibration")
+	var tint: Array = recipe.color
+	check((tuned.get_shader_parameter("albedo_color") as Color).is_equal_approx(Color(tint[0],tint[1],tint[2],tint[3])),"exact existing roof tint")
+	check((tuned.get_shader_parameter("mesh_uv_scale") as Vector2).is_equal_approx(Vector2.ONE/float(MatLib.SETS[str(recipe.catalog)][3])),"replacement preserves physical tile size")
+	var uv_mode: Variant = tuned.get_shader_parameter("uv_mode")
+	check(uv_mode==null or int(uv_mode)==0,"native metric charts retained")
+
+func _city_shot(label: String) -> void:
+	var selected := OS.get_environment("ORISON_CITY_FINISH_VIEWS")
+	if not selected.is_empty() and label not in selected.split(",",false):return
+	for before: bool in [true,false]:
+		for i in roof_draws.size():roof_draws[i].material_override=roof_draws[i].get_meta("v2_city_roof_source") if before else roof_materials[i]
+		await _settled_optics();await shot(label+("_before" if before else "_after"))
+
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,12*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
@@ -19,9 +59,7 @@ func _run() -> void:
 		var name:=str(draw.name).trim_prefix("city_shells_")
 		check(expected.has(name) and expected.get(name)==count,"each original building/material partition binds exact generated triangles")
 		_check_cap_mapping(draw.mesh,true)
-		var key:=str(draw.name).split("__")[-1];var material:=draw.material_override as StandardMaterial3D;var shared:=MatLib.get_mat(key)
-		check(material!=null and material!=shared and not material.uv1_triplanar and shared.uv1_triplanar,"native charts are local and shared catalogue projection remains intact")
-		check(material.albedo_texture==shared.albedo_texture and material.roughness_texture==shared.roughness_texture and material.normal_texture==shared.normal_texture,"all three exact catalogue maps reach the installed city shell")
+		_city_material(draw,str(draw.name).split("__")[-1])
 		var body: StaticBody3D=draw.get_parent().get_node(str(draw.name)+"Collision")
 		var shape: CollisionShape3D=body.get_child(0)
 		var physical:=shape.shape as ConcavePolygonShape3D
@@ -44,6 +82,7 @@ func _run() -> void:
 				var hit: Dictionary=world.get_world_3d().direct_space_state.intersect_ray(ray)
 				check(not hit.is_empty() and bodies.has(hit.collider.get_rid()) and hit.position.distance_to(p)<.0001,"existing complete hardware footprint bears on the joined city shell within its original tolerance")
 				support_samples+=1
+	check(roof_draws.size()==11,"exact eleven galvanized city partitions receive the existing roof recipe")
 	for joint: Dictionary in fixture.corner_stations:
 		var offset: Array=fixture.capture_offsets_godot.corner
 		var low:=Vector2(INF,INF);var high:=Vector2(-INF,-INF)
@@ -64,10 +103,10 @@ func _run() -> void:
 			world.player.face_world_point(target);found=true;break
 		check(found,"each building corner capture has a clear sightline to its own parapet")
 		world.player.set_lamp_enabled(true)
-		await _settled_optics();await shot(str(joint.group)+"_corner")
+		await _city_shot(str(joint.group)+"_corner")
 	for view: Dictionary in fixture.skyline_views_godot:
 		var at: Array=view.at;var target: Array=view.target;var root: Node3D=world.adapter.root
 		world.player.global_position=root.to_global(Vector3(at[0],at[1],at[2]));world.player.face_world_point(root.to_global(Vector3(target[0],target[1],target[2])))
-		await _settled_optics();await shot(view.id)
+		await _city_shot(view.id)
 	print("CITY CLOSURE: checks=",checks," parts=",parts," triangles=",triangles," joined_parapets=",fixture.closed_joined_parapets.size()," retained_hardware_footprint_samples=",support_samples," failures=",failures.size())
 	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)

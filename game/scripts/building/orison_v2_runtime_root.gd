@@ -201,6 +201,7 @@ func _ready() -> void:
 		startup_failed = true
 		push_error("V2 lamp optical state could not be restored")
 		return
+	preload("res://scripts/building/orison_v2_owner_building_finishes.gd").new().apply(self)
 	_compose_debug_controls()
 	get_node("CaretakerNotebook").debug = building_debug
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0
@@ -650,6 +651,7 @@ func _compose_exterior() -> bool:
 	city_shells.name = "CityShells"
 	add_child(city_shells)
 	if not preload("res://scripts/building/orison_v2_front_facade.gd").mount(self):return false
+	if preload("res://scripts/building/orison_v2_street_paving_details.gd").mount(self) == null:return false
 	var signage := preload("res://scripts/building/orison_v2_native_signage.gd").new()
 	if not signage.install(self):
 		push_error("V2 SIGNAGE: %s" % [signage.errors])

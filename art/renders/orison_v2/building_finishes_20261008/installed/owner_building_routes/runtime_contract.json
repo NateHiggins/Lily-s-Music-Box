@@ -1,0 +1,37 @@
+{
+	"checks": 15,
+	"contracts": {
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": false,
+			"status": "NOT_EXECUTED"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 178.559,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Existing closed entrance collision and keyboard E round trip, inner vestibule full swing/both approaches/key operations, roof public/service-door approaches, seven-stop passenger lift route with live platform carry, empty-shaft barrier and physical F06 recall. One shared production world; original helpers and inputs; route traces and owner teardown. No save reconstruction.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "fdf01a36a17b370e820a7065bad235acdfadeed7",
+		"runtime_inputs_sha256": "09074a2fd825b3e6254d2b0805de0d74777ceb195038b80b1557cf8a266e63b1",
+		"test_path": "game/tests/orison_v2_owner_building_routes_test.gd",
+		"test_sha256": "104db135de1ea84e5d8501aaf5e7739c15f51f297acd4ed7713314ecd8db35a9"
+	}
+}

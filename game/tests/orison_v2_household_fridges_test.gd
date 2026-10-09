@@ -10,6 +10,19 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	factory_id = factory.get_instance_id()
 	check(FileAccess.get_sha256(str(fixture.runtime.asset)) == fixture.asset_sha256, "refrigerator export bound to native construction")
 	var actors: Array[Fridge] = []
+	# In a long shared review the thermostat may already have cycled, and a
+	# conductor event can be moving a closed tray. Gate only event reception
+	# during the dimensional/control assay and restore each owner's state.
+	var before_states := {}
+	for instance: Dictionary in fixture.runtime.instances:
+		var prop := world.adapter.resolve(str(instance.id)) as Fridge
+		if prop==null:continue
+		before_states[prop]=[prop.state,prop._open,prop._ice_open,prop._tray_open]
+		prop.state=FunctionalProp.PState.OFF
+	await get_tree().create_timer(.7).timeout
+	for prop: Fridge in before_states:
+		prop.set_door_open(false,.01);prop.set_ice_door_open(false,.01);prop.set_tray_open(false,.01)
+	await _settled_controls(before_states.keys(),false)
 	var inventory_count := 0
 	var monitors := 0
 	for instance: Dictionary in fixture.runtime.instances:
@@ -29,7 +42,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(prop._click != null and prop._creak != null, "original latch and creak owners retained")
 		if prop.monitor_top:
 			monitors += 1
-			check(prop._hum != null and prop._running and prop._drip == null and prop._lamp == prop.get_node("InteriorLamp"), "monitor motor and original lamp retained")
+			check(prop._hum != null and prop._hum.stream != null and prop._drip == null and prop._lamp == prop.get_node("InteriorLamp"), "monitor motor and original lamp retained")
 			check(prop._lamp.position.is_equal_approx(Vector3(0,1.08,.08)) and is_equal_approx(prop._lamp.omni_range,.9), "original interior illumination anchor retained")
 		else:
 			check(prop._hum == null and prop._lamp == null and prop._drip != null and prop._ice_door == prop.get_node("IceDoor") and prop._tray == prop.get_node("DripTray"), "icebox retains separate ice hatch and service pan without electric owners")
@@ -75,15 +88,34 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		prop.interact(world.player)
 		prop.set_ice_door_open(false,.01)
 		prop.set_tray_open(false,.01)
-	await get_tree().create_timer(.65).timeout
+	await _settled_controls(actors,false)
 	for prop: Fridge in actors:
 		check(not prop._open and is_zero_approx(prop._door.rotation.y), "source door closes without native transform drift")
 		if prop.monitor_top:check(is_zero_approx(prop._lamp.light_energy), "original lamp extinguishes")
 		else:check(not prop._ice_open and not prop._tray_open and is_zero_approx(prop._ice_door.rotation.y) and is_equal_approx(prop._tray.position.z,-.245), "source ice hatch and pan close at original datums")
 		if capture_enabled and (prop.unit in ["1A","2A","3B","4B","6B"]): await _capture_fridge(world,prop,"closed")
+	for prop: Fridge in before_states:
+		var before: Array=before_states[prop]
+		prop.set_door_open(before[1],.01);prop.set_ice_door_open(before[2],.01);prop.set_tray_open(before[3],.01)
+	await get_tree().create_timer(.05).timeout
+	for prop: Fridge in before_states:
+		prop.state=before_states[prop][0]
+		check([prop.state,prop._open,prop._ice_open,prop._tray_open]==before_states[prop],"original household event/control states restored")
 	check(actors.size()==18 and monitors==7 and inventory_count==50, "all source installations and fifty household items covered")
 	check(triangles==int(fixture.triangles), "all unique native refrigerator and larder geometry accounted for")
 	return {"checks":checks,"actors":actors.size(),"monitors":monitors,"inventory_items":inventory_count,"unique_triangles":triangles,"views":discovery.duplicate(true),"failures":failures.duplicate()}
+
+func _settled_controls(actors: Array, opened: bool) -> void:
+	var deadline:=Time.get_ticks_msec()+2000
+	while Time.get_ticks_msec()<deadline:
+		var settled:=true
+		for prop: Fridge in actors:
+			settled=settled and is_equal_approx(prop._door.rotation.y,deg_to_rad(105.) if opened else 0.)
+			if prop.monitor_top: settled=settled and is_equal_approx(prop._lamp.light_energy,.22 if opened else 0.)
+			else: settled=settled and is_equal_approx(prop._ice_door.rotation.y,deg_to_rad(98.) if opened else 0.) and is_equal_approx(prop._tray.position.z,-.545 if opened else -.245)
+		if settled:return
+		await get_tree().process_frame
+	check(false,"source door, hatch, tray and lamp tweens settle")
 
 func _check_part(draw: MeshInstance3D, part: Dictionary, fixture: Dictionary) -> void:
 	if unique.has(str(part.name)):

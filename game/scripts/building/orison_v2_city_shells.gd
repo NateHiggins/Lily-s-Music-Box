@@ -10,6 +10,7 @@ func _ready() -> void:
 	var model := ASSET.instantiate() as Node3D
 	add_child(model)
 	var materials: Dictionary={}
+	var roof_finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd").new()
 	for mesh: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		mesh.set_meta("retained_city_shell",true)
 		var key := str(mesh.name).split("__")[-1]
@@ -18,6 +19,9 @@ func _ready() -> void:
 			var material:=MatLib.get_mat(key).duplicate() as StandardMaterial3D
 			material.uv1_triplanar=false;materials[key]=material
 		mesh.material_override=materials[key]
+		if key == "galvanized_roof":
+			mesh.set_meta("v2_city_roof_source",materials[key])
+			mesh.material_override=roof_finishes.material_for(materials[key],"roof")
 		var body := StaticBody3D.new()
 		body.set_meta("retained_city_shell",true)
 		body.name = str(mesh.name)+"Collision"

@@ -13,6 +13,12 @@ func prepare() -> bool:
 	for row: Dictionary in data.instances:
 		var offset: Array = row.get("visual_offset", [0,0,0])
 		_offsets[str(row.id)] = Vector3(offset[0],offset[1],offset[2])
+	# The owner's native score panel has a face 10 mm behind the old proxy.
+	# Seat existing stock with the same explicit fitting-offset mechanism.
+	var current_fits: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/owner_light_fits.json"))
+	if not _offsets.has("F01_BAR_LT_WEST1") or current_fits.size()!=1:return false
+	var fit: Array=current_fits["F01_BAR_LT_WEST1"]
+	_offsets["F01_BAR_LT_WEST1"]+=Vector3(fit[0],fit[1],fit[2])
 	for row: Dictionary in data.assemblies:
 		for i in row.parts.size():
 			var component := str(row.parts[i].component)

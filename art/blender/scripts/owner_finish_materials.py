@@ -15,7 +15,7 @@ def apply_current(group):
         keys.setdefault("T_ai_materials_"+key+"_b_albedo.png",key)
     changed=[]
     for mat in bpy.data.materials:
-        if not mat.use_nodes:continue
+        if mat.library is not None or not mat.use_nodes:continue
         nodes=mat.node_tree.nodes;links=mat.node_tree.links;bsdf=next((n for n in nodes if n.type=='BSDF_PRINCIPLED'),None)
         if not bsdf:continue
         textures=[n for n in nodes if n.type=='TEX_IMAGE' and n.image]

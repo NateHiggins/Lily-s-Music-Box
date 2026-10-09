@@ -1,0 +1,48 @@
+{
+  "schema": "orison.city-roof-finish-review.v1",
+  "evidence_class": "INERT",
+  "finish_groups": 11,
+  "checks": 2247,
+  "parts": 84,
+  "triangles": 14098,
+  "hardware_footprint_samples": 1205,
+  "corner_sightlines": 25,
+  "failures": [],
+  "runtime_inputs_sha256": "21c6730953b26266f1ac558fef2ed80441841ff1b4d3da5983a734faef2f93e2",
+  "test_sha256": "17d8465efca4217b1e84271b892213592b3f549815d2cb4b70ca65426c8e0342",
+  "images": [
+    {
+      "path": "native/site_back_e_after.png",
+      "sha256": "491d107af1076b412b84179e4f434bbac2d5de18a7e9dc0f06d97cd88f84bdc4"
+    },
+    {
+      "path": "native/site_back_e_before.png",
+      "sha256": "8e29c6546e630c2a33eb51cdd9fb62561d79fea50f709ca0764194a1fe243734"
+    },
+    {
+      "path": "native/site_sw2_after.png",
+      "sha256": "69aef3db35eece4964b969f2c54a251683c364075969b4fe333cdbce8e8eb600"
+    },
+    {
+      "path": "native/site_sw2_before.png",
+      "sha256": "44299a635ea1c6e5dab7ceb572b3a1dfba1aa4f43157df9886e2c9bce822bfda"
+    },
+    {
+      "path": "runtime01/site_back_e_corner_after.png",
+      "sha256": "db18b100f1b678f3cab214b7ee19e5dd52be3b3710d8be970f35197cabc78350"
+    },
+    {
+      "path": "runtime01/site_back_e_corner_before.png",
+      "sha256": "b5d6bcbd706c1774caf8fb5ef30b1c93fc6e45b90472693bbfe908e6225d90c4"
+    },
+    {
+      "path": "runtime01/site_sw2_corner_after.png",
+      "sha256": "9bbac983ca706c02d823955450ccb361ce3e0d448655b50ef963f06ab3e7fc28"
+    },
+    {
+      "path": "runtime01/site_sw2_corner_before.png",
+      "sha256": "3d424dee78b2830b3fd38a9381f182a52d04c303f11abe764ece59c4c367145c"
+    }
+  ],
+  "scope": "Native neutral-light comparison plus two elevated installed inspection pairs with original warm carried lamp. No player roof access, weather capacity, new runtime contract or completeness promotion. Seven historical Texture-RID shutdown warnings remain."
+}

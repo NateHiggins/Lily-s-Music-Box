@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 76.53,
+  "exit_code": 0,
+  "finished_utc": "2026-10-08T19:55:32Z",
+  "started_utc": "2026-10-08T19:54:15Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 1,
+  "script_error_lines": [
+   "SCRIPT ERROR: Trying to assign an array of type \"Array\" to a variable of type \"Array[Vector3]\"."
+  ],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/building-final-05.log.stderr",
+  "stderr_sha256": "1d7eec9d33e8d33a34a5c2924569946a393d938d53c429232b46b3b9f4ff15d4",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/building-final-05.log",
+  "stdout_sha256": "832f252ba4bd7ea48d35a26a8869b900d3e4dc664c8d73dc7bd9642dd6038d69"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2FabricationBatch.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-improvement/building-final-05",
+ "source": {
+  "dirty_paths": 301,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/scripts/owner_finish_materials.py",
+   " M art/data/v2_owner_improvement_20261008.json",
+   " M art/renders/insitu/shots.md",
+   " M art/textures/ai_materials/enamel_appliance/material.json",
+   " M game/data/orison_v2/owner_finish_profiles.json",
+   " M game/scripts/building/orison_v2_native_fixed_lighting.gd",
+   " M game/scripts/building/orison_v2_prep_cabinet.gd",
+   " M game/scripts/building/orison_v2_runtime_root.gd",
+   " M game/tests/fixtures/orison_owner_service_finish.json",
+   " M game/tests/orison_v2_city_aerials_test.gd",
+   " M game/tests/orison_v2_city_tanks_test.gd",
+   " M game/tests/orison_v2_fabrication_batch.gd",
+   " M game/tests/orison_v2_fixed_lighting_test.gd",
+   " M game/tests/orison_v2_floor_surface_test.gd",
+   " M game/tests/orison_v2_front_facade_test.gd",
+   " M game/tests/orison_v2_household_fridges_test.gd",
+   " M game/tests/orison_v2_lift_gate_test.gd",
+   " M game/tests/orison_v2_lift_joinery_test.gd",
+   " M game/tests/orison_v2_roof_membrane_test.gd"
+  ],
+  "repository_head": "fdf01a36a17b370e820a7065bad235acdfadeed7",
+  "repository_tree": "685d683b20dad2b4a27e1464526758f5516c8ca9",
+  "runtime_inputs_sha256": "ed0370b520cbf2c6501dc73fccfde6dfc2220aba9db8ddbdc1189ec345b12d3a",
+  "test_path": "game/tests/orison_v2_fabrication_batch.gd",
+  "test_sha256": "4a8a7653b1ed1105ac98e646ee41d3cf3a4e511fbe5ca40ac2a40478c95243a7"
+ },
+ "windowed": true
+}

@@ -103,10 +103,16 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	if basement not in captures: captures.append(basement)
 	var well_pendant: LightFixtureProp = factory.installed["F01_BAR_LT_TAB2"].get_ref()
 	if well_pendant not in captures: captures.append(well_pendant)
+	var bar_sconce: LightFixtureProp=factory.installed["F01_BAR_LT_WEST1"].get_ref()
+	if bar_sconce not in captures:captures.append(bar_sconce)
 	var bounds := _light_bounds(basement)
 	check(absf(world.adapter.root.to_local(basement.to_global(bounds.position)).y-1.14)<.0001, "basement fixture bottom clears lower stair landing by 2.74 metres")
 	if capture_enabled:
 		var requested := OS.get_environment("ORISON_FIXED_LIGHTING_CAPTURE_IDS").split(",",false)
+		for identity: String in requested:
+			if factory.installed.has(identity):
+				var selected: LightFixtureProp=factory.installed[identity].get_ref()
+				if selected not in captures:captures.append(selected)
 		for prop: LightFixtureProp in captures:
 			if requested.is_empty() or str(prop.name) in requested: await _capture_light(world,prop)
 	return {"checks":checks,"actors":mounted_ids.size(),"variants":variants.size(),"parts":parts,"unique_triangles":triangles,"views":discovery.duplicate(true),"failures":failures.duplicate()}
@@ -155,7 +161,13 @@ func _capture_light(world: OrisonV2RuntimeRoot, prop: LightFixtureProp) -> void:
 			if visible and (hit.is_empty() or hit.position.distance_to(prop.light.global_position)<.015): station=at;break
 		if station.is_finite():break
 	check(station.is_finite(), "unobstructed standing view of native fixture: "+identity)
-	if station.is_finite(): await _city_capture(world,station,target,identity+"_native","native fixture and fitted attachment",identity)
+	if station.is_finite():
+		var original_power: bool=prop.powered
+		for powered: bool in [true,false]:
+			prop.set_powered(powered)
+			await _city_capture(world,station,target,identity+("_powered" if powered else "_off"),"same fitted fixture/camera; original power control; carried service lamp remains",identity)
+		prop.set_powered(original_power)
+		check(prop.powered==original_power,"paired fixture capture restores original power")
 	world.player.camera.fov = camera_fov
 
 func _retained_face_contact(world: OrisonV2RuntimeRoot, identity: String, at: Vector3, direction: Vector3) -> bool:

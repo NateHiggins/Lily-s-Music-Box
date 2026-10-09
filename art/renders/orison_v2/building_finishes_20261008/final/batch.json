@@ -1,0 +1,68 @@
+{
+	"batch_checks": 11,
+	"elapsed_ms": 41347,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 12455,
+	"modules": {
+		"fixed_lighting": {
+			"actors": 199,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 5944,
+			"elapsed_ms": 1960,
+			"failures": [],
+			"fixture_sha256": "d95098e1bce18c554008a5f6e5f56bfb8f1c942947a8a31a17c6ff0e4ea8a021",
+			"parts": 746,
+			"unique_triangles": 480680,
+			"validator_sha256": "28a23b6b051d548ae24f64bbd2f645d5efa05fbea082c31295884db301aa461d",
+			"variants": 27,
+			"views": []
+		},
+		"household_fridges": {
+			"actors": 18,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 1713,
+			"elapsed_ms": 1978,
+			"failures": [],
+			"fixture_sha256": "4cd3cdac271f48b1683cdb3baa70b7a5f980980cfb8b5d35296d0b545857465a",
+			"inventory_items": 50,
+			"monitors": 7,
+			"unique_triangles": 140808,
+			"validator_sha256": "062bf9d112ec5780290f8cf9d88d223b5042b66156fe896a4be5c709afa08249",
+			"views": []
+		},
+		"owner_building_finish": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 4798,
+			"elapsed_ms": 1443,
+			"failures": [],
+			"finish_slots": {
+				"facade": 52,
+				"lift": 71,
+				"roof": 158,
+				"skyline": 441
+			},
+			"fixture_sha256": "afdbe5c8ec28ee4f427268761d65097ef2271246af1921c38acfe0b00f47d37f",
+			"inspectors": {
+				"lift_joinery": {
+					"checks": 67,
+					"failures": []
+				},
+				"roof_ventilator": {
+					"checks": 49,
+					"failures": []
+				}
+			},
+			"loaded_maps": 33,
+			"local_weather_slots": 190,
+			"validator_sha256": "c061b05b818b11d5f02a8360548a6213a5931baf3fe7f327bc45b5733a72e451",
+			"views": []
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}
