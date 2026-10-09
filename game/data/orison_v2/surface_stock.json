@@ -5589,6 +5589,159 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "3A_memorial_pot",
+      "parts": [
+        {
+          "name": "3A_memorial_pot__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "3A_memorial_pot__soil",
+          "key": "soil",
+          "tile": 0.35,
+          "catalog_key": "soil",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "3A_memorial_pot__terracotta",
+          "key": "terracotta",
+          "tile": 0.4,
+          "catalog_key": "terracotta",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6A_plate_box",
+      "parts": [
+        {
+          "name": "6A_plate_box__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        },
+        {
+          "name": "6A_plate_box__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "6A_plate_box__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6A_loupe",
+      "parts": [
+        {
+          "name": "6A_loupe__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "6A_loupe__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6A_print_rack",
+      "parts": [
+        {
+          "name": "6A_print_rack__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "6A_print_rack__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6C_ledger",
+      "parts": [
+        {
+          "name": "6C_ledger__book_brown",
+          "key": "book_brown",
+          "tile": 0.32,
+          "catalog_key": "book_brown"
+        },
+        {
+          "name": "6C_ledger__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "local_materials": {

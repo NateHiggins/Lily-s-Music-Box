@@ -453,6 +453,47 @@ def lighttable(source):
  stock('Glass',(-.165,-.115,.065),(.165,.115,.072),'glassish',.001)
  for p in [(-.17,-.12,0),(.17,-.12,0),(-.17,.12,0),(.17,.12,0)]:bearing('light table '+str(p),p)
  group('LightTable',start)
+# Dossier slice 27: the memorial pot, the plate box, the loupe, the print rack and the never-opened ledger.
+def memorialpot(source):
+ start=len(stock_checks)
+ lathe('Pot',0,0,0,[(0,0),(.054,0),(.056,.004),(.066,.098),(.074,.1),(.074,.118),(.066,.118),(.062,.11),(.06,.096),(0,.096)],'terracotta')
+ lathe('Soil',0,0,.094,[(0,0),(.0605,0),(.0612,.006),(0,.006)],'soil')
+ stock('Chalk',(-.015,.066,.1175),(.015,.072,.1195),'paper',.0003)
+ for p in [(-.05,0,0),(.05,0,0),(0,-.04,0),(0,.04,0)]:bearing('pot '+str(p),p)
+ group('MemorialPot',start)
+def platebox(source):
+ start=len(stock_checks)
+ stock('Floor',(-.1,-.075,0),(.1,.075,.01),'wood_dark',.001)
+ for y in [-.075,.065]:stock('Side'+str(y),(-.1,y,.005),(.1,y+.01,.095),'wood_dark',.001)
+ for x in [-.1,.09]:stock('End'+str(x),(x,-.067,.005),(x+.01,.067,.095),'wood_dark',.001)
+ for i in range(7):
+  x=-.072+i*.024
+  stock('Plate'+str(i),(x-.0012,-.06,.0095),(x+.0012,.06,.118-.004*(i%3)),'glassish',.0002)
+ stock('Catch',(-.012,-.079,.07),(.012,-.074,.088),'brass',.0004)
+ for p in [(-.09,-.065,0),(.09,-.065,0),(-.09,.065,0),(.09,.065,0)]:bearing('box '+str(p),p)
+ group('PlateBox',start)
+def loupe(source):
+ start=len(stock_checks)
+ lathe('Body',0,0,0,[(0,0),(.022,0),(.022,.004),(.017,.042),(.016,.046),(0,.046)],'bakelite')
+ lathe('Lens',0,0,.045,[(0,0),(.0145,0),(.0135,.005),(0,.006)],'glassish')
+ for p in [(-.018,0,0),(.018,0,0),(0,.018,0)]:bearing('loupe '+str(p),p)
+ group('Loupe',start)
+def printrack(source):
+ start=len(stock_checks)
+ stock('Base',(-.15,-.05,0),(.15,.05,.016),'wood_dark',.001)
+ for x in [-.15,.138]:stock('Upright'+str(x),(x,-.012,.015),(x+.012,.012,.2),'wood_dark',.001)
+ stock('Rail',(-.15,-.008,.188),(.15,.008,.2),'wood_dark',.0008)
+ for i,y in enumerate([-.032,-.004,.024]):
+  stock('Print'+str(i),(-.125+.01*i,y,.0155),(.115+.01*i,y+.0015,.17-.012*i),'paper',.0002)
+ for p in [(-.14,-.04,0),(.14,-.04,0),(-.14,.04,0),(.14,.04,0)]:bearing('rack '+str(p),p)
+ group('PrintRack',start)
+def ledger(source):
+ start=len(stock_checks)
+ book('Ledger',(-.14,-.105,0),(.14,.105,.068),'book_brown')
+ for x in [-.09,-.03,.03,.09]:stock('Band'+str(x),(x-.006,.1035,.008),(x+.006,.107,.06),'book_brown',.0005)
+ stock('Dust',(-.135,-.1,.0675),(.125,.1,.0688),'paper',.0001)
+ for p in [(-.13,-.095,0),(.13,-.095,0),(-.13,.095,0),(.13,.095,0)]:bearing('ledger '+str(p),p)
+ group('Ledger',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -502,4 +543,9 @@ for assembly in assemblies:
  elif kind=='batterycase':batterycase(source)
  elif kind=='cap':cap(source)
  elif kind=='lighttable':lighttable(source)
+ elif kind=='memorialpot':memorialpot(source)
+ elif kind=='platebox':platebox(source)
+ elif kind=='loupe':loupe(source)
+ elif kind=='printrack':printrack(source)
+ elif kind=='ledger':ledger(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

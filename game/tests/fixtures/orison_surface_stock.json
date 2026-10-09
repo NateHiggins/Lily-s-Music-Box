@@ -1881,6 +1881,36 @@
       "kind": "cap",
       "cell": "4B",
       "source_record": "4B_old_cap"
+    },
+    {
+      "id": "3A_memorial_pot",
+      "kind": "memorialpot",
+      "cell": "3A",
+      "source_record": "3A_memorial_pot"
+    },
+    {
+      "id": "6A_plate_box",
+      "kind": "platebox",
+      "cell": "6A",
+      "source_record": "6A_plate_box"
+    },
+    {
+      "id": "6A_loupe",
+      "kind": "loupe",
+      "cell": "6A",
+      "source_record": "6A_loupe"
+    },
+    {
+      "id": "6A_print_rack",
+      "kind": "printrack",
+      "cell": "6A",
+      "source_record": "6A_print_rack"
+    },
+    {
+      "id": "6C_ledger",
+      "kind": "ledger",
+      "cell": "6C",
+      "source_record": "6C_ledger"
     }
   ],
   "closed_stocks": [
@@ -14411,6 +14441,210 @@
       "assembly": "4B_old_cap",
       "key": "bakelite",
       "volume_m3": 2.2674713504448646e-05
+    },
+    {
+      "name": "3A_memorial_pot_Pot",
+      "assembly": "3A_memorial_pot",
+      "key": "terracotta",
+      "volume_m3": 0.0012096958646576955
+    },
+    {
+      "name": "3A_memorial_pot_Soil",
+      "assembly": "3A_memorial_pot",
+      "key": "soil",
+      "volume_m3": 6.959634922488106e-05
+    },
+    {
+      "name": "3A_memorial_pot_Chalk",
+      "assembly": "3A_memorial_pot",
+      "key": "paper",
+      "volume_m3": 3.5662523617652226e-07
+    },
+    {
+      "name": "6A_plate_box_Floor",
+      "assembly": "6A_plate_box",
+      "key": "wood_dark",
+      "volume_m3": 0.0002996417143180535
+    },
+    {
+      "name": "6A_plate_box_Side-0.075",
+      "assembly": "6A_plate_box",
+      "key": "wood_dark",
+      "volume_m3": 0.00017970180051277604
+    },
+    {
+      "name": "6A_plate_box_Side0.065",
+      "assembly": "6A_plate_box",
+      "key": "wood_dark",
+      "volume_m3": 0.00017970180051277604
+    },
+    {
+      "name": "6A_plate_box_End-0.1",
+      "assembly": "6A_plate_box",
+      "key": "wood_dark",
+      "volume_m3": 0.00012036767809914648
+    },
+    {
+      "name": "6A_plate_box_End0.09",
+      "assembly": "6A_plate_box",
+      "key": "wood_dark",
+      "volume_m3": 0.00012036767809914649
+    },
+    {
+      "name": "6A_plate_box_Plate0",
+      "assembly": "6A_plate_box",
+      "key": "glassish",
+      "volume_m3": 3.123882113250932e-05
+    },
+    {
+      "name": "6A_plate_box_Plate1",
+      "assembly": "6A_plate_box",
+      "key": "glassish",
+      "volume_m3": 3.008693288286188e-05
+    },
+    {
+      "name": "6A_plate_box_Plate2",
+      "assembly": "6A_plate_box",
+      "key": "glassish",
+      "volume_m3": 2.8935092390764317e-05
+    },
+    {
+      "name": "6A_plate_box_Plate3",
+      "assembly": "6A_plate_box",
+      "key": "glassish",
+      "volume_m3": 3.123877871768771e-05
+    },
+    {
+      "name": "6A_plate_box_Plate4",
+      "assembly": "6A_plate_box",
+      "key": "glassish",
+      "volume_m3": 3.0086932882861878e-05
+    },
+    {
+      "name": "6A_plate_box_Plate5",
+      "assembly": "6A_plate_box",
+      "key": "glassish",
+      "volume_m3": 2.8935092390764313e-05
+    },
+    {
+      "name": "6A_plate_box_Plate6",
+      "assembly": "6A_plate_box",
+      "key": "glassish",
+      "volume_m3": 3.123882113250931e-05
+    },
+    {
+      "name": "6A_plate_box_Catch",
+      "assembly": "6A_plate_box",
+      "key": "brass",
+      "volume_m3": 2.1525899514651456e-06
+    },
+    {
+      "name": "6A_loupe_Body",
+      "assembly": "6A_loupe",
+      "key": "bakelite",
+      "volume_m3": 5.499016303879717e-05
+    },
+    {
+      "name": "6A_loupe_Lens",
+      "assembly": "6A_loupe",
+      "key": "glassish",
+      "volume_m3": 3.261587524186417e-06
+    },
+    {
+      "name": "6A_print_rack_Base",
+      "assembly": "6A_print_rack",
+      "key": "wood_dark",
+      "volume_m3": 0.000479585749073908
+    },
+    {
+      "name": "6A_print_rack_Upright-0.15",
+      "assembly": "6A_print_rack",
+      "key": "wood_dark",
+      "volume_m3": 5.306074545653408e-05
+    },
+    {
+      "name": "6A_print_rack_Upright0.138",
+      "assembly": "6A_print_rack",
+      "key": "wood_dark",
+      "volume_m3": 5.306074545653406e-05
+    },
+    {
+      "name": "6A_print_rack_Rail",
+      "assembly": "6A_print_rack",
+      "key": "wood_dark",
+      "volume_m3": 5.739100363729701e-05
+    },
+    {
+      "name": "6A_print_rack_Print0",
+      "assembly": "6A_print_rack",
+      "key": "paper",
+      "volume_m3": 5.5604217106164404e-05
+    },
+    {
+      "name": "6A_print_rack_Print1",
+      "assembly": "6A_print_rack",
+      "key": "paper",
+      "volume_m3": 5.128466579803474e-05
+    },
+    {
+      "name": "6A_print_rack_Print2",
+      "assembly": "6A_print_rack",
+      "key": "paper",
+      "volume_m3": 4.69651115436446e-05
+    },
+    {
+      "name": "6C_ledger_Ledger_LowerCover",
+      "assembly": "6C_ledger",
+      "key": "book_brown",
+      "volume_m3": 8.227581406159795e-05
+    },
+    {
+      "name": "6C_ledger_Ledger_UpperCover",
+      "assembly": "6C_ledger",
+      "key": "book_brown",
+      "volume_m3": 8.227589693045193e-05
+    },
+    {
+      "name": "6C_ledger_Ledger_Pages",
+      "assembly": "6C_ledger",
+      "key": "paper",
+      "volume_m3": 0.0037634862017123893
+    },
+    {
+      "name": "6C_ledger_Ledger_Spine",
+      "assembly": "6C_ledger",
+      "key": "book_brown",
+      "volume_m3": 3.8024047568738845e-05
+    },
+    {
+      "name": "6C_ledger_Band-0.09",
+      "assembly": "6C_ledger",
+      "key": "book_brown",
+      "volume_m3": 2.1673378149681885e-06
+    },
+    {
+      "name": "6C_ledger_Band-0.03",
+      "assembly": "6C_ledger",
+      "key": "book_brown",
+      "volume_m3": 2.167337137896781e-06
+    },
+    {
+      "name": "6C_ledger_Band0.03",
+      "assembly": "6C_ledger",
+      "key": "book_brown",
+      "volume_m3": 2.167337137896781e-06
+    },
+    {
+      "name": "6C_ledger_Band0.09",
+      "assembly": "6C_ledger",
+      "key": "book_brown",
+      "volume_m3": 2.1673378149681885e-06
+    },
+    {
+      "name": "6C_ledger_Dust",
+      "assembly": "6C_ledger",
+      "key": "paper",
+      "volume_m3": 6.75953724697826e-05
     }
   ],
   "contacts": [
@@ -22798,6 +23032,291 @@
         0
       ],
       "label": "cap (0, -0.07, 0)"
+    },
+    {
+      "assembly": "3A_memorial_pot",
+      "owner": "support",
+      "point": [
+        -0.05,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pot (-0.05, 0, 0)"
+    },
+    {
+      "assembly": "3A_memorial_pot",
+      "owner": "support",
+      "point": [
+        0.05,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pot (0.05, 0, 0)"
+    },
+    {
+      "assembly": "3A_memorial_pot",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pot (0, -0.04, 0)"
+    },
+    {
+      "assembly": "3A_memorial_pot",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pot (0, 0.04, 0)"
+    },
+    {
+      "assembly": "6A_plate_box",
+      "owner": "support",
+      "point": [
+        -0.09,
+        0,
+        0.065
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box (-0.09, -0.065, 0)"
+    },
+    {
+      "assembly": "6A_plate_box",
+      "owner": "support",
+      "point": [
+        0.09,
+        0,
+        0.065
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box (0.09, -0.065, 0)"
+    },
+    {
+      "assembly": "6A_plate_box",
+      "owner": "support",
+      "point": [
+        -0.09,
+        0,
+        -0.065
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box (-0.09, 0.065, 0)"
+    },
+    {
+      "assembly": "6A_plate_box",
+      "owner": "support",
+      "point": [
+        0.09,
+        0,
+        -0.065
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "box (0.09, 0.065, 0)"
+    },
+    {
+      "assembly": "6A_loupe",
+      "owner": "support",
+      "point": [
+        -0.018,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "loupe (-0.018, 0, 0)"
+    },
+    {
+      "assembly": "6A_loupe",
+      "owner": "support",
+      "point": [
+        0.018,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "loupe (0.018, 0, 0)"
+    },
+    {
+      "assembly": "6A_loupe",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.018
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "loupe (0, 0.018, 0)"
+    },
+    {
+      "assembly": "6A_print_rack",
+      "owner": "support",
+      "point": [
+        -0.14,
+        0,
+        0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rack (-0.14, -0.04, 0)"
+    },
+    {
+      "assembly": "6A_print_rack",
+      "owner": "support",
+      "point": [
+        0.14,
+        0,
+        0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rack (0.14, -0.04, 0)"
+    },
+    {
+      "assembly": "6A_print_rack",
+      "owner": "support",
+      "point": [
+        -0.14,
+        0,
+        -0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rack (-0.14, 0.04, 0)"
+    },
+    {
+      "assembly": "6A_print_rack",
+      "owner": "support",
+      "point": [
+        0.14,
+        0,
+        -0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rack (0.14, 0.04, 0)"
+    },
+    {
+      "assembly": "6C_ledger",
+      "owner": "support",
+      "point": [
+        -0.13,
+        0,
+        0.095
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ledger (-0.13, -0.095, 0)"
+    },
+    {
+      "assembly": "6C_ledger",
+      "owner": "support",
+      "point": [
+        0.13,
+        0,
+        0.095
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ledger (0.13, -0.095, 0)"
+    },
+    {
+      "assembly": "6C_ledger",
+      "owner": "support",
+      "point": [
+        -0.13,
+        0,
+        -0.095
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ledger (-0.13, 0.095, 0)"
+    },
+    {
+      "assembly": "6C_ledger",
+      "owner": "support",
+      "point": [
+        0.13,
+        0,
+        -0.095
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ledger (0.13, 0.095, 0)"
     }
   ],
   "parts": [
@@ -25544,9 +26063,93 @@
       "cell": "4B",
       "key": "book_navy",
       "triangles": 384
+    },
+    {
+      "name": "3A_memorial_pot__paper",
+      "assembly": "3A_memorial_pot",
+      "cell": "3A",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "3A_memorial_pot__soil",
+      "assembly": "3A_memorial_pot",
+      "cell": "3A",
+      "key": "soil",
+      "triangles": 192
+    },
+    {
+      "name": "3A_memorial_pot__terracotta",
+      "assembly": "3A_memorial_pot",
+      "cell": "3A",
+      "key": "terracotta",
+      "triangles": 768
+    },
+    {
+      "name": "6A_plate_box__brass",
+      "assembly": "6A_plate_box",
+      "cell": "6A",
+      "key": "brass",
+      "triangles": 188
+    },
+    {
+      "name": "6A_plate_box__glassish",
+      "assembly": "6A_plate_box",
+      "cell": "6A",
+      "key": "glassish",
+      "triangles": 1316
+    },
+    {
+      "name": "6A_plate_box__wood_dark",
+      "assembly": "6A_plate_box",
+      "cell": "6A",
+      "key": "wood_dark",
+      "triangles": 940
+    },
+    {
+      "name": "6A_loupe__bakelite",
+      "assembly": "6A_loupe",
+      "cell": "6A",
+      "key": "bakelite",
+      "triangles": 384
+    },
+    {
+      "name": "6A_loupe__glassish",
+      "assembly": "6A_loupe",
+      "cell": "6A",
+      "key": "glassish",
+      "triangles": 192
+    },
+    {
+      "name": "6A_print_rack__paper",
+      "assembly": "6A_print_rack",
+      "cell": "6A",
+      "key": "paper",
+      "triangles": 564
+    },
+    {
+      "name": "6A_print_rack__wood_dark",
+      "assembly": "6A_print_rack",
+      "cell": "6A",
+      "key": "wood_dark",
+      "triangles": 752
+    },
+    {
+      "name": "6C_ledger__book_brown",
+      "assembly": "6C_ledger",
+      "cell": "6C",
+      "key": "book_brown",
+      "triangles": 1316
+    },
+    {
+      "name": "6C_ledger__paper",
+      "assembly": "6C_ledger",
+      "cell": "6C",
+      "key": "paper",
+      "triangles": 376
     }
   ],
-  "triangles": 763124,
+  "triangles": 770300,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -31139,6 +31742,159 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "3A_memorial_pot",
+        "parts": [
+          {
+            "name": "3A_memorial_pot__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          },
+          {
+            "name": "3A_memorial_pot__soil",
+            "key": "soil",
+            "tile": 0.35,
+            "catalog_key": "soil",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "3A_memorial_pot__terracotta",
+            "key": "terracotta",
+            "tile": 0.4,
+            "catalog_key": "terracotta",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6A_plate_box",
+        "parts": [
+          {
+            "name": "6A_plate_box__brass",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.45
+            }
+          },
+          {
+            "name": "6A_plate_box__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "6A_plate_box__wood_dark",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ]
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6A_loupe",
+        "parts": [
+          {
+            "name": "6A_loupe__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "6A_loupe__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6A_print_rack",
+        "parts": [
+          {
+            "name": "6A_print_rack__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          },
+          {
+            "name": "6A_print_rack__wood_dark",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ]
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6C_ledger",
+        "parts": [
+          {
+            "name": "6C_ledger__book_brown",
+            "key": "book_brown",
+            "tile": 0.32,
+            "catalog_key": "book_brown"
+          },
+          {
+            "name": "6C_ledger__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -31167,9 +31923,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "8f5129fb540c6e887de50e797ff43af77a5fb17a58e8e9f874b14db0663af45b",
+  "asset_sha256": "1099152e566dc8fe84e8439f10bd2187eb07a784e660f039bda8093d40b58fbf",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "897ee40ff31ee9df7b6cedfb8d4e63a4c188a3aab011e47d9b6253ff969e9b0c",
+    "art/data/surface_stock/source_plan.json": "7c582776fb433a13521290cfd0d0d74571cd689c3cd68e42dcf2730fd9d06644",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -31200,6 +31956,8 @@
     "art/textures/ai_materials/oak_work_surface/material.json": "e6f67c0a42f610648b57189f1f2d8ed7e567742ef8c4af32e104fd73acbe7f89",
     "art/textures/ai_materials/trim/material.json": "7f7ce266fc6d291f2c15ea67ce60be610579f45ba215460e77aa2e671b5feecf",
     "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
+    "art/textures/ai_materials/terracotta/material.json": "13bc7f107bad6e33ed641ba2b6c80d4447c385ef55ed072902a2009ccbd38327",
+    "art/textures/ai_materials/soil/material.json": "293b060f211eacfd06ed4b2a2189495823f4d83b98e2648158326ae38b0559c3",
     "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
     "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
     "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
@@ -31262,24 +32020,30 @@
     "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
     "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
     "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
+    "game/assets/building/textures/T_ai_materials_terracotta_albedo.png": "b347747cd57b9720ef6cd7f187356d4a4f8f619c4def3dcc71b37302826f09ef",
+    "game/assets/building/textures/T_ai_materials_terracotta_rough.png": "a79208b2b89bd63d199c89f6d756853c9f54e054b67fedc987b6d03ae52c318c",
+    "game/assets/building/textures/T_ai_materials_terracotta_normal.png": "3f506e18a888f232658bc2a741d74768de9497eca813dd7c43546853034113da",
+    "game/assets/building/textures/T_ai_materials_soil_albedo.png": "0a4e2ed4d7ec6229a7340fa39b203cf70d847c2d0e4f7a6329f426cc228015e0",
+    "game/assets/building/textures/T_ai_materials_soil_rough.png": "e29884dd5f10beb17db26aa5996845f6041884f9ec31975419ff1145cfbc33ae",
+    "game/assets/building/textures/T_ai_materials_soil_normal.png": "946fbd61cd42445375570d2b1951214a13c811d83a1edc99f282487b8afa1aed",
     "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
     "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
     "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
-    "art/blender/scripts/inspect_surface_stock_context.py": "238b9114f06f4e4d036342517e938e9ba8070bffe5345ac19bdaeb4809d79eca",
+    "art/blender/scripts/inspect_surface_stock_context.py": "d12283ece5cd56da23db33fe3e3e50b1de8ad79373a528564608d232191b1ed3",
     "game/scripts/props/tap_prop.gd": "6d969b3e6f293167b3de04e9463eee6bb9bcd5b02109bc88df370dd6c365d7d4",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "art/blender/scripts/render_surface_stock.py": "e8a99fc84f1d4537c23c40c6663ac64c1967908f717329b618085d6ba9c29289",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "f516b798bf5c61ea7038156558be47ca2da1ef3bde5039f7ea9d8b75a249d8a7",
+    "art/blender/scripts/surface_stock_geometry.py": "20b66b3492c4b0762e57fae3e4e55dd5f56bebc8f2434d3449091888729a7c65",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "210160efd6d10392a793c817e29b4e4b90479c7d14238676ba911c6ff9cb0d96",
+    "game/data/orison_v2/domestic_surface_props.json": "4ed0b4491906878cd65ff3f1dc84f70acb811b185c0bae70ddb82bd694fd6d1d",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "81f92ad79e9261fe988c5793a740021f884adb3e3da46216b078f50ee0cf4678"
+    "game/data/orison_v2/domestic_furniture.json": "bafd67b3e8c5ea39e358396e01f404e81356fa5974f8964d1aa0a8938c5d387e"
   },
   "retained_stock": [
     {
@@ -38549,6 +39313,70 @@
         "4B_old_cap_Crown",
         "4B_old_cap_Peak",
         "4B_old_cap_Band"
+      ]
+    },
+    {
+      "assembly": "3A_memorial_pot",
+      "id": "3A_memorial_pot_MemorialPot",
+      "stocks": [
+        "3A_memorial_pot_Pot",
+        "3A_memorial_pot_Soil",
+        "3A_memorial_pot_Chalk"
+      ]
+    },
+    {
+      "assembly": "6A_plate_box",
+      "id": "6A_plate_box_PlateBox",
+      "stocks": [
+        "6A_plate_box_Floor",
+        "6A_plate_box_Side-0.075",
+        "6A_plate_box_Side0.065",
+        "6A_plate_box_End-0.1",
+        "6A_plate_box_End0.09",
+        "6A_plate_box_Plate0",
+        "6A_plate_box_Plate1",
+        "6A_plate_box_Plate2",
+        "6A_plate_box_Plate3",
+        "6A_plate_box_Plate4",
+        "6A_plate_box_Plate5",
+        "6A_plate_box_Plate6",
+        "6A_plate_box_Catch"
+      ]
+    },
+    {
+      "assembly": "6A_loupe",
+      "id": "6A_loupe_Loupe",
+      "stocks": [
+        "6A_loupe_Body",
+        "6A_loupe_Lens"
+      ]
+    },
+    {
+      "assembly": "6A_print_rack",
+      "id": "6A_print_rack_PrintRack",
+      "stocks": [
+        "6A_print_rack_Base",
+        "6A_print_rack_Upright-0.15",
+        "6A_print_rack_Upright0.138",
+        "6A_print_rack_Rail",
+        "6A_print_rack_Print0",
+        "6A_print_rack_Print1",
+        "6A_print_rack_Print2"
+      ]
+    },
+    {
+      "assembly": "6C_ledger",
+      "id": "6C_ledger_Ledger",
+      "stocks": [
+        "6C_ledger_Ledger_LowerCover",
+        "6C_ledger_Ledger_UpperCover",
+        "6C_ledger_Ledger_Pages",
+        "6C_ledger_Ledger_Spine",
+        "6C_ledger_Band-0.09",
+        "6C_ledger_Band-0.03",
+        "6C_ledger_Band0.03",
+        "6C_ledger_Band0.09",
+        "6C_ledger_Dust"
       ]
     }
   ],

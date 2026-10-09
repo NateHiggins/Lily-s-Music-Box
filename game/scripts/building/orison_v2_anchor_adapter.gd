@@ -85,6 +85,13 @@ func mount_consumer(identity: String, consumer: Node3D) -> bool:
 	consumer.name = identity
 	root.add_child(consumer)
 	consumer.global_transform = anchor.global_transform
+	# Passive surface stock already seated on the anchor belongs to the installed
+	# consumer (orison_v2_surface_props.gd: it retires with its support). Both
+	# frames coincide, so every support-local pose is kept.
+	for child: Node in anchor.get_children():
+		if child.has_meta("v2_surface_prop"):
+			anchor.remove_child(child)
+			consumer.add_child(child)
 	_mounted[identity] = {"anchor": anchor, "consumer": consumer,
 			"name": original_name}
 	return true

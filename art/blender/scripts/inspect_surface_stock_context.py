@@ -43,6 +43,13 @@ for identity in {p['support'] for p in props.values()}:
   supports[identity]=[box_tree((-.35,1.23,-.29),(.35,1.24,.29))]
  elif identity in furniture:supports[identity]=[source_tree(furniture[identity])]
  elif identity in completion:supports[identity]=[source_tree(furniture[completion[identity]])]
+ elif identity.endswith('_BOOKSHELF_01'):
+  # Sectional case top cap (bookshelf_prop.gd): 1.34 m over the .86 x .34 cap board.
+  shelf=next(s for s in json.loads((r/'game/data/orison_v2/bookshelves.json').read_text())['shelves'] if s['id']==identity)
+  assert shelf['style']=='sectional',identity
+  script=(r/'game/scripts/props/bookshelf_prop.gd').read_text()
+  for literal in ['_case_w = 0.78','_case_h = 1.34','_case_d = 0.30','Vector3(_case_w + 0.08, 0.085, _case_d + 0.04)','Vector3(0, _case_h - 0.0425, 0)']:assert literal in script,literal
+  supports[identity]=[box_tree((-.43,1.255,-.17),(.43,1.34,.17))]
  elif identity.endswith('_prep_cabinet'):
   # Native prep cabinet worktop (prep_cabinets.md): .9 m over the retained .83 x .535 envelope.
   supports[identity]=[box_tree((-.415,.88,-.29),(.415,.90,.245))]

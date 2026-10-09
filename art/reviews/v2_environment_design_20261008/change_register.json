@@ -5155,7 +5155,9 @@
    "purpose": "Review: 3A main and all of 3D read as unfurnished templates despite the potting bench; the propagation shelf (F03_A_MAIN-001) is the fix",
    "acceptance": "OV reads a horticulturist's room",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_A_MAIN"
+   "area": "F03_A_MAIN",
+   "status": "verified",
+   "owner_notes": "The overview now reads a horticulturist's room: the propagation shelves and seed-jar rows under both west windows (slice 19), the specimen plant in its pot and the potting bench, beside the wall pieces of slice 15 (F03_A_MAIN_OV). Verified at WIP ed0359c3 (implementation/slice27b): fabrication batch 0 failures (surface stock bearings include the sectional case's top cap); apartment batch 236 (the branch baseline); bookshelves 144 checks, 0 failures with the ledger seated on the case; upper kitchens 206 (the branch baseline); four-space sweep 0 failures."
   },
   {
    "id": "F03_A_KITCHEN-001",
@@ -5227,7 +5229,9 @@
    ],
    "acceptance": "Detail view at the sink",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_A_KITCHEN"
+   "area": "F03_A_KITCHEN",
+   "status": "verified",
+   "owner_notes": "3A's kitchen window is on the west wall, not over the sink, so the empty memorial pot (terracotta, dry soil, a chalk mark on the rim facing the room) stands at the back of the sink's drainboard under the wall cupboard and keeps the sink's detail view (implementation/slice27b/images/3A_memorial_pot_stock.jpg). It is passive stock: the INSPECT card waits for an inspect owner on surface stock. Verified at WIP ed0359c3 (implementation/slice27b): fabrication batch 0 failures (surface stock bearings include the sectional case's top cap); apartment batch 236 (the branch baseline); bookshelves 144 checks, 0 failures with the ledger seated on the case; upper kitchens 206 (the branch baseline); four-space sweep 0 failures."
   },
   {
    "id": "F03_A_KITCHEN-004",
@@ -7140,7 +7144,9 @@
    ],
    "acceptance": "OrisonV2WakeReconstructionTest unchanged",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_B_ALCOVE"
+   "area": "F04_B_ALCOVE",
+   "status": "verified",
+   "owner_notes": "Kept exactly: no slice touches 4B_wake_bed or 4B_wake_nightstand. OrisonV2WakeReconstructionTest is unchanged: at 7478bd9c (before slice 26) and at slice 26's WIP c9bc2317 it passes the same 33 checks and then trips its own 150 s watchdog, a pre-existing timeout (implementation/slice27b/receipts, wake_*). Verified at WIP ed0359c3 (implementation/slice27b): fabrication batch 0 failures (surface stock bearings include the sectional case's top cap); apartment batch 236 (the branch baseline); bookshelves 144 checks, 0 failures with the ledger seated on the case; upper kitchens 206 (the branch baseline); four-space sweep 0 failures."
   },
   {
    "id": "F04_B_ALCOVE-002",
@@ -9762,7 +9768,9 @@
    "preserve": "Desk wall assembly",
    "acceptance": "Detail view shows no monitor",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_A_STUDY"
+   "area": "F06_A_STUDY",
+   "status": "verified",
+   "owner_notes": "V2 instances no monitor in 6A (the only MonitorProp anchors are F02_A_MONITOR_01 and F04_B_MONITOR_01), so nothing is removed; the desk wall gains a glass-plate box, a loupe and a print rack beside the existing headphones, cans, papers and mug (6A_deskwall_stock, F06_A_STUDY_DT1). Verified at WIP ed0359c3 (implementation/slice27b): fabrication batch 0 failures (surface stock bearings include the sectional case's top cap); apartment batch 236 (the branch baseline); bookshelves 144 checks, 0 failures with the ledger seated on the case; upper kitchens 206 (the branch baseline); four-space sweep 0 failures."
   },
   {
    "id": "F06_A_STUDY-002",
@@ -10137,7 +10145,9 @@
    "preserve": "BookshelfProp sorting panel",
    "acceptance": "Detail view of the shelf",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_MAIN"
+   "area": "F06_C_MAIN",
+   "status": "verified",
+   "owner_notes": "The 1912 prospectus is already Mae's canonical book inside the sectional case (OrisonV2BookshelvesTest, Mae keeps canonical prospectus). The never-opened ledger now lies on the case's top under a dust film that stops short of one end; the anchor adapter hands passive stock seated on an anchor to the consumer that replaces it, so the ledger belongs to the bookcase (6C_ledger_stock, F06_C_MAIN_OV). Verified at WIP ed0359c3 (implementation/slice27b): fabrication batch 0 failures (surface stock bearings include the sectional case's top cap); apartment batch 236 (the branch baseline); bookshelves 144 checks, 0 failures with the ledger seated on the case; upper kitchens 206 (the branch baseline); four-space sweep 0 failures."
   },
   {
    "id": "F06_C_MAIN-003",

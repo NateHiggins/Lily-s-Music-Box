@@ -1,0 +1,114 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/3A_memorial_pot_stock.jpg",
+   "source": "fabrication_shots/surface_stock/3A_memorial_pot_stock.png",
+   "sha256": "d21ce4f45a33c96695fb749b83cadef78fd05651690e8d989ee5900e792e8eca",
+   "bytes": 84501
+  },
+  {
+   "path": "images/6A_plate_box_stock.jpg",
+   "source": "fabrication_shots/surface_stock/6A_plate_box_stock.png",
+   "sha256": "4f97257a66ffb1f4af102790c2608ac858e195d5e66bd93d9c0bac760d5deb93",
+   "bytes": 50718
+  },
+  {
+   "path": "images/6A_deskwall_stock.jpg",
+   "source": "fabrication_shots/surface_stock/6A_deskwall_stock.png",
+   "sha256": "90a36938016df1e8b8330ee546285309c1fbe86a3d0bf20eb2acf3bf08ac501b",
+   "bytes": 56716
+  },
+  {
+   "path": "images/6C_ledger_stock.jpg",
+   "source": "fabrication_shots/surface_stock/6C_ledger_stock.png",
+   "sha256": "8fc30be2f36ce692e60feed41284eb70a6c358aea3e61e6be2cab37cd9f291cc",
+   "bytes": 65165
+  },
+  {
+   "path": "images/F03_A_MAIN_OV.jpg",
+   "source": "sweep_shots/F03_A_MAIN_OV.png",
+   "sha256": "aeb5d91b644c576e0095dba1008e3f839628902547f46177f23226ca89353984",
+   "bytes": 106962
+  },
+  {
+   "path": "images/F06_A_STUDY_DT1.jpg",
+   "source": "sweep_shots/F06_A_STUDY_DT1.png",
+   "sha256": "b476e42188c23ed185659685d902d970509492c13248ce65248cc135e93213a4",
+   "bytes": 84436
+  },
+  {
+   "path": "images/F06_C_MAIN_OV.jpg",
+   "source": "sweep_shots/F06_C_MAIN_OV.png",
+   "sha256": "59a6eb0356f235dea6768a7c4d6e09911e43b6151b518791240ff1470a4d77c3",
+   "bytes": 91430
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "35a8b3098da74c3058997be1d5340f7a0d64aa91dd9baca2a023df01e85fec1e",
+   "bytes": 3396
+  },
+  {
+   "path": "receipts/bookshelves.log.receipt.json",
+   "source": "bookshelves.log.receipt.json",
+   "sha256": "b3ea26eb339a6cff16d82e9308c8e080c80b19714931be7c4fa5a7c7f62e48e1",
+   "bytes": 3182
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "ca87b10e43244959d3f207e7c1d44ce4959e15b2c9d777366b0498568e18306a",
+   "bytes": 3226
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "a49a247d2bf102cc9b5c67e886caf04b86480401efc38b953693e3e5512d498a",
+   "bytes": 3141
+  },
+  {
+   "path": "receipts/sweep_a.log.receipt.json",
+   "source": "sweep_a.log.receipt.json",
+   "sha256": "8c4bad18f7a43b74563f213948d602e8cdda55410e61eee32090feabd6cf0037",
+   "bytes": 3226
+  },
+  {
+   "path": "receipts/upper_kitchen.log.receipt.json",
+   "source": "upper_kitchen.log.receipt.json",
+   "sha256": "7cded9764d4d7ba41c403844fa4934902e2895026917576d2282001988b8795a",
+   "bytes": 3189
+  },
+  {
+   "path": "receipts/wake_7478bd9c__wake.log.receipt.json",
+   "source": "wake_7478bd9c/wake.log.receipt.json",
+   "sha256": "bff77649d7fe9c7c0ecef059a4b9f92f55196965acac93700dc12461abe6c817",
+   "bytes": 5794
+  },
+  {
+   "path": "receipts/wake_c9bc2317__wake.log.receipt.json",
+   "source": "wake_c9bc2317/wake.log.receipt.json",
+   "sha256": "db1125ef5e090d62741b908271dea817e2c12543e26dd1da6046882fbbd191cb",
+   "bytes": 5800
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "4594eaabfb68ed675727ed6d6cd04ef9ec8080485de03a50f795691e619bba28",
+   "bytes": 5973
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "adb723b1a120313c63892ad0fbef9be817e9aa4d980e80f89aec05d56525ea63",
+   "bytes": 769829
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "a2121c081223ab580a9b60145a4911c692dbe7e95d0bb841ed5e30a8119c46eb",
+   "bytes": 15745
+  }
+ ]
+}
