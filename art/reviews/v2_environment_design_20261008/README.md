@@ -146,6 +146,8 @@ Slices landed so far (evidence folders in parentheses):
 32. Service evidence: the laundry's oil can, belt and stepladder, the vestibule's
     umbrella stand, the lobby spittoon, the staff restroom's towel, mop and soap
     (`slice32`).
+33. 6A's row of prints and the plant print on its bookcase, the roof bulkhead's
+    washing line, watering can and trug, 2A's sofa cushions (`slice33`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

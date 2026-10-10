@@ -1,0 +1,120 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F06_A_MAIN_DT2.jpg",
+   "source": "sweep_shots/F06_A_MAIN_DT2.png",
+   "sha256": "842d7072556b56a71d7a3042e23fc9d48181ae4b7680d0e46708f14a4f0bb851",
+   "bytes": 52026
+  },
+  {
+   "path": "images/ROOF_PUBLIC_CORE_DT2.jpg",
+   "source": "sweep_shots/ROOF_PUBLIC_CORE_DT2.png",
+   "sha256": "2457010fbc2db14ad8ac7ca8a05f92c03f34330ffa09c395e3029d85d2bd38cf",
+   "bytes": 94997
+  },
+  {
+   "path": "images/F02_A_MAIN_DT2.jpg",
+   "source": "sweep_shots/F02_A_MAIN_DT2.png",
+   "sha256": "170abcbfd3b9de52e2555e2000c1a27226b3619fe5523048d3743c87a530be20",
+   "bytes": 102560
+  },
+  {
+   "path": "images/6A_plant_print_stock.jpg",
+   "source": "fabrication_shots/surface_stock/6A_plant_print_stock.png",
+   "sha256": "30661e3e1bdb3993eea22021a3524d5d31bef3b3686dc3111bb180aa158a0e01",
+   "bytes": 80208
+  },
+  {
+   "path": "images/2A_cushion_a_stock.jpg",
+   "source": "fabrication_shots/surface_stock/2A_cushion_a_stock.png",
+   "sha256": "d1c5ff4c673d1b35d8f19d88a0351fac2c2a47adb055ca4b63659b6b8aad7899",
+   "bytes": 73378
+  },
+  {
+   "path": "images/ROOF_bulkhead_trug_native.jpg",
+   "source": "fabrication_shots/domestic_objects/ROOF_bulkhead_trug_native.png",
+   "sha256": "e228d0f540850f90f2e802d18060acecf9a6e69e259b180cffbcb796e38d0c9e",
+   "bytes": 78478
+  },
+  {
+   "path": "images/ROOF_bulkhead_watering_can_native.jpg",
+   "source": "fabrication_shots/domestic_objects/ROOF_bulkhead_watering_can_native.png",
+   "sha256": "07361e0f27d90f176e2767d0092b33dd7b15d2c65645db2738af43cb5d4072d2",
+   "bytes": 88303
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "65c0294358f864cb539b1f123e831ede499aa414f450dd99fc36eb1b25023db8",
+   "bytes": 3392
+  },
+  {
+   "path": "receipts/bookshelves.log.receipt.json",
+   "source": "bookshelves.log.receipt.json",
+   "sha256": "f16347f1c6a183ac548e7c51ff29dad34d15f0b792d00fe0c952e086ffdc7317",
+   "bytes": 3180
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "a919b972a4de24e0ee00a8e134b735cbdc1743cfcecc5395ea9c425bf380d4c8",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "10f1e4e049feffff9d6a5b7288f8148390327557c867f5327ee1bbe63c719055",
+   "bytes": 3139
+  },
+  {
+   "path": "receipts/roof_route.log.receipt.json",
+   "source": "roof_route.log.receipt.json",
+   "sha256": "e05ec893ccecdacee6f8878a02f102701ac0109623a692ba3f09fcdf65d79ba6",
+   "bytes": 3176
+  },
+  {
+   "path": "receipts/sweep_a.log.receipt.json",
+   "source": "sweep_a.log.receipt.json",
+   "sha256": "0277fb322eb3344619566ae781363ba796c51f9424fd6f0869ef6a0f5f5ec3a3",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/upper_furniture.log.receipt.json",
+   "source": "upper_furniture.log.receipt.json",
+   "sha256": "f008b4326a1a7fa99c28e96519c8dd1e5f91d07ab72551c6b94973ab90918533",
+   "bytes": 3195
+  },
+  {
+   "path": "receipts/upper_kitchen.log.receipt.json",
+   "source": "upper_kitchen.log.receipt.json",
+   "sha256": "1a8e982f29942da8348d75701936ff13cdd81d942692fe2422527bfeff18f38b",
+   "bytes": 3188
+  },
+  {
+   "path": "receipts/upper_lighting.log.receipt.json",
+   "source": "upper_lighting.log.receipt.json",
+   "sha256": "c46cb3d9ced3ac03dc337aa689d7e604f42636c8cab0bd851f1c532b204c0b7a",
+   "bytes": 3192
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "9a11e68b47c41c801cd732c1d0e301c8944350aee6b5c3a31c98ab62b8023454",
+   "bytes": 6993
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "f635fc6d490bfe7db4f8291ffc110679eef569c7ccc052b3bdb62dab096ac984",
+   "bytes": 778769
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "59fcf5c9fd2797552cbb0adc224c952c320ac3b19f3fa63e21f9011cab1256d1",
+   "bytes": 11967
+  }
+ ]
+}

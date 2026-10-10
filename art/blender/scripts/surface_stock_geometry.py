@@ -571,6 +571,14 @@ def pillbox(source):
  # Drainboard ribs run 50 mm apart: the tray's long edges bear on two of them.
  for p in [(-.09,-.025,0),(.09,-.025,0),(-.09,.025,0),(.09,.025,0)]:bearing('organizer '+str(p),p)
  group('PillBox',start)
+# Dossier slice 33: a scatter cushion with piped edges.
+def cushion(source):
+ start=len(stock_checks)
+ stock('Pad',(-.18,-.18,0),(.18,.18,.09),source.get('mat','linen'),.03)
+ for y in [-.18,.172]:stock('PipingX'+str(y),(-.18,y,.04),(.18,y+.008,.05),'linen',.002)
+ for x in [-.18,.172]:stock('PipingY'+str(x),(x,-.18,.04),(x+.008,.18,.05),'linen',.002)
+ for p in [(-.13,-.13,0),(.13,-.13,0),(-.13,.13,0),(.13,.13,0)]:bearing('seat '+str(p),p)
+ group('Cushion',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -633,4 +641,5 @@ for assembly in assemblies:
  elif kind=='overalls':overalls(source)
  elif kind=='canvasback':canvasback(source)
  elif kind=='pillbox':pillbox(source)
+ elif kind=='cushion':cushion(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

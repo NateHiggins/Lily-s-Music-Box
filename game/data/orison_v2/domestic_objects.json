@@ -3238,6 +3238,83 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject55",
+      "parts": [
+        {
+          "name": "DomesticObject55__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject56",
+      "parts": [
+        {
+          "name": "DomesticObject56__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject56__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject57",
+      "parts": [
+        {
+          "name": "DomesticObject57__Body_ON_timber",
+          "component": "Body",
+          "key": "timber",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -3776,6 +3853,30 @@
     {
       "id": "F01_restroom_mop_bucket",
       "variant": "DomesticObject54"
+    },
+    {
+      "id": "ROOF_bulkhead_washing_line",
+      "variant": "DomesticObject55"
+    },
+    {
+      "id": "ROOF_bulkhead_watering_can",
+      "variant": "DomesticObject56"
+    },
+    {
+      "id": "ROOF_bulkhead_trug",
+      "variant": "DomesticObject57"
+    },
+    {
+      "id": "6A_editorial_a",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "6A_editorial_b",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "6A_editorial_c",
+      "variant": "DomesticObject27"
     }
   ],
   "tint_space": "linear"

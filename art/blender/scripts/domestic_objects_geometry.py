@@ -731,6 +731,38 @@ def mopbucket(source):
  for p in [(.09,0,0),(-.09,0,0),(0,.09,0),(0,-.09,0)]:bearing('bucket '+str(p),p)
  group('MopBucket',start)
 
+def ropecoil(source):
+ # Dossier slice 33: a coil of washing line, its free end trailing.
+ start=len(stock_checks)
+ for i in range(5):
+  r=.13-.004*i;z=.011+.018*i
+  wire('Turn'+str(i),[(r*math.cos(t),r*math.sin(t),z) for t in np.linspace(0,math.tau,49)],.011,'linen')
+ wire('Tail',[(.13,0,.011),(.2,.05,.011),(.28,.02,.011)],.011,'linen')
+ stock('Bind',(-.008,-.142,.0),(.008,-.11,.1),'linen',.002)
+ for p in [(.13,0,0),(-.13,0,0),(0,.13,0),(0,-.13,0)]:bearing('coil '+str(p),p)
+ group('WashingLine',start)
+
+def wateringcan(source):
+ # Dossier slice 33: a galvanised watering can with its long spout and rose.
+ start=len(stock_checks)
+ lathe('Body',0,0,0,[(0,0),(.1,0),(.105,.01),(.105,.24),(.09,.26),(0,.27)],'metal')
+ tube('Spout',(.08,0,.06),(.34,0,.32),.012,'metal')
+ lathe('Rose',.35,0,.31,[(0,0),(.012,0),(.03,.03),(.03,.036),(0,.036)],'brass')
+ wire('Handle',[(-.1,0,.12),(-.16,0,.2),(-.12,0,.32),(0,0,.33),(.07,0,.27)],.008,'metal')
+ for p in [(.07,0,0),(-.07,0,0),(0,.07,0),(0,-.07,0)]:bearing('base '+str(p),p)
+ group('WateringCan',start)
+
+def trug(source):
+ # Dossier slice 33: a shallow wooden gardening trug with its carrying handle.
+ start=len(stock_checks)
+ stock('Bottom',(-.22,-.11,0),(.22,.11,.012),'timber',.002)
+ for y in [-.11,.1]:stock('Side'+str(y),(-.22,y,.008),(.22,y+.01,.09),'timber',.002)
+ for x in [-.22,.21]:stock('End'+str(x),(x,-.105,.008),(x+.01,.105,.1),'timber',.002)
+ for x in [-.212,.2]:stock('Post'+str(x),(x,-.008,.02),(x+.012,.008,.28),'timber',.0015)
+ stock('Bar',(-.2,-.01,.27),(.2,.01,.29),'timber',.002)
+ for p in [(-.2,-.09,0),(.2,-.09,0),(-.2,.09,0),(.2,.09,0)]:bearing('trug '+str(p),p)
+ group('Trug',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -776,4 +808,7 @@ for assembly in assemblies:
  elif kind=='soapdish':soapdish(source)
  elif kind=='rollertowel':rollertowel(source)
  elif kind=='mopbucket':mopbucket(source)
+ elif kind=='ropecoil':ropecoil(source)
+ elif kind=='wateringcan':wateringcan(source)
+ elif kind=='trug':trug(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

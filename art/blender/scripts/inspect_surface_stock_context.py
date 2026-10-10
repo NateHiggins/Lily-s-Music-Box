@@ -46,10 +46,15 @@ for identity in {p['support'] for p in props.values()}:
  elif identity.endswith('_BOOKSHELF_01'):
   # Sectional case top cap (bookshelf_prop.gd): 1.34 m over the .86 x .34 cap board.
   shelf=next(s for s in json.loads((r/'game/data/orison_v2/bookshelves.json').read_text())['shelves'] if s['id']==identity)
-  assert shelf['style']=='sectional',identity
   script=(r/'game/scripts/props/bookshelf_prop.gd').read_text()
-  for literal in ['_case_w = 0.78','_case_h = 1.34','_case_d = 0.30','Vector3(_case_w + 0.08, 0.085, _case_d + 0.04)','Vector3(0, _case_h - 0.0425, 0)']:assert literal in script,literal
-  supports[identity]=[box_tree((-.43,1.255,-.17),(.43,1.34,.17))]
+  if shelf['style']=='repaired':
+   # Repaired case top board: 1.19 m centre, 27 mm thick, (_case_w + .05) wide, 6 mm left of centre.
+   for literal in ['_case_w = 0.68','_case_d = 0.25','for y in [0.08, 0.43, 0.82, 1.19]:','Vector3(_case_w + 0.05, 0.027, _case_d)','Vector3(0.012 if y == 0.43 else -0.006, y, 0)']:assert literal in script,literal
+   supports[identity]=[box_tree((-.371,1.1765,-.125),(.359,1.2035,.125))]
+  else:
+   assert shelf['style']=='sectional',identity
+   for literal in ['_case_w = 0.78','_case_h = 1.34','_case_d = 0.30','Vector3(_case_w + 0.08, 0.085, _case_d + 0.04)','Vector3(0, _case_h - 0.0425, 0)']:assert literal in script,literal
+   supports[identity]=[box_tree((-.43,1.255,-.17),(.43,1.34,.17))]
  elif identity.endswith('_prep_cabinet'):
   # Native prep cabinet worktop (prep_cabinets.md): .9 m over the retained .83 x .535 envelope.
   supports[identity]=[box_tree((-.415,.88,-.29),(.415,.90,.245))]

@@ -1959,6 +1959,24 @@
       "kind": "pillbox",
       "cell": "1A",
       "source_record": "1A_medication_organizer"
+    },
+    {
+      "id": "2A_cushion_a",
+      "kind": "cushion",
+      "cell": "2A",
+      "source_record": "2A_cushion_a"
+    },
+    {
+      "id": "2A_cushion_b",
+      "kind": "cushion",
+      "cell": "2A",
+      "source_record": "2A_cushion_b"
+    },
+    {
+      "id": "6A_plant_print",
+      "kind": "frame",
+      "cell": "6A",
+      "source_record": "6A_plant_print"
     }
   ],
   "closed_stocks": [
@@ -15047,6 +15065,84 @@
       "assembly": "1A_medication_organizer",
       "key": "enamel",
       "volume_m3": 4.588107318363612e-06
+    },
+    {
+      "name": "2A_cushion_a_Pad",
+      "assembly": "2A_cushion_a",
+      "key": "linen",
+      "volume_m3": 0.010980970294251746
+    },
+    {
+      "name": "2A_cushion_a_PipingX-0.18",
+      "assembly": "2A_cushion_a",
+      "key": "linen",
+      "volume_m3": 2.730162682942703e-05
+    },
+    {
+      "name": "2A_cushion_a_PipingX0.172",
+      "assembly": "2A_cushion_a",
+      "key": "linen",
+      "volume_m3": 2.730162682942703e-05
+    },
+    {
+      "name": "2A_cushion_a_PipingY-0.18",
+      "assembly": "2A_cushion_a",
+      "key": "linen",
+      "volume_m3": 2.7301626829427026e-05
+    },
+    {
+      "name": "2A_cushion_a_PipingY0.172",
+      "assembly": "2A_cushion_a",
+      "key": "linen",
+      "volume_m3": 2.7301626829427026e-05
+    },
+    {
+      "name": "2A_cushion_b_Pad",
+      "assembly": "2A_cushion_b",
+      "key": "linen",
+      "volume_m3": 0.010980970294251746
+    },
+    {
+      "name": "2A_cushion_b_PipingX-0.18",
+      "assembly": "2A_cushion_b",
+      "key": "linen",
+      "volume_m3": 2.730162682942703e-05
+    },
+    {
+      "name": "2A_cushion_b_PipingX0.172",
+      "assembly": "2A_cushion_b",
+      "key": "linen",
+      "volume_m3": 2.730162682942703e-05
+    },
+    {
+      "name": "2A_cushion_b_PipingY-0.18",
+      "assembly": "2A_cushion_b",
+      "key": "linen",
+      "volume_m3": 2.7301626829427026e-05
+    },
+    {
+      "name": "2A_cushion_b_PipingY0.172",
+      "assembly": "2A_cushion_b",
+      "key": "linen",
+      "volume_m3": 2.7301626829427026e-05
+    },
+    {
+      "name": "6A_plant_print_Face",
+      "assembly": "6A_plant_print",
+      "key": "wood_dark",
+      "volume_m3": 0.00017983320448927952
+    },
+    {
+      "name": "6A_plant_print_Print",
+      "assembly": "6A_plant_print",
+      "key": "paper",
+      "volume_m3": 7.288141748642645e-06
+    },
+    {
+      "name": "6A_plant_print_Strut",
+      "assembly": "6A_plant_print",
+      "key": "wood_dark",
+      "volume_m3": 4.6757526417414515e-05
     }
   ],
   "contacts": [
@@ -24124,6 +24220,156 @@
         0
       ],
       "label": "organizer (0.09, 0.025, 0)"
+    },
+    {
+      "assembly": "2A_cushion_a",
+      "owner": "support",
+      "point": [
+        -0.13,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "seat (-0.13, -0.13, 0)"
+    },
+    {
+      "assembly": "2A_cushion_a",
+      "owner": "support",
+      "point": [
+        0.13,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "seat (0.13, -0.13, 0)"
+    },
+    {
+      "assembly": "2A_cushion_a",
+      "owner": "support",
+      "point": [
+        -0.13,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "seat (-0.13, 0.13, 0)"
+    },
+    {
+      "assembly": "2A_cushion_a",
+      "owner": "support",
+      "point": [
+        0.13,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "seat (0.13, 0.13, 0)"
+    },
+    {
+      "assembly": "2A_cushion_b",
+      "owner": "support",
+      "point": [
+        -0.13,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "seat (-0.13, -0.13, 0)"
+    },
+    {
+      "assembly": "2A_cushion_b",
+      "owner": "support",
+      "point": [
+        0.13,
+        0,
+        0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "seat (0.13, -0.13, 0)"
+    },
+    {
+      "assembly": "2A_cushion_b",
+      "owner": "support",
+      "point": [
+        -0.13,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "seat (-0.13, 0.13, 0)"
+    },
+    {
+      "assembly": "2A_cushion_b",
+      "owner": "support",
+      "point": [
+        0.13,
+        0,
+        -0.13
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "seat (0.13, 0.13, 0)"
+    },
+    {
+      "assembly": "6A_plant_print",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "frame foot"
+    },
+    {
+      "assembly": "6A_plant_print",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.04
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "strut foot"
     }
   ],
   "parts": [
@@ -27052,9 +27298,37 @@
       "cell": "1A",
       "key": "paper",
       "triangles": 384
+    },
+    {
+      "name": "2A_cushion_a__linen",
+      "assembly": "2A_cushion_a",
+      "cell": "2A",
+      "key": "linen",
+      "triangles": 940
+    },
+    {
+      "name": "2A_cushion_b__linen",
+      "assembly": "2A_cushion_b",
+      "cell": "2A",
+      "key": "linen",
+      "triangles": 940
+    },
+    {
+      "name": "6A_plant_print__paper",
+      "assembly": "6A_plant_print",
+      "cell": "6A",
+      "key": "paper",
+      "triangles": 188
+    },
+    {
+      "name": "6A_plant_print__wood_dark",
+      "assembly": "6A_plant_print",
+      "cell": "6A",
+      "key": "wood_dark",
+      "triangles": 376
     }
   ],
-  "triangles": 782316,
+  "triangles": 784760,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -33032,6 +33306,77 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "2A_cushion_a",
+        "parts": [
+          {
+            "name": "2A_cushion_a__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "2A_cushion_b",
+        "parts": [
+          {
+            "name": "2A_cushion_b__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6A_plant_print",
+        "parts": [
+          {
+            "name": "6A_plant_print__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          },
+          {
+            "name": "6A_plant_print__wood_dark",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ]
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -33060,9 +33405,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "5fb76e1be8c7341548be777ed0e3a553eb5ad4e6e5f701cdcc9586d9983cb027",
+  "asset_sha256": "9a31d0d88fdbebdf43264a30e9165f82c699d460e8791f3a8b2f21d90f12cfcd",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "005ce63cecf7c2a7c01b5bf74c83cfe29a27bfb361fff275c5a4948b887ed5bd",
+    "art/data/surface_stock/source_plan.json": "937687d773f4ca4b1fa707ef97c56586089ed0d6f23e0e8963764f3bc9f6b222",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -33167,20 +33512,20 @@
     "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
     "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
-    "art/blender/scripts/inspect_surface_stock_context.py": "d12283ece5cd56da23db33fe3e3e50b1de8ad79373a528564608d232191b1ed3",
+    "art/blender/scripts/inspect_surface_stock_context.py": "02615a12c4d21b754efa841b53eb3d5cf9e6d95b81c7152c4a40546730e01751",
     "game/scripts/props/tap_prop.gd": "6d969b3e6f293167b3de04e9463eee6bb9bcd5b02109bc88df370dd6c365d7d4",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "art/blender/scripts/render_surface_stock.py": "e8a99fc84f1d4537c23c40c6663ac64c1967908f717329b618085d6ba9c29289",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "2b1a2b58a9ea18fdb0aa7539ef9ea4bb0f4c72fc7ceb22ec16a91d232ad87938",
+    "art/blender/scripts/surface_stock_geometry.py": "7618fc14af9797858ef526cf30ccd755f0a7c87982a9c3430743d27801817676",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "81886e30b6be72c7c5e5b7e8b1a2d4a4073d2ea368483af11355e59d0eee690b",
+    "game/data/orison_v2/domestic_surface_props.json": "d8a4d99ee44f1830b42fa0e6ea2ac0a48b57ce2587d28cce16f774cd20ff8e04",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "581709587ffc9fa069436c84540a746fad1bdde97ff7d648cf9523ef76ce892c"
+    "game/data/orison_v2/domestic_furniture.json": "c7e4e4604a6124750a3bd4f16536a408febe2942e3eda7c3df1c1892fde124eb"
   },
   "retained_stock": [
     {
@@ -40621,6 +40966,37 @@
         "1A_medication_organizer_Lid4",
         "1A_medication_organizer_Lid5",
         "1A_medication_organizer_Lid6"
+      ]
+    },
+    {
+      "assembly": "2A_cushion_a",
+      "id": "2A_cushion_a_Cushion",
+      "stocks": [
+        "2A_cushion_a_Pad",
+        "2A_cushion_a_PipingX-0.18",
+        "2A_cushion_a_PipingX0.172",
+        "2A_cushion_a_PipingY-0.18",
+        "2A_cushion_a_PipingY0.172"
+      ]
+    },
+    {
+      "assembly": "2A_cushion_b",
+      "id": "2A_cushion_b_Cushion",
+      "stocks": [
+        "2A_cushion_b_Pad",
+        "2A_cushion_b_PipingX-0.18",
+        "2A_cushion_b_PipingX0.172",
+        "2A_cushion_b_PipingY-0.18",
+        "2A_cushion_b_PipingY0.172"
+      ]
+    },
+    {
+      "assembly": "6A_plant_print",
+      "id": "6A_plant_print_StandingFrame",
+      "stocks": [
+        "6A_plant_print_Face",
+        "6A_plant_print_Print",
+        "6A_plant_print_Strut"
       ]
     }
   ],

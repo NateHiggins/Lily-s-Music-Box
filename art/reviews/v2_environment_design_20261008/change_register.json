@@ -3834,7 +3834,9 @@
    "purpose": "Appliance Bible III inverted: the parlour is 1970 (meaning modern for 1928), the kitchen 1890; one calm sightline (decor principle)",
    "acceptance": "Overview from the vestibule",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_A_MAIN"
+   "area": "F02_A_MAIN",
+   "status": "implemented",
+   "owner_notes": "Two piped linen cushions lie on the ends of 2A's sofa seat (2A_cushion_a_stock). Not made: the 2.4 by 1.6 m rug, which would run under the coffee table and the deck in the most strictly checked flat. Verified at WIP 32156acb (implementation/slice33): fabrication batch 0 failures; apartment batch 236 on the long runner; bookshelves 144 checks, 0 failures with the print seated on the repaired case; upper kitchens 206 and upper furniture 488 (both unchanged from slice 31's runs); upper lighting 0 failures; roof route 53 waypoints, 0 failures; the three-space sweep 0 failures."
   },
   {
    "id": "F02_A_MAIN-006",
@@ -9610,7 +9612,9 @@
    "purpose": "Decor profile editorial_sequence",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_A_MAIN"
+   "area": "F06_A_MAIN",
+   "status": "verified",
+   "owner_notes": "Sacha's editorial sequence: three small photographic prints in a row on the main room's north wall between the radiator and the bookcase, the middle one hung higher (copies of 2C_album_a; implementation/slice33/images: F06_A_MAIN views). Verified at WIP 32156acb (implementation/slice33): fabrication batch 0 failures; apartment batch 236 on the long runner; bookshelves 144 checks, 0 failures with the print seated on the repaired case; upper kitchens 206 and upper furniture 488 (both unchanged from slice 31's runs); upper lighting 0 failures; roof route 53 waypoints, 0 failures; the three-space sweep 0 failures."
   },
   {
    "id": "F06_A_MAIN-004",
@@ -9623,7 +9627,9 @@
    "purpose": "Web II.8; proposed backstory",
    "acceptance": "Detail view of the shelf",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_A_MAIN"
+   "area": "F06_A_MAIN",
+   "status": "verified",
+   "owner_notes": "The one picture of a plant: a small standing frame on the repaired bookcase's top board, which the surface-stock context inspector now names as a support (6A_plant_print_stock). Verified at WIP 32156acb (implementation/slice33): fabrication batch 0 failures; apartment batch 236 on the long runner; bookshelves 144 checks, 0 failures with the print seated on the repaired case; upper kitchens 206 and upper furniture 488 (both unchanged from slice 31's runs); upper lighting 0 failures; roof route 53 waypoints, 0 failures; the three-space sweep 0 failures."
   },
   {
    "id": "F06_A_KITCHEN-001",
@@ -10500,7 +10506,9 @@
    "preserve": "Lift drive guard and refusal, door swing",
    "acceptance": "Threshold view from the stair",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_PUBLIC_CORE"
+   "area": "ROOF_PUBLIC_CORE",
+   "status": "implemented",
+   "owner_notes": "Roof-use evidence inside the public bulkhead: a coil of washing line, a galvanised watering can and a gardening trug stand on the west landing north of the door, between the wall and the roof route (ROOF_bulkhead_* native captures). Not made: the chalk tally on the wall (lettering-like marks need a decal owner). Verified at WIP 32156acb (implementation/slice33): fabrication batch 0 failures; apartment batch 236 on the long runner; bookshelves 144 checks, 0 failures with the print seated on the repaired case; upper kitchens 206 and upper furniture 488 (both unchanged from slice 31's runs); upper lighting 0 failures; roof route 53 waypoints, 0 failures; the three-space sweep 0 failures."
   },
   {
    "id": "ROOF_PUBLIC_CORE-004",
