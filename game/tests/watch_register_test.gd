@@ -93,8 +93,8 @@ func _mark() -> bool:
 
 func _the_board() -> void:
 	_wire_up()
-	_check("the board has four numbered shutter positions, not one lamp",
-			WatchRegisterProp.SHUTTER_NUMBERS == [1, 2, 3, 4]
+	_check("the board has seven numbered shutter positions, not one lamp",
+			WatchRegisterProp.SHUTTER_NUMBERS == [1, 2, 3, 4, 5, 6, 7]
 			and board.find_child("Shutter2", true, false) != null)
 	# A CLOSED-CIRCUIT LINE rests closed, so that a break is an abnormal
 	# condition the board can show rather than silence you cannot read.
@@ -183,7 +183,7 @@ func _the_repeat() -> void:
 			not board.receive_signal({"station_number": 2, "sequence": 9})
 			and board.balking() and board.signals_taken == 1)
 	_check("a number this board has no shutter for is refused, not invented",
-			not board.receive_signal({"station_number": 7, "sequence": 1})
+			not board.receive_signal({"station_number": 8, "sequence": 1})
 			and board.indication_count() == 1)
 
 

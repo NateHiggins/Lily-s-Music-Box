@@ -237,6 +237,8 @@ Slices landed so far (evidence folders in parentheses):
 77. The basement washers' supply, bib cocks, hoses and floor gullies.
 78. The rinse tubs' taps out of the wet stack and their waste back into it.
 79. The night watch's kettle on a gas ring and the tour card.
+80. A patrol station on every floor and the signal register with seven drops, at the
+    owner's direction; verification of slices 76-80 (`slice80`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

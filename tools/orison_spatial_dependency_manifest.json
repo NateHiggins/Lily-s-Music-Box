@@ -4,7 +4,7 @@
  "layout_path": "art/data/building_layout.json",
  "universe_counts": {
   "floor": 8,
-  "v2_blockout": 2337,
+  "v2_blockout": 2344,
   "unit": 22,
   "room": 127,
   "marker": 631,
@@ -151639,7 +151639,7 @@
     0,
     0
    ],
-   "count": 127,
+   "count": 128,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151697,7 +151697,7 @@
     0,
     0
    ],
-   "count": 254,
+   "count": 255,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151755,7 +151755,7 @@
     0,
     0
    ],
-   "count": 362,
+   "count": 363,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151813,7 +151813,7 @@
     0,
     0
    ],
-   "count": 299,
+   "count": 300,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151871,7 +151871,7 @@
     0,
     0
    ],
-   "count": 403,
+   "count": 404,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151928,7 +151928,7 @@
     0,
     0
    ],
-   "count": 321,
+   "count": 322,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151985,7 +151985,7 @@
     0,
     0
    ],
-   "count": 317,
+   "count": 318,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -157217,9 +157217,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 10,
+   "count": 11,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -184375,7 +184376,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    775
+    785
    ],
    "count": 1,
    "context": [
@@ -184405,8 +184406,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    840,
-    843
+    860,
+    863
    ],
    "count": 2,
    "context": [
@@ -184427,6 +184428,186 @@
    "target_exists": true
   },
   {
+   "key": "710ce397f48f4cad",
+   "kind": "id_candidate",
+   "token": "F01_STATION_LOBBY",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    60
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_WATCH_STATION\": \"F01_STATION_LOBBY\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "d58ab087d5915a54",
+   "kind": "id_candidate",
+   "token": "F02_STATION_CORE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    55
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_WATCH_STATION\": \"F02_STATION_CORE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "108360f89b6a9a8d",
+   "kind": "id_candidate",
+   "token": "F03_STATION_CORE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    56
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_WATCH_STATION\": \"F03_STATION_CORE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "2e0eb31f22f44342",
+   "kind": "id_candidate",
+   "token": "F04_STATION_CORE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    57
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_WATCH_STATION\": \"F04_STATION_CORE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "6fbd1a52a3639fb8",
+   "kind": "id_candidate",
+   "token": "F05_STATION_CORE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    58
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_WATCH_STATION\": \"F05_STATION_CORE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "0667b205b39602d3",
+   "kind": "id_candidate",
+   "token": "F06_STATION_CORE",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    59
+   ],
+   "count": 1,
+   "context": [
+    "\"F06_WATCH_STATION\": \"F06_STATION_CORE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "751328a46abd1272",
    "kind": "id_reference",
    "token": "B1_BOILER_01",
@@ -184438,8 +184619,8 @@
     "_compose_hot_water"
    ],
    "lines": [
-    772,
-    819
+    782,
+    839
    ],
    "count": 2,
    "context": [
@@ -184470,7 +184651,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    784
+    794
    ],
    "count": 1,
    "context": [
@@ -184500,7 +184681,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    776
+    786
    ],
    "count": 1,
    "context": [
@@ -184530,11 +184711,41 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    793
+    803
    ],
    "count": 1,
    "context": [
     "_retire_blockout_fixture(\"B1_BREECHING_MASS\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c8abfe97763e60c8",
+   "kind": "id_reference",
+   "token": "B1_WATCH_STATION",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    54
+   ],
+   "count": 1,
+   "context": [
+    "\"B1_WATCH_STATION\": \"B1_STATION_BOILER\","
    ],
    "gameplay_binding": false,
    "authority": [
@@ -184560,7 +184771,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    785
+    795
    ],
    "count": 1,
    "context": [
@@ -184590,7 +184801,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    425
+    435
    ],
    "count": 1,
    "context": [
@@ -184620,7 +184831,7 @@
     "_ready"
    ],
    "lines": [
-    126
+    136
    ],
    "count": 1,
    "context": [
@@ -184650,7 +184861,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    426
+    436
    ],
    "count": 1,
    "context": [
@@ -184680,7 +184891,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    426
+    436
    ],
    "count": 1,
    "context": [
@@ -184710,11 +184921,41 @@
     "_compose_authorities"
    ],
    "lines": [
-    425
+    435
    ],
    "count": 1,
    "context": [
     "for identity in [\"F01_WATCHMAN_DETECTOR_BODY\",\"F01_NIGHT_REGISTER_BODY\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8b2c0d0d8c955012",
+   "kind": "id_reference",
+   "token": "F01_WATCH_STATION",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    60
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_WATCH_STATION\": \"F01_STATION_LOBBY\","
    ],
    "gameplay_binding": false,
    "authority": [
@@ -184741,10 +184982,10 @@
     "_compose_vantry"
    ],
    "lines": [
-    158,
-    837,
-    841,
-    844
+    168,
+    857,
+    861,
+    864
    ],
    "count": 4,
    "context": [
@@ -184777,7 +185018,7 @@
     "_ready"
    ],
    "lines": [
-    158
+    168
    ],
    "count": 1,
    "context": [
@@ -184807,7 +185048,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    297
+    307
    ],
    "count": 1,
    "context": [
@@ -184837,7 +185078,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    297
+    307
    ],
    "count": 1,
    "context": [
@@ -184867,7 +185108,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    296
+    306
    ],
    "count": 1,
    "context": [
@@ -184897,7 +185138,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    296
+    306
    ],
    "count": 1,
    "context": [
@@ -184927,7 +185168,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    761
+    771
    ],
    "count": 1,
    "context": [
@@ -184957,7 +185198,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    762
+    772
    ],
    "count": 1,
    "context": [
@@ -184987,11 +185228,41 @@
     "_compose_authorities"
    ],
    "lines": [
-    297
+    307
    ],
    "count": 1,
    "context": [
     "\"F02_B_BED_MASS\", \"F02_B_STORAGE_MASS\", \"F02_B_BATH_MASS\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c21dc60c18b4bfa6",
+   "kind": "id_reference",
+   "token": "F02_WATCH_STATION",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    55
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_WATCH_STATION\": \"F02_STATION_CORE\","
    ],
    "gameplay_binding": false,
    "authority": [
@@ -185017,7 +185288,7 @@
     "_ready"
    ],
    "lines": [
-    159
+    169
    ],
    "count": 1,
    "context": [
@@ -185037,6 +185308,36 @@
    "target_exists": true
   },
   {
+   "key": "8e3bcaa644e7031f",
+   "kind": "id_reference",
+   "token": "F03_WATCH_STATION",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    56
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_WATCH_STATION\": \"F03_STATION_CORE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "278e31b0de3e0971",
    "kind": "id_reference",
    "token": "F04_B_DESK_ZONE",
@@ -185047,7 +185348,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    682
+    692
    ],
    "count": 1,
    "context": [
@@ -185078,8 +185379,8 @@
     "_compose_authorities"
    ],
    "lines": [
-    159,
-    335
+    169,
+    345
    ],
    "count": 2,
    "context": [
@@ -185111,8 +185412,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    576,
-    667
+    586,
+    677
    ],
    "count": 2,
    "context": [
@@ -185143,11 +185444,101 @@
     "_compose_call_station"
    ],
    "lines": [
-    668
+    678
    ],
    "count": 1,
    "context": [
     "var use := adapter.resolve(\"F04_B_TERMINAL_USE\") as MeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d480b36a2fc1dba0",
+   "kind": "id_reference",
+   "token": "F04_WATCH_STATION",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    57
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_WATCH_STATION\": \"F04_STATION_CORE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c635299088bd5b47",
+   "kind": "id_reference",
+   "token": "F05_WATCH_STATION",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    58
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_WATCH_STATION\": \"F05_STATION_CORE\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "OrisonV2RuntimeRoot mounts production props onto blockout anchors by these identities; each must stay unique in the v2 scene.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d0a4b7ddb7cfe4ca",
+   "kind": "id_reference",
+   "token": "F06_WATCH_STATION",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    59
+   ],
+   "count": 1,
+   "context": [
+    "\"F06_WATCH_STATION\": \"F06_STATION_CORE\","
    ],
    "gameplay_binding": false,
    "authority": [
@@ -185173,7 +185564,7 @@
     "_ready"
    ],
    "lines": [
-    172
+    182
    ],
    "count": 1,
    "context": [
@@ -185203,7 +185594,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    803
+    823
    ],
    "count": 1,
    "context": [
@@ -185233,7 +185624,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    804
+    824
    ],
    "count": 1,
    "context": [
@@ -185263,7 +185654,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    805
+    825
    ],
    "count": 1,
    "context": [
@@ -185293,7 +185684,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    802
+    822
    ],
    "count": 1,
    "context": [
@@ -185313,6 +185704,37 @@
    "target_exists": null
   },
   {
+   "key": "1fa4f370f5d44055",
+   "kind": "runtime_id",
+   "token": "B1_STATION_BOILER",
+   "file": "game/scripts/building/orison_v2_runtime_root.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    54
+   ],
+   "count": 1,
+   "context": [
+    "\"B1_WATCH_STATION\": \"B1_STATION_BOILER\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "MUST_PRESERVE_ID",
+   "confidence": "HIGH",
+   "rationale": "Runtime-created identity mounted by OrisonV2RuntimeRoot.",
+   "resolved_target": "runtime_created",
+   "target_exists": true
+  },
+  {
    "key": "6deb0bad46a7c10a",
    "kind": "runtime_id",
    "token": "F01_HOUSE_TELEPHONE_BOARD",
@@ -185323,7 +185745,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    331
+    341
    ],
    "count": 1,
    "context": [
@@ -185355,8 +185777,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    754,
-    803
+    764,
+    823
    ],
    "count": 2,
    "context": [
@@ -185389,8 +185811,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    757,
-    804
+    767,
+    824
    ],
    "count": 2,
    "context": [
@@ -185423,8 +185845,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    760,
-    805
+    770,
+    825
    ],
    "count": 2,
    "context": [
@@ -185457,8 +185879,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    751,
-    802
+    761,
+    822
    ],
    "count": 2,
    "context": [
@@ -185490,7 +185912,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    329
+    339
    ],
    "count": 1,
    "context": [
@@ -185521,7 +185943,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    226
+    236
    ],
    "count": 1,
    "context": [
@@ -185552,7 +185974,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    227
+    237
    ],
    "count": 1,
    "context": [
@@ -185583,7 +186005,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    332
+    342
    ],
    "count": 1,
    "context": [
@@ -185614,7 +186036,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    230
+    240
    ],
    "count": 1,
    "context": [
@@ -185646,8 +186068,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    329,
-    843
+    339,
+    863
    ],
    "count": 2,
    "context": [
@@ -185678,7 +186100,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    720
+    730
    ],
    "count": 1,
    "context": [
@@ -185708,7 +186130,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    721
+    731
    ],
    "count": 1,
    "context": [
@@ -198683,7 +199105,7 @@
     "_build_reaches"
    ],
    "lines": [
-    428
+    431
    ],
    "count": 1,
    "context": [
@@ -198713,11 +199135,11 @@
     "_build_visual"
    ],
    "lines": [
-    317,
-    321,
-    323,
-    327,
-    331
+    320,
+    324,
+    326,
+    330,
+    334
    ],
    "count": 5,
    "context": [
@@ -198740,6 +199162,156 @@
    "target_exists": null
   },
   {
+   "key": "113d94a7c6f20ffc",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/scripts/props/watch_station_prop.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    106
+   ],
+   "count": 1,
+   "context": [
+    "\"serves\": \"F02\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "eb34f706333e0e57",
+   "kind": "floor_reference",
+   "token": "F03",
+   "file": "game/scripts/props/watch_station_prop.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    111
+   ],
+   "count": 1,
+   "context": [
+    "\"serves\": \"F03\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c4c492e86cc79b74",
+   "kind": "floor_reference",
+   "token": "F04",
+   "file": "game/scripts/props/watch_station_prop.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    116
+   ],
+   "count": 1,
+   "context": [
+    "\"serves\": \"F04\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f491f062cac4125a",
+   "kind": "floor_reference",
+   "token": "F05",
+   "file": "game/scripts/props/watch_station_prop.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    121
+   ],
+   "count": 1,
+   "context": [
+    "\"serves\": \"F05\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "129390df7cf7f918",
+   "kind": "floor_reference",
+   "token": "F06",
+   "file": "game/scripts/props/watch_station_prop.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    126
+   ],
+   "count": 1,
+   "context": [
+    "\"serves\": \"F06\","
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "b6aad940e9123537",
    "kind": "generated_name",
    "token": "_build_visual",
@@ -198750,7 +199322,7 @@
     "_build_visual"
    ],
    "lines": [
-    433
+    466
    ],
    "count": 1,
    "context": [
@@ -198770,6 +199342,186 @@
    "target_exists": null
   },
   {
+   "key": "8134fd500a3a9e92",
+   "kind": "id_candidate",
+   "token": "F01_STATION_LOBBY",
+   "file": "game/scripts/props/watch_station_prop.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    129
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_STATION_LOBBY\": {"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "a49ba845d3d5de6e",
+   "kind": "id_candidate",
+   "token": "F02_STATION_CORE",
+   "file": "game/scripts/props/watch_station_prop.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    104
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_STATION_CORE\": {"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "e3fb42436acbb7da",
+   "kind": "id_candidate",
+   "token": "F03_STATION_CORE",
+   "file": "game/scripts/props/watch_station_prop.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    109
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_STATION_CORE\": {"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "beff271764d3a1df",
+   "kind": "id_candidate",
+   "token": "F04_STATION_CORE",
+   "file": "game/scripts/props/watch_station_prop.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    114
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_STATION_CORE\": {"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "b330a310f81341a9",
+   "kind": "id_candidate",
+   "token": "F05_STATION_CORE",
+   "file": "game/scripts/props/watch_station_prop.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    119
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_STATION_CORE\": {"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "47e1c7cf0797f408",
+   "kind": "id_candidate",
+   "token": "F06_STATION_CORE",
+   "file": "game/scripts/props/watch_station_prop.gd",
+   "tier": "production",
+   "subsystem": "props",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    124
+   ],
+   "count": 1,
+   "context": [
+    "\"F06_STATION_CORE\": {"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "ce183fdf1f303ac7",
    "kind": "runtime_id",
    "token": "B1_STATION_BOILER",
@@ -198780,7 +199532,7 @@
     "<module>"
    ],
    "lines": [
-    91
+    94
    ],
    "count": 1,
    "context": [
@@ -198810,8 +199562,8 @@
     "<module>"
    ],
    "lines": [
-    96,
-    110
+    99,
+    143
    ],
    "count": 2,
    "context": [
@@ -198842,7 +199594,7 @@
     "<module>"
    ],
    "lines": [
-    98
+    101
    ],
    "count": 1,
    "context": [
@@ -198872,7 +199624,7 @@
     "_build_visual"
    ],
    "lines": [
-    387
+    420
    ],
    "count": 1,
    "context": [
@@ -247859,6 +248611,537 @@
    "target_exists": null
   },
   {
+   "key": "c7e10bba852153cd",
+   "kind": "id_candidate",
+   "token": "F01_STATION_LOBBY",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_WATCH_STATION\": [\"F01_STATION_LOBBY\", 7, 0.0],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "0c73204e8117dd0e",
+   "kind": "id_candidate",
+   "token": "F02_STATION_CORE",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_WATCH_STATION\": [\"F02_STATION_CORE\", 2, 3.2],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "5079909298fdd0c9",
+   "kind": "id_candidate",
+   "token": "F03_STATION_CORE",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_WATCH_STATION\": [\"F03_STATION_CORE\", 3, 6.4],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "cb16d4fa1939b43e",
+   "kind": "id_candidate",
+   "token": "F04_STATION_CORE",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_WATCH_STATION\": [\"F04_STATION_CORE\", 4, 9.6],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "c01d5e8e0b677138",
+   "kind": "id_candidate",
+   "token": "F05_STATION_CORE",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_WATCH_STATION\": [\"F05_STATION_CORE\", 5, 12.8],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "7b587a4bc2390221",
+   "kind": "id_candidate",
+   "token": "F06_STATION_CORE",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "\"F06_WATCH_STATION\": [\"F06_STATION_CORE\", 6, 16.0],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "960bcac1b49e4ec5",
+   "kind": "id_reference",
+   "token": "B1_WATCH_STATION",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "\"B1_WATCH_STATION\": [\"B1_STATION_BOILER\", 1, -3.2],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "77647b56eccb2c39",
+   "kind": "id_reference",
+   "token": "F01_WATCH_STATION",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "\"F01_WATCH_STATION\": [\"F01_STATION_LOBBY\", 7, 0.0],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "63ed275371028a35",
+   "kind": "id_reference",
+   "token": "F02_WATCH_STATION",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    8
+   ],
+   "count": 1,
+   "context": [
+    "\"F02_WATCH_STATION\": [\"F02_STATION_CORE\", 2, 3.2],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "731133826d36f1e6",
+   "kind": "id_reference",
+   "token": "F03_WATCH_STATION",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "\"F03_WATCH_STATION\": [\"F03_STATION_CORE\", 3, 6.4],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "038855b5d46d8a2c",
+   "kind": "id_reference",
+   "token": "F04_WATCH_STATION",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    10
+   ],
+   "count": 1,
+   "context": [
+    "\"F04_WATCH_STATION\": [\"F04_STATION_CORE\", 4, 9.6],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cd8f036469d53bb0",
+   "kind": "id_reference",
+   "token": "F05_WATCH_STATION",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    11
+   ],
+   "count": 1,
+   "context": [
+    "\"F05_WATCH_STATION\": [\"F05_STATION_CORE\", 5, 12.8],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b101d194e9ddea41",
+   "kind": "id_reference",
+   "token": "F06_WATCH_STATION",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    12
+   ],
+   "count": 1,
+   "context": [
+    "\"F06_WATCH_STATION\": [\"F06_STATION_CORE\", 6, 16.0],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8e78db9837778586",
+   "kind": "node_path",
+   "token": "F01_SIGNAL_REGISTER",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [
+    "var register := world.find_child(\"F01_SIGNAL_REGISTER\",true,false) as WatchRegisterProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "ca2426034cd81808",
+   "kind": "node_path",
+   "token": "F01_TOUR_KEY_GUARD",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    34
+   ],
+   "count": 1,
+   "context": [
+    "var guard := world.find_child(\"F01_TOUR_KEY_GUARD\",true,false) as TourKeyGuardProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "a75005d1904bf32e",
+   "kind": "runtime_id",
+   "token": "B1_STATION_BOILER",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "\"B1_WATCH_STATION\": [\"B1_STATION_BOILER\", 1, -3.2],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "9d1dc71b4c7ee12a",
+   "kind": "runtime_id",
+   "token": "F01_SIGNAL_REGISTER",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [
+    "var register := world.find_child(\"F01_SIGNAL_REGISTER\",true,false) as WatchRegisterProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "fc54bb08e79a4240",
+   "kind": "runtime_id",
+   "token": "F01_TOUR_KEY_GUARD",
+   "file": "game/tests/orison_v2_patrol_stations_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    34
+   ],
+   "count": 1,
+   "context": [
+    "var guard := world.find_child(\"F01_TOUR_KEY_GUARD\",true,false) as TourKeyGuardProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
    "key": "370a003fd42c2adc",
    "kind": "id_reference",
    "token": "F01_VESTIBULE",
@@ -271690,6 +272973,36 @@
    "target_exists": true
   },
   {
+   "key": "196ae94fe2b9e7e8",
+   "kind": "id_candidate",
+   "token": "F01_STATION_LOBBY",
+   "file": "game/tests/watch_pair_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_the_pair"
+   ],
+   "lines": [
+    103
+   ],
+   "count": 1,
+   "context": [
+    "and WatchStationProp.STATIONS.has(\"F01_STATION_LOBBY\"))"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "77d7cd8c932b9340",
    "kind": "runtime_id",
    "token": "B1_STATION_BOILER",
@@ -271702,7 +273015,7 @@
    ],
    "lines": [
     64,
-    99
+    101
    ],
    "count": 2,
    "context": [
@@ -271736,12 +273049,12 @@
    ],
    "lines": [
     65,
-    100
+    102
    ],
    "count": 2,
    "context": [
     "landing = _station(\"F02_STATION_2A_LANDING\")",
-    "and WatchStationProp.STATIONS.has(\"F02_STATION_2A_LANDING\"))"
+    "and WatchStationProp.STATIONS.has(\"F02_STATION_2A_LANDING\")"
    ],
    "gameplay_binding": false,
    "authority": [

@@ -52,7 +52,7 @@ extends FunctionalProp
 ##     annunciator that COUNTS the code rather than merely buzzing. That count
 ##     is why this board can name a station instead of just announcing one.
 ##
-## ORISON-SPECIFIC INFERENCE, stated plainly: this case, its four shutter
+## ORISON-SPECIFIC INFERENCE, stated plainly: this case, its seven shutter
 ## positions, its counter and its pilot are authored. The lobby wall it hangs
 ## on, the run it hangs in and the station at the far end of its line are not.
 ##
@@ -65,9 +65,10 @@ signal signal_displayed(station_number: int, sequence: int)
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
-## Four shutter positions, because a board with one is a lamp. Only station 2
-## exists today; 1, 3 and 4 are wired to nothing and say so by never falling.
-const SHUTTER_NUMBERS := [1, 2, 3, 4]
+## Seven shutter positions, one for each patrol station: the boiler (1), floors
+## 2 to 6 and the ground floor (7). V2 hangs a box on every floor (dossier slice
+## 80); under V1 only 1 and 2 are wired and the rest say so by never falling.
+const SHUTTER_NUMBERS := [1, 2, 3, 4, 5, 6, 7]
 ## What a displayed indication is allowed to carry. Number and order. NOT time,
 ## and not a person -- neither of which came down the wire.
 const INDICATION_FIELDS := ["station_number", "sequence"]
@@ -298,7 +299,7 @@ func _build_visual() -> void:
 	armature.name = "RelayArmature"
 	_adopt(armature, _relay)
 
-	# THE FOUR NUMBERED DROPS. A gravity drop FALLS: it does not swing out of
+	# THE SEVEN NUMBERED DROPS. A gravity drop FALLS: it does not swing out of
 	# the case on a hinge. An earlier build pivoted them and the raised ones
 	# stood out into the lobby like little shelves with their numbers facing
 	# the ceiling -- unreadable, and wrong about the mechanism. They now slide
@@ -311,32 +312,34 @@ func _build_visual() -> void:
 	# the position has been signalled or not.
 	for i in SHUTTER_NUMBERS.size():
 		var number: int = SHUTTER_NUMBERS[i]
-		var x := -0.129 + 0.086 * float(i)
-		var frame := make_box(Vector3(0.074, 0.092, 0.004),
+		# Seven drops at 50 mm centres fit between the cheeks (inner faces at
+		# +/-0.187), each in its own frame with its own pair of guides.
+		var x := -0.150 + 0.050 * float(i)
+		var frame := make_box(Vector3(0.044, 0.092, 0.004),
 				Vector3(x, 0.216, 0.090), Color(0.09, 0.09, 0.11))
 		frame.name = "ShutterFrame%d" % number
-		for side in [-0.037, 0.037]:
-			var guide := make_box(Vector3(0.006, 0.176, 0.010),
+		for side in [-0.022, 0.022]:
+			var guide := make_box(Vector3(0.004, 0.176, 0.010),
 					Vector3(x + side, 0.258, 0.095), Color(0.34, 0.28, 0.14))
 			guide.name = "ShutterGuide%d" % number
 		var pivot := Node3D.new()
 		pivot.name = "Shutter%d" % number
 		pivot.position = Vector3(x, SHUTTER_REST_Y, 0.094)
 		add_child(pivot)
-		var leaf := make_box(Vector3(0.064, 0.080, 0.004), Vector3.ZERO, brass)
+		var leaf := make_box(Vector3(0.040, 0.080, 0.004), Vector3.ZERO, brass)
 		leaf.name = "ShutterLeaf%d" % number
 		_adopt(leaf, pivot)
-		var face := make_box(Vector3(0.052, 0.066, 0.003),
+		var face := make_box(Vector3(0.032, 0.066, 0.003),
 				Vector3(0.0, 0.0, 0.003), enamel)
 		face.name = "ShutterFace%d" % number
 		_adopt(face, pivot)
 		_print("ShutterMark%d" % number, str(number),
-				Vector3(0.0, 0.0, 0.007), 0.0330,
+				Vector3(0.0, 0.0, 0.007), 0.0260,
 				Color(0.18, 0.14, 0.11), pivot)
 		_shutters[number] = pivot
 		# The engraved position number on the CASE, always readable.
 		_print("PositionNumber%d" % number, str(number),
-				Vector3(x, 0.152, 0.098), 0.0155, Color(0.72, 0.70, 0.64))
+				Vector3(x, 0.152, 0.098), 0.0140, Color(0.72, 0.70, 0.64))
 	# THE HOOD. It covers the parked position completely -- 0.078 of leaf
 	# behind 0.082 of oak -- so a drop that has not fallen is not a leaf
 	# sitting high in a window, it is nothing at all. An earlier build left

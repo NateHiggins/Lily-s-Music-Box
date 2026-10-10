@@ -1,0 +1,55 @@
+{
+	"batch_checks": 12,
+	"elapsed_ms": 83255,
+	"evidence_class": "INERT",
+	"failures": [
+		"domestic_objects: requested capture actor exists in selected native family",
+		"domestic_objects: clear standing camera station: B1_rinse_taps"
+	],
+	"module_checks": 12350,
+	"modules": {
+		"domestic_objects": {
+			"actors": 236,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 9876,
+			"elapsed_ms": 6713,
+			"failures": [
+				"requested capture actor exists in selected native family",
+				"clear standing camera station: B1_rinse_taps"
+			],
+			"fixture_sha256": "a2d30a47ed31828acff443dd2662d5013a6a567175e801e8c0069edcb7d57138",
+			"parts": 955,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 587336,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 136,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						3.27370047569275,
+						0.0199999995529652,
+						-7.88999938964844
+					],
+					"id": "F01_watch_kettle_native",
+					"image": "F01_watch_kettle_native.png",
+					"owner": "F01_watch_kettle",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"service_instruments": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 2474,
+			"elapsed_ms": 26153,
+			"failures": [],
+			"fixture_sha256": "0a7339ad65a07f2625645d73b49f0aeff47d2c8abd31f7361dcdbfa5a6ad8ea2",
+			"validator_sha256": "55dd709331229495844a653be264024a404020066bff32fe37cddc2544328da4"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

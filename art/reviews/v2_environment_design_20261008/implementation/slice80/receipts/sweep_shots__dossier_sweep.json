@@ -1,0 +1,383 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-4.10400056838989,
+						1.43999993801117,
+						-3.04799842834473
+					],
+					"feet": [
+						4.10400056838989,
+						0.0299999918788671,
+						-8.60200119018555
+					],
+					"forward": [
+						0.890342950820923,
+						-0.0954558327794075,
+						-0.445171564817429
+					],
+					"image": "F01_LOBBY_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						0.0,
+						1.0,
+						-6.55000019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.10400056838989,
+						1.43999993801117,
+						-7.15199899673462
+					],
+					"feet": [
+						-4.10400009155273,
+						0.0299999918788671,
+						-4.4980001449585
+					],
+					"forward": [
+						-0.890343010425568,
+						-0.0954558774828911,
+						0.445171386003494
+					],
+					"image": "F01_LOBBY_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						0.0,
+						1.0,
+						-6.55000019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						0.000000122391952572798,
+						1.43999993801117,
+						-1.39999961853027
+					],
+					"feet": [
+						-0.000000000000042632564145606,
+						0.0299999918788671,
+						-10.25
+					],
+					"forward": [
+						0.000000087239421020513,
+						-0.0647288113832474,
+						-0.997902870178223
+					],
+					"image": "F01_LOBBY_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F01_INNER_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						0.0,
+						1.20000004768372,
+						-6.55000019073486
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						0.000000266464667220134,
+						1.43999993801117,
+						-3.04799938201904
+					],
+					"feet": [
+						-0.000000000000028421709430404,
+						0.0299999918788671,
+						-8.60200023651123
+					],
+					"forward": [
+						0.952683329582214,
+						-0.0108878007158637,
+						0.303769677877426
+					],
+					"image": "F01_LOBBY_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_lobby_board",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-1.75,
+						1.41999995708466,
+						-9.15999984741211
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.10400056838989,
+						1.43999993801117,
+						-6.17999935150146
+					],
+					"feet": [
+						-4.10400009155273,
+						0.0299999918788671,
+						-5.46999979019165
+					],
+					"forward": [
+						0.433646470308304,
+						-0.0116259045898914,
+						-0.901008069515228
+					],
+					"image": "F01_LOBBY_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_WATCH_STATION",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-4.84999990463257,
+						1.41999995708466,
+						-3.92000007629395
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.15999960899353,
+						1.43999993801117,
+						-4.01999950408936
+					],
+					"feet": [
+						2.15999984741211,
+						0.0299999918788671,
+						-7.63000011444092
+					],
+					"forward": [
+						0.618717432022095,
+						-0.0715871378779411,
+						0.782345235347748
+					],
+					"image": "F01_LOBBY_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_lobby_photo",
+					"status": "captured_pending_visual_review",
+					"target": [
+						0.949999988079071,
+						1.29999995231628,
+						-9.15999984741211
+					]
+				}
+			],
+			"class": "public",
+			"clear_stations": 24,
+			"floor_y": 0.0,
+			"id": "F01_LOBBY",
+			"level": "F01",
+			"purpose": "arrival, waiting and orientation",
+			"rect": [
+				-5.4,
+				-9.25,
+				5.4,
+				-3.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						1.70400106906891,
+						1.43999993801117,
+						-8.32799911499023
+					],
+					"feet": [
+						-1.70400023460388,
+						0.0299999918788671,
+						-3.32200050354004
+					],
+					"forward": [
+						0.678295791149139,
+						-0.186998873949051,
+						-0.710595667362213
+					],
+					"image": "F01_WATCH_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-3.29999995231628,
+						1.0,
+						-1.64999997615814
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.14000082015991,
+						1.43999993801117,
+						-11.6719989776611
+					],
+					"feet": [
+						-4.1399998664856,
+						0.0299999918788671,
+						0.0219993591308594
+					],
+					"forward": [
+						-0.437003403902054,
+						-0.228906497359276,
+						0.869844734668732
+					],
+					"image": "F01_WATCH_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-3.29999995231628,
+						1.0,
+						-1.64999997615814
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						3.30000066757202,
+						1.43999993801117,
+						-6.79999923706055
+					],
+					"feet": [
+						-3.30000019073486,
+						0.0299999918788671,
+						-4.84999990463257
+					],
+					"forward": [
+						0.0,
+						-0.0747899189591408,
+						-0.997199296951294
+					],
+					"image": "F01_WATCH_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F01_LOBBY_WATCH_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-3.29999995231628,
+						1.20000004768372,
+						-1.64999997615814
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						2.46000051498413,
+						1.43999993801117,
+						-9.99999904632568
+					],
+					"feet": [
+						-2.45999979972839,
+						0.0299999918788671,
+						-1.65000057220459
+					],
+					"forward": [
+						-0.281927466392517,
+						-0.36160272359848,
+						0.888684630393982
+					],
+					"image": "F01_WATCH_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_WATCHMAN_DETECTOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-2.0,
+						0.850000023841858,
+						-3.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.14000082015991,
+						1.43999993801117,
+						-9.99999904632568
+					],
+					"feet": [
+						-4.1399998664856,
+						0.0299999918788671,
+						-1.65000057220459
+					],
+					"forward": [
+						-0.458878636360168,
+						-0.329980075359344,
+						-0.824950635433197
+					],
+					"image": "F01_WATCH_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_NIGHT_REGISTER",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-3.25,
+						0.800000011920929,
+						-0.0500000007450581
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						4.89600086212158,
+						1.43999993801117,
+						-9.11999893188477
+					],
+					"feet": [
+						-4.89599990844727,
+						0.0299999918788671,
+						-2.53000068664551
+					],
+					"forward": [
+						0.00204962259158492,
+						-0.14859065413475,
+						-0.988896667957306
+					],
+					"image": "F01_WATCH_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F01_SIGNAL_REGISTER",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-4.90000009536743,
+						1.14999997615814,
+						-0.600000023841858
+					]
+				}
+			],
+			"class": "service",
+			"clear_stations": 13,
+			"floor_y": 0.0,
+			"id": "F01_WATCH",
+			"level": "F01",
+			"purpose": "watch, keys and annunciator",
+			"rect": [
+				-5.4,
+				-3.85,
+				-1.2,
+				0.55
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		}
+	]
+}

@@ -193,7 +193,8 @@ for actor in plan['actors']:
   box('Ledger retaining lip',(.70,.012,.008),(0,.066,.234),'wood_dark')
  elif aid=='M05':
   hinges(.40,.46,.099,.23);fasteners(.373,.415,.101,.23)
-  for x in [-.166,-.08,.006,.092,.166]:screw('Guide fastening',(x,.173,.101),radius=.0019)
+  # Seven drops at 50 mm centres (dossier slice 80): a screw on each drop's left guide and the last right guide.
+  for x in [-.172,-.122,-.072,-.022,.028,.078,.128,.172]:screw('Guide fastening',(x,.173,.101),radius=.0019)
  elif aid=='M06':
   fasteners(.125,.216,.024,.13);rod('Hook root ferrule',.008,.004,(0,.17,.024),'brass')
   rod('Latch pivot seat',.010,.004,(.03,.17,.028),'brass')

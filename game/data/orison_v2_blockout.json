@@ -2056,7 +2056,14 @@
     {"id":"B1_washer_supply","level":"B1","space":"B1_LAUNDRY","position":[-9.91,0,0.05],"yaw":-1.5707963267948966,"kind":"furniture"},
     {"id":"B1_rinse_taps","level":"B1","space":"B1_LAUNDRY","position":[-6.175,0,3.08],"yaw":0.0,"kind":"furniture"},
     {"id":"F01_watch_kettle","level":"F01","space":"F01_WATCH","position":[-4.75,0,-3.76],"yaw":3.141592653589793,"kind":"furniture"},
-    {"id":"F01_tour_card","level":"F01","space":"F01_WATCH","position":[-4.6,1.25,0.46],"yaw":0.0,"kind":"furniture"}
+    {"id":"F01_tour_card","level":"F01","space":"F01_WATCH","position":[-4.6,1.25,0.46],"yaw":0.0,"kind":"furniture"},
+    {"id":"B1_WATCH_STATION","level":"B1","space":"B1_BOILER_ROOM","position":[9.57,1.42,2.4],"yaw":1.5707963267948966,"kind":"interaction"},
+    {"id":"F02_WATCH_STATION","level":"F02","space":"F02_PUBLIC_CORE","position":[1.6,1.42,3.78],"yaw":3.141592653589793,"kind":"interaction"},
+    {"id":"F03_WATCH_STATION","level":"F03","space":"F03_PUBLIC_CORE","position":[1.6,1.42,3.78],"yaw":3.141592653589793,"kind":"interaction"},
+    {"id":"F04_WATCH_STATION","level":"F04","space":"F04_PUBLIC_CORE","position":[1.6,1.42,3.78],"yaw":3.141592653589793,"kind":"interaction"},
+    {"id":"F05_WATCH_STATION","level":"F05","space":"F05_PUBLIC_CORE","position":[1.6,1.42,3.78],"yaw":3.141592653589793,"kind":"interaction"},
+    {"id":"F06_WATCH_STATION","level":"F06","space":"F06_PUBLIC_CORE","position":[1.6,1.42,3.78],"yaw":3.141592653589793,"kind":"interaction"},
+    {"id":"F01_WATCH_STATION","level":"F01","space":"F01_LOBBY","position":[-4.85,1.42,-3.92],"yaw":3.141592653589793,"kind":"interaction"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},

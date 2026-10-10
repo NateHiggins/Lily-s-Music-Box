@@ -76,8 +76,11 @@ signal station_marked(station_id: String, mark_record: Dictionary)
 
 const ControlArea = preload("res://scripts/props/prop_control_area.gd")
 
-## The authored stations. One today; the table is the architecture, so a second
-## box is a line here and a placement, not a new class.
+## The authored stations. The table is the architecture, so a second box is a
+## line here and a placement, not a new class. V1 places the first two; V2 places
+## one on every floor (dossier slice 80, at the owner's direction, 2026-10-10):
+## the round starts at the plant (1), climbs the core past floors 2 to 6 and ends
+## at the lobby box (7) beside the watch room.
 const STATIONS := {
 	# SR7-M. STATION 1 IS THE BOILER, and the number is not an accident: a
 	# watch round in a coal-fired 1928 apartment house starts at the plant,
@@ -97,6 +100,36 @@ const STATIONS := {
 		"number": 2,
 		"serves": "2A",
 		"legend": "STATION 2",
+	},
+	"F02_STATION_CORE": {
+		"number": 2,
+		"serves": "F02",
+		"legend": "STATION 2",
+	},
+	"F03_STATION_CORE": {
+		"number": 3,
+		"serves": "F03",
+		"legend": "STATION 3",
+	},
+	"F04_STATION_CORE": {
+		"number": 4,
+		"serves": "F04",
+		"legend": "STATION 4",
+	},
+	"F05_STATION_CORE": {
+		"number": 5,
+		"serves": "F05",
+		"legend": "STATION 5",
+	},
+	"F06_STATION_CORE": {
+		"number": 6,
+		"serves": "F06",
+		"legend": "STATION 6",
+	},
+	"F01_STATION_LOBBY": {
+		"number": 7,
+		"serves": "lobby",
+		"legend": "STATION 7",
 	},
 }
 ## The hour the box reads when no day/night owner is in the tree -- the same

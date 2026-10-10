@@ -1,0 +1,65 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 0.67,
+  "exit_code": 1,
+  "finished_utc": "2026-10-10T15:39:03Z",
+  "started_utc": "2026-10-10T15:39:02Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 2,
+  "fail_lines": [
+   "WATCH REGISTER TEST: FAIL (86/87)",
+   "[REGISTER FAIL] a number this board has no shutter for is refused, not invented"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/envimpl_out/slice80/watch_register.log.stderr",
+  "stderr_sha256": "387a7a5b4a59c949e7515e40b1be3961386125bc66a905b679f7c8270e8f2156",
+  "stdout": "C:/ov/envimpl_out/slice80/watch_register.log",
+  "stdout_sha256": "f3a2a375271b718deecc2967b58ab48808091aed1424c54bc79557654d43ffdf"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/WatchRegisterTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 414,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_normal.png.import"
+  ],
+  "repository_head": "129e02d3c77ddd99701b08767c5f694866f3876a",
+  "repository_tree": "49452e8b2dac06198d0daab1b90ff76fcd579001",
+  "runtime_inputs_sha256": "3ea8ae43d470990bc0115321e381c2afc6ef1061ee647e6b6143465d98cb8b95",
+  "test_path": "game/tests/watch_register_test.gd",
+  "test_sha256": "81e8f4911ba116249a6cb1e50aaf8ec211b81d848540df0cdc86d52dc3eecf5c"
+ },
+ "windowed": false
+}

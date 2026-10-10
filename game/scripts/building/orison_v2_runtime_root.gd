@@ -49,6 +49,16 @@ var mina_routine: Node3D
 var campaign_clock: CampaignClock
 var corruption_lineages: CorruptionLineageRegistry
 var watch_station_network: WatchStationNetwork
+## Patrol station anchor -> WatchStationProp.STATIONS id, one box per floor.
+const PATROL_STATIONS := {
+	"B1_WATCH_STATION": "B1_STATION_BOILER",
+	"F02_WATCH_STATION": "F02_STATION_CORE",
+	"F03_WATCH_STATION": "F03_STATION_CORE",
+	"F04_WATCH_STATION": "F04_STATION_CORE",
+	"F05_WATCH_STATION": "F05_STATION_CORE",
+	"F06_WATCH_STATION": "F06_STATION_CORE",
+	"F01_WATCH_STATION": "F01_STATION_LOBBY",
+}
 var street_traffic: Node = null
 var elevator: Node = null
 var startup_failed := false
@@ -797,6 +807,16 @@ func _compose_service_round_props() -> void:
 	add_child(watch_station_network)
 	watch_station_network.attach_receiver(signal_register)
 	watch_station_network.attach_key_guard(tour_guard)
+	# A patrol station on every floor (dossier slice 80): the existing signal box,
+	# worked with the existing tour key, wired to the watch room's register.
+	for anchor: String in PATROL_STATIONS:
+		var station := WatchStationProp.new()
+		station.prop_type = "watch_station"
+		station.station_id = PATROL_STATIONS[anchor]
+		_mount(anchor, station)
+		if not watch_station_network.register(station):
+			startup_failed = true
+			push_error("ORISON V2 RUNTIME: patrol station refused: " + anchor)
 
 func _bind_first_shift_station() -> void:
 	var detector := find_child("F01_WATCHMAN_DETECTOR", true, false) as WatchmanClockProp

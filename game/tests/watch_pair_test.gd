@@ -94,10 +94,13 @@ func _work(box: WatchStationProp) -> bool:
 
 func _the_pair() -> void:
 	_wire_up()
-	_check("the building authors exactly two stations",
-			WatchStationProp.STATIONS.size() == 2
+	# V1 hangs this pair; V2 hangs a box on every floor (dossier slice 80), so the
+	# table carries V1's two and V2's five core boxes and its lobby seven.
+	_check("the building authors V1's pair and V2's round",
+			WatchStationProp.STATIONS.size() == 8
 			and WatchStationProp.STATIONS.has("B1_STATION_BOILER")
-			and WatchStationProp.STATIONS.has("F02_STATION_2A_LANDING"))
+			and WatchStationProp.STATIONS.has("F02_STATION_2A_LANDING")
+			and WatchStationProp.STATIONS.has("F01_STATION_LOBBY"))
 	_check("with distinct numbers, and STATION 1 is the boiler",
 			boiler.station_number() == 1 and landing.station_number() == 2
 			and boiler.legend() == "STATION 1"

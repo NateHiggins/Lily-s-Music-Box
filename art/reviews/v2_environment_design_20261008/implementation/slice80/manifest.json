@@ -1,0 +1,300 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/washer_supply.jpg",
+   "source": "from77/washer_supply.png",
+   "sha256": "98272f0bb5d2e95d204aa34e9947b9b904f82c3ebeddde31882fedec05290e68",
+   "bytes": 103770
+  },
+  {
+   "path": "images/coal_bunker.jpg",
+   "source": "from77/coal_bunker.png",
+   "sha256": "99d4667a6ff8c8a693fc5bc647407e73a01b2da1c0d2d88e3cd848efb93f4a4a",
+   "bytes": 88122
+  },
+  {
+   "path": "images/rinse_taps.jpg",
+   "source": "shots/rinse_taps.png",
+   "sha256": "cb08cc5f6e4b0ad6edd4d6ba42a2a32a3010b0b5642a80098ac3a741efef6a88",
+   "bytes": 103304
+  },
+  {
+   "path": "images/watch_kettle.jpg",
+   "source": "shots/watch_kettle.png",
+   "sha256": "5c0b3321fd93703e5f81124fa21ed6bdd29f6d82965451281cdc4756f3cbc9f2",
+   "bytes": 87758
+  },
+  {
+   "path": "images/tour_card.jpg",
+   "source": "shots/tour_card.png",
+   "sha256": "e33ce92f0960e5f963cc9f402be284640f9027dbe4c8d86ce64d5a707d8e8320",
+   "bytes": 93447
+  },
+  {
+   "path": "images/mail_bank_room.jpg",
+   "source": "shots/mail_bank_room.png",
+   "sha256": "f526bce685967f9f1cbad9333041bad09642ac01680be5dc469d48d76af5f8b0",
+   "bytes": 98221
+  },
+  {
+   "path": "images/lobby_station.jpg",
+   "source": "shots/lobby_station.png",
+   "sha256": "9dd57724438bb1d5fc0386a4fdcabc300ad9cc28dfbc7969f2f43b6264698a98",
+   "bytes": 87429
+  },
+  {
+   "path": "images/delivery_chute_and_bunker.jpg",
+   "source": "coal_heap/delivery_chute_and_bunker.png",
+   "sha256": "28a4a0082667a7f1dceabd033982ea8337297a6b092a83feab3977b4b8253979",
+   "bytes": 108096
+  },
+  {
+   "path": "images/B1_COAL_ROOM_OV.jpg",
+   "source": "sweep_shots/B1_COAL_ROOM_OV.png",
+   "sha256": "4df4b1558d25b970fa992d07315913f5891f795197e36e6f251d7970014fb469",
+   "bytes": 78643
+  },
+  {
+   "path": "images/B1_COAL_ROOM_DT2.jpg",
+   "source": "sweep_shots/B1_COAL_ROOM_DT2.png",
+   "sha256": "56a6345c1946d7157b1bbbfaecda619d578ac8b6345bdef5456efe6cbe5fb1a6",
+   "bytes": 87735
+  },
+  {
+   "path": "images/B1_LAUNDRY_OV.jpg",
+   "source": "sweep_shots/B1_LAUNDRY_OV.png",
+   "sha256": "c964fb51f9276ef00b50c945c9bdc168349edd1c31b3d902a74dd93b175f19c4",
+   "bytes": 77710
+  },
+  {
+   "path": "images/F01_WATCH_OV.jpg",
+   "source": "sweep_shots/F01_WATCH_OV.png",
+   "sha256": "20ab764fe12b62b60f119937bd6ae76d3069aa0db4ed58888a92ed4ebf0f0c9a",
+   "bytes": 51572
+  },
+  {
+   "path": "images/B1_BOILER_ROOM_OV.jpg",
+   "source": "sweep_shots/B1_BOILER_ROOM_OV.png",
+   "sha256": "fa333156963be3aa2a2cd302480f09714b6c0e3dcb40795c984c813040f2bcfa",
+   "bytes": 38193
+  },
+  {
+   "path": "images/F01_watch_kettle_native.jpg",
+   "source": "fabrication_shots/domestic_objects/F01_watch_kettle_native.png",
+   "sha256": "89bdb8203b6c0eac8dcecd0a86707303c14c8587c1c2d7312b8242cd4d1a0d72",
+   "bytes": 89172
+  },
+  {
+   "path": "images/F01_SIGNAL_REGISTER.jpg",
+   "source": "fabrication_shots/service_instruments/F01_SIGNAL_REGISTER.png",
+   "sha256": "148062aafce45500e3a085721fcd4fb049ae6d2c89da9c1e5a6cf0eb91e33753",
+   "bytes": 83144
+  },
+  {
+   "path": "images/patrol_B1_WATCH_STATION.jpg",
+   "source": "patrol_stations/patrol_B1_WATCH_STATION.png",
+   "sha256": "7ff0666718d6f922a593a1d909f1d42f0d3fa9055838d2f3843d36c6b32cb6e1",
+   "bytes": 88980
+  },
+  {
+   "path": "images/patrol_F02_WATCH_STATION.jpg",
+   "source": "patrol_stations/patrol_F02_WATCH_STATION.png",
+   "sha256": "cd4ed17593c49f323830b85a2709683ac5774e1c53125aeaffc05ef37e041c6e",
+   "bytes": 94994
+  },
+  {
+   "path": "images/patrol_F03_WATCH_STATION.jpg",
+   "source": "patrol_stations/patrol_F03_WATCH_STATION.png",
+   "sha256": "8731f323e797fd7705776aaefc067a01f930f96b163a4c2af68a958d45eb4ee3",
+   "bytes": 96503
+  },
+  {
+   "path": "images/patrol_F04_WATCH_STATION.jpg",
+   "source": "patrol_stations/patrol_F04_WATCH_STATION.png",
+   "sha256": "b6b1653e71accbe3adb497324929122db7ec31eb364f00a260f943631451476d",
+   "bytes": 91287
+  },
+  {
+   "path": "images/patrol_F05_WATCH_STATION.jpg",
+   "source": "patrol_stations/patrol_F05_WATCH_STATION.png",
+   "sha256": "b4341e62c3c11d942a40a2daa6e9570b138c51f7f9c6df92c4192207ca3ae023",
+   "bytes": 95169
+  },
+  {
+   "path": "images/patrol_F06_WATCH_STATION.jpg",
+   "source": "patrol_stations/patrol_F06_WATCH_STATION.png",
+   "sha256": "8e472963b5b143915cb51dd710a8f15e7c2454595100e218f43dd48106db61bf",
+   "bytes": 95073
+  },
+  {
+   "path": "images/patrol_F01_WATCH_STATION.jpg",
+   "source": "patrol_stations/patrol_F01_WATCH_STATION.png",
+   "sha256": "a7ffbd46f89218ef009b8d5908a2076ea3f927abc002c3977450977b9edbd966",
+   "bytes": 89306
+  },
+  {
+   "path": "images/patrol_register_after_round.jpg",
+   "source": "patrol_stations/patrol_register_after_round.png",
+   "sha256": "6e8ed40cb11d5c7b8a20f0b51e51b9c5d3733da82a8270523e641d244e848548",
+   "bytes": 96949
+  },
+  {
+   "path": "receipts/blockout.log.receipt.json",
+   "source": "blockout.log.receipt.json",
+   "sha256": "ec1bd79bd8cb4288573e5c087096d692e37b41cb7526592435fc56204389c065",
+   "bytes": 5888
+  },
+  {
+   "path": "receipts/coal_heap.log.receipt.json",
+   "source": "coal_heap.log.receipt.json",
+   "sha256": "66efffb12601350eedb69209f97563979267ce2f2e9864b27e150933a527f3a7",
+   "bytes": 3203
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "afbbb56f41eb0ca161ea9c9a5a0c5d46241ca2421593bb97c8126bc10d0340ac",
+   "bytes": 3221
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "043f179dbc53ead5cb73a9b20e86d1f479f4e1e032e9adf568209551af86722e",
+   "bytes": 3138
+  },
+  {
+   "path": "receipts/import2.log.receipt.json",
+   "source": "import2.log.receipt.json",
+   "sha256": "53380f7c5e809b6e55892c5b0cc5bf4bed63033d78a0e0c9d44f0593b2633a38",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/import_b.log.receipt.json",
+   "source": "import_b.log.receipt.json",
+   "sha256": "d934293d09be414c87ebea1c9ba16fb492e6ac7dc0f29eb6f70342b40a2cdbf2",
+   "bytes": 3142
+  },
+  {
+   "path": "receipts/laundry_route.log.receipt.json",
+   "source": "laundry_route.log.receipt.json",
+   "sha256": "99da8027114d1ac984c8158f72ed80dce7e501fb66c2e01447caa33b98c30dbc",
+   "bytes": 3222
+  },
+  {
+   "path": "receipts/m08e.log.receipt.json",
+   "source": "m08e.log.receipt.json",
+   "sha256": "46a6eed236f7a7bbe1290add8ffbb26548367e95e61f901f7ffa1dde0ba48a15",
+   "bytes": 3681
+  },
+  {
+   "path": "receipts/m08f.log.receipt.json",
+   "source": "m08f.log.receipt.json",
+   "sha256": "b0a6c90da2edc7eb8aa80f8e4ac7c951bdd11d7341ea635553b273ca2dab502e",
+   "bytes": 5010
+  },
+  {
+   "path": "receipts/mail_route.log.receipt.json",
+   "source": "mail_route.log.receipt.json",
+   "sha256": "d70ef3f6ceba2ddbec350f0ef4165eab35e6cacb0946a340621b7029c0a6159b",
+   "bytes": 3176
+  },
+  {
+   "path": "receipts/node_probe.log.receipt.json",
+   "source": "node_probe.log.receipt.json",
+   "sha256": "2ad0a213625c1c30026730f52709d65198510b10574eee743a118409a5ab5d38",
+   "bytes": 3195
+  },
+  {
+   "path": "receipts/node_probe_b.log.receipt.json",
+   "source": "node_probe_b.log.receipt.json",
+   "sha256": "e43ac51a5d78c47eb929d4e4ad69d6c770e6dfd42170c9df8b204e907a216d4d",
+   "bytes": 3199
+  },
+  {
+   "path": "receipts/patrol_stations.log.receipt.json",
+   "source": "patrol_stations.log.receipt.json",
+   "sha256": "5b810ed76fbc59d2bc8e7d76deb56b133aa00cee78ea79e846855ab3db8504d5",
+   "bytes": 3232
+  },
+  {
+   "path": "receipts/sweep_0.log.receipt.json",
+   "source": "sweep_0.log.receipt.json",
+   "sha256": "038035d169b35b567ab8a1d9a9d94e98de08bef1aff7949cb4622f8b08b34be8",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/sweep_1.log.receipt.json",
+   "source": "sweep_1.log.receipt.json",
+   "sha256": "9ec93b63129a893f7e4b9b33903904abae97d6934327299e169cd79cfc092bb5",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/sweep_2.log.receipt.json",
+   "source": "sweep_2.log.receipt.json",
+   "sha256": "2d27698b4d72a2a8fe3c1048bb1c90498d070d82084ac183c8c69aa9b621ae43",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/sweep_lobby.log.receipt.json",
+   "source": "sweep_lobby.log.receipt.json",
+   "sha256": "caa7e5bca209f566c90e27c0b330b22543c6842744ed9f190586fe80e1f0b0fb",
+   "bytes": 3232
+  },
+  {
+   "path": "receipts/tour_key.log.receipt.json",
+   "source": "tour_key.log.receipt.json",
+   "sha256": "e5240cc08c05fbc7b8d9cc33ad7167ee2132efd1056ff654ed71cd6b3b2b68eb",
+   "bytes": 3185
+  },
+  {
+   "path": "receipts/tour_key_b.log.receipt.json",
+   "source": "tour_key_b.log.receipt.json",
+   "sha256": "2525aea19f460ee0a9c5c88489ab53a9b3649f1bf3999af72e294d43fe54b129",
+   "bytes": 3189
+  },
+  {
+   "path": "receipts/watch_pair.log.receipt.json",
+   "source": "watch_pair.log.receipt.json",
+   "sha256": "05e2f0b776ba8df7c547bf0a4339e829ec102786d19d51b9060f2854238fa49a",
+   "bytes": 3257
+  },
+  {
+   "path": "receipts/watch_pair_b.log.receipt.json",
+   "source": "watch_pair_b.log.receipt.json",
+   "sha256": "a3c4dda923b8daa258f5620ed156617b8aa7740d4e9aa54d1b437861c2454ef8",
+   "bytes": 3201
+  },
+  {
+   "path": "receipts/watch_register.log.receipt.json",
+   "source": "watch_register.log.receipt.json",
+   "sha256": "5e0a19fe632217d77ab1cf662187d9c8ffbc6ccf3091328d71b7a807799fe56f",
+   "bytes": 3301
+  },
+  {
+   "path": "receipts/watch_register_b.log.receipt.json",
+   "source": "watch_register_b.log.receipt.json",
+   "sha256": "f75d02ee3a8736b078bb6ba220c0f7ac22505c798fa3a20951775bf9287cb86f",
+   "bytes": 3219
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "10a6eac1eb5cae120da3699a74021f86d6c56d6fde04aeaae990f4444976e21a",
+   "bytes": 1734
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "d6ff2ee5d56e75cb4a0d2c5cf2dc08ab89b218912cdea4f32162095a045c9f98",
+   "bytes": 815276
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "e44355c0fb27d1ac36cc73474b9502f6e6b0ec389394e1e7bb77c0871cf1960e",
+   "bytes": 8133
+  }
+ ]
+}
