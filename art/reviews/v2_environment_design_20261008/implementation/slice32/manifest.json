@@ -1,0 +1,150 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/B1_laundry_stepladder_native.jpg",
+   "source": "fabrication_shots/domestic_objects/B1_laundry_stepladder_native.png",
+   "sha256": "0575c0ea97cbf0fd1c4105a4ddbc65bfd4fbd8c1edae44388c1f0534260c0918",
+   "bytes": 82845
+  },
+  {
+   "path": "images/B1_laundry_belt_native.jpg",
+   "source": "fabrication_shots/domestic_objects/B1_laundry_belt_native.png",
+   "sha256": "2b1f2d72e1b39dc9e8f2b5861cd98a3ef6ce5a4b924c348c01b2dbcb0dddd7b7",
+   "bytes": 94229
+  },
+  {
+   "path": "images/F01_vestibule_umbrella_stand_native.jpg",
+   "source": "fabrication_shots/domestic_objects/F01_vestibule_umbrella_stand_native.png",
+   "sha256": "a580be3945852950a5d441f3c09167fb0e7a14fcbcd04282e7984eb49bef6a9b",
+   "bytes": 106018
+  },
+  {
+   "path": "images/F01_lobby_spittoon_native.jpg",
+   "source": "fabrication_shots/domestic_objects/F01_lobby_spittoon_native.png",
+   "sha256": "13b8a888dfe5870375c7d2e79f02aa18c41ac913a2b4a1c32da3635438f0ab94",
+   "bytes": 99970
+  },
+  {
+   "path": "images/F01_restroom_mop_bucket_native.jpg",
+   "source": "fabrication_shots/domestic_objects/F01_restroom_mop_bucket_native.png",
+   "sha256": "e943bdc8a33bb2596f1c612ac9918e058fd9e125b363d87a05ec9c0819c17119",
+   "bytes": 244569
+  },
+  {
+   "path": "images/F01_restroom_roller_towel_native.jpg",
+   "source": "fabrication_shots/domestic_objects/F01_restroom_roller_towel_native.png",
+   "sha256": "05d39721e8d8a7f119b376e9dbd57af2d48b52b207ab1bada0df127bd36983e9",
+   "bytes": 126900
+  },
+  {
+   "path": "images/F01_restroom_soap_dish_native.jpg",
+   "source": "fabrication_shots/domestic_objects/F01_restroom_soap_dish_native.png",
+   "sha256": "d46e99d1ea94f22c9b695d8ad7c1cdefc780b48f49f3dee72d1a90fe4ae60599",
+   "bytes": 188429
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "a603ae8a79a4771a238a44b40aa359a09af97e6c4a8aa01327af73c33b33cba4",
+   "bytes": 3392
+  },
+  {
+   "path": "receipts/basement_route.log.receipt.json",
+   "source": "basement_route.log.receipt.json",
+   "sha256": "c9e19bd45433df146bfbb474e3b4fa7f13e576ee4b51b3d9cb2090716ab81fd5",
+   "bytes": 3192
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "a07640c765ca37945b1069984c0db7fffc33ed65c6ce5e97e5d5938f6cbf9d05",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/ground.log.receipt.json",
+   "source": "ground.log.receipt.json",
+   "sha256": "d0e3d27276ce02d54368c53c4e09fe94f9721a2ac76fef120f52caec5b4a94b6",
+   "bytes": 3160
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "0ad7e2645486c4942cbe6511f65a997dd4adf2f52c464ef017358e434b8ba923",
+   "bytes": 3139
+  },
+  {
+   "path": "receipts/laundry_apparatus.log.receipt.json",
+   "source": "laundry_apparatus.log.receipt.json",
+   "sha256": "772f35d526bb9f5fd382ff4d482b26bad03c7558897a53b867b887e145a1a974",
+   "bytes": 3203
+  },
+  {
+   "path": "receipts/laundry_fittings.log.receipt.json",
+   "source": "laundry_fittings.log.receipt.json",
+   "sha256": "8970809c71bb1e9bbd23241b6230519140cb9677bb13fef8898ea42a26e6db98",
+   "bytes": 3199
+  },
+  {
+   "path": "receipts/laundry_route.log.receipt.json",
+   "source": "laundry_route.log.receipt.json",
+   "sha256": "00da5137cd22b45a05bc0115b4a62bfda97919311715ce342267bda7a3562b81",
+   "bytes": 3187
+  },
+  {
+   "path": "receipts/m08e.log.receipt.json",
+   "source": "m08e.log.receipt.json",
+   "sha256": "baa571ff4f8f4ecf22145641f377e395f3df4738bad0812454bc10949de9b140",
+   "bytes": 3680
+  },
+  {
+   "path": "receipts/mina_laundry.log.receipt.json",
+   "source": "mina_laundry.log.receipt.json",
+   "sha256": "a2954c26641faaa1a8014b5bca99a10f81e09d15d0dfca8f2c9c9b6460f2ab34",
+   "bytes": 3189
+  },
+  {
+   "path": "receipts/public_doors.log.receipt.json",
+   "source": "public_doors.log.receipt.json",
+   "sha256": "5f2ca2be71d05db690a3440e65bc081bd4463700f6a7853f8d959ab12004512b",
+   "bytes": 3182
+  },
+  {
+   "path": "receipts/public_furnishings.log.receipt.json",
+   "source": "public_furnishings.log.receipt.json",
+   "sha256": "ef63f53d61552e88a289ef83f155ac5f56c37ddee79040c0ca43cc59a581eda7",
+   "bytes": 3207
+  },
+  {
+   "path": "receipts/sweep_a.log.receipt.json",
+   "source": "sweep_a.log.receipt.json",
+   "sha256": "9645a1f15b67633346941185521db71e35bd632a22be4ccf0e72a0b97753a0a2",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/wall_mount.log.receipt.json",
+   "source": "wall_mount.log.receipt.json",
+   "sha256": "91d4718772cbb667e991fe84483d4edfb8a26c3581366956fcc4866ccd8aed8d",
+   "bytes": 3175
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "ef2549153581d6eb461649cd5f54bdeda6eb327cbd4324ef5ea25bd35803e72a",
+   "bytes": 8336
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "a30f384809076c61e5be99a857f26c1155886a6ee24c9ecbd0e4b9b54d53d3dd",
+   "bytes": 776891
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "b3ea48daf8d4a57a333b3a26df5f949cd9453fe64eb721d0b3c2ea3db0454c9a",
+   "bytes": 15890
+  }
+ ]
+}

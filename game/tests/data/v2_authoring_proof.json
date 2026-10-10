@@ -782,6 +782,54 @@
         "component": "3B_din_dc1",
         "note": "V2 environment dossier F05_C_BED1-001 (slice 31): a copy of 3B_din_dc1"
       }
+    },
+    "B1_laundry_oil_can": {
+      "source_component": {
+        "component": "oilcan",
+        "note": "V2 environment dossier B1_LAUNDRY-003 (slice 32); no V1 counterpart"
+      }
+    },
+    "B1_laundry_belt": {
+      "source_component": {
+        "component": "beltnail",
+        "note": "V2 environment dossier B1_LAUNDRY-003 (slice 32); no V1 counterpart"
+      }
+    },
+    "B1_laundry_stepladder": {
+      "source_component": {
+        "component": "stepladder",
+        "note": "V2 environment dossier B1_LAUNDRY-003 (slice 32); no V1 counterpart"
+      }
+    },
+    "F01_vestibule_umbrella_stand": {
+      "source_component": {
+        "component": "umbrellastand",
+        "note": "V2 environment dossier F01_VESTIBULE-001 (slice 32); no V1 counterpart"
+      }
+    },
+    "F01_lobby_spittoon": {
+      "source_component": {
+        "component": "spittoon",
+        "note": "V2 environment dossier F01_LOBBY-003 (slice 32); no V1 counterpart"
+      }
+    },
+    "F01_restroom_soap_dish": {
+      "source_component": {
+        "component": "soapdish",
+        "note": "V2 environment dossier F01_STAFF_RESTROOM-001 (slice 32); no V1 counterpart"
+      }
+    },
+    "F01_restroom_roller_towel": {
+      "source_component": {
+        "component": "rollertowel",
+        "note": "V2 environment dossier F01_STAFF_RESTROOM-001 (slice 32); no V1 counterpart"
+      }
+    },
+    "F01_restroom_mop_bucket": {
+      "source_component": {
+        "component": "mopbucket",
+        "note": "V2 environment dossier F01_STAFF_RESTROOM-001 (slice 32); no V1 counterpart"
+      }
     }
   },
   "receivers": {

@@ -143,6 +143,9 @@ Slices landed so far (evidence folders in parentheses):
     archive, two family variants (`slice30b`).
 31. Bedsides in 1D and 3D, the scarf on 3D's bedpost, garments on bedroom chairs
     in 4C and 5C, 5C's face-down canvas, 1A's medication organizer (`slice31b`).
+32. Service evidence: the laundry's oil can, belt and stepladder, the vestibule's
+    umbrella stand, the lobby spittoon, the staff restroom's towel, mop and soap
+    (`slice32`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

@@ -1,0 +1,272 @@
+{
+	"batch_checks": 33,
+	"elapsed_ms": 92710,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 30038,
+	"modules": {
+		"domestic_objects": {
+			"actors": 134,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 4244,
+			"elapsed_ms": 11376,
+			"failures": [],
+			"fixture_sha256": "137c46c5f2f377713a1ce4c9b22e8edc4cca5bcb52024030603af20dbdc07c21",
+			"parts": 471,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 312296,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 55,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						8.76000118255615,
+						-3.1800000667572,
+						-11.6999988555908
+					],
+					"id": "B1_laundry_belt_native",
+					"image": "B1_laundry_belt_native.png",
+					"owner": "B1_laundry_belt",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						3.89650058746338,
+						-3.1800000667572,
+						-8.44999885559082
+					],
+					"id": "B1_laundry_stepladder_native",
+					"image": "B1_laundry_stepladder_native.png",
+					"owner": "B1_laundry_stepladder",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						1.75235772132874,
+						0.0199999995529652,
+						-0.939184546470642
+					],
+					"id": "F01_vestibule_umbrella_stand_native",
+					"image": "F01_vestibule_umbrella_stand_native.png",
+					"owner": "F01_vestibule_umbrella_stand",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						3.28918504714966,
+						0.0199999995529652,
+						-3.00235748291016
+					],
+					"id": "F01_lobby_spittoon_native",
+					"image": "F01_lobby_spittoon_native.png",
+					"owner": "F01_lobby_spittoon",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-6.50000047683716,
+						0.0199999995529652,
+						-4.59000158309937
+					],
+					"id": "F01_restroom_soap_dish_native",
+					"image": "F01_restroom_soap_dish_native.png",
+					"owner": "F01_restroom_soap_dish",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-6.63999938964844,
+						0.0199999995529652,
+						-4.65000009536743
+					],
+					"id": "F01_restroom_roller_towel_native",
+					"image": "F01_restroom_roller_towel_native.png",
+					"owner": "F01_restroom_roller_towel",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-6.1614408493042,
+						0.0199999995529652,
+						-5.35108470916748
+					],
+					"id": "F01_restroom_mop_bucket_native",
+					"image": "F01_restroom_mop_bucket_native.png",
+					"owner": "F01_restroom_mop_bucket",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"domestic_seating": {
+			"actors": 57,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 780,
+			"elapsed_ms": 615,
+			"failures": [],
+			"fixture_sha256": "724fb77bfd845338d888b1e16c509f40115a4960908a62427da00a62e5af0fae",
+			"parts": 75,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 52984,
+			"validator_sha256": "b075531e93b4cbd387afc38fd9f538a4c1c76b004cbea419fc914d1a1b3829f1",
+			"variants": 5,
+			"views": []
+		},
+		"domestic_storage": {
+			"actors": 52,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 1198,
+			"elapsed_ms": 1020,
+			"failures": [],
+			"fixture_sha256": "6e36067d13e3117c6101964a673291deb7f8a1978ed5adcdd8bf217c3d738012",
+			"parts": 109,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 83104,
+			"validator_sha256": "a85a8676f999707509246faefe9178fda39e4d9cbd57b27239cc08dccd1f2675",
+			"variants": 10,
+			"views": []
+		},
+		"domestic_tables": {
+			"actors": 75,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 1532,
+			"elapsed_ms": 1478,
+			"failures": [],
+			"fixture_sha256": "c2f66831e23e944d249b249becaf152434b4423b2fc915f9c877e134626df603",
+			"parts": 148,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 48960,
+			"validator_sha256": "50d0993b4c1c1e3b59157f591202428fcd751803249a6c0032e33541f472cc48",
+			"variants": 13,
+			"views": []
+		},
+		"fixed_lighting": {
+			"actors": 211,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 6243,
+			"elapsed_ms": 1927,
+			"failures": [],
+			"fixture_sha256": "e9b8a7c8675a29197a1eccdcdd606df9d405d3d3889d883cc32dd5cc953256ba",
+			"parts": 791,
+			"unique_triangles": 480680,
+			"validator_sha256": "28a23b6b051d548ae24f64bbd2f645d5efa05fbea082c31295884db301aa461d",
+			"variants": 27,
+			"views": []
+		},
+		"household_fridges": {
+			"actors": 18,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 1889,
+			"elapsed_ms": 2467,
+			"failures": [],
+			"fixture_sha256": "afa6b0f43fc70a90578aa12c0d4aaf05f63788ffa00a49184e7cb835469b124a",
+			"inventory_items": 50,
+			"monitors": 4,
+			"unique_triangles": 187660,
+			"validator_sha256": "7b60f96cb58859aec2d4bf37f6f92745f4fbdf5f4706675ce655acea4b5dec2c",
+			"views": []
+		},
+		"household_radios": {
+			"actors": 5,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 316,
+			"elapsed_ms": 291,
+			"failures": [],
+			"fixture_sha256": "f48de13ffcb6405e7f92675556e88daa3aeabcbfaab6383c574ab19bc3ef05a2",
+			"parts": 50,
+			"unique_triangles": 11916,
+			"validator_sha256": "87f9f305211be89df5c6016a5335a0f158e0ce46488cf50ddebc9a090230b517",
+			"views": []
+		},
+		"household_stoves": {
+			"actors": 18,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 3065,
+			"elapsed_ms": 2566,
+			"failures": [],
+			"fixture_sha256": "7db45b80f1bddf428b19a33cec0edef45ff30eb652b1efcde6a7b06b2397d01b",
+			"unique_triangles": 65832,
+			"validator_sha256": "860028d03a65715bfdd197fd6c2e7e64287c4b2f90615d6ca0e608e273c85ea7",
+			"views": []
+		},
+		"household_toasters": {
+			"actors": 10,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 1465,
+			"elapsed_ms": 5573,
+			"failures": [],
+			"fixture_sha256": "1e61f0ac93fd873eb735fe37003bf7cbea50f7dd7dcf1135d62264c3ef6c1b30",
+			"parts": 110,
+			"unique_triangles": 41144,
+			"validator_sha256": "873ad096d72233edbea28da6f32b98aa033d6e8a8ac8c42f7178dae8f1816b75",
+			"views": []
+		},
+		"household_wardrobes": {
+			"actors": 21,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 2140,
+			"elapsed_ms": 2835,
+			"failures": [],
+			"fixture_sha256": "7b2bd23b90a2477973c28aadf16c53ab015d9e440d594485a134c9e857ec7b49",
+			"parts": 230,
+			"unique_triangles": 579940,
+			"validator_sha256": "09ce8a052e203804bd7395bc5e171da9b85db37bf529e8edc902fa9c788ba89f",
+			"views": []
+		},
+		"medicine_cabinets": {
+			"actors": 12,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 1058,
+			"elapsed_ms": 5805,
+			"failures": [],
+			"fixture_sha256": "0ec1e279ffb9716caa7737b4770ea55d3b76aefa5ba3ffed5fdd977ed72d8878",
+			"kept_items": 28,
+			"unique_triangles": 48260,
+			"validator_sha256": "5d62f1ef3069e6fb5c77e04d38a6965a96fdb5fdefd1a4e9fc3ce4d352be7796",
+			"views": []
+		},
+		"prep_cabinets": {
+			"actors": 15,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 709,
+			"elapsed_ms": 1549,
+			"failures": [],
+			"fixture_sha256": "43791f7377fa993528259a382061d85b425657a499e0f3dcc695a232696cdb67",
+			"parts": 120,
+			"unique_triangles": 7096,
+			"validator_sha256": "d83c787272c62a6796495391179a599d29968a9c0e45015d4b98342b0abf8ff6"
+		},
+		"surface_stock": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 5399,
+			"elapsed_ms": 4734,
+			"failures": [],
+			"fixture_sha256": "6282a6646aa28a92e95abfdef610e7eecd860a2468388bd5cfec0eb8e14f34f6",
+			"parts": 418,
+			"triangles": 782316,
+			"validator_sha256": "76eae7a2b6ea2d44a63a48adc7cda4c7f49fc70ac760827dfb27be1d6f5b07d9"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

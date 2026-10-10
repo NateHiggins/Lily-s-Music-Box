@@ -638,6 +638,99 @@ def conduit(source):
    support(identity,'wall',(0,back,z),(0,1,0),'saddle screwed to the wall')
   group(label,start)
 
+def oilcan(source):
+ # Dossier slice 32: an oil can standing on a folded rag.
+ start=len(stock_checks)
+ stock('Rag',(-.11,-.07,0),(.11,.07,.02),'linen',.004)
+ lathe('Can',0,0,.019,[(0,0),(.06,0),(.06,.09),(.035,.12),(.012,.13),(0,.13)],'metal')
+ tube('Spout',(0,0,.12),(.08,0,.22),.005,'brass')
+ for p in [(-.09,-.05,0),(.09,-.05,0),(-.09,.05,0),(.09,.05,0)]:bearing('rag '+str(p),p)
+ group('OilCan',start)
+
+def beltnail(source):
+ # Dossier slice 32: a spare drive belt hung in a loop on a nail.
+ start=len(stock_checks);height=source['H'];back=variants[identity]['rear_wall_y']
+ tube('Nail',(0,back,height-.03),(0,.04,height-.03),.004,'metal')
+ support(identity,'wall',(0,back,height-.03),(0,1,0),'nail driven into the wall')
+ r=.17;zc=height-.03-r
+ wire('Belt',[(r*math.sin(t)*.55,.02,zc+r*math.cos(t)) for t in np.linspace(0,math.tau,49)],.006,'rubber_aged')
+ group('SpareBelt',start)
+
+def stepladder(source):
+ # Dossier slice 32: a folded wooden stepladder leaning on the wall, feet on the floor.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y']
+ for x in [-.2,.2]:
+  stock('Foot'+str(x),(x-.03,.28,0),(x+.03,.36,.03),'timber',.002)
+  tube('Stile'+str(x),(x,.32,.02),(x,.03,1.45),.022,'timber')
+  stock('Top'+str(x),(x-.03,back,1.42),(x+.03,.05,1.5),'timber',.002)
+  bearing('ladder foot '+str(x),(x,.32,0))
+ for x in [-.17,.17]:tube('BackLeg'+str(x),(x,.29,.03),(x,.0,1.42),.015,'timber')
+ for i in range(5):
+  t=(i+1)/6;y=.32-.29*t;z=.02+1.43*t
+  tube('Tread'+str(i),(-.2,y,z),(.2,y,z),.02,'timber')
+ stock('Cap',(-.24,back,1.48),(.24,.05,1.53),'timber',.002)
+ for x in [-.2,.2]:support(identity,'wall',(x,back,1.505),(0,1,0),'ladder cap resting on the wall')
+ group('StepLadder',start)
+
+def umbrellastand(source):
+ # Dossier slice 32: a cast-iron umbrella stand with its drip tray, two furled umbrellas and a stick.
+ start=len(stock_checks)
+ stock('Tray',(-.16,-.11,0),(.16,.11,.025),'metal',.003)
+ for x in [-.16,.15]:stock('Side'+str(x),(x,-.11,.02),(x+.01,.11,.62),'metal',.002)
+ for y in [-.11,.1]:stock('Rail'+str(y),(-.16,y,.55),(.16,y+.01,.6),'metal',.002)
+ stock('Divider',(-.16,-.005,.55),(.16,.005,.6),'metal',.002)
+ for i,(x,y,key) in enumerate([(-.07,-.05,'cape_navy'),(.06,.05,'coat_grey')]):
+  lathe('Canopy'+str(i),x,y,.02,[(0,0),(.012,0),(.03,.25),(.028,.6),(.01,.64),(0,.65)],key)
+  tube('Shaft'+str(i),(x,y,.66),(x,y,.8),.007,'wood_dark')
+  wire('Crook'+str(i),[(x,y,.79),(x,y,.83),(x+.02,y,.85),(x+.04,y,.83),(x+.04,y,.81)],.007,'wood_dark')
+ tube('Stick',(.0,-.06,.02),(.02,-.06,.86),.01,'wood_dark')
+ lathe('Knob',.02,-.06,.85,[(0,0),(.016,0),(.018,.015),(.01,.03),(0,.032)],'brass')
+ for p in [(-.14,-.09,0),(.14,-.09,0),(-.14,.09,0),(.14,.09,0)]:bearing('tray '+str(p),p)
+ group('UmbrellaStand',start)
+
+def spittoon(source):
+ # Dossier slice 32: the lobby's brass spittoon.
+ start=len(stock_checks)
+ lathe('Bowl',0,0,0,[(0,0),(.11,0),(.14,.04),(.145,.08),(.12,.12),(.1,.135),(.12,.15),(.13,.16),(.11,.165),(.085,.14),(0,.14)],'brass')
+ for p in [(.08,0,0),(-.08,0,0),(0,.08,0),(0,-.08,0)]:bearing('base '+str(p),p)
+ group('Spittoon',start)
+
+def soapdish(source):
+ # Dossier slice 32: a wall soap dish beside the basin with a bar of carbolic.
+ start=len(stock_checks);height=source['H'];back=variants[identity]['rear_wall_y']
+ stock('Plate',(-.07,back,height-.06),(.07,.0,height),'enamel',.002)
+ for z in [height-.045,height-.015]:support(identity,'wall',(0,back,z),(0,1,0),'dish screwed to the wall')
+ stock('Dish',(-.065,-.005,height-.07),(.065,.08,height-.055),'enamel',.003)
+ for x in [-.065,.055]:stock('Lip'+str(x),(x,-.005,height-.06),(x+.01,.08,height-.045),'enamel',.001)
+ stock('Front',(-.065,.07,height-.06),(.065,.08,height-.045),'enamel',.001)
+ stock('Soap',(-.04,.015,height-.056),(.04,.065,height-.032),'terracotta',.004)
+ group('SoapDish',start)
+
+def rollertowel(source):
+ # Dossier slice 32: a roller towel on its bracket, the towel a loop over the roller.
+ start=len(stock_checks);height=source['H'];width=source['W'];back=variants[identity]['rear_wall_y']
+ stock('Backboard',(-width/2,back,height-.12),(width/2,.0,height),'wood_dark',.002)
+ for z in [height-.1,height-.02]:
+  for x in [-width*.4,width*.4]:support(identity,'wall',(x,back,z),(0,1,0),'backboard screwed to the wall')
+ for x in [-width/2,width/2-.015]:stock('Arm'+str(x),(x,-.005,height-.1),(x+.015,.1,height-.05),'wood_dark',.002)
+ tube('Roller',(-width/2+.005,.07,height-.075),(width/2-.005,.07,height-.075),.025,'timber')
+ stock('TowelFront',(-width/2+.03,.094,height-.075-.65),(width/2-.03,.102,height-.07),'linen',.002)
+ stock('TowelBack',(-width/2+.03,.038,height-.075-.6),(width/2-.03,.046,height-.07),'linen',.002)
+ stock('TowelFold',(-width/2+.03,.038,height-.075-.66),(width/2-.03,.102,height-.075-.6),'linen',.002)
+ group('RollerTowel',start)
+
+def mopbucket(source):
+ # Dossier slice 32: a galvanised bucket with the mop standing in it, the handle resting on the wall.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y']
+ lathe('Bucket',0,0,0,[(0,0),(.12,0),(.125,.01),(.15,.28),(.155,.29),(.14,.29),(.115,.02),(0,.02)],'metal')
+ wire('Bail',[(-.15,0,.27),(-.1,0,.4),(0,0,.44),(.1,0,.4),(.15,0,.27)],.004,'metal')
+ lathe('MopHead',0,0,.015,[(0,0),(.09,0),(.1,.08),(.06,.14),(0,.15)],'linen')
+ tube('Handle',(0,0,.14),(0,back+.02,1.3),.014,'timber')
+ stock('Cap',(-.02,back,1.27),(.02,back+.025,1.33),'rubber_aged',.002)
+ support(identity,'wall',(0,back,1.3),(0,1,0),'handle cap resting on the wall')
+ for p in [(.09,0,0),(-.09,0,0),(0,.09,0),(0,-.09,0)]:bearing('bucket '+str(p),p)
+ group('MopBucket',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -675,4 +768,12 @@ for assembly in assemblies:
  elif kind=='ashcan':ashcan(source)
  elif kind=='signalframe':signalframe(source)
  elif kind=='conduit':conduit(source)
+ elif kind=='oilcan':oilcan(source)
+ elif kind=='beltnail':beltnail(source)
+ elif kind=='stepladder':stepladder(source)
+ elif kind=='umbrellastand':umbrellastand(source)
+ elif kind=='spittoon':spittoon(source)
+ elif kind=='soapdish':soapdish(source)
+ elif kind=='rollertowel':rollertowel(source)
+ elif kind=='mopbucket':mopbucket(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

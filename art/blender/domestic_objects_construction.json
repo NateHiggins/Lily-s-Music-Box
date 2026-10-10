@@ -466,6 +466,54 @@
       "kind": "conduit",
       "cell": "shared",
       "source_record": "B1_fuse_conduit"
+    },
+    {
+      "id": "DomesticObject47",
+      "kind": "oilcan",
+      "cell": "shared",
+      "source_record": "B1_laundry_oil_can"
+    },
+    {
+      "id": "DomesticObject48",
+      "kind": "beltnail",
+      "cell": "shared",
+      "source_record": "B1_laundry_belt"
+    },
+    {
+      "id": "DomesticObject49",
+      "kind": "stepladder",
+      "cell": "shared",
+      "source_record": "B1_laundry_stepladder"
+    },
+    {
+      "id": "DomesticObject50",
+      "kind": "umbrellastand",
+      "cell": "shared",
+      "source_record": "F01_vestibule_umbrella_stand"
+    },
+    {
+      "id": "DomesticObject51",
+      "kind": "spittoon",
+      "cell": "shared",
+      "source_record": "F01_lobby_spittoon"
+    },
+    {
+      "id": "DomesticObject52",
+      "kind": "soapdish",
+      "cell": "shared",
+      "source_record": "F01_restroom_soap_dish"
+    },
+    {
+      "id": "DomesticObject53",
+      "kind": "rollertowel",
+      "cell": "shared",
+      "source_record": "F01_restroom_roller_towel"
+    },
+    {
+      "id": "DomesticObject54",
+      "kind": "mopbucket",
+      "cell": "shared",
+      "source_record": "F01_restroom_mop_bucket"
     }
   ],
   "closed_stocks": [
@@ -8244,6 +8292,318 @@
       "assembly": "DomesticObject46",
       "key": "metal",
       "volume_m3": 0.00010746299922302378
+    },
+    {
+      "name": "DomesticObject47_Rag",
+      "assembly": "DomesticObject47",
+      "key": "linen",
+      "volume_m3": 0.0006100289343569312
+    },
+    {
+      "name": "DomesticObject47_Can",
+      "assembly": "DomesticObject47",
+      "key": "metal",
+      "volume_m3": 0.0012505870695065304
+    },
+    {
+      "name": "DomesticObject47_Spout",
+      "assembly": "DomesticObject47",
+      "key": "brass",
+      "volume_m3": 1.0029332924457078e-05
+    },
+    {
+      "name": "DomesticObject48_Nail",
+      "assembly": "DomesticObject48",
+      "key": "metal",
+      "volume_m3": 3.00734916790189e-06
+    },
+    {
+      "name": "DomesticObject48_Belt",
+      "assembly": "DomesticObject48",
+      "key": "rubber_aged",
+      "volume_m3": 9.103719189664072e-05
+    },
+    {
+      "name": "DomesticObject49_Foot-0.2",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.00014333364311907846
+    },
+    {
+      "name": "DomesticObject49_Stile-0.2",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.002212293358542926
+    },
+    {
+      "name": "DomesticObject49_Top-0.2",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.00033517386406738234
+    },
+    {
+      "name": "DomesticObject49_Foot0.2",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.00014333364311907846
+    },
+    {
+      "name": "DomesticObject49_Stile0.2",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.002212293358542926
+    },
+    {
+      "name": "DomesticObject49_Top0.2",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.00033517386406738234
+    },
+    {
+      "name": "DomesticObject49_BackLeg-0.17",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.0010008224611142945
+    },
+    {
+      "name": "DomesticObject49_BackLeg0.17",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.0010008224611142945
+    },
+    {
+      "name": "DomesticObject49_Tread0",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.0005012204109745637
+    },
+    {
+      "name": "DomesticObject49_Tread1",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.0005012207007946468
+    },
+    {
+      "name": "DomesticObject49_Tread2",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.0005012235954782939
+    },
+    {
+      "name": "DomesticObject49_Tread3",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.0005012216920897972
+    },
+    {
+      "name": "DomesticObject49_Tread4",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.0005012196179704892
+    },
+    {
+      "name": "DomesticObject49_Cap",
+      "assembly": "DomesticObject49",
+      "key": "timber",
+      "volume_m3": 0.0016776119181185541
+    },
+    {
+      "name": "DomesticObject50_Tray",
+      "assembly": "DomesticObject50",
+      "key": "metal",
+      "volume_m3": 0.0017549609178952315
+    },
+    {
+      "name": "DomesticObject50_Side-0.16",
+      "assembly": "DomesticObject50",
+      "key": "metal",
+      "volume_m3": 0.0013166923582811289
+    },
+    {
+      "name": "DomesticObject50_Side0.15",
+      "assembly": "DomesticObject50",
+      "key": "metal",
+      "volume_m3": 0.0013166923582811289
+    },
+    {
+      "name": "DomesticObject50_Rail-0.11",
+      "assembly": "DomesticObject50",
+      "key": "metal",
+      "volume_m3": 0.00015849356151289039
+    },
+    {
+      "name": "DomesticObject50_Rail0.1",
+      "assembly": "DomesticObject50",
+      "key": "metal",
+      "volume_m3": 0.00015849356151289033
+    },
+    {
+      "name": "DomesticObject50_Divider",
+      "assembly": "DomesticObject50",
+      "key": "metal",
+      "volume_m3": 0.00015849359157720847
+    },
+    {
+      "name": "DomesticObject50_Canopy0",
+      "assembly": "DomesticObject50",
+      "key": "cape_navy",
+      "volume_m3": 0.0013386348788910775
+    },
+    {
+      "name": "DomesticObject50_Shaft0",
+      "assembly": "DomesticObject50",
+      "key": "wood_dark",
+      "volume_m3": 2.1489831357310742e-05
+    },
+    {
+      "name": "DomesticObject50_Crook0",
+      "assembly": "DomesticObject50",
+      "key": "wood_dark",
+      "volume_m3": 1.5285520500451584e-05
+    },
+    {
+      "name": "DomesticObject50_Canopy1",
+      "assembly": "DomesticObject50",
+      "key": "coat_grey",
+      "volume_m3": 0.001338634917666772
+    },
+    {
+      "name": "DomesticObject50_Shaft1",
+      "assembly": "DomesticObject50",
+      "key": "wood_dark",
+      "volume_m3": 2.1489829970139674e-05
+    },
+    {
+      "name": "DomesticObject50_Crook1",
+      "assembly": "DomesticObject50",
+      "key": "wood_dark",
+      "volume_m3": 1.5285521013378356e-05
+    },
+    {
+      "name": "DomesticObject50_Stick",
+      "assembly": "DomesticObject50",
+      "key": "wood_dark",
+      "volume_m3": 0.00026321534460239894
+    },
+    {
+      "name": "DomesticObject50_Knob",
+      "assembly": "DomesticObject50",
+      "key": "brass",
+      "volume_m3": 2.326496922038847e-05
+    },
+    {
+      "name": "DomesticObject51_Bowl",
+      "assembly": "DomesticObject51",
+      "key": "brass",
+      "volume_m3": 0.00784275082957971
+    },
+    {
+      "name": "DomesticObject52_Plate",
+      "assembly": "DomesticObject52",
+      "key": "enamel",
+      "volume_m3": 0.00016713362198857954
+    },
+    {
+      "name": "DomesticObject52_Dish",
+      "assembly": "DomesticObject52",
+      "key": "enamel",
+      "volume_m3": 0.00016372598530216365
+    },
+    {
+      "name": "DomesticObject52_Lip-0.065",
+      "assembly": "DomesticObject52",
+      "key": "enamel",
+      "volume_m3": 1.2641699742381678e-05
+    },
+    {
+      "name": "DomesticObject52_Lip0.055",
+      "assembly": "DomesticObject52",
+      "key": "enamel",
+      "volume_m3": 1.2641699742381678e-05
+    },
+    {
+      "name": "DomesticObject52_Front",
+      "assembly": "DomesticObject52",
+      "key": "enamel",
+      "volume_m3": 1.9346698161420736e-05
+    },
+    {
+      "name": "DomesticObject52_Soap",
+      "assembly": "DomesticObject52",
+      "key": "terracotta",
+      "volume_m3": 9.364496875431558e-05
+    },
+    {
+      "name": "DomesticObject53_Backboard",
+      "assembly": "DomesticObject53",
+      "key": "wood_dark",
+      "volume_m3": 0.0011974535450863149
+    },
+    {
+      "name": "DomesticObject53_Arm-0.25",
+      "assembly": "DomesticObject53",
+      "key": "wood_dark",
+      "volume_m3": 7.80836025560727e-05
+    },
+    {
+      "name": "DomesticObject53_Arm0.235",
+      "assembly": "DomesticObject53",
+      "key": "wood_dark",
+      "volume_m3": 7.808360255607275e-05
+    },
+    {
+      "name": "DomesticObject53_Roller",
+      "assembly": "DomesticObject53",
+      "key": "timber",
+      "volume_m3": 0.0009593697829621497
+    },
+    {
+      "name": "DomesticObject53_TowelFront",
+      "assembly": "DomesticObject53",
+      "key": "linen",
+      "volume_m3": 0.0023012019371475064
+    },
+    {
+      "name": "DomesticObject53_TowelBack",
+      "assembly": "DomesticObject53",
+      "key": "linen",
+      "volume_m3": 0.0021254019677486276
+    },
+    {
+      "name": "DomesticObject53_TowelFold",
+      "assembly": "DomesticObject53",
+      "key": "linen",
+      "volume_m3": 0.0016873576357861267
+    },
+    {
+      "name": "DomesticObject54_Bucket",
+      "assembly": "DomesticObject54",
+      "key": "metal",
+      "volume_m3": 0.003447529437508725
+    },
+    {
+      "name": "DomesticObject54_Bail",
+      "assembly": "DomesticObject54",
+      "key": "metal",
+      "volume_m3": 2.2367756505425006e-05
+    },
+    {
+      "name": "DomesticObject54_MopHead",
+      "assembly": "DomesticObject54",
+      "key": "linen",
+      "volume_m3": 0.0035370012756778283
+    },
+    {
+      "name": "DomesticObject54_Handle",
+      "assembly": "DomesticObject54",
+      "key": "timber",
+      "volume_m3": 0.00072990739838393
+    },
+    {
+      "name": "DomesticObject54_Cap",
+      "assembly": "DomesticObject54",
+      "key": "rubber_aged",
+      "volume_m3": 5.951370374428157e-05
     }
   ],
   "contacts": [
@@ -11216,6 +11576,426 @@
         -1
       ],
       "label": "saddle screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject47",
+      "owner": "support",
+      "point": [
+        -0.09,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rag (-0.09, -0.05, 0)"
+    },
+    {
+      "assembly": "DomesticObject47",
+      "owner": "support",
+      "point": [
+        0.09,
+        0,
+        0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rag (0.09, -0.05, 0)"
+    },
+    {
+      "assembly": "DomesticObject47",
+      "owner": "support",
+      "point": [
+        -0.09,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rag (-0.09, 0.05, 0)"
+    },
+    {
+      "assembly": "DomesticObject47",
+      "owner": "support",
+      "point": [
+        0.09,
+        0,
+        -0.05
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "rag (0.09, 0.05, 0)"
+    },
+    {
+      "assembly": "DomesticObject48",
+      "owner": "wall",
+      "point": [
+        0,
+        0.42000000000000004,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "nail driven into the wall"
+    },
+    {
+      "assembly": "DomesticObject49",
+      "owner": "support",
+      "point": [
+        -0.2,
+        0,
+        -0.32
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ladder foot -0.2"
+    },
+    {
+      "assembly": "DomesticObject49",
+      "owner": "support",
+      "point": [
+        0.2,
+        0,
+        -0.32
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ladder foot 0.2"
+    },
+    {
+      "assembly": "DomesticObject49",
+      "owner": "wall",
+      "point": [
+        -0.2,
+        1.505,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "ladder cap resting on the wall"
+    },
+    {
+      "assembly": "DomesticObject49",
+      "owner": "wall",
+      "point": [
+        0.2,
+        1.505,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "ladder cap resting on the wall"
+    },
+    {
+      "assembly": "DomesticObject50",
+      "owner": "support",
+      "point": [
+        -0.14,
+        0,
+        0.09
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray (-0.14, -0.09, 0)"
+    },
+    {
+      "assembly": "DomesticObject50",
+      "owner": "support",
+      "point": [
+        0.14,
+        0,
+        0.09
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray (0.14, -0.09, 0)"
+    },
+    {
+      "assembly": "DomesticObject50",
+      "owner": "support",
+      "point": [
+        -0.14,
+        0,
+        -0.09
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray (-0.14, 0.09, 0)"
+    },
+    {
+      "assembly": "DomesticObject50",
+      "owner": "support",
+      "point": [
+        0.14,
+        0,
+        -0.09
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tray (0.14, 0.09, 0)"
+    },
+    {
+      "assembly": "DomesticObject51",
+      "owner": "support",
+      "point": [
+        0.08,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "base (0.08, 0, 0)"
+    },
+    {
+      "assembly": "DomesticObject51",
+      "owner": "support",
+      "point": [
+        -0.08,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "base (-0.08, 0, 0)"
+    },
+    {
+      "assembly": "DomesticObject51",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "base (0, 0.08, 0)"
+    },
+    {
+      "assembly": "DomesticObject51",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0.08
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "base (0, -0.08, 0)"
+    },
+    {
+      "assembly": "DomesticObject52",
+      "owner": "wall",
+      "point": [
+        0,
+        0.05500000000000001,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "dish screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject52",
+      "owner": "wall",
+      "point": [
+        0,
+        0.085,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "dish screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject53",
+      "owner": "wall",
+      "point": [
+        -0.2,
+        0.9,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "backboard screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject53",
+      "owner": "wall",
+      "point": [
+        0.2,
+        0.9,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "backboard screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject53",
+      "owner": "wall",
+      "point": [
+        -0.2,
+        0.98,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "backboard screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject53",
+      "owner": "wall",
+      "point": [
+        0.2,
+        0.98,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "backboard screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject54",
+      "owner": "wall",
+      "point": [
+        0,
+        1.3,
+        0.28
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "handle cap resting on the wall"
+    },
+    {
+      "assembly": "DomesticObject54",
+      "owner": "support",
+      "point": [
+        0.09,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bucket (0.09, 0, 0)"
+    },
+    {
+      "assembly": "DomesticObject54",
+      "owner": "support",
+      "point": [
+        -0.09,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bucket (-0.09, 0, 0)"
+    },
+    {
+      "assembly": "DomesticObject54",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        -0.09
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bucket (0, 0.09, 0)"
+    },
+    {
+      "assembly": "DomesticObject54",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0.09
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bucket (0, -0.09, 0)"
     }
   ],
   "parts": [
@@ -12520,9 +13300,156 @@
       "cell": "shared",
       "key": "metal",
       "triangles": 1416
+    },
+    {
+      "name": "DomesticObject47__Body_ON_brass",
+      "assembly": "DomesticObject47",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject47__Body_ON_linen",
+      "assembly": "DomesticObject47",
+      "cell": "shared",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject47__Body_ON_metal",
+      "assembly": "DomesticObject47",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 384
+    },
+    {
+      "name": "DomesticObject48__Body_ON_metal",
+      "assembly": "DomesticObject48",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject48__Body_ON_rubber_aged",
+      "assembly": "DomesticObject48",
+      "cell": "shared",
+      "key": "rubber_aged",
+      "triangles": 1152
+    },
+    {
+      "name": "DomesticObject49__Body_ON_timber",
+      "assembly": "DomesticObject49",
+      "cell": "shared",
+      "key": "timber",
+      "triangles": 2632
+    },
+    {
+      "name": "DomesticObject50__Body_ON_brass",
+      "assembly": "DomesticObject50",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 288
+    },
+    {
+      "name": "DomesticObject50__Body_ON_cape_navy",
+      "assembly": "DomesticObject50",
+      "cell": "shared",
+      "key": "cape_navy",
+      "triangles": 384
+    },
+    {
+      "name": "DomesticObject50__Body_ON_coat_grey",
+      "assembly": "DomesticObject50",
+      "cell": "shared",
+      "key": "coat_grey",
+      "triangles": 384
+    },
+    {
+      "name": "DomesticObject50__Body_ON_metal",
+      "assembly": "DomesticObject50",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 1128
+    },
+    {
+      "name": "DomesticObject50__Body_ON_wood_dark",
+      "assembly": "DomesticObject50",
+      "cell": "shared",
+      "key": "wood_dark",
+      "triangles": 796
+    },
+    {
+      "name": "DomesticObject51__Body_ON_brass",
+      "assembly": "DomesticObject51",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 1728
+    },
+    {
+      "name": "DomesticObject52__Body_ON_enamel",
+      "assembly": "DomesticObject52",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 940
+    },
+    {
+      "name": "DomesticObject52__Body_ON_terracotta",
+      "assembly": "DomesticObject52",
+      "cell": "shared",
+      "key": "terracotta",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject53__Body_ON_linen",
+      "assembly": "DomesticObject53",
+      "cell": "shared",
+      "key": "linen",
+      "triangles": 564
+    },
+    {
+      "name": "DomesticObject53__Body_ON_timber",
+      "assembly": "DomesticObject53",
+      "cell": "shared",
+      "key": "timber",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject53__Body_ON_wood_dark",
+      "assembly": "DomesticObject53",
+      "cell": "shared",
+      "key": "wood_dark",
+      "triangles": 564
+    },
+    {
+      "name": "DomesticObject54__Body_ON_linen",
+      "assembly": "DomesticObject54",
+      "cell": "shared",
+      "key": "linen",
+      "triangles": 576
+    },
+    {
+      "name": "DomesticObject54__Body_ON_metal",
+      "assembly": "DomesticObject54",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 1268
+    },
+    {
+      "name": "DomesticObject54__Body_ON_rubber_aged",
+      "assembly": "DomesticObject54",
+      "cell": "shared",
+      "key": "rubber_aged",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject54__Body_ON_timber",
+      "assembly": "DomesticObject54",
+      "cell": "shared",
+      "key": "timber",
+      "triangles": 188
     }
   ],
-  "triangles": 298192,
+  "triangles": 312296,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -15421,6 +16348,349 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "DomesticObject47",
+        "parts": [
+          {
+            "name": "DomesticObject47__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          },
+          {
+            "name": "DomesticObject47__Body_ON_linen",
+            "component": "Body",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject47__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject48",
+        "parts": [
+          {
+            "name": "DomesticObject48__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "DomesticObject48__Body_ON_rubber_aged",
+            "component": "Body",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject49",
+        "parts": [
+          {
+            "name": "DomesticObject49__Body_ON_timber",
+            "component": "Body",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject50",
+        "parts": [
+          {
+            "name": "DomesticObject50__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          },
+          {
+            "name": "DomesticObject50__Body_ON_cape_navy",
+            "component": "Body",
+            "key": "cape_navy",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.05,
+              0.065,
+              0.16,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.16,
+              "roughness": 0.9
+            }
+          },
+          {
+            "name": "DomesticObject50__Body_ON_coat_grey",
+            "component": "Body",
+            "key": "coat_grey",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.22,
+              0.22,
+              0.23,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.16,
+              "roughness": 0.9
+            }
+          },
+          {
+            "name": "DomesticObject50__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "DomesticObject50__Body_ON_wood_dark",
+            "component": "Body",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject51",
+        "parts": [
+          {
+            "name": "DomesticObject51__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject52",
+        "parts": [
+          {
+            "name": "DomesticObject52__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.015,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "DomesticObject52__Body_ON_terracotta",
+            "component": "Body",
+            "key": "terracotta",
+            "tile": 0.4,
+            "catalog_key": "terracotta",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject53",
+        "parts": [
+          {
+            "name": "DomesticObject53__Body_ON_linen",
+            "component": "Body",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject53__Body_ON_timber",
+            "component": "Body",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          },
+          {
+            "name": "DomesticObject53__Body_ON_wood_dark",
+            "component": "Body",
+            "key": "wood_dark",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "tint": [
+              0.27,
+              0.14,
+              0.065,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject54",
+        "parts": [
+          {
+            "name": "DomesticObject54__Body_ON_linen",
+            "component": "Body",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject54__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "DomesticObject54__Body_ON_rubber_aged",
+            "component": "Body",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject54__Body_ON_timber",
+            "component": "Body",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -15927,15 +17197,47 @@
       {
         "id": "B1_fuse_conduit",
         "variant": "DomesticObject46"
+      },
+      {
+        "id": "B1_laundry_oil_can",
+        "variant": "DomesticObject47"
+      },
+      {
+        "id": "B1_laundry_belt",
+        "variant": "DomesticObject48"
+      },
+      {
+        "id": "B1_laundry_stepladder",
+        "variant": "DomesticObject49"
+      },
+      {
+        "id": "F01_vestibule_umbrella_stand",
+        "variant": "DomesticObject50"
+      },
+      {
+        "id": "F01_lobby_spittoon",
+        "variant": "DomesticObject51"
+      },
+      {
+        "id": "F01_restroom_soap_dish",
+        "variant": "DomesticObject52"
+      },
+      {
+        "id": "F01_restroom_roller_towel",
+        "variant": "DomesticObject53"
+      },
+      {
+        "id": "F01_restroom_mop_bucket",
+        "variant": "DomesticObject54"
       }
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "bbaad0b588b012219b7114e02c182748c6d55c9537e8c61181043020d3d39bd7",
+  "asset_sha256": "1ffccdbb5cbfe09be298162404ab8dde405507d3e0f1780a8a206f093966f010",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "7e96a28c981abe09c2f642e01692258f8a64081179c61308e9540d13bc0515ce",
+    "art/data/domestic_objects/source_plan.json": "296dae4a8a81f8a1e7ab6427753311311076e98baace368708379a4cffed8a06",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_objects.py": "996e62a1a4a7b122cea4fb143a2bbb41099974858b95c61173b380576fb42068",
+    "art/blender/scripts/build_domestic_objects.py": "395296232556370777b6a6aba9d8f1d8dfec5e3f98bc51903b62f6639f130ccf",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -16025,25 +17327,25 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "64d002ee90065c196ef78643a985950f9d2f4fb11c8ba0440dbd543a43e61179",
+    "art/blender/scripts/domestic_objects_geometry.py": "74f0e7c97bc4f4fa307ef9b7267d4851f3d8aa4251b7d962c8bc16e1db9afdfb",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "581709587ffc9fa069436c84540a746fad1bdde97ff7d648cf9523ef76ce892c",
+    "game/data/orison_v2/domestic_furniture.json": "e7ebfc426d8a932f559a7cd82fccd13b2ab9bd8582351fdd735ffdbe4839043d",
     "game/data/orison_v2/completion_interiors.json": "a6c5fb7ae24bc1de84f901de1332a55346c968c8ca7904db65a018eec33b444c",
     "art/data/orison_v2/completion_interiors_source.json": "e7eff11c8cdd16a137d5a0e5ea294c89307474d312c11638f08e405c4a036837",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "74c6f86eb5499f387460880d4b1400ddd3515f0cf02f1f677ad8ca4129b6db57",
-    "game/data/orison_v2_blockout.json": "b75c3e6d021b5aaed4b08be7624035ce1c2e87dcca84f52560b3a3a96d0c3001",
+    "game/data/orison_v2_blockout.json": "a03822d3daec15d0f55b6c4d90d254f8e12498adfc4dd69f2e73fa80e8e3ecc1",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_surface_props.json": "f8a318678113362774b9e03ddb4005c1484c49debec5bd46ca51ab21898f8e07",
-    "game/tests/fixtures/orison_surface_stock.json": "f93081c3a3da46898f3eb64897836e2637b8aa2f3377e4e6991494aa6120d29e",
-    "art/blender/domestic_storage.blend": "d6d78de7da9249b7ecca58b86b91f85c5e423f694a84410bfaed77a53e42869d",
-    "art/blender/prep_cabinets.blend": "d26d9fdc4795d4416976470347176f548cf6e505c4c6541c4d10790abbcba231",
-    "art/blender/household_wardrobes.blend": "9782dd3620e959900784bec1d4c268fb5fc245f363fe01f0735d683334ed99e3",
-    "art/blender/scripts/surface_stock_geometry.py": "c06a9c1bce0b6955400c509882cdb07a03844ca6996bce8aec1312f866728601",
-    "art/blender/domestic_seating.blend": "2afc8c1c38b97c86526bbbac4ebd1f975c579d5d8ca7b7fe51d0b2c6a089c129",
-    "art/blender/domestic_tables.blend": "567a4f1d987611481e3fa33145f1ad6abdf9a01f04facca8b8169bc98608f5c5"
+    "game/data/orison_v2/domestic_surface_props.json": "81886e30b6be72c7c5e5b7e8b1a2d4a4073d2ea368483af11355e59d0eee690b",
+    "game/tests/fixtures/orison_surface_stock.json": "6282a6646aa28a92e95abfdef610e7eecd860a2468388bd5cfec0eb8e14f34f6",
+    "art/blender/domestic_storage.blend": "0cc8d25d2fe8d4635178e424bc85e0f9d8dbec91f28451c6c00f6000919815ed",
+    "art/blender/prep_cabinets.blend": "0e63f7b67ff48e55f6fa6597a84f75fe556eaae254cf0642d82c9abe5f693f2c",
+    "art/blender/household_wardrobes.blend": "de7d7c7d7c514e0c2a46e66cbe1e377b518a891e2806574977bc8de06817803e",
+    "art/blender/scripts/surface_stock_geometry.py": "2b1a2b58a9ea18fdb0aa7539ef9ea4bb0f4c72fc7ceb22ec16a91d232ad87938",
+    "art/blender/domestic_seating.blend": "cbb6d9464dc088515fdf202ef1b2b3396285efaecf78cd4b69ec7519649938eb",
+    "art/blender/domestic_tables.blend": "e4fdbee09b3a76119a38f39014527fe7cbf4142e51785d93dfdb2f3cf9f95903"
   },
   "retained_stock": [
     {
@@ -20394,6 +21696,106 @@
         "DomesticObject46_Trunk",
         "DomesticObject46_TrunkJunction",
         "DomesticObject46_TrunkSaddle1.7"
+      ]
+    },
+    {
+      "assembly": "DomesticObject47",
+      "id": "DomesticObject47_OilCan",
+      "stocks": [
+        "DomesticObject47_Rag",
+        "DomesticObject47_Can",
+        "DomesticObject47_Spout"
+      ]
+    },
+    {
+      "assembly": "DomesticObject48",
+      "id": "DomesticObject48_SpareBelt",
+      "stocks": [
+        "DomesticObject48_Nail",
+        "DomesticObject48_Belt"
+      ]
+    },
+    {
+      "assembly": "DomesticObject49",
+      "id": "DomesticObject49_StepLadder",
+      "stocks": [
+        "DomesticObject49_Foot-0.2",
+        "DomesticObject49_Stile-0.2",
+        "DomesticObject49_Top-0.2",
+        "DomesticObject49_Foot0.2",
+        "DomesticObject49_Stile0.2",
+        "DomesticObject49_Top0.2",
+        "DomesticObject49_BackLeg-0.17",
+        "DomesticObject49_BackLeg0.17",
+        "DomesticObject49_Tread0",
+        "DomesticObject49_Tread1",
+        "DomesticObject49_Tread2",
+        "DomesticObject49_Tread3",
+        "DomesticObject49_Tread4",
+        "DomesticObject49_Cap"
+      ]
+    },
+    {
+      "assembly": "DomesticObject50",
+      "id": "DomesticObject50_UmbrellaStand",
+      "stocks": [
+        "DomesticObject50_Tray",
+        "DomesticObject50_Side-0.16",
+        "DomesticObject50_Side0.15",
+        "DomesticObject50_Rail-0.11",
+        "DomesticObject50_Rail0.1",
+        "DomesticObject50_Divider",
+        "DomesticObject50_Canopy0",
+        "DomesticObject50_Shaft0",
+        "DomesticObject50_Crook0",
+        "DomesticObject50_Canopy1",
+        "DomesticObject50_Shaft1",
+        "DomesticObject50_Crook1",
+        "DomesticObject50_Stick",
+        "DomesticObject50_Knob"
+      ]
+    },
+    {
+      "assembly": "DomesticObject51",
+      "id": "DomesticObject51_Spittoon",
+      "stocks": [
+        "DomesticObject51_Bowl"
+      ]
+    },
+    {
+      "assembly": "DomesticObject52",
+      "id": "DomesticObject52_SoapDish",
+      "stocks": [
+        "DomesticObject52_Plate",
+        "DomesticObject52_Dish",
+        "DomesticObject52_Lip-0.065",
+        "DomesticObject52_Lip0.055",
+        "DomesticObject52_Front",
+        "DomesticObject52_Soap"
+      ]
+    },
+    {
+      "assembly": "DomesticObject53",
+      "id": "DomesticObject53_RollerTowel",
+      "stocks": [
+        "DomesticObject53_Backboard",
+        "DomesticObject53_Arm-0.25",
+        "DomesticObject53_Arm0.235",
+        "DomesticObject53_Roller",
+        "DomesticObject53_TowelFront",
+        "DomesticObject53_TowelBack",
+        "DomesticObject53_TowelFold"
+      ]
+    },
+    {
+      "assembly": "DomesticObject54",
+      "id": "DomesticObject54_MopBucket",
+      "stocks": [
+        "DomesticObject54_Bucket",
+        "DomesticObject54_Bail",
+        "DomesticObject54_MopHead",
+        "DomesticObject54_Handle",
+        "DomesticObject54_Cap"
       ]
     }
   ],

@@ -79,7 +79,9 @@
    "purpose": "Schedule: Omar deep-services the machines Saturday mornings",
    "acceptance": "Reverse view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_LAUNDRY"
+   "area": "B1_LAUNDRY",
+   "status": "verified",
+   "owner_notes": "Omar's deep-service evidence: an oil can standing on a folded rag by the first washer, a spare drive belt looped over a nail on the west wall between the washers, and a folded wooden stepladder leaning on the east wall south of the switch (implementation/slice32/images: B1_laundry_stepladder_native, B1_LAUNDRY views). Verified at WIP 87b953dc (implementation/slice32): fabrication batch 0 failures; apartment batch 236 on the long runner; laundry route 17, basement route 88, public doors 17, public furnishings 29 and wall mounts 4 waypoints with 0 failures; laundry apparatus and fittings, ground 0 failures; M08E with only its pre-existing route failure; Mina's laundry routine completes with no failures; the four-space sweep 0 failures."
   },
   {
    "id": "B1_LAUNDRY-004",
@@ -2085,7 +2087,9 @@
    "preserve": "Both door swings and the entry route",
    "acceptance": "Threshold view from the street",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_VESTIBULE"
+   "area": "F01_VESTIBULE",
+   "status": "implemented",
+   "owner_notes": "A cast-iron umbrella stand with its drip tray, two furled umbrellas and a walking stick stands in the vestibule's north-west corner, clear of both doors and the street-to-lobby route. Not made: the flush cast-iron grate mat (a floor inlay this pass does not cut) and the directory board. Verified at WIP 87b953dc (implementation/slice32): fabrication batch 0 failures; apartment batch 236 on the long runner; laundry route 17, basement route 88, public doors 17, public furnishings 29 and wall mounts 4 waypoints with 0 failures; laundry apparatus and fittings, ground 0 failures; M08E with only its pre-existing route failure; Mina's laundry routine completes with no failures; the four-space sweep 0 failures."
   },
   {
    "id": "F01_VESTIBULE-002",
@@ -2157,7 +2161,9 @@
    "preserve": "LobbyBenchZone sit/stand",
    "acceptance": "Detail views",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_LOBBY"
+   "area": "F01_LOBBY",
+   "status": "implemented",
+   "owner_notes": "A brass spittoon stands by the west bench's door end, clear of the radiator front and the arrival route. Not made: the worn patch on the bench (a texture change) and the dish of gloves on the radiator (the stock inspector has no radiator support). Verified at WIP 87b953dc (implementation/slice32): fabrication batch 0 failures; apartment batch 236 on the long runner; laundry route 17, basement route 88, public doors 17, public furnishings 29 and wall mounts 4 waypoints with 0 failures; laundry apparatus and fittings, ground 0 failures; M08E with only its pre-existing route failure; Mina's laundry routine completes with no failures; the four-space sweep 0 failures."
   },
   {
    "id": "F01_LOBBY-004",
@@ -2500,7 +2506,9 @@
    "preserve": "Tap and cistern reaches",
    "acceptance": "Overview",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_STAFF_RESTROOM"
+   "area": "F01_STAFF_RESTROOM",
+   "status": "verified",
+   "owner_notes": "The staff restroom's roller towel on its bracket on the west wall, a galvanised bucket with the mop standing in it in the north-west corner (the handle resting on the wall), and a bar of carbolic in a wall soap dish beside the basin (F01_restroom_* native captures, F01_STAFF_RESTROOM views). Verified at WIP 87b953dc (implementation/slice32): fabrication batch 0 failures; apartment batch 236 on the long runner; laundry route 17, basement route 88, public doors 17, public furnishings 29 and wall mounts 4 waypoints with 0 failures; laundry apparatus and fittings, ground 0 failures; M08E with only its pre-existing route failure; Mina's laundry routine completes with no failures; the four-space sweep 0 failures."
   },
   {
    "id": "F01_A_VESTIBULE-001",
