@@ -2316,7 +2316,9 @@
    "purpose": "The night watch's routine (tour key, report)",
    "acceptance": "Detail view at the key guard",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_WATCH"
+   "area": "F01_WATCH",
+   "status": "verified",
+   "owner_notes": "The night watch's kettle: a cast-iron gas ring with a cream enamel kettle on a deal shelf on iron brackets, on the wall the watch room shares with the lobby, fed by a rubber tube from a brass cock on a gas pipe out of the wall (F01_watch_kettle_native, watch_kettle); and the tour card on the north wall near the key guard, its words a Label3D naming the patrol boxes (F01_WATCH views). Verified at slice 80's WIP 1d65072d and its runtime-identical predecessor 129e02d3 (implementation/slice80), which carry slices 76 to 80. The patrol stations suite reports seven boxes, seven marks and seven delivered, 0 failures, and V1's watch register (87/87), watch pair (118/118) and tour key (65/65) suites pass; the fabrication batch's domestic objects and service instruments (12,350 checks) report two capture-harness refusals and no fabrication failure (the tour card is not its notice variant's first instance; the tubs leave no clear camera station in front of the rinse taps); the coal heap route 36 waypoints with 9 heap contacts, the laundry route 17 waypoints, the blockout and M08F suites, all 0 failures; four sweeps (twelve spaces), 0 failures. The M08E spatial suite's one failure and the mail access route's one failure are identical at slice 75's 088f987a (base80). The static gate board at 1d65072d matches slice 35's on all 49 gates."
   },
   {
    "id": "F01_MAIL_TELEPHONE-001",

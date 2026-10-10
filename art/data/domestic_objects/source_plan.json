@@ -1937,6 +1937,13 @@
     "tail_ry": 0.095
    },
    "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject136",
+   "kind": "gasring",
+   "source_id": "F01_watch_kettle",
+   "params": {},
+   "rear_wall_y": -0.02
   }
  ],
  "instances": [
@@ -2875,6 +2882,14 @@
   {
    "id": "B1_rinse_taps",
    "variant": "DomesticObject135"
+  },
+  {
+   "id": "F01_watch_kettle",
+   "variant": "DomesticObject136"
+  },
+  {
+   "id": "F01_tour_card",
+   "variant": "DomesticObject89"
   }
  ],
  "runtime_keys": [
@@ -3468,7 +3483,8 @@
   "Slice 67 renames slice 58's light box 6A_light_table: slice 38's surface-stock light box already owns 6A_light_box, and the runtime refuses an occupied identity. The table moves to the clear front of the cabinet top beside the toaster, off the plate, and its flex is no longer modelled.",
   "Slice 72 of the V2 environment dossier makes the basement maintenance shop's toolboard (b1_toolboard, DomesticObject15) a shadow board: a painted silhouette behind each wrench and the hammer, and a sixth peg with only a screwdriver's silhouette (B1_MAINTENANCE_SHOP-002). 3B's board keeps the plain form.",
   "Slice 77 of the V2 environment dossier gives the basement washers their water (B1_LAUNDRY-004): cold and hot mains out of the laundry's west wall on clips, a drop and brass bib cock at each machine with a rubber hose to its fill cock, and a cast-iron floor gully under each drain.",
-  "Slice 78 of the V2 environment dossier gives the basement rinse tubs their water (B1_LAUNDRY-004): cold and hot out of the west wet stack's face on clips, a pair of long-reach brass bibs over each tub's back rim, and a cast-iron waste taking both drain tails back into the stack. The context inspector treats a solid blockout riser's faces as retained walls."
+  "Slice 78 of the V2 environment dossier gives the basement rinse tubs their water (B1_LAUNDRY-004): cold and hot out of the west wet stack's face on clips, a pair of long-reach brass bibs over each tub's back rim, and a cast-iron waste taking both drain tails back into the stack. The context inspector treats a solid blockout riser's faces as retained walls.",
+  "Slice 79 of the V2 environment dossier gives the night watch its routine (F01_WATCH-002): a gas ring and enamel kettle on a bracketed shelf on the wall the watch room shares with the lobby, fed by a rubber tube from a brass cock, and the tour card in the notice-frame family naming the patrol boxes."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

@@ -1390,6 +1390,46 @@ def rinsetaps(source):
  support(identity,'wall',(0,back,wy),(0,1,0),'waste into the wet stack through its flange')
  group('RinseWaste',start)
 
+def gasring(source):
+ # Dossier slice 79 (F01_WATCH-002): the night watch's kettle. A deal shelf on two iron brackets on the watch room's
+ # north wall; on it a cast-iron gas ring on three legs with a cream enamel kettle on its pan supports. A rubber tube
+ # runs from the ring's inlet to a brass cock on a short iron gas pipe that comes out of the wall through a flange.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y'];top=.92;cx,cy=-.04,back+.135
+ stock('Shelf',(-.2,back,top-.022),(.2,back+.26,top),'wood_dark',.0015)
+ for x in [-.15,.15]:
+  stock('BracketLeg'+str(x),(x-.011,back,top-.2),(x+.011,back+.006,top-.022),'iron',.0006)
+  stock('BracketArm'+str(x),(x-.011,back+.0055,top-.034),(x+.011,back+.23,top-.022),'iron',.0006)
+  tube('BracketStrut'+str(x),(x,back+.006,top-.17),(x,back+.19,top-.03),.006,'iron')
+  support(identity,'wall',(x,back,top-.12),(0,1,0),'shelf bracket screwed to the wall')
+ # The ring: three legs, a burner annulus, three pan supports.
+ for i in range(3):
+  a=i*math.tau/3+.3;lx,ly=cx+.06*math.cos(a),cy+.06*math.sin(a)
+  tube('RingLeg'+str(i),(lx,ly,top-.002),(lx,ly,top+.037),.006,'iron')
+ ring('Burner',cx,cy,top+.035,.075,.045,.022,'iron')
+ for i in range(3):
+  a=i*math.tau/3+.9;x0,y0,x1,y1=cx+.045*math.cos(a),cy+.045*math.sin(a),cx+.082*math.cos(a),cy+.082*math.sin(a)
+  tube('PanSupport'+str(i),(x0,y0,top+.055),(x1,y1,top+.055),.005,'iron')
+ tube('Inlet',(cx+.073,cy,top+.046),(cx+.115,cy,top+.046),.007,'brass')
+ # Kettle on the pan supports.
+ kb=top+.0595
+ lathe('Kettle',cx,cy,kb,[(0,0),(.072,0),(.084,.018),(.086,.1),(.064,.142),(.034,.158),(0,.158)],'enamel')
+ lathe('KettleKnob',cx,cy,kb+.156,[(0,0),(.012,0),(.012,.012),(.007,.024),(0,.024)],'iron')
+ tube('Spout',(cx-.07,cy,kb+.05),(cx-.135,cy,kb+.13),.011,'enamel')
+ wire('Handle',[(cx,cy-.05,kb+.135),(cx,cy-.045,kb+.19),(cx,cy,kb+.215),(cx,cy+.045,kb+.19),(cx,cy+.05,kb+.135)],.006,'iron')
+ # Gas: a pipe out of the wall at 1.38 m down to a brass cock with a hose nozzle; the tube loops to the inlet.
+ gx=.17
+ tube('GasFlange',(gx,back,1.38),(gx,back+.008,1.38),.026,'iron')
+ tube('GasElbowOut',(gx,back+.006,1.38),(gx,back+.04,1.38),.011,'iron')
+ tube('GasPipe',(gx,back+.04,1.392),(gx,back+.04,1.07),.011,'iron')
+ tube('GasCockBody',(gx,back+.04,1.075),(gx,back+.04,1.035),.014,'brass')
+ stock('GasCockLever',(gx-.004,back+.04-.035,1.05),(gx+.004,back+.04+.035,1.058),'brass',.0006)
+ tube('GasNozzle',(gx,back+.04,1.04),(gx,back+.04,1.005),.007,'brass')
+ support(identity,'wall',(gx,back,1.38),(0,1,0),'gas pipe out of the wall through its flange')
+ stock('GasClip',(gx-.01,back,1.2),(gx+.01,back+.03,1.23),'iron',.0006)
+ support(identity,'wall',(gx,back,1.215),(0,1,0),'gas pipe clip')
+ wire('GasTube',[(gx,back+.04,1.01),(gx,back+.06,.97),(gx-.01,back+.1,top+.07),(cx+.16,cy+.02,top+.05),(cx+.11,cy,top+.046)],.0075,'rubber_aged')
+ group('WatchKettle',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1464,4 +1504,5 @@ for assembly in assemblies:
  elif kind=='runner':runner(source)
  elif kind=='washersupply':washersupply(source)
  elif kind=='rinsetaps':rinsetaps(source)
+ elif kind=='gasring':gasring(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

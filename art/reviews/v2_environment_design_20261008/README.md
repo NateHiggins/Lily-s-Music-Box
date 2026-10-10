@@ -236,6 +236,7 @@ Slices landed so far (evidence folders in parentheses):
     vestibule leaves (evidence with slice 80 in `slice80`).
 77. The basement washers' supply, bib cocks, hoses and floor gullies.
 78. The rinse tubs' taps out of the wet stack and their waste back into it.
+79. The night watch's kettle on a gas ring and the tour card.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

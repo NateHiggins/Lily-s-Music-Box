@@ -9535,6 +9535,84 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject136",
+      "parts": [
+        {
+          "name": "DomesticObject136__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject136__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject136__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.3,
+            0.3,
+            0.29,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject136__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject136__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -10473,6 +10551,14 @@
     {
       "id": "B1_rinse_taps",
       "variant": "DomesticObject135"
+    },
+    {
+      "id": "F01_watch_kettle",
+      "variant": "DomesticObject136"
+    },
+    {
+      "id": "F01_tour_card",
+      "variant": "DomesticObject89"
     }
   ],
   "tint_space": "linear"
