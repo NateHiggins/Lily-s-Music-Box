@@ -54,10 +54,25 @@ func _run() -> void:
 		await _look(world,station.to_global(Vector3(0,-1.42,.95)),station.to_global(Vector3(0,.2,0)))
 		await shot("patrol_"+anchor)
 	ordered.sort_custom(func(a: WatchStationProp,b: WatchStationProp) -> bool: return a.station_number()<b.station_number())
-	# One round: the key off its hook, every box opened, cranked and shut, in order.
-	check(guard!=null and guard.take_key() and network.tour_key_carried(),"the tour key leaves its hook for the round")
+	# One round, worked the way a player works it: the key off its hook with E at
+	# the guard, then at every box in order one E to open it and one E to turn
+	# the crank, after which the latch spring takes the door home.
+	if guard==null: check(false,"tour key guard present")
+	else:
+		await _look(world,guard.to_global(Vector3(0,-1.15,.7)),guard.to_global(Vector3(0,.15,.06)))
+		check(guard.interact_prompt().begins_with("[E]  Take the tour key"),"the guard offers its key")
+		world.player.use_primary_interaction()
+		await get_tree().physics_frame
+		check(network.tour_key_carried(),"the tour key leaves its hook for the round by the player's press")
 	for station in ordered:
-		check(station.open_door() and station.turn_crank() and station.marked() and station.close_door(),"box worked with the tour key: "+station.station_id)
+		await _look(world,station.to_global(Vector3(0,-1.42,.75)),station.to_global(Vector3(0,.16,.05)))
+		check(station.interact_prompt().begins_with("[E]  Open the signal box"),"box offers its door: "+station.station_id)
+		world.player.use_primary_interaction()
+		await get_tree().physics_frame
+		var opened := station.door_open
+		world.player.use_primary_interaction()
+		await get_tree().physics_frame
+		check(opened and station.marked() and not station.door_open,"box worked by the player's presses: "+station.station_id)
 	var delivered := network.delivered()
 	check(delivered.size()==STATIONS.size(),"every mark reached the register")
 	var order: Array = delivered.map(func(r: Dictionary) -> int: return int(r.get("station_number",0)))
@@ -67,7 +82,10 @@ func _run() -> void:
 	var at := register.to_global(Vector3(0,-.25,.95))
 	await _look(world,Vector3(at.x,root.to_global(Vector3.ZERO).y,at.z),register.to_global(Vector3(0,.23,0)))
 	await shot("patrol_register_after_round")
-	check(guard.return_key() and not network.tour_key_carried(),"the key goes back on its hook")
+	await _look(world,guard.to_global(Vector3(0,-1.15,.7)),guard.to_global(Vector3(0,.15,.06)))
+	world.player.use_primary_interaction()
+	await get_tree().physics_frame
+	check(not network.tour_key_carried(),"the key goes back on its hook by the player's press")
 	for station in ordered: check(station.reset_station() and not station.marked(),"box reset: "+station.station_id)
 	check(register.reset_shutters() and not register.shows(1),"register restored for the morning")
 	print("PATROL STATIONS: stations=%d marks=%d delivered=%d failures=%d" % [ordered.size(),network.mark_count(),delivered.size(),failures.size()])
