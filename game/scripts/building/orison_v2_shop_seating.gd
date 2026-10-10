@@ -263,6 +263,12 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 		words.font_size=int(label.get("font_size",40))
 		words.pixel_size=float(label.get("pixel_size",.0004))
 		words.modulate=Color(.07,.06,.05)
+		var colour: Variant=label.get("color")
+		if colour!=null:
+			if colour is not Array or colour.size()!=3:model.free();return false
+			for component: Variant in colour:
+				if (component is not float and component is not int) or float(component)<0. or float(component)>1.:model.free();return false
+			words.modulate=Color(float(colour[0]),float(colour[1]),float(colour[2]))
 		words.outline_size=0
 		words.double_sided=false
 		words.position=_v(label.at)

@@ -559,6 +559,59 @@
             ],
             "expected_triangles": 12
           }
+        ],
+        "labels": [
+          {
+            "id": "menu0",
+            "text": "COFFEE  5\nTEA  5\nMILK  5\nSODA  5",
+            "at": [
+              23.822,
+              2.38,
+              43.1
+            ],
+            "yaw": -1.5707963,
+            "font_size": 64,
+            "pixel_size": 0.0011,
+            "color": [
+              0.9,
+              0.88,
+              0.82
+            ]
+          },
+          {
+            "id": "menu1",
+            "text": "HAM AND EGGS  25\nFRANKFURTER  10\nBEEF STEW  20\nPOT ROAST  30",
+            "at": [
+              23.822,
+              2.38,
+              41.8
+            ],
+            "yaw": -1.5707963,
+            "font_size": 64,
+            "pixel_size": 0.0011,
+            "color": [
+              0.9,
+              0.88,
+              0.82
+            ]
+          },
+          {
+            "id": "menu2",
+            "text": "PIE  10\nCRULLERS  5\nRICE PUDDING  10\nPICKLED EGG  3",
+            "at": [
+              23.822,
+              2.38,
+              40.5
+            ],
+            "yaw": -1.5707963,
+            "font_size": 64,
+            "pixel_size": 0.0011,
+            "color": [
+              0.9,
+              0.88,
+              0.82
+            ]
+          }
         ]
       }
     ]
@@ -567,7 +620,7 @@
   "source_bindings": {
     "art/data/diner_overhead/source_plan.json": "35945f86aba5cf93deb493e668bbdca7f8938fa7193e3bde8230795ce9250289",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_diner_overhead.py": "eadd3fc3f05d79d9e20801631fd50c51eb299d5538915cb4ea52d3c76b62b3c0",
+    "art/blender/scripts/build_diner_overhead.py": "8c3caea0f32e5f946767a78d2a79da7711516a7307ce46c48ca26ee9f6e62551",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
     "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",

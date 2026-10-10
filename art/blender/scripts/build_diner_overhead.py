@@ -151,12 +151,19 @@ def vessel(name,cx,cy,z,profile,identity,key):
 
 # Unexecuted geometry template. Applied only after the current verifier ends.
 prefix='storm_shop_luncheonette_'
+labels_by_cell={}
 for item in assemblies:
  row=item['body'];identity=item['id'];x0,y0,x1,y1=row['rect'];z0=row['z0'];top=z0+row['h'];cx=(x0+x1)*.5;cy=(y0+y1)*.5
  if item['kind']=='menu':
   # Recessed blank face, four worked rails and a thin closed rear panel.
   box(identity+'_BlankFace',(x0+.005,y0+.012,z0+.012),(x0+.010,y1-.012,top-.012),identity,'bakelite_black',.001)
   box(identity+'_RearPanel',(x1-.007,y0+.012,z0+.012),(x1-.003,y1-.012,top-.012),identity,'bakelite_black',.001)
+  # Dossier slice 70 (CITY_SHOP_LUNCHEONETTE-001): the day's bill in white push-in letters on the felt face,
+  # three columns as Label3D just proud of the recessed face (prices in cents, 1928).
+  for k,(yy,text) in enumerate([(-43.1,'COFFEE  5\nTEA  5\nMILK  5\nSODA  5'),
+                                (-41.8,'HAM AND EGGS  25\nFRANKFURTER  10\nBEEF STEW  20\nPOT ROAST  30'),
+                                (-40.5,'PIE  10\nCRULLERS  5\nRICE PUDDING  10\nPICKLED EGG  3')]):
+   labels_by_cell.setdefault(item['cell'],[]).append({'id':'menu%d'%k,'text':text,'at':[round(x0+.002,4),2.38,-yy],'yaw':-1.5707963,'font_size':64,'pixel_size':.0011,'color':[.9,.88,.82]})
   for label,a,b in [('Lower',(x0,y0,z0),(x1,y1,z0+.023)),('Upper',(x0,y0,top-.023),(x1,y1,top)),('End0',(x0,y0,z0+.021),(x1,y0+.023,top-.021)),('End1',(x0,y1-.023,z0+.021),(x1,y1,top-.021))]:box(identity+'_'+label,a,b,identity,'bakelite_black',.002)
   for i,yy in enumerate([y0+.28,y1-.28]):
    for j,zz in enumerate([2.12,2.26]):
@@ -249,6 +256,8 @@ for identity in sorted({a['cell'] for a in assemblies}):
   for row in item['members']:
    x0,y0,x1,y1=row['rect'];z0=row['z0'];replace.append({'id':row['id'],'key':row['mat'],'low':[x0,z0,-y1],'high':[x1,z0+row['h'],-y0],'expected_triangles':12})
  cells.append({'id':identity,'parts':[{'name':p['name'],'key':plan.get('material_aliases',{}).get(p['key'],p['key']),'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan['catalog_variants'] else {}),**({'tint':plan['material_tints'][p['key']]} if p['key'] in plan.get('material_tints',{}) else {}),**({'plain_alpha':True} if p['key']=='glassish' else {}),} for p in inventory if p['cell']==identity],'replace':replace})
+for cell in cells:
+ if labels_by_cell.get(cell['id']):cell['labels']=labels_by_cell[cell['id']]
 runtime={'schema_version':1,'asset':'res://assets/props/diner_overhead.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
 (OUT/'game/data/orison_v2/diner_overhead.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
 bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/diner_overhead.glb.import',*material_definitions]

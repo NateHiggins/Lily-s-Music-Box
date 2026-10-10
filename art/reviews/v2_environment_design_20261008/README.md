@@ -225,6 +225,7 @@ Slices landed so far (evidence folders in parentheses):
     1A's corrected notice (evidence with slice 75 in `slice68`).
 69. The hardware counter's bell and night-service card and a box of capsules on
     the rack; shop families gain Label3D labels.
+70. The luncheonette's menu board in white push-in letters.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the
