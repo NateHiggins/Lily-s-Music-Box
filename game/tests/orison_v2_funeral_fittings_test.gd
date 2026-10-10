@@ -110,8 +110,14 @@ func _check_funeral_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 			var row: Dictionary=original[identity];var r: Array=row.rect
 			var low_x: float=float(draw.position.x)+float(bounds.position.x);var high_x: float=low_x+float(bounds.size.x)
 			var low_z: float=float(draw.position.z)+float(bounds.position.z);var high_z: float=low_z+float(bounds.size.z)
-			check(absf(low_x-float(r[0]))<.000003 and absf(high_x-float(r[2]))<.000003 and absf(low_z+float(r[3]))<.000003 and absf(high_z+float(r[1]))<.000003,"actual desk, book or empty deck retains its original plan")
-			check(absf(low_y-float(row.z0))<.000003 and absf(high_y-float(row.z0)-float(row.h))<.000003,"actual desk, book or empty deck retains its original base and top")
+			if part.ends_with("__book_cover"):
+				# Dossier slice 64: the register lies open across the desk, its binding seated on the original book base.
+				var mid: float=(float(r[1])+float(r[3]))*.5
+				check(absf(low_x-float(r[0]))<.000003 and absf(high_x-float(r[2]))<.000003 and absf(low_z+mid+.28)<.000003 and absf(high_z+mid-.28)<.000003,"actual open register spans the desk at the book's original depth")
+				check(absf(low_y-float(row.z0))<.000003 and high_y<float(row.z0)+.0055,"actual open register's binding lies on the original book base")
+			else:
+				check(absf(low_x-float(r[0]))<.000003 and absf(high_x-float(r[2]))<.000003 and absf(low_z+float(r[3]))<.000003 and absf(high_z+float(r[1]))<.000003,"actual desk, book or empty deck retains its original plan")
+				check(absf(low_y-float(row.z0))<.000003 and absf(high_y-float(row.z0)-float(row.h))<.000003,"actual desk, book or empty deck retains its original base and top")
 		if part.ends_with("__lectern_body") or part.ends_with("__bier_frame"):check(absf(low_y-.01)<.000003,"actual native floor base reaches the original shop floor")
 		if part.begins_with(bier+"__"):check(high_y<=.790003,"nothing is installed above the deliberately empty bier deck")
 	for contact: Dictionary in fixture.contacts:
@@ -121,7 +127,7 @@ func _check_funeral_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 	var hit:=_isolated_ray(world,model,lectern+"__lectern_top",cell.to_global(Vector3(5.,1.25,61.7)),cell.to_global(Vector3(5.,1.15,61.7)))
 	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-1.22)<.00003,"actual original desk surface seats the closed book")
 	hit=_isolated_ray(world,model,lectern+"__book_cover",cell.to_global(Vector3(5.035,1.30,61.7)),cell.to_global(Vector3(5.035,1.20,61.7)))
-	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-1.27)<.00003,"actual closed book ends at its original height")
+	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-1.225)<.00003,"actual open register's binding lies flat under its gutter")
 	for i in 5:
 		var x:=5.28+.72*(float(i)+.5)/5.
 		hit=_isolated_ray(world,model,bier+"__bier_deck",cell.to_global(Vector3(x,.9,61.7)),cell.to_global(Vector3(x,.65,61.7)))

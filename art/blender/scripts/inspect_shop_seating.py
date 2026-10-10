@@ -39,7 +39,7 @@ for a in f['assemblies']:
   for neighbour in adjacency[pending.pop()]-seen:seen.add(neighbour);pending.append(neighbour)
  assert len(seen)==len(stocks),(a['id'],'disconnected stocks',sorted(set(adjacency)-seen))
  joins.append({'assembly':a['id'],'stocks':len(stocks),'surface_contact_edges':edges,'connected_components':1,'surface_contact_tolerance_m':.00002})
-draws=[o for o in bpy.context.scene.objects if o.type=='MESH' and '__' in o.name and not o.hide_render];assert len(draws)==42
+draws=[o for o in bpy.context.scene.objects if o.type=='MESH' and '__' in o.name and not o.hide_render];assert len(draws)==43
 trees={}
 for a in f['assemblies']:
  pieces=[o for o in draws if o.name.startswith(a['id']+'__')];vertices=[];faces=[]

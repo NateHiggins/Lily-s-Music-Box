@@ -136,7 +136,7 @@ for old in context:
    if abs(normal[axis])>.999 and all(abs(v[axis]-plane)<.00003 and all(low[i]-.00003<=v[i]<=high[i]+.00003 for i in range(3)) for v in p):remove.append(face);accepted_retired[row['id']]+=1;break
  bmesh.ops.delete(bm,geom=remove,context='FACES');bm.to_mesh(old.data);bm.free()
 assert all(value==12 for value in accepted_retired.values()),accepted_retired
-assert len(accepted)==16 and len(accepted_retired)==16 and sum(accepted_retired.values())==192
+assert len(accepted)==17 and len(accepted_retired)==16 and sum(accepted_retired.values())==192
 for obj in draws:
  for other in accepted:assert not actual_tree(obj).overlap(actual_tree(other)),('intersection with accepted native fitting',obj.name,other.name)
 for obj in accepted:obj.hide_render=True

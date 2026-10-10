@@ -39,6 +39,9 @@ func _run() -> void:
 			var source: StandardMaterial3D
 			for original_draw: MeshInstance3D in originals:
 				if str(original_draw.name).ends_with("_"+str(expected.key)):source=originals[original_draw].surface_get_material(0)
+			# Dossier slice 64: a registered catalogue finish duplicates its library material instead.
+			var runtime_part: Dictionary=record.parts.filter(func(row):return row.name==name)[0]
+			if runtime_part.has("catalog_key"):source=MatLib.get_mat(str(runtime_part.catalog_key))
 			check(source!=null and source!=mat and source.albedo_texture==mat.albedo_texture and source.roughness_texture==mat.roughness_texture and source.normal_texture==mat.normal_texture,"native furniture duplicates the exact shipping maps without changing shared materials")
 			var bounds: AABB=draw.transform*draw.mesh.get_aabb();check(maxf(maxf(bounds.size.x,bounds.size.y),bounds.size.z)<4.,"individual furniture partitions retain bounded culling")
 			var shape: CollisionShape3D=draw.find_children("*","CollisionShape3D",true,false)[0]

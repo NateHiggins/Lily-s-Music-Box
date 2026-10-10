@@ -100,11 +100,21 @@ for item in assemblies:
   box(identity+'_Crown',(x0+.010,y0+.035,top-.065),(x1-.010,y1-.035,top+.008),identity,'lectern_body',.003)
   counter=item['members'][1];a,b,c,e=counter['rect'];base=counter['z0']
   box(identity+'_WorkedDesk',(a,b,base),(c,e,base+counter['h']),identity,'lectern_top',.003)
-  book=item['members'][2];a,b,c,e=book['rect'];base=book['z0'];high=base+book['h']
-  box(identity+'_BookLowerCover',(a,b,base),(c,e,base+.005),identity,'book_cover',.0007)
-  box(identity+'_BookPages',(a+.004,b+.004,base+.004),(c-.004,e-.004,high-.004),identity,'book_pages',.0006)
-  box(identity+'_BookUpperCover',(a,b,high-.005),(c,e,high),identity,'book_cover',.0007)
-  box(identity+'_BookSpine',(a,b,base),(a+.006,e,high),identity,'book_cover',.001)
+  # Dossier slice 64 (CITY_SHOP_FUNERAL_PARLOUR-002): the register lies open at the day's page on the desk,
+  # its binding flat under both leaves, blank rules and one signature stroke. No lettering.
+  book=item['members'][2];a,b,c,e=book['rect'];base=book['z0'];mid=(b+e)*.5;b2=mid-.28;e2=mid+.28
+  box(identity+'_RegisterBinding',(a,b2,base),(c,e2,base+.005),identity,'book_cover',.0007)
+  box(identity+'_LeftLeaves',(a+.004,b2+.004,base+.0045),(c-.004,mid-.002,base+.016),identity,'book_pages',.0006)
+  box(identity+'_RightLeaves',(a+.004,mid+.002,base+.0045),(c-.004,e2-.004,base+.012),identity,'book_pages',.0006)
+  box(identity+'_Gutter',(a+.003,mid-.0035,base+.0045),(c-.003,mid+.0035,base+.008),identity,'book_pages',.0004)
+  for side,(p0,p1,top) in enumerate([(b2+.012,mid-.012,base+.016),(mid+.012,e2-.012,base+.012)]):
+   for i in range(11):
+    xx=a+.02+i*(c-a-.035)/10
+    box(identity+f'_Rule{side}_{i}',(xx,p0,top-.0002),(xx+.0006,p1,top+.0002),identity,'register_rule',0)
+  sx=a+.02+4*(c-a-.035)/10-.0035
+  for k in range(9):
+   y0s=mid+.03+k*.012
+   rod(identity+f'_Signature{k}',(sx+.0028*math.sin(k*1.7),y0s,base+.0122),(sx+.0028*math.sin((k+1)*1.7),y0s+.013,base+.0122),.00055,identity,'register_ink',8)
   for xx,yy in [(x0+.045,y0+.045),(x1-.045,y0+.045),(x0+.045,y1-.045),(x1-.045,y1-.045)]:support(identity,floor['id'],(xx,yy,floor_top),(0,0,1),'lectern base on original shop floor')
  else:
   assert item['kind']=='empty_bier'

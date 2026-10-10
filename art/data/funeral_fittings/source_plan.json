@@ -11,10 +11,14 @@
     "book_cover",
     "book_pages",
     "bier_frame",
-    "bier_deck"
+    "bier_deck",
+    "register_rule",
+    "register_ink"
   ],
   "catalog_variants": {
-    "book_cover": "paper"
+    "book_cover": "paper",
+    "register_rule": "paper",
+    "register_ink": "paper"
   },
   "material_aliases": {
     "lectern_body": "wood_dark",
@@ -29,6 +33,18 @@
       0.18,
       0.085,
       0.035,
+      1.0
+    ],
+    "register_rule": [
+      0.58,
+      0.64,
+      0.74,
+      1.0
+    ],
+    "register_ink": [
+      0.07,
+      0.07,
+      0.1,
       1.0
     ]
   },
@@ -57,6 +73,7 @@
     "ADAPTATION: two floor-seated timber trestles support the original empty bier deck. Explicit bearing cleats bridge the original twenty-millimetre crown/deck gap, and foot pads reach the actual source floor.",
     "Existing chairs, chapel benches, rear rail/view-only boundary, drapes, plants, doors, hours, keys, saves and utilities retain their owners. No coffin, body, ritual or chapel access is invented.",
     "Native stock joins, supports, strict metre charts and current player-height room context require inspection. This INERT source plan grants no runtime proof, route, load capacity or acceptance.",
-    "The unlettered book has a local brown card binding using the existing paper catalogue. A diagnostic book_brown library atlas misaligns under metre repetition; that atlas is not installed or globally changed."
+    "The unlettered book has a local brown card binding using the existing paper catalogue. A diagnostic book_brown library atlas misaligns under metre repetition; that atlas is not installed or globally changed.",
+    "Slice 64 of the V2 environment dossier (CITY_SHOP_FUNERAL_PARLOUR-002) opens the lectern register at the day's page: binding flat under both leaves, blank rules and one signature stroke, no lettering (tinted catalogue paper for rules and ink)."
   ]
 }

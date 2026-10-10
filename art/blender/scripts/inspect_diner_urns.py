@@ -98,7 +98,7 @@ for old in context:
   if matches:assert len(matches)==1;remove.append(face);counts[matches[0]]+=1
  bmesh.ops.delete(bm,geom=remove,context='FACES');bm.to_mesh(old.data);bm.free()
 assert len(counts)==36 and all(value==12 for value in counts.values()),counts
-assert len(accepted)==53
+assert len(accepted)==54
 accepted_contacts=[]
 for obj in draws:
  for other in accepted:

@@ -14,7 +14,12 @@ floor=next(r for r in layout['floors'] if r['id']=='F01');rows={r['id']:r for r 
 # existing glTF catalogue material rather than a MatLib runtime alias.
 source_gltf_path=ROOT/'game/assets/building/floor_01_cells/shop_otis_son.gltf'
 source_gltf=json.loads(source_gltf_path.read_text());sets={};material_definitions=[]
+catalog=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text(encoding='utf-8'))['materials']
 for key in plan['runtime_keys']:
+ if key in plan.get('catalog_variants',{}):
+  # Dossier slice 64: registered catalogue finishes (no shipping variant in the source cells).
+  spec=catalog[plan['catalog_variants'][key]];definition=ROOT/f'art/textures/{spec["catalog_mapping"]}/material.json';material_definitions.append(definition)
+  sets[key]={'files':spec['files'],'meters_per_tile':spec['meters_per_tile'],'metallic':spec['metallic'],'normal_scale':.35};continue
  definition=ROOT/f'art/textures/ai_materials/{key}_b/material.json';material_definitions.append(definition)
  shipping=next(m for m in source_gltf['materials'] if m['name']=='M_'+key+'_b')
  pbr=shipping['pbrMetallicRoughness'];files=[]
@@ -52,6 +57,8 @@ for key in plan['runtime_keys']:
   tex=mat.node_tree.nodes.new('ShaderNodeTexImage');tex.image=image;mat.node_tree.links.new(scale.outputs['Vector'],tex.inputs['Vector'])
   if index==2:
    normal=mat.node_tree.nodes.new('ShaderNodeNormalMap');normal.inputs['Strength'].default_value=spec['normal_scale'];mat.node_tree.links.new(tex.outputs['Color'],normal.inputs['Color']);mat.node_tree.links.new(normal.outputs[0],node.inputs[target])
+  elif key in plan.get('material_tints',{}):
+   multiply=mat.node_tree.nodes.new('ShaderNodeMixRGB');multiply.blend_type='MULTIPLY';multiply.inputs[0].default_value=1.;multiply.inputs[2].default_value=plan['material_tints'][key];mat.node_tree.links.new(tex.outputs['Color'],multiply.inputs[1]);mat.node_tree.links.new(multiply.outputs[0],node.inputs[target])
   else:mat.node_tree.links.new(tex.outputs['Color'],node.inputs[target])
 def solid(name,verts,faces,identity,key,collection=closed):
  verts=[Vector(v) for v in verts];origin=Vector(tuple(round(sum(v[i] for v in verts)/len(verts),4) for i in range(3)))
@@ -102,6 +109,10 @@ for item in assemblies:
   lathe(identity+'_SeatPan',(x,y),[(bottom-.012,rx*.77,ry*.77),(bottom,rx*.98,ry*.98),(bottom+.008,rx*.98,ry*.98)],identity,'chrome')
   lathe(identity+'_Cushion',(x,y),[(bottom+.006,rx*.96,ry*.96),(bottom+.022,rx,ry),(bottom+height*.76,rx*.975,ry*.975),(bottom+height,rx*.81,ry*.81)],identity,'vinyl_oxblood')
   torus(identity+'_Welt',(x,y,bottom+.022),rx-.0035,ry-.0035,.0035,identity,'vinyl_oxblood');foot(identity,item['floor']['id'],x,y,floor_z,base_r*.75)
+  if identity=='storm_shop_luncheonette_stool2':
+   # Dossier slice 64 (CITY_SHOP_LUNCHEONETTE-002): the third stool's vinyl worn through on top to the cord.
+   lathe(identity+'_WornCord',(x,y),[(bottom+height-.004,rx*.42,ry*.42),(bottom+height+.0015,rx*.40,ry*.40)],identity,'cord')
+   torus(identity+'_TornEdge',(x,y,bottom+height+.0004),rx*.42,ry*.42,.0024,identity,'vinyl_oxblood')
  else:
   back=item['back'];br=back['rect'];back_top=float(back['z0'])+float(back['h']);seat_thickness=.045 if item['kind']=='chair' else .055;under=seat_z-seat_thickness
   box(identity+'_Seat',(x0,y0,under),(x1,y1,seat_z),identity,bevel=.009)
@@ -120,6 +131,22 @@ for item in assemblies:
    box(identity+'_Crest',(x0,br[1],back_top-.065),(x1,br[3],back_top),identity,bevel=.007)
    for n,px in enumerate([x-leg_dx,x+leg_dx]):rod(identity+f'_BackPost{n}',(px,by,under),(px,by,back_top-.032),.025,identity)
    for n in range(8):rod(identity+f'_BackSpindle{n}',(x0+.08+n*(x1-x0-.16)/7,by,seat_z-.015),(x0+.08+n*(x1-x0-.16)/7,by,back_top-.055),.012,identity)
+# Dossier slice 64 (CITY_SHOP_FUNERAL_PARLOUR-004): the rows stay as arranged, but two chairs sit a few degrees
+# off their marks and one in the back row is pulled back where someone stood up.
+TURNS={'storm_shop_funeral_parlour_chair1_2':(math.radians(4),0.,0.),'storm_shop_funeral_parlour_chair2_1':(math.radians(-6),0.,0.),
+       'storm_shop_funeral_parlour_chair3_3':(math.radians(10),.22,0.)}
+for item in assemblies:
+ if item['id'] not in TURNS:continue
+ identity=item['id'];x0,y0,x1,y1=item['body']['rect'];x=(x0+x1)*.5;y=(y0+y1)*.5;ang,dx,dy=TURNS[identity];ca,sa=math.cos(ang),math.sin(ang)
+ def move(px,py):qx=px-x;qy=py-y;return x+dx+ca*qx-sa*qy,y+dy+sa*qx+ca*qy
+ for obj,_ in pieces[identity]:
+  for v in obj.data.vertices:
+   wx,wy=move(obj.location.x+v.co.x,obj.location.y+v.co.y);v.co.x=wx-obj.location.x;v.co.y=wy-obj.location.y
+  obj.data.update()
+ for c in contacts:
+  if c['assembly']!=identity:continue
+  px,py=move(c['point'][0],-c['point'][2]);c['point']=[px,c['point'][1],-py]
+  c['footprint']=[[mx,q[1],-my] for q in c['footprint'] for mx,my in [move(q[0],-q[2])]]
 for row in selected:
  x0,y0,x1,y1=row['rect'];z0=row['z0'];box(row['id']+'_RetainedBox',(x0,y0,z0),(x1,y1,z0+row['h']),row['id'],row['mat'],0,retained)
 
@@ -176,7 +203,7 @@ for identity in sorted({a['cell'] for a in assemblies}):
  for item in items:
   for row in [item['body'],item.get('top',item.get('back'))]:
    x0,y0,x1,y1=row['rect'];z0=row['z0'];replace.append({'id':row['id'],'key':row['mat'],'low':[x0,z0,-y1],'high':[x1,z0+row['h'],-y0],'expected_triangles':12})
- cells.append({'id':identity,'parts':[{'name':p['name'],'key':p['key'],'tile':sets[p['key']]['meters_per_tile']} for p in inventory if p['cell']==identity],'replace':replace})
+ cells.append({'id':identity,'parts':[{'name':p['name'],'key':p['key'],'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan.get('catalog_variants',{}) else {}),**({'tint':plan['material_tints'][p['key']]} if p['key'] in plan.get('material_tints',{}) else {})} for p in inventory if p['cell']==identity],'replace':replace})
 runtime={'schema_version':1,'asset':'res://assets/props/shop_seating.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
 (ROOT/'game/data/orison_v2/shop_seating.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
 bindings=[plan_path,layout_path,Path(__file__),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json',asset.with_suffix('.glb.import'),*material_definitions]

@@ -213,6 +213,8 @@ Slices landed so far (evidence folders in parentheses):
     panel.
 63. The reading room's bookcases in varied runs with flat piles and a shelf of bound
     magazines.
+64. The funeral register open at one signature, chairs off their marks, and the
+    luncheonette's third stool worn to the cord.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

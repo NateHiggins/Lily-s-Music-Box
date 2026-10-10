@@ -3,9 +3,25 @@
   "classification": "ADAPTATION",
   "original_records": 60,
   "assemblies": 30,
-  "runtime_keys": ["wood_dark", "chrome", "vinyl_oxblood"],
+  "runtime_keys": [
+    "wood_dark",
+    "chrome",
+    "vinyl_oxblood",
+    "cord"
+  ],
   "segments": 24,
-  "trim_tolerance_m": 0.00002,
+  "trim_tolerance_m": 2e-05,
   "method": "Fitted period timber side chairs and chapel benches, and round pedestal soda-counter stools, derived from original source furniture rectangles and separate floor stocks. Retain seat heights, footprints, back direction, counts and all nonvisual authorities. Replace only the original sixty seating-box boundaries; keep every other original triangle and attribute.",
-  "open_work": "This is a seating fabrication batch. Counters, cloth, shop apparatus, weather closures, drainage, independent shop services, broad materials and room acceptance remain open. No live supply or structural capacity is inferred. Heating cutouts remain parked."
+  "open_work": "This is a seating fabrication batch. Counters, cloth, shop apparatus, weather closures, drainage, independent shop services, broad materials and room acceptance remain open. No live supply or structural capacity is inferred. Heating cutouts remain parked. Slice 64 of the V2 environment dossier: two funeral chairs sit a few degrees off their marks and a back-row chair is pulled back 0.22 m and turned where someone stood (CITY_SHOP_FUNERAL_PARLOUR-004); the luncheonette's third stool is worn through on top to the cord (CITY_SHOP_LUNCHEONETTE-002), the cord a tinted registered linen finish.",
+  "material_tints": {
+    "cord": [
+      0.62,
+      0.55,
+      0.42,
+      1.0
+    ]
+  },
+  "catalog_variants": {
+    "cord": "linen"
+  }
 }
