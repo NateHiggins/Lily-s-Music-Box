@@ -46,3 +46,10 @@ darkroom fixtures remain open. Photography operation, purchasing, continuous
 shop/rear access, storefront glazing/locks and independent service continuity
 and capacity retain separate evidence duties. This fitting grants neither
 human acceptance nor whole-V2 completion.
+
+Dossier slice 55 (**CITY_SHOP_PHOTO_SUPPLIES-002**) furnishes the display
+chamber: a box camera (nickel lens rim, finders, winding knob and strap) with
+its lens to the shop floor, a closed folding camera turned 0.3 rad on the
+shelf, and an upright brass portrait lens with its rack knob, each seated
+0.2 mm into the display floor. The chamber's open middle stays clear, and the
+test now finds the box camera there instead of requiring the chamber empty.

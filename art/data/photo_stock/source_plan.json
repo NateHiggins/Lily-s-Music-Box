@@ -9,13 +9,17 @@
     "lacquer_red",
     "paper__book_ochre",
     "paper__book_teal",
-    "paper__lacquer_red"
+    "paper__lacquer_red",
+    "paper__band_dark",
+    "paper__band_cream"
   ],
   "catalog_variants": {
     "timber": "wood_dark",
     "paper__book_ochre": "paper",
     "paper__book_teal": "paper",
-    "paper__lacquer_red": "paper"
+    "paper__lacquer_red": "paper",
+    "paper__band_dark": "paper",
+    "paper__band_cream": "paper"
   },
   "material_aliases": {
     "paper__book_ochre": "book_ochre",
@@ -128,7 +132,8 @@
   "open_work": [
     "Five original shelf datums retain their heights. The visible decks extend 0.06m left and 0.05m right to join floor-bearing posts and carry the original overhanging carton column. Floor-bearing posts and rear panel carry all five decks. Hidden source references retain original poses.",
     "Exactly fifteen original colored boxes become closed lidded cartons, with original envelopes and lower datums seated on the three corresponding shelf levels. Top two shelves remain empty. Original stock/depletion state, photography operation and service capacity are unchanged.",
-    "Native timber uses registered wood_dark. Original three source colors and hidden shipping materials retain their identities; only visible cartons gain registered paper maps at 0.5m with bounded ochre, teal and red tints. Rendered inspection rejected the original book-cover atlas repeats and chipped lacquer wood on supply cartons. No new global catalogue key, generated lettering or shared map edit is introduced."
+    "Native timber uses registered wood_dark. Original three source colors and hidden shipping materials retain their identities; only visible cartons gain registered paper maps at 0.5m with bounded ochre, teal and red tints. Rendered inspection rejected the original book-cover atlas repeats and chipped lacquer wood on supply cartons. No new global catalogue key, generated lettering or shared map edit is introduced.",
+    "Slice 55 of the V2 environment dossier (CITY_SHOP_PHOTO_SUPPLIES-002) turns each of the fifteen carton envelopes into film boxes in one of three sizes (sheet film 8x10, 5x7, 4x5), some turned, one stood on end per small-size group, each lidded box with a wordless printed band and pinstripe in a dark or cream tint of the registered paper. The stock stays inside its original envelope on the original shelf datum."
   ],
   "material_tints": {
     "paper__book_ochre": [
@@ -147,6 +152,18 @@
       0.54,
       0.13,
       0.1,
+      1.0
+    ],
+    "paper__band_dark": [
+      0.11,
+      0.095,
+      0.08,
+      1.0
+    ],
+    "paper__band_cream": [
+      0.8,
+      0.76,
+      0.64,
       1.0
     ]
   }

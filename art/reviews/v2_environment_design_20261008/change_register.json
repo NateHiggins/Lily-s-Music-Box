@@ -1814,7 +1814,9 @@
    ],
    "acceptance": "Rail detail station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_PHOTO_SUPPLIES"
+   "area": "CITY_SHOP_PHOTO_SUPPLIES",
+   "status": "verified",
+   "owner_notes": "One plate on the portrait rail is a building: a procedural architectural plate, a facade in sepia with its windows in rows, among the sitters (portrait3, portrait_context). Verified at slice 57's WIP 260849e8 (implementation/slice57b), which carries slices 55 and 56 unchanged: the fabrication batch's seven families (photo stock 467, photo counter 148, photo portraits 361, locksmith fittings 943, radio battery 247, radio display 164 and radio wire 126 checks) report 0 failures; the radio apparatus (346), radio bench (155), radio stock (735), radio receiving (586) and photo receiving (792) suites report 0 failures; the city sweep's 130 views report 0 failures. The news receiving suite's one failure there, its keyboard station's standing capsule, is identical at slice 52's WIP 3f3f0d75 before any of these shop slices (receipt base53__news_receiving)."
   },
   {
    "id": "CITY_SHOP_PHOTO_SUPPLIES-002",
@@ -1832,7 +1834,9 @@
    ],
    "acceptance": "IN0 and IN1 stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_PHOTO_SUPPLIES"
+   "area": "CITY_SHOP_PHOTO_SUPPLIES",
+   "status": "verified",
+   "owner_notes": "Film stock in three sizes, some turned and one stood on end, every lid with a wordless printed band; a box camera, a closed folding camera and a brass portrait lens under the counter's case glass (rear_shelf_wall, left_column, glazed_tier, shop_photo_supplies_SITE_SHOP_IN0_PHOTO_SUPPLIES, IN1). Verified at slice 57's WIP 260849e8 (implementation/slice57b), which carries slices 55 and 56 unchanged: the fabrication batch's seven families (photo stock 467, photo counter 148, photo portraits 361, locksmith fittings 943, radio battery 247, radio display 164 and radio wire 126 checks) report 0 failures; the radio apparatus (346), radio bench (155), radio stock (735), radio receiving (586) and photo receiving (792) suites report 0 failures; the city sweep's 130 views report 0 failures. The news receiving suite's one failure there, its keyboard station's standing capsule, is identical at slice 52's WIP 3f3f0d75 before any of these shop slices (receipt base53__news_receiving)."
   },
   {
    "id": "CITY_BAR_DESCENT-001",

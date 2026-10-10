@@ -154,11 +154,38 @@ for item in assemblies:
    box(identity+'_Deck'+shelf['id'],(19.14,sy0,sz0),(21.75,sy1,sz1),identity,'timber',.0015)
   box(identity+'_TopRail',(19.14,-63.854,2.365),(21.75,-63.830,2.40),identity,'timber',.001)
  else:
-  key='paper__'+row['mat'];lip=.003;lid=z1-.012
-  box(identity+'_Body',(x0,y0,z0),(x1,y1,lid+.004),identity,key,.0015)
-  box(identity+'_LidTop',(x0,y0,z1-.003),(x1,y1,z1),identity,key,.0005)
-  for xx in [x0,x1-lip]:box(identity+'_LidSide'+str(xx),(xx,y0,lid),(xx+lip,y1,z1),identity,key,.0005)
-  for yy in [y0,y1-lip]:box(identity+'_LidEnd'+str(yy),(x0,yy,lid),(x1,yy+lip,z1),identity,key,.0005)
+  # Dossier slice 55 (CITY_SHOP_PHOTO_SUPPLIES-002): each carton envelope holds film boxes in one of three
+  # sizes (sheet film 8x10, 5x7, 4x5), some turned, one stood on end; every lid carries a wordless printed
+  # band and a pinstripe. Stacks overlap 0.2 mm; the lowest box keeps the original shelf datum.
+  key='paper__'+row['mat'];band={'book_ochre':'paper__band_dark','book_teal':'paper__band_cream','lacquer_red':'paper__band_cream'}[row['mat']]
+  n=int(row['id'].rsplit('box',1)[1]);size=(0,1,2,1,0,2,0,1,2,0,1,2,0,2,1)[n];odd=n%2
+  ex0,ey1=x0+.0015,y1-.0015;o=.0002
+  def film(tag,lo,hi,axis=2):
+   lo=list(lo);hi=list(hi);blo=lo[:];bhi=hi[:];llo=lo[:]
+   for a in range(3):
+    if a!=axis:blo[a]+=.0008;bhi[a]-=.0008
+   bhi[axis]=hi[axis]-.010+.0002;llo[axis]=hi[axis]-.010
+   box(identity+'_Film'+tag,tuple(blo),tuple(bhi),identity,key,.001)
+   box(identity+'_Lid'+tag,tuple(llo),tuple(hi),identity,key,.0006)
+   others=[a for a in range(3) if a!=axis];span=max(others,key=lambda a:hi[a]-lo[a]);short=[a for a in others if a!=span][0]
+   length=hi[span]-lo[span];mid=(lo[span]+hi[span])/2
+   for k,(a0,a1) in enumerate([(mid-length*.16,mid+length*.16),(hi[span]-length*.12-.003,hi[span]-length*.12)]):
+    q=lo[:];r=hi[:];q[span]=a0;r[span]=a1;q[short]=lo[short]-.0005;r[short]=hi[short]+.0005;q[axis]=hi[axis]-.0095;r[axis]=hi[axis]+.0005
+    box(identity+'_Band'+tag+str(k),tuple(q),tuple(r),identity,band,.0002)
+  def stack(tag,xa,ya,dx,dy,h,count):
+   for k in range(count):film(tag+str(k),(xa,ya,z0+k*(h-o)),(xa+dx,ya+dy,z0+k*(h-o)+h))
+  if size==0:
+   film('L0',(ex0+.010,ey1-.205,z0),(ex0+.265,ey1,z0+.048))
+   film('L1',(ex0+.030,ey1-.255,z0+.048-o),(ex0+.235,ey1,z0+.096-o))
+   if not odd:film('L2',(ex0+.004,ey1-.211,z0+.096-2*o),(ex0+.259,ey1-.006,z0+.144-2*o))
+  elif size==1:
+   stack('MA',ex0,ey1-.125,.17,.125,.04,2+odd)
+   stack('MB',ex0+.17-o,ey1-.17,.125,.17,.04,3-odd)
+  else:
+   stack('SF',ex0,ey1-.10,.125,.10,.032,4-odd)
+   stack('SR',ex0+.125-o,ey1-.10,.125,.10,.032,3)
+   stack('SB',ex0,ey1-.20+o,.125,.10,.032,1+odd)
+   film('SU',(ex0+.25-2*o,ey1-.102,z0),(ex0+.282-2*o,ey1-.002,z0+.125),0)
   level=int(row['id'].rsplit('box',1)[1])//5
   support(identity,prefix+'cab_sh'+str(level),((x0+x1)/2,(y0+y1)/2,z0),(0,0,1),'original carton lower datum seated on matching rear shelf')
 

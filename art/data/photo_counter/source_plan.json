@@ -8,11 +8,15 @@
     "brass_dull",
     "glassish",
     "paper",
-    "paper__cover"
+    "paper__cover",
+    "camera_black",
+    "nickel"
   ],
   "catalog_variants": {
     "timber": "wood_dark",
-    "brass_dull": "brass"
+    "brass_dull": "brass",
+    "camera_black": "bakelite_black",
+    "nickel": "nickel_plated"
   },
   "material_aliases": {
     "timber": "wood_dark",
@@ -47,6 +51,7 @@
     "The original counter retains its plan rectangle and 1.45m top. Joined feet fill the original .04m gap to the actual floor; panels and rails enclose the lower cabinet, and four posts support a thin-pane glazed display tier. No storage or display operation is added.",
     "The original solid glass reference block becomes four 4mm closed panes within that envelope, retaining its tint, maps and culling. Local plain-alpha blending is a declared optical adaptation rather than changing the original storefront glass owner.",
     "The original full brass top block becomes a joined wood core with a 3mm brass sheet at the same 1.45m upper datum. The ledger lowers .01m onto that actual top, with dark-green paper-map covers around a white page block. Original hidden references retain poses.",
-    "Continuous approach, purchasing/photography operation, locking/opening of cabinet glazing, stock, service capacity and remaining shop fittings retain separate authority."
+    "Continuous approach, purchasing/photography operation, locking/opening of cabinet glazing, stock, service capacity and remaining shop fittings retain separate authority.",
+    "Slice 55 of the V2 environment dossier (CITY_SHOP_PHOTO_SUPPLIES-002) stands a box camera (nickel lens rim, finders and winding knob, strap), a closed folding camera turned on the shelf and an upright brass portrait lens with its rack knob on the case's display floor, each seated 0.2 mm, the case's open middle left clear. camera_black and nickel use the registered bakelite_black and nickel_plated finishes."
   ]
 }

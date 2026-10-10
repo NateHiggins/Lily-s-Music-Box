@@ -115,7 +115,8 @@ func _photo_supply_geometry(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 		var source: Dictionary=fixture.original_records.filter(func(row):return row.id==prefix+"box"+str(index))[0]
 		var draw: MeshInstance3D=model.find_children("*","MeshInstance3D",true,false).filter(func(node):return str(node.get_meta("photo_stock_part", ""))==source.id+"__paper__"+source.mat)[0]
 		var bounds: AABB=draw.transform*draw.mesh.get_aabb();var r: Array=source.rect
-		check(bounds.position.distance_to(Vector3(r[0],source.z0,-r[3]))<.00003 and bounds.end.distance_to(Vector3(r[2],source.z0+source.h,-r[1]))<.00003,"actual closed carton retains original envelope: "+str(index))
+		# Dossier slice 55: film boxes in three sizes stand inside the original carton envelope.
+		check(absf(bounds.position.y-float(source.z0))<.00003 and bounds.position.x>=float(r[0])-.00003 and bounds.position.z>=-float(r[3])-.00003 and bounds.end.x<=float(r[2])+.00003 and bounds.end.y<=float(source.z0)+float(source.h)+.00003 and bounds.end.z<=-float(r[1])+.00003,"actual film stock stands inside its original carton envelope: "+str(index))
 		check(absf(bounds.position.y-(.59+floori(index/5.)*.44))<.00003,"actual carton lower datum retains its matching three-level seat: "+str(index))
 	check(fixture.assemblies.size()==16 and fixture.original_records.size()==20,"five original shelf records and exactly fifteen cartons remain distinct owners")
 

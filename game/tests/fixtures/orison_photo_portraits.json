@@ -1347,7 +1347,7 @@
       "catalog_role": "art",
       "substrate_role": "paper",
       "resource": "res://assets/props/photo_portraits/portrait_atlas.png",
-      "sha256": "0f561bf74f52b202bc15054cda6ad4ef3a444f1606d300c3ef90802a90768ed8",
+      "sha256": "56bbab5c840ee72e71283e793e72aafc9e3e43d2222c631bd8a40315ee2fdb8f",
       "dimensions": [
         1024,
         1536
@@ -1375,7 +1375,7 @@
   },
   "asset_sha256": "0b6aca61e68d665ba1b201b272d587d789db71be22b20f565ac02c6218f14053",
   "source_bindings": {
-    "art/data/photo_portraits/source_plan.json": "38f0b65ffd68f5e0744cb696446c43548d058267fcfc17c1216ee94679c7b339",
+    "art/data/photo_portraits/source_plan.json": "bedd49bea9131dd34503fb9c7229ca9a35c8d65ca31c3af47ce304f99fcae5bd",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_photo_portraits.py": "529db47a3ed92451b3769c822112820dd75e7bfbf3b9d5238ff90a0d80cb3049",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -1410,10 +1410,10 @@
     "game/assets/building/floor_01_cells/shop_photo_supplies.gltf": "3a79e94e3d29d38e4265573f503ea38141e3b9f1ab402e2d08ab1d9914aeca87",
     "game/assets/building/floor_01_cells/shop_photo_supplies.bin": "518a8a727adbf5925b0e1968aefe0da1af592383b37ae387d9206de927973705",
     "art/blender/scripts/inspect_photo_portraits.py": "a22b46c8efbfe8ea87c8bca3ab4646172a84b60ee5560deaae250c4a2792b753",
-    "art/data/photo_portraits/portrait_atlas.png": "0f561bf74f52b202bc15054cda6ad4ef3a444f1606d300c3ef90802a90768ed8",
-    "game/assets/props/photo_portraits/portrait_atlas.png": "0f561bf74f52b202bc15054cda6ad4ef3a444f1606d300c3ef90802a90768ed8",
+    "art/data/photo_portraits/portrait_atlas.png": "56bbab5c840ee72e71283e793e72aafc9e3e43d2222c631bd8a40315ee2fdb8f",
+    "game/assets/props/photo_portraits/portrait_atlas.png": "56bbab5c840ee72e71283e793e72aafc9e3e43d2222c631bd8a40315ee2fdb8f",
     "art/data/photo_portraits/prompt.txt": "fcbb0bb4b47e75731a4453a4df2cf2845e55c70cebafa5dc3fe4d202265b38ad",
-    "art/data/photo_portraits/generation_provenance.json": "c81dfdbdfa25b5036da70c00f2795133e9059dc18005be963fd091919af0ef38",
+    "art/data/photo_portraits/generation_provenance.json": "857873433fb8ebd066c815c63f6d43f21bdac038e44284e5ca9cec49a587edb2",
     "game/scripts/building/wall_art_law.gd": "3317a9f8c86c8def99b4bbd4604fd9935f26ad14056dc3689f9db2a0a44cdf9f",
     "game/assets/building/textures/T_ai_materials_art_albedo.png": "054a43a07b81356de168df6e008b8e7de5a7cd8d3a7b8c0a4f1fa51ffe0c459e",
     "game/assets/props/photo_portraits/portrait_atlas.png.import": "f416b2806da9bb3efdbc5cc158cac0dd50d882fbd07b2d34cad3eb242f12ae9f",
@@ -1422,6 +1422,7 @@
   "open_work": [
     "Seven original unclaimed print records retain their identities. The first four original along-wall centres remain; the former three upper prints move into the same lower row, with one wider empty band around the high shelf central floor post. Prints shrink from .295/.44m blocks to .160/.250m rigid cards. A declared rail extension supports all seven beneath the retained high deck; wall faces, borrowed-light aperture, source arrays and door remain unchanged.",
     "Generated fictional adult portrait content uses the existing registered art role on a local matte ink face over physical paper. It does not depict named residents or Mina. Shared artwork, catalogue keys/mapping and paper maps remain unchanged.",
-    "Real wall backing, WallArtLaw reservations, physical rail/card/clamp seats, exact four-cell orientation and unobstructed supported standing observations must pass before review. Continuous shop/darkroom access, process operation, glass finish and independent services retain separate duties."
+    "Real wall backing, WallArtLaw reservations, physical rail/card/clamp seats, exact four-cell orientation and unobstructed supported standing observations must pass before review. Continuous shop/darkroom access, process operation, glass finish and independent services retain separate duties.",
+    "Slice 55 of the V2 environment dossier (CITY_SHOP_PHOTO_SUPPLIES-001): atlas cell 3, used by the one print portrait3, is a procedural architectural plate (a six-storey 1928 apartment front in the same warm grey/sepia) drawn by art/tools/build_architectural_plate.py; cells 0-2 are unchanged. No lettering, numerals, logos or reference photograph."
   ]
 }

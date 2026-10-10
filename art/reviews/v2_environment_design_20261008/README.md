@@ -192,6 +192,9 @@ Slices landed so far (evidence folders in parentheses):
     (evidence with slice 54 in `slice54b`).
 54. The hardware shop's paint tins in three sizes, dented, run and banded without words,
     and one drawer of the wall standing open (`slice54b`).
+55. The photo supply shop: film stock in three sizes under wordless banded lids, two
+    cameras and a lens in the case, and one print on the rail a building (evidence with
+    slice 57 in `slice57b`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

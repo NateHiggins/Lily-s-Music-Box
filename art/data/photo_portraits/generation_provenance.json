@@ -18,5 +18,16 @@
     "Existing registered art role, local matte ink face and physical paper substrate; no new global material key or shared artwork replacement.",
     "Future native fitting must retain seven original source records, proper wall/paper support, picture-placement law, exact atlas orientation and unobstructed supported approaches.",
     "Use existing registered artwork/paper roles and catalogue procedure; no unregistered material key or shared map replacement."
-  ]
+  ],
+  "derivations": [
+    {
+      "register_id": "CITY_SHOP_PHOTO_SUPPLIES-001",
+      "tool": "art/tools/build_architectural_plate.py",
+      "cell": 3,
+      "input_sha256": "0f561bf74f52b202bc15054cda6ad4ef3a444f1606d300c3ef90802a90768ed8",
+      "output_sha256": "56bbab5c840ee72e71283e793e72aafc9e3e43d2222c631bd8a40315ee2fdb8f",
+      "content": "Procedural architectural plate: a six-storey 1928 apartment front (cornice, five bays of sash windows with blinds at their own heights, a fire escape, stone ground floor with arched entrance, a street lamp) toned to the generated prints' warm grey/sepia. Cells 0-2 unchanged. No text, letters, numbers, logos or reference photograph."
+    }
+  ],
+  "current_asset_sha256": "56bbab5c840ee72e71283e793e72aafc9e3e43d2222c631bd8a40315ee2fdb8f"
 }

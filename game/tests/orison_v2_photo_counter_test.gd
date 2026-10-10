@@ -119,7 +119,10 @@ func _check_counter_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> 
 		hit=_isolated_ray(world,model,prefix+"counter__glassish",cell.to_global(at-dir*.5),cell.to_global(at+dir*.5))
 		check(not hit.is_empty() and absf(cell.to_local(hit.position).z-float(end[0]))<.00003,"actual thin counter end pane: "+str(end[0]))
 	var query:=PhysicsRayQueryParameters3D.create(cell.to_global(Vector3(18.05,1.23,61.30)),cell.to_global(Vector3(18.55,1.23,61.30)),1,[world.player.get_rid()])
-	check(world.get_world_3d().direct_space_state.intersect_ray(query).is_empty(),"actual glazed display chamber has no invented stock or solid infill")
+	check(world.get_world_3d().direct_space_state.intersect_ray(query).is_empty(),"actual glazed display chamber stays open through its middle above the displayed stock")
+	# Dossier slice 55: the box camera stands under the glass on the display floor.
+	hit=_isolated_ray(world,model,prefix+"counter__camera_black",cell.to_global(Vector3(18.30,1.38,60.75)),cell.to_global(Vector3(18.30,1.0,60.75)))
+	check(not hit.is_empty() and cell.to_local(hit.position).y>1.10 and cell.to_local(hit.position).y<1.20,"a box camera stands on the case's display floor under the glass")
 	at=Vector3(18.0,1.45,61.0)
 	hit=_isolated_ray(world,model,prefix+"counter__brass_dull",cell.to_global(at+Vector3(0,.5,0)),cell.to_global(at-Vector3(0,.5,0)))
 	check(not hit.is_empty() and absf(cell.to_local(hit.position).y-1.45)<.00003 and hit.normal.dot(cell.global_basis.y)>.99,"actual thin brass top retains original 1.45m upper datum")

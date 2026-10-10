@@ -63,3 +63,9 @@ Continuous shop/darkroom access, working photography, darkroom light,
 storefront/counter glass finish, stock state and independent services
 retain their separate evidence duties. This fitting grants no human
 acceptance or whole-V2 completion.
+
+Dossier slice 55 (**CITY_SHOP_PHOTO_SUPPLIES-001**): atlas cell 3, used only by
+portrait3, is now a procedural architectural plate drawn by
+`art/tools/build_architectural_plate.py` (a 1928 apartment front in the same
+sepia tones). Cells 0-2 keep the generated portraits; the provenance file records
+the derivation and both hashes.

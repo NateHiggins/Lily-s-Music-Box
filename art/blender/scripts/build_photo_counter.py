@@ -167,6 +167,39 @@ for item in assemblies:
  tx0,ty0,tx1,ty1,tz0,tz1=bounds(top)
  box(identity+'_CountertopCore',(tx0,ty0,tz0),(tx1,ty1,tz1-.002),identity,'timber',.001)
  box(identity+'_ThinBrassTop',(tx0,ty0,tz1-.003),(tx1,ty1,tz1),identity,'brass_dull',.0004)
+ # Dossier slice 55 (CITY_SHOP_PHOTO_SUPPLIES-002): a box camera, a closed folding camera and a brass
+ # portrait lens under the case glass, each seated 0.2 mm into the display floor, the middle left open.
+ deck=1.05-.0002
+ bx0,bx1,by0,by1=18.235,18.365,-60.795,-60.705;cy=(by0+by1)/2
+ box(identity+'_BoxCamera',(bx0,by0,deck),(bx1,by1,deck+.11),identity,'camera_black',.004)
+ rod(identity+'_BoxLensRim',(bx1-.002,cy,deck+.052),(bx1+.008,cy,deck+.052),.019,identity,'nickel',32)
+ rod(identity+'_BoxLensGlass',(bx1+.006,cy,deck+.052),(bx1+.0105,cy,deck+.052),.012,identity,'camera_black',32)
+ for yy in [by0+.008,by1-.026]:
+  box(identity+'_Finder'+str(yy),(bx1-.002,yy,deck+.085),(bx1+.004,yy+.018,deck+.101),identity,'nickel',.0008)
+  box(identity+'_FinderEye'+str(yy),(bx1+.0035,yy+.004,deck+.089),(bx1+.0048,yy+.014,deck+.097),identity,'camera_black',.0003)
+ rod(identity+'_WindKnob',(bx0+.03,by1-.002,deck+.08),(bx0+.03,by1+.008,deck+.08),.011,identity,'nickel',24)
+ curved_wire(identity+'_BoxStrap',[(bx0+.03,cy,deck+.109),(bx0+.04,cy,deck+.125),(bx1-.04,cy,deck+.125),(bx1-.03,cy,deck+.109)],.004,identity,'camera_black')
+ fcx,fcy=18.30,-61.78;before=set(o.name for o,_ in pieces[identity])
+ box(identity+'_FoldingBody',(fcx-.048,fcy-.083,deck),(fcx+.048,fcy+.083,deck+.036),identity,'camera_black',.006)
+ box(identity+'_FoldingStrap',(fcx-.012,fcy-.058,deck+.0355),(fcx+.012,fcy+.058,deck+.0395),identity,'camera_black',.001)
+ for yy in [fcy-.052,fcy+.052]:rod(identity+'_StrapStud'+str(yy),(fcx,yy,deck+.039),(fcx,yy,deck+.0415),.004,identity,'nickel',16)
+ box(identity+'_FoldingLatch',(fcx-.008,fcy+.0825,deck+.012),(fcx+.008,fcy+.0865,deck+.024),identity,'nickel',.0008)
+ for xx in [fcx-.0485,fcx+.0445]:box(identity+'_StrapLug'+str(xx),(xx,fcy-.07,deck+.014),(xx+.004,fcy-.058,deck+.022),identity,'nickel',.0006)
+ # The folding camera lies turned 0.3 rad on the glass shelf.
+ ca,sa=math.cos(.3),math.sin(.3)
+ for obj,_ in pieces[identity]:
+  if obj.name in before:continue
+  for v in obj.data.vertices:
+   wx=obj.location.x+v.co.x-fcx;wy=obj.location.y+v.co.y-fcy
+   v.co.x=fcx+ca*wx-sa*wy-obj.location.x;v.co.y=fcy+sa*wx+ca*wy-obj.location.y
+  obj.data.update()
+ lcx,lcy=18.32,-62.10
+ vessel(identity+'_LensFlange',lcx,lcy,deck,[(0,0),(.046,0),(.046,.006),(0,.006)],identity,'brass_dull')
+ vessel(identity+'_LensBarrel',lcx,lcy,deck+.0058,[(0,0),(.037,0),(.037,.095),(0,.095)],identity,'brass_dull')
+ vessel(identity+'_LensHood',lcx,lcy,deck+.0996,[(0,0),(.040,0),(.040,.012),(0,.012)],identity,'brass_dull')
+ vessel(identity+'_LensFront',lcx,lcy,deck+.1114,[(0,0),(.030,0),(.030,.0012),(0,.0012)],identity,'camera_black')
+ rod(identity+'_RackPinion',(lcx+.036,lcy,deck+.05),(lcx+.05,lcy,deck+.05),.007,identity,'brass_dull',24)
+ rod(identity+'_RackKnob',(lcx+.0498,lcy,deck+.05),(lcx+.056,lcy,deck+.05),.011,identity,'brass_dull',24)
 
 for row in selected:
  x0,y0,x1,y1=row['rect'];z0=row['z0'];box(row['id']+'_RetainedBox',(x0,y0,z0),(x1,y1,z0+row['h']),row['id'],row['mat'],0,retained)

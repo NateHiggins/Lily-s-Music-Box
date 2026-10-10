@@ -246295,6 +246295,38 @@
    "target_exists": true
   },
   {
+   "key": "c9d23d9e704194e1",
+   "kind": "vector3_coordinate",
+   "token": "_check_counter_details",
+   "file": "game/tests/orison_v2_photo_counter_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_counter_details"
+   ],
+   "lines": [
+    124,
+    124
+   ],
+   "count": 2,
+   "context": [
+    "hit=_isolated_ray(world,model,prefix+\"counter__camera_black\",cell.to_global(Vector3(18.30,1.38,60.75)),cell.to_global(Vector3(18.30,1.0,60.75)))"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "737e79d444732f81",
    "kind": "id_reference",
    "token": "F01_VESTIBULE",

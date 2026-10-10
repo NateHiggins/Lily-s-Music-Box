@@ -263,6 +263,138 @@
       "volume_m3": 0.005231567557238366
     },
     {
+      "name": "storm_shop_photo_supplies_counter_BoxCamera",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "camera_black",
+      "volume_m3": 0.0012817685035823624
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_BoxLensRim",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "nickel",
+      "volume_m3": 1.12666506425739e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_BoxLensGlass",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "camera_black",
+      "volume_m3": 2.022443537499225e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_Finder-60.787",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "nickel",
+      "volume_m3": 1.7026608692641697e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_FinderEye-60.787",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "camera_black",
+      "volume_m3": 1.0239608612386886e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_Finder-60.731",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "nickel",
+      "volume_m3": 1.7026608692641697e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_FinderEye-60.731",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "camera_black",
+      "volume_m3": 1.0239608612386886e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_WindKnob",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "nickel",
+      "volume_m3": 3.7590662984865464e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_BoxStrap",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "camera_black",
+      "volume_m3": 3.6634755695421836e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_FoldingBody",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "camera_black",
+      "volume_m3": 0.000563329878243369
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_FoldingStrap",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "camera_black",
+      "volume_m3": 1.099407533761786e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_StrapStud-61.832",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "nickel",
+      "volume_m3": 1.2247983018560137e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_StrapStud-61.728",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "nickel",
+      "volume_m3": 1.224798371302505e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_FoldingLatch",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "nickel",
+      "volume_m3": 7.480043416390782e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_StrapLug18.2515",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "nickel",
+      "volume_m3": 3.757953241904859e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_StrapLug18.3445",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "nickel",
+      "volume_m3": 3.756129582879634e-07
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LensFlange",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "brass_dull",
+      "volume_m3": 3.977068761724371e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LensBarrel",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "brass_dull",
+      "volume_m3": 0.0004074117274262182
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LensHood",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "brass_dull",
+      "volume_m3": 6.014601515633806e-05
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_LensFront",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "camera_black",
+      "volume_m3": 3.3831671839290572e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_RackPinion",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "brass_dull",
+      "volume_m3": 2.1305657238457347e-06
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter_RackKnob",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "key": "brass_dull",
+      "volume_m3": 2.3294893670283696e-06
+    },
+    {
       "name": "storm_shop_photo_supplies_ledger_Pages",
       "assembly": "storm_shop_photo_supplies_ledger",
       "key": "paper",
@@ -370,7 +502,14 @@
       "assembly": "storm_shop_photo_supplies_counter",
       "cell": "shop_photo_supplies",
       "key": "brass_dull",
-      "triangles": 188
+      "triangles": 948
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter__camera_black",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "cell": "shop_photo_supplies",
+      "key": "camera_black",
+      "triangles": 1316
     },
     {
       "name": "storm_shop_photo_supplies_counter__glassish",
@@ -378,6 +517,13 @@
       "cell": "shop_photo_supplies",
       "key": "glassish",
       "triangles": 48
+    },
+    {
+      "name": "storm_shop_photo_supplies_counter__nickel",
+      "assembly": "storm_shop_photo_supplies_counter",
+      "cell": "shop_photo_supplies",
+      "key": "nickel",
+      "triangles": 1276
     },
     {
       "name": "storm_shop_photo_supplies_counter__timber",
@@ -401,7 +547,7 @@
       "triangles": 564
     }
   ],
-  "triangles": 5124,
+  "triangles": 8476,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -418,10 +564,22 @@
             "catalog_key": "brass"
           },
           {
+            "name": "storm_shop_photo_supplies_counter__camera_black",
+            "key": "camera_black",
+            "tile": 0.3,
+            "catalog_key": "bakelite_black"
+          },
+          {
             "name": "storm_shop_photo_supplies_counter__glassish",
             "key": "glassish",
             "tile": 1.6,
             "plain_alpha": true
+          },
+          {
+            "name": "storm_shop_photo_supplies_counter__nickel",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated"
           },
           {
             "name": "storm_shop_photo_supplies_counter__timber",
@@ -511,11 +669,11 @@
       }
     ]
   },
-  "asset_sha256": "208a4194d79b044ee3fb47f4e4ad250613f2bd648b437dd384bb1289813fc802",
+  "asset_sha256": "71054acb8e6ed262ea41b87fb002b3efc00c87e703461605ada1eb6d00ccb244",
   "source_bindings": {
-    "art/data/photo_counter/source_plan.json": "0d33b0c2f0a340951e0e891f2b350d23981544694d1d927373aa07eb82700c4c",
+    "art/data/photo_counter/source_plan.json": "cb565b91943eacc20ec619caffd064dc48aeec50c298c3da72e8a2d8f16c551d",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_photo_counter.py": "79e176110b48b58385fdddc8314e5b52302e9af732c733ed2775748252c131b8",
+    "art/blender/scripts/build_photo_counter.py": "06c8ea5ba4c6596ccd7fd4e6f2ec63ffc9b52abf0fcfc4c19652bc98e1aed1e6",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
@@ -526,6 +684,8 @@
     "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
     "art/tools/build_glass_maps.py": "63e2357d85a1fc7520c3af5592d0d8248b16519e10d1a25b28a43cb1380a7ead",
     "art/textures/ai_materials/paper_b/material.json": "c9cba1d7029ba0a33771619544c563eb6f16bb4114a9cb4400ac7f3925416623",
+    "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
+    "art/textures/ai_materials/nickel_plated/material.json": "f2aac7b24fbc456d3643cc4c1d4a861255bd926ebbfa9c7cd72b316033c58965",
     "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
     "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
     "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
@@ -540,6 +700,12 @@
     "game/assets/building/textures/T_ai_materials_paper_b_albedo.png": "896178bf4b28ae55875960aeea630295b1e987e9684206677611df14836b4d61",
     "game/assets/building/textures/T_ai_materials_paper_b_rough.png": "4800c7312a5c09be6db31794a984c7a4cdc83c4faec6329aba2dab11dad8b7af",
     "game/assets/building/textures/T_ai_materials_paper_b_normal.png": "f12c529d01af57bd7bce883ec5e6a5078657dd76135f4c639b36acbf3526855a",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png": "1ab2945ca6f931c99af7625dc44cfdd31dc574edfa7f1dc5f1eee8e6723ae898",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_rough.png": "5d7c30afc6a11a9b602cf303609836d2afed5205aaeee46c82d396461285d0a3",
+    "game/assets/building/textures/T_ai_materials_bakelite_black_normal.png": "acd60aea7c7141077d4d8e5764652ba890fec2eb0700bd7b0fe8ec639b788ded",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_albedo.png": "0e7c97e14cac4c53f59c618e4baeb34537d7bbcb9e354cd4be13d8348e069148",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_rough.png": "ee5a8bc93ce0faed54d4c6c86fa2c0ba5086f3db404a0779b45ecc138969b4e7",
+    "game/assets/building/textures/T_ai_materials_nickel_plated_normal.png": "4f57de452e9d5846aea85f0b5d1f224416ff992b2cf37092a3e95fa11474974b",
     "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
     "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
     "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
@@ -556,6 +722,7 @@
     "The original counter retains its plan rectangle and 1.45m top. Joined feet fill the original .04m gap to the actual floor; panels and rails enclose the lower cabinet, and four posts support a thin-pane glazed display tier. No storage or display operation is added.",
     "The original solid glass reference block becomes four 4mm closed panes within that envelope, retaining its tint, maps and culling. Local plain-alpha blending is a declared optical adaptation rather than changing the original storefront glass owner.",
     "The original full brass top block becomes a joined wood core with a 3mm brass sheet at the same 1.45m upper datum. The ledger lowers .01m onto that actual top, with dark-green paper-map covers around a white page block. Original hidden references retain poses.",
-    "Continuous approach, purchasing/photography operation, locking/opening of cabinet glazing, stock, service capacity and remaining shop fittings retain separate authority."
+    "Continuous approach, purchasing/photography operation, locking/opening of cabinet glazing, stock, service capacity and remaining shop fittings retain separate authority.",
+    "Slice 55 of the V2 environment dossier (CITY_SHOP_PHOTO_SUPPLIES-002) stands a box camera (nickel lens rim, finders and winding knob, strap), a closed folding camera turned on the shelf and an upright brass portrait lens with its rack knob on the case's display floor, each seated 0.2 mm, the case's open middle left clear. camera_black and nickel use the registered bakelite_black and nickel_plated finishes."
   ]
 }

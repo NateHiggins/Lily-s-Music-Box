@@ -45,3 +45,11 @@ need fabrication. Photography operation, storefront/counter glass finish,
 continuous shop/rear routes and independent service continuity/capacity keep
 separate evidence duties. No human acceptance or whole-V2 completion is
 granted here.
+
+Dossier slice 55 (**CITY_SHOP_PHOTO_SUPPLIES-002**) replaces each carton with
+film boxes in one of three sizes (sheet film 8x10, 5x7 and 4x5): lidded boxes,
+some turned, one stood on end in each small-size group, every lid printed with a
+wordless band and pinstripe in a dark or cream tint of the registered paper.
+The stock stands inside its original carton envelope on the original shelf
+datum, and the runtime test now holds it inside that envelope rather than
+filling it.
