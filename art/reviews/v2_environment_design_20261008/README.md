@@ -178,6 +178,9 @@ Slices landed so far (evidence folders in parentheses):
 49. Door thresholds: a household's mat at every apartment door (squared coir, worn
     coir, a rag rug, ribbed rubber, soil or paint on coir, the sealed door's dust mat),
     the paper on two, milk and a parcel on the wide core floor (`slice49`).
+50. Stair wear and the one piece of its own on every core landing: every honed tread
+    dished on the walking line, a framed canvas, photograph or wordless certificate per
+    landing, and the prospectus roof-garden plate on F06 (`slice50`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

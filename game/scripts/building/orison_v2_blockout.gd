@@ -1054,9 +1054,10 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 	for i in count:
 		var step_h := rise * (i + 1)
 		var z := z0 + tread * (i + 0.5)
-		_box(parent, "FlightA_Step%02d" % i,
+		var step_a := _box(parent, "FlightA_Step%02d" % i,
 				Vector3(x0 + width * 0.5, base_y + step_h - rise * 0.5, z),
 				Vector3(width, rise, tread), "core", true)
+		if production_materials: step_a.mesh = _dished_tread(Vector3(width, rise, tread), 1.0)
 		var guard_a := _box(parent, "FlightA_Guard%02d" % i,
 				Vector3(x0 + 0.025, base_y + step_h + guard_h * 0.5, z),
 				Vector3(0.05, guard_h, tread), "core", false)
@@ -1082,9 +1083,10 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 	for i in count:
 		var step_h := rise * (i + 1)
 		var z := north_start - tread * (i + 0.5)
-		_box(parent, "FlightB_Step%02d" % i,
+		var step_b := _box(parent, "FlightB_Step%02d" % i,
 				Vector3(x_b + width * 0.5, base_y + half_rise + step_h - rise * 0.5, z),
 				Vector3(width, rise, tread), "core", true)
+		if production_materials: step_b.mesh = _dished_tread(Vector3(width, rise, tread), -1.0)
 		var guard_b := _box(parent, "FlightB_Guard%02d" % i,
 				Vector3(x_b + width - 0.025,
 						base_y + half_rise + step_h + guard_h * 0.5, z),
@@ -1097,6 +1099,42 @@ func _build_u_stair(parent: Node3D, stair: Dictionary) -> void:
 		var ironwork := preload("res://scripts/building/orison_v2_stair_ironwork.gd").new()
 		if not ironwork.mount(parent,stair,base_y):
 			failures.append("unsupported ironwork dimensions: "+str(stair.id))
+
+## Dossier slice 50: inherited dishing on the honed treads. Only the visible top face
+## dips, 5 mm at most, along the walking line and deepest just behind the nosing; it is
+## zero at every edge so no face separates. Physics keeps the original full BoxShape3D.
+## `travel` is +1 when the flight climbs toward +z (nosing at -z), -1 otherwise.
+const TREAD_DISH := 0.005
+
+func _tread_dip(x: float, z: float, size: Vector3, travel: float) -> float:
+	var u := clampf(x / size.x + 0.5, 0.0, 1.0)
+	var t := clampf((z * travel + size.z * 0.5) / size.z, 0.0, 1.0)
+	var across := sin(PI * u) * exp(-pow((u - 0.5) / 0.24, 2.0))
+	var along := pow(sin(PI * t), 0.8) * (1.25 - 0.5 * t)
+	return TREAD_DISH * across * along
+
+func _dished_tread(size: Vector3, travel: float) -> ArrayMesh:
+	var box := BoxMesh.new()
+	box.size = size
+	box.subdivide_width = 16
+	box.subdivide_depth = 6
+	var arrays := box.surface_get_arrays(0)
+	var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+	var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
+	var e := 0.002
+	for i in vertices.size():
+		if normals[i].y < 0.9: continue
+		var v := vertices[i]
+		v.y -= _tread_dip(v.x, v.z, size, travel)
+		vertices[i] = v
+		var dx := (_tread_dip(v.x + e, v.z, size, travel) - _tread_dip(v.x - e, v.z, size, travel)) / (2.0 * e)
+		var dz := (_tread_dip(v.x, v.z + e, size, travel) - _tread_dip(v.x, v.z - e, size, travel)) / (2.0 * e)
+		normals[i] = Vector3(dx, 1.0, dz).normalized()
+	arrays[Mesh.ARRAY_VERTEX] = vertices
+	arrays[Mesh.ARRAY_NORMAL] = normals
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	return mesh
 
 func _ramp_collision(parent: Node3D, node_name: String, at: Vector3,
 		width: float, run: float, rise: float, direction: float) -> void:

@@ -1,0 +1,76 @@
+{
+	"batch_checks": 9,
+	"elapsed_ms": 59895,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 8865,
+	"modules": {
+		"domestic_objects": {
+			"actors": 214,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 8865,
+			"elapsed_ms": 10515,
+			"failures": [],
+			"fixture_sha256": "c311ee6a72900fb9931a79fe2fbc7eb821ba6ad88a95ee0dfafc5e8c33e18ef8",
+			"parts": 871,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 516388,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 118,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.15999841690063,
+						0.0199999995529652,
+						-14.3999996185303
+					],
+					"id": "F01_PUBLIC_LANDING_PIECE_native",
+					"image": "F01_PUBLIC_LANDING_PIECE_native.png",
+					"owner": "F01_PUBLIC_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.15999841690063,
+						9.61999988555908,
+						-14.3999996185303
+					],
+					"id": "F04_PUBLIC_LANDING_PIECE_native",
+					"image": "F04_PUBLIC_LANDING_PIECE_native.png",
+					"owner": "F04_PUBLIC_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.15999841690063,
+						19.2199993133545,
+						-14.3999996185303
+					],
+					"id": "ROOF_PUBLIC_LANDING_PIECE_native",
+					"image": "ROOF_PUBLIC_LANDING_PIECE_native.png",
+					"owner": "ROOF_PUBLIC_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.9599990844727,
+						6.42000007629395,
+						-14.2500009536743
+					],
+					"id": "F03_SERVICE_LANDING_PIECE_native",
+					"image": "F03_SERVICE_LANDING_PIECE_native.png",
+					"owner": "F03_SERVICE_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

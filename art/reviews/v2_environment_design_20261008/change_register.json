@@ -2393,7 +2393,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_PUBLIC_CORE"
+   "area": "F01_PUBLIC_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a small canvas of a dusk sky over a field with one post, hung on the wall above the arrival landing (F01_PUBLIC_CORE_RV, F01_PUBLIC_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F01_PUBLIC_CORE-003",
@@ -2498,7 +2500,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_SERVICE_CORE"
+   "area": "F01_SERVICE_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a framed ruled document, wordless, hung on the wall above the arrival landing (F01_SERVICE_CORE_RV, F01_SERVICE_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F01_SERVICE_CORE-003",
@@ -3464,7 +3468,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_LANDING"
+   "area": "F02_LANDING",
+   "status": "implemented",
+   "owner_notes": "Partial: the landing shares its public core's flights and piece; Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight (F02_LANDING_RV). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F02_WEST_HALL-001",
@@ -3569,7 +3575,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_PUBLIC_CORE"
+   "area": "F02_PUBLIC_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a canvas of a pale sky over an ochre field with one green tree, hung on the wall above the arrival landing (F02_PUBLIC_CORE_RV, F02_PUBLIC_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F02_EAST_HALL-001",
@@ -3699,7 +3707,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_SERVICE_CORE"
+   "area": "F02_SERVICE_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a framed navy-toned photograph, hung on the wall above the arrival landing (F02_SERVICE_CORE_RV, F02_SERVICE_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F02_SERVICE_CORE-003",
@@ -4859,7 +4869,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_PUBLIC_CORE"
+   "area": "F03_PUBLIC_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a sepia photograph in a dark frame, hung on the wall above the arrival landing (F03_PUBLIC_CORE_RV, F03_PUBLIC_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F03_SERVICE_CORE-001",
@@ -4894,7 +4906,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_SERVICE_CORE"
+   "area": "F03_SERVICE_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a framed brown-toned photograph, hung on the wall above the arrival landing (F03_SERVICE_CORE_RV, F03_SERVICE_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F03_LANDING-001",
@@ -4929,7 +4943,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_LANDING"
+   "area": "F03_LANDING",
+   "status": "implemented",
+   "owner_notes": "Partial: the landing shares its public core's flights and piece; Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight (F03_LANDING_RV). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F03_EAST_HALL-001",
@@ -6195,7 +6211,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_LANDING"
+   "area": "F04_LANDING",
+   "status": "implemented",
+   "owner_notes": "Partial: the landing shares its public core's flights and piece; Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight (F04_LANDING_RV). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F04_LANDING-003",
@@ -6346,7 +6364,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_PUBLIC_CORE"
+   "area": "F04_PUBLIC_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a dark interior canvas, a lit doorway and a lamp, hung on the wall above the arrival landing (F04_PUBLIC_CORE_RV, F04_PUBLIC_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F04_PUBLIC_CORE-003",
@@ -6527,7 +6547,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_SERVICE_CORE"
+   "area": "F04_SERVICE_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a framed green-toned photograph, hung on the wall above the arrival landing (F04_SERVICE_CORE_RV, F04_SERVICE_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F04_A_VESTIBULE-001",
@@ -8076,7 +8098,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_PUBLIC_CORE"
+   "area": "F05_PUBLIC_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a long canvas of a pale sky, grey water and a green shore, hung on the wall above the arrival landing (F05_PUBLIC_CORE_RV, F05_PUBLIC_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F05_PUBLIC_CORE-003",
@@ -8146,7 +8170,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_SERVICE_CORE"
+   "area": "F05_SERVICE_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a framed ruled certificate, wordless, hung on the wall above the arrival landing (F05_SERVICE_CORE_RV, F05_SERVICE_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F05_SERVICE_HALL-001",
@@ -9526,7 +9552,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_PUBLIC_CORE"
+   "area": "F06_PUBLIC_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, the prospectus roof-garden plate, hung on the wall above the arrival landing (F06_PUBLIC_CORE_RV, F06_PUBLIC_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F06_PUBLIC_CORE-003",
@@ -9541,7 +9569,9 @@
    "purpose": "Bible VIII.3: the roof garden is drawn with people in it because the drawing was a promise",
    "acceptance": "Detail view from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_PUBLIC_CORE"
+   "area": "F06_PUBLIC_CORE",
+   "status": "verified",
+   "owner_notes": "The prospectus roof-garden plate: a sepia drawing of the roof garden with its figures as silhouettes (a pergola, planting, people at the parapet), framed at 1.6 m on the wall above the F06 arrival landing below the roof flight, in plain paint and print finishes (no gilt tooling, no lettering). Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F06_SERVICE_CORE-001",
@@ -9576,7 +9606,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_SERVICE_CORE"
+   "area": "F06_SERVICE_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a framed teal-toned photograph, hung on the wall above the arrival landing (F06_SERVICE_CORE_RV, F06_SERVICE_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "F06_SERVICE_HALL-001",
@@ -10703,7 +10735,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_PUBLIC_CORE"
+   "area": "ROOF_PUBLIC_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a night canvas, a few stars and a low moon over the parapet, hung on the wall above the arrival landing (ROOF_PUBLIC_CORE_RV, ROOF_PUBLIC_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "ROOF_PUBLIC_CORE-003",
@@ -10773,7 +10807,9 @@
    "preserve": "Stair ironwork and tread collision",
    "acceptance": "Reverse view up the flight shows the dishing read against the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_SERVICE_CORE"
+   "area": "ROOF_SERVICE_CORE",
+   "status": "implemented",
+   "owner_notes": "Partial: Every honed tread of this core's flights is dished just behind the nosing on the walking line, deepest at the centre and zero at every edge (visual only: physics keeps the full box), read against the lamp in the reverse view up the flight; and the landing's one piece of its own, a framed burgundy-toned photograph, hung on the wall above the arrival landing (ROOF_SERVICE_CORE_RV, ROOF_SERVICE_CORE_DT1). Rail gold at hand height and paint rubbed at the turn are not yet made. Verified at WIP 14fec84e (implementation/slice50): fabrication batch 0 failures (four landing pieces captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks, the honed stair material check (294 stair surfaces), the blockout test, stair ironwork, stair direction (36/36), public doors 17, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route's one failure is pre-existing. Two of the three core sweeps (12 spaces) report 0 failures at the WIP; the third (the B1 public core, the F05 service core, both F06 cores and both roof cores) was rerun at slice 52's WIP 3f3f0d75, which carries this slice unchanged, and reports 0 failures (implementation/slice52b, committed with slice 52)."
   },
   {
    "id": "ROOF_SERVICE_CORE-003",
