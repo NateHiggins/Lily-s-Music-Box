@@ -918,9 +918,111 @@ def overflowtray(source):
  stock('Tray',(-.15,-.09,.0004),(.15,.09,.004),'soot',.0008)
  for y in [-.09,.082]:stock('RimY'+str(y),(-.15,y,.003),(.15,y+.008,.03),'soot',.0008)
  for x in [-.15,.142]:stock('RimX'+str(x),(x,-.082,.003),(x+.008,.082,.03),'soot',.0008)
- stock('Water',(-.1425,-.0825,.0035),(.1425,.0825,.0285),'milk_glass',.0004)
+ stock('Water',(-.1425,-.0825,.0035),(.1425,.0825,.0285),'standwater',.0004)
+ # Slice 47: his furled umbrella stands in it, tip on the tray floor, leaning to the south wall
+ # (0.17 m behind the tray's centre line); the black water alone read as a floor register.
+ tip=(.04,.0,.0035);top=(.075,.152,.87)
+ def along(t):return tuple(a+(b-a)*t for a,b in zip(tip,top))
+ tube('Ferrule',tip,along(.06),.0035,'metal')
+ tube('Shaft',along(.04),top,.0048,'metal')
+ for i,(a,b,r) in enumerate([(.06,.12,.008),(.11,.2,.011),(.19,.3,.014),(.29,.42,.017),(.41,.58,.0195),(.57,.68,.017),(.67,.75,.0135),(.74,.8,.0095)]):tube('Canopy'+str(i),along(a),along(b),r,'rubber_aged')
+ tube('TieStrap',along(.47),along(.51),.0205,'cape_navy')
+ wire('Crook',[top,(.075,.155,.93),(.075,.13,.975),(.075,.095,.97),(.075,.08,.935)],.009,'wood_dark')
  for p in [(-.18,-.11,0),(.17,-.11,0),(-.18,.1,0),(.17,.1,0)]:bearing('spill '+str(p),p)
  group('DripTray',start)
+
+def bathshelf(source):
+ # Dossier slice 47 (F0x_y_BATH-001): the household's bath set on an opal glass shelf over the basin,
+ # hung on two nickel brackets between the basin's coved back and the medicine cabinet's lower edge.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y'];z0=.106;yc=back+.062
+ stock('Glass',(-.23,back+.004,.1),(.23,back+.125,z0),'opal',.002)
+ for x in [-.17,.17]:
+  stock('BracketPlate'+str(x),(x-.012,back,.008),(x+.012,back+.0055,.104),'metal',.0008)
+  stock('BracketArm'+str(x),(x-.006,back+.005,.094),(x+.006,back+.112,.1002),'metal',.0005)
+  tube('BracketBrace'+str(x),(x,back+.004,.022),(x,back+.096,.097),.0042,'metal')
+  for z in [.03,.085]:support(identity,'wall',(x,back,z),(0,1,0),'bracket plate screwed to the wall')
+ for x in [-.205,.205]:tube('RailPost'+str(x),(x,back+.114,.104),(x,back+.114,.132),.003,'metal')
+ tube('Rail',(-.208,back+.114,.13),(.208,back+.114,.13),.003,'metal')
+ items=source['set'];widths=source['widths'];gap=.014
+ x=-(sum(widths)+gap*(len(items)-1))/2
+ for i,(item,w) in enumerate(zip(items,widths)):
+  cx=x+w/2;x+=w+gap;tag=str(i);b=z0-.0002
+  if item in ['glass','glass_spoon','glass_plain']:
+   lathe('Tumbler'+tag,cx,yc,b,[(0,0),(.028,0),(.031,.088),(.0285,.088),(.0255,.0052),(0,.0052)],'tumbler')
+   if item=='glass':
+    tube('Toothbrush'+tag,(cx+.006,yc+.004,b+.003),(cx+.016,yc+.011,b+.142),.0034,'bone')
+    stock('Bristles'+tag,(cx+.0125,yc+.0115,b+.112),(cx+.0215,yc+.0205,b+.138),'linen',.0006)
+   if item=='glass_spoon':
+    tube('DosingSpoon'+tag,(cx-.006,yc-.003,b+.003),(cx-.014,yc-.009,b+.128),.0018,'metal')
+    lathe('SpoonBowl'+tag,cx-.0145,yc-.0145,b+.122,[(0,0),(.009,0),(.01,.004),(0,.004)],'metal')
+  elif item in ['pillbottle','antiseptic','amber']:
+   s={'pillbottle':.68,'antiseptic':.95,'amber':1.0}[item]
+   lathe('Bottle'+tag,cx,yc,b,[(0,0),(.022*s,0),(.024*s,.004),(.024*s,.07*s),(.018*s,.082*s),(.008*s,.088*s),(.008*s,.1*s),(0,.1*s)],'amber')
+   lathe('Stopper'+tag,cx,yc,b+.0998*s,[(0,0),(.0088*s,0),(.0088*s,.012),(0,.012)],'rubber_aged')
+  elif item=='powder':
+   lathe('PowderBox'+tag,cx,yc,b,[(0,0),(.034,0),(.035,.004),(.035,.026),(0,.026)],'enamel')
+   lathe('PowderLid'+tag,cx,yc,b+.0258,[(0,0),(.0365,0),(.0365,.007),(.03,.012),(0,.012)],'bone')
+   lathe('PowderKnob'+tag,cx,yc,b+.0375,[(0,0),(.006,0),(.006,.005),(.004,.007),(0,.007)],'brass')
+  elif item=='pins':
+   stock('PinTin'+tag,(cx-.025,yc-.016,b),(cx+.025,yc+.016,b+.012),'brass',.002)
+   for k in range(3):tube('HairPin'+tag+str(k),(cx-.022+k*.012,yc+.0155,b+.0118),(cx-.012+k*.012,yc+.0245,b+.0118),.0011,'rubber_aged')
+  elif item in ['coldcream','pastilles']:
+   lathe('Jar'+tag,cx,yc,b,[(0,0),(.028,0),(.03,.004),(.03,.04),(0,.04)],'enamel' if item=='coldcream' else 'amber')
+   lathe('JarLid'+tag,cx,yc,b+.0398,[(0,0),(.031,0),(.031,.009),(.028,.011),(0,.011)],'metal')
+  elif item=='comb':
+   stock('CombSpine'+tag,(cx-.058,yc-.012,b),(cx+.058,yc-.004,b+.004),'rubber_aged',.0006)
+   for k in range(14):stock('CombTooth'+tag+str(k),(cx-.055+k*.0083,yc-.0042,b),(cx-.052+k*.0083,yc+.012,b+.0032),'rubber_aged',.0002)
+  elif item in ['soap','carbolic','wrapped']:
+   key={'soap':'linen','carbolic':'terracotta','wrapped':'paper'}[item];h=.024 if item!='wrapped' else .02
+   stock('Soap'+tag,(cx-w/2+.002,yc-.022,b),(cx+w/2-.002,yc+.022,b+h),key,.005 if item!='wrapped' else .0015)
+  elif item=='selvedge':
+   stock('Selvedge'+tag,(cx-.058,yc-.009,b),(cx+.058,yc+.009,b+.0022),'voile',.0004)
+   stock('SelvedgeEdge'+tag,(cx-.058,yc+.0075,b),(cx+.058,yc+.0112,b+.0026),'linen',.0004)
+  elif item=='kohl':
+   lathe('KohlPot'+tag,cx,yc,b,[(0,0),(.015,0),(.016,.004),(.016,.024),(0,.024)],'rubber_aged')
+   tube('KohlStick'+tag,(cx,yc,b+.02),(cx+.004,yc-.004,b+.075),.0022,'wood_dark')
+  elif item=='compact':
+   lathe('Compact'+tag,cx,yc,b,[(0,0),(.03,0),(.031,.003),(.031,.009),(.028,.0115),(0,.0115)],'brass')
+  elif item=='nailbrush':
+   stock('NailBrushBack'+tag,(cx-.04,yc-.016,b+.012),(cx+.04,yc+.016,b+.03),'wood_dark',.003)
+   stock('NailBrushBristles'+tag,(cx-.037,yc-.013,b),(cx+.037,yc+.013,b+.0122),'linen',.0008)
+  elif item=='mug':
+   lathe('ShavingMug'+tag,cx,yc,b,[(0,0),(.036,0),(.038,.072),(.0345,.072),(.0335,.006),(0,.006)],'enamel')
+   lathe('BrushHandle'+tag,cx,yc,b+.0058,[(0,0),(.012,0),(.014,.028),(.0115,.05),(0,.05)],'bone')
+   lathe('BrushKnot'+tag,cx,yc,b+.0555,[(0,0),(.0115,0),(.017,.025),(.014,.042),(.008,.047),(0,.047)],'blanket_grey')
+  elif item=='razor':
+   tube('RazorHandle'+tag,(cx-.044,yc,b+.0048),(cx+.028,yc,b+.0048),.0049,'metal')
+   stock('RazorHead'+tag,(cx+.027,yc-.022,b),(cx+.04,yc+.022,b+.011),'metal',.0015)
+  elif item=='pumice':
+   stock('Pumice'+tag,(cx-.03,yc-.02,b),(cx+.03,yc+.02,b+.026),'blanket_grey',.008)
+  elif item=='inhaler':
+   lathe('Inhaler'+tag,cx,yc,b,[(0,0),(.008,0),(.0085,.004),(.0085,.058),(.005,.066),(0,.066)],'metal')
+  elif item=='lipstick':
+   lathe('Lipstick'+tag,cx,yc,b,[(0,0),(.0078,0),(.0082,.003),(.0082,.052),(0,.052)],'brass')
+  elif item=='tape':
+   stock('TapeLine'+tag,(cx-.008,back+.008,b),(cx+.008,back+.121,b+.0006),'paper',.0002)
+  elif item=='card':
+   stock('RulesCard'+tag,(cx-.04,back+.006,b),(cx+.04,back+.0085,b+.1),'paper',.0004)
+  elif item=='cells':
+   for k in range(3):
+    lathe('Cell'+tag+str(k),cx-.021+k*.021,yc,b,[(0,0),(.0088,0),(.0092,.003),(.0092,.04),(0,.04)],'rubber_aged')
+    lathe('CellCap'+tag+str(k),cx-.021+k*.021,yc,b+.0398,[(0,0),(.006,0),(.006,.004),(0,.004)],'brass')
+  elif item=='turps':
+   lathe('TurpsJar'+tag,cx,yc,b,[(0,0),(.034,0),(.036,.005),(.036,.08),(.03,.088),(0,.088)],'amber')
+   lathe('TurpsLid'+tag,cx,yc,b+.0878,[(0,0),(.031,0),(.031,.012),(0,.012)],'metal')
+  elif item=='brushtin':
+   lathe('BrushTin'+tag,cx,yc,b,[(0,0),(.035,0),(.036,.072),(.033,.072),(.032,.004),(0,.004)],'metal')
+   for k,(dx,dy) in enumerate([(-.012,-.006),(.011,-.004),(0,.012)]):
+    tube('PaintBrush'+tag+str(k),(cx+dx*.6,yc+dy*.6,b+.002),(cx+dx,yc+dy,b+.118),.0035,'wood_dark')
+    lathe('Bristle'+tag+str(k),cx+dx,yc+dy,b+.114,[(0,0),(.0045,0),(.005,.012),(.002,.024),(0,.024)],'blanket_grey')
+  elif item=='tongs':
+   for k,dy in enumerate([-.009,.009]):stock('Tong'+tag+str(k),(cx-.068,yc+dy-.004,b+k*.0048),(cx+.068,yc+dy+.004,b+.005+k*.0048),'cane',.0008)
+   stock('TongJoint'+tag,(cx+.05,yc-.0135,b),(cx+.068,yc+.0135,b+.0098),'cane',.001)
+  elif item=='buttonhook':
+   tube('ButtonHook'+tag,(cx-.036,yc,b+.0035),(cx+.052,yc,b+.0035),.0016,'metal')
+   lathe('HookHandle'+tag,cx-.04,yc,b,[(0,0),(.0065,0),(.007,.007),(0,.007)],'bone')
+  else:raise AssertionError(('unknown bath set item',item))
+ group('BathShelf',start)
 
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
@@ -980,4 +1082,5 @@ for assembly in assemblies:
  elif kind=='wallbell':wallbell(source)
  elif kind=='quietsign':quietsign(source)
  elif kind=='overflowtray':overflowtray(source)
+ elif kind=='bathshelf':bathshelf(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

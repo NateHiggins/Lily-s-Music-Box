@@ -171,6 +171,8 @@ Slices landed so far (evidence folders in parentheses):
 44. 2B's pot on the lit ring, 2C's tape boxes, 4A's chairs tucked, Mina's jacket and
     cloche, three household bedding states, bath tile on every sink wall, and two
     placement fixes the objects context inspector found (`slice44`).
+47. A resident bath set on an opal glass shelf over every one of the 18 basins, and
+    Wren's overflowed umbrella tray (`slice47`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

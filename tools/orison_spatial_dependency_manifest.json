@@ -4,7 +4,7 @@
  "layout_path": "art/data/building_layout.json",
  "universe_counts": {
   "floor": 8,
-  "v2_blockout": 2253,
+  "v2_blockout": 2271,
   "unit": 22,
   "room": 127,
   "marker": 631,
@@ -66886,9 +66886,61 @@
    "target_exists": true
   },
   {
+   "key": "3661ae3d05610719",
+   "kind": "id_reference",
+   "token": "1A_bath_shelf",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "c79c98d51a2d6b49",
    "kind": "id_reference",
    "token": "1A_lesson_trunk",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "00a87fdd4c09d7d1",
+   "kind": "id_reference",
+   "token": "1D_bath_shelf",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -66941,6 +66993,32 @@
    "key": "08ad6c3da7b7e53c",
    "kind": "id_reference",
    "token": "1D_quiet_sign",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "00763503f9e39d6e",
+   "kind": "id_reference",
+   "token": "2A_bath_shelf",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -67680,6 +67758,32 @@
    "target_exists": true
   },
   {
+   "key": "26dec5218337f6c3",
+   "kind": "id_reference",
+   "token": "2B_bath_shelf",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "0bea9eb87b9e80c7",
    "kind": "id_reference",
    "token": "2B_bedside",
@@ -68236,6 +68340,32 @@
    "target_exists": true
   },
   {
+   "key": "a4f26c0c6aa5b3ec",
+   "kind": "id_reference",
+   "token": "2C_bath_shelf",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "5ff52da4f1e54692",
    "kind": "id_reference",
    "token": "2C_blanket_a",
@@ -68317,6 +68447,32 @@
    "key": "8a91460029db00ab",
    "kind": "id_reference",
    "token": "2C_deck",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f0a3f9134efc2ede",
+   "kind": "id_reference",
+   "token": "3A_bath_shelf",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -68938,6 +69094,32 @@
    "target_exists": true
   },
   {
+   "key": "b412ce5d3b646044",
+   "kind": "id_reference",
+   "token": "3B_bath_shelf",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "30ef03d40b2ef942",
    "kind": "id_reference",
    "token": "3B_din_dc1",
@@ -69456,6 +69638,58 @@
    "target_exists": true
   },
   {
+   "key": "c2d0080847624800",
+   "kind": "id_reference",
+   "token": "3D_bath_shelf",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b2261c453b2c0a1a",
+   "kind": "id_reference",
+   "token": "4A_bath_shelf",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "d37b6d48d2ea7cb3",
    "kind": "id_reference",
    "token": "4A_bed0",
@@ -69917,6 +70151,32 @@
    "key": "1f1709aa556a5141",
    "kind": "id_reference",
    "token": "4A_writing_table",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "92d6a0a79cf5826b",
+   "kind": "id_reference",
+   "token": "4B_bath_shelf",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -70522,6 +70782,58 @@
    "target_exists": true
   },
   {
+   "key": "9d0b4281e3db7320",
+   "kind": "id_reference",
+   "token": "4C_bath_shelf",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "286d51b01238159a",
+   "kind": "id_reference",
+   "token": "4D_bath_shelf",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "0b71de3a47675588",
    "kind": "id_reference",
    "token": "4D_case",
@@ -70551,6 +70863,32 @@
    "key": "6d83c9602c9d6d1b",
    "kind": "id_reference",
    "token": "4D_print",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e06e948f264908ef",
+   "kind": "id_reference",
+   "token": "5A_bath_shelf",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -71262,6 +71600,32 @@
    "target_exists": true
   },
   {
+   "key": "48f22b1b87df8eb5",
+   "kind": "id_reference",
+   "token": "5B_bath_shelf",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "87ac36524b8b0a34",
    "kind": "id_reference",
    "token": "5B_comparison_table",
@@ -71805,6 +72169,32 @@
    "key": "c209d6a3b651de01",
    "kind": "id_reference",
    "token": "5B_work_b",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6e2ab4328933e794",
+   "kind": "id_reference",
+   "token": "5C_bath_shelf",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -72503,6 +72893,32 @@
    "key": "c9e968648b9ee27e",
    "kind": "id_reference",
    "token": "6A_backdrop_rail",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3a57bbc047573a7a",
+   "kind": "id_reference",
+   "token": "6A_bath_shelf",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -73294,6 +73710,32 @@
    "target_exists": true
   },
   {
+   "key": "5c5c891f399528b5",
+   "kind": "id_reference",
+   "token": "6B_bath_shelf",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "9c80dd4837b85bb6",
    "kind": "id_reference",
    "token": "6B_din_dc1",
@@ -73617,6 +74059,32 @@
    "key": "7d4fc41b762b8146",
    "kind": "id_reference",
    "token": "6C_archive_table",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2ed49c1a9e273b14",
+   "kind": "id_reference",
+   "token": "6C_bath_shelf",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -75838,6 +76306,32 @@
    "target_exists": true
   },
   {
+   "key": "e989deea59a039ab",
+   "kind": "id_reference",
+   "token": "1A_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "8a27a7d1b963e846",
    "kind": "id_reference",
    "token": "1A_frame_a",
@@ -75968,6 +76462,32 @@
    "target_exists": true
   },
   {
+   "key": "7c211524d2b1c5e8",
+   "kind": "id_reference",
+   "token": "1D_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "89a320f68a68e453",
    "kind": "id_reference",
    "token": "1D_hall_boots",
@@ -76049,6 +76569,32 @@
    "key": "b23d7f6e27206f6c",
    "kind": "id_reference",
    "token": "1D_quiet_sign",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5a3e38de27b603d9",
+   "kind": "id_reference",
+   "token": "2A_bath_shelf",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -76203,6 +76749,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "eeea88dc75c01ddf",
+   "kind": "id_reference",
+   "token": "2B_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -76416,6 +76988,32 @@
    "target_exists": true
   },
   {
+   "key": "95d4a3d3c515d53a",
+   "kind": "id_reference",
+   "token": "2C_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "a53d4a4527f849cb",
    "kind": "id_reference",
    "token": "2C_blanket_a",
@@ -76572,6 +77170,32 @@
    "target_exists": true
   },
   {
+   "key": "c00a3cd77c208eda",
+   "kind": "id_reference",
+   "token": "3A_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "c6a662a5cc9a03bf",
    "kind": "id_reference",
    "token": "3A_diagram",
@@ -76701,6 +77325,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "066dd6fb0bed7cac",
+   "kind": "id_reference",
+   "token": "3B_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -76835,6 +77485,32 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F03/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ef6e2cdcd77f048e",
+   "kind": "id_reference",
+   "token": "3D_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -77046,6 +77722,32 @@
    "target_exists": true
   },
   {
+   "key": "4ca17d336dc66263",
+   "kind": "id_reference",
+   "token": "4A_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "a3092295589403db",
    "kind": "id_reference",
    "token": "4A_frame_a",
@@ -77202,6 +77904,32 @@
    "target_exists": true
   },
   {
+   "key": "9ddeef9800f7f810",
+   "kind": "id_reference",
+   "token": "4B_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "8267875f24d72ab8",
    "kind": "id_reference",
    "token": "4B_case_wall",
@@ -77332,6 +78060,32 @@
    "target_exists": true
   },
   {
+   "key": "257464690c34f766",
+   "kind": "id_reference",
+   "token": "4C_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "3d7dce68283eebb8",
    "kind": "id_reference",
    "token": "4C_hall_hamper",
@@ -77387,6 +78141,32 @@
    "key": "4e0c201884b4173d",
    "kind": "id_reference",
    "token": "4C_story_colorboard",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ff4f3184bbbd00e4",
+   "kind": "id_reference",
+   "token": "4D_bath_shelf",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -77491,6 +78271,32 @@
    "key": "fcc60723f8342d95",
    "kind": "id_reference",
    "token": "4D_print",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "70a41a4d04d68d90",
+   "kind": "id_reference",
+   "token": "5A_bath_shelf",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -77702,6 +78508,32 @@
    "target_exists": true
   },
   {
+   "key": "7fcb0cd28d12fa54",
+   "kind": "id_reference",
+   "token": "5B_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "a76f543cb173189d",
    "kind": "id_reference",
    "token": "5B_deck",
@@ -77809,6 +78641,32 @@
    "key": "76602068a62d447e",
    "kind": "id_reference",
    "token": "5B_work_b",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5d622425a565c63a",
+   "kind": "id_reference",
+   "token": "5C_bath_shelf",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -78097,6 +78955,32 @@
    "key": "8123b3acc8e92082",
    "kind": "id_reference",
    "token": "6A_backdrop_rail",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f312c5916399e45a",
+   "kind": "id_reference",
+   "token": "6A_bath_shelf",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -78444,6 +79328,32 @@
    "target_exists": true
   },
   {
+   "key": "cc493d12367377de",
+   "kind": "id_reference",
+   "token": "6B_bath_shelf",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "ab4990be7494c807",
    "kind": "id_reference",
    "token": "6B_hall_hamper",
@@ -78473,6 +79383,32 @@
    "key": "286e12e4b4c8a642",
    "kind": "id_reference",
    "token": "6B_hallstand",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f55a9620cb02357e",
+   "kind": "id_reference",
+   "token": "6C_bath_shelf",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -142906,7 +143842,7 @@
     0,
     0
    ],
-   "count": 244,
+   "count": 246,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -142964,7 +143900,7 @@
     0,
     0
    ],
-   "count": 350,
+   "count": 353,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -143022,7 +143958,7 @@
     0,
     0
    ],
-   "count": 287,
+   "count": 290,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -143080,7 +144016,7 @@
     0,
     0
    ],
-   "count": 389,
+   "count": 393,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -143137,7 +144073,7 @@
     0,
     0
    ],
-   "count": 308,
+   "count": 311,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -143194,7 +144130,7 @@
     0,
     0
    ],
-   "count": 306,
+   "count": 309,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -147912,9 +148848,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 9,
+   "count": 10,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -148168,9 +149105,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 18,
+   "count": 19,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -148971,9 +149909,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 15,
+   "count": 16,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -149288,9 +150227,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 18,
+   "count": 19,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -149518,9 +150458,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 13,
+   "count": 14,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -150345,9 +151286,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 16,
+   "count": 17,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -150669,9 +151611,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 17,
+   "count": 18,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151042,9 +151985,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 10,
+   "count": 11,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151764,9 +152708,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 18,
+   "count": 19,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -152087,9 +153032,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 17,
+   "count": 18,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -152439,9 +153385,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 13,
+   "count": 14,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -152810,9 +153757,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 10,
+   "count": 11,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -153476,9 +154424,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 18,
+   "count": 19,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -153797,9 +154746,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 13,
+   "count": 14,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -154053,9 +155003,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 13,
+   "count": 14,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -155027,7 +155978,7 @@
     0,
     0
    ],
-   "count": 20,
+   "count": 21,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -155346,9 +156297,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 13,
+   "count": 14,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -155597,9 +156549,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 13,
+   "count": 14,
    "context": [],
    "gameplay_binding": false,
    "authority": [

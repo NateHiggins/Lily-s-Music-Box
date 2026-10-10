@@ -83,12 +83,15 @@ def wall_bearing(anchor,point,direction):
  for room in spaces.values():
   if room['level']!=anchor['level'] or room.get('open_shell'):continue
   rect=room['rect'];floor=levels[room['level']];height=layout['dimensions']['clear_height']
-  for side in room.get('wall_sides',['south','north','west','east']):
+  # Wall extensions (orison_v2_blockout.gd builds them on the rect edge too) carry
+  # their own span: 4B's bath owns the wall east of the main room's north wall.
+  walls=[(side,None) for side in room.get('wall_sides',['south','north','west','east'])]+[(e['side'],(float(e['start']),float(e['end']))) for e in room.get('wall_extensions',[])]
+  for side,span in walls:
    axis=0 if side in ['west','east'] else 2;other=2-axis
    if abs(d[axis])<.99:continue
    fixed=rect[{'west':0,'east':2,'south':1,'north':3}[side]]
    face=fixed+layout['dimensions']['partition_wall']*.5*d[axis]
-   low=rect[1 if axis==0 else 0];high=rect[3 if axis==0 else 2]
+   low,high=span if span else (rect[1 if axis==0 else 0],rect[3 if axis==0 else 2])
    if abs(g[axis]-face)>.00004 or not low<=g[other]<=high or not floor<=g.y<=floor+height:continue
    blocked=False
    for opening in layout['doors']+layout['openings']+layout['windows']:

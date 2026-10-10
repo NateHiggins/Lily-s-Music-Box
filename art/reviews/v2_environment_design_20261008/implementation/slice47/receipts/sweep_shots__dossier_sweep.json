@@ -1,0 +1,1295 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.2599992752075,
+						11.039999961853,
+						-9.15000057220459
+					],
+					"feet": [
+						11.2600002288818,
+						9.63000011444092,
+						-2.5
+					],
+					"forward": [
+						0.865426540374756,
+						-0.501035809516907,
+						0.0
+					],
+					"image": "F04_A_VESTIBULE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						10.6000003814697,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.0999994277954,
+						11.039999961853,
+						-8.61000061035156
+					],
+					"feet": [
+						10.1000003814697,
+						9.63000011444092,
+						-3.03999996185303
+					],
+					"forward": [
+						-0.497980892658234,
+						-0.547778964042664,
+						-0.672274768352509
+					],
+					"image": "F04_A_VESTIBULE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						10.6000003814697,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-8.49999904632568,
+						11.039999961853,
+						-8.40000057220459
+					],
+					"feet": [
+						8.5,
+						9.63000011444092,
+						-3.25
+					],
+					"forward": [
+						-0.930474162101746,
+						-0.111656792461872,
+						-0.348927825689316
+					],
+					"image": "F04_A_VESTIBULE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F04_DOOR_02",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.5,
+						10.8000001907349,
+						-2.5
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.899998664856,
+						11.039999961853,
+						-8.61000061035156
+					],
+					"feet": [
+						10.8999996185303,
+						9.63000011444092,
+						-3.03999996185303
+					],
+					"forward": [
+						0.49504342675209,
+						-0.267323434352875,
+						-0.82672256231308
+					],
+					"image": "F04_A_VESTIBULE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4A_hallstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						9.89999961853027,
+						10.5,
+						-1.37000000476837
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.899998664856,
+						11.039999961853,
+						-9.69000053405762
+					],
+					"feet": [
+						10.8999996185303,
+						9.63000011444092,
+						-1.96000003814697
+					],
+					"forward": [
+						0.326641976833344,
+						-0.293978095054626,
+						0.898266077041626
+					],
+					"image": "F04_A_VESTIBULE_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4A_umbrella_tray",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.3000001907349,
+						10.5,
+						-3.60999989509583
+					]
+				},
+				{
+					"kind": "detail",
+					"owner": "F04_A_VESTIBULE_LT_FLUSH_DOME_Semantic",
+					"status": "no_clear_station_with_sight"
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 9.6,
+			"id": "F04_A_VESTIBULE",
+			"level": "F04",
+			"purpose": "4A privacy, coat storage and distribution",
+			"rect": [
+				9.5,
+				-3.85,
+				11.5,
+				-1.15
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						7.48999977111816,
+						14.2400007247925,
+						-2.37999820709229
+					],
+					"feet": [
+						-7.48999977111816,
+						12.8300008773804,
+						-9.27000045776367
+					],
+					"forward": [
+						-0.359672427177429,
+						-0.2930668592453,
+						0.885859847068787
+					],
+					"image": "F05_A_BATH_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						13.8000001907349,
+						-10.6000003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.94999980926514,
+						14.2400007247925,
+						0.280002593994141
+					],
+					"feet": [
+						-6.94999980926514,
+						12.8300008773804,
+						-11.9300012588501
+					],
+					"forward": [
+						0.0,
+						-0.31408566236496,
+						-0.949394643306732
+					],
+					"image": "F05_A_BATH_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						13.8000001907349,
+						-10.6000003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.95000028610229,
+						14.2400007247925,
+						-3.79999923706055
+					],
+					"feet": [
+						-6.94999980926514,
+						12.8300008773804,
+						-7.84999990463257
+					],
+					"forward": [
+						-0.000000172738680248585,
+						-0.0869424864649773,
+						0.996213316917419
+					],
+					"image": "F05_A_BATH_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F05_A_PRIVATE_HALL_BATH_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						14.0,
+						-10.6000003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.48999977111816,
+						14.2400007247925,
+						-2.37999820709229
+					],
+					"feet": [
+						-7.48999977111816,
+						12.8300008773804,
+						-9.27000045776367
+					],
+					"forward": [
+						-0.229060500860214,
+						0.492055594921112,
+						0.839888453483582
+					],
+					"image": "F05_A_BATH_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F05_A_BATH_VENT_REGISTER",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						15.3999996185303,
+						-11.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.40999984741211,
+						14.2400007247925,
+						-1.74999809265137
+					],
+					"feet": [
+						-6.40999984741211,
+						12.8300008773804,
+						-9.90000057220459
+					],
+					"forward": [
+						0.944702923297882,
+						-0.251921057701111,
+						0.209933757781982
+					],
+					"image": "F05_A_BATH_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "5A_bath_shelf",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-8.21000003814697,
+						13.7600002288818,
+						-10.3000001907349
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.94999980926514,
+						14.2400007247925,
+						0.280002593994141
+					],
+					"feet": [
+						-6.94999980926514,
+						12.8300008773804,
+						-11.9300012588501
+					],
+					"forward": [
+						0.499477744102478,
+						-0.272442817687988,
+						-0.822372734546661
+					],
+					"image": "F05_A_BATH_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F05_5A_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.94000005722046,
+						13.6999998092651,
+						-10.3000001907349
+					]
+				}
+			],
+			"class": "wet",
+			"clear_stations": 7,
+			"floor_y": 12.8,
+			"id": "F05_A_BATH",
+			"level": "F05",
+			"purpose": "Nadia Quell: private sanitary room",
+			"rect": [
+				-8.3,
+				-12.35,
+				-5.6,
+				-8.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						7.34000158309937,
+						14.2400007247925,
+						-15.7250003814697
+					],
+					"feet": [
+						-7.34000015258789,
+						12.8300008773804,
+						4.07500076293945
+					],
+					"forward": [
+						0.580786526203156,
+						-0.456332981586456,
+						-0.674127042293549
+					],
+					"image": "F05_B_BATH_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						13.8000001907349,
+						4.72499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.90000152587891,
+						14.2400007247925,
+						-17.0249996185303
+					],
+					"feet": [
+						-7.90000009536743,
+						12.8300008773804,
+						5.375
+					],
+					"forward": [
+						0.00000000000000588406895161487,
+						-0.560567200183868,
+						0.828108966350555
+					],
+					"image": "F05_B_BATH_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						13.8000001907349,
+						4.72499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.90000009536743,
+						14.2400007247925,
+						-13.7499990463257
+					],
+					"feet": [
+						-7.89999914169312,
+						12.8300008773804,
+						2.10000038146973
+					],
+					"forward": [
+						0.000000542693101124314,
+						-0.0910490676760674,
+						-0.995846450328827
+					],
+					"image": "F05_B_BATH_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F05_B_VESTIBULE_BATH_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						14.0,
+						4.72499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.90000152587891,
+						14.2400007247925,
+						-17.0249996185303
+					],
+					"feet": [
+						-7.90000009536743,
+						12.8300008773804,
+						5.375
+					],
+					"forward": [
+						-0.439169496297836,
+						0.783747792243958,
+						0.439169138669968
+					],
+					"image": "F05_B_BATH_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F05_B_BATH_VENT_REGISTER",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.25,
+						15.3999996185303,
+						4.72499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.34000158309937,
+						14.2400007247925,
+						-16.375
+					],
+					"feet": [
+						-7.34000015258789,
+						12.8300008773804,
+						4.72500038146973
+					],
+					"forward": [
+						0.955160558223724,
+						-0.245175242424011,
+						0.166004315018654
+					],
+					"image": "F05_B_BATH_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "5B_bath_shelf",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.21000003814697,
+						13.7600002288818,
+						4.40000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.34000158309937,
+						14.2400007247925,
+						-16.375
+					],
+					"feet": [
+						-7.34000015258789,
+						12.8300008773804,
+						4.72500038146973
+					],
+					"forward": [
+						0.925492346286774,
+						-0.32452404499054,
+						0.195315465331078
+					],
+					"image": "F05_B_BATH_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F05_5B_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-8.88000011444092,
+						13.6999998092651,
+						4.40000009536743
+					]
+				}
+			],
+			"class": "wet",
+			"clear_stations": 5,
+			"floor_y": 12.8,
+			"id": "F05_B_BATH",
+			"level": "F05",
+			"purpose": "Cal Dwyer: private sanitary room",
+			"rect": [
+				-9.3,
+				3.1,
+				-6.5,
+				6.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-1.48999857902527,
+						14.2400007247925,
+						-17.25
+					],
+					"feet": [
+						1.49000012874603,
+						12.8300008773804,
+						5.60000038146973
+					],
+					"forward": [
+						-0.703882217407227,
+						-0.469255328178406,
+						0.533244073390961
+					],
+					"image": "F05_C_BATH_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						2.15000009536743,
+						13.8000001907349,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.14999866485596,
+						14.2400007247925,
+						-16.25
+					],
+					"feet": [
+						2.15000009536743,
+						12.8300008773804,
+						4.60000038146973
+					],
+					"forward": [
+						0.0,
+						-0.660628318786621,
+						-0.750713169574738
+					],
+					"image": "F05_C_BATH_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						2.15000009536743,
+						13.8000001907349,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.09999823570251,
+						14.2400007247925,
+						-19.0
+					],
+					"feet": [
+						2.09999990463257,
+						12.8300008773804,
+						7.35000038146973
+					],
+					"forward": [
+						-0.022091668099165,
+						-0.10603941231966,
+						0.994116485118866
+					],
+					"image": "F05_C_BATH_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F05_C_PRIVATE_HALL_BATH_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						2.15000009536743,
+						14.0,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.14999866485596,
+						14.2400007247925,
+						-16.25
+					],
+					"feet": [
+						2.15000009536743,
+						12.8300008773804,
+						4.60000038146973
+					],
+					"forward": [
+						0.0,
+						0.710160970687866,
+						-0.704039394855499
+					],
+					"image": "F05_C_BATH_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F05_C_BATH_VENT_REGISTER",
+					"status": "captured_pending_visual_review",
+					"target": [
+						2.15000009536743,
+						15.3999996185303,
+						5.75
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.14999866485596,
+						14.2400007247925,
+						-17.25
+					],
+					"feet": [
+						2.15000009536743,
+						12.8300008773804,
+						5.60000038146973
+					],
+					"forward": [
+						0.537000894546509,
+						-0.234327882528305,
+						0.810382962226868
+					],
+					"image": "F05_C_BATH_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "5C_bath_shelf",
+					"status": "captured_pending_visual_review",
+					"target": [
+						1.04999995231628,
+						13.7600002288818,
+						3.94000005722046
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.14999866485596,
+						14.2400007247925,
+						-17.25
+					],
+					"feet": [
+						2.15000009536743,
+						12.8300008773804,
+						5.60000038146973
+					],
+					"forward": [
+						0.591226816177368,
+						-0.290239125490189,
+						0.752470731735229
+					],
+					"image": "F05_C_BATH_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F05_5C_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						1.04999995231628,
+						13.6999998092651,
+						4.19999980926514
+					]
+				}
+			],
+			"class": "wet",
+			"clear_stations": 5,
+			"floor_y": 12.8,
+			"id": "F05_C_BATH",
+			"level": "F05",
+			"purpose": "Iris Bell: private sanitary room",
+			"rect": [
+				0.5,
+				3.85,
+				3.8,
+				6.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						7.48999977111816,
+						17.4400005340576,
+						-2.37999820709229
+					],
+					"feet": [
+						-7.48999977111816,
+						16.0300006866455,
+						-9.27000045776367
+					],
+					"forward": [
+						-0.359672427177429,
+						-0.2930668592453,
+						0.885859787464142
+					],
+					"image": "F06_A_BATH_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						17.0,
+						-10.6000003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.94999980926514,
+						17.4400005340576,
+						0.280002593994141
+					],
+					"feet": [
+						-6.94999980926514,
+						16.0300006866455,
+						-11.9300012588501
+					],
+					"forward": [
+						0.0,
+						-0.314085632562637,
+						-0.949394702911377
+					],
+					"image": "F06_A_BATH_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						17.0,
+						-10.6000003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.95000028610229,
+						17.4400005340576,
+						-3.79999923706055
+					],
+					"feet": [
+						-6.94999980926514,
+						16.0300006866455,
+						-7.84999990463257
+					],
+					"forward": [
+						-0.00000017273869445944,
+						-0.0869421437382698,
+						0.996213376522064
+					],
+					"image": "F06_A_BATH_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F06_A_PRIVATE_HALL_BATH_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						17.2000007629395,
+						-10.6000003814697
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.48999977111816,
+						17.4400005340576,
+						-2.37999820709229
+					],
+					"feet": [
+						-7.48999977111816,
+						16.0300006866455,
+						-9.27000045776367
+					],
+					"forward": [
+						-0.229060500860214,
+						0.492055803537369,
+						0.839888334274292
+					],
+					"image": "F06_A_BATH_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F06_A_BATH_VENT_REGISTER",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						18.6000003814697,
+						-11.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.40999984741211,
+						17.4400005340576,
+						-1.74999809265137
+					],
+					"feet": [
+						-6.40999984741211,
+						16.0300006866455,
+						-9.90000057220459
+					],
+					"forward": [
+						0.944702863693237,
+						-0.251921474933624,
+						0.209933757781982
+					],
+					"image": "F06_A_BATH_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6A_bath_shelf",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-8.21000003814697,
+						16.9599990844727,
+						-10.3000001907349
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.94999980926514,
+						17.4400005340576,
+						0.280002593994141
+					],
+					"feet": [
+						-6.94999980926514,
+						16.0300006866455,
+						-11.9300012588501
+					],
+					"forward": [
+						0.499477744102478,
+						-0.272442817687988,
+						-0.822372734546661
+					],
+					"image": "F06_A_BATH_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F06_6A_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.94000005722046,
+						16.8999996185303,
+						-10.3000001907349
+					]
+				}
+			],
+			"class": "wet",
+			"clear_stations": 7,
+			"floor_y": 16.0,
+			"id": "F06_A_BATH",
+			"level": "F06",
+			"purpose": "Sacha Reed: private sanitary room",
+			"rect": [
+				-8.3,
+				-12.35,
+				-5.6,
+				-8.85
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						7.34000158309937,
+						17.4400005340576,
+						-15.7250003814697
+					],
+					"feet": [
+						-7.34000015258789,
+						16.0300006866455,
+						4.07500076293945
+					],
+					"forward": [
+						0.580786526203156,
+						-0.456332981586456,
+						-0.674127042293549
+					],
+					"image": "F06_B_BATH_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						17.0,
+						4.72499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.90000152587891,
+						17.4400005340576,
+						-17.0249996185303
+					],
+					"feet": [
+						-7.90000009536743,
+						16.0300006866455,
+						5.375
+					],
+					"forward": [
+						0.00000000000000588406895161487,
+						-0.560567200183868,
+						0.828108966350555
+					],
+					"image": "F06_B_BATH_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						17.0,
+						4.72499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.90000009536743,
+						17.4400005340576,
+						-13.7499990463257
+					],
+					"feet": [
+						-7.89999914169312,
+						16.0300006866455,
+						2.10000038146973
+					],
+					"forward": [
+						0.000000542693101124314,
+						-0.0910487100481987,
+						-0.995846450328827
+					],
+					"image": "F06_B_BATH_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F06_B_VESTIBULE_BATH_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						17.2000007629395,
+						4.72499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.90000152587891,
+						17.4400005340576,
+						-17.0249996185303
+					],
+					"feet": [
+						-7.90000009536743,
+						16.0300006866455,
+						5.375
+					],
+					"forward": [
+						-0.439169347286224,
+						0.783747971057892,
+						0.439169019460678
+					],
+					"image": "F06_B_BATH_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F06_B_BATH_VENT_REGISTER",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.25,
+						18.6000003814697,
+						4.72499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.34000158309937,
+						17.4400005340576,
+						-16.375
+					],
+					"feet": [
+						-7.34000015258789,
+						16.0300006866455,
+						4.72500038146973
+					],
+					"forward": [
+						0.955160439014435,
+						-0.245175704360008,
+						0.166004285216331
+					],
+					"image": "F06_B_BATH_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6B_bath_shelf",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.21000003814697,
+						16.9599990844727,
+						4.40000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.34000158309937,
+						17.4400005340576,
+						-16.375
+					],
+					"feet": [
+						-7.34000015258789,
+						16.0300006866455,
+						4.72500038146973
+					],
+					"forward": [
+						0.925492346286774,
+						-0.32452404499054,
+						0.195315465331078
+					],
+					"image": "F06_B_BATH_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F06_6B_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-8.88000011444092,
+						16.8999996185303,
+						4.40000009536743
+					]
+				}
+			],
+			"class": "wet",
+			"clear_stations": 5,
+			"floor_y": 16.0,
+			"id": "F06_B_BATH",
+			"level": "F06",
+			"purpose": "Jonah Price: private sanitary room",
+			"rect": [
+				-9.3,
+				3.1,
+				-6.5,
+				6.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-1.48999857902527,
+						17.4400005340576,
+						-17.25
+					],
+					"feet": [
+						1.49000012874603,
+						16.0300006866455,
+						5.60000038146973
+					],
+					"forward": [
+						-0.703882217407227,
+						-0.469255328178406,
+						0.533244073390961
+					],
+					"image": "F06_C_BATH_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						2.15000009536743,
+						17.0,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.14999866485596,
+						17.4400005340576,
+						-16.25
+					],
+					"feet": [
+						2.15000009536743,
+						16.0300006866455,
+						4.60000038146973
+					],
+					"forward": [
+						0.0,
+						-0.660628318786621,
+						-0.750713169574738
+					],
+					"image": "F06_C_BATH_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						2.15000009536743,
+						17.0,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.09999823570251,
+						17.4400005340576,
+						-19.0
+					],
+					"feet": [
+						2.09999990463257,
+						16.0300006866455,
+						7.35000038146973
+					],
+					"forward": [
+						-0.0220916699618101,
+						-0.106039002537727,
+						0.994116544723511
+					],
+					"image": "F06_C_BATH_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F06_C_PRIVATE_HALL_BATH_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						2.15000009536743,
+						17.2000007629395,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.14999866485596,
+						17.4400005340576,
+						-16.25
+					],
+					"feet": [
+						2.15000009536743,
+						16.0300006866455,
+						4.60000038146973
+					],
+					"forward": [
+						0.0,
+						0.71016126871109,
+						-0.704039096832275
+					],
+					"image": "F06_C_BATH_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F06_C_BATH_VENT_REGISTER",
+					"status": "captured_pending_visual_review",
+					"target": [
+						2.15000009536743,
+						18.6000003814697,
+						5.75
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.14999866485596,
+						17.4400005340576,
+						-17.25
+					],
+					"feet": [
+						2.15000009536743,
+						16.0300006866455,
+						5.60000038146973
+					],
+					"forward": [
+						0.537000834941864,
+						-0.234328284859657,
+						0.810382843017578
+					],
+					"image": "F06_C_BATH_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6C_bath_shelf",
+					"status": "captured_pending_visual_review",
+					"target": [
+						1.04999995231628,
+						16.9599990844727,
+						3.94000005722046
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-2.14999866485596,
+						17.4400005340576,
+						-17.25
+					],
+					"feet": [
+						2.15000009536743,
+						16.0300006866455,
+						5.60000038146973
+					],
+					"forward": [
+						0.591226816177368,
+						-0.290239125490189,
+						0.752470731735229
+					],
+					"image": "F06_C_BATH_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F06_6C_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						1.04999995231628,
+						16.8999996185303,
+						4.19999980926514
+					]
+				}
+			],
+			"class": "wet",
+			"clear_stations": 5,
+			"floor_y": 16.0,
+			"id": "F06_C_BATH",
+			"level": "F06",
+			"purpose": "Mae Kessler: private sanitary room",
+			"rect": [
+				0.5,
+				3.85,
+				3.8,
+				6.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

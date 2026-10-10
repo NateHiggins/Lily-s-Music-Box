@@ -1,0 +1,113 @@
+{
+	"batch_checks": 11,
+	"elapsed_ms": 73626,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 7774,
+	"modules": {
+		"domestic_objects": {
+			"actors": 170,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 6716,
+			"elapsed_ms": 11789,
+			"failures": [],
+			"fixture_sha256": "a628cd3fd3d5d23308eaa81ae64b433ed87ced4a654fc50f0f09c8da6aee4db2",
+			"parts": 671,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 445984,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 88,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.1131715774536,
+						9.61999988555908,
+						-8.85317420959473
+					],
+					"id": "4A_umbrella_tray_native",
+					"image": "4A_umbrella_tray_native.png",
+					"owner": "4A_umbrella_tray",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						7.55000019073486,
+						0.0199999995529652,
+						-0.539998412132263
+					],
+					"id": "1A_bath_shelf_native",
+					"image": "1A_bath_shelf_native.png",
+					"owner": "1A_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						7.85000133514404,
+						3.22000002861023,
+						-15.9899988174438
+					],
+					"id": "2A_bath_shelf_native",
+					"image": "2A_bath_shelf_native.png",
+					"owner": "2A_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-15.1499996185303,
+						6.42000007629395,
+						-0.610000252723694
+					],
+					"id": "3B_bath_shelf_native",
+					"image": "3B_bath_shelf_native.png",
+					"owner": "3B_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-1.04999840259552,
+						9.61999988555908,
+						-16.7399997711182
+					],
+					"id": "4C_bath_shelf_native",
+					"image": "4C_bath_shelf_native.png",
+					"owner": "4C_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-1.04999840259552,
+						12.8199996948242,
+						-16.7399997711182
+					],
+					"id": "5C_bath_shelf_native",
+					"image": "5C_bath_shelf_native.png",
+					"owner": "5C_bath_shelf",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"medicine_cabinets": {
+			"actors": 12,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 1058,
+			"elapsed_ms": 5825,
+			"failures": [],
+			"fixture_sha256": "812fd9070cdfbab6c0a6090739ebe600e011e39c242a8035897ef77ce3161a7f",
+			"kept_items": 28,
+			"unique_triangles": 48260,
+			"validator_sha256": "5d62f1ef3069e6fb5c77e04d38a6965a96fdb5fdefd1a4e9fc3ce4d352be7796",
+			"views": []
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

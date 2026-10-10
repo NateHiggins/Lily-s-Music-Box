@@ -4043,20 +4043,42 @@
       "id": "DomesticObject69",
       "parts": [
         {
-          "name": "DomesticObject69__Body_ON_milk_glass",
+          "name": "DomesticObject69__Body_ON_cape_navy",
           "component": "Body",
-          "key": "milk_glass",
-          "tile": 0.5,
-          "catalog_key": "milk_glass",
+          "key": "cape_navy",
+          "tile": 0.6,
+          "catalog_key": "linen",
           "tint": [
-            0.02,
-            0.027,
-            0.034,
+            0.05,
+            0.065,
+            0.16,
             1
           ],
           "finish": {
-            "normal_scale": 0.015,
-            "roughness": 0.12
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject69__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject69__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
           }
         },
         {
@@ -4077,6 +4099,23 @@
           }
         },
         {
+          "name": "DomesticObject69__Body_ON_standwater",
+          "component": "Body",
+          "key": "standwater",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.2,
+            0.235,
+            0.26,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.01,
+            "roughness": 0.06
+          }
+        },
+        {
           "name": "DomesticObject69__Body_ON_wood_dark",
           "component": "Body",
           "key": "wood_dark",
@@ -4091,6 +4130,1996 @@
           "finish": {
             "normal_scale": 0.04,
             "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject70",
+      "parts": [
+        {
+          "name": "DomesticObject70__Body_ON_amber",
+          "component": "Body",
+          "key": "amber",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.16,
+            0.065,
+            0.018,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.15
+          }
+        },
+        {
+          "name": "DomesticObject70__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject70__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject70__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject70__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject70__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject70__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject70__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject71",
+      "parts": [
+        {
+          "name": "DomesticObject71__Body_ON_amber",
+          "component": "Body",
+          "key": "amber",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.16,
+            0.065,
+            0.018,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.15
+          }
+        },
+        {
+          "name": "DomesticObject71__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject71__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject71__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject71__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject71__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject71__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject71__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject72",
+      "parts": [
+        {
+          "name": "DomesticObject72__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject72__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject72__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject72__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject72__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject72__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject72__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject72__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject73",
+      "parts": [
+        {
+          "name": "DomesticObject73__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject73__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject73__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject73__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject73__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        },
+        {
+          "name": "DomesticObject73__Body_ON_voile",
+          "component": "Body",
+          "key": "voile",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.5,
+            0.62,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.1,
+            "roughness": 0.85
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject74",
+      "parts": [
+        {
+          "name": "DomesticObject74__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject74__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject74__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject74__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject74__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject74__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject74__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        },
+        {
+          "name": "DomesticObject74__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject75",
+      "parts": [
+        {
+          "name": "DomesticObject75__Body_ON_blanket_grey",
+          "component": "Body",
+          "key": "blanket_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.28,
+            0.27,
+            0.25,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject75__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject75__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject75__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject75__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject75__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject75__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        },
+        {
+          "name": "DomesticObject75__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject76",
+      "parts": [
+        {
+          "name": "DomesticObject76__Body_ON_blanket_grey",
+          "component": "Body",
+          "key": "blanket_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.28,
+            0.27,
+            0.25,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject76__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject76__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject76__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject76__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject76__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject76__Body_ON_terracotta",
+          "component": "Body",
+          "key": "terracotta",
+          "tile": 0.4,
+          "catalog_key": "terracotta",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject76__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        },
+        {
+          "name": "DomesticObject76__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject77",
+      "parts": [
+        {
+          "name": "DomesticObject77__Body_ON_amber",
+          "component": "Body",
+          "key": "amber",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.16,
+            0.065,
+            0.018,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.15
+          }
+        },
+        {
+          "name": "DomesticObject77__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject77__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject77__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject77__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject77__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject77__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject78",
+      "parts": [
+        {
+          "name": "DomesticObject78__Body_ON_blanket_grey",
+          "component": "Body",
+          "key": "blanket_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.28,
+            0.27,
+            0.25,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject78__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject78__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject78__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject78__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject78__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject78__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject78__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject79",
+      "parts": [
+        {
+          "name": "DomesticObject79__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject79__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject79__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject79__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject79__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject79__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject80",
+      "parts": [
+        {
+          "name": "DomesticObject80__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject80__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject80__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject80__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject80__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject80__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject81",
+      "parts": [
+        {
+          "name": "DomesticObject81__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject81__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject81__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject82",
+      "parts": [
+        {
+          "name": "DomesticObject82__Body_ON_blanket_grey",
+          "component": "Body",
+          "key": "blanket_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.28,
+            0.27,
+            0.25,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject82__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject82__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject82__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject82__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject82__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject82__Body_ON_terracotta",
+          "component": "Body",
+          "key": "terracotta",
+          "tile": 0.4,
+          "catalog_key": "terracotta",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject82__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        },
+        {
+          "name": "DomesticObject82__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject83",
+      "parts": [
+        {
+          "name": "DomesticObject83__Body_ON_blanket_grey",
+          "component": "Body",
+          "key": "blanket_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.28,
+            0.27,
+            0.25,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject83__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject83__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject83__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject83__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject83__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject83__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject83__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject83__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject84",
+      "parts": [
+        {
+          "name": "DomesticObject84__Body_ON_amber",
+          "component": "Body",
+          "key": "amber",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.16,
+            0.065,
+            0.018,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.15
+          }
+        },
+        {
+          "name": "DomesticObject84__Body_ON_blanket_grey",
+          "component": "Body",
+          "key": "blanket_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.28,
+            0.27,
+            0.25,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject84__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject84__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject84__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject84__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject84__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        },
+        {
+          "name": "DomesticObject84__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject85",
+      "parts": [
+        {
+          "name": "DomesticObject85__Body_ON_amber",
+          "component": "Body",
+          "key": "amber",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.16,
+            0.065,
+            0.018,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.15
+          }
+        },
+        {
+          "name": "DomesticObject85__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject85__Body_ON_cane",
+          "component": "Body",
+          "key": "cane",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.38,
+            0.34,
+            0.23,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "DomesticObject85__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject85__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject85__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject85__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject85__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject86",
+      "parts": [
+        {
+          "name": "DomesticObject86__Body_ON_blanket_grey",
+          "component": "Body",
+          "key": "blanket_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.28,
+            0.27,
+            0.25,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject86__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject86__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject86__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject86__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject86__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject86__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject87",
+      "parts": [
+        {
+          "name": "DomesticObject87__Body_ON_bone",
+          "component": "Body",
+          "key": "bone",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.84,
+            0.8,
+            0.68,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject87__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject87__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject87__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject87__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject87__Body_ON_opal",
+          "component": "Body",
+          "key": "opal",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.2
+          }
+        },
+        {
+          "name": "DomesticObject87__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject87__Body_ON_tumbler",
+          "component": "Body",
+          "key": "tumbler",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.62,
+            0.7,
+            0.66,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
           }
         }
       ],
@@ -4710,6 +6739,78 @@
     {
       "id": "4A_umbrella_tray",
       "variant": "DomesticObject69"
+    },
+    {
+      "id": "1A_bath_shelf",
+      "variant": "DomesticObject70"
+    },
+    {
+      "id": "1D_bath_shelf",
+      "variant": "DomesticObject71"
+    },
+    {
+      "id": "2A_bath_shelf",
+      "variant": "DomesticObject72"
+    },
+    {
+      "id": "2B_bath_shelf",
+      "variant": "DomesticObject73"
+    },
+    {
+      "id": "2C_bath_shelf",
+      "variant": "DomesticObject74"
+    },
+    {
+      "id": "3A_bath_shelf",
+      "variant": "DomesticObject75"
+    },
+    {
+      "id": "3B_bath_shelf",
+      "variant": "DomesticObject76"
+    },
+    {
+      "id": "3D_bath_shelf",
+      "variant": "DomesticObject77"
+    },
+    {
+      "id": "4A_bath_shelf",
+      "variant": "DomesticObject78"
+    },
+    {
+      "id": "4B_bath_shelf",
+      "variant": "DomesticObject79"
+    },
+    {
+      "id": "4C_bath_shelf",
+      "variant": "DomesticObject80"
+    },
+    {
+      "id": "4D_bath_shelf",
+      "variant": "DomesticObject81"
+    },
+    {
+      "id": "5A_bath_shelf",
+      "variant": "DomesticObject82"
+    },
+    {
+      "id": "5B_bath_shelf",
+      "variant": "DomesticObject83"
+    },
+    {
+      "id": "5C_bath_shelf",
+      "variant": "DomesticObject84"
+    },
+    {
+      "id": "6A_bath_shelf",
+      "variant": "DomesticObject85"
+    },
+    {
+      "id": "6B_bath_shelf",
+      "variant": "DomesticObject86"
+    },
+    {
+      "id": "6C_bath_shelf",
+      "variant": "DomesticObject87"
     }
   ],
   "tint_space": "linear"
