@@ -166,6 +166,19 @@ for item in assemblies:
  for zz in [kz0,kz1-.002]:box(identity+'_KickReturn'+str(zz),(kx0+.001,ky0,zz),(kx1,ky1,zz+.002),identity,'chrome',0)
  for yy in [ky0,ky1-.002]:box(identity+'_KickEnd'+str(yy),(kx0+.001,yy,kz0),(kx1,yy+.002,kz1),identity,'chrome',0)
  support(identity,floor['id'],((kx0+kx1)/2,ky0+.001,ground),(0,0,1),'folded kickplate on actual unchanged floor')
+ # Dossier slice 71 (CITY_SHOP_LUNCHEONETTE-001): two sugar shakers at the customer edge between the cigar case
+ # and the ledger, and a jar of pickled eggs behind them; glass, chrome tops, seated 0.2 mm into the top.
+ seat=tz1-.0002
+ for k,sy in enumerate([-42.85,-42.15]):
+  vessel(identity+f'_ShakerGlass{k}',19.02,sy,seat,[(0,0),(.027,0),(.03,.008),(.03,.085),(.026,.095),(0,.095)],identity,'glassish')
+  vessel(identity+f'_ShakerSugar{k}',19.02,sy,seat-.0002,[(0,0),(.024,0),(.024,.054),(0,.054)],identity,'paper')
+  vessel(identity+f'_ShakerTop{k}',19.02,sy,seat+.093,[(0,0),(.027,0),(.028,.02),(.012,.034),(.006,.05),(0,.05)],identity,'chrome')
+ vessel(identity+'_EggJarGlass',19.40,-42.45,seat,[(0,0),(.085,0),(.09,.01),(.09,.21),(.07,.235),(.07,.25),(0,.25)],identity,'glassish')
+ vessel(identity+'_EggJarLid',19.40,-42.45,seat+.248,[(0,0),(.074,0),(.074,.022),(0,.022)],identity,'chrome')
+ for layer in range(3):
+  for j in range(4):
+   a=j*1.5708+layer*.785;ex=19.40+.07*__import__('math').cos(a);ey=-42.45+.07*__import__('math').sin(a)
+   vessel(identity+f'_Egg{layer}{j}',ex,ey,seat+.008+layer*.06,[(0,0),(.012,.003),(.019,.012),(.021,.026),(.019,.04),(.012,.049),(0,.052)],identity,'paper')
 
 for row in selected:
  x0,y0,x1,y1=row['rect'];z0=row['z0'];box(row['id']+'_RetainedBox',(x0,y0,z0),(x1,y1,z0+row['h']),row['id'],row['mat'],0,retained)

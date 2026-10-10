@@ -63,6 +63,8 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			var runtime_part: Dictionary=record.parts.filter(func(row):return row.name==name)[0]
 			for original_draw: MeshInstance3D in originals:
 				if str(original_draw.name).trim_suffix("-col").ends_with("_"+str(runtime_part.key)):source=originals[original_draw].surface_get_material(0)
+			# Dossier slice 71: the shakers and egg jar borrow the cell's retained glass, as the pawn fittings do.
+			if str(runtime_part.key)=="glassish" and model.has_meta("borrowed_glazing_owner"):source=model.get_meta("borrowed_glazing_owner").material
 			if runtime_part.has("catalog_key"):
 				var library:=MatLib.get_mat(str(runtime_part.catalog_key))
 				check(library!=mat and library.uv1_triplanar and library.albedo_texture==mat.albedo_texture and library.roughness_texture==mat.roughness_texture and library.normal_texture==mat.normal_texture and mat.uv1_scale.is_equal_approx(library.uv1_scale),"local registered finishes use their catalogue owner without changing shared materials")

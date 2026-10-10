@@ -257,6 +257,126 @@
       "volume_m3": 1.6510930512063414e-05
     },
     {
+      "name": "storm_shop_luncheonette_counter_ShakerGlass0",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "glassish",
+      "volume_m3": 0.00026206962998641257
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_ShakerSugar0",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 9.743588846853475e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_ShakerTop0",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "chrome",
+      "volume_m3": 7.00752312058199e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_ShakerGlass1",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "glassish",
+      "volume_m3": 0.00026206962998641257
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_ShakerSugar1",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 9.743588846853475e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_ShakerTop1",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "chrome",
+      "volume_m3": 7.007523105059982e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_EggJarGlass",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "glassish",
+      "volume_m3": 0.006048822273398672
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_EggJarLid",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "chrome",
+      "volume_m3": 0.00037739369951277036
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg00",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.9794136589969917e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg01",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.9794174236132295e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg02",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.979441180336683e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg03",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.979392648817934e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg10",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.9794574269007914e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg11",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.9793896116678524e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg12",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.979396220530521e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg13",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.979415631050648e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg20",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.979414664933601e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg21",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.979424020005743e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg22",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.979402264595074e-05
+    },
+    {
+      "name": "storm_shop_luncheonette_counter_Egg23",
+      "assembly": "storm_shop_luncheonette_counter",
+      "key": "paper",
+      "volume_m3": 4.979438956771298e-05
+    },
+    {
       "name": "storm_shop_luncheonette_ledger_Pages",
       "assembly": "storm_shop_luncheonette_ledger",
       "key": "paper",
@@ -409,7 +529,7 @@
       "assembly": "storm_shop_luncheonette_counter",
       "cell": "shop_luncheonette",
       "key": "chrome",
-      "triangles": 60
+      "triangles": 1020
     },
     {
       "name": "storm_shop_luncheonette_counter__countertop",
@@ -417,6 +537,20 @@
       "cell": "shop_luncheonette",
       "key": "countertop",
       "triangles": 188
+    },
+    {
+      "name": "storm_shop_luncheonette_counter__glassish",
+      "assembly": "storm_shop_luncheonette_counter",
+      "cell": "shop_luncheonette",
+      "key": "glassish",
+      "triangles": 1248
+    },
+    {
+      "name": "storm_shop_luncheonette_counter__paper",
+      "assembly": "storm_shop_luncheonette_counter",
+      "cell": "shop_luncheonette",
+      "key": "paper",
+      "triangles": 6144
     },
     {
       "name": "storm_shop_luncheonette_counter__timber",
@@ -440,7 +574,7 @@
       "triangles": 564
     }
   ],
-  "triangles": 4760,
+  "triangles": 13112,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -459,6 +593,17 @@
             "name": "storm_shop_luncheonette_counter__countertop",
             "key": "countertop",
             "tile": 1.2
+          },
+          {
+            "name": "storm_shop_luncheonette_counter__glassish",
+            "key": "glassish",
+            "tile": 1.6,
+            "plain_alpha": true
+          },
+          {
+            "name": "storm_shop_luncheonette_counter__paper",
+            "key": "paper",
+            "tile": 0.5
           },
           {
             "name": "storm_shop_luncheonette_counter__timber",
@@ -548,11 +693,11 @@
       }
     ]
   },
-  "asset_sha256": "0789742ada391868e002734f4cd21166913fc281fa601559d34c8c916f1b91e8",
+  "asset_sha256": "14e510c9996357b6436074025ee14cfc5d69486ad7f929f07d0b12a541b4c188",
   "source_bindings": {
-    "art/data/diner_counter/source_plan.json": "6649b37ae2043c4e71a7a12ac47b8eb8e91a3ccbe3793b1936712d8e172f4ca8",
+    "art/data/diner_counter/source_plan.json": "f368dfdaac68d3973e3b1287c6272653ca8dc98244ef59d82f19907f1da176f0",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_diner_counter.py": "0b709502074f033138a58ba445a0ac01917347cfe925c1b85443c03f807529f2",
+    "art/blender/scripts/build_diner_counter.py": "3be1b1f7dd0ab6f11cad2f26a10da5c8022d8c1d90569c41db8dfecf3359f3ab",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
@@ -563,6 +708,7 @@
     "art/textures/ai_materials/chrome_b/material.json": "b7c97dabeaf9646f9fc0a0a3c7f9df0ecdd33e26b361acf706de1c5930278e90",
     "art/textures/ai_materials/countertop_b/material.json": "7b2179e1d5c659257bda007d0eb005bc31d9028ba8fd70c6918f927dac410a6e",
     "art/textures/ai_materials/paper_b/material.json": "c9cba1d7029ba0a33771619544c563eb6f16bb4114a9cb4400ac7f3925416623",
+    "art/tools/build_glass_maps.py": "63e2357d85a1fc7520c3af5592d0d8248b16519e10d1a25b28a43cb1380a7ead",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
@@ -578,6 +724,8 @@
     "game/assets/building/textures/T_ai_materials_paper_b_albedo.png": "896178bf4b28ae55875960aeea630295b1e987e9684206677611df14836b4d61",
     "game/assets/building/textures/T_ai_materials_paper_b_rough.png": "4800c7312a5c09be6db31794a984c7a4cdc83c4faec6329aba2dab11dad8b7af",
     "game/assets/building/textures/T_ai_materials_paper_b_normal.png": "f12c529d01af57bd7bce883ec5e6a5078657dd76135f4c639b36acbf3526855a",
+    "game/assets/building/textures/T_glass_rough.png": "70b2c511748e2f03f86b1ba37c9d15f018cb8ddbe136e16eb7dde3a5153ff30e",
+    "game/assets/building/textures/T_glass_normal.png": "9be08cdc9efe9a6cfde68339b730a992d1bbaf1a5948aab0740167eb5b33be67",
     "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
     "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",

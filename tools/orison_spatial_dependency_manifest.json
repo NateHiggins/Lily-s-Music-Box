@@ -178027,6 +178027,36 @@
    "target_exists": true
   },
   {
+   "key": "c3780e95727bf3f1",
+   "kind": "node_path",
+   "token": "F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_glassish",
+   "file": "game/scripts/building/orison_v2_diner_counter.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_cell"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "var glazing:=cell.get_node_or_null(\"F01_OWN_SHOP_LUNCHEONETTE_retail_shop_luncheonette_glassish\") as MeshInstance3D"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "cb586945f12a0186",
    "kind": "floor_reference",
    "token": "F01",
