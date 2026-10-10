@@ -211,6 +211,8 @@ Slices landed so far (evidence folders in parentheses):
     projected fan.
 62. The pawnbroker's ring in an envelope in the window and the safe's blank name
     panel.
+63. The reading room's bookcases in varied runs with flat piles and a shelf of bound
+    magazines.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

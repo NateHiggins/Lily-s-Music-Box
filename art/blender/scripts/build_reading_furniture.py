@@ -97,16 +97,40 @@ box('Cornice',(0,1.66,0),(1.63,.045,.36),case,bevel=.005)
 box('Plinth',(0,.05,0),(1.61,.10,.35),case,bevel=.004)
 for y in [.135,.50,.865,1.23,1.61]: box('Shelf',(0,y,0),(1.50,.027,.32),case)
 rng=random.Random(731)
+# Dossier slice 63 (F01_COMMON_B-002): runs of varied length with gaps between, short piles lying flat, and the
+# top shelf a run of bound magazine volumes, banded where the years would be lettered. No lettering.
+def standing(x,base,width,height,depth,cover):
+    z=.125-depth*.5
+    box('Pages',(x+width*.5,base+height*.5,z),(width-.006,height-.009,depth-.007),case,'Paper',0)
+    for side in [-1,1]:box('ClothCover',(x+width*.5+side*(width*.5-.0015),base+height*.5,z),(.003,height,depth),case,cover,0)
+    box('ClothSpine',(x+width*.5,base+height*.5,z-depth*.5+.0015),(width,height,.003),case,cover,0)
+def lying(x,y,length,thick,depth,cover):
+    z=.125-depth*.5
+    box('Pages',(x+length*.5,y+thick*.5,z),(length-.007,thick-.006,depth-.007),case,'Paper',0)
+    for side in [-1,1]:box('ClothCover',(x+length*.5,y+thick*.5+side*(thick*.5-.0015),z),(length,.003,depth),case,cover,0)
+    box('ClothSpine',(x+length*.5,y+thick*.5,z-depth*.5+.0015),(length,thick,.003),case,cover,0)
 for tier,base in enumerate([.149,.514,.879,1.244]):
     x=-.70
+    if tier==3:
+        while x<.55:
+            width,height,depth=.036,.30,.215;z=.125-depth*.5
+            standing(x,base,width,height,depth,'GreenCloth')
+            for yy in [.235,.262]:box('SpineBand',(x+width*.5,base+yy,z-depth*.5-.0005),(width-.006,.009,.002),case,'Paper',0)
+            x+=width+.002
+        continue
     while x<.57:
-        width=rng.uniform(.032,.061);height=rng.uniform(.225,.32);depth=rng.uniform(.18,.245)
-        cover=['RedCloth','GreenCloth','BlueCloth'][rng.randrange(3)]
-        z=.125-depth*.5
-        box('Pages',(x+width*.5,base+height*.5,z),(width-.006,height-.009,depth-.007),case,'Paper',0)
-        for side in [-1,1]:box('ClothCover',(x+width*.5+side*(width*.5-.0015),base+height*.5,z),(.003,height,depth),case,cover,0)
-        box('ClothSpine',(x+width*.5,base+height*.5,z-depth*.5+.0015),(width,height,.003),case,cover,0)
-        x+=width+.005
+        if rng.random()<.22 and x<.33:
+            # A short pile lying flat, its spines to the room.
+            length=rng.uniform(.2,.25);y=base
+            for k in range(rng.randint(2,4)):
+                thick=rng.uniform(.026,.042);lying(x,y,length,thick,rng.uniform(.17,.21),['RedCloth','GreenCloth','BlueCloth'][rng.randrange(3)]);y+=thick
+            x+=length+rng.uniform(.03,.08);continue
+        for k in range(rng.randint(4,13)):
+            if x>=.57:break
+            width=rng.uniform(.032,.061);height=rng.uniform(.225,.32);depth=rng.uniform(.18,.245)
+            standing(x,base,width,height,depth,['RedCloth','GreenCloth','BlueCloth'][rng.randrange(3)])
+            x+=width+.005
+        x+=rng.uniform(.03,.11)
 # All faces carry metre coordinates and all exported instances have unit scale.
 for obj in list(bpy.context.scene.objects):
     if obj.type!='MESH':continue

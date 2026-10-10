@@ -2382,7 +2382,9 @@
    "purpose": "Bookcases with nothing read as furniture, not a library",
    "acceptance": "Detail views",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_COMMON_B"
+   "area": "F01_COMMON_B",
+   "status": "implemented",
+   "owner_notes": "Both reading-room bookcases hold their books in runs of varied length with gaps between, short piles lying flat, and a top shelf of bound magazine volumes in one cloth with blank bands where the years would be lettered (build_reading_furniture.py; reading furniture 25 waypoints, 0 failures). The sweep shows the two cases only small and dark at the room's far end (F01_COMMON_B_RV); a framed capture is open. Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "F01_COMMON_B-003",
