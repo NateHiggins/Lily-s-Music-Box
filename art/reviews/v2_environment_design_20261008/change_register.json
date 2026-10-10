@@ -127,7 +127,9 @@
    "purpose": "Bible VIII.5.h paper trail; boiler hours and the coal date",
    "acceptance": "Readable by the lamp",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_PUBLIC_CORE"
+   "area": "B1_PUBLIC_CORE",
+   "status": "verified",
+   "owner_notes": "The basement notice at the stair foot, in the same taped oak frame on the core's north wall: the boiler room for the Superintendent only; the boiler hand-fired morning and night; coal in 6 November 1928; laundry by the rota; MANAGEMENT. No boiler hours are documented, so the notice gives none (B1_PUBLIC_CORE_DT2). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "B1_PUBLIC_CORE-003",
@@ -2375,7 +2377,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_PUBLIC_CORE"
+   "area": "F01_PUBLIC_CORE",
+   "status": "verified",
+   "owner_notes": "The 1928 house rules on an oak-framed notice board (0.35 x 0.45 m, centre 1.5 m) on the public core's north wall beside the landing, clear of the C door and the stair: rents to Management, Apartment 5A, on the first; leaks, heat and repairs to the Superintendent, 3B; keep the stair and landings clear; quiet after ten o'clock; signed MANAGEMENT. The words are a shaded Label3D on the paper, so the lamp reads them. The board has no glass (the family has none); kraft tape crosses its top corner where the glass would be cracked (F01_PUBLIC_CORE_DT1, F01_PUBLIC_NOTICE_native). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F01_PUBLIC_CORE-002",
@@ -2478,7 +2482,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_SERVICE_CORE"
+   "area": "F01_SERVICE_CORE",
+   "status": "verified",
+   "owner_notes": "The service notice, pinned in an oak frame on the service core's south wall above the landing, beside the brass floor plate: service stair for staff, trades and deliveries; coal and ash by the rear apron; the boiler fired by the Superintendent; keep the stair clear; MANAGEMENT. A shaded Label3D on the paper (F01_SERVICE_CORE_DT1, F01_SERVICE_NOTICE_native). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F01_SERVICE_CORE-002",
@@ -3442,7 +3448,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_LANDING"
+   "area": "F02_LANDING",
+   "status": "verified",
+   "owner_notes": "The 1928 house rules on an oak-framed notice board (0.35 x 0.45 m, centre 1.5 m) on the public core's north wall beside the landing, clear of the C door and the stair: rents to Management, Apartment 5A, on the first; leaks, heat and repairs to the Superintendent, 3B; keep the stair and landings clear; quiet after ten o'clock; signed MANAGEMENT. The words are a shaded Label3D on the paper, so the lamp reads them. The board has no glass (the family has none); kraft tape crosses its top corner where the glass would be cracked (F02_PUBLIC_CORE_DT1). The landing and the public core share the one board. Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F02_LANDING-002",
@@ -3541,7 +3549,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_PUBLIC_CORE"
+   "area": "F02_PUBLIC_CORE",
+   "status": "verified",
+   "owner_notes": "The 1928 house rules on an oak-framed notice board (0.35 x 0.45 m, centre 1.5 m) on the public core's north wall beside the landing, clear of the C door and the stair: rents to Management, Apartment 5A, on the first; leaks, heat and repairs to the Superintendent, 3B; keep the stair and landings clear; quiet after ten o'clock; signed MANAGEMENT. The words are a shaded Label3D on the paper, so the lamp reads them. The board has no glass (the family has none); kraft tape crosses its top corner where the glass would be cracked (F02_PUBLIC_CORE_DT1). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F02_PUBLIC_CORE-002",
@@ -3667,7 +3677,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_SERVICE_CORE"
+   "area": "F02_SERVICE_CORE",
+   "status": "verified",
+   "owner_notes": "The service notice, pinned in an oak frame on the service core's south wall above the landing, beside the brass floor plate: service stair for staff, trades and deliveries; coal and ash by the rear apron; the boiler fired by the Superintendent; keep the stair clear; MANAGEMENT. A shaded Label3D on the paper (F02_SERVICE_CORE_DT1). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F02_SERVICE_CORE-002",
@@ -4823,7 +4835,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_PUBLIC_CORE"
+   "area": "F03_PUBLIC_CORE",
+   "status": "verified",
+   "owner_notes": "The 1928 house rules on an oak-framed notice board (0.35 x 0.45 m, centre 1.5 m) on the public core's north wall beside the landing, clear of the C door and the stair: rents to Management, Apartment 5A, on the first; leaks, heat and repairs to the Superintendent, 3B; keep the stair and landings clear; quiet after ten o'clock; signed MANAGEMENT. The words are a shaded Label3D on the paper, so the lamp reads them. The board has no glass (the family has none); kraft tape crosses its top corner where the glass would be cracked (F03_PUBLIC_CORE_DT1). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F03_PUBLIC_CORE-002",
@@ -4856,7 +4870,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_SERVICE_CORE"
+   "area": "F03_SERVICE_CORE",
+   "status": "verified",
+   "owner_notes": "The service notice, pinned in an oak frame on the service core's south wall above the landing, beside the brass floor plate: service stair for staff, trades and deliveries; coal and ash by the rear apron; the boiler fired by the Superintendent; keep the stair clear; MANAGEMENT. A shaded Label3D on the paper (F03_SERVICE_CORE_DT1). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F03_SERVICE_CORE-002",
@@ -4889,7 +4905,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_LANDING"
+   "area": "F03_LANDING",
+   "status": "verified",
+   "owner_notes": "The 1928 house rules on an oak-framed notice board (0.35 x 0.45 m, centre 1.5 m) on the public core's north wall beside the landing, clear of the C door and the stair: rents to Management, Apartment 5A, on the first; leaks, heat and repairs to the Superintendent, 3B; keep the stair and landings clear; quiet after ten o'clock; signed MANAGEMENT. The words are a shaded Label3D on the paper, so the lamp reads them. The board has no glass (the family has none); kraft tape crosses its top corner where the glass would be cracked (F03_PUBLIC_CORE_DT1). The landing and the public core share the one board. Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F03_LANDING-002",
@@ -6149,7 +6167,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_LANDING"
+   "area": "F04_LANDING",
+   "status": "verified",
+   "owner_notes": "The 1928 house rules on an oak-framed notice board (0.35 x 0.45 m, centre 1.5 m) on the public core's north wall beside the landing, clear of the C door and the stair: rents to Management, Apartment 5A, on the first; leaks, heat and repairs to the Superintendent, 3B; keep the stair and landings clear; quiet after ten o'clock; signed MANAGEMENT. The words are a shaded Label3D on the paper, so the lamp reads them. The board has no glass (the family has none); kraft tape crosses its top corner where the glass would be cracked (F04_PUBLIC_CORE_DT1). The landing and the public core share the one board. Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F04_LANDING-002",
@@ -6296,7 +6316,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_PUBLIC_CORE"
+   "area": "F04_PUBLIC_CORE",
+   "status": "verified",
+   "owner_notes": "The 1928 house rules on an oak-framed notice board (0.35 x 0.45 m, centre 1.5 m) on the public core's north wall beside the landing, clear of the C door and the stair: rents to Management, Apartment 5A, on the first; leaks, heat and repairs to the Superintendent, 3B; keep the stair and landings clear; quiet after ten o'clock; signed MANAGEMENT. The words are a shaded Label3D on the paper, so the lamp reads them. The board has no glass (the family has none); kraft tape crosses its top corner where the glass would be cracked (F04_PUBLIC_CORE_DT1). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F04_PUBLIC_CORE-002",
@@ -6473,7 +6495,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_SERVICE_CORE"
+   "area": "F04_SERVICE_CORE",
+   "status": "verified",
+   "owner_notes": "The service notice, pinned in an oak frame on the service core's south wall above the landing, beside the brass floor plate: service stair for staff, trades and deliveries; coal and ash by the rear apron; the boiler fired by the Superintendent; keep the stair clear; MANAGEMENT. A shaded Label3D on the paper (F04_SERVICE_CORE_DT1). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F04_SERVICE_CORE-002",
@@ -8020,7 +8044,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_PUBLIC_CORE"
+   "area": "F05_PUBLIC_CORE",
+   "status": "verified",
+   "owner_notes": "The 1928 house rules on an oak-framed notice board (0.35 x 0.45 m, centre 1.5 m) on the public core's north wall beside the landing, clear of the C door and the stair: rents to Management, Apartment 5A, on the first; leaks, heat and repairs to the Superintendent, 3B; keep the stair and landings clear; quiet after ten o'clock; signed MANAGEMENT. The words are a shaded Label3D on the paper, so the lamp reads them. The board has no glass (the family has none); kraft tape crosses its top corner where the glass would be cracked (F05_PUBLIC_CORE_DT1). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F05_PUBLIC_CORE-002",
@@ -8088,7 +8114,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_SERVICE_CORE"
+   "area": "F05_SERVICE_CORE",
+   "status": "verified",
+   "owner_notes": "The service notice, pinned in an oak frame on the service core's south wall above the landing, beside the brass floor plate: service stair for staff, trades and deliveries; coal and ash by the rear apron; the boiler fired by the Superintendent; keep the stair clear; MANAGEMENT. A shaded Label3D on the paper (F05_SERVICE_CORE_DT1). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F05_SERVICE_CORE-002",
@@ -9464,7 +9492,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_PUBLIC_CORE"
+   "area": "F06_PUBLIC_CORE",
+   "status": "verified",
+   "owner_notes": "The 1928 house rules on an oak-framed notice board (0.35 x 0.45 m, centre 1.5 m) on the public core's north wall beside the landing, clear of the C door and the stair: rents to Management, Apartment 5A, on the first; leaks, heat and repairs to the Superintendent, 3B; keep the stair and landings clear; quiet after ten o'clock; signed MANAGEMENT. The words are a shaded Label3D on the paper, so the lamp reads them. The board has no glass (the family has none); kraft tape crosses its top corner where the glass would be cracked (F06_PUBLIC_CORE_DT1). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F06_PUBLIC_CORE-002",
@@ -9512,7 +9542,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_SERVICE_CORE"
+   "area": "F06_SERVICE_CORE",
+   "status": "verified",
+   "owner_notes": "The service notice, pinned in an oak frame on the service core's south wall above the landing, beside the brass floor plate: service stair for staff, trades and deliveries; coal and ash by the rear apron; the boiler fired by the Superintendent; keep the stair clear; MANAGEMENT. A shaded Label3D on the paper (F06_SERVICE_CORE_DT1). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "F06_SERVICE_CORE-002",
@@ -10635,7 +10667,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_PUBLIC_CORE"
+   "area": "ROOF_PUBLIC_CORE",
+   "status": "implemented",
+   "owner_notes": "The 1928 house rules on an oak-framed notice board (0.35 x 0.45 m, centre 1.5 m) on the public core's north wall beside the landing, clear of the C door and the stair: rents to Management, Apartment 5A, on the first; leaks, heat and repairs to the Superintendent, 3B; keep the stair and landings clear; quiet after ten o'clock; signed MANAGEMENT. The words are a shaded Label3D on the paper, so the lamp reads them. The board has no glass (the family has none); kraft tape crosses its top corner where the glass would be cracked (no sweep station frames it; same board as F01_PUBLIC_NOTICE_native). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "ROOF_PUBLIC_CORE-002",
@@ -10703,7 +10737,9 @@
    ],
    "acceptance": "Readable by the service lamp from the landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_SERVICE_CORE"
+   "area": "ROOF_SERVICE_CORE",
+   "status": "verified",
+   "owner_notes": "The service notice, pinned in an oak frame on the service core's south wall above the landing, beside the brass floor plate: service stair for staff, trades and deliveries; coal and ash by the rear apron; the boiler fired by the Superintendent; keep the stair clear; MANAGEMENT. A shaded Label3D on the paper (ROOF_SERVICE_CORE_DT3). Verified at WIP 1acecafb (implementation/slice48): fabrication batch 0 failures (both notice boards captured natively, the words legible under the lamp); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; public doors 17 waypoints, the remaining upper transfers 28, the basement route 88 and public furnishings 29, all 0 failures; the ground core transfer route 1 waypoint with its one failure (it stops one riser above the basement landing, identical at slice 47, 6d62caab); the eighteen-space core sweep 0 failures. The objects context inspector finds every frame on a real core wall face."
   },
   {
    "id": "ROOF_SERVICE_CORE-002",

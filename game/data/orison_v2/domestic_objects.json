@@ -6129,6 +6129,134 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject88",
+      "parts": [
+        {
+          "name": "DomesticObject88__Body_ON_kraft",
+          "component": "Body",
+          "key": "kraft",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.5,
+            0.38,
+            0.22,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject88__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject88__Body_ON_plywood",
+          "component": "Body",
+          "key": "plywood",
+          "tile": 1.2,
+          "catalog_key": "plywood",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject88__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject89",
+      "parts": [
+        {
+          "name": "DomesticObject89__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject89__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject89__Body_ON_plywood",
+          "component": "Body",
+          "key": "plywood",
+          "tile": 1.2,
+          "catalog_key": "plywood",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject89__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -6811,6 +6939,66 @@
     {
       "id": "6C_bath_shelf",
       "variant": "DomesticObject87"
+    },
+    {
+      "id": "F01_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F02_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F03_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F04_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F05_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F06_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "ROOF_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "B1_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F01_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F02_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F03_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F04_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F05_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F06_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "ROOF_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
     }
   ],
   "tint_space": "linear"

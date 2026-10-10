@@ -1024,6 +1024,26 @@ def bathshelf(source):
   else:raise AssertionError(('unknown bath set item',item))
  group('BathShelf',start)
 
+def noticeframe(source):
+ # Dossier slice 48 (F0x_PUBLIC_CORE-001 and kin): a framed notice board on the core wall at 1.5 m,
+ # 0.35 x 0.45 m. Its words are a Label3D the runtime lays on the paper; no lettering in textures.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y'];W,H=.35,.45
+ stock('Backing',(-W/2+.012,back,.012),(W/2-.012,back+.006,H-.012),'plywood',.0005)
+ stock('Paper',(-W/2+.025,back+.0055,.025),(W/2-.025,back+.0075,H-.025),'paper',.0002)
+ for x in [-W/2,W/2-.026]:stock('Stile'+str(x),(x,back,0),(x+.026,back+.024,H),'wood_dark',.0015)
+ for z in [0,H-.026]:stock('Rail'+str(z),(-W/2+.025,back,z),(W/2-.025,back+.024,z+.026),'wood_dark',.0015)
+ if source.get('taped'):
+  # The public board's glass is cracked at one corner and taped; the family has no clear glass, so the
+  # tape crosses the frame's corner.
+  stock('TapeUp',(-W/2+.005,back+.0235,H-.075),(-W/2+.02,back+.026,H-.004),'kraft',.0003)
+  stock('TapeAcross',(-W/2+.004,back+.0235,H-.021),(-W/2+.08,back+.026,H-.006),'kraft',.0003)
+ else:
+  # The service notice is pinned: four brass drawing pins at the paper's corners.
+  for x in [-W/2+.04,W/2-.04]:
+   for z in [.04,H-.04]:tube('Pin'+str((x,z)),(x,back+.0072,z),(x,back+.0095,z),.0055,'brass')
+ for x in [-.12,.12]:support(identity,'wall',(x,back,H/2),(0,1,0),'frame hung on the wall')
+ group('NoticeFrame',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1083,4 +1103,5 @@ for assembly in assemblies:
  elif kind=='quietsign':quietsign(source)
  elif kind=='overflowtray':overflowtray(source)
  elif kind=='bathshelf':bathshelf(source)
+ elif kind=='noticeframe':noticeframe(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

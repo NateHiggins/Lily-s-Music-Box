@@ -1,0 +1,216 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F01_PUBLIC_NOTICE_native.jpg",
+   "source": "fabrication_shots/domestic_objects/F01_PUBLIC_NOTICE_native.png",
+   "sha256": "1b136daa78085335a1e449db62802e8d4994bb3c9ddd7dcaa089fe93c7b5515d",
+   "bytes": 86629
+  },
+  {
+   "path": "images/F01_SERVICE_NOTICE_native.jpg",
+   "source": "fabrication_shots/domestic_objects/F01_SERVICE_NOTICE_native.png",
+   "sha256": "6e60148f57b93b25c7ca328bea1a85fae91b7478872062875236307a5adb77a8",
+   "bytes": 90995
+  },
+  {
+   "path": "images/F01_PUBLIC_CORE_DT1.jpg",
+   "source": "sweep_shots/F01_PUBLIC_CORE_DT1.png",
+   "sha256": "95cbd091a1d03c07a73999bb2d4b6e381883c700eaf89975b39b71a752815d79",
+   "bytes": 73161
+  },
+  {
+   "path": "images/F01_SERVICE_CORE_DT1.jpg",
+   "source": "sweep_shots/F01_SERVICE_CORE_DT1.png",
+   "sha256": "26292f962aaf7a606946bdda08e3a70d2a19f6446cbfeed7f109a21e88795014",
+   "bytes": 32228
+  },
+  {
+   "path": "images/F02_PUBLIC_CORE_DT1.jpg",
+   "source": "sweep_shots/F02_PUBLIC_CORE_DT1.png",
+   "sha256": "a45f999dae55a0f1fcf18943c61a20e2e6626448ec4494be220bdc40d6923588",
+   "bytes": 62358
+  },
+  {
+   "path": "images/F02_SERVICE_CORE_DT1.jpg",
+   "source": "sweep_shots/F02_SERVICE_CORE_DT1.png",
+   "sha256": "8d684e3a6c0d1317f7f1269d896775abb38fbba09c5acf22954d2070133cada5",
+   "bytes": 39647
+  },
+  {
+   "path": "images/F03_PUBLIC_CORE_DT1.jpg",
+   "source": "sweep_shots/F03_PUBLIC_CORE_DT1.png",
+   "sha256": "1a0187b96ba7225759c8a2b1042adf9fab23c8396b7d40093e50751a10253ba0",
+   "bytes": 71304
+  },
+  {
+   "path": "images/F03_SERVICE_CORE_DT1.jpg",
+   "source": "sweep_shots/F03_SERVICE_CORE_DT1.png",
+   "sha256": "2bb43fd88e6db5bb16e821661e9a54ed3481f2397ba2c39986047ccd94caff44",
+   "bytes": 82181
+  },
+  {
+   "path": "images/F04_PUBLIC_CORE_DT1.jpg",
+   "source": "sweep_shots/F04_PUBLIC_CORE_DT1.png",
+   "sha256": "7e06ae66111a8e2bc44ae97d0547828be8b00dfb39513b1b977af6f09b55e154",
+   "bytes": 61271
+  },
+  {
+   "path": "images/F04_SERVICE_CORE_DT1.jpg",
+   "source": "sweep_shots/F04_SERVICE_CORE_DT1.png",
+   "sha256": "c826f99a944372bcd863f4e397cdefd039f90ea9b766d32f031490671ef66f69",
+   "bytes": 80344
+  },
+  {
+   "path": "images/F05_PUBLIC_CORE_DT1.jpg",
+   "source": "sweep_shots/F05_PUBLIC_CORE_DT1.png",
+   "sha256": "8fb08b7b19fab1c439e019f128720a840c7b8a11f7acaf6cfd77debbe626c459",
+   "bytes": 27158
+  },
+  {
+   "path": "images/F05_SERVICE_CORE_DT1.jpg",
+   "source": "sweep_shots/F05_SERVICE_CORE_DT1.png",
+   "sha256": "821d1a80757b41420c58de64e2d9fc8428b30b142f5419721509b5bd92078156",
+   "bytes": 42699
+  },
+  {
+   "path": "images/F06_PUBLIC_CORE_DT1.jpg",
+   "source": "sweep_shots/F06_PUBLIC_CORE_DT1.png",
+   "sha256": "8707e2ecd1340d1b1a3b8457df33863be00e5b16949f308a311a829dcafcbdea",
+   "bytes": 71715
+  },
+  {
+   "path": "images/F06_SERVICE_CORE_DT1.jpg",
+   "source": "sweep_shots/F06_SERVICE_CORE_DT1.png",
+   "sha256": "97eddc5609bdfb689886a84f18e3c7f49d8909f2c35f04f7e4d073d9b3f7e2ff",
+   "bytes": 50903
+  },
+  {
+   "path": "images/ROOF_SERVICE_CORE_DT3.jpg",
+   "source": "sweep_shots/ROOF_SERVICE_CORE_DT3.png",
+   "sha256": "c3667379d293adc01461cd500822d5532c90cb619fc68c0bdf7fd94085e56fda",
+   "bytes": 61014
+  },
+  {
+   "path": "images/B1_PUBLIC_CORE_DT2.jpg",
+   "source": "sweep_shots/B1_PUBLIC_CORE_DT2.png",
+   "sha256": "3a7890eb629ccd8b9a362962a24d9c7c209daaa05b543b6509fbacbcc4a0c272",
+   "bytes": 92720
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "0d540398652d83f29edc51f10fe16109c883c12b12fc8d54c2eea6075cf04f87",
+   "bytes": 3494
+  },
+  {
+   "path": "receipts/base47_ground_core.log.receipt.json",
+   "source": "base47_ground_core.log.receipt.json",
+   "sha256": "65f19155f1d5e4e67f8d08c377957001eeedaeb62054400882c4dbc2a7044866",
+   "bytes": 3226
+  },
+  {
+   "path": "receipts/basement_route.log.receipt.json",
+   "source": "basement_route.log.receipt.json",
+   "sha256": "31e079c4ce25f294348641659ed1245de6bde4760f9f95bc9a49bec7ad3380a7",
+   "bytes": 3192
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "1a1a052f6a0ff6f76d05ba052f8e6ae957e9611ad7de432362c529c71fb45b07",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/ground_core.log.receipt.json",
+   "source": "ground_core.log.receipt.json",
+   "sha256": "22b4b38d7e37594daa9c35a0e6a6a2bae560862f4f5e7325d199c35f1cf19301",
+   "bytes": 3207
+  },
+  {
+   "path": "receipts/household_state.log.receipt.json",
+   "source": "household_state.log.receipt.json",
+   "sha256": "16adb40f4d5e6ed3d141d9afea6cbcdf3f664867d70a2056223abe1e78776682",
+   "bytes": 3196
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "3e4d1eb7dd40f54f7d422b778db50615d1c8f4b05f84d6c1a3045a52c67f8697",
+   "bytes": 3137
+  },
+  {
+   "path": "receipts/public_doors.log.receipt.json",
+   "source": "public_doors.log.receipt.json",
+   "sha256": "699bf722c91776aeea1c862ff078dd6008f2299f0b3d65c2877b0e5707be740f",
+   "bytes": 3183
+  },
+  {
+   "path": "receipts/public_furnishings.log.receipt.json",
+   "source": "public_furnishings.log.receipt.json",
+   "sha256": "0e7c3c3c1f32574b793456c382f4328ff722dfd9712c6d68a5d915a399fa17b3",
+   "bytes": 3208
+  },
+  {
+   "path": "receipts/sweep_0.log.receipt.json",
+   "source": "sweep_0.log.receipt.json",
+   "sha256": "892f3891f6a4d1c9098a45eb439a382a17ec14ff76097a522dbf8fa7c70e0cfc",
+   "bytes": 3225
+  },
+  {
+   "path": "receipts/sweep_1.log.receipt.json",
+   "source": "sweep_1.log.receipt.json",
+   "sha256": "d2b1c96ad8b3f38463844defff348e8bd995e9e1a29ee1df74dd0fef929ced81",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/sweep_2.log.receipt.json",
+   "source": "sweep_2.log.receipt.json",
+   "sha256": "29b41be2cfe478ea37358a776d3070d3fda2aa98d81bc14f77ecaf45f2d8a0f2",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/upper_furniture.log.receipt.json",
+   "source": "upper_furniture.log.receipt.json",
+   "sha256": "7e390588084c07149a9d1d24ef6eed4a5a0f5a41d3cff8814d1e79455b485b44",
+   "bytes": 3196
+  },
+  {
+   "path": "receipts/upper_kitchen.log.receipt.json",
+   "source": "upper_kitchen.log.receipt.json",
+   "sha256": "c0c5db1a49b0c6a03886de2ac614354926a9f34d007323b783ee9b3b0f6681dc",
+   "bytes": 3187
+  },
+  {
+   "path": "receipts/upper_lighting.log.receipt.json",
+   "source": "upper_lighting.log.receipt.json",
+   "sha256": "6f41c0edd3031d221fb3ad8b8e06fdef2369cffc4fb7e60ba5805850ecee0c6e",
+   "bytes": 3192
+  },
+  {
+   "path": "receipts/upper_transfers.log.receipt.json",
+   "source": "upper_transfers.log.receipt.json",
+   "sha256": "96badfe3079c74115bea0aee98511d545bab00d127e74ea24e04406b4a8d5805",
+   "bytes": 3225
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "12c424502408dc88b5e1369e07fb2dc51d978e8c52d7fd862508de1d838b422b",
+   "bytes": 1469
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "6bc83470a4c6f86ae16bc28bd6cdb7ab7f1852e9a23a3fc536e5a094a5ca7483",
+   "bytes": 792847
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "fee8dc9e1dfed1e526ec6fdd8dcc1dff9819d33d467763615ccd51c9b007f889",
+   "bytes": 22533
+  }
+ ]
+}

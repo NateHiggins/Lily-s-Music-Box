@@ -16,7 +16,7 @@ const NativeRadios := preload("res://scripts/building/orison_v2_native_household
 const NativeObjects := preload("res://scripts/building/orison_v2_native_domestic_objects.gd")
 const NATIVE_KINDS := ["chair", "sofa", "nightstand", "table_round", "table_rect", "coffee"]
 const STORAGE_KINDS := ["shelf", "cupboard", "counter"]
-const OBJECT_KINDS := ["pinboard","toolboard","crate","softbox","cablecoil","plant","bookpile","tripod","reeldeck","hallstand","artframe","garmentrail","blanket","hamper","boottray","suitcase","sewingmachine","teardown","easel","canvasstack","cardcabinet","backdroprail","printline","hookstrip","coathook","headsethook","foldedcot","shovel","rakerack","ashcan","signalframe","conduit","oilcan","beltnail","stepladder","umbrellastand","spittoon","soapdish","rollertowel","mopbucket","ropecoil","wateringcan","trug","sootsack","sweeprods","workboots","dressform","tsquare","verticalfile","chargingcase","wallbell","quietsign","overflowtray","bathshelf"]
+const OBJECT_KINDS := ["pinboard","toolboard","crate","softbox","cablecoil","plant","bookpile","tripod","reeldeck","hallstand","artframe","garmentrail","blanket","hamper","boottray","suitcase","sewingmachine","teardown","easel","canvasstack","cardcabinet","backdroprail","printline","hookstrip","coathook","headsethook","foldedcot","shovel","rakerack","ashcan","signalframe","conduit","oilcan","beltnail","stepladder","umbrellastand","spittoon","soapdish","rollertowel","mopbucket","ropecoil","wateringcan","trug","sootsack","sweeprods","workboots","dressform","tsquare","verticalfile","chargingcase","wallbell","quietsign","overflowtray","bathshelf","noticeframe"]
 const MATERIAL_ALIASES := {"floor_oak": "oak_quartered", "fabric_cool": "linen", "fabric_green": "linen"}
 const GARMENT_TINTS := {"fabric_cool": Color(0.36, 0.42, 0.51), "fabric_green": Color(0.38, 0.46, 0.36)}
 var errors: Array[String] = []
@@ -134,6 +134,7 @@ func mount_source(adapter: Variant, source: Variant) -> bool:
 				body.free(); objects.finish()
 				errors.append("native household object mount refused: " + str(record.id))
 				return false
+			if record.kind == "noticeframe": _add_notice(body, record)
 		elif record.kind == "prep_cabinet":
 			if not prep.mount_on(body,str(record.id)):
 				body.free(); prep.finish()
@@ -167,7 +168,7 @@ func validate(source: Variant, adapter: Variant) -> bool:
 		return false
 	var seen: Dictionary = {}
 	for record: Variant in source.furniture:
-		if record is not Dictionary or record.get("id") is not String or record.get("kind") not in ["bed", "workbench", "toilet", "nightstand", "wardrobe", "shelf", "sofa", "counter", "desk", "chair", "table_round", "table_rect", "cupboard", "coffee", "crate", "pinboard", "toolboard", "prep_cabinet", "radio", "reeldeck", "plant", "tripod", "softbox", "cablecoil", "bookpile", "hallstand", "artframe", "garmentrail", "blanket", "hamper", "boottray", "suitcase", "sewingmachine", "teardown", "easel", "canvasstack", "cardcabinet", "backdroprail", "printline", "hookstrip", "coathook", "headsethook", "foldedcot", "shovel", "rakerack", "ashcan", "signalframe", "conduit", "oilcan", "beltnail", "stepladder", "umbrellastand", "spittoon", "soapdish", "rollertowel", "mopbucket", "ropecoil", "wateringcan", "trug", "sootsack", "sweeprods","workboots","dressform","tsquare","verticalfile","chargingcase","wallbell","quietsign","overflowtray","bathshelf"]:
+		if record is not Dictionary or record.get("id") is not String or record.get("kind") not in ["bed", "workbench", "toilet", "nightstand", "wardrobe", "shelf", "sofa", "counter", "desk", "chair", "table_round", "table_rect", "cupboard", "coffee", "crate", "pinboard", "toolboard", "prep_cabinet", "radio", "reeldeck", "plant", "tripod", "softbox", "cablecoil", "bookpile", "hallstand", "artframe", "garmentrail", "blanket", "hamper", "boottray", "suitcase", "sewingmachine", "teardown", "easel", "canvasstack", "cardcabinet", "backdroprail", "printline", "hookstrip", "coathook", "headsethook", "foldedcot", "shovel", "rakerack", "ashcan", "signalframe", "conduit", "oilcan", "beltnail", "stepladder", "umbrellastand", "spittoon", "soapdish", "rollertowel", "mopbucket", "ropecoil", "wateringcan", "trug", "sootsack", "sweeprods","workboots","dressform","tsquare","verticalfile","chargingcase","wallbell","quietsign","overflowtray","bathshelf","noticeframe"]:
 			errors.append("invalid furniture identity or kind")
 			continue
 		if seen.has(record.id) or adapter == null or not adapter.resolve(record.id) is Node3D:
@@ -191,6 +192,9 @@ func validate(source: Variant, adapter: Variant) -> bool:
 					or mechanism.get("id") != record.id or mechanism.get("asm") != "wardrobe" \
 					or mechanism.get("W") != 1.3 or mechanism.get("case_wood") not in ["oak_quartered", "wood_dark"]:
 				errors.append("invalid household wardrobe mechanism")
+		if record.kind == "noticeframe" and (record.get("notice_text") is not String \
+				or str(record.get("notice_text")).is_empty() or str(record.get("notice_text")).count("\n") > 17):
+			errors.append("invalid notice text: " + str(record.id))
 		var bounds: Variant = record.get("bounds")
 		if bounds is not Array or bounds.size() != 2 or not _numbers(bounds[0], 3) or not _numbers(bounds[1], 3):
 			errors.append("invalid furniture bounds")
@@ -249,6 +253,26 @@ func _bed_variant(record: Dictionary) -> String:
 	var base := "Bed_%d_%d" % [roundi((high.x-low.x)*100),roundi((high.z-low.z)*100)]
 	var state: String = BED_STATES.get(str(record.get("id", "")), "")
 	return base if state.is_empty() else base + "_" + state
+
+## Dossier slice 48: the core notices' words are a Label3D on the paper, shaded so the
+## service lamp reads them; the frame is a native object (0.35 x 0.45 m, paper 0.0125 m
+## behind the wall-side origin plane).
+func _add_notice(body: StaticBody3D, record: Dictionary) -> void:
+	var words := Label3D.new()
+	words.name = "NoticeText"
+	words.text = str(record.notice_text)
+	words.font_size = 32
+	words.pixel_size = 0.00052
+	words.modulate = Color(0.1, 0.085, 0.07)
+	words.outline_size = 0
+	words.shaded = true
+	words.double_sided = false
+	words.alpha_cut = Label3D.ALPHA_CUT_DISCARD
+	words.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	words.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	words.position = Vector3(0.0, 0.225, 0.0119)
+	words.rotation.y = PI
+	body.add_child(words)
 
 func _add_bed(body: StaticBody3D, record: Dictionary) -> void:
 	var library := BEDDING.instantiate()

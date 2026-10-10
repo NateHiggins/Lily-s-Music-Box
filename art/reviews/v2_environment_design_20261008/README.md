@@ -173,6 +173,8 @@ Slices landed so far (evidence folders in parentheses):
     placement fixes the objects context inspector found (`slice44`).
 47. A resident bath set on an opal glass shelf over every one of the 18 basins, and
     Wren's overflowed umbrella tray (`slice47`).
+48. The building's paper trail: a framed notice on every core level, its words a
+    Label3D the lamp reads (`slice48`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

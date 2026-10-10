@@ -1180,6 +1180,24 @@
     ]
    },
    "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject88",
+   "kind": "noticeframe",
+   "source_id": "F01_PUBLIC_NOTICE",
+   "params": {
+    "taped": true
+   },
+   "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject89",
+   "kind": "noticeframe",
+   "source_id": "F01_SERVICE_NOTICE",
+   "params": {
+    "taped": false
+   },
+   "rear_wall_y": -0.02
   }
  ],
  "instances": [
@@ -1862,6 +1880,66 @@
   {
    "id": "6C_bath_shelf",
    "variant": "DomesticObject87"
+  },
+  {
+   "id": "F01_PUBLIC_NOTICE",
+   "variant": "DomesticObject88"
+  },
+  {
+   "id": "F02_PUBLIC_NOTICE",
+   "variant": "DomesticObject88"
+  },
+  {
+   "id": "F03_PUBLIC_NOTICE",
+   "variant": "DomesticObject88"
+  },
+  {
+   "id": "F04_PUBLIC_NOTICE",
+   "variant": "DomesticObject88"
+  },
+  {
+   "id": "F05_PUBLIC_NOTICE",
+   "variant": "DomesticObject88"
+  },
+  {
+   "id": "F06_PUBLIC_NOTICE",
+   "variant": "DomesticObject88"
+  },
+  {
+   "id": "ROOF_PUBLIC_NOTICE",
+   "variant": "DomesticObject88"
+  },
+  {
+   "id": "B1_PUBLIC_NOTICE",
+   "variant": "DomesticObject88"
+  },
+  {
+   "id": "F01_SERVICE_NOTICE",
+   "variant": "DomesticObject89"
+  },
+  {
+   "id": "F02_SERVICE_NOTICE",
+   "variant": "DomesticObject89"
+  },
+  {
+   "id": "F03_SERVICE_NOTICE",
+   "variant": "DomesticObject89"
+  },
+  {
+   "id": "F04_SERVICE_NOTICE",
+   "variant": "DomesticObject89"
+  },
+  {
+   "id": "F05_SERVICE_NOTICE",
+   "variant": "DomesticObject89"
+  },
+  {
+   "id": "F06_SERVICE_NOTICE",
+   "variant": "DomesticObject89"
+  },
+  {
+   "id": "ROOF_SERVICE_NOTICE",
+   "variant": "DomesticObject89"
   }
  ],
  "runtime_keys": [
@@ -1898,7 +1976,8 @@
   "tumbler",
   "amber",
   "bone",
-  "standwater"
+  "standwater",
+  "kraft"
  ],
  "catalog_variants": {
   "bakelite": "bakelite",
@@ -1934,7 +2013,8 @@
   "tumbler": "milk_glass",
   "amber": "milk_glass",
   "bone": "enamel_appliance",
-  "standwater": "milk_glass"
+  "standwater": "milk_glass",
+  "kraft": "paper"
  },
  "material_tints": {
   "wood_dark": [
@@ -2037,6 +2117,12 @@
    0.2,
    0.235,
    0.26,
+   1
+  ],
+  "kraft": [
+   0.5,
+   0.38,
+   0.22,
    1
   ]
  },
@@ -2176,6 +2262,10 @@
   "standwater": {
    "normal_scale": 0.01,
    "roughness": 0.06
+  },
+  "kraft": {
+   "normal_scale": 0.12,
+   "roughness": 0.8
   }
  },
  "placement": {
@@ -2214,7 +2304,8 @@
   "Slice 42 of the V2 environment dossier adds a wallbell form (1D's house bell above the signal outlet, its flex run down to it), a quietsign form (1D's framed card with one stroke and the watch hook), and DomesticObject68, 4C's colour board with Cam's route thread and ticket stubs pinned over it.",
   "Slice 44 of the V2 environment dossier adds an overflowtray form: 4A's japanned umbrella drip tray by the door, water at the rim and a dark water line on the oak around it.",
   "Slice 47 of the V2 environment dossier adds a bathshelf form: an opal glass shelf on two nickel brackets over each of the 18 apartment basins, between the basin's coved back and the medicine cabinet's lower edge, carrying the household's own bath set (glasses and brushes, shaving mugs, nail brushes and pumice, powder, pins, cosmetics, bottles, the 4C tape line, 4D's hotel soap). opal, tumbler and amber are tinted aliases of the catalogue milk glass; bone of the catalogue enamel.",
-  "Slice 47 gives 4A's overflowed drip tray grey standing water (standwater, a tinted alias of the catalogue milk glass) and Wren's furled umbrella, tip in the tray, leaning toward the wall: the black water alone read as a floor register."
+  "Slice 47 gives 4A's overflowed drip tray grey standing water (standwater, a tinted alias of the catalogue milk glass) and Wren's furled umbrella, tip in the tray, leaning toward the wall: the black water alone read as a floor register.",
+  "Slice 48 of the V2 environment dossier adds a noticeframe form: an oak-framed notice board on each core level, the 1928 house rules on the public core (its cracked corner taped) and the service notice on the service core (pinned). The words are a Label3D the runtime lays on the paper. kraft is a tinted alias of the catalogue paper."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

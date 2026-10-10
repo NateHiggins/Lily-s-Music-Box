@@ -1,0 +1,52 @@
+{
+	"batch_checks": 9,
+	"elapsed_ms": 55835,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 7041,
+	"modules": {
+		"domestic_objects": {
+			"actors": 185,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 7041,
+			"elapsed_ms": 7322,
+			"failures": [],
+			"fixture_sha256": "5865661e8bad5fb8756029c8c77eb155e708aad2833b31e143fdc95882ab0ba8",
+			"parts": 731,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 449368,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 90,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-0.599998772144318,
+						0.0199999995529652,
+						-14.2600002288818
+					],
+					"id": "F01_PUBLIC_NOTICE_native",
+					"image": "F01_PUBLIC_NOTICE_native.png",
+					"owner": "F01_PUBLIC_NOTICE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-12.1999988555908,
+						0.0199999995529652,
+						-13.1900005340576
+					],
+					"id": "F01_SERVICE_NOTICE_native",
+					"image": "F01_SERVICE_NOTICE_native.png",
+					"owner": "F01_SERVICE_NOTICE",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}
