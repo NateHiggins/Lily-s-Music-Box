@@ -232,6 +232,8 @@ Slices landed so far (evidence folders in parentheses):
 74. The cobbler's floor in a warm leather dust and the dark pairs brown leather.
 75. The laundry's ticket halves in four ages and the oldest parcel row, and
     verification of slices 68-75 (`slice68`).
+76. The coal chute seated on a boarded bunker, and the coal route through the
+    vestibule leaves (evidence with slice 80 in `slice80`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

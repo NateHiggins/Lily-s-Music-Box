@@ -44,7 +44,9 @@ def main():
     bpy.ops.object.delete(use_global=False)
     mats={'cast_iron':material('cast_iron',(.09,.095,.09),.6,.8),
           'metal':material('metal',(.22,.23,.21),.75,.65),
-          'soot':material('soot',(.022,.019,.017))}
+          'soot':material('soot',(.022,.019,.017)),
+          # Coal-dusted boards take the dark wood finish, not new pine.
+          'timber':material('wood_dark',(.2,.16,.12),0,.85)}
     # Execute only this established assembly, never the old whole-building build.
     tree=ast.parse((ROOT/'art/blender/scripts/build_orison.py').read_text(encoding='utf-8'))
     function=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='asm_coal_chute')
@@ -73,6 +75,40 @@ def main():
             obj=box('ChuteStrap',at+Vector((x,0,0)),(.025,.62,.055),mats['cast_iron'])
             obj.rotation_mode='QUATERNION'
             obj.rotation_quaternion=Vector((0,1,0)).rotation_difference(point(direction))
+
+    # The bunker the chute feeds (dossier slice 76). Coal is drawn from a boarded
+    # bin, not a loose pile: two side walls of horizontal boards run from the
+    # south wall to a front board gate held in slotted posts. The gate is worked
+    # down as the heap falls, so two boards stand and the lifted pair lean aside.
+    # The chute's lower lip rests on a bearer laid across the side walls' tops.
+    west,east,front,back=-.80,.68,1.05,-1.85
+    board,gap,thick=.17,.012,.025
+    for side in [west,east]:
+        for row in range(4):
+            y=row*(board+gap)+board/2
+            box('BunkerSide',((side,y,(front+back)/2)),(thick,board,front-back),mats['timber'])
+        for z in [-.40,front]:
+            box('BunkerPost',(side,.475,z),(.08,.95,.08),mats['timber'])
+    for row in range(2):
+        y=row*(board+gap)+board/2
+        box('BunkerGate',((west+east)/2,y,front-.055),(east-west-.08,board,thick),mats['timber'])
+    for side,sign in [(west,1),(east,-1)]:
+        for dz in [-.10,-.01]:
+            box('BunkerGuide',(side+sign*.055,.475,front+dz),(.03,.95,.02),mats['timber'])
+    # The lifted gate boards stand on end against the south wall in the gap
+    # east of the bunker, feet 0.2 m out and heads on the wall.
+    for x,tilt in [(1.05,8.6),(1.25,10.5)]:
+        t=math.radians(tilt)
+        lean=box('BunkerLeaning',(x,.7*math.cos(t),-1.83+.7*math.sin(t)),(.17,1.40,thick),mats['timber'])
+        lean.rotation_mode='XYZ'
+        lean.rotation_euler=(math.radians(-tilt),0,0)
+        bpy.ops.object.select_all(action='DESELECT')
+        lean.select_set(True)
+        bpy.context.view_layer.objects.active=lean
+        bpy.ops.object.transform_apply(location=False,rotation=True,scale=True)
+    # Bearer: top at the lip's height, under the lower sheet's end.
+    lip=end-normal*.28
+    box('BunkerBearer',((west+east)/2,lip.y-.043,lip.z+.02),(east-west+.08,.086,.08),mats['timber'])
 
     # Trim the sloping shell below the pavement seat. Without this cut the
     # upper corners of a full rectangular tube protrude alongside the plate.

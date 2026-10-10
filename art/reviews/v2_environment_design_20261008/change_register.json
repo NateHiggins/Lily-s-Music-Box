@@ -364,7 +364,9 @@
    ],
    "acceptance": "Chute detail station shows the mouth seated",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_COAL_ROOM"
+   "area": "B1_COAL_ROOM",
+   "status": "verified",
+   "owner_notes": "The chute's lower lip rests on a timber bearer laid across a boarded bunker round the heap: side walls of four horizontal boards from the south wall, a front board gate in slotted posts worked down to two boards with the lifted pair standing against the wall, in coal-dusted dark wood (B1_COAL_ROOM_OV, B1_COAL_ROOM_DT2, coal_bunker, delivery_chute_and_bunker). The coal delivery route predated the vestibule leaves and stopped at the inner door; it now opens both, and the coal heap suite runs end to end. Verified at slice 80's WIP 1d65072d and its runtime-identical predecessor 129e02d3 (implementation/slice80), which carry slices 76 to 80. The patrol stations suite reports seven boxes, seven marks and seven delivered, 0 failures, and V1's watch register (87/87), watch pair (118/118) and tour key (65/65) suites pass; the fabrication batch's domestic objects and service instruments (12,350 checks) report two capture-harness refusals and no fabrication failure (the tour card is not its notice variant's first instance; the tubs leave no clear camera station in front of the rinse taps); the coal heap route 36 waypoints with 9 heap contacts, the laundry route 17 waypoints, the blockout and M08F suites, all 0 failures; four sweeps (twelve spaces), 0 failures. The M08E spatial suite's one failure and the mail access route's one failure are identical at slice 75's 088f987a (base80). The static gate board at 1d65072d matches slice 35's on all 49 gates."
   },
   {
    "id": "B1_COAL_ROOM-003",
@@ -380,7 +382,9 @@
    ],
    "acceptance": "OV reads a heap with an angle of repose and grime on the walls",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_COAL_ROOM"
+   "area": "B1_COAL_ROOM",
+   "status": "implemented",
+   "owner_notes": "Partial: the heap is the fabricated mound (coal_heap.glb with collision on its own slope; all fourteen old heap boxes retired), now held in slice 76's boarded bunker. Grime on the whitewash beyond slice 60's chute fan is not done. Verified at slice 80's WIP 1d65072d and its runtime-identical predecessor 129e02d3 (implementation/slice80), which carry slices 76 to 80. The patrol stations suite reports seven boxes, seven marks and seven delivered, 0 failures, and V1's watch register (87/87), watch pair (118/118) and tour key (65/65) suites pass; the fabrication batch's domestic objects and service instruments (12,350 checks) report two capture-harness refusals and no fabrication failure (the tour card is not its notice variant's first instance; the tubs leave no clear camera station in front of the rinse taps); the coal heap route 36 waypoints with 9 heap contacts, the laundry route 17 waypoints, the blockout and M08F suites, all 0 failures; four sweeps (twelve spaces), 0 failures. The M08E spatial suite's one failure and the mail access route's one failure are identical at slice 75's 088f987a (base80). The static gate board at 1d65072d matches slice 35's on all 49 gates."
   },
   {
    "id": "B1_RESIDENT_STORAGE-001",
