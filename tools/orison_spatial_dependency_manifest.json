@@ -4,7 +4,7 @@
  "layout_path": "art/data/building_layout.json",
  "universe_counts": {
   "floor": 8,
-  "v2_blockout": 2329,
+  "v2_blockout": 2328,
   "unit": 22,
   "room": 127,
   "marker": 631,
@@ -73332,32 +73332,6 @@
    "target_exists": true
   },
   {
-   "key": "72bb1417f8af6f0c",
-   "kind": "id_reference",
-   "token": "5D_soot_fan",
-   "file": "game/data/orison_v2/domestic_furniture.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/furniture[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
    "key": "1818eac28aa52dae",
    "kind": "id_reference",
    "token": "6A_archive_box_a",
@@ -80879,32 +80853,6 @@
    "key": "01b6bbcfb74f6734",
    "kind": "id_reference",
    "token": "5D_sealed_notice",
-   "file": "game/data/orison_v2/domestic_objects.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/instances[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
-   "target_exists": true
-  },
-  {
-   "key": "43c95a7cd38a0cdc",
-   "kind": "id_reference",
-   "token": "5D_soot_fan",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -127042,9 +126990,11 @@
     0,
     0,
     0,
+    0,
+    0,
     0
    ],
-   "count": 4,
+   "count": 6,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -127086,9 +127036,12 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
     0
    ],
-   "count": 17,
+   "count": 20,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -127130,9 +127083,12 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
     0
    ],
-   "count": 17,
+   "count": 20,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -127176,9 +127132,10 @@
     0,
     0,
     0,
+    0,
     0
    ],
-   "count": 19,
+   "count": 23,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -127217,9 +127174,13 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
+    0,
     0
    ],
-   "count": 14,
+   "count": 18,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -127258,9 +127219,12 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
     0
    ],
-   "count": 14,
+   "count": 17,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -127472,6 +127436,34 @@
    "target_exists": false
   },
   {
+   "key": "c75ec2450e639a97",
+   "kind": "id_candidate",
+   "token": "F01_A_BATH_WEAR_WATERLINE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "55673aba6e4eb848",
    "kind": "id_candidate",
    "token": "F01_D_BATH_WEAR_CORNER",
@@ -127528,6 +127520,34 @@
    "target_exists": false
   },
   {
+   "key": "fa947e434f2c888b",
+   "kind": "id_candidate",
+   "token": "F01_D_BATH_WEAR_WATERLINE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "165469e3e2f7ed57",
    "kind": "id_candidate",
    "token": "F02_A_BATH_WEAR_CORNER",
@@ -127559,6 +127579,34 @@
    "key": "d3111759755924fe",
    "kind": "id_candidate",
    "token": "F02_A_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "655221a552246875",
+   "kind": "id_candidate",
+   "token": "F02_A_BATH_WEAR_WATERLINE",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -127640,6 +127688,34 @@
    "target_exists": false
   },
   {
+   "key": "799a1359c8d946a2",
+   "kind": "id_candidate",
+   "token": "F02_B_BATH_WEAR_WATERLINE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "4fdf12a873e28681",
    "kind": "id_candidate",
    "token": "F02_C_BATH_WEAR_CORNER",
@@ -127671,6 +127747,34 @@
    "key": "b09bb2fb8fb46a61",
    "kind": "id_candidate",
    "token": "F02_C_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "4f57deac149e6400",
+   "kind": "id_candidate",
+   "token": "F02_C_BATH_WEAR_WATERLINE",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -128060,6 +128164,34 @@
    "target_exists": false
   },
   {
+   "key": "45cf9801f7c3770f",
+   "kind": "id_candidate",
+   "token": "F03_A_BATH_WEAR_WATERLINE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "5b4433e0b0da574c",
    "kind": "id_candidate",
    "token": "F03_B_BATH_WEAR_CORNER",
@@ -128116,6 +128248,34 @@
    "target_exists": false
   },
   {
+   "key": "d76e6b9732763861",
+   "kind": "id_candidate",
+   "token": "F03_B_BATH_WEAR_WATERLINE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "60660e86706397a3",
    "kind": "id_candidate",
    "token": "F03_D_BATH_WEAR_CORNER",
@@ -128147,6 +128307,34 @@
    "key": "1d71507b8964cb2d",
    "kind": "id_candidate",
    "token": "F03_D_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "7cfccbd422c7433a",
+   "kind": "id_candidate",
+   "token": "F03_D_BATH_WEAR_WATERLINE",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -128536,6 +128724,34 @@
    "target_exists": false
   },
   {
+   "key": "8f1d2e3d5a90f69a",
+   "kind": "id_candidate",
+   "token": "F04_A_BATH_WEAR_WATERLINE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "19c40316e7817c8b",
    "kind": "id_candidate",
    "token": "F04_B_BATH_WEAR_CORNER",
@@ -128567,6 +128783,34 @@
    "key": "013c48d383e5d7ea",
    "kind": "id_candidate",
    "token": "F04_B_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "2d663b2d36450aa7",
+   "kind": "id_candidate",
+   "token": "F04_B_BATH_WEAR_WATERLINE",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -128648,6 +128892,34 @@
    "target_exists": false
   },
   {
+   "key": "87bbc6b6eb7c2605",
+   "kind": "id_candidate",
+   "token": "F04_C_BATH_WEAR_WATERLINE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "a307047ffe6ee9bd",
    "kind": "id_candidate",
    "token": "F04_D_BATH_WEAR_CORNER",
@@ -128679,6 +128951,34 @@
    "key": "6d9ad38db0b238b9",
    "kind": "id_candidate",
    "token": "F04_D_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "e1ad6de276b7a4e3",
+   "kind": "id_candidate",
+   "token": "F04_D_BATH_WEAR_WATERLINE",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -129068,6 +129368,34 @@
    "target_exists": false
   },
   {
+   "key": "53325980a594268c",
+   "kind": "id_candidate",
+   "token": "F05_A_BATH_WEAR_WATERLINE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "a2904a0f9ee67e02",
    "kind": "id_candidate",
    "token": "F05_B_BATH_WEAR_CORNER",
@@ -129124,6 +129452,34 @@
    "target_exists": false
   },
   {
+   "key": "92d4d5323ead5045",
+   "kind": "id_candidate",
+   "token": "F05_B_BATH_WEAR_WATERLINE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "4013e758eb0de6fc",
    "kind": "id_candidate",
    "token": "F05_C_BATH_WEAR_CORNER",
@@ -129155,6 +129511,34 @@
    "key": "dd5bf32673819565",
    "kind": "id_candidate",
    "token": "F05_C_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "c002caf0955e5892",
+   "kind": "id_candidate",
+   "token": "F05_C_BATH_WEAR_WATERLINE",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -129239,6 +129623,34 @@
    "key": "a9ca631a2f67939f",
    "kind": "id_candidate",
    "token": "F05_EAST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "815e50c48376b747",
+   "kind": "id_candidate",
+   "token": "F05_SERVICE_CROSSING_WEAR_SOOT",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -129460,6 +129872,34 @@
    "target_exists": false
   },
   {
+   "key": "e9b1d6e23d3cb75b",
+   "kind": "id_candidate",
+   "token": "F06_A_BATH_WEAR_WATERLINE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "623a2161716d80df",
    "kind": "id_candidate",
    "token": "F06_B_BATH_WEAR_CORNER",
@@ -129516,6 +129956,34 @@
    "target_exists": false
   },
   {
+   "key": "69d6d158f0e0197f",
+   "kind": "id_candidate",
+   "token": "F06_B_BATH_WEAR_WATERLINE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "50c1a27aec7cb2c0",
    "kind": "id_candidate",
    "token": "F06_C_BATH_WEAR_CORNER",
@@ -129547,6 +130015,34 @@
    "key": "b439e1dcadca6c41",
    "kind": "id_candidate",
    "token": "F06_C_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "a96905a92389af3f",
+   "kind": "id_candidate",
+   "token": "F06_C_BATH_WEAR_WATERLINE",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -129934,13 +130430,15 @@
    "subsystem": "data",
    "symbols": [
     "/decals[0]/space",
-    "/decals[1]/space"
+    "/decals[1]/space",
+    "/decals[*]/space"
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -129968,9 +130466,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -129997,9 +130496,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130026,9 +130526,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130055,9 +130556,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130170,9 +130672,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130199,9 +130702,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130228,9 +130732,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130343,9 +130848,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130372,9 +130878,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130401,9 +130908,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130430,9 +130938,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130545,9 +131054,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130574,9 +131084,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130603,9 +131114,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130636,6 +131148,32 @@
     0
    ],
    "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "97e872d1bdd2e3fd",
+   "kind": "id_reference",
+   "token": "F05_SERVICE_CROSSING",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130690,9 +131228,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130719,9 +131258,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -130748,9 +131288,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -150971,7 +151512,7 @@
     0,
     0
    ],
-   "count": 321,
+   "count": 320,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -182032,7 +182573,7 @@
     "<module>"
    ],
    "lines": [
-    9
+    10
    ],
    "count": 1,
    "context": [],

@@ -9,7 +9,9 @@
   "wear_path",
   "wear_receptor",
   "wear_rub",
-  "wear_threshold"
+  "wear_soot",
+  "wear_threshold",
+  "wear_waterline"
  ],
  "decals": [
   {
@@ -2084,6 +2086,443 @@
     0
    ],
    "opacity": 0.9
+  },
+  {
+   "id": "F01_A_BATH_WEAR_WATERLINE",
+   "space": "F01_A_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F01",
+   "position": [
+    -6.05,
+    0.0,
+    -11.49
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F01_D_BATH_WEAR_WATERLINE",
+   "space": "F01_D_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F01",
+   "position": [
+    13.35,
+    0.0,
+    -11.47
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F02_A_BATH_WEAR_WATERLINE",
+   "space": "F02_A_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F02",
+   "position": [
+    -6.94,
+    0.0,
+    3.98
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F02_B_BATH_WEAR_WATERLINE",
+   "space": "F02_B_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F02",
+   "position": [
+    13.35,
+    0.0,
+    -11.47
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F02_C_BATH_WEAR_WATERLINE",
+   "space": "F02_C_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F02",
+   "position": [
+    3.23,
+    0.0,
+    4.76
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F03_A_BATH_WEAR_WATERLINE",
+   "space": "F03_A_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F03",
+   "position": [
+    -6.94,
+    0.0,
+    3.98
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F03_B_BATH_WEAR_WATERLINE",
+   "space": "F03_B_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F03",
+   "position": [
+    13.55,
+    0.0,
+    -11.39
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F03_D_BATH_WEAR_WATERLINE",
+   "space": "F03_D_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F03",
+   "position": [
+    -6.25,
+    0.0,
+    -11.43
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F04_A_BATH_WEAR_WATERLINE",
+   "space": "F04_A_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F04",
+   "position": [
+    13.35,
+    0.0,
+    -11.47
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F04_B_BATH_WEAR_WATERLINE",
+   "space": "F04_B_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F04",
+   "position": [
+    -8.45,
+    0.0,
+    5.17
+   ],
+   "yaw": 0.0,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F04_C_BATH_WEAR_WATERLINE",
+   "space": "F04_C_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F04",
+   "position": [
+    3.23,
+    0.0,
+    4.76
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F04_D_BATH_WEAR_WATERLINE",
+   "space": "F04_D_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F04",
+   "position": [
+    -6.25,
+    0.0,
+    -11.43
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F05_A_BATH_WEAR_WATERLINE",
+   "space": "F05_A_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F05",
+   "position": [
+    -7.75,
+    0.0,
+    -11.44
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F05_B_BATH_WEAR_WATERLINE",
+   "space": "F05_B_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F05",
+   "position": [
+    -8.75,
+    0.0,
+    5.44
+   ],
+   "yaw": 0.0,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F05_C_BATH_WEAR_WATERLINE",
+   "space": "F05_C_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F05",
+   "position": [
+    3.23,
+    0.0,
+    4.76
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F06_A_BATH_WEAR_WATERLINE",
+   "space": "F06_A_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F06",
+   "position": [
+    -7.75,
+    0.0,
+    -11.44
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F06_B_BATH_WEAR_WATERLINE",
+   "space": "F06_B_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F06",
+   "position": [
+    -8.75,
+    0.0,
+    5.44
+   ],
+   "yaw": 0.0,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F06_C_BATH_WEAR_WATERLINE",
+   "space": "F06_C_BATH",
+   "kind": "waterline",
+   "texture": "wear_waterline",
+   "level": "F06",
+   "position": [
+    3.23,
+    0.0,
+    4.76
+   ],
+   "yaw": 3.1416,
+   "size": [
+    0.8,
+    0.16
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "F05_SERVICE_CROSSING_WEAR_SOOT",
+   "space": "F05_SERVICE_CROSSING",
+   "kind": "soot",
+   "texture": "wear_soot",
+   "level": "F05",
+   "position": [
+    9.43,
+    2.56,
+    -3.25
+   ],
+   "yaw": 0.0,
+   "size": [
+    0.95,
+    0.62
+   ],
+   "into": [
+    1,
+    0,
+    0
+   ],
+   "opacity": 0.92
   }
  ]
 }

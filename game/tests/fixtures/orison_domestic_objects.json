@@ -900,12 +900,6 @@
       "source_record": "3C_threshold"
     },
     {
-      "id": "DomesticObject119",
-      "kind": "sootfan",
-      "cell": "shared",
-      "source_record": "5D_soot_fan"
-    },
-    {
       "id": "DomesticObject120",
       "kind": "aerialwire",
       "cell": "shared",
@@ -14930,48 +14924,6 @@
       "volume_m3": 1.556478584332569e-05
     },
     {
-      "name": "DomesticObject119_Soot0",
-      "assembly": "DomesticObject119",
-      "key": "soot",
-      "volume_m3": 4.281975808795879e-05
-    },
-    {
-      "name": "DomesticObject119_Soot1",
-      "assembly": "DomesticObject119",
-      "key": "soot",
-      "volume_m3": 6.372652831326326e-05
-    },
-    {
-      "name": "DomesticObject119_Soot2",
-      "assembly": "DomesticObject119",
-      "key": "soot",
-      "volume_m3": 5.709416222727995e-05
-    },
-    {
-      "name": "DomesticObject119_Soot3",
-      "assembly": "DomesticObject119",
-      "key": "soot",
-      "volume_m3": 7.902171201880999e-05
-    },
-    {
-      "name": "DomesticObject119_Soot4",
-      "assembly": "DomesticObject119",
-      "key": "soot",
-      "volume_m3": 6.932936154673438e-05
-    },
-    {
-      "name": "DomesticObject119_Soot5",
-      "assembly": "DomesticObject119",
-      "key": "soot",
-      "volume_m3": 9.431691788974346e-05
-    },
-    {
-      "name": "DomesticObject119_Soot6",
-      "assembly": "DomesticObject119",
-      "key": "soot",
-      "volume_m3": 8.156456546486732e-05
-    },
-    {
       "name": "DomesticObject120_Bracket0",
       "assembly": "DomesticObject120",
       "key": "metal",
@@ -23074,36 +23026,6 @@
       "label": "mat (0.30000000000000004, 0.385, 0)"
     },
     {
-      "assembly": "DomesticObject119",
-      "owner": "wall",
-      "point": [
-        -0.15,
-        0.3,
-        0.02
-      ],
-      "direction": [
-        0,
-        0,
-        -1
-      ],
-      "label": "soot on the plaster"
-    },
-    {
-      "assembly": "DomesticObject119",
-      "owner": "wall",
-      "point": [
-        0.15,
-        0.3,
-        0.02
-      ],
-      "direction": [
-        0,
-        0,
-        -1
-      ],
-      "label": "soot on the plaster"
-    },
-    {
       "assembly": "DomesticObject120",
       "owner": "wall",
       "point": [
@@ -27537,13 +27459,6 @@
       "triangles": 752
     },
     {
-      "name": "DomesticObject119__Body_ON_soot",
-      "assembly": "DomesticObject119",
-      "cell": "shared",
-      "key": "soot",
-      "triangles": 1316
-    },
-    {
       "name": "DomesticObject120__Body_ON_enamel",
       "assembly": "DomesticObject120",
       "cell": "shared",
@@ -27824,7 +27739,7 @@
       "triangles": 492
     }
   ],
-  "triangles": 552720,
+  "triangles": 551404,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -36362,34 +36277,6 @@
         "yaw": 0
       },
       {
-        "id": "DomesticObject119",
-        "parts": [
-          {
-            "name": "DomesticObject119__Body_ON_soot",
-            "component": "Body",
-            "key": "soot",
-            "tile": 0.35,
-            "catalog_key": "bakelite",
-            "tint": [
-              0.3,
-              0.32,
-              0.34,
-              1
-            ],
-            "finish": {
-              "normal_scale": 0.02,
-              "roughness": 0.42
-            }
-          }
-        ],
-        "position": [
-          0,
-          0,
-          0
-        ],
-        "yaw": 0
-      },
-      {
         "id": "DomesticObject120",
         "parts": [
           {
@@ -37879,10 +37766,6 @@
         "variant": "DomesticObject118"
       },
       {
-        "id": "5D_soot_fan",
-        "variant": "DomesticObject119"
-      },
-      {
         "id": "5D_sealed_notice",
         "variant": "DomesticObject89"
       },
@@ -37929,11 +37812,11 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "318be5931461e0982d14f39aa1e4268429764e95033a2409c5956d85b3c4febb",
+  "asset_sha256": "6e7bbc8af89e0ccbe0728fc38c76b952738cef6af1780e2f68345c35cbf8fd79",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "b4a203d1418e2dcf5b20b85555fa30fd3cb0d876f5d4a3aa4cad5105ea643e5f",
+    "art/data/domestic_objects/source_plan.json": "e5ebb7b6da00614f667989910cef0e1c2f84792c0ef2c3bd88775a9ab2ff1bd9",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_objects.py": "262d96671eacc1bd2a0a7cbbd86df5356ebb359621edada6ac94560eec23f183",
+    "art/blender/scripts/build_domestic_objects.py": "8dd3f51f57bf6b3eb5048c3a492e2a185f883ff0c8cd9bb25b3d26fb82172268",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -38025,14 +37908,14 @@
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
     "art/blender/scripts/domestic_objects_geometry.py": "a847e9dad779e1d38fee51387dff990fdce269fc29da64e3d3a1fd18aad94243",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "845d940602cc4b54ec6024ed61763e0bc3ce06c1d5a5b8e513831bba9e93fc92",
+    "game/data/orison_v2/domestic_furniture.json": "0f3ba49532634d5a78f1c44c7918962f6653a2c0cbd161106e058992d3fad657",
     "game/data/orison_v2/completion_interiors.json": "a6c5fb7ae24bc1de84f901de1332a55346c968c8ca7904db65a018eec33b444c",
     "art/data/orison_v2/completion_interiors_source.json": "e468e46793e5fc57b3d7d467ba140f547200b1af5783771d849e5731313c77b0",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "2a14cd25b76fc7be4a48198605ad7c92a9b39bcafdb24ebcd474541eb5f3386c",
-    "game/data/orison_v2_blockout.json": "250724f6a14c123b69958af8e1fa62cf4a5a042ff7a4772998df5bb8f2083a34",
+    "game/data/orison_v2_blockout.json": "7cfdc5f8709240632939d42b331743553c8728522e7d5f8ac7daadc88d38113f",
     "art/blender/work_tables.blend": "ffc309d94421baa1307cffe02ba2b375b80329c1f98849e4ee4902c9bdd660c6",
     "game/data/orison_v2/domestic_surface_props.json": "82e151adef3a647cb6b2a34187a76ccd47e0d3c538c32dca76230b48a0844ce6",
     "game/tests/fixtures/orison_surface_stock.json": "28cbec6364d396d4a84dd6725ef8ab54db7c7790207edc29223f7c377a1cc9d4",
@@ -44357,19 +44240,6 @@
         "DomesticObject118_BorderY0.39699999999999996",
         "DomesticObject118_BorderX-0.33",
         "DomesticObject118_BorderX0.312"
-      ]
-    },
-    {
-      "assembly": "DomesticObject119",
-      "id": "DomesticObject119_SootFan",
-      "stocks": [
-        "DomesticObject119_Soot0",
-        "DomesticObject119_Soot1",
-        "DomesticObject119_Soot2",
-        "DomesticObject119_Soot3",
-        "DomesticObject119_Soot4",
-        "DomesticObject119_Soot5",
-        "DomesticObject119_Soot6"
       ]
     },
     {

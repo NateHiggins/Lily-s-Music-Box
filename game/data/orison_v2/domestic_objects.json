@@ -8534,34 +8534,6 @@
       "yaw": 0
     },
     {
-      "id": "DomesticObject119",
-      "parts": [
-        {
-          "name": "DomesticObject119__Body_ON_soot",
-          "component": "Body",
-          "key": "soot",
-          "tile": 0.35,
-          "catalog_key": "bakelite",
-          "tint": [
-            0.3,
-            0.32,
-            0.34,
-            1
-          ],
-          "finish": {
-            "normal_scale": 0.02,
-            "roughness": 0.42
-          }
-        }
-      ],
-      "position": [
-        0,
-        0,
-        0
-      ],
-      "yaw": 0
-    },
-    {
       "id": "DomesticObject120",
       "parts": [
         {
@@ -10049,10 +10021,6 @@
     {
       "id": "3C_threshold",
       "variant": "DomesticObject118"
-    },
-    {
-      "id": "5D_soot_fan",
-      "variant": "DomesticObject119"
     },
     {
       "id": "5D_sealed_notice",

@@ -88,4 +88,15 @@ while row_y < N - 26:
     row_y += int(rng.integers(30, 40))
 chalk = np.asarray(img.filter(ImageFilter.GaussianBlur(1.2)), dtype=float) / 255.0 * (.6 + .5 * noise(40))
 save("wear_chalk", np.ones((N, N, 3)) * np.array([.86, .85, .8]), np.clip(chalk, 0, 1) * .9)
+# Dossier slice 61: the shower curtain's water line and the 5D fire's soot ghost, from a third seed.
+rng = np.random.default_rng(1928 + 61)
+# A water line: a ragged damp band along u with a darker drying edge.
+band = np.exp(-((y - .5) / .2) ** 2) * (.35 + .75 * noise(18))
+edge = np.exp(-((y - .5 - .12 * (noise(5) - .5)) / .035) ** 2) * (.5 + .6 * noise(30))
+ends = np.clip(np.minimum(x, 1 - x) / .08, 0, 1)
+save("wear_waterline", np.ones((N, N, 3)) * np.array([.16, .15, .13]), np.clip(band * .6 + edge * .5, 0, 1) * ends * .75)
+# Soot licked up the plaster from a door head at (u=.5, v=1): darkest at the head, fanning up and out.
+rr = np.sqrt(((x - .5) / (.18 + .5 * (1 - y))) ** 2 + ((1 - y) / .95) ** 2)
+soot = np.clip(1 - rr, 0, 1) ** 1.3 * (.55 + .6 * noise(7)) * np.clip((1 - y) * 6, 0, 1) ** .4
+save("wear_soot", np.ones((N, N, 3)) * np.array([.05, .045, .04]), np.clip(soot, 0, 1) * .92)
 print(sorted(p.name for p in OUT.glob("*.png")))

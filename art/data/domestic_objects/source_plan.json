@@ -1771,13 +1771,6 @@
    }
   },
   {
-   "id": "DomesticObject119",
-   "kind": "sootfan",
-   "source_id": "5D_soot_fan",
-   "params": {},
-   "rear_wall_y": -0.02
-  },
-  {
    "id": "DomesticObject120",
    "kind": "aerialwire",
    "source_id": "5B_aerial_wire",
@@ -2715,10 +2708,6 @@
    "variant": "DomesticObject118"
   },
   {
-   "id": "5D_soot_fan",
-   "variant": "DomesticObject119"
-  },
-  {
    "id": "5D_sealed_notice",
    "variant": "DomesticObject89"
   },
@@ -3288,7 +3277,8 @@
   "Slice 50b: the landing pieces' paint fields and prints take plain tinted keys (paint_* aliases of the catalogue linen, sepia and print_* aliases of the catalogue paper); the book-cover materials carry gilt tooling and ruled panels.",
   "Slice 51 of the V2 environment dossier adds an aerialwire form (Cal's lead on four porcelain insulators along the F05 west hall into a drilled hole beside 5B's door) and a sootfan form (the soot ghost above the burnt 5D door's head), and seals the 3C and 5D thresholds with a one-line notice (and 3C's unworn dust mat).",
   "Slice 58 of the V2 environment dossier adds four resident forms: Evelyn's brass grab rail on two roses in the 1A shower (F01_A_BATH-003), a towel pegged over a cord across the 1D bath window head (F01_D_BATH-003), Sacha's light box for negatives on the 6A prep cabinet beside the toaster (F06_A_KITCHEN-003) and two shelves of tagged lost property in 4D's study (F04_D_STUDY-002).",
-  "Slice 59 of the V2 environment dossier adds four basement forms: the brass signal outlet painted over high on the laundry's north wall with its cloth lead cut short (B1_LAUNDRY-002, beside the laundry rota in the notice-frame family), a twisted cloth pair on porcelain cleats to the fuse panel with a shelf of cartridges and chalk (B1_ELECTRICAL-002), a cartridge dropped in the electrical recess (B1_ELECTRICAL_RECESS-001) and a coal shovel leaning by the bunker (B1_COAL_ROOM-001)."
+  "Slice 59 of the V2 environment dossier adds four basement forms: the brass signal outlet painted over high on the laundry's north wall with its cloth lead cut short (B1_LAUNDRY-002, beside the laundry rota in the notice-frame family), a twisted cloth pair on porcelain cleats to the fuse panel with a shelf of cartridges and chalk (B1_ELECTRICAL-002), a cartridge dropped in the electrical recess (B1_ELECTRICAL_RECESS-001) and a coal shovel leaning by the bunker (B1_COAL_ROOM-001).",
+  "Slice 61 of the V2 environment dossier retires slice 51's stepped soot boards over the 5D door: the fire's soot ghost is now a soft projected decal in the positional wear layer."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

@@ -207,6 +207,8 @@ Slices landed so far (evidence folders in parentheses):
     cleated wiring and cartridge shelf, a dropped cartridge, the coal shovel.
 60. Coal dust down the boiler approach and on the lowest service treads, the door
     sweep, the chute's dust fan and Omar's chalked log.
+61. A water line under every shower curtain's hem and 5D's soot ghost as a soft
+    projected fan.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

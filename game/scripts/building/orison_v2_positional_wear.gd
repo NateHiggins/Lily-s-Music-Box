@@ -5,9 +5,10 @@ extends RefCounted
 ## and the trolley rub at 0.6 m near the core. No collision, no owner, no lettering.
 ## Dossier slice 60 adds the basement: coal dust down the boiler approach and on the
 ## lowest service treads, a door leaf's sweep, the chute's dust fan and a chalked log.
+## Slice 61: the water line under each shower curtain's hem and the 5D fire's soot ghost.
 const DATA := "res://data/orison_v2/positional_wear.json"
 const ROOT := "res://assets/building/textures/wear_decals/"
-const KINDS := ["receptor", "corner", "path", "threshold", "trolley", "coal", "arc", "fan", "chalk"]
+const KINDS := ["receptor", "corner", "path", "threshold", "trolley", "coal", "arc", "fan", "chalk", "waterline", "soot"]
 
 static func mount(blockout: Node3D) -> bool:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))
