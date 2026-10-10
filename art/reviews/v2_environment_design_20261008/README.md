@@ -139,6 +139,8 @@ Slices landed so far (evidence folders in parentheses):
     house board; the watchman's chair, coat and folded cot (`slice28b`).
 29. The basement plant rooms: the boiler room's shovel, clinker rake, ash can and
     oil can; the electrical room's signal frame and fuse-panel conduit (`slice29`).
+30. 5A's corrected floor plan on the icebox door and 2C's wardrobe as the session
+    archive, two family variants (`slice30b`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

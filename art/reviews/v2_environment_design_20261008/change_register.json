@@ -4573,7 +4573,9 @@
    "preserve": "Both wardrobe leaf motions",
    "acceptance": "Opening the leaf shows shelves of boxes",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_C_STUDIO"
+   "area": "F02_C_STUDIO",
+   "status": "verified",
+   "owner_notes": "Juno's second wardrobe is the session archive: a wardrobe variant (Wardrobe13, on 5C_w1_wardrobe's case) adds two shelves to the original middle shelf and stands grey reel boxes spine-out with coloured tape on each, and omits the rail; both leaves keep their hinges and 92-degree swing (implementation/slice30b/images/Wardrobe13_open, a native render with the leaves open). Verified at WIP 0efdc84b (implementation/slice30b): fabrication batch 0 failures; apartment batch 236 (the branch baseline); household state 154 checks, 0 failures; completion 2C 9 waypoints with its one pre-existing kitchen-leg failure; upper kitchens 206 (the branch baseline); the two-room sweep 0 failures."
   },
   {
    "id": "F02_C_BATH-001",
@@ -8374,7 +8376,9 @@
    "preserve": "FridgeProp leaf and ice door",
    "acceptance": "Detail view at the icebox; leaf opens with the sheet attached",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_A_KITCHEN"
+   "area": "F05_A_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Nadia's corrected floor plan is pinned to the icebox's food door: 5A's icebox has its own variant (FridgeIceboxPlan) whose sheet, ruled walls, copper-inked room and four brass pins belong to the door, so the sheet swings with the leaf and the ice door is untouched (implementation/slice30b/images/F05_A_KITCHEN_OV). The sheet sits on the food door's raised panel (0.43 to 0.83 m) because 1.2 m falls on the ice door; INSPECT stays with the fridge card. Verified at WIP 0efdc84b (implementation/slice30b): fabrication batch 0 failures; apartment batch 236 (the branch baseline); household state 154 checks, 0 failures; completion 2C 9 waypoints with its one pre-existing kitchen-leg failure; upper kitchens 206 (the branch baseline); the two-room sweep 0 failures."
   },
   {
    "id": "F05_A_PRIVATE_HALL-001",

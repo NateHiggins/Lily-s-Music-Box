@@ -158,6 +158,193 @@
       "yaw": 0
     },
     {
+      "id": "FridgeIceboxPlan",
+      "parts": [
+        {
+          "name": "FridgeIceboxPlan__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__Body_ON_liner",
+          "component": "Body",
+          "key": "liner",
+          "tile": 0.55,
+          "catalog_key": "zinc_liner",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__Body_ON_oak",
+          "component": "Body",
+          "key": "oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__Door_ON_brass",
+          "component": "Door",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__Door_ON_copper",
+          "component": "Door",
+          "key": "copper",
+          "tile": 0.4,
+          "catalog_key": "copper_aged",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__Door_ON_dark",
+          "component": "Door",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__Door_ON_liner",
+          "component": "Door",
+          "key": "liner",
+          "tile": 0.55,
+          "catalog_key": "zinc_liner",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__Door_ON_oak",
+          "component": "Door",
+          "key": "oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__Door_ON_paper",
+          "component": "Door",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__DripTray_ON_brass",
+          "component": "DripTray",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__DripTray_ON_liner",
+          "component": "DripTray",
+          "key": "liner",
+          "tile": 0.55,
+          "catalog_key": "zinc_liner",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__DripTray_ON_oak",
+          "component": "DripTray",
+          "key": "oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__IceDoor_ON_brass",
+          "component": "IceDoor",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__IceDoor_ON_liner",
+          "component": "IceDoor",
+          "key": "liner",
+          "tile": 0.55,
+          "catalog_key": "zinc_liner",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        },
+        {
+          "name": "FridgeIceboxPlan__IceDoor_ON_oak",
+          "component": "IceDoor",
+          "key": "oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 1.0
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
       "id": "FridgeMonitor",
       "parts": [
         {
@@ -955,7 +1142,7 @@
     },
     {
       "id": "F05_5A_FRIDGE_01",
-      "variant": "FridgeIcebox"
+      "variant": "FridgeIceboxPlan"
     },
     {
       "id": "F05_5B_FRIDGE_01",

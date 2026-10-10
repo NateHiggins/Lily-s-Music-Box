@@ -744,6 +744,11 @@
       "source_id": "fridge / oak icebox"
     },
     {
+      "id": "FridgeIceboxPlan",
+      "kind": "icebox",
+      "source_id": "fridge / oak icebox"
+    },
+    {
       "id": "FridgeMonitor",
       "kind": "monitor",
       "source_id": "fridge / 1927 monitor-top"
@@ -1047,7 +1052,7 @@
     {
       "id": "F05_5A_FRIDGE_01",
       "unit": "5A",
-      "variant": "FridgeIcebox"
+      "variant": "FridgeIceboxPlan"
     },
     {
       "id": "F05_5B_FRIDGE_01",

@@ -224,6 +224,22 @@
         "W": 1.3,
         "case_wood": "wood_dark"
       }
+    },
+    {
+      "id": "Wardrobe13",
+      "kind": "wardrobe",
+      "source_id": "5C_w1_wardrobe",
+      "params": {
+        "id": "5C_w1_wardrobe",
+        "asm": "wardrobe",
+        "at": [
+          10.515,
+          6.71
+        ],
+        "yaw": 0,
+        "W": 1.3,
+        "case_wood": "oak_quartered"
+      }
     }
   ],
   "instances": [
@@ -289,7 +305,7 @@
     },
     {
       "id": "2C_w1_wardrobe",
-      "variant": "Wardrobe08"
+      "variant": "Wardrobe13"
     },
     {
       "id": "4C_w1_wardrobe",
@@ -401,7 +417,8 @@
     "Retain case dimensions, original four garment colours/hems per source, original leaf pivots and 92-degree authority.",
     "Native fixed/moving visuals replace primitive meshes; original broad collision, interaction/audio/tween/service ownership remains.",
     "Existing fine linen map with source-colour warm tint replaces oversized upholstery weave on hanging cloth.",
-    "Shallow brass buttons retain original X/height axes and clear the side walls of three completion rooms at the original 92-degree stop."
+    "Shallow brass buttons retain original X/height axes and clear the side walls of three completion rooms at the original 92-degree stop.",
+    "Slice 30 of the V2 environment dossier gives 2C's second wardrobe its own variant (Wardrobe13, on 5C_w1_wardrobe's case): two added shelves and the original middle shelf carry rows of grey reel boxes with coloured tape on their spines, and the rail is omitted. Both leaves keep their hinges and swing."
   ],
   "open_work": [
     "Broad room lighting/material balance, remaining apartment props, fixed lights and lamp cords are unfinished.",

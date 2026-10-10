@@ -52,6 +52,19 @@ def door(w,front,z0,z1,owner,key,handle_z):
  # Construction joins are checked after all moving hinge straps are added.
  hinges(w,front,[z0+.065,z1-.065] if z1-z0>.4 else [(z0+z1)/2],owner,metal)
 
+def plan_sheet(front):
+ # Dossier slice 30 (F05_A_KITCHEN-003): Nadia's corrected floor plan pinned to the food door.
+ # Ruled walls and one room inked red; no lettering. The door owns it, so it swings with the leaf.
+ y0=front+.0515;y1=front+.053;x0=-.24;x1=.17;z0=.43;z1=.83
+ component(stock('PlanSheet',(x0,y0,z0),(x1,y1,z1),'paper',.0003),'Door')
+ lines=[((x0+.03,z0+.03),(x1-.03,z0+.033)),((x0+.03,z1-.033),(x1-.03,z1-.03)),((x0+.03,z0+.03),(x0+.033,z1-.03)),
+        ((x1-.033,z0+.03),(x1-.03,z1-.03)),((x0+.03,z0+.2),(x1-.12,z0+.203)),((x0+.16,z0+.03),(x0+.163,z1-.03)),
+        ((x0+.16,z0+.27),(x1-.03,z0+.273))]
+ for i,((a,b),(c,d)) in enumerate(lines):component(stock('PlanLine'+str(i),(a,y1-.0004,b),(c,y1+.0006,d),'dark',.0001),'Door')
+ component(stock('InkedRoom',(x0+.166,y1-.0004,z0+.033),(x1-.033,y1+.0004,z0+.267),'copper',.0001),'Door')
+ for i,(x,z) in enumerate([(x0+.012,z0+.012),(x1-.012,z0+.012),(x0+.012,z1-.012),(x1-.012,z1-.012)]):
+  component(stock('PlanPin'+str(i),(x-.004,y1-.001,z-.004),(x+.004,y1+.0025,z+.004),'brass',.0006),'Door')
+
 def fridge(monitor):
  start=len(stock_checks);w=.72 if monitor else .70;d=.64 if monitor else .58;front=d/2
  key='enamel' if monitor else 'oak';low=.1775 if monitor else .05;top=1.3025 if monitor else 1.24;side=.055 if monitor else .075
@@ -97,6 +110,7 @@ def fridge(monitor):
   door(w,front,.2275,1.2625,'Door','enamel',.79)
  else:
   door(w,front,.25,.94,'Door','oak',.62);door(w,front,.9675,1.2025,'IceDoor','oak',1.085)
+  if identity=='FridgeIceboxPlan':plan_sheet(front)
   # Original tray frame remains at Godot z=-.245 and slides out 300 mm.
   for label,lo,hi,key in [
    ('Pan',(-.25,.045,.133),(.25,.265,.147),'liner'),

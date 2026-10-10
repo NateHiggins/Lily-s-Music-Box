@@ -2078,6 +2078,145 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "Wardrobe13",
+      "parts": [
+        {
+          "name": "Wardrobe13__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe13__Body_ON_fabric_cool",
+          "component": "Body",
+          "key": "fabric_cool",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.36,
+            0.42,
+            0.51,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe13__Body_ON_fabric_green",
+          "component": "Body",
+          "key": "fabric_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.38,
+            0.46,
+            0.36,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe13__Body_ON_fabric_warm",
+          "component": "Body",
+          "key": "fabric_warm",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.53,
+            0.27,
+            0.12,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe13__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Wardrobe13__Body_ON_oak_quartered",
+          "component": "Body",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe13__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe13__LeftLeaf_ON_oak_quartered",
+          "component": "LeftLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe13__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe13__RightLeaf_ON_oak_quartered",
+          "component": "RightLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -2143,7 +2282,7 @@
     },
     {
       "id": "2C_w1_wardrobe",
-      "variant": "Wardrobe08"
+      "variant": "Wardrobe13"
     },
     {
       "id": "4C_w1_wardrobe",

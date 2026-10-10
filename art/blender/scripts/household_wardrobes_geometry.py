@@ -69,21 +69,34 @@ def folded_cloth(label,lo,hi):
 
 for assembly in assemblies:
  identity=assembly['id'];component='Body';start=len(stock_checks);member=assembly['members'][0]
+ # Dossier slice 30 (F02_C_STUDIO-001): Juno's second wardrobe is the session archive. Shelves
+ # replace the rail and grey reel boxes stand spine-out with coloured tape (owned, never loot).
+ archive=identity=='Wardrobe13'
  wood=variants[identity]['params']['case_wood']
  for surface in member['surfaces']:
   if surface['material']!=wood:continue
   for i,(lo,hi) in enumerate(source_boxes(surface)):stock('Case'+str(i),lo,hi,wood,.0011)
  # Source rail ends stop 30mm short of the cheeks: fitted sockets close it.
- tag(rod(identity+'_Rail',(-.55,.02,1.61),(.55,.02,1.61),.012,identity,'metal'))
- for side in [-1,1]:
-  tag(rod(identity+'_RailSocket'+str(side),(side*.545,.02,1.61),(side*.582,.02,1.61),.017,identity,'metal'))
+ if not archive:
+  tag(rod(identity+'_Rail',(-.55,.02,1.61),(.55,.02,1.61),.012,identity,'metal'))
+  for side in [-1,1]:
+   tag(rod(identity+'_RailSocket'+str(side),(side*.545,.02,1.61),(side*.582,.02,1.61),.017,identity,'metal'))
  stock('CentreStop',(-.018,.259,.12),(.018,.2925,1.81),wood,.0005)
  for x in [-.63,.595]:stock('RebatedJamb'+str(x),(x,.258,.07),(x+.035,.287,1.86),wood,.0005)
  for z in [.10,1.795]:stock('FrontStop'+str(z),(-.58,.26,z),(.58,.2925,z+.025),wood,.0005)
  for surface in member['surfaces']:
   key=surface['material']
-  if key not in ['fabric_cool','fabric_green','fabric_warm','linen']:continue
+  if archive or key not in ['fabric_cool','fabric_green','fabric_warm','linen']:continue
   for i,(lo,hi) in enumerate(source_boxes(surface)):folded_cloth('Cloth'+key+str(i),lo,hi)
+ if archive:
+  tapes=['fabric_warm','fabric_green','fabric_cool']
+  for k,z in enumerate([.475,.9,1.3]):
+   if z>.5:stock('ArchiveShelf'+str(z),(-.581,-.256,z-.022),(.581,.231,z),wood,.0008)
+   for half in [-1,1]:
+    for i in range(7):
+     x=half*(.06+i*.07);w=.032;depth=.19;tall=.17+.01*((i+k)%3)
+     stock('ReelBox'+str(k)+'_'+str(half)+'_'+str(i),(x-w/2,.02,z-.0005),(x+w/2,.02+depth,z+tall),'linen',.0008)
+     stock('Tape'+str(k)+'_'+str(half)+'_'+str(i),(x-w/2-.0005,.02+depth-.0005,z+.05),(x+w/2+.0005,.02+depth+.0015,z+.08),tapes[(i+k)%3],.0002)
  for side in [-1,1]:
   hx=side*.615;inward=-side
   component='Body'
@@ -116,4 +129,4 @@ for assembly in assemblies:
  for x in [-.5,.5]:
   for y in [-.20,.20]:support(identity,'support',(x,y,0),(0,0,1),'retained plinth underside')
  construction_groups.append({'assembly':identity,'id':identity+'_JoinedWardrobe','stocks':[x['name'] for x in stock_checks[start:]]})
- retained_stock.append({'assembly':identity,'source_id':member['id'],'garment_count':4,'source_hems_and_colours':True,'hinges_godot':[[-.615,.10,-.305],[.615,.10,-.305]],'angle_degrees':92,'moving_components':['LeftLeaf','RightLeaf']})
+ retained_stock.append({'assembly':identity,'source_id':member['id'],'garment_count':0 if archive else 4,'source_hems_and_colours':True,'hinges_godot':[[-.615,.10,-.305],[.615,.10,-.305]],'angle_degrees':92,'moving_components':['LeftLeaf','RightLeaf']})
