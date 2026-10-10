@@ -1,381 +1,115 @@
 {
-	"batch_checks": 32,
-	"elapsed_ms": 92236,
+	"batch_checks": 34,
+	"elapsed_ms": 83772,
 	"evidence_class": "INERT",
 	"failures": [],
-	"module_checks": 19992,
+	"module_checks": 30402,
 	"modules": {
 		"domestic_objects": {
-			"actors": 17,
+			"actors": 143,
 			"additional_world_loads": 0,
-			"captured": false,
-			"checks": 847,
-			"elapsed_ms": 532,
+			"captured": true,
+			"checks": 4509,
+			"elapsed_ms": 6388,
 			"failures": [],
-			"fixture_sha256": "7d8ebb9b7a7d009839e57c760c81839b2c3854b739189d2ad12e5f538906ac36",
-			"parts": 66,
-			"shared_validator_sha256": "634c1235da90cb17304bef9bad78ae4cbeb8d829df7e2846677e410693cf94b4",
-			"unique_triangles": 137688,
+			"fixture_sha256": "a866d80131fe1bc7597f3cd9000730e20e13ad765733ed12888af8ffab2697a1",
+			"parts": 498,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 327112,
 			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
-			"variants": 16,
-			"views": []
+			"variants": 61,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-10.1476411819458,
+						19.2199993133545,
+						-14.93918800354
+					],
+					"id": "ROOF_service_soot_sack_native",
+					"image": "ROOF_service_soot_sack_native.png",
+					"owner": "ROOF_service_soot_sack",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.0600004196167,
+						19.2199993133545,
+						-16.5
+					],
+					"id": "ROOF_service_sweep_rods_native",
+					"image": "ROOF_service_sweep_rods_native.png",
+					"owner": "ROOF_service_sweep_rods",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						10.2976417541504,
+						0.0199999995529652,
+						-0.569183707237244
+					],
+					"id": "1A_lesson_trunk_native",
+					"image": "1A_lesson_trunk_native.png",
+					"owner": "1A_lesson_trunk",
+					"status": "captured_pending_visual_review"
+				}
+			]
 		},
 		"domestic_seating": {
-			"actors": 43,
+			"actors": 57,
 			"additional_world_loads": 0,
-			"captured": true,
-			"checks": 568,
-			"elapsed_ms": 5390,
+			"captured": false,
+			"checks": 780,
+			"elapsed_ms": 480,
 			"failures": [],
-			"fixture_sha256": "273d93a7ffe6aba67fe3d8f7714999efe08ebdd4e710edbd74344fa65509e1c7",
-			"parts": 49,
-			"shared_validator_sha256": "634c1235da90cb17304bef9bad78ae4cbeb8d829df7e2846677e410693cf94b4",
-			"unique_triangles": 41264,
+			"fixture_sha256": "a7b831fcf5b91a04c93873a4386f2d3d35ad7b35ce0fa115013b489c1145e8d7",
+			"parts": 75,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 52984,
 			"validator_sha256": "b075531e93b4cbd387afc38fd9f538a4c1c76b004cbea419fc914d1a1b3829f1",
-			"variants": 4,
-			"views": [
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						9.70300102233887,
-						3.22000002861023,
-						-8.49999809265137
-					],
-					"id": "2A_sofa_native",
-					"image": "2A_sofa_native.png",
-					"owner": "2A_sofa",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						12.6500005722046,
-						9.61999988555908,
-						-10.7319984436035
-					],
-					"id": "4B_couch_native",
-					"image": "4B_couch_native.png",
-					"owner": "4B_couch",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						14.7500009536743,
-						3.22000002861023,
-						-10.0999984741211
-					],
-					"id": "2A_din_dc1_native",
-					"image": "2A_din_dc1_native.png",
-					"owner": "2A_din_dc1",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						-13.7949991226196,
-						6.42000007629395,
-						-10.0550012588501
-					],
-					"id": "3B_din_dc1_native",
-					"image": "3B_din_dc1_native.png",
-					"owner": "3B_din_dc1",
-					"status": "captured_pending_visual_review"
-				}
-			]
+			"variants": 5,
+			"views": []
 		},
 		"domestic_storage": {
-			"actors": 45,
+			"actors": 52,
 			"additional_world_loads": 0,
-			"captured": true,
-			"checks": 860,
-			"elapsed_ms": 10761,
+			"captured": false,
+			"checks": 1198,
+			"elapsed_ms": 806,
 			"failures": [],
-			"fixture_sha256": "d0370c857c7635d54b9b37ceec166728b47c1c828761b7519ec417c7e65f7b6b",
-			"parts": 92,
-			"shared_validator_sha256": "634c1235da90cb17304bef9bad78ae4cbeb8d829df7e2846677e410693cf94b4",
-			"unique_triangles": 79344,
+			"fixture_sha256": "d475496eb67b6cef29f8b26bfe050439de502c6211438be9574ca34c47d87ee3",
+			"parts": 109,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 83104,
 			"validator_sha256": "a85a8676f999707509246faefe9178fda39e4d9cbd57b27239cc08dccd1f2675",
-			"variants": 8,
-			"views": [
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						-13.9318943023682,
-						6.42000007629395,
-						-7.5787615776062
-					],
-					"id": "3B_tools0_native",
-					"image": "3B_tools0_native.png",
-					"owner": "3B_tools0",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						8.45000076293945,
-						9.61999988555908,
-						-10.0924987792969
-					],
-					"id": "4B_shelf_native",
-					"image": "4B_shelf_native.png",
-					"owner": "4B_shelf",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						14.4200019836426,
-						9.61999988555908,
-						-16.2849979400635
-					],
-					"id": "4B_sink_counter_native",
-					"image": "4B_sink_counter_native.png",
-					"owner": "4B_sink_counter",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						13.7950782775879,
-						3.22000002861023,
-						-10.7899980545044
-					],
-					"id": "2A_shelf0_native",
-					"image": "2A_shelf0_native.png",
-					"owner": "2A_shelf0",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						14.7000017166138,
-						3.22000002861023,
-						-16.0771732330322
-					],
-					"id": "2A_sink_support_native",
-					"image": "2A_sink_support_native.png",
-					"owner": "2A_sink_support",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						14.4500017166138,
-						3.22000002861023,
-						-16.3199977874756
-					],
-					"id": "2A_k_wall_cupboard_native",
-					"image": "2A_k_wall_cupboard_native.png",
-					"owner": "2A_k_wall_cupboard",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						9.94999980926514,
-						12.8199996948242,
-						-3.77999877929688
-					],
-					"id": "5A_k_wall_cupboard_native",
-					"image": "5A_k_wall_cupboard_native.png",
-					"owner": "5A_k_wall_cupboard",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						9.69999980926514,
-						12.8199996948242,
-						-1.28759860992432
-					],
-					"id": "5A_planshelf_native",
-					"image": "5A_planshelf_native.png",
-					"owner": "5A_planshelf",
-					"status": "captured_pending_visual_review"
-				}
-			]
+			"variants": 10,
+			"views": []
 		},
 		"domestic_tables": {
-			"actors": 64,
+			"actors": 75,
 			"additional_world_loads": 0,
-			"captured": true,
-			"checks": 1153,
-			"elapsed_ms": 17387,
+			"captured": false,
+			"checks": 1538,
+			"elapsed_ms": 1118,
 			"failures": [],
-			"fixture_sha256": "731da669efc470d78741c3ec144aec6ed298a2ec0f8d3ba3d1ff7e688194a392",
-			"parts": 118,
-			"shared_validator_sha256": "634c1235da90cb17304bef9bad78ae4cbeb8d829df7e2846677e410693cf94b4",
+			"fixture_sha256": "2b7200f72b77d37cc97385c9320fcef472b824adbbeb2dfccd13c5a444dc642f",
+			"parts": 148,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
 			"unique_triangles": 48960,
 			"validator_sha256": "50d0993b4c1c1e3b59157f591202428fcd751803249a6c0032e33541f472cc48",
 			"variants": 13,
-			"views": [
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						-12.4250001907349,
-						6.42000007629395,
-						-1.05500102043152
-					],
-					"id": "3B_abed_ns_native",
-					"image": "3B_abed_ns_native.png",
-					"owner": "3B_abed_ns",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						12.0500020980835,
-						9.61999988555908,
-						-20.4499988555908
-					],
-					"id": "4B_wake_nightstand_native",
-					"image": "4B_wake_nightstand_native.png",
-					"owner": "4B_wake_nightstand",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						12.9950008392334,
-						3.22000002861023,
-						-9.7549991607666
-					],
-					"id": "2A_din_t_native",
-					"image": "2A_din_t_native.png",
-					"owner": "2A_din_t",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						-13.9449987411499,
-						3.22000002861023,
-						-10.1950006484985
-					],
-					"id": "2B_din_t_native",
-					"image": "2B_din_t_native.png",
-					"owner": "2B_din_t",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						-12.649998664856,
-						3.22000002861023,
-						-10.060001373291
-					],
-					"id": "2B_fabric_worktable_native",
-					"image": "2B_fabric_worktable_native.png",
-					"owner": "2B_fabric_worktable",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						10.6500015258789,
-						3.22000002861023,
-						-9.89999866485596
-					],
-					"id": "2A_cof_native",
-					"image": "2A_cof_native.png",
-					"owner": "2A_cof",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						9.17000102996826,
-						3.22000002861023,
-						-8.60999870300293
-					],
-					"id": "2A_wireless_table_native",
-					"image": "2A_wireless_table_native.png",
-					"owner": "2A_wireless_table",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						9.80000114440918,
-						3.22000002861023,
-						-8.99999904632568
-					],
-					"id": "2A_projector_stand_native",
-					"image": "2A_projector_stand_native.png",
-					"owner": "2A_projector_stand",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						12.0000009536743,
-						12.8199996948242,
-						-8.39999961853027
-					],
-					"id": "5A_din_t_native",
-					"image": "5A_din_t_native.png",
-					"owner": "5A_din_t",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						11.100001335144,
-						12.8199996948242,
-						-13.6999988555908
-					],
-					"id": "5B_din_t_native",
-					"image": "5B_din_t_native.png",
-					"owner": "5B_din_t",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						9.5,
-						12.8199996948242,
-						-0.94999897480011
-					],
-					"id": "5A_modtable_native",
-					"image": "5A_modtable_native.png",
-					"owner": "5A_modtable",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						12.5000019073486,
-						12.8199996948242,
-						-16.5100002288818
-					],
-					"id": "5B_wireless_table_native",
-					"image": "5B_wireless_table_native.png",
-					"owner": "5B_wireless_table",
-					"status": "captured_pending_visual_review"
-				},
-				{
-					"bucket": "native apartment furniture",
-					"feet": [
-						7.83500146865845,
-						12.8199996948242,
-						-22.2999992370605
-					],
-					"id": "5B_comparison_table_native",
-					"image": "5B_comparison_table_native.png",
-					"owner": "5B_comparison_table",
-					"status": "captured_pending_visual_review"
-				}
-			]
+			"views": []
 		},
 		"fixed_lighting": {
 			"actors": 211,
 			"additional_world_loads": 0,
 			"captured": false,
 			"checks": 6243,
-			"elapsed_ms": 1874,
+			"elapsed_ms": 1864,
 			"failures": [],
-			"fixture_sha256": "66b8db3900a72b5be44faeb03feecc9d6424b316b7e090ee2c389f4ca33ed410",
+			"fixture_sha256": "3dc679a43e6636b29a5e6d304a9a71a515f16a889642f817beb4f3b1c4dc9c0a",
 			"parts": 791,
 			"unique_triangles": 480680,
 			"validator_sha256": "28a23b6b051d548ae24f64bbd2f645d5efa05fbea082c31295884db301aa461d",
@@ -386,13 +120,13 @@
 			"actors": 18,
 			"additional_world_loads": 0,
 			"captured": false,
-			"checks": 1755,
-			"elapsed_ms": 2295,
+			"checks": 1889,
+			"elapsed_ms": 2408,
 			"failures": [],
-			"fixture_sha256": "9516526edf1b21616ef25b72cd93ce2acf9a46d9319c3010b419ab5c14cf51dd",
+			"fixture_sha256": "eafadf9fda2ae4c149a201c555b100d9ee4df3e86f2262a8b94735632c3df296",
 			"inventory_items": 50,
 			"monitors": 4,
-			"unique_triangles": 140808,
+			"unique_triangles": 187660,
 			"validator_sha256": "7b60f96cb58859aec2d4bf37f6f92745f4fbdf5f4706675ce655acea4b5dec2c",
 			"views": []
 		},
@@ -401,9 +135,9 @@
 			"additional_world_loads": 0,
 			"captured": false,
 			"checks": 316,
-			"elapsed_ms": 346,
+			"elapsed_ms": 288,
 			"failures": [],
-			"fixture_sha256": "fe856e5a369a83290a84e102353dcda9d747633f25c17eb2960908c3fe985d4b",
+			"fixture_sha256": "af66197e4ffdbcb954edc604ce0f9cee476d72e0416a3bff04eec0515f60cf34",
 			"parts": 50,
 			"unique_triangles": 11916,
 			"validator_sha256": "87f9f305211be89df5c6016a5335a0f158e0ce46488cf50ddebc9a090230b517",
@@ -414,9 +148,9 @@
 			"additional_world_loads": 0,
 			"captured": false,
 			"checks": 3065,
-			"elapsed_ms": 2415,
+			"elapsed_ms": 2505,
 			"failures": [],
-			"fixture_sha256": "d9ca9297610e5983639e4e22075498f95fbfcda090b03d70c0b85fe74bd3f99e",
+			"fixture_sha256": "c4d8d02c22a67952edfaae047cf89f78946225b5efabc9dea771466cbe65c66a",
 			"unique_triangles": 65832,
 			"validator_sha256": "860028d03a65715bfdd197fd6c2e7e64287c4b2f90615d6ca0e608e273c85ea7",
 			"views": []
@@ -426,9 +160,9 @@
 			"additional_world_loads": 0,
 			"captured": false,
 			"checks": 1465,
-			"elapsed_ms": 5518,
+			"elapsed_ms": 5530,
 			"failures": [],
-			"fixture_sha256": "3b42191471018e52e2ffe559637a9959a1149b6a5063fa0a74711de7142e9df5",
+			"fixture_sha256": "9e0e972b9468631d946ad385349987f7bde2f05cd10d0c62834c471d68d98b3e",
 			"parts": 110,
 			"unique_triangles": 41144,
 			"validator_sha256": "873ad096d72233edbea28da6f32b98aa033d6e8a8ac8c42f7178dae8f1816b75",
@@ -438,12 +172,12 @@
 			"actors": 21,
 			"additional_world_loads": 0,
 			"captured": false,
-			"checks": 2073,
-			"elapsed_ms": 2856,
+			"checks": 2140,
+			"elapsed_ms": 2841,
 			"failures": [],
-			"fixture_sha256": "397a3681dc2b1581fa1ae492547cb0d050f06e6ccd6f9cb6b7b519b10c30b047",
-			"parts": 231,
-			"unique_triangles": 551616,
+			"fixture_sha256": "1339cb6f20c18ee144723de05b0c2f3bb4025a43bda0f792b0ef2970e6e154b5",
+			"parts": 230,
+			"unique_triangles": 579940,
 			"validator_sha256": "09ce8a052e203804bd7395bc5e171da9b85db37bf529e8edc902fa9c788ba89f",
 			"views": []
 		},
@@ -452,25 +186,36 @@
 			"additional_world_loads": 0,
 			"captured": false,
 			"checks": 1058,
-			"elapsed_ms": 5781,
+			"elapsed_ms": 5793,
 			"failures": [],
-			"fixture_sha256": "c0c95018c31fe0d18922aa4867f173e79d56939a42e0eb8754a5a05d5c53abf1",
+			"fixture_sha256": "1b476ebd4e48d0da5abdd85fef50e061c2635fd0fc84f53b2f92a6e915e8b126",
 			"kept_items": 28,
 			"unique_triangles": 48260,
 			"validator_sha256": "5d62f1ef3069e6fb5c77e04d38a6965a96fdb5fdefd1a4e9fc3ce4d352be7796",
 			"views": []
 		},
 		"prep_cabinets": {
-			"actors": 12,
+			"actors": 15,
 			"additional_world_loads": 0,
 			"captured": false,
-			"checks": 589,
-			"elapsed_ms": 1462,
+			"checks": 709,
+			"elapsed_ms": 1477,
 			"failures": [],
-			"fixture_sha256": "ce987aeaad9be66d4cb2f8aa3598e8816df5d1492a3ce779ca1a9a701295d84e",
-			"parts": 96,
+			"fixture_sha256": "347021b4a9e8ad4e2babf2376ad1803674a354e335e0445435fd5bf7e0a0a340",
+			"parts": 120,
 			"unique_triangles": 7096,
-			"validator_sha256": "fe33c7c901bda8430752c72d705df4c73c5dd8cbe33533f7150acd027f3660e4"
+			"validator_sha256": "d83c787272c62a6796495391179a599d29968a9c0e45015d4b98342b0abf8ff6"
+		},
+		"surface_stock": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 5492,
+			"elapsed_ms": 10904,
+			"failures": [],
+			"fixture_sha256": "996d603f44bb57fe54c4b5b3698fce1c9d6af128c07462fd0aaebdc9cfd1b385",
+			"parts": 424,
+			"triangles": 786296,
+			"validator_sha256": "76eae7a2b6ea2d44a63a48adc7cda4c7f49fc70ac760827dfb27be1d6f5b07d9"
 		}
 	},
 	"schema": "orison.fabrication-batch.v1",

@@ -763,6 +763,33 @@ def trug(source):
  for p in [(-.2,-.09,0),(.2,-.09,0),(-.2,.09,0),(.2,.09,0)]:bearing('trug '+str(p),p)
  group('Trug',start)
 
+def sootsack(source):
+ # Dossier slice 34: the chimney sweep's soot sack, tied at the neck and sagging.
+ start=len(stock_checks)
+ stock('Base',(-.2,-.15,0),(.2,.15,.12),'soot',.03)
+ stock('Body',(-.18,-.135,.1),(.18,.135,.42),'soot',.04)
+ stock('Shoulder',(-.13,-.1,.4),(.13,.1,.5),'soot',.03)
+ stock('Neck',(-.05,-.04,.48),(.05,.04,.58),'soot',.012)
+ stock('Tie',(-.055,-.045,.5),(.055,.045,.52),'linen',.004)
+ for p in [(-.17,-.12,0),(.17,-.12,0),(-.17,.12,0),(.17,.12,0)]:bearing('sack '+str(p),p)
+ group('SootSack',start)
+
+def sweeprods(source):
+ # Dossier slice 34: a bundle of sweep's rods with brass ferrules and the brush head, leaning on the wall.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y']
+ stock('Foot',(-.07,.2,0),(.07,.28,.03),'rubber_aged',.004)
+ for i,dx in enumerate([-.03,0,.03]):
+  tube('Rod'+str(i),(dx,.24,.02),(dx,back+.03,1.32),.011,'cane')
+  for k in range(3):
+   t=(k+1)/4;y=.24+(back+.03-.24)*t;z=.02+1.3*t
+   tube('Ferrule'+str(i)+'_'+str(k),(dx,y+.012,z-.03),(dx,y-.012,z+.03),.014,'brass')
+ stock('Band',(-.06,back,1.2),(.06,.06,1.24),'linen',.003)
+ lathe('Brush',0,.1,1.28,[(0,0),(.05,0),(.11,.04),(.11,.07),(.05,.11),(0,.12)],'soot')
+ stock('Cap',(-.05,back,1.32),(.05,.05,1.4),'wood_dark',.003)
+ support(identity,'wall',(0,back,1.36),(0,1,0),'rod bundle resting on the wall')
+ for x in [-.05,.05]:bearing('rod foot '+str(x),(x,.24,0))
+ group('SweepRods',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -811,4 +838,6 @@ for assembly in assemblies:
  elif kind=='ropecoil':ropecoil(source)
  elif kind=='wateringcan':wateringcan(source)
  elif kind=='trug':trug(source)
+ elif kind=='sootsack':sootsack(source)
+ elif kind=='sweeprods':sweeprods(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

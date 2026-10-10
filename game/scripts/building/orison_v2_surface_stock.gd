@@ -9,7 +9,7 @@ var clear_glass: ShaderMaterial
 func prepare() -> bool:
 	data = JSON.parse_string(FileAccess.get_file_as_string(PATH))
 	if data.get("schema_version") != 1 or data.get("assemblies") is not Array: return false
-	if data.assemblies.size() != 226 or data.get("floor_y") != 0: return false
+	if data.assemblies.size() != 228 or data.get("floor_y") != 0: return false
 	if data.local_materials.size() != 1 or not data.local_materials.has("glassish"): return false
 	var source_glass: Dictionary = data.local_materials.glassish
 	if source_glass.files.size() != 3 or source_glass.files[0] != null or source_glass.color.size() != 4 or source_glass.alpha != true or float(source_glass.metallic) != 0.: return false

@@ -1977,6 +1977,18 @@
       "kind": "frame",
       "cell": "6A",
       "source_record": "6A_plant_print"
+    },
+    {
+      "id": "1A_tea_tin_a",
+      "kind": "tin",
+      "cell": "1A",
+      "source_record": "1A_tea_tin_a"
+    },
+    {
+      "id": "1A_tea_tin_b",
+      "kind": "tin",
+      "cell": "1A",
+      "source_record": "1A_tea_tin_b"
     }
   ],
   "closed_stocks": [
@@ -15143,6 +15155,30 @@
       "assembly": "6A_plant_print",
       "key": "wood_dark",
       "volume_m3": 4.6757526417414515e-05
+    },
+    {
+      "name": "1A_tea_tin_a_Can",
+      "assembly": "1A_tea_tin_a",
+      "key": "nickel_plated",
+      "volume_m3": 0.0009150575196985993
+    },
+    {
+      "name": "1A_tea_tin_a_Lid",
+      "assembly": "1A_tea_tin_a",
+      "key": "nickel_plated",
+      "volume_m3": 0.0001172981332062072
+    },
+    {
+      "name": "1A_tea_tin_b_Can",
+      "assembly": "1A_tea_tin_b",
+      "key": "nickel_plated",
+      "volume_m3": 0.0009150575196985993
+    },
+    {
+      "name": "1A_tea_tin_b_Lid",
+      "assembly": "1A_tea_tin_b",
+      "key": "nickel_plated",
+      "volume_m3": 0.0001172981332062072
     }
   ],
   "contacts": [
@@ -24370,6 +24406,36 @@
         0
       ],
       "label": "strut foot"
+    },
+    {
+      "assembly": "1A_tea_tin_a",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tin base"
+    },
+    {
+      "assembly": "1A_tea_tin_b",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tin base"
     }
   ],
   "parts": [
@@ -27326,9 +27392,23 @@
       "cell": "6A",
       "key": "wood_dark",
       "triangles": 376
+    },
+    {
+      "name": "1A_tea_tin_a__nickel_plated",
+      "assembly": "1A_tea_tin_a",
+      "cell": "1A",
+      "key": "nickel_plated",
+      "triangles": 768
+    },
+    {
+      "name": "1A_tea_tin_b__nickel_plated",
+      "assembly": "1A_tea_tin_b",
+      "cell": "1A",
+      "key": "nickel_plated",
+      "triangles": 768
     }
   ],
-  "triangles": 784760,
+  "triangles": 786296,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -33377,6 +33457,48 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "1A_tea_tin_a",
+        "parts": [
+          {
+            "name": "1A_tea_tin_a__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "1A_tea_tin_b",
+        "parts": [
+          {
+            "name": "1A_tea_tin_b__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -33405,9 +33527,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "9a31d0d88fdbebdf43264a30e9165f82c699d460e8791f3a8b2f21d90f12cfcd",
+  "asset_sha256": "bbbeb0886c95bdc31d9c6e3b4a24bd3f001a8fd5815aec5732e3e6d9d9700a12",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "937687d773f4ca4b1fa707ef97c56586089ed0d6f23e0e8963764f3bc9f6b222",
+    "art/data/surface_stock/source_plan.json": "8470d6ef953278fd4be3480d87e392780deb936d9af6cfaa33feb15227e71696",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -33521,11 +33643,11 @@
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
     "art/blender/scripts/surface_stock_geometry.py": "7618fc14af9797858ef526cf30ccd755f0a7c87982a9c3430743d27801817676",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "d8a4d99ee44f1830b42fa0e6ea2ac0a48b57ce2587d28cce16f774cd20ff8e04",
+    "game/data/orison_v2/domestic_surface_props.json": "f2f07085b5ffcf4e267a765acc35ece355ec6d517b7c3160036846a611a0626f",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "c7e4e4604a6124750a3bd4f16536a408febe2942e3eda7c3df1c1892fde124eb"
+    "game/data/orison_v2/domestic_furniture.json": "891111ad935463673d85106fb2e0a1ada0c0753dd41075204d15698fce40ac31"
   },
   "retained_stock": [
     {
@@ -40997,6 +41119,22 @@
         "6A_plant_print_Face",
         "6A_plant_print_Print",
         "6A_plant_print_Strut"
+      ]
+    },
+    {
+      "assembly": "1A_tea_tin_a",
+      "id": "1A_tea_tin_a_Tin",
+      "stocks": [
+        "1A_tea_tin_a_Can",
+        "1A_tea_tin_a_Lid"
+      ]
+    },
+    {
+      "assembly": "1A_tea_tin_b",
+      "id": "1A_tea_tin_b_Tin",
+      "stocks": [
+        "1A_tea_tin_b_Can",
+        "1A_tea_tin_b_Lid"
       ]
     }
   ],

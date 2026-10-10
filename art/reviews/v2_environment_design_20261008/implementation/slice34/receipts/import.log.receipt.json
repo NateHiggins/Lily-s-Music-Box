@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 8.48,
+  "elapsed_s": 12.53,
   "exit_code": 0,
-  "finished_utc": "2026-10-09T05:33:37Z",
-  "started_utc": "2026-10-09T05:33:28Z",
+  "finished_utc": "2026-10-10T01:55:53Z",
+  "started_utc": "2026-10-10T01:55:40Z",
   "timed_out": false
  },
  "log": {
@@ -20,7 +20,7 @@
   "stderr": "C:/ov/envimpl_out/slice34/import.log.stderr",
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "stdout": "C:/ov/envimpl_out/slice34/import.log",
-  "stdout_sha256": "62c4c5273d1c9a638631cd9c2131070849f8a093bb2896c226b38399a934427d"
+  "stdout_sha256": "2828f833648711b35ff9c01ffb6aa16a542e51a85233d173073a16957d97a9f7"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "serial",
@@ -29,7 +29,7 @@
  "schema_version": 1,
  "shot_dir": null,
  "source": {
-  "dirty_paths": 400,
+  "dirty_paths": 411,
   "dirty_sample": [
    "M game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png.import",
    " M game/assets/building/textures/T_ai_materials_bakelite_black_normal.png.import",
@@ -52,9 +52,9 @@
    " M game/assets/building/textures/T_ai_materials_cast_iron_albedo.png.import",
    " M game/assets/building/textures/T_ai_materials_cast_iron_normal.png.import"
   ],
-  "repository_head": "4e589c0c5abf3db910e164bb50c32820fc5d61e5",
-  "repository_tree": "a9e177d96c32ef54be1aa641019c55e366797823",
-  "runtime_inputs_sha256": "2cc98a3e316efc942f364f326b3fcccd9bc42395f7245c4c8ab12d92020ace2f",
+  "repository_head": "974ee6d2d24996eef64efb436f2a9976c4230451",
+  "repository_tree": "fdce86bcfec49f063b46c5c32e4fb04b347d1cce",
+  "runtime_inputs_sha256": "93e3df9afd1e2c99a11112e890be09ca5e217e7955120f52e4eacb8269674035",
   "test_path": "game/tests/walk_test.gd",
   "test_sha256": "28a5a8258dd8926235e45576b7efe3a26b7af421a44d2a5817a9e41c344365ed"
  },

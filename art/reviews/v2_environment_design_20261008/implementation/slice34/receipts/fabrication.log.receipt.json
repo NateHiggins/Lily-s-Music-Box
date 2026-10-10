@@ -2,10 +2,10 @@
  "evidence_kind": "suite_run",
  "execution": {
   "completed": true,
-  "elapsed_s": 103.09,
+  "elapsed_s": 95.45,
   "exit_code": 0,
-  "finished_utc": "2026-10-09T05:35:21Z",
-  "started_utc": "2026-10-09T05:33:37Z",
+  "finished_utc": "2026-10-10T01:57:30Z",
+  "started_utc": "2026-10-10T01:55:54Z",
   "timed_out": false
  },
  "log": {
@@ -20,7 +20,7 @@
   "stderr": "C:/ov/envimpl_out/slice34/fabrication.log.stderr",
   "stderr_sha256": "bcfdfc10b198cfe149c26547d7d5d2dec8c8974b3882b068d62d669af0ea7a4d",
   "stdout": "C:/ov/envimpl_out/slice34/fabrication.log",
-  "stdout_sha256": "d72c4f21b01d67564c6c5f3822a4fc4feabc8dd1233f4d7697525cb2598700cb"
+  "stdout_sha256": "ed81b9765c3e9257e72b7efe066d7b3b27a3c583b3af8f02480f9033b12776ed"
  },
  "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
  "runner": "serial",
@@ -29,7 +29,7 @@
  "schema_version": 1,
  "shot_dir": "C:/ov/envimpl_out/slice34/fabrication_shots",
  "source": {
-  "dirty_paths": 400,
+  "dirty_paths": 411,
   "dirty_sample": [
    "M game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png.import",
    " M game/assets/building/textures/T_ai_materials_bakelite_black_normal.png.import",
@@ -52,9 +52,9 @@
    " M game/assets/building/textures/T_ai_materials_cast_iron_albedo.png.import",
    " M game/assets/building/textures/T_ai_materials_cast_iron_normal.png.import"
   ],
-  "repository_head": "4e589c0c5abf3db910e164bb50c32820fc5d61e5",
-  "repository_tree": "a9e177d96c32ef54be1aa641019c55e366797823",
-  "runtime_inputs_sha256": "2cc98a3e316efc942f364f326b3fcccd9bc42395f7245c4c8ab12d92020ace2f",
+  "repository_head": "974ee6d2d24996eef64efb436f2a9976c4230451",
+  "repository_tree": "fdce86bcfec49f063b46c5c32e4fb04b347d1cce",
+  "runtime_inputs_sha256": "93e3df9afd1e2c99a11112e890be09ca5e217e7955120f52e4eacb8269674035",
   "test_path": "game/tests/orison_v2_fabrication_batch.gd",
   "test_sha256": "d807f393c409cf45f64332200eb662f9cf2a4954f18ba7d99a04e0ec6ae6fe4e"
  },

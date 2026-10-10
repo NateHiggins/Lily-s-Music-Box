@@ -8197,9 +8197,9 @@
 			"name": "6B_din_t_Semantic",
 			"path": "OrisonV2Blockout/6B_din_t_Semantic",
 			"position": [
-				-11.1000003814697,
+				-10.25,
 				16.0,
-				3.19999980926514
+				4.39999961853027
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F06_B_MAIN",
@@ -8210,35 +8210,9 @@
 			"name": "6B_din_t_STANCE",
 			"path": "OrisonV2Blockout/6B_din_t_STANCE",
 			"position": [
-				-11.1000003814697,
+				-10.25,
 				16.0,
-				2.15000057220459
-			],
-			"script": "orison_v2_semantic_anchor.gd",
-			"space": "F06_B_MAIN",
-			"yaw_deg": 179.999991348578
-		},
-		{
-			"level": "F06",
-			"name": "6B_din_dc1_Semantic",
-			"path": "OrisonV2Blockout/6B_din_dc1_Semantic",
-			"position": [
-				-12.1000003814697,
-				16.0,
-				3.19999980926514
-			],
-			"script": "orison_v2_semantic_anchor.gd",
-			"space": "F06_B_MAIN",
-			"yaw_deg": -90.0000025044782
-		},
-		{
-			"level": "F06",
-			"name": "6B_din_dc1_STANCE",
-			"path": "OrisonV2Blockout/6B_din_dc1_STANCE",
-			"position": [
-				-12.1000003814697,
-				16.0,
-				3.94999980926514
+				5.49999809265137
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F06_B_MAIN",
@@ -8246,25 +8220,51 @@
 		},
 		{
 			"level": "F06",
-			"name": "6B_din_dc2_Semantic",
-			"path": "OrisonV2Blockout/6B_din_dc2_Semantic",
+			"name": "6B_din_dc1_Semantic",
+			"path": "OrisonV2Blockout/6B_din_dc1_Semantic",
 			"position": [
-				-10.1000003814697,
+				-10.25,
 				16.0,
-				3.19999980926514
+				3.5
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F06_B_MAIN",
-			"yaw_deg": 90.0000025044782
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F06",
+			"name": "6B_din_dc1_STANCE",
+			"path": "OrisonV2Blockout/6B_din_dc1_STANCE",
+			"position": [
+				-11.0,
+				16.0,
+				3.5
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_B_MAIN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F06",
+			"name": "6B_din_dc2_Semantic",
+			"path": "OrisonV2Blockout/6B_din_dc2_Semantic",
+			"position": [
+				-11.0,
+				16.0,
+				4.40000152587891
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_B_MAIN",
+			"yaw_deg": -90.0000025044782
 		},
 		{
 			"level": "F06",
 			"name": "6B_din_dc2_STANCE",
 			"path": "OrisonV2Blockout/6B_din_dc2_STANCE",
 			"position": [
-				-10.1000003814697,
+				-10.9999990463257,
 				16.0,
-				3.94999980926514
+				5.15000152587891
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F06_B_MAIN",
@@ -12201,9 +12201,22 @@
 			"name": "2C_din_t_Semantic",
 			"path": "OrisonV2Blockout/2C_din_t_Semantic",
 			"position": [
-				-1.5,
+				0.0299999993294477,
 				3.20000004768372,
-				9.60000038146973
+				10.3000011444092
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_C_MAIN",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F02",
+			"name": "2C_din_t_STANCE",
+			"path": "OrisonV2Blockout/2C_din_t_STANCE",
+			"position": [
+				-0.100000008940697,
+				3.20000004768372,
+				9.10000038146973
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F02_C_MAIN",
@@ -12211,51 +12224,38 @@
 		},
 		{
 			"level": "F02",
-			"name": "2C_din_t_STANCE",
-			"path": "OrisonV2Blockout/2C_din_t_STANCE",
+			"name": "2C_din_dc1_Semantic",
+			"path": "OrisonV2Blockout/2C_din_dc1_Semantic",
 			"position": [
-				-0.449999988079071,
+				-0.899999976158142,
 				3.20000004768372,
 				9.60000038146973
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F02_C_MAIN",
-			"yaw_deg": 90.0000025044782
-		},
-		{
-			"level": "F02",
-			"name": "2C_din_dc1_Semantic",
-			"path": "OrisonV2Blockout/2C_din_dc1_Semantic",
-			"position": [
-				-1.5,
-				3.20000004768372,
-				8.55000114440918
-			],
-			"script": "orison_v2_semantic_anchor.gd",
-			"space": "F02_C_MAIN",
-			"yaw_deg": -179.999991348578
+			"yaw_deg": -90.0000025044782
 		},
 		{
 			"level": "F02",
 			"name": "2C_din_dc1_STANCE",
 			"path": "OrisonV2Blockout/2C_din_dc1_STANCE",
 			"position": [
-				-0.649999976158142,
+				-1.30000007152557,
 				3.20000004768372,
-				8.55000114440918
+				9.0
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F02_C_MAIN",
-			"yaw_deg": 90.0000025044782
+			"yaw_deg": -90.0000025044782
 		},
 		{
 			"level": "F02",
 			"name": "2C_din_dc2_Semantic",
 			"path": "OrisonV2Blockout/2C_din_dc2_Semantic",
 			"position": [
-				-1.50000011920929,
+				-1.00000011920929,
 				3.20000004768372,
-				10.6499996185303
+				10.5500011444092
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F02_C_MAIN",
@@ -12266,13 +12266,13 @@
 			"name": "2C_din_dc2_STANCE",
 			"path": "OrisonV2Blockout/2C_din_dc2_STANCE",
 			"position": [
-				-0.649999976158142,
+				-1.90000009536743,
 				3.20000004768372,
-				10.6499996185303
+				10.5500011444092
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F02_C_MAIN",
-			"yaw_deg": 90.0000025044782
+			"yaw_deg": -90.0000025044782
 		},
 		{
 			"level": "F02",
@@ -12588,8 +12588,8 @@
 		},
 		{
 			"level": "F02",
-			"name": "2C_prep_cabinet",
-			"path": "OrisonV2Blockout/2C_prep_cabinet",
+			"name": "2C_prep_cabinet_Semantic",
+			"path": "OrisonV2Blockout/2C_prep_cabinet_Semantic",
 			"position": [
 				4.11499977111816,
 				3.20000004768372,
@@ -12653,8 +12653,8 @@
 		},
 		{
 			"level": "F02",
-			"name": "F02_2C_BOOKSHELF_01",
-			"path": "OrisonV2Blockout/F02_2C_BOOKSHELF_01",
+			"name": "F02_2C_BOOKSHELF_01_Semantic",
+			"path": "OrisonV2Blockout/F02_2C_BOOKSHELF_01_Semantic",
 			"position": [
 				-1.90000009536743,
 				3.20000004768372,
@@ -13446,8 +13446,8 @@
 		},
 		{
 			"level": "F04",
-			"name": "4C_prep_cabinet",
-			"path": "OrisonV2Blockout/4C_prep_cabinet",
+			"name": "4C_prep_cabinet_Semantic",
+			"path": "OrisonV2Blockout/4C_prep_cabinet_Semantic",
 			"position": [
 				4.11499977111816,
 				9.60000038146973,
@@ -13511,8 +13511,8 @@
 		},
 		{
 			"level": "F04",
-			"name": "F04_4C_BOOKSHELF_01",
-			"path": "OrisonV2Blockout/F04_4C_BOOKSHELF_01",
+			"name": "F04_4C_BOOKSHELF_01_Semantic",
+			"path": "OrisonV2Blockout/F04_4C_BOOKSHELF_01_Semantic",
 			"position": [
 				-1.90000009536743,
 				9.60000038146973,
@@ -13563,8 +13563,8 @@
 		},
 		{
 			"level": "F04",
-			"name": "4C_story_colorboard",
-			"path": "OrisonV2Blockout/4C_story_colorboard",
+			"name": "4C_story_colorboard_Semantic",
+			"path": "OrisonV2Blockout/4C_story_colorboard_Semantic",
 			"position": [
 				-5.50999975204468,
 				10.7600002288818,
@@ -14112,22 +14112,22 @@
 			"name": "1D_din_t_Semantic",
 			"path": "OrisonV2Blockout/1D_din_t_Semantic",
 			"position": [
-				14.75,
+				15.1000003814697,
 				0.0,
-				-0.649999618530273
+				-1.79999923706055
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F01_D_MAIN",
-			"yaw_deg": 0.0
+			"yaw_deg": 90.0000025044782
 		},
 		{
 			"level": "F01",
 			"name": "1D_din_dc1_Semantic",
 			"path": "OrisonV2Blockout/1D_din_dc1_Semantic",
 			"position": [
-				13.75,
+				14.3000001907349,
 				0.0,
-				-0.649999618530273
+				-1.80000019073486
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F01_D_MAIN",
@@ -14135,8 +14135,8 @@
 		},
 		{
 			"level": "F01",
-			"name": "1D_din_dc2_Semantic",
-			"path": "OrisonV2Blockout/1D_din_dc2_Semantic",
+			"name": "1D_din_dc2",
+			"path": "OrisonV2Blockout/1D_din_dc2",
 			"position": [
 				14.75,
 				0.0,
@@ -14291,8 +14291,8 @@
 		},
 		{
 			"level": "F01",
-			"name": "1D_prep_cabinet",
-			"path": "OrisonV2Blockout/1D_prep_cabinet",
+			"name": "1D_prep_cabinet_Semantic",
+			"path": "OrisonV2Blockout/1D_prep_cabinet_Semantic",
 			"position": [
 				11.8500003814697,
 				0.0,
@@ -14619,9 +14619,9 @@
 			"name": "1A_table_Semantic",
 			"path": "OrisonV2Blockout/1A_table_Semantic",
 			"position": [
-				-14.3000001907349,
+				-13.1999998092651,
 				0.0,
-				-4.80000019073486
+				-4.34999990463257
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F01_A_MAIN",
@@ -14632,13 +14632,13 @@
 			"name": "1A_chair_Semantic",
 			"path": "OrisonV2Blockout/1A_chair_Semantic",
 			"position": [
-				-14.2999992370605,
+				-13.1999998092651,
 				0.0,
-				-5.80000019073486
+				-5.0
 			],
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F01_A_MAIN",
-			"yaw_deg": -179.999991348578
+			"yaw_deg": 0.0
 		},
 		{
 			"level": "F03",
@@ -16238,6 +16238,2060 @@
 			"script": "orison_v2_semantic_anchor.gd",
 			"space": "F06_EAST_HALL",
 			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F01",
+			"name": "1A_reading_chair_Semantic",
+			"path": "OrisonV2Blockout/1A_reading_chair_Semantic",
+			"position": [
+				-14.75,
+				0.0,
+				-5.40000009536743
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_MAIN",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "1A_side_table_Semantic",
+			"path": "OrisonV2Blockout/1A_side_table_Semantic",
+			"position": [
+				-14.6000003814697,
+				0.0,
+				-4.5
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "1A_dressing_table_Semantic",
+			"path": "OrisonV2Blockout/1A_dressing_table_Semantic",
+			"position": [
+				-15.3299999237061,
+				0.0,
+				-8.60000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_BED",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "1A_bed_chair_Semantic",
+			"path": "OrisonV2Blockout/1A_bed_chair_Semantic",
+			"position": [
+				-14.4499998092651,
+				0.0,
+				-9.39999961853027
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_BED",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "1A_bedside_Semantic",
+			"path": "OrisonV2Blockout/1A_bedside_Semantic",
+			"position": [
+				-13.3999996185303,
+				0.0,
+				-11.5
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_BED",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "1A_study_desk_Semantic",
+			"path": "OrisonV2Blockout/1A_study_desk_Semantic",
+			"position": [
+				-9.69999980926514,
+				0.0,
+				-12.0
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_STUDY",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "1A_study_chair_Semantic",
+			"path": "OrisonV2Blockout/1A_study_chair_Semantic",
+			"position": [
+				-9.69999980926514,
+				0.0,
+				-11.5
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_STUDY",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "1A_register_shelf_Semantic",
+			"path": "OrisonV2Blockout/1A_register_shelf_Semantic",
+			"position": [
+				-8.42000007629395,
+				0.0,
+				-10.5
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_STUDY",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "1D_daybed_Semantic",
+			"path": "OrisonV2Blockout/1D_daybed_Semantic",
+			"position": [
+				14.1599998474121,
+				0.0,
+				-0.229999542236328
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_D_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "1D_alarm_chest_Semantic",
+			"path": "OrisonV2Blockout/1D_alarm_chest_Semantic",
+			"position": [
+				12.6499996185303,
+				0.0,
+				-0.0999994277954102
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_D_MAIN",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "1D_bed_chair_Semantic",
+			"path": "OrisonV2Blockout/1D_bed_chair_Semantic",
+			"position": [
+				12.3500003814697,
+				0.0,
+				-11.8500003814697
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_D_BED",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F02",
+			"name": "2C_rig_table_Semantic",
+			"path": "OrisonV2Blockout/2C_rig_table_Semantic",
+			"position": [
+				-1.0,
+				3.20000004768372,
+				11.3299999237061
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_C_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F03",
+			"name": "3D_chaise_Semantic",
+			"path": "OrisonV2Blockout/3D_chaise_Semantic",
+			"position": [
+				-11.8400001525879,
+				6.40000009536743,
+				-4.3600001335144
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_D_MAIN",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F04",
+			"name": "4C_museum_shelf_Semantic",
+			"path": "OrisonV2Blockout/4C_museum_shelf_Semantic",
+			"position": [
+				-1.5,
+				9.60000038146973,
+				11.4300003051758
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_C_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F04",
+			"name": "4D_settee_Semantic",
+			"path": "OrisonV2Blockout/4D_settee_Semantic",
+			"position": [
+				-11.6000003814697,
+				9.60000038146973,
+				-4.3600001335144
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_D_MAIN",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F04",
+			"name": "4D_lamp_table_Semantic",
+			"path": "OrisonV2Blockout/4D_lamp_table_Semantic",
+			"position": [
+				-10.0,
+				9.60000038146973,
+				-4.25
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_D_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F04",
+			"name": "4D_chair2_Semantic",
+			"path": "OrisonV2Blockout/4D_chair2_Semantic",
+			"position": [
+				-15.3000001907349,
+				9.60000038146973,
+				-4.80000019073486
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_D_MAIN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F02",
+			"name": "2A_hallstand_Semantic",
+			"path": "OrisonV2Blockout/2A_hallstand_Semantic",
+			"position": [
+				-7.0,
+				3.20000004768372,
+				-1.13000011444092
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_A_VESTIBULE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F03",
+			"name": "3A_hallstand_Semantic",
+			"path": "OrisonV2Blockout/3A_hallstand_Semantic",
+			"position": [
+				-7.0,
+				6.40000009536743,
+				-1.13000011444092
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_A_VESTIBULE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F04",
+			"name": "4B_hallstand_Semantic",
+			"path": "OrisonV2Blockout/4B_hallstand_Semantic",
+			"position": [
+				-7.0,
+				9.60000038146973,
+				-1.13000011444092
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_B_VESTIBULE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F02",
+			"name": "2B_hallstand_Semantic",
+			"path": "OrisonV2Blockout/2B_hallstand_Semantic",
+			"position": [
+				9.89999961853027,
+				3.20000004768372,
+				-1.36999988555908
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_B_VESTIBULE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F03",
+			"name": "3B_hallstand_Semantic",
+			"path": "OrisonV2Blockout/3B_hallstand_Semantic",
+			"position": [
+				9.89999961853027,
+				6.40000009536743,
+				-1.36999988555908
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_B_VESTIBULE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F04",
+			"name": "4A_hallstand_Semantic",
+			"path": "OrisonV2Blockout/4A_hallstand_Semantic",
+			"position": [
+				9.89999961853027,
+				9.60000038146973,
+				-1.36999988555908
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_A_VESTIBULE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F05",
+			"name": "5C_hallstand_Semantic",
+			"path": "OrisonV2Blockout/5C_hallstand_Semantic",
+			"position": [
+				-1.98000013828278,
+				12.8000001907349,
+				5.19999885559082
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_C_VESTIBULE",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F06",
+			"name": "6C_hallstand_Semantic",
+			"path": "OrisonV2Blockout/6C_hallstand_Semantic",
+			"position": [
+				-1.98000013828278,
+				16.0,
+				5.19999885559082
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_C_VESTIBULE",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5A_hallstand_Semantic",
+			"path": "OrisonV2Blockout/5A_hallstand_Semantic",
+			"position": [
+				-5.82000017166138,
+				12.8000001907349,
+				-1.99999904632568
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_A_VESTIBULE",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F06",
+			"name": "6A_hallstand_Semantic",
+			"path": "OrisonV2Blockout/6A_hallstand_Semantic",
+			"position": [
+				-5.82000017166138,
+				16.0,
+				-1.99999904632568
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_A_VESTIBULE",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5B_hallstand_Semantic",
+			"path": "OrisonV2Blockout/5B_hallstand_Semantic",
+			"position": [
+				-6.71999979019165,
+				12.8000001907349,
+				1.85000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_B_VESTIBULE",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F06",
+			"name": "6B_hallstand_Semantic",
+			"path": "OrisonV2Blockout/6B_hallstand_Semantic",
+			"position": [
+				-6.71999979019165,
+				16.0,
+				1.85000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_B_VESTIBULE",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "1D_hallstand_Semantic",
+			"path": "OrisonV2Blockout/1D_hallstand_Semantic",
+			"position": [
+				9.89999961853027,
+				0.0,
+				-1.36999988555908
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_D_VESTIBULE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F02",
+			"name": "2C_hallstand_Semantic",
+			"path": "OrisonV2Blockout/2C_hallstand_Semantic",
+			"position": [
+				-1.98000013828278,
+				3.20000004768372,
+				5.19999885559082
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_C_VESTIBULE",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F04",
+			"name": "4C_hallstand_Semantic",
+			"path": "OrisonV2Blockout/4C_hallstand_Semantic",
+			"position": [
+				-1.98000013828278,
+				9.60000038146973,
+				5.19999885559082
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_C_VESTIBULE",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "1A_hallstand_Semantic",
+			"path": "OrisonV2Blockout/1A_hallstand_Semantic",
+			"position": [
+				-6.90000009536743,
+				0.0,
+				-4.07000017166138
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_VESTIBULE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F03",
+			"name": "3D_hallstand_Semantic",
+			"path": "OrisonV2Blockout/3D_hallstand_Semantic",
+			"position": [
+				-6.90000009536743,
+				6.40000009536743,
+				-4.07000017166138
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_D_VESTIBULE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F04",
+			"name": "4D_hallstand_Semantic",
+			"path": "OrisonV2Blockout/4D_hallstand_Semantic",
+			"position": [
+				-6.90000009536743,
+				9.60000038146973,
+				-4.07000017166138
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_D_VESTIBULE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F05",
+			"name": "5B_radio_chair_Semantic",
+			"path": "OrisonV2Blockout/5B_radio_chair_Semantic",
+			"position": [
+				-13.8000001907349,
+				12.8000001907349,
+				5.55000114440918
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_B_MAIN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5B_deck_table_Semantic",
+			"path": "OrisonV2Blockout/5B_deck_table_Semantic",
+			"position": [
+				-11.2999992370605,
+				12.8000001907349,
+				5.0
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_B_MAIN",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5B_deck_Semantic",
+			"path": "OrisonV2Blockout/5B_deck_Semantic",
+			"position": [
+				-11.2999992370605,
+				13.5450000762939,
+				5.0
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_B_MAIN",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5B_tape_shelf_a_Semantic",
+			"path": "OrisonV2Blockout/5B_tape_shelf_a_Semantic",
+			"position": [
+				-9.44999980926514,
+				12.8000001907349,
+				3.15000057220459
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_B_MAIN",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5B_tape_shelf_b_Semantic",
+			"path": "OrisonV2Blockout/5B_tape_shelf_b_Semantic",
+			"position": [
+				-9.44999980926514,
+				12.8000001907349,
+				4.19999980926514
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_B_MAIN",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F03",
+			"name": "3B_outgoing_shelf_Semantic",
+			"path": "OrisonV2Blockout/3B_outgoing_shelf_Semantic",
+			"position": [
+				12.6000003814697,
+				6.40000009536743,
+				-5.09999990463257
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_B_MAIN",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F04",
+			"name": "4B_case_wall_Semantic",
+			"path": "OrisonV2Blockout/4B_case_wall_Semantic",
+			"position": [
+				-7.6399998664856,
+				10.5,
+				1.19999980926514
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_B_MAIN",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5A_plan_wall_Semantic",
+			"path": "OrisonV2Blockout/5A_plan_wall_Semantic",
+			"position": [
+				-11.6000003814697,
+				13.6999998092651,
+				-0.689999580383301
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_A_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F05",
+			"name": "5C_canvas_a_Semantic",
+			"path": "OrisonV2Blockout/5C_canvas_a_Semantic",
+			"position": [
+				0.409999996423721,
+				13.8999996185303,
+				9.80000114440918
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_C_MAIN",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5C_canvas_b_Semantic",
+			"path": "OrisonV2Blockout/5C_canvas_b_Semantic",
+			"position": [
+				0.410000026226044,
+				13.8999996185303,
+				10.6999988555908
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_C_MAIN",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F04",
+			"name": "4A_frame_a_Semantic",
+			"path": "OrisonV2Blockout/4A_frame_a_Semantic",
+			"position": [
+				12.2399997711182,
+				10.8900003433228,
+				0.210000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_A_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F04",
+			"name": "4A_frame_b_Semantic",
+			"path": "OrisonV2Blockout/4A_frame_b_Semantic",
+			"position": [
+				13.0600004196167,
+				10.8900003433228,
+				0.210000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_A_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "1A_frame_a_Semantic",
+			"path": "OrisonV2Blockout/1A_frame_a_Semantic",
+			"position": [
+				-12.3900003433228,
+				1.3400000333786,
+				-3.94000053405762
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "1A_frame_b_Semantic",
+			"path": "OrisonV2Blockout/1A_frame_b_Semantic",
+			"position": [
+				-11.4700002670288,
+				1.3400000333786,
+				-3.94000005722046
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F02",
+			"name": "2B_repair_rail_Semantic",
+			"path": "OrisonV2Blockout/2B_repair_rail_Semantic",
+			"position": [
+				11.5900001525879,
+				3.95000004768372,
+				-3.59999942779541
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_B_MAIN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F04",
+			"name": "4B_closet_rail_Semantic",
+			"path": "OrisonV2Blockout/4B_closet_rail_Semantic",
+			"position": [
+				-6.94999933242798,
+				10.3500003814697,
+				8.15999794006348
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_B_CLOSET",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F02",
+			"name": "2C_blanket_a_Semantic",
+			"path": "OrisonV2Blockout/2C_blanket_a_Semantic",
+			"position": [
+				7.01000022888184,
+				3.54999995231628,
+				8.70000076293945
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_C_BED2",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F02",
+			"name": "2C_blanket_b_Semantic",
+			"path": "OrisonV2Blockout/2C_blanket_b_Semantic",
+			"position": [
+				7.01000022888184,
+				3.54999995231628,
+				10.0000019073486
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_C_BED2",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F03",
+			"name": "3D_blanket_a_Semantic",
+			"path": "OrisonV2Blockout/3D_blanket_a_Semantic",
+			"position": [
+				-8.28999996185303,
+				6.75,
+				-11.6499996185303
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_D_STUDY",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F03",
+			"name": "3D_blanket_b_Semantic",
+			"path": "OrisonV2Blockout/3D_blanket_b_Semantic",
+			"position": [
+				-8.28999996185303,
+				6.75,
+				-10.3500003814697
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_D_STUDY",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F02",
+			"name": "2A_hall_hamper_Semantic",
+			"path": "OrisonV2Blockout/2A_hall_hamper_Semantic",
+			"position": [
+				-9.31999969482422,
+				3.20000004768372,
+				7.57999992370605
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_A_PRIVATE_HALL",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F02",
+			"name": "2B_hall_hamper_Semantic",
+			"path": "OrisonV2Blockout/2B_hall_hamper_Semantic",
+			"position": [
+				13.0699996948242,
+				3.20000004768372,
+				-4.57999992370605
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_B_PRIVATE_HALL",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F03",
+			"name": "3A_hall_boots_Semantic",
+			"path": "OrisonV2Blockout/3A_hall_boots_Semantic",
+			"position": [
+				-9.31999969482422,
+				6.40000009536743,
+				7.57999992370605
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_A_PRIVATE_HALL",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F03",
+			"name": "3B_hall_crate_Semantic",
+			"path": "OrisonV2Blockout/3B_hall_crate_Semantic",
+			"position": [
+				15.3800001144409,
+				6.40000009536743,
+				-9.43000030517578
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_B_PRIVATE_HALL",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F04",
+			"name": "4A_hall_boots_Semantic",
+			"path": "OrisonV2Blockout/4A_hall_boots_Semantic",
+			"position": [
+				15.3800001144409,
+				9.60000038146973,
+				-8.97999954223633
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_A_PRIVATE_HALL",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F04",
+			"name": "4B_hall_boots_Semantic",
+			"path": "OrisonV2Blockout/4B_hall_boots_Semantic",
+			"position": [
+				-10.8299999237061,
+				9.60000038146973,
+				5.96999931335449
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_B_PRIVATE_HALL",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5A_hall_boots_Semantic",
+			"path": "OrisonV2Blockout/5A_hall_boots_Semantic",
+			"position": [
+				-5.86999940872192,
+				12.8000001907349,
+				-8.47999954223633
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_A_PRIVATE_HALL",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5B_hall_hamper_Semantic",
+			"path": "OrisonV2Blockout/5B_hall_hamper_Semantic",
+			"position": [
+				-10.8299999237061,
+				12.8000001907349,
+				11.3799991607666
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_B_PRIVATE_HALL",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F05",
+			"name": "5C_hall_boots_Semantic",
+			"path": "OrisonV2Blockout/5C_hall_boots_Semantic",
+			"position": [
+				6.67000007629395,
+				12.8000001907349,
+				6.6200008392334
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_C_PRIVATE_HALL",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F06",
+			"name": "6A_hall_crate_Semantic",
+			"path": "OrisonV2Blockout/6A_hall_crate_Semantic",
+			"position": [
+				-5.86999940872192,
+				16.0,
+				-8.47999954223633
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_A_PRIVATE_HALL",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F06",
+			"name": "6B_hall_hamper_Semantic",
+			"path": "OrisonV2Blockout/6B_hall_hamper_Semantic",
+			"position": [
+				-10.8299999237061,
+				16.0,
+				11.3799991607666
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_B_PRIVATE_HALL",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F06",
+			"name": "6C_hall_boots_Semantic",
+			"path": "OrisonV2Blockout/6C_hall_boots_Semantic",
+			"position": [
+				6.67000007629395,
+				16.0,
+				6.6200008392334
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_C_PRIVATE_HALL",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F01",
+			"name": "1A_hall_hamper_Semantic",
+			"path": "OrisonV2Blockout/1A_hall_hamper_Semantic",
+			"position": [
+				-5.67000007629395,
+				0.0,
+				-9.28000068664551
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_PRIVATE_HALL",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "1D_hall_boots_Semantic",
+			"path": "OrisonV2Blockout/1D_hall_boots_Semantic",
+			"position": [
+				13.0699996948242,
+				0.0,
+				-4.57999992370605
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_D_PRIVATE_HALL",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F02",
+			"name": "2C_hall_boots_Semantic",
+			"path": "OrisonV2Blockout/2C_hall_boots_Semantic",
+			"position": [
+				6.67000007629395,
+				3.20000004768372,
+				6.6200008392334
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_C_PRIVATE_HALL",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F03",
+			"name": "3D_hall_hamper_Semantic",
+			"path": "OrisonV2Blockout/3D_hall_hamper_Semantic",
+			"position": [
+				-5.86999988555908,
+				6.40000009536743,
+				-9.28000068664551
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_D_PRIVATE_HALL",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F04",
+			"name": "4C_hall_hamper_Semantic",
+			"path": "OrisonV2Blockout/4C_hall_hamper_Semantic",
+			"position": [
+				6.67000007629395,
+				9.60000038146973,
+				6.6200008392334
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_C_PRIVATE_HALL",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F04",
+			"name": "4D_hall_crate_Semantic",
+			"path": "OrisonV2Blockout/4D_hall_crate_Semantic",
+			"position": [
+				-5.86999988555908,
+				9.60000038146973,
+				-9.28000068664551
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_D_PRIVATE_HALL",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F02",
+			"name": "2C_album_a_Semantic",
+			"path": "OrisonV2Blockout/2C_album_a_Semantic",
+			"position": [
+				-5.0,
+				4.5,
+				11.5599994659424
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_C_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F02",
+			"name": "2C_album_b_Semantic",
+			"path": "OrisonV2Blockout/2C_album_b_Semantic",
+			"position": [
+				-4.19999980926514,
+				4.5,
+				11.5599994659424
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_C_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F03",
+			"name": "3A_diagram_Semantic",
+			"path": "OrisonV2Blockout/3A_diagram_Semantic",
+			"position": [
+				-11.1499996185303,
+				7.69000005722046,
+				3.01000022888184
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_A_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F03",
+			"name": "3A_portrait_Semantic",
+			"path": "OrisonV2Blockout/3A_portrait_Semantic",
+			"position": [
+				-10.4499998092651,
+				7.69999980926514,
+				3.01000022888184
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_A_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F05",
+			"name": "5B_work_a_Semantic",
+			"path": "OrisonV2Blockout/5B_work_a_Semantic",
+			"position": [
+				-15.5600004196167,
+				13.8999996185303,
+				1.19999980926514
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_B_MAIN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5B_work_b_Semantic",
+			"path": "OrisonV2Blockout/5B_work_b_Semantic",
+			"position": [
+				-15.5600004196167,
+				13.8999996185303,
+				2.19999980926514
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_B_MAIN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F02",
+			"name": "2A_caption_wall_Semantic",
+			"path": "OrisonV2Blockout/2A_caption_wall_Semantic",
+			"position": [
+				-15.5600004196167,
+				4.82000017166138,
+				-0.40000057220459
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_A_MAIN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F03",
+			"name": "3D_image_a_Semantic",
+			"path": "OrisonV2Blockout/3D_image_a_Semantic",
+			"position": [
+				-14.1999998092651,
+				7.69999980926514,
+				-3.94000005722046
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_D_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F03",
+			"name": "3D_image_b_Semantic",
+			"path": "OrisonV2Blockout/3D_image_b_Semantic",
+			"position": [
+				-11.8400001525879,
+				7.69999980926514,
+				-3.94000005722046
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_D_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F03",
+			"name": "3D_image_c_Semantic",
+			"path": "OrisonV2Blockout/3D_image_c_Semantic",
+			"position": [
+				-9.5,
+				7.69999980926514,
+				-3.9399995803833
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_D_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F02",
+			"name": "2B_bedside_Semantic",
+			"path": "OrisonV2Blockout/2B_bedside_Semantic",
+			"position": [
+				11.8000001907349,
+				3.20000004768372,
+				-11.6999998092651
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_B_BED",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F02",
+			"name": "2B_client_chair_Semantic",
+			"path": "OrisonV2Blockout/2B_client_chair_Semantic",
+			"position": [
+				11.1499996185303,
+				3.20000004768372,
+				-1.5
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_B_VESTIBULE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F04",
+			"name": "4D_case_Semantic",
+			"path": "OrisonV2Blockout/4D_case_Semantic",
+			"position": [
+				-7.8600001335144,
+				9.60000038146973,
+				-4.03999996185303
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_D_VESTIBULE",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F02",
+			"name": "2B_sewing_machine_Semantic",
+			"path": "OrisonV2Blockout/2B_sewing_machine_Semantic",
+			"position": [
+				15.3299999237061,
+				3.20000004768372,
+				-1.79999923706055
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_B_MAIN",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F03",
+			"name": "3B_teardown_Semantic",
+			"path": "OrisonV2Blockout/3B_teardown_Semantic",
+			"position": [
+				15.0,
+				6.40000009536743,
+				-4.0
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_B_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F05",
+			"name": "5C_easel_Semantic",
+			"path": "OrisonV2Blockout/5C_easel_Semantic",
+			"position": [
+				5.59999990463257,
+				12.8000001907349,
+				10.7000007629395
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_C_BED2",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F05",
+			"name": "5C_failed_canvases_Semantic",
+			"path": "OrisonV2Blockout/5C_failed_canvases_Semantic",
+			"position": [
+				4.30000066757202,
+				12.8000001907349,
+				7.93000030517578
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_C_BED2",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F03",
+			"name": "3A_prop_shelf_s_Semantic",
+			"path": "OrisonV2Blockout/3A_prop_shelf_s_Semantic",
+			"position": [
+				-15.4300003051758,
+				6.40000009536743,
+				-2.15000057220459
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_A_MAIN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F03",
+			"name": "3A_prop_shelf_n_Semantic",
+			"path": "OrisonV2Blockout/3A_prop_shelf_n_Semantic",
+			"position": [
+				-15.4300003051758,
+				6.40000009536743,
+				1.46999931335449
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_A_MAIN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F06",
+			"name": "6C_card_cabinet_Semantic",
+			"path": "OrisonV2Blockout/6C_card_cabinet_Semantic",
+			"position": [
+				4.25000047683716,
+				16.0,
+				8.14999961853027
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_C_BED2",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F06",
+			"name": "6A_backdrop_rail_Semantic",
+			"path": "OrisonV2Blockout/6A_backdrop_rail_Semantic",
+			"position": [
+				-15.5599994659424,
+				16.0,
+				-5.59999990463257
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_A_MAIN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F06",
+			"name": "6A_print_line_Semantic",
+			"path": "OrisonV2Blockout/6A_print_line_Semantic",
+			"position": [
+				-10.1999998092651,
+				17.6000003814697,
+				-6.26000022888184
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_A_MAIN",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F01",
+			"name": "F01_lobby_board_Semantic",
+			"path": "OrisonV2Blockout/F01_lobby_board_Semantic",
+			"position": [
+				-1.75,
+				1.41999995708466,
+				-9.15999984741211
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_LOBBY",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F01",
+			"name": "F01_lobby_photo_Semantic",
+			"path": "OrisonV2Blockout/F01_lobby_photo_Semantic",
+			"position": [
+				0.949999988079071,
+				1.29999995231628,
+				-9.15999984741211
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_LOBBY",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F01",
+			"name": "F01_common_armchair_Semantic",
+			"path": "OrisonV2Blockout/F01_common_armchair_Semantic",
+			"position": [
+				-14.8999996185303,
+				0.0,
+				-3.0
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_COMMON_B",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_1A_case_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_1A_case_Semantic",
+			"position": [
+				-9.0,
+				-3.20000004768372,
+				4.05300045013428
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_1D_boots_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_1D_boots_Semantic",
+			"position": [
+				-7.40000009536743,
+				-3.20000004768372,
+				4.13000011444092
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_2A_hamper_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_2A_hamper_Semantic",
+			"position": [
+				-4.90000009536743,
+				-3.20000004768372,
+				4.1299991607666
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_2B_crate_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_2B_crate_Semantic",
+			"position": [
+				-3.59999990463257,
+				-3.20000004768372,
+				4.13599967956543
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_3A_boots_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_3A_boots_Semantic",
+			"position": [
+				-1.0,
+				-3.20000004768372,
+				4.13000011444092
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_3B_crate_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_3B_crate_Semantic",
+			"position": [
+				0.300000011920929,
+				-3.20000004768372,
+				4.13599967956543
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_3D_case_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_3D_case_Semantic",
+			"position": [
+				1.60000002384186,
+				-3.20000004768372,
+				4.05299949645996
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_4A_case_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_4A_case_Semantic",
+			"position": [
+				2.90000033378601,
+				-3.20000004768372,
+				4.05300045013428
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_4B_crate_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_4B_crate_Semantic",
+			"position": [
+				-9.0,
+				-3.20000004768372,
+				9.21399879455566
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_4C_hamper_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_4C_hamper_Semantic",
+			"position": [
+				-7.40000009536743,
+				-3.20000004768372,
+				9.21999931335449
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_5A_case_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_5A_case_Semantic",
+			"position": [
+				-3.59999966621399,
+				-3.20000004768372,
+				9.29699897766113
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_5B_crate_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_5B_crate_Semantic",
+			"position": [
+				-2.29999971389771,
+				-3.20000004768372,
+				9.21399879455566
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_5C_canvases_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_5C_canvases_Semantic",
+			"position": [
+				-1.00000011920929,
+				-3.20000004768372,
+				9.40999984741211
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_6A_gear_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_6A_gear_Semantic",
+			"position": [
+				0.300000011920929,
+				-3.20000004768372,
+				9.18900108337402
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_6B_case_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_6B_case_Semantic",
+			"position": [
+				1.59999990463257,
+				-3.20000004768372,
+				9.29699897766113
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "B1",
+			"name": "B1_bay_6C_hamper_Semantic",
+			"path": "OrisonV2Blockout/B1_bay_6C_hamper_Semantic",
+			"position": [
+				2.90000033378601,
+				-3.20000004768372,
+				9.21999931335449
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_RESIDENT_STORAGE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "B1",
+			"name": "B1_laundry_basket_1_Semantic",
+			"path": "OrisonV2Blockout/B1_laundry_basket_1_Semantic",
+			"position": [
+				-8.39999961853027,
+				-3.20000004768372,
+				3.60000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_LAUNDRY",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_laundry_basket_2_Semantic",
+			"path": "OrisonV2Blockout/B1_laundry_basket_2_Semantic",
+			"position": [
+				-7.69999980926514,
+				-3.20000004768372,
+				3.60000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_LAUNDRY",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_laundry_basket_3_Semantic",
+			"path": "OrisonV2Blockout/B1_laundry_basket_3_Semantic",
+			"position": [
+				-7.0,
+				-3.20000004768372,
+				3.60000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_LAUNDRY",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_laundry_basket_4_Semantic",
+			"path": "OrisonV2Blockout/B1_laundry_basket_4_Semantic",
+			"position": [
+				-4.90000009536743,
+				-3.20000004768372,
+				3.59999942779541
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_LAUNDRY",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "B1",
+			"name": "B1_laundry_basket_5_Semantic",
+			"path": "OrisonV2Blockout/B1_laundry_basket_5_Semantic",
+			"position": [
+				-5.59999990463257,
+				-3.20000004768372,
+				3.60000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_LAUNDRY",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F03",
+			"name": "3D_card_index_Semantic",
+			"path": "OrisonV2Blockout/3D_card_index_Semantic",
+			"position": [
+				-10.8500003814697,
+				6.40000009536743,
+				-12.0699996948242
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_D_STUDY",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F06",
+			"name": "6A_archive_box_a_Semantic",
+			"path": "OrisonV2Blockout/6A_archive_box_a_Semantic",
+			"position": [
+				-10.6499996185303,
+				16.0,
+				-11.9499998092651
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_A_STUDY",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F06",
+			"name": "6A_archive_box_b_Semantic",
+			"path": "OrisonV2Blockout/6A_archive_box_b_Semantic",
+			"position": [
+				-10.1499996185303,
+				16.0,
+				-11.9499998092651
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_A_STUDY",
+			"yaw_deg": 3.43774669394531
+		},
+		{
+			"level": "F06",
+			"name": "6A_archive_box_c_Semantic",
+			"path": "OrisonV2Blockout/6A_archive_box_c_Semantic",
+			"position": [
+				-8.85000038146973,
+				16.0,
+				-11.9499998092651
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_A_STUDY",
+			"yaw_deg": -2.8647890183428
+		},
+		{
+			"level": "F02",
+			"name": "2C_deck_Semantic",
+			"path": "OrisonV2Blockout/2C_deck_Semantic",
+			"position": [
+				-0.8125,
+				3.9449999332428,
+				11.3299999237061
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_C_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F02",
+			"name": "2C_cable_hooks_Semantic",
+			"path": "OrisonV2Blockout/2C_cable_hooks_Semantic",
+			"position": [
+				0.0999999940395355,
+				4.5,
+				11.5599994659424
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F02_C_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F04",
+			"name": "4D_print_Semantic",
+			"path": "OrisonV2Blockout/4D_print_Semantic",
+			"position": [
+				-11.6000003814697,
+				10.8999996185303,
+				-3.94000005722046
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_D_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "F01_watch_chair_Semantic",
+			"path": "OrisonV2Blockout/F01_watch_chair_Semantic",
+			"position": [
+				-3.45000004768372,
+				0.0,
+				-2.13000011444092
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_WATCH",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "F01_watch_coat_Semantic",
+			"path": "OrisonV2Blockout/F01_watch_coat_Semantic",
+			"position": [
+				-5.30999946594238,
+				0.550000011920929,
+				-3.45000076293945
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_WATCH",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "F01_watch_cot_Semantic",
+			"path": "OrisonV2Blockout/F01_watch_cot_Semantic",
+			"position": [
+				-1.47000014781952,
+				0.0,
+				-0.619999885559082
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_WATCH",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "F01_operator_stool_Semantic",
+			"path": "OrisonV2Blockout/F01_operator_stool_Semantic",
+			"position": [
+				-8.75,
+				0.0,
+				-0.5
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_MAIL_TELEPHONE",
+			"yaw_deg": 107.188733626327
+		},
+		{
+			"level": "F01",
+			"name": "F01_headset_hook_Semantic",
+			"path": "OrisonV2Blockout/F01_headset_hook_Semantic",
+			"position": [
+				-9.10999965667725,
+				1.10000002384186,
+				-0.779999732971191
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_MAIL_TELEPHONE",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "F01_cord_pile_Semantic",
+			"path": "OrisonV2Blockout/F01_cord_pile_Semantic",
+			"position": [
+				-8.94999980926514,
+				0.0,
+				-2.14999961853027
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_MAIL_TELEPHONE",
+			"yaw_deg": 11.4591552195975
+		},
+		{
+			"level": "B1",
+			"name": "B1_boiler_shovel_Semantic",
+			"path": "OrisonV2Blockout/B1_boiler_shovel_Semantic",
+			"position": [
+				9.59000015258789,
+				-3.20000004768372,
+				-1.60000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_BOILER_ROOM",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "B1",
+			"name": "B1_boiler_rake_Semantic",
+			"path": "OrisonV2Blockout/B1_boiler_rake_Semantic",
+			"position": [
+				9.59000015258789,
+				-2.0,
+				1.14999961853027
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_BOILER_ROOM",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "B1",
+			"name": "B1_boiler_ash_can_Semantic",
+			"path": "OrisonV2Blockout/B1_boiler_ash_can_Semantic",
+			"position": [
+				9.88000011444092,
+				-3.20000004768372,
+				-2.34999942779541
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_BOILER_ROOM",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "B1",
+			"name": "B1_signal_frame_Semantic",
+			"path": "OrisonV2Blockout/B1_signal_frame_Semantic",
+			"position": [
+				8.69999980926514,
+				-2.45000004768372,
+				-2.09000015258789
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_ELECTRICAL",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "B1",
+			"name": "B1_fuse_conduit_Semantic",
+			"path": "OrisonV2Blockout/B1_fuse_conduit_Semantic",
+			"position": [
+				7.59999990463257,
+				-3.20000004768372,
+				-6.21000003814697
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_ELECTRICAL",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F05",
+			"name": "5C_bed_chair_Semantic",
+			"path": "OrisonV2Blockout/5C_bed_chair_Semantic",
+			"position": [
+				1.0,
+				12.8000001907349,
+				8.60000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F05_C_BED1",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F01",
+			"name": "1D_bedside_Semantic",
+			"path": "OrisonV2Blockout/1D_bedside_Semantic",
+			"position": [
+				11.6000003814697,
+				0.0,
+				-11.75
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_D_BED",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F03",
+			"name": "3D_bedside_Semantic",
+			"path": "OrisonV2Blockout/3D_bedside_Semantic",
+			"position": [
+				-13.3999996185303,
+				6.40000009536743,
+				-11.5
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F03_D_BED",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F04",
+			"name": "4C_bed1_chair_Semantic",
+			"path": "OrisonV2Blockout/4C_bed1_chair_Semantic",
+			"position": [
+				3.40000009536743,
+				9.60000038146973,
+				9.94999885559082
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F04_C_BED1",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "B1",
+			"name": "B1_laundry_oil_can_Semantic",
+			"path": "OrisonV2Blockout/B1_laundry_oil_can_Semantic",
+			"position": [
+				-9.5,
+				-3.20000004768372,
+				-1.59999942779541
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_LAUNDRY",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "B1",
+			"name": "B1_laundry_belt_Semantic",
+			"path": "OrisonV2Blockout/B1_laundry_belt_Semantic",
+			"position": [
+				-9.90999984741211,
+				-2.0,
+				0.0500001907348633
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_LAUNDRY",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "B1",
+			"name": "B1_laundry_stepladder_Semantic",
+			"path": "OrisonV2Blockout/B1_laundry_stepladder_Semantic",
+			"position": [
+				-2.28999996185303,
+				-3.20000004768372,
+				-3.20000076293945
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "B1_LAUNDRY",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "F01_vestibule_umbrella_stand_Semantic",
+			"path": "OrisonV2Blockout/F01_vestibule_umbrella_stand_Semantic",
+			"position": [
+				-2.04999971389771,
+				0.0,
+				-9.60000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_VESTIBULE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "F01_lobby_spittoon_Semantic",
+			"path": "OrisonV2Blockout/F01_lobby_spittoon_Semantic",
+			"position": [
+				-4.39999961853027,
+				0.0,
+				-8.35000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_LOBBY",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F01",
+			"name": "F01_restroom_soap_dish_Semantic",
+			"path": "OrisonV2Blockout/F01_restroom_soap_dish_Semantic",
+			"position": [
+				6.50000047683716,
+				0.949999988079071,
+				-8.20999908447266
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_STAFF_RESTROOM",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F01",
+			"name": "F01_restroom_roller_towel_Semantic",
+			"path": "OrisonV2Blockout/F01_restroom_roller_towel_Semantic",
+			"position": [
+				5.48999977111816,
+				0.600000023841858,
+				-7.0
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_STAFF_RESTROOM",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "F01_restroom_mop_bucket_Semantic",
+			"path": "OrisonV2Blockout/F01_restroom_mop_bucket_Semantic",
+			"position": [
+				5.80000019073486,
+				0.0,
+				-4.94999980926514
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_STAFF_RESTROOM",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "ROOF",
+			"name": "ROOF_bulkhead_washing_line_Semantic",
+			"path": "OrisonV2Blockout/ROOF_bulkhead_washing_line_Semantic",
+			"position": [
+				-1.95000016689301,
+				19.2000007629395,
+				1.0
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "ROOF_PUBLIC_CORE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "ROOF",
+			"name": "ROOF_bulkhead_watering_can_Semantic",
+			"path": "OrisonV2Blockout/ROOF_bulkhead_watering_can_Semantic",
+			"position": [
+				-1.95000004768372,
+				19.2000007629395,
+				1.55000019073486
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "ROOF_PUBLIC_CORE",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "ROOF",
+			"name": "ROOF_bulkhead_trug_Semantic",
+			"path": "OrisonV2Blockout/ROOF_bulkhead_trug_Semantic",
+			"position": [
+				-1.92000007629395,
+				19.2000007629395,
+				2.25
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "ROOF_PUBLIC_CORE",
+			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F06",
+			"name": "6A_editorial_a_Semantic",
+			"path": "OrisonV2Blockout/6A_editorial_a_Semantic",
+			"position": [
+				-12.3500003814697,
+				17.3199996948242,
+				-0.690000534057617
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_A_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F06",
+			"name": "6A_editorial_b_Semantic",
+			"path": "OrisonV2Blockout/6A_editorial_b_Semantic",
+			"position": [
+				-11.8500003814697,
+				17.3799991607666,
+				-0.689999580383301
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_A_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "F06",
+			"name": "6A_editorial_c_Semantic",
+			"path": "OrisonV2Blockout/6A_editorial_c_Semantic",
+			"position": [
+				-11.3500003814697,
+				17.3199996948242,
+				-0.689999580383301
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F06_A_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "ROOF",
+			"name": "ROOF_service_soot_sack_Semantic",
+			"path": "OrisonV2Blockout/ROOF_service_soot_sack_Semantic",
+			"position": [
+				9.85000038146973,
+				19.2000007629395,
+				4.40000152587891
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "ROOF_SERVICE_CORE",
+			"yaw_deg": 0.0
+		},
+		{
+			"level": "ROOF",
+			"name": "ROOF_service_sweep_rods_Semantic",
+			"path": "OrisonV2Blockout/ROOF_service_sweep_rods_Semantic",
+			"position": [
+				9.59000110626221,
+				19.2000007629395,
+				4.85000038146973
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "ROOF_SERVICE_CORE",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F01",
+			"name": "1A_lesson_trunk_Semantic",
+			"path": "OrisonV2Blockout/1A_lesson_trunk_Semantic",
+			"position": [
+				-10.0,
+				0.0,
+				-9.97000026702881
+			],
+			"script": "orison_v2_semantic_anchor.gd",
+			"space": "F01_A_STUDY",
+			"yaw_deg": 0.0
 		},
 		{
 			"level": "F01",
@@ -24543,6 +26597,45 @@
 			"yaw_deg": -179.999991348578
 		},
 		{
+			"level": "F01",
+			"name": "1D_prep_cabinet",
+			"path": "OrisonV2Blockout/1D_prep_cabinet",
+			"position": [
+				11.8500003814697,
+				0.0,
+				-8.0
+			],
+			"script": "orison_v2_prep_cabinet.gd",
+			"space": "F01_D_KITCHEN",
+			"yaw_deg": -179.999991348578
+		},
+		{
+			"level": "F02",
+			"name": "2C_prep_cabinet",
+			"path": "OrisonV2Blockout/2C_prep_cabinet",
+			"position": [
+				4.11499977111816,
+				3.20000004768372,
+				4.94000053405762
+			],
+			"script": "orison_v2_prep_cabinet.gd",
+			"space": "F02_C_KITCHEN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
+			"level": "F04",
+			"name": "4C_prep_cabinet",
+			"path": "OrisonV2Blockout/4C_prep_cabinet",
+			"position": [
+				4.11499977111816,
+				9.60000038146973,
+				4.94000053405762
+			],
+			"script": "orison_v2_prep_cabinet.gd",
+			"space": "F04_C_KITCHEN",
+			"yaw_deg": -90.0000025044782
+		},
+		{
 			"level": "F02",
 			"name": "F02_C_VESTIBULE_SWITCH",
 			"path": "OrisonV2Blockout/F02_C_VESTIBULE_SWITCH",
@@ -31616,6 +33709,19 @@
 			"yaw_deg": -90.0000025044782
 		},
 		{
+			"level": "F02",
+			"name": "F02_2C_BOOKSHELF_01",
+			"path": "OrisonV2Blockout/F02_2C_BOOKSHELF_01",
+			"position": [
+				-1.90000021457672,
+				3.20000004768372,
+				6.58099937438965
+			],
+			"script": "orison_v2_bookshelf.gd",
+			"space": "F02_C_MAIN",
+			"yaw_deg": 0.0
+		},
+		{
 			"level": "F03",
 			"name": "F03_3A_BOOKSHELF_01",
 			"path": "OrisonV2Blockout/F03_3A_BOOKSHELF_01",
@@ -31640,6 +33746,19 @@
 			"script": "orison_v2_bookshelf.gd",
 			"space": "F04_A_MAIN",
 			"yaw_deg": 90.0000025044782
+		},
+		{
+			"level": "F04",
+			"name": "F04_4C_BOOKSHELF_01",
+			"path": "OrisonV2Blockout/F04_4C_BOOKSHELF_01",
+			"position": [
+				-1.90000021457672,
+				9.60000038146973,
+				6.58099937438965
+			],
+			"script": "orison_v2_bookshelf.gd",
+			"space": "F04_C_MAIN",
+			"yaw_deg": 0.0
 		},
 		{
 			"level": "F05",
@@ -31708,8 +33827,8 @@
 		},
 		{
 			"level": "F02",
-			"name": "@Node3D@2340",
-			"path": "OrisonV2Blockout/@Node3D@2340",
+			"name": "@Node3D@2343",
+			"path": "OrisonV2Blockout/@Node3D@2343",
 			"position": [
 				-10.1000003814697,
 				4.44999980926514,
@@ -31735,7 +33854,7 @@
 		{
 			"level": "F01",
 			"name": "ArticulatedGate",
-			"path": "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@24179/CarGate/ArticulatedGate",
+			"path": "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@24769/CarGate/ArticulatedGate",
 			"position": [
 				0.454999923706055,
 				0.0,
@@ -31747,8 +33866,8 @@
 		},
 		{
 			"level": "F01",
-			"name": "@Node3D@24430",
-			"path": "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@24179/@Node3D@24430",
+			"name": "@Node3D@25020",
+			"path": "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@24769/@Node3D@25020",
 			"position": [
 				0.0000000939794517762493,
 				1.51999998092651,
@@ -31760,8 +33879,8 @@
 		},
 		{
 			"level": "F01",
-			"name": "@Node3D@24432",
-			"path": "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@24179/@Node3D@24432",
+			"name": "@Node3D@25022",
+			"path": "OrisonV2Blockout/PassengerElevator/@AnimatableBody3D@24769/@Node3D@25022",
 			"position": [
 				-0.0000000808661297924118,
 				2.04500007629395,
@@ -32527,8 +34646,8 @@
 		},
 		{
 			"level": "F01",
-			"name": "@Node3D@21186",
-			"path": "Harukiya/BarActors/@Node3D@21186",
+			"name": "@Node3D@21744",
+			"path": "Harukiya/BarActors/@Node3D@21744",
 			"position": [
 				0.000000856306087371195,
 				0.0,

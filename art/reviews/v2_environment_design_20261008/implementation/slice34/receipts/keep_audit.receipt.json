@@ -1,0 +1,152 @@
+{
+ "evidence_class": "INERT",
+ "schema": "orison.dossier-keep-audit.v1",
+ "base": "e63ce4f6",
+ "head": "974ee6d2",
+ "scope": "Data and history comparison for keep items; no runtime claim beyond the slice's own suites.",
+ "checks": [
+  {
+   "id": "F01_A_KITCHEN-005",
+   "claim": "F01_1A_FRIDGE_01 remains FridgeMonitor",
+   "holds": true,
+   "detail": {
+    "base": [
+     "FridgeMonitor"
+    ],
+    "head": [
+     "FridgeMonitor"
+    ]
+   }
+  },
+  {
+   "id": "F02_A_MAIN-006",
+   "claim": "projector, deck and stand unmoved; projector data unchanged",
+   "holds": true,
+   "detail": {
+    "anchors": {
+     "2A_tv": [
+      null,
+      null,
+      null,
+      null
+     ],
+     "2A_deck": [
+      [
+       -11.8,
+       0.3838806653817981,
+       -1.75
+      ],
+      [
+       -11.8,
+       0.3838806653817981,
+       -1.75
+      ],
+      0,
+      0
+     ],
+     "2A_projector_stand": [
+      [
+       -9.8,
+       0,
+       -1.5
+      ],
+      [
+       -9.8,
+       0,
+       -1.5
+      ],
+      0,
+      0
+     ],
+     "2A_caption_wall": [
+      null,
+      [
+       -15.56,
+       1.62,
+       -0.4
+      ],
+      null,
+      -1.5707963267948966
+     ]
+    },
+    "projector_data_unchanged": true
+   }
+  },
+  {
+   "id": "F03_B_MAIN-004",
+   "claim": "3B_radio, 3B_tv and F03_B_LAMP_01 unchanged",
+   "holds": true,
+   "detail": {
+    "radio_data_unchanged": true,
+    "projector_data_unchanged": true,
+    "lamp": {
+     "id": "F03_B_LAMP_01",
+     "support": "3B_workbench",
+     "position": [
+      0.6,
+      0.91,
+      0.18
+     ],
+     "yaw": 0,
+     "existing": true,
+     "variant": "bench_friction",
+     "unit": "3B"
+    }
+   }
+  },
+  {
+   "id": "F05_PUBLIC_CORE-004",
+   "claim": "stair, stair_b and stair_c family sources and exports untouched",
+   "holds": true,
+   "detail": {
+    "paths_checked": 12,
+    "changed": []
+   }
+  },
+  {
+   "id": "ROOF_DECK_NORTHEAST-002",
+   "claim": "no anchor added in ROOF_DECK_NORTHEAST",
+   "holds": true,
+   "detail": {
+    "base": [],
+    "head": []
+   }
+  },
+  {
+   "id": "CITY_SUBWAY-001",
+   "claim": "sources and exports untouched since the dossier",
+   "holds": true,
+   "detail": {
+    "paths_checked": 13,
+    "changed": []
+   }
+  },
+  {
+   "id": "CITY_SHOP_FUNERAL_PARLOUR-003",
+   "claim": "sources and exports untouched since the dossier",
+   "holds": true,
+   "detail": {
+    "paths_checked": 37,
+    "changed": []
+   }
+  },
+  {
+   "id": "CITY_SHOP_PAWNBROKER-004",
+   "claim": "sources and exports untouched since the dossier",
+   "holds": true,
+   "detail": {
+    "paths_checked": 11,
+    "changed": []
+   }
+  },
+  {
+   "id": "CITY_SHOP_RADIO_SERVICE-002",
+   "claim": "sources and exports untouched since the dossier",
+   "holds": true,
+   "detail": {
+    "paths_checked": 13,
+    "changed": []
+   }
+  }
+ ]
+}
