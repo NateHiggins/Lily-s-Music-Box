@@ -4032,7 +4032,9 @@
    "purpose": "Decor profile working wall continues into the bedroom",
    "acceptance": "Detail view reads a full board",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_A_BED"
+   "area": "F02_A_BED",
+   "status": "implemented",
+   "owner_notes": "2A's bedroom pinboard (DomesticObject00) is filled to a full grid of 24 cards (implementation/slice35b/images: F02_A_BED_DT1). Not made: the two deliberately overlapping cards; the pinboard form lays a neat grid. Verified at WIP 815745ee (implementation/slice35b): fabrication batch 0 failures (the wardrobe module accounts for every built variant once Wardrobe08 keeps an instance); apartment batch 236 on the long runner; household state 154 checks, 0 failures; completion 4C 9 waypoints with its pre-existing kitchen-leg failure; upper kitchens 206; upper furniture 482 (six fewer pre-existing material-binding failures as two wardrobes lose their garments); upper lighting 0 failures; the four-space sweep 0 failures; native renders with the leaves open (images/Wardrobe08_open, 12, 14, 15)."
   },
   {
    "id": "F02_A_BED-003",
@@ -7469,7 +7471,9 @@
    "purpose": "Wardrobe bible per resident",
    "acceptance": "Open leaves show different wardrobes",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_C_STUDIO"
+   "area": "F04_C_STUDIO",
+   "status": "verified",
+   "owner_notes": "4C's two wardrobes hold different residents' clothes: Cam's (Wardrobe15) hangs maroon jersey and Noel's (Wardrobe08, now used only by 4C_w1) indigo drill; jersey_maroon and drill_indigo are tinted aliases of the catalogue linen (Wardrobe15_open, Wardrobe08_open). Verified at WIP 815745ee (implementation/slice35b): fabrication batch 0 failures (the wardrobe module accounts for every built variant once Wardrobe08 keeps an instance); apartment batch 236 on the long runner; household state 154 checks, 0 failures; completion 4C 9 waypoints with its pre-existing kitchen-leg failure; upper kitchens 206; upper furniture 482 (six fewer pre-existing material-binding failures as two wardrobes lose their garments); upper lighting 0 failures; the four-space sweep 0 failures; native renders with the leaves open (images/Wardrobe08_open, 12, 14, 15)."
   },
   {
    "id": "F04_C_BATH-001",
@@ -9135,7 +9139,9 @@
    "preserve": "Leaf motions",
    "acceptance": "Open-leaf view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_C_STUDIO"
+   "area": "F05_C_STUDIO",
+   "status": "verified",
+   "owner_notes": "Iris's second wardrobe is the pigment store: its own variant (Wardrobe14) adds two shelves above the case's middle shelf and stands rows of pigment tins with painted lids, jars of ground colour and rolled canvas, with no rail (implementation/slice35b/images: Wardrobe14_open, F05_C_STUDIO_DT1). Verified at WIP 815745ee (implementation/slice35b): fabrication batch 0 failures (the wardrobe module accounts for every built variant once Wardrobe08 keeps an instance); apartment batch 236 on the long runner; household state 154 checks, 0 failures; completion 4C 9 waypoints with its pre-existing kitchen-leg failure; upper kitchens 206; upper furniture 482 (six fewer pre-existing material-binding failures as two wardrobes lose their garments); upper lighting 0 failures; the four-space sweep 0 failures; native renders with the leaves open (images/Wardrobe08_open, 12, 14, 15)."
   },
   {
    "id": "F05_C_BATH-001",
@@ -10345,7 +10351,9 @@
    "purpose": "Surface set packing_station",
    "acceptance": "Open-leaf view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_STUDIO"
+   "area": "F06_C_STUDIO",
+   "status": "verified",
+   "owner_notes": "Mae's second wardrobe is the packing store: its variant (Wardrobe12, only 6C_w1's) shelves stacked flat cartons in kraft, folded brown paper and balls of string, with no rail (Wardrobe12_open, F06_C_STUDIO_DT2). Verified at WIP 815745ee (implementation/slice35b): fabrication batch 0 failures (the wardrobe module accounts for every built variant once Wardrobe08 keeps an instance); apartment batch 236 on the long runner; household state 154 checks, 0 failures; completion 4C 9 waypoints with its pre-existing kitchen-leg failure; upper kitchens 206; upper furniture 482 (six fewer pre-existing material-binding failures as two wardrobes lose their garments); upper lighting 0 failures; the four-space sweep 0 failures; native renders with the leaves open (images/Wardrobe08_open, 12, 14, 15)."
   },
   {
    "id": "F06_C_BATH-001",

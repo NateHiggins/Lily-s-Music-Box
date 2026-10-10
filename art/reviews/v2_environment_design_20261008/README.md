@@ -150,6 +150,8 @@ Slices landed so far (evidence folders in parentheses):
     washing line, watering can and trug, 2A's sofa cushions (`slice33`).
 34. 1A's trunk of lesson plans and tea tins, the sweep's sack and rods in the
     service bulkhead, and a keep audit for nine keep items (`slice34`).
+35. 5C's pigment store and 6C's packing store, 4C's two garment sets, 2A's full
+    pinboard (`slice35b`; open-leaf renders under images).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

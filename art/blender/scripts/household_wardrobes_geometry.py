@@ -72,12 +72,17 @@ for assembly in assemblies:
  # Dossier slice 30 (F02_C_STUDIO-001): Juno's second wardrobe is the session archive. Shelves
  # replace the rail and grey reel boxes stand spine-out with coloured tape (owned, never loot).
  archive=identity=='Wardrobe13'
+ # Dossier slice 35: 5C's pigment store and 6C's packing store are shelved like the archive;
+ # 4C's two wardrobes carry their residents' own garment colours.
+ store={'Wardrobe14':'pigment','Wardrobe12':'packing'}.get(identity)
+ palette={'Wardrobe15':'jersey_maroon','Wardrobe08':'drill_indigo'}.get(identity)
+ shelved=archive or store is not None
  wood=variants[identity]['params']['case_wood']
  for surface in member['surfaces']:
   if surface['material']!=wood:continue
   for i,(lo,hi) in enumerate(source_boxes(surface)):stock('Case'+str(i),lo,hi,wood,.0011)
  # Source rail ends stop 30mm short of the cheeks: fitted sockets close it.
- if not archive:
+ if not shelved:
   tag(rod(identity+'_Rail',(-.55,.02,1.61),(.55,.02,1.61),.012,identity,'metal'))
   for side in [-1,1]:
    tag(rod(identity+'_RailSocket'+str(side),(side*.545,.02,1.61),(side*.582,.02,1.61),.017,identity,'metal'))
@@ -86,8 +91,10 @@ for assembly in assemblies:
  for z in [.10,1.795]:stock('FrontStop'+str(z),(-.58,.26,z),(.58,.2925,z+.025),wood,.0005)
  for surface in member['surfaces']:
   key=surface['material']
-  if archive or key not in ['fabric_cool','fabric_green','fabric_warm','linen']:continue
-  for i,(lo,hi) in enumerate(source_boxes(surface)):folded_cloth('Cloth'+key+str(i),lo,hi)
+  if shelved or key not in ['fabric_cool','fabric_green','fabric_warm','linen']:continue
+  label='Cloth'+key
+  if palette:key=palette
+  for i,(lo,hi) in enumerate(source_boxes(surface)):folded_cloth(label+str(i),lo,hi)
  if archive:
   tapes=['fabric_warm','fabric_green','fabric_cool']
   for k,z in enumerate([.475,.9,1.3]):
@@ -97,6 +104,30 @@ for assembly in assemblies:
      x=half*(.06+i*.07);w=.032;depth=.19;tall=.17+.01*((i+k)%3)
      stock('ReelBox'+str(k)+'_'+str(half)+'_'+str(i),(x-w/2,.02,z-.0005),(x+w/2,.02+depth,z+tall),'linen',.0008)
      stock('Tape'+str(k)+'_'+str(half)+'_'+str(i),(x-w/2-.0005,.02+depth-.0005,z+.05),(x+w/2+.0005,.02+depth+.0015,z+.08),tapes[(i+k)%3],.0002)
+ if store:
+  for z in [.9,1.3]:stock('StoreShelf'+str(z),(-.581,-.256,z-.022),(.581,.231,z),wood,.0008)
+  if store=='pigment':
+   # Iris's pigment store: tins of ground colour with painted lids, rolled canvas on the top shelf.
+   for k,z in enumerate([.475,.9]):
+    for half in [-1,1]:
+     for i in range(5):
+      x=half*(.08+i*.095);r=.035+.005*((i+k)%2);h=.11+.02*((i+k)%2)
+      tag(rod(identity+'_Tin'+str(k)+'_'+str(half)+'_'+str(i),(x,.1,z-.0005),(x,.1,z+h),r,identity,'metal'))
+      tag(rod(identity+'_Lid'+str(k)+'_'+str(half)+'_'+str(i),(x,.1,z+h-.005),(x,.1,z+h+.012),r+.003,identity,['brass','fabric_warm','fabric_green','fabric_cool'][(i+k+half)%4]))
+   for j,y in enumerate([-.15,-.07,.01,.09]):
+    tag(rod(identity+'_Roll'+str(j),(.05,y,1.3+.0295),(.55-.05*j,y,1.3+.0295),.03,identity,'linen'))
+   for i,x in enumerate([-.5,-.38,-.26,-.14]):
+    tag(rod(identity+'_Jar'+str(i),(x,.05,1.3-.0005),(x,.05,1.3+.14),.04,identity,'metal'))
+  else:
+   # Mae's packing store: stacked flat cartons, folded brown paper and balls of string.
+   for k,z in enumerate([.475,.9,1.3]):
+    for half in [-1,1]:
+     x0,x1=(.05,.53) if half>0 else (-.53,-.05)
+     for i in range(3+(k+(half>0))%2):
+      stock('Carton'+str(k)+'_'+str(half)+'_'+str(i),(x0,-.2,z-.0005+i*.04),(x1,.18,z+.04+i*.04),'kraft',.002)
+     top=z-.0005+(3+(k+(half>0))%2)*.04
+     stock('Paper'+str(k)+'_'+str(half),(x0+.04,-.15,top-.0005),(x1-.04,.13,top+.03),'linen',.004)
+     tag(rod(identity+'_String'+str(k)+'_'+str(half),((x0+x1)/2-.03,.15,top+.0295),((x0+x1)/2+.03,.15,top+.0295),.03,identity,'linen'))
  for side in [-1,1]:
   hx=side*.615;inward=-side
   component='Body'
@@ -129,4 +160,4 @@ for assembly in assemblies:
  for x in [-.5,.5]:
   for y in [-.20,.20]:support(identity,'support',(x,y,0),(0,0,1),'retained plinth underside')
  construction_groups.append({'assembly':identity,'id':identity+'_JoinedWardrobe','stocks':[x['name'] for x in stock_checks[start:]]})
- retained_stock.append({'assembly':identity,'source_id':member['id'],'garment_count':0 if archive else 4,'source_hems_and_colours':True,'hinges_godot':[[-.615,.10,-.305],[.615,.10,-.305]],'angle_degrees':92,'moving_components':['LeftLeaf','RightLeaf']})
+ retained_stock.append({'assembly':identity,'source_id':member['id'],'garment_count':0 if shelved else 4,'source_hems_and_colours':True,'hinges_godot':[[-.615,.10,-.305],[.615,.10,-.305]],'angle_degrees':92,'moving_components':['LeftLeaf','RightLeaf']})
