@@ -132,6 +132,7 @@ def vessel(name,cx,cy,z,profile,identity,key):
  return solid(name,verts,faces,identity,key)
 
 prefix="storm_shop_hardware_paint_"
+labels_by_cell={}
 # Original bins identify stock positions; new cases carry their actual shelves.
 def bounds(row):
  x0,y0,x1,y1=row['rect'];return x0,y0,x1,y1,row['z0'],row['z0']+row['h']
@@ -153,6 +154,20 @@ for item in assemblies:
    for yy in [sy0+.018,sy1-.032]:box(shelf['id']+'_ReturnedEdge'+str(yy),(sx0,yy,sz0-.055),(sx1,yy+.014,sz0+.004),identity,'timber',.001)
   for xx in [x0+.029,x1-.029]:
    rod(identity+'_SideBrace'+str(xx),(xx,y0+.025,.14),(xx,y1-.025,upper-.025),.009,identity,'metal')
+  if identity==prefix+'bin_w0':
+   # Dossier slice 69 (CITY_SHOP_HARDWARE_PAINT-001): the capsules are bought here. An open plywood box of
+   # carbon transmitter capsules at the rack end nearest the counter, seated 0.2 mm into the shelf.
+   shelf=rows[prefix+'bin_w2'];t=shelf['z0']+shelf['h']-.0002;bx0,bx1,by0,by1=8.80,9.03,-54.52,-54.27
+   box(identity+'_CapsuleBoxBase',(bx0,by0,t),(bx1,by1,t+.008),identity,'plywood',.001)
+   for xx in [bx0,bx1-.008]:box(identity+'_CapsuleBoxSide'+str(xx),(xx,by0,t+.0078),(xx+.008,by1,t+.055),identity,'plywood',.001)
+   for yy in [by0,by1-.008]:box(identity+'_CapsuleBoxEnd'+str(yy),(bx0+.0078,yy,t+.0078),(bx1-.0078,yy+.008,t+.055),identity,'plywood',.001)
+   # The lid stood up against the back, hinged on its paper tape.
+   box(identity+'_CapsuleBoxLid',(bx0,by1-.004,t+.05),(bx1,by1+.004,t+.29),identity,'plywood',.001)
+   for i in range(2):
+    for j in range(4):
+     cx=bx0+.06+i*.11;cy=by0+.037+j*.059
+     vessel(identity+f'_Capsule{i}{j}',cx,cy,t+.0076,[(0,0),(.024,0),(.025,.004),(.025,.017),(.021,.021),(0,.021)],identity,'metal')
+     vessel(identity+f'_CapsuleRim{i}{j}',cx,cy,t+.0076+.0205,[(0,0),(.0215,0),(.0215,.0025),(0,.0025)],identity,'brass_dull')
  elif kind in ['orange_stock','brass_stock','nail_stock']:
   x0+=.20;x1+=.20
   if '_stock_e' in identity:
@@ -198,6 +213,16 @@ for item in assemblies:
   box(identity+'_LedgerSeat',(lx0,ly0,tz1),(lx1,ly1,lz0+.003),identity,'wood_dark',.001)
   box(identity+'_LedgerLeaves',(lx0+.005,ly0+.005,lz0),(lx1-.005,ly1-.005,lz1-.005),identity,'paper',.001)
   box(identity+'_LedgerCover',(lx0,ly0,lz1-.007),(lx1,ly1,lz1),identity,'wood_dark',.001)
+  # Dossier slice 69 (CITY_SHOP_HARDWARE_PAINT-001): a brass counter bell and the night-service card at the
+  # north end, clear of the purchase reach over the counter's middle; both seated 0.2 mm into the top.
+  bz=tz1-.0002
+  vessel(identity+'_BellBase',9.74,-55.30,bz,[(0,0),(.05,0),(.05,.010),(.046,.014),(0,.014)],identity,'wood_dark')
+  vessel(identity+'_BellDome',9.74,-55.30,bz+.0138,[(0,0),(.043,0),(.042,.008),(.036,.024),(.024,.036),(.010,.041),(0,.042)],identity,'brass_dull')
+  rod(identity+'_BellPlunger',(9.74,-55.30,bz+.0545),(9.74,-55.30,bz+.072),.004,identity,'metal')
+  vessel(identity+'_BellButton',9.74,-55.30,bz+.0715,[(0,0),(.011,0),(.011,.005),(.006,.008),(0,.008)],identity,'brass_dull')
+  box(identity+'_NightCard',(9.700,-55.11,bz),(9.703,-54.99,bz+.085),identity,'paper',.0004)
+  rod(identity+'_CardStay',(9.7025,-55.05,bz+.07),(9.76,-55.05,bz+.0004),.0018,identity,'metal')
+  labels_by_cell.setdefault(item['cell'],[]).append({'id':'night_service','text':'NIGHT SERVICE\nRING BELL STOP','at':[9.6995,round(bz+.046,4),55.05],'yaw':-1.5707963,'font_size':40,'pixel_size':.0004})
  elif kind=='window_stand':
   for xx in [x0+.032,x1-.032]:
    for yy in [y0+.05,y1-.05]:
@@ -275,6 +300,8 @@ for identity in sorted({a['cell'] for a in assemblies}):
   for row in item['members']:
    x0,y0,x1,y1=row['rect'];z0=row['z0'];replace.append({'id':row['id'],'key':row['mat'],'low':[x0,z0,-y1],'high':[x1,z0+row['h'],-y0],'expected_triangles':12})
  cells.append({'id':identity,'parts':[{'name':p['name'],'key':plan.get('material_aliases',{}).get(p['key'],p['key']),'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan['catalog_variants'] else {}),**({'tint':plan['material_tints'][p['key']]} if p['key'] in plan.get('material_tints',{}) else {}),**({'plain_alpha':True} if p['key']=='glassish' else {})} for p in inventory if p['cell']==identity],'replace':replace})
+for cell in cells:
+ if labels_by_cell.get(cell['id']):cell['labels']=labels_by_cell[cell['id']]
 runtime={'schema_version':1,'asset':'res://assets/props/hardware_stock.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
 (OUT/'game/data/orison_v2/hardware_stock.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
 bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/hardware_stock.glb.import',*material_definitions]

@@ -7,9 +7,20 @@
       "id": "shop_hardware_paint",
       "parts": [
         {
+          "name": "storm_shop_hardware_paint_bin_w0__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
           "name": "storm_shop_hardware_paint_bin_w0__metal",
           "key": "metal",
           "tile": 0.8
+        },
+        {
+          "name": "storm_shop_hardware_paint_bin_w0__plywood",
+          "key": "plywood",
+          "tile": 1.2
         },
         {
           "name": "storm_shop_hardware_paint_bin_w0__timber",
@@ -471,9 +482,20 @@
           "tile": 0.6
         },
         {
+          "name": "storm_shop_hardware_paint_counter__brass_dull",
+          "key": "brass_dull",
+          "tile": 0.5,
+          "catalog_key": "brass"
+        },
+        {
           "name": "storm_shop_hardware_paint_counter__countertop",
           "key": "countertop",
           "tile": 1.2
+        },
+        {
+          "name": "storm_shop_hardware_paint_counter__metal",
+          "key": "metal",
+          "tile": 0.8
         },
         {
           "name": "storm_shop_hardware_paint_counter__paper",
@@ -1291,6 +1313,20 @@
             57.68
           ],
           "expected_triangles": 12
+        }
+      ],
+      "labels": [
+        {
+          "id": "night_service",
+          "text": "NIGHT SERVICE\nRING BELL STOP",
+          "at": [
+            9.6995,
+            1.1658,
+            55.05
+          ],
+          "yaw": -1.5707963,
+          "font_size": 40,
+          "pixel_size": 0.0004
         }
       ]
     }

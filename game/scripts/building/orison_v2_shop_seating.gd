@@ -251,6 +251,23 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 		else:
 			var shape:=ConcavePolygonShape3D.new();shape.set_faces(draw.mesh.get_faces());collision.shape=shape
 	model.set_meta("original_meshes",originals);model.set_meta("removed_triangles",counts)
+	# Dossier slice 69: words on a fitted card or board are Label3D, never texture (RUL-008).
+	for label: Variant in record.get("labels",[]):
+		if label is not Dictionary or label.get("text") is not String or str(label.text).is_empty() \
+				or label.get("at") is not Array or label.at.size()!=3 \
+				or (label.get("yaw") is not float and label.get("yaw") is not int):
+			model.free();return false
+		var words:=Label3D.new()
+		words.name="Words_"+str(label.get("id","label"))
+		words.text=str(label.text)
+		words.font_size=int(label.get("font_size",40))
+		words.pixel_size=float(label.get("pixel_size",.0004))
+		words.modulate=Color(.07,.06,.05)
+		words.outline_size=0
+		words.double_sided=false
+		words.position=_v(label.at)
+		words.rotation.y=float(label.yaw)
+		model.add_child(words)
 	cell.add_child(model)
 	return true
 

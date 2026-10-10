@@ -223,6 +223,8 @@ Slices landed so far (evidence folders in parentheses):
     light box renamed, and verification of slices 58-67 (`slice67`).
 68. The house tank in staves, the mail bank's overfull boxes and ajar doors, and
     1A's corrected notice (evidence with slice 75 in `slice68`).
+69. The hardware counter's bell and night-service card and a box of capsules on
+    the rack; shop families gain Label3D labels.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

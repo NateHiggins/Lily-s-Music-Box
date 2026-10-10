@@ -175140,7 +175140,7 @@
     "key_for"
    ],
    "lines": [
-    32
+    35
    ],
    "count": 1,
    "context": [
@@ -175170,7 +175170,7 @@
     "key_for"
    ],
    "lines": [
-    31
+    34
    ],
    "count": 1,
    "context": [
@@ -175200,11 +175200,11 @@
     "key_for"
    ],
    "lines": [
-    30
+    33
    ],
    "count": 1,
    "context": [
-    "if part == \"ROOF_TANK_BODY\" or part.begins_with(\"ROOF_TANK_BUTT_\"): return \"timber\""
+    "if part.begins_with(\"ROOF_TANK_BUTT_\"): return \"timber\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -175230,11 +175230,11 @@
     "key_for"
    ],
    "lines": [
-    30
+    32
    ],
    "count": 1,
    "context": [
-    "if part == \"ROOF_TANK_BODY\" or part.begins_with(\"ROOF_TANK_BUTT_\"): return \"timber\""
+    "if part == \"ROOF_TANK_BODY\": return \"tank_staves\""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -178127,7 +178127,7 @@
     "_add_chain_guard"
    ],
    "lines": [
-    181
+    222
    ],
    "count": 1,
    "context": [
@@ -185726,6 +185726,36 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "floor+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "9af1923d5f84683b",
+   "kind": "generated_name",
+   "token": "mount_records",
+   "file": "game/scripts/building/orison_v2_shop_seating.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount_records"
+   ],
+   "lines": [
+    261
+   ],
+   "count": 1,
+   "context": [
+    "\"Words_\"+str(label.get(\"id\",\"label\"))"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
   },
   {
    "key": "433c67ab6865aef1",
@@ -196299,11 +196329,13 @@
     "<module>"
    ],
    "lines": [
-    33
+    33,
+    49
    ],
-   "count": 1,
+   "count": 2,
    "context": [
-    "const CARD_ORDER := [\"1A\", \"1B\", \"1C\", \"1D\", \"2A\", \"2B\","
+    "const CARD_ORDER := [\"1A\", \"1B\", \"1C\", \"1D\", \"2A\", \"2B\",",
+    "const AJAR_UNITS := [\"1D\", \"5B\"]"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -196389,11 +196421,13 @@
     "<module>"
    ],
    "lines": [
-    34
+    34,
+    48
    ],
-   "count": 1,
+   "count": 2,
    "context": [
-    "\"2C\", \"2D\", \"3A\", \"3B\", \"3C\", \"3D\","
+    "\"2C\", \"2D\", \"3A\", \"3B\", \"3C\", \"3D\",",
+    "const OVERFULL_UNITS := [\"2C\", \"4D\"]"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -196665,11 +196699,13 @@
     "<module>"
    ],
    "lines": [
-    35
+    35,
+    48
    ],
-   "count": 1,
+   "count": 2,
    "context": [
-    "\"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\","
+    "\"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\",",
+    "const OVERFULL_UNITS := [\"2C\", \"4D\"]"
    ],
    "gameplay_binding": false,
    "authority": [
@@ -196725,11 +196761,13 @@
     "<module>"
    ],
    "lines": [
-    35
+    35,
+    49
    ],
-   "count": 1,
+   "count": 2,
    "context": [
-    "\"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\","
+    "\"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\",",
+    "const AJAR_UNITS := [\"1D\", \"5B\"]"
    ],
    "gameplay_binding": false,
    "authority": [
