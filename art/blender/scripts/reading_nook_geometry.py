@@ -67,6 +67,18 @@ for assembly in assemblies:
     for j in range(9):a=start+j*math.pi/16;points.append((cx+.018*math.cos(a),cy+.018*math.sin(a),z0+.023))
    points.append(points[0])
    curved_wire(identity+'_Welt',points,.0016,identity,key)
+  if identity=='nook_cush1':
+   # Dossier slice 73 (B1_PUBLIC_CORE-001): a book left open face down on the cushion, covers tented over the
+   # spine, sunk 3 mm into the padding. Sheared boxes: pages, then cover, rising 22 mm to the ridge.
+   cx,by0,by1,seat=-.84,.85,1.05,z1-.003
+   def tent(obj):
+    for vertex in obj.data.vertices:
+     p=vertex.co+obj.location;vertex.co.z+=.022*max(0.,1-abs(p.x-cx)/.13)
+   for side in [-1,1]:
+    outer=cx+side*.13
+    tent(box(identity+'_ReaderPages'+str(side),(min(outer-side*.004,cx),by0+.004,seat),(max(outer-side*.004,cx),by1-.004,seat+.007),identity,'paper',.0008))
+    tent(box(identity+'_ReaderCover'+str(side),(min(outer,cx),by0,seat+.006),(max(outer,cx),by1,seat+.0095),identity,'book_green',.0008))
+   box(identity+'_ReaderSpine',(cx-.007,by0,seat+.018),(cx+.007,by1,seat+.034),identity,'book_green',.002)
  elif kind=='coffee':
   for index,(bottom,top,width) in enumerate([((-.30,-.10),(.18,.13),.30),((.28,-.07),(-.14,.15),.26)]):
    verts=[(center[0]+dx,center[1]+dy,z) for center,z in [(bottom,.008),(top,.346)] for dy in [-width/2,width/2] for dx in [-.0225,.0225]]

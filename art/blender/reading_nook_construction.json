@@ -324,6 +324,36 @@
       "volume_m3": 1.3381626635371792e-05
     },
     {
+      "name": "nook_cush1_ReaderPages-1",
+      "assembly": "nook_cush1",
+      "key": "paper",
+      "volume_m3": 0.00016913764228800206
+    },
+    {
+      "name": "nook_cush1_ReaderCover-1",
+      "assembly": "nook_cush1",
+      "key": "book_green",
+      "volume_m3": 9.078860884947134e-05
+    },
+    {
+      "name": "nook_cush1_ReaderPages1",
+      "assembly": "nook_cush1",
+      "key": "paper",
+      "volume_m3": 0.0001691375622171658
+    },
+    {
+      "name": "nook_cush1_ReaderCover1",
+      "assembly": "nook_cush1",
+      "key": "book_green",
+      "volume_m3": 9.07885671638485e-05
+    },
+    {
+      "name": "nook_cush1_ReaderSpine",
+      "assembly": "nook_cush1",
+      "key": "book_green",
+      "volume_m3": 4.3893553689480585e-05
+    },
+    {
       "name": "nook_cush2_Body",
       "assembly": "nook_cush2",
       "key": "fabric_green",
@@ -2582,11 +2612,25 @@
       "triangles": 188
     },
     {
+      "name": "nook_cush1__book_green",
+      "assembly": "nook_cush1",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "book_green",
+      "triangles": 564
+    },
+    {
       "name": "nook_cush1__fabric_warm",
       "assembly": "nook_cush1",
       "cell": "B1_PUBLIC_CORE",
       "key": "fabric_warm",
       "triangles": 764
+    },
+    {
+      "name": "nook_cush1__paper",
+      "assembly": "nook_cush1",
+      "cell": "B1_PUBLIC_CORE",
+      "key": "paper",
+      "triangles": 376
     },
     {
       "name": "nook_cush2__fabric_green",
@@ -2750,7 +2794,7 @@
       "triangles": 132
     }
   ],
-  "triangles": 58596,
+  "triangles": 59536,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -2879,10 +2923,22 @@
         "id": "nook_cush1",
         "parts": [
           {
+            "name": "nook_cush1__book_green",
+            "key": "book_green",
+            "tile": 0.32,
+            "catalog_key": "book_green"
+          },
+          {
             "name": "nook_cush1__fabric_warm",
             "key": "fabric_warm",
             "tile": 0.7,
             "catalog_key": "fabric_warm"
+          },
+          {
+            "name": "nook_cush1__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
           }
         ],
         "position": [
@@ -3160,7 +3216,7 @@
       }
     }
   },
-  "asset_sha256": "0767ba652b36f1f2854de0a5c94a4e9a499b7f299a1a22b01366c956f0643cf9",
+  "asset_sha256": "a275bb6254fe1ce10fccaaa7ca1c5605ef8f28ab2d96203e784b0288245f3dc1",
   "source_bindings": {
     "art/data/reading_nook/source_plan.json": "ad192ffb27065d704b1f74792217230d09ba2a5c1cda3083b9db18a2ccd45b16",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
@@ -3257,22 +3313,22 @@
     "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_reading_nook.py": "18b2d95c887458f0ff82d61d4555a63a94ddf4ee0cfaa828999d1917e7717611",
-    "art/blender/scripts/reading_nook_geometry.py": "39047252812d657712fc4312f80ce0bdf96d9e453671c1d4edc7bef93c2c85fe",
+    "art/blender/scripts/reading_nook_geometry.py": "058143bce61221c6f8c0752bab32067fc852cef55cdf1f86dc37af95655d7ead",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
-    "game/data/orison_v2_blockout.json": "7d35deba42284654ee081b1e7743ca6f9779274fdded9d2b71379b4f56a4d1ab",
+    "game/data/orison_v2_blockout.json": "5a309f582faff4679d796dcb649c29879e5e9f8c1b2973ea9eb1db7a57ea9f66",
     "game/scripts/building/orison_v2_reading_nook.gd": "2d9ed98f9d2f9faec0429b21e09d2e4460d948041b89a0904a639f809b11f2bb",
     "game/scripts/building/orison_v2_task_lamp_installations.gd": "e8996e63c666a265a3fc69196172254515db6810b2a3b59065ab02ddbe8ce784",
-    "game/scripts/building/orison_v2_domestic_furniture.gd": "678bdb1d914a3971516212e53e9115a05a6798290707988cee6f0da1ae05ae39",
-    "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707",
+    "game/scripts/building/orison_v2_domestic_furniture.gd": "aed4ddd9c9612505d5eac2468b7ab1bfb010c54431964ab705f29992d89bf894",
+    "game/data/orison_v2/domestic_furniture.json": "cdc1fdb3876b4f9e3145c26bf4dd974da8bc6a9929d10fe2982bec6ecf7d42ca",
     "game/scripts/props/signal_terminal_prop.gd": "0f6fe798ae35c1243208c90668cf7f45724abeda6fb67046f3b34a63b9d68326",
     "game/tests/orison_v2_reading_nook_test.gd": "f64bdf98f0f4255d7604bff0ecd3d8b5e5f5820502298f8642e13dbcd47e32f2",
     "art/data/task_lamp_installations/source_plan.json": "f96e6d39173cbd7977ae464f4ec58d6b044ec4105570cb6cffe250d3993a40c4",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "tools/build_v2_task_lamp_installations.py": "f2f50a891d431f0bf69501e9a4990a55f78f55f2ee9930164f8d0feee84ffb29",
     "art/blender/scripts/inspect_task_lamp_installations.py": "41fcaf242831300e45f31f960c848be581624f654bba3bf6917770a1ef8a3234",
-    "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
-    "game/data/orison_v2/domestic_surface_props.json": "d650539648df26bbf5806c75969e10414dc1c38609544ca3dbb55e2dc0c1bb3e"
+    "art/blender/task_lamps.blend": "b9a7912a7810eeef005cac1b610493c3923e9555d21a4e7038e83c94802e1265",
+    "game/data/orison_v2/domestic_surface_props.json": "82e151adef3a647cb6b2a34187a76ccd47e0d3c538c32dca76230b48a0844ce6"
   },
   "book_stock": [
     {

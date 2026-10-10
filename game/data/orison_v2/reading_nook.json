@@ -125,10 +125,22 @@
       "id": "nook_cush1",
       "parts": [
         {
+          "name": "nook_cush1__book_green",
+          "key": "book_green",
+          "tile": 0.32,
+          "catalog_key": "book_green"
+        },
+        {
           "name": "nook_cush1__fabric_warm",
           "key": "fabric_warm",
           "tile": 0.7,
           "catalog_key": "fabric_warm"
+        },
+        {
+          "name": "nook_cush1__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
         }
       ],
       "position": [
