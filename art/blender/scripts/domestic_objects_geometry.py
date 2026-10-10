@@ -1206,6 +1206,79 @@ def lostshelves(source):
  wire('UmbrellaHandle',[(-.01,back+.04,b+.024),(.03,back+.04,b+.024),(.05,back+.055,b+.03),(.045,back+.07,b+.024)],.006,'wood_dark')
  group('LostShelfUpper',start)
 
+def paintedoutlet(source):
+ # Dossier slice 59 (B1_LAUNDRY-002): the brass signal outlet high on the laundry's north wall, painted over
+ # in cream with the wall, its cloth lead cut short and hanging to nothing. WORS came through here.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y'];z0=.25
+ stock('Plate',(-.04,back,z0),(.04,back+.006,z0+.12),'brass',.001)
+ stock('Paint',(-.0375,back+.0055,z0+.0025),(.0375,back+.0068,z0+.1175),'paint_cream',.0004)
+ for z in [z0+.015,z0+.105]:tube('Screw'+str(z),(0,back+.0066,z),(0,back+.0086,z),.004,'paint_cream')
+ tube('Boss',(0,back+.0066,z0+.06),(0,back+.017,z0+.06),.009,'paint_cream')
+ wire('Lead',[(0,back+.012,z0+.06),(0,back+.026,z0+.045),(.004,back+.03,z0-.06),(.01,back+.028,.06),(.008,back+.026,.006)],.0032,'jersey_maroon')
+ support(identity,'wall',(0,back,z0+.06),(0,1,0),'outlet plate screwed to the wall')
+ group('PaintedOutlet',start)
+
+def cleatrun(source):
+ # Dossier slice 59 (B1_ELECTRICAL-002): a twisted cloth pair on porcelain cleats along the wall to the
+ # top of the fuse panel (a retrofit's timeline), and Omar's shelf with a box of cartridges and his chalk.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y'];L=source['L'];H=source['H']
+ path=[(-L/2,H),(L/2,H),(L/2,.005)]
+ cleats=[(-L/2+.05+i*.3,H) for i in range(int((L-.1)/.3)+1)]+[(L/2,H-.12-i*.3) for i in range(int((H-.1)/.3))]
+ for i,(x,z) in enumerate(cleats):
+  stock('Cleat'+str(i),(x-.016,back,z-.022),(x+.016,back+.019,z+.022),'enamel',.003)
+  support(identity,'wall',(x,back,z),(0,1,0),'cleat screwed to the wall')
+ for strand in range(2):
+  pts=[]
+  for (x0,z0),(x1,z1) in zip(path,path[1:]):
+   seg=math.hypot(x1-x0,z1-z0);n=int(seg/.02)
+   for k in range(n+1 if (x1,z1)==path[-1] else n):
+    t=k/n;x=x0+(x1-x0)*t;z=z0+(z1-z0)*t;a=strand*math.pi+(len(pts))*.55
+    if x0==x1:pts.append((x+.0028*math.cos(a),back+.0105+.0028*math.sin(a),z))
+    else:pts.append((x,back+.0105+.0028*math.sin(a),z+.0028*math.cos(a)))
+  wire('Strand'+str(strand),pts,.0021,'jersey_maroon' if strand else 'rubber_aged')
+ group('CleatRun',start)
+ # The shelf, a separate fixing: two brackets, a board, a tin of cartridge fuses, two loose, the chalk.
+ start=len(stock_checks);sx=source['shelf_x'];sz=.14;W=.4;D=.14
+ stock('ShelfBoard',(sx-W/2,back,sz),(sx+W/2,back+D,sz+.018),'wood_dark',.0015)
+ for x in [sx-W/2+.05,sx+W/2-.05]:
+  stock('ShelfBracket'+str(x),(x-.01,back,sz-.12),(x+.01,back+.006,sz+.0002),'metal',.0008)
+  stock('ShelfArm'+str(x),(x-.007,back+.0058,sz-.03),(x+.007,back+.12,sz+.0002),'metal',.0008)
+  support(identity,'wall',(x,back,sz-.08),(0,1,0),'shelf bracket screwed to the wall')
+ b=sz+.018-.0002;tx=sx-.09
+ stock('FuseTinBase',(tx-.06,back+.03,b),(tx+.06,back+.11,b+.004),'metal',.0008)
+ for y in [back+.03,back+.106]:stock('FuseTinSide'+str(y),(tx-.06,y,b+.0038),(tx+.06,y+.004,b+.045),'metal',.0006)
+ for x in [tx-.06,tx+.056]:stock('FuseTinEnd'+str(x),(x,back+.0338,b+.0038),(x+.004,back+.1062,b+.045),'metal',.0006)
+ for i in range(5):
+  y=back+.045+i*.013;tube('Cartridge'+str(i),(tx-.04,y,b+.0108),(tx+.04,y,b+.0108),.0068,'kraft')
+  for x in [tx-.04,tx+.03]:tube('Ferrule'+str(i)+str(x),(x,y,b+.0108),(x+.01,y,b+.0108),.0075,'brass')
+ for i,(x,y) in enumerate([(sx+.03,back+.05),(sx+.09,back+.08)]):
+  tube('LooseCartridge'+str(i),(x-.03,y,b+.0068),(x+.03,y+.01,b+.0068),.0068,'kraft')
+ tube('Chalk',(sx+.12,back+.10,b+.0052),(sx+.18,back+.095,b+.0052),.0055,'enamel')
+ group('CartridgeShelf',start)
+
+def droppedcartridge(source):
+ # Dossier slice 59 (B1_ELECTRICAL_RECESS-001): one cartridge fuse dropped in the recess corner.
+ start=len(stock_checks)
+ tube('Cartridge',(-.03,0,.0068),(.03,0,.0068),.0068,'kraft')
+ for x in [-.03,.022]:tube('Ferrule'+str(x),(x-.002,0,.0075),(x+.01,0,.0075),.0075,'brass')
+ for x in [-.025,.015]:bearing('cartridge '+str(x),(x,0,0))
+ group('DroppedCartridge',start)
+
+def coalshovel(source):
+ # Dossier slice 59 (B1_COAL_ROOM-001): the coal shovel left leaning on the wall by the bunker, its pan
+ # on the floor, the D-grip resting on the whitewash.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y']
+ stock('Pan',(-.13,.45,0),(.13,.75,.004),'metal',.001)
+ for x in [-.13,.124]:stock('PanSide'+str(x),(x,.45,.0038),(x+.006,.75,.045),'metal',.0008)
+ stock('PanBack',(-.13,.45,.0038),(.13,.456,.06),'metal',.0008)
+ tube('Socket',(0,.452,.03),(0,.405,.075),.021,'metal')
+ tube('Shaft',(0,.415,.064),(0,back+.019,.99),.017,'timber')
+ stock('GripRest',(-.05,back,.975),(.05,back+.016,1.0),'timber',.002)
+ wire('DGrip',[(-.045,back+.014,.99),(-.05,back+.03,1.05),(0,back+.04,1.09),(.05,back+.03,1.05),(.045,back+.014,.99)],.009,'timber')
+ for p in [(-.11,.47,0),(.11,.47,0),(-.11,.73,0),(.11,.73,0)]:bearing('pan '+str(p),p)
+ support(identity,'wall',(0,back,.9875),(0,1,0),'grip resting on the whitewash')
+ group('CoalShovel',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1273,4 +1346,8 @@ for assembly in assemblies:
  elif kind=='windowtowel':windowtowel(source)
  elif kind=='lightbox':lightbox(source)
  elif kind=='lostshelves':lostshelves(source)
+ elif kind=='paintedoutlet':paintedoutlet(source)
+ elif kind=='cleatrun':cleatrun(source)
+ elif kind=='droppedcartridge':droppedcartridge(source)
+ elif kind=='coalshovel':coalshovel(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

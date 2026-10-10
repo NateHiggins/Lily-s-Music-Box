@@ -203,6 +203,8 @@ Slices landed so far (evidence folders in parentheses):
     its reel (`slice57b`).
 58. Resident objects: 1A's grab rail, 1D's towel over the bath window, Sacha's light
     table, 4D's lost-property shelves (evidence with slice 67 in `slice67`).
+59. The basement's working evidence: the laundry rota and painted-over outlet, the
+    cleated wiring and cartridge shelf, a dropped cartridge, the coal shovel.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the
