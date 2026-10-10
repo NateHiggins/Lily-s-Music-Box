@@ -1064,6 +1064,24 @@
       "volume_m3": 3.891629898158884e-06
     },
     {
+      "name": "storm_shop_pawnbroker_window_plinth_RingEnvelope",
+      "assembly": "storm_shop_pawnbroker_window_plinth",
+      "key": "paper",
+      "volume_m3": 1.6174617650705705e-05
+    },
+    {
+      "name": "storm_shop_pawnbroker_window_plinth_EnvelopeFlap",
+      "assembly": "storm_shop_pawnbroker_window_plinth",
+      "key": "paper",
+      "volume_m3": 8.406507296198627e-07
+    },
+    {
+      "name": "storm_shop_pawnbroker_window_plinth_WeddingRing",
+      "assembly": "storm_shop_pawnbroker_window_plinth",
+      "key": "brass_dull",
+      "volume_m3": 6.485720480267973e-07
+    },
+    {
       "name": "storm_shop_pawnbroker_window_plinth_FieldGlassFoot",
       "assembly": "storm_shop_pawnbroker_window_plinth",
       "key": "wood_dark",
@@ -1423,7 +1441,7 @@
       "assembly": "storm_shop_pawnbroker_window_plinth",
       "cell": "shop_pawnbroker",
       "key": "brass_dull",
-      "triangles": 3620
+      "triangles": 4260
     },
     {
       "name": "storm_shop_pawnbroker_window_plinth__fabric_warm",
@@ -1447,6 +1465,13 @@
       "triangles": 392
     },
     {
+      "name": "storm_shop_pawnbroker_window_plinth__paper",
+      "assembly": "storm_shop_pawnbroker_window_plinth",
+      "cell": "shop_pawnbroker",
+      "key": "paper",
+      "triangles": 376
+    },
+    {
       "name": "storm_shop_pawnbroker_window_plinth__plywood",
       "assembly": "storm_shop_pawnbroker_window_plinth",
       "cell": "shop_pawnbroker",
@@ -1468,7 +1493,7 @@
       "triangles": 5076
     }
   ],
-  "triangles": 28296,
+  "triangles": 29312,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -1573,6 +1598,12 @@
             "key": "iron_blackened",
             "tile": 0.4,
             "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_pawnbroker_window_plinth__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
           },
           {
             "name": "storm_shop_pawnbroker_window_plinth__plywood",
@@ -1724,11 +1755,11 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "981aea401fbf4a645e78cf2c1a0dd8b79e9b9532572ce32adc4b41997c6c8657",
+  "asset_sha256": "44fc4f4c819cedfe84a85be5927d11d12bd8ac253a66b808460dab3345c917a4",
   "source_bindings": {
-    "art/data/pawn_display/source_plan.json": "2aa3548d4b53856894ac8929d3aeca775b8ea439eca0c6a4ce406e329513a2d4",
+    "art/data/pawn_display/source_plan.json": "1113c9bbed5aa56ae98912ecd11daf27fb3ea6d21b023589b3d3db49adc4eba6",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_pawn_display.py": "0117e279394f2f7cd6d8706841b08ef4dd8c675b68dafbf61a1b8836211b0a78",
+    "art/blender/scripts/build_pawn_display.py": "0d3a20d0b23aba5caace75f2a6bbd4cc73fbf2713185c8798fdfb4bb3b029013",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
     "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",
@@ -1741,6 +1772,7 @@
     "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
     "art/textures/ai_materials/porcelain/material.json": "899a0a9636c14284da209f449d586f15bd8766e29436333087603d1a8e52c6d5",
     "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
     "game/assets/building/textures/T_library_furniture_walnut_albedo.png": "3b281f9c997e18431ba2624f2c40277de7002b8ab1538e941634d2cc30843d98",
     "game/assets/building/textures/T_library_furniture_walnut_rough.png": "9cbfda2473f46d11e5ff308b85315bbde1363fbda5328cff2ddebb4db6a0126a",
     "game/assets/building/textures/T_library_furniture_walnut_normal.png": "2f6b54b6660121e80b2989a018eeb8ffbb2ecdbd231e16c9c3c6ad1b75175490",
@@ -1764,6 +1796,9 @@
     "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
     "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
     "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
     "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
     "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
@@ -1771,7 +1806,7 @@
     "game/assets/building/floor_01_cells/shop_pawnbroker.bin": "98f78900ca59f236d1bc55ece6c94825c4abe942c057586001d272a62c75bdff",
     "art/blender/scripts/inspect_pawn_display.py": "29cc330ed322e580869fd2b40987f8d2648b165c7e38820d53331192d83aaeff",
     "game/scripts/building/orison_v2_pawn_display.gd": "2d2df2dd5b8949faf645b66a6a2fba337f9a39b736147e6e947d2a981cd55fd1",
-    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "game/assets/building/floor_01_cells/passage.gltf": "143d159a55e1bebdf1507b0ea2e515ccd763bf2b47770cdd11bb0349cf0f9907",
     "game/assets/building/floor_01_cells/passage.bin": "2861fceab55c8883fa24b7d3f03525fa26ee6eee25ea629bd2dda5df231fac36",
@@ -1789,6 +1824,7 @@
     "The source window has no itemized stock. Three unbranded passive arrangements are a declared visual adaptation, not original inventory: a collapsed brass telescope on two cradles, a pocket watch and laid chain on a supported upright cushion, and paired field-glass barrels on a fitted cradle. No inscriptions, new purchasable stock, optical gameplay, clock-time authority or signal technology.",
     "The window deck rises .20m to .64m so stock is above the existing .55m sill. Six feet carry the full retained footprint and backboard. New stock is physically seated on the deck and fits below the original 1.57m board top. The empty wall cases keep their original roles; no treasure or pledge item is invented inside them.",
     "Local catalogue walnut and aged brass replace the coarse original surfaces without changing shared materials. All bitmap maps already exist. Pledge stock, grille/counter, safe, balance, ledger, loupe, services, continuous routes and human acceptance remain open.",
-    "Scoped optical adaptation: the two display cases, paired field-glass lenses and remaining original fixed shop glazing use the existing architectural clear dielectric shader at its .06 roughness. Underlying mapped source materials, original fixed mesh, transform and collision remain. No global glass or lighting settings change."
+    "Scoped optical adaptation: the two display cases, paired field-glass lenses and remaining original fixed shop glazing use the existing architectural clear dielectric shader at its .06 roughness. Underlying mapped source materials, original fixed mesh, transform and collision remain. No global glass or lighting settings change.",
+    "Slice 62 of the V2 environment dossier (CITY_SHOP_PAWNBROKER-002) lays a wedding ring half out of a small paper envelope on the window deck between the watch tray and the field glasses."
   ]
 }

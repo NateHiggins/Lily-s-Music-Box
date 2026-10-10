@@ -89,6 +89,11 @@ for item in assemblies:
    rod(identity+'_DialMark'+str(j),(x0-.008,cy+.043*math.sin(a),.82+.043*math.cos(a)),(x0-.004,cy+.043*math.sin(a),.82+.043*math.cos(a)),.0016,identity,'iron_blackened',8)
   for yy in [cy-.09,cy+.09]:rod(identity+'_HandleStud'+str(yy),(x0-.041,yy,.59),(x0+.022,yy,.59),.012,identity,'brass_dull',24)
   rod(identity+'_Handle',(x0-.041,cy-.105,.59),(x0-.041,cy+.105,.59),.014,identity,'brass_dull',24)
+  # Dossier slice 62 (CITY_SHOP_PAWNBROKER-003): the painted name panel above the dial, left blank (no
+  # lettering), an enamelled field inside a gold line.
+  box(identity+'_NamePanel',(x0+.0145,cy-.18,.90),(x0+.0165,cy+.18,1.0),identity,'enamel',.0006)
+  for zz in [.903,.994]:box(identity+'_PanelLine'+str(zz),(x0+.0135,cy-.17,zz),(x0+.0147,cy+.17,zz+.003),identity,'brass_dull',0)
+  for yy in [cy-.173,cy+.17]:box(identity+'_PanelLineV'+str(yy),(x0+.0135,yy,.903),(x0+.0147,yy+.003,.997),identity,'brass_dull',0)
   bearing(identity,'storm_shop_pawnbroker_grille_counter',(21.25,-54.30,1.13),(0,0,-1),'safe cap beneath counter worktop',True)
   continue
  if kind=='violin':

@@ -209,6 +209,8 @@ Slices landed so far (evidence folders in parentheses):
     sweep, the chute's dust fan and Omar's chalked log.
 61. A water line under every shower curtain's hem and 5D's soot ghost as a soft
     projected fan.
+62. The pawnbroker's ring in an envelope in the window and the safe's blank name
+    panel.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

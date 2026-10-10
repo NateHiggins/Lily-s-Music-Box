@@ -73,7 +73,7 @@ for old in context:
   if matches:assert len(matches)==1;remove.append(face);counts[matches[0]]+=1
  bmesh.ops.delete(bm,geom=remove,context='FACES');bm.to_mesh(old.data);bm.free()
 assert len(counts)==63 and all(value==12 for value in counts.values()),counts
-assert len(accepted)==84
+assert len(accepted)==85
 all_trees={obj:actual_tree(obj) for obj in draws+context+accepted if obj.data.polygons}
 contacts_checked=[]
 for c in f['contacts']:

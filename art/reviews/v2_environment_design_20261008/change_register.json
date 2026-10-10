@@ -1718,7 +1718,9 @@
    ],
    "acceptance": "Counter station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_PAWNBROKER"
+   "area": "CITY_SHOP_PAWNBROKER",
+   "status": "verified",
+   "owner_notes": "The jeweller's beam balance in its glazed case, the loupe on a cord and the pledge ledger on the counter, from the pawn fittings family (balance, ledger_loupe). Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "CITY_SHOP_PAWNBROKER-002",
@@ -1731,7 +1733,9 @@
    "purpose": "Guide: every one is somebody's worst month",
    "acceptance": "Window station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_PAWNBROKER"
+   "area": "CITY_SHOP_PAWNBROKER",
+   "status": "verified",
+   "owner_notes": "A wedding ring half out of a small envelope on the window deck between the watch tray and the field glasses (window_watch). Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "CITY_SHOP_PAWNBROKER-003",
@@ -1749,7 +1753,9 @@
    ],
    "acceptance": "floor_0 and IN1 stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_PAWNBROKER"
+   "area": "CITY_SHOP_PAWNBROKER",
+   "status": "implemented",
+   "owner_notes": "Partial: the safe's painted name panel above its dial, blank, an enamelled field inside a gold line. The two bulbs in the counter cage remain the cell's sphere globes. Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "CITY_SHOP_PAWNBROKER-004",

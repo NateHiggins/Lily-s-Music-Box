@@ -258,6 +258,12 @@ for item in assemblies:
  path=[(cx-.013,cy,.852),(cx-.023,cy+.025,.845),(cx-.035,cy+.074,.78),(cx-.06,cy+.12,.667)]
  path.extend((cx-.06+.024*math.sin(i*.25),cy+.12+i*.003,.667) for i in range(26))
  curved_wire(identity+'_LaidWatchChain',path,.002,identity,'brass_dull')
+ # Dossier slice 62 (CITY_SHOP_PAWNBROKER-002): a wedding ring half out of a small envelope, laid on the
+ # deck between the watch tray and the field glasses, read from the pavement.
+ ey=-53.50
+ box(identity+'_RingEnvelope',(cx-.03,ey-.045,.6398),(cx+.03,ey+.045,.6428),identity,'paper',.0004)
+ box(identity+'_EnvelopeFlap',(cx-.0285,ey+.0435,.6426),(cx+.0285,ey+.062,.6434),identity,'paper',.0002)
+ curved_wire(identity+'_WeddingRing',[(cx+.0105*math.cos(i*math.tau/40),ey-.05+.0105*math.sin(i*math.tau/40),.6444) for i in range(41)],.0019,identity,'brass_dull')
  # Paired field-glass barrels face the street, linked by a central bridge.
  cy=y1-.43
  box(identity+'_FieldGlassFoot',(x0+.03,cy-.135,.640),(x1-.025,cy+.135,.665),identity,'wood_dark',.002)

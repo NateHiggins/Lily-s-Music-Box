@@ -2576,6 +2576,36 @@
       "volume_m3": 0.00012783711620736882
     },
     {
+      "name": "storm_shop_pawnbroker_safe_NamePanel",
+      "assembly": "storm_shop_pawnbroker_safe",
+      "key": "enamel",
+      "volume_m3": 7.186330580030654e-05
+    },
+    {
+      "name": "storm_shop_pawnbroker_safe_PanelLine0.903",
+      "assembly": "storm_shop_pawnbroker_safe",
+      "key": "brass_dull",
+      "volume_m3": 1.2237258432325898e-06
+    },
+    {
+      "name": "storm_shop_pawnbroker_safe_PanelLine0.994",
+      "assembly": "storm_shop_pawnbroker_safe",
+      "key": "brass_dull",
+      "volume_m3": 1.2237015301545633e-06
+    },
+    {
+      "name": "storm_shop_pawnbroker_safe_PanelLineV-54.473",
+      "assembly": "storm_shop_pawnbroker_safe",
+      "key": "brass_dull",
+      "volume_m3": 3.381357749580177e-07
+    },
+    {
+      "name": "storm_shop_pawnbroker_safe_PanelLineV-54.129999999999995",
+      "assembly": "storm_shop_pawnbroker_safe",
+      "key": "brass_dull",
+      "volume_m3": 3.385659731449872e-07
+    },
+    {
       "name": "storm_shop_pawnbroker_ledger_LowerCover",
       "assembly": "storm_shop_pawnbroker_ledger",
       "key": "wood_dark",
@@ -3178,7 +3208,7 @@
       "assembly": "storm_shop_pawnbroker_safe",
       "cell": "shop_pawnbroker",
       "key": "brass_dull",
-      "triangles": 564
+      "triangles": 612
     },
     {
       "name": "storm_shop_pawnbroker_safe__cast_iron",
@@ -3186,6 +3216,13 @@
       "cell": "shop_pawnbroker",
       "key": "cast_iron",
       "triangles": 2064
+    },
+    {
+      "name": "storm_shop_pawnbroker_safe__enamel",
+      "assembly": "storm_shop_pawnbroker_safe",
+      "cell": "shop_pawnbroker",
+      "key": "enamel",
+      "triangles": 188
     },
     {
       "name": "storm_shop_pawnbroker_safe__iron_blackened",
@@ -3251,7 +3288,7 @@
       "triangles": 540
     }
   ],
-  "triangles": 44672,
+  "triangles": 44908,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -3446,6 +3483,18 @@
             "key": "cast_iron",
             "tile": 0.4,
             "catalog_key": "iron_blackened"
+          },
+          {
+            "name": "storm_shop_pawnbroker_safe__enamel",
+            "key": "enamel",
+            "tile": 1.0,
+            "catalog_key": "enamel",
+            "tint": [
+              0.045,
+              0.045,
+              0.04,
+              1.0
+            ]
           },
           {
             "name": "storm_shop_pawnbroker_safe__iron_blackened",
@@ -4143,9 +4192,9 @@
       }
     ]
   },
-  "asset_sha256": "3abfb3b0a220215028cf48de5e1508e748c14e467ba3a53b1d6e3aa56e86e190",
+  "asset_sha256": "f90c0c7665d392b9a17d810b8308472ac68a7791cc6e4d24299057b36fe690a0",
   "source_bindings": {
-    "art/data/pawn_fittings/source_plan.json": "43452d3ad77619071302cb07ad2ddfb2dbf1cfa7e9db19ba96df55d427e9c58b",
+    "art/data/pawn_fittings/source_plan.json": "d3eaf783e320b0b3a441b0d4ac49894ac9a2045eec0ee474542fa5b253b7942e",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_pawn_fittings.py": "7a6d0f3cc5afc29abb6dd5f424d78931fc68d1d7131d993319d14175fe39a79e",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -4208,13 +4257,13 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "game/assets/building/floor_01_cells/shop_pawnbroker.gltf": "7c8a009e1a5cefeb2767bd83b58a8b6fae400b248049f484032bd6480a84d6b2",
     "game/assets/building/floor_01_cells/shop_pawnbroker.bin": "98f78900ca59f236d1bc55ece6c94825c4abe942c057586001d272a62c75bdff",
-    "art/blender/scripts/inspect_pawn_fittings.py": "976e480143a15de1a60e81bb3a23a0ccd53925a944ecc7b609d7fbe3fb9a5925",
+    "art/blender/scripts/inspect_pawn_fittings.py": "5e1ea9384471f8166d841fe24d34c07010348677300d844ec7a9f93a484d5404",
     "game/scripts/building/orison_v2_pawn_fittings.gd": "50113cd990ab74c4f4cb5d97f41cde24f7dba42b80f6da0ab6ede984846d06ea",
-    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "game/assets/building/floor_01_cells/passage.gltf": "143d159a55e1bebdf1507b0ea2e515ccd763bf2b47770cdd11bb0349cf0f9907",
     "game/assets/building/floor_01_cells/passage.bin": "2861fceab55c8883fa24b7d3f03525fa26ee6eee25ea629bd2dda5df231fac36",
-    "art/blender/scripts/pawn_fittings_geometry.py": "16ec5a675fb15f76777c49a66bd491bceec8d6776608cd38741074850f25e0f8",
+    "art/blender/scripts/pawn_fittings_geometry.py": "de17eb1500e817e6d9e88af60b8d1abbb826416b381790c35f73728059a2fd29",
     "art/blender/pawn_receiving.blend": "8edf9e7e4da4dc83f4bdfca3cb6d34d6fde283aa1fb481bb3348f9aecfdec150",
     "game/assets/props/pawn_receiving.glb": "9f963737dbad1bc150a1f28447262d06d1a0d13fca0b5d4745ba5c2eb5f1ad25",
     "game/tests/fixtures/orison_pawn_receiving.json": "42077201050e2ab59f31a6adbdf195f08b25caa089a8638c27532ddf45888a54",
@@ -4223,10 +4272,10 @@
     "game/assets/props/pawn_clocks.glb": "fad1381b3a1b0d6d3f7208516d266cd490828ba7c1182dd14f9e0fd10eb55ee7",
     "game/tests/fixtures/orison_pawn_clocks.json": "e26e0dbbb4ff372f29cc944d6f60c6c73c7aa093a07e07d121ee95f737c56722",
     "game/data/orison_v2/pawn_clocks.json": "29f3859fb6fc30c62fecb321238310791379bee946b445d29231d711ac1f6a9e",
-    "art/blender/pawn_display.blend": "f9da8208735e4f56d9e9bdb7114e4ee0ddbed4353eaf6aa08b56e33f2b45392d",
-    "game/assets/props/pawn_display.glb": "981aea401fbf4a645e78cf2c1a0dd8b79e9b9532572ce32adc4b41997c6c8657",
-    "game/tests/fixtures/orison_pawn_display.json": "86f5757fead8b1fd84578436d7e083aef9f726261e61c4d48d7b8c785aa85d6f",
-    "game/data/orison_v2/pawn_display.json": "1910e8d34d679b9c97dc7f18e1113ea640b967c24d6735d9859c4b29fc25fffd"
+    "art/blender/pawn_display.blend": "85c5745dafd8520a16f68cf601de8f0a614a9aba9d529f0b18b6a0e8a623df55",
+    "game/assets/props/pawn_display.glb": "44fc4f4c819cedfe84a85be5927d11d12bd8ac253a66b808460dab3345c917a4",
+    "game/tests/fixtures/orison_pawn_display.json": "64becf60169521c3ea46eaa8488b20af88c727f2fbbf048efa67157659542069",
+    "game/data/orison_v2/pawn_display.json": "41ca2e7f7d2d39b8a4b1210c0fa77c06d636c842eab8c32b78f5908c6f43d023"
   },
   "open_work": [
     "Forty immutable source records become one composed furnishing batch. Shelf plans and four deck heights remain, with six real floor posts; parcels are lowered 5mm onto their actual decks and keep their original twenty-four owners. Ties and blank tags add construction only.",
@@ -4235,6 +4284,7 @@
     "The violin case stands in a floor cradle next to the shelf; sewing machine sits on a bracketed extra upper shelf, and the coat hangs outside the shelf west end. Their original records remain, with explicit display relocations to avoid floating stock inside the counter. Passive poses do not imply shop inventory mechanics.",
     "The balance, thin closed glass bell, ledger and corded loupe are seated on separate clear worktop stations. Balance and hands remain static; no new financial, optical, clock, inventory, shop-service or interaction authority.",
     "New material maps and lettering are not generated. Existing catalogue finishes are applied to native metre UVs. Continuous routes, operations, independent services, runtime contracts and human acceptance remain separate requirements.",
-    "The safe uses the existing blackened-iron catalogue finish; the machine retains enamel maps with a local dark paint multiplier. No global material values or source-key identities change."
+    "The safe uses the existing blackened-iron catalogue finish; the machine retains enamel maps with a local dark paint multiplier. No global material values or source-key identities change.",
+    "Slice 62 of the V2 environment dossier (CITY_SHOP_PAWNBROKER-003) paints the safe's name panel above the dial: a blank enamelled field inside a gold line, no lettering."
   ]
 }
