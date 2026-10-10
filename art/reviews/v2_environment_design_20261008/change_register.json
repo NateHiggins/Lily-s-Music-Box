@@ -944,7 +944,9 @@
    "purpose": "Period: four days after the Hoover-Smith election; the hoarding already carries old notices",
    "acceptance": "End-of-street views",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_STREET"
+   "area": "CITY_STREET",
+   "status": "implemented",
+   "owner_notes": "Election broadsides pasted on both street-end hoardings: a portrait silhouette over a star inside a printed border, no lettering. The hoardings stand at the street's far ends and no city station frames them; a framed capture is open. Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "CITY_STREET-003",
@@ -990,7 +992,9 @@
    ],
    "acceptance": "Route stations show no hard rectangles",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_STREET"
+   "area": "CITY_STREET",
+   "status": "implemented",
+   "owner_notes": "Partial: the pavement's ground marks feather out to their quad edges, so no stain ends in a hard dark rectangle (city sweep route stations). They are not yet clipped to the slab joints. Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "CITY_STREET-006",

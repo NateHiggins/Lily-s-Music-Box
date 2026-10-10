@@ -571,6 +571,20 @@ float rect(vec2 uv, vec2 centre, vec2 half_size) {
 	return inside.x * inside.y;
 }
 
+// Dossier slice 65 (CITY_STREET-002): an election broadside, a portrait silhouette over a star inside a printed
+// border. No lettering. p spans the paper from -1 to 1; w corrects the paper's wide aspect.
+float broadside(vec2 p) {
+	float edge = max(abs(p.x), abs(p.y));
+	float border = step(0.84, edge) * (1.0 - step(0.91, edge));
+	vec2 w = p * vec2(1.45, 1.0);
+	float head = 1.0 - smoothstep(0.17, 0.19, length(w - vec2(0.0, -0.40)));
+	float shoulders = (1.0 - smoothstep(0.44, 0.46, length((w - vec2(0.0, 0.08)) * vec2(1.0, 1.7)))) * step(p.y, 0.08);
+	vec2 q = w - vec2(0.0, 0.52);
+	float a = atan(q.x, -q.y);
+	float star = 1.0 - smoothstep(0.0, 0.025, length(q) - 0.21 * (0.5 + 0.5 * pow(abs(cos(a * 2.5)), 4.0)));
+	return clamp(border + head + shoulders + star, 0.0, 1.0);
+}
+
 void fragment() {
 	float boards = fract(UV.x * 11.0);
 	float seam = smoothstep(0.88, 1.0, boards);
@@ -584,7 +598,10 @@ void fragment() {
 	float paper = max(rect(UV, vec2(0.32, 0.53), vec2(0.08, 0.12)),
 			rect(UV, vec2(0.69, 0.60), vec2(0.07, 0.10)));
 	vec3 old_paper = vec3(0.34, 0.27, 0.15) * (0.72 + beacon_pool * 0.28);
-	ALBEDO = mix(timber, old_paper, paper);
+	float ink = rect(UV, vec2(0.32, 0.53), vec2(0.08, 0.12)) * broadside((UV - vec2(0.32, 0.53)) / vec2(0.08, 0.12))
+			+ rect(UV, vec2(0.69, 0.60), vec2(0.07, 0.10)) * broadside((UV - vec2(0.69, 0.60)) / vec2(0.07, 0.10));
+	vec3 printed = mix(old_paper, vec3(0.05, 0.04, 0.03), clamp(ink, 0.0, 1.0) * 0.85);
+	ALBEDO = mix(timber, printed, paper);
 }
 """
 	var material := ShaderMaterial.new()

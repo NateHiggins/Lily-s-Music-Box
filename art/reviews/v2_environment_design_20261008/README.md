@@ -215,6 +215,8 @@ Slices landed so far (evidence folders in parentheses):
     magazines.
 64. The funeral register open at one signature, chairs off their marks, and the
     luncheonette's third stool worn to the cord.
+65. Feathered pavement marks and wordless election broadsides on the street-end
+    hoardings.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

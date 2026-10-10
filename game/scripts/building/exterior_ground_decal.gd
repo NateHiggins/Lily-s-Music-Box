@@ -5,6 +5,26 @@ extends Node3D
 const ATLAS := \
 		"res://assets/building/textures/exterior_details/exterior_damage_atlas.png"
 static var _cache: Dictionary = {}
+static var _shader: Shader
+
+
+static func _feathered() -> Shader:
+	if _shader == null:
+		_shader = Shader.new()
+		_shader.code = """
+shader_type spatial;
+render_mode cull_disabled, shadows_disabled, depth_draw_never;
+uniform sampler2D tile : source_color, filter_linear_mipmap;
+uniform vec4 tint : source_color = vec4(1.0);
+void fragment() {
+	vec4 c = texture(tile, UV) * tint;
+	vec2 d = min(UV, 1.0 - UV);
+	ALBEDO = c.rgb;
+	ALPHA = c.a * smoothstep(0.0, 0.22, min(d.x, d.y));
+	ROUGHNESS = 0.78;
+}
+"""
+	return _shader
 
 
 func setup(panel: int, size: Vector2, tint := Color.WHITE) -> void:
@@ -27,13 +47,12 @@ func setup(panel: int, size: Vector2, tint := Color.WHITE) -> void:
 		_cache[panel] = texture
 	var quad := QuadMesh.new()
 	quad.size = size
-	var material := StandardMaterial3D.new()
-	material.albedo_texture = texture
-	material.albedo_color = tint
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_PER_PIXEL
-	material.roughness = 0.78
-	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	# Dossier slice 65 (CITY_STREET-005): the mark feathers out toward its quad's edges, so a stain never ends in
+	# a hard dark rectangle on the pavement. Same atlas tile, tint and roughness.
+	var material := ShaderMaterial.new()
+	material.shader = _feathered()
+	material.set_shader_parameter("tile", texture)
+	material.set_shader_parameter("tint", tint)
 	var visual := MeshInstance3D.new()
 	visual.mesh = quad
 	visual.material_override = material
