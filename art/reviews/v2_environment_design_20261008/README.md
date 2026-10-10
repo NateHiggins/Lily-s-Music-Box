@@ -201,6 +201,8 @@ Slices landed so far (evidence folders in parentheses):
 57. The Radio Service shop: valves with getters in tube racks, the 1610 set's dial at the
     top of the band and its cone speaker, a meter and an iron on the bench, the wire on
     its reel (`slice57b`).
+58. Resident objects: 1A's grab rail, 1D's towel over the bath window, Sacha's light
+    table, 4D's lost-property shelves (evidence with slice 67 in `slice67`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

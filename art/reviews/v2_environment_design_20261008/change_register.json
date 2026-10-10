@@ -2942,7 +2942,9 @@
    "preserve": "Curtain travel and the shower stance",
    "acceptance": "Detail view at the receptor",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_A_BATH"
+   "area": "F01_A_BATH",
+   "status": "implemented",
+   "owner_notes": "Evelyn's own brass grab rail on two roses, fixed to the 1A shower's receptor wall at 0.82 m (1A_bath_rail_native). The closed curtain hides it from every sweep station, so it reads only from inside the receptor. Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "F01_A_BED-001",
@@ -3457,7 +3459,9 @@
    "preserve": "Basin stance and tap cycle",
    "acceptance": "Detail at the basin",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_D_BATH"
+   "area": "F01_D_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a huckaback towel pegged over a cord across the 1D bath window head, the night nurse sleeping by day (1D_window_towel_native, F01_D_BATH_DT2). The soaking bowl of collars and cuffs at the basin is not made. Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "F02_LANDING-001",
@@ -8127,7 +8131,9 @@
    "purpose": "Hero object prior_guest_lost_property; proposed backstory: nine guests, every tag says 4D",
    "acceptance": "Teleported capture only",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_D_STUDY"
+   "area": "F04_D_STUDY",
+   "status": "verified",
+   "owner_notes": "Two shelves of lost property in 4D's study, nine guests' leavings each tagged with a blank card on a string (4D_lost_shelves_native, F04_D_STUDY_OV); a teleported capture, as the row asks. Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "F05_PUBLIC_CORE-001",
@@ -10003,7 +10009,9 @@
    "preserve": "Prep cabinet slide",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_A_KITCHEN"
+   "area": "F06_A_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Sacha's light table on the prep cabinet beside the toaster: a frosted plate in a timber box with a strip of negatives and a loupe on it, the lamp inside unlit (6A_light_table_native, F06_A_KITCHEN_DT1). Slice 58 named it 6A_light_box, an id slice 38's surface-stock box already owned, and the runtime refused the world; slice 67 renamed it 6A_light_table, moved it to the cabinet's clear front off the plate and dropped its flex. Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "F06_A_PRIVATE_HALL-001",

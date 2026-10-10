@@ -1122,6 +1122,90 @@ def sootfan(source):
  for x in [-.15,.15]:support(identity,'wall',(x,back,.3),(0,1,0),'soot on the plaster')
  group('SootFan',start)
 
+def bathrail(source):
+ # Dossier slice 58 (F01_A_BATH-003): Evelyn's own grab rail on the receptor wall, brass on two roses,
+ # the screw heads painted tile-white. Her retrofit, her decade.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y'];L=source['L'];zc=.032
+ for x in [-L/2+.035,L/2-.035]:
+  tube('Rose'+str(x),(x,back,zc),(x,back+.008,zc),.03,'brass')
+  tube('Post'+str(x),(x,back+.0075,zc),(x,back+.052,zc),.011,'brass')
+  for k in range(3):
+   a=.5+k*2.094;sx=x+.021*math.cos(a);sz=zc+.021*math.sin(a)
+   tube('ScrewHead'+str(x)+str(k),(sx,back+.0075,sz),(sx,back+.0105,sz),.0035,'enamel')
+  support(identity,'wall',(x,back,zc),(0,1,0),'rose screwed to the tiled wall')
+ tube('Rail',(-L/2,back+.05,zc),(L/2,back+.05,zc),.0125,'brass')
+ for x in [-L/2,L/2]:tube('RailEnd'+str(x),(x-.002 if x<0 else x-.001,back+.05,zc),(x+.001 if x<0 else x+.002,back+.05,zc),.0135,'brass')
+ group('BathRail',start)
+
+def windowtowel(source):
+ # Dossier slice 58 (F01_D_BATH-003): a huckaback towel pegged over a cord across the window head; the
+ # night nurse sleeps by day.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y'];W=source['W'];c=back+.046;u=.432
+ for x in [-W/2-.05,W/2+.05]:
+  tube('Nail'+str(x),(x,back,u+.10),(x,c+.004,u+.10),.0022,'metal')
+  tube('NailHead'+str(x),(x,c+.003,u+.10),(x,c+.006,u+.10),.0045,'metal')
+  support(identity,'wall',(x,back,u+.10),(0,1,0),'nail driven above the window head')
+ wire('Cord',[(-W/2-.05,c,u+.10),(-W/4,c,u+.088),(0,c,u+.085),(W/4,c,u+.088),(W/2+.05,c,u+.10)],.0016,'linen')
+ stock('TowelFold',(-W/2+.02,c-.0075,u+.081),(W/2-.02,c+.0075,u+.092),'linen',.0006)
+ stock('TowelFall',(-W/2+.02,c+.0035,u-.43),(W/2-.02,c+.0075,u+.086),'linen',.0008)
+ stock('TowelBack',(-W/2+.02,c-.0075,u-.13),(W/2-.02,c-.0035,u+.086),'linen',.0008)
+ for x in [-W/4,W/4]:stock('Peg'+str(x),(x-.006,c-.011,u+.068),(x+.006,c+.011,u+.112),'timber',.001)
+ group('WindowTowel',start)
+
+def lightbox(source):
+ # Dossier slice 58 (F06_A_KITCHEN-003): Sacha's light box for negatives beside the toaster: a frosted
+ # plate in a timber box, a strip of negatives and a loupe on it, the lamp inside unlit, its flex behind.
+ start=len(stock_checks);W,D,H=.19,.25,.07
+ stock('Base',(-W/2,-D/2,0),(W/2,D/2,.008),'timber',.001)
+ for x in [-W/2,W/2-.012]:stock('Side'+str(x),(x,-D/2,.0078),(x+.012,D/2,H),'timber',.001)
+ for y in [-D/2,D/2-.012]:stock('End'+str(y),(-W/2+.0118,y,.0078),(W/2-.0118,y+.012,H),'timber',.001)
+ stock('FrostedPlate',(-W/2+.0115,-D/2+.0115,H-.006),(W/2-.0115,D/2-.0115,H-.002),'opal',.0004)
+ stock('Negatives',(-.035,-.09,H-.0022),(.0,.09,H-.0012),'sepia_dark',.0002)
+ lathe('Loupe',.045,.03,H-.0022,[(0,0),(.016,0),(.016,.004),(.013,.032),(0,.032)],'rubber_aged')
+ wire('Flex',[(0,-D/2+.004,.03),(0,-D/2-.02,.028),(.02,-D/2-.05,.004),(.05,-D/2-.09,.004)],.0028,'rubber_aged')
+ for p in [(-W/2+.01,-D/2+.01,0),(W/2-.01,-D/2+.01,0),(-W/2+.01,D/2-.01,0),(W/2-.01,D/2-.01,0)]:bearing('light box '+str(p),p)
+ group('LightBox',start)
+
+def lostshelves(source):
+ # Dossier slice 58 (F04_D_STUDY-002): two shelves of lost property in 4D's study, nine guests'
+ # leavings, every one tagged on a string with a blank card. No lettering.
+ back=variants[identity]['rear_wall_y'];L=1.2;D=.25;f=back+D
+ def shelf(k,z):
+  stock('Shelf'+str(k),(-L/2,back,z-.022),(L/2,back+D,z),'wood_dark',.002)
+  for x in [-L/2+.12,0.,L/2-.12]:
+   stock('BracketPlate'+str(k)+str(x),(x-.012,back,z-.2),(x+.012,back+.008,z-.0218),'metal',.0008)
+   stock('BracketArm'+str(k)+str(x),(x-.008,back+.0078,z-.04),(x+.008,back+.2,z-.0218),'metal',.0008)
+   tube('BracketBrace'+str(k)+str(x),(x,back+.007,z-.18),(x,back+.17,z-.035),.004,'metal')
+   for zz in [z-.17,z-.06]:support(identity,'wall',(x,back,zz),(0,1,0),'shelf bracket screwed to the wall')
+ def tag(name,x,y,z,tx,ty):
+  # The card lies on the board, sunk 0.2 mm; its string runs to the object.
+  stock('Tag'+name,(tx-.016,ty-.026,z),(tx+.016,ty+.026,z+.0006),'paper',.0001)
+  wire('TagString'+name,[(x,y,z+.0005),((x+tx)/2,(y+ty)/2,z+.0008),(tx,ty+.02,z+.0005)],.0006,'linen')
+ # Lower shelf: a hatbox, a valise, a pair of gloves, a single galosh. One join group per shelf.
+ start=len(stock_checks);shelf(0,.2);b=.2-.0002
+ lathe('HatBox',-.42,back+.125,b,[(0,0),(.105,0),(.105,.13),(0,.13)],'kraft')
+ lathe('HatBoxLid',-.42,back+.125,b+.128,[(0,0),(.109,0),(.109,.03),(0,.03)],'kraft');tag('Hat',-.42,f-.03,b,-.3,f-.03)
+ stock('Valise',(-.24,back+.03,b),(.1,back+.22,b+.13),'book_brown',.006)
+ for x in [-.12,-.02]:stock('ValiseClasp'+str(x),(x-.012,back+.2195,b+.1),(x+.012,back+.2225,b+.118),'brass',.0006)
+ wire('ValiseHandle',[(-.1,back+.125,b+.129),(-.09,back+.125,b+.15),(-.05,back+.125,b+.15),(-.04,back+.125,b+.129)],.0045,'book_brown')
+ tag('Valise',.05,f-.03,b,.14,f-.03)
+ for i,y in enumerate([back+.06,back+.12]):stock('Glove'+str(i),(.2,y,b+.008*i),(.34,y+.07,b+.008*i+.009),'jersey_maroon',.003)
+ tag('Gloves',.3,back+.17,b,.33,f-.035)
+ stock('Galosh',(.4,back+.06,b),(.56,back+.15,b+.07),'rubber_aged',.012)
+ tag('Galosh',.5,back+.15,b,.5,f-.035)
+ group('LostShelfLower',start)
+ # Upper shelf: a folded scarf, a spectacle case, a felt hat, a book and a short umbrella along the back.
+ start=len(stock_checks);shelf(1,.62);b=.62-.0002
+ stock('Scarf',(-.5,back+.1,b),(-.28,back+.235,b+.03),'wool_burgundy',.006);tag('Scarf',-.39,back+.1,b,-.42,back+.065)
+ stock('SpecCase',(-.2,back+.16,b),(-.06,back+.21,b+.025),'cape_navy',.008);tag('Spec',-.13,back+.16,b,-.15,back+.115)
+ lathe('HatBrim',.17,back+.125,b,[(0,0),(.12,0),(.12,.006),(0,.006)],'coat_grey')
+ lathe('HatCrown',.17,back+.125,b+.0058,[(0,0),(.075,0),(.072,.07),(.06,.085),(0,.088)],'coat_grey')
+ lathe('HatBand',.17,back+.125,b+.0058,[(0,0),(.0765,0),(.0755,.018),(0,.018)],'jersey_maroon');tag('Hat2',.25,back+.2,b+.0058,.31,f-.03)
+ stock('Book',(.38,back+.04,b),(.54,back+.22,b+.035),'book_navy',.004);tag('Book',.46,back+.22,b,.47,f-.02)
+ tube('Umbrella',(-.58,back+.04,b+.024),(-.01,back+.04,b+.024),.0242,'cape_navy')
+ wire('UmbrellaHandle',[(-.01,back+.04,b+.024),(.03,back+.04,b+.024),(.05,back+.055,b+.03),(.045,back+.07,b+.024)],.006,'wood_dark')
+ group('LostShelfUpper',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1185,4 +1269,8 @@ for assembly in assemblies:
  elif kind=='threshold':threshold(source)
  elif kind=='aerialwire':aerialwire(source)
  elif kind=='sootfan':sootfan(source)
+ elif kind=='bathrail':bathrail(source)
+ elif kind=='windowtowel':windowtowel(source)
+ elif kind=='lightbox':lightbox(source)
+ elif kind=='lostshelves':lostshelves(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))
