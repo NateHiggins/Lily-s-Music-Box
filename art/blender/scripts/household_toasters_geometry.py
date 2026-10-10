@@ -123,6 +123,11 @@ def toaster(axis):
  stock('GreaseFilm',(-.082,-.024,.0257),(.038,.036,.02585),'grease',.00002)
  for item in stock_checks[tray_start:]:bpy.data.objects[item['name']]['component']='OrisonRetrofitCrumbTray'
  retained_stock.append({'assembly':identity,'tray_axis':axis,'lever_pivot_godot':[.137,.137,.002],'carrier_pivot_godot':[0,.151,0],'tray_pivot_godot':[0,.027,0],'lever_travel':.046,'carrier_travel':.087,'tray_travel':.160,'original_crumb_count':18,'native_pan_top':.0257})
+ if identity=='ToasterForm':
+  # Dossier slice 38: the replacement form Peter Wren never filed, taped to the plain -x end panel,
+  # clear of the carriage lever slot on the +x end. Blank paper: no lettering.
+  stock('Form',(-.1256,-.042,.045),(-.1244,.042,.14),'formpaper',.0001)
+  for z in [.047,.128]:stock('Tape'+str(z),(-.1259,-.035,z),(-.1255,.035,z+.01),'tape',.0001)
  group('SupportedSingleSlotMechanism',start)
 
 for assembly in assemblies:

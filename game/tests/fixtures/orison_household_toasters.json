@@ -151,6 +151,12 @@
       "kind": "crumb_prototype",
       "cell": "shared",
       "source_record": "F02_2A_TOASTER_01"
+    },
+    {
+      "id": "ToasterForm",
+      "kind": "toaster",
+      "cell": "shared",
+      "source_record": "F02_2A_TOASTER_01"
     }
   ],
   "closed_stocks": [
@@ -1167,6 +1173,528 @@
       "assembly": "ToasterCrumb",
       "key": "crumb",
       "volume_m3": 4.0674449337700864e-07
+    },
+    {
+      "name": "ToasterForm_Foot(-0.105, -0.045)",
+      "assembly": "ToasterForm",
+      "key": "bakelite",
+      "volume_m3": 6.3114639914883196e-06
+    },
+    {
+      "name": "ToasterForm_Foot(-0.105, 0.045)",
+      "assembly": "ToasterForm",
+      "key": "bakelite",
+      "volume_m3": 6.311463991488317e-06
+    },
+    {
+      "name": "ToasterForm_Foot(0.105, -0.045)",
+      "assembly": "ToasterForm",
+      "key": "bakelite",
+      "volume_m3": 6.311463991488317e-06
+    },
+    {
+      "name": "ToasterForm_Foot(0.105, 0.045)",
+      "assembly": "ToasterForm",
+      "key": "bakelite",
+      "volume_m3": 6.311463991488318e-06
+    },
+    {
+      "name": "ToasterForm_PressedBase",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 0.0003729734878192846
+    },
+    {
+      "name": "ToasterForm_VentWall-1",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 3.3061834986484497e-05
+    },
+    {
+      "name": "ToasterForm_VentWall1",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.8468735780422666e-05
+    },
+    {
+      "name": "ToasterForm_EndWall-1",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.8778060088369395e-05
+    },
+    {
+      "name": "ToasterForm_EndWall1",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.7599243120119396e-05
+    },
+    {
+      "name": "ToasterForm_PressedShoulder",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.5359528915661e-05
+    },
+    {
+      "name": "ToasterForm_SingleSlotLip_Near",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.1858705855394432e-05
+    },
+    {
+      "name": "ToasterForm_SingleSlotLip_Far",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.1858705855394432e-05
+    },
+    {
+      "name": "ToasterForm_SingleSlotLip_Left",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.1527036255278276e-06
+    },
+    {
+      "name": "ToasterForm_SingleSlotLip_Right",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.1527036255278276e-06
+    },
+    {
+      "name": "ToasterForm_Screw(-1, -0.104, -1)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 5.3938365191619833e-08
+    },
+    {
+      "name": "ToasterForm_Screw(-1, -0.104, 1)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 5.3938297691811706e-08
+    },
+    {
+      "name": "ToasterForm_Screw(-1, 0.104, -1)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 5.393836519161978e-08
+    },
+    {
+      "name": "ToasterForm_Screw(-1, 0.104, 1)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 5.39382976918116e-08
+    },
+    {
+      "name": "ToasterForm_Screw(1, -0.104, -1)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 5.3938365191619833e-08
+    },
+    {
+      "name": "ToasterForm_Screw(1, -0.104, 1)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 5.3938297691811706e-08
+    },
+    {
+      "name": "ToasterForm_Screw(1, 0.104, -1)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 5.393836519161978e-08
+    },
+    {
+      "name": "ToasterForm_Screw(1, 0.104, 1)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 5.393829769181176e-08
+    },
+    {
+      "name": "ToasterForm_BraidedSupply",
+      "assembly": "ToasterForm",
+      "key": "braid",
+      "volume_m3": 1.3997786204352394e-05
+    },
+    {
+      "name": "ToasterForm_Plug",
+      "assembly": "ToasterForm",
+      "key": "bakelite",
+      "volume_m3": 1.4049963911001487e-05
+    },
+    {
+      "name": "ToasterForm_PlugPin-0.167",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.3723847822398686e-07
+    },
+    {
+      "name": "ToasterForm_PlugPin-0.153",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.3723864894684817e-07
+    },
+    {
+      "name": "ToasterForm_MicaCard-0.034",
+      "assembly": "ToasterForm",
+      "key": "mica",
+      "volume_m3": 7.446827970257221e-05
+    },
+    {
+      "name": "ToasterForm_CardSaddle(-0.0934, -0.034)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.382459912587783e-07
+    },
+    {
+      "name": "ToasterForm_CardSaddle(0.0934, -0.034)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.3824599125877827e-07
+    },
+    {
+      "name": "ToasterForm_MicaCard0.034",
+      "assembly": "ToasterForm",
+      "key": "mica",
+      "volume_m3": 7.446827970257221e-05
+    },
+    {
+      "name": "ToasterForm_CardSaddle(-0.0934, 0.034)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.3824599125877827e-07
+    },
+    {
+      "name": "ToasterForm_CardSaddle(0.0934, 0.034)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.3824599125877822e-07
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(-0.037, 0)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405441904076926e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(-0.037, 1)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405426605292569e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(-0.037, 2)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405441904076886e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(-0.037, 3)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405441245337237e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(-0.037, 4)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405432069290664e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(-0.037, 5)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405438943436315e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(-0.037, 6)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405438613016136e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(0.037, 0)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405441904076926e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(0.037, 1)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405426605292569e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(0.037, 2)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405441904076886e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(0.037, 3)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405441245337237e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(0.037, 4)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405432069290664e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(0.037, 5)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405438943436315e-06
+    },
+    {
+      "name": "ToasterForm_ResistanceWire(0.037, 6)",
+      "assembly": "ToasterForm",
+      "key": "coil",
+      "volume_m3": 1.2405438613016136e-06
+    },
+    {
+      "name": "ToasterForm_TimerTrack",
+      "assembly": "ToasterForm",
+      "key": "bakelite",
+      "volume_m3": 4.967722734790746e-06
+    },
+    {
+      "name": "ToasterForm_TimerLever",
+      "assembly": "ToasterForm",
+      "key": "bakelite",
+      "volume_m3": 8.853624742104254e-06
+    },
+    {
+      "name": "ToasterForm_TimerNotch0",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.949883475692651e-07
+    },
+    {
+      "name": "ToasterForm_TimerNotch1",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.949882326653251e-07
+    },
+    {
+      "name": "ToasterForm_TimerNotch2",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.949883475692649e-07
+    },
+    {
+      "name": "ToasterForm_TimerNotch3",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.949882326653319e-07
+    },
+    {
+      "name": "ToasterForm_TimerNotch4",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.9498921317427393e-07
+    },
+    {
+      "name": "ToasterForm_CarriageGrip",
+      "assembly": "ToasterForm",
+      "key": "bakelite",
+      "volume_m3": 9.306617279215722e-06
+    },
+    {
+      "name": "ToasterForm_CarriageSpindle",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.593870849080101e-06
+    },
+    {
+      "name": "ToasterForm_LeverGuideSide-0.014",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 4.814094715972071e-06
+    },
+    {
+      "name": "ToasterForm_LeverGuideSide0.007",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 4.81409322030515e-06
+    },
+    {
+      "name": "ToasterForm_LeverSlider",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.2585341704197239e-06
+    },
+    {
+      "name": "ToasterForm_BreadPlate",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.9123456122107897e-05
+    },
+    {
+      "name": "ToasterForm_CarrierWire-0.084",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.7767979222732445e-07
+    },
+    {
+      "name": "ToasterForm_CarrierWire-0.042",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.776798292075651e-07
+    },
+    {
+      "name": "ToasterForm_CarrierWire0",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.776797699278438e-07
+    },
+    {
+      "name": "ToasterForm_CarrierWire0.042",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.776798292075651e-07
+    },
+    {
+      "name": "ToasterForm_CarrierWire0.084",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.7767979222732445e-07
+    },
+    {
+      "name": "ToasterForm_CarrierGuideBridge-0.097",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 9.549738127437674e-07
+    },
+    {
+      "name": "ToasterForm_CarrierGuide-0.097",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 5.0203980044353014e-06
+    },
+    {
+      "name": "ToasterForm_CarrierYoke(-0.097, -0.01)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterForm_CarrierYoke(-0.097, 0.009)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterForm_CarrierLink-0.097",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.1575213524101076e-07
+    },
+    {
+      "name": "ToasterForm_CarrierGuideBridge0.097",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 9.549738127437674e-07
+    },
+    {
+      "name": "ToasterForm_CarrierGuide0.097",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 5.020398004435301e-06
+    },
+    {
+      "name": "ToasterForm_CarrierYoke(0.097, -0.01)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterForm_CarrierYoke(0.097, 0.009)",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 6.383172161719771e-08
+    },
+    {
+      "name": "ToasterForm_CarrierLink0.097",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.1575213524101118e-07
+    },
+    {
+      "name": "ToasterForm_PanRail-0.095",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.9973868420160835e-07
+    },
+    {
+      "name": "ToasterForm_PanRail0.095",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.9973868420160835e-07
+    },
+    {
+      "name": "ToasterForm_Pan",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 2.7077160838133717e-05
+    },
+    {
+      "name": "ToasterForm_PanFold-0.0525",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 3.4996158573394105e-06
+    },
+    {
+      "name": "ToasterForm_PanFold0.0513",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 3.4996158573394105e-06
+    },
+    {
+      "name": "ToasterForm_PanEnd-0.1075",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.692549393250269e-06
+    },
+    {
+      "name": "ToasterForm_PanEnd0.1063",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.692549393250269e-06
+    },
+    {
+      "name": "ToasterForm_PanPullStrip",
+      "assembly": "ToasterForm",
+      "key": "nickel",
+      "volume_m3": 1.4675488178701794e-05
+    },
+    {
+      "name": "ToasterForm_PanPull",
+      "assembly": "ToasterForm",
+      "key": "bakelite",
+      "volume_m3": 8.857620672350834e-06
+    },
+    {
+      "name": "ToasterForm_GreaseFilm",
+      "assembly": "ToasterForm",
+      "key": "grease",
+      "volume_m3": 1.0799328211173886e-06
+    },
+    {
+      "name": "ToasterForm_Form",
+      "assembly": "ToasterForm",
+      "key": "formpaper",
+      "volume_m3": 9.574183195476126e-06
+    },
+    {
+      "name": "ToasterForm_Tape0.047",
+      "assembly": "ToasterForm",
+      "key": "tape",
+      "volume_m3": 2.7920248619965173e-07
+    },
+    {
+      "name": "ToasterForm_Tape0.128",
+      "assembly": "ToasterForm",
+      "key": "tape",
+      "volume_m3": 2.792020830084914e-07
     }
   ],
   "contacts": [
@@ -1307,6 +1835,81 @@
     },
     {
       "assembly": "ToasterEnd",
+      "owner": "support",
+      "point": [
+        -0.16,
+        0,
+        -0.12
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "loose plug"
+    },
+    {
+      "assembly": "ToasterForm",
+      "owner": "support",
+      "point": [
+        -0.105,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterForm",
+      "owner": "support",
+      "point": [
+        -0.105,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterForm",
+      "owner": "support",
+      "point": [
+        0.105,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterForm",
+      "owner": "support",
+      "point": [
+        0.105,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "original foot"
+    },
+    {
+      "assembly": "ToasterForm",
       "owner": "support",
       "point": [
         -0.16,
@@ -1482,9 +2085,100 @@
       "cell": "shared",
       "key": "crumb",
       "triangles": 328
+    },
+    {
+      "name": "ToasterForm__Body_ON_bakelite",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 2100
+    },
+    {
+      "name": "ToasterForm__Body_ON_braid",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "braid",
+      "triangles": 1172
+    },
+    {
+      "name": "ToasterForm__Body_ON_formpaper",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "formpaper",
+      "triangles": 188
+    },
+    {
+      "name": "ToasterForm__Body_ON_mica",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "mica",
+      "triangles": 376
+    },
+    {
+      "name": "ToasterForm__Body_ON_nickel",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 10004
+    },
+    {
+      "name": "ToasterForm__Body_ON_tape",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "tape",
+      "triangles": 376
+    },
+    {
+      "name": "ToasterForm__BreadCarrier_ON_nickel",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 2256
+    },
+    {
+      "name": "ToasterForm__CarriageLever_ON_bakelite",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "ToasterForm__CarriageLever_ON_nickel",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 380
+    },
+    {
+      "name": "ToasterForm__OrisonRetrofitCrumbTray_ON_bakelite",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "bakelite",
+      "triangles": 188
+    },
+    {
+      "name": "ToasterForm__OrisonRetrofitCrumbTray_ON_grease",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "grease",
+      "triangles": 188
+    },
+    {
+      "name": "ToasterForm__OrisonRetrofitCrumbTray_ON_nickel",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "nickel",
+      "triangles": 1128
+    },
+    {
+      "name": "ToasterForm__ResistanceWire_ON_coil",
+      "assembly": "ToasterForm",
+      "cell": "shared",
+      "key": "coil",
+      "triangles": 2632
     }
   ],
-  "triangles": 41144,
+  "triangles": 62320,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -1842,6 +2536,202 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "ToasterForm",
+        "parts": [
+          {
+            "name": "ToasterForm__Body_ON_bakelite",
+            "component": "Body",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterForm__Body_ON_braid",
+            "component": "Body",
+            "key": "braid",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.32,
+              0.17,
+              0.08,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "ToasterForm__Body_ON_formpaper",
+            "component": "Body",
+            "key": "formpaper",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.8,
+              0.78,
+              0.7,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.05,
+              "roughness": 0.9
+            }
+          },
+          {
+            "name": "ToasterForm__Body_ON_mica",
+            "component": "Body",
+            "key": "mica",
+            "tile": 0.18,
+            "catalog_key": "mica_heater",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "ToasterForm__Body_ON_nickel",
+            "component": "Body",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterForm__Body_ON_tape",
+            "component": "Body",
+            "key": "tape",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.62,
+              0.5,
+              0.25,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "ToasterForm__BreadCarrier_ON_nickel",
+            "component": "BreadCarrier",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterForm__CarriageLever_ON_bakelite",
+            "component": "CarriageLever",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterForm__CarriageLever_ON_nickel",
+            "component": "CarriageLever",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterForm__OrisonRetrofitCrumbTray_ON_bakelite",
+            "component": "OrisonRetrofitCrumbTray",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterForm__OrisonRetrofitCrumbTray_ON_grease",
+            "component": "OrisonRetrofitCrumbTray",
+            "key": "grease",
+            "tile": 0.7,
+            "catalog_key": "fx_grease",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "ToasterForm__OrisonRetrofitCrumbTray_ON_nickel",
+            "component": "OrisonRetrofitCrumbTray",
+            "key": "nickel",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.35
+            }
+          },
+          {
+            "name": "ToasterForm__ResistanceWire_ON_coil",
+            "component": "ResistanceWire",
+            "key": "coil",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.1,
+              0.03,
+              0.01,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -1863,7 +2753,7 @@
       },
       {
         "id": "F04_4A_TOASTER_01",
-        "variant": "ToasterFront"
+        "variant": "ToasterForm"
       },
       {
         "id": "F04_B_TOASTER_01",
@@ -1888,11 +2778,11 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "8ef87e80828fb4e0e1eba1af8938250a4c1a062d50bf00eb8efbe0ddb7927e9b",
+  "asset_sha256": "7ab096d7bf5de6f7809bb75eff2c1cb90e06b936baa34a6f1110d2a799aee08e",
   "source_bindings": {
-    "art/data/household_toasters/source_plan.json": "8be1d6819fca9614f560288d4fd85f4f3b8b0717695dfb6c5a8303d067b6c8fe",
+    "art/data/household_toasters/source_plan.json": "8204bfb24205a7438be6311cd7c3ee30ae34cf4caa6e04731e0206eebb633a89",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_household_toasters.py": "f31c69178fd233228ae171500b14291b53751e4c4691d8a256d50594ba20f60e",
+    "art/blender/scripts/build_household_toasters.py": "8296e04fa2f7e2142acc13d31eee6cc9107accac6bccd322b5b4095dbf9614a9",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -1929,9 +2819,9 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_household_toasters.py": "29c3abeef6541c9ab654a81f818b91d6546c92f7048008ed935f75a1e624d244",
     "art/blender/scripts/render_household_toasters.py": "408e18aac98c1f86f34abdbf1b35b9e5cf4902f66e90cf35b5fb004f3482bd7c",
-    "art/blender/scripts/household_toasters_geometry.py": "3fa6e1a60fa8d9694b0b6fe123def8551086a5a8f73436e7d4ea89b4a2d4dab4",
+    "art/blender/scripts/household_toasters_geometry.py": "8bbe76e555c5a188ed8eca49dba638a594e2c98fe1a0666fcfc7a2ec2f0dd00c",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "d4ffd5ac3f2d141fbba66b71c3f1b7adbc1a767ea0fe479a1435b500dce7e101",
+    "game/data/orison_v2/domestic_furniture.json": "0b2b229f8ea1d53ebf844a31e5db85122b04bb79a7103f870c22562cee373747",
     "game/data/orison_v2/completion_interiors.json": "a6c5fb7ae24bc1de84f901de1332a55346c968c8ca7904db65a018eec33b444c",
     "art/data/orison_v2/completion_interiors_source.json": "99460bfbb6f54dfb9a7b2f77acc9688c597f00a199822d95955e6de97eaf03b0",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
@@ -1939,20 +2829,20 @@
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_household_toaster_motion.py": "9019c8b4a08f01cd6e80f582ad5d76813eb11452db98a74c1a9782ad25553bb8",
     "art/blender/scripts/inspect_household_toasters_context.py": "005ede3728a2e9e80e77ddc92df79502e470ce15760d8046b800f5885cb616f9",
-    "game/data/orison_v2_blockout.json": "3933a2317962ffc99fa2d976553972ba8ad7131b8d8a4a73cb07e83a69fd5a21",
+    "game/data/orison_v2_blockout.json": "ba116db7164eb649101dcdfea3d13dc4676f12dbdd5fadc1703dfcefde41f771",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_surface_props.json": "63b471004e20a0130000f62041dfa1e893f2ff0652969288d10c1163d9aad53c",
-    "game/tests/fixtures/orison_surface_stock.json": "996d603f44bb57fe54c4b5b3698fce1c9d6af128c07462fd0aaebdc9cfd1b385",
-    "art/blender/domestic_storage.blend": "c347dcd8f98f73284dd8cb8c20b5f66cf0f740a04cfeb354e3ec6a1a94baf3c4",
-    "art/blender/prep_cabinets.blend": "d1614861142f3ab952e0d377aeaacf3faa879dfd6d10b063d4732f469dce7047",
-    "art/blender/household_wardrobes.blend": "779278535390a0ab69015910289ce3f0168c0183c9830b42102e0259de3e866a",
-    "art/blender/domestic_objects.blend": "940bc35c36ba6b38ba485df7d586a0fdac9027544ed3971e5961d79052a0f884",
+    "game/data/orison_v2/domestic_surface_props.json": "4771850045fe47986ae3be8766236acd84ea320136fd062147c8787598462be7",
+    "game/tests/fixtures/orison_surface_stock.json": "67bf04a0efb8457d2400b9a6ca2b4de621f891cea76c5d182582d3e584258969",
+    "art/blender/domestic_storage.blend": "759f01f08b5962e2b8dd78c24917f812ce9eb2ec654481b1d12ca79b7fc5fa47",
+    "art/blender/prep_cabinets.blend": "9819674d8d4b6c074370dd75f30a10ce89febc18cb20164eb06d472f82f2c12e",
+    "art/blender/household_wardrobes.blend": "1906ff0858e9772d8efa4c6d8fee197d29d069824c9087fb9dab924c56f13411",
+    "art/blender/domestic_objects.blend": "5ca36b2ff092439c6f158af45fc653b016cdb81abacd14014f166384072f389d",
     "game/scripts/props/toaster_prop.gd": "b10f8d9da4cf4b1ff15a26ee1853fddcaf18179f474d77992f0b260a9f73b69e",
     "game/scripts/props/functional_prop.gd": "c715e6df864bf2feb593af2cd4229dfe5e48f6fe5f173dca5615ae3fde671853",
     "game/data/orison_v2/household_accessories.json": "cb5a8580d11fedac2fe7a0b1ae6dfaa82421803b9b7d3c2abc666e81c0ff1a32",
-    "art/blender/scripts/surface_stock_geometry.py": "e24e67199442f55c2a7d6abf803f3dcdd65e953830fd73b656bd6d87add6da0e",
-    "art/blender/domestic_seating.blend": "83bca88b4605d5a2d4806740b37c81e788e0d47fe0bc4426612c65011533e5ce",
-    "art/blender/domestic_tables.blend": "2d71340da99f3d155a56e071d67851c2a3c15064ea129c28fc27e26a2dc2c84b"
+    "art/blender/scripts/surface_stock_geometry.py": "6f1972a2b4927de72c4e8bb8479e5db4d3ed6ce61c7419e8c4a399d21154b72c",
+    "art/blender/domestic_seating.blend": "9c0d007b3366a1fa6596ab60ee65e8462d08ff69981cb212b2088a2d29b9bb43",
+    "art/blender/domestic_tables.blend": "fdee8925521297d0ab6db96e3250fa03ec18f4d88229037bb19607c208e3ad3b"
   },
   "retained_stock": [
     {
@@ -1982,6 +2872,30 @@
     {
       "assembly": "ToasterEnd",
       "tray_axis": "-x",
+      "lever_pivot_godot": [
+        0.137,
+        0.137,
+        0.002
+      ],
+      "carrier_pivot_godot": [
+        0,
+        0.151,
+        0
+      ],
+      "tray_pivot_godot": [
+        0,
+        0.027,
+        0
+      ],
+      "lever_travel": 0.046,
+      "carrier_travel": 0.087,
+      "tray_travel": 0.16,
+      "original_crumb_count": 18,
+      "native_pan_top": 0.0257
+    },
+    {
+      "assembly": "ToasterForm",
+      "tray_axis": "-z",
       "lever_pivot_godot": [
         0.137,
         0.137,
@@ -2190,6 +3104,99 @@
       "id": "ToasterCrumb_CrumbPrototype",
       "stocks": [
         "ToasterCrumb_Crumb"
+      ]
+    },
+    {
+      "assembly": "ToasterForm",
+      "id": "ToasterForm_SupportedSingleSlotMechanism",
+      "stocks": [
+        "ToasterForm_Foot(-0.105, -0.045)",
+        "ToasterForm_Foot(-0.105, 0.045)",
+        "ToasterForm_Foot(0.105, -0.045)",
+        "ToasterForm_Foot(0.105, 0.045)",
+        "ToasterForm_PressedBase",
+        "ToasterForm_VentWall-1",
+        "ToasterForm_VentWall1",
+        "ToasterForm_EndWall-1",
+        "ToasterForm_EndWall1",
+        "ToasterForm_PressedShoulder",
+        "ToasterForm_SingleSlotLip_Near",
+        "ToasterForm_SingleSlotLip_Far",
+        "ToasterForm_SingleSlotLip_Left",
+        "ToasterForm_SingleSlotLip_Right",
+        "ToasterForm_Screw(-1, -0.104, -1)",
+        "ToasterForm_Screw(-1, -0.104, 1)",
+        "ToasterForm_Screw(-1, 0.104, -1)",
+        "ToasterForm_Screw(-1, 0.104, 1)",
+        "ToasterForm_Screw(1, -0.104, -1)",
+        "ToasterForm_Screw(1, -0.104, 1)",
+        "ToasterForm_Screw(1, 0.104, -1)",
+        "ToasterForm_Screw(1, 0.104, 1)",
+        "ToasterForm_BraidedSupply",
+        "ToasterForm_Plug",
+        "ToasterForm_PlugPin-0.167",
+        "ToasterForm_PlugPin-0.153",
+        "ToasterForm_MicaCard-0.034",
+        "ToasterForm_CardSaddle(-0.0934, -0.034)",
+        "ToasterForm_CardSaddle(0.0934, -0.034)",
+        "ToasterForm_MicaCard0.034",
+        "ToasterForm_CardSaddle(-0.0934, 0.034)",
+        "ToasterForm_CardSaddle(0.0934, 0.034)",
+        "ToasterForm_ResistanceWire(-0.037, 0)",
+        "ToasterForm_ResistanceWire(-0.037, 1)",
+        "ToasterForm_ResistanceWire(-0.037, 2)",
+        "ToasterForm_ResistanceWire(-0.037, 3)",
+        "ToasterForm_ResistanceWire(-0.037, 4)",
+        "ToasterForm_ResistanceWire(-0.037, 5)",
+        "ToasterForm_ResistanceWire(-0.037, 6)",
+        "ToasterForm_ResistanceWire(0.037, 0)",
+        "ToasterForm_ResistanceWire(0.037, 1)",
+        "ToasterForm_ResistanceWire(0.037, 2)",
+        "ToasterForm_ResistanceWire(0.037, 3)",
+        "ToasterForm_ResistanceWire(0.037, 4)",
+        "ToasterForm_ResistanceWire(0.037, 5)",
+        "ToasterForm_ResistanceWire(0.037, 6)",
+        "ToasterForm_TimerTrack",
+        "ToasterForm_TimerLever",
+        "ToasterForm_TimerNotch0",
+        "ToasterForm_TimerNotch1",
+        "ToasterForm_TimerNotch2",
+        "ToasterForm_TimerNotch3",
+        "ToasterForm_TimerNotch4",
+        "ToasterForm_CarriageGrip",
+        "ToasterForm_CarriageSpindle",
+        "ToasterForm_LeverGuideSide-0.014",
+        "ToasterForm_LeverGuideSide0.007",
+        "ToasterForm_LeverSlider",
+        "ToasterForm_BreadPlate",
+        "ToasterForm_CarrierWire-0.084",
+        "ToasterForm_CarrierWire-0.042",
+        "ToasterForm_CarrierWire0",
+        "ToasterForm_CarrierWire0.042",
+        "ToasterForm_CarrierWire0.084",
+        "ToasterForm_CarrierGuideBridge-0.097",
+        "ToasterForm_CarrierGuide-0.097",
+        "ToasterForm_CarrierYoke(-0.097, -0.01)",
+        "ToasterForm_CarrierYoke(-0.097, 0.009)",
+        "ToasterForm_CarrierLink-0.097",
+        "ToasterForm_CarrierGuideBridge0.097",
+        "ToasterForm_CarrierGuide0.097",
+        "ToasterForm_CarrierYoke(0.097, -0.01)",
+        "ToasterForm_CarrierYoke(0.097, 0.009)",
+        "ToasterForm_CarrierLink0.097",
+        "ToasterForm_PanRail-0.095",
+        "ToasterForm_PanRail0.095",
+        "ToasterForm_Pan",
+        "ToasterForm_PanFold-0.0525",
+        "ToasterForm_PanFold0.0513",
+        "ToasterForm_PanEnd-0.1075",
+        "ToasterForm_PanEnd0.1063",
+        "ToasterForm_PanPullStrip",
+        "ToasterForm_PanPull",
+        "ToasterForm_GreaseFilm",
+        "ToasterForm_Form",
+        "ToasterForm_Tape0.047",
+        "ToasterForm_Tape0.128"
       ]
     }
   ],

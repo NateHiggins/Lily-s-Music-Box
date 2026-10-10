@@ -63,7 +63,9 @@ selected=[row for row in accessories if row['kind']=='toaster']
 assert selected==plan['original_accessories'] and len(selected)==10
 assert plan['mechanism_source']=='game/scripts/props/toaster_prop.gd'
 assemblies=[{'id':v['id'],'kind':v['kind'],'cell':'shared','members':[{'id':v['source_id']}],'body':{'rect':[0,0,0,0],'z0':0.}} for v in plan['variants']]
-assert all(instance['variant']==('ToasterEnd' if row['tray_axis']=='-x' else 'ToasterFront') for row,instance in zip(selected,plan['instances']))
+# Every instance's variant keeps its source tray exit; owner variants (slice 38's ToasterForm) share a base form.
+variant_axis={v['id']:v.get('tray_axis') for v in plan['variants']}
+assert all(variant_axis[instance['variant']]==row['tray_axis'] for row,instance in zip(selected,plan['instances']))
 bpy.ops.wm.read_factory_settings(use_empty=True);bpy.context.preferences.filepaths.save_version=0
 closed=bpy.data.collections.new('ClosedConstruction');bpy.context.scene.collection.children.link(closed);closed.hide_render=True
 retained=bpy.data.collections.new('RetainedSourceBoxes');bpy.context.scene.collection.children.link(retained);retained.hide_render=True

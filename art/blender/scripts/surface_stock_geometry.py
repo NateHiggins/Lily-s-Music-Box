@@ -627,6 +627,32 @@ def slip(source):
  stock('Slip',(-.035,-.06,0),(.035,.06,.0011),'paper',.00008)
  stock('DogEar',(.02,.045,.0011),(.035,.06,.0019),'paper',.00008)
  bearing('slip',(0,0,0));group('Slip',start)
+# Dossier slice 38: Sacha's light box and Juno's recorder.
+def lightbox(source):
+ # A deeper light table: frosted glass over an unlit lamp in a socket, a strip of negatives on the glass.
+ start=len(stock_checks)
+ stock('Base',(-.18,-.13,0),(.18,.13,.012),'timber',.0015)
+ for x in [-.18,.16]:stock('Rail'+str(x),(x,-.13,.012),(x+.02,.13,.1),'timber',.002)
+ for y in [-.13,.11]:stock('Stile'+str(y),(-.16,y,.012),(.16,y+.02,.1),'timber',.002)
+ lathe('Socket',0,0,.012,[(0,0),(.016,0),(.016,.03),(0,.03)],'bakelite')
+ lathe('Bulb',0,0,.0415,[(0,0),(.012,0),(.02,.015),(.022,.03),(.016,.045),(0,.05)],'glassish')
+ tube('Flex',(.01,0,.022),(.159,0,.03),.004,'linen')
+ stock('Frosted',(-.165,-.115,.095),(.165,.115,.102),'glassish',.001)
+ stock('Negatives',(-.1,-.02,.102),(.1,.015,.1028),'bakelite',.0001)
+ for p in [(-.17,-.12,0),(.17,-.12,0),(-.17,.12,0),(.17,.12,0)]:bearing('light box '+str(p),p)
+ group('LightBox',start)
+def recorder(source):
+ # A black Bakelite signal recorder: two reels on the lid, a knob, a front grille and a cloth cord.
+ start=len(stock_checks)
+ stock('Case',(-.085,-.06,0),(.085,.06,.08),'bakelite',.006)
+ for x in [-.04,.04]:
+  ring('Reel'+str(x),x,0,.08,.03,.007,.005,'metal')
+  lathe('Hub'+str(x),x,0,.08,[(0,0),(.0075,0),(.0075,.008),(0,.008)],'nickel_plated')
+ lathe('Knob',.065,.045,.08,[(0,0),(.008,0),(.008,.01),(.005,.014),(0,.014)],'bakelite')
+ stock('Grille',(-.07,.06,.012),(.07,.0612,.05),'metal',.0003)
+ wire('Cord',[(.05,-.055,.03),(.05,-.085,.006),(-.02,-.09,.006),(-.06,-.08,.006)],.0035,'linen')
+ for p in [(-.07,-.045,0),(.07,-.045,0),(-.07,.045,0),(.07,.045,0)]:bearing('recorder '+str(p),p)
+ group('Recorder',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -694,4 +720,6 @@ for assembly in assemblies:
  elif kind=='repot':repot(source)
  elif kind=='codebooks':codebooks(source)
  elif kind=='slip':slip(source)
+ elif kind=='lightbox':lightbox(source)
+ elif kind=='recorder':recorder(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

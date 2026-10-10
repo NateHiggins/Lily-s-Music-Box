@@ -6324,6 +6324,120 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "6A_light_box",
+      "parts": [
+        {
+          "name": "6A_light_box__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "6A_light_box__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "6A_light_box__linen",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "6A_light_box__timber",
+          "key": "timber",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "2C_recorder",
+      "parts": [
+        {
+          "name": "2C_recorder__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "2C_recorder__linen",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "2C_recorder__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "2C_recorder__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "2C_night_mug",
+      "parts": [
+        {
+          "name": "2C_night_mug__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "local_materials": {

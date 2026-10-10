@@ -156,6 +156,8 @@ Slices landed so far (evidence folders in parentheses):
     with a brush tin); the stove test walks each range's own assembly (`slice36`).
 37. 4B's bare equipment shelf, 6B's cup rings, 3A's repotting, 5A's code books, 4B's
     boots and slip, and stronger grease and workshop wear on the ranges (`slice37`).
+38. 2B's dress form, 2C's recorder and mug; 4A's taped form and 6A's light box are built
+    here and placed again in slices 41 and 40 (`slice38`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

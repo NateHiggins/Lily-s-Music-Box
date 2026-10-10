@@ -807,6 +807,25 @@ def workboots(source):
  for p in [(-.11,-.13,0),(-.03,-.13,0),(-.11,.13,0),(-.03,.13,0),(-.01,0,0),(.04,.08,0),(.1,-.075,0)]:bearing('boot '+str(p),p)
  group('WorkBoots',start)
 
+def dressform(source):
+ # Dossier slice 38: a tripod dress form wearing Lena's own voile frock, its hem pinned up on one side.
+ start=len(stock_checks)
+ lathe('Hub',0,0,.1,[(0,0),(.03,0),(.03,.06),(0,.06)],'timber')
+ for i,a in enumerate([math.pi/2,math.pi*7/6,math.pi*11/6]):
+  x=.25*math.cos(a);y=.25*math.sin(a)
+  tube('Leg'+str(i),(0,0,.14),(x,y,.02),.012,'timber')
+  stock('Foot'+str(i),(x-.02,y-.02,0),(x+.02,y+.02,.022),'timber',.003)
+  bearing('dress form foot '+str(i),(x,y,0))
+ tube('Pole',(0,0,.15),(0,0,.95),.012,'metal')
+ lathe('Skirt',0,0,.55,[(0,0),(.26,0),(.27,.01),(.2,.25),(.15,.48),(.14,.5),(0,.5)],'voile')
+ lathe('Bodice',0,0,1.05,[(0,0),(.15,0),(.17,.1),(.16,.2),(.13,.3),(.07,.36),(0,.37)],'voile')
+ lathe('NeckCap',0,0,1.41,[(0,0),(.035,0),(.035,.04),(0,.05)],'timber')
+ # The pinned hem: a row of steel pins through the turned-up edge on the side she was working.
+ for i in range(7):
+  a=-.6+.2*i
+  tube('Pin'+str(i),(.235*math.cos(a),.235*math.sin(a),.585),(.285*math.cos(a),.285*math.sin(a),.59),.0012,'metal')
+ group('DressForm',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -858,4 +877,5 @@ for assembly in assemblies:
  elif kind=='sootsack':sootsack(source)
  elif kind=='sweeprods':sweeprods(source)
  elif kind=='workboots':workboots(source)
+ elif kind=='dressform':dressform(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

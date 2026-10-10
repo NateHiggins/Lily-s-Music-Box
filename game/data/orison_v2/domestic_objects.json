@@ -3543,6 +3543,56 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject62",
+      "parts": [
+        {
+          "name": "DomesticObject62__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject62__Body_ON_timber",
+          "component": "Body",
+          "key": "timber",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject62__Body_ON_voile",
+          "component": "Body",
+          "key": "voile",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.5,
+            0.62,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.1,
+            "roughness": 0.85
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -4121,6 +4171,10 @@
     {
       "id": "4B_wake_boots",
       "variant": "DomesticObject61"
+    },
+    {
+      "id": "2B_dress_form",
+      "variant": "DomesticObject62"
     }
   ],
   "tint_space": "linear"

@@ -749,6 +749,12 @@
    "kind": "workboots",
    "source_id": "4B_wake_boots",
    "params": {}
+  },
+  {
+   "id": "DomesticObject62",
+   "kind": "dressform",
+   "source_id": "2B_dress_form",
+   "params": {}
   }
  ],
  "instances": [
@@ -1327,6 +1333,10 @@
   {
    "id": "4B_wake_boots",
    "variant": "DomesticObject61"
+  },
+  {
+   "id": "2B_dress_form",
+   "variant": "DomesticObject62"
   }
  ],
  "runtime_keys": [
@@ -1357,7 +1367,8 @@
   "jersey_maroon",
   "cape_navy",
   "coat_grey",
-  "blanket_grey"
+  "blanket_grey",
+  "voile"
  ],
  "catalog_variants": {
   "bakelite": "bakelite",
@@ -1387,7 +1398,8 @@
   "jersey_maroon": "linen",
   "cape_navy": "linen",
   "coat_grey": "linen",
-  "blanket_grey": "linen"
+  "blanket_grey": "linen",
+  "voile": "linen"
  },
  "material_tints": {
   "wood_dark": [
@@ -1460,6 +1472,12 @@
    0.28,
    0.27,
    0.25,
+   1
+  ],
+  "voile": [
+   0.42,
+   0.5,
+   0.62,
    1
   ]
  },
@@ -1575,6 +1593,10 @@
   "blanket_grey": {
    "normal_scale": 0.16,
    "roughness": 0.9
+  },
+  "voile": {
+   "normal_scale": 0.1,
+   "roughness": 0.85
   }
  },
  "placement": {
@@ -1606,7 +1628,8 @@
   "Slice 33 of the V2 environment dossier adds three forms for the roof bulkhead (a coil of washing line, a watering can, a gardening trug) and 6A's row of three small prints as copies of 2C_album_a.",
   "Slice 34 of the V2 environment dossier adds the chimney sweep's soot sack and rod bundle inside the roof service bulkhead and 1A's trunk of lesson plans, a larger variant of the suitcase form.",
   "Slice 35 of the V2 environment dossier fills 2A's bedroom pinboard (DomesticObject00) to a full grid of 24 cards.",
-  "Slice 37 of the V2 environment dossier adds a workboots form: 4B's pair of boots kicked off at the alcove bed's foot, one fallen against the other."
+  "Slice 37 of the V2 environment dossier adds a workboots form: 4B's pair of boots kicked off at the alcove bed's foot, one fallen against the other.",
+  "Slice 38 of the V2 environment dossier adds a dressform form: Lena's tripod dress form in 2B wearing her own printed voile frock with a row of pins in the turned-up hem. voile is a tinted alias of the catalogue linen."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

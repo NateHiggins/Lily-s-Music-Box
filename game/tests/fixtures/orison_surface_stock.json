@@ -2031,6 +2031,24 @@
       "kind": "slip",
       "cell": "4B",
       "source_record": "4B_wake_slip"
+    },
+    {
+      "id": "6A_light_box",
+      "kind": "lightbox",
+      "cell": "6A",
+      "source_record": "6A_light_box"
+    },
+    {
+      "id": "2C_recorder",
+      "kind": "recorder",
+      "cell": "2C",
+      "source_record": "2C_recorder"
+    },
+    {
+      "id": "2C_night_mug",
+      "kind": "mug",
+      "cell": "2C",
+      "source_record": "2C_night_mug"
     }
   ],
   "closed_stocks": [
@@ -15539,6 +15557,126 @@
       "assembly": "4B_wake_slip",
       "key": "paper",
       "volume_m3": 1.7980372556587685e-07
+    },
+    {
+      "name": "6A_light_box_Base",
+      "assembly": "6A_light_box",
+      "key": "timber",
+      "volume_m3": 0.0011217837264800082
+    },
+    {
+      "name": "6A_light_box_Rail-0.18",
+      "assembly": "6A_light_box",
+      "key": "timber",
+      "volume_m3": 0.0004561418529913793
+    },
+    {
+      "name": "6A_light_box_Rail0.16",
+      "assembly": "6A_light_box",
+      "key": "timber",
+      "volume_m3": 0.0004561418529913793
+    },
+    {
+      "name": "6A_light_box_Stile-0.13",
+      "assembly": "6A_light_box",
+      "key": "timber",
+      "volume_m3": 0.000561501495413392
+    },
+    {
+      "name": "6A_light_box_Stile0.11",
+      "assembly": "6A_light_box",
+      "key": "timber",
+      "volume_m3": 0.000561501495413392
+    },
+    {
+      "name": "6A_light_box_Socket",
+      "assembly": "6A_light_box",
+      "key": "bakelite",
+      "volume_m3": 2.4058588238496733e-05
+    },
+    {
+      "name": "6A_light_box_Bulb",
+      "assembly": "6A_light_box",
+      "key": "glassish",
+      "volume_m3": 5.1458646192257846e-05
+    },
+    {
+      "name": "6A_light_box_Flex",
+      "assembly": "6A_light_box",
+      "key": "linen",
+      "volume_m3": 7.4788313851853555e-06
+    },
+    {
+      "name": "6A_light_box_Frosted",
+      "assembly": "6A_light_box",
+      "key": "glassish",
+      "volume_m3": 0.0005307346647817662
+    },
+    {
+      "name": "6A_light_box_Negatives",
+      "assembly": "6A_light_box",
+      "key": "bakelite",
+      "volume_m3": 5.597634581583415e-06
+    },
+    {
+      "name": "2C_recorder_Case",
+      "assembly": "2C_recorder",
+      "key": "bakelite",
+      "volume_m3": 0.0016190476381399749
+    },
+    {
+      "name": "2C_recorder_Reel-0.04",
+      "assembly": "2C_recorder",
+      "key": "metal",
+      "volume_m3": 1.3215751687364352e-05
+    },
+    {
+      "name": "2C_recorder_Hub-0.04",
+      "assembly": "2C_recorder",
+      "key": "nickel_plated",
+      "volume_m3": 1.4096830235737263e-06
+    },
+    {
+      "name": "2C_recorder_Reel0.04",
+      "assembly": "2C_recorder",
+      "key": "metal",
+      "volume_m3": 1.321575168736432e-05
+    },
+    {
+      "name": "2C_recorder_Hub0.04",
+      "assembly": "2C_recorder",
+      "key": "nickel_plated",
+      "volume_m3": 1.4096830235737278e-06
+    },
+    {
+      "name": "2C_recorder_Knob",
+      "assembly": "2C_recorder",
+      "key": "bakelite",
+      "volume_m3": 2.543694515445008e-06
+    },
+    {
+      "name": "2C_recorder_Grille",
+      "assembly": "2C_recorder",
+      "key": "metal",
+      "volume_m3": 6.367927052672701e-06
+    },
+    {
+      "name": "2C_recorder_Cord",
+      "assembly": "2C_recorder",
+      "key": "linen",
+      "volume_m3": 4.775419042259487e-06
+    },
+    {
+      "name": "2C_night_mug_Cup",
+      "assembly": "2C_night_mug",
+      "key": "porcelain",
+      "volume_m3": 0.00012182166529842506
+    },
+    {
+      "name": "2C_night_mug_Handle",
+      "assembly": "2C_night_mug",
+      "key": "porcelain",
+      "volume_m3": 9.637277241934443e-06
     }
   ],
   "contacts": [
@@ -25171,6 +25309,141 @@
         0
       ],
       "label": "slip"
+    },
+    {
+      "assembly": "6A_light_box",
+      "owner": "support",
+      "point": [
+        -0.17,
+        0,
+        0.12
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "light box (-0.17, -0.12, 0)"
+    },
+    {
+      "assembly": "6A_light_box",
+      "owner": "support",
+      "point": [
+        0.17,
+        0,
+        0.12
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "light box (0.17, -0.12, 0)"
+    },
+    {
+      "assembly": "6A_light_box",
+      "owner": "support",
+      "point": [
+        -0.17,
+        0,
+        -0.12
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "light box (-0.17, 0.12, 0)"
+    },
+    {
+      "assembly": "6A_light_box",
+      "owner": "support",
+      "point": [
+        0.17,
+        0,
+        -0.12
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "light box (0.17, 0.12, 0)"
+    },
+    {
+      "assembly": "2C_recorder",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "recorder (-0.07, -0.045, 0)"
+    },
+    {
+      "assembly": "2C_recorder",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "recorder (0.07, -0.045, 0)"
+    },
+    {
+      "assembly": "2C_recorder",
+      "owner": "support",
+      "point": [
+        -0.07,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "recorder (-0.07, 0.045, 0)"
+    },
+    {
+      "assembly": "2C_recorder",
+      "owner": "support",
+      "point": [
+        0.07,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "recorder (0.07, 0.045, 0)"
+    },
+    {
+      "assembly": "2C_night_mug",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "cup foot"
     }
   ],
   "parts": [
@@ -28239,9 +28512,72 @@
       "cell": "4B",
       "key": "paper",
       "triangles": 376
+    },
+    {
+      "name": "6A_light_box__bakelite",
+      "assembly": "6A_light_box",
+      "cell": "6A",
+      "key": "bakelite",
+      "triangles": 380
+    },
+    {
+      "name": "6A_light_box__glassish",
+      "assembly": "6A_light_box",
+      "cell": "6A",
+      "key": "glassish",
+      "triangles": 572
+    },
+    {
+      "name": "6A_light_box__linen",
+      "assembly": "6A_light_box",
+      "cell": "6A",
+      "key": "linen",
+      "triangles": 188
+    },
+    {
+      "name": "6A_light_box__timber",
+      "assembly": "6A_light_box",
+      "cell": "6A",
+      "key": "timber",
+      "triangles": 940
+    },
+    {
+      "name": "2C_recorder__bakelite",
+      "assembly": "2C_recorder",
+      "cell": "2C",
+      "key": "bakelite",
+      "triangles": 476
+    },
+    {
+      "name": "2C_recorder__linen",
+      "assembly": "2C_recorder",
+      "cell": "2C",
+      "key": "linen",
+      "triangles": 92
+    },
+    {
+      "name": "2C_recorder__metal",
+      "assembly": "2C_recorder",
+      "cell": "2C",
+      "key": "metal",
+      "triangles": 1724
+    },
+    {
+      "name": "2C_recorder__nickel_plated",
+      "assembly": "2C_recorder",
+      "cell": "2C",
+      "key": "nickel_plated",
+      "triangles": 384
+    },
+    {
+      "name": "2C_night_mug__porcelain",
+      "assembly": "2C_night_mug",
+      "cell": "2C",
+      "key": "porcelain",
+      "triangles": 1748
     }
   ],
-  "triangles": 804384,
+  "triangles": 810888,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -34569,6 +34905,120 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "6A_light_box",
+        "parts": [
+          {
+            "name": "6A_light_box__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "6A_light_box__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "6A_light_box__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "6A_light_box__timber",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "2C_recorder",
+        "parts": [
+          {
+            "name": "2C_recorder__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "2C_recorder__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "2C_recorder__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "2C_recorder__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "2C_night_mug",
+        "parts": [
+          {
+            "name": "2C_night_mug__porcelain",
+            "key": "porcelain",
+            "tile": 0.4,
+            "catalog_key": "porcelain_fixture",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.35
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -34597,9 +35047,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "efe90eaa41d0edceaabef578229b2ad820c16b00aecae3f16a25cfaef8f923d8",
+  "asset_sha256": "fe3e0ca25b70d44c30376251dfdc06d820e8d06c4ded33b466ecaa570f90d837",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "b1feffba9d992fc9c24b28436d0e250c4fa6d51159fb7a3da832197a39ab39e8",
+    "art/data/surface_stock/source_plan.json": "6455a13a013b3c11b461320739202221f4d613524c28be5d7c53b1ae98bdf9f2",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -34715,13 +35165,13 @@
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "e32fd8d9a6f589a1fd256224a995d6f81f329b9dc67f5eeabdf0d0d80372c854",
+    "art/blender/scripts/surface_stock_geometry.py": "51184f0f7ff36ed8a59a5650e1732cded7dc8f90875256f526a05f980e4c4a7d",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "63b471004e20a0130000f62041dfa1e893f2ff0652969288d10c1163d9aad53c",
+    "game/data/orison_v2/domestic_surface_props.json": "4771850045fe47986ae3be8766236acd84ea320136fd062147c8787598462be7",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "d4ffd5ac3f2d141fbba66b71c3f1b7adbc1a767ea0fe479a1435b500dce7e101"
+    "game/data/orison_v2/domestic_furniture.json": "0b2b229f8ea1d53ebf844a31e5db85122b04bb79a7103f870c22562cee373747"
   },
   "retained_stock": [
     {
@@ -42304,6 +42754,44 @@
       "stocks": [
         "4B_wake_slip_Slip",
         "4B_wake_slip_DogEar"
+      ]
+    },
+    {
+      "assembly": "6A_light_box",
+      "id": "6A_light_box_LightBox",
+      "stocks": [
+        "6A_light_box_Base",
+        "6A_light_box_Rail-0.18",
+        "6A_light_box_Rail0.16",
+        "6A_light_box_Stile-0.13",
+        "6A_light_box_Stile0.11",
+        "6A_light_box_Socket",
+        "6A_light_box_Bulb",
+        "6A_light_box_Flex",
+        "6A_light_box_Frosted",
+        "6A_light_box_Negatives"
+      ]
+    },
+    {
+      "assembly": "2C_recorder",
+      "id": "2C_recorder_Recorder",
+      "stocks": [
+        "2C_recorder_Case",
+        "2C_recorder_Reel-0.04",
+        "2C_recorder_Hub-0.04",
+        "2C_recorder_Reel0.04",
+        "2C_recorder_Hub0.04",
+        "2C_recorder_Knob",
+        "2C_recorder_Grille",
+        "2C_recorder_Cord"
+      ]
+    },
+    {
+      "assembly": "2C_night_mug",
+      "id": "2C_night_mug_Mug",
+      "stocks": [
+        "2C_night_mug_Cup",
+        "2C_night_mug_Handle"
       ]
     }
   ],
