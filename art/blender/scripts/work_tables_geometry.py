@@ -65,19 +65,20 @@ for sx in (-1,1):
   support(identity,'floor',(x,y,0),(0,0,1),'angle leg '+label)
   stock('TopBracket'+label,(x-.044,y-.034,.837),(x+.044,y+.034,.85),'iron_blackened')
   fastener('TopBolt'+label,x,y,.91,.004)
+# Dossier slice 43: the tray and the hanging cupboard are grey painted iron.
 # Folded lower tray reaches the leg angles at its hem.
-stock('ShelfPan',(-1.02,-.34,.22),(1.02,.34,.223),'iron_blackened',.0005)
-for side in (-1,1):stock('ShelfHem'+str(side),(-1.02,side*.338-.002,.221),(1.02,side*.338+.002,.25),'iron_blackened',.0005)
-for side in (-1,1):stock('ShelfEnd'+str(side),(side*1.018-.002,-.34,.221),(side*1.018+.002,.34,.25),'iron_blackened',.0005)
+stock('ShelfPan',(-1.02,-.34,.22),(1.02,.34,.223),'iron_neutral',.0005)
+for side in (-1,1):stock('ShelfHem'+str(side),(-1.02,side*.338-.002,.221),(1.02,side*.338+.002,.25),'iron_neutral',.0005)
+for side in (-1,1):stock('ShelfEnd'+str(side),(side*1.018-.002,-.34,.221),(side*1.018+.002,.34,.25),'iron_neutral',.0005)
 # Folded hanging tool cupboard. Native shell, shut door, actual hangers.
-stock('CabinetBottom',(-.55,-.36,.60),(.05,.36,.603),'iron_blackened',.0005)
-stock('CabinetTop',(-.55,-.36,.817),(.05,.36,.82),'iron_blackened',.0005)
-stock('CabinetBack',(-.55,-.36,.602),(.05,-.357,.819),'iron_blackened',.0005)
+stock('CabinetBottom',(-.55,-.36,.60),(.05,.36,.603),'iron_neutral',.0005)
+stock('CabinetTop',(-.55,-.36,.817),(.05,.36,.82),'iron_neutral',.0005)
+stock('CabinetBack',(-.55,-.36,.602),(.05,-.357,.819),'iron_neutral',.0005)
 for side,x in enumerate((-.55,.047)):
- stock('CabinetSide'+str(side),(x,-.359,.602),(x+.003,.36,.819),'iron_blackened',.0005)
- stock('CabinetHanger'+str(side),(x-.005,-.30,.817),(x+.008,.30,.851),'iron_blackened',.0007)
-stock('CabinetFace',(-.549,.357,.602),(.049,.361,.819),'iron_blackened',.0005)
-stock('CabinetDoor',(-.52,.360,.63),(.02,.375,.79),'iron_blackened',.0015)
+ stock('CabinetSide'+str(side),(x,-.359,.602),(x+.003,.36,.819),'iron_neutral',.0005)
+ stock('CabinetHanger'+str(side),(x-.005,-.30,.817),(x+.008,.30,.851),'iron_neutral',.0007)
+stock('CabinetFace',(-.549,.357,.602),(.049,.361,.819),'iron_neutral',.0005)
+stock('CabinetDoor',(-.52,.360,.63),(.02,.375,.79),'iron_neutral',.0015)
 for x in (-.35,-.15):turned('PullPost'+str(x),(x,.372,.71),(x,.39,.71),.008,'iron_blackened')
 turned('Pull',(-.36,.39,.71),(-.14,.39,.71),.01,'iron_blackened')
 # Original closed passive edge vise: two jaws, slide and screw held in a saddle.
@@ -129,12 +130,12 @@ for shape,args,kw in source.rows:
   paper_stock.append({'name':'Roll'+str(index),'source_args':args,'hollow_wall_m':.003})
 
 identity='6A_deskwall'
-stock('Top',(-.4,-1.3,.72),(.4,1.3,.77),'trim',.002)
-# Two original slab supports interpreted as folded sheet pedestals, same envelope.
+# Dossier slice 43 (F06_A_STUDY-003): an oak top on two solid oak ends, inside the original
+# slab-support envelope; the white painted slab and the black folded pedestals read as modern.
+stock('Top',(-.4,-1.3,.72),(.4,1.3,.77),'oak_work_surface',.002)
 for sy in (-1,1):
  y=sy*1.14;label=str(sy)
- stock('PedestalWeb'+label,(-.30,y-.002,0),(.30,y+.002,.721),'iron_blackened',.0005)
- for sx in (-1,1):stock('PedestalReturn'+str((sx,sy)),(sx*.298-.002,y-.06,0),(sx*.298+.002,y+.06,.721),'iron_blackened',.0005)
- stock('PedestalTop'+label,(-.30,y-.06,.712),(.30,y+.06,.721),'iron_blackened',.0005)
- stock('PedestalFoot'+label,(-.30,y-.06,0),(.30,y+.06,.006),'iron_blackened',.0005)
+ stock('PedestalPanel'+label,(-.28,y-.024,.05),(.28,y+.024,.699),'wood_dark',.003)
+ stock('PedestalCap'+label,(-.30,y-.045,.698),(.30,y+.045,.721),'wood_dark',.003)
+ stock('PedestalPlinth'+label,(-.30,y-.06,0),(.30,y+.06,.051),'wood_dark',.003)
  for x in (-.24,.24):support(identity,'floor',(x,y,0),(0,0,1),'folded pedestal '+label)

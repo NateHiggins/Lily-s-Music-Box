@@ -1129,7 +1129,9 @@
    ],
    "acceptance": "alley_0 station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_ALLEY"
+   "area": "CITY_ALLEY",
+   "status": "implemented",
+   "owner_notes": "The alley rear door is the same service leaf and now shows its stiles, mid rail and kick plates (alley_0). Not made: the panel field keeps its speckled painted-steel finish. Verified at WIP f611321a (implementation/slice43): fabrication batch 0 failures across 14 modules (work tables included); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488 (eight fewer of the pre-existing material-binding class, from the headsets); upper lighting 0 failures; public doors 17 waypoints, 0 failures; door casings 107 openings, 0 failures; the eight-space sweep and the 130-station city sweep 0 failures."
   },
   {
    "id": "CITY_SUBWAY-001",
@@ -5538,7 +5540,9 @@
    ],
    "acceptance": "Bench and shelf details",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_B_MAIN"
+   "area": "F03_B_MAIN",
+   "status": "implemented",
+   "owner_notes": "Omar's bench cupboard and its lower tray are grey painted iron (the catalogue iron_neutral) instead of blackened iron, so the carcass reads as painted sheet metal (3B_workbench_stock, native 3B_workbench). Not made: the shelving posts and the radio's seat. Verified at WIP f611321a (implementation/slice43): fabrication batch 0 failures across 14 modules (work tables included); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488 (eight fewer of the pre-existing material-binding class, from the headsets); upper lighting 0 failures; public doors 17 waypoints, 0 failures; door casings 107 openings, 0 failures; the eight-space sweep and the 130-station city sweep 0 failures."
   },
   {
    "id": "F03_B_KITCHEN-001",
@@ -5627,7 +5631,9 @@
    ],
    "acceptance": "Kitchen OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_B_KITCHEN"
+   "area": "F03_B_KITCHEN",
+   "status": "verified",
+   "owner_notes": "The service leaf's plain face gets flat-bar stiles, a top rail, a mid rail at lock height and kick plates on both faces in the leaf's cast-iron finish, so the kitchen's service door reads as a framed leaf, not a charcoal slab (F03_B_KITCHEN_RV). Verified at WIP f611321a (implementation/slice43): fabrication batch 0 failures across 14 modules (work tables included); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488 (eight fewer of the pre-existing material-binding class, from the headsets); upper lighting 0 failures; public doors 17 waypoints, 0 failures; door casings 107 openings, 0 failures; the eight-space sweep and the 130-station city sweep 0 failures."
   },
   {
    "id": "F03_B_PRIVATE_HALL-001",
@@ -9933,7 +9939,9 @@
    "purpose": "Review; see BW-003",
    "acceptance": "Study OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_A_STUDY"
+   "area": "F06_A_STUDY",
+   "status": "verified",
+   "owner_notes": "Sacha's desk wall is an oak top on two solid oak ends (a panel between a plinth and a cap) inside the original slab-support envelope, in place of the white painted slab on black folded pedestals; the headset lies on the desk, band on its side and both cups on their backs with the lead run off across the top, in place of the turned stand (implementation/slice43/images: 6A_deskwall_stock, F06_A_STUDY_OV, native 6A_deskwall). Verified at WIP f611321a (implementation/slice43): fabrication batch 0 failures across 14 modules (work tables included); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488 (eight fewer of the pre-existing material-binding class, from the headsets); upper lighting 0 failures; public doors 17 waypoints, 0 failures; door casings 107 openings, 0 failures; the eight-space sweep and the 130-station city sweep 0 failures."
   },
   {
    "id": "F06_B_VESTIBULE-001",

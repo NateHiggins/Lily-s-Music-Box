@@ -24,7 +24,8 @@
     "paper",
     "trim",
     "rubber_aged",
-    "soot"
+    "soot",
+    "iron_neutral"
   ],
   "catalog_variants": {
     "oak_work_surface": "oak_work_surface",
@@ -34,7 +35,8 @@
     "paper": "paper",
     "trim": "trim",
     "rubber_aged": "rubber_aged",
-    "soot": "soot"
+    "soot": "soot",
+    "iron_neutral": "iron_neutral"
   },
   "material_aliases": {},
   "material_tints": {},
@@ -46,7 +48,8 @@
     "Retain all five installed footprints, table heights, semantic identities and child owners. Four tables derive from original V1 geometry; the terminal desk is the existing V2 nine-stock interpretation.",
     "Replace primitive edge transitions with closed manufactured stock and catalogue metre grain. Flatten the original tilted feet on the floor without changing the top datums.",
     "Keep the workbench cabinet and vise closed/passive; give their existing forms actual shell thickness and attached supports.",
-    "Preserve original drafting-plan footprints and reconcile their thin-stock contacts before export. All adjacent stock and every lamp bearing must be checked against the new tables."
+    "Preserve original drafting-plan footprints and reconcile their thin-stock contacts before export. All adjacent stock and every lamp bearing must be checked against the new tables.",
+    "Slice 43 of the V2 environment dossier gives 6A's desk wall an oak top on solid oak ends (the white painted slab and black folded pedestals read as modern) and gives 3B's bench cupboard and lower tray grey painted iron (the catalogue iron_neutral) instead of blackened iron."
   ],
   "open_work": [
     "External lamp cords, desktop accessories, the functional Vantry body, lamp normal faceting and remaining household fittings require their passes.",

@@ -166,6 +166,8 @@ Slices landed so far (evidence folders in parentheses):
     bulbs, crate and charging case (`slice41`).
 42. 1D's house bell and quiet sign, 4C's route map, 5B's hearing aid, the rebuilt cone
     speaker, and a clear and a storm city sweep (`slice42`).
+43. 6A's oak desk wall with the headsets laid flat, 3B's grey iron bench cupboard, and
+    the service leaf's frame, mid rail and kick plates (`slice43`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

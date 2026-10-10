@@ -42,6 +42,12 @@
           "catalog_key": "iron_blackened"
         },
         {
+          "name": "3B_workbench__iron_neutral",
+          "key": "iron_neutral",
+          "tile": 0.4,
+          "catalog_key": "iron_neutral"
+        },
+        {
           "name": "3B_workbench__nickel_plated",
           "key": "nickel_plated",
           "tile": 0.32,
@@ -117,16 +123,16 @@
       "id": "6A_deskwall",
       "parts": [
         {
-          "name": "6A_deskwall__iron_blackened",
-          "key": "iron_blackened",
-          "tile": 0.4,
-          "catalog_key": "iron_blackened"
+          "name": "6A_deskwall__oak_work_surface",
+          "key": "oak_work_surface",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface"
         },
         {
-          "name": "6A_deskwall__trim",
-          "key": "trim",
+          "name": "6A_deskwall__wood_dark",
+          "key": "wood_dark",
           "tile": 1.2,
-          "catalog_key": "trim"
+          "catalog_key": "wood_dark"
         }
       ],
       "position": [

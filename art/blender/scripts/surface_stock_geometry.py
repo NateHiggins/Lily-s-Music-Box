@@ -37,31 +37,25 @@ def mug(source):
  points=[(.037+.025*math.sin(math.pi*t),0,.026+.054*t) for t in np.linspace(0,1,33)]
  wire('Handle',points,.0065,key);bearing('cup foot',(0,0,0));group('Mug',start)
 def headphones(source):
+ # Dossier slice 43: the headset lies on the desk, band on its side and both cups on their backs,
+ # its lead run off across the top; the turned headphone stand read as a modern object.
  start=len(stock_checks)
- lathe('Stand',0,0,0,[(0,0),(.063,0),(.065,.002),(.05,.012),(.012,.022),(.009,.24),(.02,.25),(.014,.26),(0,.265)],'wood_dark')
- # A formed arch with rectangular cross-section, seated on the turned crown.
  n=48;verts=[]
  for theta in np.linspace(0,math.pi,n+1):
   for radius in (.061,.065):
-   for y in (-.010,.010):verts.append((radius*math.cos(theta),y,.2+radius*math.sin(theta)))
+   for z in (0,.02):verts.append((radius*math.cos(theta),radius*math.sin(theta),z))
  faces=[(0,1,3,2),(n*4,n*4+2,n*4+3,n*4+1)]
  for i in range(n):
   a=i*4;b=a+4
   faces.extend([(a,b,b+1,a+1),(a+2,a+3,b+3,b+2),(a,a+2,b+2,b),(a+1,b+1,b+3,a+3)])
  solid(identity+'_Headband',verts,faces,identity,'bakelite')
  for side in (-1,1):
-  # Closed back and annular ear pad are distinct manufactured stock.
-  cup=along_x(identity+'_Earcup'+str(side),0,0,.158,[(0,.080),(.023,.080),(.038,.072),(.040,.06),(.035,.050),(0,.050)],identity,'bakelite')
-  pad=along_x(identity+'_EarPad'+str(side),0,0,.158,[(.035,.052),(.039,.048),(.036,.043),(.024,.043),(.023,.051),(.035,.052)],identity,'rubber_aged')
-  if side<0:
-   for obj in (cup,pad):
-    for v in obj.data.vertices:v.co.x=-v.co.x
-    obj.location.x=-obj.location.x
-    bm=bmesh.new();bm.from_mesh(obj.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(obj.data);bm.free()
-  tube('Yoke'+str(side),(side*.062,0,.197),(side*.062,0,.204),.007,'nickel_plated')
-  tube('CupPivot'+str(side),(side*.059,-.011,.196),(side*.065,.011,.196),.003,'nickel_plated')
- wire('Lead',[(-.062,0,.120),(-.064,.012,.086),(-.035,.034,.030),(.008,.057,.006),(.05,.09,.004)],.004,'rubber_aged')
- bearing('turned stand',(0,0,0));group('Headphones',start)
+  # Closed back and annular ear pad are distinct manufactured stock, the cup lying on its back.
+  lathe('Earcup'+str(side),side*.063,0,0,[(0,0),(.034,0),(.04,.006),(.04,.026),(.035,.03),(0,.03)],'bakelite')
+  lathe('EarPad'+str(side),side*.063,0,.0295,[(.024,0),(.036,0),(.039,.004),(.036,.009),(.024,.009),(.023,.004),(.024,0)],'rubber_aged')
+ wire('Lead',[(-.07,-.03,.012),(-.09,-.06,.006),(-.05,-.085,.006),(.02,-.09,.006)],.004,'rubber_aged')
+ for p in [(-.063,0,0),(.063,0,0),(0,.063,0)]:bearing('headset '+str(p),p)
+ group('Headphones',start)
 def papers(source,collected):
  start=len(stock_checks);z=0.
  for index,(shape,args,kw) in enumerate(collected):

@@ -197,6 +197,18 @@ func _build_service() -> void:
 	var brace := _box(_body, Vector3(brace_span.length() if knob_mesh!=null else width*.92, 0.065, 0.018),
 			Vector3(width*.5,height*.5 if knob_mesh!=null else height*.51,-.035),iron)
 	brace.rotation.z=brace_span.angle() if knob_mesh!=null else atan2(height-.40,width-.12)-PI*.5
+	# Dossier slice 44 (F03_B_KITCHEN-004, CITY_ALLEY-004): the face without the brace was a
+	# featureless slab. A flat-bar frame, a mid rail below the lock and a kick plate give it the
+	# panels of a fitted service leaf; the brace face takes a kick plate too. Visual only: the
+	# leaf's collision, pivot and lock positions are unchanged.
+	var bar := MatLib.get_mat("metal", leaf_tint.darkened(0.14))
+	var plate := MatLib.get_mat("cast_iron", Color(0.30, 0.29, 0.27))
+	for x in [0.0345, width - 0.0345]:
+		_box(_body, Vector3(0.045, height - 0.024, 0.008), Vector3(x, height * 0.5, 0.030), bar)
+	for y in [height - 0.041, 0.7275]:
+		_box(_body, Vector3(width - 0.114, 0.055 if y < 1.0 else 0.058, 0.008), Vector3(width * 0.5, y, 0.030), bar)
+	for face in [-1.0, 1.0]:
+		_box(_body, Vector3(width - 0.12, 0.168, 0.006), Vector3(width * 0.5, 0.096, face * 0.029), plate)
 	_build_knob_set(MatLib.get_mat("brass_dull", Color(0.64, 0.58, 0.43)))
 
 

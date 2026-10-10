@@ -818,9 +818,11 @@ func _wall_segment(parent: Node3D, node_name: String, axis: String, fixed: float
 ## bedroom beyond sees subway tile. A 4 mm skin on the far face takes the
 ## neighbouring space's finish, cut by the same openings. Exterior and
 ## service-opening walls are left alone; the skin has no collision.
+## Slice 44 (F05_C_BATH-003): the reverse case too. A wall a dry room owns
+## and shares with a bath gets a wet skin on its bath face, so tile no longer
+## stops at the corner of a bath whose fourth wall belongs to its neighbour.
 func _far_face_skin(parent: Node3D, node_name: String, axis: String, fixed: float,
 		at: Vector3, size: Vector3, pieces: Array[AABB], cls: String) -> void:
-	if cls != "wet": return
 	var owner: Dictionary = {}
 	for space: Dictionary in layout.spaces:
 		if str(space.id) == str(parent.name): owner = space
@@ -831,6 +833,8 @@ func _far_face_skin(parent: Node3D, node_name: String, axis: String, fixed: floa
 	var start: float = (at.x - size.x * .5) if axis == "x" else (at.z - size.z * .5)
 	var finish: float = (at.x + size.x * .5) if axis == "x" else (at.z + size.z * .5)
 	var neighbour := ""
+	var n_lo := start
+	var n_hi := finish
 	for space: Dictionary in layout.spaces:
 		if str(space.level) != str(owner.level) or str(space.id) == str(owner.id): continue
 		var q: Array = space.rect
@@ -840,8 +844,11 @@ func _far_face_skin(parent: Node3D, node_name: String, axis: String, fixed: floa
 		var hi: float = float(q[2]) if axis == "x" else float(q[3])
 		if hi <= start + .05 or lo >= finish - .05: continue
 		neighbour = str(space.get("class", "private"))
+		n_lo = maxf(lo, start)
+		n_hi = minf(hi, finish)
 		break
-	if neighbour.is_empty() or neighbour == "wet": return
+	if neighbour.is_empty() or neighbour == cls: return
+	if cls != "wet" and neighbour != "wet": return
 	var thickness: float = size.z if axis == "x" else size.x
 	var shift: float = outward * (thickness * .5 + .002)
 	var skin_at := at + (Vector3(0, 0, shift) if axis == "x" else Vector3(shift, 0, 0))
@@ -849,13 +856,30 @@ func _far_face_skin(parent: Node3D, node_name: String, axis: String, fixed: floa
 	var skin := _box(parent, node_name + "_FarSkin", skin_at, skin_size, neighbour, false)
 	var surface := SurfaceTool.new()
 	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
-	for piece: AABB in pieces:
+	var appended := 0
+	for source_piece: AABB in pieces:
+		var piece := source_piece
+		# A dry owner's wall may run past the bath: tile only the bath's own span.
+		if cls != "wet":
+			var p0: float = piece.position.x if axis == "x" else piece.position.z
+			var p1: float = piece.end.x if axis == "x" else piece.end.z
+			var c0 := maxf(p0, n_lo)
+			var c1 := minf(p1, n_hi)
+			if c1 - c0 < .01: continue
+			if axis == "x":
+				piece.position.x = c0; piece.size.x = c1 - c0
+			else:
+				piece.position.z = c0; piece.size.z = c1 - c0
 		var box := BoxMesh.new()
 		box.size = Vector3(piece.size.x, piece.size.y, .004) if axis == "x" else Vector3(.004, piece.size.y, piece.size.z)
 		var local := piece.get_center() - at
 		if axis == "x": local.z = 0.0
 		else: local.x = 0.0
 		surface.append_from(box, 0, Transform3D(Basis.IDENTITY, local))
+		appended += 1
+	if appended == 0:
+		skin.free()
+		return
 	skin.mesh = surface.commit()
 
 static func _valid_service_bounds(bounds: Variant) -> bool:
