@@ -61,3 +61,8 @@ The support adaptation now explicitly binds the existing **timber** catalogue
 finish. Copper and iron keep their original shipping owners; no new key or map
 is registered. Canonical rebuild and native/production checks apply to that
 explicit material binding.
+
+Dossier slice 57 (**CITY_SHOP_RADIO_SERVICE-003**): the finite iron ring is now
+black rubber-covered wire wound on a wooden reel standing on its lower flange,
+its bore open and its loose end run to the floor, inside the original footprint
+and maximum. Contacts are the flange's three floor samples.

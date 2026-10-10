@@ -58,3 +58,7 @@ It clears the retained repair cabinet using a declared source-derived placement.
 Affected standing diagnostics now sample outside that occupied bay; this guide’s
 historical matched captures and their exact commits remain unchanged. The accepted
 native assets, stations and geometric bearings described above are unchanged.
+
+Dossier slice 57 (**CITY_SHOP_RADIO_SERVICE-003**): the stored valves are shouldered
+envelopes in smoked glass with a silvered getter flash, standing in slatted tube
+racks on the two stocked shelves. Foot seats, crowns and shelf datums are unchanged.

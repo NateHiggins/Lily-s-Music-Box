@@ -63,3 +63,8 @@ It clears the retained repair cabinet using a declared source-derived placement.
 Affected standing diagnostics now sample outside that occupied bay; this guide’s
 historical matched captures and their exact commits remain unchanged. The accepted
 native assets, stations and geometric bearings described above are unchanged.
+
+Dossier slice 57 (**CITY_SHOP_RADIO_SERVICE-003**): a moving-coil meter with a
+wordless face stands between the scope and the set, and a soldering iron rests in
+its stand at the bench front, both seated 0.2 mm into the worktop. The bench export
+now carries eight partitions.

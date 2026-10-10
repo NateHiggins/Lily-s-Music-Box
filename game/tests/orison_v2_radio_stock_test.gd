@@ -96,7 +96,7 @@ func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, star
 
 func _check_stock_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_radio_service;var model: Node3D=cell.get_node("RadioStock")
-	check(fixture.original_records.size()==18 and fixture.assemblies.size()==1 and fixture.closed_stocks.size()==56,"four source shelves and fourteen source valves become one joined rack")
+	check(fixture.original_records.size()==18 and fixture.assemblies.size()==1 and fixture.closed_stocks.size()==90,"four source shelves and fourteen source valves become one joined rack")
 	check(model.find_children("*","Light3D",true,false).is_empty(),"stored valve rack adds no signal or illumination")
 	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
 		check(draw.transform.basis.is_equal_approx(Basis.IDENTITY) and draw.material_override==null,"rack partition retains unit-scale metre geometry")

@@ -1773,7 +1773,9 @@
    "preserve": "Receiving keyboard sessions",
    "acceptance": "Bench station shows the pointer at the band's top; no label",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "CITY_SHOP_RADIO_SERVICE"
+   "area": "CITY_SHOP_RADIO_SERVICE",
+   "status": "implemented",
+   "owner_notes": "Partial: the open-back set on the bench has a wordless dial with its pointer at the top of the band and a cone speaker on its own foot corded to it (alignment_bench, original_instruments). The low open-channel hiss is not added: the shop ambience owner is unchanged. Verified at slice 57's WIP 260849e8 (implementation/slice57b), which carries slices 55 and 56 unchanged: the fabrication batch's seven families (photo stock 467, photo counter 148, photo portraits 361, locksmith fittings 943, radio battery 247, radio display 164 and radio wire 126 checks) report 0 failures; the radio apparatus (346), radio bench (155), radio stock (735), radio receiving (586) and photo receiving (792) suites report 0 failures; the city sweep's 130 views report 0 failures. The news receiving suite's one failure there, its keyboard station's standing capsule, is identical at slice 52's WIP 3f3f0d75 before any of these shop slices (receipt base53__news_receiving)."
   },
   {
    "id": "CITY_SHOP_RADIO_SERVICE-002",
@@ -1804,7 +1806,9 @@
    ],
    "acceptance": "IN0 and floor_0 stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_RADIO_SERVICE"
+   "area": "CITY_SHOP_RADIO_SERVICE",
+   "status": "verified",
+   "owner_notes": "Valves are shouldered smoky envelopes on Bakelite bases with a silvered getter flash, the stored ones standing in slatted tube racks; a moving-coil meter and a soldering iron in its stand join the bench; the black floor ring is black rubber-covered wire wound on its own wooden reel (valve_rank, rack_front, upper_valve_rank, two_fixed_reels, shop_radio_service_SITE_SHOP_IN0_RADIO_SERVICE, storm_shop_radio_service_floor_0). Verified at slice 57's WIP 260849e8 (implementation/slice57b), which carries slices 55 and 56 unchanged: the fabrication batch's seven families (photo stock 467, photo counter 148, photo portraits 361, locksmith fittings 943, radio battery 247, radio display 164 and radio wire 126 checks) report 0 failures; the radio apparatus (346), radio bench (155), radio stock (735), radio receiving (586) and photo receiving (792) suites report 0 failures; the city sweep's 130 views report 0 failures. The news receiving suite's one failure there, its keyboard station's standing capsule, is identical at slice 52's WIP 3f3f0d75 before any of these shop slices (receipt base53__news_receiving)."
   },
   {
    "id": "CITY_SHOP_PHOTO_SUPPLIES-001",

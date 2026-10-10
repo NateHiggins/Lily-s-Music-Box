@@ -81,6 +81,31 @@ def box(name,low,high,identity,key='timber',bevel=.003,collection=closed):
  return obj
 def support(identity,owner,point,direction,label):
  contacts.append({'assembly':identity,'owner':owner,'point':[point[0],point[2],-point[1]],'direction':[direction[0],direction[2],-direction[1]],'label':label})
+def revolve_loop(name,cx,cy,loop,identity,key,n=48):
+ # Dossier slice 57: a closed cross-section (radius, height) revolved about a vertical axis.
+ verts=[(cx+r*math.cos(i*math.tau/n),cy+r*math.sin(i*math.tau/n),z) for r,z in loop for i in range(n)]
+ faces=[]
+ for k in range(len(loop)):
+  m=(k+1)%len(loop)
+  for i in range(n):j=(i+1)%n;faces.append((k*n+i,k*n+j,m*n+j,m*n+i))
+ return solid(name,verts,faces,identity,key)
+def getter_band(name,cx,cy,dome_base,height,radius,tip,top_gap,identity,n=48):
+ # The silvered getter flash on the inside of the dome, drawn as a thin band over it.
+ tmax=math.acos(tip/radius);tg=math.asin(min(1.,(height-top_gap)/height*math.sin(tmax)))
+ ts=[tg*k/9 for k in range(10)]
+ outer=[(radius*math.cos(t)+.0004,dome_base+height*math.sin(t)/math.sin(tmax)) for t in ts]
+ inner=[(radius*math.cos(t)-.0015,dome_base+height*math.sin(t)/math.sin(tmax)) for t in reversed(ts)]
+ return revolve_loop(name,cx,cy,outer+inner,identity,'getter',n)
+def tube_path(name,points,radius,identity,key,n=10):
+ # An open wire or cord along a polyline, rings carried by parallel transport.
+ pts=[Vector(p) for p in points];verts=[];u=None
+ for i,p in enumerate(pts):
+  t=(pts[min(i+1,len(pts)-1)]-pts[max(i-1,0)]).normalized()
+  if u is None:seed=Vector((0,0,1)) if abs(t.z)<.9 else Vector((1,0,0));u=t.cross(seed).normalized()
+  else:u=(u-t*u.dot(t)).normalized()
+  v=t.cross(u);verts.extend(p+radius*(u*math.cos(j*math.tau/n)+v*math.sin(j*math.tau/n)) for j in range(n))
+ m=len(pts);faces=[tuple(reversed(range(n)))]+[(i*n+j,i*n+(j+1)%n,(i+1)*n+(j+1)%n,(i+1)*n+j) for i in range(m-1) for j in range(n)]+[tuple(range((m-1)*n,m*n))]
+ return solid(name,verts,faces,identity,key)
 def rod(name,a,b,r,identity,key,n=48):
  a=Vector(a);b=Vector(b);axis=(b-a).normalized();seed=Vector((0,0,1)) if abs(axis.z)<.9 else Vector((1,0,0));u=axis.cross(seed).normalized();v=axis.cross(u)
  verts=[p+r*(u*math.cos(i*math.tau/n)+v*math.sin(i*math.tau/n)) for p in [a,b] for i in range(n)]
@@ -96,12 +121,15 @@ def tube_ring(name,a,b,outer,inner,identity,key,n=48):
 
 def stored_valve(name,cx,cy,base,top,identity):
  height=top-base;n=40
- # A passive Bakelite foot bears the original shelf; opaque opal stock keeps
- # the source maximum, overlapping the foot by four millimetres.
+ # A passive Bakelite foot bears the original shelf; the envelope keeps the
+ # source maximum, overlapping the foot by four millimetres.
  rod(name+'_BakeliteFoot',(cx,cy,base),(cx,cy,base+.027),.023,identity,'valve_base',n)
- profile=[(.015,base+.023),(.015,base+.039),(.035,base+.049),(.042,top-.042)]
- angle=math.acos(.003/.042)
- profile.extend((.042*math.cos(j*angle/12),top-.042+.042*math.sin(j*angle/12)/math.sin(angle)) for j in range(1,13))
+ # Dossier slice 57 (CITY_SHOP_RADIO_SERVICE-003): a shouldered (ST) envelope in smoked glass with a
+ # silvered getter flash over its dome, where the stock read as pale bulbs.
+ R=.036;H=top-(base+.085);angle=math.acos(.003/R)
+ profile=[(.015,base+.023),(.015,base+.033),(.026,base+.042),(.028,base+.060),(.036,base+.075),(.036,base+.085)]
+ profile.extend((R*math.cos(j*angle/12),base+.085+H*math.sin(j*angle/12)/math.sin(angle)) for j in range(1,13))
+ getter_band(name+'_GetterFlash',cx,cy,base+.085,H,R,.003,.008,identity,n)
  verts=[(cx+radius*math.cos(i*math.tau/n),cy+radius*math.sin(i*math.tau/n),z) for radius,z in profile for i in range(n)]
  faces=[tuple(reversed(range(n))),tuple(range((len(profile)-1)*n,len(profile)*n))]
  for j in range(len(profile)-1):
@@ -120,6 +148,17 @@ for item in assemblies:
   box(identity+'_Shelf'+str(j),(left,rear,z),(x1,y1,crown),identity,'timber',.002)
   for k,xx in enumerate([x0,(left+x1)*.5,x1-.04]):
    box(identity+'_BearingCleat'+str(j)+'_'+str(k),(xx-.026,rear+.024,z-.031),(xx+.026,y1-.024,z+.005),identity,'timber',.002)
+ # Dossier slice 57: each stocked shelf carries a slatted tube rack, two rails and spacer blocks, its
+ # square sockets clear of every Bakelite foot; the valves still bear on the shelf itself.
+ for shelf_index in (0,2):
+  crown=shelves[shelf_index]['z0']+shelves[shelf_index]['h']
+  row=sorted([v for v in valves if abs(v['z0']-crown)<.001],key=lambda v:v['rect'][0])
+  yc=(row[0]['rect'][1]+row[0]['rect'][3])*.5;xs=[(v['rect'][0]+v['rect'][2])*.5 for v in row]
+  for side,(ya,yb) in enumerate([(yc-.05,yc-.0278),(yc+.0278,yc+.05)]):
+   box(identity+'_TubeRackRail'+str(shelf_index)+'_'+str(side),(left+.01,ya,crown-.0002),(x1-.01,yb,crown+.018),identity,'timber',.0015)
+  edges=[left+.01]+[e for x in xs for e in (x-.028,x+.028)]+[x1-.01]
+  for k in range(0,len(edges),2):
+   box(identity+'_TubeRackBlock'+str(shelf_index)+'_'+str(k//2),(edges[k],yc-.0282,crown-.0002),(edges[k+1],yc+.0282,crown+.018),identity,'timber',.0015)
  for valve in valves:
   q=valve['rect'];stored_valve(valve['id'],(q[0]+q[2])*.5,(q[1]+q[3])*.5,valve['z0'],valve['z0']+valve['h'],identity)
 

@@ -35,9 +35,45 @@
           "catalog_key": "nickel_plated"
         },
         {
+          "name": "storm_shop_radio_service_chassis__dial_scale",
+          "key": "dial_scale",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.82,
+            0.76,
+            0.6,
+            1
+          ]
+        },
+        {
+          "name": "storm_shop_radio_service_chassis__getter",
+          "key": "getter",
+          "tile": 0.55,
+          "catalog_key": "mirror_aged"
+        },
+        {
+          "name": "storm_shop_radio_service_chassis__speaker_paper",
+          "key": "speaker_paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.45,
+            0.36,
+            0.25,
+            1
+          ]
+        },
+        {
           "name": "storm_shop_radio_service_chassis__valve_opal",
           "key": "milk_glass",
-          "tile": 0.5
+          "tile": 0.5,
+          "tint": [
+            0.2,
+            0.2,
+            0.19,
+            1
+          ]
         },
         {
           "name": "storm_shop_radio_service_scope__control_bakelite",

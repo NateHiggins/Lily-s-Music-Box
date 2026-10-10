@@ -198,6 +198,9 @@ Slices landed so far (evidence folders in parentheses):
 56. The Keys Cut shop: blanks varied by row with one row empty, a lock case open, the
     safe's blank gold-leaf cartouche, the register open with a pencil on a string
     (evidence with slice 57 in `slice57b`).
+57. The Radio Service shop: valves with getters in tube racks, the 1610 set's dial at the
+    top of the band and its cone speaker, a meter and an iron on the bench, the wire on
+    its reel (`slice57b`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

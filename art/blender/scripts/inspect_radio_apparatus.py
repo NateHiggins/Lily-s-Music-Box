@@ -86,7 +86,7 @@ for old in context:
   if matches:assert len(matches)==1;remove.append(face);counts[matches[0]]+=1
  bmesh.ops.delete(bm,geom=remove,context='FACES');bm.to_mesh(old.data);bm.free()
 assert len(counts)==10 and all(count==12 for count in counts.values()),counts
-before_bench=set(bpy.context.scene.objects);bpy.ops.import_scene.gltf(filepath=str(r/'game/assets/props/radio_bench.glb'));native_context=[o for o in bpy.context.scene.objects if o not in before_bench and o.type=='MESH'];assert len(native_context)==2
+before_bench=set(bpy.context.scene.objects);bpy.ops.import_scene.gltf(filepath=str(r/'game/assets/props/radio_bench.glb'));native_context=[o for o in bpy.context.scene.objects if o not in before_bench and o.type=='MESH'];assert len(native_context)==8
 context.extend(native_context)
 def actual_tree(obj):return BVHTree.FromPolygons([obj.matrix_world@v.co for v in obj.data.vertices],[list(p.vertices) for p in obj.data.polygons],epsilon=0.)
 owner_support=[]

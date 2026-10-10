@@ -75,3 +75,10 @@ It clears the retained repair cabinet using a declared source-derived placement.
 Affected standing diagnostics now sample outside that occupied bay; this guide’s
 historical matched captures and their exact commits remain unchanged. The accepted
 native assets, stations and geometric bearings described above are unchanged.
+
+Dossier slice 57 (**CITY_SHOP_RADIO_SERVICE-001**, **-003**): the five bench valves
+are round shouldered envelopes in smoked glass with a silvered getter flash,
+their crowns and socket joints unchanged. The set carries a wordless dial with
+its pointer at the top of the band, and a cone speaker stands on its own foot
+beside it, corded to the set's side panel. The bench export now has eight
+partitions, so the native bench context count is eight. No hiss is authored.

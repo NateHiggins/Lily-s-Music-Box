@@ -82,6 +82,25 @@ def box(name,low,high,identity,key='timber',bevel=.003,collection=closed):
  return obj
 def support(identity,owner,point,direction,label):
  contacts.append({'assembly':identity,'owner':owner,'point':[point[0],point[2],-point[1]],'direction':[direction[0],direction[2],-direction[1]],'label':label})
+def vertical_winding(name,cx,cy,z0,z1,radius,wire,turns,identity,key):
+ # Dossier slice 57: wire wound about a vertical reel axis.
+ stations=turns*24;n=8;verts=[]
+ for i in range(stations+1):
+  t=i/stations;a=turns*math.tau*t;p=Vector((cx+radius*math.cos(a),cy+radius*math.sin(a),z0+(z1-z0)*t))
+  tangent=Vector((-radius*math.sin(a)*turns*math.tau,radius*math.cos(a)*turns*math.tau,z1-z0)).normalized()
+  u=tangent.cross(Vector((0,0,1))).normalized();v=tangent.cross(u)
+  verts.extend(p+wire*(u*math.cos(j*math.tau/n)+v*math.sin(j*math.tau/n)) for j in range(n))
+ faces=[tuple(reversed(range(n)))]+[(i*n+j,i*n+(j+1)%n,(i+1)*n+(j+1)%n,(i+1)*n+j) for i in range(stations) for j in range(n)]+[tuple(range(stations*n,(stations+1)*n))]
+ return solid(name,verts,faces,identity,key)
+def tube_path(name,points,radius,identity,key,n=10):
+ pts=[Vector(p) for p in points];verts=[];u=None
+ for i,p in enumerate(pts):
+  t=(pts[min(i+1,len(pts)-1)]-pts[max(i-1,0)]).normalized()
+  if u is None:seed=Vector((0,0,1)) if abs(t.z)<.9 else Vector((1,0,0));u=t.cross(seed).normalized()
+  else:u=(u-t*u.dot(t)).normalized()
+  v=t.cross(u);verts.extend(p+radius*(u*math.cos(j*math.tau/n)+v*math.sin(j*math.tau/n)) for j in range(n))
+ m=len(pts);faces=[tuple(reversed(range(n)))]+[(i*n+j,i*n+(j+1)%n,(i+1)*n+(j+1)%n,(i+1)*n+j) for i in range(m-1) for j in range(n)]+[tuple(range((m-1)*n,m*n))]
+ return solid(name,verts,faces,identity,key)
 def rod(name,a,b,r,identity,key,n=48):
  a=Vector(a);b=Vector(b);axis=(b-a).normalized();seed=Vector((0,0,1)) if abs(axis.z)<.9 else Vector((1,0,0));u=axis.cross(seed).normalized();v=axis.cross(u)
  verts=[p+r*(u*math.cos(i*math.tau/n)+v*math.sin(i*math.tau/n)) for p in [a,b] for i in range(n)]
@@ -149,11 +168,16 @@ for item in assemblies:
    tube_ring(identity+'_PassiveCopperDrum'+str(i),(cx,yy-.124,zc),(cx,yy+.124,zc),.120,.081,identity,'copper_aged',96)
    winding(identity+'_ClosedDisplayWinding'+str(i),cx,yy,zc,.118,identity)
  elif item['kind']=='passive_iron_ring_stock':
-  for i,(xx,yy) in enumerate((x,y) for x in [cx-.10,cx+.10] for y in [cy-.17,cy+.17]):
-   box(identity+'_FloorFoot'+str(i),(xx-.02,yy-.02,floor_top),(xx+.02,yy+.02,base+.015),identity,'cast_iron',.002)
-   support(identity,item['floor']['id'],(xx,yy,floor_top),(0,0,1),'iron-ring foot on actual retained floor')
-  annular_profile(identity+'_LowerCradle',cx,cy,[(.17,.29,base-.015),(.17,.29,base+.025),(.095,.175,base+.025),(.095,.175,base-.015)],identity,'cast_iron')
-  annular_profile(identity+'_FiniteIronRing',cx,cy,[(.15,.26,base),(.16,.28,base+.04),(.16,.28,top-.04),(.15,.26,top),(.11,.20,top),(.10,.19,top-.04),(.10,.19,base+.04),(.11,.20,base)],identity,'cast_iron')
+  # Dossier slice 57 (CITY_SHOP_RADIO_SERVICE-003): the black ring on the floor was a coil of wire without
+  # its reel. Black rubber-covered wire is wound on a wooden reel standing on its lower flange, the bore
+  # open, the loose end run down to the floor inside the original footprint and height.
+  tube_ring(identity+'_LowerFlange',(cx,cy,floor_top),(cx,cy,floor_top+.022),.178,.021,identity,'timber',96)
+  for a in [0.,2.094,4.189]:support(identity,item['floor']['id'],(cx+.12*math.cos(a),cy+.12*math.sin(a),floor_top),(0,0,1),'wire reel flange on actual retained floor')
+  tube_ring(identity+'_ReelDrum',(cx,cy,floor_top+.0218),(cx,cy,top-.0218),.07,.021,identity,'timber',64)
+  tube_ring(identity+'_UpperFlange',(cx,cy,top-.022),(cx,cy,top),.178,.021,identity,'timber',96)
+  tube_ring(identity+'_WoundWire',(cx,cy,floor_top+.0218),(cx,cy,top-.0218),.133,.0695,identity,'rubber_wire',96)
+  vertical_winding(identity+'_OuterTurns',cx,cy,floor_top+.026,top-.026,.1365,.0042,32,identity,'rubber_wire')
+  tube_path(identity+'_LooseEnd',[(cx-.02,cy-.136,.21),(cx-.03,cy-.19,.17),(cx-.02,cy-.25,.06),(cx+.03,cy-.29,floor_top+.0045),(cx+.10,cy-.30,floor_top+.0045)],.0042,identity,'rubber_wire')
  else:raise AssertionError(item['kind'])
 
 for row in selected:

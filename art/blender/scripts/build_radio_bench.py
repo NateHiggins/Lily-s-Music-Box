@@ -81,6 +81,42 @@ def box(name,low,high,identity,key='timber',bevel=.003,collection=closed):
  return obj
 def support(identity,owner,point,direction,label):
  contacts.append({'assembly':identity,'owner':owner,'point':[point[0],point[2],-point[1]],'direction':[direction[0],direction[2],-direction[1]],'label':label})
+def rod(name,a,b,r,identity,key,n=48):
+ a=Vector(a);b=Vector(b);axis=(b-a).normalized();seed=Vector((0,0,1)) if abs(axis.z)<.9 else Vector((1,0,0));u=axis.cross(seed).normalized();v=axis.cross(u)
+ verts=[p+r*(u*math.cos(i*math.tau/n)+v*math.sin(i*math.tau/n)) for p in [a,b] for i in range(n)]
+ return solid(name,verts,[tuple(reversed(range(n)))]+[(i,(i+1)%n,n+(i+1)%n,n+i) for i in range(n)]+[tuple(range(n,2*n))],identity,key)
+def tube_ring(name,a,b,outer,inner,identity,key,n=48):
+ a=Vector(a);b=Vector(b);axis=(b-a).normalized();seed=Vector((0,0,1)) if abs(axis.z)<.9 else Vector((1,0,0));u=axis.cross(seed).normalized();v=axis.cross(u)
+ verts=[p+radius*(u*math.cos(i*math.tau/n)+v*math.sin(i*math.tau/n)) for p in [a,b] for radius in [outer,inner] for i in range(n)]
+ faces=[]
+ for i in range(n):
+  j=(i+1)%n;faces.extend([(i,j,2*n+j,2*n+i),(n+i,3*n+i,3*n+j,n+j),(i,n+i,n+j,j),(2*n+i,2*n+j,3*n+j,3*n+i)])
+ return solid(name,verts,faces,identity,key)
+def revolve_loop(name,cx,cy,loop,identity,key,n=48):
+ # Dossier slice 57: a closed cross-section (radius, height) revolved about a vertical axis.
+ verts=[(cx+r*math.cos(i*math.tau/n),cy+r*math.sin(i*math.tau/n),z) for r,z in loop for i in range(n)]
+ faces=[]
+ for k in range(len(loop)):
+  m=(k+1)%len(loop)
+  for i in range(n):j=(i+1)%n;faces.append((k*n+i,k*n+j,m*n+j,m*n+i))
+ return solid(name,verts,faces,identity,key)
+def getter_band(name,cx,cy,dome_base,height,radius,tip,top_gap,identity,n=48):
+ # The silvered getter flash on the inside of the dome, drawn as a thin band over it.
+ tmax=math.acos(tip/radius);tg=math.asin(min(1.,(height-top_gap)/height*math.sin(tmax)))
+ ts=[tg*k/9 for k in range(10)]
+ outer=[(radius*math.cos(t)+.0004,dome_base+height*math.sin(t)/math.sin(tmax)) for t in ts]
+ inner=[(radius*math.cos(t)-.0015,dome_base+height*math.sin(t)/math.sin(tmax)) for t in reversed(ts)]
+ return revolve_loop(name,cx,cy,outer+inner,identity,'getter',n)
+def tube_path(name,points,radius,identity,key,n=10):
+ # An open wire or cord along a polyline, rings carried by parallel transport.
+ pts=[Vector(p) for p in points];verts=[];u=None
+ for i,p in enumerate(pts):
+  t=(pts[min(i+1,len(pts)-1)]-pts[max(i-1,0)]).normalized()
+  if u is None:seed=Vector((0,0,1)) if abs(t.z)<.9 else Vector((1,0,0));u=t.cross(seed).normalized()
+  else:u=(u-t*u.dot(t)).normalized()
+  v=t.cross(u);verts.extend(p+radius*(u*math.cos(j*math.tau/n)+v*math.sin(j*math.tau/n)) for j in range(n))
+ m=len(pts);faces=[tuple(reversed(range(n)))]+[(i*n+j,i*n+(j+1)%n,(i+1)*n+(j+1)%n,(i+1)*n+j) for i in range(m-1) for j in range(n)]+[tuple(range((m-1)*n,m*n))]
+ return solid(name,verts,faces,identity,key)
 for item in assemblies:
  identity=item['id'];row=item['body'];x0,y0,x1,y1=row['rect'];floor_top=float(floor['z0'])+float(floor['h']);top=item['members'][1];a,b,c,e=top['rect'];base=top['z0'];high=base+top['h'];e=min(e,rows['storm_shop_radio_service_boh_door']['rect'][1]-.002,rows['storm_shop_radio_service_boh_knob']['rect'][1]-.002)
  for j,(x,y) in enumerate([(x0+.045,y0+.045),(x1-.045,y0+.045),(x0+.045,min(y1-.045,e-.045)),(x1-.045,min(y1-.045,e-.045)),(18.835,-56.36),(18.835,-55.92)]):
@@ -101,6 +137,28 @@ for item in assemblies:
  box(identity+'_SignalGeneratorSideLeaf',(18.79,-56.409,base),(a,-55.870,high),identity,'bench_top',.002)
  for suffix in ['chassis','scope','signal_gen']:
   instrument=rows['storm_shop_radio_service_'+suffix];r=instrument['rect'];support(identity,instrument['id'],((r[0]+r[2])*.5,(r[1]+r[3])*.5,instrument['z0']),(0,0,-1),'worktop beneath original '+suffix)
+ # Dossier slice 57 (CITY_SHOP_RADIO_SERVICE-003): a moving-coil meter between the scope and the set, and a
+ # soldering iron resting in its stand, every piece seated 0.2 mm into the worktop. No lettering.
+ wz=high-.0002
+ mx0,mx1,my0,my1=20.03,20.21,-56.30,-56.19;mcx=(mx0+mx1)*.5;mcz=wz+.072
+ box(identity+'_MeterCase',(mx0,my0,wz),(mx1,my1,wz+.13),identity,'meter_case',.006)
+ tube_ring(identity+'_MeterBezel',(mcx,my0-.004,mcz),(mcx,my0+.002,mcz),.052,.044,identity,'meter_nickel',64)
+ rod(identity+'_MeterFace',(mcx,my0-.0015,mcz),(mcx,my0+.001,mcz),.0455,identity,'meter_face',64)
+ for j in range(11):
+  ang=math.radians(150-j*12);r0=.026 if j%5==0 else .030
+  rod(identity+'_MeterTick'+str(j),(mcx+r0*math.cos(ang),my0-.0019,mcz-.012+r0*math.sin(ang)),(mcx+.036*math.cos(ang),my0-.0019,mcz-.012+.036*math.sin(ang)),.0007,identity,'meter_case',8)
+ ang=math.radians(64);rod(identity+'_MeterNeedle',(mcx,my0-.0024,mcz-.012),(mcx+.034*math.cos(ang),my0-.0024,mcz-.012+.034*math.sin(ang)),.0006,identity,'meter_case',8)
+ rod(identity+'_NeedlePivot',(mcx,my0-.0028,mcz-.012),(mcx,my0-.0005,mcz-.012),.003,identity,'meter_nickel',16)
+ for xx in [mx0+.04,mx1-.04]:rod(identity+'_MeterTerminal'+str(xx),(xx,(my0+my1)*.5,wz+.1295),(xx,(my0+my1)*.5,wz+.146),.0055,identity,'meter_nickel',16)
+ iy=-56.44;iz=wz+.066
+ box(identity+'_IronStandBase',(21.02,iy-.045,wz),(21.30,iy+.045,wz+.010),identity,'iron_stand',.003)
+ for xx in [21.07,21.25]:
+  rod(identity+'_StandPost'+str(xx),(xx,iy,wz+.009),(xx,iy,iz-.006),.003,identity,'iron_stand',12)
+  tube_ring(identity+'_StandRing'+str(xx),(xx-.003,iy,iz),(xx+.003,iy,iz),.0095,.0038,identity,'iron_stand',24)
+ rod(identity+'_IronBit',(21.00,iy,iz),(21.10,iy,iz),.0055,identity,'iron_bit',24)
+ rod(identity+'_IronShaft',(21.095,iy,iz),(21.31,iy,iz),.0042,identity,'meter_nickel',24)
+ rod(identity+'_IronHandle',(21.30,iy,iz),(21.43,iy,iz),.011,identity,'timber',24)
+ tube_path(identity+'_IronCord',[(21.425,iy,iz),(21.46,iy+.02,iz-.02),(21.475,iy+.06,wz+.0035),(21.49,iy+.20,wz+.0032),(21.50,iy+.45,wz+.0032)],.003,identity,'meter_case')
 
 for row in selected:
  x0,y0,x1,y1=row['rect'];z0=row['z0'];box(row['id']+'_RetainedBox',(x0,y0,z0),(x1,y1,z0+row['h']),row['id'],row['mat'],0,retained)

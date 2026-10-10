@@ -11,12 +11,18 @@
     "scope_case",
     "control_bakelite",
     "control_nickel",
-    "valve_opal"
+    "valve_opal",
+    "getter",
+    "dial_scale",
+    "speaker_paper"
   ],
   "catalog_variants": {
     "chassis_metal": "nickel_plated",
     "scope_case": "enamel_appliance",
-    "control_nickel": "nickel_plated"
+    "control_nickel": "nickel_plated",
+    "getter": "mirror_aged",
+    "dial_scale": "paper",
+    "speaker_paper": "paper"
   },
   "material_aliases": {
     "case_bakelite": "bakelite_black",
@@ -37,6 +43,24 @@
       0.7,
       0.73,
       0.71,
+      1
+    ],
+    "dial_scale": [
+      0.82,
+      0.76,
+      0.6,
+      1
+    ],
+    "speaker_paper": [
+      0.45,
+      0.36,
+      0.25,
+      1
+    ],
+    "valve_opal": [
+      0.2,
+      0.2,
+      0.19,
       1
     ]
   },
@@ -72,6 +96,7 @@
     "ADAPTATION: valve sockets bridge the existing 10mm gap to the original chassis crown. Every original instrument bottom stays at the existing 1.01m worktop datum.",
     "Local registered enamel_appliance and nickel_plated variants use the existing catalogue. Original unselected material owners and shared maps/shaders remain.",
     "The accepted native bench is retained as conservative contact/context authority. Other shop stock, battery rack, speakers, counter, cabinet, services, carrier behavior and routes remain separate owners.",
-    "Native volumes, stock joins, exact source replacement, retained bench contacts/context, strict metric UVs and rendered review remain required. This ignored preparation grants no runtime proof or acceptance."
+    "Native volumes, stock joins, exact source replacement, retained bench contacts/context, strict metric UVs and rendered review remain required. This ignored preparation grants no runtime proof or acceptance.",
+    "Slice 57 of the V2 environment dossier: the five bench valves become round shouldered envelopes in smoked glass (valve_opal tinted) with a silvered getter flash (registered mirror_aged), crowns and socket joints unchanged (CITY_SHOP_RADIO_SERVICE-003); the open-back set gets a wordless dial (nickel bezel, cream scale, raised ticks) with its pointer at the top of the band, and a cone speaker on its own foot beside it on the bench, corded to the set (-001). The open-channel hiss is not authored: the shop has no ambience owner."
   ]
 }

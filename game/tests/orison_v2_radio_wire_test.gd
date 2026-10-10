@@ -115,7 +115,8 @@ func _check_wire_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> voi
 		var mat:=draw.mesh.surface_get_material(0) as StandardMaterial3D
 		check(draw.transform.basis.is_equal_approx(Basis.IDENTITY) and draw.material_override==null and mat!=null and not mat.emission_enabled,"native wire/ring partition retains unit-scale passive source finish")
 	for contact: Dictionary in fixture.contacts:
-		var point:=_v(contact.point);var identity: String=contact.assembly;var key: String="timber" if identity.ends_with("_aerial_spools") else "cast_iron"
+		# Dossier slice 57: the wire reel stands on its timber flange like the aerial stock's feet.
+		var point:=_v(contact.point);var identity: String=contact.assembly;var key: String="timber"
 		var underside:=_isolated_ray(world,model,identity+"__"+key,cell.to_global(point-Vector3(0,4,0)),cell.to_global(point+Vector3(0,6,0)))
 		check(not underside.is_empty() and cell.to_local(underside.position).distance_to(point)<.00003,"actual wire/ring foot seats on unchanged retained floor: "+str(contact.label))
 	var aerial: Dictionary=originals.storm_shop_radio_service_aerial_spools;var q: Array=aerial.rect
@@ -135,10 +136,13 @@ func _check_wire_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> voi
 		check(not copper.is_empty() and cell.to_local(copper.position).y>=zc+.11997 and cell.to_local(copper.position).y<=zc+.12373,"both native reels contain finite passive copper stock: "+str(index))
 	var ring: Dictionary=originals.storm_shop_radio_service_solder_ring;var r: Array=ring.rect
 	var ring_x: float=(float(r[0])+float(r[2]))*.5;var ring_z: float=-(float(r[1])+float(r[3]))*.5
-	var cavity:=_isolated_ray(world,model,str(ring.id)+"__cast_iron",cell.to_global(Vector3(ring_x,5.,ring_z)),cell.to_global(Vector3(ring_x,-5.,ring_z)))
-	check(cavity.is_empty(),"actual finite iron ring and lower cradle retain their open centre")
-	var crown:=_isolated_ray(world,model,str(ring.id)+"__cast_iron",cell.to_global(Vector3(ring_x+.13,5.,ring_z)),cell.to_global(Vector3(ring_x+.13,-5.,ring_z)))
-	check(not crown.is_empty() and absf(cell.to_local(crown.position).y-(float(ring.z0)+float(ring.h)))<.00003,"native iron stock preserves its original source maximum")
+	# Dossier slice 57: the black coil is wire wound on its own wooden reel, the reel's bore open.
+	var cavity:=_isolated_ray(world,model,str(ring.id)+"__timber",cell.to_global(Vector3(ring_x,5.,ring_z)),cell.to_global(Vector3(ring_x,-5.,ring_z)))
+	check(cavity.is_empty(),"actual wire reel keeps its open bore")
+	var crown:=_isolated_ray(world,model,str(ring.id)+"__timber",cell.to_global(Vector3(ring_x+.16,5.,ring_z)),cell.to_global(Vector3(ring_x+.16,-5.,ring_z)))
+	check(not crown.is_empty() and absf(cell.to_local(crown.position).y-(float(ring.z0)+float(ring.h)))<.00003,"the reel's upper flange preserves the original source maximum")
+	var coil:=_isolated_ray(world,model,str(ring.id)+"__rubber_wire",cell.to_global(Vector3(ring_x+.10,5.,ring_z)),cell.to_global(Vector3(ring_x+.10,-5.,ring_z)))
+	check(not coil.is_empty() and cell.to_local(coil.position).y>.25 and cell.to_local(coil.position).y<float(ring.z0)+float(ring.h),"wound wire fills the reel between its flanges")
 
 func _retail_detail_views(world: OrisonV2RuntimeRoot, _fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_radio_service;var observations: Array=[]

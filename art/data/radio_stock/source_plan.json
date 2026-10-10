@@ -5,15 +5,24 @@
   "runtime_keys": [
     "timber",
     "milk_glass",
-    "valve_base"
+    "valve_base",
+    "getter"
   ],
   "catalog_variants": {
-    "valve_base": "bakelite_black"
+    "valve_base": "bakelite_black",
+    "getter": "mirror_aged"
   },
   "material_aliases": {
     "valve_base": "milk_glass"
   },
-  "material_tints": {},
+  "material_tints": {
+    "milk_glass": [
+      0.2,
+      0.2,
+      0.19,
+      1
+    ]
+  },
   "trim_tolerance_m": 2e-05,
   "groups": [
     {
@@ -45,6 +54,7 @@
     "ADAPTATION: the four shelves become a joined floor-supported rack with six seated feet. Each board extends 53mm toward source X19.547, within the leftmost original valve footprint, to resolve the original half-supported valve. Rear boards fit 2mm clear of retained wainscot. No valve is moved.",
     "ADAPTATION: worked opaque opal bulbs seat into passive local registered Bakelite bases. No filament, emissive signal, vacuum or electrical operation is inferred.",
     "Accepted bench/apparatus, cabinet, charging stock, speakers, counter, walls, door/handle, hours, keys, saves, services and carrier state retain their separate owners.",
-    "Positive connected closed stock, rack joins, actual floor and valve bearings, original context, strict metre charts, matched standing views and runtime reconstruction require verification. This ignored plan grants no proof or acceptance."
+    "Positive connected closed stock, rack joins, actual floor and valve bearings, original context, strict metre charts, matched standing views and runtime reconstruction require verification. This ignored plan grants no proof or acceptance.",
+    "Slice 57 of the V2 environment dossier (CITY_SHOP_RADIO_SERVICE-003): the fourteen stored valves become shouldered (ST) envelopes in smoked glass (milk_glass tinted) with a silvered getter flash (registered mirror_aged) on their Bakelite bases, and the two stocked shelves carry slatted tube racks whose square sockets clear every foot. Shelf datums, foot seats and crowns are unchanged."
   ]
 }

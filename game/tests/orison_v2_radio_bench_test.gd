@@ -96,7 +96,7 @@ func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, star
 
 func _check_bench_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_radio_service;var model: Node3D=cell.get_node("RadioBench")
-	check(fixture.original_records.size()==2 and fixture.assemblies.size()==1 and fixture.closed_stocks.size()==32,"only the two original bench records become one joined supported assembly")
+	check(fixture.original_records.size()==2 and fixture.assemblies.size()==1 and fixture.closed_stocks.size()==59,"only the two original bench records become one joined supported assembly")
 	var identity:=str(fixture.assemblies[0].id)
 	var top: MeshInstance3D=model.find_children("*","MeshInstance3D",true,false).filter(func(draw):return str(draw.get_meta("radio_bench_part",""))==identity+"__bench_top")[0]
 	check(top.transform.basis.is_equal_approx(Basis.IDENTITY) and top.material_override==null,"actual worktop retains unit-scale native metre geometry and shipping maps")

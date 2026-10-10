@@ -6,14 +6,32 @@
     "timber",
     "wood_dark",
     "bench_frame",
-    "bench_top"
+    "bench_top",
+    "meter_case",
+    "meter_face",
+    "meter_nickel",
+    "iron_bit",
+    "iron_stand"
   ],
-  "catalog_variants": {},
+  "catalog_variants": {
+    "meter_case": "bakelite_black",
+    "meter_face": "paper",
+    "meter_nickel": "nickel_plated",
+    "iron_bit": "copper_aged",
+    "iron_stand": "iron_blackened"
+  },
   "material_aliases": {
     "bench_frame": "timber",
     "bench_top": "wood_dark"
   },
-  "material_tints": {},
+  "material_tints": {
+    "meter_face": [
+      0.86,
+      0.82,
+      0.7,
+      1
+    ]
+  },
   "trim_tolerance_m": 2e-05,
   "groups": [
     {
@@ -29,6 +47,7 @@
     "ADAPTATION: six floor-seated timber feet and worked aprons replace the solid bench body; the original worktop height remains 1.01m. A narrow side leaf and two feet under the existing signal generator bridge its original 0.35m unsupported overhang without moving the instrument.",
     "ADAPTATION: the back edge is fitted clear of the retained wainscot and decorative rear door, within the original worktop envelope. No original wall or door is cut or hidden.",
     "Original shipping timber and dark wood maps remain. No new map, material key, shared shader, lettering or invented instrument operation.",
-    "Actual retained room/floor/instrument contacts, stock joins, strict metric charts and rendered review are required. This ignored preparation grants no runtime proof, route, alignment procedure, capacity or acceptance."
+    "Actual retained room/floor/instrument contacts, stock joins, strict metric charts and rendered review are required. This ignored preparation grants no runtime proof, route, alignment procedure, capacity or acceptance.",
+    "Slice 57 of the V2 environment dossier (CITY_SHOP_RADIO_SERVICE-003): a moving-coil meter (Bakelite case, nickel bezel, cream wordless face with raised ticks and needle, two terminals) stands between the scope and the set, and a soldering iron (copper bit, nickel shaft, timber handle, cord) rests in its cast stand at the bench front. The worktop height, side-leaf extent and back clearance are unchanged."
   ]
 }

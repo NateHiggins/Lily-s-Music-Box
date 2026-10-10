@@ -211,40 +211,40 @@
       "volume_m3": 0.0005078142332139298
     },
     {
-      "name": "storm_shop_radio_service_solder_ring_FloorFoot0",
+      "name": "storm_shop_radio_service_solder_ring_LowerFlange",
       "assembly": "storm_shop_radio_service_solder_ring",
-      "key": "cast_iron",
-      "volume_m3": 0.0001353536157174451
+      "key": "timber",
+      "volume_m3": 0.002157822835217082
     },
     {
-      "name": "storm_shop_radio_service_solder_ring_FloorFoot1",
+      "name": "storm_shop_radio_service_solder_ring_ReelDrum",
       "assembly": "storm_shop_radio_service_solder_ring",
-      "key": "cast_iron",
-      "volume_m3": 0.00013535361448485357
+      "key": "timber",
+      "volume_m3": 0.004005550069000174
     },
     {
-      "name": "storm_shop_radio_service_solder_ring_FloorFoot2",
+      "name": "storm_shop_radio_service_solder_ring_UpperFlange",
       "assembly": "storm_shop_radio_service_solder_ring",
-      "key": "cast_iron",
-      "volume_m3": 0.00013535362265928373
+      "key": "timber",
+      "volume_m3": 0.002157824114071875
     },
     {
-      "name": "storm_shop_radio_service_solder_ring_FloorFoot3",
+      "name": "storm_shop_radio_service_solder_ring_WoundWire",
       "assembly": "storm_shop_radio_service_solder_ring",
-      "key": "cast_iron",
-      "volume_m3": 0.00013535362142669217
+      "key": "rubber_wire",
+      "volume_m3": 0.011561417073435476
     },
     {
-      "name": "storm_shop_radio_service_solder_ring_LowerCradle",
+      "name": "storm_shop_radio_service_solder_ring_OuterTurns",
       "assembly": "storm_shop_radio_service_solder_ring",
-      "key": "cast_iron",
-      "volume_m3": 0.004103130807107289
+      "key": "rubber_wire",
+      "volume_m3": 0.0013542567738367996
     },
     {
-      "name": "storm_shop_radio_service_solder_ring_FiniteIronRing",
+      "name": "storm_shop_radio_service_solder_ring_LooseEnd",
       "assembly": "storm_shop_radio_service_solder_ring",
-      "key": "cast_iron",
-      "volume_m3": 0.019949524043460932
+      "key": "rubber_wire",
+      "volume_m3": 1.709277543117454e-05
     }
   ],
   "contacts": [
@@ -312,61 +312,46 @@
       "assembly": "storm_shop_radio_service_solder_ring",
       "owner": "storm_shop_radio_service_floor",
       "point": [
-        20.169999999999998,
+        20.39,
         0.009999999999999995,
-        57.37
+        57.199999999999996
       ],
       "direction": [
         0,
         1,
         0
       ],
-      "label": "iron-ring foot on actual retained floor"
+      "label": "wire reel flange on actual retained floor"
     },
     {
       "assembly": "storm_shop_radio_service_solder_ring",
       "owner": "storm_shop_radio_service_floor",
       "point": [
-        20.169999999999998,
+        20.21004106492726,
         0.009999999999999995,
-        57.029999999999994
+        57.09605325351439
       ],
       "direction": [
         0,
         1,
         0
       ],
-      "label": "iron-ring foot on actual retained floor"
+      "label": "wire reel flange on actual retained floor"
     },
     {
       "assembly": "storm_shop_radio_service_solder_ring",
       "owner": "storm_shop_radio_service_floor",
       "point": [
-        20.37,
+        20.21002180387841,
         0.009999999999999995,
-        57.37
+        57.30393563387982
       ],
       "direction": [
         0,
         1,
         0
       ],
-      "label": "iron-ring foot on actual retained floor"
-    },
-    {
-      "assembly": "storm_shop_radio_service_solder_ring",
-      "owner": "storm_shop_radio_service_floor",
-      "point": [
-        20.37,
-        0.009999999999999995,
-        57.029999999999994
-      ],
-      "direction": [
-        0,
-        1,
-        0
-      ],
-      "label": "iron-ring foot on actual retained floor"
+      "label": "wire reel flange on actual retained floor"
     }
   ],
   "parts": [
@@ -392,14 +377,21 @@
       "triangles": 5908
     },
     {
-      "name": "storm_shop_radio_service_solder_ring__cast_iron",
+      "name": "storm_shop_radio_service_solder_ring__rubber_wire",
       "assembly": "storm_shop_radio_service_solder_ring",
       "cell": "shop_radio_service",
-      "key": "cast_iron",
-      "triangles": 3056
+      "key": "rubber_wire",
+      "triangles": 13164
+    },
+    {
+      "name": "storm_shop_radio_service_solder_ring__timber",
+      "assembly": "storm_shop_radio_service_solder_ring",
+      "cell": "shop_radio_service",
+      "key": "timber",
+      "triangles": 2048
     }
   ],
-  "triangles": 30108,
+  "triangles": 42264,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -426,9 +418,16 @@
             "catalog_key": "timber"
           },
           {
-            "name": "storm_shop_radio_service_solder_ring__cast_iron",
-            "key": "cast_iron",
-            "tile": 0.4
+            "name": "storm_shop_radio_service_solder_ring__rubber_wire",
+            "key": "rubber_wire",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged"
+          },
+          {
+            "name": "storm_shop_radio_service_solder_ring__timber",
+            "key": "timber",
+            "tile": 1.0,
+            "catalog_key": "timber"
           }
         ],
         "replace": [
@@ -466,11 +465,11 @@
       }
     ]
   },
-  "asset_sha256": "b4972672d9ccebfa0ca66274c53645c95fe8dc36482059f829c74eca41782893",
+  "asset_sha256": "b22f520a9cbb9bc813e690c2992009834eca592cb9b9566eb15e593f867d1988",
   "source_bindings": {
-    "art/data/radio_wire/source_plan.json": "b63c75cbfa48edc6cfbbb6f00e8eddc229828506c93f75008ebd5615b47000b6",
+    "art/data/radio_wire/source_plan.json": "596192ec36093050d8673afcdcee5f772848d994a518b28beab659322a97eae5",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_radio_wire.py": "ec0157e6937f09aee187da61ccfa3c03bf886b0ed7500214cb2ee19158664455",
+    "art/blender/scripts/build_radio_wire.py": "770e00e5e4de9668f8d45cad7932e813bcaf0ad3768a0e3f4cc6fbc841b61b35",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
@@ -479,6 +478,7 @@
     "art/textures/ai_materials/timber/material.json": "9907e5ee46912baec3d11557d194cd7cc8c280d49da757e3820d2fab803bf2e3",
     "art/textures/ai_materials/copper_aged/material.json": "2fbceb6f6f8579eca621d8e4e7db430af9d4840fffc5d0132e5b996c67960668",
     "art/textures/ai_materials/cast_iron/material.json": "4e0684bd596f37118193b3961a9cf97790f1aa571414eeca779c06aa9514976e",
+    "art/textures/ai_materials/rubber_aged/material.json": "356c7af1c52350241145dbd506dc002162024b9a902f595b96be211b091555bd",
     "game/assets/building/textures/T_ai_materials_timber_albedo.png": "7ab8c43163c14ee0ea97991712014f4dd54fdeb700e30ca97c28f7ecfe8f5221",
     "game/assets/building/textures/T_ai_materials_timber_rough.png": "083fc2259744367b02f40d2d202543d70f9f7462075debcbff37831084c3cdd6",
     "game/assets/building/textures/T_ai_materials_timber_normal.png": "9768f6d37cb0d7eb76f46835ddd488675dbb61e7832d83c179ac15df35eb9d31",
@@ -488,30 +488,34 @@
     "game/assets/building/textures/T_ai_materials_cast_iron_b_albedo.png": "e29e8af9ae49ffe16ba718373dea8c95af5f81f621cb756dcab2e37694989ebf",
     "game/assets/building/textures/T_ai_materials_cast_iron_b_rough.png": "1fa3ea924061c69986f76ac01058b9bc17501305ae3d6eac0bff517f52c35d39",
     "game/assets/building/textures/T_ai_materials_cast_iron_b_normal.png": "ded797b5a2b7272ede7113ef85a5a51ef70777a7fe73d1e28328c94b064bcee2",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_albedo.png": "73f80f33303e29a4a9e1cef183804dff7ab2c68c418e9cac1414ceacc6b785ab",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_rough.png": "a389bc6f9793483e60603447897cb50925dbb3e2722534a9af6bff43d0bb654c",
+    "game/assets/building/textures/T_ai_materials_rubber_aged_normal.png": "1b157a499adb3dcd6ab1820639c091e0723ad3eac84493cf7814bfd0815ad55b",
     "game/assets/building/floor_01_cells/shop_radio_service.gltf": "c1786e26dbae42f23bc9da9dcb7afc3629e09615ef104e01fe5e769d6050300a",
     "game/assets/building/floor_01_cells/shop_radio_service.bin": "ab65af2e3e4e5ce57fd9f64eac09df45468a06b1b03f47b2a41cf9270f14b2f6",
     "art/blender/scripts/inspect_radio_wire.py": "8d448ad9668c6952baa385b4c489aefc5fa3a246d6616379c20c4c2565380b2a",
     "art/data/shop_interiors.py": "2c88b064f4b7e322417ea490b4089a4bde136520cf5339a2e6b3be5f6ee25e17",
     "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
     "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025",
-    "game/assets/props/radio_bench.glb": "baa2a2f2cb86061b7b3b0401c9528d3d48d77f42ee8ff964ca5c227cce0623e8",
-    "game/data/orison_v2/radio_bench.json": "9b6f0fe4efaceec0021f497b0b13117a7bed0a3cbbdd51b52a422326ac04ecda",
-    "art/blender/radio_bench.blend": "3b24bffb7fe18fe757babbc2900d56da377c9eb15c9c18374c0c100d448c4307",
-    "game/assets/props/radio_apparatus.glb": "2b54a33db7ace8706584cff3ea2b1ddbb8758781e7e3113f31d64024552e541d",
-    "game/data/orison_v2/radio_apparatus.json": "6f1dd1866df7c25478c54019d112ec5f5068b7d7c9b5f1873e18fbc5f291bdc4",
-    "art/blender/radio_apparatus.blend": "b2ad3337a17357b71883c4660ebb345be9a30dc16f7758c39b9fe6ba98c629d4",
-    "game/assets/props/radio_stock.glb": "f3f23b82856e3fba92f3be8869ce9e0ea542245896ac2dd89baa9b9aef1d8fbf",
-    "game/data/orison_v2/radio_stock.json": "a76029e79ea3637c15416faa7a1d1e0d9ca0cef3c485a99b241eff9b35a04dd6",
-    "art/blender/radio_stock.blend": "287e4988337c632769fd255ddbe23a1afc9d7bccee3bef6d3616fd98759328cd",
+    "game/assets/props/radio_bench.glb": "99a92539aa63054eecf0c429af092c6af3a4a041c5fdc6a1b15cc9a528f8efa8",
+    "game/data/orison_v2/radio_bench.json": "2f55ff381c702060688a4731f82427aec7a176c86c6385b8c79dc7f3446eef59",
+    "art/blender/radio_bench.blend": "4eb59b7b4b280f7b80756a7d028ec88cde8f737065893b3d24cba0487c4ab071",
+    "game/assets/props/radio_apparatus.glb": "f19525d20ab84d99cca72b00952f9ca3ddebb54925dabe94c8b0830f0ab8566e",
+    "game/data/orison_v2/radio_apparatus.json": "c3e2242f56f02fcbe578d3d2f5b966131970190dadec1ac5d3ea0ff4e4bca846",
+    "art/blender/radio_apparatus.blend": "ccd63422440264400fd3412c0005eb74bf1ea3d161eb381d7052d3b27dd7a541",
+    "game/assets/props/radio_stock.glb": "7144d6fdeb528b2e677e418b703aed4a7806be780fa26debad0a2ea90518d888",
+    "game/data/orison_v2/radio_stock.json": "669dfb4b26db1feace449b144fa8bf3b807b1a1d72f1c0d924e278124c7c5578",
+    "art/blender/radio_stock.blend": "f4b9fbd11c5155a4b8544909872191b615258c7cc77393e110f185d6551a5572",
     "game/assets/props/radio_battery.glb": "24d6d69902a4acd42ee7330638fce4dc228e5086c8804616a6acdcbeda922966",
     "game/data/orison_v2/radio_battery.json": "d35a9df2dd923599c46ce660b6165052743027e9c7888e02f8dfa2f5940161b6",
-    "art/blender/radio_battery.blend": "75a903535b12ad6e1856975e2e8764bbd09ea4866b739e10be0fcf9c03862b75"
+    "art/blender/radio_battery.blend": "ea6fc7a30420b11016a6aa3678442654af5ce91fab829d51790b8d1e9c15e590"
   },
   "open_work": [
     "Two original source records remain immutable retirement bounds and hidden native comparison boxes. Their floor footprints, source heights and maxima remain; no layout or accepted native asset changes.",
     "ADAPTATION: two fixed wooden reels, finite copper stock and closed display winding make the aerial-spool source legible. Floor feet, base board and spindle posts bridge the original 70mm floor gap. No live aerial route, electrical state, spool interaction, wire specification, current or engineering capacity is inferred.",
     "ADAPTATION: a finite open-centre iron ring, lower cradle and four seated feet replace the original cast-iron block. The original cast-iron finish remains. No solder chemistry, heater, fuel, service route, temperature or functional procedure is inferred.",
     "Shipping copper and cast iron plus the existing registered timber finish retain their material owners and metre charts. No generated lettering, new material key/map/shader, architectural cutout, door/lock/save/hours or carrier change.",
-    "Native context includes original cabinet, unchanged bench/apparatus/valve rack, accepted charging display and retained room. Positive closed stock, full connected assemblies, original maxima, exact floor bearings, strict UV charts, rendered review, ordinary production mounting and actual-player access remain to be verified. This ignored preparation grants no acceptance."
+    "Native context includes original cabinet, unchanged bench/apparatus/valve rack, accepted charging display and retained room. Positive closed stock, full connected assemblies, original maxima, exact floor bearings, strict UV charts, rendered review, ordinary production mounting and actual-player access remain to be verified. This ignored preparation grants no acceptance.",
+    "Slice 57 of the V2 environment dossier (CITY_SHOP_RADIO_SERVICE-003): the finite iron ring on its cradle becomes black rubber-covered wire (registered rubber_aged) wound on a wooden reel standing on its lower flange, its bore open and its loose end run to the floor, inside the original footprint and maximum."
   ]
 }

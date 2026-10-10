@@ -81,6 +81,39 @@ def box(name,low,high,identity,key='timber',bevel=.003,collection=closed):
  return obj
 def support(identity,owner,point,direction,label):
  contacts.append({'assembly':identity,'owner':owner,'point':[point[0],point[2],-point[1]],'direction':[direction[0],direction[2],-direction[1]],'label':label})
+def revolve_loop(name,cx,cy,loop,identity,key,n=48):
+ # Dossier slice 57: a closed cross-section (radius, height) revolved about a vertical axis.
+ verts=[(cx+r*math.cos(i*math.tau/n),cy+r*math.sin(i*math.tau/n),z) for r,z in loop for i in range(n)]
+ faces=[]
+ for k in range(len(loop)):
+  m=(k+1)%len(loop)
+  for i in range(n):j=(i+1)%n;faces.append((k*n+i,k*n+j,m*n+j,m*n+i))
+ return solid(name,verts,faces,identity,key)
+def getter_band(name,cx,cy,dome_base,height,radius,tip,top_gap,identity,n=48):
+ # The silvered getter flash on the inside of the dome, drawn as a thin band over it.
+ tmax=math.acos(tip/radius);tg=math.asin(min(1.,(height-top_gap)/height*math.sin(tmax)))
+ ts=[tg*k/9 for k in range(10)]
+ outer=[(radius*math.cos(t)+.0004,dome_base+height*math.sin(t)/math.sin(tmax)) for t in ts]
+ inner=[(radius*math.cos(t)-.0015,dome_base+height*math.sin(t)/math.sin(tmax)) for t in reversed(ts)]
+ return revolve_loop(name,cx,cy,outer+inner,identity,'getter',n)
+def tube_path(name,points,radius,identity,key,n=10):
+ # An open wire or cord along a polyline, rings carried by parallel transport.
+ pts=[Vector(p) for p in points];verts=[];u=None
+ for i,p in enumerate(pts):
+  t=(pts[min(i+1,len(pts)-1)]-pts[max(i-1,0)]).normalized()
+  if u is None:seed=Vector((0,0,1)) if abs(t.z)<.9 else Vector((1,0,0));u=t.cross(seed).normalized()
+  else:u=(u-t*u.dot(t)).normalized()
+  v=t.cross(u);verts.extend(p+radius*(u*math.cos(j*math.tau/n)+v*math.sin(j*math.tau/n)) for j in range(n))
+ m=len(pts);faces=[tuple(reversed(range(n)))]+[(i*n+j,i*n+(j+1)%n,(i+1)*n+(j+1)%n,(i+1)*n+j) for i in range(m-1) for j in range(n)]+[tuple(range((m-1)*n,m*n))]
+ return solid(name,verts,faces,identity,key)
+def revolve_y(name,cx,cz,loop,identity,key,n=64):
+ # A closed (radius, y) cross-section revolved about a horizontal axis along y.
+ verts=[(cx+r*math.cos(i*math.tau/n),y,cz+r*math.sin(i*math.tau/n)) for r,y in loop for i in range(n)]
+ faces=[]
+ for k in range(len(loop)):
+  m=(k+1)%len(loop)
+  for i in range(n):j=(i+1)%n;faces.append((k*n+i,k*n+j,m*n+j,m*n+i))
+ return solid(name,verts,faces,identity,key)
 def rod(name,a,b,r,identity,key,n=48):
  a=Vector(a);b=Vector(b);axis=(b-a).normalized();seed=Vector((0,0,1)) if abs(axis.z)<.9 else Vector((1,0,0));u=axis.cross(seed).normalized();v=axis.cross(u)
  verts=[p+r*(u*math.cos(i*math.tau/n)+v*math.sin(i*math.tau/n)) for p in [a,b] for i in range(n)]
@@ -95,10 +128,13 @@ def tube_ring(name,a,b,outer,inner,identity,key,n=48):
  return solid(name,verts,faces,identity,key)
 
 def opal_valve(name,cx,cy,base,top,identity):
- # Finite opaque opal stock retains the original milk-glass owner. No
- # filament, emissive signal or vacuum/electrical operation is inferred.
- profile=[(.018,.013,base),(.018,.013,base+.014),(.038,.025,base+.029),(.048,.031,top-.074)]
- profile.extend((.048*math.cos(j*math.acos(.004/.048)/16),.031*math.cos(j*math.acos(.004/.048)/16),top-.074+.074*math.sin(j*math.acos(.004/.048)/16)/math.sin(math.acos(.004/.048))) for j in range(1,17))
+ # Dossier slice 57 (CITY_SHOP_RADIO_SERVICE-003): a round shouldered (ST) envelope in smoked glass with a
+ # silvered getter flash over its dome, not an oval opal jar. No filament, emissive signal or vacuum or
+ # electrical operation is inferred; the crown and the socket joint keep their datums.
+ R=.033;H=.045;tmax=math.acos(.004/R)
+ profile=[(.018,.018,base),(.018,.018,base+.014),(.026,.026,base+.030),(.028,.028,base+.080),(.033,.033,top-.070),(.033,.033,top-H)]
+ profile.extend((R*math.cos(j*tmax/16),R*math.cos(j*tmax/16),top-H+H*math.sin(j*tmax/16)/math.sin(tmax)) for j in range(1,17))
+ getter_band(name+'_Getter',cx,cy,top-H,H,R,.004,.010,identity)
  n=48;verts=[(cx+rx*math.cos(i*math.tau/n),cy+ry*math.sin(i*math.tau/n),z) for rx,ry,z in profile for i in range(n)]
  faces=[tuple(reversed(range(n))),tuple(range((len(profile)-1)*n,len(profile)*n))]
  for j in range(len(profile)-1):
@@ -129,10 +165,30 @@ for item in assemblies:
    box(identity+'_TransformerCase'+str(j),(xx+.009,y0+.107,z+.032),(xx+.106,y0+.253,z+.180),identity,'chassis_metal',.003)
   for j,xx in enumerate([x0+.15,x1-.15]):knob(identity+'_TuningControl'+str(j),xx,y0+.022,z+.13,.029,identity)
   for j,(xx,h) in enumerate([(x0+.025,z+.035),(x1-.025,z+.035),(x0+.025,top-.025),(x1-.025,top-.025)]):rod(identity+'_PanelFastener'+str(j),(xx,y0+.026,h),(xx,y0+.020,h),.0042,identity,'control_nickel',32)
+  # Dossier slice 57 (CITY_SHOP_RADIO_SERVICE-001): the 1610 set's wordless dial, its pointer standing at
+  # the top of the band.
+  dz=z+.24;fy=y0+.023
+  for j,(a0,a1,b0,b1) in enumerate([(cx-.105,cx+.105,dz+.034,dz+.042),(cx-.105,cx+.105,dz-.042,dz-.034),(cx-.105,cx-.097,dz-.034,dz+.034),(cx+.097,cx+.105,dz-.034,dz+.034)]):
+   box(identity+'_DialBezel'+str(j),(a0,fy-.006,b0),(a1,fy+.002,b1),identity,'control_nickel',.001)
+  box(identity+'_DialScale',(cx-.098,fy-.003,dz-.035),(cx+.098,fy+.002,dz+.035),identity,'dial_scale',.0005)
+  for j in range(21):
+   xx=cx-.088+j*.0088;tall=.014 if j%5==0 else .008
+   box(identity+'_DialTick'+str(j),(xx-.0006,fy-.0036,dz-.026),(xx+.0006,fy-.0028,dz-.026+tall),identity,'control_bakelite',0)
+  box(identity+'_BandPointer',(cx+.0865,fy-.0046,dz-.031),(cx+.0885,fy-.0034,dz+.031),identity,'control_nickel',0)
   for j,valve in enumerate(item['members'][1:]):
    r=valve['rect'];vx=(r[0]+r[2])*.5;vy=(r[1]+r[3])*.5;vtop=float(valve['z0'])+float(valve['h'])
    rod(identity+'_ValveSocket'+str(j),(vx,vy,top-.003),(vx,vy,float(valve['z0'])+.022),.030,identity,'control_bakelite')
    opal_valve(identity+'_OpalValve'+str(j),vx,vy,float(valve['z0'])+.018,vtop,identity)
+  # The set's cone speaker on its own foot beside it, corded to the set's side panel.
+  bench=rows['storm_shop_radio_service_bench_top'];bench_z=bench['z0']+bench['h'];sx,sy,sz=21.24,-56.10,1.22
+  rod(identity+'_SpeakerFoot',(sx,sy,bench_z),(sx,sy,bench_z+.012),.07,identity,'case_bakelite',48)
+  rod(identity+'_SpeakerStem',(sx,sy,bench_z+.011),(sx,sy,sz-.122),.008,identity,'control_nickel',24)
+  tube_ring(identity+'_SpeakerRim',(sx,sy-.005,sz),(sx,sy+.005,sz),.128,.112,identity,'case_bakelite',64)
+  revolve_y(identity+'_SpeakerCone',sx,sz,[(.1165,sy-.0035),(.0215,sy+.054),(.0195,sy+.052),(.1145,sy-.0055)],identity,'speaker_paper')
+  rod(identity+'_SpeakerMagnet',(sx,sy+.050,sz),(sx,sy+.085,sz),.025,identity,'control_nickel',32)
+  support(identity,bench['id'],(sx,sy,bench_z),(0,0,1),'cone speaker foot on retained native bench')
+  contacts[-1]['native_owner_asset']='radio_bench';contacts[-1]['native_owner_part']='storm_shop_radio_service_bench__bench_top'
+  tube_path(identity+'_SpeakerCord',[(sx,sy+.08,sz-.01),(sx,sy+.10,sz-.08),(sx-.02,sy+.12,bench_z+.004),(sx-.20,sy+.13,bench_z+.0035),(x1-.006,sy+.13,bench_z+.03)],.0028,identity,'control_bakelite')
  elif item['kind']=='scope':
   box(identity+'_Roof',(x0,y0,top-.014),(x1,y1,top),identity,'scope_case',.003)
   box(identity+'_RearPanel',(x0,y1-.012,z+.010),(x1,y1,top-.008),identity,'scope_case',.002)

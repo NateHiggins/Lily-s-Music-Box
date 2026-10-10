@@ -96,7 +96,7 @@ func _isolated_ray(world: OrisonV2RuntimeRoot, model: Node3D, part: String, star
 
 func _check_apparatus_details(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_radio_service;var model: Node3D=cell.get_node("RadioApparatus")
-	check(fixture.original_records.size()==8 and fixture.assemblies.size()==3 and fixture.closed_stocks.size()==97,"only eight original records become three connected instrument assemblies")
+	check(fixture.original_records.size()==8 and fixture.assemblies.size()==3 and fixture.closed_stocks.size()==135,"only eight original records become three connected instrument assemblies")
 	check(model.find_children("*","Light3D",true,false).is_empty(),"passive fitted instruments add no signal or illumination")
 	var originals: Dictionary={}
 	for row: Dictionary in fixture.original_records:originals[str(row.id)]=row
