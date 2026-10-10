@@ -126500,6 +126500,3534 @@
    "target_exists": true
   },
   {
+   "key": "a58886b787914b9f",
+   "kind": "floor_reference",
+   "token": "F01",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[0]/level",
+    "/decals[1]/level",
+    "/decals[2]/level",
+    "/decals[*]/level"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a08f5498f2cdd425",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/level"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 17,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "46d7a851896ee032",
+   "kind": "floor_reference",
+   "token": "F03",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/level"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 17,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bb741aa2fc6b350f",
+   "kind": "floor_reference",
+   "token": "F04",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/level"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 19,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c2ae62f1a0161d05",
+   "kind": "floor_reference",
+   "token": "F05",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/level"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 14,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f8435e00e1058671",
+   "kind": "floor_reference",
+   "token": "F06",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/level"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 14,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c8deedd2c476ad8c",
+   "kind": "id_candidate",
+   "token": "F01_A_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "454304e908b0fd47",
+   "kind": "id_candidate",
+   "token": "F01_A_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "55673aba6e4eb848",
+   "kind": "id_candidate",
+   "token": "F01_D_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "ed89452448c94d7b",
+   "kind": "id_candidate",
+   "token": "F01_D_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "165469e3e2f7ed57",
+   "kind": "id_candidate",
+   "token": "F02_A_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "d3111759755924fe",
+   "kind": "id_candidate",
+   "token": "F02_A_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "55e4baea719d05a1",
+   "kind": "id_candidate",
+   "token": "F02_B_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "8800a14c67e41a42",
+   "kind": "id_candidate",
+   "token": "F02_B_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "4fdf12a873e28681",
+   "kind": "id_candidate",
+   "token": "F02_C_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "b09bb2fb8fb46a61",
+   "kind": "id_candidate",
+   "token": "F02_C_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "ce3a149334f1ca27",
+   "kind": "id_candidate",
+   "token": "F02_EAST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "3a54913fbd334777",
+   "kind": "id_candidate",
+   "token": "F02_EAST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "08f5fea5566e1026",
+   "kind": "id_candidate",
+   "token": "F02_EAST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "fe3c86fa136cffcc",
+   "kind": "id_candidate",
+   "token": "F02_SOUTHWEST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "2d584f4807f79bf3",
+   "kind": "id_candidate",
+   "token": "F02_SOUTHWEST_HALL_WEAR_F02_D_ENTRY_DOOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "dd9b88d169fe2e57",
+   "kind": "id_candidate",
+   "token": "F02_SOUTHWEST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "34eccd421bfe114a",
+   "kind": "id_candidate",
+   "token": "F02_SOUTHWEST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "e2a08f24f7b27ca7",
+   "kind": "id_candidate",
+   "token": "F02_WEST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "e4e49e5b62d027b7",
+   "kind": "id_candidate",
+   "token": "F02_WEST_HALL_WEAR_F02_DOOR_02",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "75591bf6b89aeebd",
+   "kind": "id_candidate",
+   "token": "F02_WEST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "85d60e084e57d7ad",
+   "kind": "id_candidate",
+   "token": "F02_WEST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "ece7372163953f1d",
+   "kind": "id_candidate",
+   "token": "F03_A_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "0d9afdfb218d976f",
+   "kind": "id_candidate",
+   "token": "F03_A_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "5b4433e0b0da574c",
+   "kind": "id_candidate",
+   "token": "F03_B_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "d7a9b874a807b431",
+   "kind": "id_candidate",
+   "token": "F03_B_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "60660e86706397a3",
+   "kind": "id_candidate",
+   "token": "F03_D_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "1d71507b8964cb2d",
+   "kind": "id_candidate",
+   "token": "F03_D_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "808d10572266c821",
+   "kind": "id_candidate",
+   "token": "F03_EAST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "b45bc125c6c9a4cd",
+   "kind": "id_candidate",
+   "token": "F03_EAST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "e935d47887e6bc1e",
+   "kind": "id_candidate",
+   "token": "F03_EAST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "5759d865fa39b6e1",
+   "kind": "id_candidate",
+   "token": "F03_SOUTHWEST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "95bcb04a78d9012c",
+   "kind": "id_candidate",
+   "token": "F03_SOUTHWEST_HALL_WEAR_F03_D_ENTRY_DOOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "86168ff6c6aa6df0",
+   "kind": "id_candidate",
+   "token": "F03_SOUTHWEST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "c6e43f5a4d870a32",
+   "kind": "id_candidate",
+   "token": "F03_SOUTHWEST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "861c74e6495f5d06",
+   "kind": "id_candidate",
+   "token": "F03_WEST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "43871b95ccc4a340",
+   "kind": "id_candidate",
+   "token": "F03_WEST_HALL_WEAR_F03_DOOR_02",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "995311882a6e8ce0",
+   "kind": "id_candidate",
+   "token": "F03_WEST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "e36648217bb2fa4e",
+   "kind": "id_candidate",
+   "token": "F03_WEST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "933819ea27403167",
+   "kind": "id_candidate",
+   "token": "F04_A_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "b705b1e5c328f567",
+   "kind": "id_candidate",
+   "token": "F04_A_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "19c40316e7817c8b",
+   "kind": "id_candidate",
+   "token": "F04_B_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "013c48d383e5d7ea",
+   "kind": "id_candidate",
+   "token": "F04_B_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "ecd33825583be08d",
+   "kind": "id_candidate",
+   "token": "F04_C_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "a33fa047bec8af79",
+   "kind": "id_candidate",
+   "token": "F04_C_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "a307047ffe6ee9bd",
+   "kind": "id_candidate",
+   "token": "F04_D_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "6d9ad38db0b238b9",
+   "kind": "id_candidate",
+   "token": "F04_D_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "08447e6a7eb0bcd9",
+   "kind": "id_candidate",
+   "token": "F04_EAST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "7ca04a5e490853d6",
+   "kind": "id_candidate",
+   "token": "F04_EAST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "d46c67d44dd98442",
+   "kind": "id_candidate",
+   "token": "F04_EAST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "67cb4e0f9b7710a9",
+   "kind": "id_candidate",
+   "token": "F04_SOUTHWEST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "242f8fe5355bd144",
+   "kind": "id_candidate",
+   "token": "F04_SOUTHWEST_HALL_WEAR_F04_D_ENTRY_DOOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "2f0498443aeb049b",
+   "kind": "id_candidate",
+   "token": "F04_SOUTHWEST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "7f03fa35d2a1278b",
+   "kind": "id_candidate",
+   "token": "F04_SOUTHWEST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "bc7508a4db8e2e06",
+   "kind": "id_candidate",
+   "token": "F04_WEST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "6b4fc58f50808daa",
+   "kind": "id_candidate",
+   "token": "F04_WEST_HALL_WEAR_F04_DOOR_03",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "c79f1a9e6c55a0bd",
+   "kind": "id_candidate",
+   "token": "F04_WEST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "498e09d642f27801",
+   "kind": "id_candidate",
+   "token": "F04_WEST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "655352fd07968358",
+   "kind": "id_candidate",
+   "token": "F05_A_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "105d3d243c028a76",
+   "kind": "id_candidate",
+   "token": "F05_A_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "a2904a0f9ee67e02",
+   "kind": "id_candidate",
+   "token": "F05_B_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "ab102b33889b6d95",
+   "kind": "id_candidate",
+   "token": "F05_B_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "4013e758eb0de6fc",
+   "kind": "id_candidate",
+   "token": "F05_C_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "dd5bf32673819565",
+   "kind": "id_candidate",
+   "token": "F05_C_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "4a3bd26907923af7",
+   "kind": "id_candidate",
+   "token": "F05_EAST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "50c30adde2245b36",
+   "kind": "id_candidate",
+   "token": "F05_EAST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "a9ca631a2f67939f",
+   "kind": "id_candidate",
+   "token": "F05_EAST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "49f23b73092a8475",
+   "kind": "id_candidate",
+   "token": "F05_WEST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "98e811d073c4ae37",
+   "kind": "id_candidate",
+   "token": "F05_WEST_HALL_WEAR_F05_DOOR_02",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "355239379dbac065",
+   "kind": "id_candidate",
+   "token": "F05_WEST_HALL_WEAR_F05_DOOR_03",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "c476c48319bfc302",
+   "kind": "id_candidate",
+   "token": "F05_WEST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "5fbdb1e9495f28fd",
+   "kind": "id_candidate",
+   "token": "F05_WEST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "8afdeaad1aa911cc",
+   "kind": "id_candidate",
+   "token": "F06_A_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "07edf9e15f77a949",
+   "kind": "id_candidate",
+   "token": "F06_A_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "623a2161716d80df",
+   "kind": "id_candidate",
+   "token": "F06_B_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "27d4d01154f46e99",
+   "kind": "id_candidate",
+   "token": "F06_B_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "50c1a27aec7cb2c0",
+   "kind": "id_candidate",
+   "token": "F06_C_BATH_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "b439e1dcadca6c41",
+   "kind": "id_candidate",
+   "token": "F06_C_BATH_WEAR_RECEPTOR",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "5fc85e2a01561ee3",
+   "kind": "id_candidate",
+   "token": "F06_EAST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "2a97a0a6ca969973",
+   "kind": "id_candidate",
+   "token": "F06_EAST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "c4f20df73354d606",
+   "kind": "id_candidate",
+   "token": "F06_EAST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "21c154e722e631d1",
+   "kind": "id_candidate",
+   "token": "F06_WEST_HALL_WEAR_CORNER",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "eec7ea1dddd09e7d",
+   "kind": "id_candidate",
+   "token": "F06_WEST_HALL_WEAR_F06_DOOR_02",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "fc7b71d4fab06e8a",
+   "kind": "id_candidate",
+   "token": "F06_WEST_HALL_WEAR_F06_DOOR_03",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "79cdb6c0e09af59d",
+   "kind": "id_candidate",
+   "token": "F06_WEST_HALL_WEAR_PATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "75474a9a7d06b096",
+   "kind": "id_candidate",
+   "token": "F06_WEST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "09d97ad2fa762bfb",
+   "kind": "id_reference",
+   "token": "F01_A_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[0]/space",
+    "/decals[1]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9cbdc86f8c3fd5d4",
+   "kind": "id_reference",
+   "token": "F01_D_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[2]/space",
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "becc5294cb01bc41",
+   "kind": "id_reference",
+   "token": "F02_A_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "73190a0153dd3678",
+   "kind": "id_reference",
+   "token": "F02_B_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "859f96bffef67f2e",
+   "kind": "id_reference",
+   "token": "F02_C_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "08137d094db76066",
+   "kind": "id_reference",
+   "token": "F02_EAST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9f236c4639de1b04",
+   "kind": "id_reference",
+   "token": "F02_SOUTHWEST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "71a8250569c21a9d",
+   "kind": "id_reference",
+   "token": "F02_WEST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f23361111ba79617",
+   "kind": "id_reference",
+   "token": "F03_A_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e04309db54aacf88",
+   "kind": "id_reference",
+   "token": "F03_B_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1a280c5195b93dc1",
+   "kind": "id_reference",
+   "token": "F03_D_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "af0b95bf6688309f",
+   "kind": "id_reference",
+   "token": "F03_EAST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f1c9004b1c281d2a",
+   "kind": "id_reference",
+   "token": "F03_SOUTHWEST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c2a9965cfadb34fa",
+   "kind": "id_reference",
+   "token": "F03_WEST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ceb20a2d3a5043ae",
+   "kind": "id_reference",
+   "token": "F04_A_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6aa9ced166d4401e",
+   "kind": "id_reference",
+   "token": "F04_B_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "75ba7b67f30d702f",
+   "kind": "id_reference",
+   "token": "F04_C_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2ac3db81fa435590",
+   "kind": "id_reference",
+   "token": "F04_D_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "333718a46b36b3ae",
+   "kind": "id_reference",
+   "token": "F04_EAST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a6d37c844fcc609c",
+   "kind": "id_reference",
+   "token": "F04_SOUTHWEST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "acc770e341047311",
+   "kind": "id_reference",
+   "token": "F04_WEST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 4,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "cf4318562ea2e980",
+   "kind": "id_reference",
+   "token": "F05_A_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7b7388cec9c8c8ba",
+   "kind": "id_reference",
+   "token": "F05_B_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "75facb8439bcf851",
+   "kind": "id_reference",
+   "token": "F05_C_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F05/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9ceefff8aaf25b95",
+   "kind": "id_reference",
+   "token": "F05_EAST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d72e83cc19a2d2ad",
+   "kind": "id_reference",
+   "token": "F05_WEST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 5,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c177af2a1bceae92",
+   "kind": "id_reference",
+   "token": "F06_A_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b031d04403ba72a6",
+   "kind": "id_reference",
+   "token": "F06_B_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fc0a4d1399f982e0",
+   "kind": "id_reference",
+   "token": "F06_C_BATH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "F06/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "09ebfeeccbf6e930",
+   "kind": "id_reference",
+   "token": "F06_EAST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bab280f069711058",
+   "kind": "id_reference",
+   "token": "F06_WEST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 5,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "79485e64cf1a3ae6",
    "kind": "id_reference",
    "token": "1D_prep_cabinet",
@@ -177667,6 +181195,34 @@
    "target_exists": null
   },
   {
+   "key": "c678549033eff8b2",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/wear_decals/",
+   "file": "game/scripts/building/orison_v2_positional_wear.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
    "key": "bf89d32b3fac99d1",
    "kind": "unit_reference",
    "token": "2A",
@@ -179003,7 +182559,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    772
+    775
    ],
    "count": 1,
    "context": [
@@ -179033,8 +182589,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    837,
-    840
+    840,
+    843
    ],
    "count": 2,
    "context": [
@@ -179066,8 +182622,8 @@
     "_compose_hot_water"
    ],
    "lines": [
-    769,
-    816
+    772,
+    819
    ],
    "count": 2,
    "context": [
@@ -179098,7 +182654,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    781
+    784
    ],
    "count": 1,
    "context": [
@@ -179128,7 +182684,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    773
+    776
    ],
    "count": 1,
    "context": [
@@ -179158,7 +182714,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    790
+    793
    ],
    "count": 1,
    "context": [
@@ -179188,7 +182744,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    782
+    785
    ],
    "count": 1,
    "context": [
@@ -179218,7 +182774,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    422
+    425
    ],
    "count": 1,
    "context": [
@@ -179278,7 +182834,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    423
+    426
    ],
    "count": 1,
    "context": [
@@ -179308,7 +182864,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    423
+    426
    ],
    "count": 1,
    "context": [
@@ -179338,7 +182894,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    422
+    425
    ],
    "count": 1,
    "context": [
@@ -179370,9 +182926,9 @@
    ],
    "lines": [
     158,
-    834,
-    838,
-    841
+    837,
+    841,
+    844
    ],
    "count": 4,
    "context": [
@@ -179435,7 +182991,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    294
+    297
    ],
    "count": 1,
    "context": [
@@ -179465,7 +183021,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    294
+    297
    ],
    "count": 1,
    "context": [
@@ -179495,7 +183051,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    293
+    296
    ],
    "count": 1,
    "context": [
@@ -179525,7 +183081,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    293
+    296
    ],
    "count": 1,
    "context": [
@@ -179555,7 +183111,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    758
+    761
    ],
    "count": 1,
    "context": [
@@ -179585,7 +183141,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    759
+    762
    ],
    "count": 1,
    "context": [
@@ -179615,7 +183171,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    294
+    297
    ],
    "count": 1,
    "context": [
@@ -179675,7 +183231,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    679
+    682
    ],
    "count": 1,
    "context": [
@@ -179707,7 +183263,7 @@
    ],
    "lines": [
     159,
-    332
+    335
    ],
    "count": 2,
    "context": [
@@ -179739,8 +183295,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    573,
-    664
+    576,
+    667
    ],
    "count": 2,
    "context": [
@@ -179771,7 +183327,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    665
+    668
    ],
    "count": 1,
    "context": [
@@ -179831,7 +183387,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    800
+    803
    ],
    "count": 1,
    "context": [
@@ -179861,7 +183417,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    801
+    804
    ],
    "count": 1,
    "context": [
@@ -179891,7 +183447,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    802
+    805
    ],
    "count": 1,
    "context": [
@@ -179921,7 +183477,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    799
+    802
    ],
    "count": 1,
    "context": [
@@ -179951,7 +183507,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    328
+    331
    ],
    "count": 1,
    "context": [
@@ -179983,8 +183539,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    751,
-    800
+    754,
+    803
    ],
    "count": 2,
    "context": [
@@ -180017,8 +183573,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    754,
-    801
+    757,
+    804
    ],
    "count": 2,
    "context": [
@@ -180051,8 +183607,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    757,
-    802
+    760,
+    805
    ],
    "count": 2,
    "context": [
@@ -180085,8 +183641,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    748,
-    799
+    751,
+    802
    ],
    "count": 2,
    "context": [
@@ -180118,7 +183674,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    326
+    329
    ],
    "count": 1,
    "context": [
@@ -180211,7 +183767,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    329
+    332
    ],
    "count": 1,
    "context": [
@@ -180274,8 +183830,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    326,
-    840
+    329,
+    843
    ],
    "count": 2,
    "context": [
@@ -180306,7 +183862,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    717
+    720
    ],
    "count": 1,
    "context": [
@@ -180336,7 +183892,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    718
+    721
    ],
    "count": 1,
    "context": [

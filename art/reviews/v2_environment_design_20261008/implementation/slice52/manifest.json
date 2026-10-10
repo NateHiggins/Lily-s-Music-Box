@@ -1,0 +1,126 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F01_A_BATH_DT1.jpg",
+   "source": "sweep_shots/F01_A_BATH_DT1.png",
+   "sha256": "477660c51771670cef3a4d18da0eb6d78e1c0e5609c28ac7fea249b52ed0c5b2",
+   "bytes": 191914
+  },
+  {
+   "path": "images/F01_A_BATH_OV.jpg",
+   "source": "sweep_shots/F01_A_BATH_OV.png",
+   "sha256": "db29bf6712c5d90ebe2a2f644f381899d0558fbe2aae229d8933b5c162d39d86",
+   "bytes": 239451
+  },
+  {
+   "path": "images/F01_D_BATH_DT1.jpg",
+   "source": "sweep_shots/F01_D_BATH_DT1.png",
+   "sha256": "51ac9ae5c264e6d42ce6f2ef1ac499137c29b903eee5ba69d01a4cf94913f56e",
+   "bytes": 186959
+  },
+  {
+   "path": "images/F01_D_BATH_OV.jpg",
+   "source": "sweep_shots/F01_D_BATH_OV.png",
+   "sha256": "fa34e1f6eaaa43d35e667a6e739f9467f42f5f9e72472de34ae8588b21b501f6",
+   "bytes": 244162
+  },
+  {
+   "path": "images/F02_A_BATH_DT1.jpg",
+   "source": "sweep_shots/F02_A_BATH_DT1.png",
+   "sha256": "e3f2e6ec42ae4a51c077c0ecb5c72954b987e825d904a9705cbf987460fde3db",
+   "bytes": 204166
+  },
+  {
+   "path": "images/F02_A_BATH_OV.jpg",
+   "source": "sweep_shots/F02_A_BATH_OV.png",
+   "sha256": "abebbdd503f2f69f7353e7c222c184a80eac5785ea53dba8dcf6e08468bf46b7",
+   "bytes": 234959
+  },
+  {
+   "path": "images/F02_B_BATH_DT1.jpg",
+   "source": "sweep_shots/F02_B_BATH_DT1.png",
+   "sha256": "d605f78cf6256f0c55c3ce5a46286e03f214bd85482754ac8104b0d8577e2d97",
+   "bytes": 192709
+  },
+  {
+   "path": "images/F02_B_BATH_OV.jpg",
+   "source": "sweep_shots/F02_B_BATH_OV.png",
+   "sha256": "eb589d53d8e424d375f52226839420c063396b6efa96149efb2803c4b7366d39",
+   "bytes": 230593
+  },
+  {
+   "path": "images/F02_C_BATH_DT1.jpg",
+   "source": "sweep_shots/F02_C_BATH_DT1.png",
+   "sha256": "063500122e62251516330831260288b1b7c737a6fcd4d886ed62da0e2f06588e",
+   "bytes": 186276
+  },
+  {
+   "path": "images/F02_C_BATH_OV.jpg",
+   "source": "sweep_shots/F02_C_BATH_OV.png",
+   "sha256": "1ae9db4445ba0eaacb34882a4e80e5fcf321051560e0ee79f5dd333b62eda055",
+   "bytes": 166473
+  },
+  {
+   "path": "images/F03_A_BATH_DT1.jpg",
+   "source": "sweep_shots/F03_A_BATH_DT1.png",
+   "sha256": "3da5fe7278931de9b6b13c2d6606d7101a710cc93a9096293f12b6f936c5b3b2",
+   "bytes": 211365
+  },
+  {
+   "path": "images/F03_A_BATH_OV.jpg",
+   "source": "sweep_shots/F03_A_BATH_OV.png",
+   "sha256": "ade1e66dda9cffe12b04de8017c18af885b67f5eefe550694cf237a03292acb4",
+   "bytes": 236508
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "b5433f6c5cf304f9977890ce8af82666dbb9e16ff3d41a699471ad89148cbc1a",
+   "bytes": 3494
+  },
+  {
+   "path": "receipts/household_state.log.receipt.json",
+   "source": "household_state.log.receipt.json",
+   "sha256": "d3aba35569f770985999e497907b34582a4417eb28178c75fff446581f93b0a8",
+   "bytes": 3196
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "45d7241a114ad909cb175db0b0811044c493484dd4fae109d34e57dcd3b91799",
+   "bytes": 3138
+  },
+  {
+   "path": "receipts/public_doors.log.receipt.json",
+   "source": "public_doors.log.receipt.json",
+   "sha256": "42b41a5a8269960e091f0adf90db4fbb78d69978d8c16885f4fec0447749bebf",
+   "bytes": 3183
+  },
+  {
+   "path": "receipts/sweep_0.log.receipt.json",
+   "source": "sweep_0.log.receipt.json",
+   "sha256": "4929d5c3de373192efbe2ec8eafe95019042d7587bf23232f06240b73a3197b4",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/upper_furniture.log.receipt.json",
+   "source": "upper_furniture.log.receipt.json",
+   "sha256": "2e673e9461fa8f168ca9d7ccf42477bb381c895e5b9a0554bc52aa6c12565885",
+   "bytes": 3196
+  },
+  {
+   "path": "receipts/upper_kitchen.log.receipt.json",
+   "source": "upper_kitchen.log.receipt.json",
+   "sha256": "8938841c9f6ed65791ae86aa9c778dde2abef898d2ed4f0f3aa9434ff1ca3684",
+   "bytes": 3188
+  },
+  {
+   "path": "receipts/upper_lighting.log.receipt.json",
+   "source": "upper_lighting.log.receipt.json",
+   "sha256": "bcaecee3092a878dd62b43caa0c26894563b993d03f8211f597d878c87ccf025",
+   "bytes": 3192
+  }
+ ]
+}

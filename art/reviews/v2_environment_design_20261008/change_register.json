@@ -2906,7 +2906,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_A_BATH"
+   "area": "F01_A_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F01_A_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F01_A_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F01_A_BATH-003",
@@ -3417,7 +3419,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_D_BATH"
+   "area": "F01_D_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F01_D_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F01_D_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F01_D_BATH-003",
@@ -3505,7 +3509,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_WEST_HALL"
+   "area": "F02_WEST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F02_WEST_HALL_RV, F02_WEST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F02_SOUTHWEST_HALL-001",
@@ -3540,7 +3546,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_SOUTHWEST_HALL"
+   "area": "F02_SOUTHWEST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F02_SOUTHWEST_HALL_RV, F02_SOUTHWEST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F02_PUBLIC_CORE-001",
@@ -3612,7 +3620,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_EAST_HALL"
+   "area": "F02_EAST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F02_EAST_HALL_RV, F02_EAST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F02_SERVICE_CROSSING-001",
@@ -4045,7 +4055,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_A_BATH"
+   "area": "F02_A_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F02_A_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F02_A_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F02_A_BED-001",
@@ -4433,7 +4445,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_B_BATH"
+   "area": "F02_B_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F02_B_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F02_B_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F02_C_VESTIBULE-001",
@@ -4713,7 +4727,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_C_BATH"
+   "area": "F02_C_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F02_C_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F02_C_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F02_C_BATH-003",
@@ -4978,7 +4994,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_EAST_HALL"
+   "area": "F03_EAST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F03_EAST_HALL_RV, F03_EAST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F03_EAST_HALL-003",
@@ -5101,7 +5119,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_WEST_HALL"
+   "area": "F03_WEST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F03_WEST_HALL_RV, F03_WEST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F03_SOUTHWEST_HALL-001",
@@ -5136,7 +5156,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_SOUTHWEST_HALL"
+   "area": "F03_SOUTHWEST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F03_SOUTHWEST_HALL_RV, F03_SOUTHWEST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F03_SOUTHWEST_HALL-003",
@@ -5445,7 +5467,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_A_BATH"
+   "area": "F03_A_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F03_A_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F03_A_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F03_A_BED-001",
@@ -5797,7 +5821,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_B_BATH"
+   "area": "F03_B_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F03_B_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F03_B_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F03_D_VESTIBULE-001",
@@ -6071,7 +6097,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_D_BATH"
+   "area": "F03_D_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F03_D_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F03_D_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F03_D_BATH-003",
@@ -6268,7 +6296,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_WEST_HALL"
+   "area": "F04_WEST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F04_WEST_HALL_RV, F04_WEST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F04_WEST_HALL-003",
@@ -6316,7 +6346,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_SOUTHWEST_HALL"
+   "area": "F04_SOUTHWEST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F04_SOUTHWEST_HALL_RV, F04_SOUTHWEST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F04_SOUTHWEST_HALL-003",
@@ -6422,7 +6454,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_EAST_HALL"
+   "area": "F04_EAST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F04_EAST_HALL_RV, F04_EAST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F04_EAST_HALL-003",
@@ -6887,7 +6921,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_A_BATH"
+   "area": "F04_A_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F04_A_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F04_A_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F04_A_BATH-003",
@@ -7248,7 +7284,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_B_BATH"
+   "area": "F04_B_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F04_B_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F04_B_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F04_B_BATH-003",
@@ -7667,7 +7705,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_C_BATH"
+   "area": "F04_C_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F04_C_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F04_C_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F04_C_BED1-001",
@@ -7994,7 +8034,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_D_BATH"
+   "area": "F04_D_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F04_D_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F04_D_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F04_D_BATH-003",
@@ -8227,7 +8269,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_EAST_HALL"
+   "area": "F05_EAST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F05_EAST_HALL_RV, F05_EAST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F05_SERVICE_CROSSING-001",
@@ -8315,7 +8359,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_WEST_HALL"
+   "area": "F05_WEST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F05_WEST_HALL_RV, F05_WEST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F05_WEST_HALL-003",
@@ -8655,7 +8701,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_A_BATH"
+   "area": "F05_A_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F05_A_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F05_A_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F05_A_BATH-003",
@@ -9064,7 +9112,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_B_BATH"
+   "area": "F05_B_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F05_B_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F05_B_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F05_B_BATH-003",
@@ -9377,7 +9427,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_C_BATH"
+   "area": "F05_C_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F05_C_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F05_C_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F05_C_BATH-003",
@@ -9667,7 +9719,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_EAST_HALL"
+   "area": "F06_EAST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F06_EAST_HALL_RV, F06_EAST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F06_SERVICE_CROSSING-001",
@@ -9742,7 +9796,9 @@
    "dependencies": "E2: inherited layer only; accrued grime belongs to section E",
    "acceptance": "Reverse view shows the wear path aligned with the actual door positions",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_WEST_HALL"
+   "area": "F06_WEST_HALL",
+   "status": "implemented",
+   "owner_notes": "The dulled walking line down the hall's middle, foot scuffs on the floor at each apartment door, the mop-shadow corner farthest from the core and the porter's trolley rub on the long wall at 0.6 m, 0.9 m in from the core (F06_WEST_HALL_RV, F06_WEST_HALL_OV); the scuffs sit on the actual door positions. The marks render (a frame difference against slice 49's views traces the path down the centre and the scuffs at the doors) but read faintly at production light; strengthening them is open. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F06_A_VESTIBULE-001",
@@ -9990,7 +10046,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_A_BATH"
+   "area": "F06_A_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F06_A_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F06_A_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F06_A_BATH-003",
@@ -10327,7 +10385,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_B_BATH"
+   "area": "F06_B_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F06_B_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F06_B_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F06_C_VESTIBULE-001",
@@ -10619,7 +10679,9 @@
    ],
    "dependencies": "E2: inherited patina baked; accrued grime simulated later by section E; author only the inherited layer here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_BATH"
+   "area": "F06_C_BATH",
+   "status": "implemented",
+   "owner_notes": "Partial: a darkened grout-and-water ring round the shower receptor's lip and the mop-shadow corner farthest from the door, both soft projected wear (F06_C_BATH_OV; a frame difference against slice 47's view isolates the ring at the receptor's base). Paint lifted below the register is not made: the bath's vent register hangs from its duct at 2.6 m with no wall below it (F06_C_BATH_DT1). The water line under the curtain hem follows in slice 61. Verified at WIP 3f3f0d75 (implementation/slice52): apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, both 0 failures; the first bath sweep (six baths) 0 failures; the remaining twelve baths, the thirteen upper halls and slice 50's third core group were rerun at the same WIP in five sweeps, all 0 failures (implementation/slice52b); four earlier sweep runs that ran at another WIP are superseded and not cited. The decals are projected (Godot Decal nodes) from game/data/orison_v2/positional_wear.json onto the inherited finishes: no collision, no owner, no lettering."
   },
   {
    "id": "F06_C_BED1-001",

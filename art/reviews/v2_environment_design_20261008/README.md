@@ -183,6 +183,10 @@ Slices landed so far (evidence folders in parentheses):
     landing, and the prospectus roof-garden plate on F06 (`slice50`).
 51. The sealed 3C door's dust mat and notice, the soot ghost above 5D's replaced door,
     and Cal's aerial lead along the F05 west hall on porcelain insulators (`slice51`).
+52. Positional wear as soft projected decals: a grout-and-water ring at every bath's
+    receptor and the mop-shadow corner; the walking line, door scuffs, mop corner and
+    trolley rub in the thirteen upper halls, faint at production light (`slice52`,
+    reruns in `slice52b`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

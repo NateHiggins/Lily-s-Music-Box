@@ -1,0 +1,426 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F03_B_BATH_DT1.jpg",
+   "source": "sweep_shots/F03_B_BATH_DT1.png",
+   "sha256": "e5e41ac58751ebd10e14ada19954bee1d52bba0e6d40cc132ee6e36536d2f43f",
+   "bytes": 163360
+  },
+  {
+   "path": "images/F03_B_BATH_OV.jpg",
+   "source": "sweep_shots/F03_B_BATH_OV.png",
+   "sha256": "d3ad3f04b72b3168b1ef6d473a197c08533c97f7031509e50ed4cd0f9d6adfb1",
+   "bytes": 193332
+  },
+  {
+   "path": "images/F03_D_BATH_DT1.jpg",
+   "source": "sweep_shots/F03_D_BATH_DT1.png",
+   "sha256": "51ecd515e44ec32ded97d8235cb51a66bb27b8508858cf1baf2368b40bac3f88",
+   "bytes": 188204
+  },
+  {
+   "path": "images/F03_D_BATH_OV.jpg",
+   "source": "sweep_shots/F03_D_BATH_OV.png",
+   "sha256": "fd12e8d453a5fac93b65277ea804242e7b0c55e10aca8d274290c8efc0d0ec4a",
+   "bytes": 234444
+  },
+  {
+   "path": "images/F04_A_BATH_DT1.jpg",
+   "source": "sweep_shots/F04_A_BATH_DT1.png",
+   "sha256": "855cc35e2d1ecc92b81c0526d9bd392b59713c90a8006d126747ab81d7d4110c",
+   "bytes": 184848
+  },
+  {
+   "path": "images/F04_A_BATH_OV.jpg",
+   "source": "sweep_shots/F04_A_BATH_OV.png",
+   "sha256": "4e499283e5258581be01959121e654f0f9508d067348444fc03b1f381b42f4a8",
+   "bytes": 240792
+  },
+  {
+   "path": "images/F04_B_BATH_DT1.jpg",
+   "source": "sweep_shots/F04_B_BATH_DT1.png",
+   "sha256": "12f7f2c523512f63b302d9aa3cc36828bb2ff5f80279b2c5c0fc52fe342973e6",
+   "bytes": 184702
+  },
+  {
+   "path": "images/F04_B_BATH_OV.jpg",
+   "source": "sweep_shots/F04_B_BATH_OV.png",
+   "sha256": "2f77d483c0a90f1672697579dd291337a939484f43c63a8441654511037f0c47",
+   "bytes": 215717
+  },
+  {
+   "path": "images/F04_C_BATH_DT1.jpg",
+   "source": "sweep_shots/F04_C_BATH_DT1.png",
+   "sha256": "94caaf99257825d748ca8f8d0c9264a3ab791ea12d5fd58859c601717aa28606",
+   "bytes": 186593
+  },
+  {
+   "path": "images/F04_C_BATH_OV.jpg",
+   "source": "sweep_shots/F04_C_BATH_OV.png",
+   "sha256": "3359a82245b7acbdcf02ea1d88f3338a34999896cc3c87bd68cce4633ec482e1",
+   "bytes": 168800
+  },
+  {
+   "path": "images/F04_D_BATH_DT1.jpg",
+   "source": "sweep_shots/F04_D_BATH_DT1.png",
+   "sha256": "6b16604aaaf9b2fa55e4ddffe3c54464ac5590b91f8b3944b51c498ee707fd3f",
+   "bytes": 200518
+  },
+  {
+   "path": "images/F04_D_BATH_OV.jpg",
+   "source": "sweep_shots/F04_D_BATH_OV.png",
+   "sha256": "60d4ac19f419715d14542909b6e752d7553e0001490b434494e634baa81426c8",
+   "bytes": 235782
+  },
+  {
+   "path": "images/F05_A_BATH_DT1.jpg",
+   "source": "sweep_shots/F05_A_BATH_DT1.png",
+   "sha256": "9888a9f05ca6e1512891a95d0e4c92d4098d1d2f616648dde184d5fc4b60d07c",
+   "bytes": 200994
+  },
+  {
+   "path": "images/F05_A_BATH_OV.jpg",
+   "source": "sweep_shots/F05_A_BATH_OV.png",
+   "sha256": "2bf344236d5f7334127cc5851df03d957fa6308c4409ed4acfc9f1337e3c7593",
+   "bytes": 238897
+  },
+  {
+   "path": "images/F05_B_BATH_DT1.jpg",
+   "source": "sweep_shots/F05_B_BATH_DT1.png",
+   "sha256": "1fab28d6312be45a9dc3040059fda202f640da90ae0efc1d156b3a91b07031c8",
+   "bytes": 171135
+  },
+  {
+   "path": "images/F05_B_BATH_OV.jpg",
+   "source": "sweep_shots/F05_B_BATH_OV.png",
+   "sha256": "99bba445b661cfc82afb755749221206c339bb791592e743897038d6fc2a9068",
+   "bytes": 181268
+  },
+  {
+   "path": "images/F05_C_BATH_DT1.jpg",
+   "source": "sweep_shots/F05_C_BATH_DT1.png",
+   "sha256": "5fd8096c82fe030234d6a3a8e6dc72e1e860e3c9a64e5b5f8a0299fc31400546",
+   "bytes": 173788
+  },
+  {
+   "path": "images/F05_C_BATH_OV.jpg",
+   "source": "sweep_shots/F05_C_BATH_OV.png",
+   "sha256": "daa15fbf5768b4102d44064daf206c38ebb62bffdb702337193099b0d55f8c67",
+   "bytes": 237068
+  },
+  {
+   "path": "images/F06_A_BATH_DT1.jpg",
+   "source": "sweep_shots/F06_A_BATH_DT1.png",
+   "sha256": "b04a356387995904840753517d01a35434e51d2953a9046a04b3001f3e36edda",
+   "bytes": 198556
+  },
+  {
+   "path": "images/F06_A_BATH_OV.jpg",
+   "source": "sweep_shots/F06_A_BATH_OV.png",
+   "sha256": "271da15b251359d2e6cbf3dfe33c305e834eba3eea9411c8c897126f24892f39",
+   "bytes": 176150
+  },
+  {
+   "path": "images/F06_B_BATH_DT1.jpg",
+   "source": "sweep_shots/F06_B_BATH_DT1.png",
+   "sha256": "d0b9f1f3cc76f8aa3794d8f63c69a46bebc655f7f05bc8184ae7ce9e6d020e67",
+   "bytes": 169899
+  },
+  {
+   "path": "images/F06_B_BATH_OV.jpg",
+   "source": "sweep_shots/F06_B_BATH_OV.png",
+   "sha256": "1040caa2bc008f83749b8c1ea06a15536cb7c2ec90e58af697d8f889d5dc1aff",
+   "bytes": 228790
+  },
+  {
+   "path": "images/F06_C_BATH_DT1.jpg",
+   "source": "sweep_shots/F06_C_BATH_DT1.png",
+   "sha256": "31a54bfd49949cad79ae256ca88b515229fe0383bef07d664dcfe2a101c044ff",
+   "bytes": 179156
+  },
+  {
+   "path": "images/F06_C_BATH_OV.jpg",
+   "source": "sweep_shots/F06_C_BATH_OV.png",
+   "sha256": "7923d4bfc56bbb34ed5b57fe83a8d8e61139a1004b00aa1d63e072696d1c816d",
+   "bytes": 206379
+  },
+  {
+   "path": "images/F02_WEST_HALL_RV.jpg",
+   "source": "sweep_shots/F02_WEST_HALL_RV.png",
+   "sha256": "4a8e20e9d08659833e6f1f40dc9659b9fc79c34621e57cb5b801f9e9c49471eb",
+   "bytes": 114841
+  },
+  {
+   "path": "images/F02_WEST_HALL_OV.jpg",
+   "source": "sweep_shots/F02_WEST_HALL_OV.png",
+   "sha256": "f87dbca7261fe05ea87b1f34a61417326192a5b56eac91bcc602b90a021bcee7",
+   "bytes": 122263
+  },
+  {
+   "path": "images/F03_WEST_HALL_RV.jpg",
+   "source": "sweep_shots/F03_WEST_HALL_RV.png",
+   "sha256": "351164d784a1370d9d8a1c47654edb3068eb67ad5088f1ee1bcb451c4cdf9b92",
+   "bytes": 121163
+  },
+  {
+   "path": "images/F03_WEST_HALL_OV.jpg",
+   "source": "sweep_shots/F03_WEST_HALL_OV.png",
+   "sha256": "db07ea7084585722ddfa9619bd42357bf62f48ef38771176a683f81814ccb1cb",
+   "bytes": 114632
+  },
+  {
+   "path": "images/F04_WEST_HALL_RV.jpg",
+   "source": "sweep_shots/F04_WEST_HALL_RV.png",
+   "sha256": "b18c329ced2cac85d89a13df9d71b1f9499bb9e255dc770207f3bb10e960e538",
+   "bytes": 108512
+  },
+  {
+   "path": "images/F04_WEST_HALL_OV.jpg",
+   "source": "sweep_shots/F04_WEST_HALL_OV.png",
+   "sha256": "f10a5d5dae73d757d7551fec5aaeb49b982e7355a9d9389fa2985648720b94c4",
+   "bytes": 117487
+  },
+  {
+   "path": "images/F05_WEST_HALL_RV.jpg",
+   "source": "sweep_shots/F05_WEST_HALL_RV.png",
+   "sha256": "5acafa33d78f6707a853b5b4971ea07cdf5459bab4bd8f1ab88307d4ea1a64c1",
+   "bytes": 89203
+  },
+  {
+   "path": "images/F05_WEST_HALL_OV.jpg",
+   "source": "sweep_shots/F05_WEST_HALL_OV.png",
+   "sha256": "1c67f5f0246f884128f013488398d143a80d5ab37eea039fa857f2ae727f3952",
+   "bytes": 110864
+  },
+  {
+   "path": "images/F06_WEST_HALL_RV.jpg",
+   "source": "sweep_shots/F06_WEST_HALL_RV.png",
+   "sha256": "2c3315c89dcc3d71c32bc8bc840b4a860a56e6b55b29e50d3a5f50377c4339c2",
+   "bytes": 89094
+  },
+  {
+   "path": "images/F06_WEST_HALL_OV.jpg",
+   "source": "sweep_shots/F06_WEST_HALL_OV.png",
+   "sha256": "538ddd18205c401d8849b1f46902c57b1cbcb59ff9e1be8ee3a8b4872139da09",
+   "bytes": 111799
+  },
+  {
+   "path": "images/F02_SOUTHWEST_HALL_RV.jpg",
+   "source": "sweep_shots/F02_SOUTHWEST_HALL_RV.png",
+   "sha256": "60ca42cb23a106dd137bfcb8f26628ab15ef210adc1640beb1f212c5e12fb69a",
+   "bytes": 118373
+  },
+  {
+   "path": "images/F02_SOUTHWEST_HALL_OV.jpg",
+   "source": "sweep_shots/F02_SOUTHWEST_HALL_OV.png",
+   "sha256": "d79bc63b1e2476a2fb8bc260465b2db413909374eb12ff80d5af74775b7f2b47",
+   "bytes": 112663
+  },
+  {
+   "path": "images/F03_SOUTHWEST_HALL_RV.jpg",
+   "source": "sweep_shots/F03_SOUTHWEST_HALL_RV.png",
+   "sha256": "6d78fba05f8416601ae72404960279fe0a7dd7938f9502c222b948b569e947f3",
+   "bytes": 117181
+  },
+  {
+   "path": "images/F03_SOUTHWEST_HALL_OV.jpg",
+   "source": "sweep_shots/F03_SOUTHWEST_HALL_OV.png",
+   "sha256": "5fc3b78fa3a59d354287813e4ecdb01e613c9d3f2afbd0abde4f71dc5c4e57f6",
+   "bytes": 114257
+  },
+  {
+   "path": "images/F04_SOUTHWEST_HALL_RV.jpg",
+   "source": "sweep_shots/F04_SOUTHWEST_HALL_RV.png",
+   "sha256": "09be17a813b3611410caa678f804285ef23f184f4c61718cb18da7b020c636a5",
+   "bytes": 123535
+  },
+  {
+   "path": "images/F04_SOUTHWEST_HALL_OV.jpg",
+   "source": "sweep_shots/F04_SOUTHWEST_HALL_OV.png",
+   "sha256": "9d6b80ae43f8019229cca6ed7a40daf13066750189d720e438943bad91418857",
+   "bytes": 122203
+  },
+  {
+   "path": "images/F02_EAST_HALL_RV.jpg",
+   "source": "sweep_shots/F02_EAST_HALL_RV.png",
+   "sha256": "4eed2ab7991418ac6661d193934a857e05234a9e4048e7ac6c418cdf3a06816e",
+   "bytes": 111187
+  },
+  {
+   "path": "images/F02_EAST_HALL_OV.jpg",
+   "source": "sweep_shots/F02_EAST_HALL_OV.png",
+   "sha256": "d6642cb9ad3495bc057d559dfe25bcec741216ff0b3e62d4495fa631d23a470a",
+   "bytes": 110221
+  },
+  {
+   "path": "images/F03_EAST_HALL_RV.jpg",
+   "source": "sweep_shots/F03_EAST_HALL_RV.png",
+   "sha256": "3cf163c208771c7e8d8c3f2e4501a7448d8910b03f29ce0bfe249582984da4c2",
+   "bytes": 120519
+  },
+  {
+   "path": "images/F03_EAST_HALL_OV.jpg",
+   "source": "sweep_shots/F03_EAST_HALL_OV.png",
+   "sha256": "62ec70a6a8b80fd260b8b9b1acd3c78ee3a94e58698cc3761998054e3f9499f6",
+   "bytes": 119583
+  },
+  {
+   "path": "images/F04_EAST_HALL_RV.jpg",
+   "source": "sweep_shots/F04_EAST_HALL_RV.png",
+   "sha256": "31bf60f493194f6c057a6a981ada5c5e616dca7786c1ab8aaf848d0fea648eb0",
+   "bytes": 110836
+  },
+  {
+   "path": "images/F04_EAST_HALL_OV.jpg",
+   "source": "sweep_shots/F04_EAST_HALL_OV.png",
+   "sha256": "3b63d8fea74f64cbd0ea07f02ea8a753957cc17e2a522417cfec03a7b3037c38",
+   "bytes": 105519
+  },
+  {
+   "path": "images/F05_EAST_HALL_RV.jpg",
+   "source": "sweep_shots/F05_EAST_HALL_RV.png",
+   "sha256": "cd66e0ac51b6b8f7062e0dac0277435a93ecf93ffc405061c45a5871c477b360",
+   "bytes": 110864
+  },
+  {
+   "path": "images/F05_EAST_HALL_OV.jpg",
+   "source": "sweep_shots/F05_EAST_HALL_OV.png",
+   "sha256": "fbc060258f1fbba31efb6ece4f2df8a1688e8774e28b2b80be58d8a8ea10a835",
+   "bytes": 109939
+  },
+  {
+   "path": "images/F06_EAST_HALL_RV.jpg",
+   "source": "sweep_shots/F06_EAST_HALL_RV.png",
+   "sha256": "c309c966b6dedf60f2f0f4dc61a2cc2d94badc3806f40a7222ad782c66fbe470",
+   "bytes": 110241
+  },
+  {
+   "path": "images/F06_EAST_HALL_OV.jpg",
+   "source": "sweep_shots/F06_EAST_HALL_OV.png",
+   "sha256": "d1f471be75b061f653cd501942bae1e3bb749e6eb3ab3a36c2ab7bc15d217d6f",
+   "bytes": 106125
+  },
+  {
+   "path": "images/B1_PUBLIC_CORE_RV.jpg",
+   "source": "sweep_shots/B1_PUBLIC_CORE_RV.png",
+   "sha256": "24cdecbe8f959a9cd20b40f10dcb883c6b89e8e60219725657fe9c39b681168d",
+   "bytes": 114034
+  },
+  {
+   "path": "images/B1_PUBLIC_CORE_DT1.jpg",
+   "source": "sweep_shots/B1_PUBLIC_CORE_DT1.png",
+   "sha256": "0e0ea1f57022610eaaa70a5361556ed46732d9c7d5b8497541a4e2bb1bf3b475",
+   "bytes": 93380
+  },
+  {
+   "path": "images/F05_SERVICE_CORE_RV.jpg",
+   "source": "sweep_shots/F05_SERVICE_CORE_RV.png",
+   "sha256": "cbdab08c625e468921fbdef61e0f7cb14449a3dd3ba45cddd7c1481fbd70b331",
+   "bytes": 82698
+  },
+  {
+   "path": "images/F05_SERVICE_CORE_DT1.jpg",
+   "source": "sweep_shots/F05_SERVICE_CORE_DT1.png",
+   "sha256": "2cd91c609c76f0fabc70f641db026b5eebbad459546b6c10fc6c9a6dbbd9109a",
+   "bytes": 44823
+  },
+  {
+   "path": "images/F06_PUBLIC_CORE_RV.jpg",
+   "source": "sweep_shots/F06_PUBLIC_CORE_RV.png",
+   "sha256": "e2461daf14e2fd6eb0692e7f48141081cfe8bdd8c156014585782318afcb93ea",
+   "bytes": 148607
+  },
+  {
+   "path": "images/F06_PUBLIC_CORE_DT1.jpg",
+   "source": "sweep_shots/F06_PUBLIC_CORE_DT1.png",
+   "sha256": "36be279a4ecf64e91ae520e30c435046b31828a6bcf93f86c3c60c2a68cc5bce",
+   "bytes": 72016
+  },
+  {
+   "path": "images/F06_SERVICE_CORE_RV.jpg",
+   "source": "sweep_shots/F06_SERVICE_CORE_RV.png",
+   "sha256": "53e79e45aa4d0dd28830137771c2e3f749229204c4b22b0cfd673b92b91347a4",
+   "bytes": 97529
+  },
+  {
+   "path": "images/F06_SERVICE_CORE_DT1.jpg",
+   "source": "sweep_shots/F06_SERVICE_CORE_DT1.png",
+   "sha256": "2572b349149379ed3b8c6c180de3c3ffb1382af177612ccfd848bcc30d4ec6fc",
+   "bytes": 43520
+  },
+  {
+   "path": "images/ROOF_PUBLIC_CORE_RV.jpg",
+   "source": "sweep_shots/ROOF_PUBLIC_CORE_RV.png",
+   "sha256": "de320617750eeb4964ded27e9cc192078262925e43d8fa703e74362d2d788769",
+   "bytes": 39799
+  },
+  {
+   "path": "images/ROOF_PUBLIC_CORE_DT1.jpg",
+   "source": "sweep_shots/ROOF_PUBLIC_CORE_DT1.png",
+   "sha256": "979f125fed2844203d0e5b7a0323a333cc9f40d6dea0e1e2688283db4dfb1780",
+   "bytes": 164562
+  },
+  {
+   "path": "images/ROOF_SERVICE_CORE_RV.jpg",
+   "source": "sweep_shots/ROOF_SERVICE_CORE_RV.png",
+   "sha256": "736055dc8581325f6b6a5ae91f49472aff24bf4dacfcfd9a389dd154c1feb09b",
+   "bytes": 73799
+  },
+  {
+   "path": "images/ROOF_SERVICE_CORE_DT1.jpg",
+   "source": "sweep_shots/ROOF_SERVICE_CORE_DT1.png",
+   "sha256": "e7558f99740c3b0797054e18d991b624f9e076379b13283467ca782b7d459455",
+   "bytes": 55826
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "7c9a0c852706b14c72a5c24d6ccf1ad6b6e12d7deaf2183c7d20c3e776b68220",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/sweep_0.log.receipt.json",
+   "source": "sweep_0.log.receipt.json",
+   "sha256": "d22356caaca0ba2947afec4afeadae97f9faaac3c1d8703259d5a8b4a64f7b40",
+   "bytes": 3228
+  },
+  {
+   "path": "receipts/sweep_1.log.receipt.json",
+   "source": "sweep_1.log.receipt.json",
+   "sha256": "3b0782e61819efb412b08c1f35f36149a9923d18e6b84d4ec5f898276027154f",
+   "bytes": 3228
+  },
+  {
+   "path": "receipts/sweep_2.log.receipt.json",
+   "source": "sweep_2.log.receipt.json",
+   "sha256": "b3ec765788f5a7aa38f06de377ea28dd6153371e40d2a1afa1d4594044d169d9",
+   "bytes": 3228
+  },
+  {
+   "path": "receipts/sweep_3.log.receipt.json",
+   "source": "sweep_3.log.receipt.json",
+   "sha256": "39d3f51c122751a75e32824e54cdd5d85cf83543e99f2485200186dc0f5205ca",
+   "bytes": 3227
+  },
+  {
+   "path": "receipts/sweep_4.log.receipt.json",
+   "source": "sweep_4.log.receipt.json",
+   "sha256": "4b3bcb8ebb4f57efad873f4e0fde1a25fa8169045d3b6a25d6c7305e98fc4698",
+   "bytes": 3228
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "fbedacb7b0bad6e8d6be4527217645168b3dab4593d15af13d516d3e1e48b495",
+   "bytes": 803573
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "fbbc3c07eb079359ba03199bc4887372219181667d3d873fc8fa59c295d9e82f",
+   "bytes": 23768
+  }
+ ]
+}
