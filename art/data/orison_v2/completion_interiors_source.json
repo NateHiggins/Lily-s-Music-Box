@@ -5947,9 +5947,9 @@
         "level": "F01",
         "space": "F01_D_BED",
         "position": [
-          11.9,
+          12.35,
           0,
-          -11.95
+          -11.85
         ],
         "yaw": 1.5707963267948966,
         "kind": "furniture"
@@ -6312,6 +6312,42 @@
           -3.94
         ],
         "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "1D_bedside",
+        "level": "F01",
+        "space": "F01_D_BED",
+        "position": [
+          11.6,
+          0,
+          -11.75
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "3D_bedside",
+        "level": "F03",
+        "space": "F03_D_BED",
+        "position": [
+          -13.4,
+          0,
+          -11.5
+        ],
+        "yaw": 0,
+        "kind": "furniture"
+      },
+      {
+        "id": "4C_bed1_chair",
+        "level": "F04",
+        "space": "F04_C_BED1",
+        "position": [
+          3.4,
+          0,
+          9.95
+        ],
+        "yaw": 1.5707963267948966,
         "kind": "furniture"
       }
     ],
@@ -7989,6 +8025,21 @@
       {
         "id": "4C_story_colorboard",
         "template": "5C_story_colorboard",
+        "unit": "4C"
+      },
+      {
+        "id": "1D_bedside",
+        "template": "3B_abed_ns",
+        "unit": "1D"
+      },
+      {
+        "id": "3D_bedside",
+        "template": "4B_wake_nightstand",
+        "unit": "3D"
+      },
+      {
+        "id": "4C_bed1_chair",
+        "template": "3B_din_dc1",
         "unit": "4C"
       }
     ],

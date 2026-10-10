@@ -1816,7 +1816,7 @@
     {"id":"1A_register_shelf","level":"F01","space":"F01_A_STUDY","position":[-8.42,0,-10.5],"yaw":1.5707963267948966,"kind":"furniture"},
     {"id":"1D_daybed","level":"F01","space":"F01_D_MAIN","position":[14.16,0,-0.23],"yaw":0.0,"kind":"furniture"},
     {"id":"1D_alarm_chest","level":"F01","space":"F01_D_MAIN","position":[12.65,0,-0.1],"yaw":1.5707963267948966,"kind":"furniture"},
-    {"id":"1D_bed_chair","level":"F01","space":"F01_D_BED","position":[11.9,0,-11.95],"yaw":1.5707963267948966,"kind":"furniture"},
+    {"id":"1D_bed_chair","level":"F01","space":"F01_D_BED","position":[12.35,0,-11.85],"yaw":1.5707963267948966,"kind":"furniture"},
     {"id":"2C_rig_table","level":"F02","space":"F02_C_MAIN","position":[-1.0,0,11.33],"yaw":0.0,"kind":"furniture"},
     {"id":"3D_chaise","level":"F03","space":"F03_D_MAIN","position":[-11.84,0,-4.36],"yaw":3.141592653589793,"kind":"furniture"},
     {"id":"4C_museum_shelf","level":"F04","space":"F04_C_MAIN","position":[-1.5,0,11.43],"yaw":0.0,"kind":"furniture"},
@@ -1942,7 +1942,11 @@
     {"id":"B1_boiler_rake","level":"B1","space":"B1_BOILER_ROOM","position":[9.59,1.2,1.15],"yaw":-1.5707963267948966,"kind":"furniture"},
     {"id":"B1_boiler_ash_can","level":"B1","space":"B1_BOILER_ROOM","position":[9.88,0,-2.35],"yaw":-1.5707963267948966,"kind":"furniture"},
     {"id":"B1_signal_frame","level":"B1","space":"B1_ELECTRICAL","position":[8.7,0.75,-2.09],"yaw":0,"kind":"furniture"},
-    {"id":"B1_fuse_conduit","level":"B1","space":"B1_ELECTRICAL","position":[7.6,0,-6.21],"yaw":3.141592653589793,"kind":"furniture"}
+    {"id":"B1_fuse_conduit","level":"B1","space":"B1_ELECTRICAL","position":[7.6,0,-6.21],"yaw":3.141592653589793,"kind":"furniture"},
+    {"id":"5C_bed_chair","level":"F05","space":"F05_C_BED1","position":[1.0,0,8.6],"yaw":3.141592653589793,"kind":"furniture"},
+    {"id":"1D_bedside","level":"F01","space":"F01_D_BED","position":[11.6,0,-11.75],"yaw":0,"kind":"furniture"},
+    {"id":"3D_bedside","level":"F03","space":"F03_D_BED","position":[-13.4,0,-11.5],"yaw":0,"kind":"furniture"},
+    {"id":"4C_bed1_chair","level":"F04","space":"F04_C_BED1","position":[3.4,0,9.95],"yaw":1.5707963267948966,"kind":"furniture"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},

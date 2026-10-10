@@ -494,6 +494,83 @@ def ledger(source):
  stock('Dust',(-.135,-.1,.0675),(.125,.1,.0688),'paper',.0001)
  for p in [(-.13,-.095,0),(.13,-.095,0),(-.13,.095,0),(.13,.095,0)]:bearing('ledger '+str(p),p)
  group('Ledger',start)
+# Dossier slice 31: bedside and garment stock.
+def earplugs(source):
+ start=len(stock_checks)
+ lathe('Saucer',0,0,0,[(0,0),(.035,0),(.05,.012),(.052,.016),(.046,.016),(.036,.007),(0,.007)],'porcelain')
+ for i,(x,y) in enumerate([(-.012,-.008),(.01,.006),(.002,-.018)]):lathe('Plug'+str(i),x,y,.0065,[(0,0),(.007,0),(.0075,.005),(.005,.01),(0,.011)],'paper')
+ for p in [(-.03,0,0),(.03,0,0),(0,.03,0)]:bearing('saucer '+str(p),p)
+ group('EarPlugs',start)
+def fobwatch(source):
+ start=len(stock_checks)
+ stock('Foot',(-.03,-.025,0),(.03,.025,.008),'wood_dark',.001)
+ tube('Post',(0,0,.006),(0,0,.12),.004,'brass')
+ tube('Arm',(0,0,.116),(0,-.03,.116),.003,'brass')
+ tube('Bow',(0,-.03,.116),(0,-.03,.104),.0025,'brass')
+ axial(identity+'_Case',0,.074,[(0,-.036),(.022,-.036),(.024,-.032),(.024,-.024),(.022,-.02),(0,-.02)],identity,'brass')
+ tube('Ring',(0,-.03,.104),(0,-.03,.095),.004,'brass')
+ for p in [(-.025,-.02,0),(.025,-.02,0),(-.025,.02,0),(.025,.02,0)]:bearing('watch stand '+str(p),p)
+ group('FobWatch',start)
+def tuningfork(source):
+ start=len(stock_checks)
+ stock('Stem',(-.06,-.003,0),(-.01,.003,.006),'nickel_plated',.0005)
+ stock('Yoke',(-.012,-.012,0),(.0,.012,.006),'nickel_plated',.0005)
+ for y in [-.012,.008]:stock('Tine'+str(y),(-.002,y,0),(.07,y+.004,.006),'nickel_plated',.0005)
+ for i in range(9):
+  x=-.058-i*.009;y=.002*((i%2)*2-1)
+  stock('Link'+str(i),(x-.011,y-.003,0),(x+.001,y+.003,.003),'nickel_plated',.0004)
+ for p in [(-.04,0,0),(.05,-.01,0),(.05,.01,0)]:bearing('fork '+str(p),p)
+ group('TuningFork',start)
+def scarf(source):
+ # Draped over a bedpost: the fold rests on the post top, the tails hang down the post's two faces.
+ start=len(stock_checks);top=.36
+ stock('Fold',(-.048,-.047,top),(.048,.047,top+.014),'wool_burgundy',.004)
+ stock('FrontTail',(-.045,.047,0),(.045,.059,top+.014),'wool_burgundy',.003)
+ stock('BackTail',(-.04,-.059,.12),(.04,-.047,top+.014),'wool_burgundy',.003)
+ for i in range(5):stock('Fringe'+str(i),(-.04+i*.019,.048,-.0),(-.034+i*.019,.058,.03),'wool_burgundy',.0008)
+ # The post ends in a turned finial: the fold bears on its apex.
+ bearing('finial apex',(0,0,top))
+ group('Scarf',start)
+def jersey(source):
+ # Folded on the chair seat, one sleeve over the front edge, a mended patch on the shoulder.
+ start=len(stock_checks);top=.2
+ for i in range(3):stock('Fold'+str(i),(-.17,-.15,top+i*.018),(.17,.23,top+i*.018+.019),'jersey_maroon',.006)
+ stock('Sleeve',(.06,.225,.0),(.13,.245,top+.03),'jersey_maroon',.008)
+ stock('Cuff',(.058,.223,0),(.132,.247,.04),'jersey_maroon',.004)
+ stock('Patch',(-.12,-.02,top+.0535),(-.04,.06,top+.0575),'linen',.002)
+ for p in [(-.13,-.13,top),(.13,-.13,top),(-.13,.13,top),(.13,.13,top)]:bearing('seat '+str(p),p)
+ group('Jersey',start)
+def overalls(source):
+ # Folded on the chair seat; both straps hang over the front edge with their brass buckles.
+ start=len(stock_checks);top=.2
+ for i in range(2):stock('Fold'+str(i),(-.16,-.16,top+i*.024),(.16,.23,top+i*.024+.025),'cape_navy',.006)
+ for x in [-.08,.06]:
+  stock('Strap'+str(x),(x,.225,.02),(x+.03,.237,top+.03),'cape_navy',.002)
+  stock('Buckle'+str(x),(x-.004,.235,.02),(x+.034,.242,.055),'brass',.001)
+ stock('Pocket',(-.07,-.09,top+.049),(.07,.03,top+.053),'cape_navy',.002)
+ for p in [(-.14,-.14,top),(.14,-.14,top),(-.14,.14,top),(.14,.14,top)]:bearing('seat '+str(p),p)
+ group('Overalls',start)
+def canvasback(source):
+ # A small study canvas lying face down: the stretcher frame and the raw back of the canvas.
+ start=len(stock_checks)
+ stock('Face',(-.08,-.065,0),(.08,.065,.003),'linen',.0005)
+ for y in [-.065,.053]:stock('BarLong'+str(y),(-.08,y,.003),(.08,y+.012,.018),'timber',.001)
+ for x in [-.08,.068]:stock('BarShort'+str(x),(x,-.053,.003),(x+.012,.053,.018),'timber',.001)
+ for p in [(-.07,-.055,0),(.07,-.055,0),(-.07,.055,0),(.07,.055,0)]:bearing('canvas face '+str(p),p)
+ group('FaceDownCanvas',start)
+def pillbox(source):
+ # A seven-day medication organizer: a tin tray of lidded compartments, two lids open.
+ start=len(stock_checks)
+ stock('Tray',(-.1,-.03,0),(.1,.03,.018),'enamel',.001)
+ for i in range(7):
+  x=-.0855+i*.0285
+  if i in (2,3):
+   stock('LidOpen'+str(i),(x-.0125,.022,.016),(x+.0125,.027,.045),'enamel',.0004)
+   lathe('Pill'+str(i),x,0,.017,[(0,0),(.005,0),(.005,.003),(0,.004)],'paper')
+  else:stock('Lid'+str(i),(x-.0125,-.023,.017),(x+.0125,.023,.021),'enamel',.0004)
+ # Drainboard ribs run 50 mm apart: the tray's long edges bear on two of them.
+ for p in [(-.09,-.025,0),(.09,-.025,0),(-.09,.025,0),(.09,.025,0)]:bearing('organizer '+str(p),p)
+ group('PillBox',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -548,4 +625,12 @@ for assembly in assemblies:
  elif kind=='loupe':loupe(source)
  elif kind=='printrack':printrack(source)
  elif kind=='ledger':ledger(source)
+ elif kind=='earplugs':earplugs(source)
+ elif kind=='fobwatch':fobwatch(source)
+ elif kind=='tuningfork':tuningfork(source)
+ elif kind=='scarf':scarf(source)
+ elif kind=='jersey':jersey(source)
+ elif kind=='overalls':overalls(source)
+ elif kind=='canvasback':canvasback(source)
+ elif kind=='pillbox':pillbox(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

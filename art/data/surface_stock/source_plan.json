@@ -273,7 +273,15 @@
   "6A_plate_box",
   "6A_loupe",
   "6A_print_rack",
-  "6C_ledger"
+  "6C_ledger",
+  "1D_ear_plugs",
+  "1D_fob_watch",
+  "3D_tuning_fork",
+  "3D_scarf",
+  "4C_jersey",
+  "5C_overalls",
+  "5C_canvas_down",
+  "1A_medication_organizer"
  ],
  "runtime_keys": [
   "bakelite",
@@ -299,7 +307,10 @@
   "wood_dark",
   "linen",
   "terracotta",
-  "soil"
+  "soil",
+  "wool_burgundy",
+  "jersey_maroon",
+  "cape_navy"
  ],
  "catalog_variants": {
   "bakelite": "bakelite",
@@ -324,7 +335,10 @@
   "wood_dark": "oak_work_surface",
   "linen": "linen",
   "terracotta": "terracotta",
-  "soil": "soil"
+  "soil": "soil",
+  "wool_burgundy": "linen",
+  "jersey_maroon": "linen",
+  "cape_navy": "linen"
  },
  "material_aliases": {},
  "material_tints": {
@@ -332,6 +346,24 @@
    0.27,
    0.14,
    0.065,
+   1
+  ],
+  "wool_burgundy": [
+   0.3,
+   0.05,
+   0.07,
+   1
+  ],
+  "jersey_maroon": [
+   0.22,
+   0.045,
+   0.06,
+   1
+  ],
+  "cape_navy": [
+   0.05,
+   0.065,
+   0.16,
    1
   ]
  },
@@ -357,7 +389,8 @@
   "Slice 20 of the V2 environment dossier adds rows of labelled box files on 2A's three shelves.",
   "Slice 22 of the V2 environment dossier adds a zinc drip pan under each of the fourteen iceboxes, between the feet with its front lip showing (4C's dry and dusty).",
   "Slice 24 of the V2 environment dossier adds an out-tray of receipts, a torch, a battery case, a service cap (the light table form waits for a clear support: 6A's worktop carries the toaster).",
-  "Slice 27 of the V2 environment dossier adds 3A's empty memorial pot (terracotta, soil, a chalk mark on the rim) at the back of the sink's drainboard, 6A's glass-plate box, loupe and print rack on the desk wall, and 6C's never-opened ledger on the sectional case; the family gains the catalogue terracotta and soil keys."
+  "Slice 27 of the V2 environment dossier adds 3A's empty memorial pot (terracotta, soil, a chalk mark on the rim) at the back of the sink's drainboard, 6A's glass-plate box, loupe and print rack on the desk wall, and 6C's never-opened ledger on the sectional case; the family gains the catalogue terracotta and soil keys.",
+  "Slice 31 of the V2 environment dossier adds bedside and garment stock: 1D's saucer of ear plugs and fob watch on its stand, 3D's tuning fork on its chain and the wool scarf on 3D's bedpost, 4C's mended jersey and 5C's overalls on bedroom chairs, 5C's small canvas face down, and 1A's medication organizer; the family gains wool_burgundy, jersey_maroon and cape_navy as tinted aliases of the catalogue linen."
  ],
  "open_work": [
   "Final room lighting and adjacent furniture remain in the wider V2 pass; this family has scoped native and composed runtime verification."
@@ -402,6 +435,18 @@
   "soil": {
    "normal_scale": 0.12,
    "roughness": 0.8
+  },
+  "wool_burgundy": {
+   "normal_scale": 0.12,
+   "roughness": 0.85
+  },
+  "jersey_maroon": {
+   "normal_scale": 0.12,
+   "roughness": 0.85
+  },
+  "cape_navy": {
+   "normal_scale": 0.12,
+   "roughness": 0.85
   }
  },
  "optics": {

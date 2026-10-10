@@ -481,6 +481,14 @@
     {
       "id": "2B_bedside",
       "variant": "Nightstand01"
+    },
+    {
+      "id": "1D_bedside",
+      "variant": "Nightstand01"
+    },
+    {
+      "id": "3D_bedside",
+      "variant": "Nightstand02"
     }
   ],
   "runtime_keys": [
@@ -551,7 +559,8 @@
     "Existing fine oak, paper, trim, brass and clear-glass owners provide local finish. No new texture or global material policy.",
     "Native material tint values are linear light; runtime encodes them to sRGB for StandardMaterial3D albedo_color so the same finish matches Blender.",
     "Slice 11 of the V2 environment dossier adds 5B's reel-deck table as a TableRect05 copy.",
-    "Slice 17 of the V2 environment dossier adds 2B's bedside nightstand as a Nightstand01 copy."
+    "Slice 17 of the V2 environment dossier adds 2B's bedside nightstand as a Nightstand01 copy.",
+    "Slice 31 of the V2 environment dossier adds bedsides in 1D (Nightstand01) and 3D (Nightstand02) as completion copies."
   ],
   "open_work": [
     "Scoped native and all-instance runtime verification complete. Broader room material/light balance, remaining storage/kitchen furniture and whole-building visual acceptance remain open."

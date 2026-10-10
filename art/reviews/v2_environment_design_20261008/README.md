@@ -141,6 +141,8 @@ Slices landed so far (evidence folders in parentheses):
     oil can; the electrical room's signal frame and fuse-panel conduit (`slice29`).
 30. 5A's corrected floor plan on the icebox door and 2C's wardrobe as the session
     archive, two family variants (`slice30b`).
+31. Bedsides in 1D and 3D, the scarf on 3D's bedpost, garments on bedroom chairs
+    in 4C and 5C, 5C's face-down canvas, 1A's medication organizer (`slice31b`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

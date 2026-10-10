@@ -5742,6 +5742,238 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "1D_ear_plugs",
+      "parts": [
+        {
+          "name": "1D_ear_plugs__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "1D_ear_plugs__porcelain",
+          "key": "porcelain",
+          "tile": 0.4,
+          "catalog_key": "porcelain_fixture",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.35
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "1D_fob_watch",
+      "parts": [
+        {
+          "name": "1D_fob_watch__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        },
+        {
+          "name": "1D_fob_watch__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ]
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "3D_tuning_fork",
+      "parts": [
+        {
+          "name": "3D_tuning_fork__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "3D_scarf",
+      "parts": [
+        {
+          "name": "3D_scarf__wool_burgundy",
+          "key": "wool_burgundy",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.3,
+            0.05,
+            0.07,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4C_jersey",
+      "parts": [
+        {
+          "name": "4C_jersey__jersey_maroon",
+          "key": "jersey_maroon",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.22,
+            0.045,
+            0.06,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "4C_jersey__linen",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "5C_overalls",
+      "parts": [
+        {
+          "name": "5C_overalls__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        },
+        {
+          "name": "5C_overalls__cape_navy",
+          "key": "cape_navy",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.05,
+            0.065,
+            0.16,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "5C_canvas_down",
+      "parts": [
+        {
+          "name": "5C_canvas_down__linen",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "5C_canvas_down__timber",
+          "key": "timber",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "1A_medication_organizer",
+      "parts": [
+        {
+          "name": "1A_medication_organizer__enamel",
+          "key": "enamel",
+          "tile": 1.0,
+          "catalog_key": "enamel"
+        },
+        {
+          "name": "1A_medication_organizer__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "local_materials": {

@@ -2770,7 +2770,9 @@
    ],
    "acceptance": "Detail view at the cupboard shows it; it has an INSPECT card and no state",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_A_KITCHEN"
+   "area": "F01_A_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Evelyn's seven-day medication organizer, two compartments open, stands on the sink's drainboard ribs beside the dish rack: 1A's kitchen has no other free counter (no prep cabinet; the stove and the monitor-top fridge) (1A_medication_organizer_stock, F01_A_KITCHEN_DT1). Verified at WIP 54f7aee1 (implementation/slice31b): fabrication batch 0 failures (rerun_c: the 1D and 3D bedroom close-ups found no clear camera station, so the rerun captures only the jersey, overalls and organizer); apartment batch 236 on the long runner (the batch now exceeds the 180 s serial ceiling); household state 154 checks, 0 failures; completion 1D 25 waypoints, 0 failures; 3D 16 and 4C 9 with their pre-existing kitchen-leg failure; upper lighting 0 failures; upper furniture 488 against 484 at 40110d19, the four new failures being new stock meshes in the suite's pre-existing material-binding check; the five-room sweep 0 failures."
   },
   {
    "id": "F01_A_KITCHEN-004",
@@ -3287,7 +3289,9 @@
    "purpose": "Wardrobe bible: she times things without deciding to; the quiet beside the bed",
    "acceptance": "Detail view of the nightstand",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_D_BED"
+   "area": "F01_D_BED",
+   "status": "verified",
+   "owner_notes": "1D's bedside is a Nightstand01 completion copy at the head of the bed under the window, the bed chair moved to the window corner to make room; on it a saucer of wax ear plugs and the fob watch hung on its little brass stand, beside the nightstand's own glass (implementation/slice31b/images/F01_D_BED_DT3). Verified at WIP 54f7aee1 (implementation/slice31b): fabrication batch 0 failures (rerun_c: the 1D and 3D bedroom close-ups found no clear camera station, so the rerun captures only the jersey, overalls and organizer); apartment batch 236 on the long runner (the batch now exceeds the 180 s serial ceiling); household state 154 checks, 0 failures; completion 1D 25 waypoints, 0 failures; 3D 16 and 4C 9 with their pre-existing kitchen-leg failure; upper lighting 0 failures; upper furniture 488 against 484 at 40110d19, the four new failures being new stock meshes in the suite's pre-existing material-binding check; the five-room sweep 0 failures."
   },
   {
    "id": "F01_D_PRIVATE_HALL-001",
@@ -5966,7 +5970,9 @@
    "purpose": "Wardrobe bible signature in all three states",
    "acceptance": "Detail view of the nightstand",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_D_BED"
+   "area": "F03_D_BED",
+   "status": "verified",
+   "owner_notes": "3D's bedside is a Nightstand02 completion copy at the bed's head (as 1A's), carrying the tuning fork on its chain beside the nightstand's glass; Rhea's burgundy wool scarf hangs over the head post nearest it, folded over the turned finial (F03_D_BED_DT2). Verified at WIP 54f7aee1 (implementation/slice31b): fabrication batch 0 failures (rerun_c: the 1D and 3D bedroom close-ups found no clear camera station, so the rerun captures only the jersey, overalls and organizer); apartment batch 236 on the long runner (the batch now exceeds the 180 s serial ceiling); household state 154 checks, 0 failures; completion 1D 25 waypoints, 0 failures; 3D 16 and 4C 9 with their pre-existing kitchen-leg failure; upper lighting 0 failures; upper furniture 488 against 484 at 40110d19, the four new failures being new stock meshes in the suite's pre-existing material-binding check; the five-room sweep 0 failures."
   },
   {
    "id": "F03_D_STUDY-001",
@@ -7495,7 +7501,9 @@
    "purpose": "Web II.5 made an object; wardrobe bible late-night state",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_C_BED1"
+   "area": "F04_C_BED1",
+   "status": "verified",
+   "owner_notes": "A ChairOak completion copy stands east of 4C's bed with Noel's maroon jersey folded on the seat, one sleeve over the front edge and a pale mended patch on the shoulder (4C_jersey_stock, F04_C_BED1_DT3). Verified at WIP 54f7aee1 (implementation/slice31b): fabrication batch 0 failures (rerun_c: the 1D and 3D bedroom close-ups found no clear camera station, so the rerun captures only the jersey, overalls and organizer); apartment batch 236 on the long runner (the batch now exceeds the 180 s serial ceiling); household state 154 checks, 0 failures; completion 1D 25 waypoints, 0 failures; 3D 16 and 4C 9 with their pre-existing kitchen-leg failure; upper lighting 0 failures; upper furniture 488 against 484 at 40110d19, the four new failures being new stock meshes in the suite's pre-existing material-binding check; the five-room sweep 0 failures."
   },
   {
    "id": "F04_C_BED2-001",
@@ -9170,7 +9178,9 @@
    "purpose": "Wardrobe bible late-night state; hero object echo",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_C_BED1"
+   "area": "F05_C_BED1",
+   "status": "verified",
+   "owner_notes": "A ChairOak copy (5C_bed_chair) stands at the foot of Iris's bed with her navy overalls folded on the seat, both buckled straps over the edge; a small study canvas lies face down on the nightstand, stretcher bars up (5C_overalls_stock, F05_C_BED1_DT2/DT3). Verified at WIP 54f7aee1 (implementation/slice31b): fabrication batch 0 failures (rerun_c: the 1D and 3D bedroom close-ups found no clear camera station, so the rerun captures only the jersey, overalls and organizer); apartment batch 236 on the long runner (the batch now exceeds the 180 s serial ceiling); household state 154 checks, 0 failures; completion 1D 25 waypoints, 0 failures; 3D 16 and 4C 9 with their pre-existing kitchen-leg failure; upper lighting 0 failures; upper furniture 488 against 484 at 40110d19, the four new failures being new stock meshes in the suite's pre-existing material-binding check; the five-room sweep 0 failures."
   },
   {
    "id": "F05_C_BED1-002",
