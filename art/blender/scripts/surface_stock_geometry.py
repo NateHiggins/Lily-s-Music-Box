@@ -579,6 +579,54 @@ def cushion(source):
  for x in [-.18,.172]:stock('PipingY'+str(x),(x,-.18,.04),(x+.008,.18,.05),'linen',.002)
  for p in [(-.13,-.13,0),(.13,-.13,0),(-.13,.13,0),(.13,.13,0)]:bearing('seat '+str(p),p)
  group('Cushion',start)
+# Dossier slice 37: cup rings, a repotting on newspaper, a row of code books and a slip.
+def cupring(source):
+ # Pale bloom rings left by cold glasses on the varnish; three overlap, so they read as use.
+ start=len(stock_checks)
+ for i,(x,y,r) in enumerate([(0,0,.036),(.03,.014,.034),(-.012,.034,.037)]):
+  ring('Ring'+str(i),x,y,0,r,r-.0045,.0005,'ring_bloom')
+  bearing('ring '+str(i),(x+r-.00225,y,0))
+ group('CupRings',start)
+def repot(source):
+ # A sheet of unprinted newsprint folded once, a freshly filled pot with its seedling,
+ # the emptied smaller pot on the fold, a spill of soil and the trowel.
+ start=len(stock_checks)
+ stock('Newsprint',(-.28,-.2,0),(.28,.2,.0012),'newsprint',.0001)
+ stock('NewsprintFold',(-.28,-.2,.0011),(-.06,.2,.0024),'newsprint',.0001)
+ lathe('Pot',.1,.03,.0012,[(0,0),(.054,0),(.056,.004),(.066,.098),(.074,.1),(.074,.118),(.066,.118),(.062,.11),(.06,.096),(0,.096)],'terracotta')
+ lathe('PotSoil',.1,.03,.0952,[(0,0),(.0605,0),(.0612,.006),(0,.006)],'soil')
+ tube('Stem',(.1,.03,.099),(.1,.03,.17),.003,'plant')
+ stock('LeafA',(.06,.026,.165),(.14,.034,.169),'plant',.0005)
+ stock('LeafB',(.096,-.01,.168),(.104,.07,.172),'plant',.0005)
+ lathe('EmptyPot',-.17,.08,.0022,[(0,0),(.038,0),(.039,.003),(.046,.069),(.052,.07),(.052,.083),(.046,.083),(.043,.077),(.042,.067),(0,.067)],'terracotta')
+ stock('Spill',(-.05,-.06,.0012),(.02,.02,.006),'soil',.002)
+ stock('TrowelBlade',(-.02,-.17,.0012),(.08,-.12,.0035),'metal',.0004)
+ tube('TrowelHandle',(.075,-.145,.0102),(.18,-.145,.0102),.009,'timber')
+ for p in [(-.27,-.19,0),(.27,-.19,0),(-.27,.19,0),(.27,.19,0)]:bearing('newsprint '+str(p),p)
+ group('Repotting',start)
+def codebooks(source):
+ # Six thick uniform volumes with blank spines, standing between plain steel bookends.
+ start=len(stock_checks);x=-.135
+ for i in range(6):
+  x0=x;x1=x+.045
+  stock('Vol%d_LeftBoard'%i,(x0,-.1,0),(x0+.0016,.1,.26),'book_green',.0003)
+  stock('Vol%d_RightBoard'%i,(x1-.0016,-.1,0),(x1,.1,.26),'book_green',.0003)
+  stock('Vol%d_Pages'%i,(x0+.0015,-.0985,.0025),(x1-.0015,.0995,.2575),'paper',.0002)
+  stock('Vol%d_Spine'%i,(x0,-.1,0),(x1,-.0985,.26),'book_green',.0004)
+  bearing('volume '+str(i),(x0+.0008,0,0))
+  x=x1-.0005
+ stock('BookendLeftUpright',(-.1375,-.06,0),(-.1345,.06,.15),'metal',.0004)
+ stock('BookendLeftFoot',(-.175,-.06,0),(-.1345,.06,.002),'metal',.0004)
+ stock('BookendRightUpright',(.132,-.06,0),(.135,.06,.15),'metal',.0004)
+ stock('BookendRightFoot',(.132,-.06,0),(.172,.06,.002),'metal',.0004)
+ for p in [(-.16,0,0),(.16,0,0)]:bearing('bookend '+str(p),p)
+ group('CodeBooks',start)
+def slip(source):
+ # A blank work slip with one dog-eared corner.
+ start=len(stock_checks)
+ stock('Slip',(-.035,-.06,0),(.035,.06,.0011),'paper',.00008)
+ stock('DogEar',(.02,.045,.0011),(.035,.06,.0019),'paper',.00008)
+ bearing('slip',(0,0,0));group('Slip',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -642,4 +690,8 @@ for assembly in assemblies:
  elif kind=='canvasback':canvasback(source)
  elif kind=='pillbox':pillbox(source)
  elif kind=='cushion':cushion(source)
+ elif kind=='cupring':cupring(source)
+ elif kind=='repot':repot(source)
+ elif kind=='codebooks':codebooks(source)
+ elif kind=='slip':slip(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

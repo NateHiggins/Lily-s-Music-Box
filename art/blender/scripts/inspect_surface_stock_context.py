@@ -51,6 +51,10 @@ for identity in {p['support'] for p in props.values()}:
    # Repaired case top board: 1.19 m centre, 27 mm thick, (_case_w + .05) wide, 6 mm left of centre.
    for literal in ['_case_w = 0.68','_case_d = 0.25','for y in [0.08, 0.43, 0.82, 1.19]:','Vector3(_case_w + 0.05, 0.027, _case_d)','Vector3(0.012 if y == 0.43 else -0.006, y, 0)']:assert literal in script,literal
    supports[identity]=[box_tree((-.371,1.1765,-.125),(.359,1.2035,.125))]
+  elif shelf['style']=='plain':
+   # Plain case top board: 1.275 m centre, 30 mm thick, (_case_w + .04) wide, centred, _case_d deep.
+   for literal in ['_case_w = 0.72','_case_d = 0.28','for y in [0.045, 0.45, 0.86, 1.275]:','Vector3(_case_w + 0.04, 0.03, _case_d)']:assert literal in script,literal
+   supports[identity]=[box_tree((-.38,1.26,-.14),(.38,1.29,.14))]
   else:
    assert shelf['style']=='sectional',identity
    for literal in ['_case_w = 0.78','_case_h = 1.34','_case_d = 0.30','Vector3(_case_w + 0.08, 0.085, _case_d + 0.04)','Vector3(0, _case_h - 0.0425, 0)']:assert literal in script,literal

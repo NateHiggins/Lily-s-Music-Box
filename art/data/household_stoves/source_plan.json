@@ -348,9 +348,9 @@
       1.0
     ],
     "enamel_mismatch": [
-      0.52,
-      0.56,
-      0.47,
+      0.3,
+      0.4,
+      0.36,
       1.0
     ],
     "enamel_paint": [
@@ -378,15 +378,15 @@
       1.0
     ],
     "grime": [
-      0.24,
-      0.17,
-      0.08,
+      0.13,
+      0.085,
+      0.035,
       1.0
     ],
     "tape_residue": [
-      0.74,
-      0.67,
-      0.48,
+      0.52,
+      0.4,
+      0.17,
       1.0
     ]
   },
@@ -449,7 +449,7 @@
     },
     "grime": {
       "normal_scale": 0.13,
-      "roughness": 0.5
+      "roughness": 0.45
     },
     "tape_residue": {
       "normal_scale": 0.13,
@@ -555,5 +555,8 @@
     ],
     "scope": "Native presentation only; all original actor owners, source transforms, service methods and logical controls remain authoritative. One indexed maintenance station per service pose.",
     "grate_forward_m": 0.06
-  }
+  },
+  "adaptations": [
+    "Slice 37 of the V2 environment dossier strengthens the owner wear so it reads at the kitchens' detail distance: darker grime with a taller tide line, wider prints and spatter on Jonah's and Juno's splashbacks, aged yellow-brown tape residue and a sage replacement oven panel on Omar's range."
+  ]
 }

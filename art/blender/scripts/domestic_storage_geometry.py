@@ -65,12 +65,15 @@ def shelf(row,p):
     stock('Rail%d_%d'%(i,sign),(x-.012,-.13,lo[2]-.012),(x+.012,.13,lo[2]),'floor_oak',.001)
    else:
     rod(identity+'_Rung%d_%d'%(i,sign),(x,-.13,lo[2]-.006),(x,.13,lo[2]-.006),.006,identity,'metal')
+ # Dossier slice 37: a bare variant (4B's equipment shelf) leaves out the source record's
+ # painted bins and metal tins, which read as placeholder cubes in that closet.
+ bins=p.get('bins',True)
  for key,surface in surfaces.items():
   if key.startswith('book_'):
    for i,(lo,hi) in enumerate(source_boxes(surface)):bound_book(key+str(i),lo,hi,key)
-  elif key=='trim':
+  elif key=='trim' and bins:
    for i,(lo,hi) in enumerate(source_boxes(surface)):closed_container('PaintedBin'+str(i),lo,hi,key)
- if not p.get('books',True):
+ if not p.get('books',True) and bins:
   # Four original 8-sided posts precede the two rectangular metal tins.
   surface={**surfaces['metal'],'vertices':surfaces['metal']['vertices'][-216:]}
   for i,(lo,hi) in enumerate(source_boxes(surface)):closed_container('MetalTin'+str(i),lo,hi,'metal')

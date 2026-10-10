@@ -1,0 +1,1505 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						7.07000160217285,
+						11.039999961853,
+						-18.3599987030029
+					],
+					"feet": [
+						-7.07000017166138,
+						9.63000011444092,
+						6.70999908447266
+					],
+					"forward": [
+						-0.45732969045639,
+						-0.628827512264252,
+						-0.628828763961792
+					],
+					"image": "F04_B_CLOSET_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.75,
+						10.6000003814697,
+						7.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.75000143051147,
+						11.039999961853,
+						-18.7999992370605
+					],
+					"feet": [
+						-6.75,
+						9.63000011444092,
+						7.14999961853027
+					],
+					"forward": [
+						0.0,
+						-0.53217077255249,
+						0.846637070178986
+					],
+					"image": "F04_B_CLOSET_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.75,
+						10.6000003814697,
+						7.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						8.5500020980835,
+						11.039999961853,
+						-18.8999977111816
+					],
+					"feet": [
+						-8.55000019073486,
+						9.63000011444092,
+						7.24999809265137
+					],
+					"forward": [
+						-0.989728450775146,
+						-0.131963640451431,
+						0.0549840591847897
+					],
+					"image": "F04_B_CLOSET_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F04_B_CLOSET_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.75,
+						10.8000001907349,
+						7.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.07000160217285,
+						11.039999961853,
+						-18.3599987030029
+					],
+					"feet": [
+						-7.07000017166138,
+						9.63000011444092,
+						6.70999908447266
+					],
+					"forward": [
+						-0.762139678001404,
+						-0.501896739006042,
+						-0.408953428268433
+					],
+					"image": "F04_B_CLOSET_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4B_equipment_shelf",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.25,
+						10.5,
+						7.15000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						6.75000143051147,
+						11.039999961853,
+						-18.3599987030029
+					],
+					"feet": [
+						-6.75,
+						9.63000011444092,
+						6.70999908447266
+					],
+					"forward": [
+						0.123593412339687,
+						-0.42639747262001,
+						-0.896052420139313
+					],
+					"image": "F04_B_CLOSET_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4B_closet_rail",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.94999980926514,
+						10.3500003814697,
+						8.15999984741211
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.07000160217285,
+						11.039999961853,
+						-18.3599987030029
+					],
+					"feet": [
+						-7.07000017166138,
+						9.63000011444092,
+						6.70999908447266
+					],
+					"forward": [
+						-0.762139678001404,
+						-0.501896739006042,
+						-0.408953428268433
+					],
+					"image": "F04_B_CLOSET_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4B_equipment_shelf_Semantic",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.25,
+						10.5,
+						7.14999961853027
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 4,
+			"floor_y": 9.6,
+			"id": "F04_B_CLOSET",
+			"level": "F04",
+			"purpose": "clothes and equipment storage",
+			"rect": [
+				-7.55,
+				6.05,
+				-5.95,
+				8.25
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						11.1620016098022,
+						11.039999961853,
+						-18.6359977722168
+					],
+					"feet": [
+						-11.1619997024536,
+						9.63000011444092,
+						6.98600006103516
+					],
+					"forward": [
+						0.684945285320282,
+						-0.155508488416672,
+						-0.711805582046509
+					],
+					"image": "F04_B_ALCOVE_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-13.1000003814697,
+						10.6000003814697,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						15.0380020141602,
+						11.039999961853,
+						-22.6639976501465
+					],
+					"feet": [
+						-15.0380001068115,
+						9.63000011444092,
+						11.0139999389648
+					],
+					"forward": [
+						-0.684945046901703,
+						-0.155508548021317,
+						0.711805760860443
+					],
+					"image": "F04_B_ALCOVE_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-13.1000003814697,
+						10.6000003814697,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.5500020980835,
+						11.039999961853,
+						-18.8999977111816
+					],
+					"feet": [
+						-9.55000019073486,
+						9.63000011444092,
+						7.24999809265137
+					],
+					"forward": [
+						0.895295083522797,
+						-0.0605269335210323,
+						-0.441342622041702
+					],
+					"image": "F04_B_ALCOVE_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F04_B_ALCOVE_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-13.1000003814697,
+						10.8000001907349,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						13.1000022888184,
+						11.039999961853,
+						-18.6359977722168
+					],
+					"feet": [
+						-13.1000003814697,
+						9.63000011444092,
+						6.98600006103516
+					],
+					"forward": [
+						0.0,
+						-0.271531611680985,
+						-0.962429523468018
+					],
+					"image": "F04_B_ALCOVE_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4B_wake_bed",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-13.1000003814697,
+						10.5,
+						8.89999961853027
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						12.0800018310547,
+						11.039999961853,
+						-19.5900001525879
+					],
+					"feet": [
+						-12.0799999237061,
+						9.63000011444092,
+						7.94000053405762
+					],
+					"forward": [
+						-0.0144126359373331,
+						-0.259429782629013,
+						-0.96565443277359
+					],
+					"image": "F04_B_ALCOVE_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4B_wake_nightstand",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.0500001907349,
+						10.5,
+						9.94999980926514
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						14.1200017929077,
+						11.039999961853,
+						-20.6499977111816
+					],
+					"feet": [
+						-14.1199998855591,
+						9.63000011444092,
+						9.0
+					],
+					"forward": [
+						-0.396333664655685,
+						-0.277948468923569,
+						0.87502247095108
+					],
+					"image": "F04_B_ALCOVE_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "4B_wake_boots",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-13.3500003814697,
+						10.5,
+						7.30000019073486
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 21,
+			"floor_y": 9.6,
+			"id": "F04_B_ALCOVE",
+			"level": "F04",
+			"purpose": "player sleeping context",
+			"rect": [
+				-15.65,
+				6.35,
+				-10.55,
+				11.65
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-9.92000007629395,
+						7.83999967575073,
+						-4.44000053405762
+					],
+					"feet": [
+						9.92000007629395,
+						6.42999982833862,
+						-7.21000003814697
+					],
+					"forward": [
+						-0.881568372249603,
+						-0.291646480560303,
+						-0.371186703443527
+					],
+					"image": "F03_B_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.25,
+						7.40000009536743,
+						-6.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-12.5799999237061,
+						7.83999967575073,
+						-5.00000047683716
+					],
+					"feet": [
+						12.5799999237061,
+						6.42999982833862,
+						-6.65000009536743
+					],
+					"forward": [
+						0.949394762516022,
+						-0.314085245132446,
+						0.0
+					],
+					"image": "F03_B_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.25,
+						7.40000009536743,
+						-6.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-8.75,
+						7.83999967575073,
+						-4.85000038146973
+					],
+					"feet": [
+						8.75,
+						6.42999982833862,
+						-6.80000019073486
+					],
+					"forward": [
+						-0.993652939796448,
+						-0.0953905880451202,
+						-0.0596192143857479
+					],
+					"image": "F03_B_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F03_B_SERVICE_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.25,
+						7.59999990463257,
+						-6.65000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-10.5500001907349,
+						7.83999967575073,
+						-4.44000053405762
+					],
+					"feet": [
+						10.5500001907349,
+						6.42999982833862,
+						-7.21000003814697
+					],
+					"forward": [
+						-0.570192933082581,
+						-0.279912829399109,
+						-0.772352814674377
+					],
+					"image": "F03_B_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F03_3B_STOVE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						11.6499996185303,
+						7.30000019073486,
+						-5.71999979019165
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.9499998092651,
+						7.83999967575073,
+						-5.00000047683716
+					],
+					"feet": [
+						11.9499998092651,
+						6.42999982833862,
+						-6.65000009536743
+					],
+					"forward": [
+						0.84510201215744,
+						-0.268444001674652,
+						-0.462320655584335
+					],
+					"image": "F03_B_KITCHEN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F03_3B_KITCHEN_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						10.25,
+						7.30000019073486,
+						-5.71999979019165
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-11.25,
+						7.83999967575073,
+						-5.00000047683716
+					],
+					"feet": [
+						11.25,
+						6.42999982833862,
+						-6.65000009536743
+					],
+					"forward": [
+						-0.744709730148315,
+						-0.335119187831879,
+						-0.577150285243988
+					],
+					"image": "F03_B_KITCHEN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F03_3B_FRIDGE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						12.4499998092651,
+						7.30000019073486,
+						-5.71999979019165
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 8,
+			"floor_y": 6.4,
+			"id": "F03_B_KITCHEN",
+			"level": "F03",
+			"purpose": "cooking, washing and service access; no sleeping-room through route",
+			"rect": [
+				9.5,
+				-8.05,
+				13.0,
+				-5.25
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						8.52200126647949,
+						7.83999967575073,
+						-13.9159984588623
+					],
+					"feet": [
+						-8.52200031280518,
+						6.42999982833862,
+						2.26599979400635
+					],
+					"forward": [
+						0.754498720169067,
+						-0.10785548388958,
+						0.647378444671631
+					],
+					"image": "F03_A_MAIN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.6000003814697,
+						7.40000009536743,
+						-0.375
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						14.6780014038086,
+						7.83999967575073,
+						-9.8849983215332
+					],
+					"feet": [
+						-14.6780004501343,
+						6.42999982833862,
+						-1.76500034332275
+					],
+					"forward": [
+						-0.903740346431732,
+						-0.129189535975456,
+						-0.408121913671494
+					],
+					"image": "F03_A_MAIN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.6000003814697,
+						7.40000009536743,
+						-0.375
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.60000228881836,
+						7.83999967575073,
+						-15.7499990463257
+					],
+					"feet": [
+						-9.60000133514404,
+						6.42999982833862,
+						4.10000038146973
+					],
+					"forward": [
+						0.407542049884796,
+						-0.0489050298929214,
+						0.911876022815704
+					],
+					"image": "F03_A_MAIN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F03_A_HALL_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.6000003814697,
+						7.59999990463257,
+						-0.375
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						13.2200012207031,
+						7.83999967575073,
+						-13.9159984588623
+					],
+					"feet": [
+						-13.2200002670288,
+						6.42999982833862,
+						2.26599979400635
+					],
+					"forward": [
+						0.956898629665375,
+						-0.290294796228409,
+						0.00860173813998699
+					],
+					"image": "F03_A_MAIN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "3A_story_specimen",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-15.0,
+						7.30000019073486,
+						2.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						11.600001335144,
+						7.83999967575073,
+						-8.63399887084961
+					],
+					"feet": [
+						-11.6000003814697,
+						6.42999982833862,
+						-3.01599979400635
+					],
+					"forward": [
+						0.961858987808228,
+						-0.236092463135719,
+						-0.138157919049263
+					],
+					"image": "F03_A_MAIN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "3A_din_t",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-13.8000001907349,
+						7.30000019073486,
+						-2.70000004768372
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						14.6780014038086,
+						7.83999967575073,
+						-9.8849983215332
+					],
+					"feet": [
+						-14.6780004501343,
+						6.42999982833862,
+						-1.76500034332275
+					],
+					"forward": [
+						0.296011090278625,
+						-0.279451102018356,
+						-0.913391828536987
+					],
+					"image": "F03_A_MAIN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "3A_potting_bench",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-15.25,
+						7.30000019073486,
+						0.0
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 19,
+			"floor_y": 6.4,
+			"id": "F03_A_MAIN",
+			"level": "F03",
+			"purpose": "Malcolm Reed living, meals and propagation work",
+			"rect": [
+				-15.65,
+				-3.85,
+				-7.55,
+				3.1
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						9.18199920654297,
+						14.2400007247925,
+						-5.98999881744385
+					],
+					"feet": [
+						-9.18199920654297,
+						12.8300008773804,
+						-5.65999984741211
+					],
+					"forward": [
+						0.781624436378479,
+						-0.123134598135948,
+						-0.611474514007568
+					],
+					"image": "F05_A_MAIN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.9750003814697,
+						13.8000001907349,
+						-3.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						14.7680006027222,
+						14.2400007247925,
+						-10.3599987030029
+					],
+					"feet": [
+						-14.7679996490479,
+						12.8300008773804,
+						-1.28999996185303
+					],
+					"forward": [
+						-0.781624317169189,
+						-0.123134702444077,
+						0.611474692821503
+					],
+					"image": "F05_A_MAIN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.9750003814697,
+						13.8000001907349,
+						-3.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.30000114440918,
+						14.2400007247925,
+						-9.44999885559082
+					],
+					"feet": [
+						-7.30000019073486,
+						12.8300008773804,
+						-2.19999980926514
+					],
+					"forward": [
+						0.963582754135132,
+						-0.0494674928486347,
+						0.262795180082321
+					],
+					"image": "F05_A_MAIN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F05_A_VESTIBULE_MAIN_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.9750003814697,
+						14.0,
+						-3.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						13.4450006484985,
+						14.2400007247925,
+						-8.17499828338623
+					],
+					"feet": [
+						-13.4449996948242,
+						12.8300008773804,
+						-3.47500038146973
+					],
+					"forward": [
+						-0.699263751506805,
+						-0.261317104101181,
+						-0.665389776229858
+					],
+					"image": "F05_A_MAIN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "5A_din_t",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.0,
+						13.6999998092651,
+						-2.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						10.5050010681152,
+						14.2400007247925,
+						-7.02499866485596
+					],
+					"feet": [
+						-10.5050001144409,
+						12.8300008773804,
+						-4.625
+					],
+					"forward": [
+						0.965193867683411,
+						-0.261255919933319,
+						-0.0120952073484659
+					],
+					"image": "F05_A_MAIN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "5A_plantable",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.5,
+						13.6999998092651,
+						-4.59999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						9.1820011138916,
+						14.2400007247925,
+						-9.32499885559082
+					],
+					"feet": [
+						-9.18200016021729,
+						12.8300008773804,
+						-2.32499980926514
+					],
+					"forward": [
+						0.25446417927742,
+						-0.32873398065567,
+						-0.90949547290802
+					],
+					"image": "F05_A_MAIN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F05_5A_BOOKSHELF_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-9.60000038146973,
+						13.6999998092651,
+						-0.830999970436096
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 16,
+			"floor_y": 12.8,
+			"id": "F05_A_MAIN",
+			"level": "F05",
+			"purpose": "Nadia Quell: living and meals",
+			"rect": [
+				-15.65,
+				-6.35,
+				-8.3,
+				-0.6
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						14.8880004882813,
+						17.4400005340576,
+						-12.939998626709
+					],
+					"feet": [
+						-14.8879995346069,
+						16.0300006866455,
+						1.28999996185303
+					],
+					"forward": [
+						-0.734579265117645,
+						-0.133947536349297,
+						-0.665170192718506
+					],
+					"image": "F06_B_MAIN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.4750003814697,
+						17.0,
+						3.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						10.0620012283325,
+						17.4400005340576,
+						-17.3099975585938
+					],
+					"feet": [
+						-10.0619993209839,
+						16.0300006866455,
+						5.65999794006348
+					],
+					"forward": [
+						0.73457944393158,
+						-0.133947506546974,
+						0.665170013904572
+					],
+					"image": "F06_B_MAIN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.4750003814697,
+						17.0,
+						3.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						8.30000114440918,
+						17.4400005340576,
+						-13.4999990463257
+					],
+					"feet": [
+						-8.30000019073486,
+						16.0300006866455,
+						1.85000038146973
+					],
+					"forward": [
+						0.930565714836121,
+						-0.053493544459343,
+						-0.36219596862793
+					],
+					"image": "F06_B_MAIN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F06_B_VESTIBULE_MAIN_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.4750003814697,
+						17.2000007629395,
+						3.47499990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						10.0620012283325,
+						17.4400005340576,
+						-13.9749984741211
+					],
+					"feet": [
+						-10.0620002746582,
+						16.0300006866455,
+						2.32499980926514
+					],
+					"forward": [
+						0.0873466059565544,
+						-0.250889986753464,
+						-0.964066803455353
+					],
+					"image": "F06_B_MAIN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6B_din_t",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-10.25,
+						16.8999996185303,
+						4.40000009536743
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						10.0620012283325,
+						17.4400005340576,
+						-13.9749984741211
+					],
+					"feet": [
+						-10.0620002746582,
+						16.0300006866455,
+						2.32499980926514
+					],
+					"forward": [
+						0.582351922988892,
+						-0.276336342096329,
+						0.764528930187225
+					],
+					"image": "F06_B_MAIN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F06_6B_BOOKSHELF_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-11.1999998092651,
+						16.8999996185303,
+						0.830999970436096
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						13.7450008392334,
+						17.4400005340576,
+						-16.2749977111816
+					],
+					"feet": [
+						-13.7449998855591,
+						16.0300006866455,
+						4.625
+					],
+					"forward": [
+						-0.642071604728699,
+						-0.278489649295807,
+						-0.714274168014526
+					],
+					"image": "F06_B_MAIN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6B_wireless_table",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-12.5,
+						16.8999996185303,
+						6.01000022888184
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 20,
+			"floor_y": 16.0,
+			"id": "F06_B_MAIN",
+			"level": "F06",
+			"purpose": "Jonah Price: living, meals and writing and annotated notebooks",
+			"rect": [
+				-15.65,
+				0.6,
+				-9.3,
+				6.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						8.46000194549561,
+						17.4400005340576,
+						-22.6639976501465
+					],
+					"feet": [
+						-8.46000003814697,
+						16.0300006866455,
+						11.0139980316162
+					],
+					"forward": [
+						-0.262146383523941,
+						-0.205972447991371,
+						0.942790865898132
+					],
+					"image": "F06_B_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						17.0,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.90000200271606,
+						17.4400005340576,
+						-18.6359996795654
+					],
+					"feet": [
+						-7.90000057220459,
+						16.0300006866455,
+						6.98600006103516
+					],
+					"forward": [
+						0.0,
+						-0.213436916470528,
+						-0.976956844329834
+					],
+					"image": "F06_B_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						17.0,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						10.3000020980835,
+						17.4400005340576,
+						-20.4499969482422
+					],
+					"feet": [
+						-10.3000001907349,
+						16.0300006866455,
+						8.79999923706055
+					],
+					"forward": [
+						-0.991633951663971,
+						-0.099163293838501,
+						-0.0826364904642105
+					],
+					"image": "F06_B_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F06_B_PRIVATE_HALL_KITCHEN_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-7.90000009536743,
+						17.2000007629395,
+						9.0
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						8.46000194549561,
+						17.4400005340576,
+						-19.5899963378906
+					],
+					"feet": [
+						-8.46000003814697,
+						16.0300006866455,
+						7.93999862670898
+					],
+					"forward": [
+						-0.769153475761414,
+						-0.26970362663269,
+						-0.57936418056488
+					],
+					"image": "F06_B_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F06_6B_STOVE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.92000007629395,
+						16.8999996185303,
+						9.10000038146973
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						8.46000194549561,
+						17.4400005340576,
+						-20.6499977111816
+					],
+					"feet": [
+						-8.46000003814697,
+						16.0300006866455,
+						8.99999809265137
+					],
+					"forward": [
+						0.238760441541672,
+						0.106679670512676,
+						0.965201020240784
+					],
+					"image": "F06_B_KITCHEN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "6B_k_wall_cupboard",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-8.93000030517578,
+						17.6499996185303,
+						7.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						7.90000200271606,
+						17.4400005340576,
+						-20.6499977111816
+					],
+					"feet": [
+						-7.90000009536743,
+						16.0300006866455,
+						8.99999809265137
+					],
+					"forward": [
+						-0.491569995880127,
+						-0.27086541056633,
+						0.827641785144806
+					],
+					"image": "F06_B_KITCHEN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F06_6B_KITCHEN_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						-6.92000007629395,
+						16.8999996185303,
+						7.34999990463257
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 10,
+			"floor_y": 16.0,
+			"id": "F06_B_KITCHEN",
+			"level": "F06",
+			"purpose": "Jonah Price: cooking and washing",
+			"rect": [
+				-9.3,
+				6.35,
+				-6.5,
+				11.65
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-4.78999853134155,
+						4.63999938964844,
+						-17.25
+					],
+					"feet": [
+						4.78999996185303,
+						3.22999978065491,
+						5.60000038146973
+					],
+					"forward": [
+						-0.703882455825806,
+						-0.469254612922668,
+						0.533244431018829
+					],
+					"image": "F02_C_KITCHEN_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						5.44999980926514,
+						4.19999980926514,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.44999837875366,
+						4.63999938964844,
+						-16.25
+					],
+					"feet": [
+						5.44999980926514,
+						3.22999978065491,
+						4.60000038146973
+					],
+					"forward": [
+						0.0,
+						-0.660627484321594,
+						-0.75071382522583
+					],
+					"image": "F02_C_KITCHEN_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						5.44999980926514,
+						4.19999980926514,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.39999866485596,
+						4.63999938964844,
+						-19.0
+					],
+					"feet": [
+						5.40000009536743,
+						3.22999978065491,
+						7.35000038146973
+					],
+					"forward": [
+						-0.0220913514494896,
+						-0.106038801372051,
+						0.994116604328156
+					],
+					"image": "F02_C_KITCHEN_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_C_PRIVATE_HALL_KITCHEN_DOOR",
+					"status": "captured_pending_visual_review",
+					"target": [
+						5.44999980926514,
+						4.40000009536743,
+						5.09999990463257
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-4.78999853134155,
+						4.63999938964844,
+						-16.75
+					],
+					"feet": [
+						4.78999996185303,
+						3.22999978065491,
+						5.10000038146973
+					],
+					"forward": [
+						-0.908685326576233,
+						-0.259624153375626,
+						0.326934576034546
+					],
+					"image": "F02_C_KITCHEN_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_2C_STOVE_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.67999982833862,
+						4.09999990463257,
+						4.42000007629395
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.44999837875366,
+						4.63999938964844,
+						-17.25
+					],
+					"feet": [
+						5.44999980926514,
+						3.22999978065491,
+						5.60000038146973
+					],
+					"forward": [
+						0.879501819610596,
+						0.144293665885925,
+						0.453493058681488
+					],
+					"image": "F02_C_KITCHEN_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "2C_k_wall_cupboard",
+					"status": "captured_pending_visual_review",
+					"target": [
+						4.17000007629395,
+						4.84999990463257,
+						4.94000005722046
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.44999837875366,
+						4.63999938964844,
+						-17.25
+					],
+					"feet": [
+						5.44999980926514,
+						3.22999978065491,
+						5.60000038146973
+					],
+					"forward": [
+						0.427115112543106,
+						-0.329488605260849,
+						0.842027306556702
+					],
+					"image": "F02_C_KITCHEN_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_2C_KITCHEN_SINK_01",
+					"status": "captured_pending_visual_review",
+					"target": [
+						4.75,
+						4.09999990463257,
+						4.21999979019165
+					]
+				}
+			],
+			"class": "private",
+			"clear_stations": 5,
+			"floor_y": 3.2,
+			"id": "F02_C_KITCHEN",
+			"level": "F02",
+			"purpose": "cooking and washing",
+			"rect": [
+				3.8,
+				3.85,
+				7.1,
+				6.35
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "opened for the view",
+			"threshold_outside": true
+		}
+	]
+}

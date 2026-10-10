@@ -743,6 +743,12 @@
     "H": 0.44,
     "key": "wood_dark"
    }
+  },
+  {
+   "id": "DomesticObject61",
+   "kind": "workboots",
+   "source_id": "4B_wake_boots",
+   "params": {}
   }
  ],
  "instances": [
@@ -1317,6 +1323,10 @@
   {
    "id": "1A_lesson_trunk",
    "variant": "DomesticObject60"
+  },
+  {
+   "id": "4B_wake_boots",
+   "variant": "DomesticObject61"
   }
  ],
  "runtime_keys": [
@@ -1595,7 +1605,8 @@
   "Slice 32 of the V2 environment dossier adds eight service forms: an oil can on a rag, a spare belt on a nail and a folded stepladder in the basement laundry, a cast-iron umbrella stand in the vestibule, a brass spittoon in the lobby, and the staff restroom's soap dish, roller towel and mop bucket.",
   "Slice 33 of the V2 environment dossier adds three forms for the roof bulkhead (a coil of washing line, a watering can, a gardening trug) and 6A's row of three small prints as copies of 2C_album_a.",
   "Slice 34 of the V2 environment dossier adds the chimney sweep's soot sack and rod bundle inside the roof service bulkhead and 1A's trunk of lesson plans, a larger variant of the suitcase form.",
-  "Slice 35 of the V2 environment dossier fills 2A's bedroom pinboard (DomesticObject00) to a full grid of 24 cards."
+  "Slice 35 of the V2 environment dossier fills 2A's bedroom pinboard (DomesticObject00) to a full grid of 24 cards.",
+  "Slice 37 of the V2 environment dossier adds a workboots form: 4B's pair of boots kicked off at the alcove bed's foot, one fallen against the other."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

@@ -790,6 +790,23 @@ def sweeprods(source):
  for x in [-.05,.05]:bearing('rod foot '+str(x),(x,.24,0))
  group('SweepRods',start)
 
+def workboots(source):
+ # Dossier slice 37: a pair of work boots kicked off at the bed foot, one fallen against the other.
+ start=len(stock_checks)
+ stock('SoleA',(-.12,-.14,0),(-.02,.14,.022),'rubber_aged',.004)
+ stock('HeelA',(-.12,-.14,.021),(-.02,-.08,.034),'rubber_aged',.003)
+ stock('VampA',(-.115,-.12,.021),(-.025,.12,.095),'book_brown',.012)
+ stock('ShaftA',(-.116,-.13,.033),(-.024,-.02,.2),'book_brown',.01)
+ stock('LacesA',(-.078,-.02,.094),(-.062,.08,.0975),'linen',.0008)
+ # The second boot lies on its side, its sole against the first.
+ stock('SoleB',(-.021,-.14,0),(.001,.14,.1),'rubber_aged',.004)
+ stock('HeelB',(0,-.14,0),(.013,-.08,.09),'rubber_aged',.003)
+ stock('VampB',(0,-.12,0),(.074,.12,.09),'book_brown',.012)
+ stock('ShaftB',(.012,-.13,0),(.18,-.02,.092),'book_brown',.01)
+ stock('LacesB',(.073,-.02,.04),(.0765,.08,.056),'linen',.0008)
+ for p in [(-.11,-.13,0),(-.03,-.13,0),(-.11,.13,0),(-.03,.13,0),(-.01,0,0),(.04,.08,0),(.1,-.075,0)]:bearing('boot '+str(p),p)
+ group('WorkBoots',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -840,4 +857,5 @@ for assembly in assemblies:
  elif kind=='trug':trug(source)
  elif kind=='sootsack':sootsack(source)
  elif kind=='sweeprods':sweeprods(source)
+ elif kind=='workboots':workboots(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

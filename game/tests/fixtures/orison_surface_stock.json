@@ -1989,6 +1989,48 @@
       "kind": "tin",
       "cell": "1A",
       "source_record": "1A_tea_tin_b"
+    },
+    {
+      "id": "6B_cup_rings_a",
+      "kind": "cupring",
+      "cell": "6B",
+      "source_record": "6B_cup_rings_a"
+    },
+    {
+      "id": "6B_cup_rings_b",
+      "kind": "cupring",
+      "cell": "6B",
+      "source_record": "6B_cup_rings_b"
+    },
+    {
+      "id": "6B_cup_rings_c",
+      "kind": "cupring",
+      "cell": "6B",
+      "source_record": "6B_cup_rings_c"
+    },
+    {
+      "id": "6B_cup_rings_d",
+      "kind": "cupring",
+      "cell": "6B",
+      "source_record": "6B_cup_rings_d"
+    },
+    {
+      "id": "3A_repotting",
+      "kind": "repot",
+      "cell": "3A",
+      "source_record": "3A_repotting"
+    },
+    {
+      "id": "5A_code_books",
+      "kind": "codebooks",
+      "cell": "5A",
+      "source_record": "5A_code_books"
+    },
+    {
+      "id": "4B_wake_slip",
+      "kind": "slip",
+      "cell": "4B",
+      "source_record": "4B_wake_slip"
     }
   ],
   "closed_stocks": [
@@ -15179,6 +15221,324 @@
       "assembly": "1A_tea_tin_b",
       "key": "nickel_plated",
       "volume_m3": 0.0001172981332062072
+    },
+    {
+      "name": "6B_cup_rings_a_Ring0",
+      "assembly": "6B_cup_rings_a",
+      "key": "ring_bloom",
+      "volume_m3": 4.7234247942431517e-07
+    },
+    {
+      "name": "6B_cup_rings_a_Ring1",
+      "assembly": "6B_cup_rings_a",
+      "key": "ring_bloom",
+      "volume_m3": 4.443517719304574e-07
+    },
+    {
+      "name": "6B_cup_rings_a_Ring2",
+      "assembly": "6B_cup_rings_a",
+      "key": "ring_bloom",
+      "volume_m3": 4.863377613106809e-07
+    },
+    {
+      "name": "6B_cup_rings_b_Ring0",
+      "assembly": "6B_cup_rings_b",
+      "key": "ring_bloom",
+      "volume_m3": 4.7234247942431517e-07
+    },
+    {
+      "name": "6B_cup_rings_b_Ring1",
+      "assembly": "6B_cup_rings_b",
+      "key": "ring_bloom",
+      "volume_m3": 4.443517719304574e-07
+    },
+    {
+      "name": "6B_cup_rings_b_Ring2",
+      "assembly": "6B_cup_rings_b",
+      "key": "ring_bloom",
+      "volume_m3": 4.863377613106809e-07
+    },
+    {
+      "name": "6B_cup_rings_c_Ring0",
+      "assembly": "6B_cup_rings_c",
+      "key": "ring_bloom",
+      "volume_m3": 4.7234247942431517e-07
+    },
+    {
+      "name": "6B_cup_rings_c_Ring1",
+      "assembly": "6B_cup_rings_c",
+      "key": "ring_bloom",
+      "volume_m3": 4.443517719304574e-07
+    },
+    {
+      "name": "6B_cup_rings_c_Ring2",
+      "assembly": "6B_cup_rings_c",
+      "key": "ring_bloom",
+      "volume_m3": 4.863377613106809e-07
+    },
+    {
+      "name": "6B_cup_rings_d_Ring0",
+      "assembly": "6B_cup_rings_d",
+      "key": "ring_bloom",
+      "volume_m3": 4.7234247942431517e-07
+    },
+    {
+      "name": "6B_cup_rings_d_Ring1",
+      "assembly": "6B_cup_rings_d",
+      "key": "ring_bloom",
+      "volume_m3": 4.443517719304574e-07
+    },
+    {
+      "name": "6B_cup_rings_d_Ring2",
+      "assembly": "6B_cup_rings_d",
+      "key": "ring_bloom",
+      "volume_m3": 4.863377613106809e-07
+    },
+    {
+      "name": "3A_repotting_Newsprint",
+      "assembly": "3A_repotting",
+      "key": "newsprint",
+      "volume_m3": 0.00026879040741667796
+    },
+    {
+      "name": "3A_repotting_NewsprintFold",
+      "assembly": "3A_repotting",
+      "key": "newsprint",
+      "volume_m3": 0.00011439380077856512
+    },
+    {
+      "name": "3A_repotting_Pot",
+      "assembly": "3A_repotting",
+      "key": "terracotta",
+      "volume_m3": 0.0012096958258767366
+    },
+    {
+      "name": "3A_repotting_PotSoil",
+      "assembly": "3A_repotting",
+      "key": "soil",
+      "volume_m3": 6.959626084092442e-05
+    },
+    {
+      "name": "3A_repotting_Stem",
+      "assembly": "3A_repotting",
+      "key": "plant",
+      "volume_m3": 2.001749560443414e-06
+    },
+    {
+      "name": "3A_repotting_LeafA",
+      "assembly": "3A_repotting",
+      "key": "plant",
+      "volume_m3": 2.53721058720963e-06
+    },
+    {
+      "name": "3A_repotting_LeafB",
+      "assembly": "3A_repotting",
+      "key": "plant",
+      "volume_m3": 2.5372182576325105e-06
+    },
+    {
+      "name": "3A_repotting_EmptyPot",
+      "assembly": "3A_repotting",
+      "key": "terracotta",
+      "volume_m3": 0.0004120523909872208
+    },
+    {
+      "name": "3A_repotting_Spill",
+      "assembly": "3A_repotting",
+      "key": "soil",
+      "volume_m3": 2.632139633209604e-05
+    },
+    {
+      "name": "3A_repotting_TrowelBlade",
+      "assembly": "3A_repotting",
+      "key": "metal",
+      "volume_m3": 1.1475741510704183e-05
+    },
+    {
+      "name": "3A_repotting_TrowelHandle",
+      "assembly": "3A_repotting",
+      "key": "timber",
+      "volume_m3": 2.6642723937317923e-05
+    },
+    {
+      "name": "5A_code_books_Vol0_LeftBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.315913362348555e-05
+    },
+    {
+      "name": "5A_code_books_Vol0_RightBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.315835876402912e-05
+    },
+    {
+      "name": "5A_code_books_Vol0_Pages",
+      "assembly": "5A_code_books",
+      "key": "paper",
+      "volume_m3": 0.002120559924363167
+    },
+    {
+      "name": "5A_code_books_Vol0_Spine",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 1.7501104331246957e-05
+    },
+    {
+      "name": "5A_code_books_Vol1_LeftBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.315835876402912e-05
+    },
+    {
+      "name": "5A_code_books_Vol1_RightBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.315855247070528e-05
+    },
+    {
+      "name": "5A_code_books_Vol1_Pages",
+      "assembly": "5A_code_books",
+      "key": "paper",
+      "volume_m3": 0.0021205603005426707
+    },
+    {
+      "name": "5A_code_books_Vol1_Spine",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 1.7501102613440606e-05
+    },
+    {
+      "name": "5A_code_books_Vol2_LeftBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.315855247070528e-05
+    },
+    {
+      "name": "5A_code_books_Vol2_RightBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.315849797590917e-05
+    },
+    {
+      "name": "5A_code_books_Vol2_Pages",
+      "assembly": "5A_code_books",
+      "key": "paper",
+      "volume_m3": 0.002120560206497795
+    },
+    {
+      "name": "5A_code_books_Vol2_Spine",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 1.7501103339575633e-05
+    },
+    {
+      "name": "5A_code_books_Vol3_LeftBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.315850101366223e-05
+    },
+    {
+      "name": "5A_code_books_Vol3_RightBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.315835876402912e-05
+    },
+    {
+      "name": "5A_code_books_Vol3_Pages",
+      "assembly": "5A_code_books",
+      "key": "paper",
+      "volume_m3": 0.0021205601129139183
+    },
+    {
+      "name": "5A_code_books_Vol3_Spine",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 1.750110234790431e-05
+    },
+    {
+      "name": "5A_code_books_Vol4_LeftBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.315835876402912e-05
+    },
+    {
+      "name": "5A_code_books_Vol4_RightBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.315835876402912e-05
+    },
+    {
+      "name": "5A_code_books_Vol4_Pages",
+      "assembly": "5A_code_books",
+      "key": "paper",
+      "volume_m3": 0.002120559924363167
+    },
+    {
+      "name": "5A_code_books_Vol4_Spine",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 1.75011031445132e-05
+    },
+    {
+      "name": "5A_code_books_Vol5_LeftBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.31587461854613e-05
+    },
+    {
+      "name": "5A_code_books_Vol5_RightBoard",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 8.315835876402912e-05
+    },
+    {
+      "name": "5A_code_books_Vol5_Pages",
+      "assembly": "5A_code_books",
+      "key": "paper",
+      "volume_m3": 0.002120559924363167
+    },
+    {
+      "name": "5A_code_books_Vol5_Spine",
+      "assembly": "5A_code_books",
+      "key": "book_green",
+      "volume_m3": 1.7501101426840722e-05
+    },
+    {
+      "name": "5A_code_books_BookendLeftUpright",
+      "assembly": "5A_code_books",
+      "key": "metal",
+      "volume_m3": 5.3956538540174264e-05
+    },
+    {
+      "name": "5A_code_books_BookendLeftFoot",
+      "assembly": "5A_code_books",
+      "key": "metal",
+      "volume_m3": 9.694108993483735e-06
+    },
+    {
+      "name": "5A_code_books_BookendRightUpright",
+      "assembly": "5A_code_books",
+      "key": "metal",
+      "volume_m3": 5.3956538540174264e-05
+    },
+    {
+      "name": "5A_code_books_BookendRightFoot",
+      "assembly": "5A_code_books",
+      "key": "metal",
+      "volume_m3": 9.574190536382702e-06
+    },
+    {
+      "name": "4B_wake_slip_Slip",
+      "assembly": "4B_wake_slip",
+      "key": "paper",
+      "volume_m3": 9.238777576149216e-06
+    },
+    {
+      "name": "4B_wake_slip_DogEar",
+      "assembly": "4B_wake_slip",
+      "key": "paper",
+      "volume_m3": 1.7980372556587685e-07
     }
   ],
   "contacts": [
@@ -24436,6 +24796,381 @@
         0
       ],
       "label": "tin base"
+    },
+    {
+      "assembly": "6B_cup_rings_a",
+      "owner": "support",
+      "point": [
+        0.033749999999999995,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 0"
+    },
+    {
+      "assembly": "6B_cup_rings_a",
+      "owner": "support",
+      "point": [
+        0.06175,
+        0,
+        -0.014
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 1"
+    },
+    {
+      "assembly": "6B_cup_rings_a",
+      "owner": "support",
+      "point": [
+        0.02275,
+        0,
+        -0.034
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 2"
+    },
+    {
+      "assembly": "6B_cup_rings_b",
+      "owner": "support",
+      "point": [
+        0.033749999999999995,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 0"
+    },
+    {
+      "assembly": "6B_cup_rings_b",
+      "owner": "support",
+      "point": [
+        0.06175,
+        0,
+        -0.014
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 1"
+    },
+    {
+      "assembly": "6B_cup_rings_b",
+      "owner": "support",
+      "point": [
+        0.02275,
+        0,
+        -0.034
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 2"
+    },
+    {
+      "assembly": "6B_cup_rings_c",
+      "owner": "support",
+      "point": [
+        0.033749999999999995,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 0"
+    },
+    {
+      "assembly": "6B_cup_rings_c",
+      "owner": "support",
+      "point": [
+        0.06175,
+        0,
+        -0.014
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 1"
+    },
+    {
+      "assembly": "6B_cup_rings_c",
+      "owner": "support",
+      "point": [
+        0.02275,
+        0,
+        -0.034
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 2"
+    },
+    {
+      "assembly": "6B_cup_rings_d",
+      "owner": "support",
+      "point": [
+        0.033749999999999995,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 0"
+    },
+    {
+      "assembly": "6B_cup_rings_d",
+      "owner": "support",
+      "point": [
+        0.06175,
+        0,
+        -0.014
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 1"
+    },
+    {
+      "assembly": "6B_cup_rings_d",
+      "owner": "support",
+      "point": [
+        0.02275,
+        0,
+        -0.034
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "ring 2"
+    },
+    {
+      "assembly": "3A_repotting",
+      "owner": "support",
+      "point": [
+        -0.27,
+        0,
+        0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "newsprint (-0.27, -0.19, 0)"
+    },
+    {
+      "assembly": "3A_repotting",
+      "owner": "support",
+      "point": [
+        0.27,
+        0,
+        0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "newsprint (0.27, -0.19, 0)"
+    },
+    {
+      "assembly": "3A_repotting",
+      "owner": "support",
+      "point": [
+        -0.27,
+        0,
+        -0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "newsprint (-0.27, 0.19, 0)"
+    },
+    {
+      "assembly": "3A_repotting",
+      "owner": "support",
+      "point": [
+        0.27,
+        0,
+        -0.19
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "newsprint (0.27, 0.19, 0)"
+    },
+    {
+      "assembly": "5A_code_books",
+      "owner": "support",
+      "point": [
+        -0.1342,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "volume 0"
+    },
+    {
+      "assembly": "5A_code_books",
+      "owner": "support",
+      "point": [
+        -0.08970000000000002,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "volume 1"
+    },
+    {
+      "assembly": "5A_code_books",
+      "owner": "support",
+      "point": [
+        -0.04520000000000001,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "volume 2"
+    },
+    {
+      "assembly": "5A_code_books",
+      "owner": "support",
+      "point": [
+        -0.0007000000000000147,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "volume 3"
+    },
+    {
+      "assembly": "5A_code_books",
+      "owner": "support",
+      "point": [
+        0.043799999999999985,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "volume 4"
+    },
+    {
+      "assembly": "5A_code_books",
+      "owner": "support",
+      "point": [
+        0.08829999999999998,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "volume 5"
+    },
+    {
+      "assembly": "5A_code_books",
+      "owner": "support",
+      "point": [
+        -0.16,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bookend (-0.16, 0, 0)"
+    },
+    {
+      "assembly": "5A_code_books",
+      "owner": "support",
+      "point": [
+        0.16,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "bookend (0.16, 0, 0)"
+    },
+    {
+      "assembly": "4B_wake_slip",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "slip"
     }
   ],
   "parts": [
@@ -27406,9 +28141,107 @@
       "cell": "1A",
       "key": "nickel_plated",
       "triangles": 768
+    },
+    {
+      "name": "6B_cup_rings_a__ring_bloom",
+      "assembly": "6B_cup_rings_a",
+      "cell": "6B",
+      "key": "ring_bloom",
+      "triangles": 2304
+    },
+    {
+      "name": "6B_cup_rings_b__ring_bloom",
+      "assembly": "6B_cup_rings_b",
+      "cell": "6B",
+      "key": "ring_bloom",
+      "triangles": 2304
+    },
+    {
+      "name": "6B_cup_rings_c__ring_bloom",
+      "assembly": "6B_cup_rings_c",
+      "cell": "6B",
+      "key": "ring_bloom",
+      "triangles": 2304
+    },
+    {
+      "name": "6B_cup_rings_d__ring_bloom",
+      "assembly": "6B_cup_rings_d",
+      "cell": "6B",
+      "key": "ring_bloom",
+      "triangles": 2304
+    },
+    {
+      "name": "3A_repotting__metal",
+      "assembly": "3A_repotting",
+      "cell": "3A",
+      "key": "metal",
+      "triangles": 188
+    },
+    {
+      "name": "3A_repotting__newsprint",
+      "assembly": "3A_repotting",
+      "cell": "3A",
+      "key": "newsprint",
+      "triangles": 376
+    },
+    {
+      "name": "3A_repotting__plant",
+      "assembly": "3A_repotting",
+      "cell": "3A",
+      "key": "plant",
+      "triangles": 564
+    },
+    {
+      "name": "3A_repotting__soil",
+      "assembly": "3A_repotting",
+      "cell": "3A",
+      "key": "soil",
+      "triangles": 380
+    },
+    {
+      "name": "3A_repotting__terracotta",
+      "assembly": "3A_repotting",
+      "cell": "3A",
+      "key": "terracotta",
+      "triangles": 1536
+    },
+    {
+      "name": "3A_repotting__timber",
+      "assembly": "3A_repotting",
+      "cell": "3A",
+      "key": "timber",
+      "triangles": 188
+    },
+    {
+      "name": "5A_code_books__book_green",
+      "assembly": "5A_code_books",
+      "cell": "5A",
+      "key": "book_green",
+      "triangles": 3384
+    },
+    {
+      "name": "5A_code_books__metal",
+      "assembly": "5A_code_books",
+      "cell": "5A",
+      "key": "metal",
+      "triangles": 752
+    },
+    {
+      "name": "5A_code_books__paper",
+      "assembly": "5A_code_books",
+      "cell": "5A",
+      "key": "paper",
+      "triangles": 1128
+    },
+    {
+      "name": "4B_wake_slip__paper",
+      "assembly": "4B_wake_slip",
+      "cell": "4B",
+      "key": "paper",
+      "triangles": 376
     }
   ],
-  "triangles": 786296,
+  "triangles": 804384,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -33499,6 +34332,243 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "6B_cup_rings_a",
+        "parts": [
+          {
+            "name": "6B_cup_rings_a__ring_bloom",
+            "key": "ring_bloom",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.45,
+              0.43,
+              0.39,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6B_cup_rings_b",
+        "parts": [
+          {
+            "name": "6B_cup_rings_b__ring_bloom",
+            "key": "ring_bloom",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.45,
+              0.43,
+              0.39,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6B_cup_rings_c",
+        "parts": [
+          {
+            "name": "6B_cup_rings_c__ring_bloom",
+            "key": "ring_bloom",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.45,
+              0.43,
+              0.39,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "6B_cup_rings_d",
+        "parts": [
+          {
+            "name": "6B_cup_rings_d__ring_bloom",
+            "key": "ring_bloom",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.45,
+              0.43,
+              0.39,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3A_repotting",
+        "parts": [
+          {
+            "name": "3A_repotting__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "3A_repotting__newsprint",
+            "key": "newsprint",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.55,
+              0.53,
+              0.47,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.05,
+              "roughness": 0.9
+            }
+          },
+          {
+            "name": "3A_repotting__plant",
+            "key": "plant",
+            "tile": 0.5,
+            "catalog_key": "plant",
+            "tint": [
+              0.1,
+              0.25,
+              0.06,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.1,
+              "roughness": 0.7
+            }
+          },
+          {
+            "name": "3A_repotting__soil",
+            "key": "soil",
+            "tile": 0.35,
+            "catalog_key": "soil",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "3A_repotting__terracotta",
+            "key": "terracotta",
+            "tile": 0.4,
+            "catalog_key": "terracotta",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "3A_repotting__timber",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "5A_code_books",
+        "parts": [
+          {
+            "name": "5A_code_books__book_green",
+            "key": "book_green",
+            "tile": 0.32,
+            "catalog_key": "book_green"
+          },
+          {
+            "name": "5A_code_books__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "5A_code_books__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4B_wake_slip",
+        "parts": [
+          {
+            "name": "4B_wake_slip__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -33527,9 +34597,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "bbbeb0886c95bdc31d9c6e3b4a24bd3f001a8fd5815aec5732e3e6d9d9700a12",
+  "asset_sha256": "efe90eaa41d0edceaabef578229b2ad820c16b00aecae3f16a25cfaef8f923d8",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "8470d6ef953278fd4be3480d87e392780deb936d9af6cfaa33feb15227e71696",
+    "art/data/surface_stock/source_plan.json": "b1feffba9d992fc9c24b28436d0e250c4fa6d51159fb7a3da832197a39ab39e8",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -33562,6 +34632,7 @@
     "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
     "art/textures/ai_materials/terracotta/material.json": "13bc7f107bad6e33ed641ba2b6c80d4447c385ef55ed072902a2009ccbd38327",
     "art/textures/ai_materials/soil/material.json": "293b060f211eacfd06ed4b2a2189495823f4d83b98e2648158326ae38b0559c3",
+    "art/textures/ai_materials/plant/material.json": "d954507b80ab2ec6f26e16d34512f28de4caa89a37cc2790423adf8641faedd6",
     "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
     "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
     "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
@@ -33630,24 +34701,27 @@
     "game/assets/building/textures/T_ai_materials_soil_albedo.png": "0a4e2ed4d7ec6229a7340fa39b203cf70d847c2d0e4f7a6329f426cc228015e0",
     "game/assets/building/textures/T_ai_materials_soil_rough.png": "e29884dd5f10beb17db26aa5996845f6041884f9ec31975419ff1145cfbc33ae",
     "game/assets/building/textures/T_ai_materials_soil_normal.png": "946fbd61cd42445375570d2b1951214a13c811d83a1edc99f282487b8afa1aed",
+    "game/assets/building/textures/T_library_organic_leaf_surface_albedo.png": "acb3efc14d7ee028576415bd902320c6815c105fae6f086f005829bd34f9db3e",
+    "game/assets/building/textures/T_library_organic_leaf_surface_rough.png": "98502306cc9fd85e64d7a701e1973675f7caa13f2eda74e66edc9251352e941a",
+    "game/assets/building/textures/T_library_organic_leaf_surface_normal.png": "91f2054374460063854bbf31eb2eb62e323d23e48114f4b34086563360352d2b",
     "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
     "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
     "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
-    "art/blender/scripts/inspect_surface_stock_context.py": "02615a12c4d21b754efa841b53eb3d5cf9e6d95b81c7152c4a40546730e01751",
+    "art/blender/scripts/inspect_surface_stock_context.py": "705c74084460d6c053b6a6aef588dcb6b3d11aa03e3216531db66a55b051e0be",
     "game/scripts/props/tap_prop.gd": "6d969b3e6f293167b3de04e9463eee6bb9bcd5b02109bc88df370dd6c365d7d4",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "art/blender/scripts/render_surface_stock.py": "e8a99fc84f1d4537c23c40c6663ac64c1967908f717329b618085d6ba9c29289",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "7618fc14af9797858ef526cf30ccd755f0a7c87982a9c3430743d27801817676",
+    "art/blender/scripts/surface_stock_geometry.py": "e32fd8d9a6f589a1fd256224a995d6f81f329b9dc67f5eeabdf0d0d80372c854",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "f2f07085b5ffcf4e267a765acc35ece355ec6d517b7c3160036846a611a0626f",
+    "game/data/orison_v2/domestic_surface_props.json": "63b471004e20a0130000f62041dfa1e893f2ff0652969288d10c1163d9aad53c",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "891111ad935463673d85106fb2e0a1ada0c0753dd41075204d15698fce40ac31"
+    "game/data/orison_v2/domestic_furniture.json": "d4ffd5ac3f2d141fbba66b71c3f1b7adbc1a767ea0fe479a1435b500dce7e101"
   },
   "retained_stock": [
     {
@@ -41135,6 +42209,101 @@
       "stocks": [
         "1A_tea_tin_b_Can",
         "1A_tea_tin_b_Lid"
+      ]
+    },
+    {
+      "assembly": "6B_cup_rings_a",
+      "id": "6B_cup_rings_a_CupRings",
+      "stocks": [
+        "6B_cup_rings_a_Ring0",
+        "6B_cup_rings_a_Ring1",
+        "6B_cup_rings_a_Ring2"
+      ]
+    },
+    {
+      "assembly": "6B_cup_rings_b",
+      "id": "6B_cup_rings_b_CupRings",
+      "stocks": [
+        "6B_cup_rings_b_Ring0",
+        "6B_cup_rings_b_Ring1",
+        "6B_cup_rings_b_Ring2"
+      ]
+    },
+    {
+      "assembly": "6B_cup_rings_c",
+      "id": "6B_cup_rings_c_CupRings",
+      "stocks": [
+        "6B_cup_rings_c_Ring0",
+        "6B_cup_rings_c_Ring1",
+        "6B_cup_rings_c_Ring2"
+      ]
+    },
+    {
+      "assembly": "6B_cup_rings_d",
+      "id": "6B_cup_rings_d_CupRings",
+      "stocks": [
+        "6B_cup_rings_d_Ring0",
+        "6B_cup_rings_d_Ring1",
+        "6B_cup_rings_d_Ring2"
+      ]
+    },
+    {
+      "assembly": "3A_repotting",
+      "id": "3A_repotting_Repotting",
+      "stocks": [
+        "3A_repotting_Newsprint",
+        "3A_repotting_NewsprintFold",
+        "3A_repotting_Pot",
+        "3A_repotting_PotSoil",
+        "3A_repotting_Stem",
+        "3A_repotting_LeafA",
+        "3A_repotting_LeafB",
+        "3A_repotting_EmptyPot",
+        "3A_repotting_Spill",
+        "3A_repotting_TrowelBlade",
+        "3A_repotting_TrowelHandle"
+      ]
+    },
+    {
+      "assembly": "5A_code_books",
+      "id": "5A_code_books_CodeBooks",
+      "stocks": [
+        "5A_code_books_Vol0_LeftBoard",
+        "5A_code_books_Vol0_RightBoard",
+        "5A_code_books_Vol0_Pages",
+        "5A_code_books_Vol0_Spine",
+        "5A_code_books_Vol1_LeftBoard",
+        "5A_code_books_Vol1_RightBoard",
+        "5A_code_books_Vol1_Pages",
+        "5A_code_books_Vol1_Spine",
+        "5A_code_books_Vol2_LeftBoard",
+        "5A_code_books_Vol2_RightBoard",
+        "5A_code_books_Vol2_Pages",
+        "5A_code_books_Vol2_Spine",
+        "5A_code_books_Vol3_LeftBoard",
+        "5A_code_books_Vol3_RightBoard",
+        "5A_code_books_Vol3_Pages",
+        "5A_code_books_Vol3_Spine",
+        "5A_code_books_Vol4_LeftBoard",
+        "5A_code_books_Vol4_RightBoard",
+        "5A_code_books_Vol4_Pages",
+        "5A_code_books_Vol4_Spine",
+        "5A_code_books_Vol5_LeftBoard",
+        "5A_code_books_Vol5_RightBoard",
+        "5A_code_books_Vol5_Pages",
+        "5A_code_books_Vol5_Spine",
+        "5A_code_books_BookendLeftUpright",
+        "5A_code_books_BookendLeftFoot",
+        "5A_code_books_BookendRightUpright",
+        "5A_code_books_BookendRightFoot"
+      ]
+    },
+    {
+      "assembly": "4B_wake_slip",
+      "id": "4B_wake_slip_Slip",
+      "stocks": [
+        "4B_wake_slip_Slip",
+        "4B_wake_slip_DogEar"
       ]
     }
   ],

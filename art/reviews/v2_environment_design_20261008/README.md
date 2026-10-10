@@ -154,6 +154,8 @@ Slices landed so far (evidence folders in parentheses):
     pinboard (`slice35b`; open-leaf renders under images).
 36. Owner enamel finishes on six gas ranges (pristine, greasy, workshop, paint-flecked
     with a brush tin); the stove test walks each range's own assembly (`slice36`).
+37. 4B's bare equipment shelf, 6B's cup rings, 3A's repotting, 5A's code books, 4B's
+    boots and slip, and stronger grease and workshop wear on the ranges (`slice37`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

@@ -326,6 +326,27 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "Shelf11",
+      "parts": [
+        {
+          "name": "Shelf11__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -339,7 +360,7 @@
     },
     {
       "id": "4B_equipment_shelf",
-      "variant": "Shelf01"
+      "variant": "Shelf11"
     },
     {
       "id": "2B_fabric_shelf_01",

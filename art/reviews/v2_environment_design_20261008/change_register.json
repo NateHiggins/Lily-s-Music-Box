@@ -5188,7 +5188,9 @@
    "purpose": "Daily loop repot",
    "acceptance": "Reverse view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_A_MAIN"
+   "area": "F03_A_MAIN",
+   "status": "implemented",
+   "owner_notes": "Repotting on 3A's dining table: a folded sheet of unprinted newsprint, a freshly filled pot with its seedling, the emptied smaller pot, a spill of soil and a trowel (F03_A_MAIN_DT2). Not made: moving the table against the inner wall with one chair pulled out; the table keeps its authored place and stance. Verified at WIP 991e7f05 (implementation/slice37): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; bookshelves 144 checks, 0 failures with stock on the plain case tops; upper kitchens 206; upper furniture 486 (four more of the pre-existing material-binding class, from new stock meshes on probed tables); upper lighting 0 failures; the eight-space sweep 0 failures. The earned-dream suite stops at its own precondition (no earned input save) before it reaches the alcove."
   },
   {
    "id": "F03_A_MAIN-005",
@@ -5584,8 +5586,8 @@
    "acceptance": "Detail view at the range",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "F03_B_KITCHEN",
-   "status": "implemented",
-   "owner_notes": "Omar's range (F03_3B_STOVE_01) is HouseholdGasRangeWorkshop: tape residue on the fascia and splashback and a replacement oven panel in another enamel (HouseholdGasRangeWorkshop_closed, F03_B_KITCHEN_DT3). Both marks are too close in tone to read at the detail distance, and slice 37 strengthens them. The named enamel_* recipes are not in owner_finish_profiles.json; the finishes are tinted enamel variants of the stove family. Verified at WIP 0b562633 (implementation/slice36): fabrication batch 0 failures across 13 modules (the household stove module now walks each range's own assembly and checks that an owner finish replaces the household tone); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 482; upper lighting 0 failures; completion 1A 15 waypoints and 2C 9 waypoints, each with its one pre-existing route failure; the six-kitchen sweep 0 failures; native renders of the four finishes (images: HouseholdGasRange*_closed)."
+   "status": "verified",
+   "owner_notes": "Omar's range (F03_3B_STOVE_01) is HouseholdGasRangeWorkshop: aged yellow-brown tape residue on the fascia and splashback and a sage replacement oven panel, strengthened in slice 37 so both read at the detail distance (implementation/slice37/images: F03_B_KITCHEN_DT3). The named enamel_* recipes are not in owner_finish_profiles.json; the finishes are tinted enamel variants of the stove family. Verified at WIP 991e7f05 (implementation/slice37): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; bookshelves 144 checks, 0 failures with stock on the plain case tops; upper kitchens 206; upper furniture 486 (four more of the pre-existing material-binding class, from new stock meshes on probed tables); upper lighting 0 failures; the eight-space sweep 0 failures. The earned-dream suite stops at its own precondition (no earned input save) before it reaches the alcove."
   },
   {
    "id": "F03_B_KITCHEN-004",
@@ -7180,7 +7182,9 @@
    "purpose": "Review: placeholder crates stand in for equipment; F04_B_CLOSET-001 supplies the rail and stock that replace them, and the steel posts go with BW-003; the closet's side wall also shows bath tile (BW-004)",
    "acceptance": "Closet OV shows no flat-colour cubes",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_B_CLOSET"
+   "area": "F04_B_CLOSET",
+   "status": "verified",
+   "owner_notes": "Removed: 4B's equipment shelf has its own bare variant (Shelf11), the Shelf01 frame without the painted bins and metal tins it inherited from 3B's tool shelf record; the closet now shows only the capsule tin, bulb carton and cap (implementation/slice37/images: F04_B_CLOSET_OV, F04_B_CLOSET_TH). Verified at WIP 991e7f05 (implementation/slice37): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; bookshelves 144 checks, 0 failures with stock on the plain case tops; upper kitchens 206; upper furniture 486 (four more of the pre-existing material-binding class, from new stock meshes on probed tables); upper lighting 0 failures; the eight-space sweep 0 failures. The earned-dream suite stops at its own precondition (no earned input save) before it reaches the alcove."
   },
   {
    "id": "F04_B_ALCOVE-001",
@@ -7217,7 +7221,9 @@
    "preserve": "Wake stance and bedside clearance",
    "acceptance": "Overview from the approach",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_B_ALCOVE"
+   "area": "F04_B_ALCOVE",
+   "status": "implemented",
+   "owner_notes": "A pair of work boots kicked off at the alcove bed's foot, one fallen against the other, on the west side clear of the wake route and bedside stance, and a blank work slip on the nightstand (F04_B_ALCOVE_OV). Not made: the thrown-back bedding, which needs a bedding variant of the bed family. Verified at WIP 991e7f05 (implementation/slice37): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; bookshelves 144 checks, 0 failures with stock on the plain case tops; upper kitchens 206; upper furniture 486 (four more of the pre-existing material-binding class, from new stock meshes on probed tables); upper lighting 0 failures; the eight-space sweep 0 failures. The earned-dream suite stops at its own precondition (no earned input save) before it reaches the alcove."
   },
   {
    "id": "F04_C_VESTIBULE-001",
@@ -8322,7 +8328,9 @@
    "purpose": "Life profile code_books",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_A_MAIN"
+   "area": "F05_A_MAIN",
+   "status": "verified",
+   "owner_notes": "Six thick uniform code books with blank spines stand between plain steel bookends on top of 5A's plain case (F05_A_MAIN_DT3). Verified at WIP 991e7f05 (implementation/slice37): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; bookshelves 144 checks, 0 failures with stock on the plain case tops; upper kitchens 206; upper furniture 486 (four more of the pre-existing material-binding class, from new stock meshes on probed tables); upper lighting 0 failures; the eight-space sweep 0 failures. The earned-dream suite stops at its own precondition (no earned input save) before it reaches the alcove."
   },
   {
    "id": "F05_A_MAIN-005",
@@ -8354,7 +8362,9 @@
    "purpose": "Review: flat panels with a light line flatten the far wall and read as placeholders",
    "acceptance": "RV station shows finished openings",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_A_MAIN"
+   "area": "F05_A_MAIN",
+   "status": "verified",
+   "owner_notes": "Identified: the two recesses are the openings to the vestibule and the private hall. With BW-016's room-leaf paints, the reverse view shows both as open doorways with the lit hall beyond, not flat panels (F05_A_MAIN_RV). Verified at WIP 991e7f05 (implementation/slice37): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; bookshelves 144 checks, 0 failures with stock on the plain case tops; upper kitchens 206; upper furniture 486 (four more of the pre-existing material-binding class, from new stock meshes on probed tables); upper lighting 0 failures; the eight-space sweep 0 failures. The earned-dream suite stops at its own precondition (no earned input save) before it reaches the alcove."
   },
   {
    "id": "F05_A_KITCHEN-001",
@@ -9970,7 +9980,9 @@
    "purpose": "Kitchen set cold_drinks_and_rings; Accord 12",
    "acceptance": "Detail views",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_B_MAIN"
+   "area": "F06_B_MAIN",
+   "status": "verified",
+   "owner_notes": "Pale bloom rings, three overlapping per cluster, on 6B's dining table (two clusters), the wireless table's free end and the plain bookcase top; the context inspector now names the plain case's top board as a support (F06_B_MAIN_DT1). Verified at WIP 991e7f05 (implementation/slice37): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; bookshelves 144 checks, 0 failures with stock on the plain case tops; upper kitchens 206; upper furniture 486 (four more of the pre-existing material-binding class, from new stock meshes on probed tables); upper lighting 0 failures; the eight-space sweep 0 failures. The earned-dream suite stops at its own precondition (no earned input save) before it reaches the alcove."
   },
   {
    "id": "F06_B_KITCHEN-001",
@@ -10036,8 +10048,8 @@
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "F06_B_KITCHEN",
-   "status": "implemented",
-   "owner_notes": "Jonah's range (F06_6B_STOVE_01) and Juno's (F02_2C_STOVE_01) are HouseholdGasRangeGreasy: yellowed enamel with a grime tide line under the hob and prints at the knobs (implementation/slice36/images: F06_B_KITCHEN_DT1). The yellowed tone reads in the detail view; the grime marks are too faint at that distance, and slice 37 strengthens them. Verified at WIP 0b562633 (implementation/slice36): fabrication batch 0 failures across 13 modules (the household stove module now walks each range's own assembly and checks that an owner finish replaces the household tone); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 482; upper lighting 0 failures; completion 1A 15 waypoints and 2C 9 waypoints, each with its one pre-existing route failure; the six-kitchen sweep 0 failures; native renders of the four finishes (images: HouseholdGasRange*_closed)."
+   "status": "verified",
+   "owner_notes": "Jonah's range (F06_6B_STOVE_01) and Juno's (F02_2C_STOVE_01) are HouseholdGasRangeGreasy: yellowed enamel with a dark grime tide line under the hob, wide prints at the knobs and grease spatter on the splashback, strengthened in slice 37 so the marks read at the detail distance (implementation/slice37/images: F06_B_KITCHEN_DT1). Verified at WIP 991e7f05 (implementation/slice37): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; bookshelves 144 checks, 0 failures with stock on the plain case tops; upper kitchens 206; upper furniture 486 (four more of the pre-existing material-binding class, from new stock meshes on probed tables); upper lighting 0 failures; the eight-space sweep 0 failures. The earned-dream suite stops at its own precondition (no earned input save) before it reaches the alcove."
   },
   {
    "id": "F06_B_PRIVATE_HALL-001",

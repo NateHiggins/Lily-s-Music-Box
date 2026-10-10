@@ -164,6 +164,25 @@
         "books": true,
         "posts": "oak"
       }
+    },
+    {
+      "id": "Shelf11",
+      "kind": "shelf",
+      "source_id": "3B_tools0",
+      "params": {
+        "id": "3B_tools0",
+        "asm": "shelf",
+        "at": [
+          -10.3,
+          9.4
+        ],
+        "yaw": 180,
+        "W": 1.0,
+        "H": 1.85,
+        "books": false,
+        "posts": "oak",
+        "bins": false
+      }
     }
   ],
   "instances": [
@@ -177,7 +196,7 @@
     },
     {
       "id": "4B_equipment_shelf",
-      "variant": "Shelf01"
+      "variant": "Shelf11"
     },
     {
       "id": "2B_fabric_shelf_01",
@@ -442,7 +461,8 @@
     "Original 4B sink opening and worktop height remain. Other sink frames use folded metal stock within their original envelopes.",
     "Existing catalogue maps and linear-light local tints; no new bitmap or global finish.",
     "Slice 11 of the V2 environment dossier adds 5B's two tape shelves and 3B's outgoing shelf as Shelf01 copies.",
-    "Slice 19 of the V2 environment dossier adds two low oak shelves (Shelf09, Shelf10: two boards, 0.72 m) under 3A's west windows for the propagation jars."
+    "Slice 19 of the V2 environment dossier adds two low oak shelves (Shelf09, Shelf10: two boards, 0.72 m) under 3A's west windows for the propagation jars.",
+    "Slice 37 of the V2 environment dossier gives 4B's equipment shelf its own bare variant (Shelf11): the Shelf01 frame without the painted bins and metal tins it inherits from 3B's tool shelf record."
   ],
   "open_work": [
     "Scoped native construction, production support and mechanism validation complete. Whole-room light/material balance, wardrobes, remaining appliances and fixed lighting remain in the wider V2 pass."

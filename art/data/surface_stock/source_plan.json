@@ -286,7 +286,14 @@
   "2A_cushion_b",
   "6A_plant_print",
   "1A_tea_tin_a",
-  "1A_tea_tin_b"
+  "1A_tea_tin_b",
+  "6B_cup_rings_a",
+  "6B_cup_rings_b",
+  "6B_cup_rings_c",
+  "6B_cup_rings_d",
+  "3A_repotting",
+  "5A_code_books",
+  "4B_wake_slip"
  ],
  "runtime_keys": [
   "bakelite",
@@ -315,7 +322,10 @@
   "soil",
   "wool_burgundy",
   "jersey_maroon",
-  "cape_navy"
+  "cape_navy",
+  "ring_bloom",
+  "newsprint",
+  "plant"
  ],
  "catalog_variants": {
   "bakelite": "bakelite",
@@ -343,7 +353,10 @@
   "soil": "soil",
   "wool_burgundy": "linen",
   "jersey_maroon": "linen",
-  "cape_navy": "linen"
+  "cape_navy": "linen",
+  "ring_bloom": "paper",
+  "newsprint": "paper",
+  "plant": "plant"
  },
  "material_aliases": {},
  "material_tints": {
@@ -369,6 +382,24 @@
    0.05,
    0.065,
    0.16,
+   1
+  ],
+  "ring_bloom": [
+   0.45,
+   0.43,
+   0.39,
+   1
+  ],
+  "newsprint": [
+   0.55,
+   0.53,
+   0.47,
+   1
+  ],
+  "plant": [
+   0.1,
+   0.25,
+   0.06,
    1
   ]
  },
@@ -397,7 +428,8 @@
   "Slice 27 of the V2 environment dossier adds 3A's empty memorial pot (terracotta, soil, a chalk mark on the rim) at the back of the sink's drainboard, 6A's glass-plate box, loupe and print rack on the desk wall, and 6C's never-opened ledger on the sectional case; the family gains the catalogue terracotta and soil keys.",
   "Slice 31 of the V2 environment dossier adds bedside and garment stock: 1D's saucer of ear plugs and fob watch on its stand, 3D's tuning fork on its chain and the wool scarf on 3D's bedpost, 4C's mended jersey and 5C's overalls on bedroom chairs, 5C's small canvas face down, and 1A's medication organizer; the family gains wool_burgundy, jersey_maroon and cape_navy as tinted aliases of the catalogue linen.",
   "Slice 33 of the V2 environment dossier adds two piped cushions on 2A's sofa and 6A's one plant print standing on the repaired bookcase's top board (the context inspector names that board as a support).",
-  "Slice 34 of the V2 environment dossier adds two tea tins on 1A's study desk."
+  "Slice 34 of the V2 environment dossier adds two tea tins on 1A's study desk.",
+  "Slice 37 of the V2 environment dossier adds cup rings on 6B's dining table, wireless table and plain bookcase top (the context inspector names the plain case's top board as a support), a repotting on 3A's dining table, a row of code books on 5A's plain case and a slip on 4B's nightstand. ring_bloom and newsprint are tinted aliases of the catalogue paper; plant is the catalogue plant, tinted."
  ],
  "open_work": [
   "Final room lighting and adjacent furniture remain in the wider V2 pass; this family has scoped native and composed runtime verification."
@@ -454,6 +486,18 @@
   "cape_navy": {
    "normal_scale": 0.12,
    "roughness": 0.85
+  },
+  "ring_bloom": {
+   "normal_scale": 0.02,
+   "roughness": 0.5
+  },
+  "newsprint": {
+   "normal_scale": 0.05,
+   "roughness": 0.9
+  },
+  "plant": {
+   "normal_scale": 0.1,
+   "roughness": 0.7
   }
  },
  "optics": {

@@ -3499,6 +3499,50 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject61",
+      "parts": [
+        {
+          "name": "DomesticObject61__Body_ON_book_brown",
+          "component": "Body",
+          "key": "book_brown",
+          "tile": 0.32,
+          "catalog_key": "book_brown",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject61__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject61__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -4073,6 +4117,10 @@
     {
       "id": "1A_lesson_trunk",
       "variant": "DomesticObject60"
+    },
+    {
+      "id": "4B_wake_boots",
+      "variant": "DomesticObject61"
     }
   ],
   "tint_space": "linear"

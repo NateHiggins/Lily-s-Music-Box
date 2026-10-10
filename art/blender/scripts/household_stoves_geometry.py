@@ -135,8 +135,10 @@ def wear():
    tube('BrushHandle'+str(j),(-.17+dx,-.14+dy,.95),(-.17+dx*1.8,-.14+dy*1.8,1.1),.0045,'bakelite')
    tube('BrushHead'+str(j),(-.17+dx*1.8,-.14+dy*1.8,1.098),(-.17+dx*1.9,-.14+dy*1.9,1.13),.006,'dark')
  elif identity=='HouseholdGasRangeGreasy':
-  stock('TideLine',(-.25,.2925,.70),(.25,.2935,.712),'grime',.0004)
-  for i,x in enumerate([-.2,-.08,.06,.19]):stock('Fingerprint'+str(i),(x-.012,.2925,.762),(x+.012,.2935,.79),'grime',.0003)
+  # Slice 37: a taller tide line and wider prints, so the grease reads at the kitchen's detail distance.
+  stock('TideLine',(-.25,.2925,.69),(.25,.2935,.72),'grime',.0004)
+  for i,x in enumerate([-.2,-.08,.06,.19]):stock('Fingerprint'+str(i),(x-.018,.2925,.755),(x+.018,.2935,.795),'grime',.0003)
+  for i,(x,z) in enumerate([(-.18,.95),(-.05,.99),(.1,.93),(.2,1.02)]):stock('Spatter'+str(i),(x-.03,-.2684,z-.012),(x+.03,-.2676,z+.012),'grime',.0003)
  elif identity=='HouseholdGasRangeWorkshop':
   for i,(x,z) in enumerate([(-.2,.82),(.0,.81),(.19,.825)]):stock('Tape'+str(i),(x-.04,.2925,z-.008),(x+.04,.2935,z+.008),'tape_residue',.0003)
   for i,(x,z) in enumerate([(-.2,1.06),(.15,1.0)]):stock('TapeBack'+str(i),(x-.05,-.2684,z-.009),(x+.05,-.2676,z+.009),'tape_residue',.0003)

@@ -6087,6 +6087,243 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "6B_cup_rings_a",
+      "parts": [
+        {
+          "name": "6B_cup_rings_a__ring_bloom",
+          "key": "ring_bloom",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.45,
+            0.43,
+            0.39,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6B_cup_rings_b",
+      "parts": [
+        {
+          "name": "6B_cup_rings_b__ring_bloom",
+          "key": "ring_bloom",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.45,
+            0.43,
+            0.39,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6B_cup_rings_c",
+      "parts": [
+        {
+          "name": "6B_cup_rings_c__ring_bloom",
+          "key": "ring_bloom",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.45,
+            0.43,
+            0.39,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "6B_cup_rings_d",
+      "parts": [
+        {
+          "name": "6B_cup_rings_d__ring_bloom",
+          "key": "ring_bloom",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.45,
+            0.43,
+            0.39,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "3A_repotting",
+      "parts": [
+        {
+          "name": "3A_repotting__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "3A_repotting__newsprint",
+          "key": "newsprint",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.55,
+            0.53,
+            0.47,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.05,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "3A_repotting__plant",
+          "key": "plant",
+          "tile": 0.5,
+          "catalog_key": "plant",
+          "tint": [
+            0.1,
+            0.25,
+            0.06,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.1,
+            "roughness": 0.7
+          }
+        },
+        {
+          "name": "3A_repotting__soil",
+          "key": "soil",
+          "tile": 0.35,
+          "catalog_key": "soil",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "3A_repotting__terracotta",
+          "key": "terracotta",
+          "tile": 0.4,
+          "catalog_key": "terracotta",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "3A_repotting__timber",
+          "key": "timber",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "5A_code_books",
+      "parts": [
+        {
+          "name": "5A_code_books__book_green",
+          "key": "book_green",
+          "tile": 0.32,
+          "catalog_key": "book_green"
+        },
+        {
+          "name": "5A_code_books__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "5A_code_books__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "4B_wake_slip",
+      "parts": [
+        {
+          "name": "4B_wake_slip__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "local_materials": {
