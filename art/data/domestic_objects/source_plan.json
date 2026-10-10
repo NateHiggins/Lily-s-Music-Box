@@ -1840,6 +1840,53 @@
    "source_id": "B1_coal_shovel",
    "params": {},
    "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject129",
+   "kind": "threshold",
+   "source_id": "3B_threshold",
+   "params": {
+    "mat": "rubber",
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject130",
+   "kind": "threshold",
+   "source_id": "4D_threshold",
+   "params": {
+    "mat": "coir",
+    "flyer": true,
+    "jamb": 0.575
+   }
+  },
+  {
+   "id": "DomesticObject131",
+   "kind": "threshold",
+   "source_id": "6A_threshold",
+   "params": {
+    "mat": "coir",
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject132",
+   "kind": "threshold",
+   "source_id": "5D_threshold",
+   "params": {
+    "mat": "dust",
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject133",
+   "kind": "runner",
+   "source_id": "4B_alcove_runner",
+   "params": {
+    "L": 2.1,
+    "W": 0.62,
+    "hx": -0.4
+   }
   }
  ],
  "instances": [
@@ -2750,6 +2797,26 @@
   {
    "id": "B1_laundry_rota",
    "variant": "DomesticObject89"
+  },
+  {
+   "id": "3B_threshold",
+   "variant": "DomesticObject129"
+  },
+  {
+   "id": "4D_threshold",
+   "variant": "DomesticObject130"
+  },
+  {
+   "id": "6A_threshold",
+   "variant": "DomesticObject131"
+  },
+  {
+   "id": "5D_threshold",
+   "variant": "DomesticObject132"
+  },
+  {
+   "id": "4B_alcove_runner",
+   "variant": "DomesticObject133"
   }
  ],
  "runtime_keys": [
@@ -2800,7 +2867,9 @@
   "sepia_dark",
   "print_blue",
   "print_green",
-  "print_grey"
+  "print_grey",
+  "jute",
+  "jute_worn"
  ],
  "catalog_variants": {
   "bakelite": "bakelite",
@@ -2850,7 +2919,9 @@
   "sepia_dark": "paper",
   "print_blue": "paper",
   "print_green": "paper",
-  "print_grey": "paper"
+  "print_grey": "paper",
+  "jute": "linen",
+  "jute_worn": "linen"
  },
  "material_tints": {
   "wood_dark": [
@@ -3037,6 +3108,18 @@
    0.36,
    0.36,
    0.34,
+   1
+  ],
+  "jute": [
+   0.5,
+   0.39,
+   0.23,
+   1
+  ],
+  "jute_worn": [
+   0.36,
+   0.27,
+   0.15,
    1
   ]
  },
@@ -3232,6 +3315,14 @@
   "print_grey": {
    "normal_scale": 0.06,
    "roughness": 0.85
+  },
+  "jute": {
+   "normal_scale": 0.18,
+   "roughness": 0.93
+  },
+  "jute_worn": {
+   "normal_scale": 0.18,
+   "roughness": 0.93
   }
  },
  "placement": {
@@ -3278,7 +3369,8 @@
   "Slice 51 of the V2 environment dossier adds an aerialwire form (Cal's lead on four porcelain insulators along the F05 west hall into a drilled hole beside 5B's door) and a sootfan form (the soot ghost above the burnt 5D door's head), and seals the 3C and 5D thresholds with a one-line notice (and 3C's unworn dust mat).",
   "Slice 58 of the V2 environment dossier adds four resident forms: Evelyn's brass grab rail on two roses in the 1A shower (F01_A_BATH-003), a towel pegged over a cord across the 1D bath window head (F01_D_BATH-003), Sacha's light box for negatives on the 6A prep cabinet beside the toaster (F06_A_KITCHEN-003) and two shelves of tagged lost property in 4D's study (F04_D_STUDY-002).",
   "Slice 59 of the V2 environment dossier adds four basement forms: the brass signal outlet painted over high on the laundry's north wall with its cloth lead cut short (B1_LAUNDRY-002, beside the laundry rota in the notice-frame family), a twisted cloth pair on porcelain cleats to the fuse panel with a shelf of cartridges and chalk (B1_ELECTRICAL-002), a cartridge dropped in the electrical recess (B1_ELECTRICAL_RECESS-001) and a coal shovel leaning by the bunker (B1_COAL_ROOM-001).",
-  "Slice 61 of the V2 environment dossier retires slice 51's stepped soot boards over the 5D door: the fire's soot ghost is now a soft projected decal in the positional wear layer."
+  "Slice 61 of the V2 environment dossier retires slice 51's stepped soot boards over the 5D door: the fire's soot ghost is now a soft projected decal in the positional wear layer.",
+  "Slice 66 of the V2 environment dossier completes the thresholds (3B's ribbed rubber mat at the service crossing, the 4D short-let's new coir with a handbill nobody picked up, 6A's coir, a dust mat at the sealed 5D) and adds a runner form: a bound jute runner worn through where the hall turn meets the way to 4B's alcove (F04_B_ALCOVE_APPROACH-001)."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

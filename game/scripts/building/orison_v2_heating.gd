@@ -33,8 +33,35 @@ func mount(adapter: Variant, inventory: MaintenanceInventory) -> bool:
 			radiator.free()
 			errors.append("radiator mount refused: "+str(record.id))
 			return false
+		if str(record.get("drying","")) == "rag": _hang_rag(radiator)
 	mounts.draw()
 	return true
+
+## Dossier slice 66 (F05_C_MAIN-003): a paint rag folded over the radiator's top to dry, mid-length so
+## the supply valve and the air vent stay in reach. Visual only: no collision and no owner.
+func _hang_rag(radiator: RadiatorProp) -> void:
+	var top := RadiatorProp.BODY_TOP - radiator.installation_drop
+	var half_depth := RadiatorProp.BODY_DEPTH * .5
+	for part: Array in [
+			["DryingRag", MatLib.get_mat("linen", Color(.74, .70, .62)), [
+				[Vector3(.21, .012, half_depth * 2.0 + .02), Vector3(-.07, top + .006, 0)],
+				[Vector3(.21, .19, .008), Vector3(-.07, top - .083, -half_depth - .014)],
+				[Vector3(.17, .07, .008), Vector3(-.09, top - .023, half_depth + .014)]]],
+			["DryingRagPaint", MatLib.get_mat("enamel", Color(.46, .12, .09)), [
+				[Vector3(.05, .035, .002), Vector3(-.03, top - .06, -half_depth - .0185)],
+				[Vector3(.03, .02, .002), Vector3(-.12, top - .13, -half_depth - .0185)],
+				[Vector3(.06, .004, .03), Vector3(-.1, top + .0125, -.04)]]]]:
+		var surface := SurfaceTool.new()
+		surface.begin(Mesh.PRIMITIVE_TRIANGLES)
+		for piece: Array in part[2]:
+			var box := BoxMesh.new()
+			box.size = piece[0]
+			surface.append_from(box, 0, Transform3D(Basis.IDENTITY, piece[1]))
+		var mesh := MeshInstance3D.new()
+		mesh.name = part[0]
+		mesh.mesh = surface.commit()
+		mesh.material_override = part[1]
+		radiator.add_child(mesh)
 
 func _add_collision(radiator: RadiatorProp) -> void:
 	var body := StaticBody3D.new()

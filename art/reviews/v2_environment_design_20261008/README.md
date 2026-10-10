@@ -217,6 +217,8 @@ Slices landed so far (evidence folders in parentheses):
     luncheonette's third stool worn to the cord.
 65. Feathered pavement marks and wordless election broadsides on the street-end
     hoardings.
+66. The last thresholds, 4B's worn alcove runner, Iris's paint rag on 5C's radiator
+    and the padlock hasp on 6D's storage door.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

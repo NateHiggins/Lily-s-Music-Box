@@ -1083,6 +1083,9 @@ def threshold(source):
   lathe('BottleCap'+str(i),x,.06,.2045,[(0,0),(.0235,0),(.0235,.006),(0,.006)],'paper')
   bearing('bottle '+str(i),(x,.06,0))
   group('Milk'+str(i),start)
+ if source.get('flyer'):
+  # Dossier slice 66: a handbill pushed under the short-let's door and never picked up.
+  stock('Handbill',(-.04,.03,.0128),(.1,.225,.0137),'paper',.0003)
  if source.get('parcel'):
   # A string-tied parcel on the floor beside the jamb, waiting to be taken in.
   start=len(stock_checks);x=-jamb-.2
@@ -1279,6 +1282,26 @@ def coalshovel(source):
  support(identity,'wall',(0,back,.9875),(0,1,0),'grip resting on the whitewash')
  group('CoalShovel',start)
 
+def runner(source):
+ # Dossier slice 66 (F04_B_ALCOVE_APPROACH-001): a jute runner centred on the route, bound along its sides
+ # and worn through where the turn from the hall meets the way to the alcove; the floor shows in the hole.
+ start=len(stock_checks);L=source['L'];W=source['W'];hx=source['hx'];h=.006
+ x0,x1,y0,y1=-L/2,L/2,-W/2,W/2
+ a,b,c,d=hx-.13,hx+.13,-.07,.07
+ stock('JuteWest',(x0,y0,0),(a,y1,h),'jute',.0015)
+ stock('JuteEast',(b,y0,0),(x1,y1,h),'jute',.0015)
+ stock('JuteSouth',(a-.01,y0,0),(b+.01,c,h),'jute',.0015)
+ stock('JuteNorth',(a-.01,d,0),(b+.01,y1,h),'jute',.0015)
+ # The weave flattened and darkened round the hole, and loose strands across it.
+ stock('WornWest',(a-.26,c-.1,h-.0004),(a,d+.1,h+.0003),'jute_worn',.0002)
+ stock('WornEast',(b,c-.1,h-.0004),(b+.2,d+.1,h+.0003),'jute_worn',.0002)
+ stock('WornSouth',(a-.005,c-.1,h-.0004),(b+.005,c,h+.0003),'jute_worn',.0002)
+ stock('WornNorth',(a-.005,d,h-.0004),(b+.005,d+.1,h+.0003),'jute_worn',.0002)
+ for i,x in enumerate([a+.05,a+.11,b-.07]):tube('Strand'+str(i),(x,c-.012,.0012),(x+.018*(1-i),d+.012,.0012),.0012,'jute')
+ for y in [y0,y1-.022]:stock('Binding'+str(y),(x0,y,0),(x1,y+.022,h+.0008),'linen',.0006)
+ for p in [(x0+.03,y0+.03,0),(x1-.03,y0+.03,0),(x0+.03,y1-.03,0),(x1-.03,y1-.03,0)]:bearing('runner '+str(p),p)
+ group('Runner',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1350,4 +1373,5 @@ for assembly in assemblies:
  elif kind=='cleatrun':cleatrun(source)
  elif kind=='droppedcartridge':droppedcartridge(source)
  elif kind=='coalshovel':coalshovel(source)
+ elif kind=='runner':runner(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

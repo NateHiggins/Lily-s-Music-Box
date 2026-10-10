@@ -21,7 +21,84 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> bool:
 			var frame := anchor.get_node(part) as MeshInstance3D
 			var mesh := frame.mesh as BoxMesh
 			mesh.size.z = float(source.doors[identity].jamb_depth)
+	for program: Dictionary in source.programs:
+		if program.disposition != "landlord_storage": continue
+		var record: Dictionary = {}
+		for candidate: Dictionary in layout.doors:
+			if candidate.id == program.entry: record = candidate
+		var anchor := adapter.resolve(str(program.entry)) as Node3D
+		if anchor == null or record.is_empty(): return false
+		var door := anchor.get_node_or_null(str(program.entry) + "_Leaf") as OrisonV2FittedDoor
+		if door == null: return false
+		_add_storage_hasp(door, _hall_side(door, record, layout), layout)
 	return true
+
+## Dossier slice 66 (F06_D_RESTRICTED-002): the landlord's storage is padlocked. A galvanised hasp (1928)
+## across the latch stile and the casing at 1.2 m, its staple on the casing and a black padlock through it;
+## the 1912 brass escutcheon plate above at 1.5 m. Passive, no collision: the lock state stays the leaf's.
+func _add_storage_hasp(door: OrisonV2FittedDoor, hall_side: float, layout: Dictionary) -> void:
+	var leaf := door.get_node_or_null("HingedLeaf") as Node3D
+	if leaf == null: return
+	var anchor := door.get_parent_node_3d()
+	var slab_z: float = float(door.get("_hinge_offset"))
+	var stile_z := slab_z + hall_side * 0.040
+	# The casing face on the hall side, carried into the leaf's frame (the casing mounts later, on that plane).
+	var into_anchor := anchor.to_local(leaf.to_global(Vector3(door.width, 1.2, slab_z + hall_side))) \
+			- anchor.to_local(leaf.to_global(Vector3(door.width, 1.2, slab_z)))
+	var partition := float(layout.dimensions.partition_wall)
+	var span: Vector2 = preload("res://scripts/generated/v2_exterior_masonry.gd").DOOR_SPANS.get(
+			str(door.get_meta("semantic_id", "")), Vector2(-partition * .5, partition * .5))
+	var face := (span.y + .018) if into_anchor.z > 0.0 else (span.x - .018)
+	var at := anchor.to_local(leaf.to_global(Vector3(door.width, 1.2, stile_z)))
+	var casing_z := leaf.to_local(anchor.to_global(Vector3(at.x, at.y, face))).z
+	var proud := stile_z if absf(stile_z - slab_z) > absf(casing_z - slab_z) else casing_z
+	var strap_z := proud + hall_side * .003
+	var lock_z := strap_z + hall_side * .009
+	var galvanised := MatLib.get_mat("zinc_quiet", Color(.80, .80, .76))
+	var brass := MatLib.get_mat("brass_dull", Color(.80, .70, .50))
+	var black := MatLib.get_mat("iron_blackened")
+	var hasp := Node3D.new()
+	hasp.name = "StorageHasp"
+	leaf.add_child(hasp)
+	var x := door.width
+	for piece: Array in [
+			["HaspPlate", "box", Vector3(.10, .042, .003), Vector3(x - .125, 1.2, stile_z + hall_side * .0015), galvanised, Vector3.ZERO],
+			["HaspKnuckle", "cylinder", Vector3(.006, .044, 0), Vector3(x - .072, 1.2, stile_z + hall_side * .006), galvanised, Vector3.ZERO],
+			["HaspStrap", "box", Vector3(.15, .038, .004), Vector3(x + .003, 1.2, strap_z), galvanised, Vector3.ZERO],
+			["StaplePlate", "box", Vector3(.034, .075, .003), Vector3(x + .05, 1.2, casing_z + hall_side * .0015), galvanised, Vector3.ZERO],
+			["Staple", "torus", Vector3(.004, .0085, 0), Vector3(x + .05, 1.2, lock_z), galvanised, Vector3(0, 0, PI * .5)],
+			["Shackle", "torus", Vector3(.011, .015, 0), Vector3(x + .05, 1.2 - .013, lock_z), MatLib.get_mat("metal"), Vector3(PI * .5, 0, 0)],
+			["PadlockBody", "box", Vector3(.042, .048, .017), Vector3(x + .05, 1.2 - .013 - .026, lock_z), black, Vector3.ZERO],
+			["Escutcheon", "box", Vector3(.045, .11, .003), Vector3(x - .07, 1.5, stile_z + hall_side * .0015), brass, Vector3.ZERO],
+			["Keyhole", "box", Vector3(.008, .022, .001), Vector3(x - .07, 1.49, stile_z + hall_side * .0035), black, Vector3.ZERO]]:
+		var mesh: PrimitiveMesh
+		var size: Vector3 = piece[2]
+		match str(piece[1]):
+			"box":
+				var box := BoxMesh.new()
+				box.size = size
+				mesh = box
+			"cylinder":
+				var cylinder := CylinderMesh.new()
+				cylinder.top_radius = size.x
+				cylinder.bottom_radius = size.x
+				cylinder.height = size.y
+				cylinder.radial_segments = 10
+				mesh = cylinder
+			_:
+				var torus := TorusMesh.new()
+				torus.inner_radius = size.x
+				torus.outer_radius = size.y
+				torus.rings = 12
+				torus.ring_segments = 8
+				mesh = torus
+		mesh.material = piece[4]
+		var part := MeshInstance3D.new()
+		part.name = piece[0]
+		part.mesh = mesh
+		part.position = piece[3]
+		part.rotation = piece[5]
+		hasp.add_child(part)
 
 func validate(source: Variant, layout: Dictionary) -> bool:
 	if source is not Dictionary or source.get("schema_version") != 1 \
