@@ -8493,6 +8493,134 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject118",
+      "parts": [
+        {
+          "name": "DomesticObject118__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject118__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject119",
+      "parts": [
+        {
+          "name": "DomesticObject119__Body_ON_soot",
+          "component": "Body",
+          "key": "soot",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.42
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject120",
+      "parts": [
+        {
+          "name": "DomesticObject120__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject120__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.018,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "DomesticObject120__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject120__Body_ON_soot",
+          "component": "Body",
+          "key": "soot",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.42
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -9351,6 +9479,26 @@
     {
       "id": "ROOF_SERVICE_LANDING_PIECE",
       "variant": "DomesticObject117"
+    },
+    {
+      "id": "3C_sealed_notice",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "3C_threshold",
+      "variant": "DomesticObject118"
+    },
+    {
+      "id": "5D_soot_fan",
+      "variant": "DomesticObject119"
+    },
+    {
+      "id": "5D_sealed_notice",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "5B_aerial_wire",
+      "variant": "DomesticObject120"
     }
   ],
   "tint_space": "linear"

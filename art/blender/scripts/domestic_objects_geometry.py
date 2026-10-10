@@ -1092,6 +1092,36 @@ def threshold(source):
   for p in [(x-.13,.05,0),(x+.13,.05,0),(x-.13,.23,0),(x+.13,.23,0)]:bearing('parcel '+str(p),p)
   group('Parcel',start)
 
+def aerialwire(source):
+ # Dossier slice 51 (F05_WEST_HALL-003): Cal's aerial lead along the hall at 2.0 m on porcelain
+ # insulators, from the core end (where it drops from the cornice) to a drilled hole beside 5B's door.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y'];L=source['L'];z=.05
+ xs=[-L/2+i*L/3 for i in range(4)]
+ for i,x in enumerate(xs):
+  stock('Bracket'+str(i),(x-.006,back,z-.004),(x+.006,back+.04,z+.004),'metal',.0008)
+  lathe('Insulator'+str(i),x,back+.045,z-.018,[(0,0),(.011,0),(.013,.008),(.009,.014),(.013,.022),(.011,.036),(0,.036)],'enamel')
+  support(identity,'wall',(x,back,z),(0,1,0),'insulator bracket screwed to the wall')
+ # The lead sags a little between insulators, rises to the cornice at the core end and turns into
+ # a drilled hole at the door end.
+ # +x is the core end (the drop from the cornice), -x the door end (the drilled hole).
+ r=xs[::-1];pts=[(r[0],back+.045,z+.5)]
+ for a,b in zip(r,r[1:]):
+  pts.append((a,back+.045,z));pts.append(((a+b)/2,back+.047,z-.035))
+ pts.append((r[-1],back+.045,z));pts.append((r[-1]-.05,back+.02,z-.01));pts.append((r[-1]-.07,back+.002,z-.01))
+ wire('Lead',pts,.0018,'rubber_aged')
+ lathe('HoleRim',r[-1]-.07,back,z-.022,[(0,0),(.009,0),(.009,.024),(0,.024)],'soot')
+ group('AerialWire',start)
+
+def sootfan(source):
+ # Dossier slice 51 (F05_D_RESTRICTED-002): the soot ghost of the fire fanned up the wall above the
+ # replaced door's head, 0.8 m wide at the top, on the crossing side.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y']
+ rows=[(.0,.42),(.08,.5),(.16,.56),(.24,.62),(.32,.68),(.4,.74),(.48,.8)]
+ for i,(z,w) in enumerate(rows):
+  stock('Soot'+str(i),(-w/2,back,z),(w/2,back+.0012+.0003*(i%2),z+.085),'soot',.0002)
+ for x in [-.15,.15]:support(identity,'wall',(x,back,.3),(0,1,0),'soot on the plaster')
+ group('SootFan',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1153,4 +1183,6 @@ for assembly in assemblies:
  elif kind=='bathshelf':bathshelf(source)
  elif kind=='noticeframe':noticeframe(source)
  elif kind=='threshold':threshold(source)
+ elif kind=='aerialwire':aerialwire(source)
+ elif kind=='sootfan':sootfan(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

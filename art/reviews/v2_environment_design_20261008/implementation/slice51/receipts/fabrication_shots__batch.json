@@ -1,0 +1,56 @@
+{
+	"batch_checks": 9,
+	"elapsed_ms": 56380,
+	"evidence_class": "INERT",
+	"failures": [
+		"domestic_objects: clear standing camera station: 5B_aerial_wire"
+	],
+	"module_checks": 8999,
+	"modules": {
+		"domestic_objects": {
+			"actors": 219,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 8999,
+			"elapsed_ms": 7424,
+			"failures": [
+				"clear standing camera station: 5B_aerial_wire"
+			],
+			"fixture_sha256": "8c91cb796d735d232421a8d803b41f9fee1b72bdf009bd37e4aff1cf5bbd3fb0",
+			"parts": 886,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 521744,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 121,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						0.850001275539398,
+						6.42000007629395,
+						-14.2799997329712
+					],
+					"id": "3C_threshold_native",
+					"image": "3C_threshold_native.png",
+					"owner": "3C_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-8.25999927520752,
+						12.8199996948242,
+						-8.40000057220459
+					],
+					"id": "5D_soot_fan_native",
+					"image": "5D_soot_fan_native.png",
+					"owner": "5D_soot_fan",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

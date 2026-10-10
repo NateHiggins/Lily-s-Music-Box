@@ -892,6 +892,24 @@
       "kind": "artframe",
       "cell": "shared",
       "source_record": "ROOF_SERVICE_LANDING_PIECE"
+    },
+    {
+      "id": "DomesticObject118",
+      "kind": "threshold",
+      "cell": "shared",
+      "source_record": "3C_threshold"
+    },
+    {
+      "id": "DomesticObject119",
+      "kind": "sootfan",
+      "cell": "shared",
+      "source_record": "5D_soot_fan"
+    },
+    {
+      "id": "DomesticObject120",
+      "kind": "aerialwire",
+      "cell": "shared",
+      "source_record": "5B_aerial_wire"
     }
   ],
   "closed_stocks": [
@@ -14832,6 +14850,138 @@
       "assembly": "DomesticObject117",
       "key": "wood_dark",
       "volume_m3": 0.0002267109994567587
+    },
+    {
+      "name": "DomesticObject118_Coir",
+      "assembly": "DomesticObject118",
+      "key": "coir",
+      "volume_m3": 0.0034223890162136087
+    },
+    {
+      "name": "DomesticObject118_BorderY0.015",
+      "assembly": "DomesticObject118",
+      "key": "rubber_aged",
+      "volume_m3": 2.8077422808090408e-05
+    },
+    {
+      "name": "DomesticObject118_BorderY0.39699999999999996",
+      "assembly": "DomesticObject118",
+      "key": "rubber_aged",
+      "volume_m3": 2.8077386615665682e-05
+    },
+    {
+      "name": "DomesticObject118_BorderX-0.33",
+      "assembly": "DomesticObject118",
+      "key": "rubber_aged",
+      "volume_m3": 1.556478584332569e-05
+    },
+    {
+      "name": "DomesticObject118_BorderX0.312",
+      "assembly": "DomesticObject118",
+      "key": "rubber_aged",
+      "volume_m3": 1.556478584332569e-05
+    },
+    {
+      "name": "DomesticObject119_Soot0",
+      "assembly": "DomesticObject119",
+      "key": "soot",
+      "volume_m3": 4.281975808795879e-05
+    },
+    {
+      "name": "DomesticObject119_Soot1",
+      "assembly": "DomesticObject119",
+      "key": "soot",
+      "volume_m3": 6.372652831326326e-05
+    },
+    {
+      "name": "DomesticObject119_Soot2",
+      "assembly": "DomesticObject119",
+      "key": "soot",
+      "volume_m3": 5.709416222727995e-05
+    },
+    {
+      "name": "DomesticObject119_Soot3",
+      "assembly": "DomesticObject119",
+      "key": "soot",
+      "volume_m3": 7.902171201880999e-05
+    },
+    {
+      "name": "DomesticObject119_Soot4",
+      "assembly": "DomesticObject119",
+      "key": "soot",
+      "volume_m3": 6.932936154673438e-05
+    },
+    {
+      "name": "DomesticObject119_Soot5",
+      "assembly": "DomesticObject119",
+      "key": "soot",
+      "volume_m3": 9.431691788974346e-05
+    },
+    {
+      "name": "DomesticObject119_Soot6",
+      "assembly": "DomesticObject119",
+      "key": "soot",
+      "volume_m3": 8.156456546486732e-05
+    },
+    {
+      "name": "DomesticObject120_Bracket0",
+      "assembly": "DomesticObject120",
+      "key": "metal",
+      "volume_m3": 3.802498859798601e-06
+    },
+    {
+      "name": "DomesticObject120_Insulator0",
+      "assembly": "DomesticObject120",
+      "key": "enamel",
+      "volume_m3": 1.531226111341832e-05
+    },
+    {
+      "name": "DomesticObject120_Bracket1",
+      "assembly": "DomesticObject120",
+      "key": "metal",
+      "volume_m3": 3.8024607891147907e-06
+    },
+    {
+      "name": "DomesticObject120_Insulator1",
+      "assembly": "DomesticObject120",
+      "key": "enamel",
+      "volume_m3": 1.5312286100578827e-05
+    },
+    {
+      "name": "DomesticObject120_Bracket2",
+      "assembly": "DomesticObject120",
+      "key": "metal",
+      "volume_m3": 3.80246078911479e-06
+    },
+    {
+      "name": "DomesticObject120_Insulator2",
+      "assembly": "DomesticObject120",
+      "key": "enamel",
+      "volume_m3": 1.5312286100578214e-05
+    },
+    {
+      "name": "DomesticObject120_Bracket3",
+      "assembly": "DomesticObject120",
+      "key": "metal",
+      "volume_m3": 3.802498859798601e-06
+    },
+    {
+      "name": "DomesticObject120_Insulator3",
+      "assembly": "DomesticObject120",
+      "key": "enamel",
+      "volume_m3": 1.5312261113418913e-05
+    },
+    {
+      "name": "DomesticObject120_Lead",
+      "assembly": "DomesticObject120",
+      "key": "rubber_aged",
+      "volume_m3": 4.438622622654724e-05
+    },
+    {
+      "name": "DomesticObject120_HoleRim",
+      "assembly": "DomesticObject120",
+      "key": "soot",
+      "volume_m3": 6.089827914419366e-06
     }
   ],
   "contacts": [
@@ -21974,6 +22124,156 @@
         -1
       ],
       "label": "retained wall face behind fitted spacer"
+    },
+    {
+      "assembly": "DomesticObject118",
+      "owner": "support",
+      "point": [
+        -0.30000000000000004,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "mat (-0.30000000000000004, 0.045, 0)"
+    },
+    {
+      "assembly": "DomesticObject118",
+      "owner": "support",
+      "point": [
+        0.30000000000000004,
+        0,
+        -0.045
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "mat (0.30000000000000004, 0.045, 0)"
+    },
+    {
+      "assembly": "DomesticObject118",
+      "owner": "support",
+      "point": [
+        -0.30000000000000004,
+        0,
+        -0.385
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "mat (-0.30000000000000004, 0.385, 0)"
+    },
+    {
+      "assembly": "DomesticObject118",
+      "owner": "support",
+      "point": [
+        0.30000000000000004,
+        0,
+        -0.385
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "mat (0.30000000000000004, 0.385, 0)"
+    },
+    {
+      "assembly": "DomesticObject119",
+      "owner": "wall",
+      "point": [
+        -0.15,
+        0.3,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "soot on the plaster"
+    },
+    {
+      "assembly": "DomesticObject119",
+      "owner": "wall",
+      "point": [
+        0.15,
+        0.3,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "soot on the plaster"
+    },
+    {
+      "assembly": "DomesticObject120",
+      "owner": "wall",
+      "point": [
+        -2.0725,
+        0.05,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "insulator bracket screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject120",
+      "owner": "wall",
+      "point": [
+        -0.6908333333333332,
+        0.05,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "insulator bracket screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject120",
+      "owner": "wall",
+      "point": [
+        0.6908333333333334,
+        0.05,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "insulator bracket screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject120",
+      "owner": "wall",
+      "point": [
+        2.0725,
+        0.05,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "insulator bracket screwed to the wall"
     }
   ],
   "parts": [
@@ -25763,9 +26063,58 @@
       "cell": "shared",
       "key": "wood_dark",
       "triangles": 1128
+    },
+    {
+      "name": "DomesticObject118__Body_ON_coir",
+      "assembly": "DomesticObject118",
+      "cell": "shared",
+      "key": "coir",
+      "triangles": 188
+    },
+    {
+      "name": "DomesticObject118__Body_ON_rubber_aged",
+      "assembly": "DomesticObject118",
+      "cell": "shared",
+      "key": "rubber_aged",
+      "triangles": 752
+    },
+    {
+      "name": "DomesticObject119__Body_ON_soot",
+      "assembly": "DomesticObject119",
+      "cell": "shared",
+      "key": "soot",
+      "triangles": 1316
+    },
+    {
+      "name": "DomesticObject120__Body_ON_enamel",
+      "assembly": "DomesticObject120",
+      "cell": "shared",
+      "key": "enamel",
+      "triangles": 1920
+    },
+    {
+      "name": "DomesticObject120__Body_ON_metal",
+      "assembly": "DomesticObject120",
+      "cell": "shared",
+      "key": "metal",
+      "triangles": 752
+    },
+    {
+      "name": "DomesticObject120__Body_ON_rubber_aged",
+      "assembly": "DomesticObject120",
+      "cell": "shared",
+      "key": "rubber_aged",
+      "triangles": 236
+    },
+    {
+      "name": "DomesticObject120__Body_ON_soot",
+      "assembly": "DomesticObject120",
+      "cell": "shared",
+      "key": "soot",
+      "triangles": 192
     }
   ],
-  "triangles": 516388,
+  "triangles": 521744,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -34262,6 +34611,134 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "DomesticObject118",
+        "parts": [
+          {
+            "name": "DomesticObject118__Body_ON_coir",
+            "component": "Body",
+            "key": "coir",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.42,
+              0.3,
+              0.15,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.16,
+              "roughness": 0.92
+            }
+          },
+          {
+            "name": "DomesticObject118__Body_ON_rubber_aged",
+            "component": "Body",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject119",
+        "parts": [
+          {
+            "name": "DomesticObject119__Body_ON_soot",
+            "component": "Body",
+            "key": "soot",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.42
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject120",
+        "parts": [
+          {
+            "name": "DomesticObject120__Body_ON_enamel",
+            "component": "Body",
+            "key": "enamel",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
+            "finish": {
+              "normal_scale": 0.015,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "DomesticObject120__Body_ON_metal",
+            "component": "Body",
+            "key": "metal",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.018,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "DomesticObject120__Body_ON_rubber_aged",
+            "component": "Body",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject120__Body_ON_soot",
+            "component": "Body",
+            "key": "soot",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "tint": [
+              0.3,
+              0.32,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.02,
+              "roughness": 0.42
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -35120,15 +35597,35 @@
       {
         "id": "ROOF_SERVICE_LANDING_PIECE",
         "variant": "DomesticObject117"
+      },
+      {
+        "id": "3C_sealed_notice",
+        "variant": "DomesticObject89"
+      },
+      {
+        "id": "3C_threshold",
+        "variant": "DomesticObject118"
+      },
+      {
+        "id": "5D_soot_fan",
+        "variant": "DomesticObject119"
+      },
+      {
+        "id": "5D_sealed_notice",
+        "variant": "DomesticObject89"
+      },
+      {
+        "id": "5B_aerial_wire",
+        "variant": "DomesticObject120"
       }
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "56cf593f363a34f2fb4edec9c39a031d8c3c0c6babc08649a5516be69a51a134",
+  "asset_sha256": "e90977ccb5d1e8390822e6d0ad02ab7ca0ba03bd5073f697b8777741df961282",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "d4633a70c03f222a40db1cfb8e4b0e1452bfedd1d1e1c245df10af4cfde567f2",
+    "art/data/domestic_objects/source_plan.json": "c22951431f52a265a850a8d47e35e5fc95ec8f6be79675c823b5ee2efae5fc45",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_objects.py": "5de104952f6f888e04f3724e86a6957aba298e02816be435ef27689d18e2ac26",
+    "art/blender/scripts/build_domestic_objects.py": "029a1ddddc85b755a3c38a6fa07855976279bc49ee443b830e90f3860998b15a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -35218,16 +35715,16 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "f24da555a1cc272ba0a5409484037a3ecafb3cbf63fefb9bc932dfc29c86712e",
+    "art/blender/scripts/domestic_objects_geometry.py": "f43fde97b08a874e0eb94ae3b5d64888f3a2c0e4695b94c3a5c1c5b11b13a8df",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "4298374fe18b9bc356225cd995d4d0e4ed106ea14b98b591fdec6ca5a0a3c13a",
+    "game/data/orison_v2/domestic_furniture.json": "b44cdc951116c105456f1e246de42bd4db1250abb172a8ff3f81d3995bf53bab",
     "game/data/orison_v2/completion_interiors.json": "a6c5fb7ae24bc1de84f901de1332a55346c968c8ca7904db65a018eec33b444c",
     "art/data/orison_v2/completion_interiors_source.json": "e468e46793e5fc57b3d7d467ba140f547200b1af5783771d849e5731313c77b0",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "2a14cd25b76fc7be4a48198605ad7c92a9b39bcafdb24ebcd474541eb5f3386c",
-    "game/data/orison_v2_blockout.json": "941deffbd5dfcef10eceb310adcefb37ed4fab5057111140c3e3f57f8fb7fc2b",
+    "game/data/orison_v2_blockout.json": "7d34fd7cd843977a4876b28f7c00f0eb879f087b8e9f0b764079f2d877443d10",
     "art/blender/work_tables.blend": "ffc309d94421baa1307cffe02ba2b375b80329c1f98849e4ee4902c9bdd660c6",
     "game/data/orison_v2/domestic_surface_props.json": "82e151adef3a647cb6b2a34187a76ccd47e0d3c538c32dca76230b48a0844ce6",
     "game/tests/fixtures/orison_surface_stock.json": "28cbec6364d396d4a84dd6725ef8ab54db7c7790207edc29223f7c377a1cc9d4",
@@ -41541,6 +42038,46 @@
         "DomesticObject117_MouldingRail0.355",
         "DomesticObject117_RearBatten-0.105",
         "DomesticObject117_RearBatten0.105"
+      ]
+    },
+    {
+      "assembly": "DomesticObject118",
+      "id": "DomesticObject118_Mat",
+      "stocks": [
+        "DomesticObject118_Coir",
+        "DomesticObject118_BorderY0.015",
+        "DomesticObject118_BorderY0.39699999999999996",
+        "DomesticObject118_BorderX-0.33",
+        "DomesticObject118_BorderX0.312"
+      ]
+    },
+    {
+      "assembly": "DomesticObject119",
+      "id": "DomesticObject119_SootFan",
+      "stocks": [
+        "DomesticObject119_Soot0",
+        "DomesticObject119_Soot1",
+        "DomesticObject119_Soot2",
+        "DomesticObject119_Soot3",
+        "DomesticObject119_Soot4",
+        "DomesticObject119_Soot5",
+        "DomesticObject119_Soot6"
+      ]
+    },
+    {
+      "assembly": "DomesticObject120",
+      "id": "DomesticObject120_AerialWire",
+      "stocks": [
+        "DomesticObject120_Bracket0",
+        "DomesticObject120_Insulator0",
+        "DomesticObject120_Bracket1",
+        "DomesticObject120_Insulator1",
+        "DomesticObject120_Bracket2",
+        "DomesticObject120_Insulator2",
+        "DomesticObject120_Bracket3",
+        "DomesticObject120_Insulator3",
+        "DomesticObject120_Lead",
+        "DomesticObject120_HoleRim"
       ]
     }
   ],
