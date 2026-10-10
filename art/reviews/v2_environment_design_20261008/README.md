@@ -239,6 +239,8 @@ Slices landed so far (evidence folders in parentheses):
 79. The night watch's kettle on a gas ring and the tour card.
 80. A patrol station on every floor and the signal register with seven drops, at the
     owner's direction; verification of slices 76-80 (`slice80`).
+81. Every remaining row statused with its reason: deferrals and rejections, and rows
+    closed from captures, including the street in its storm state (`slice81`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

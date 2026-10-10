@@ -148,7 +148,9 @@
    "purpose": "Review: a hard orange light leaks through the seam; close the geometry or clamp the voxel field there",
    "acceptance": "DT1 station without the leak",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_PUBLIC_CORE"
+   "area": "B1_PUBLIC_CORE",
+   "status": "deferred",
+   "owner_notes": "Still present at 088f987a (B1_PUBLIC_CORE_DT1): a hard bright line at the pier and wall seam beside the stair foot, light through a gap in the shell. Deferred to a shell-joint pass."
   },
   {
    "id": "B1_BOILER_APPROACH-001",
@@ -220,7 +222,9 @@
    "preserve": "16/16 light budget: name the victim or make these two unlit visuals with a warm emissive if the budget is full",
    "acceptance": "Firing-door detail station readable with the lamp off",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_BOILER_ROOM"
+   "area": "B1_BOILER_ROOM",
+   "status": "deferred",
+   "owner_notes": "Deferred to a lighting-budget decision. Lit, two cage bulbs exceed the 16/16 budget the row names; the unlit warm-emissive alternative needs an emissive finish, and neither the material catalogue nor the fixed-lighting or domestic families carries one."
   },
   {
    "id": "B1_ELECTRICAL-001",
@@ -424,7 +428,9 @@
    "purpose": "Previous sweep finding: solid partitions read as walls",
    "acceptance": "Overview reads cages",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_RESIDENT_STORAGE"
+   "area": "B1_RESIDENT_STORAGE",
+   "status": "deferred",
+   "owner_notes": "Deferred. Chain-link reads only through an alpha-scissor finish, which the material catalogue does not have; a new catalogue material comes first (RUL-008)."
   },
   {
    "id": "B1_RESIDENT_STORAGE-003",
@@ -586,7 +592,9 @@
    "preserve": "Routes, the dumbwaiter, door swings",
    "acceptance": "Service hall overviews show lit, piped, finished corridors",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "deferred",
+   "owner_notes": "Deferred: shell work in the blockout and stair generators. The service halls are 1.2 m routes edge to edge, so risers need a chase rather than the hall; the service lift landing and a service stair finish distinct from the public marble are generator changes, as is the dado. The 17 maintenance-evidence rows on the spine wait on it."
   },
   {
    "id": "BW-007",
@@ -604,7 +612,9 @@
    ],
    "acceptance": "Facade wide station reads curtain states; every bedroom overview shows a treatment",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "deferred",
+   "owner_notes": "Deferred. Window treatments for every apartment window need blind and curtain variants in the window joinery family and a per-unit state driven by the sleep schedules; CITY_FACADE-001 waits on the same family."
   },
   {
    "id": "BW-008",
@@ -623,7 +633,9 @@
    ],
    "acceptance": "Bath and bed overviews across floors",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "deferred",
+   "owner_notes": "Deferred. Elsewhere in this pass slice 44 gave three households their bedding states and slice 61 put a water line under every curtain hem; the slack variant across the completion beds, the curtains' drawn and gathered variation with hems, flush cabinet mirrors and the receptor hems remain."
   },
   {
    "id": "BW-009",
@@ -736,7 +748,9 @@
    ],
    "acceptance": "No white brick in any apartment or lobby overview",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "deferred",
+   "owner_notes": "Deferred to a shell pass. The white brick is the face of retained masonry and the wet stack where no plaster finish quad is emitted (the B1 laundry's stack shows it too); the fix is the shell builder's side-aware plaster emission."
   },
   {
    "id": "BW-016",
@@ -824,7 +838,9 @@
    "preserve": "Wardrobe leaf motions and the fitted-storage supports",
    "acceptance": "Bedroom and kitchen overviews show panelled casework with hardware",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "deferred",
+   "owner_notes": "Deferred. Mouldings and hardware for the completion wardrobes, nightstands, wall cupboards and the sixteen base cabinets are a casework family pass across F04 and F05."
   },
   {
    "id": "BW-020",
@@ -842,7 +858,9 @@
    ],
    "acceptance": "Hall and shop floor detail stations read as terrazzo at 1 m",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "deferred",
+   "owner_notes": "Deferred. The terrazzo aggregate scale is in the catalogue's terrazzo maps; re-authoring them at 5 to 15 mm chips with brass strips is a material-catalogue change."
   },
   {
    "id": "BW-021",
@@ -861,7 +879,9 @@
    ],
    "acceptance": "Kitchen overviews on F04 and F05",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "deferred",
+   "owner_notes": "Deferred: the material catalogue has no linoleum; a battleship-linoleum entry comes before the kitchen floor variant."
   },
   {
    "id": "BW-022",
@@ -901,7 +921,9 @@
    "preserve": "Rear doors, routes and the cell registry's refusals",
    "acceptance": "Each site_rear floor station identifies the trade",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "BW_BUILDING_WIDE"
+   "area": "BW_BUILDING_WIDE",
+   "status": "deferred",
+   "owner_notes": "Open. At 088f987a the city sweep's rear stations still show ten of eleven rear rooms bare, with the shared brown cubes and an empty shelf; only the funeral parlour reads (site_rear_*_floor_0). The trade receiving families exist (the laundry receiver is captured by its own suite) but none is framed in its rear cell. Re-anchoring them and a cage bulb per rear room are deferred to a rear-room pass."
   },
   {
    "id": "BW-014",
@@ -941,7 +963,9 @@
    "preserve": "Crossing gaps, stagger contact, route limits",
    "acceptance": "Street route and containment tests unchanged",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_STREET"
+   "area": "CITY_STREET",
+   "status": "deferred",
+   "owner_notes": "Deferred. Ash cans need a street-furniture owner inside the street's route and containment tests, and the droppings' fly shimmer is gated on the commensals ruling (C2)."
   },
   {
    "id": "CITY_STREET-002",
@@ -969,7 +993,9 @@
    "purpose": "Destination plan: a laundry vents steam to the pavement; sensory and an occluder",
    "acceptance": "Street view from the Orison door",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_STREET"
+   "area": "CITY_STREET",
+   "status": "deferred",
+   "owner_notes": "Deferred: a steam plume is a WeatherFX billboard, outside this pass's static families."
   },
   {
    "id": "CITY_STREET-004",
@@ -985,7 +1011,9 @@
    ],
    "acceptance": "Audible from the apron without a visible source",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_STREET"
+   "area": "CITY_STREET",
+   "status": "deferred",
+   "owner_notes": "Deferred: sound only (the acoustic and weather bed); no visual dossier change."
   },
   {
    "id": "CITY_STREET-005",
@@ -1022,7 +1050,9 @@
    ],
    "acceptance": "Facade wide and route stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_STREET"
+   "area": "CITY_STREET",
+   "status": "deferred",
+   "owner_notes": "Deferred to a city-shell pass: the closure masses, alley walls and their finishes are the city generator's geometry. Brick maps, window grids and cornices on every closure mass are open."
   },
   {
    "id": "CITY_STREET-007",
@@ -1040,7 +1070,9 @@
    ],
    "acceptance": "A storm-state capture of the same stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_STREET"
+   "area": "CITY_STREET",
+   "status": "deferred",
+   "owner_notes": "Measured, deferred. The city sweep with the simulated storm (WEATHER_SIMULATE=storm, WEATHER_SEED 7) at 129e02d3 renders the same as the clear sweep, a mean pixel difference of 0.12 in 255 on facade_front_wide (implementation/slice81, both sweeps 130 views, 0 failures): the V2 runtime composes no weather owner, so the brief's quiet storm (live rain, near rain suppressed, the puddle pass) is V1's weather, not yet ported. The dry road and clear sky are therefore what V2 ships, not a capture accident; the storm's port is the open work."
   },
   {
    "id": "CITY_FACADE-001",
@@ -1058,7 +1090,9 @@
    "preserve": "Window glow authority",
    "acceptance": "Front wide station reads cards and one blacked window",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_FACADE"
+   "area": "CITY_FACADE",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-007: ice cards and curtain states need the window joinery family's states."
   },
   {
    "id": "CITY_FACADE-002",
@@ -1076,7 +1110,9 @@
    ],
    "acceptance": "facade_door station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_FACADE"
+   "area": "CITY_FACADE",
+   "status": "deferred",
+   "owner_notes": "Deferred: positional wear on the front door's handle, lock, bell push, mat and stone is a facade wear pass."
   },
   {
    "id": "CITY_FACADE-003",
@@ -1110,7 +1146,9 @@
    "preserve": "Alley route and boundaries",
    "acceptance": "Service alley test unchanged; walk stations show the ruts",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_ALLEY"
+   "area": "CITY_ALLEY",
+   "status": "deferred",
+   "owner_notes": "Deferred: rut and leaf-litter decals on the alley ground are an alley wear pass."
   },
   {
    "id": "CITY_ALLEY-002",
@@ -1123,7 +1161,9 @@
    "purpose": "The alley is overlooked; Accord 15 light is practical (a window is a fixture)",
    "acceptance": "Alley station 3",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_ALLEY"
+   "area": "CITY_ALLEY",
+   "status": "deferred",
+   "owner_notes": "Deferred to a city-shell pass: the closure masses, alley walls and their finishes are the city generator's geometry. One lit pane on the north neighbour's back is a shell emissive."
   },
   {
    "id": "CITY_ALLEY-003",
@@ -1142,7 +1182,9 @@
    ],
    "acceptance": "alley_1 and alley_4 stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_ALLEY"
+   "area": "CITY_ALLEY",
+   "status": "deferred",
+   "owner_notes": "Deferred to a city-shell pass: the closure masses, alley walls and their finishes are the city generator's geometry. Painted cast-iron leaders with stain fans, coping on the wall tops and a finished closing plane are open."
   },
   {
    "id": "CITY_ALLEY-004",
@@ -1186,7 +1228,9 @@
    "purpose": "Gateway proposal: sound/reflected train light remain optional later gates",
    "acceptance": "Kiosk station shows the flicker once",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SUBWAY"
+   "area": "CITY_SUBWAY",
+   "status": "deferred",
+   "owner_notes": "Deferred: the reflected train light and the stirring scrap are lighting and weather effects."
   },
   {
    "id": "CITY_SUBWAY-003",
@@ -1199,7 +1243,9 @@
    "purpose": "Review: from the one station the kiosk reads as thin lines and the lattice could read as a shuttered arcade; not a defect until seen closer",
    "acceptance": "A second station at the kerb opposite",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SUBWAY"
+   "area": "CITY_SUBWAY",
+   "status": "deferred",
+   "owner_notes": "Deferred: a second station at the kerb opposite the kiosk is a sweep addition; not a defect until seen closer, as the row says."
   },
   {
    "id": "CITY_BODEGA-001",
@@ -1219,7 +1265,9 @@
    "preserve": "Purchase stance and the counter owner",
    "acceptance": "Counter station shows both cards",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "CITY_BODEGA"
+   "area": "CITY_BODEGA",
+   "status": "deferred",
+   "owner_notes": "Deferred. The bodega has no V2 fittings family to carry new stock or replace its stand-ins: its interior is the passage's generic shelf stock, so the cards, notions counter, ledger and register need a bodega family first."
   },
   {
    "id": "CITY_BODEGA-002",
@@ -1237,7 +1285,9 @@
    "preserve": "Receiving leaf and sales-aisle route",
    "acceptance": "Delivery station shows the counter; receiving route test unchanged",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BODEGA"
+   "area": "CITY_BODEGA",
+   "status": "deferred",
+   "owner_notes": "Deferred. The bodega has no V2 fittings family to carry new stock or replace its stand-ins: its interior is the passage's generic shelf stock, so the cards, notions counter, ledger and register need a bodega family first."
   },
   {
    "id": "CITY_BODEGA-003",
@@ -1250,7 +1300,9 @@
    "purpose": "Schedules: Evelyn corrects the sale sign; II.3 every shop has a ledger; period ephemera",
    "acceptance": "Window-stock and counter stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BODEGA"
+   "area": "CITY_BODEGA",
+   "status": "deferred",
+   "owner_notes": "Deferred. The bodega has no V2 fittings family to carry new stock or replace its stand-ins: its interior is the passage's generic shelf stock, so the cards, notions counter, ledger and register need a bodega family first."
   },
   {
    "id": "CITY_BODEGA-004",
@@ -1264,7 +1316,9 @@
    "preserve": "Cooler depletion presentation",
    "acceptance": "Cooler station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BODEGA"
+   "area": "CITY_BODEGA",
+   "status": "deferred",
+   "owner_notes": "Deferred. The bodega has no V2 fittings family to carry new stock or replace its stand-ins: its interior is the passage's generic shelf stock, so the cards, notions counter, ledger and register need a bodega family first."
   },
   {
    "id": "CITY_BODEGA-005",
@@ -1285,7 +1339,9 @@
    ],
    "acceptance": "bodega_aisles and bodega_counter stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BODEGA"
+   "area": "CITY_BODEGA",
+   "status": "deferred",
+   "owner_notes": "Deferred. The bodega has no V2 fittings family to carry new stock or replace its stand-ins: its interior is the passage's generic shelf stock, so the cards, notions counter, ledger and register need a bodega family first."
   },
   {
    "id": "CITY_PASSAGE-001",
@@ -1302,7 +1358,9 @@
    ],
    "acceptance": "Passage stations show open grilles and lit shopfronts; if closed, the hours director's clock binding is the defect",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_PASSAGE"
+   "area": "CITY_PASSAGE",
+   "status": "verified",
+   "owner_notes": "Checked: at the sweep's hour the passage hours director reports OPEN with ten grilles folded (sweep_city log: [PASSAGE HOURS] OPEN; 10 grilles folded; 10 close after 02:00, the hardware store keeps night service), and the shop interior stations show lit, trading shops. The director's clock binding is correct."
   },
   {
    "id": "CITY_PASSAGE-002",
@@ -1319,7 +1377,9 @@
    "preserve": "Aisle light ids and positions, cart lanes",
    "acceptance": "Aisle stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_PASSAGE"
+   "area": "CITY_PASSAGE",
+   "status": "deferred",
+   "owner_notes": "Deferred: the parcel shelf, the ghost sign on the throat's brick and the anachronistic tube are passage additions for a later pass."
   },
   {
    "id": "CITY_PASSAGE-003",
@@ -1332,7 +1392,9 @@
    "purpose": "V6: the directory listing a shop that is not there",
    "acceptance": "Terminus station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_PASSAGE"
+   "area": "CITY_PASSAGE",
+   "status": "deferred",
+   "owner_notes": "Deferred: the directory's extra line is a passage directory change for a later pass."
   },
   {
    "id": "CITY_SHOP_MODEL_LAUNDRY-001",
@@ -1364,7 +1426,9 @@
    "purpose": "Guide: this is hands, water, a mangle and heat; V2 rear zones",
    "acceptance": "Rear survey stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_MODEL_LAUNDRY"
+   "area": "CITY_SHOP_MODEL_LAUNDRY",
+   "status": "deferred",
+   "owner_notes": "Deferred: the gas ring's glow, a steam billboard and a wet floor mask are effects."
   },
   {
    "id": "CITY_SHOP_MODEL_LAUNDRY-003",
@@ -1382,7 +1446,9 @@
    ],
    "acceptance": "IN0 and floor_0 stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_MODEL_LAUNDRY"
+   "area": "CITY_SHOP_MODEL_LAUNDRY",
+   "status": "deferred",
+   "owner_notes": "Deferred. The garments on the rail are the fitted family's flat shirt boards; cloth-batch garments with folds need the cloth pipeline. The parcel wall is the laundry trade family's wrapped parcels (slice 75 aged its top row)."
   },
   {
    "id": "CITY_SHOP_SHOE_REBUILDING-001",
@@ -1415,7 +1481,9 @@
    "purpose": "Guide flair",
    "acceptance": "Counter detail",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_SHOE_REBUILDING"
+   "area": "CITY_SHOP_SHOE_REBUILDING",
+   "status": "deferred",
+   "owner_notes": "Deferred: a dust film with a clean rectangle under the ledger is a cobbler counter wear pass."
   },
   {
    "id": "CITY_SHOP_SHOE_REBUILDING-003",
@@ -1545,7 +1613,9 @@
    ],
    "acceptance": "Doorway station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_FUNERAL_PARLOUR"
+   "area": "CITY_SHOP_FUNERAL_PARLOUR",
+   "status": "deferred",
+   "owner_notes": "Deferred. Free-standing caskets need new source records, and the shops' source layout is in the protected building_layout.json (RUL-004)."
   },
   {
    "id": "CITY_SHOP_FUNERAL_PARLOUR-002",
@@ -1644,7 +1714,9 @@
    ],
    "acceptance": "IN1 and floor_0 stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_LUNCHEONETTE"
+   "area": "CITY_SHOP_LUNCHEONETTE",
+   "status": "deferred",
+   "owner_notes": "Deferred. The register now reads with its keys in the diner till family (counter_service at 088f987a); the cream pole and the black cabinet remain to be identified and modelled (diner_backbar.md's cooler)."
   },
   {
    "id": "CITY_SHOP_OTIS_SON-001",
@@ -1661,7 +1733,9 @@
    "preserve": "Light budget",
    "acceptance": "Pavement-through-glass station shows colour on the terrazzo",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_OTIS_SON"
+   "area": "CITY_SHOP_OTIS_SON",
+   "status": "deferred",
+   "owner_notes": "Deferred to a lighting-budget decision: the carboy backlight is a practical light."
   },
   {
    "id": "CITY_SHOP_OTIS_SON-002",
@@ -1679,7 +1753,9 @@
    ],
    "acceptance": "IN0 and IN2 stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_OTIS_SON"
+   "area": "CITY_SHOP_OTIS_SON",
+   "status": "deferred",
+   "owner_notes": "Deferred: the show-globe glazing (with -001), nickel fountain taps and drawer slips are a druggist fittings pass."
   },
   {
    "id": "CITY_SHOP_NEWS_CIGARS-001",
@@ -1710,7 +1786,9 @@
    "purpose": "Period; no lettering in texture",
    "acceptance": "Pavement station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_SHOP_NEWS_CIGARS"
+   "area": "CITY_SHOP_NEWS_CIGARS",
+   "status": "deferred",
+   "owner_notes": "Deferred for canon: the headline is the election result in telegram grammar, and the Bible does not yet fix the line; slice 65's broadsides are wordless."
   },
   {
    "id": "CITY_SHOP_NEWS_CIGARS-003",
@@ -1919,7 +1997,9 @@
    "preserve": "Stair collision, the red door's notch and the capsule route",
    "acceptance": "Bar route test unchanged; stair station reads the diorama",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_DESCENT"
+   "area": "CITY_BAR_DESCENT",
+   "status": "deferred",
+   "owner_notes": "Deferred to a bar pass. The bar's fittings are native fabrications bound to source censuses by SHA-256 (bar_furniture, bar_pool, bar_stage, bar_instruments); each addition is a census re-capture and refabrication, the path slice 80 took for the signal register."
   },
   {
    "id": "CITY_BAR_DESCENT-002",
@@ -1935,7 +2015,9 @@
    ],
    "acceptance": "Landing station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_DESCENT"
+   "area": "CITY_BAR_DESCENT",
+   "status": "deferred",
+   "owner_notes": "Deferred to a bar pass. The bar's fittings are native fabrications bound to source censuses by SHA-256 (bar_furniture, bar_pool, bar_stage, bar_instruments); each addition is a census re-capture and refabrication, the path slice 80 took for the signal register."
   },
   {
    "id": "CITY_BAR_DESCENT-003",
@@ -1948,7 +2030,9 @@
    "purpose": "Canon finding: Prohibition is not in canon; gated on an owner ruling",
    "acceptance": "Only if ruled",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_DESCENT"
+   "area": "CITY_BAR_DESCENT",
+   "status": "deferred",
+   "owner_notes": "Deferred: gated on an owner ruling on Prohibition (the row's own condition)."
   },
   {
    "id": "CITY_BAR_DESCENT-004",
@@ -1962,7 +2046,9 @@
    "purpose": "Review: the only genuine litter in the city is three props",
    "acceptance": "retail_bar_lob stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_DESCENT"
+   "area": "CITY_BAR_DESCENT",
+   "status": "deferred",
+   "owner_notes": "Deferred to a bar pass. The bar's fittings are native fabrications bound to source censuses by SHA-256 (bar_furniture, bar_pool, bar_stage, bar_instruments); each addition is a census re-capture and refabrication, the path slice 80 took for the signal register."
   },
   {
    "id": "CITY_BAR_ROOM-001",
@@ -1980,7 +2066,9 @@
    "preserve": "BarSeatZone stances, songbook terminal",
    "acceptance": "Canopy station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_ROOM"
+   "area": "CITY_BAR_ROOM",
+   "status": "deferred",
+   "owner_notes": "Deferred to a bar pass. The bar's fittings are native fabrications bound to source censuses by SHA-256 (bar_furniture, bar_pool, bar_stage, bar_instruments); each addition is a census re-capture and refabrication, the path slice 80 took for the signal register."
   },
   {
    "id": "CITY_BAR_ROOM-002",
@@ -1993,7 +2081,9 @@
    "purpose": "Schedules: Lena mends the split vinyl; Cam never sits",
    "acceptance": "West bay and deck stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_ROOM"
+   "area": "CITY_BAR_ROOM",
+   "status": "deferred",
+   "owner_notes": "Deferred to a bar pass. The bar's fittings are native fabrications bound to source censuses by SHA-256 (bar_furniture, bar_pool, bar_stage, bar_instruments); each addition is a census re-capture and refabrication, the path slice 80 took for the signal register."
   },
   {
    "id": "CITY_BAR_ROOM-003",
@@ -2006,7 +2096,9 @@
    "purpose": "Ledger II entrance zone and retrofits re-dated to 1928",
    "acceptance": "Deck and service-end stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_ROOM"
+   "area": "CITY_BAR_ROOM",
+   "status": "deferred",
+   "owner_notes": "Deferred to a bar pass. The bar's fittings are native fabrications bound to source censuses by SHA-256 (bar_furniture, bar_pool, bar_stage, bar_instruments); each addition is a census re-capture and refabrication, the path slice 80 took for the signal register."
   },
   {
    "id": "CITY_BAR_ROOM-004",
@@ -2019,7 +2111,9 @@
    "purpose": "Canon finding: gated on a Prohibition ruling",
    "acceptance": "Only if ruled",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_ROOM"
+   "area": "CITY_BAR_ROOM",
+   "status": "deferred",
+   "owner_notes": "Deferred: gated on an owner ruling on Prohibition (the row's own condition)."
   },
   {
    "id": "CITY_BAR_ROOM-005",
@@ -2039,7 +2133,9 @@
    ],
    "acceptance": "WEST1 and POOL stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_ROOM"
+   "area": "CITY_BAR_ROOM",
+   "status": "deferred",
+   "owner_notes": "Deferred to a bar pass. The bar's fittings are native fabrications bound to source censuses by SHA-256 (bar_furniture, bar_pool, bar_stage, bar_instruments); each addition is a census re-capture and refabrication, the path slice 80 took for the signal register."
   },
   {
    "id": "CITY_BAR_STAGE-001",
@@ -2057,7 +2153,9 @@
    "preserve": "SongbookTerminalProp and the phonautograph's motion owner",
    "acceptance": "Stage station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_STAGE"
+   "area": "CITY_BAR_STAGE",
+   "status": "deferred",
+   "owner_notes": "Deferred to a bar pass. The bar's fittings are native fabrications bound to source censuses by SHA-256 (bar_furniture, bar_pool, bar_stage, bar_instruments); each addition is a census re-capture and refabrication, the path slice 80 took for the signal register."
   },
   {
    "id": "CITY_BAR_STAGE-002",
@@ -2074,7 +2172,9 @@
    ],
    "acceptance": "A station from the pool table toward the stage",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_STAGE"
+   "area": "CITY_BAR_STAGE",
+   "status": "deferred",
+   "owner_notes": "Deferred to a bar pass. The bar's fittings are native fabrications bound to source censuses by SHA-256 (bar_furniture, bar_pool, bar_stage, bar_instruments); each addition is a census re-capture and refabrication, the path slice 80 took for the signal register."
   },
   {
    "id": "CITY_BAR_WC-001",
@@ -2091,7 +2191,9 @@
    "preserve": "Door pose and sink input",
    "acceptance": "WC station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_WC"
+   "area": "CITY_BAR_WC",
+   "status": "deferred",
+   "owner_notes": "Deferred to a bar pass. The bar's fittings are native fabrications bound to source censuses by SHA-256 (bar_furniture, bar_pool, bar_stage, bar_instruments); each addition is a census re-capture and refabrication, the path slice 80 took for the signal register."
   },
   {
    "id": "CITY_BAR_WC-002",
@@ -2109,7 +2211,9 @@
    ],
    "acceptance": "WC station shows the bulb and the wash together",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_BAR_WC"
+   "area": "CITY_BAR_WC",
+   "status": "deferred",
+   "owner_notes": "Deferred to a bar pass. The bar's fittings are native fabrications bound to source censuses by SHA-256 (bar_furniture, bar_pool, bar_stage, bar_instruments); each addition is a census re-capture and refabrication, the path slice 80 took for the signal register."
   },
   {
    "id": "F01_STREET_APRON-001",
@@ -2130,7 +2234,9 @@
    "preserve": "Front entry route, arrival placement, marquee contacts",
    "acceptance": "Front entry route test unchanged; facade view shows crates",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_STREET_APRON"
+   "area": "F01_STREET_APRON",
+   "status": "deferred",
+   "owner_notes": "Deferred. The aprons are city-owned exterior ground inside the front entry route and containment tests; no static-object family mounts there yet."
   },
   {
    "id": "F01_STREET_APRON-002",
@@ -2143,7 +2249,9 @@
    "purpose": "Period: the Saturday after the Hoover-Smith election; no lettering (a portrait silhouette and a star)",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_STREET_APRON"
+   "area": "F01_STREET_APRON",
+   "status": "deferred",
+   "owner_notes": "Deferred with CITY_SHOP_NEWS_CIGARS-002 for the election canon, and the apron owner."
   },
   {
    "id": "F01_REAR_APRON-001",
@@ -2158,7 +2266,9 @@
    "preserve": "Rear door route (service alley test)",
    "acceptance": "Threshold view from the alley",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_REAR_APRON"
+   "area": "F01_REAR_APRON",
+   "status": "deferred",
+   "owner_notes": "Deferred. The rear apron is city-owned ground inside the service alley's route test; no static-object family mounts there yet."
   },
   {
    "id": "F01_VESTIBULE-001",
@@ -2262,7 +2372,9 @@
    "purpose": "Close V1 rows that V2 has already resolved",
    "acceptance": "No floating labels in any tile",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_LOBBY"
+   "area": "F01_LOBBY",
+   "status": "verified",
+   "owner_notes": "Closed: no teal order-board slabs and no floating nameplates in any lobby tile at 088f987a (F01_LOBBY OV, RV, TH, DT1 to DT3); the V1 rows do not reproduce in V2."
   },
   {
    "id": "F01_LOBBY-005",
@@ -2278,7 +2390,9 @@
    ],
    "acceptance": "Lobby OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_LOBBY"
+   "area": "F01_LOBBY",
+   "status": "verified",
+   "owner_notes": "Closed: no yellow numbered placard and no white brick patch in the lobby at 088f987a (F01_LOBBY_OV, F01_LOBBY_RV)."
   },
   {
    "id": "F01_WATCH-001",
@@ -2436,7 +2550,9 @@
    ],
    "acceptance": "Window detail stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_COMMON_B"
+   "area": "F01_COMMON_B",
+   "status": "deferred",
+   "owner_notes": "Deferred to a city-shell pass: the closure masses, alley walls and their finishes are the city generator's geometry. The reading room's windows look onto the light court's unfinished face."
   },
   {
    "id": "F01_PUBLIC_CORE-001",
@@ -2508,7 +2624,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_CORE_TO_SERVICE"
+   "area": "F01_CORE_TO_SERVICE",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F01_SERVICE_HALL-001",
@@ -2528,7 +2646,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_SERVICE_HALL"
+   "area": "F01_SERVICE_HALL",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F01_SERVICE_HALL-002",
@@ -2543,7 +2663,9 @@
    "preserve": "Dumbwaiter brake reach and the route",
    "acceptance": "Threshold view from the transfer",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_SERVICE_HALL"
+   "area": "F01_SERVICE_HALL",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006: the dumbwaiter stands on the 1.2 m route and there is no floor outside it for a sack truck and crates."
   },
   {
    "id": "F01_SERVICE_CORE-001",
@@ -2593,7 +2715,9 @@
    "purpose": "Review: an untextured wood slab and a grey placeholder at the service core",
    "acceptance": "Threshold and overview show a finished door and no panel",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_SERVICE_CORE"
+   "area": "F01_SERVICE_CORE",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006: the service core's door leaf and landing panel are the spine's finish."
   },
   {
    "id": "F01_STAFF_RESTROOM-001",
@@ -2861,7 +2985,9 @@
    ],
    "acceptance": "Visible in the reverse view; the tray does not enter the fridge door stance",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_A_KITCHEN"
+   "area": "F01_A_KITCHEN",
+   "status": "deferred",
+   "owner_notes": "Deferred for an owner restatement. The row's title asks for monitor-top electric evidence, but its construction (an ice card in the kitchen window, a zinc drip tray with a tide line) is icebox evidence, and this household's fridge is a FridgeMonitor in household_fridges.json; a monitor-top unit takes no ice. The icebox households already have their drip pans (slice 18)."
   },
   {
    "id": "F01_A_KITCHEN-003",
@@ -3726,7 +3852,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_SERVICE_CROSSING"
+   "area": "F02_SERVICE_CROSSING",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F02_SERVICE_HALL-001",
@@ -3746,7 +3874,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_SERVICE_HALL"
+   "area": "F02_SERVICE_HALL",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F02_SERVICE_HALL_SOUTH-001",
@@ -3766,7 +3896,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_SERVICE_HALL_SOUTH"
+   "area": "F02_SERVICE_HALL_SOUTH",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F02_SERVICE_CORE-001",
@@ -3816,7 +3948,9 @@
    "purpose": "Review: the service stair reuses the public marble and iron; the service lift landing is absent. See BW-006",
    "acceptance": "Core OV shows a plain service stair and the lift landing",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_SERVICE_CORE"
+   "area": "F02_SERVICE_CORE",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006: the plain service stair and the service lift landing are generator changes."
   },
   {
    "id": "F02_A_VESTIBULE-001",
@@ -3967,7 +4101,9 @@
    ],
    "acceptance": "Detail view at the radio shows the flex to the plate",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "F02_A_MAIN"
+   "area": "F02_A_MAIN",
+   "status": "deferred",
+   "owner_notes": "Deferred. The radio's table, the projector stand and the deck on the coffee table are placed, and a cable form with clips along the skirting from each device to the plate beside the switch is a follow-up."
   },
   {
    "id": "F02_A_MAIN-005",
@@ -5117,7 +5253,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_SERVICE_CROSSING"
+   "area": "F03_SERVICE_CROSSING",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F03_SERVICE_CROSSING-002",
@@ -5130,7 +5268,9 @@
    "purpose": "Review: angled sawtooth planes read as an export artefact",
    "acceptance": "Crossing OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_SERVICE_CROSSING"
+   "area": "F03_SERVICE_CROSSING",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006: the crossing's ceiling planes are the spine's shell geometry."
   },
   {
    "id": "F03_SERVICE_HALL-001",
@@ -5150,7 +5290,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_SERVICE_HALL"
+   "area": "F03_SERVICE_HALL",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F03_SERVICE_HALL_SOUTH-001",
@@ -5170,7 +5312,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_SERVICE_HALL_SOUTH"
+   "area": "F03_SERVICE_HALL_SOUTH",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F03_WEST_HALL-001",
@@ -5257,7 +5401,9 @@
    "purpose": "Accord 11: give it supports and a destination or remove it",
    "acceptance": "Hall OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_SOUTHWEST_HALL"
+   "area": "F03_SOUTHWEST_HALL",
+   "status": "deferred",
+   "owner_notes": "Identified, deferred. A node probe of the hall's upper volume at b2cf2b70 finds no pipe, only walls, ceilings and 3D's vestibule; the diagonal is the picture rail on the west wall, which stops mid-wall short of 3D's door casing and reads as a loose rod in perspective (f03sw_rail). Ending it at the casing is a millwork-pass item."
   },
   {
    "id": "F03_A_VESTIBULE-001",
@@ -5449,7 +5595,9 @@
    ],
    "acceptance": "Visible in the reverse view; the tray does not enter the fridge door stance",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_A_KITCHEN"
+   "area": "F03_A_KITCHEN",
+   "status": "deferred",
+   "owner_notes": "Deferred for an owner restatement. The row's title asks for monitor-top electric evidence, but its construction (an ice card in the kitchen window, a zinc drip tray with a tide line) is icebox evidence, and this household's fridge is a FridgeMonitor in household_fridges.json; a monitor-top unit takes no ice. The icebox households already have their drip pans (slice 18)."
   },
   {
    "id": "F03_A_KITCHEN-003",
@@ -6507,7 +6655,9 @@
    "preserve": "Lift motion, interlocks and call plates",
    "acceptance": "Core OV shows the landing doors and plate",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_PUBLIC_CORE"
+   "area": "F04_PUBLIC_CORE",
+   "status": "deferred",
+   "owner_notes": "Deferred: the landing doors' painted-steel finish, sight glass and sill belong to the lift (elevator.gd), and the brick around them is BW-015's plaster emission."
   },
   {
    "id": "F04_EAST_HALL-001",
@@ -6579,7 +6729,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_SERVICE_CROSSING"
+   "area": "F04_SERVICE_CROSSING",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F04_SERVICE_CROSSING-002",
@@ -6596,7 +6748,9 @@
    ],
    "acceptance": "Crossing OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_SERVICE_CROSSING"
+   "area": "F04_SERVICE_CROSSING",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006: the crossing's wainscot relief and floor strip are spine finish."
   },
   {
    "id": "F04_SERVICE_HALL-001",
@@ -6616,7 +6770,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_SERVICE_HALL"
+   "area": "F04_SERVICE_HALL",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F04_SERVICE_HALL_SOUTH-001",
@@ -6636,7 +6792,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_SERVICE_HALL_SOUTH"
+   "area": "F04_SERVICE_HALL_SOUTH",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F04_SERVICE_CORE-001",
@@ -7154,7 +7312,9 @@
    "preserve": "Winding verb and its WorkOrders binding",
    "acceptance": "Detail view; hold E winds",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_B_MAIN"
+   "area": "F04_B_MAIN",
+   "status": "deferred",
+   "owner_notes": "Deferred. The clock needs its hold-E winding verb and a WorkOrders binding; the interaction carrier audit holds clock_prop's \"Hold E\" prompt as an open violation awaiting K2, so a new winding owner waits on that ruling."
   },
   {
    "id": "F04_B_MAIN-003",
@@ -7328,7 +7488,9 @@
    "preserve": "Closet switch interaction",
    "acceptance": "DT1 at the closet switch",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_B_ALCOVE_APPROACH"
+   "area": "F04_B_ALCOVE_APPROACH",
+   "status": "rejected",
+   "owner_notes": "Not a defect: V2's light switch family is a toggle by design (light_switch.md: a toggle collar and a porcelain-tipped TogglePivot), and both 4B plates are that family, so the closet switch matches the room switches."
   },
   {
    "id": "F04_B_BATH-001",
@@ -8253,7 +8415,9 @@
    ],
    "acceptance": "DT1 at DOOR_06 shows terrazzo and base",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_PUBLIC_CORE"
+   "area": "F05_PUBLIC_CORE",
+   "status": "deferred",
+   "owner_notes": "Deferred: carrying the hall terrazzo and base to 5C's sill is a floor-coverage pass."
   },
   {
    "id": "F05_PUBLIC_CORE-004",
@@ -8328,7 +8492,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_SERVICE_HALL"
+   "area": "F05_SERVICE_HALL",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F05_EAST_HALL-001",
@@ -8385,7 +8551,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_SERVICE_CROSSING"
+   "area": "F05_SERVICE_CROSSING",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F05_SERVICE_CROSSING-002",
@@ -8398,7 +8566,9 @@
    "purpose": "Review: the white disc and the glowing frame pull the eye more than the kick wear does",
    "acceptance": "TH at DOOR_05",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_SERVICE_CROSSING"
+   "area": "F05_SERVICE_CROSSING",
+   "status": "rejected",
+   "owner_notes": "The peephole is the brass lens cylinder of door_prop.gd, and the white disc is the lamp's specular on brass, as BW-014 measured; not a defect. The wall joint goes with BW-006's spine finish."
   },
   {
    "id": "F05_SERVICE_HALL_SOUTH-001",
@@ -8418,7 +8588,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_SERVICE_HALL_SOUTH"
+   "area": "F05_SERVICE_HALL_SOUTH",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F05_WEST_HALL-001",
@@ -8593,7 +8765,9 @@
    "preserve": "Lamp cord route and the plantable's OPERATE/refusal owner (matrix)",
    "acceptance": "Reverse view shows the table lit at the window",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_A_MAIN"
+   "area": "F05_A_MAIN",
+   "status": "deferred",
+   "owner_notes": "Deferred. Moving the plantable to the window moves four bound families with it: its native work-table fit and seated surface stock, and the counterweight lamp's installation and supply cord plan (task_lamp_installations, task_lamp_supply); the cord must be re-planned from a window-side outlet first."
   },
   {
    "id": "F05_A_MAIN-003",
@@ -9094,7 +9268,9 @@
    ],
    "acceptance": "Visible in the reverse view; the tray does not enter the fridge door stance",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_B_KITCHEN"
+   "area": "F05_B_KITCHEN",
+   "status": "deferred",
+   "owner_notes": "Deferred for an owner restatement. The row's title asks for monitor-top electric evidence, but its construction (an ice card in the kitchen window, a zinc drip tray with a tide line) is icebox evidence, and this household's fridge is a FridgeMonitor in household_fridges.json; a monitor-top unit takes no ice. The icebox households already have their drip pans (slice 18)."
   },
   {
    "id": "F05_B_KITCHEN-003",
@@ -9109,7 +9285,9 @@
    "preserve": "Fridge leaf",
    "acceptance": "Open-leaf detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_B_KITCHEN"
+   "area": "F05_B_KITCHEN",
+   "status": "deferred",
+   "owner_notes": "Deferred. 5B's fridge contents are the larder copied from fridge_prop.gd's LARDER, which the household fridges family pins by SHA-256 (mechanism_sha256); batteries and film change the pinned mechanism source."
   },
   {
    "id": "F05_B_KITCHEN-004",
@@ -9671,7 +9849,9 @@
    "purpose": "Review: placeholder geometry in an intentionally empty shell; seat the branch in the chase (BW-005) or remove it; the shell otherwise stays as authored (F05_D_RESTRICTED-001)",
    "acceptance": "DT1 without the strip",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_D_RESTRICTED"
+   "area": "F05_D_RESTRICTED",
+   "status": "deferred",
+   "owner_notes": "Deferred. The strip and the louvred box are ventilation-family registers, and that family's 23 registers are pinned as a set; BW-005 measured the branches as seated. Removing this one is a ventilation-family change."
   },
   {
    "id": "F06_PUBLIC_CORE-001",
@@ -9782,7 +9962,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_SERVICE_HALL"
+   "area": "F06_SERVICE_HALL",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F06_EAST_HALL-001",
@@ -9839,7 +10021,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_SERVICE_CROSSING"
+   "area": "F06_SERVICE_CROSSING",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F06_SERVICE_HALL_SOUTH-001",
@@ -9859,7 +10043,9 @@
    "preserve": "Service route, dumbwaiter approach, door swings",
    "acceptance": "Threshold view from the crossing shows marked pipes and a clear route",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_SERVICE_HALL_SOUTH"
+   "area": "F06_SERVICE_HALL_SOUTH",
+   "status": "deferred",
+   "owner_notes": "Deferred with BW-006. The service spine's halls are 1.2 m wide and the whole width is the route, so the riser cluster, crate and hose this row asks for have no place outside it until BW-006 gives the spine its risers in a chase, its dado and its lighting."
   },
   {
    "id": "F06_WEST_HALL-001",
@@ -10165,7 +10351,9 @@
    ],
    "acceptance": "Bath DT stations",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_A_BATH"
+   "area": "F06_A_BATH",
+   "status": "deferred",
+   "owner_notes": "Deferred: the mirror renders black without a reflection source in the bath, and the moon's dither through the glass is the sky shader behind the glazing; both are rendering passes."
   },
   {
    "id": "F06_A_BED-001",
@@ -10686,7 +10874,9 @@
    ],
    "acceptance": "Visible in the reverse view; the tray does not enter the fridge door stance",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_KITCHEN"
+   "area": "F06_C_KITCHEN",
+   "status": "deferred",
+   "owner_notes": "Deferred for an owner restatement. The row's title asks for monitor-top electric evidence, but its construction (an ice card in the kitchen window, a zinc drip tray with a tide line) is icebox evidence, and this household's fridge is a FridgeMonitor in household_fridges.json; a monitor-top unit takes no ice. The icebox households already have their drip pans (slice 18)."
   },
   {
    "id": "F06_C_KITCHEN-003",
@@ -11014,7 +11204,9 @@
    "preserve": "Falling field, drainage outlets, tank valve and ventilator guards",
    "acceptance": "Overview shows at least one object explaining who comes up here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_WEST"
+   "area": "ROOF_DECK_WEST",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_WEST-002",
@@ -11038,7 +11230,9 @@
    "preserve": "Falling field, outlets, tank valve stance, ventilator curbs and guards",
    "acceptance": "Overview from the bulkhead door reads a garden; roof route test unchanged",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_WEST"
+   "area": "ROOF_DECK_WEST",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_WEST-003",
@@ -11052,7 +11246,9 @@
    "purpose": "A 1928 roof is a drying yard; the laundry airer downstairs is for winter",
    "acceptance": "Overview",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_WEST"
+   "area": "ROOF_DECK_WEST",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_WEST-004",
@@ -11088,7 +11284,9 @@
    ],
    "acceptance": "Fan detail stations read motor housings",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_WEST"
+   "area": "ROOF_DECK_WEST",
+   "status": "deferred",
+   "owner_notes": "Deferred: the ventilator housings are the owner JSON's A06 item."
   },
   {
    "id": "ROOF_DECK_SOUTH-001",
@@ -11108,7 +11306,9 @@
    "preserve": "Falling field, drainage outlets, tank valve and ventilator guards",
    "acceptance": "Overview shows at least one object explaining who comes up here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_SOUTH"
+   "area": "ROOF_DECK_SOUTH",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_SOUTH-002",
@@ -11122,7 +11322,9 @@
    "purpose": "Schedules: roof divided, Juno Mon/Wed and Sacha Tue/Thu",
    "acceptance": "Detail view at the coping",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_SOUTH"
+   "area": "ROOF_DECK_SOUTH",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_NORTH-001",
@@ -11142,7 +11344,9 @@
    "preserve": "Falling field, drainage outlets, tank valve and ventilator guards",
    "acceptance": "Overview shows at least one object explaining who comes up here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_NORTH"
+   "area": "ROOF_DECK_NORTH",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_NORTH-002",
@@ -11158,7 +11362,9 @@
    ],
    "acceptance": "Detail view of the coping",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_NORTH"
+   "area": "ROOF_DECK_NORTH",
+   "status": "deferred",
+   "owner_notes": "Deferred: gated on the commensals ruling (C2), and on the roof support path."
   },
   {
    "id": "ROOF_DECK_MIDDLE-001",
@@ -11178,7 +11384,9 @@
    "preserve": "Falling field, drainage outlets, tank valve and ventilator guards",
    "acceptance": "Overview shows at least one object explaining who comes up here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_MIDDLE"
+   "area": "ROOF_DECK_MIDDLE",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_MIDDLE-002",
@@ -11191,7 +11399,9 @@
    "purpose": "Accord 11: every outlet terminates somewhere; the super's bucket",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_MIDDLE"
+   "area": "ROOF_DECK_MIDDLE",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_EAST-001",
@@ -11211,7 +11421,9 @@
    "preserve": "Falling field, drainage outlets, tank valve and ventilator guards",
    "acceptance": "Overview shows at least one object explaining who comes up here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_EAST"
+   "area": "ROOF_DECK_EAST",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_EAST-002",
@@ -11224,7 +11436,9 @@
    "purpose": "Consequence within two metres of the flue",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_EAST"
+   "area": "ROOF_DECK_EAST",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_EAST-003",
@@ -11240,7 +11454,9 @@
    ],
    "acceptance": "East walk station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_EAST"
+   "area": "ROOF_DECK_EAST",
+   "status": "deferred",
+   "owner_notes": "Deferred: the chimney's bonded joints and stone coping are a roof plant pass (chimney_crown.md)."
   },
   {
    "id": "ROOF_DECK_SOUTHEAST-001",
@@ -11260,7 +11476,9 @@
    "preserve": "Falling field, drainage outlets, tank valve and ventilator guards",
    "acceptance": "Overview shows at least one object explaining who comes up here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_SOUTHEAST"
+   "area": "ROOF_DECK_SOUTHEAST",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_SOUTHEAST-002",
@@ -11273,7 +11491,9 @@
    "purpose": "Mae's unhurried hour on Sundays; Iris sketching",
    "acceptance": "Overview",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_SOUTHEAST"
+   "area": "ROOF_DECK_SOUTHEAST",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_NORTHEAST-001",
@@ -11293,7 +11513,9 @@
    "preserve": "Falling field, drainage outlets, tank valve and ventilator guards",
    "acceptance": "Overview shows at least one object explaining who comes up here",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_NORTHEAST"
+   "area": "ROOF_DECK_NORTHEAST",
+   "status": "deferred",
+   "owner_notes": "Deferred. The roof decks are the sloped membrane with its authored falling field, and the domestic-object inspector seats feet on a flat level datum (inspect_domestic_objects_context.py), so roof objects need a sloped-deck support path first."
   },
   {
    "id": "ROOF_DECK_NORTHEAST-002",
