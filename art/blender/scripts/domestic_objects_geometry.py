@@ -98,7 +98,19 @@ def toolboard(source):
   axial(identity+'_WrenchEye'+str(i),x,eye,[(.003,.021),(.010,.021),(.010,.029),(.003,.029),(.003,.021)],identity,'metal',48)
   axial(identity+'_WrenchPeg'+str(i),x,eye+.0005,[(0,.013),(.0025,.013),(.0025,.032),(.005,.032),(.005,.034),(0,.034)],identity,'brass',48)
   retained_stock.append({'assembly':identity,'kind':'source_wrench','index':i,'source_length':length})
+  if source.get('silhouettes'):
+   # Dossier slice 72: the shadow board's painted outline behind each wrench, proud of the ply by 0.8 mm.
+   stock('WrenchShadowShank'+str(i),(x-.011,.0178,bottom-.012),(x+.011,.0188,eye+.013),'soot',.0002)
+   flat_stock('WrenchShadowJaw'+str(i),[(x+.023*math.cos(a),bottom-.010+.023*math.sin(a)) for a in np.linspace(0,2*math.pi,40,endpoint=False)],.0178,.0188,'soot')
  hx=width/2-.22
+ if source.get('silhouettes'):
+  stock('HammerShadowHandle',(hx-.017,.0178,height-.385),(hx+.017,.0188,height-.10),'soot',.0002)
+  stock('HammerShadowHead',(hx-.062,.0178,height-.15),(hx+.062,.0188,height-.088),'soot',.0002)
+  # The sixth peg: a screwdriver's silhouette and nothing on it.
+  ex=(width/2-.45+hx-.06)/2;eye=height-.110
+  stock('EmptyShadowHandle',(ex-.016,.0178,eye-.118),(ex+.016,.0188,eye+.004),'soot',.0002)
+  stock('EmptyShadowShaft',(ex-.0045,.0178,eye-.245),(ex+.0045,.0188,eye-.117),'soot',.0002)
+  axial(identity+'_EmptyPeg',ex,eye+.0005,[(0,.013),(.0025,.013),(.0025,.032),(.005,.032),(.005,.034),(0,.034)],identity,'brass',48)
  stock('HammerHandle',(hx-.012,.018,height-.38),(hx+.012,.032,height-.10),'timber',.004)
  head=along_x(identity+'_HammerHead',hx,.027,height-.120,[(0,-.055),(.019,-.055),(.024,-.050),(.021,-.033),(.020,.030),(.014,.046),(.009,.055),(0,.055)],identity,'metal')
  for v in head.data.vertices:v.co.y*=.54

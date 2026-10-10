@@ -287,7 +287,8 @@
     "yaw": -90,
     "z0": 1.15,
     "W": 0.9,
-    "H": 0.65
+    "H": 0.65,
+    "silhouettes": true
    },
    "rear_wall_y": -0.13
   },
@@ -3371,7 +3372,8 @@
   "Slice 59 of the V2 environment dossier adds four basement forms: the brass signal outlet painted over high on the laundry's north wall with its cloth lead cut short (B1_LAUNDRY-002, beside the laundry rota in the notice-frame family), a twisted cloth pair on porcelain cleats to the fuse panel with a shelf of cartridges and chalk (B1_ELECTRICAL-002), a cartridge dropped in the electrical recess (B1_ELECTRICAL_RECESS-001) and a coal shovel leaning by the bunker (B1_COAL_ROOM-001).",
   "Slice 61 of the V2 environment dossier retires slice 51's stepped soot boards over the 5D door: the fire's soot ghost is now a soft projected decal in the positional wear layer.",
   "Slice 66 of the V2 environment dossier completes the thresholds (3B's ribbed rubber mat at the service crossing, the 4D short-let's new coir with a handbill nobody picked up, 6A's coir, a dust mat at the sealed 5D) and adds a runner form: a bound jute runner worn through where the hall turn meets the way to 4B's alcove (F04_B_ALCOVE_APPROACH-001).",
-  "Slice 67 renames slice 58's light box 6A_light_table: slice 38's surface-stock light box already owns 6A_light_box, and the runtime refuses an occupied identity. The table moves to the clear front of the cabinet top beside the toaster, off the plate, and its flex is no longer modelled."
+  "Slice 67 renames slice 58's light box 6A_light_table: slice 38's surface-stock light box already owns 6A_light_box, and the runtime refuses an occupied identity. The table moves to the clear front of the cabinet top beside the toaster, off the plate, and its flex is no longer modelled.",
+  "Slice 72 of the V2 environment dossier makes the basement maintenance shop's toolboard (b1_toolboard, DomesticObject15) a shadow board: a painted silhouette behind each wrench and the hammer, and a sixth peg with only a screwdriver's silhouette (B1_MAINTENANCE_SHOP-002). 3B's board keeps the plain form."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

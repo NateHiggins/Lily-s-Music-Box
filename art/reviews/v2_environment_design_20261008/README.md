@@ -227,6 +227,7 @@ Slices landed so far (evidence folders in parentheses):
     the rack; shop families gain Label3D labels.
 70. The luncheonette's menu board in white push-in letters.
 71. The luncheonette counter's sugar shakers and jar of pickled eggs.
+72. The basement toolboard a shadow board with one tool out.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the
