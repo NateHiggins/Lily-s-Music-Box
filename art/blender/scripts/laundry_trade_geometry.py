@@ -28,7 +28,9 @@ for item in assemblies:
    # A shallow crease and torn lower edge give the original blank paper thickness.
    outline=[(q[1],top),(q[3],top),(q[3],bottom+.008),(yc+.027,bottom+.003),(yc+.012,bottom+.010),(yc-.008,bottom),(q[1],bottom+.006)]
    n=len(outline);verts=[(xx,yy,zz) for xx in [4.513,4.5145] for yy,zz in outline]
-   solid(source['id']+'_Paper',verts,[tuple(reversed(range(n))),tuple(range(n,2*n))]+[(j,(j+1)%n,(j+1)%n+n,j+n) for j in range(n)],identity,'paper')
+   # Dossier slice 75 (CITY_SHOP_MODEL_LAUNDRY-001): four ages on the wire, fresh to a year, in a fixed shuffle.
+   age=['paper','paper_week','paper_month','paper_year'][(i*7+3)%4]
+   solid(source['id']+'_Paper',verts,[tuple(reversed(range(n))),tuple(range(n,2*n))]+[(j,(j+1)%n,(j+1)%n+n,j+n) for j in range(n)],identity,age)
    curved_wire(source['id']+'_Tie',[(cx,yc,z+.005),(cx-.004,yc,z),(cx+.014,yc,top-.020),(cx+.018,yc,top-.024),(cx+.014,yc,top-.026),(cx+.005,yc,z-.004),(cx,yc,z+.005)],.0012,identity,'linen')
   continue
  if kind=='window':

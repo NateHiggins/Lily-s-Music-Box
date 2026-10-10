@@ -1,0 +1,64 @@
+{
+	"batch_checks": 12,
+	"elapsed_ms": 63973,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 11108,
+	"modules": {
+		"domestic_objects": {
+			"actors": 232,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 9654,
+			"elapsed_ms": 7851,
+			"failures": [],
+			"fixture_sha256": "c1e523cd7bf78ff36947621f55cc11f1857cec99e1b679889bf563cba38f2b5e",
+			"parts": 937,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 561500,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 133,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-6.79999876022339,
+						-3.1800000667572,
+						-16.1000003814697
+					],
+					"id": "b1_toolboard_native",
+					"image": "b1_toolboard_native.png",
+					"owner": "b1_toolboard",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						9.65499973297119,
+						16.0200004577637,
+						-3.7099986076355
+					],
+					"id": "6A_light_table_native",
+					"image": "6A_light_table_native.png",
+					"owner": "6A_light_table",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"reading_nook": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 1454,
+			"elapsed_ms": 6892,
+			"failures": [],
+			"fixture_sha256": "e5cedc3a4db8b5c085927ab6e4882b54704fbaf5f1e7ba0a69029e19d6e77758",
+			"parts": 33,
+			"production_lamps": 5,
+			"triangles": 59536,
+			"validator_sha256": "f64bdf98f0f4255d7604bff0ecd3d8b5e5f5820502298f8642e13dbcd47e32f2"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

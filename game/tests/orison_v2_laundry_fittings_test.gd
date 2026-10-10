@@ -61,8 +61,10 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			var source: StandardMaterial3D
 			for original_draw: MeshInstance3D in originals:
 				if str(original_draw.name).ends_with("_"+str(expected.key)):source=originals[original_draw].surface_get_material(0)
-			if expected.key=="linen":
-				var library:=MatLib.get_mat("linen")
+			# Dossier slice 75: any catalogue-bound key (linen, the aged parcel paper) is held to its library set.
+			var runtime_part: Dictionary=record.parts.filter(func(row):return row.name==name)[0]
+			if runtime_part.has("catalog_key"):
+				var library:=MatLib.get_mat(str(runtime_part.catalog_key))
 				check(library!=mat and library.uv1_triplanar and library.albedo_texture==mat.albedo_texture and library.roughness_texture==mat.roughness_texture and library.normal_texture==mat.normal_texture and mat.uv1_scale.is_equal_approx(library.uv1_scale),"new pressed cloth uses the existing locked catalogue linen without changing its shared material")
 			else:
 				check(source!=null and source!=mat and source.albedo_texture==mat.albedo_texture and source.roughness_texture==mat.roughness_texture and source.normal_texture==mat.normal_texture,"paper, timber and chrome retain their original shipping maps")

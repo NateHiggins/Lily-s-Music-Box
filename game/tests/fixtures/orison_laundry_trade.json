@@ -754,7 +754,7 @@
     {
       "name": "storm_shop_model_laundry_ticket0_Paper",
       "assembly": "storm_shop_model_laundry_ticket_rail",
-      "key": "paper",
+      "key": "paper_year",
       "volume_m3": 2.639109031250331e-05
     },
     {
@@ -766,7 +766,7 @@
     {
       "name": "storm_shop_model_laundry_ticket1_Paper",
       "assembly": "storm_shop_model_laundry_ticket_rail",
-      "key": "paper",
+      "key": "paper_month",
       "volume_m3": 2.6391093531028583e-05
     },
     {
@@ -778,7 +778,7 @@
     {
       "name": "storm_shop_model_laundry_ticket2_Paper",
       "assembly": "storm_shop_model_laundry_ticket_rail",
-      "key": "paper",
+      "key": "paper_week",
       "volume_m3": 2.6391073502223573e-05
     },
     {
@@ -802,7 +802,7 @@
     {
       "name": "storm_shop_model_laundry_ticket4_Paper",
       "assembly": "storm_shop_model_laundry_ticket_rail",
-      "key": "paper",
+      "key": "paper_year",
       "volume_m3": 2.6391079225031658e-05
     },
     {
@@ -814,7 +814,7 @@
     {
       "name": "storm_shop_model_laundry_ticket5_Paper",
       "assembly": "storm_shop_model_laundry_ticket_rail",
-      "key": "paper",
+      "key": "paper_month",
       "volume_m3": 2.6391079225031654e-05
     },
     {
@@ -826,7 +826,7 @@
     {
       "name": "storm_shop_model_laundry_ticket6_Paper",
       "assembly": "storm_shop_model_laundry_ticket_rail",
-      "key": "paper",
+      "key": "paper_week",
       "volume_m3": 2.6389962971839782e-05
     },
     {
@@ -850,7 +850,7 @@
     {
       "name": "storm_shop_model_laundry_ticket8_Paper",
       "assembly": "storm_shop_model_laundry_ticket_rail",
-      "key": "paper",
+      "key": "paper_year",
       "volume_m3": 2.6391084947157553e-05
     },
     {
@@ -862,7 +862,7 @@
     {
       "name": "storm_shop_model_laundry_ticket9_Paper",
       "assembly": "storm_shop_model_laundry_ticket_rail",
-      "key": "paper",
+      "key": "paper_month",
       "volume_m3": 2.6391076005824202e-05
     },
     {
@@ -874,7 +874,7 @@
     {
       "name": "storm_shop_model_laundry_ticket10_Paper",
       "assembly": "storm_shop_model_laundry_ticket_rail",
-      "key": "paper",
+      "key": "paper_week",
       "volume_m3": 2.6391079225031658e-05
     },
     {
@@ -898,7 +898,7 @@
     {
       "name": "storm_shop_model_laundry_ticket12_Paper",
       "assembly": "storm_shop_model_laundry_ticket_rail",
-      "key": "paper",
+      "key": "paper_year",
       "volume_m3": 2.6391076005824205e-05
     },
     {
@@ -1821,7 +1821,28 @@
       "assembly": "storm_shop_model_laundry_ticket_rail",
       "cell": "shop_model_laundry",
       "key": "paper",
-      "triangles": 312
+      "triangles": 72
+    },
+    {
+      "name": "storm_shop_model_laundry_ticket_rail__paper_month",
+      "assembly": "storm_shop_model_laundry_ticket_rail",
+      "cell": "shop_model_laundry",
+      "key": "paper_month",
+      "triangles": 72
+    },
+    {
+      "name": "storm_shop_model_laundry_ticket_rail__paper_week",
+      "assembly": "storm_shop_model_laundry_ticket_rail",
+      "cell": "shop_model_laundry",
+      "key": "paper_week",
+      "triangles": 72
+    },
+    {
+      "name": "storm_shop_model_laundry_ticket_rail__paper_year",
+      "assembly": "storm_shop_model_laundry_ticket_rail",
+      "cell": "shop_model_laundry",
+      "key": "paper_year",
+      "triangles": 96
     },
     {
       "name": "storm_shop_model_laundry_window_plinth__plywood",
@@ -1927,6 +1948,42 @@
             "key": "paper",
             "tile": 0.5,
             "catalog_key": "paper"
+          },
+          {
+            "name": "storm_shop_model_laundry_ticket_rail__paper_month",
+            "key": "paper_month",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.8,
+              0.72,
+              0.56,
+              1.0
+            ]
+          },
+          {
+            "name": "storm_shop_model_laundry_ticket_rail__paper_week",
+            "key": "paper_week",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.9,
+              0.86,
+              0.74,
+              1.0
+            ]
+          },
+          {
+            "name": "storm_shop_model_laundry_ticket_rail__paper_year",
+            "key": "paper_year",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.68,
+              0.57,
+              0.41,
+              1.0
+            ]
           },
           {
             "name": "storm_shop_model_laundry_window_plinth__plywood",
@@ -2383,9 +2440,9 @@
       }
     ]
   },
-  "asset_sha256": "3da89cb8af25d34a958c134527f852854099d3fc4a46a7ca30bd21744bc2ff9a",
+  "asset_sha256": "56b4d7890b320d252d3737f1d1ee037920af3a71938e017ce0f444f1f0f1bc59",
   "source_bindings": {
-    "art/data/laundry_trade/source_plan.json": "2057e5571df295256640ec6cf2fb5d5e0b14933664451cc2671771f138574a63",
+    "art/data/laundry_trade/source_plan.json": "2fb898b5c8decbf30a377c96d98139f46ed41f57697c3bba42de6e450c62d8d8",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_laundry_trade.py": "bbc56267be65e4403e1efd395d098db61a3513e31a4250510fcef10219df41ad",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -2435,14 +2492,14 @@
     "game/assets/building/floor_01_cells/shop_model_laundry.bin": "3147958516513b9d8ac0bed0150eff8037b0e6e0371a1c737ab61175bfc960f4",
     "art/blender/scripts/inspect_laundry_trade.py": "675ab0a1236355b44894c9d178bc98f930be008f421e49da7af57b915df70f48",
     "game/scripts/building/orison_v2_laundry_trade.gd": "50bde8ec7f7f4d389884e6fa540d33513b8994d56a57405ee97717b3386ea4b0",
-    "game/scripts/building/orison_v2_architectural_materials.gd": "574f28ed61dbd49f7159b5b3cd7707daa2fc3338e6184046bf929543dd752ef1",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "b51ffeb229e043a3bb6a7b7dde70aa58ccd2c3004bde5aae9099d53b73a01f76",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "game/assets/building/floor_01_cells/passage.gltf": "143d159a55e1bebdf1507b0ea2e515ccd763bf2b47770cdd11bb0349cf0f9907",
     "game/assets/building/floor_01_cells/passage.bin": "2861fceab55c8883fa24b7d3f03525fa26ee6eee25ea629bd2dda5df231fac36",
-    "art/blender/scripts/laundry_trade_geometry.py": "261ef1d8f3eab332dc401172ac873a2848a10709fa8f14883e290c8e2b82adab",
-    "art/blender/laundry_receiving.blend": "93333701c1413bd8ee1ba8305c82a3082d0092cf69d14e13b979420cbad36e57",
+    "art/blender/scripts/laundry_trade_geometry.py": "533c8974ffbfcfdd55f3cca308c0615f14989b02ab04892e75e98a321345866e",
+    "art/blender/laundry_receiving.blend": "ddced6c22060ade067699ad3441f66d73e7804f5520550f5668693a678607f2e",
     "game/assets/props/laundry_receiving.glb": "ecd104db9019c3964522828d57d538b611801bfbcf5d12d6b9a48ef841f81f35",
-    "game/tests/fixtures/orison_laundry_receiving.json": "b5454dd31af8846552f1b162cdbdd7c0a26ec2b9fe90c34f635f96e10972badf",
+    "game/tests/fixtures/orison_laundry_receiving.json": "803c1aaa502e985f2eee67719b296c3d3d1abd4610710d2fd2a7ee0e999667c5",
     "game/data/orison_v2/laundry_receiving.json": "93c71d17bb32859c011b7b176e29a1edda395503761459deb2539cb9ae3cfdda",
     "art/blender/laundry_fittings.blend": "1f60f39b360cdc4bf37b6463d3c6aee1ebf86e8fc193e5bd37b99a835128b822",
     "game/assets/props/laundry_fittings.glb": "e77b3104cca11b7bbaa435a67a6111763015b637ff1d05276a3b5c815842a2bc",
@@ -2452,10 +2509,10 @@
     "game/assets/props/laundry_apparatus.glb": "440ae013219b936d5915d6eb01f728eee963d14a12bc8c8758f682d1fc2d7a8b",
     "game/tests/fixtures/orison_laundry_apparatus.json": "fb8b15aa80e05947b30077b8817de49b9508692511e89c835f7403ea9fc1e7d0",
     "game/data/orison_v2/laundry_apparatus.json": "be979bb2e31ae8da3d747b641e376d42d48510cd53f561e29d73727ec1dc79c7",
-    "art/blender/shop_seating.blend": "5b20a4c4419cd2d15e42dcb6c3784c11674e8e048a5454dada00097152cf0b5a",
-    "game/assets/props/shop_seating.glb": "6fab655696cd49dde8a81b0ac9c65191ba579d2cd9100c6187882e1e50917a72",
-    "game/tests/fixtures/orison_shop_seating.json": "12fdfcf458694b0cd52feb0fe13b376d1b3f9f2261e29df04d6aa3867e6a2993",
-    "game/data/orison_v2/shop_seating.json": "24d9741f377c87e01ece62213cf4055a4582535e5f92cbf72bce40f01eae7025"
+    "art/blender/shop_seating.blend": "fcd4daf82636bf0379fd9dc05638a51e1d486948e20a9c37f1bb15f554a1bbfd",
+    "game/assets/props/shop_seating.glb": "8336aae5a62910769a0f4738b2f78c1a305af1fb2a7063d201a6ab822a52378a",
+    "game/tests/fixtures/orison_shop_seating.json": "b58bf526bb913356d2e01e36c1dfa11608010ec03ca433110dd09190235aa3a8",
+    "game/data/orison_v2/shop_seating.json": "0a1436c3c1a4ab1dd57de3536c9af74a100067b705c69d39fee956c867c2d01d"
   },
   "open_work": [
     "Twenty-six immutable records supply seven assemblies. Five original shelf heights, forty accepted parcel owners and all existing shirt/apparatus positions remain. New posts and bearers support the retained decks from the actual .01m floor.",
@@ -2463,6 +2520,7 @@
     "The window stand gains floor feet and framed joinery while retaining its empty source-owned top and plywood back. No new inventory is inferred.",
     "The counter retains its source top datum, with an 8mm inset at the north wainscot, with framed lower panels and a visibly hinged closed flap at the south end. The original access gap around that end remains. This visual fitting introduces no opening interaction.",
     "The bench reaches the original floor; its seat datum remains. Ledger and pencil lower to the existing worktop and maintain distinct source owners. No service, custody, purchase or utility owner changes.",
-    "Native fit and rendered QA precede production review; broad finishes, route continuity, functional mechanisms, runtime contracts and human acceptance remain separate."
+    "Native fit and rendered QA precede production review; broad finishes, route continuity, functional mechanisms, runtime contracts and human acceptance remain separate.",
+    "Dossier slice 75: the ticket halves are four ages of paper (fresh, a week, a month, a year) as tinted catalogue paper."
   ]
 }

@@ -74,7 +74,10 @@
     "iron_blackened",
     "linen",
     "plywood",
-    "metal"
+    "metal",
+    "paper_week",
+    "paper_month",
+    "paper_year"
   ],
   "catalog_variants": {
     "timber": "timber",
@@ -83,10 +86,32 @@
     "countertop": "countertop",
     "brass_dull": "brass",
     "iron_blackened": "iron_blackened",
-    "linen": "linen"
+    "linen": "linen",
+    "paper_week": "paper",
+    "paper_month": "paper",
+    "paper_year": "paper"
   },
   "material_aliases": {},
-  "material_tints": {},
+  "material_tints": {
+    "paper_week": [
+      0.9,
+      0.86,
+      0.74,
+      1.0
+    ],
+    "paper_month": [
+      0.8,
+      0.72,
+      0.56,
+      1.0
+    ],
+    "paper_year": [
+      0.68,
+      0.57,
+      0.41,
+      1.0
+    ]
+  },
   "trim_tolerance_m": 2e-05,
   "open_work": [
     "Twenty-six immutable records supply seven assemblies. Five original shelf heights, forty accepted parcel owners and all existing shirt/apparatus positions remain. New posts and bearers support the retained decks from the actual .01m floor.",
@@ -94,6 +119,7 @@
     "The window stand gains floor feet and framed joinery while retaining its empty source-owned top and plywood back. No new inventory is inferred.",
     "The counter retains its source top datum, with an 8mm inset at the north wainscot, with framed lower panels and a visibly hinged closed flap at the south end. The original access gap around that end remains. This visual fitting introduces no opening interaction.",
     "The bench reaches the original floor; its seat datum remains. Ledger and pencil lower to the existing worktop and maintain distinct source owners. No service, custody, purchase or utility owner changes.",
-    "Native fit and rendered QA precede production review; broad finishes, route continuity, functional mechanisms, runtime contracts and human acceptance remain separate."
+    "Native fit and rendered QA precede production review; broad finishes, route continuity, functional mechanisms, runtime contracts and human acceptance remain separate.",
+    "Dossier slice 75: the ticket halves are four ages of paper (fresh, a week, a month, a year) as tinted catalogue paper."
   ]
 }

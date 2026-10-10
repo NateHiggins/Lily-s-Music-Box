@@ -15,6 +15,10 @@ floor=next(r for r in layout['floors'] if r['id']=='F01');rows={r['id']:r for r 
 source_gltf_path=ROOT/'game/assets/building/floor_01_cells/shop_model_laundry.gltf'
 source_gltf=json.loads(source_gltf_path.read_text());sets={};material_definitions=[]
 for key in plan['runtime_keys']:
+ if not any(m['name']=='M_'+key+'_b' for m in source_gltf['materials']):
+  # Dossier slice 75: a catalogue-only tinted key (no shipping variant) binds its catalogue definition.
+  spec=json.loads((ROOT/'game/data/runtime_material_sets.json').read_text())['materials'][plan['catalog_variants'][key]]
+  material_definitions.append(ROOT/f"art/textures/{spec['catalog_mapping']}/material.json");continue
  definition=ROOT/f'art/textures/ai_materials/{key}/material.json' if key in plan['catalog_variants'] else ROOT/f'art/textures/ai_materials/{key}_b/material.json';material_definitions.append(definition)
  shipping=next(m for m in source_gltf['materials'] if m['name']=='M_'+key+'_b')
  pbr=shipping['pbrMetallicRoughness'];files=[]
@@ -150,12 +154,14 @@ for item in assemblies:
   if kind=='iron_pad':y0+=.030;y=(y0+y1)*.5
  if kind=='parcel':
   shelf=rows['storm_shop_model_laundry_parcel_shelf'+identity.split('_parcel')[1].split('_')[0]];bottom=shelf['z0']+shelf['h']
-  box(identity+'_WrappedBundle',(x0,y0,bottom),(x1,y1,top),identity,row['mat'],.018)
+  # Dossier slice 75: the top row is the oldest work, its wrapping darker.
+  wrap='paper_old' if identity.split('_parcel')[1].startswith('4_') and row['mat']=='paper' else row['mat']
+  box(identity+'_WrappedBundle',(x0,y0,bottom),(x1,y1,top),identity,wrap,.018)
   # Distinct end folds and two small closed string loops read as a parcel,
   # while keeping the source's generous gaps between individual bundles.
   for end in [-1,1]:
    yy=y0+.001 if end<0 else y1-.001
-   box(identity+f'_FoldSeam{end}',(x0+.012,yy-.001,z+.024),(x1-.012,yy+.001,z+.027),identity,row['mat'],.0004)
+   box(identity+f'_FoldSeam{end}',(x0+.012,yy-.001,z+.024),(x1-.012,yy+.001,z+.027),identity,wrap,.0004)
   for yy in [y-.115,y+.115]:
    rr=.012;path=[]
    # Seat the underside of the 1.2mm-radius tie on the shelf, not its centreline.
@@ -266,7 +272,7 @@ for identity in sorted({a['cell'] for a in assemblies}):
  for item in items:
   for row in [item['body']]:
    x0,y0,x1,y1=row['rect'];z0=row['z0'];replace.append({'id':row['id'],'key':row['mat'],'low':[x0,z0,-y1],'high':[x1,z0+row['h'],-y0],'expected_triangles':12})
- cells.append({'id':identity,'parts':[{'name':p['name'],'key':p['key'],'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan['catalog_variants'] else {})} for p in inventory if p['cell']==identity],'replace':replace})
+ cells.append({'id':identity,'parts':[{'name':p['name'],'key':p['key'],'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan['catalog_variants'] else {}),**({'tint':plan['material_tints'][p['key']]} if p['key'] in plan.get('material_tints',{}) else {})} for p in inventory if p['cell']==identity],'replace':replace})
 runtime={'schema_version':1,'asset':'res://assets/props/laundry_fittings.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
 (ROOT/'game/data/orison_v2/laundry_fittings.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
 bindings=[plan_path,layout_path,assembler_path,Path(__file__),Path(__file__).with_name('inspect_laundry_fittings.py'),Path(__file__).with_name('fabrication_uvs.py'),ROOT/'game/data/runtime_material_sets.json',ROOT/'game/scripts/generated/material_sets.gd',asset.with_suffix('.glb.import'),*material_definitions]
