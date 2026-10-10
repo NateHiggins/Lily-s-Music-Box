@@ -653,6 +653,59 @@ def recorder(source):
  wire('Cord',[(.05,-.055,.03),(.05,-.085,.006),(-.02,-.09,.006),(-.06,-.08,.006)],.0035,'linen')
  for p in [(-.07,-.045,0),(.07,-.045,0),(-.07,.045,0),(.07,.045,0)]:bearing('recorder '+str(p),p)
  group('Recorder',start)
+# Dossier slice 39: Lena's cutting kit and Malcolm's pruning station.
+def shears(source):
+ # Tailor's shears lying closed: two stacked blades, a brass pivot, black loop handles.
+ start=len(stock_checks)
+ stock('BladeLower',(0,-.008,0),(.13,.008,.003),'metal',.0005)
+ stock('BladeUpper',(0,-.006,.003),(.125,.009,.006),'metal',.0005)
+ lathe('Pivot',.01,0,.0055,[(0,0),(.005,0),(.005,.002),(0,.0025)],'brass')
+ ring('HandleA',-.04,-.022,0,.022,.014,.006,'bakelite')
+ ring('HandleB',-.04,.022,0,.022,.014,.006,'bakelite')
+ stock('ShankA',(-.025,-.016,0),(.005,-.004,.004),'metal',.0005)
+ stock('ShankB',(-.025,.004,0),(.005,.016,.004),'metal',.0005)
+ for p in [(.06,0,0),(-.022,-.022,0),(-.022,.022,0)]:bearing('shears '+str(p),p)
+ group('Shears',start)
+def tailorchalk(source):
+ start=len(stock_checks)
+ stock('Chalk',(-.0225,-.0225,0),(.0225,.0225,.006),'chalk',.0015)
+ bearing('chalk',(0,0,0));group('TailorChalk',start)
+def tapemeasure(source):
+ # A rolled cloth tape measure with its free end run out; blank, no graduations.
+ start=len(stock_checks)
+ lathe('Roll',0,0,0,[(0,0),(.028,0),(.028,.016),(0,.016)],'tapecloth')
+ stock('TapeEnd',(.026,-.008,0),(.12,.008,.0012),'tapecloth',.0002)
+ stock('EndTip',(.114,-.0085,0),(.12,.0085,.0022),'brass',.0003)
+ for p in [(0,0,0),(.1,0,0)]:bearing('tape '+str(p),p)
+ group('TapeMeasure',start)
+def pincushion(source):
+ start=len(stock_checks)
+ lathe('Cushion',0,0,0,[(0,0),(.03,0),(.038,.012),(.038,.024),(.03,.034),(0,.038)],'pincushion')
+ for i,(x,y) in enumerate([(.01,0),(-.012,.008),(0,-.014),(.018,.012),(-.016,-.01)]):
+  tube('Pin'+str(i),(x,y,.03),(x*1.5,y*1.5,.05),.0008,'nickel_plated')
+ bearing('pincushion',(0,0,0));group('Pincushion',start)
+def zinctray(source):
+ # A zinc watering tray with two small pots standing in a film of water.
+ start=len(stock_checks)
+ stock('Floor',(-.1,-.08,0),(.1,.08,.002),'metal',.0004)
+ for y in [-.08,.072]:stock('RimY'+str(y),(-.1,y,.0015),(.1,y+.008,.025),'metal',.0006)
+ for x in [-.1,.092]:stock('RimX'+str(x),(x,-.072,.0015),(x+.008,.072,.025),'metal',.0006)
+ stock('Water',(-.0925,-.0725,.0018),(.0925,.0725,.004),'glassish',.0002)
+ for x in [-.045,.045]:
+  lathe('Pot'+str(x),x,0,.0015,[(0,0),(.026,0),(.027,.003),(.034,.06),(.038,.061),(.038,.07),(.034,.07),(.031,.066),(.03,.058),(0,.058)],'terracotta')
+ for p in [(-.09,-.07,0),(.09,-.07,0),(-.09,.07,0),(.09,.07,0)]:bearing('zinc tray '+str(p),p)
+ group('ZincTray',start)
+def pruningcloth(source):
+ # Secateurs laid on a square of oilcloth: two stacked blades, a brass pivot, red-painted handles.
+ start=len(stock_checks)
+ stock('Oilcloth',(-.1,-.07,0),(.1,.07,.0015),'oilcloth',.0002)
+ stock('BladeA',(-.01,-.008,.0014),(.07,.006,.0045),'metal',.0004)
+ stock('BladeB',(-.01,-.004,.0045),(.065,.01,.0075),'metal',.0004)
+ lathe('Pivot',-.004,0,.0014,[(0,0),(.007,0),(.007,.011),(0,.011)],'brass')
+ stock('HandleA',(-.09,-.024,.0014),(-.006,-.005,.011),'paint_red',.003)
+ stock('HandleB',(-.09,.005,.0014),(-.006,.024,.011),'paint_red',.003)
+ for p in [(-.09,-.06,0),(.09,-.06,0),(-.09,.06,0),(.09,.06,0)]:bearing('oilcloth '+str(p),p)
+ group('PruningCloth',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -722,4 +775,10 @@ for assembly in assemblies:
  elif kind=='slip':slip(source)
  elif kind=='lightbox':lightbox(source)
  elif kind=='recorder':recorder(source)
+ elif kind=='shears':shears(source)
+ elif kind=='tailorchalk':tailorchalk(source)
+ elif kind=='tapemeasure':tapemeasure(source)
+ elif kind=='pincushion':pincushion(source)
+ elif kind=='zinctray':zinctray(source)
+ elif kind=='pruningcloth':pruningcloth(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

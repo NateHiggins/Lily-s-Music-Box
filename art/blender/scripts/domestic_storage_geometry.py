@@ -77,6 +77,31 @@ def shelf(row,p):
   # Four original 8-sided posts precede the two rectangular metal tins.
   surface={**surfaces['metal'],'vertices':surfaces['metal']['vertices'][-216:]}
   for i,(lo,hi) in enumerate(source_boxes(surface)):closed_container('MetalTin'+str(i),lo,hi,'metal')
+ if p.get('bolts'):
+  # Dossier slice 39: Lena's cloth stored as standing bolts on the three lower boards, each
+  # with its card core showing at the top: wool suiting offcuts, voile and burgundy knit.
+  keys=['wool_suiting','voile','knit_burgundy']
+  for k,(lo,hi) in enumerate(boards[:3]):
+   for i in range(5):
+    x=-.36+i*.18;r=.05+.008*((i+k)%2);h=.3+.04*((i*2+k)%3)
+    rod(identity+'_Bolt%d_%d'%(k,i),(x,0,hi[2]-.0005),(x,0,hi[2]+h),r,identity,keys[(i+k)%3])
+    rod(identity+'_BoltCore%d_%d'%(k,i),(x,0,hi[2]+h-.002),(x,0,hi[2]+h+.004),.012,identity,'paper')
+ if p.get('fasteners'):
+  # Dossier slice 39: Omar's six-drawer fastener cabinet and a bank of small tins with blank card
+  # labels on the third board, clear of the source bins and tins on the two lower boards.
+  lo,hi=boards[2];z=hi[2]
+  stock('FastenerCase',(.06,-.12,z-.0005),(.4,.1,z+.21),'wood_dark',.002)
+  for c,x0 in enumerate([.07,.235]):
+   for r,zz in enumerate([z+.008,z+.075,z+.142]):
+    stock('Drawer%d%d'%(c,r),(x0,.0995,zz),(x0+.155,.112,zz+.06),'wood_dark',.0012)
+    stock('DrawerLabel%d%d'%(c,r),(x0+.05,.1115,zz+.036),(x0+.105,.1135,zz+.052),'paper',.0003)
+    rod(identity+'_DrawerPull%d%d'%(c,r),(x0+.0775,.1115,zz+.018),(x0+.0775,.122,zz+.018),.006,identity,'metal')
+  for i in range(4):
+   for j,y in enumerate([.05,-.06]):
+    x=-.4+i*.085
+    vessel(identity+'_Tin%d%d'%(i,j),x,y,z-.0005,[(0,0),(.035,0),(.035,.07),(0,.07)],identity,'metal')
+    vessel(identity+'_TinLid%d%d'%(i,j),x,y,z+.068,[(0,0),(.037,0),(.037,.008),(0,.008)],identity,'metal')
+    if j==0:stock('TinLabel%d'%i,(x-.015,y+.034,z+.02),(x+.015,y+.037,z+.045),'paper',.0003)
  retained_stock.append({'assembly':identity,'kind':'shelf','boards':len(boards),'height':height,'books':sum(len(s['vertices'])//108 for k,s in surfaces.items() if k.startswith('book_'))})
 
 def cupboard(row,p):

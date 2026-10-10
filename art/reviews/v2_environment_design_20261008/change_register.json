@@ -4183,7 +4183,9 @@
    "purpose": "Daily loop mend, fit, deliver",
    "acceptance": "Detail view of the table",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_B_MAIN"
+   "area": "F02_B_MAIN",
+   "status": "verified",
+   "owner_notes": "Lena's cutting kit on the worktable beside the pattern papers and notions: closed tailor's shears, a cake of tailor's chalk, a rolled cloth tape measure with its end run out (blank) and a tomato pincushion with pins (F02_B_MAIN_DT1). Verified at WIP 997a7465 (implementation/slice39): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 486 (unchanged from slice 37); upper lighting 0 failures; completion 4D 12 waypoints with its one pre-existing route failure; the eight-space sweep 0 failures."
   },
   {
    "id": "F02_B_MAIN-004",
@@ -4297,7 +4299,9 @@
    "purpose": "Life profile surface set vertical_fabric",
    "acceptance": "Threshold view from the main room",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_B_PRIVATE_HALL"
+   "area": "F02_B_PRIVATE_HALL",
+   "status": "verified",
+   "owner_notes": "Lena's cloth stands as bolts on both fabric shelves: their own variant (Shelf12) drops the inherited bins and tins and stands five bolts on each of the three lower boards, in wool suiting, voile and burgundy knit with card cores showing (implementation/slice39/images: F02_B_PRIVATE_HALL_TH, F02_B_PRIVATE_HALL_OV). Verified at WIP 997a7465 (implementation/slice39): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 486 (unchanged from slice 37); upper lighting 0 failures; completion 4D 12 waypoints with its one pre-existing route failure; the eight-space sweep 0 failures."
   },
   {
    "id": "F02_B_PRIVATE_HALL-003",
@@ -5160,7 +5164,9 @@
    "purpose": "Life profile pruning_station; story panel pressed leaves and reused jars",
    "acceptance": "Detail view of the bench",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_A_MAIN"
+   "area": "F03_A_MAIN",
+   "status": "implemented",
+   "owner_notes": "Malcolm's pruning station on the potting bench: a zinc watering tray with two pots standing in water and red-handled secateurs on a square of dark oilcloth (F03_A_MAIN_DT1). Not made: the trug, the soil swept under the bench and the knife-mark line on the bench edge. Verified at WIP 997a7465 (implementation/slice39): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 486 (unchanged from slice 37); upper lighting 0 failures; completion 4D 12 waypoints with its one pre-existing route failure; the eight-space sweep 0 failures."
   },
   {
    "id": "F03_A_MAIN-003",
@@ -5484,7 +5490,9 @@
    "purpose": "Life profile fastener_drawers; story panel sorted fasteners",
    "acceptance": "Detail view of the shelves",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_B_MAIN"
+   "area": "F03_B_MAIN",
+   "status": "verified",
+   "owner_notes": "Omar's six-drawer fastener cabinet with blank card label frames and nickel pulls, and a bank of eight small lidded tins with blank labels, stand on the third board of both tool shelves (Shelf13), clear of the source bins and tins below (F03_B_MAIN_DT2). Verified at WIP 997a7465 (implementation/slice39): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 486 (unchanged from slice 37); upper lighting 0 failures; completion 4D 12 waypoints with its one pre-existing route failure; the eight-space sweep 0 failures."
   },
   {
    "id": "F03_B_MAIN-004",
@@ -6934,7 +6942,9 @@
    "purpose": "A primitive placeholder in the player's own room is a blocker-class legibility defect",
    "acceptance": "Overview and reverse show no untextured box; if the capture shows none, close the row",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_B_MAIN"
+   "area": "F04_B_MAIN",
+   "status": "verified",
+   "owner_notes": "Closed against the capture: neither the overview nor the reverse view of 4B's main room shows a featureless white box (F04_B_MAIN_OV, F04_B_MAIN_RV). Verified at WIP 997a7465 (implementation/slice39): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 486 (unchanged from slice 37); upper lighting 0 failures; completion 4D 12 waypoints with its one pre-existing route failure; the eight-space sweep 0 failures."
   },
   {
    "id": "F04_B_KITCHEN-001",
@@ -7676,7 +7686,9 @@
    "purpose": "Close or fix the V1 row against the V2 capture",
    "acceptance": "No untextured mass in any view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_D_MAIN"
+   "area": "F04_D_MAIN",
+   "status": "verified",
+   "owner_notes": "Closed against the capture: no untextured mass appears in 4D's main room; the pale form in the room is the upholstered settee (F04_D_MAIN_OV, F04_D_MAIN_RV). Verified at WIP 997a7465 (implementation/slice39): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 486 (unchanged from slice 37); upper lighting 0 failures; completion 4D 12 waypoints with its one pre-existing route failure; the eight-space sweep 0 failures."
   },
   {
    "id": "F04_D_MAIN-004",
@@ -8824,7 +8836,9 @@
    ],
    "acceptance": "Kitchen OV matches the data",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_B_KITCHEN"
+   "area": "F05_B_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Data and capture agree: both 5B_k_hob_radio anchors sit at table height over 5B_comparison_table, and the kitchen shows the two sets on that table with the range shelf empty (F05_B_KITCHEN_DT1). The table is kept; the ids keep their legacy names because saves and the spatial manifest key on them. Verified at WIP 997a7465 (implementation/slice39): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 486 (unchanged from slice 37); upper lighting 0 failures; completion 4D 12 waypoints with its one pre-existing route failure; the eight-space sweep 0 failures."
   },
   {
    "id": "F05_B_PRIVATE_HALL-001",
@@ -9042,7 +9056,9 @@
    "purpose": "Accord 11",
    "acceptance": "Studio OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_C_MAIN"
+   "area": "F05_C_MAIN",
+   "status": "verified",
+   "owner_notes": "Identified, nothing to remove: the dark loop on the floor is the shadow of the radiator valve's handwheel thrown by the pendant, and the boxy object is the valve itself; no cable exists (F05_C_STUDIO_OV). Verified at WIP 997a7465 (implementation/slice39): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 486 (unchanged from slice 37); upper lighting 0 failures; completion 4D 12 waypoints with its one pre-existing route failure; the eight-space sweep 0 failures."
   },
   {
    "id": "F05_C_KITCHEN-001",

@@ -183,16 +183,55 @@
         "posts": "oak",
         "bins": false
       }
+    },
+    {
+      "id": "Shelf12",
+      "kind": "shelf",
+      "source_id": "3B_tools0",
+      "params": {
+        "id": "3B_tools0",
+        "asm": "shelf",
+        "at": [
+          -10.3,
+          9.4
+        ],
+        "yaw": 180,
+        "W": 1.0,
+        "H": 1.85,
+        "books": false,
+        "posts": "oak",
+        "bins": false,
+        "bolts": true
+      }
+    },
+    {
+      "id": "Shelf13",
+      "kind": "shelf",
+      "source_id": "3B_tools0",
+      "params": {
+        "id": "3B_tools0",
+        "asm": "shelf",
+        "at": [
+          -10.3,
+          9.4
+        ],
+        "yaw": 180,
+        "W": 1.0,
+        "H": 1.85,
+        "books": false,
+        "posts": "oak",
+        "fasteners": true
+      }
     }
   ],
   "instances": [
     {
       "id": "3B_tools0",
-      "variant": "Shelf01"
+      "variant": "Shelf13"
     },
     {
       "id": "3B_tools1",
-      "variant": "Shelf01"
+      "variant": "Shelf13"
     },
     {
       "id": "4B_equipment_shelf",
@@ -200,11 +239,11 @@
     },
     {
       "id": "2B_fabric_shelf_01",
-      "variant": "Shelf01"
+      "variant": "Shelf12"
     },
     {
       "id": "2B_fabric_shelf_02",
-      "variant": "Shelf01"
+      "variant": "Shelf12"
     },
     {
       "id": "b1_parts_shelf",
@@ -408,7 +447,10 @@
     "book_teal",
     "book_brown",
     "book_burgundy",
-    "book_green"
+    "book_green",
+    "wool_suiting",
+    "voile",
+    "knit_burgundy"
   ],
   "catalog_variants": {
     "metal": "metal",
@@ -423,13 +465,34 @@
     "book_teal": "book_teal",
     "book_brown": "book_brown",
     "book_burgundy": "book_burgundy",
-    "book_green": "book_green"
+    "book_green": "book_green",
+    "wool_suiting": "linen",
+    "voile": "linen",
+    "knit_burgundy": "linen"
   },
   "material_tints": {
     "wood_dark": [
       0.27,
       0.14,
       0.065,
+      1
+    ],
+    "wool_suiting": [
+      0.17,
+      0.15,
+      0.13,
+      1
+    ],
+    "voile": [
+      0.42,
+      0.5,
+      0.62,
+      1
+    ],
+    "knit_burgundy": [
+      0.3,
+      0.05,
+      0.07,
       1
     ]
   },
@@ -449,6 +512,18 @@
     "countertop": {
       "normal_scale": 0.04,
       "roughness": 0.48
+    },
+    "wool_suiting": {
+      "normal_scale": 0.12,
+      "roughness": 0.85
+    },
+    "voile": {
+      "normal_scale": 0.12,
+      "roughness": 0.85
+    },
+    "knit_burgundy": {
+      "normal_scale": 0.12,
+      "roughness": 0.85
     }
   },
   "placement": {
@@ -462,7 +537,8 @@
     "Existing catalogue maps and linear-light local tints; no new bitmap or global finish.",
     "Slice 11 of the V2 environment dossier adds 5B's two tape shelves and 3B's outgoing shelf as Shelf01 copies.",
     "Slice 19 of the V2 environment dossier adds two low oak shelves (Shelf09, Shelf10: two boards, 0.72 m) under 3A's west windows for the propagation jars.",
-    "Slice 37 of the V2 environment dossier gives 4B's equipment shelf its own bare variant (Shelf11): the Shelf01 frame without the painted bins and metal tins it inherits from 3B's tool shelf record."
+    "Slice 37 of the V2 environment dossier gives 4B's equipment shelf its own bare variant (Shelf11): the Shelf01 frame without the painted bins and metal tins it inherits from 3B's tool shelf record.",
+    "Slice 39 of the V2 environment dossier adds Shelf12 (2B's two fabric shelves: the Shelf01 frame without its source bins and tins, carrying standing bolts of wool suiting, voile and burgundy knit) and Shelf13 (3B's two tool shelves: Shelf01 with a six-drawer fastener cabinet and a bank of labelled tins on the third board). The cloth keys are tinted aliases of the catalogue linen."
   ],
   "open_work": [
     "Scoped native construction, production support and mechanism validation complete. Whole-room light/material balance, wardrobes, remaining appliances and fixed lighting remain in the wider V2 pass."

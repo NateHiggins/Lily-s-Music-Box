@@ -158,6 +158,8 @@ Slices landed so far (evidence folders in parentheses):
     boots and slip, and stronger grease and workshop wear on the ranges (`slice37`).
 38. 2B's dress form, 2C's recorder and mug; 4A's taped form and 6A's light box are built
     here and placed again in slices 41 and 40 (`slice38`).
+39. 2B's standing bolts and cutting kit, 3B's fastener cabinet, 3A's pruning station,
+    and four rows closed against captures (`slice39`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

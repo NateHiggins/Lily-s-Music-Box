@@ -2049,6 +2049,42 @@
       "kind": "mug",
       "cell": "2C",
       "source_record": "2C_night_mug"
+    },
+    {
+      "id": "2B_shears",
+      "kind": "shears",
+      "cell": "2B",
+      "source_record": "2B_shears"
+    },
+    {
+      "id": "2B_tailor_chalk",
+      "kind": "tailorchalk",
+      "cell": "2B",
+      "source_record": "2B_tailor_chalk"
+    },
+    {
+      "id": "2B_tape_measure",
+      "kind": "tapemeasure",
+      "cell": "2B",
+      "source_record": "2B_tape_measure"
+    },
+    {
+      "id": "2B_pincushion",
+      "kind": "pincushion",
+      "cell": "2B",
+      "source_record": "2B_pincushion"
+    },
+    {
+      "id": "3A_zinc_tray",
+      "kind": "zinctray",
+      "cell": "3A",
+      "source_record": "3A_zinc_tray"
+    },
+    {
+      "id": "3A_secateurs",
+      "kind": "pruningcloth",
+      "cell": "3A",
+      "source_record": "3A_secateurs"
     }
   ],
   "closed_stocks": [
@@ -15677,6 +15713,192 @@
       "assembly": "2C_night_mug",
       "key": "porcelain",
       "volume_m3": 9.637277241934443e-06
+    },
+    {
+      "name": "2B_shears_BladeLower",
+      "assembly": "2B_shears",
+      "key": "metal",
+      "volume_m3": 6.202963052230559e-06
+    },
+    {
+      "name": "2B_shears_BladeUpper",
+      "assembly": "2B_shears",
+      "key": "metal",
+      "volume_m3": 5.589462774856471e-06
+    },
+    {
+      "name": "2B_shears_Pivot",
+      "assembly": "2B_shears",
+      "key": "brass",
+      "volume_m3": 1.6968405445294556e-07
+    },
+    {
+      "name": "2B_shears_HandleA",
+      "assembly": "2B_shears",
+      "key": "bakelite",
+      "volume_m3": 5.302663296790571e-06
+    },
+    {
+      "name": "2B_shears_HandleB",
+      "assembly": "2B_shears",
+      "key": "bakelite",
+      "volume_m3": 5.302663296790565e-06
+    },
+    {
+      "name": "2B_shears_ShankA",
+      "assembly": "2B_shears",
+      "key": "metal",
+      "volume_m3": 1.4287129467751998e-06
+    },
+    {
+      "name": "2B_shears_ShankB",
+      "assembly": "2B_shears",
+      "key": "metal",
+      "volume_m3": 1.4287129467751996e-06
+    },
+    {
+      "name": "2B_tailor_chalk_Chalk",
+      "assembly": "2B_tailor_chalk",
+      "key": "chalk",
+      "volume_m3": 1.1939747051359577e-05
+    },
+    {
+      "name": "2B_tape_measure_Roll",
+      "assembly": "2B_tape_measure",
+      "key": "tapecloth",
+      "volume_m3": 3.929569500383196e-05
+    },
+    {
+      "name": "2B_tape_measure_TapeEnd",
+      "assembly": "2B_tape_measure",
+      "key": "tapecloth",
+      "volume_m3": 1.8003657175667457e-06
+    },
+    {
+      "name": "2B_tape_measure_EndTip",
+      "assembly": "2B_tape_measure",
+      "key": "brass",
+      "volume_m3": 2.2217787733847142e-07
+    },
+    {
+      "name": "2B_pincushion_Cushion",
+      "assembly": "2B_pincushion",
+      "key": "pincushion",
+      "volume_m3": 0.00013807791706088734
+    },
+    {
+      "name": "2B_pincushion_Pin0",
+      "assembly": "2B_pincushion",
+      "key": "nickel_plated",
+      "volume_m3": 4.132875652015463e-08
+    },
+    {
+      "name": "2B_pincushion_Pin1",
+      "assembly": "2B_pincushion",
+      "key": "nickel_plated",
+      "volume_m3": 4.262240244619152e-08
+    },
+    {
+      "name": "2B_pincushion_Pin2",
+      "assembly": "2B_pincushion",
+      "key": "nickel_plated",
+      "volume_m3": 4.248172515875341e-08
+    },
+    {
+      "name": "2B_pincushion_Pin3",
+      "assembly": "2B_pincushion",
+      "key": "nickel_plated",
+      "volume_m3": 4.559151856971535e-08
+    },
+    {
+      "name": "2B_pincushion_Pin4",
+      "assembly": "2B_pincushion",
+      "key": "nickel_plated",
+      "volume_m3": 4.4335943623563076e-08
+    },
+    {
+      "name": "3A_zinc_tray_Floor",
+      "assembly": "3A_zinc_tray",
+      "key": "metal",
+      "volume_m3": 6.394219195672026e-05
+    },
+    {
+      "name": "3A_zinc_tray_RimY-0.08",
+      "assembly": "3A_zinc_tray",
+      "key": "metal",
+      "volume_m3": 3.751703488627572e-05
+    },
+    {
+      "name": "3A_zinc_tray_RimY0.072",
+      "assembly": "3A_zinc_tray",
+      "key": "metal",
+      "volume_m3": 3.751703488627572e-05
+    },
+    {
+      "name": "3A_zinc_tray_RimX-0.1",
+      "assembly": "3A_zinc_tray",
+      "key": "metal",
+      "volume_m3": 2.7009190975272006e-05
+    },
+    {
+      "name": "3A_zinc_tray_RimX0.092",
+      "assembly": "3A_zinc_tray",
+      "key": "metal",
+      "volume_m3": 2.7009190975272006e-05
+    },
+    {
+      "name": "3A_zinc_tray_Water",
+      "assembly": "3A_zinc_tray",
+      "key": "glassish",
+      "volume_m3": 5.900173115959066e-05
+    },
+    {
+      "name": "3A_zinc_tray_Pot-0.045",
+      "assembly": "3A_zinc_tray",
+      "key": "terracotta",
+      "volume_m3": 0.00018165069920883067
+    },
+    {
+      "name": "3A_zinc_tray_Pot0.045",
+      "assembly": "3A_zinc_tray",
+      "key": "terracotta",
+      "volume_m3": 0.00018165069920883062
+    },
+    {
+      "name": "3A_secateurs_Oilcloth",
+      "assembly": "3A_secateurs",
+      "key": "oilcloth",
+      "volume_m3": 4.198635596137057e-05
+    },
+    {
+      "name": "3A_secateurs_BladeA",
+      "assembly": "3A_secateurs",
+      "key": "metal",
+      "volume_m3": 3.456572838225549e-06
+    },
+    {
+      "name": "3A_secateurs_BladeB",
+      "assembly": "3A_secateurs",
+      "key": "metal",
+      "volume_m3": 3.135388985154706e-06
+    },
+    {
+      "name": "3A_secateurs_Pivot",
+      "assembly": "3A_secateurs",
+      "key": "brass",
+      "volume_m3": 1.688486882953921e-06
+    },
+    {
+      "name": "3A_secateurs_HandleA",
+      "assembly": "3A_secateurs",
+      "key": "paint_red",
+      "volume_m3": 1.4354169559234697e-05
+    },
+    {
+      "name": "3A_secateurs_HandleB",
+      "assembly": "3A_secateurs",
+      "key": "paint_red",
+      "volume_m3": 1.4354169615629769e-05
     }
   ],
   "contacts": [
@@ -25444,6 +25666,231 @@
         0
       ],
       "label": "cup foot"
+    },
+    {
+      "assembly": "2B_shears",
+      "owner": "support",
+      "point": [
+        0.06,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shears (0.06, 0, 0)"
+    },
+    {
+      "assembly": "2B_shears",
+      "owner": "support",
+      "point": [
+        -0.022,
+        0,
+        0.022
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shears (-0.022, -0.022, 0)"
+    },
+    {
+      "assembly": "2B_shears",
+      "owner": "support",
+      "point": [
+        -0.022,
+        0,
+        -0.022
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "shears (-0.022, 0.022, 0)"
+    },
+    {
+      "assembly": "2B_tailor_chalk",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "chalk"
+    },
+    {
+      "assembly": "2B_tape_measure",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tape (0, 0, 0)"
+    },
+    {
+      "assembly": "2B_tape_measure",
+      "owner": "support",
+      "point": [
+        0.1,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "tape (0.1, 0, 0)"
+    },
+    {
+      "assembly": "2B_pincushion",
+      "owner": "support",
+      "point": [
+        0,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "pincushion"
+    },
+    {
+      "assembly": "3A_zinc_tray",
+      "owner": "support",
+      "point": [
+        -0.09,
+        0,
+        0.07
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "zinc tray (-0.09, -0.07, 0)"
+    },
+    {
+      "assembly": "3A_zinc_tray",
+      "owner": "support",
+      "point": [
+        0.09,
+        0,
+        0.07
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "zinc tray (0.09, -0.07, 0)"
+    },
+    {
+      "assembly": "3A_zinc_tray",
+      "owner": "support",
+      "point": [
+        -0.09,
+        0,
+        -0.07
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "zinc tray (-0.09, 0.07, 0)"
+    },
+    {
+      "assembly": "3A_zinc_tray",
+      "owner": "support",
+      "point": [
+        0.09,
+        0,
+        -0.07
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "zinc tray (0.09, 0.07, 0)"
+    },
+    {
+      "assembly": "3A_secateurs",
+      "owner": "support",
+      "point": [
+        -0.09,
+        0,
+        0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "oilcloth (-0.09, -0.06, 0)"
+    },
+    {
+      "assembly": "3A_secateurs",
+      "owner": "support",
+      "point": [
+        0.09,
+        0,
+        0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "oilcloth (0.09, -0.06, 0)"
+    },
+    {
+      "assembly": "3A_secateurs",
+      "owner": "support",
+      "point": [
+        -0.09,
+        0,
+        -0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "oilcloth (-0.09, 0.06, 0)"
+    },
+    {
+      "assembly": "3A_secateurs",
+      "owner": "support",
+      "point": [
+        0.09,
+        0,
+        -0.06
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "oilcloth (0.09, 0.06, 0)"
     }
   ],
   "parts": [
@@ -28575,9 +29022,114 @@
       "cell": "2C",
       "key": "porcelain",
       "triangles": 1748
+    },
+    {
+      "name": "2B_shears__bakelite",
+      "assembly": "2B_shears",
+      "cell": "2B",
+      "key": "bakelite",
+      "triangles": 1536
+    },
+    {
+      "name": "2B_shears__brass",
+      "assembly": "2B_shears",
+      "cell": "2B",
+      "key": "brass",
+      "triangles": 192
+    },
+    {
+      "name": "2B_shears__metal",
+      "assembly": "2B_shears",
+      "cell": "2B",
+      "key": "metal",
+      "triangles": 752
+    },
+    {
+      "name": "2B_tailor_chalk__chalk",
+      "assembly": "2B_tailor_chalk",
+      "cell": "2B",
+      "key": "chalk",
+      "triangles": 188
+    },
+    {
+      "name": "2B_tape_measure__brass",
+      "assembly": "2B_tape_measure",
+      "cell": "2B",
+      "key": "brass",
+      "triangles": 188
+    },
+    {
+      "name": "2B_tape_measure__tapecloth",
+      "assembly": "2B_tape_measure",
+      "cell": "2B",
+      "key": "tapecloth",
+      "triangles": 380
+    },
+    {
+      "name": "2B_pincushion__nickel_plated",
+      "assembly": "2B_pincushion",
+      "cell": "2B",
+      "key": "nickel_plated",
+      "triangles": 940
+    },
+    {
+      "name": "2B_pincushion__pincushion",
+      "assembly": "2B_pincushion",
+      "cell": "2B",
+      "key": "pincushion",
+      "triangles": 384
+    },
+    {
+      "name": "3A_zinc_tray__glassish",
+      "assembly": "3A_zinc_tray",
+      "cell": "3A",
+      "key": "glassish",
+      "triangles": 188
+    },
+    {
+      "name": "3A_zinc_tray__metal",
+      "assembly": "3A_zinc_tray",
+      "cell": "3A",
+      "key": "metal",
+      "triangles": 940
+    },
+    {
+      "name": "3A_zinc_tray__terracotta",
+      "assembly": "3A_zinc_tray",
+      "cell": "3A",
+      "key": "terracotta",
+      "triangles": 1536
+    },
+    {
+      "name": "3A_secateurs__brass",
+      "assembly": "3A_secateurs",
+      "cell": "3A",
+      "key": "brass",
+      "triangles": 192
+    },
+    {
+      "name": "3A_secateurs__metal",
+      "assembly": "3A_secateurs",
+      "cell": "3A",
+      "key": "metal",
+      "triangles": 376
+    },
+    {
+      "name": "3A_secateurs__oilcloth",
+      "assembly": "3A_secateurs",
+      "cell": "3A",
+      "key": "oilcloth",
+      "triangles": 188
+    },
+    {
+      "name": "3A_secateurs__paint_red",
+      "assembly": "3A_secateurs",
+      "cell": "3A",
+      "key": "paint_red",
+      "triangles": 376
     }
   ],
-  "triangles": 810888,
+  "triangles": 819244,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -35019,6 +35571,247 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "2B_shears",
+        "parts": [
+          {
+            "name": "2B_shears__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "2B_shears__brass",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.45
+            }
+          },
+          {
+            "name": "2B_shears__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.4
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "2B_tailor_chalk",
+        "parts": [
+          {
+            "name": "2B_tailor_chalk__chalk",
+            "key": "chalk",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.55,
+              0.62,
+              0.7,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.05,
+              "roughness": 0.95
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "2B_tape_measure",
+        "parts": [
+          {
+            "name": "2B_tape_measure__brass",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.45
+            }
+          },
+          {
+            "name": "2B_tape_measure__tapecloth",
+            "key": "tapecloth",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.75,
+              0.66,
+              0.4,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.05,
+              "roughness": 0.85
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "2B_pincushion",
+        "parts": [
+          {
+            "name": "2B_pincushion__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "2B_pincushion__pincushion",
+            "key": "pincushion",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.45,
+              0.06,
+              0.05,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3A_zinc_tray",
+        "parts": [
+          {
+            "name": "3A_zinc_tray__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "3A_zinc_tray__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "3A_zinc_tray__terracotta",
+            "key": "terracotta",
+            "tile": 0.4,
+            "catalog_key": "terracotta",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "3A_secateurs",
+        "parts": [
+          {
+            "name": "3A_secateurs__brass",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.45
+            }
+          },
+          {
+            "name": "3A_secateurs__metal",
+            "key": "metal",
+            "tile": 0.9,
+            "catalog_key": "metal",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.4
+            }
+          },
+          {
+            "name": "3A_secateurs__oilcloth",
+            "key": "oilcloth",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.08,
+              0.2,
+              0.14,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.05,
+              "roughness": 0.45
+            }
+          },
+          {
+            "name": "3A_secateurs__paint_red",
+            "key": "paint_red",
+            "tile": 1.2,
+            "catalog_key": "trim",
+            "tint": [
+              0.45,
+              0.06,
+              0.04,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -35047,9 +35840,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "fe3e0ca25b70d44c30376251dfdc06d820e8d06c4ded33b466ecaa570f90d837",
+  "asset_sha256": "15c3e32e68d92c88bd51bc1ade5af12770be070763ca70cbc05f5bac1055e1f3",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "6455a13a013b3c11b461320739202221f4d613524c28be5d7c53b1ae98bdf9f2",
+    "art/data/surface_stock/source_plan.json": "7d16ce0d88007ca7c2f325b487dde1be3a2df91102bb068c7577b5589f7e54ba",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -35165,9 +35958,9 @@
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "51184f0f7ff36ed8a59a5650e1732cded7dc8f90875256f526a05f980e4c4a7d",
+    "art/blender/scripts/surface_stock_geometry.py": "89029048e8d1dcee13f2a512ed5cf7ae43c0d24ddfc99c3624c54a4440f09259",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "4771850045fe47986ae3be8766236acd84ea320136fd062147c8787598462be7",
+    "game/data/orison_v2/domestic_surface_props.json": "cfaab13ded500f6d3993c649eb3f2db925e1c008bdfab331e896714d6d0fa3be",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
@@ -42792,6 +43585,73 @@
       "stocks": [
         "2C_night_mug_Cup",
         "2C_night_mug_Handle"
+      ]
+    },
+    {
+      "assembly": "2B_shears",
+      "id": "2B_shears_Shears",
+      "stocks": [
+        "2B_shears_BladeLower",
+        "2B_shears_BladeUpper",
+        "2B_shears_Pivot",
+        "2B_shears_HandleA",
+        "2B_shears_HandleB",
+        "2B_shears_ShankA",
+        "2B_shears_ShankB"
+      ]
+    },
+    {
+      "assembly": "2B_tailor_chalk",
+      "id": "2B_tailor_chalk_TailorChalk",
+      "stocks": [
+        "2B_tailor_chalk_Chalk"
+      ]
+    },
+    {
+      "assembly": "2B_tape_measure",
+      "id": "2B_tape_measure_TapeMeasure",
+      "stocks": [
+        "2B_tape_measure_Roll",
+        "2B_tape_measure_TapeEnd",
+        "2B_tape_measure_EndTip"
+      ]
+    },
+    {
+      "assembly": "2B_pincushion",
+      "id": "2B_pincushion_Pincushion",
+      "stocks": [
+        "2B_pincushion_Cushion",
+        "2B_pincushion_Pin0",
+        "2B_pincushion_Pin1",
+        "2B_pincushion_Pin2",
+        "2B_pincushion_Pin3",
+        "2B_pincushion_Pin4"
+      ]
+    },
+    {
+      "assembly": "3A_zinc_tray",
+      "id": "3A_zinc_tray_ZincTray",
+      "stocks": [
+        "3A_zinc_tray_Floor",
+        "3A_zinc_tray_RimY-0.08",
+        "3A_zinc_tray_RimY0.072",
+        "3A_zinc_tray_RimX-0.1",
+        "3A_zinc_tray_RimX0.092",
+        "3A_zinc_tray_Water",
+        "3A_zinc_tray_Pot-0.045",
+        "3A_zinc_tray_Pot0.045"
+      ]
+    },
+    {
+      "assembly": "3A_secateurs",
+      "id": "3A_secateurs_PruningCloth",
+      "stocks": [
+        "3A_secateurs_Oilcloth",
+        "3A_secateurs_BladeA",
+        "3A_secateurs_BladeB",
+        "3A_secateurs_Pivot",
+        "3A_secateurs_HandleA",
+        "3A_secateurs_HandleB"
       ]
     }
   ],

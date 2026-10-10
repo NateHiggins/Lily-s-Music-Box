@@ -6438,6 +6438,247 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "2B_shears",
+      "parts": [
+        {
+          "name": "2B_shears__bakelite",
+          "key": "bakelite",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "2B_shears__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        },
+        {
+          "name": "2B_shears__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.4
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "2B_tailor_chalk",
+      "parts": [
+        {
+          "name": "2B_tailor_chalk__chalk",
+          "key": "chalk",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.55,
+            0.62,
+            0.7,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.05,
+            "roughness": 0.95
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "2B_tape_measure",
+      "parts": [
+        {
+          "name": "2B_tape_measure__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        },
+        {
+          "name": "2B_tape_measure__tapecloth",
+          "key": "tapecloth",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.75,
+            0.66,
+            0.4,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.05,
+            "roughness": 0.85
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "2B_pincushion",
+      "parts": [
+        {
+          "name": "2B_pincushion__nickel_plated",
+          "key": "nickel_plated",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.025,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "2B_pincushion__pincushion",
+          "key": "pincushion",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.45,
+            0.06,
+            0.05,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "3A_zinc_tray",
+      "parts": [
+        {
+          "name": "3A_zinc_tray__glassish",
+          "key": "glassish",
+          "tile": 1.6
+        },
+        {
+          "name": "3A_zinc_tray__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "3A_zinc_tray__terracotta",
+          "key": "terracotta",
+          "tile": 0.4,
+          "catalog_key": "terracotta",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "3A_secateurs",
+      "parts": [
+        {
+          "name": "3A_secateurs__brass",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.45
+          }
+        },
+        {
+          "name": "3A_secateurs__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.4
+          }
+        },
+        {
+          "name": "3A_secateurs__oilcloth",
+          "key": "oilcloth",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.08,
+            0.2,
+            0.14,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.05,
+            "roughness": 0.45
+          }
+        },
+        {
+          "name": "3A_secateurs__paint_red",
+          "key": "paint_red",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "tint": [
+            0.45,
+            0.06,
+            0.04,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.03,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "local_materials": {

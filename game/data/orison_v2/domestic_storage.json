@@ -347,16 +347,150 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "Shelf12",
+      "parts": [
+        {
+          "name": "Shelf12__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Shelf12__knit_burgundy",
+          "key": "knit_burgundy",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.3,
+            0.05,
+            0.07,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Shelf12__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "Shelf12__voile",
+          "key": "voile",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.5,
+            0.62,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Shelf12__wool_suiting",
+          "key": "wool_suiting",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.17,
+            0.15,
+            0.13,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "Shelf13",
+      "parts": [
+        {
+          "name": "Shelf13__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Shelf13__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal"
+        },
+        {
+          "name": "Shelf13__paper",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper"
+        },
+        {
+          "name": "Shelf13__trim",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Shelf13__wood_dark",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
     {
       "id": "3B_tools0",
-      "variant": "Shelf01"
+      "variant": "Shelf13"
     },
     {
       "id": "3B_tools1",
-      "variant": "Shelf01"
+      "variant": "Shelf13"
     },
     {
       "id": "4B_equipment_shelf",
@@ -364,11 +498,11 @@
     },
     {
       "id": "2B_fabric_shelf_01",
-      "variant": "Shelf01"
+      "variant": "Shelf12"
     },
     {
       "id": "2B_fabric_shelf_02",
-      "variant": "Shelf01"
+      "variant": "Shelf12"
     },
     {
       "id": "b1_parts_shelf",

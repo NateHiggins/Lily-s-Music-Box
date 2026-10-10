@@ -296,7 +296,13 @@
   "4B_wake_slip",
   "6A_light_box",
   "2C_recorder",
-  "2C_night_mug"
+  "2C_night_mug",
+  "2B_shears",
+  "2B_tailor_chalk",
+  "2B_tape_measure",
+  "2B_pincushion",
+  "3A_zinc_tray",
+  "3A_secateurs"
  ],
  "runtime_keys": [
   "bakelite",
@@ -328,7 +334,12 @@
   "cape_navy",
   "ring_bloom",
   "newsprint",
-  "plant"
+  "plant",
+  "chalk",
+  "tapecloth",
+  "pincushion",
+  "oilcloth",
+  "paint_red"
  ],
  "catalog_variants": {
   "bakelite": "bakelite",
@@ -359,7 +370,12 @@
   "cape_navy": "linen",
   "ring_bloom": "paper",
   "newsprint": "paper",
-  "plant": "plant"
+  "plant": "plant",
+  "chalk": "paper",
+  "tapecloth": "paper",
+  "pincushion": "linen",
+  "oilcloth": "linen",
+  "paint_red": "trim"
  },
  "material_aliases": {},
  "material_tints": {
@@ -404,6 +420,36 @@
    0.25,
    0.06,
    1
+  ],
+  "chalk": [
+   0.55,
+   0.62,
+   0.7,
+   1
+  ],
+  "tapecloth": [
+   0.75,
+   0.66,
+   0.4,
+   1
+  ],
+  "pincushion": [
+   0.45,
+   0.06,
+   0.05,
+   1
+  ],
+  "oilcloth": [
+   0.08,
+   0.2,
+   0.14,
+   1
+  ],
+  "paint_red": [
+   0.45,
+   0.06,
+   0.04,
+   1
   ]
  },
  "placement": {
@@ -433,7 +479,8 @@
   "Slice 33 of the V2 environment dossier adds two piped cushions on 2A's sofa and 6A's one plant print standing on the repaired bookcase's top board (the context inspector names that board as a support).",
   "Slice 34 of the V2 environment dossier adds two tea tins on 1A's study desk.",
   "Slice 37 of the V2 environment dossier adds cup rings on 6B's dining table, wireless table and plain bookcase top (the context inspector names the plain case's top board as a support), a repotting on 3A's dining table, a row of code books on 5A's plain case and a slip on 4B's nightstand. ring_bloom and newsprint are tinted aliases of the catalogue paper; plant is the catalogue plant, tinted.",
-  "Slice 38 of the V2 environment dossier adds Sacha's light box (frosted glass over an unlit lamp) on 6A's prep cabinet, and Juno's Bakelite recorder and a mug on 2C's nightstand."
+  "Slice 38 of the V2 environment dossier adds Sacha's light box (frosted glass over an unlit lamp) on 6A's prep cabinet, and Juno's Bakelite recorder and a mug on 2C's nightstand.",
+  "Slice 39 of the V2 environment dossier adds Lena's cutting kit on 2B's worktable (shears, tailor's chalk, a rolled tape measure, a pincushion) and Malcolm's pruning station on 3A's potting bench (a zinc tray with two pots, secateurs on oilcloth). chalk and tapecloth alias the catalogue paper, pincushion and oilcloth the linen, paint_red the trim, each tinted."
  ],
  "open_work": [
   "Final room lighting and adjacent furniture remain in the wider V2 pass; this family has scoped native and composed runtime verification."
@@ -502,6 +549,26 @@
   "plant": {
    "normal_scale": 0.1,
    "roughness": 0.7
+  },
+  "chalk": {
+   "normal_scale": 0.05,
+   "roughness": 0.95
+  },
+  "tapecloth": {
+   "normal_scale": 0.05,
+   "roughness": 0.85
+  },
+  "pincushion": {
+   "normal_scale": 0.12,
+   "roughness": 0.85
+  },
+  "oilcloth": {
+   "normal_scale": 0.05,
+   "roughness": 0.45
+  },
+  "paint_red": {
+   "normal_scale": 0.03,
+   "roughness": 0.5
   }
  },
  "optics": {
