@@ -1,0 +1,280 @@
+{
+	"batch_checks": 30,
+	"elapsed_ms": 103059,
+	"evidence_class": "INERT",
+	"failures": [
+		"domestic_objects: clear standing camera station: B1_cleat_run"
+	],
+	"module_checks": 12295,
+	"modules": {
+		"diner_apparatus": {
+			"captured": false,
+			"checks": 220,
+			"elapsed_ms": 467,
+			"failures": [],
+			"fixture_sha256": "f8085746c7f498e54874c1d2e90a034d3d691f11b536a3e07a684388bac70fdb",
+			"parts": 6,
+			"supports": 32,
+			"triangles": 21240,
+			"validator_sha256": "1810f3c06ae140b9f272c84f6841e34ecc81287c9678c25323eba56889fbafdc"
+		},
+		"diner_counter": {
+			"captured": false,
+			"checks": 136,
+			"elapsed_ms": 101,
+			"failures": [],
+			"fixture_sha256": "801556e2dbefe46609178901c596fdedd2c68cdc183cb04ea452099a444392da",
+			"parts": 5,
+			"removed": 48,
+			"supports": 8,
+			"triangles": 4760,
+			"validator_sha256": "5515625eeed49b5f83fa09cebfc224bc7182eb20db406faf3e96a1a5c10f258b"
+		},
+		"diner_till": {
+			"captured": false,
+			"checks": 130,
+			"elapsed_ms": 126,
+			"failures": [],
+			"fixture_sha256": "fc93b256a0f3515fcf745abe2ba2c03905b5354d5d15b4eb859211d40d4f7363",
+			"parts": 7,
+			"removed": 24,
+			"supports": 8,
+			"triangles": 16992,
+			"validator_sha256": "21e67899ab1a5a28722b0528fc741e054b19aba52090c550818ea8211b3bb92c"
+		},
+		"diner_urns": {
+			"captured": false,
+			"checks": 180,
+			"elapsed_ms": 257,
+			"failures": [],
+			"fixture_sha256": "9b3698a0bd55b2dcbdf699b2a5ad5d4ab0844f66824cf0bf3eab7fc68d8d58c3",
+			"parts": 9,
+			"supports": 12,
+			"triangles": 12472,
+			"validator_sha256": "9a1b134d9324328424c70b8b5572ed3b781ab1b1ebf6b1b95bc82a7c98daa02a"
+		},
+		"domestic_objects": {
+			"actors": 232,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 9674,
+			"elapsed_ms": 20721,
+			"failures": [
+				"clear standing camera station: B1_cleat_run"
+			],
+			"fixture_sha256": "b80e14705c21a53ca0a22e19b532d36c1535e74b978d0ff86e59685e2c8a253d",
+			"parts": 936,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 558644,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 133,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						6.86317300796509,
+						0.0199999995529652,
+						-0.203171193599701
+					],
+					"id": "1A_bath_rail_native",
+					"image": "1A_bath_rail_native.png",
+					"owner": "1A_bath_rail",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.4100008010864,
+						0.0199999995529652,
+						-0.850000321865082
+					],
+					"id": "1D_window_towel_native",
+					"image": "1D_window_towel_native.png",
+					"owner": "1D_window_towel",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						9.65499973297119,
+						16.0200004577637,
+						-3.7099986076355
+					],
+					"id": "6A_light_table_native",
+					"image": "6A_light_table_native.png",
+					"owner": "6A_light_table",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						9.4399995803833,
+						9.61999988555908,
+						-0.649998605251312
+					],
+					"id": "4D_lost_shelves_native",
+					"image": "4D_lost_shelves_native.png",
+					"owner": "4D_lost_shelves",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						3.50000095367432,
+						-3.1800000667572,
+						-14.2600002288818
+					],
+					"id": "B1_painted_outlet_native",
+					"image": "B1_painted_outlet_native.png",
+					"owner": "B1_painted_outlet",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-7.7056450843811,
+						-3.1800000667572,
+						-10.2223176956177
+					],
+					"id": "B1_dropped_cartridge_native",
+					"image": "B1_dropped_cartridge_native.png",
+					"owner": "B1_dropped_cartridge",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.4063577651978,
+						-3.1800000667572,
+						-3.25000095367432
+					],
+					"id": "B1_coal_shovel_native",
+					"image": "B1_coal_shovel_native.png",
+					"owner": "B1_coal_shovel",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-8.27999973297119,
+						6.42000007629395,
+						-8.40000057220459
+					],
+					"id": "3B_threshold_native",
+					"image": "3B_threshold_native.png",
+					"owner": "3B_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.38000059127808,
+						9.61999988555908,
+						-6.54999923706055
+					],
+					"id": "4D_threshold_native",
+					"image": "4D_threshold_native.png",
+					"owner": "4D_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						6.10407161712646,
+						16.0200004577637,
+						-11.6949987411499
+					],
+					"id": "6A_threshold_native",
+					"image": "6A_threshold_native.png",
+					"owner": "6A_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-8.27999973297119,
+						12.8199996948242,
+						-8.40000057220459
+					],
+					"id": "5D_threshold_native",
+					"image": "5D_threshold_native.png",
+					"owner": "5D_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						10.3450012207031,
+						9.61999988555908,
+						-17.3132095336914
+					],
+					"id": "4B_alcove_runner_native",
+					"image": "4B_alcove_runner_native.png",
+					"owner": "4B_alcove_runner",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"funeral_drapes": {
+			"captured": false,
+			"checks": 175,
+			"elapsed_ms": 935,
+			"failures": [],
+			"fixture_sha256": "2c8105e8fedf205030aaf5ffeecc4b1c6c49ba35abee526d394908944e9d5a1a",
+			"parts": 4,
+			"supports": 20,
+			"triangles": 51776,
+			"validator_sha256": "c831a4a4f9851422ec215f51312b42506e8e561062742bbbdb05753475047c62"
+		},
+		"funeral_foliage": {
+			"captured": false,
+			"checks": 242,
+			"elapsed_ms": 618,
+			"failures": [],
+			"fixture_sha256": "5dde240d89d8ae9d0a5ba4deca2f706edfda47889e2b71f7f183562e1e0aa4d0",
+			"parts": 14,
+			"supports": 16,
+			"triangles": 96944,
+			"validator_sha256": "0f18dfe22de0eb8aee8a6b813566fbf1c2ac34ae98e8a66461fe99301ffdbf5a"
+		},
+		"news_fittings": {
+			"captured": true,
+			"checks": 670,
+			"elapsed_ms": 11344,
+			"failures": [],
+			"fixture_sha256": "ddc87973e7be21fd7652e1d58858279697e77a6006a846e4e7f6138760da39ec",
+			"parts": 46,
+			"removed": 456,
+			"supports": 25,
+			"triangles": 51940,
+			"validator_sha256": "2317e1ee491b052f90964174c2769c30ba29f39be875a4a34dc82365397ed7fd"
+		},
+		"pawn_display": {
+			"captured": true,
+			"checks": 310,
+			"elapsed_ms": 8752,
+			"failures": [],
+			"fixture_sha256": "64becf60169521c3ea46eaa8488b20af88c727f2fbbf048efa67157659542069",
+			"parts": 17,
+			"removed": 96,
+			"supports": 14,
+			"triangles": 29312,
+			"validator_sha256": "f798516421cf74e7fb5e3cec9bdf77001d67c4be98f5ebbcf7615fbb843bb75d"
+		},
+		"pawn_fittings": {
+			"captured": true,
+			"checks": 558,
+			"elapsed_ms": 11170,
+			"failures": [],
+			"fixture_sha256": "76f4594f0b33e1099b374aa4bba58d9e3bc58ebe6ffae61c3e1d82b04f62ad16",
+			"parts": 34,
+			"removed": 480,
+			"supports": 23,
+			"triangles": 44908,
+			"validator_sha256": "afa61ef00d6d9f2daf925948fcdc03ef169ba04b3b26d08a188890bd929399f6"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

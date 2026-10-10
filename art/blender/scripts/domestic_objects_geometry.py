@@ -1157,7 +1157,8 @@ def windowtowel(source):
 
 def lightbox(source):
  # Dossier slice 58 (F06_A_KITCHEN-003): Sacha's light box for negatives beside the toaster: a frosted
- # plate in a timber box, a strip of negatives and a loupe on it, the lamp inside unlit, its flex behind.
+ # plate in a timber box, a strip of negatives and a loupe on it, the lamp inside unlit. Slice 67: renamed
+ # 6A_light_table (slice 38's surface-stock light box keeps its own name) and its flex dropped.
  start=len(stock_checks);W,D,H=.19,.25,.07
  stock('Base',(-W/2,-D/2,0),(W/2,D/2,.008),'timber',.001)
  for x in [-W/2,W/2-.012]:stock('Side'+str(x),(x,-D/2,.0078),(x+.012,D/2,H),'timber',.001)
@@ -1165,7 +1166,6 @@ def lightbox(source):
  stock('FrostedPlate',(-W/2+.0115,-D/2+.0115,H-.006),(W/2-.0115,D/2-.0115,H-.002),'opal',.0004)
  stock('Negatives',(-.035,-.09,H-.0022),(.0,.09,H-.0012),'sepia_dark',.0002)
  lathe('Loupe',.045,.03,H-.0022,[(0,0),(.016,0),(.016,.004),(.013,.032),(0,.032)],'rubber_aged')
- wire('Flex',[(0,-D/2+.004,.03),(0,-D/2-.02,.028),(.02,-D/2-.05,.004),(.05,-D/2-.09,.004)],.0028,'rubber_aged')
  for p in [(-W/2+.01,-D/2+.01,0),(W/2-.01,-D/2+.01,0),(-W/2+.01,D/2-.01,0),(W/2-.01,D/2-.01,0)]:bearing('light box '+str(p),p)
  group('LightBox',start)
 

@@ -2455,7 +2455,31 @@
       "name": "storm_shop_news_cigars_chair_hollow_WornHollow",
       "assembly": "storm_shop_news_cigars_chair_hollow",
       "key": "soot",
-      "volume_m3": 0.00017599956148828252
+      "volume_m3": 0.0018467911392631377
+    },
+    {
+      "name": "storm_shop_news_cigars_chair_hollow_WornPly0",
+      "assembly": "storm_shop_news_cigars_chair_hollow",
+      "key": "mat_ply",
+      "volume_m3": 4.799591323929362e-06
+    },
+    {
+      "name": "storm_shop_news_cigars_chair_hollow_WornPly1",
+      "assembly": "storm_shop_news_cigars_chair_hollow",
+      "key": "mat_ply",
+      "volume_m3": 9.239983920365224e-06
+    },
+    {
+      "name": "storm_shop_news_cigars_chair_hollow_WornPly2",
+      "assembly": "storm_shop_news_cigars_chair_hollow",
+      "key": "mat_ply",
+      "volume_m3": 8.832332027356046e-06
+    },
+    {
+      "name": "storm_shop_news_cigars_chair_hollow_WornPly3",
+      "assembly": "storm_shop_news_cigars_chair_hollow",
+      "key": "mat_ply",
+      "volume_m3": 3.5880937575682987e-06
     }
   ],
   "contacts": [
@@ -3145,6 +3169,13 @@
       "triangles": 60
     },
     {
+      "name": "storm_shop_news_cigars_chair_hollow__mat_ply",
+      "assembly": "storm_shop_news_cigars_chair_hollow",
+      "cell": "shop_news_cigars",
+      "key": "mat_ply",
+      "triangles": 48
+    },
+    {
       "name": "storm_shop_news_cigars_chair_hollow__soot",
       "assembly": "storm_shop_news_cigars_chair_hollow",
       "cell": "shop_news_cigars",
@@ -3152,7 +3183,7 @@
       "triangles": 12
     }
   ],
-  "triangles": 51892,
+  "triangles": 51940,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -3446,6 +3477,18 @@
             "name": "storm_shop_news_cigars_chair_hollow__bakelite_black",
             "key": "bakelite_black",
             "tile": 0.3
+          },
+          {
+            "name": "storm_shop_news_cigars_chair_hollow__mat_ply",
+            "key": "mat_ply",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.62,
+              0.55,
+              0.43,
+              1
+            ]
           },
           {
             "name": "storm_shop_news_cigars_chair_hollow__soot",
@@ -4035,11 +4078,11 @@
       }
     ]
   },
-  "asset_sha256": "6ca5a72ded402ba354621d5939c93354cef4b777fd0e16f4dbf84e3a1b7cfcea",
+  "asset_sha256": "38c4d5e0534d20b0349bd422f54bc9a894f691e2f79a90bb87b653d1887957cd",
   "source_bindings": {
-    "art/data/news_fittings/source_plan.json": "8188a3d2fe5095b171f95f9c94125a86527bdbc58ae83c087532a3d119e84190",
+    "art/data/news_fittings/source_plan.json": "03d9768ace5e9402f4b4ff2082ef593b2310b957595aaa429e1b6b27e9be32ff",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_news_fittings.py": "2637eebfe8ecee4a15b6078faa61ca45071efbb4077f29fc508aa1dcb2df9418",
+    "art/blender/scripts/build_news_fittings.py": "20d133f508001279463fe708d31343bc93d19e26a8d041cca7f524c542b033dc",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
     "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",
@@ -4052,6 +4095,7 @@
     "art/textures/ai_materials/bakelite_black/material.json": "e73a795599fb724aef2978f2e2decabd60c8c3ec76ef1d47762728528da2e1c1",
     "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
     "art/textures/procedural/smoked_plaster/material.json": "f31ddd634347304968119da2b1dc8e3f13ca3aeea7abc5f5233cb9a8b3ebbe5a",
+    "art/textures/ai_materials/linen/material.json": "8725d8bb473c546034e5deda597dd95b3ef8d07b867e788f252469e00f5ea27e",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
@@ -4075,6 +4119,9 @@
     "game/assets/building/textures/T_ai_materials_smoked_plaster_albedo.png": "3d5e97ef41e8417e4c3406c61435d29ebc9e6fcdd12d6055f17e16689036eab5",
     "game/assets/building/textures/T_ai_materials_smoked_plaster_rough.png": "04f6e1a1161a83686a470eca3292a9df0715918fd5e49b001e5a651b5b14e613",
     "game/assets/building/textures/T_ai_materials_smoked_plaster_normal.png": "c573b7dcf7a3c3dd1de41bcbcba9f6e497ede308c9ba3c2c4977af7fc3016d0e",
+    "game/assets/building/textures/T_library_furniture_linen_albedo.png": "59385a42b39ef6b658294398fc92e628a435a9c47ccfe66247e33058b707e6b7",
+    "game/assets/building/textures/T_library_furniture_linen_rough.png": "e10a1e582aae5553756047445de7f047dd05f51e7f5d417b1f005c9c8c8c75a5",
+    "game/assets/building/textures/T_library_furniture_linen_normal.png": "ec05f8e0a662fa27f68137ecd7d29ac81d558d771cfe44ea4411525812ea8485",
     "art/tools/build_iron_blackened.py": "3502dae9388b3699f33f0118cbbc72dcc45c0b487d3d8148048ea6093e37a14a",
     "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
     "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",

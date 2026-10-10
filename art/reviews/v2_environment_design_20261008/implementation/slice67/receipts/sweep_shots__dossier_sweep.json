@@ -1,0 +1,355 @@
+{
+	"city": [],
+	"evidence_class": "INERT",
+	"failures": [],
+	"interpretation": "Teleported inspection stations under production lighting with the player lamp on, carried set hidden and campaign time frozen at 1928-11-10 20:00. Geometry, textures, routes and access require review; nothing here is acceptance.",
+	"schema": "orison.environment-dossier-sweep.v1",
+	"spaces": [
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-7.9520001411438,
+						4.6399998664856,
+						-8.40000057220459
+					],
+					"feet": [
+						7.95200061798096,
+						3.22999978065491,
+						-3.25
+					],
+					"forward": [
+						0.928709030151367,
+						-0.370809227228165,
+						0.0
+					],
+					"image": "F02_EAST_HALL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.84999990463257,
+						4.19999980926514,
+						-3.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.7480001449585,
+						4.6399998664856,
+						-8.39999961853027
+					],
+					"feet": [
+						5.74800062179565,
+						3.22999978065491,
+						-3.25000095367432
+					],
+					"forward": [
+						-0.928708851337433,
+						-0.370809704065323,
+						-0.000000803708132934844
+					],
+					"image": "F02_EAST_HALL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.84999990463257,
+						4.19999980926514,
+						-3.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-4.40000009536743,
+						4.6399998664856,
+						-8.39999961853027
+					],
+					"feet": [
+						4.40000057220459,
+						3.22999978065491,
+						-3.25
+					],
+					"forward": [
+						-0.995236277580261,
+						-0.0974924713373184,
+						-0.000000387400632462231
+					],
+					"image": "F02_EAST_HALL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F02_CORE_EAST_HALL_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.84999990463257,
+						4.40000009536743,
+						-3.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-6.84999990463257,
+						4.6399998664856,
+						-8.40000057220459
+					],
+					"feet": [
+						6.85000038146973,
+						3.22999978065491,
+						-3.25
+					],
+					"forward": [
+						-0.99986857175827,
+						-0.0162139497697353,
+						0.0
+					],
+					"image": "F02_EAST_HALL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_B_EXIT_REVIEW",
+					"status": "captured_pending_visual_review",
+					"target": [
+						8.69999980926514,
+						4.6100001335144,
+						-3.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-7.9520001411438,
+						4.6399998664856,
+						-8.40000057220459
+					],
+					"feet": [
+						7.95200061798096,
+						3.22999978065491,
+						-3.25
+					],
+					"forward": [
+						0.602446496486664,
+						0.798159241676331,
+						-0.00000000000000214031990881361
+					],
+					"image": "F02_EAST_HALL_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_EAST_HALL_LT",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.84999990463257,
+						6.09999990463257,
+						-3.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-7.9520001411438,
+						4.6399998664856,
+						-8.40000057220459
+					],
+					"feet": [
+						7.95200061798096,
+						3.22999978065491,
+						-3.25
+					],
+					"forward": [
+						0.53069144487381,
+						0.847565114498138,
+						0.0
+					],
+					"image": "F02_EAST_HALL_DT3.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F02_EAST_HALL_LT_Semantic",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.85000038146973,
+						6.40000009536743,
+						-3.25
+					]
+				}
+			],
+			"class": "public",
+			"clear_stations": 5,
+			"floor_y": 3.2,
+			"id": "F02_EAST_HALL",
+			"level": "F02",
+			"purpose": "1.2 m public approach to apartment 2B",
+			"rect": [
+				5.4,
+				-3.85,
+				8.3,
+				-2.65
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		},
+		{
+			"captures": [
+				{
+					"device_hidden": true,
+					"eye": [
+						-7.9520001411438,
+						11.039999961853,
+						-8.40000057220459
+					],
+					"feet": [
+						7.95200061798096,
+						9.63000011444092,
+						-3.25
+					],
+					"forward": [
+						0.928709208965302,
+						-0.370808899402618,
+						0.0
+					],
+					"image": "F04_EAST_HALL_OV.png",
+					"kind": "overview",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.84999990463257,
+						10.6000003814697,
+						-3.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-5.7480001449585,
+						11.039999961853,
+						-8.39999961853027
+					],
+					"feet": [
+						5.74800062179565,
+						9.63000011444092,
+						-3.25000095367432
+					],
+					"forward": [
+						-0.928709030151367,
+						-0.370809316635132,
+						-0.000000803708246621682
+					],
+					"image": "F04_EAST_HALL_RV.png",
+					"kind": "reverse",
+					"lamp": true,
+					"owner": "room centre",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.84999990463257,
+						10.6000003814697,
+						-3.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-4.40000009536743,
+						11.039999961853,
+						-8.39999961853027
+					],
+					"feet": [
+						4.40000057220459,
+						9.63000011444092,
+						-3.25
+					],
+					"forward": [
+						-0.995236277580261,
+						-0.0974924713373184,
+						-0.000000387400632462231
+					],
+					"image": "F04_EAST_HALL_TH.png",
+					"kind": "threshold",
+					"lamp": true,
+					"owner": "F04_CORE_EAST_HALL_OPENING",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.84999990463257,
+						10.8000001907349,
+						-3.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-7.9520001411438,
+						11.039999961853,
+						-8.40000057220459
+					],
+					"feet": [
+						7.95200061798096,
+						9.63000011444092,
+						-3.25
+					],
+					"forward": [
+						0.602446496486664,
+						0.798159241676331,
+						-0.00000000000000214031990881361
+					],
+					"image": "F04_EAST_HALL_DT1.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F04_EAST_HALL_LT",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.84999990463257,
+						12.5,
+						-3.25
+					]
+				},
+				{
+					"device_hidden": true,
+					"eye": [
+						-7.9520001411438,
+						11.039999961853,
+						-8.40000057220459
+					],
+					"feet": [
+						7.95200061798096,
+						9.63000011444092,
+						-3.25
+					],
+					"forward": [
+						0.53069144487381,
+						0.847565114498138,
+						0.0
+					],
+					"image": "F04_EAST_HALL_DT2.png",
+					"kind": "detail",
+					"lamp": true,
+					"owner": "F04_EAST_HALL_LT_Semantic",
+					"status": "captured_pending_visual_review",
+					"target": [
+						6.85000038146973,
+						12.8000001907349,
+						-3.25
+					]
+				}
+			],
+			"class": "public",
+			"clear_stations": 5,
+			"floor_y": 9.6,
+			"id": "F04_EAST_HALL",
+			"level": "F04",
+			"purpose": "1.2 m public approach to apartment 4A",
+			"rect": [
+				5.4,
+				-3.85,
+				8.3,
+				-2.65
+			],
+			"status": "captured_pending_visual_review",
+			"threshold_door": "no leaf owner (opening or unresolved door)",
+			"threshold_outside": true
+		}
+	]
+}

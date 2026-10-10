@@ -14,11 +14,13 @@
     "candy",
     "soot",
     "newsprint",
-    "masthead"
+    "masthead",
+    "mat_ply"
   ],
   "catalog_variants": {
     "cast_iron": "iron_blackened",
-    "soot": "smoked_plaster"
+    "soot": "smoked_plaster",
+    "mat_ply": "linen"
   },
   "material_aliases": {
     "tobacco": "paper",
@@ -55,6 +57,12 @@
       0.34,
       0.34,
       0.33,
+      1
+    ],
+    "mat_ply": [
+      0.62,
+      0.55,
+      0.43,
       1
     ]
   },

@@ -219,6 +219,8 @@ Slices landed so far (evidence folders in parentheses):
     hoardings.
 66. The last thresholds, 4B's worn alcove runner, Iris's paint rag on 5C's radiator
     and the padlock hasp on 6D's storage door.
+67. The hall wear strengthened, the news mat and the drawer suite fixed, slice 58's
+    light box renamed, and verification of slices 58-67 (`slice67`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

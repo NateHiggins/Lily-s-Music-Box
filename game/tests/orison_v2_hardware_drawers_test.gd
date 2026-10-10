@@ -100,7 +100,9 @@ func _check_drawer_faces(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> voi
 	for row: Dictionary in fixture.original_records:
 		var name:=str(row.id).trim_prefix("storm_shop_hardware_paint_")
 		if not name.begins_with("drawer") or name.begins_with("drawer_"):continue
-		var r: Array=row.rect;var at:=Vector3(5.027,float(row.z0)+float(row.h)*.7,-(r[1]+r[3])*.5)
+		# Dossier slice 54: drawer 1/3 of the wall stands 0.14 m open on its rail (build_hardware_drawers.py).
+		var pulled:=.14 if name=="drawer1_3" else 0.0
+		var r: Array=row.rect;var at:=Vector3(5.027+pulled,float(row.z0)+float(row.h)*.7,-(r[1]+r[3])*.5)
 		var hit:=_isolated_ray(world,model,str(row.id)+"__oak_quartered",cell.to_global(at+Vector3.RIGHT),cell.to_global(at-Vector3.RIGHT*.5))
 		check(not hit.is_empty() and cell.to_local(hit.position).distance_to(at)<.00003 and hit.normal.dot(cell.global_basis.x)>.99,"actual paneled drawer face points into the aisle: "+str(row.id));checked+=1
 	check(checked==35,"all 35 original drawer identities face the room")

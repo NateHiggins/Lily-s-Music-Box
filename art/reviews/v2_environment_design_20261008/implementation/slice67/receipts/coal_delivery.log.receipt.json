@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 67.0,
+  "exit_code": 1,
+  "finished_utc": "2026-10-10T12:49:54Z",
+  "started_utc": "2026-10-10T12:48:46Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/envimpl_out/slice67/coal_delivery.log.stderr",
+  "stderr_sha256": "3705a45ab51bf46384045a17439c24806714e7f9fc7f261c4376a9a545122cc1",
+  "stdout": "C:/ov/envimpl_out/slice67/coal_delivery.log",
+  "stdout_sha256": "c09c78362ae654e89eb8dc98689f8c2a41b2401a2657c64e2e1ce87d350e5379"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2CoalDeliveryTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/envimpl_out/slice67/coal_delivery",
+ "source": {
+  "dirty_paths": 412,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_normal.png.import"
+  ],
+  "repository_head": "2c25e683fe7f5f1af4f03db609fa81f4dba96f12",
+  "repository_tree": "1129cbe69bae3baaeabaeca015e227171a96a4a5",
+  "runtime_inputs_sha256": "64e1d933bc1ce97c6e46e95d3ffa81cd9ea101d1e42f1d6444020b84af4b2ec8",
+  "test_path": "game/tests/orison_v2_coal_delivery_test.gd",
+  "test_sha256": "9a5a65ec2b715b4424c18daa7636245a7c34ac8b17eaab9e1ddbd73dc3f6d4e0"
+ },
+ "windowed": true
+}

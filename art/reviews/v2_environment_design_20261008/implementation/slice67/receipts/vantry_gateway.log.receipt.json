@@ -1,0 +1,69 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 48.71,
+  "exit_code": 5,
+  "finished_utc": "2026-10-10T13:07:52Z",
+  "started_utc": "2026-10-10T13:07:03Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 6,
+  "fail_lines": [
+   "[FAIL] Gate A/K1 owns exactly 249 source records",
+   "[FAIL] K1 owns eight real descending treads in a 1.05 m clear stair",
+   "[FAIL] K0 reuses exactly two lights and moves the east one to the kiosk",
+   "[FAIL] kiosk x envelope is exactly 18.10..19.75",
+   "[FAIL] the sidewalk beside the kiosk remains at street level",
+   "[VANTRY GATEWAY] RESULT: FAIL (5 failures)"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/envimpl_out/slice67/vantry_gateway.log.stderr",
+  "stderr_sha256": "58840cf69eea51b716f4deec8eefa341aa49dde6ced6239c916f477ace6371cc",
+  "stdout": "C:/ov/envimpl_out/slice67/vantry_gateway.log",
+  "stdout_sha256": "1e9981fbc09e1ca683bab3f9b9266b575d13e4c03599837513a0068a385592a6"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/VantryGatewayTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/envimpl_out/slice67/vantry_gateway",
+ "source": {
+  "dirty_paths": 412,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_normal.png.import"
+  ],
+  "repository_head": "2c25e683fe7f5f1af4f03db609fa81f4dba96f12",
+  "repository_tree": "1129cbe69bae3baaeabaeca015e227171a96a4a5",
+  "runtime_inputs_sha256": "64e1d933bc1ce97c6e46e95d3ffa81cd9ea101d1e42f1d6444020b84af4b2ec8",
+  "test_path": "game/tests/vantry_gateway_test.gd",
+  "test_sha256": "70dd88a808df03ada16eb93871e33048bfbc545e6c1bffb0613bb076ae6ded8f"
+ },
+ "windowed": true
+}

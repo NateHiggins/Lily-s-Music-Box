@@ -292,7 +292,15 @@ for item in assemblies:
   box(identity+'_FloorSeatedCover',(x0,y0,.01),(x1,y1,.0135),identity,'bakelite_black',0)
   for side,(a,c) in enumerate([((x0,y0),(x1,y0+.07)),((x0,y1-.07),(x1,y1)),((x0,y0+.069),(x0+.07,y1-.069)),((x1-.07,y0+.069),(x1,y1-.069))]):
    box(identity+f'_MatRim{side}',(a[0],a[1],.0133),(c[0],c[1],z1),identity,'bakelite_black',0)
-  box(identity+'_WornHollow',(x0+.12,y0+.12,.0133),(x1-.12,y1-.12,.0141),identity,'soot',0)
+  # The worn hollow is a change of surface, not of height: its top stays on the original datum the stool's
+  # feet stand on (slice 67 fix; slice 53 sank it below the feet).
+  box(identity+'_WornHollow',(x0+.07,y0+.07,.0133),(x1-.07,y1-.07,z1),identity,'soot',0)
+  # Slice 67: worn through to the canvas ply along the counter side, where the seated proprietor's feet
+  # rest, ragged and clear of the stool's four feet (their contact points stay on the datum).
+  front=y1-.07
+  # Disjoint pieces: overlapping coplanar tops would be merged away.
+  for k,(a,b,c,d) in enumerate([(.21,.53,.11,.085),(.15,.59,.085,.05),(.12,.44,.05,.004),(.44,.57,.05,.004)]):
+   box(identity+f'_WornPly{k}',(x0+a,front-c,z1-.0002),(x0+b,front-d,z1+.0004),identity,'mat_ply',0)
   support(identity,floor['id'],((x0+x1)/2,(y0+y1)/2,.01),(0,0,1),'wear-cover floor seat')
  else:raise AssertionError(kind)
 

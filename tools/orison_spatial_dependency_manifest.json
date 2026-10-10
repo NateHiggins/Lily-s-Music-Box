@@ -74002,9 +74002,9 @@
    "target_exists": true
   },
   {
-   "key": "79a85069157452dd",
+   "key": "77df7d5fe63fc47c",
    "kind": "id_reference",
-   "token": "6A_light_box",
+   "token": "6A_light_table",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -81454,9 +81454,9 @@
    "target_exists": true
   },
   {
-   "key": "085f7b4fd877e4cd",
+   "key": "83a5e7dca6a3ebd6",
    "kind": "id_reference",
-   "token": "6A_light_box",
+   "token": "6A_light_table",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -91615,32 +91615,6 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F06/furniture",
-   "target_exists": true
-  },
-  {
-   "key": "5a1c2b704f1eb8f6",
-   "kind": "id_reference",
-   "token": "6A_light_box",
-   "file": "game/data/orison_v2/domestic_surface_props.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/props[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {
@@ -147960,32 +147934,6 @@
    "confidence": "MEDIUM",
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "F06/furniture",
-   "target_exists": true
-  },
-  {
-   "key": "7611c50c6367d287",
-   "kind": "id_reference",
-   "token": "6A_light_box",
-   "file": "game/data/orison_v2/surface_stock.json",
-   "tier": "data",
-   "subsystem": "data",
-   "symbols": [
-    "/assemblies[*]/id"
-   ],
-   "lines": [
-    0
-   ],
-   "count": 1,
-   "context": [],
-   "gameplay_binding": false,
-   "authority": [
-    "DATA_FOREIGN_KEY"
-   ],
-   "spatial": [],
-   "disposition": "PRESERVE_OR_ALIAS",
-   "confidence": "MEDIUM",
-   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
-   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {

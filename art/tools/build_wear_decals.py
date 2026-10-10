@@ -44,12 +44,13 @@ corner = np.clip(1 - r / .9, 0, 1) ** 1.6 * (.55 + .6 * noise(5))
 save("wear_corner", np.ones((N, N, 3)) * grime * .9, corner * .9)
 # Path: the dulled walking line down a hall, lighter and matte, soft across its width.
 path = np.exp(-((x - .5) / .22) ** 2) * (.5 + .5 * noise(3)) * np.clip(np.minimum(y, 1 - y) / .12, 0, 1)
-save("wear_path", np.ones((N, N, 3)) * grime * 1.2, path * .32)
+# Slice 67: strengthened (was .32); the slice 52 marks read faintly at production light.
+save("wear_path", np.ones((N, N, 3)) * grime * 1.2, path * .62)
 # Crops of the institutional atlas, desaturated to grime and softened: threshold foot scuffs, the
 # shoulder/trolley rub and the heat plume (used inverted as the stain under a vent register).
 atlas = np.asarray(Image.open(ROOT / "game/assets/building/textures/atmospheric_decals/institutional_wear_atlas.png").convert("RGBA")) / 255.0
 h = atlas.shape[0] // 2
-for name, (col, row), flip, strength in [("wear_threshold", (0, 1), False, .55), ("wear_rub", (0, 0), False, .42)]:
+for name, (col, row), flip, strength in [("wear_threshold", (0, 1), False, .85), ("wear_rub", (0, 0), False, .72)]:  # slice 67: was .55 and .42
     tile = atlas[row * h + 8:(row + 1) * h - 8, col * h + 8:(col + 1) * h - 8]
     tile = np.asarray(Image.fromarray((tile * 255).astype(np.uint8), "RGBA").resize((N, N), Image.LANCZOS)) / 255.0
     if flip: tile = tile[::-1]
