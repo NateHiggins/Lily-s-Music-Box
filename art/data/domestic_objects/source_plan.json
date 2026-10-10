@@ -1914,6 +1914,29 @@
     ]
    },
    "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject135",
+   "kind": "rinsetaps",
+   "source_id": "B1_rinse_taps",
+   "params": {
+    "tubs": [
+     -0.145,
+     0.495
+    ],
+    "clips": {
+     "Cold": [
+      0.15
+     ],
+     "Hot": [
+      -0.12,
+      0.15
+     ]
+    },
+    "tail_y": 0.31,
+    "tail_ry": 0.095
+   },
+   "rear_wall_y": -0.02
   }
  ],
  "instances": [
@@ -2848,6 +2871,10 @@
   {
    "id": "B1_washer_supply",
    "variant": "DomesticObject134"
+  },
+  {
+   "id": "B1_rinse_taps",
+   "variant": "DomesticObject135"
   }
  ],
  "runtime_keys": [
@@ -3440,7 +3467,8 @@
   "Slice 66 of the V2 environment dossier completes the thresholds (3B's ribbed rubber mat at the service crossing, the 4D short-let's new coir with a handbill nobody picked up, 6A's coir, a dust mat at the sealed 5D) and adds a runner form: a bound jute runner worn through where the hall turn meets the way to 4B's alcove (F04_B_ALCOVE_APPROACH-001).",
   "Slice 67 renames slice 58's light box 6A_light_table: slice 38's surface-stock light box already owns 6A_light_box, and the runtime refuses an occupied identity. The table moves to the clear front of the cabinet top beside the toaster, off the plate, and its flex is no longer modelled.",
   "Slice 72 of the V2 environment dossier makes the basement maintenance shop's toolboard (b1_toolboard, DomesticObject15) a shadow board: a painted silhouette behind each wrench and the hammer, and a sixth peg with only a screwdriver's silhouette (B1_MAINTENANCE_SHOP-002). 3B's board keeps the plain form.",
-  "Slice 77 of the V2 environment dossier gives the basement washers their water (B1_LAUNDRY-004): cold and hot mains out of the laundry's west wall on clips, a drop and brass bib cock at each machine with a rubber hose to its fill cock, and a cast-iron floor gully under each drain."
+  "Slice 77 of the V2 environment dossier gives the basement washers their water (B1_LAUNDRY-004): cold and hot mains out of the laundry's west wall on clips, a drop and brass bib cock at each machine with a rubber hose to its fill cock, and a cast-iron floor gully under each drain.",
+  "Slice 78 of the V2 environment dossier gives the basement rinse tubs their water (B1_LAUNDRY-004): cold and hot out of the west wet stack's face on clips, a pair of long-reach brass bibs over each tub's back rim, and a cast-iron waste taking both drain tails back into the stack. The context inspector treats a solid blockout riser's faces as retained walls."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

@@ -1353,6 +1353,43 @@ def washersupply(source):
   for p in [(dx-.08,.09,0),(dx+.08,.09,0),(dx-.08,.25,0),(dx+.08,.25,0)]:bearing('gully '+str(p),p)
   group('WasherGully'+str(i),start)
 
+def rinsetaps(source):
+ # Dossier slice 78 (B1_LAUNDRY-004): the rinse tubs' water. Cold and hot come out of the west wet stack's face
+ # through flanges, run across it on clips (cold 35 mm off the face, hot 85 mm so its drops clear the cold run) and
+ # drop to a long-reach brass bib over the back rim of each tub, hot on the left. The east tub's pair hangs past the
+ # stack's edge on the runs. Under the tubs a cast-iron waste takes both brass drain tails back into the stack.
+ back=variants[identity]['rear_wall_y'];tubs=source['tubs']
+ for name,off,y,key,side in [('Cold',.035,1.1,'galv',1),('Hot',.085,1.22,'copper',-1)]:
+  start=len(stock_checks);r=.015;xs=[t+side*.06 for t in tubs];x0=min(xs);x1=max(xs)
+  tube(name+'Flange',(0,back,y),(0,back+.008,y),.034,'iron')
+  tube(name+'Entry',(0,back+.006,y),(0,off,y),r,key)
+  tube(name+'Tee',(-.024,off,y),(.024,off,y),r+.0045,key)
+  tube(name+'Run',(x0,off,y),(x1,off,y),r,key)
+  support(identity,'wall',(0,back,y),(0,1,0),'pipe out of the wet stack through its flange')
+  for cx in source['clips'][name]:
+   stock(name+'Clip'+str(cx),(cx-.011,back,y-.019),(cx+.011,off-.009,y+.019),'iron',.001)
+   support(identity,'wall',(cx,back,y),(0,1,0),'pipe clip screwed to the stack')
+  for dx in xs:
+   end=dx in (x0,x1)
+   tube(name+'Elbow'+str(dx),(dx-(.0045+r if dx==x0 else .024),off,y),(dx+(.0045+r if dx==x1 else .024),off,y),r+.0045,key)
+   tube(name+'Drop'+str(dx),(dx,off,y),(dx,off,.98),r,key)
+   tube(name+'Bib'+str(dx),(dx,off-.004,.98),(dx,.206,.98),.014,'brass')
+   tube(name+'Bonnet'+str(dx),(dx,.13,.98),(dx,.13,1.026),.0105,'brass')
+   stock(name+'Handle'+str(dx),(dx-.03,.124,1.023),(dx+.03,.136,1.035),'brass',.001)
+   tube(name+'Spout'+str(dx),(dx,.2,.986),(dx,.2,.928),.011,'brass')
+  group(name+'Supply',start)
+ # The waste: a drop from each tail's end, a run under the tubs, a branch back into the stack.
+ start=len(stock_checks);x0=min(tubs);x1=max(tubs);wy=.2;wr=.022;ty=source['tail_y'];tr=source['tail_ry']
+ for dx in tubs:
+  tube('TailDrop'+str(dx),(dx,tr,ty),(dx,tr,wy),.019,'iron')
+  tube('TailElbow'+str(dx),(dx-(wr+.004) if dx==x0 else dx-.028,tr,wy),(dx+(wr+.004) if dx==x1 else dx+.028,tr,wy),wr+.004,'iron')
+ tube('WasteRun',(x0,tr,wy),(x1,tr,wy),wr,'iron')
+ tube('WasteTee',(-.03,tr,wy),(.03,tr,wy),wr+.004,'iron')
+ tube('WasteBranch',(0,tr,wy),(0,back+.006,wy),wr,'iron')
+ tube('WasteFlange',(0,back,wy),(0,back+.008,wy),.042,'iron')
+ support(identity,'wall',(0,back,wy),(0,1,0),'waste into the wet stack through its flange')
+ group('RinseWaste',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1426,4 +1463,5 @@ for assembly in assemblies:
  elif kind=='coalshovel':coalshovel(source)
  elif kind=='runner':runner(source)
  elif kind=='washersupply':washersupply(source)
+ elif kind=='rinsetaps':rinsetaps(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

@@ -9462,6 +9462,79 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject135",
+      "parts": [
+        {
+          "name": "DomesticObject135__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject135__Body_ON_copper",
+          "component": "Body",
+          "key": "copper",
+          "tile": 0.4,
+          "catalog_key": "copper_aged",
+          "tint": [
+            0.78,
+            0.5,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.15,
+            "roughness": 0.62
+          }
+        },
+        {
+          "name": "DomesticObject135__Body_ON_galv",
+          "component": "Body",
+          "key": "galv",
+          "tile": 0.55,
+          "catalog_key": "zinc_liner",
+          "tint": [
+            0.74,
+            0.75,
+            0.72,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.18,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "DomesticObject135__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.3,
+            0.3,
+            0.29,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.9
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -10396,6 +10469,10 @@
     {
       "id": "B1_washer_supply",
       "variant": "DomesticObject134"
+    },
+    {
+      "id": "B1_rinse_taps",
+      "variant": "DomesticObject135"
     }
   ],
   "tint_space": "linear"

@@ -100,6 +100,15 @@ def wall_bearing(anchor,point,direction):
     if abs(center[normal_index]-fixed)>.0001:continue
     if abs(g[other]-center[along_index])<float(opening['width'])/2 and float(opening.get('sill',0))<g.y-floor<float(opening.get('sill',0))+float(opening['height']):blocked=True
    if not blocked:matches.append({'space':room['id'],'side':side,'face':face})
+ # A solid blockout riser is built as a retained box from its rect and height
+ # (orison_v2_blockout.gd _build_risers), so its faces are walls too: slice 78's
+ # rinse taps come out of the west wet stack's face.
+ for riser in layout.get('risers',[]):
+  if not riser.get('solid',True) or not float(riser['from_y'])<=g.y<=float(riser['to_y']):continue
+  rect=riser['rect']
+  for side,axis,face,normal in [('west',0,rect[0],-1),('east',0,rect[2],1),('north',2,rect[1],-1),('south',2,rect[3],1)]:
+   other=2-axis;low,high=(rect[1],rect[3]) if axis==0 else (rect[0],rect[2])
+   if abs(d[axis]-normal)<.01 and abs(g[axis]-face)<=.00004 and low<=g[other]<=high:matches.append({'riser':riser['id'],'side':side,'face':face})
  return matches
 
 for identity,variant in variants.items():
