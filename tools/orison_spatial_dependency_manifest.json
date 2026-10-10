@@ -4,7 +4,7 @@
  "layout_path": "art/data/building_layout.json",
  "universe_counts": {
   "floor": 8,
-  "v2_blockout": 2252,
+  "v2_blockout": 2253,
   "unit": 22,
   "room": 127,
   "marker": 631,
@@ -69804,6 +69804,32 @@
    "target_exists": true
   },
   {
+   "key": "f05a928b09d11aa0",
+   "kind": "id_reference",
+   "token": "4A_umbrella_tray",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "22efca3ffef3b1a1",
    "kind": "id_reference",
    "token": "4A_w0_wardrobe",
@@ -77127,6 +77153,32 @@
    "key": "99ca841058ee72bd",
    "kind": "id_reference",
    "token": "4A_hallstand",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c6432b7565726e68",
+   "kind": "id_reference",
+   "token": "4A_umbrella_tray",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -143028,7 +143080,7 @@
     0,
     0
    ],
-   "count": 388,
+   "count": 389,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -170664,6 +170716,92 @@
    "confidence": "MEDIUM",
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "61fb2b5a31f63b7a",
+   "kind": "id_reference",
+   "token": "2C_bed0",
+   "file": "game/scripts/building/orison_v2_domestic_furniture.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "validate"
+   ],
+   "lines": [
+    244
+   ],
+   "count": 1,
+   "context": [
+    "const BED_STATES := {\"4B_wake_bed\": \"thrown\", \"2C_bed0\": \"unmade\", \"4D_bed\": \"pillows\"}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "F02/furniture+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ca18536b861d0d13",
+   "kind": "id_reference",
+   "token": "4B_wake_bed",
+   "file": "game/scripts/building/orison_v2_domestic_furniture.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "validate"
+   ],
+   "lines": [
+    244
+   ],
+   "count": 1,
+   "context": [
+    "const BED_STATES := {\"4B_wake_bed\": \"thrown\", \"2C_bed0\": \"unmade\", \"4D_bed\": \"pillows\"}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2a9cd82e3b69e2b9",
+   "kind": "id_reference",
+   "token": "4D_bed",
+   "file": "game/scripts/building/orison_v2_domestic_furniture.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "validate"
+   ],
+   "lines": [
+    244
+   ],
+   "count": 1,
+   "context": [
+    "const BED_STATES := {\"4B_wake_bed\": \"thrown\", \"2C_bed0\": \"unmade\", \"4D_bed\": \"pillows\"}"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
    "target_exists": true
   },
   {

@@ -83,7 +83,7 @@ for assembly in assemblies:
  # Dossier slice 35: 5C's pigment store and 6C's packing store are shelved like the archive;
  # 4C's two wardrobes carry their residents' own garment colours.
  store={'Wardrobe14':'pigment','Wardrobe12':'packing'}.get(identity)
- palette={'Wardrobe15':'jersey_maroon','Wardrobe08':'drill_indigo'}.get(identity)
+ palette={'Wardrobe15':'jersey_maroon','Wardrobe08':'drill_indigo','Wardrobe01':'worsted_slate'}.get(identity)
  shelved=archive or store is not None
  bare=identity=='Wardrobe16'
  wood=variants[identity]['params']['case_wood']
@@ -157,6 +157,18 @@ for assembly in assemblies:
   for z in [.10,1.77]:stock(component+'Rail'+str(z),(x0+.049,.2925,z),(x1-.049,.3175,z+.05),wood,.0008)
   stock(component+'Field',(x0+.048,.296,.148),(x1-.048,.3135,1.772),wood,.0006)
   stock(component+'RaisedPanel',(x0+.05,.312,.22),(x1-.05,.331,1.68),wood,.0014)
+  if identity=='Wardrobe01' and side<0:
+   # Dossier slice 45 (F02_A_BED-003): Mina's slate tailor-made jacket on a wire hanger hooked over
+   # the west leaf's top rail, hung on the leaf's face so it swings with it; a white shirting
+   # collar at the neck. Owned by the leaf, so the 92 degree swing carries it.
+   cx=-.31
+   stock('JacketBody',(cx-.2,.3305,1.06),(cx+.2,.358,1.7),'worsted_slate',.008)
+   stock('JacketShoulders',(cx-.225,.3305,1.62),(cx+.225,.36,1.735),'worsted_slate',.012)
+   for sx in [-1,1]:stock('JacketSleeve'+str(sx),(cx+sx*.215-.04,.333,1.12),(cx+sx*.215+.04,.364,1.66),'worsted_slate',.01)
+   stock('Collar',(cx-.05,.332,1.705),(cx+.05,.361,1.75),'shirting',.006)
+   for sx in [-1,1]:stock('Lapel'+str(sx),(cx+sx*.03-.03,.357,1.42),(cx+sx*.03+.03,.3625,1.7),'worsted_slate',.002)
+   tag(curved_wire(identity+'_JacketHanger',[(cx-.2,.35,1.72),(cx,.35,1.79),(cx+.2,.35,1.72),(cx-.2,.35,1.72)],.0015,identity,'metal'))
+   tag(curved_wire(identity+'_JacketHook',[(cx,.35,1.79),(cx,.35,1.8215),(cx,.325,1.8215),(cx,.302,1.8215)],.0015,identity,'metal'))
   # Three completion placements are close to a side wall. A shallow turned
   # button retains the source axis while clearing that wall at the full 92°.
   tag(axial(identity+'_'+component+'Knob',side*.075,.945,[(0,.320),(.007,.320),(.007,.332),(.012,.336),(.014,.340),(.012,.345),(0,.347)],identity,'brass',48))
@@ -166,6 +178,12 @@ for assembly in assemblies:
     tag(vessel(identity+'_'+component+'Knuckle'+str(center),hx,.305,center-.010,[(.004,0),(.009,0),(.009,.020),(.004,.020),(.004,0)],identity,'brass'))
     ends=sorted([hx+inward*.007,hx+inward*.055])
     stock(component+'Strap'+str(center),(ends[0],.301,center-.010),(ends[1],.309,center+.010),'brass',.0003)
+ if identity=='Wardrobe01':
+  # Mina's grey cloche on the case top beside the back edge.
+  top=max(hi[2] for surface in member['surfaces'] if surface['material']==wood for lo,hi in source_boxes(surface))
+  component='Body'
+  tag(vessel(identity+'_ClocheCrown',-.32,-.12,top-.0005,[(0,0),(.095,0),(.1,.01),(.092,.05),(.07,.085),(.035,.1),(0,.104)],identity,'felt_grey'))
+  tag(vessel(identity+'_ClocheBrim',-.32,-.12,top-.0005,[(.09,0),(.118,0),(.12,.004),(.112,.012),(.095,.014),(.09,.006),(.09,0)],identity,'felt_grey'))
  for x in [-.5,.5]:
   for y in [-.20,.20]:support(identity,'support',(x,y,0),(0,0,1),'retained plinth underside')
  construction_groups.append({'assembly':identity,'id':identity+'_JoinedWardrobe','stocks':[x['name'] for x in stock_checks[start:]]})

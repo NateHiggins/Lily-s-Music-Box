@@ -387,7 +387,10 @@
     "linen",
     "jersey_maroon",
     "drill_indigo",
-    "kraft"
+    "kraft",
+    "worsted_slate",
+    "shirting",
+    "felt_grey"
   ],
   "catalog_variants": {
     "oak_quartered": "oak_work_surface",
@@ -400,7 +403,10 @@
     "linen": "linen",
     "jersey_maroon": "linen",
     "drill_indigo": "linen",
-    "kraft": "paper"
+    "kraft": "paper",
+    "worsted_slate": "linen",
+    "shirting": "linen",
+    "felt_grey": "linen"
   },
   "material_tints": {
     "wood_dark": [
@@ -443,6 +449,24 @@
       0.5,
       0.36,
       0.22,
+      1
+    ],
+    "worsted_slate": [
+      0.13,
+      0.15,
+      0.18,
+      1
+    ],
+    "shirting": [
+      0.86,
+      0.86,
+      0.83,
+      1
+    ],
+    "felt_grey": [
+      0.3,
+      0.3,
+      0.3,
       1
     ]
   },
@@ -490,6 +514,18 @@
     "kraft": {
       "normal_scale": 0.12,
       "roughness": 0.85
+    },
+    "worsted_slate": {
+      "normal_scale": 0.14,
+      "roughness": 0.88
+    },
+    "shirting": {
+      "normal_scale": 0.14,
+      "roughness": 0.88
+    },
+    "felt_grey": {
+      "normal_scale": 0.14,
+      "roughness": 0.88
     }
   },
   "placement": {
@@ -504,7 +540,8 @@
     "Shallow brass buttons retain original X/height axes and clear the side walls of three completion rooms at the original 92-degree stop.",
     "Slice 30 of the V2 environment dossier gives 2C's second wardrobe its own variant (Wardrobe13, on 5C_w1_wardrobe's case): two added shelves and the original middle shelf carry rows of grey reel boxes with coloured tape on their spines, and the rail is omitted. Both leaves keep their hinges and swing.",
     "Slice 35 of the V2 environment dossier shelves 5C's second wardrobe as Iris's pigment store (Wardrobe14: tins with painted lids, jars, rolled canvas) and 6C's second as Mae's packing store (Wardrobe12: stacked cartons, brown paper, string), and gives 4C's wardrobes their residents' garment colours (Wardrobe15, Cam's maroon jersey; Wardrobe08, now 4C_w1's own, Noel's indigo drill). jersey_maroon and drill_indigo are tinted aliases of the catalogue linen, kraft of the catalogue paper.",
-    "Slice 40 of the V2 environment dossier gives 4D's wardrobe its own variant (Wardrobe16): Wardrobe07's case and rail with only the wire hangers, no garments, for the transient guests' late-night state."
+    "Slice 40 of the V2 environment dossier gives 4D's wardrobe its own variant (Wardrobe16): Wardrobe07's case and rail with only the wire hangers, no garments, for the transient guests' late-night state.",
+    "Slice 45 of the V2 environment dossier dresses Wardrobe01 (2A's only) for Mina's street state: slate garments inside, her slate tailor-made jacket with a white collar hung on a wire hanger over the west leaf (owned by the leaf, so it swings with it) and a grey cloche on the case top. worsted_slate, shirting and felt_grey are tinted aliases of the catalogue linen."
   ],
   "open_work": [
     "Broad room lighting/material balance, remaining apartment props, fixed lights and lamp cords are unfinished.",

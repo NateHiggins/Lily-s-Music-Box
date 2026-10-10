@@ -909,6 +909,19 @@ def quietsign(source):
  support(identity,'wall',(0,back,.015),(0,1,0),'hook plate screwed to the wall')
  group('WatchHook',start)
 
+def overflowtray(source):
+ # Dossier slice 44: Wren's japanned umbrella drip tray by the door, the one thing he lets
+ # overflow: water standing at the rim and a dark water line spread on the oak around it.
+ start=len(stock_checks)
+ stock('Spill',(-.21,-.13,0),(.19,.12,.0006),'wood_dark',.0002)
+ stock('SpillTongue',(-.25,-.06,0),(-.1,.15,.0005),'wood_dark',.0002)
+ stock('Tray',(-.15,-.09,.0004),(.15,.09,.004),'soot',.0008)
+ for y in [-.09,.082]:stock('RimY'+str(y),(-.15,y,.003),(.15,y+.008,.03),'soot',.0008)
+ for x in [-.15,.142]:stock('RimX'+str(x),(x,-.082,.003),(x+.008,.082,.03),'soot',.0008)
+ stock('Water',(-.1425,-.0825,.0035),(.1425,.0825,.0285),'milk_glass',.0004)
+ for p in [(-.18,-.11,0),(.17,-.11,0),(-.18,.1,0),(.17,.1,0)]:bearing('spill '+str(p),p)
+ group('DripTray',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -966,4 +979,5 @@ for assembly in assemblies:
  elif kind=='chargingcase':chargingcase(source)
  elif kind=='wallbell':wallbell(source)
  elif kind=='quietsign':quietsign(source)
+ elif kind=='overflowtray':overflowtray(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

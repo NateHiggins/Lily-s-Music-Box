@@ -149,7 +149,13 @@ for row in json.loads((r/'game/data/orison_v2/domestic_surface_props.json').read
  transform=pose(row['support'])@Matrix.Translation(bp(row['position']))@Matrix.Rotation(float(row['yaw']),4,'Z')
  for c in stock['contacts']:
   if c['assembly']!=row['id']:continue
-  point=transform@bp(c['point']);hit,normal,_,distance=world[row['support']]['tree'].ray_cast(point+Vector((0,0,.004)),Vector((0,0,-1)),.008)
+  point=transform@bp(c['point'])
+  if abs(float(row['position'][1]))<1e-9:
+   # As in inspect_surface_stock_context.py: a record standing on the floor beside its
+   # support bears on the floor plane of that support's frame, not on the support.
+   if abs(point.z-pose(row['support']).translation.z)>.00004:failures.append([row['id'],row['support'],'off the support floor plane',list(point)])
+   stock_bearings.append({'id':row['id'],'support':row['support'],'point':[point.x,point.z,-point.y],'floor':True});continue
+  hit,normal,_,distance=world[row['support']]['tree'].ray_cast(point+Vector((0,0,.004)),Vector((0,0,-1)),.008)
   if hit is None or (hit-point).length>.00004 or normal.z<.99:failures.append([row['id'],row['support'],'missing native support',list(point)])
   stock_bearings.append({'id':row['id'],'support':row['support'],'point':[point.x,point.z,-point.y]})
 

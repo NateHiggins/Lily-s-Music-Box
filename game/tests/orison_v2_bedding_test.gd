@@ -43,8 +43,11 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var w: float=float(record.bounds[1][0])-float(record.bounds[0][0])
 		var length: float=float(record.bounds[1][2])-float(record.bounds[0][2])
 		var faces := PackedVector3Array()
-		var meshes := body.find_children("*","MeshInstance3D",true,false)
-		check(meshes.size()==4,"four batched bed roles replace the source surfaces")
+		# Count the bedding model only: resident stock rides on some beds (4D's open
+		# case, 3D's scarf) as children of the same body and is not bedding.
+		var models := body.get_children().filter(func(n: Node) -> bool: return str(n.name).begins_with("Bed_"))
+		var meshes: Array = models[0].find_children("*","MeshInstance3D",true,false) if models.size()==1 else []
+		check(models.size()==1 and meshes.size()==4,"four batched bed roles replace the source surfaces")
 		var head_z := 0.0
 		var pillow_z := 0.0
 		var pillow_low := INF
@@ -93,6 +96,8 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		check(captured,"a clear installed bed inspection stance exists: "+str(record.id))
 		beds+=1
 	check(beds==19,"all original and completion-template installed beds inspected")
-	check(unique_meshes.size()==12,"three shared variants with four material batches each")
+	# Installed variants: the 1.4 and 1.5 m plain beds and slice 46's three household states
+	# (4B's thrown wake bed is the only 2.6 m bed, so the plain 2.6 m variant is not installed).
+	check(unique_meshes.size()==20,"five installed variants with four material batches each")
 	print("BEDDING: beds=%d contacts=%d shared_meshes=%d failures=%d" % [beds,contacts,unique_meshes.size(),failures.size()])
 	return {"checks":checks,"failures":failures,"beds":beds,"contacts":contacts,"shared_meshes":unique_meshes.size()}

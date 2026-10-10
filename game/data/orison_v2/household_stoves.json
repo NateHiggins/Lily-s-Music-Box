@@ -2971,6 +2971,1193 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "HouseholdGasRangePot",
+      "parts": [
+        {
+          "name": "HouseholdGasRangePot__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__Body_ON_dark",
+          "component": "Body",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__Body_ON_enamel_pot",
+          "component": "Body",
+          "key": "enamel_pot",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.1,
+            0.14,
+            0.26,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.55
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BroilerDrawer_ON_dark",
+          "component": "BroilerDrawer",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BroilerDrawer_ON_enamel",
+          "component": "BroilerDrawer",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BroilerDrawer_ON_iron",
+          "component": "BroilerDrawer",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BroilerDrawer_ON_nickel",
+          "component": "BroilerDrawer",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerCap1_ON_dark",
+          "component": "BurnerCap1",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerCap1_ON_iron",
+          "component": "BurnerCap1",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerCap2_ON_dark",
+          "component": "BurnerCap2",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerCap2_ON_iron",
+          "component": "BurnerCap2",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerCap3_ON_dark",
+          "component": "BurnerCap3",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerCap3_ON_iron",
+          "component": "BurnerCap3",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerCap4_ON_dark",
+          "component": "BurnerCap4",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerCap4_ON_iron",
+          "component": "BurnerCap4",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerValve1_ON_bakelite",
+          "component": "BurnerValve1",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerValve1_ON_brass",
+          "component": "BurnerValve1",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerValve2_ON_bakelite",
+          "component": "BurnerValve2",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerValve2_ON_brass",
+          "component": "BurnerValve2",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerValve3_ON_bakelite",
+          "component": "BurnerValve3",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerValve3_ON_brass",
+          "component": "BurnerValve3",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerValve4_ON_bakelite",
+          "component": "BurnerValve4",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__BurnerValve4_ON_brass",
+          "component": "BurnerValve4",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__Grate1_ON_iron",
+          "component": "Grate1",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__Grate2_ON_iron",
+          "component": "Grate2",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__Grate3_ON_iron",
+          "component": "Grate3",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__Grate4_ON_iron",
+          "component": "Grate4",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__OvenDoor_ON_brass",
+          "component": "OvenDoor",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__OvenDoor_ON_enamel",
+          "component": "OvenDoor",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__OvenDoor_ON_iron",
+          "component": "OvenDoor",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__OvenValve_ON_bakelite",
+          "component": "OvenValve",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangePot__OvenValve_ON_brass",
+          "component": "OvenValve",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "HouseholdGasRangeGreasyTapes",
+      "parts": [
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Body_ON_dark",
+          "component": "Body",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Body_ON_enamel_greasy",
+          "component": "Body",
+          "key": "enamel_greasy",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.716,
+            0.644,
+            0.479,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.55
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Body_ON_grime",
+          "component": "Body",
+          "key": "grime",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.13,
+            0.085,
+            0.035,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.45
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Body_ON_nickel",
+          "component": "Body",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Body_ON_tapebox",
+          "component": "Body",
+          "key": "tapebox",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.34,
+            0.36,
+            0.4,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BroilerDrawer_ON_dark",
+          "component": "BroilerDrawer",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BroilerDrawer_ON_enamel_greasy",
+          "component": "BroilerDrawer",
+          "key": "enamel_greasy",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.716,
+            0.644,
+            0.479,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.55
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BroilerDrawer_ON_iron",
+          "component": "BroilerDrawer",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BroilerDrawer_ON_nickel",
+          "component": "BroilerDrawer",
+          "key": "nickel",
+          "tile": 0.32,
+          "catalog_key": "nickel_plated",
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerCap1_ON_dark",
+          "component": "BurnerCap1",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerCap1_ON_iron",
+          "component": "BurnerCap1",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerCap2_ON_dark",
+          "component": "BurnerCap2",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerCap2_ON_iron",
+          "component": "BurnerCap2",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerCap3_ON_dark",
+          "component": "BurnerCap3",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerCap3_ON_iron",
+          "component": "BurnerCap3",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerCap4_ON_dark",
+          "component": "BurnerCap4",
+          "key": "dark",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.033104766570885055,
+            0.030074104146591292,
+            0.027211780951381357,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerCap4_ON_iron",
+          "component": "BurnerCap4",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve1_ON_bakelite",
+          "component": "BurnerValve1",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve1_ON_brass",
+          "component": "BurnerValve1",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve2_ON_bakelite",
+          "component": "BurnerValve2",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve2_ON_brass",
+          "component": "BurnerValve2",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve3_ON_bakelite",
+          "component": "BurnerValve3",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve3_ON_brass",
+          "component": "BurnerValve3",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve4_ON_bakelite",
+          "component": "BurnerValve4",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__BurnerValve4_ON_brass",
+          "component": "BurnerValve4",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Grate1_ON_iron",
+          "component": "Grate1",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Grate2_ON_iron",
+          "component": "Grate2",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Grate3_ON_iron",
+          "component": "Grate3",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__Grate4_ON_iron",
+          "component": "Grate4",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__OvenDoor_ON_brass",
+          "component": "OvenDoor",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__OvenDoor_ON_enamel_greasy",
+          "component": "OvenDoor",
+          "key": "enamel_greasy",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "tint": [
+            0.716,
+            0.644,
+            0.479,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.13,
+            "roughness": 0.55
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__OvenDoor_ON_iron",
+          "component": "OvenDoor",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.147318999244498,
+            0.13286832155381798,
+            0.1192801876221121,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__OvenValve_ON_bakelite",
+          "component": "OvenValve",
+          "key": "bakelite",
+          "tile": 0.3,
+          "catalog_key": "bakelite_black",
+          "tint": [
+            0.27383841647314605,
+            0.12596738774090202,
+            0.06372379528489175,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.82
+          }
+        },
+        {
+          "name": "HouseholdGasRangeGreasyTapes__OvenValve_ON_brass",
+          "component": "OvenValve",
+          "key": "brass",
+          "tile": 0.6,
+          "catalog_key": "bronze_sheet",
+          "tint": [
+            0.6382832153523972,
+            0.5070785101492276,
+            0.23302199930143813,
+            1.0
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.72
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -2988,7 +4175,7 @@
     },
     {
       "id": "F02_2B_STOVE_01",
-      "variant": "HouseholdGasRange"
+      "variant": "HouseholdGasRangePot"
     },
     {
       "id": "F03_3A_STOVE_01",
@@ -3024,7 +4211,7 @@
     },
     {
       "id": "F02_2C_STOVE_01",
-      "variant": "HouseholdGasRangeGreasy"
+      "variant": "HouseholdGasRangeGreasyTapes"
     },
     {
       "id": "F04_4C_STOVE_01",

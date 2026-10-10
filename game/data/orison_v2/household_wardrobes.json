@@ -168,65 +168,20 @@
           }
         },
         {
-          "name": "Wardrobe01__Body_ON_fabric_cool",
+          "name": "Wardrobe01__Body_ON_felt_grey",
           "component": "Body",
-          "key": "fabric_cool",
+          "key": "felt_grey",
           "tile": 0.6,
           "catalog_key": "linen",
           "tint": [
-            0.36,
-            0.42,
-            0.51,
+            0.3,
+            0.3,
+            0.3,
             1
           ],
           "finish": {
-            "normal_scale": 0.16,
-            "roughness": 0.85
-          }
-        },
-        {
-          "name": "Wardrobe01__Body_ON_fabric_green",
-          "component": "Body",
-          "key": "fabric_green",
-          "tile": 0.6,
-          "catalog_key": "linen",
-          "tint": [
-            0.38,
-            0.46,
-            0.36,
-            1
-          ],
-          "finish": {
-            "normal_scale": 0.16,
-            "roughness": 0.85
-          }
-        },
-        {
-          "name": "Wardrobe01__Body_ON_fabric_warm",
-          "component": "Body",
-          "key": "fabric_warm",
-          "tile": 0.6,
-          "catalog_key": "linen",
-          "tint": [
-            0.53,
-            0.27,
-            0.12,
-            1
-          ],
-          "finish": {
-            "normal_scale": 0.16,
-            "roughness": 0.85
-          }
-        },
-        {
-          "name": "Wardrobe01__Body_ON_linen",
-          "component": "Body",
-          "key": "linen",
-          "tile": 0.6,
-          "catalog_key": "linen",
-          "finish": {
-            "normal_scale": 0.16,
-            "roughness": 0.85
+            "normal_scale": 0.14,
+            "roughness": 0.88
           }
         },
         {
@@ -258,6 +213,23 @@
           }
         },
         {
+          "name": "Wardrobe01__Body_ON_worsted_slate",
+          "component": "Body",
+          "key": "worsted_slate",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.13,
+            0.15,
+            0.18,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.14,
+            "roughness": 0.88
+          }
+        },
+        {
           "name": "Wardrobe01__LeftLeaf_ON_brass",
           "component": "LeftLeaf",
           "key": "brass",
@@ -266,6 +238,34 @@
           "finish": {
             "normal_scale": 0.035,
             "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe01__LeftLeaf_ON_metal",
+          "component": "LeftLeaf",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe01__LeftLeaf_ON_shirting",
+          "component": "LeftLeaf",
+          "key": "shirting",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.86,
+            0.86,
+            0.83,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.14,
+            "roughness": 0.88
           }
         },
         {
@@ -283,6 +283,23 @@
           "finish": {
             "normal_scale": 0.04,
             "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe01__LeftLeaf_ON_worsted_slate",
+          "component": "LeftLeaf",
+          "key": "worsted_slate",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.13,
+            0.15,
+            0.18,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.14,
+            "roughness": 0.88
           }
         },
         {

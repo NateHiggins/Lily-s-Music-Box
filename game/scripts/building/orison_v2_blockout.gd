@@ -833,8 +833,10 @@ func _far_face_skin(parent: Node3D, node_name: String, axis: String, fixed: floa
 	var start: float = (at.x - size.x * .5) if axis == "x" else (at.z - size.z * .5)
 	var finish: float = (at.x + size.x * .5) if axis == "x" else (at.z + size.z * .5)
 	var neighbour := ""
-	var n_lo := start
-	var n_hi := finish
+	# Dossier slice 44: a dry owner's wall can face several rooms (a stair core's
+	# wall runs past a vestibule, a bath and a kitchen). Tile every bath span on
+	# it, not only the first neighbour found.
+	var wet_spans: Array = []
 	for space: Dictionary in layout.spaces:
 		if str(space.level) != str(owner.level) or str(space.id) == str(owner.id): continue
 		var q: Array = space.rect
@@ -843,12 +845,15 @@ func _far_face_skin(parent: Node3D, node_name: String, axis: String, fixed: floa
 		var lo: float = float(q[0]) if axis == "x" else float(q[1])
 		var hi: float = float(q[2]) if axis == "x" else float(q[3])
 		if hi <= start + .05 or lo >= finish - .05: continue
-		neighbour = str(space.get("class", "private"))
-		n_lo = maxf(lo, start)
-		n_hi = minf(hi, finish)
-		break
-	if neighbour.is_empty() or neighbour == cls: return
-	if cls != "wet" and neighbour != "wet": return
+		var found := str(space.get("class", "private"))
+		if neighbour.is_empty(): neighbour = found
+		if found == "wet": wet_spans.append(Vector2(maxf(lo, start), minf(hi, finish)))
+	if neighbour.is_empty(): return
+	if cls == "wet":
+		if neighbour == cls: return
+	else:
+		if wet_spans.is_empty(): return
+		neighbour = "wet"
 	var thickness: float = size.z if axis == "x" else size.x
 	var shift: float = outward * (thickness * .5 + .002)
 	var skin_at := at + (Vector3(0, 0, shift) if axis == "x" else Vector3(shift, 0, 0))
@@ -858,25 +863,27 @@ func _far_face_skin(parent: Node3D, node_name: String, axis: String, fixed: floa
 	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var appended := 0
 	for source_piece: AABB in pieces:
-		var piece := source_piece
-		# A dry owner's wall may run past the bath: tile only the bath's own span.
-		if cls != "wet":
-			var p0: float = piece.position.x if axis == "x" else piece.position.z
-			var p1: float = piece.end.x if axis == "x" else piece.end.z
-			var c0 := maxf(p0, n_lo)
-			var c1 := minf(p1, n_hi)
-			if c1 - c0 < .01: continue
-			if axis == "x":
-				piece.position.x = c0; piece.size.x = c1 - c0
-			else:
-				piece.position.z = c0; piece.size.z = c1 - c0
-		var box := BoxMesh.new()
-		box.size = Vector3(piece.size.x, piece.size.y, .004) if axis == "x" else Vector3(.004, piece.size.y, piece.size.z)
-		var local := piece.get_center() - at
-		if axis == "x": local.z = 0.0
-		else: local.x = 0.0
-		surface.append_from(box, 0, Transform3D(Basis.IDENTITY, local))
-		appended += 1
+		# A dry owner's wall may run past the bath: tile only each bath's own span.
+		var spans: Array = wet_spans if cls != "wet" else [Vector2(-INF, INF)]
+		for span: Vector2 in spans:
+			var piece := source_piece
+			if cls != "wet":
+				var p0: float = piece.position.x if axis == "x" else piece.position.z
+				var p1: float = piece.end.x if axis == "x" else piece.end.z
+				var c0 := maxf(p0, span.x)
+				var c1 := minf(p1, span.y)
+				if c1 - c0 < .01: continue
+				if axis == "x":
+					piece.position.x = c0; piece.size.x = c1 - c0
+				else:
+					piece.position.z = c0; piece.size.z = c1 - c0
+			var box := BoxMesh.new()
+			box.size = Vector3(piece.size.x, piece.size.y, .004) if axis == "x" else Vector3(.004, piece.size.y, piece.size.z)
+			var local := piece.get_center() - at
+			if axis == "x": local.z = 0.0
+			else: local.x = 0.0
+			surface.append_from(box, 0, Transform3D(Basis.IDENTITY, local))
+			appended += 1
 	if appended == 0:
 		skin.free()
 		return

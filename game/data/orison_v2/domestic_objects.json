@@ -4038,6 +4038,68 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject69",
+      "parts": [
+        {
+          "name": "DomesticObject69__Body_ON_milk_glass",
+          "component": "Body",
+          "key": "milk_glass",
+          "tile": 0.5,
+          "catalog_key": "milk_glass",
+          "tint": [
+            0.02,
+            0.027,
+            0.034,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.12
+          }
+        },
+        {
+          "name": "DomesticObject69__Body_ON_soot",
+          "component": "Body",
+          "key": "soot",
+          "tile": 0.35,
+          "catalog_key": "bakelite",
+          "tint": [
+            0.3,
+            0.32,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.02,
+            "roughness": 0.42
+          }
+        },
+        {
+          "name": "DomesticObject69__Body_ON_wood_dark",
+          "component": "Body",
+          "key": "wood_dark",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "tint": [
+            0.27,
+            0.14,
+            0.065,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -4644,6 +4706,10 @@
     {
       "id": "1D_quiet_sign",
       "variant": "DomesticObject67"
+    },
+    {
+      "id": "4A_umbrella_tray",
+      "variant": "DomesticObject69"
     }
   ],
   "tint_space": "linear"

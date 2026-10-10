@@ -134,7 +134,14 @@ def wear():
   for j,(dx,dy) in enumerate([(-.012,-.01),(.014,.006),(-.004,.016),(.01,-.014)]):
    tube('BrushHandle'+str(j),(-.17+dx,-.14+dy,.95),(-.17+dx*1.8,-.14+dy*1.8,1.1),.0045,'bakelite')
    tube('BrushHead'+str(j),(-.17+dx*1.8,-.14+dy*1.8,1.098),(-.17+dx*1.9,-.14+dy*1.9,1.13),.006,'dark')
- elif identity=='HouseholdGasRangeGreasy':
+ elif identity=='HouseholdGasRangePot':
+  # Dossier slice 44 (F02_B_KITCHEN-003): Lena's borrowed-family stock pot on 2B's one lit ring
+  # (burner 4, back right, the ring the marker keeps low), lid on, its two loop handles.
+  x,y=.17,-.14
+  lathe('StockPot',x,y,.8995,[(0,0),(.11,0),(.115,.005),(.115,.15),(.12,.155),(.12,.16),(.113,.16),(.111,.155),(0,.155)],'enamel_pot')
+  lathe('PotLid',x,y,.8995+.155,[(0,0),(.116,0),(.118,.004),(.1,.016),(.02,.024),(.02,.036),(0,.036)],'enamel_pot')
+  for side in [-1,1]:tube('PotHandle'+str(side),(x+side*.108,y,.8995+.135),(x+side*.142,y,.8995+.135),.007,'nickel')
+ elif identity in ['HouseholdGasRangeGreasy','HouseholdGasRangeGreasyTapes']:
   # Slice 37: a taller tide line and wider prints, so the grease reads at the kitchen's detail distance.
   stock('TideLine',(-.25,.2925,.69),(.25,.2935,.72),'grime',.0004)
   for i,x in enumerate([-.2,-.08,.06,.19]):stock('Fingerprint'+str(i),(x-.018,.2925,.755),(x+.018,.2935,.795),'grime',.0003)
@@ -143,9 +150,18 @@ def wear():
   for i,(x,z) in enumerate([(-.2,.82),(.0,.81),(.19,.825)]):stock('Tape'+str(i),(x-.04,.2925,z-.008),(x+.04,.2935,z+.008),'tape_residue',.0003)
   for i,(x,z) in enumerate([(-.2,1.06),(.15,1.0)]):stock('TapeBack'+str(i),(x-.05,-.2684,z-.009),(x+.05,-.2676,z+.009),'tape_residue',.0003)
 
-FINISH={'HouseholdGasRangePristine':('enamel_pristine','enamel_pristine'),'HouseholdGasRangeGreasy':('enamel_greasy','enamel_greasy'),
+
+def tapes():
+ if identity!='HouseholdGasRangeGreasyTapes':return
+ # Dossier slice 44 (F02_C_KITCHEN-003): Juno's tape boxes stacked on the cold front-left ring,
+ # the side she never cooks on. Plain reel boxes, no lettering.
+ for i,(dx,dy) in enumerate([(0,0),(.006,-.004),(-.004,.005),(.003,.002)]):
+  z=.8995+i*.0218
+  stock('TapeBox'+str(i),(-.26+dx,.04+dy,z),(-.08+dx,.22+dy,z+.022),'tapebox',.0012)
+
+FINISH={'HouseholdGasRangePristine':('enamel_pristine','enamel_pristine'),'HouseholdGasRangeGreasy':('enamel_greasy','enamel_greasy'),'HouseholdGasRangeGreasyTapes':('enamel_greasy','enamel_greasy'),
         'HouseholdGasRangeWorkshop':('enamel_workshop','enamel_mismatch'),'HouseholdGasRangePaintFlecked':('enamel_paint','enamel_paint')}
 for variant in plan['variants']:
  identity=variant['id'];start=len(stock_checks)
  ENAMEL,OVEN_ENAMEL=FINISH.get(identity,('enamel','enamel'))
- body();doors();controls();burners();wear();group('GasRange',start)
+ body();doors();controls();burners();wear();tapes();group('GasRange',start)

@@ -4064,7 +4064,9 @@
    "purpose": "Wardrobe bible street state for a woman who dresses as though still due in court",
    "acceptance": "Reverse view shows the hung jacket and the squared bed",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_A_BED"
+   "area": "F02_A_BED",
+   "status": "verified",
+   "owner_notes": "Mina's street state: her slate tailor-made jacket with a white collar on a wire hanger over the wardrobe leaf (it swings with the leaf), slate garments inside, a grey cloche on the case top, and the bed squared (F02_A_BED_OV, F02_A_BED_RV). Verified at WIP 15aee765 (implementation/slice44): fabrication batch 0 failures across 13 modules; apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; completion 2C 9 waypoints and 4D 12, each with its one pre-existing route failure; public doors 17 waypoints, 0 failures; the thirteen-space sweep 0 failures; the bedding test (WIP 777d2ec2) 19 beds and 76 contacts with its one pre-existing failure, no clear inspection stance for 5C_bed0, as at slice 43."
   },
   {
    "id": "F02_B_VESTIBULE-001",
@@ -4279,7 +4281,9 @@
    "purpose": "Review: a burner is lit with nothing on it; Lena's biggest pot belongs there",
    "acceptance": "Range detail",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_B_KITCHEN"
+   "area": "F02_B_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Lena's blue enamel stock pot, lid on, on 2B's one lit ring at the back right (a new HouseholdGasRangePot variant of the range; F02_B_KITCHEN_OV, native HouseholdGasRangePot). Verified at WIP 15aee765 (implementation/slice44): fabrication batch 0 failures across 13 modules; apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; completion 2C 9 waypoints and 4D 12, each with its one pre-existing route failure; public doors 17 waypoints, 0 failures; the thirteen-space sweep 0 failures; the bedding test (WIP 777d2ec2) 19 beds and 76 contacts with its one pre-existing failure, no clear inspection stance for 5C_bed0, as at slice 43."
   },
   {
    "id": "F02_B_PRIVATE_HALL-001",
@@ -4567,7 +4571,9 @@
    "preserve": "StoveProp oven leaf and burner service APIs",
    "acceptance": "Detail view at the range",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_C_KITCHEN"
+   "area": "F02_C_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Juno's four plain reel boxes stacked on the cold front-left ring of 2C's greasy range, the side she never cooks on (HouseholdGasRangeGreasyTapes; F02_C_KITCHEN_OV). Verified at WIP 15aee765 (implementation/slice44): fabrication batch 0 failures across 13 modules; apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; completion 2C 9 waypoints and 4D 12, each with its one pre-existing route failure; public doors 17 waypoints, 0 failures; the thirteen-space sweep 0 failures; the bedding test (WIP 777d2ec2) 19 beds and 76 contacts with its one pre-existing failure, no clear inspection stance for 5C_bed0, as at slice 43."
   },
   {
    "id": "F02_C_KITCHEN-004",
@@ -4703,8 +4709,8 @@
    "acceptance": "Overview shows the bed unmade",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
    "area": "F02_C_BED1",
-   "status": "implemented",
-   "owner_notes": "Juno's black Bakelite recorder (two reels, a knob, a front grille, a cloth cord) and a mug on 2C's nightstand (F02_C_BED1_OV). Not made: the thrown-back counterpane, which needs a bedding variant of the bed family. Verified at WIP d0986324 (implementation/slice38): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 486 (unchanged from slice 37); upper lighting 0 failures; completion 2C 9 waypoints with its one pre-existing route failure; the four-space sweep 0 failures."
+   "status": "verified",
+   "owner_notes": "Juno's black Bakelite recorder (two reels, a knob, a front grille, a cloth cord) and a mug on 2C's nightstand (F02_C_BED1_OV). Slice 46 made the bed unmade: the counterpane pushed down past the pillows on a slant (Bed_150_205_unmade; F02_C_BED1_OV). Verified at WIP d0986324 (implementation/slice38): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 486 (unchanged from slice 37); upper lighting 0 failures; completion 2C 9 waypoints with its one pre-existing route failure; the four-space sweep 0 failures. Verified at WIP 15aee765 (implementation/slice44): fabrication batch 0 failures across 13 modules; apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; completion 2C 9 waypoints and 4D 12, each with its one pre-existing route failure; public doors 17 waypoints, 0 failures; the thirteen-space sweep 0 failures; the bedding test (WIP 777d2ec2) 19 beds and 76 contacts with its one pre-existing failure, no clear inspection stance for 5C_bed0, as at slice 43."
   },
   {
    "id": "F02_C_BED2-001",
@@ -6622,7 +6628,9 @@
    "purpose": "A man who has never left a chair out",
    "acceptance": "Overview",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_A_MAIN"
+   "area": "F04_A_MAIN",
+   "status": "implemented",
+   "owner_notes": "Both dining chairs tucked square to 4A's round table (F04_A_MAIN_OV). Not made: the radio dial set at one station. Verified at WIP 15aee765 (implementation/slice44): fabrication batch 0 failures across 13 modules; apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; completion 2C 9 waypoints and 4D 12, each with its one pre-existing route failure; public doors 17 waypoints, 0 failures; the thirteen-space sweep 0 failures; the bedding test (WIP 777d2ec2) 19 beds and 76 contacts with its one pre-existing failure, no clear inspection stance for 5C_bed0, as at slice 43."
   },
   {
    "id": "F04_A_MAIN-005",
@@ -7262,8 +7270,8 @@
    "acceptance": "Overview from the approach",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "F04_B_ALCOVE",
-   "status": "implemented",
-   "owner_notes": "A pair of work boots kicked off at the alcove bed's foot, one fallen against the other, on the west side clear of the wake route and bedside stance, and a blank work slip on the nightstand (F04_B_ALCOVE_OV). Not made: the thrown-back bedding, which needs a bedding variant of the bed family. Verified at WIP 991e7f05 (implementation/slice37): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; bookshelves 144 checks, 0 failures with stock on the plain case tops; upper kitchens 206; upper furniture 486 (four more of the pre-existing material-binding class, from new stock meshes on probed tables); upper lighting 0 failures; the eight-space sweep 0 failures. The earned-dream suite stops at its own precondition (no earned input save) before it reaches the alcove."
+   "status": "verified",
+   "owner_notes": "A pair of work boots kicked off at the alcove bed's foot, one fallen against the other, on the west side clear of the wake route and bedside stance, and a blank work slip on the nightstand (F04_B_ALCOVE_OV). Slice 46 made the thrown-back bedding: the wake bed's blanket thrown back to the foot third in a bundle (bedding variant Bed_135_260_thrown; F04_B_ALCOVE_OV). Verified at WIP 991e7f05 (implementation/slice37): fabrication batch 0 failures across 13 modules; apartment batch 236 on the long runner; household state 154 checks, 0 failures; bookshelves 144 checks, 0 failures with stock on the plain case tops; upper kitchens 206; upper furniture 486 (four more of the pre-existing material-binding class, from new stock meshes on probed tables); upper lighting 0 failures; the eight-space sweep 0 failures. The earned-dream suite stops at its own precondition (no earned input save) before it reaches the alcove. Verified at WIP 15aee765 (implementation/slice44): fabrication batch 0 failures across 13 modules; apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; completion 2C 9 waypoints and 4D 12, each with its one pre-existing route failure; public doors 17 waypoints, 0 failures; the thirteen-space sweep 0 failures; the bedding test (WIP 777d2ec2) 19 beds and 76 contacts with its one pre-existing failure, no clear inspection stance for 5C_bed0, as at slice 43."
   },
   {
    "id": "F04_C_VESTIBULE-001",
@@ -7932,8 +7940,8 @@
    "acceptance": "Overview",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "F04_D_BED",
-   "status": "implemented",
-   "owner_notes": "4D's late-night state: an open leather suitcase on the blanket with a few things packed, and the wardrobe's own variant (Wardrobe16) holding only empty wire hangers (F04_D_BED_OV, Wardrobe16_open). Not made: the mismatched pillows, which need a bedding variant. Verified at WIP da33cf1d (implementation/slice40): fabrication batch 0 failures across 14 modules (task lamps included; the T-square captured natively); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488 (two more of the pre-existing material-binding class, from new stock meshes on probed furniture); upper lighting 0 failures; completion 4D 12 waypoints with its one pre-existing route failure; the three-space sweep and a seven-space inspection sweep 0 failures."
+   "status": "verified",
+   "owner_notes": "4D's late-night state: an open leather suitcase on the blanket with a few things packed, and the wardrobe's own variant (Wardrobe16) holding only empty wire hangers (F04_D_BED_OV, Wardrobe16_open). Slice 46 made the mismatched pillows: one full pillow beside a smaller, flatter one set askew (Bed_150_205_pillows; F04_D_BED_DT2). Verified at WIP da33cf1d (implementation/slice40): fabrication batch 0 failures across 14 modules (task lamps included; the T-square captured natively); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488 (two more of the pre-existing material-binding class, from new stock meshes on probed furniture); upper lighting 0 failures; completion 4D 12 waypoints with its one pre-existing route failure; the three-space sweep and a seven-space inspection sweep 0 failures. Verified at WIP 15aee765 (implementation/slice44): fabrication batch 0 failures across 13 modules; apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; completion 2C 9 waypoints and 4D 12, each with its one pre-existing route failure; public doors 17 waypoints, 0 failures; the thirteen-space sweep 0 failures; the bedding test (WIP 777d2ec2) 19 beds and 76 contacts with its one pre-existing failure, no clear inspection stance for 5C_bed0, as at slice 43."
   },
   {
    "id": "F04_D_STUDY-001",
@@ -9275,7 +9283,9 @@
    "purpose": "Review: tile stops at the corner; the WC also lacks its cistern (BW-018) and the duct reads modern (BW-005)",
    "acceptance": "Bath OV",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_C_BATH"
+   "area": "F05_C_BATH",
+   "status": "verified",
+   "owner_notes": "The sink wall is tiled: it belongs to the public core, whose wall also faces 5C's vestibule and kitchen, and the far-face tile skin now covers every bath span along a dry owner's wall instead of only the first neighbour found. The same change tiles the 2A and 4B sink walls (F05_C_BATH_OV, F02_A_BATH_OV, F04_B_BATH_OV). Verified at WIP 15aee765 (implementation/slice44): fabrication batch 0 failures across 13 modules; apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488; upper lighting 0 failures; completion 2C 9 waypoints and 4D 12, each with its one pre-existing route failure; public doors 17 waypoints, 0 failures; the thirteen-space sweep 0 failures; the bedding test (WIP 777d2ec2) 19 beds and 76 contacts with its one pre-existing failure, no clear inspection stance for 5C_bed0, as at slice 43."
   },
   {
    "id": "F05_C_BED1-001",

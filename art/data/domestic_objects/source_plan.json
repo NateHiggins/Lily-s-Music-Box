@@ -814,6 +814,12 @@
     "route": true
    },
    "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject69",
+   "kind": "overflowtray",
+   "source_id": "4A_umbrella_tray",
+   "params": {}
   }
  ],
  "instances": [
@@ -1420,6 +1426,10 @@
   {
    "id": "1D_quiet_sign",
    "variant": "DomesticObject67"
+  },
+  {
+   "id": "4A_umbrella_tray",
+   "variant": "DomesticObject69"
   }
  ],
  "runtime_keys": [
@@ -1715,7 +1725,8 @@
   "Slice 38 of the V2 environment dossier adds a dressform form: Lena's tripod dress form in 2B wearing her own printed voile frock with a row of pins in the turned-up hem. voile is a tinted alias of the catalogue linen.",
   "Slice 40 of the V2 environment dossier adds a tsquare form: Nadia's boxwood T-square hung head-down on a nail on 5A's study wall beside her pinboard.",
   "Slice 41 of the V2 environment dossier adds a verticalfile form (4A's oak four-drawer hall file, top drawer not quite shut) and a chargingcase form (the basement shop's SR7 charging case with its lead to a wall plate), and a copy of 3B_partscrate as the shop's capsule crate at the bench's east end.",
-  "Slice 42 of the V2 environment dossier adds a wallbell form (1D's house bell above the signal outlet, its flex run down to it), a quietsign form (1D's framed card with one stroke and the watch hook), and DomesticObject68, 4C's colour board with Cam's route thread and ticket stubs pinned over it."
+  "Slice 42 of the V2 environment dossier adds a wallbell form (1D's house bell above the signal outlet, its flex run down to it), a quietsign form (1D's framed card with one stroke and the watch hook), and DomesticObject68, 4C's colour board with Cam's route thread and ticket stubs pinned over it.",
+  "Slice 44 of the V2 environment dossier adds an overflowtray form: 4A's japanned umbrella drip tray by the door, water at the rim and a dark water line on the oak around it."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",
