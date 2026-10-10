@@ -837,6 +837,41 @@ def tsquare(source):
  for x in [-.015,.015]:stock('Screw'+str(x),(x-.004,.0115,.02),(x+.004,.0135,.028),'brass',.0005)
  group('TSquare',start)
 
+def verticalfile(source):
+ # Dossier slice 41: Peter Wren's second-hand oak four-drawer vertical file, the top drawer not quite shut.
+ start=len(stock_checks)
+ stock('Plinth',(-.18,-.31,0),(.18,.29,.065),'wood_dark',.004)
+ stock('Carcass',(-.19,-.325,.064),(.19,.305,1.3),'timber',.004)
+ stock('Top',(-.2,-.33,1.299),(.2,.315,1.335),'timber',.004)
+ for i,(z0,z1) in enumerate([(.07,.37),(.38,.68),(.69,.99),(1.0,1.29)]):
+  out=.06 if i==3 else 0
+  stock('Drawer'+str(i),(-.178,.3045+out,z0),(.178,.322+out,z1),'timber',.003)
+  if out:
+   for x in [-.17,.152]:stock('DrawerSide'+str(x),(x,.25,z0+.02),(x+.018,.31+out,z1-.03),'timber',.001)
+  zp=z0+(z1-z0)*.62
+  tube('Pull'+str(i),(-.05,.3215+out,zp),(.05,.3215+out,zp),.008,'metal')
+  stock('LabelFrame'+str(i),(-.045,.3215+out,zp+.035),(.045,.325+out,zp+.065),'brass',.0006)
+  stock('LabelCard'+str(i),(-.04,.3245+out,zp+.039),(.04,.3255+out,zp+.061),'paper',.0002)
+ # Finger grime round the top pull and a cup ring on the top.
+ stock('Grime',(-.065,.3815,1.165),(.065,.3825,1.2),'soot',.0002)
+ lathe('CupRing',.06,-.12,1.3348,[(.0355,0),(.036,.0002),(.036,.0004),(.0315,.0004),(.031,.0002),(.0315,0),(.0355,0)],'soot')
+ for p in [(-.17,-.3,0),(.17,-.3,0),(-.17,.28,0),(.17,.28,0)]:bearing('file '+str(p),p)
+ group('VerticalFile',start)
+
+def chargingcase(source):
+ # Dossier slice 41: the SR7 battery charging case on the floor by the wall, its cloth lead run up to a wall plate.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y']
+ stock('Case',(-.18,back+.04,0),(.18,back+.3,.22),'timber',.004)
+ stock('Lid',(-.185,back+.035,.218),(.185,back+.305,.24),'timber',.003)
+ for x in [-.1,.1]:
+  lathe('Terminal'+str(x),x,back+.2,.239,[(0,0),(.012,0),(.012,.02),(.007,.024),(.007,.035),(0,.035)],'brass')
+ stock('Handle',(-.06,back+.16,.239),(.06,back+.18,.26),'rubber_aged',.002)
+ stock('Plate',(-.05,back,.32),(.05,back+.008,.42),'bakelite',.002)
+ support(identity,'wall',(0,back,.37),(0,1,0),'signal plate screwed to the wall')
+ wire('Lead',[(-.1,back+.2,.265),(-.12,back+.12,.32),(-.06,back+.05,.36),(0,back+.006,.37)],.004,'linen')
+ for p in [(-.16,back+.06,0),(.16,back+.06,0),(-.16,back+.28,0),(.16,back+.28,0)]:bearing('case '+str(p),p)
+ group('ChargingCase',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -890,4 +925,6 @@ for assembly in assemblies:
  elif kind=='workboots':workboots(source)
  elif kind=='dressform':dressform(source)
  elif kind=='tsquare':tsquare(source)
+ elif kind=='verticalfile':verticalfile(source)
+ elif kind=='chargingcase':chargingcase(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

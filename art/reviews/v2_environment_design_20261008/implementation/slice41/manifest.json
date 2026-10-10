@@ -1,0 +1,114 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/4A_hall_file_native.jpg",
+   "source": "fabrication_shots/domestic_objects/4A_hall_file_native.png",
+   "sha256": "2fec4c75ea52986e8beea5504706dbdd79c08c74782d658808eb92db4307e505",
+   "bytes": 100665
+  },
+  {
+   "path": "images/B1_charging_case_native.jpg",
+   "source": "fabrication_shots/domestic_objects/B1_charging_case_native.png",
+   "sha256": "1d33cb83b58cc8ecbc128a56125a944e72283c897f3506bdc373a9ed720d9251",
+   "bytes": 97527
+  },
+  {
+   "path": "images/ToasterForm_lever_end.jpg",
+   "source": "native/ToasterForm_lever_end.png",
+   "sha256": "588d791b6a1e05d3cb59ff93d8785c761e5ad919b5774ccdc15c68c6e47ae93e",
+   "bytes": 61771
+  },
+  {
+   "path": "images/F04_A_PRIVATE_HALL_OV.jpg",
+   "source": "sweep_shots/F04_A_PRIVATE_HALL_OV.png",
+   "sha256": "b6fd2fed3823c0dad5b5891a12969526e144b0c71e1478b5608c550d59687bfb",
+   "bytes": 98071
+  },
+  {
+   "path": "images/B1_MAINTENANCE_SHOP_OV.jpg",
+   "source": "sweep_shots/B1_MAINTENANCE_SHOP_OV.png",
+   "sha256": "3f6103cf7fc245d1497e175cc6e5433457d83c49c17178e8bda3658bfc061590",
+   "bytes": 92011
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "2d09e4b8569ded785494a1e07e9ae3e7b32986c1a32fb5e419e0fb40c60e6e7f",
+   "bytes": 3392
+  },
+  {
+   "path": "receipts/basement_route.log.receipt.json",
+   "source": "basement_route.log.receipt.json",
+   "sha256": "2f469d4b559ec69e91492322ec022b698bc6e9a8b0da1ee74ce08035ae6efc7d",
+   "bytes": 3191
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "8bf5c0ee20ac58151db402dec922122eb9ee1ffffd13933b27f401a88e2c4565",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/household_state.log.receipt.json",
+   "source": "household_state.log.receipt.json",
+   "sha256": "7bc8c28049292cab54a829675b29c891e6f79516968cbc0646a7ef2b23234da3",
+   "bytes": 3196
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "5e331fafbdb5c030679963b34f0b2384bdc3f8b098af0acb3c740f890f63183a",
+   "bytes": 3138
+  },
+  {
+   "path": "receipts/sweep_a.log.receipt.json",
+   "source": "sweep_a.log.receipt.json",
+   "sha256": "766222d82d21ae055c3f8c1dc956642d1a7bc14ee2451c93aaf072f8a4cba0a5",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/upper_furniture.log.receipt.json",
+   "source": "upper_furniture.log.receipt.json",
+   "sha256": "2c43f23a308480dbf77a36da0dda9f0fa584e078ce82e272971971557ad44a2b",
+   "bytes": 3195
+  },
+  {
+   "path": "receipts/upper_kitchen.log.receipt.json",
+   "source": "upper_kitchen.log.receipt.json",
+   "sha256": "c9d54b562bbf3df7fa6eea312b0097072f6fa080142ba987805178ebde5e8318",
+   "bytes": 3188
+  },
+  {
+   "path": "receipts/upper_lighting.log.receipt.json",
+   "source": "upper_lighting.log.receipt.json",
+   "sha256": "956d81c935c9575292647eec91f04a9d1e3e0714c3bc50b1f514ad72613a0ec2",
+   "bytes": 3192
+  },
+  {
+   "path": "receipts/wall_mount.log.receipt.json",
+   "source": "wall_mount.log.receipt.json",
+   "sha256": "a6ce4c036be87554ee73cf0b695bef370f2151ea8f30e8f12eab9dd729e950d4",
+   "bytes": 3175
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "864b56c4483f8c065fa93532907b93ddc646ff9d0bebf101a5c4baf08c1273c2",
+   "bytes": 6603
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "e80eb49c9cf373b9c6485c04a5c7bb8311d7923436ef43ef2a86cf24e25f3ab3",
+   "bytes": 781565
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "6a74d0c2db1ed52638a4115a70a69d21213906bed08630e8518253a81b54fd03",
+   "bytes": 15933
+  }
+ ]
+}

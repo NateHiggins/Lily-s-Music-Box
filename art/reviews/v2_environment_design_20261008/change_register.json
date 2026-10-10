@@ -298,7 +298,9 @@
    "preserve": "Bench stance, door swings",
    "acceptance": "Overview reads a working shop",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "B1_MAINTENANCE_SHOP"
+   "area": "B1_MAINTENANCE_SHOP",
+   "status": "implemented",
+   "owner_notes": "The basement shop's stock: six kraft bulb cartons on the parts shelf's third board (its own variant, Shelf14), a capsule crate on the floor at the bench's east end, and the SR7 charging case on the floor by the west wall with its cloth lead run up to a wall plate (B1_charging_case_native, B1_MAINTENANCE_SHOP_OV). The bench, a copy of 3B's, already carries a vice at its west end. Not made: the service-round tally board (needs Label3D) and a vice at the door end. Verified at WIP fd1cffd0 (implementation/slice41): fabrication batch 0 failures across 13 modules (the hall file and the charging case captured natively); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488 (unchanged from slice 40); upper lighting 0 failures; basement route 88 waypoints and wall mounts 4 waypoints, 0 failures; the four-space sweep 0 failures."
   },
   {
    "id": "B1_MAINTENANCE_SHOP-002",
@@ -6692,7 +6694,9 @@
    "preserve": "ToasterProp carriage, elements and crumb pan",
    "acceptance": "Detail view at the toaster",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_A_KITCHEN"
+   "area": "F04_A_KITCHEN",
+   "status": "verified",
+   "owner_notes": "4A's toaster is its own variant (ToasterForm) with a blank form taped by two strips to the front half of the lever end, beside the slot; the carriage lever and the browning control on the other end stay clear (ToasterForm_lever_end, a native render of the installed variant). Verified at WIP fd1cffd0 (implementation/slice41): fabrication batch 0 failures across 13 modules (the hall file and the charging case captured natively); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488 (unchanged from slice 40); upper lighting 0 failures; basement route 88 waypoints and wall mounts 4 waypoints, 0 failures; the four-space sweep 0 failures."
   },
   {
    "id": "F04_A_PRIVATE_HALL-001",
@@ -6731,7 +6735,9 @@
    "preserve": "Door swings and the hall's clear width",
    "acceptance": "Hall OV reads the file; doors still open fully",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_A_PRIVATE_HALL"
+   "area": "F04_A_PRIVATE_HALL",
+   "status": "verified",
+   "owner_notes": "Wren's hall file: a second-hand oak four-drawer vertical file (new verticalfile object, 0.40 x 0.71 x 1.34 m) against the hall's east wall between the switch and the boots, the top drawer not quite shut, nickel pulls, blank brass label frames, finger grime at the top pull and a cup ring on the top; the hall keeps over 2 m clear (implementation/slice41/images: 4A_hall_file_native, F04_A_PRIVATE_HALL_OV). Verified at WIP fd1cffd0 (implementation/slice41): fabrication batch 0 failures across 13 modules (the hall file and the charging case captured natively); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 488 (unchanged from slice 40); upper lighting 0 failures; basement route 88 waypoints and wall mounts 4 waypoints, 0 failures; the four-space sweep 0 failures."
   },
   {
    "id": "F04_A_BATH-001",

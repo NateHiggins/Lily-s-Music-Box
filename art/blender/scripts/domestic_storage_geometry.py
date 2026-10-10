@@ -102,6 +102,12 @@ def shelf(row,p):
     vessel(identity+'_Tin%d%d'%(i,j),x,y,z-.0005,[(0,0),(.035,0),(.035,.07),(0,.07)],identity,'metal')
     vessel(identity+'_TinLid%d%d'%(i,j),x,y,z+.068,[(0,0),(.037,0),(.037,.008),(0,.008)],identity,'metal')
     if j==0:stock('TinLabel%d'%i,(x-.015,y+.034,z+.02),(x+.015,y+.037,z+.045),'paper',.0003)
+ if p.get('bulbs'):
+  # Dossier slice 41: the maintenance shop's bulb stock, kraft cartons standing on the third board.
+  lo,hi=boards[2];z=hi[2]
+  for i in range(6):
+   x=-.42+i*.09
+   stock('BulbCarton%d'%i,(x-.04,-.06,z-.0005),(x+.04,.05,z+.15),'kraft',.002)
  retained_stock.append({'assembly':identity,'kind':'shelf','boards':len(boards),'height':height,'books':sum(len(s['vertices'])//108 for k,s in surfaces.items() if k.startswith('book_'))})
 
 def cupboard(row,p):

@@ -902,6 +902,24 @@
         "component": "tsquare",
         "note": "V2 environment dossier F05_A_STUDY-001 (slice 40); no V1 counterpart"
       }
+    },
+    "4A_hall_file": {
+      "source_component": {
+        "component": "verticalfile",
+        "note": "V2 environment dossier F04_A_PRIVATE_HALL-002 (slice 41); no V1 counterpart"
+      }
+    },
+    "B1_charging_case": {
+      "source_component": {
+        "component": "chargingcase",
+        "note": "V2 environment dossier B1_MAINTENANCE_SHOP-001 (slice 41); no V1 counterpart"
+      }
+    },
+    "B1_capsule_crate": {
+      "source_component": {
+        "component": "3B_partscrate",
+        "note": "V2 environment dossier B1_MAINTENANCE_SHOP-001 (slice 41): a copy of 3B_partscrate"
+      }
     }
   },
   "receivers": {

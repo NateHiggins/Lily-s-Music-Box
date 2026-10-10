@@ -126,8 +126,10 @@ def toaster(axis):
  if identity=='ToasterForm':
   # Dossier slice 38: the replacement form Peter Wren never filed, taped to the plain -x end panel,
   # clear of the carriage lever slot on the +x end. Blank paper: no lettering.
-  stock('Form',(-.1256,-.042,.045),(-.1244,.042,.14),'formpaper',.0001)
-  for z in [.047,.128]:stock('Tape'+str(z),(-.1259,-.035,z),(-.1255,.035,z+.01),'tape',.0001)
+  # Slice 41: the -x end carries the browning control, so the form is taped to the front half of the
+  # lever end instead, beside the slot and clear of the carriage grip's travel.
+  stock('Form',(.1244,.016,.035),(.1256,.054,.13),'formpaper',.0001)
+  for z in [.037,.12]:stock('Tape'+str(z),(.1255,.019,z),(.1259,.051,z+.008),'tape',.0001)
  group('SupportedSingleSlotMechanism',start)
 
 for assembly in assemblies:

@@ -481,6 +481,59 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "Shelf14",
+      "parts": [
+        {
+          "name": "Shelf14__floor_oak",
+          "key": "floor_oak",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Shelf14__kraft",
+          "key": "kraft",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.5,
+            0.36,
+            0.22,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "Shelf14__metal",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal"
+        },
+        {
+          "name": "Shelf14__trim",
+          "key": "trim",
+          "tile": 1.2,
+          "catalog_key": "trim",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -506,7 +559,7 @@
     },
     {
       "id": "b1_parts_shelf",
-      "variant": "Shelf01"
+      "variant": "Shelf14"
     },
     {
       "id": "4B_shelf",

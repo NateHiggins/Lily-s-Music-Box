@@ -1682,19 +1682,19 @@
       "name": "ToasterForm_Form",
       "assembly": "ToasterForm",
       "key": "formpaper",
-      "volume_m3": 9.574183195476126e-06
+      "volume_m3": 4.330652109115829e-06
     },
     {
-      "name": "ToasterForm_Tape0.047",
+      "name": "ToasterForm_Tape0.037",
       "assembly": "ToasterForm",
       "key": "tape",
-      "volume_m3": 2.7920248619965173e-07
+      "volume_m3": 1.0199944680102047e-07
     },
     {
-      "name": "ToasterForm_Tape0.128",
+      "name": "ToasterForm_Tape0.12",
       "assembly": "ToasterForm",
       "key": "tape",
-      "volume_m3": 2.792020830084914e-07
+      "volume_m3": 1.0199955420126843e-07
     }
   ],
   "contacts": [
@@ -2778,9 +2778,9 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "7ab096d7bf5de6f7809bb75eff2c1cb90e06b936baa34a6f1110d2a799aee08e",
+  "asset_sha256": "e0bf1afe76a5402d93c6eb7abd4c3c9a5272679a1ddb1d8abfe6af053881dac2",
   "source_bindings": {
-    "art/data/household_toasters/source_plan.json": "8204bfb24205a7438be6311cd7c3ee30ae34cf4caa6e04731e0206eebb633a89",
+    "art/data/household_toasters/source_plan.json": "a5a891158f9f0954b82a27066c4f60fe7afefdaf5d6f33af1e52d56e8d5c5599",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_household_toasters.py": "8296e04fa2f7e2142acc13d31eee6cc9107accac6bccd322b5b4095dbf9614a9",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -2819,9 +2819,9 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_household_toasters.py": "29c3abeef6541c9ab654a81f818b91d6546c92f7048008ed935f75a1e624d244",
     "art/blender/scripts/render_household_toasters.py": "408e18aac98c1f86f34abdbf1b35b9e5cf4902f66e90cf35b5fb004f3482bd7c",
-    "art/blender/scripts/household_toasters_geometry.py": "8bbe76e555c5a188ed8eca49dba638a594e2c98fe1a0666fcfc7a2ec2f0dd00c",
+    "art/blender/scripts/household_toasters_geometry.py": "efda6c6d20d9e03636d359f94b4a66cb9b81b4edfc283f9d06970f0c7825fee5",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "28e646237b8e8fdce0a447dec4daa132f125ba74e46d7f167130990a6cfc11cf",
+    "game/data/orison_v2/domestic_furniture.json": "e7ecb518c9eb62e6892646abd8d05ea347e31a30e91af8c504db648f922ac899",
     "game/data/orison_v2/completion_interiors.json": "a6c5fb7ae24bc1de84f901de1332a55346c968c8ca7904db65a018eec33b444c",
     "art/data/orison_v2/completion_interiors_source.json": "99460bfbb6f54dfb9a7b2f77acc9688c597f00a199822d95955e6de97eaf03b0",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
@@ -2829,20 +2829,20 @@
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_household_toaster_motion.py": "9019c8b4a08f01cd6e80f582ad5d76813eb11452db98a74c1a9782ad25553bb8",
     "art/blender/scripts/inspect_household_toasters_context.py": "005ede3728a2e9e80e77ddc92df79502e470ce15760d8046b800f5885cb616f9",
-    "game/data/orison_v2_blockout.json": "ad080699e6b689c165204b75d3fab5a1fe8d919f8136122e01c0d9d730950445",
+    "game/data/orison_v2_blockout.json": "41f86f854c870a78fd251e172e7304aa444c090e81d723602e6a219add0ae2c2",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
     "game/data/orison_v2/domestic_surface_props.json": "741a20b54e71ce17c12435686b8b18fb7a85538a3a21cd1e5ed7aa84c7c57275",
-    "game/tests/fixtures/orison_surface_stock.json": "8f3b516c9b1a2c77f587b41ceade0e0b7d51ef7fbd923223df492bd0a2613bdd",
-    "art/blender/domestic_storage.blend": "f5bda257673a29d76afac7958444b49fb68ef3731a5e610127d2a53735998efe",
-    "art/blender/prep_cabinets.blend": "16fc9f566b76982b556855fd3c00297d0a02c15528c1374435ac0562a5d96327",
-    "art/blender/household_wardrobes.blend": "211f35478bc2571c8debe9fa22bfbe8d469c1da06e125d7759bbbba151bd81d6",
-    "art/blender/domestic_objects.blend": "e9fcfe9684d1c1ccb29cd1c768a3ad5621a64fe31436f5dcaf681d39d5db79cf",
+    "game/tests/fixtures/orison_surface_stock.json": "ae4301045bccbad6e2908d14c6a0f431986009312d596204bd67c92415d53269",
+    "art/blender/domestic_storage.blend": "8ef1d001bc817e7f86940d7338a363e38a52efdf0769d6f3e0872941f6c3289a",
+    "art/blender/prep_cabinets.blend": "528f8d7b55e3c84685395e8358a04398cc759ed9e8d0471efcb98943700b34b1",
+    "art/blender/household_wardrobes.blend": "719fa31df8656bdb53bad635c451a215288ad1daa0718ea68258bdaffe840245",
+    "art/blender/domestic_objects.blend": "ee5f2bab2a94e44a61796f3bec9bcce7d3389206709c181f8aa9ca7aca8646e5",
     "game/scripts/props/toaster_prop.gd": "b10f8d9da4cf4b1ff15a26ee1853fddcaf18179f474d77992f0b260a9f73b69e",
     "game/scripts/props/functional_prop.gd": "c715e6df864bf2feb593af2cd4229dfe5e48f6fe5f173dca5615ae3fde671853",
     "game/data/orison_v2/household_accessories.json": "cb5a8580d11fedac2fe7a0b1ae6dfaa82421803b9b7d3c2abc666e81c0ff1a32",
     "art/blender/scripts/surface_stock_geometry.py": "62c49b9906e3d22c1833d5686934c702723ba9639f07079b211fa537d9d28039",
-    "art/blender/domestic_seating.blend": "ed99cdafeda205608279c92768155ef7a7b0d9ecedb09e4e4634d0b458340e7b",
-    "art/blender/domestic_tables.blend": "2316c9c01ab4699efc75ef3ac2b16f790de75cd66bcea29da2e1fb9f9f8d51ac"
+    "art/blender/domestic_seating.blend": "26618bd8cf8bcb17ca23d9447e5428cca72c23e43ed8d0d57ee3a2a0b5810669",
+    "art/blender/domestic_tables.blend": "2b2caad6e0983404476180235b722ecdd003d5766a95908667c5051d7f2e2736"
   },
   "retained_stock": [
     {
@@ -3195,8 +3195,8 @@
         "ToasterForm_PanPull",
         "ToasterForm_GreaseFilm",
         "ToasterForm_Form",
-        "ToasterForm_Tape0.047",
-        "ToasterForm_Tape0.128"
+        "ToasterForm_Tape0.037",
+        "ToasterForm_Tape0.12"
       ]
     }
   ],

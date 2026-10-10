@@ -162,6 +162,8 @@ Slices landed so far (evidence folders in parentheses):
     and four rows closed against captures (`slice39`).
 40. 5A's japanned lamp, glazed model case and T-square, 4D's open case and empty
     hangers, and an inspection sweep of seven rooms (`slice40`).
+41. 4A's hall file, the toaster form moved beside the lever, and the basement shop's
+    bulbs, crate and charging case (`slice41`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the
