@@ -737,6 +737,19 @@ def opencase(source):
  stock('PackedJumper',(0,-.16,.0055),(.238,.16,.055),'wool_burgundy',.006)
  for p in [(-.23,-.15,0),(.23,-.15,0),(-.23,.49,0),(.23,.49,0)]:bearing('case '+str(p),p)
  group('OpenCase',start)
+# Dossier slice 42: Cal's hearing aid out for the night, its cord coiled beside the battery box.
+def hearingaid(source):
+ start=len(stock_checks)
+ stock('BatteryBox',(-.05,-.03,0),(.05,.03,.05),'bakelite',.003)
+ for x in [-.025,.025]:lathe('Terminal'+str(x),x,0,.0495,[(0,0),(.006,0),(.006,.012),(.004,.016),(0,.016)],'brass')
+ stock('MicBox',(.07,-.025,0),(.13,.025,.025),'bakelite',.003)
+ lathe('Grille',.1,0,.0245,[(0,0),(.016,0),(.016,.004),(0,.004)],'nickel_plated')
+ lathe('Earpiece',.03,.07,0,[(0,0),(.016,0),(.018,.006),(.012,.014),(0,.015)],'bakelite')
+ wire('CordMic',[(.04,0,.02),(.06,0,.012),(.075,0,.012)],.002,'linen')
+ coil=[(-.02+.022*math.cos(t),.065+.022*math.sin(t),.003+.0004*t) for t in np.linspace(0,math.tau*2,49)]
+ wire('CordEar',[(0,.025,.02),(-.005,.045,.006)]+coil+[(.015,.07,.006),(.03,.07,.006)],.002,'linen')
+ for p in [(-.045,-.025,0),(.045,-.025,0),(-.045,.025,0),(.045,.025,0),(.1,0,0),(.03,.07,0)]:bearing('aid '+str(p),p)
+ group('HearingAid',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -814,4 +827,5 @@ for assembly in assemblies:
  elif kind=='pruningcloth':pruningcloth(source)
  elif kind=='modelcase':modelcase(source)
  elif kind=='opencase':opencase(source)
+ elif kind=='hearingaid':hearingaid(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

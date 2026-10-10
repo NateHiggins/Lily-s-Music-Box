@@ -186,8 +186,35 @@ func _build_speaker(kind: String) -> void:
 		var horn := make_cyl(0.16, 0.055, 0.23, Vector3(0.37, 0.22, 0), BRASS, 0.42)
 		horn.rotation.x = PI * 0.5
 	if kind.contains("cone") or kind == "cone":
-		var cone := make_cyl(0.15, 0.035, 0.055, Vector3(-0.38, 0.20, -0.02), CLOTH, 0.65)
-		cone.rotation.x = PI * 0.5
+		_build_cone_speaker(Vector3(-0.38, 0.0, -0.02))
+
+
+## Dossier slice 42: a free-standing cone of the late 1920s. The cone is an open
+## frustum seen from its concave face, held in a japanned rim;
+## the drive unit sits at the apex on a rear strut over a japanned foot. It stays
+## inside the receiver's authored clearance (x >= -0.53, top <= 0.35 m).
+func _build_cone_speaker(at: Vector3) -> void:
+	var centre := at + Vector3(0, 0.20, 0)
+	make_cyl(0.068, 0.074, 0.016, at + Vector3(0, 0.008, 0.012), BLACK, 0.45, 0.2)
+	make_cyl(0.007, 0.007, 0.172, at + Vector3(0, 0.102, 0.062), BLACK, 0.4, 0.3)
+	var drive := make_cyl(0.028, 0.028, 0.05, centre + Vector3(0, 0, 0.06), BLACK, 0.45, 0.25)
+	drive.rotation.x = PI * 0.5
+	# Outer and inner shells of the open cone in black-lacquered paper (the receiver's
+	# catalogue pass keeps bakelite_black a textured standard material); the inner
+	# shell is flipped so the concave face reads from the front without a cull override.
+	for inner in [false, true]:
+		var cone := make_cyl(0.138 - (0.0015 if inner else 0.0), 0.02, 0.075,
+				centre + Vector3(0, 0, -0.0025), BLACK, 0.85)
+		cone.rotation.x = -PI * 0.5
+		var shell := cone.mesh as CylinderMesh
+		shell.radial_segments = 48
+		shell.cap_top = false
+		shell.cap_bottom = false
+		shell.flip_faces = inner
+	var cap := make_cyl(0.02, 0.02, 0.006, centre + Vector3(0, 0, 0.034), BRASS, 0.5, 0.6)
+	cap.rotation.x = -PI * 0.5
+	var rim := make_ring(0.14, 0.005, centre + Vector3(0, 0, -0.04), BLACK, 0.42, 0.3)
+	rim.rotation.x = PI * 0.5
 
 
 func _dial_face(x: float, y: float, z: float, radius: float) -> void:

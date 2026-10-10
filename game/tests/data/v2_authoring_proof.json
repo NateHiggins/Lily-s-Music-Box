@@ -920,6 +920,18 @@
         "component": "3B_partscrate",
         "note": "V2 environment dossier B1_MAINTENANCE_SHOP-001 (slice 41): a copy of 3B_partscrate"
       }
+    },
+    "1D_house_bell": {
+      "source_component": {
+        "component": "wallbell",
+        "note": "V2 environment dossier F01_D_MAIN-004 (slice 42); no V1 counterpart"
+      }
+    },
+    "1D_quiet_sign": {
+      "source_component": {
+        "component": "quietsign",
+        "note": "V2 environment dossier F01_D_VESTIBULE-003 (slice 42); no V1 counterpart"
+      }
     }
   },
   "receivers": {

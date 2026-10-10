@@ -5,11 +5,9 @@ extends "res://scripts/props/domestic_radio_prop.gd"
 func _build_visual() -> void:
 	super._build_visual()
 	var speaker := str(radio_profile.get("speaker", "cone"))
-	# The legacy speaker cones floated above their supporting surface. Give
-	# these separate speakers a foot and short pedestal on the radio table.
-	if speaker.contains("cone"):
-		make_box(Vector3(.18,.028,.13), Vector3(-.38,.014,0), DARK_WOOD)
-		make_box(Vector3(.035,.10,.035), Vector3(-.38,.064,0), BRASS)
+	# The legacy horn floated above its supporting surface: give it a foot and a
+	# short pedestal. The cone speaker now carries its own japanned foot and rear
+	# strut (dossier slice 42), so it takes no second stand here.
 	if speaker.contains("horn"):
 		make_box(Vector3(.18,.028,.15), Vector3(.37,.014,0), DARK_WOOD)
 		make_box(Vector3(.035,.12,.035), Vector3(.37,.074,0), BRASS)

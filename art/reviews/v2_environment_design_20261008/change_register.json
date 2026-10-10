@@ -1060,7 +1060,9 @@
    "purpose": "Accord 15",
    "acceptance": "facade_blade station",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "CITY_FACADE"
+   "area": "CITY_FACADE",
+   "status": "verified",
+   "owner_notes": "Identified: the small bright sphere beside the blade is the moon, already placed on the sky dome among the stars and the Milky Way; it is not a light mesh, so nothing is hidden (facade_blade, city sweep). Verified at WIP b0770fb2 (implementation/slice42): fabrication batch 0 failures across 13 modules (the bell, the quiet sign and the route map captured natively); household state 154 checks, 0 failures; upper kitchens 206; upper lighting 0 failures; completion 1D 25 waypoints, 0 failures; the domestic radio test 80/80; the seven-space sweep and two 130-station city sweeps 0 failures. With the cone speaker's materials settled (WIP d351823a, receipts prefixed c_): apartment batch 204 on the long runner (32 fewer of the pre-existing receiver-texture class); upper furniture 496 (eight more of the pre-existing material-binding class); the domestic radio test 80/80; the four-space radio sweep 0 failures."
   },
   {
    "id": "CITY_ALLEY-001",
@@ -3071,7 +3073,9 @@
    "purpose": "Decor profile: the quiet sign near departure; the fob watch lives here when she is home (wardrobe bible)",
    "acceptance": "Threshold view from the service hall shows card and hook",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_D_VESTIBULE"
+   "area": "F01_D_VESTIBULE",
+   "status": "verified",
+   "owner_notes": "The quiet sign (new quietsign object): a small framed card with one hand-drawn stroke and no lettering at 1.4 m on the vestibule's south wall, beyond the entry leaf's sweep and seen through the door from the service hall, with the brass hook for her fob watch below it (1D_quiet_sign_native). Verified at WIP b0770fb2 (implementation/slice42): fabrication batch 0 failures across 13 modules (the bell, the quiet sign and the route map captured natively); household state 154 checks, 0 failures; upper kitchens 206; upper lighting 0 failures; completion 1D 25 waypoints, 0 failures; the domestic radio test 80/80; the seven-space sweep and two 130-station city sweeps 0 failures. With the cone speaker's materials settled (WIP d351823a, receipts prefixed c_): apartment batch 204 on the long runner (32 fewer of the pre-existing receiver-texture class); upper furniture 496 (eight more of the pre-existing material-binding class); the domestic radio test 80/80; the four-space radio sweep 0 failures."
   },
   {
    "id": "F01_D_MAIN-001",
@@ -3165,7 +3169,9 @@
    ],
    "acceptance": "Detail view at the opening wall shows bell and flex; no sound added here (the case owns it)",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "F01_D_MAIN"
+   "area": "F01_D_MAIN",
+   "status": "verified",
+   "owner_notes": "Teresa's house bell (new wallbell object): a Bakelite dome on a brass bracket high on the main room's west wall, directly above the switch's signal outlet, its grey cloth flex run down the wall to the outlet with a band of black tape where she tried to cut it; no sound added (implementation/slice42/images: 1D_house_bell_native). Verified at WIP b0770fb2 (implementation/slice42): fabrication batch 0 failures across 13 modules (the bell, the quiet sign and the route map captured natively); household state 154 checks, 0 failures; upper kitchens 206; upper lighting 0 failures; completion 1D 25 waypoints, 0 failures; the domestic radio test 80/80; the seven-space sweep and two 130-station city sweeps 0 failures. With the cone speaker's materials settled (WIP d351823a, receipts prefixed c_): apartment batch 204 on the long runner (32 fewer of the pre-existing receiver-texture class); upper furniture 496 (eight more of the pre-existing material-binding class); the domestic radio test 80/80; the four-space radio sweep 0 failures."
   },
   {
    "id": "F01_D_MAIN-005",
@@ -6627,7 +6633,9 @@
    ],
    "acceptance": "Wireless-table detail station reads a radio",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_A_MAIN"
+   "area": "F04_A_MAIN",
+   "status": "verified",
+   "owner_notes": "4A's wireless table reads a radio: Peter's metal-cased three-dial set with the rebuilt cone speaker beside it on its own stand (F04_A_MAIN_RV). Verified at WIP b0770fb2 (implementation/slice42): fabrication batch 0 failures across 13 modules (the bell, the quiet sign and the route map captured natively); household state 154 checks, 0 failures; upper kitchens 206; upper lighting 0 failures; completion 1D 25 waypoints, 0 failures; the domestic radio test 80/80; the seven-space sweep and two 130-station city sweeps 0 failures. With the cone speaker's materials settled (WIP d351823a, receipts prefixed c_): apartment batch 204 on the long runner (32 fewer of the pre-existing receiver-texture class); upper furniture 496 (eight more of the pre-existing material-binding class); the domestic radio test 80/80; the four-space radio sweep 0 failures."
   },
   {
    "id": "F04_A_KITCHEN-001",
@@ -7368,7 +7376,9 @@
    "purpose": "Decor profile: Cam's route by movement",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_C_MAIN"
+   "area": "F04_C_MAIN",
+   "status": "verified",
+   "owner_notes": "Cam's route map over 4C's colour board (its own variant, DomesticObject68): a red thread pinned across the board from stop to stop with blank ticket stubs at alternate stops; no lettering (4C_story_colorboard_native). Verified at WIP b0770fb2 (implementation/slice42): fabrication batch 0 failures across 13 modules (the bell, the quiet sign and the route map captured natively); household state 154 checks, 0 failures; upper kitchens 206; upper lighting 0 failures; completion 1D 25 waypoints, 0 failures; the domestic radio test 80/80; the seven-space sweep and two 130-station city sweeps 0 failures. With the cone speaker's materials settled (WIP d351823a, receipts prefixed c_): apartment batch 204 on the long runner (32 fewer of the pre-existing receiver-texture class); upper furniture 496 (eight more of the pre-existing material-binding class); the domestic radio test 80/80; the four-space radio sweep 0 failures."
   },
   {
    "id": "F04_C_MAIN-005",
@@ -8772,7 +8782,9 @@
    ],
    "acceptance": "Side-table detail",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_B_MAIN"
+   "area": "F05_B_MAIN",
+   "status": "verified",
+   "owner_notes": "The domestic radio's cone speaker is rebuilt: a smooth 48-segment open cone in black-lacquered paper with a flipped inner shell so its concave face reads from the front, a japanned rim, a brass dust cap and the drive unit on a rear strut over its own foot; the second stand the V2 radio used to add under it is gone. 5B's horn-and-cone pair reads both speakers (F05_B_MAIN_DT2, F02_B_MAIN_RV). Verified at WIP b0770fb2 (implementation/slice42): fabrication batch 0 failures across 13 modules (the bell, the quiet sign and the route map captured natively); household state 154 checks, 0 failures; upper kitchens 206; upper lighting 0 failures; completion 1D 25 waypoints, 0 failures; the domestic radio test 80/80; the seven-space sweep and two 130-station city sweeps 0 failures. With the cone speaker's materials settled (WIP d351823a, receipts prefixed c_): apartment batch 204 on the long runner (32 fewer of the pre-existing receiver-texture class); upper furniture 496 (eight more of the pre-existing material-binding class); the domestic radio test 80/80; the four-space radio sweep 0 failures."
   },
   {
    "id": "F05_B_KITCHEN-001",
@@ -8886,7 +8898,9 @@
    "purpose": "Wardrobe bible towel state: the aid out, coiled beside him",
    "acceptance": "Detail view",
    "signal": "carries signal: Rule of Signal applies (forty years early, Bakelite/brass/cloth flex, repairable)",
-   "area": "F05_B_ALCOVE"
+   "area": "F05_B_ALCOVE",
+   "status": "implemented",
+   "owner_notes": "Cal's hearing aid out for the night on the alcove nightstand: the battery box with brass terminals, the microphone box with its grille and the earpiece, its cord coiled beside them (new hearingaid stock; F05_B_ALCOVE_OV). Not made: a second bedside receiver from the domestic radio family. Verified at WIP b0770fb2 (implementation/slice42): fabrication batch 0 failures across 13 modules (the bell, the quiet sign and the route map captured natively); household state 154 checks, 0 failures; upper kitchens 206; upper lighting 0 failures; completion 1D 25 waypoints, 0 failures; the domestic radio test 80/80; the seven-space sweep and two 130-station city sweeps 0 failures. With the cone speaker's materials settled (WIP d351823a, receipts prefixed c_): apartment batch 204 on the long runner (32 fewer of the pre-existing receiver-texture class); upper furniture 496 (eight more of the pre-existing material-binding class); the domestic radio test 80/80; the four-space radio sweep 0 failures."
   },
   {
    "id": "F05_B_BATH-001",

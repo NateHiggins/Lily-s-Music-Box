@@ -2097,6 +2097,12 @@
       "kind": "opencase",
       "cell": "4D",
       "source_record": "4D_open_case"
+    },
+    {
+      "id": "5B_hearing_aid",
+      "kind": "hearingaid",
+      "cell": "5B",
+      "source_record": "5B_hearing_aid"
     }
   ],
   "closed_stocks": [
@@ -16103,6 +16109,54 @@
       "assembly": "4D_open_case",
       "key": "wool_burgundy",
       "volume_m3": 0.0037484177465079995
+    },
+    {
+      "name": "5B_hearing_aid_BatteryBox",
+      "assembly": "5B_hearing_aid",
+      "key": "bakelite",
+      "volume_m3": 0.00029815597127634845
+    },
+    {
+      "name": "5B_hearing_aid_Terminal-0.025",
+      "assembly": "5B_hearing_aid",
+      "key": "brass",
+      "volume_m3": 1.6707352507026824e-06
+    },
+    {
+      "name": "5B_hearing_aid_Terminal0.025",
+      "assembly": "5B_hearing_aid",
+      "key": "brass",
+      "volume_m3": 1.6707352507026828e-06
+    },
+    {
+      "name": "5B_hearing_aid_MicBox",
+      "assembly": "5B_hearing_aid",
+      "key": "bakelite",
+      "volume_m3": 7.383096441439771e-05
+    },
+    {
+      "name": "5B_hearing_aid_Grille",
+      "assembly": "5B_hearing_aid",
+      "key": "nickel_plated",
+      "volume_m3": 3.2078122255998677e-06
+    },
+    {
+      "name": "5B_hearing_aid_Earpiece",
+      "assembly": "5B_hearing_aid",
+      "key": "bakelite",
+      "volume_m3": 1.1302524280757425e-05
+    },
+    {
+      "name": "5B_hearing_aid_CordMic",
+      "assembly": "5B_hearing_aid",
+      "key": "linen",
+      "volume_m3": 4.3468988149703446e-07
+    },
+    {
+      "name": "5B_hearing_aid_CordEar",
+      "assembly": "5B_hearing_aid",
+      "key": "linen",
+      "volume_m3": 3.882957987507563e-06
     }
   ],
   "contacts": [
@@ -26215,6 +26269,96 @@
         0
       ],
       "label": "case (0.23, 0.49, 0)"
+    },
+    {
+      "assembly": "5B_hearing_aid",
+      "owner": "support",
+      "point": [
+        -0.045,
+        0,
+        0.025
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "aid (-0.045, -0.025, 0)"
+    },
+    {
+      "assembly": "5B_hearing_aid",
+      "owner": "support",
+      "point": [
+        0.045,
+        0,
+        0.025
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "aid (0.045, -0.025, 0)"
+    },
+    {
+      "assembly": "5B_hearing_aid",
+      "owner": "support",
+      "point": [
+        -0.045,
+        0,
+        -0.025
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "aid (-0.045, 0.025, 0)"
+    },
+    {
+      "assembly": "5B_hearing_aid",
+      "owner": "support",
+      "point": [
+        0.045,
+        0,
+        -0.025
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "aid (0.045, 0.025, 0)"
+    },
+    {
+      "assembly": "5B_hearing_aid",
+      "owner": "support",
+      "point": [
+        0.1,
+        0,
+        0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "aid (0.1, 0, 0)"
+    },
+    {
+      "assembly": "5B_hearing_aid",
+      "owner": "support",
+      "point": [
+        0.03,
+        0,
+        -0.07
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "aid (0.03, 0.07, 0)"
     }
   ],
   "parts": [
@@ -29493,9 +29637,37 @@
       "cell": "4D",
       "key": "wool_burgundy",
       "triangles": 188
+    },
+    {
+      "name": "5B_hearing_aid__bakelite",
+      "assembly": "5B_hearing_aid",
+      "cell": "5B",
+      "key": "bakelite",
+      "triangles": 664
+    },
+    {
+      "name": "5B_hearing_aid__brass",
+      "assembly": "5B_hearing_aid",
+      "cell": "5B",
+      "key": "brass",
+      "triangles": 576
+    },
+    {
+      "name": "5B_hearing_aid__linen",
+      "assembly": "5B_hearing_aid",
+      "cell": "5B",
+      "key": "linen",
+      "triangles": 1336
+    },
+    {
+      "name": "5B_hearing_aid__nickel_plated",
+      "assembly": "5B_hearing_aid",
+      "cell": "5B",
+      "key": "nickel_plated",
+      "triangles": 192
     }
   ],
-  "triangles": 825260,
+  "triangles": 828028,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -36253,6 +36425,57 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "5B_hearing_aid",
+        "parts": [
+          {
+            "name": "5B_hearing_aid__bakelite",
+            "key": "bakelite",
+            "tile": 0.35,
+            "catalog_key": "bakelite",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          },
+          {
+            "name": "5B_hearing_aid__brass",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.45
+            }
+          },
+          {
+            "name": "5B_hearing_aid__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "5B_hearing_aid__nickel_plated",
+            "key": "nickel_plated",
+            "tile": 0.32,
+            "catalog_key": "nickel_plated",
+            "finish": {
+              "normal_scale": 0.025,
+              "roughness": 0.32
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -36281,9 +36504,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "4f7304ca412a17a35077bbdd285042dda19ebba2af0f757cbb5623107fc89e81",
+  "asset_sha256": "afeace3a9653d62f0eeaae53301b308b380775789a1f4be36df1c018c0a39806",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "077d26743d065538b6d04789c20d26a05a88636a6d5e1d95739ef5def52fb4f9",
+    "art/data/surface_stock/source_plan.json": "d7b7f2e7dca6e7d6ed09d74e60790746a0ac831e207bdd5a17f72e57fff35be5",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -36399,13 +36622,13 @@
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "62c49b9906e3d22c1833d5686934c702723ba9639f07079b211fa537d9d28039",
+    "art/blender/scripts/surface_stock_geometry.py": "969fd4fb19af6306fdda3afa2565751871ab12dff7367eceddebdb7ad81f3c8c",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "741a20b54e71ce17c12435686b8b18fb7a85538a3a21cd1e5ed7aa84c7c57275",
+    "game/data/orison_v2/domestic_surface_props.json": "28086d187129086a6817a952e43975a24cfd7b630bc324ebc1d610442359bf4b",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
     "art/blender/task_lamps.blend": "b9a7912a7810eeef005cac1b610493c3923e9555d21a4e7038e83c94802e1265",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "28e646237b8e8fdce0a447dec4daa132f125ba74e46d7f167130990a6cfc11cf"
+    "game/data/orison_v2/domestic_furniture.json": "778460e1447b09cd9f7d340cf07589840dae061f4d5f829e0e4ed457f3e5aba5"
   },
   "retained_stock": [
     {
@@ -44137,6 +44360,20 @@
         "4D_open_case_Hinge0.15",
         "4D_open_case_PackedShirts",
         "4D_open_case_PackedJumper"
+      ]
+    },
+    {
+      "assembly": "5B_hearing_aid",
+      "id": "5B_hearing_aid_HearingAid",
+      "stocks": [
+        "5B_hearing_aid_BatteryBox",
+        "5B_hearing_aid_Terminal-0.025",
+        "5B_hearing_aid_Terminal0.025",
+        "5B_hearing_aid_MicBox",
+        "5B_hearing_aid_Grille",
+        "5B_hearing_aid_Earpiece",
+        "5B_hearing_aid_CordMic",
+        "5B_hearing_aid_CordEar"
       ]
     }
   ],

@@ -38,6 +38,13 @@ def pinboard(source,collected):
   # Original cards become actual thin sheets held at one visible pin.
   obj=axial(identity+'_CardPin'+str(i),x,z,[(0,.021),(.001,.021),(.001,front+.001),(.0025,front+.001),(.0025,front+.0022),(0,front+.0022)],identity,'brass',24)
   retained_stock.append({'assembly':identity,'kind':'pinned_card','index':i,'source_args':args,'native_front':front})
+ if source.get('route'):
+  # Dossier slice 42 (F04_C_MAIN-004): Cam's route by movement, a red thread pinned across the board
+  # with ticket stubs at the stops. No lettering.
+  stops=[(-.42,.62),(-.25,.55),(-.1,.6),(.05,.42),(.2,.47),(.35,.3),(.42,.15)]
+  wire('RouteThread',[(x,.0265,z) for x,z in stops],.0012,'wool_burgundy')
+  for i,(x,z) in enumerate(stops):
+   if i%2==0:stock('TicketStub'+str(i),(x-.025,.0258,z-.015),(x+.025,.0272,z+.015),'paper',.0001)
  group('PinnedBoard',start)
 
 def crate(source,collected):
@@ -872,6 +879,36 @@ def chargingcase(source):
  for p in [(-.16,back+.06,0),(.16,back+.06,0),(-.16,back+.28,0),(.16,back+.28,0)]:bearing('case '+str(p),p)
  group('ChargingCase',start)
 
+def wallbell(source):
+ # Dossier slice 42: Teresa's 1912 house bell high on the wall, a Bakelite dome on a brass bracket,
+ # its grey cloth flex run down to the signal outlet and taped where she tried to cut it.
+ start=len(stock_checks);height=source['H'];back=variants[identity]['rear_wall_y']
+ stock('Base',(-.06,back,height-.08),(.06,back+.012,height+.04),'brass',.002)
+ support(identity,'wall',(0,back,height-.02),(0,1,0),'bell base screwed to the wall')
+ stock('Bracket',(-.03,back+.011,height-.03),(.03,back+.1,height),'brass',.002)
+ lathe('Dome',0,back+.06,height-.001,[(0,0),(.05,0),(.05,.008),(.045,.03),(.03,.045),(0,.05)],'bakelite')
+ lathe('Knob',0,back+.06,height+.048,[(0,0),(.008,0),(.008,.012),(0,.014)],'brass')
+ wire('Flex',[(0,back+.008,height-.06),(0,back+.012,height-.2),(.004,back+.012,.5),(0,back+.012,.006)],.0035,'blanket_grey')
+ stock('Tape',(-.008,back+.006,.55),(.008,back+.02,.58),'rubber_aged',.0005)
+ group('HouseBell',start)
+
+def quietsign(source):
+ # Dossier slice 42: Teresa's quiet sign by the door, a framed card with one hand-drawn stroke
+ # and no lettering, and the hook under it where her fob watch hangs when she is home.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y'];z0=.06
+ stock('Backing',(-.1,back,z0),(.1,back+.006,z0+.15),'plywood',.0005)
+ for x in [-.1,.088]:stock('Stile'+str(x),(x,back+.005,z0),(x+.012,back+.018,z0+.15),'wood_dark',.0008)
+ for z in [z0,z0+.138]:stock('Rail'+str(z),(-.089,back+.005,z),(.089,back+.018,z+.012),'wood_dark',.0008)
+ stock('Card',(-.088,back+.0055,z0+.012),(.088,back+.009,z0+.138),'paper',.0003)
+ wire('Stroke',[(-.06,back+.0092,z0+.07),(-.02,back+.0092,z0+.085),(.02,back+.0092,z0+.065),(.06,back+.0092,z0+.08)],.0012,'soot')
+ support(identity,'wall',(0,back,z0+.075),(0,1,0),'frame hung on the wall')
+ group('QuietSign',start)
+ start=len(stock_checks)
+ stock('HookPlate',(-.012,back,0),(.012,back+.005,.03),'brass',.0005)
+ wire('Hook',[(0,back+.004,.015),(0,back+.03,.015),(0,back+.034,.03)],.0025,'brass')
+ support(identity,'wall',(0,back,.015),(0,1,0),'hook plate screwed to the wall')
+ group('WatchHook',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -927,4 +964,6 @@ for assembly in assemblies:
  elif kind=='tsquare':tsquare(source)
  elif kind=='verticalfile':verticalfile(source)
  elif kind=='chargingcase':chargingcase(source)
+ elif kind=='wallbell':wallbell(source)
+ elif kind=='quietsign':quietsign(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))
