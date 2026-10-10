@@ -158,7 +158,9 @@
    "preserve": "1.2 m route and the open boiler-door tip clearance",
    "acceptance": "Threshold view from the core",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_BOILER_APPROACH"
+   "area": "B1_BOILER_APPROACH",
+   "status": "implemented",
+   "owner_notes": "Partial: coal dust trodden down the boiler approach, darkening toward the fire door (a projected decal; no sweep station frames it clearly). The fire bucket on its hook is not made: the approach is a 1.2 m route. Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "B1_BOILER_ROOM-001",
@@ -194,7 +196,9 @@
    "purpose": "Accord 13: the plant reads as maintained; Omar's hand",
    "acceptance": "Detail view at the column",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_BOILER_ROOM"
+   "area": "B1_BOILER_ROOM",
+   "status": "implemented",
+   "owner_notes": "Omar's chalked log on the water column: tally groups, ticks and strokes in a working hand, no numerals, a projected decal mounted with the world at 2c25e683. The sweep's detail stations face the boiler front, not the column; a framed capture is open. Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "B1_BOILER_ROOM-003",
@@ -284,7 +288,9 @@
    "purpose": "Accord 12",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_ELECTRICAL_RECESS"
+   "area": "B1_ELECTRICAL_RECESS",
+   "status": "verified",
+   "owner_notes": "The door's sweep scuffed into a quarter ring on the recess floor and a cartridge fuse dropped in the corner (slice 59) (B1_dropped_cartridge_native). Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "B1_MAINTENANCE_SHOP-001",
@@ -439,7 +445,9 @@
    "purpose": "Consequence of the coal door beside it",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "B1_SERVICE_CORE"
+   "area": "B1_SERVICE_CORE",
+   "status": "implemented",
+   "owner_notes": "Coal dust on the three lowest service-stair treads, a projected decal mounted with the world at 2c25e683 (positional_wear.json, 0 refusals). No sweep station frames those treads; a framed capture is open. Verified at slice 67's WIP 2c25e683 (implementation/slice67), which carries slices 58 to 66 with slice 67's fixes: from slice 58 the world refused to compose (slice 58's light box reused an id slice 38's surface stock owned) until slice 67 renamed it. At 2c25e683 the fabrication batch's ten families (12,295 checks) report one failure, the capture harness finding no clear camera station for the B1 cleat run; apartment batch 204 on the long runner, as before; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both unchanged; upper lighting 9,257 checks and public doors 17, 0 failures; the remaining transfers, apartment door, first upper hall, 4B door and rear wing A routes, the basement route (88), basement ground, boiler service, reading furniture, shop seating, funeral fittings, completion heating, radiator ties, ventilation, door casings (107 openings), hardware drawers (1,309 checks), street boundary, passage visibility, commensal, the street boundary route and the resident key route (86 waypoints, long runner), all 0 failures; twelve sweeps (55 spaces) and the city sweep's 130 views, 0 failures. The coal delivery route's stop at the lobby's inner door and the Vantry gateway suite's five kiosk-count failures are identical at slice 57's 260849e8 (base58), and the news receiving station failure is identical before slice 53."
   },
   {
    "id": "BW-001",

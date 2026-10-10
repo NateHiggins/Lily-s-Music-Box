@@ -126994,6 +126994,38 @@
    "target_exists": true
   },
   {
+   "key": "7440ad18d3073590",
+   "kind": "floor_reference",
+   "token": "B1",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/level"
+   ],
+   "lines": [
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "count": 5,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "a58886b787914b9f",
    "kind": "floor_reference",
    "token": "F01",
@@ -127242,6 +127274,146 @@
    "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
    "resolved_target": "floor+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "8d5979d9c7f51b00",
+   "kind": "id_candidate",
+   "token": "B1_BOILER_APPROACH_WEAR_COAL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "1eeacf3e847a7171",
+   "kind": "id_candidate",
+   "token": "B1_BOILER_ROOM_WEAR_CHALK",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "e59528db7bb0f6ac",
+   "kind": "id_candidate",
+   "token": "B1_COAL_ROOM_WEAR_FAN",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "0766282a4fb5b4f8",
+   "kind": "id_candidate",
+   "token": "B1_ELECTRICAL_RECESS_WEAR_ARC",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "f8c58bc24178de2f",
+   "kind": "id_candidate",
+   "token": "B1_SERVICE_CORE_WEAR_TREADS",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
   },
   {
    "key": "c8deedd2c476ad8c",
@@ -129622,6 +129794,136 @@
    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
    "resolved_target": null,
    "target_exists": false
+  },
+  {
+   "key": "1aeb1516af4b754e",
+   "kind": "id_reference",
+   "token": "B1_BOILER_APPROACH",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ec4263d788d4b323",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0e9c0decb5647f33",
+   "kind": "id_reference",
+   "token": "B1_COAL_ROOM",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "391488dd9bfa67be",
+   "kind": "id_reference",
+   "token": "B1_ELECTRICAL_RECESS",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "50dbe9cca4f106cc",
+   "kind": "id_reference",
+   "token": "B1_SERVICE_CORE",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   },
   {
    "key": "09d97ad2fa762bfb",
@@ -181730,7 +182032,7 @@
     "<module>"
    ],
    "lines": [
-    7
+    9
    ],
    "count": 1,
    "context": [],

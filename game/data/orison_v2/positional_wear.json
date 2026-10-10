@@ -1,7 +1,11 @@
 {
  "schema_version": 1,
  "textures": [
+  "wear_arc",
+  "wear_chalk",
+  "wear_coal",
   "wear_corner",
+  "wear_fan",
   "wear_path",
   "wear_receptor",
   "wear_rub",
@@ -1962,6 +1966,124 @@
     1
    ],
    "opacity": 0.6
+  },
+  {
+   "id": "B1_BOILER_APPROACH_WEAR_COAL",
+   "space": "B1_BOILER_APPROACH",
+   "kind": "coal",
+   "texture": "wear_coal",
+   "level": "B1",
+   "position": [
+    7.47,
+    0.0,
+    -0.4
+   ],
+   "yaw": 0.0,
+   "size": [
+    3.95,
+    1.06
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.85
+  },
+  {
+   "id": "B1_ELECTRICAL_RECESS_WEAR_ARC",
+   "space": "B1_ELECTRICAL_RECESS",
+   "kind": "arc",
+   "texture": "wear_arc",
+   "level": "B1",
+   "position": [
+    7.425,
+    0.0,
+    -1.45
+   ],
+   "yaw": -1.5708,
+   "size": [
+    1.1,
+    1.1
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.8
+  },
+  {
+   "id": "B1_COAL_ROOM_WEAR_FAN",
+   "space": "B1_COAL_ROOM",
+   "kind": "fan",
+   "texture": "wear_fan",
+   "level": "B1",
+   "position": [
+    14.2,
+    0.0,
+    -10.6
+   ],
+   "yaw": 0.0,
+   "size": [
+    2.6,
+    3.4
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.85
+  },
+  {
+   "id": "B1_SERVICE_CORE_WEAR_TREADS",
+   "space": "B1_SERVICE_CORE",
+   "kind": "coal",
+   "texture": "wear_coal",
+   "level": "B1",
+   "position": [
+    11.075,
+    0.23,
+    5.4125
+   ],
+   "yaw": 1.5708,
+   "size": [
+    0.825,
+    1.05
+   ],
+   "into": [
+    0,
+    -1,
+    0
+   ],
+   "opacity": 0.75,
+   "height": 0.56,
+   "fade": 0.0,
+   "normal_fade": 0.5
+  },
+  {
+   "id": "B1_BOILER_ROOM_WEAR_CHALK",
+   "space": "B1_BOILER_ROOM",
+   "kind": "chalk",
+   "texture": "wear_chalk",
+   "level": "B1",
+   "position": [
+    11.4,
+    1.15,
+    -0.5
+   ],
+   "yaw": 0.0,
+   "size": [
+    0.3,
+    0.7
+   ],
+   "into": [
+    1,
+    0,
+    0
+   ],
+   "opacity": 0.9
   }
  ]
 }

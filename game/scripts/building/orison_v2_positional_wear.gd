@@ -3,9 +3,11 @@ extends RefCounted
 ## grout-and-water ring round each bath's shower receptor and the mop-shadow corner; in the
 ## halls the dulled walking line, foot scuffs at each apartment door, the mop-shadow corner
 ## and the trolley rub at 0.6 m near the core. No collision, no owner, no lettering.
+## Dossier slice 60 adds the basement: coal dust down the boiler approach and on the
+## lowest service treads, a door leaf's sweep, the chute's dust fan and a chalked log.
 const DATA := "res://data/orison_v2/positional_wear.json"
 const ROOT := "res://assets/building/textures/wear_decals/"
-const KINDS := ["receptor", "corner", "path", "threshold", "trolley"]
+const KINDS := ["receptor", "corner", "path", "threshold", "trolley", "coal", "arc", "fan", "chalk"]
 
 static func mount(blockout: Node3D) -> bool:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))
@@ -35,8 +37,10 @@ static func mount(blockout: Node3D) -> bool:
 		decal.texture_albedo = textures[str(row.texture)]
 		decal.modulate = Color(1, 1, 1, float(row.opacity))
 		decal.albedo_mix = 1.0
-		decal.upper_fade = 0.15
-		decal.lower_fade = 0.15
+		decal.upper_fade = float(row.get("fade", 0.15))
+		decal.lower_fade = float(row.get("fade", 0.15))
+		# A tall box over stepped treads keeps the texture off the risers.
+		decal.normal_fade = float(row.get("normal_fade", 0.0))
 		decal.distance_fade_enabled = true
 		decal.distance_fade_begin = 14.0
 		decal.distance_fade_length = 4.0
@@ -45,7 +49,7 @@ static func mount(blockout: Node3D) -> bool:
 		var at := Vector3(float(row.position[0]), levels[str(row.level)] + float(row.position[1]), float(row.position[2]))
 		if into.is_equal_approx(Vector3.DOWN):
 			# Floor: the box straddles the floor plane, thin enough to spare what stands on it.
-			decal.size = Vector3(float(size[0]), 0.08, float(size[1]))
+			decal.size = Vector3(float(size[0]), float(row.get("height", 0.08)), float(size[1]))
 			decal.position = at + Vector3(0, 0.01, 0)
 			decal.rotation.y = float(row.yaw)
 		else:
