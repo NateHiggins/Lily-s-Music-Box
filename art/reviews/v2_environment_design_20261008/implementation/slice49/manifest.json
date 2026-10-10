@@ -1,0 +1,228 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/2A_threshold_native.jpg",
+   "source": "fabrication_shots/domestic_objects/2A_threshold_native.png",
+   "sha256": "e025d186d9bfbd06ea8500e5ab5ca9f97f965ee7ee78f5630bd32878280a6f75",
+   "bytes": 116773
+  },
+  {
+   "path": "images/2B_threshold_native.jpg",
+   "source": "fabrication_shots/domestic_objects/2B_threshold_native.png",
+   "sha256": "8936059b535fe8728597e7daae372ce44314d2babf97cd0c5c133172edc10c9b",
+   "bytes": 91683
+  },
+  {
+   "path": "images/3A_threshold_native.jpg",
+   "source": "fabrication_shots/domestic_objects/3A_threshold_native.png",
+   "sha256": "29f1ea445253aceef1e97467fb0f8986dfb64f4290a6f38f3b9b1ae27af122b5",
+   "bytes": 116988
+  },
+  {
+   "path": "images/4B_threshold_native.jpg",
+   "source": "fabrication_shots/domestic_objects/4B_threshold_native.png",
+   "sha256": "bb5d3e9e906a0358646e26131b79f12fd80af918671533cc3761b1bc69120aa6",
+   "bytes": 115248
+  },
+  {
+   "path": "images/4C_threshold_native.jpg",
+   "source": "fabrication_shots/domestic_objects/4C_threshold_native.png",
+   "sha256": "93a2555078bc0bf29507a7690aae22ded4867145c8cb9f9b8e944781f2e51d3a",
+   "bytes": 83451
+  },
+  {
+   "path": "images/6C_threshold_native.jpg",
+   "source": "fabrication_shots/domestic_objects/6C_threshold_native.png",
+   "sha256": "e0363712ea1563f070a03fdb57398678a52dc1b0699dd614e4f59ec2a24db0ad",
+   "bytes": 81563
+  },
+  {
+   "path": "images/F02_WEST_HALL_OV.jpg",
+   "source": "sweep_shots/F02_WEST_HALL_OV.png",
+   "sha256": "c8c58b28aa43467d5ac8c863677033a4491c0709b01b3872da02b9514edb15eb",
+   "bytes": 122553
+  },
+  {
+   "path": "images/F03_WEST_HALL_OV.jpg",
+   "source": "sweep_shots/F03_WEST_HALL_OV.png",
+   "sha256": "9fcb7431e72ae3c5492616b32da45a979d48f1d9320379939f50b6535c1a8767",
+   "bytes": 114892
+  },
+  {
+   "path": "images/F04_WEST_HALL_OV.jpg",
+   "source": "sweep_shots/F04_WEST_HALL_OV.png",
+   "sha256": "2335e585fb20ded8b2c1a0b4b331ba01b8c505c489e9e74f06949ff3935c6f38",
+   "bytes": 118279
+  },
+  {
+   "path": "images/F05_WEST_HALL_OV.jpg",
+   "source": "sweep_shots/F05_WEST_HALL_OV.png",
+   "sha256": "3ed59967f5fec4df35f899f5c5c92ceae84a6a8351295d99560033b125b81e2e",
+   "bytes": 109274
+  },
+  {
+   "path": "images/F06_WEST_HALL_OV.jpg",
+   "source": "sweep_shots/F06_WEST_HALL_OV.png",
+   "sha256": "ef47baba4a9ecef00ab3ee0fbb02090c65645ffca2eb3d86187adad5bf763937",
+   "bytes": 111722
+  },
+  {
+   "path": "images/F02_SOUTHWEST_HALL_OV.jpg",
+   "source": "sweep_shots/F02_SOUTHWEST_HALL_OV.png",
+   "sha256": "070a3c908c3cc93347092a6fdb7964757b487d6be03ca1082871fdc126624e59",
+   "bytes": 112285
+  },
+  {
+   "path": "images/F03_SOUTHWEST_HALL_OV.jpg",
+   "source": "sweep_shots/F03_SOUTHWEST_HALL_OV.png",
+   "sha256": "826d66d35332fd7797b598a06efc3978c5b2f3dea618053298601cd7fa83d5c1",
+   "bytes": 115023
+  },
+  {
+   "path": "images/F02_EAST_HALL_RV.jpg",
+   "source": "sweep_shots/F02_EAST_HALL_RV.png",
+   "sha256": "37920e1e5c315a3774936d533c060ce748888b13f29eaf2a9b10ded607afbb92",
+   "bytes": 111700
+  },
+  {
+   "path": "images/F02_SERVICE_CROSSING_OV.jpg",
+   "source": "sweep_shots/F02_SERVICE_CROSSING_OV.png",
+   "sha256": "e7c41b61a0c58ab2b4a16a9a4f4a5674776a98e04fba4df4647baa022f57b3f7",
+   "bytes": 84988
+  },
+  {
+   "path": "images/F04_EAST_HALL_RV.jpg",
+   "source": "sweep_shots/F04_EAST_HALL_RV.png",
+   "sha256": "47f85af6dd3fe8cd035314f4721a14a562085fff0d8213bf57e8cf7f4999ecc7",
+   "bytes": 116907
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "c6ff777ef6cdbb495f18c43d47e6446cdc3a706e08e7f8c5c23981ce8e01045a",
+   "bytes": 3494
+  },
+  {
+   "path": "receipts/apartment_door_route.log.receipt.json",
+   "source": "apartment_door_route.log.receipt.json",
+   "sha256": "7bc4178c76450ac741bdf3cae65836c6e876070607a4a61332b8ab16f1264830",
+   "bytes": 3215
+  },
+  {
+   "path": "receipts/door_4b.log.receipt.json",
+   "source": "door_4b.log.receipt.json",
+   "sha256": "e4384c83c49edc6fa04d13c6a9d66ace888d91a9afc7e749cd46ad66c849a5e9",
+   "bytes": 3175
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "cd848a28c35107a1209af0043a30f4a162cf0604ec7cf47c29abc4afc255bcb9",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/first_upper_hall.log.receipt.json",
+   "source": "first_upper_hall.log.receipt.json",
+   "sha256": "51012e47c197f5a0dbc112939c1158c3f211c57267bd0412c96dead53c85e0b6",
+   "bytes": 3210
+  },
+  {
+   "path": "receipts/household_state.log.receipt.json",
+   "source": "household_state.log.receipt.json",
+   "sha256": "7623dee75e5071e75c3a0623512eb338a830b9ee2f61a857088252d19c2b0bd4",
+   "bytes": 3196
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "902df0bc040baa4409e4aea4bb077ac8e51a83bbcbf7a6789f7be5c3527d1597",
+   "bytes": 3139
+  },
+  {
+   "path": "receipts/public_doors.log.receipt.json",
+   "source": "public_doors.log.receipt.json",
+   "sha256": "1adf465490c9246581ec593872a794bf3cde59d6511aeccabc1925d783037a11",
+   "bytes": 3183
+  },
+  {
+   "path": "receipts/rear_wing_a.log.receipt.json",
+   "source": "rear_wing_a.log.receipt.json",
+   "sha256": "d74906d4894c0a8c4de71be292858de3629a4f0b266b860d37c66ad61f4b2541",
+   "bytes": 3209
+  },
+  {
+   "path": "receipts/rear_wing_c.log.receipt.json",
+   "source": "rear_wing_c.log.receipt.json",
+   "sha256": "50cf69999997e1e0836ba34daefe207de7b7815d1e78c171ca4563fdee6cb339",
+   "bytes": 3208
+  },
+  {
+   "path": "receipts/resident_key.log.receipt.json",
+   "source": "resident_key.log.receipt.json",
+   "sha256": "c343994cccc7dc9a8b8e19f1e13145d4df0e37013f34601f9124c4cfb233a02b",
+   "bytes": 3198
+  },
+  {
+   "path": "receipts/sweep_0.log.receipt.json",
+   "source": "sweep_0.log.receipt.json",
+   "sha256": "dc17b1e0ea50fefbaf5bdb3c545cd5f10402ac3da8f624b149dde82bba2704e2",
+   "bytes": 3225
+  },
+  {
+   "path": "receipts/sweep_1.log.receipt.json",
+   "source": "sweep_1.log.receipt.json",
+   "sha256": "1a7218862740a6e9ca1255829127ac6af279e6c2d793fef1a599f7e0c375ed59",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/sweep_2.log.receipt.json",
+   "source": "sweep_2.log.receipt.json",
+   "sha256": "a76ba8b4f42ccd435f3146a1e42e4f23b09ccdbd2182bb9fb97cad0cc3a19147",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/upper_furniture.log.receipt.json",
+   "source": "upper_furniture.log.receipt.json",
+   "sha256": "5c1ed190ebb530976c7ce9ab4ee0869b18606b9d35d9db1a9b596ace3801ff14",
+   "bytes": 3196
+  },
+  {
+   "path": "receipts/upper_kitchen.log.receipt.json",
+   "source": "upper_kitchen.log.receipt.json",
+   "sha256": "ffe0729b7f71785b363d16f6616d329191eb5202304df8c6e29d2eb453ceb513",
+   "bytes": 3188
+  },
+  {
+   "path": "receipts/upper_lighting.log.receipt.json",
+   "source": "upper_lighting.log.receipt.json",
+   "sha256": "1bef853909feb6181725b6e4d242ea97f352682e4759e38e727af618057d239b",
+   "bytes": 3192
+  },
+  {
+   "path": "receipts/upper_transfers.log.receipt.json",
+   "source": "upper_transfers.log.receipt.json",
+   "sha256": "4cb7a260823f903fb9310495b5c28a23c53d058652c72f2ce32997f8940f4d35",
+   "bytes": 3225
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "d250b327e7d1ec41d6de88559048ef5d643459d642ed159ca748cc7d7f0792cc",
+   "bytes": 2655
+  },
+  {
+   "path": "receipts/sweep_shots__node_census.json",
+   "source": "sweep_shots/node_census.json",
+   "sha256": "889bfeb33051d8f1937469cc0e67a87c23d6c7094521ab7f969af93993a4bb0d",
+   "bytes": 797409
+  },
+  {
+   "path": "receipts/sweep_shots__dossier_sweep.json",
+   "source": "sweep_shots/dossier_sweep.json",
+   "sha256": "8a7cb010d07a92ace36c2c37f0bdff8c51b16c8b9e7f0a34e3ea8afcf2c71cf9",
+   "bytes": 19337
+  }
+ ]
+}

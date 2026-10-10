@@ -1044,6 +1044,54 @@ def noticeframe(source):
  for x in [-.12,.12]:support(identity,'wall',(x,back,H/2),(0,1,0),'frame hung on the wall')
  group('NoticeFrame',start)
 
+def threshold(source):
+ # Dossier slice 49 (F0x_*_HALL-001): a household's threshold on the hall side of its door. The wall
+ # face is local y=0 (the door behind); everything lies on the floor, flat inside the hall route.
+ start=len(stock_checks);mat=source['mat'];jamb=source['jamb']
+ x0,x1,y0,y1=-.33,.33,.015,.415
+ if mat=='rag':
+  # A rag rug: strips of selvedge scraps across a hessian backing.
+  stock('Backing',(x0,y0,0),(x1,y1,.004),'linen',.0006)
+  for i,key in enumerate(['voile','wool_burgundy','blanket_grey','linen','jersey_maroon','cape_navy','coat_grey','voile','wool_burgundy','blanket_grey']):
+   y=y0+.006+i*.0393;stock('Strip'+str(i),(x0+.008,y,.0036),(x1-.008,y+.036,.0105),key,.002)
+ elif mat=='rubber':
+  stock('Rubber',(x0,y0,0),(x1,y1,.006),'rubber_aged',.002)
+  for i in range(9):y=y0+.03+i*.042;stock('Rib'+str(i),(x0+.03,y,.0058),(x1-.03,y+.012,.0095),'rubber_aged',.0015)
+ else:
+  # Coir on a rubber backing with a bound border. The worn mat has a flattened, darker centre where
+  # every boot lands; the dust mat is new and unmarked.
+  stock('Coir',(x0,y0,0),(x1,y1,.013),'coir',.003)
+  for y in [y0,y1-.018]:stock('BorderY'+str(y),(x0,y,.0128),(x1,y+.018,.0152),'rubber_aged',.0008)
+  for x in [x0,x1-.018]:stock('BorderX'+str(x),(x,y0+.017,.0128),(x+.018,y1-.017,.0152),'rubber_aged',.0008)
+  if mat=='worn':
+   stock('WornCentre',(-.17,y0+.09,.0128),(.17,y1-.09,.0133),'coir_mid',.004)
+   stock('WornCore',(-.1,y0+.14,.0131),(.1,y1-.14,.0136),'coir_dark',.004)
+  if mat=='soil':
+   for i,(x,y) in enumerate([(-.12,.12),(-.05,.2),(.04,.16),(.11,.24),(-.09,.3),(.15,.11),(0,.28)]):stock('Crumb'+str(i),(x,y,.0128),(x+.016+.004*(i%3),y+.012,.0175),'soil',.003)
+  if mat=='paint':
+   for i,(x,y,key) in enumerate([(-.14,.1,'jersey_maroon'),(.06,.13,'cape_navy'),(-.02,.27,'brass'),(.18,.3,'jersey_maroon'),(-.22,.33,'voile')]):lathe('Spot'+str(i),x,y,.0128,[(0,0),(.009+.003*(i%2),0),(.009+.003*(i%2),.0008),(0,.0008)],key)
+ if source.get('news'):
+  # The morning paper, folded and dropped on the mat.
+  stock('Newspaper',(-.08,.17,.0128),(.15,.32,.0235),'paper',.0012)
+  stock('NewsFold',(-.08,.17,.0234),(.15,.18,.025),'paper',.0004)
+ for p in [(x0+.03,y0+.03,0),(x1-.03,y0+.03,0),(x0+.03,y1-.03,0),(x1-.03,y1-.03,0)]:bearing('mat '+str(p),p)
+ group('Mat',start)
+ for i in range(source.get('bottles',0)):
+  # Milk left on the step beside the jamb, against the wall.
+  start=len(stock_checks);x=jamb+.11+i*.085
+  lathe('MilkBottle'+str(i),x,.06,0,[(0,0),(.034,0),(.036,.006),(.036,.12),(.03,.16),(.022,.19),(.022,.205),(0,.205)],'enamel')
+  lathe('BottleCap'+str(i),x,.06,.2045,[(0,0),(.0235,0),(.0235,.006),(0,.006)],'paper')
+  bearing('bottle '+str(i),(x,.06,0))
+  group('Milk'+str(i),start)
+ if source.get('parcel'):
+  # A string-tied parcel on the floor beside the jamb, waiting to be taken in.
+  start=len(stock_checks);x=-jamb-.2
+  stock('Parcel',(x-.15,.03,0),(x+.15,.25,.12),'kraft',.004)
+  for xx in [x-.05,x+.06]:stock('StringX'+str(xx),(xx-.002,.0285,.1195),(xx+.002,.2515,.1222),'linen',.0004)
+  stock('StringY',(x-.1505,.135,.1195),(x+.1505,.139,.1222),'linen',.0004)
+  for p in [(x-.13,.05,0),(x+.13,.05,0),(x-.13,.23,0),(x+.13,.23,0)]:bearing('parcel '+str(p),p)
+  group('Parcel',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1104,4 +1152,5 @@ for assembly in assemblies:
  elif kind=='overflowtray':overflowtray(source)
  elif kind=='bathshelf':bathshelf(source)
  elif kind=='noticeframe':noticeframe(source)
+ elif kind=='threshold':threshold(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

@@ -1198,6 +1198,137 @@
     "taped": false
    },
    "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject90",
+   "kind": "threshold",
+   "source_id": "2A_threshold",
+   "params": {
+    "mat": "coir",
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject91",
+   "kind": "threshold",
+   "source_id": "2B_threshold",
+   "params": {
+    "mat": "rag",
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject92",
+   "kind": "threshold",
+   "source_id": "2C_threshold",
+   "params": {
+    "mat": "worn",
+    "bottles": 2,
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject93",
+   "kind": "threshold",
+   "source_id": "3A_threshold",
+   "params": {
+    "mat": "soil",
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject94",
+   "kind": "threshold",
+   "source_id": "3D_threshold",
+   "params": {
+    "mat": "coir",
+    "jamb": 0.575
+   }
+  },
+  {
+   "id": "DomesticObject95",
+   "kind": "threshold",
+   "source_id": "4A_threshold",
+   "params": {
+    "mat": "coir",
+    "news": true,
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject96",
+   "kind": "threshold",
+   "source_id": "4B_threshold",
+   "params": {
+    "mat": "worn",
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject97",
+   "kind": "threshold",
+   "source_id": "4C_threshold",
+   "params": {
+    "mat": "rubber",
+    "bottles": 2,
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject98",
+   "kind": "threshold",
+   "source_id": "5A_threshold",
+   "params": {
+    "mat": "coir",
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject99",
+   "kind": "threshold",
+   "source_id": "5B_threshold",
+   "params": {
+    "mat": "coir",
+    "news": true,
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject100",
+   "kind": "threshold",
+   "source_id": "5C_threshold",
+   "params": {
+    "mat": "paint",
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject101",
+   "kind": "threshold",
+   "source_id": "6B_threshold",
+   "params": {
+    "mat": "worn",
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject102",
+   "kind": "threshold",
+   "source_id": "6C_threshold",
+   "params": {
+    "mat": "coir",
+    "parcel": true,
+    "jamb": 0.505
+   }
+  },
+  {
+   "id": "DomesticObject103",
+   "kind": "threshold",
+   "source_id": "2D_threshold",
+   "params": {
+    "mat": "dust",
+    "jamb": 0.575
+   }
   }
  ],
  "instances": [
@@ -1940,6 +2071,66 @@
   {
    "id": "ROOF_SERVICE_NOTICE",
    "variant": "DomesticObject89"
+  },
+  {
+   "id": "2A_threshold",
+   "variant": "DomesticObject90"
+  },
+  {
+   "id": "2B_threshold",
+   "variant": "DomesticObject91"
+  },
+  {
+   "id": "2C_threshold",
+   "variant": "DomesticObject92"
+  },
+  {
+   "id": "3A_threshold",
+   "variant": "DomesticObject93"
+  },
+  {
+   "id": "3D_threshold",
+   "variant": "DomesticObject94"
+  },
+  {
+   "id": "4A_threshold",
+   "variant": "DomesticObject95"
+  },
+  {
+   "id": "4B_threshold",
+   "variant": "DomesticObject96"
+  },
+  {
+   "id": "4C_threshold",
+   "variant": "DomesticObject97"
+  },
+  {
+   "id": "5A_threshold",
+   "variant": "DomesticObject98"
+  },
+  {
+   "id": "5B_threshold",
+   "variant": "DomesticObject99"
+  },
+  {
+   "id": "5C_threshold",
+   "variant": "DomesticObject100"
+  },
+  {
+   "id": "6B_threshold",
+   "variant": "DomesticObject101"
+  },
+  {
+   "id": "6C_threshold",
+   "variant": "DomesticObject102"
+  },
+  {
+   "id": "2D_threshold",
+   "variant": "DomesticObject103"
+  },
+  {
+   "id": "2D_sealed_notice",
+   "variant": "DomesticObject89"
   }
  ],
  "runtime_keys": [
@@ -1977,7 +2168,10 @@
   "amber",
   "bone",
   "standwater",
-  "kraft"
+  "kraft",
+  "coir",
+  "coir_mid",
+  "coir_dark"
  ],
  "catalog_variants": {
   "bakelite": "bakelite",
@@ -2014,7 +2208,10 @@
   "amber": "milk_glass",
   "bone": "enamel_appliance",
   "standwater": "milk_glass",
-  "kraft": "paper"
+  "kraft": "paper",
+  "coir": "linen",
+  "coir_mid": "linen",
+  "coir_dark": "linen"
  },
  "material_tints": {
   "wood_dark": [
@@ -2123,6 +2320,24 @@
    0.5,
    0.38,
    0.22,
+   1
+  ],
+  "coir": [
+   0.42,
+   0.3,
+   0.15,
+   1
+  ],
+  "coir_mid": [
+   0.33,
+   0.23,
+   0.11,
+   1
+  ],
+  "coir_dark": [
+   0.24,
+   0.16,
+   0.08,
    1
   ]
  },
@@ -2266,6 +2481,18 @@
   "kraft": {
    "normal_scale": 0.12,
    "roughness": 0.8
+  },
+  "coir": {
+   "normal_scale": 0.16,
+   "roughness": 0.92
+  },
+  "coir_mid": {
+   "normal_scale": 0.16,
+   "roughness": 0.92
+  },
+  "coir_dark": {
+   "normal_scale": 0.16,
+   "roughness": 0.92
   }
  },
  "placement": {
@@ -2305,7 +2532,8 @@
   "Slice 44 of the V2 environment dossier adds an overflowtray form: 4A's japanned umbrella drip tray by the door, water at the rim and a dark water line on the oak around it.",
   "Slice 47 of the V2 environment dossier adds a bathshelf form: an opal glass shelf on two nickel brackets over each of the 18 apartment basins, between the basin's coved back and the medicine cabinet's lower edge, carrying the household's own bath set (glasses and brushes, shaving mugs, nail brushes and pumice, powder, pins, cosmetics, bottles, the 4C tape line, 4D's hotel soap). opal, tumbler and amber are tinted aliases of the catalogue milk glass; bone of the catalogue enamel.",
   "Slice 47 gives 4A's overflowed drip tray grey standing water (standwater, a tinted alias of the catalogue milk glass) and Wren's furled umbrella, tip in the tray, leaning toward the wall: the black water alone read as a floor register.",
-  "Slice 48 of the V2 environment dossier adds a noticeframe form: an oak-framed notice board on each core level, the 1928 house rules on the public core (its cracked corner taped) and the service notice on the service core (pinned). The words are a Label3D the runtime lays on the paper. kraft is a tinted alias of the catalogue paper."
+  "Slice 48 of the V2 environment dossier adds a noticeframe form: an oak-framed notice board on each core level, the 1928 house rules on the public core (its cracked corner taped) and the service notice on the service core (pinned). The words are a Label3D the runtime lays on the paper. kraft is a tinted alias of the catalogue paper.",
+  "Slice 49 of the V2 environment dossier adds a threshold form: a household's mat on the hall side of its door (squared coir, worn coir, a rag rug, ribbed rubber, soil- or paint-flecked coir, an unworn dust mat at the sealed 2D), a folded newspaper for two, milk bottles and a parcel only on the wide core floor. The sealed 2D door also gets a one-line notice in the notice-frame family."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

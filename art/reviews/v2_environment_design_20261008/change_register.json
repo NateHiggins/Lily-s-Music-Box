@@ -3483,7 +3483,9 @@
    "preserve": "Door swings, the 1.2 m hall route, resident yield radius",
    "acceptance": "Overview from the landing reads at least two different households from their thresholds",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_WEST_HALL"
+   "area": "F02_WEST_HALL",
+   "status": "verified",
+   "owner_notes": "2A's coir mat squared to the jamb (Mina keeps things exact); from the landing it reads beside 2C's worn mat and the two milk bottles waiting at the core (F02_WEST_HALL_OV, 2A_threshold_native). Verified at WIP 36f8f9bb (implementation/slice49): fabrication batch 0 failures (six thresholds captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both identical to slice 48; upper lighting, public doors, the remaining upper transfers, the apartment door route, the first upper hall, the 4B door and rear wing A, all 0 failures; the resident key route, which the serial runner's 180 s ceiling ended without a verdict at this WIP, passes on the long runner at slice 51's WIP 0bac8f87 (86 waypoints, 0 failures), a tree that carries slice 49 unchanged. Rear wing C's one failure (the 2C bookshelf collision) is identical at slice 48's tip. The three hall sweeps (17 spaces) report 0 failures. Every threshold lies flat inside the 1.2 m hall route, within 0.5 m of its jamb and outside the swing."
   },
   {
    "id": "F02_WEST_HALL-002",
@@ -3516,7 +3518,9 @@
    "preserve": "Door swings, the 1.2 m hall route, resident yield radius",
    "acceptance": "Overview from the landing reads at least two different households from their thresholds",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_SOUTHWEST_HALL"
+   "area": "F02_SOUTHWEST_HALL",
+   "status": "verified",
+   "owner_notes": "The sealed 2D door's dust mat, new and unmarked, squared at the jamb; read from the hall against 2A's exact coir and 2C's worn mat beyond (F02_SOUTHWEST_HALL_OV). Verified at WIP 36f8f9bb (implementation/slice49): fabrication batch 0 failures (six thresholds captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both identical to slice 48; upper lighting, public doors, the remaining upper transfers, the apartment door route, the first upper hall, the 4B door and rear wing A, all 0 failures; the resident key route, which the serial runner's 180 s ceiling ended without a verdict at this WIP, passes on the long runner at slice 51's WIP 0bac8f87 (86 waypoints, 0 failures), a tree that carries slice 49 unchanged. Rear wing C's one failure (the 2C bookshelf collision) is identical at slice 48's tip. The three hall sweeps (17 spaces) report 0 failures. Every threshold lies flat inside the 1.2 m hall route, within 0.5 m of its jamb and outside the swing."
   },
   {
    "id": "F02_SOUTHWEST_HALL-002",
@@ -3584,7 +3588,9 @@
    "preserve": "Door swings, the 1.2 m hall route, resident yield radius",
    "acceptance": "Overview from the landing reads at least two different households from their thresholds",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_EAST_HALL"
+   "area": "F02_EAST_HALL",
+   "status": "verified",
+   "owner_notes": "Looking down the east hall from the core: 2C's worn mat and milk at the core end, 2B's rag rug of selvedge scraps at the crossing end (F02_EAST_HALL_RV, F02_SERVICE_CROSSING_OV, 2B_threshold_native). Verified at WIP 36f8f9bb (implementation/slice49): fabrication batch 0 failures (six thresholds captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both identical to slice 48; upper lighting, public doors, the remaining upper transfers, the apartment door route, the first upper hall, the 4B door and rear wing A, all 0 failures; the resident key route, which the serial runner's 180 s ceiling ended without a verdict at this WIP, passes on the long runner at slice 51's WIP 0bac8f87 (86 waypoints, 0 failures), a tree that carries slice 49 unchanged. Rear wing C's one failure (the 2C bookshelf collision) is identical at slice 48's tip. The three hall sweeps (17 spaces) report 0 failures. Every threshold lies flat inside the 1.2 m hall route, within 0.5 m of its jamb and outside the swing."
   },
   {
    "id": "F02_EAST_HALL-002",
@@ -4816,7 +4822,9 @@
    "preserve": "Lock state and the 7 locked-door count asserted by the matrix",
    "acceptance": "Threshold view from F02_SOUTHWEST_HALL shows notice, strip and clean mat; the door rattles with its reason",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_D_RESTRICTED"
+   "area": "F02_D_RESTRICTED",
+   "status": "implemented",
+   "owner_notes": "Partial: the sealed door's clean dust mat is squared at the jamb on the hall side, and its one-line notice hangs at 1.5 m in the core notice-frame family (slice 48's Label3D form), both read from the hall (F02_SOUTHWEST_HALL_OV). The strip of brown paper over the letter slot is not made: the leaf has no slot owner to carry a decal. Verified at WIP 36f8f9bb (implementation/slice49): fabrication batch 0 failures (six thresholds captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both identical to slice 48; upper lighting, public doors, the remaining upper transfers, the apartment door route, the first upper hall, the 4B door and rear wing A, all 0 failures; the resident key route, which the serial runner's 180 s ceiling ended without a verdict at this WIP, passes on the long runner at slice 51's WIP 0bac8f87 (86 waypoints, 0 failures), a tree that carries slice 49 unchanged. Rear wing C's one failure (the 2C bookshelf collision) is identical at slice 48's tip. The three hall sweeps (17 spaces) report 0 failures. Every threshold lies flat inside the 1.2 m hall route, within 0.5 m of its jamb and outside the swing."
   },
   {
    "id": "F03_PUBLIC_CORE-001",
@@ -5061,7 +5069,9 @@
    "preserve": "Door swings, the 1.2 m hall route, resident yield radius",
    "acceptance": "Overview from the landing reads at least two different households from their thresholds",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_WEST_HALL"
+   "area": "F03_WEST_HALL",
+   "status": "verified",
+   "owner_notes": "3A's coir mat dark with soil off Malcolm's boots (F03_WEST_HALL_OV, 3A_threshold_native); 3D's plain coir at the far end of the southwest hall reads from the same landing. Verified at WIP 36f8f9bb (implementation/slice49): fabrication batch 0 failures (six thresholds captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both identical to slice 48; upper lighting, public doors, the remaining upper transfers, the apartment door route, the first upper hall, the 4B door and rear wing A, all 0 failures; the resident key route, which the serial runner's 180 s ceiling ended without a verdict at this WIP, passes on the long runner at slice 51's WIP 0bac8f87 (86 waypoints, 0 failures), a tree that carries slice 49 unchanged. Rear wing C's one failure (the 2C bookshelf collision) is identical at slice 48's tip. The three hall sweeps (17 spaces) report 0 failures. Every threshold lies flat inside the 1.2 m hall route, within 0.5 m of its jamb and outside the swing."
   },
   {
    "id": "F03_WEST_HALL-002",
@@ -5094,7 +5104,9 @@
    "preserve": "Door swings, the 1.2 m hall route, resident yield radius",
    "acceptance": "Overview from the landing reads at least two different households from their thresholds",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_SOUTHWEST_HALL"
+   "area": "F03_SOUTHWEST_HALL",
+   "status": "verified",
+   "owner_notes": "3D's plain coir mat at the hall's door, read from the landing with 3A's soiled mat in the west hall (F03_SOUTHWEST_HALL_OV). Verified at WIP 36f8f9bb (implementation/slice49): fabrication batch 0 failures (six thresholds captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both identical to slice 48; upper lighting, public doors, the remaining upper transfers, the apartment door route, the first upper hall, the 4B door and rear wing A, all 0 failures; the resident key route, which the serial runner's 180 s ceiling ended without a verdict at this WIP, passes on the long runner at slice 51's WIP 0bac8f87 (86 waypoints, 0 failures), a tree that carries slice 49 unchanged. Rear wing C's one failure (the 2C bookshelf collision) is identical at slice 48's tip. The three hall sweeps (17 spaces) report 0 failures. Every threshold lies flat inside the 1.2 m hall route, within 0.5 m of its jamb and outside the swing."
   },
   {
    "id": "F03_SOUTHWEST_HALL-002",
@@ -6220,7 +6232,9 @@
    "preserve": "Door swings, the 1.2 m hall route, resident yield radius",
    "acceptance": "Overview from the landing reads at least two different households from their thresholds",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_WEST_HALL"
+   "area": "F04_WEST_HALL",
+   "status": "verified",
+   "owner_notes": "4B's mat worn flat and dark where every boot lands (the player's door), beside 4C's ribbed rubber mat and two milk bottles at the core (F04_WEST_HALL_OV, 4B_threshold_native, 4C_threshold_native). Verified at WIP 36f8f9bb (implementation/slice49): fabrication batch 0 failures (six thresholds captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both identical to slice 48; upper lighting, public doors, the remaining upper transfers, the apartment door route, the first upper hall, the 4B door and rear wing A, all 0 failures; the resident key route, which the serial runner's 180 s ceiling ended without a verdict at this WIP, passes on the long runner at slice 51's WIP 0bac8f87 (86 waypoints, 0 failures), a tree that carries slice 49 unchanged. Rear wing C's one failure (the 2C bookshelf collision) is identical at slice 48's tip. The three hall sweeps (17 spaces) report 0 failures. Every threshold lies flat inside the 1.2 m hall route, within 0.5 m of its jamb and outside the swing."
   },
   {
    "id": "F04_WEST_HALL-002",
@@ -6370,7 +6384,9 @@
    "preserve": "Door swings, the 1.2 m hall route, resident yield radius",
    "acceptance": "Overview from the landing reads at least two different households from their thresholds",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F04_EAST_HALL"
+   "area": "F04_EAST_HALL",
+   "status": "verified",
+   "owner_notes": "Down the east hall: 4C's ribbed rubber mat and milk pair at the core end, 4A's exact coir mat with the paper folded on it at the crossing end (F04_EAST_HALL_RV). Verified at WIP 36f8f9bb (implementation/slice49): fabrication batch 0 failures (six thresholds captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both identical to slice 48; upper lighting, public doors, the remaining upper transfers, the apartment door route, the first upper hall, the 4B door and rear wing A, all 0 failures; the resident key route, which the serial runner's 180 s ceiling ended without a verdict at this WIP, passes on the long runner at slice 51's WIP 0bac8f87 (86 waypoints, 0 failures), a tree that carries slice 49 unchanged. Rear wing C's one failure (the 2C bookshelf collision) is identical at slice 48's tip. The three hall sweeps (17 spaces) report 0 failures. Every threshold lies flat inside the 1.2 m hall route, within 0.5 m of its jamb and outside the swing."
   },
   {
    "id": "F04_EAST_HALL-002",
@@ -8255,7 +8271,9 @@
    "preserve": "Door swings, the 1.2 m hall route, resident yield radius",
    "acceptance": "Overview from the landing reads at least two different households from their thresholds",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_WEST_HALL"
+   "area": "F05_WEST_HALL",
+   "status": "verified",
+   "owner_notes": "5A's coir mat and 5B's with the morning paper folded on it, two households side by side in the one hall; 5C's paint-flecked mat at the core (F05_WEST_HALL_OV). Verified at WIP 36f8f9bb (implementation/slice49): fabrication batch 0 failures (six thresholds captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both identical to slice 48; upper lighting, public doors, the remaining upper transfers, the apartment door route, the first upper hall, the 4B door and rear wing A, all 0 failures; the resident key route, which the serial runner's 180 s ceiling ended without a verdict at this WIP, passes on the long runner at slice 51's WIP 0bac8f87 (86 waypoints, 0 failures), a tree that carries slice 49 unchanged. Rear wing C's one failure (the 2C bookshelf collision) is identical at slice 48's tip. The three hall sweeps (17 spaces) report 0 failures. Every threshold lies flat inside the 1.2 m hall route, within 0.5 m of its jamb and outside the swing."
   },
   {
    "id": "F05_WEST_HALL-002",
@@ -9670,7 +9688,9 @@
    "preserve": "Door swings, the 1.2 m hall route, resident yield radius",
    "acceptance": "Overview from the landing reads at least two different households from their thresholds",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_WEST_HALL"
+   "area": "F06_WEST_HALL",
+   "status": "verified",
+   "owner_notes": "6B's worn mat in the hall and 6C's coir mat with a string-tied parcel for the appraiser at the core (F06_WEST_HALL_OV, 6C_threshold_native). Verified at WIP 36f8f9bb (implementation/slice49): fabrication batch 0 failures (six thresholds captured natively); apartment batch 204 on the long runner; household state 154 checks, 0 failures; upper kitchens 206 and upper furniture 488, both identical to slice 48; upper lighting, public doors, the remaining upper transfers, the apartment door route, the first upper hall, the 4B door and rear wing A, all 0 failures; the resident key route, which the serial runner's 180 s ceiling ended without a verdict at this WIP, passes on the long runner at slice 51's WIP 0bac8f87 (86 waypoints, 0 failures), a tree that carries slice 49 unchanged. Rear wing C's one failure (the 2C bookshelf collision) is identical at slice 48's tip. The three hall sweeps (17 spaces) report 0 failures. Every threshold lies flat inside the 1.2 m hall route, within 0.5 m of its jamb and outside the swing."
   },
   {
    "id": "F06_WEST_HALL-002",

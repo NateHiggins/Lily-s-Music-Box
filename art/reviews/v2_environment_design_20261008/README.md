@@ -175,6 +175,9 @@ Slices landed so far (evidence folders in parentheses):
     Wren's overflowed umbrella tray (`slice47`).
 48. The building's paper trail: a framed notice on every core level, its words a
     Label3D the lamp reads (`slice48`).
+49. Door thresholds: a household's mat at every apartment door (squared coir, worn
+    coir, a rag rug, ribbed rubber, soil or paint on coir, the sealed door's dust mat),
+    the paper on two, milk and a parcel on the wide core floor (`slice49`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

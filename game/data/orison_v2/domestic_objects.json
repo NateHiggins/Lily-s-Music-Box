@@ -6257,6 +6257,889 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject90",
+      "parts": [
+        {
+          "name": "DomesticObject90__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject90__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject91",
+      "parts": [
+        {
+          "name": "DomesticObject91__Body_ON_blanket_grey",
+          "component": "Body",
+          "key": "blanket_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.28,
+            0.27,
+            0.25,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject91__Body_ON_cape_navy",
+          "component": "Body",
+          "key": "cape_navy",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.05,
+            0.065,
+            0.16,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject91__Body_ON_coat_grey",
+          "component": "Body",
+          "key": "coat_grey",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.22,
+            0.22,
+            0.23,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject91__Body_ON_jersey_maroon",
+          "component": "Body",
+          "key": "jersey_maroon",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.22,
+            0.045,
+            0.06,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject91__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject91__Body_ON_voile",
+          "component": "Body",
+          "key": "voile",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.5,
+            0.62,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.1,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "DomesticObject91__Body_ON_wool_burgundy",
+          "component": "Body",
+          "key": "wool_burgundy",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.3,
+            0.05,
+            0.07,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject92",
+      "parts": [
+        {
+          "name": "DomesticObject92__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject92__Body_ON_coir_dark",
+          "component": "Body",
+          "key": "coir_dark",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.24,
+            0.16,
+            0.08,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject92__Body_ON_coir_mid",
+          "component": "Body",
+          "key": "coir_mid",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.33,
+            0.23,
+            0.11,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject92__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject92__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject92__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject93",
+      "parts": [
+        {
+          "name": "DomesticObject93__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject93__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject93__Body_ON_soil",
+          "component": "Body",
+          "key": "soil",
+          "tile": 0.35,
+          "catalog_key": "soil",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject94",
+      "parts": [
+        {
+          "name": "DomesticObject94__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject94__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject95",
+      "parts": [
+        {
+          "name": "DomesticObject95__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject95__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject95__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject96",
+      "parts": [
+        {
+          "name": "DomesticObject96__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject96__Body_ON_coir_dark",
+          "component": "Body",
+          "key": "coir_dark",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.24,
+            0.16,
+            0.08,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject96__Body_ON_coir_mid",
+          "component": "Body",
+          "key": "coir_mid",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.33,
+            0.23,
+            0.11,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject96__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject97",
+      "parts": [
+        {
+          "name": "DomesticObject97__Body_ON_enamel",
+          "component": "Body",
+          "key": "enamel",
+          "tile": 0.72,
+          "catalog_key": "enamel_appliance",
+          "finish": {
+            "normal_scale": 0.015,
+            "roughness": 0.32
+          }
+        },
+        {
+          "name": "DomesticObject97__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject97__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject98",
+      "parts": [
+        {
+          "name": "DomesticObject98__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject98__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject99",
+      "parts": [
+        {
+          "name": "DomesticObject99__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject99__Body_ON_paper",
+          "component": "Body",
+          "key": "paper",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject99__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject100",
+      "parts": [
+        {
+          "name": "DomesticObject100__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject100__Body_ON_cape_navy",
+          "component": "Body",
+          "key": "cape_navy",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.05,
+            0.065,
+            0.16,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject100__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject100__Body_ON_jersey_maroon",
+          "component": "Body",
+          "key": "jersey_maroon",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.22,
+            0.045,
+            0.06,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject100__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject100__Body_ON_voile",
+          "component": "Body",
+          "key": "voile",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.5,
+            0.62,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.1,
+            "roughness": 0.85
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject101",
+      "parts": [
+        {
+          "name": "DomesticObject101__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject101__Body_ON_coir_dark",
+          "component": "Body",
+          "key": "coir_dark",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.24,
+            0.16,
+            0.08,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject101__Body_ON_coir_mid",
+          "component": "Body",
+          "key": "coir_mid",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.33,
+            0.23,
+            0.11,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject101__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject102",
+      "parts": [
+        {
+          "name": "DomesticObject102__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject102__Body_ON_kraft",
+          "component": "Body",
+          "key": "kraft",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.5,
+            0.38,
+            0.22,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject102__Body_ON_linen",
+          "component": "Body",
+          "key": "linen",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject102__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject103",
+      "parts": [
+        {
+          "name": "DomesticObject103__Body_ON_coir",
+          "component": "Body",
+          "key": "coir",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.42,
+            0.3,
+            0.15,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.16,
+            "roughness": 0.92
+          }
+        },
+        {
+          "name": "DomesticObject103__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -6998,6 +7881,66 @@
     },
     {
       "id": "ROOF_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "2A_threshold",
+      "variant": "DomesticObject90"
+    },
+    {
+      "id": "2B_threshold",
+      "variant": "DomesticObject91"
+    },
+    {
+      "id": "2C_threshold",
+      "variant": "DomesticObject92"
+    },
+    {
+      "id": "3A_threshold",
+      "variant": "DomesticObject93"
+    },
+    {
+      "id": "3D_threshold",
+      "variant": "DomesticObject94"
+    },
+    {
+      "id": "4A_threshold",
+      "variant": "DomesticObject95"
+    },
+    {
+      "id": "4B_threshold",
+      "variant": "DomesticObject96"
+    },
+    {
+      "id": "4C_threshold",
+      "variant": "DomesticObject97"
+    },
+    {
+      "id": "5A_threshold",
+      "variant": "DomesticObject98"
+    },
+    {
+      "id": "5B_threshold",
+      "variant": "DomesticObject99"
+    },
+    {
+      "id": "5C_threshold",
+      "variant": "DomesticObject100"
+    },
+    {
+      "id": "6B_threshold",
+      "variant": "DomesticObject101"
+    },
+    {
+      "id": "6C_threshold",
+      "variant": "DomesticObject102"
+    },
+    {
+      "id": "2D_threshold",
+      "variant": "DomesticObject103"
+    },
+    {
+      "id": "2D_sealed_notice",
       "variant": "DomesticObject89"
     }
   ],

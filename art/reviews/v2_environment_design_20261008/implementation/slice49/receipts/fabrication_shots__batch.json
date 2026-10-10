@@ -1,0 +1,100 @@
+{
+	"batch_checks": 9,
+	"elapsed_ms": 58875,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 7780,
+	"modules": {
+		"domestic_objects": {
+			"actors": 200,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 7780,
+			"elapsed_ms": 11513,
+			"failures": [],
+			"fixture_sha256": "0265f07ec8aa78980bb1f208dd2deb81dd268153f366c64f140b0cf27a9a24e4",
+			"parts": 786,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 472576,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 104,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.38000106811523,
+						3.22000002861023,
+						-11.649998664856
+					],
+					"id": "2A_threshold_native",
+					"image": "2A_threshold_native.png",
+					"owner": "2A_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-8.27999973297119,
+						3.22000002861023,
+						-8.40000057220459
+					],
+					"id": "2B_threshold_native",
+					"image": "2B_threshold_native.png",
+					"owner": "2B_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.38000106811523,
+						6.42000007629395,
+						-11.649998664856
+					],
+					"id": "3A_threshold_native",
+					"image": "3A_threshold_native.png",
+					"owner": "3A_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.38000106811523,
+						9.61999988555908,
+						-11.649998664856
+					],
+					"id": "4B_threshold_native",
+					"image": "4B_threshold_native.png",
+					"owner": "4B_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						0.850001275539398,
+						9.61999988555908,
+						-14.2799997329712
+					],
+					"id": "4C_threshold_native",
+					"image": "4C_threshold_native.png",
+					"owner": "4C_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						0.850001275539398,
+						16.0200004577637,
+						-14.2799997329712
+					],
+					"id": "6C_threshold_native",
+					"image": "6C_threshold_native.png",
+					"owner": "6C_threshold",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}
