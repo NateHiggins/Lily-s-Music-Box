@@ -1314,6 +1314,45 @@ def runner(source):
  for p in [(x0+.03,y0+.03,0),(x1-.03,y0+.03,0),(x0+.03,y1-.03,0),(x1-.03,y1-.03,0)]:bearing('runner '+str(p),p)
  group('Runner',start)
 
+def washersupply(source):
+ # Dossier slice 77 (B1_LAUNDRY-004): the washers' water. Cold and hot mains come out of the west wall through
+ # flanges at the north end, run along it on clips above the hanging belt, and drop at each washer to a brass bib
+ # cock; a rubber hose runs from each bib's union down to the washer's own fill cock (x -9.568 world, 0.91 m).
+ # Cold stands 35 mm off the wall, hot 85 mm, so each hot drop clears the cold main in front of it.
+ back=variants[identity]['rear_wall_y'];x0=source['entry']
+ for name,off,y,key,drops in [('Cold',.035,1.85,'galv',source['cold']),('Hot',.085,2.0,'copper',source['hot'])]:
+  start=len(stock_checks);r=.016;x1=max(drops)
+  tube(name+'Flange',(x0,back,y),(x0,back+.008,y),.036,'iron')
+  tube(name+'Entry',(x0,back+.006,y),(x0,off,y),r,key)
+  tube(name+'Elbow',(x0-.022,off,y),(x0+.026,off,y),r+.0045,key)
+  tube(name+'Main',(x0,off,y),(x1,off,y),r,key)
+  support(identity,'wall',(x0,back,y),(0,1,0),'main emerging through its wall flange')
+  for cx in source['clips']:
+   stock(name+'Clip'+str(cx),(cx-.012,back,y-.02),(cx+.012,off-.01,y+.02),'iron',.001)
+   support(identity,'wall',(cx,back,y),(0,1,0),'pipe clip screwed to the wall')
+  for dx in drops:
+   tube(name+'Tee'+str(dx),(dx-.026,off,y),(dx+.026 if dx<x1 else dx+.0045+r,off,y),r+.0045,key)
+   tube(name+'Drop'+str(dx),(dx,off,y),(dx,off,1.2),r,key)
+   stock(name+'DropClip'+str(dx),(dx-.012,back,1.48),(dx+.012,off-.01,1.52),'iron',.001)
+   support(identity,'wall',(dx,back,1.5),(0,1,0),'drop clip screwed to the wall')
+   # The bib: body out from the drop, bonnet and crutch handle, a down-turned spout with its hose union.
+   tube(name+'Bib'+str(dx),(dx,off-.004,1.2),(dx,off+.066,1.2),.015,'brass')
+   tube(name+'Bonnet'+str(dx),(dx,off+.035,1.2),(dx,off+.035,1.246),.0105,'brass')
+   stock(name+'Handle'+str(dx),(dx-.03,off+.029,1.243),(dx+.03,off+.041,1.255),'brass',.001)
+   tube(name+'Spout'+str(dx),(dx,off+.062,1.206),(dx,off+.062,1.135),.0115,'brass')
+   tube(name+'Union'+str(dx),(dx,off+.062,1.146),(dx,off+.062,1.118),.0145,'brass')
+   wire(name+'Hose'+str(dx),[(dx,off+.062,1.124),(dx,off+.068,1.02),(dx,.16,.89),(dx,.24,.85),(dx,.30,.866),(dx,.336,.91)],.0105,'rubber_aged')
+  group(name+'Supply',start)
+ # A cast-iron floor gully behind each washer takes its drain hose, slipped into the drain pipe's mouth.
+ for i,dx in enumerate(source['drains']):
+  start=len(stock_checks)
+  stock('GullyFrame'+str(i),(dx-.09,.08,0),(dx+.09,.26,.006),'iron',.001)
+  tube('GullyGrate'+str(i),(dx,.17,.004),(dx,.17,.009),.064,'iron')
+  for o in [-.03,0,.03]:stock('GullyBar'+str(i)+str(o),(dx-.052,.17+o-.004,.0085),(dx+.052,.17+o+.004,.0125),'iron',.0005)
+  wire('DrainHose'+str(i),[(dx,.336,.28),(dx,.29,.274),(dx,.236,.22),(dx,.196,.13),(dx,.176,.05),(dx,.172,.011)],.019,'rubber_aged')
+  for p in [(dx-.08,.09,0),(dx+.08,.09,0),(dx-.08,.25,0),(dx+.08,.25,0)]:bearing('gully '+str(p),p)
+  group('WasherGully'+str(i),start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1386,4 +1425,5 @@ for assembly in assemblies:
  elif kind=='droppedcartridge':droppedcartridge(source)
  elif kind=='coalshovel':coalshovel(source)
  elif kind=='runner':runner(source)
+ elif kind=='washersupply':washersupply(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

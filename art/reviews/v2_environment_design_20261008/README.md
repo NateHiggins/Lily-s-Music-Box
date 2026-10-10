@@ -234,6 +234,7 @@ Slices landed so far (evidence folders in parentheses):
     verification of slices 68-75 (`slice68`).
 76. The coal chute seated on a boarded bunker, and the coal route through the
     vestibule leaves (evidence with slice 80 in `slice80`).
+77. The basement washers' supply, bib cocks, hoses and floor gullies.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

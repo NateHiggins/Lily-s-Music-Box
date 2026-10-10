@@ -9378,6 +9378,90 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject134",
+      "parts": [
+        {
+          "name": "DomesticObject134__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject134__Body_ON_copper",
+          "component": "Body",
+          "key": "copper",
+          "tile": 0.4,
+          "catalog_key": "copper_aged",
+          "tint": [
+            0.78,
+            0.5,
+            0.34,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.15,
+            "roughness": 0.62
+          }
+        },
+        {
+          "name": "DomesticObject134__Body_ON_galv",
+          "component": "Body",
+          "key": "galv",
+          "tile": 0.55,
+          "catalog_key": "zinc_liner",
+          "tint": [
+            0.74,
+            0.75,
+            0.72,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.18,
+            "roughness": 0.72
+          }
+        },
+        {
+          "name": "DomesticObject134__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.3,
+            0.3,
+            0.29,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject134__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -10308,6 +10392,10 @@
     {
       "id": "4B_alcove_runner",
       "variant": "DomesticObject133"
+    },
+    {
+      "id": "B1_washer_supply",
+      "variant": "DomesticObject134"
     }
   ],
   "tint_space": "linear"

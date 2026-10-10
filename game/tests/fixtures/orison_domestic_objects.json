@@ -982,6 +982,12 @@
       "kind": "runner",
       "cell": "shared",
       "source_record": "4B_alcove_runner"
+    },
+    {
+      "id": "DomesticObject134",
+      "kind": "washersupply",
+      "cell": "shared",
+      "source_record": "B1_washer_supply"
     }
   ],
   "closed_stocks": [
@@ -16170,6 +16176,378 @@
       "assembly": "DomesticObject133",
       "key": "linen",
       "volume_m3": 0.0003133942045843134
+    },
+    {
+      "name": "DomesticObject134_ColdFlange",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 3.2479139186180504e-05
+    },
+    {
+      "name": "DomesticObject134_ColdEntry",
+      "assembly": "DomesticObject134",
+      "key": "galv",
+      "volume_m3": 3.929567305172432e-05
+    },
+    {
+      "name": "DomesticObject134_ColdElbow",
+      "assembly": "DomesticObject134",
+      "key": "galv",
+      "volume_m3": 6.319190359266866e-05
+    },
+    {
+      "name": "DomesticObject134_ColdMain",
+      "assembly": "DomesticObject134",
+      "key": "galv",
+      "volume_m3": 0.002209380777894194
+    },
+    {
+      "name": "DomesticObject134_ColdClip-1.45",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 4.309273632071393e-05
+    },
+    {
+      "name": "DomesticObject134_ColdClip-0.35",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 4.309262909207151e-05
+    },
+    {
+      "name": "DomesticObject134_ColdClip0.35",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 4.309262909207151e-05
+    },
+    {
+      "name": "DomesticObject134_ColdTee-0.745",
+      "assembly": "DomesticObject134",
+      "key": "galv",
+      "volume_m3": 6.845798710639291e-05
+    },
+    {
+      "name": "DomesticObject134_ColdDrop-0.745",
+      "assembly": "DomesticObject134",
+      "key": "galv",
+      "volume_m3": 0.0005212695424966073
+    },
+    {
+      "name": "DomesticObject134_ColdDropClip-0.745",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 4.3092731013305336e-05
+    },
+    {
+      "name": "DomesticObject134_ColdBib-0.745",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 4.933865259304361e-05
+    },
+    {
+      "name": "DomesticObject134_ColdBonnet-0.745",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 1.588712892433531e-05
+    },
+    {
+      "name": "DomesticObject134_ColdHandle-0.745",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 8.55766908897378e-06
+    },
+    {
+      "name": "DomesticObject134_ColdSpout-0.745",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 2.9414572645241894e-05
+    },
+    {
+      "name": "DomesticObject134_ColdUnion-0.745",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 1.8441782377397035e-05
+    },
+    {
+      "name": "DomesticObject134_ColdHose-0.745",
+      "assembly": "DomesticObject134",
+      "key": "rubber_aged",
+      "volume_m3": 0.00014502389640289875
+    },
+    {
+      "name": "DomesticObject134_ColdTee0.955",
+      "assembly": "DomesticObject134",
+      "key": "galv",
+      "volume_m3": 6.121714189237875e-05
+    },
+    {
+      "name": "DomesticObject134_ColdDrop0.955",
+      "assembly": "DomesticObject134",
+      "key": "galv",
+      "volume_m3": 0.0005212695424966073
+    },
+    {
+      "name": "DomesticObject134_ColdDropClip0.955",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 4.3092623784667854e-05
+    },
+    {
+      "name": "DomesticObject134_ColdBib0.955",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 4.933865259304361e-05
+    },
+    {
+      "name": "DomesticObject134_ColdBonnet0.955",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 1.588712892433531e-05
+    },
+    {
+      "name": "DomesticObject134_ColdHandle0.955",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 8.55766908897378e-06
+    },
+    {
+      "name": "DomesticObject134_ColdSpout0.955",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 2.9414572645241894e-05
+    },
+    {
+      "name": "DomesticObject134_ColdUnion0.955",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 1.8441782377397035e-05
+    },
+    {
+      "name": "DomesticObject134_ColdHose0.955",
+      "assembly": "DomesticObject134",
+      "key": "rubber_aged",
+      "volume_m3": 0.00014502389640289875
+    },
+    {
+      "name": "DomesticObject134_HotFlange",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 3.2479152401364916e-05
+    },
+    {
+      "name": "DomesticObject134_HotEntry",
+      "assembly": "DomesticObject134",
+      "key": "copper",
+      "volume_m3": 7.939314695538325e-05
+    },
+    {
+      "name": "DomesticObject134_HotElbow",
+      "assembly": "DomesticObject134",
+      "key": "copper",
+      "volume_m3": 6.319140622872972e-05
+    },
+    {
+      "name": "DomesticObject134_HotMain",
+      "assembly": "DomesticObject134",
+      "key": "copper",
+      "volume_m3": 0.0020409666390586658
+    },
+    {
+      "name": "DomesticObject134_HotClip-1.45",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 9.104279547354223e-05
+    },
+    {
+      "name": "DomesticObject134_HotClip-0.35",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 9.104256903571151e-05
+    },
+    {
+      "name": "DomesticObject134_HotClip0.35",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 9.104256903571151e-05
+    },
+    {
+      "name": "DomesticObject134_HotTee-0.955",
+      "assembly": "DomesticObject134",
+      "key": "copper",
+      "volume_m3": 6.845736982592594e-05
+    },
+    {
+      "name": "DomesticObject134_HotDrop-0.955",
+      "assembly": "DomesticObject134",
+      "key": "copper",
+      "volume_m3": 0.0006415624391556481
+    },
+    {
+      "name": "DomesticObject134_HotDropClip-0.955",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 9.10425451114377e-05
+    },
+    {
+      "name": "DomesticObject134_HotBib-0.955",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 4.9338644715866733e-05
+    },
+    {
+      "name": "DomesticObject134_HotBonnet-0.955",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 1.5887126638532443e-05
+    },
+    {
+      "name": "DomesticObject134_HotHandle-0.955",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 8.55767444592529e-06
+    },
+    {
+      "name": "DomesticObject134_HotSpout-0.955",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 2.9414570711739247e-05
+    },
+    {
+      "name": "DomesticObject134_HotUnion-0.955",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 1.8441786011702457e-05
+    },
+    {
+      "name": "DomesticObject134_HotHose-0.955",
+      "assembly": "DomesticObject134",
+      "key": "rubber_aged",
+      "volume_m3": 0.00013918021041769974
+    },
+    {
+      "name": "DomesticObject134_HotTee0.745",
+      "assembly": "DomesticObject134",
+      "key": "copper",
+      "volume_m3": 6.121673853999273e-05
+    },
+    {
+      "name": "DomesticObject134_HotDrop0.745",
+      "assembly": "DomesticObject134",
+      "key": "copper",
+      "volume_m3": 0.0006415624391556481
+    },
+    {
+      "name": "DomesticObject134_HotDropClip0.745",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 9.104277154925672e-05
+    },
+    {
+      "name": "DomesticObject134_HotBib0.745",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 4.9338644715866733e-05
+    },
+    {
+      "name": "DomesticObject134_HotBonnet0.745",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 1.5887126638532443e-05
+    },
+    {
+      "name": "DomesticObject134_HotHandle0.745",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 8.55767444592529e-06
+    },
+    {
+      "name": "DomesticObject134_HotSpout0.745",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 2.9414570711739247e-05
+    },
+    {
+      "name": "DomesticObject134_HotUnion0.745",
+      "assembly": "DomesticObject134",
+      "key": "brass",
+      "volume_m3": 1.8441786011702457e-05
+    },
+    {
+      "name": "DomesticObject134_HotHose0.745",
+      "assembly": "DomesticObject134",
+      "key": "rubber_aged",
+      "volume_m3": 0.00013918033173384816
+    },
+    {
+      "name": "DomesticObject134_GullyFrame0",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 0.00019403570025852479
+    },
+    {
+      "name": "DomesticObject134_GullyGrate0",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 6.415623925256864e-05
+    },
+    {
+      "name": "DomesticObject134_GullyBar0-0.03",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 3.299207864781213e-06
+    },
+    {
+      "name": "DomesticObject134_GullyBar00",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 3.2992140599404416e-06
+    },
+    {
+      "name": "DomesticObject134_GullyBar00.03",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 3.2992140599404416e-06
+    },
+    {
+      "name": "DomesticObject134_DrainHose0",
+      "assembly": "DomesticObject134",
+      "key": "rubber_aged",
+      "volume_m3": 0.0003659728889276188
+    },
+    {
+      "name": "DomesticObject134_GullyFrame1",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 0.00019403576457193344
+    },
+    {
+      "name": "DomesticObject134_GullyGrate1",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 6.415621322491162e-05
+    },
+    {
+      "name": "DomesticObject134_GullyBar1-0.03",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 3.299209757225264e-06
+    },
+    {
+      "name": "DomesticObject134_GullyBar10",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 3.299215952388045e-06
+    },
+    {
+      "name": "DomesticObject134_GullyBar10.03",
+      "assembly": "DomesticObject134",
+      "key": "iron",
+      "volume_m3": 3.299215952388045e-06
+    },
+    {
+      "name": "DomesticObject134_DrainHose1",
+      "assembly": "DomesticObject134",
+      "key": "rubber_aged",
+      "volume_m3": 0.0003659732716242166
     }
   ],
   "contacts": [
@@ -24302,6 +24680,306 @@
         0
       ],
       "label": "runner (1.02, 0.28, 0)"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        -1.8,
+        1.85,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "main emerging through its wall flange"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        -1.45,
+        1.85,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "pipe clip screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        -0.35,
+        1.85,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "pipe clip screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        0.35,
+        1.85,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "pipe clip screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        -0.745,
+        1.5,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "drop clip screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        0.955,
+        1.5,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "drop clip screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        -1.8,
+        2.0,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "main emerging through its wall flange"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        -1.45,
+        2.0,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "pipe clip screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        -0.35,
+        2.0,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "pipe clip screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        0.35,
+        2.0,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "pipe clip screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        -0.955,
+        1.5,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "drop clip screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "wall",
+      "point": [
+        0.745,
+        1.5,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "drop clip screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "support",
+      "point": [
+        -0.6599999999999999,
+        0,
+        -0.09
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "gully (-0.6599999999999999, 0.09, 0)"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "support",
+      "point": [
+        -0.49999999999999994,
+        0,
+        -0.09
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "gully (-0.49999999999999994, 0.09, 0)"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "support",
+      "point": [
+        -0.6599999999999999,
+        0,
+        -0.25
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "gully (-0.6599999999999999, 0.25, 0)"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "support",
+      "point": [
+        -0.49999999999999994,
+        0,
+        -0.25
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "gully (-0.49999999999999994, 0.25, 0)"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "support",
+      "point": [
+        1.04,
+        0,
+        -0.09
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "gully (1.04, 0.09, 0)"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "support",
+      "point": [
+        1.2000000000000002,
+        0,
+        -0.09
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "gully (1.2000000000000002, 0.09, 0)"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "support",
+      "point": [
+        1.04,
+        0,
+        -0.25
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "gully (1.04, 0.25, 0)"
+    },
+    {
+      "assembly": "DomesticObject134",
+      "owner": "support",
+      "point": [
+        1.2000000000000002,
+        0,
+        -0.25
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "gully (1.2000000000000002, 0.25, 0)"
     }
   ],
   "parts": [
@@ -28469,9 +29147,44 @@
       "cell": "shared",
       "key": "linen",
       "triangles": 376
+    },
+    {
+      "name": "DomesticObject134__Body_ON_brass",
+      "assembly": "DomesticObject134",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 3760
+    },
+    {
+      "name": "DomesticObject134__Body_ON_copper",
+      "assembly": "DomesticObject134",
+      "cell": "shared",
+      "key": "copper",
+      "triangles": 1316
+    },
+    {
+      "name": "DomesticObject134__Body_ON_galv",
+      "assembly": "DomesticObject134",
+      "cell": "shared",
+      "key": "galv",
+      "triangles": 1316
+    },
+    {
+      "name": "DomesticObject134__Body_ON_iron",
+      "assembly": "DomesticObject134",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 4136
+    },
+    {
+      "name": "DomesticObject134__Body_ON_rubber_aged",
+      "assembly": "DomesticObject134",
+      "cell": "shared",
+      "key": "rubber_aged",
+      "triangles": 840
     }
   ],
-  "triangles": 561500,
+  "triangles": 572868,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -37853,6 +38566,90 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "DomesticObject134",
+        "parts": [
+          {
+            "name": "DomesticObject134__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          },
+          {
+            "name": "DomesticObject134__Body_ON_copper",
+            "component": "Body",
+            "key": "copper",
+            "tile": 0.4,
+            "catalog_key": "copper_aged",
+            "tint": [
+              0.78,
+              0.5,
+              0.34,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.15,
+              "roughness": 0.62
+            }
+          },
+          {
+            "name": "DomesticObject134__Body_ON_galv",
+            "component": "Body",
+            "key": "galv",
+            "tile": 0.55,
+            "catalog_key": "zinc_liner",
+            "tint": [
+              0.74,
+              0.75,
+              0.72,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.18,
+              "roughness": 0.72
+            }
+          },
+          {
+            "name": "DomesticObject134__Body_ON_iron",
+            "component": "Body",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.3,
+              0.3,
+              0.29,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.9
+            }
+          },
+          {
+            "name": "DomesticObject134__Body_ON_rubber_aged",
+            "component": "Body",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -38783,15 +39580,19 @@
       {
         "id": "4B_alcove_runner",
         "variant": "DomesticObject133"
+      },
+      {
+        "id": "B1_washer_supply",
+        "variant": "DomesticObject134"
       }
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "09599be6025ba63e8bf10df197993cc93ed7b0fb2235e295622c66ff5c8d2cd3",
+  "asset_sha256": "7e925fd7146b18b7cbde7a49afff24bd5da7416dd6b91080cb9108c4891c4bf0",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "3e2cde0e22d805056bd2560681280353b072411deb1f2a27da703c9a2ef9e1ff",
+    "art/data/domestic_objects/source_plan.json": "344238a6f3117323e082dffda6df010d4c565b48972daaa9c580bf388b0a49e9",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_objects.py": "14c44a4f2dced856fa18985a2569f420e14ac2ab71b710d8388eae4b7d68e096",
+    "art/blender/scripts/build_domestic_objects.py": "cfb10dc5dd4b574bbaf1d29b0d17998faa1ab35f94bdb962ee36f233f2726019",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -38818,6 +39619,9 @@
     "art/textures/ai_materials/soil/material.json": "293b060f211eacfd06ed4b2a2189495823f4d83b98e2648158326ae38b0559c3",
     "art/textures/ai_materials/terracotta/material.json": "13bc7f107bad6e33ed641ba2b6c80d4447c385ef55ed072902a2009ccbd38327",
     "art/textures/ai_materials/oak_work_surface/material.json": "e6f67c0a42f610648b57189f1f2d8ed7e567742ef8c4af32e104fd73acbe7f89",
+    "art/textures/ai_materials/zinc_liner/material.json": "caf3516c0f220772a27d9ae1cd53bee2f188eb297f9947c856c6c38774be1d7c",
+    "art/textures/ai_materials/copper_aged/material.json": "2fbceb6f6f8579eca621d8e4e7db430af9d4840fffc5d0132e5b996c67960668",
+    "art/textures/procedural/iron_blackened/material.json": "4b0477a638dad643aa6a94fdaeabe9b6d7554f6f835f63cbddddc3b7f67611b2",
     "game/assets/building/textures/T_library_appliances_bakelite_albedo.png": "c93813fadd99142e58696dc328769f5ac1b6fa18b3d311598fe453e608713ad1",
     "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
     "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
@@ -38875,22 +39679,31 @@
     "game/assets/building/textures/T_ai_materials_oak_work_surface_albedo.png": "94715b263c85285aced41196f29aea6675f866a61180ab90a1f9c719bef4edeb",
     "game/assets/building/textures/T_ai_materials_oak_work_surface_rough.png": "ebf613454bbd3e6a6909cbe3d1aa4fe89b45fd8229516aafb31146761cf63ee5",
     "game/assets/building/textures/T_ai_materials_oak_work_surface_normal.png": "8aa1987fad72d117f836ac0d18922e94b71a03a009206401f440768ac6ad91e1",
+    "game/assets/building/textures/T_ai_materials_zinc_liner_albedo.png": "7660d3b67d0cc6b12d94cb176c6c1716ade45ebfaa7cbe9bf0e49da586f49a42",
+    "game/assets/building/textures/T_ai_materials_zinc_liner_rough.png": "dc57fdcacb5854aa29200ab92ecc107daa06d145052e61ebcea59a78e38b0e94",
+    "game/assets/building/textures/T_ai_materials_zinc_liner_normal.png": "ed2ddaf99ba6a66691221350263721a4d848688456ea94f4e8fc6dcb1b6e5864",
+    "game/assets/building/textures/T_ai_materials_copper_aged_albedo.png": "4a945478382377f2844d0c9dc68491f025e4845786b7c505ef81e4e916327272",
+    "game/assets/building/textures/T_ai_materials_copper_aged_rough.png": "15d79d04e912e0287314a0660ab7190fe605dd5f01755e0e817061c9aee2ce79",
+    "game/assets/building/textures/T_ai_materials_copper_aged_normal.png": "8d231b1349a751beea0008a338c0347a95bbd629a0a8de8f192ee95f374285de",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
+    "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
     "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
     "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
     "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "39efd89e45647e5f856c1bfe41d50425e5d8a500859ff284cf9a223816486e01",
+    "art/blender/scripts/domestic_objects_geometry.py": "ced7c2687e4e45bdb8a02c5dabe924c38de5ac009e666e7dc978cdc8471875fa",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "cdc1fdb3876b4f9e3145c26bf4dd974da8bc6a9929d10fe2982bec6ecf7d42ca",
+    "game/data/orison_v2/domestic_furniture.json": "acecbcb663ebe9bab711c6ea2428ab65e462e31ef5b643056247f89221cefbbc",
     "game/data/orison_v2/completion_interiors.json": "c2e67fca657ce400d2a62cfafe4c13b7dd6cf2a5ea9dd605f95209c6730e75b5",
     "art/data/orison_v2/completion_interiors_source.json": "7f1a989c2e4a02700ce931bc719311ce9d382360545bacb0448e073d4107fef8",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "b51ffeb229e043a3bb6a7b7dde70aa58ccd2c3004bde5aae9099d53b73a01f76",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "2a14cd25b76fc7be4a48198605ad7c92a9b39bcafdb24ebcd474541eb5f3386c",
-    "game/data/orison_v2_blockout.json": "5a309f582faff4679d796dcb649c29879e5e9f8c1b2973ea9eb1db7a57ea9f66",
+    "game/data/orison_v2_blockout.json": "686bf013b03a55dc5ccb037aa9f2b60dc9b71e9cb535d432bc0a55ec459f8183",
     "art/blender/work_tables.blend": "ffc309d94421baa1307cffe02ba2b375b80329c1f98849e4ee4902c9bdd660c6",
     "game/data/orison_v2/domestic_surface_props.json": "82e151adef3a647cb6b2a34187a76ccd47e0d3c538c32dca76230b48a0844ce6",
     "game/tests/fixtures/orison_surface_stock.json": "28cbec6364d396d4a84dd6725ef8ab54db7c7790207edc29223f7c377a1cc9d4",
@@ -45513,6 +46326,92 @@
         "DomesticObject133_Strand2",
         "DomesticObject133_Binding-0.31",
         "DomesticObject133_Binding0.288"
+      ]
+    },
+    {
+      "assembly": "DomesticObject134",
+      "id": "DomesticObject134_ColdSupply",
+      "stocks": [
+        "DomesticObject134_ColdFlange",
+        "DomesticObject134_ColdEntry",
+        "DomesticObject134_ColdElbow",
+        "DomesticObject134_ColdMain",
+        "DomesticObject134_ColdClip-1.45",
+        "DomesticObject134_ColdClip-0.35",
+        "DomesticObject134_ColdClip0.35",
+        "DomesticObject134_ColdTee-0.745",
+        "DomesticObject134_ColdDrop-0.745",
+        "DomesticObject134_ColdDropClip-0.745",
+        "DomesticObject134_ColdBib-0.745",
+        "DomesticObject134_ColdBonnet-0.745",
+        "DomesticObject134_ColdHandle-0.745",
+        "DomesticObject134_ColdSpout-0.745",
+        "DomesticObject134_ColdUnion-0.745",
+        "DomesticObject134_ColdHose-0.745",
+        "DomesticObject134_ColdTee0.955",
+        "DomesticObject134_ColdDrop0.955",
+        "DomesticObject134_ColdDropClip0.955",
+        "DomesticObject134_ColdBib0.955",
+        "DomesticObject134_ColdBonnet0.955",
+        "DomesticObject134_ColdHandle0.955",
+        "DomesticObject134_ColdSpout0.955",
+        "DomesticObject134_ColdUnion0.955",
+        "DomesticObject134_ColdHose0.955"
+      ]
+    },
+    {
+      "assembly": "DomesticObject134",
+      "id": "DomesticObject134_HotSupply",
+      "stocks": [
+        "DomesticObject134_HotFlange",
+        "DomesticObject134_HotEntry",
+        "DomesticObject134_HotElbow",
+        "DomesticObject134_HotMain",
+        "DomesticObject134_HotClip-1.45",
+        "DomesticObject134_HotClip-0.35",
+        "DomesticObject134_HotClip0.35",
+        "DomesticObject134_HotTee-0.955",
+        "DomesticObject134_HotDrop-0.955",
+        "DomesticObject134_HotDropClip-0.955",
+        "DomesticObject134_HotBib-0.955",
+        "DomesticObject134_HotBonnet-0.955",
+        "DomesticObject134_HotHandle-0.955",
+        "DomesticObject134_HotSpout-0.955",
+        "DomesticObject134_HotUnion-0.955",
+        "DomesticObject134_HotHose-0.955",
+        "DomesticObject134_HotTee0.745",
+        "DomesticObject134_HotDrop0.745",
+        "DomesticObject134_HotDropClip0.745",
+        "DomesticObject134_HotBib0.745",
+        "DomesticObject134_HotBonnet0.745",
+        "DomesticObject134_HotHandle0.745",
+        "DomesticObject134_HotSpout0.745",
+        "DomesticObject134_HotUnion0.745",
+        "DomesticObject134_HotHose0.745"
+      ]
+    },
+    {
+      "assembly": "DomesticObject134",
+      "id": "DomesticObject134_WasherGully0",
+      "stocks": [
+        "DomesticObject134_GullyFrame0",
+        "DomesticObject134_GullyGrate0",
+        "DomesticObject134_GullyBar0-0.03",
+        "DomesticObject134_GullyBar00",
+        "DomesticObject134_GullyBar00.03",
+        "DomesticObject134_DrainHose0"
+      ]
+    },
+    {
+      "assembly": "DomesticObject134",
+      "id": "DomesticObject134_WasherGully1",
+      "stocks": [
+        "DomesticObject134_GullyFrame1",
+        "DomesticObject134_GullyGrate1",
+        "DomesticObject134_GullyBar1-0.03",
+        "DomesticObject134_GullyBar10",
+        "DomesticObject134_GullyBar10.03",
+        "DomesticObject134_DrainHose1"
       ]
     }
   ],

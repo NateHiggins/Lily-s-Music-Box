@@ -1888,6 +1888,32 @@
     "W": 0.62,
     "hx": -0.4
    }
+  },
+  {
+   "id": "DomesticObject134",
+   "kind": "washersupply",
+   "source_id": "B1_washer_supply",
+   "params": {
+    "entry": -1.8,
+    "hot": [
+     -0.955,
+     0.745
+    ],
+    "cold": [
+     -0.745,
+     0.955
+    ],
+    "drains": [
+     -0.58,
+     1.12
+    ],
+    "clips": [
+     -1.45,
+     -0.35,
+     0.35
+    ]
+   },
+   "rear_wall_y": -0.02
   }
  ],
  "instances": [
@@ -2818,6 +2844,10 @@
   {
    "id": "4B_alcove_runner",
    "variant": "DomesticObject133"
+  },
+  {
+   "id": "B1_washer_supply",
+   "variant": "DomesticObject134"
   }
  ],
  "runtime_keys": [
@@ -2870,7 +2900,10 @@
   "print_green",
   "print_grey",
   "jute",
-  "jute_worn"
+  "jute_worn",
+  "galv",
+  "copper",
+  "iron"
  ],
  "catalog_variants": {
   "bakelite": "bakelite",
@@ -2922,7 +2955,10 @@
   "print_green": "paper",
   "print_grey": "paper",
   "jute": "linen",
-  "jute_worn": "linen"
+  "jute_worn": "linen",
+  "galv": "zinc_liner",
+  "copper": "copper_aged",
+  "iron": "iron_blackened"
  },
  "material_tints": {
   "wood_dark": [
@@ -3121,6 +3157,24 @@
    0.36,
    0.27,
    0.15,
+   1
+  ],
+  "galv": [
+   0.74,
+   0.75,
+   0.72,
+   1
+  ],
+  "copper": [
+   0.78,
+   0.5,
+   0.34,
+   1
+  ],
+  "iron": [
+   0.3,
+   0.3,
+   0.29,
    1
   ]
  },
@@ -3324,6 +3378,18 @@
   "jute_worn": {
    "normal_scale": 0.18,
    "roughness": 0.93
+  },
+  "galv": {
+   "normal_scale": 0.18,
+   "roughness": 0.72
+  },
+  "copper": {
+   "normal_scale": 0.15,
+   "roughness": 0.62
+  },
+  "iron": {
+   "normal_scale": 0.25,
+   "roughness": 0.9
   }
  },
  "placement": {
@@ -3373,7 +3439,8 @@
   "Slice 61 of the V2 environment dossier retires slice 51's stepped soot boards over the 5D door: the fire's soot ghost is now a soft projected decal in the positional wear layer.",
   "Slice 66 of the V2 environment dossier completes the thresholds (3B's ribbed rubber mat at the service crossing, the 4D short-let's new coir with a handbill nobody picked up, 6A's coir, a dust mat at the sealed 5D) and adds a runner form: a bound jute runner worn through where the hall turn meets the way to 4B's alcove (F04_B_ALCOVE_APPROACH-001).",
   "Slice 67 renames slice 58's light box 6A_light_table: slice 38's surface-stock light box already owns 6A_light_box, and the runtime refuses an occupied identity. The table moves to the clear front of the cabinet top beside the toaster, off the plate, and its flex is no longer modelled.",
-  "Slice 72 of the V2 environment dossier makes the basement maintenance shop's toolboard (b1_toolboard, DomesticObject15) a shadow board: a painted silhouette behind each wrench and the hammer, and a sixth peg with only a screwdriver's silhouette (B1_MAINTENANCE_SHOP-002). 3B's board keeps the plain form."
+  "Slice 72 of the V2 environment dossier makes the basement maintenance shop's toolboard (b1_toolboard, DomesticObject15) a shadow board: a painted silhouette behind each wrench and the hammer, and a sixth peg with only a screwdriver's silhouette (B1_MAINTENANCE_SHOP-002). 3B's board keeps the plain form.",
+  "Slice 77 of the V2 environment dossier gives the basement washers their water (B1_LAUNDRY-004): cold and hot mains out of the laundry's west wall on clips, a drop and brass bib cock at each machine with a rubber hose to its fill cock, and a cast-iron floor gully under each drain."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",
