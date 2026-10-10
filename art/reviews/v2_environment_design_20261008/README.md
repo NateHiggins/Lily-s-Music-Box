@@ -187,6 +187,9 @@ Slices landed so far (evidence folders in parentheses):
     receptor and the mop-shadow corner; the walking line, door scuffs, mop corner and
     trolley rub in the thirteen upper halls, faint at production light (`slice52`,
     reruns in `slice52b`).
+53. The news booth's stock (tied bundles, magazine fans, cigar boxes with a lid up,
+    tobacco tins, papers under wordless mastheads) and the proprietor's worn rubber mat
+    (evidence with slice 54 in `slice54b`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

@@ -213,6 +213,33 @@ for item in assemblies:
    support(identity,floor['id'],(x1-.020,y,.01),(0,0,1),'back shelving floor post')
   for r in members:
    ax,ay,bx,by,az,bz=at_source(r);box(r['id']+'_Shelf',(ax,ay,az),(bx,limit,bz),identity,'timber',.002)
+
+  # Dossier slice 53 (CITY_SHOP_NEWS_CIGARS-003): the booth's stock, every piece seated 0.2 mm into its board.
+  tops={r['id'][-1]:at_source(r)[5] for r in members}
+  fx,bx=x0+.02,x0+.235
+  t=tops['0']-.0002
+  for i,y in enumerate([-50.78,-50.36,-49.92,-49.50]):
+   box(identity+f'_Bundle{i}',(fx,y,t),(bx,y+.34,t+.13),identity,'newsprint',.004)
+   for dy in [.09,.25]:box(identity+f'_BundleTie{i}_{dy}',(fx-.002,y+dy,t+.0005),(bx+.002,y+dy+.006,t+.1325),identity,'paper',.0005)
+  t=tops['1']-.0002
+  for f,y in enumerate([-50.75,-50.20,-49.65]):
+   for k,key in enumerate(['newsprint','candy','paper','tobacco','newsprint']):
+    box(identity+f'_Magazine{f}_{k}',(fx+.005,y+k*.045,t+k*.0058),(fx+.205,y+k*.045+.27,t+k*.0058+.0062),identity,key,.0006)
+  t=tops['2']-.0002
+  for i,y in enumerate([-50.78,-50.50,-50.22]):
+   box(identity+f'_CigarBox{i}',(fx,y,t),(fx+.19,y+.25,t+.055),identity,'wood_dark',.002)
+   box(identity+f'_CigarBand{i}',(fx-.0012,y+.09,t+.012),(fx+.0008,y+.16,t+.043),identity,'paper',.0003)
+   if i==1:
+    # The open box: lid stood up on its back hinge, the cigars showing.
+    box(identity+'_CigarLid',(fx+.178,y+.004,t+.0545),(fx+.186,y+.246,t+.245),identity,'wood_dark',.0015)
+    for c in range(6):rod(identity+f'_OpenCigar{c}',(fx+.02,y+.03+c*.037,t+.06),(fx+.17,y+.03+c*.037,t+.06),.0115,identity,'tobacco')
+  for i,y in enumerate([-49.80,-49.62,-49.44]):
+   vessel(identity+f'_TobaccoTin{i}',fx+.1,y,t,[(0,0),(.048,0),(.048,.09),(0,.09)],identity,'tobacco')
+   vessel(identity+f'_TinLid{i}',fx+.1,y,t+.0898,[(0,0),(.05,0),(.05,.012),(0,.012)],identity,'cast_iron')
+  t=tops['3']-.0002
+  for i,y in enumerate([-50.75,-50.32,-49.89,-49.46]):
+   box(identity+f'_PaperStack{i}',(fx,y,t),(bx-.02,y+.36,t+.07+.012*(i%2)),identity,'newsprint',.002)
+   box(identity+f'_Masthead{i}',(fx-.0012,y+.02,t+.045+.012*(i%2)),(fx+.0008,y+.34,t+.066+.012*(i%2)),identity,'masthead',.0004)
  elif kind=='candy_jar':
   cx=(x0+x1)/2;cy=(y0+y1)/2;base=1.15
   profile=[(0,0),(.060,0),(.080,.014),(.082,.225),(.055,.264),(.047,.280),(.047,.287),(.041,.287),(.041,.278),(.049,.262),(.076,.224),(.074,.018),(.054,.009),(0,.009)]
@@ -260,7 +287,12 @@ for item in assemblies:
   for y in [cy-.140,cy+.140]:rod(identity+'_CrossX'+str(y),(cx-.145,y,.28),(cx+.145,y,.28),.009,identity,'wood_dark')
  elif kind=='worn_cover':
   x0-=.40;x1-=.40
-  box(identity+'_FloorSeatedCover',(x0,y0,.01),(x1,y1,z1),identity,'soot',0)
+  # Dossier slice 53 (CITY_SHOP_NEWS_CIGARS-001/003): a black rubber mat worn through to a pale hollow
+  # where the proprietor's feet and stool have stood for years.
+  box(identity+'_FloorSeatedCover',(x0,y0,.01),(x1,y1,.0135),identity,'bakelite_black',0)
+  for side,(a,c) in enumerate([((x0,y0),(x1,y0+.07)),((x0,y1-.07),(x1,y1)),((x0,y0+.069),(x0+.07,y1-.069)),((x1-.07,y0+.069),(x1,y1-.069))]):
+   box(identity+f'_MatRim{side}',(a[0],a[1],.0133),(c[0],c[1],z1),identity,'bakelite_black',0)
+  box(identity+'_WornHollow',(x0+.12,y0+.12,.0133),(x1-.12,y1-.12,.0141),identity,'soot',0)
   support(identity,floor['id'],((x0+x1)/2,(y0+y1)/2,.01),(0,0,1),'wear-cover floor seat')
  else:raise AssertionError(kind)
 

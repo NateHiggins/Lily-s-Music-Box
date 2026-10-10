@@ -12,7 +12,9 @@
     "cast_iron",
     "tobacco",
     "candy",
-    "soot"
+    "soot",
+    "newsprint",
+    "masthead"
   ],
   "catalog_variants": {
     "cast_iron": "iron_blackened",
@@ -20,7 +22,9 @@
   },
   "material_aliases": {
     "tobacco": "paper",
-    "candy": "paper"
+    "candy": "paper",
+    "newsprint": "paper",
+    "masthead": "paper"
   },
   "material_tints": {
     "tobacco": [
@@ -39,6 +43,18 @@
       1,
       0.82,
       0.65,
+      1
+    ],
+    "newsprint": [
+      0.56,
+      0.55,
+      0.51,
+      1
+    ],
+    "masthead": [
+      0.34,
+      0.34,
+      0.33,
       1
     ]
   },
@@ -157,6 +173,7 @@
     "Container glass retains original color/alpha/maps with a local plain-alpha adaptation; original source windows retain their depth-prepass owner.",
     "Worn cover retains its upper datum with a two-millimetre floor seat beneath it; stool seat height and source references remain.",
     "The pipe display shifts 2.4 metres toward the front in the clear wall bay; its original arm-height datum and hidden source poses remain.",
-    "The passive stool and floor wear cover shift 0.40m toward -X to clear the unchanged optional receiving chassis. The counter worktop ends at x=19.90m, 20mm before the closed door casing. Source references, counter interaction and receiving presence policy remain."
+    "The passive stool and floor wear cover shift 0.40m toward -X to clear the unchanged optional receiving chassis. The counter worktop ends at x=19.90m, 20mm before the closed door casing. Source references, counter interaction and receiving presence policy remain.",
+    "Slice 53 of the V2 environment dossier stocks the rear shelves (tied newspaper bundles, shingled magazines, cigar boxes with one lid up, tobacco tins, stacked papers with wordless grey mastheads) and makes the stool's wear cover a black rubber mat worn through to a pale hollow. newsprint and masthead are tinted aliases of the source paper."
   ]
 }
