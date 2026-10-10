@@ -27,7 +27,10 @@ const FINISH := {
 
 func key_for(part: String, room_class: String) -> String:
 	if part.begins_with("B1_COAL_HEAP_"): return "soot"
-	if part == "ROOF_TANK_BODY" or part.begins_with("ROOF_TANK_BUTT_"): return "timber"
+	# Dossier slice 68 (ROOF_DECK_WEST-004): the house tank's boards take the catalogue's staved tank finish,
+	# the skyline towers' own; plain timber read as brick at the tank's scale. The overflow butt stays timber.
+	if part == "ROOF_TANK_BODY": return "tank_staves"
+	if part.begins_with("ROOF_TANK_BUTT_"): return "timber"
 	if part.begins_with("ROOF_TANK_"): return "cast_iron"
 	if part.begins_with("ROOF_PARAPET_"): return "brick"
 	if part == "Glazing": return "glass"

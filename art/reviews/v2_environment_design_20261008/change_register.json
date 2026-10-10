@@ -2315,7 +2315,9 @@
    "preserve": "MailBankProp leaf and PlayerBox zone",
    "acceptance": "Detail view of the bank reads eighteen different boxes",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_MAIL_TELEPHONE"
+   "area": "F01_MAIL_TELEPHONE",
+   "status": "implemented",
+   "owner_notes": "Partial: two boxes overfull (2C, 4D), their letters drawn into the window cards, and two doors ajar on a letter (1D, 5B); the mail bank suite passes. No sweep station frames the bank closely enough to read its eighteen windows; a close capture is open. Verified at slice 75's WIP 088f987a (implementation/slice68), which carries slices 68 to 75. At 088f987a the fabrication batch's domestic objects and reading nook (11,108 checks) report 0 failures; the mail bank suite passes; wall mounts, roof drainage, public doors (17 waypoints), door casings (107 openings), the apartment door route (45), the golden repair route (94), hardware stock (1,418 checks), hardware drawers (1,309), diner overhead (99), diner counter (160), diner till (130), cobbler fittings (753), laundry fittings (1,139), laundry trade (347) and the laundry route (17), all 0 failures; the roof route 53 waypoints, 0 failures on the long runner after its 180 s run hit the ceiling; three sweeps (nine spaces) and the city sweep's 130 views, 0 failures. The completion interiors suite's one route failure, at 1A's fridge, is identical at the merge-base baseline."
   },
   {
    "id": "F01_MAIL_TELEPHONE-002",
@@ -2644,7 +2646,9 @@
    "preserve": "Door leaf collision and swing",
    "acceptance": "Visible in the threshold view from the lobby with the door opened by the ordinary interaction",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F01_A_VESTIBULE"
+   "area": "F01_A_VESTIBULE",
+   "status": "verified",
+   "owner_notes": "Evelyn's corrected notice pinned inside 1A's entry leaf at 1.5 m, clear of the knob: a sheet struck through in red pencil with a correction slip pasted over it, no lettering; the leaf's opener reads the record's leaf_notice (F01_A_VESTIBULE_RV, crops/1A_corrected_notice). Verified at slice 75's WIP 088f987a (implementation/slice68), which carries slices 68 to 75. At 088f987a the fabrication batch's domestic objects and reading nook (11,108 checks) report 0 failures; the mail bank suite passes; wall mounts, roof drainage, public doors (17 waypoints), door casings (107 openings), the apartment door route (45), the golden repair route (94), hardware stock (1,418 checks), hardware drawers (1,309), diner overhead (99), diner counter (160), diner till (130), cobbler fittings (753), laundry fittings (1,139), laundry trade (347) and the laundry route (17), all 0 failures; the roof route 53 waypoints, 0 failures on the long runner after its 180 s run hit the ceiling; three sweeps (nine spaces) and the city sweep's 130 views, 0 failures. The completion interiors suite's one route failure, at 1A's fridge, is identical at the merge-base baseline."
   },
   {
    "id": "F01_A_MAIN-001",
@@ -11041,7 +11045,9 @@
    ],
    "acceptance": "Deck OV shows timber staves and bands",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "ROOF_DECK_WEST"
+   "area": "ROOF_DECK_WEST",
+   "status": "verified",
+   "owner_notes": "The house tank's body takes the tank-staves finish: upright timber staves where the review saw brick, on its timber legs and cradle (ROOF_DECK_WEST_DT2, crops/tank_staves). Verified at slice 75's WIP 088f987a (implementation/slice68), which carries slices 68 to 75. At 088f987a the fabrication batch's domestic objects and reading nook (11,108 checks) report 0 failures; the mail bank suite passes; wall mounts, roof drainage, public doors (17 waypoints), door casings (107 openings), the apartment door route (45), the golden repair route (94), hardware stock (1,418 checks), hardware drawers (1,309), diner overhead (99), diner counter (160), diner till (130), cobbler fittings (753), laundry fittings (1,139), laundry trade (347) and the laundry route (17), all 0 failures; the roof route 53 waypoints, 0 failures on the long runner after its 180 s run hit the ceiling; three sweeps (nine spaces) and the city sweep's 130 views, 0 failures. The completion interiors suite's one route failure, at 1A's fridge, is identical at the merge-base baseline."
   },
   {
    "id": "ROOF_DECK_WEST-005",

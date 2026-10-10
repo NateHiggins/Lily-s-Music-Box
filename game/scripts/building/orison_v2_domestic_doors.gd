@@ -92,6 +92,8 @@ func mount_specs(adapter: OrisonV2AnchorAdapter, layout: Dictionary, specs: Dict
 			var hall_side := _hall_side(door, record, layout)
 			_add_unit_numeral(door, hall_side)
 			_add_chain_guard(door, hall_side)
+			if str(specs[identity].get("leaf_notice", "")) == "corrected":
+				_add_corrected_notice(door, hall_side)
 	return true
 
 ## Which leaf face looks into the hall: +1 for the leaf's +z face, -1 for -z,
@@ -144,6 +146,45 @@ func _add_unit_numeral(door: OrisonV2FittedDoor, hall_side: float) -> void:
 	numeral.position = Vector3(door.width * 0.5, 1.6, face_z + hall_side * 0.006)
 	numeral.rotation.y = 0.0 if hall_side > 0.0 else PI
 	leaf.add_child(numeral)
+
+## Dossier slice 68 (F01_A_VESTIBULE-003): the building's notice pinned inside the entry leaf at 1.5 m, a
+## correction slip pinned over its lower half and one red pencil line struck through it. Blank cards, no
+## lettering. Off-centre on the upper panel bed, clear of the viewer and the knob; it swings with the leaf.
+func _add_corrected_notice(door: OrisonV2FittedDoor, hall_side: float) -> void:
+	var leaf := door.get_node_or_null("HingedLeaf") as Node3D
+	if leaf == null: return
+	var inside := -hall_side
+	var bed: float = float(door.get("_hinge_offset")) + inside * 0.028
+	var x := door.width * 0.5 - 0.17
+	var notice := Node3D.new()
+	notice.name = "CorrectedNotice"
+	leaf.add_child(notice)
+	for piece: Array in [
+			["Notice", Vector3(0.21, 0.28, 0.0015), Vector3(x, 1.5, bed + inside * 0.00075), 0.0, MatLib.get_mat("paper", Color(0.93, 0.90, 0.82))],
+			["Correction", Vector3(0.15, 0.055, 0.0015), Vector3(x + 0.01, 1.44, bed + inside * 0.00225), 0.04, MatLib.get_mat("paper", Color(0.98, 0.96, 0.89))],
+			["PencilLine", Vector3(0.11, 0.0025, 0.0005), Vector3(x - 0.01, 1.56, bed + inside * 0.0018), -0.02, MatLib.get_mat("enamel", Color(0.62, 0.08, 0.06))]]:
+		var mesh := BoxMesh.new()
+		mesh.size = piece[1]
+		mesh.material = piece[4]
+		var part := MeshInstance3D.new()
+		part.name = piece[0]
+		part.mesh = mesh
+		part.position = piece[2]
+		part.rotation.z = float(piece[3])
+		notice.add_child(part)
+	for at: Vector3 in [Vector3(x - 0.09, 1.625, 0), Vector3(x + 0.09, 1.625, 0), Vector3(x + 0.07, 1.455, 0)]:
+		var pin := MeshInstance3D.new()
+		pin.name = "Pin"
+		var head := CylinderMesh.new()
+		head.top_radius = 0.005
+		head.bottom_radius = 0.005
+		head.height = 0.003
+		head.radial_segments = 10
+		head.material = MatLib.get_mat("brass_dull", Color(0.80, 0.70, 0.50))
+		pin.mesh = head
+		pin.rotation.x = PI * 0.5
+		pin.position = Vector3(at.x, at.y, bed + inside * 0.004)
+		notice.add_child(pin)
 
 ## Chain door guard on the apartment face of every entry leaf (dossier
 ## F0x_x_VESTIBULE-002): a brass slotted plate by the latch stile, the anchor

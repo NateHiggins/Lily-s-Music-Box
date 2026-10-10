@@ -43,6 +43,11 @@ const ARRAY_BASE := 0.92
 ## the elevation rather than six invented households: two empty first-floor
 ## flats, the sealed 2D, vacant 3C/5D and the sixth-floor store room.
 const EMPTY_UNITS := ["1B", "1C", "2D", "3C", "5D", "6D"]
+# Dossier slice 68 (F01_MAIL_TELEPHONE-001): the short-let's mail nobody collects and Juno's, who sleeps
+# till one, jam the carrier slot; the night nurse's and Cal's doors stand ajar on a letter.
+const OVERFULL_UNITS := ["2C", "4D"]
+const AJAR_UNITS := ["1D", "5B"]
+const AJAR_ANGLE := 0.16
 
 var deliveries: Array = []
 var door_open := false
@@ -144,8 +149,12 @@ func _build() -> void:
 		elif unit == PLAYER_UNIT:
 			_build_player_door(Vector3(x, y, 0), cards, i)
 		else:
-			_build_door(Vector3(x, y, 0), i)
-			_append_card(fixed_cards, Vector3(x, y + 0.012, Z_CARD), i)
+			var ajar: bool = unit in AJAR_UNITS
+			_build_door(Vector3(x, y, 0), i, fixed_cards if ajar else null)
+			if not ajar:
+				_append_card(fixed_cards, Vector3(x, y + 0.012, Z_CARD), i)
+			if unit in OVERFULL_UNITS:
+				_append_overfull(fixed_cards, Vector3(x, y, 0))
 	# Twenty-three atlas regions become vertex UVs under one material. Keeping
 	# the crop in twenty-three material offsets would either cost twenty-three
 	# draws or make merge_static stamp the first tenant's name on every box.
@@ -183,24 +192,72 @@ func _build_empty_slot(at: Vector3) -> void:
 ## One tenant's box: brass body proud of the wood, beveled frame, door
 ## leaf, typed card behind glass, cylinder lock. `atlas_index` picks the
 ## card and staggers which doors read polished versus patinated.
-func _build_door(at: Vector3, atlas_index: int) -> void:
+func _build_door(at: Vector3, atlas_index: int, ajar_cards: SurfaceTool = null) -> void:
 	_part_box(at + Vector3(0, 0, Z_BODY),
 			Vector3(DOOR_W - 0.018, DOOR_H - 0.026, 0.055),
 			_brass_dark, _fixed)
 	_part_box(at + Vector3(0, 0, Z_BEVEL),
 			Vector3(DOOR_W - 0.028, DOOR_H - 0.038, 0.008),
 			_brass_dark if atlas_index % 3 != 1 else _brass, _fixed)
-	_part_box(at + Vector3(0, -0.008, Z_LEAF),
-			Vector3(LEAF_W, LEAF_H, 0.008),
-			_brass if atlas_index % 3 != 1 else _brass_dark, _fixed)
+	if ajar_cards != null:
+		_build_ajar_leaf(at, atlas_index, ajar_cards)
+	else:
+		_part_box(at + Vector3(0, -0.008, Z_LEAF),
+				Vector3(LEAF_W, LEAF_H, 0.008),
+				_brass if atlas_index % 3 != 1 else _brass_dark, _fixed)
 	# Couch's carrier flap belongs to the shared faceplate, not the little
 	# tenant leaf. It gets one job and leaves enough brass for card and lock.
 	_part_box(at + Vector3(0, 0.052, Z_CARD_FRAME),
 			Vector3(LEAF_W - 0.018, 0.018, 0.005), _brass_dark, _fixed)
 	_part_box(at + Vector3(0, 0.049, Z_CARD),
 			Vector3(LEAF_W - 0.050, 0.006, 0.004), _brass, _fixed)
-	_card_frame(at + Vector3(-0.025, 0.012, 0), _fixed)
-	_lock(at + Vector3(0.105, -0.039, Z_LOCK), _fixed)
+	if ajar_cards == null:
+		_card_frame(at + Vector3(-0.025, 0.012, 0), _fixed)
+		_lock(at + Vector3(0.105, -0.039, Z_LOCK), _fixed)
+
+
+## Dossier slice 68: a tenant leaf left ajar on its hinge, card, frame and lock turned with it, and the
+## letter it stands open on. Static: it is merged with the fixed bank.
+func _build_ajar_leaf(at: Vector3, atlas_index: int, cards: SurfaceTool) -> void:
+	var pivot := Node3D.new()
+	pivot.name = "AjarLeaf"
+	pivot.position = at + Vector3(-LEAF_W * 0.5, 0, Z_LEAF)
+	pivot.rotation.y = AJAR_ANGLE
+	_fixed.add_child(pivot)
+	_part_box(Vector3(LEAF_W * 0.5, -0.008, 0), Vector3(LEAF_W, LEAF_H, 0.008),
+			_brass if atlas_index % 3 != 1 else _brass_dark, pivot)
+	_part_box(Vector3(LEAF_W * 0.5 - 0.025, 0.012, Z_CARD_FRAME - Z_LEAF),
+			Vector3(0.155, 0.048, 0.004), _brass_dark, pivot)
+	_lock(Vector3(LEAF_W * 0.5 + 0.105, -0.039, Z_LOCK - Z_LEAF), pivot)
+	_append_card(cards, Vector3(LEAF_W * 0.5, 0.012, Z_CARD - Z_LEAF), atlas_index,
+			pivot.transform)
+	# The letter it stands open on: caught behind the leaf, its end showing past the free edge.
+	_append_paper(cards, Transform3D(Basis(Vector3.BACK, 0.06),
+			at + Vector3(LEAF_W * 0.5 - 0.02, -0.012, Z_LEAF - 0.012)), Vector2(0.09, 0.06))
+
+
+## Dossier slice 68: letters jammed in the carrier slot above the leaf, fanned, their tops proud of the flap.
+func _append_overfull(st: SurfaceTool, at: Vector3) -> void:
+	for spec: Array in [[-0.075, 0.068, 0.10, 0.12], [-0.005, 0.072, -0.06, 0.13], [0.07, 0.064, 0.14, 0.11]]:
+		_append_paper(st, Transform3D(Basis(Vector3.BACK, float(spec[2])),
+				at + Vector3(float(spec[0]), float(spec[1]), Z_CARD_FRAME - 0.004)),
+				Vector2(float(spec[3]), 0.05))
+
+
+## Paper from the atlas's blank card stock (the top band of the empty 1B cell), into the card mesh.
+func _append_paper(st: SurfaceTool, xf: Transform3D, size: Vector2) -> void:
+	var u0 := (1.0 + 0.35) / CARD_COLS
+	var u1 := (1.0 + 0.95) / CARD_COLS
+	var v0 := 0.02 / CARD_ROWS
+	var v1 := 0.16 / CARD_ROWS
+	var hw := size.x * 0.5
+	var hh := size.y * 0.5
+	for vertex: Array in [[Vector3(-hw, hh, 0), Vector2(u1, v0)], [Vector3(hw, -hh, 0), Vector2(u0, v1)],
+			[Vector3(hw, hh, 0), Vector2(u0, v0)], [Vector3(-hw, hh, 0), Vector2(u1, v0)],
+			[Vector3(-hw, -hh, 0), Vector2(u1, v1)], [Vector3(hw, -hh, 0), Vector2(u0, v1)]]:
+		st.set_normal(xf.basis * Vector3(0, 0, -1))
+		st.set_uv(vertex[1])
+		st.add_vertex(xf * Vector3(vertex[0]))
 
 
 ## The player's door is the same door on a working hinge, with a body
@@ -294,7 +351,7 @@ func _card_material(cards: Texture2D, atlas_index := -1) -> StandardMaterial3D:
 	return card_mat
 
 
-func _append_card(st: SurfaceTool, at: Vector3, atlas_index: int) -> void:
+func _append_card(st: SurfaceTool, at: Vector3, atlas_index: int, xf := Transform3D.IDENTITY) -> void:
 	var hw := 0.071
 	var hh := 0.019
 	var u0 := float(atlas_index % CARD_COLS) / CARD_COLS
@@ -313,9 +370,9 @@ func _append_card(st: SurfaceTool, at: Vector3, atlas_index: int) -> void:
 		[Vector3(at.x + hw, at.y - hh, at.z), Vector2(u0, v1)],
 	]
 	for vertex in vertices:
-		st.set_normal(Vector3(0, 0, -1))
+		st.set_normal(xf.basis * Vector3(0, 0, -1))
 		st.set_uv(vertex[1])
-		st.add_vertex(vertex[0])
+		st.add_vertex(xf * Vector3(vertex[0]))
 
 
 ## Cylinder lock, low right — the one part of every door fingers polish.

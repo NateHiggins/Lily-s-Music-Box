@@ -39,7 +39,8 @@ func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary, parent: Node3D) -
 	for spec: Dictionary in source.doors:
 		if specs.has(spec.id) or spec.get("kind") not in ["service","apartment_entry","apartment_interior"] \
 				or spec.get("unit") is not String or spec.get("swing_out") is not bool \
-				or spec.get("leaf_state","closed") not in ["closed","locked"]: return false
+				or spec.get("leaf_state","closed") not in ["closed","locked"] \
+				or spec.get("leaf_notice","") not in ["","corrected"]: return false
 		if absf(float(spec.get("mount_offset",0))) > .15 or float(spec.get("jamb_depth",.22)) <= 0: return false
 		specs[spec.id] = spec
 	if not Doors.new().mount_specs(adapter,layout,specs): return false
