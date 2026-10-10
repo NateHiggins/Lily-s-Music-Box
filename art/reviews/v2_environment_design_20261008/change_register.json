@@ -3936,7 +3936,9 @@
    "preserve": "Refrigerator caption residue socket, fridge leaf and ice door",
    "acceptance": "OrisonV2WakeReconstructionTest and the household fridge module pass with the icebox variant",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F02_A_KITCHEN"
+   "area": "F02_A_KITCHEN",
+   "status": "implemented",
+   "owner_notes": "Resolved by BW-012 in slice 1: F02_2A_FRIDGE_01 is FridgeIcebox, and the household fridge module passes in this slice's fabrication batch. Not shown: OrisonV2WakeReconstructionTest, which the acceptance names, stops at its own 150 s watchdog after 33 passes on this branch independent of these slices (unchanged since 7478bd9c)."
   },
   {
    "id": "F02_A_PRIVATE_HALL-001",
@@ -5581,7 +5583,9 @@
    ],
    "acceptance": "Detail view at the range",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_B_KITCHEN"
+   "area": "F03_B_KITCHEN",
+   "status": "implemented",
+   "owner_notes": "Omar's range (F03_3B_STOVE_01) is HouseholdGasRangeWorkshop: tape residue on the fascia and splashback and a replacement oven panel in another enamel (HouseholdGasRangeWorkshop_closed, F03_B_KITCHEN_DT3). Both marks are too close in tone to read at the detail distance, and slice 37 strengthens them. The named enamel_* recipes are not in owner_finish_profiles.json; the finishes are tinted enamel variants of the stove family. Verified at WIP 0b562633 (implementation/slice36): fabrication batch 0 failures across 13 modules (the household stove module now walks each range's own assembly and checks that an owner finish replaces the household tone); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 482; upper lighting 0 failures; completion 1A 15 waypoints and 2C 9 waypoints, each with its one pre-existing route failure; the six-kitchen sweep 0 failures; native renders of the four finishes (images: HouseholdGasRange*_closed)."
   },
   {
    "id": "F03_B_KITCHEN-004",
@@ -5885,7 +5889,9 @@
    ],
    "acceptance": "Household fridge module passes with the icebox variant",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F03_D_KITCHEN"
+   "area": "F03_D_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Resolved by BW-012 in slice 1: F03_3D_FRIDGE_01 is FridgeIcebox, and the household fridge module passes in this slice's fabrication batch. Verified at WIP 0b562633 (implementation/slice36): fabrication batch 0 failures across 13 modules (the household stove module now walks each range's own assembly and checks that an owner finish replaces the household tone); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 482; upper lighting 0 failures; completion 1A 15 waypoints and 2C 9 waypoints, each with its one pre-existing route failure; the six-kitchen sweep 0 failures; native renders of the four finishes (images: HouseholdGasRange*_closed)."
   },
   {
    "id": "F03_D_KITCHEN-004",
@@ -9088,7 +9094,9 @@
    "preserve": "Stove owner",
    "acceptance": "Detail view at the range",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F05_C_KITCHEN"
+   "area": "F05_C_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Iris's range (F05_5C_STOVE_01) is its own variant, HouseholdGasRangePaintFlecked: ochre, viridian and white flecks on the hob, fascia and splashback, colour at the control knobs, and a tin of brushes standing on the cold back burner (implementation/slice36/images: F05_C_KITCHEN_DT1, HouseholdGasRangePaintFlecked_closed). The brush tin is part of the range rather than desktop stock, since the stock inspector has no stove support. Verified at WIP 0b562633 (implementation/slice36): fabrication batch 0 failures across 13 modules (the household stove module now walks each range's own assembly and checks that an owner finish replaces the household tone); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 482; upper lighting 0 failures; completion 1A 15 waypoints and 2C 9 waypoints, each with its one pre-existing route failure; the six-kitchen sweep 0 failures; native renders of the four finishes (images: HouseholdGasRange*_closed)."
   },
   {
    "id": "F05_C_KITCHEN-004",
@@ -10027,7 +10035,9 @@
    "purpose": "Appliance Bible IV",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_B_KITCHEN"
+   "area": "F06_B_KITCHEN",
+   "status": "implemented",
+   "owner_notes": "Jonah's range (F06_6B_STOVE_01) and Juno's (F02_2C_STOVE_01) are HouseholdGasRangeGreasy: yellowed enamel with a grime tide line under the hob and prints at the knobs (implementation/slice36/images: F06_B_KITCHEN_DT1). The yellowed tone reads in the detail view; the grime marks are too faint at that distance, and slice 37 strengthens them. Verified at WIP 0b562633 (implementation/slice36): fabrication batch 0 failures across 13 modules (the household stove module now walks each range's own assembly and checks that an owner finish replaces the household tone); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 482; upper lighting 0 failures; completion 1A 15 waypoints and 2C 9 waypoints, each with its one pre-existing route failure; the six-kitchen sweep 0 failures; native renders of the four finishes (images: HouseholdGasRange*_closed)."
   },
   {
    "id": "F06_B_PRIVATE_HALL-001",
@@ -10321,7 +10331,9 @@
    "purpose": "Appliance Bible IV",
    "acceptance": "Detail view",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
-   "area": "F06_C_KITCHEN"
+   "area": "F06_C_KITCHEN",
+   "status": "verified",
+   "owner_notes": "Mae's range (F06_6C_STOVE_01) and Evelyn's (F01_1A_STOVE_01) are HouseholdGasRangePristine: bright, clean enamel with no wear marks (F06_C_KITCHEN_DT1, HouseholdGasRangePristine_closed). Verified at WIP 0b562633 (implementation/slice36): fabrication batch 0 failures across 13 modules (the household stove module now walks each range's own assembly and checks that an owner finish replaces the household tone); apartment batch 236 on the long runner; household state 154 checks, 0 failures; upper kitchens 206; upper furniture 482; upper lighting 0 failures; completion 1A 15 waypoints and 2C 9 waypoints, each with its one pre-existing route failure; the six-kitchen sweep 0 failures; native renders of the four finishes (images: HouseholdGasRange*_closed)."
   },
   {
    "id": "F06_C_PRIVATE_HALL-001",

@@ -152,6 +152,8 @@ Slices landed so far (evidence folders in parentheses):
     service bulkhead, and a keep audit for nine keep items (`slice34`).
 35. 5C's pigment store and 6C's packing store, 4C's two garment sets, 2A's full
     pinboard (`slice35b`; open-leaf renders under images).
+36. Owner enamel finishes on six gas ranges (pristine, greasy, workshop, paint-flecked
+    with a brush tin); the stove test walks each range's own assembly (`slice36`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

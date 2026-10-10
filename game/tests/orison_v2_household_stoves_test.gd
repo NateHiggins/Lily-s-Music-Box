@@ -30,7 +30,10 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			var at := prop.to_global(Vector3(q[0],q[1],q[2]))
 			var hit := world.get_world_3d().direct_space_state.intersect_ray(PhysicsRayQueryParameters3D.create(at+Vector3.UP*.004,at-Vector3.UP*.004,1,[body.get_rid()]))
 			check(not hit.is_empty() and hit.position.distance_to(at)<.00004 and hit.normal.y>.99,"actual floor bears native range")
-		for part: Dictionary in fixture.runtime.assemblies[0].parts:
+		# Each range walks its own assembly: owner finishes (dossier slice 36) are their own variants.
+		var assembly: Dictionary = fixture.runtime.assemblies.filter(func(row):return row.id==instance.variant)[0]
+		check(prop.get_meta("v2_native_stove_variant","")==instance.variant,"range installs its own source variant")
+		for part: Dictionary in assembly.parts:
 			var draw := prop.find_child(str(part.name),true,false) as MeshInstance3D
 			check(draw!=null and draw.get_meta("native_stove_part","")==part.name,"native source partition retained")
 			if draw==null:continue
@@ -44,6 +47,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			check((prop.global_transform.affine_inverse()*draw.global_transform).is_equal_approx(expected_pose),"partition follows current source owner frame")
 			_check_part(draw,part,fixture)
 			if part.key=="enamel":check((draw.material_override as StandardMaterial3D).albedo_color.is_equal_approx(prop._enamel_tint()),"original household enamel tone")
+			elif str(part.key).begins_with("enamel_"):check(draw.material_override==null and draw.get_meta("material_key","")==part.key,"owner enamel finish replaces the household tone")
 		states[prop.name] = {"blocked":prop.blocked_burner,"grime":prop.burner_grime.duplicate(),"on":prop._burner_on.duplicate()}
 		for i in 4:
 			check(prop._grates[i].position==prop._grate_home[i] and prop._caps[i].position==prop._cap_home[i],"source burner home retained")

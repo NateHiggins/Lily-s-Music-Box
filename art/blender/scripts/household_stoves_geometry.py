@@ -30,19 +30,19 @@ def body():
    bearing('original range foot',(x,y,0))
  for y in [-.245,.245]:tube('FootRail'+str(y),(-.275,y,.105),(.275,y,.105),.011,'dark')
  # Pressed skins with returned edges expose their real thickness at the back.
- stock('Base',(-.32,-.30,.170),(.32,.30,.2175),'enamel',.004)
+ stock('Base',(-.32,-.30,.170),(.32,.30,.2175),ENAMEL,.004)
  for s in [-1,1]:
   x=s*.3185
-  stock('SideSkin'+str(s),(x-.0015,-.30,.2175),(x+.0015,.30,.844),'enamel',.001)
+  stock('SideSkin'+str(s),(x-.0015,-.30,.2175),(x+.0015,.30,.844),ENAMEL,.001)
   lo,hi=sorted([s*.2545,s*.317])
-  for z in [.2175,.835]:stock('SideReturn'+str((s,z)),(lo,-.30,z),(hi,.30,z+.009),'enamel',.001)
-  for y in [-.30,.285]:stock('SideEdge'+str((s,y)),(lo,y,.2265),(hi,y+.015,.835),'enamel',.0015)
+  for z in [.2175,.835]:stock('SideReturn'+str((s,z)),(lo,-.30,z),(hi,.30,z+.009),ENAMEL,.001)
+  for y in [-.30,.285]:stock('SideEdge'+str((s,y)),(lo,y,.2265),(hi,y+.015,.835),ENAMEL,.0015)
   # Inner load frame meets the oven mouth and the raised deck.
   stock('Frame'+str(s),(s*.241-.011,-.265,.2175),(s*.241+.011,.285,.838),'dark',.0015)
- stock('DeckRim',(-.32,-.30,.844),(.32,.30,.872),'enamel',.003)
+ stock('DeckRim',(-.32,-.30,.844),(.32,.30,.872),ENAMEL,.003)
  stock('HobTray',(-.30,-.28,.872),(.30,.28,.877),'dark',.001)
  # Upper face and lower rail surround the source hollow oven, not a black decal.
- stock('UpperFascia',(-.2545,.263,.697),(.2545,.293,.835),'enamel',.003)
+ stock('UpperFascia',(-.2545,.263,.697),(.2545,.293,.835),ENAMEL,.003)
  stock('LowerFascia',(-.2545,.263,.309),(.2545,.293,.333),'dark',.001)
  # Full liner mouth reaches the original door heat shield without crossing it.
  stock('OvenBack',(-.220,-.258,.349),(.220,-.232,.671),'dark',.001)
@@ -55,8 +55,8 @@ def body():
  stock('BroilerBack',(-.22,-.258,.2175),(.22,-.243,.307),'dark',.001)
  stock('BroilerFloor',(-.22,-.25,.2175),(.22,.298,.2295),'iron',.001)
  for x in [-.229,.220]:stock('BroilerSide'+str(x),(x,-.258,.2295),(x+.009,.298,.309),'iron',.001)
- stock('BackSplash',(-.305,-.296,.872),(.305,-.268,1.1225),'enamel',.004)
- stock('CondimentShelf',(-.31,-.315,1.113),(.31,-.095,1.139),'enamel',.003)
+ stock('BackSplash',(-.305,-.296,.872),(.305,-.268,1.1225),ENAMEL,.004)
+ stock('CondimentShelf',(-.31,-.315,1.113),(.31,-.095,1.139),ENAMEL,.003)
  # Two returns connect the retained guard rail to its shelf.
  for x in [-.27,.27]:tube('ShelfRailPost'+str(x),(x,-.095,1.133),(x,-.095,1.145),.008,'brass')
  tube('ShelfRail',(-.27,-.095,1.145),(.27,-.095,1.145),.008,'brass')
@@ -67,15 +67,15 @@ def body():
 
 def doors():
  part='OvenDoor'
- owner(stock('OvenSkin',(-.22,.302,.352),(.22,.334,.68),'enamel',.004),part)
+ owner(stock('OvenSkin',(-.22,.302,.352),(.22,.334,.68),OVEN_ENAMEL,.004),part)
  owner(stock('OvenHeatShield',(-.1975,.286,.3625),(.1975,.302,.6575),'iron',.002),part)
- owner(stock('OvenPressedPanel',(-.1825,.334,.375),(.1825,.343,.63),'enamel',.006),part)
+ owner(stock('OvenPressedPanel',(-.1825,.334,.375),(.1825,.343,.63),OVEN_ENAMEL,.006),part)
  for x in [-.16,.16]:hinge('OvenHinge'+str(x),x,.318,.34,part)
  for x in [-.1892,.1892]:
   owner(axial(identity+'_OvenHandleFoot'+str(x),x,.645,[(0,.333),(.015,.333),(.015,.343),(.010,.369),(0,.369)],identity,'brass',48),part)
  owner(tube('OvenHandle',(-.19,.370,.645),(.19,.370,.645),.010,'brass'),part)
  part='BroilerDrawer'
- owner(stock('BroilerSkin',(-.22,.302,.217),(.22,.330,.30),'enamel',.003),part)
+ owner(stock('BroilerSkin',(-.22,.302,.217),(.22,.330,.30),ENAMEL,.003),part)
  for x in [-.15,.15]:hinge('BroilerHinge'+str(x),x,.316,.205,part)
  owner(stock('BroilerInset',(-.095,.330,.2475),(.095,.339,.2725),'dark',.002),part)
  # The original lower leaf has no user actuator; retain its owner and pose.
@@ -112,6 +112,38 @@ def burners():
    p=Vector((x,y,.887));u=Vector((math.cos(a),math.sin(a),0))
    owner(tube(part+'_Port'+str(a),p+u*.055,p+u*.064,.0013,'iron'),part)
 
+def wear():
+ # Dossier slice 36: owner wear expressed in geometry over the tinted enamel.
+ if identity=='HouseholdGasRangePaintFlecked':
+  rng=np.random.default_rng(1928)
+  for i in range(24):
+   key=['paint_ochre','paint_viridian','paint_white'][i%3];x=float(rng.uniform(-.27,.27));y=float(rng.uniform(-.25,.25));s=float(rng.uniform(.004,.009))
+   if abs(abs(x)-.17)<.12 and abs(abs(y)-.135)<.12:continue
+   stock('FleckHob'+str(i),(x-s,y-s,.8766),(x+s,y+s,.8774),key,.0003)
+  for i in range(12):
+   key=['paint_ochre','paint_viridian','paint_white'][i%3];x=float(rng.uniform(-.24,.24));z=float(rng.uniform(.705,.83));s=float(rng.uniform(.003,.007))
+   stock('FleckFascia'+str(i),(x-s,.2926,z-s),(x+s,.2934,z+s),key,.0003)
+  for i in range(8):
+   key=['paint_ochre','paint_viridian','paint_white'][i%3];x=float(rng.uniform(-.29,.29));z=float(rng.uniform(.9,1.1));s=float(rng.uniform(.004,.009))
+   stock('FleckSplash'+str(i),(x-s,-.2684,z-s),(x+s,-.2676,z+s),key,.0003)
+  # Colour at the control zone, where the knobs are turned with painted hands.
+  for i,x in enumerate([-.2,-.09,.07,.18]):
+   stock('ThumbPrint'+str(i),(x-.013,.2926,.755),(x+.013,.2934,.775),['paint_ochre','paint_viridian'][i%2],.0003)
+  # One cold burner is the brush-drying rack: a tin of brushes on the back-left grate.
+  lathe('BrushTin',-.17,-.14,.8995,[(0,0),(.04,0),(.042,.004),(.042,.12),(.044,.125),(0,.125)],'nickel')
+  for j,(dx,dy) in enumerate([(-.012,-.01),(.014,.006),(-.004,.016),(.01,-.014)]):
+   tube('BrushHandle'+str(j),(-.17+dx,-.14+dy,.95),(-.17+dx*1.8,-.14+dy*1.8,1.1),.0045,'bakelite')
+   tube('BrushHead'+str(j),(-.17+dx*1.8,-.14+dy*1.8,1.098),(-.17+dx*1.9,-.14+dy*1.9,1.13),.006,'dark')
+ elif identity=='HouseholdGasRangeGreasy':
+  stock('TideLine',(-.25,.2925,.70),(.25,.2935,.712),'grime',.0004)
+  for i,x in enumerate([-.2,-.08,.06,.19]):stock('Fingerprint'+str(i),(x-.012,.2925,.762),(x+.012,.2935,.79),'grime',.0003)
+ elif identity=='HouseholdGasRangeWorkshop':
+  for i,(x,z) in enumerate([(-.2,.82),(.0,.81),(.19,.825)]):stock('Tape'+str(i),(x-.04,.2925,z-.008),(x+.04,.2935,z+.008),'tape_residue',.0003)
+  for i,(x,z) in enumerate([(-.2,1.06),(.15,1.0)]):stock('TapeBack'+str(i),(x-.05,-.2684,z-.009),(x+.05,-.2676,z+.009),'tape_residue',.0003)
+
+FINISH={'HouseholdGasRangePristine':('enamel_pristine','enamel_pristine'),'HouseholdGasRangeGreasy':('enamel_greasy','enamel_greasy'),
+        'HouseholdGasRangeWorkshop':('enamel_workshop','enamel_mismatch'),'HouseholdGasRangePaintFlecked':('enamel_paint','enamel_paint')}
 for variant in plan['variants']:
  identity=variant['id'];start=len(stock_checks)
- body();doors();controls();burners();group('GasRange',start)
+ ENAMEL,OVEN_ENAMEL=FINISH.get(identity,('enamel','enamel'))
+ body();doors();controls();burners();wear();group('GasRange',start)

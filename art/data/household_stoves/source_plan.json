@@ -154,13 +154,33 @@
       "id": "HouseholdGasRange",
       "kind": "stove",
       "source_id": "stove / 1922 fired-enamel gas range"
+    },
+    {
+      "id": "HouseholdGasRangePristine",
+      "kind": "stove",
+      "source_id": "stove / 1922 fired-enamel gas range"
+    },
+    {
+      "id": "HouseholdGasRangeGreasy",
+      "kind": "stove",
+      "source_id": "stove / 1922 fired-enamel gas range"
+    },
+    {
+      "id": "HouseholdGasRangeWorkshop",
+      "kind": "stove",
+      "source_id": "stove / 1922 fired-enamel gas range"
+    },
+    {
+      "id": "HouseholdGasRangePaintFlecked",
+      "kind": "stove",
+      "source_id": "stove / 1922 fired-enamel gas range"
     }
   ],
   "instances": [
     {
       "id": "F03_3B_STOVE_01",
       "unit": "3B",
-      "variant": "HouseholdGasRange"
+      "variant": "HouseholdGasRangeWorkshop"
     },
     {
       "id": "F04_B_STOVE_01",
@@ -200,7 +220,7 @@
     {
       "id": "F05_5C_STOVE_01",
       "unit": "5C",
-      "variant": "HouseholdGasRange"
+      "variant": "HouseholdGasRangePaintFlecked"
     },
     {
       "id": "F06_6A_STOVE_01",
@@ -210,17 +230,17 @@
     {
       "id": "F06_6B_STOVE_01",
       "unit": "6B",
-      "variant": "HouseholdGasRange"
+      "variant": "HouseholdGasRangeGreasy"
     },
     {
       "id": "F06_6C_STOVE_01",
       "unit": "6C",
-      "variant": "HouseholdGasRange"
+      "variant": "HouseholdGasRangePristine"
     },
     {
       "id": "F02_2C_STOVE_01",
       "unit": "2C",
-      "variant": "HouseholdGasRange"
+      "variant": "HouseholdGasRangeGreasy"
     },
     {
       "id": "F04_4C_STOVE_01",
@@ -235,7 +255,7 @@
     {
       "id": "F01_1A_STOVE_01",
       "unit": "1A",
-      "variant": "HouseholdGasRange"
+      "variant": "HouseholdGasRangePristine"
     },
     {
       "id": "F03_3D_STOVE_01",
@@ -254,7 +274,17 @@
     "dark",
     "brass",
     "bakelite",
-    "nickel"
+    "nickel",
+    "enamel_pristine",
+    "enamel_greasy",
+    "enamel_workshop",
+    "enamel_mismatch",
+    "enamel_paint",
+    "paint_ochre",
+    "paint_viridian",
+    "paint_white",
+    "grime",
+    "tape_residue"
   ],
   "catalog_variants": {
     "enamel": "enamel_appliance",
@@ -262,7 +292,17 @@
     "dark": "iron_blackened",
     "brass": "bronze_sheet",
     "bakelite": "bakelite_black",
-    "nickel": "nickel_plated"
+    "nickel": "nickel_plated",
+    "enamel_pristine": "enamel_appliance",
+    "enamel_greasy": "enamel_appliance",
+    "enamel_workshop": "enamel_appliance",
+    "enamel_mismatch": "enamel_appliance",
+    "enamel_paint": "enamel_appliance",
+    "paint_ochre": "enamel_appliance",
+    "paint_viridian": "enamel_appliance",
+    "paint_white": "enamel_appliance",
+    "grime": "enamel_appliance",
+    "tape_residue": "enamel_appliance"
   },
   "material_tints": {
     "iron": [
@@ -287,6 +327,66 @@
       0.27383841647314605,
       0.12596738774090202,
       0.06372379528489175,
+      1.0
+    ],
+    "enamel_pristine": [
+      0.888,
+      0.855,
+      0.763,
+      1.0
+    ],
+    "enamel_greasy": [
+      0.716,
+      0.644,
+      0.479,
+      1.0
+    ],
+    "enamel_workshop": [
+      0.791,
+      0.753,
+      0.658,
+      1.0
+    ],
+    "enamel_mismatch": [
+      0.52,
+      0.56,
+      0.47,
+      1.0
+    ],
+    "enamel_paint": [
+      0.815,
+      0.768,
+      0.644,
+      1.0
+    ],
+    "paint_ochre": [
+      0.62,
+      0.33,
+      0.05,
+      1.0
+    ],
+    "paint_viridian": [
+      0.04,
+      0.24,
+      0.17,
+      1.0
+    ],
+    "paint_white": [
+      0.92,
+      0.91,
+      0.86,
+      1.0
+    ],
+    "grime": [
+      0.24,
+      0.17,
+      0.08,
+      1.0
+    ],
+    "tape_residue": [
+      0.74,
+      0.67,
+      0.48,
       1.0
     ]
   },
@@ -314,6 +414,46 @@
     "nickel": {
       "normal_scale": 0.13,
       "roughness": 0.72
+    },
+    "enamel_pristine": {
+      "normal_scale": 0.13,
+      "roughness": 0.62
+    },
+    "enamel_greasy": {
+      "normal_scale": 0.13,
+      "roughness": 0.55
+    },
+    "enamel_workshop": {
+      "normal_scale": 0.13,
+      "roughness": 0.82
+    },
+    "enamel_mismatch": {
+      "normal_scale": 0.13,
+      "roughness": 0.8
+    },
+    "enamel_paint": {
+      "normal_scale": 0.13,
+      "roughness": 0.8
+    },
+    "paint_ochre": {
+      "normal_scale": 0.13,
+      "roughness": 0.7
+    },
+    "paint_viridian": {
+      "normal_scale": 0.13,
+      "roughness": 0.7
+    },
+    "paint_white": {
+      "normal_scale": 0.13,
+      "roughness": 0.7
+    },
+    "grime": {
+      "normal_scale": 0.13,
+      "roughness": 0.5
+    },
+    "tape_residue": {
+      "normal_scale": 0.13,
+      "roughness": 0.85
     }
   },
   "tint_space": "linear",
