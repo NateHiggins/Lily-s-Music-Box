@@ -148,6 +148,8 @@ for index,(a,b) in enumerate([(y0+.035,last['rect'][1]-.004),(first['rect'][3]+.
 for r in range(5):
  for c in range(7):
   face=rows['storm_shop_hardware_paint_drawer'+str(r)+'_'+str(c)];pull=rows['storm_shop_hardware_paint_drawer_pull'+str(r)+'_'+str(c)];_,a,_,b=face['rect'];z=face['z0'];h=face['h'];front=x1+.020;rear=x0+.025;key='oak_quartered';name=face['id'];identity=name
+  # Dossier slice 54: one drawer of the wall stands 0.14 m open on its rail.
+  pulled=.14 if (r,c)==(1,3) else 0.;front+=pulled;rear+=pulled
   # A real closed wood base, sides, rear and frame surround the inset
   # panel. Every stock joins the drawer and every drawer seats its rail.
   box(name+'_Bottom',(rear,a,z),(front-.015,b,z+.018),identity,key,.002)
@@ -167,7 +169,7 @@ for r in range(5):
   for k in range(17):
    t=k/16;path.append((front+.023+.020*__import__('math').sin(__import__('math').pi*t),end[0]+(end[1]-end[0])*t,at-.012*__import__('math').sin(__import__('math').pi*t)))
   curved_wire(pull['id']+'_Bail',path,.0045,identity,'brass_dull')
-  support(identity,carcass['id'],(x0+.18,(a+b)/2,z),(0,0,1),'drawer base on rail '+str(r)+'/'+str(c))
+  support(identity,carcass['id'],(x0+.18+pulled,(a+b)/2,z),(0,0,1),'drawer base on rail '+str(r)+'/'+str(c))
 
 def vessel(name,cx,cy,z,profile,identity,key):
  n=48;verts=[];rings=[]
@@ -206,10 +208,20 @@ for item in assemblies[36:]:
   for yy in [ty0,ty1-.004]:box(identity+'_MetalReturnY'+str(yy),(tx0,yy,top['z0']),(tx1,yy+.004,tz),identity,'metal',.0008)
  elif item['kind']=='paint_can':
   cx=(x0+x1)/2;cy=(y0+y1)/2;key=row['mat']
-  vessel(identity+'_SealedTin',cx,cy,z0,[(0,0),(.098,0),(.107,.006),(.108,.017),(.105,.020),(.103,.237),(.108,.24),(.108,.252),(.10,.257),(0,.257)],identity,key)
-  vessel(identity+'_FittedLid',cx,cy,z0,[(0,.251),(.099,.251),(.105,.254),(.105,.258),(.10,.260),(0,.260)],identity,'metal')
-  for sign in [-1,1]:rod(identity+'_BailPin'+str(sign),(cx,cy+sign*.100,z0+.20),(cx,cy+sign*.111,z0+.20),.006,identity,'metal')
-  path=[(cx,cy+.107*math.cos(i*math.pi/24),z0+.20+.145*math.sin(i*math.pi/24)) for i in range(25)]
+  # Dossier slice 54 (CITY_SHOP_HARDWARE_PAINT-002): three sizes by tin, two dented lids, paint run
+  # down two, a wordless paper label band with a colour stripe on each.
+  n=int(identity[-1]);R,H={0:(.108,.257),1:(.075,.12),2:(.09,.19)}[(0,1,2,0,1,0,2)[n]];sr=R/.108;sh=H/.257
+  vessel(identity+'_SealedTin',cx,cy,z0,[(r*sr,h*sh) for r,h in [(0,0),(.098,0),(.107,.006),(.108,.017),(.105,.020),(.103,.237),(.108,.24),(.108,.252),(.10,.257),(0,.257)]],identity,key)
+  lid=[(0,.251),(.099,.251),(.105,.254),(.105,.258),(.10,.260),(0,.260)] if n not in (1,5) else [(0,.251),(.099,.251),(.105,.254),(.105,.258),(.10,.260),(.05,.252),(0,.252)]
+  vessel(identity+'_FittedLid',cx,cy,z0,[(r*sr,h*sh) for r,h in lid],identity,'metal')
+  vessel(identity+'_LabelBand',cx,cy,z0+H*.3,[(0,0),(R*.955+.0016,0),(R*.955+.0016,H*.38),(0,H*.38)],identity,'paper')
+  vessel(identity+'_ColourStripe',cx,cy,z0+H*.44,[(0,0),(R*.955+.0026,0),(R*.955+.0026,H*.1),(0,H*.1)],identity,key)
+  if n in (0,3):
+   for k,a in enumerate([.4,1.1,2.6]):
+    ca,sa=math.cos(a),math.sin(a);rr=R*.955+.0022
+    rod(identity+f'_Drip{k}',(cx+rr*ca,cy+rr*sa,z0+H*.985),(cx+rr*ca,cy+rr*sa,z0+H*(.985-.18-.09*k)),.0042,identity,key)
+  for sign in [-1,1]:rod(identity+'_BailPin'+str(sign),(cx,cy+sign*(R-.008),z0+H*.78),(cx,cy+sign*(R+.003),z0+H*.78),.006,identity,'metal')
+  path=[(cx,cy+(R-.001)*math.cos(i*math.pi/24),z0+H*.78+.145*sr*math.sin(i*math.pi/24)) for i in range(25)]
   curved_wire(identity+'_RaisedBail',path,.0035,identity,'metal')
   support(identity,'storm_shop_hardware_paint_paint_top',(cx,cy,z0),(0,0,1),'sealed tin on metal work face')
  else:raise AssertionError(item['kind'])

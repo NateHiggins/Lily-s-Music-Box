@@ -1,0 +1,34 @@
+{
+	"batch_checks": 8,
+	"elapsed_ms": 58222,
+	"evidence_class": "INERT",
+	"failures": [
+		"news_fittings: fitted support contact: stool foot on original wear-cover datum / storm_shop_news_cigars_chair_hollow",
+		"news_fittings: fitted support contact: stool foot on original wear-cover datum / storm_shop_news_cigars_chair_hollow",
+		"news_fittings: fitted support contact: stool foot on original wear-cover datum / storm_shop_news_cigars_chair_hollow",
+		"news_fittings: fitted support contact: stool foot on original wear-cover datum / storm_shop_news_cigars_chair_hollow"
+	],
+	"module_checks": 658,
+	"modules": {
+		"news_fittings": {
+			"captured": true,
+			"checks": 658,
+			"elapsed_ms": 11753,
+			"failures": [
+				"fitted support contact: stool foot on original wear-cover datum / storm_shop_news_cigars_chair_hollow",
+				"fitted support contact: stool foot on original wear-cover datum / storm_shop_news_cigars_chair_hollow",
+				"fitted support contact: stool foot on original wear-cover datum / storm_shop_news_cigars_chair_hollow",
+				"fitted support contact: stool foot on original wear-cover datum / storm_shop_news_cigars_chair_hollow"
+			],
+			"fixture_sha256": "d2dd2f48ea4416f6f9d8766c65c1c6e479eee446356a014713f495cccdf29c99",
+			"parts": 45,
+			"removed": 456,
+			"supports": 25,
+			"triangles": 51892,
+			"validator_sha256": "2317e1ee491b052f90964174c2769c30ba29f39be875a4a34dc82365397ed7fd"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

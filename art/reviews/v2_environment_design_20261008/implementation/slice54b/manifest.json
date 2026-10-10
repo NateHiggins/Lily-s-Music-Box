@@ -1,0 +1,108 @@
+{
+ "evidence_class": "INERT",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/rear_shelves.jpg",
+   "source": "fabrication_shots/news_fittings/rear_shelves.png",
+   "sha256": "8110743ff4edcd15f803a3552aa8abbc80040388cf9aac4a6a12186260286aa7",
+   "bytes": 120166
+  },
+  {
+   "path": "images/fitted_stool.jpg",
+   "source": "fabrication_shots/news_fittings/fitted_stool.png",
+   "sha256": "483e7681c0f5347ac82014d7cf59709b3c5df7b03e98ba7150be153c084411ac",
+   "bytes": 123504
+  },
+  {
+   "path": "images/punchboard.jpg",
+   "source": "fabrication_shots/news_fittings/punchboard.png",
+   "sha256": "e7dbb0cc5cbcd4fa2a0768b0350fce105b60827abd33cb65f0785b4c738b8223",
+   "bytes": 129229
+  },
+  {
+   "path": "images/paint_tins.jpg",
+   "source": "hardware_drawers/paint_tins.png",
+   "sha256": "4cc0809e9d2b92cb8cb8a2b7614b5fc73e31da7d30e3dd492b955c726120334d",
+   "bytes": 115771
+  },
+  {
+   "path": "images/drawer_wall.jpg",
+   "source": "hardware_drawers/drawer_wall.png",
+   "sha256": "05c3a3e8925391f121024c5eea1bb5536ee5f1fd3ce7226db0dfe27f749630b0",
+   "bytes": 153413
+  },
+  {
+   "path": "images/drawer_pulls.jpg",
+   "source": "hardware_drawers/drawer_pulls.png",
+   "sha256": "36e52b3dbef3aa2ff5c0e4a4c50ebdaa4ebe9b7c50941133a52cdaeeccb81ecf",
+   "bytes": 114905
+  },
+  {
+   "path": "images/shop_news_cigars_SITE_SHOP_IN0_NEWS_CIGARS.jpg",
+   "source": "sweep_city/shop_news_cigars_SITE_SHOP_IN0_NEWS_CIGARS.png",
+   "sha256": "67c009a54181a06eb19c8c689a16fad6f5e4a01d0c9dc59f2d59ac0db313b831",
+   "bytes": 162703
+  },
+  {
+   "path": "images/shop_news_cigars_SITE_SHOP_IN1_NEWS_CIGARS.jpg",
+   "source": "sweep_city/shop_news_cigars_SITE_SHOP_IN1_NEWS_CIGARS.png",
+   "sha256": "5d27f030a20f2bd46ecac05077743233fcab7db954a40b4bab61d3f07963bbe6",
+   "bytes": 148746
+  },
+  {
+   "path": "images/shop_hardware_paint_SITE_SHOP_IN0_HARDWARE_PAINT.jpg",
+   "source": "sweep_city/shop_hardware_paint_SITE_SHOP_IN0_HARDWARE_PAINT.png",
+   "sha256": "57d02fb82e2b21419cdeb1ca3dd2b448f1071cad92f552ac875ee6761d39fe09",
+   "bytes": 117522
+  },
+  {
+   "path": "images/shop_hardware_paint_SITE_SHOP_IN1_HARDWARE_PAINT.jpg",
+   "source": "sweep_city/shop_hardware_paint_SITE_SHOP_IN1_HARDWARE_PAINT.png",
+   "sha256": "09e31c446039fac8ce732596ee74829ae17fb00e41b9bb50de9294892d660b05",
+   "bytes": 105270
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "53f52f9bd9b9dbb57fb071fb88a0d20de0dafce35e12659bdc36fc238022eda3",
+   "bytes": 3226
+  },
+  {
+   "path": "receipts/hardware_drawers.log.receipt.json",
+   "source": "hardware_drawers.log.receipt.json",
+   "sha256": "5b6d19e62d88bcba0fedf0bb99cebbdb92f1a77db41327442ff7d0f7e3f4588e",
+   "bytes": 3242
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "1f60276357c30d6f9b5e389c7c8729a8ffc642f3e7cd8a2dbdbbeb1ff700e82e",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/sweep_city.log.receipt.json",
+   "source": "sweep_city.log.receipt.json",
+   "sha256": "1dac6139dd22271524da55e58b0a9414c0db53950de3bab441f4f762acf93bbf",
+   "bytes": 3231
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "517a481fe5433addee69bc93f984065bc3ddc5ef80adefa9a0427d7e0f317b0e",
+   "bytes": 1584
+  },
+  {
+   "path": "receipts/sweep_city__node_census.json",
+   "source": "sweep_city/node_census.json",
+   "sha256": "fbedacb7b0bad6e8d6be4527217645168b3dab4593d15af13d516d3e1e48b495",
+   "bytes": 803573
+  },
+  {
+   "path": "receipts/sweep_city__dossier_sweep.json",
+   "source": "sweep_city/dossier_sweep.json",
+   "sha256": "f1c2d95cd58d3445bdd4ee90fd7aeb756e3fd75197c08bed183f7f0c831b6bc8",
+   "bytes": 43387
+  }
+ ]
+}

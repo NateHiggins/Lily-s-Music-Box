@@ -3176,7 +3176,7 @@
       "name": "storm_shop_hardware_paint_drawer1_3_FrontBlank",
       "assembly": "storm_shop_hardware_paint_drawer1_3",
       "key": "oak_quartered",
-      "volume_m3": 0.00607333598711977
+      "volume_m3": 0.006073278007851335
     },
     {
       "name": "storm_shop_hardware_paint_drawer1_3_InsetPanel",
@@ -3218,7 +3218,7 @@
       "name": "storm_shop_hardware_paint_drawer_pull1_3_Pin0",
       "assembly": "storm_shop_hardware_paint_drawer1_3",
       "key": "brass_dull",
-      "volume_m3": 1.2271285449319894e-06
+      "volume_m3": 1.2270941253049016e-06
     },
     {
       "name": "storm_shop_hardware_paint_drawer_pull1_3_Rose1",
@@ -3230,13 +3230,13 @@
       "name": "storm_shop_hardware_paint_drawer_pull1_3_Pin1",
       "assembly": "storm_shop_hardware_paint_drawer1_3",
       "key": "brass_dull",
-      "volume_m3": 1.2271285449319894e-06
+      "volume_m3": 1.2270941253049016e-06
     },
     {
       "name": "storm_shop_hardware_paint_drawer_pull1_3_Bail",
       "assembly": "storm_shop_hardware_paint_drawer1_3",
       "key": "brass_dull",
-      "volume_m3": 5.032234928167136e-06
+      "volume_m3": 5.032243521573506e-06
     },
     {
       "name": "storm_shop_hardware_paint_drawer1_4_Bottom",
@@ -5513,6 +5513,36 @@
       "volume_m3": 0.00030178731595920864
     },
     {
+      "name": "storm_shop_hardware_paint_can0_LabelBand",
+      "assembly": "storm_shop_hardware_paint_can0",
+      "key": "paper",
+      "volume_m3": 0.003356229131449077
+    },
+    {
+      "name": "storm_shop_hardware_paint_can0_ColourStripe",
+      "assembly": "storm_shop_hardware_paint_can0",
+      "key": "lacquer_red",
+      "volume_m3": 0.0009001598535070947
+    },
+    {
+      "name": "storm_shop_hardware_paint_can0_Drip0",
+      "assembly": "storm_shop_hardware_paint_can0",
+      "key": "lacquer_red",
+      "volume_m3": 2.556078799868019e-06
+    },
+    {
+      "name": "storm_shop_hardware_paint_can0_Drip1",
+      "assembly": "storm_shop_hardware_paint_can0",
+      "key": "lacquer_red",
+      "volume_m3": 3.834114906369878e-06
+    },
+    {
+      "name": "storm_shop_hardware_paint_can0_Drip2",
+      "assembly": "storm_shop_hardware_paint_can0",
+      "key": "lacquer_red",
+      "volume_m3": 5.112157599736038e-06
+    },
+    {
       "name": "storm_shop_hardware_paint_can0_BailPin-1",
       "assembly": "storm_shop_hardware_paint_can0",
       "key": "metal",
@@ -5522,31 +5552,43 @@
       "name": "storm_shop_hardware_paint_can0_BailPin1",
       "assembly": "storm_shop_hardware_paint_can0",
       "key": "metal",
-      "volume_m3": 1.2406849485748635e-06
+      "volume_m3": 1.2406849485748631e-06
     },
     {
       "name": "storm_shop_hardware_paint_can0_RaisedBail",
       "assembly": "storm_shop_hardware_paint_can0",
       "key": "metal",
-      "volume_m3": 1.327836512707596e-05
+      "volume_m3": 1.327836387200786e-05
     },
     {
       "name": "storm_shop_hardware_paint_can1_SealedTin",
       "assembly": "storm_shop_hardware_paint_can1",
       "key": "book_teal",
-      "volume_m3": 0.008767734185470008
+      "volume_m3": 0.0019742903627127306
     },
     {
       "name": "storm_shop_hardware_paint_can1_FittedLid",
       "assembly": "storm_shop_hardware_paint_can1",
       "key": "metal",
-      "volume_m3": 0.00030178935085160017
+      "volume_m3": 3.503801829683592e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_can1_LabelBand",
+      "assembly": "storm_shop_hardware_paint_can1",
+      "key": "paper",
+      "volume_m3": 0.0007659373115118461
+    },
+    {
+      "name": "storm_shop_hardware_paint_can1_ColourStripe",
+      "assembly": "storm_shop_hardware_paint_can1",
+      "key": "book_teal",
+      "volume_m3": 0.00020710341612543143
     },
     {
       "name": "storm_shop_hardware_paint_can1_BailPin-1",
       "assembly": "storm_shop_hardware_paint_can1",
       "key": "metal",
-      "volume_m3": 1.240254752684234e-06
+      "volume_m3": 1.2406849485748635e-06
     },
     {
       "name": "storm_shop_hardware_paint_can1_BailPin1",
@@ -5558,19 +5600,31 @@
       "name": "storm_shop_hardware_paint_can1_RaisedBail",
       "assembly": "storm_shop_hardware_paint_can1",
       "key": "metal",
-      "volume_m3": 1.3278351768421492e-05
+      "volume_m3": 9.208376519849864e-06
     },
     {
       "name": "storm_shop_hardware_paint_can2_SealedTin",
       "assembly": "storm_shop_hardware_paint_can2",
       "key": "fabric_green",
-      "volume_m3": 0.008767734185666155
+      "volume_m3": 0.00450138332770121
     },
     {
       "name": "storm_shop_hardware_paint_can2_FittedLid",
       "assembly": "storm_shop_hardware_paint_can2",
       "key": "metal",
-      "volume_m3": 0.00030178935085554113
+      "volume_m3": 0.00015493852109300002
+    },
+    {
+      "name": "storm_shop_hardware_paint_can2_LabelBand",
+      "assembly": "storm_shop_hardware_paint_can2",
+      "key": "paper",
+      "volume_m3": 0.0017336253212443913
+    },
+    {
+      "name": "storm_shop_hardware_paint_can2_ColourStripe",
+      "assembly": "storm_shop_hardware_paint_can2",
+      "key": "fabric_green",
+      "volume_m3": 0.00046669854519138703
     },
     {
       "name": "storm_shop_hardware_paint_can2_BailPin-1",
@@ -5582,13 +5636,13 @@
       "name": "storm_shop_hardware_paint_can2_BailPin1",
       "assembly": "storm_shop_hardware_paint_can2",
       "key": "metal",
-      "volume_m3": 1.240254752684234e-06
+      "volume_m3": 1.2406849485748635e-06
     },
     {
       "name": "storm_shop_hardware_paint_can2_RaisedBail",
       "assembly": "storm_shop_hardware_paint_can2",
       "key": "metal",
-      "volume_m3": 1.3278351768421494e-05
+      "volume_m3": 1.1058423147311444e-05
     },
     {
       "name": "storm_shop_hardware_paint_can3_SealedTin",
@@ -5603,10 +5657,40 @@
       "volume_m3": 0.00030178731596224034
     },
     {
+      "name": "storm_shop_hardware_paint_can3_LabelBand",
+      "assembly": "storm_shop_hardware_paint_can3",
+      "key": "paper",
+      "volume_m3": 0.0033562291314490765
+    },
+    {
+      "name": "storm_shop_hardware_paint_can3_ColourStripe",
+      "assembly": "storm_shop_hardware_paint_can3",
+      "key": "safety_orange",
+      "volume_m3": 0.0009001598535070948
+    },
+    {
+      "name": "storm_shop_hardware_paint_can3_Drip0",
+      "assembly": "storm_shop_hardware_paint_can3",
+      "key": "safety_orange",
+      "volume_m3": 2.556078799868019e-06
+    },
+    {
+      "name": "storm_shop_hardware_paint_can3_Drip1",
+      "assembly": "storm_shop_hardware_paint_can3",
+      "key": "safety_orange",
+      "volume_m3": 3.834114906369878e-06
+    },
+    {
+      "name": "storm_shop_hardware_paint_can3_Drip2",
+      "assembly": "storm_shop_hardware_paint_can3",
+      "key": "safety_orange",
+      "volume_m3": 5.1121575997360386e-06
+    },
+    {
       "name": "storm_shop_hardware_paint_can3_BailPin-1",
       "assembly": "storm_shop_hardware_paint_can3",
       "key": "metal",
-      "volume_m3": 1.2406849485748635e-06
+      "volume_m3": 1.2406849485748631e-06
     },
     {
       "name": "storm_shop_hardware_paint_can3_BailPin1",
@@ -5618,37 +5702,49 @@
       "name": "storm_shop_hardware_paint_can3_RaisedBail",
       "assembly": "storm_shop_hardware_paint_can3",
       "key": "metal",
-      "volume_m3": 1.3278365127075948e-05
+      "volume_m3": 1.3278363872007863e-05
     },
     {
       "name": "storm_shop_hardware_paint_can4_SealedTin",
       "assembly": "storm_shop_hardware_paint_can4",
       "key": "lacquer_red",
-      "volume_m3": 0.008767709917577906
+      "volume_m3": 0.0019742919266861276
     },
     {
       "name": "storm_shop_hardware_paint_can4_FittedLid",
       "assembly": "storm_shop_hardware_paint_can4",
       "key": "metal",
-      "volume_m3": 0.0003017868937302035
+      "volume_m3": 6.7956539873276e-05
+    },
+    {
+      "name": "storm_shop_hardware_paint_can4_LabelBand",
+      "assembly": "storm_shop_hardware_paint_can4",
+      "key": "paper",
+      "volume_m3": 0.0007659297188405553
+    },
+    {
+      "name": "storm_shop_hardware_paint_can4_ColourStripe",
+      "assembly": "storm_shop_hardware_paint_can4",
+      "key": "lacquer_red",
+      "volume_m3": 0.00020710697533516943
     },
     {
       "name": "storm_shop_hardware_paint_can4_BailPin-1",
       "assembly": "storm_shop_hardware_paint_can4",
       "key": "metal",
-      "volume_m3": 1.2406849485748635e-06
+      "volume_m3": 1.240254752684234e-06
     },
     {
       "name": "storm_shop_hardware_paint_can4_BailPin1",
       "assembly": "storm_shop_hardware_paint_can4",
       "key": "metal",
-      "volume_m3": 1.2406849485748635e-06
+      "volume_m3": 1.240254752684234e-06
     },
     {
       "name": "storm_shop_hardware_paint_can4_RaisedBail",
       "assembly": "storm_shop_hardware_paint_can4",
       "key": "metal",
-      "volume_m3": 1.3278321255279571e-05
+      "volume_m3": 9.20858932048924e-06
     },
     {
       "name": "storm_shop_hardware_paint_can5_SealedTin",
@@ -5660,7 +5756,19 @@
       "name": "storm_shop_hardware_paint_can5_FittedLid",
       "assembly": "storm_shop_hardware_paint_can5",
       "key": "metal",
-      "volume_m3": 0.00030178731595920864
+      "volume_m3": 0.00015559810690697222
+    },
+    {
+      "name": "storm_shop_hardware_paint_can5_LabelBand",
+      "assembly": "storm_shop_hardware_paint_can5",
+      "key": "paper",
+      "volume_m3": 0.003356229131449077
+    },
+    {
+      "name": "storm_shop_hardware_paint_can5_ColourStripe",
+      "assembly": "storm_shop_hardware_paint_can5",
+      "key": "book_teal",
+      "volume_m3": 0.0009001598535070947
     },
     {
       "name": "storm_shop_hardware_paint_can5_BailPin-1",
@@ -5672,31 +5780,43 @@
       "name": "storm_shop_hardware_paint_can5_BailPin1",
       "assembly": "storm_shop_hardware_paint_can5",
       "key": "metal",
-      "volume_m3": 1.2406849485748635e-06
+      "volume_m3": 1.2406849485748631e-06
     },
     {
       "name": "storm_shop_hardware_paint_can5_RaisedBail",
       "assembly": "storm_shop_hardware_paint_can5",
       "key": "metal",
-      "volume_m3": 1.327836512707596e-05
+      "volume_m3": 1.327836387200786e-05
     },
     {
       "name": "storm_shop_hardware_paint_can6_SealedTin",
       "assembly": "storm_shop_hardware_paint_can6",
       "key": "fabric_green",
-      "volume_m3": 0.008767734185470008
+      "volume_m3": 0.004501383327703679
     },
     {
       "name": "storm_shop_hardware_paint_can6_FittedLid",
       "assembly": "storm_shop_hardware_paint_can6",
       "key": "metal",
-      "volume_m3": 0.00030178935085160017
+      "volume_m3": 0.00015493852109389652
+    },
+    {
+      "name": "storm_shop_hardware_paint_can6_LabelBand",
+      "assembly": "storm_shop_hardware_paint_can6",
+      "key": "paper",
+      "volume_m3": 0.0017336253212443917
+    },
+    {
+      "name": "storm_shop_hardware_paint_can6_ColourStripe",
+      "assembly": "storm_shop_hardware_paint_can6",
+      "key": "fabric_green",
+      "volume_m3": 0.0004666985451913871
     },
     {
       "name": "storm_shop_hardware_paint_can6_BailPin-1",
       "assembly": "storm_shop_hardware_paint_can6",
       "key": "metal",
-      "volume_m3": 1.240254752684234e-06
+      "volume_m3": 1.2406849485748635e-06
     },
     {
       "name": "storm_shop_hardware_paint_can6_BailPin1",
@@ -5708,7 +5828,7 @@
       "name": "storm_shop_hardware_paint_can6_RaisedBail",
       "assembly": "storm_shop_hardware_paint_can6",
       "key": "metal",
-      "volume_m3": 1.3278351768421492e-05
+      "volume_m3": 1.1058423147311447e-05
     }
   ],
   "contacts": [
@@ -5926,7 +6046,7 @@
       "assembly": "storm_shop_hardware_paint_drawer1_3",
       "owner": "storm_shop_hardware_paint_drawer_carcass",
       "point": [
-        4.819999999999999,
+        4.959999999999999,
         0.64,
         56.00714285714285
       ],
@@ -6980,7 +7100,7 @@
       "assembly": "storm_shop_hardware_paint_can0",
       "cell": "shop_hardware_paint",
       "key": "lacquer_red",
-      "triangles": 768
+      "triangles": 1524
     },
     {
       "name": "storm_shop_hardware_paint_can0__metal",
@@ -6990,25 +7110,39 @@
       "triangles": 1156
     },
     {
+      "name": "storm_shop_hardware_paint_can0__paper",
+      "assembly": "storm_shop_hardware_paint_can0",
+      "cell": "shop_hardware_paint",
+      "key": "paper",
+      "triangles": 192
+    },
+    {
       "name": "storm_shop_hardware_paint_can1__book_teal",
       "assembly": "storm_shop_hardware_paint_can1",
       "cell": "shop_hardware_paint",
       "key": "book_teal",
-      "triangles": 768
+      "triangles": 960
     },
     {
       "name": "storm_shop_hardware_paint_can1__metal",
       "assembly": "storm_shop_hardware_paint_can1",
       "cell": "shop_hardware_paint",
       "key": "metal",
-      "triangles": 1156
+      "triangles": 1252
+    },
+    {
+      "name": "storm_shop_hardware_paint_can1__paper",
+      "assembly": "storm_shop_hardware_paint_can1",
+      "cell": "shop_hardware_paint",
+      "key": "paper",
+      "triangles": 192
     },
     {
       "name": "storm_shop_hardware_paint_can2__fabric_green",
       "assembly": "storm_shop_hardware_paint_can2",
       "cell": "shop_hardware_paint",
       "key": "fabric_green",
-      "triangles": 768
+      "triangles": 960
     },
     {
       "name": "storm_shop_hardware_paint_can2__metal",
@@ -7018,6 +7152,13 @@
       "triangles": 1156
     },
     {
+      "name": "storm_shop_hardware_paint_can2__paper",
+      "assembly": "storm_shop_hardware_paint_can2",
+      "cell": "shop_hardware_paint",
+      "key": "paper",
+      "triangles": 192
+    },
+    {
       "name": "storm_shop_hardware_paint_can3__metal",
       "assembly": "storm_shop_hardware_paint_can3",
       "cell": "shop_hardware_paint",
@@ -7025,18 +7166,25 @@
       "triangles": 1156
     },
     {
+      "name": "storm_shop_hardware_paint_can3__paper",
+      "assembly": "storm_shop_hardware_paint_can3",
+      "cell": "shop_hardware_paint",
+      "key": "paper",
+      "triangles": 192
+    },
+    {
       "name": "storm_shop_hardware_paint_can3__safety_orange",
       "assembly": "storm_shop_hardware_paint_can3",
       "cell": "shop_hardware_paint",
       "key": "safety_orange",
-      "triangles": 768
+      "triangles": 1524
     },
     {
       "name": "storm_shop_hardware_paint_can4__lacquer_red",
       "assembly": "storm_shop_hardware_paint_can4",
       "cell": "shop_hardware_paint",
       "key": "lacquer_red",
-      "triangles": 768
+      "triangles": 960
     },
     {
       "name": "storm_shop_hardware_paint_can4__metal",
@@ -7046,25 +7194,39 @@
       "triangles": 1156
     },
     {
+      "name": "storm_shop_hardware_paint_can4__paper",
+      "assembly": "storm_shop_hardware_paint_can4",
+      "cell": "shop_hardware_paint",
+      "key": "paper",
+      "triangles": 192
+    },
+    {
       "name": "storm_shop_hardware_paint_can5__book_teal",
       "assembly": "storm_shop_hardware_paint_can5",
       "cell": "shop_hardware_paint",
       "key": "book_teal",
-      "triangles": 768
+      "triangles": 960
     },
     {
       "name": "storm_shop_hardware_paint_can5__metal",
       "assembly": "storm_shop_hardware_paint_can5",
       "cell": "shop_hardware_paint",
       "key": "metal",
-      "triangles": 1156
+      "triangles": 1252
+    },
+    {
+      "name": "storm_shop_hardware_paint_can5__paper",
+      "assembly": "storm_shop_hardware_paint_can5",
+      "cell": "shop_hardware_paint",
+      "key": "paper",
+      "triangles": 192
     },
     {
       "name": "storm_shop_hardware_paint_can6__fabric_green",
       "assembly": "storm_shop_hardware_paint_can6",
       "cell": "shop_hardware_paint",
       "key": "fabric_green",
-      "triangles": 768
+      "triangles": 960
     },
     {
       "name": "storm_shop_hardware_paint_can6__metal",
@@ -7072,9 +7234,16 @@
       "cell": "shop_hardware_paint",
       "key": "metal",
       "triangles": 1156
+    },
+    {
+      "name": "storm_shop_hardware_paint_can6__paper",
+      "assembly": "storm_shop_hardware_paint_can6",
+      "cell": "shop_hardware_paint",
+      "key": "paper",
+      "triangles": 192
     }
   ],
-  "triangles": 122676,
+  "triangles": 126684,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -7466,6 +7635,12 @@
             "tile": 0.8
           },
           {
+            "name": "storm_shop_hardware_paint_can0__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          },
+          {
             "name": "storm_shop_hardware_paint_can1__book_teal",
             "key": "metal",
             "tile": 0.8,
@@ -7480,6 +7655,12 @@
             "name": "storm_shop_hardware_paint_can1__metal",
             "key": "metal",
             "tile": 0.8
+          },
+          {
+            "name": "storm_shop_hardware_paint_can1__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
           },
           {
             "name": "storm_shop_hardware_paint_can2__fabric_green",
@@ -7498,9 +7679,21 @@
             "tile": 0.8
           },
           {
+            "name": "storm_shop_hardware_paint_can2__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          },
+          {
             "name": "storm_shop_hardware_paint_can3__metal",
             "key": "metal",
             "tile": 0.8
+          },
+          {
+            "name": "storm_shop_hardware_paint_can3__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
           },
           {
             "name": "storm_shop_hardware_paint_can3__safety_orange",
@@ -7530,6 +7723,12 @@
             "tile": 0.8
           },
           {
+            "name": "storm_shop_hardware_paint_can4__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          },
+          {
             "name": "storm_shop_hardware_paint_can5__book_teal",
             "key": "metal",
             "tile": 0.8,
@@ -7546,6 +7745,12 @@
             "tile": 0.8
           },
           {
+            "name": "storm_shop_hardware_paint_can5__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
+          },
+          {
             "name": "storm_shop_hardware_paint_can6__fabric_green",
             "key": "metal",
             "tile": 0.8,
@@ -7560,6 +7765,12 @@
             "name": "storm_shop_hardware_paint_can6__metal",
             "key": "metal",
             "tile": 0.8
+          },
+          {
+            "name": "storm_shop_hardware_paint_can6__paper",
+            "key": "paper",
+            "tile": 0.5,
+            "catalog_key": "paper"
           }
         ],
         "replace": [
@@ -8767,11 +8978,11 @@
       }
     ]
   },
-  "asset_sha256": "e1c032477c4e06a01363454f4ca7f671b81cfaac5ef0f2b3b504231619ab4e1f",
+  "asset_sha256": "c363514e7672e8d970ee183a80915cac3989d39f39ba656d179ce00270ff83e0",
   "source_bindings": {
-    "art/data/hardware_drawers/source_plan.json": "9763f2df639b7e4c83a3e7cddd0f1b990ca1fd4f1f96f9926a3a0050281c5cd7",
+    "art/data/hardware_drawers/source_plan.json": "28021c442bd3da5f808f9a59d221f402e985e392bf61e9de9245c176147e4d4c",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_hardware_drawers.py": "0a391fa725320ed748af750f151f17bda7347dc966f437bb1e9469aead93a2ab",
+    "art/blender/scripts/build_hardware_drawers.py": "3390b9e302c64be3e2ab82c8d177538e336322ba47dcc145e23a0ec6a1e08243",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
     "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",
@@ -8781,6 +8992,7 @@
     "art/textures/ai_materials/brass/material.json": "1930f552c32eb7832ad7da258edcba067b4083a712f5866699c4c787a228c287",
     "art/textures/ai_materials/timber_b/material.json": "4955fb7b973f0077dc5c8813b2831b7431521ae9b2ca2bce57dc4bb67d196eb6",
     "art/textures/ai_materials/metal_b/material.json": "86a8c2610bb48b4f664db66da265bd38af6249b76489f58ce3492846937a5f89",
+    "art/textures/ai_materials/paper/material.json": "3e98baeaa7f7302d5d3a7d6f9eb5b6ea2a11ab54616322a6121d4b62fe47db65",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_albedo.png": "482fed6fa27baf609c61297d28b36d2cc8af3763ee45358a470cdfff403ca9ec",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_rough.png": "8a7de1a3c36d927a71ca32f7b25a2704874c5188f96a0798b4c0fcb40e038e73",
     "game/assets/building/textures/T_ai_materials_wood_dark_b_normal.png": "7d9806655d3ea517cdab22b7cf0f5c1f66948c4549721424720cd4c452fffd68",
@@ -8796,6 +9008,9 @@
     "game/assets/building/textures/T_ai_materials_metal_b_albedo.png": "fba2fee71543d6dfcbbce474a9dec39c5ea9f6b02f1db6752909fac875a7caeb",
     "game/assets/building/textures/T_ai_materials_metal_b_rough.png": "fcbc3ee2dd0dffe0d7016e0485aca66dcb75b18f994de0620c33830c9ee5cf1f",
     "game/assets/building/textures/T_ai_materials_metal_b_normal.png": "59c6323194f1146e567e786d25971bcfc68782a21ef412a8e12105278baab380",
+    "game/assets/building/textures/T_library_furniture_aged_paper_albedo.png": "2b24c98c11a9b049c15710411d2bf7433552b386e81f5cb2a82338c692043fbb",
+    "game/assets/building/textures/T_library_furniture_aged_paper_rough.png": "78460974c595bcfc8eeb420db4f557cf541c5503284121e55c876313cdb14e32",
+    "game/assets/building/textures/T_library_furniture_aged_paper_normal.png": "21bc3c5032ae6ed6edd811af809ebbbe304bf6f6623d4373d336be6a3b3b7787",
     "game/assets/building/floor_01_cells/shop_hardware_paint.gltf": "c4c7573c3dbec95bec3b1c30a3858915f21cd1e0953ca77b10705a0fefc37fec",
     "game/assets/building/floor_01_cells/shop_hardware_paint.bin": "8d3c8326480aa5714fe085ddd33cc1e71ea674c69185a5b6d13631b8ff7c98eb",
     "art/blender/scripts/inspect_hardware_drawers.py": "9b4d0374def903772d5fe3445d1c205cc0f1b26d2dbb214c0801c7a0dfe8495a"
@@ -8806,6 +9021,8 @@
     "Other hardware stock, scale/shaker equipment, plot-device ladder and independent services remain open.",
     "Rear access, continuous approach and human acceptance need their own evidence.",
     "The fitted paint bench and its seven tin identities shift 1.65 metres toward the shop centre to clear the drawer approach; original references remain.",
-    "Paint tin color keys alias existing metal maps with local tints, replacing cloth/book imagery on paint containers without changing shared materials."
+    "Paint tin color keys alias existing metal maps with local tints, replacing cloth/book imagery on paint containers without changing shared materials.",
+    "Slice 54 of the V2 environment dossier varies the seven paint tins (gallon, half-gallon and quart; two dented lids; paint run down two; a wordless paper label band with a colour stripe on each) and stands one drawer of the wall 0.14 m open on its rail.",
+    "Slice 54's paper label bands bind the registered catalogue paper: the shop's source cell has no paper box to lend its material, so the runtime refused the whole fit without it."
   ]
 }
