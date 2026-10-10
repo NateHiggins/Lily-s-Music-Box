@@ -826,6 +826,17 @@ def dressform(source):
   tube('Pin'+str(i),(.235*math.cos(a),.235*math.sin(a),.585),(.285*math.cos(a),.285*math.sin(a),.59),.0012,'metal')
  group('DressForm',start)
 
+def tsquare(source):
+ # Dossier slice 40: Nadia's boxwood T-square hung by its blade hole on a nail, head down.
+ start=len(stock_checks);height=source['H'];back=variants[identity]['rear_wall_y']
+ tube('Nail',(0,back,height-.03),(0,.04,height-.03),.004,'metal')
+ support(identity,'wall',(0,back,height-.03),(0,1,0),'nail driven into the wall')
+ stock('Blade',(-.025,0,.045),(.025,.004,height-.01),'timber',.0008)
+ stock('Edge',(.023,-.0005,.05),(.027,.0045,height-.012),'wood_dark',.0005)
+ stock('Head',(-.11,-.008,0),(.11,.012,.05),'timber',.0015)
+ for x in [-.015,.015]:stock('Screw'+str(x),(x-.004,.0115,.02),(x+.004,.0135,.028),'brass',.0005)
+ group('TSquare',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -878,4 +889,5 @@ for assembly in assemblies:
  elif kind=='sweeprods':sweeprods(source)
  elif kind=='workboots':workboots(source)
  elif kind=='dressform':dressform(source)
+ elif kind=='tsquare':tsquare(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

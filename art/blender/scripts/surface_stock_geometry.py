@@ -629,17 +629,18 @@ def slip(source):
  bearing('slip',(0,0,0));group('Slip',start)
 # Dossier slice 38: Sacha's light box and Juno's recorder.
 def lightbox(source):
- # A deeper light table: frosted glass over an unlit lamp in a socket, a strip of negatives on the glass.
+ # A small light box: frosted glass over an unlit lamp in a socket, a strip of negatives on the glass.
+ # Slice 40 resizes it to sit in the prep cabinet's back corner, clear of the toaster and the tin.
  start=len(stock_checks)
- stock('Base',(-.18,-.13,0),(.18,.13,.012),'timber',.0015)
- for x in [-.18,.16]:stock('Rail'+str(x),(x,-.13,.012),(x+.02,.13,.1),'timber',.002)
- for y in [-.13,.11]:stock('Stile'+str(y),(-.16,y,.012),(.16,y+.02,.1),'timber',.002)
+ stock('Base',(-.115,-.085,0),(.115,.085,.012),'timber',.0015)
+ for x in [-.115,.095]:stock('Rail'+str(x),(x,-.085,.012),(x+.02,.085,.1),'timber',.002)
+ for y in [-.085,.065]:stock('Stile'+str(y),(-.095,y,.012),(.095,y+.02,.1),'timber',.002)
  lathe('Socket',0,0,.012,[(0,0),(.016,0),(.016,.03),(0,.03)],'bakelite')
  lathe('Bulb',0,0,.0415,[(0,0),(.012,0),(.02,.015),(.022,.03),(.016,.045),(0,.05)],'glassish')
- tube('Flex',(.01,0,.022),(.159,0,.03),.004,'linen')
- stock('Frosted',(-.165,-.115,.095),(.165,.115,.102),'glassish',.001)
- stock('Negatives',(-.1,-.02,.102),(.1,.015,.1028),'bakelite',.0001)
- for p in [(-.17,-.12,0),(.17,-.12,0),(-.17,.12,0),(.17,.12,0)]:bearing('light box '+str(p),p)
+ tube('Flex',(.01,0,.022),(.094,0,.03),.004,'linen')
+ stock('Frosted',(-.1,-.07,.095),(.1,.07,.102),'glassish',.001)
+ stock('Negatives',(-.07,-.015,.102),(.07,.012,.1028),'bakelite',.0001)
+ for p in [(-.105,-.075,0),(.105,-.075,0),(-.105,.075,0),(.105,.075,0)]:bearing('light box '+str(p),p)
  group('LightBox',start)
 def recorder(source):
  # A black Bakelite signal recorder: two reels on the lid, a knob, a front grille and a cloth cord.
@@ -706,6 +707,36 @@ def pruningcloth(source):
  stock('HandleB',(-.09,.005,.0014),(-.006,.024,.011),'paint_red',.003)
  for p in [(-.09,-.06,0),(.09,-.06,0),(-.09,.06,0),(.09,.06,0)]:bearing('oilcloth '+str(p),p)
  group('PruningCloth',start)
+# Dossier slice 40: a glazed case over 5A's site model and 4D's open suitcase.
+def modelcase(source):
+ # An oak-framed glazed case set over the model on its own base frame, clear of the massing.
+ start=len(stock_checks)
+ for y in [-.245,.23]:stock('BaseRailY'+str(y),(-.325,y,0),(.325,y+.015,.02),'timber',.002)
+ for x in [-.325,.31]:stock('BaseRailX'+str(x),(x,-.245,0),(x+.015,.245,.02),'timber',.002)
+ for x in [-.325,.31]:
+  for y in [-.245,.23]:stock('Post'+str((x,y)),(x,y,.019),(x+.015,y+.015,.25),'timber',.0015)
+ for y in [-.245,.23]:stock('TopRailY'+str(y),(-.325,y,.249),(.325,y+.015,.265),'timber',.002)
+ for x in [-.325,.31]:stock('TopRailX'+str(x),(x,-.245,.249),(x+.015,.245,.265),'timber',.002)
+ for name,(y0,y1) in [('Front',(.233,.237)),('Back',(-.242,-.238))]:stock('Glass'+name,(-.312,y0,.019),(.312,y1,.251),'glassish',.0005)
+ for name,(x0,x1) in [('Left',(-.322,-.318)),('Right',(.313,.317))]:stock('Glass'+name,(x0,-.232,.019),(x1,.232,.251),'glassish',.0005)
+ stock('GlassTop',(-.312,-.232,.25),(.312,.232,.254),'glassish',.0005)
+ for p in [(-.315,-.235,0),(.315,-.235,0),(-.315,.235,0),(.315,.235,0)]:bearing('case '+str(p),p)
+ group('ModelCase',start)
+def opencase(source):
+ # A leather suitcase open on the blanket, its lid laid back, a few things packed.
+ start=len(stock_checks)
+ stock('Bottom',(-.25,-.17,0),(.25,.17,.006),'book_brown',.0015)
+ for y in [-.17,.164]:stock('WallY'+str(y),(-.25,y,.005),(.25,y+.006,.14),'book_brown',.0012)
+ for x in [-.25,.244]:stock('WallX'+str(x),(x,-.17,.005),(x+.006,.17,.14),'book_brown',.0012)
+ stock('LidShell',(-.25,.17,0),(.25,.51,.006),'book_brown',.0015)
+ for y in [.17,.504]:stock('LidWallY'+str(y),(-.25,y,.005),(.25,y+.006,.04),'book_brown',.0012)
+ for x in [-.25,.244]:stock('LidWallX'+str(x),(x,.17,.005),(x+.006,.51,.04),'book_brown',.0012)
+ stock('LidLining',(-.244,.176,.0055),(.244,.504,.008),'linen',.0004)
+ for x in [-.15,.15]:stock('Hinge'+str(x),(x-.02,.163,0),(x+.02,.177,.012),'brass',.0008)
+ stock('PackedShirts',(-.24,-.16,.0055),(-.02,.16,.07),'linen',.004)
+ stock('PackedJumper',(0,-.16,.0055),(.238,.16,.055),'wool_burgundy',.006)
+ for p in [(-.23,-.15,0),(.23,-.15,0),(-.23,.49,0),(.23,.49,0)]:bearing('case '+str(p),p)
+ group('OpenCase',start)
 for assembly in assemblies:
  identity=assembly['id'];source=rows.get(identity) or table_records[identity];kind=table_records[identity]['kind'];col=Collector()
  if 'asm_'+kind in original:original['asm_'+kind](col,source)
@@ -781,4 +812,6 @@ for assembly in assemblies:
  elif kind=='pincushion':pincushion(source)
  elif kind=='zinctray':zinctray(source)
  elif kind=='pruningcloth':pruningcloth(source)
+ elif kind=='modelcase':modelcase(source)
+ elif kind=='opencase':opencase(source)
  else:raise NotImplementedError(('remaining surface form',identity,kind))

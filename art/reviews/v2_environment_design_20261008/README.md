@@ -160,6 +160,8 @@ Slices landed so far (evidence folders in parentheses):
     here and placed again in slices 41 and 40 (`slice38`).
 39. 2B's standing bolts and cutting kit, 3B's fastener cabinet, 3A's pruning station,
     and four rows closed against captures (`slice39`).
+40. 5A's japanned lamp, glazed model case and T-square, 4D's open case and empty
+    hangers, and an inspection sweep of seven rooms (`slice40`).
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

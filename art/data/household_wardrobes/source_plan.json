@@ -272,6 +272,22 @@
         "W": 1.3,
         "case_wood": "oak_quartered"
       }
+    },
+    {
+      "id": "Wardrobe16",
+      "kind": "wardrobe",
+      "source_id": "5C_w0_wardrobe",
+      "params": {
+        "id": "5C_w0_wardrobe",
+        "asm": "wardrobe",
+        "at": [
+          8.545,
+          6.71
+        ],
+        "yaw": 0,
+        "W": 1.3,
+        "case_wood": "oak_quartered"
+      }
     }
   ],
   "instances": [
@@ -329,7 +345,7 @@
     },
     {
       "id": "4D_wardrobe",
-      "variant": "Wardrobe07"
+      "variant": "Wardrobe16"
     },
     {
       "id": "5C_w1_wardrobe",
@@ -487,7 +503,8 @@
     "Existing fine linen map with source-colour warm tint replaces oversized upholstery weave on hanging cloth.",
     "Shallow brass buttons retain original X/height axes and clear the side walls of three completion rooms at the original 92-degree stop.",
     "Slice 30 of the V2 environment dossier gives 2C's second wardrobe its own variant (Wardrobe13, on 5C_w1_wardrobe's case): two added shelves and the original middle shelf carry rows of grey reel boxes with coloured tape on their spines, and the rail is omitted. Both leaves keep their hinges and swing.",
-    "Slice 35 of the V2 environment dossier shelves 5C's second wardrobe as Iris's pigment store (Wardrobe14: tins with painted lids, jars, rolled canvas) and 6C's second as Mae's packing store (Wardrobe12: stacked cartons, brown paper, string), and gives 4C's wardrobes their residents' garment colours (Wardrobe15, Cam's maroon jersey; Wardrobe08, now 4C_w1's own, Noel's indigo drill). jersey_maroon and drill_indigo are tinted aliases of the catalogue linen, kraft of the catalogue paper."
+    "Slice 35 of the V2 environment dossier shelves 5C's second wardrobe as Iris's pigment store (Wardrobe14: tins with painted lids, jars, rolled canvas) and 6C's second as Mae's packing store (Wardrobe12: stacked cartons, brown paper, string), and gives 4C's wardrobes their residents' garment colours (Wardrobe15, Cam's maroon jersey; Wardrobe08, now 4C_w1's own, Noel's indigo drill). jersey_maroon and drill_indigo are tinted aliases of the catalogue linen, kraft of the catalogue paper.",
+    "Slice 40 of the V2 environment dossier gives 4D's wardrobe its own variant (Wardrobe16): Wardrobe07's case and rail with only the wire hangers, no garments, for the transient guests' late-night state."
   ],
   "open_work": [
     "Broad room lighting/material balance, remaining apartment props, fixed lights and lamp cords are unfinished.",

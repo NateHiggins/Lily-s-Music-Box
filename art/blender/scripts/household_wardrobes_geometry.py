@@ -16,6 +16,14 @@ def folded_cloth(label,lo,hi):
  nx=24;nz=18;cx=(lo[0]+hi[0])/2;half=(hi[0]-lo[0])/2
  half=min(half,abs(cx)-.023) if abs(cx)<.2 else half
  hem=lo[2];top=hi[2];bar=top-.0027
+ if bare:
+  # Dossier slice 40 (F04_D_BED-001): 4D's wardrobe holds only the wire hangers, emptied for the night.
+  hw=half*.94
+  tag(curved_wire(identity+'_'+label+'Hanger',[(cx-hw,.02,bar),(cx,.02,1.58),(cx+hw,.02,bar),(cx-hw,.02,bar)],.0015,identity,'metal'))
+  path=[(cx,.02,1.58),(cx,.02,1.5965)]
+  path.extend((cx,.02+.0135*math.cos(a),1.61+.0135*math.sin(a)) for a in np.linspace(-math.pi/2,math.pi*.90,35))
+  tag(curved_wire(identity+'_'+label+'Hook',path,.0015,identity,'metal'))
+  return
  # Outer drape runs up the back, over a 2.1mm crown, down the front.
  path=[(-.0027,hem+(bar-hem)*i/nz) for i in range(nz)]
  path.extend((.0027*math.cos(a),bar+.0027*math.sin(a)) for a in np.linspace(math.pi,0,9))
@@ -77,6 +85,7 @@ for assembly in assemblies:
  store={'Wardrobe14':'pigment','Wardrobe12':'packing'}.get(identity)
  palette={'Wardrobe15':'jersey_maroon','Wardrobe08':'drill_indigo'}.get(identity)
  shelved=archive or store is not None
+ bare=identity=='Wardrobe16'
  wood=variants[identity]['params']['case_wood']
  for surface in member['surfaces']:
   if surface['material']!=wood:continue
@@ -160,4 +169,4 @@ for assembly in assemblies:
  for x in [-.5,.5]:
   for y in [-.20,.20]:support(identity,'support',(x,y,0),(0,0,1),'retained plinth underside')
  construction_groups.append({'assembly':identity,'id':identity+'_JoinedWardrobe','stocks':[x['name'] for x in stock_checks[start:]]})
- retained_stock.append({'assembly':identity,'source_id':member['id'],'garment_count':0 if shelved else 4,'source_hems_and_colours':True,'hinges_godot':[[-.615,.10,-.305],[.615,.10,-.305]],'angle_degrees':92,'moving_components':['LeftLeaf','RightLeaf']})
+ retained_stock.append({'assembly':identity,'source_id':member['id'],'garment_count':0 if shelved or bare else 4,'source_hems_and_colours':True,'hinges_godot':[[-.615,.10,-.305],[.615,.10,-.305]],'angle_degrees':92,'moving_components':['LeftLeaf','RightLeaf']})

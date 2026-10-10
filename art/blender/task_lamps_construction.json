@@ -1202,7 +1202,7 @@
     {
       "name": "TaskLamp_architect_counterweight_FulcrumPedestal",
       "assembly": "TaskLamp_architect_counterweight",
-      "key": "nickel_plated",
+      "key": "iron_blackened",
       "volume_m3": 5.34708395864239e-05
     },
     {
@@ -1220,7 +1220,7 @@
     {
       "name": "TaskLamp_architect_counterweight_LowerArm",
       "assembly": "TaskLamp_architect_counterweight",
-      "key": "nickel_plated",
+      "key": "iron_blackened",
       "volume_m3": 6.822953225300125e-05
     },
     {
@@ -1238,7 +1238,7 @@
     {
       "name": "TaskLamp_architect_counterweight_UpperArm",
       "assembly": "TaskLamp_architect_counterweight",
-      "key": "nickel_plated",
+      "key": "iron_blackened",
       "volume_m3": 6.014645851231448e-05
     },
     {
@@ -1256,19 +1256,19 @@
     {
       "name": "TaskLamp_architect_counterweight_Counterweight",
       "assembly": "TaskLamp_architect_counterweight",
-      "key": "nickel_plated",
+      "key": "iron_blackened",
       "volume_m3": 0.0001100949441923451
     },
     {
       "name": "TaskLamp_architect_counterweight_CounterweightSpindle",
       "assembly": "TaskLamp_architect_counterweight",
-      "key": "nickel_plated",
+      "key": "iron_blackened",
       "volume_m3": 5.41318156501406e-06
     },
     {
       "name": "TaskLamp_architect_counterweight_SpunHollowShade",
       "assembly": "TaskLamp_architect_counterweight",
-      "key": "nickel_plated",
+      "key": "iron_blackened",
       "volume_m3": 6.02468710291486e-05
     },
     {
@@ -1280,7 +1280,7 @@
     {
       "name": "TaskLamp_architect_counterweight_ShadeNeckBearing",
       "assembly": "TaskLamp_architect_counterweight",
-      "key": "nickel_plated",
+      "key": "iron_blackened",
       "volume_m3": 2.744431821061347e-06
     },
     {
@@ -1774,14 +1774,14 @@
       "assembly": "TaskLamp_architect_counterweight",
       "cell": "architect_counterweight",
       "key": "iron_blackened",
-      "triangles": 376
+      "triangles": 2340
     },
     {
       "name": "TaskLamp_architect_counterweight__nickel_plated",
       "assembly": "TaskLamp_architect_counterweight",
       "cell": "architect_counterweight",
       "key": "nickel_plated",
-      "triangles": 12716
+      "triangles": 10752
     },
     {
       "name": "TaskLamp_architect_counterweight__rubber_aged",
@@ -2142,9 +2142,9 @@
       }
     ]
   },
-  "asset_sha256": "ddb00a84790a3076a034e9dcdd2cf6db73487da2d217b977944bc5a3ec25dc04",
+  "asset_sha256": "a6ef4d6c4de1590f02f19853c3c42c6bc501ad21ebf50a1f3bc92fcb38d6c721",
   "source_bindings": {
-    "art/data/task_lamps/source_plan.json": "cf32fe2298be63118257eaeed477c596f362bce09bb86bcd5123ac1bd659a314",
+    "art/data/task_lamps/source_plan.json": "c1873819ccb4f62c495f41cabb806d0a74a26a8240dc4d49a11646f8c5eaa572",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_task_lamps.py": "92f217ab92d24e42bfe931a3601b7ede63ad2f04dffa0520101fd93af25f18f5",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -2190,14 +2190,14 @@
     "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
     "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
-    "art/blender/scripts/task_lamps_geometry.py": "16168b03d8b2fde48ab58dac2e120add3a64671867f5beff8bcab82dc9608f50",
+    "art/blender/scripts/task_lamps_geometry.py": "a55c0a373129536d1961dc82901469521781196f32a30965ee99c855a75c2259",
     "game/scripts/props/lamp_prop.gd": "f830306c3302ded03fb44ea6e81f505107dc3b083484e510fe8f88dd5fef840d",
-    "game/scripts/props/functional_prop.gd": "f33126057cad4c7fc00cf132ba523d9e4fa915b6922aa9470ed10be47b2806ee",
+    "game/scripts/props/functional_prop.gd": "c715e6df864bf2feb593af2cd4229dfe5e48f6fe5f173dca5615ae3fde671853",
     "game/scripts/props/native_task_lamp.gd": "463d618eade8d646f6f4b09abfbd38d11516991c4a7d4b2d504059e893839198",
-    "game/scripts/building/orison_v2_room_lighting.gd": "c1dcf2251be23c572d77380afac655b6e19d37bc7d72fbb58496e550e10a2d7e",
+    "game/scripts/building/orison_v2_room_lighting.gd": "b004336428963af3e106ecc78d24ece01d2da0c9f7e4e35fdf2ca20faaa5acdb",
     "game/tests/orison_v2_task_lamps_test.gd": "3192db39959f7da70ac0f2a9c9c0c65e2e1a9eb63de88117ba138512c83ac698",
-    "art/data/orison_v2/domestic_furniture_source.json": "8c0859cbdb214488e59e97ec6027f50972feb7fae1ec944dd5a45dbaf43265aa",
-    "game/data/orison_v2/domestic_furniture.json": "a374ad94442f99dbd9aa350a6be375d7e5201db22cadb6156c135d6bc7c15707"
+    "art/data/orison_v2/domestic_furniture_source.json": "cfa7b63d930bbeb7909fedcb0a928eb4173ffa03691cc1b5df49e44aa7abc70a",
+    "game/data/orison_v2/domestic_furniture.json": "28e646237b8e8fdce0a447dec4daa132f125ba74e46d7f167130990a6cfc11cf"
   },
   "open_work": [
     "Five original marker variants and original switch pivot; native silhouettes preserve the original base datum and emitter locations. No new electrical or interaction owner.",

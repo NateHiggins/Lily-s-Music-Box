@@ -97,14 +97,16 @@ for assembly in assemblies:
   else:
    # The old short counterweight crossed the support plane. Raise only the
    # lower fulcrum on a real pedestal; retain elbow, wrist and emitter datums.
-   hip=(0,.132,0);tube('FulcrumPedestal',(0,.031,0),hip,.013,'nickel_plated');ball_joint('LowerBall',hip)
+   hip=(0,.132,0);tube('FulcrumPedestal',(0,.031,0),hip,.013,'iron_blackened');ball_joint('LowerBall',hip)
    elbow=(math.sin(math.radians(24))*.34,.052+math.cos(math.radians(24))*.34,0)
-   tube('LowerArm',hip,elbow,.009,'nickel_plated');ball_joint('UpperBall',elbow)
-   wrist=strut('UpperArm',elbow,-30,.30,.008,'nickel_plated');ball_joint('HeadBall',wrist)
+   tube('LowerArm',hip,elbow,.009,'iron_blackened');ball_joint('UpperBall',elbow)
+   wrist=strut('UpperArm',elbow,-30,.30,.008,'iron_blackened');ball_joint('HeadBall',wrist)
    axis=(math.sin(math.radians(24)),math.cos(math.radians(24)),0);weight=tuple(Vector(hip)-Vector(axis)*.048)
-   disc('Counterweight',tuple(Vector(weight)-Vector(axis)*.026),axis,.026,.052,'nickel_plated')
-   tube('CounterweightSpindle',weight,hip,.006,'nickel_plated')
-   center=add(wrist,(.010,-.046,0));size=.098;rim=.078;neck=.022;angle=10;emitter=add(wrist,(.014,-.072,0));key='nickel_plated'
+   disc('Counterweight',tuple(Vector(weight)-Vector(axis)*.026),axis,.026,.052,'iron_blackened')
+   tube('CounterweightSpindle',weight,hip,.006,'iron_blackened')
+   center=add(wrist,(.010,-.046,0));size=.098;rim=.078;neck=.022;angle=10;emitter=add(wrist,(.014,-.072,0));key='iron_blackened'
+   # Dossier slice 40 (F05_A_MAIN-005): the arm, pedestal, counterweight and shade are black
+   # japanned steel; only the ball joints and the rolled shade lip stay nickel.
   axis=(-math.sin(math.radians(angle)),math.cos(math.radians(angle)),0);bottom=tuple(Vector(center)-Vector(axis)*size*.5);top=tuple(Vector(center)+Vector(axis)*size*.5)
   lathe('SpunHollowShade',bottom,axis,[(0,rim),(size,neck),(size,neck-.002),(0,rim-.002),(0,rim)],key)
   lathe('RolledShadeLip',bottom,axis,[(0,rim-.002),(-.002,rim),(.001,rim+.002),(.004,rim),(.003,rim-.002),(0,rim-.002)],'nickel_plated')

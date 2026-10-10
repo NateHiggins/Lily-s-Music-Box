@@ -2085,6 +2085,18 @@
       "kind": "pruningcloth",
       "cell": "3A",
       "source_record": "3A_secateurs"
+    },
+    {
+      "id": "5A_model_case",
+      "kind": "modelcase",
+      "cell": "5A",
+      "source_record": "5A_model_case"
+    },
+    {
+      "id": "4D_open_case",
+      "kind": "opencase",
+      "cell": "4D",
+      "source_record": "4D_open_case"
     }
   ],
   "closed_stocks": [
@@ -15598,31 +15610,31 @@
       "name": "6A_light_box_Base",
       "assembly": "6A_light_box",
       "key": "timber",
-      "volume_m3": 0.0011217837264800082
+      "volume_m3": 0.00046827875426436855
     },
     {
-      "name": "6A_light_box_Rail-0.18",
+      "name": "6A_light_box_Rail-0.115",
       "assembly": "6A_light_box",
       "key": "timber",
-      "volume_m3": 0.0004561418529913793
+      "volume_m3": 0.00029810167520666217
     },
     {
-      "name": "6A_light_box_Rail0.16",
+      "name": "6A_light_box_Rail0.095",
       "assembly": "6A_light_box",
       "key": "timber",
-      "volume_m3": 0.0004561418529913793
+      "volume_m3": 0.0002981016752066622
     },
     {
-      "name": "6A_light_box_Stile-0.13",
+      "name": "6A_light_box_Stile-0.085",
       "assembly": "6A_light_box",
       "key": "timber",
-      "volume_m3": 0.000561501495413392
+      "volume_m3": 0.00033322167091464055
     },
     {
-      "name": "6A_light_box_Stile0.11",
+      "name": "6A_light_box_Stile0.065",
       "assembly": "6A_light_box",
       "key": "timber",
-      "volume_m3": 0.000561501495413392
+      "volume_m3": 0.0003332216709146405
     },
     {
       "name": "6A_light_box_Socket",
@@ -15640,19 +15652,19 @@
       "name": "6A_light_box_Flex",
       "assembly": "6A_light_box",
       "key": "linen",
-      "volume_m3": 7.4788313851853555e-06
+      "volume_m3": 4.229263502998002e-06
     },
     {
       "name": "6A_light_box_Frosted",
       "assembly": "6A_light_box",
       "key": "glassish",
-      "volume_m3": 0.0005307346647817662
+      "volume_m3": 0.00019565469182788173
     },
     {
       "name": "6A_light_box_Negatives",
       "assembly": "6A_light_box",
       "key": "bakelite",
-      "volume_m3": 5.597634581583415e-06
+      "volume_m3": 3.0223187136501023e-06
     },
     {
       "name": "2C_recorder_Case",
@@ -15899,6 +15911,198 @@
       "assembly": "3A_secateurs",
       "key": "paint_red",
       "volume_m3": 1.4354169615629769e-05
+    },
+    {
+      "name": "5A_model_case_BaseRailY-0.245",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 0.0001922736093882121
+    },
+    {
+      "name": "5A_model_case_BaseRailY0.23",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 0.0001922736093882121
+    },
+    {
+      "name": "5A_model_case_BaseRailX-0.325",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 0.00014491347607306643
+    },
+    {
+      "name": "5A_model_case_BaseRailX0.31",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 0.00014491347607306643
+    },
+    {
+      "name": "5A_model_case_Post(-0.325, -0.245)",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 5.13934476144681e-05
+    },
+    {
+      "name": "5A_model_case_Post(-0.325, 0.23)",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 5.139344761446811e-05
+    },
+    {
+      "name": "5A_model_case_Post(0.31, -0.245)",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 5.13934476144681e-05
+    },
+    {
+      "name": "5A_model_case_Post(0.31, 0.23)",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 5.139344761446811e-05
+    },
+    {
+      "name": "5A_model_case_TopRailY-0.245",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 0.0001532894808993565
+    },
+    {
+      "name": "5A_model_case_TopRailY0.23",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 0.0001532894808993566
+    },
+    {
+      "name": "5A_model_case_TopRailX-0.325",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 0.00011552940477367856
+    },
+    {
+      "name": "5A_model_case_TopRailX0.31",
+      "assembly": "5A_model_case",
+      "key": "timber",
+      "volume_m3": 0.00011552940477367856
+    },
+    {
+      "name": "5A_model_case_GlassFront",
+      "assembly": "5A_model_case",
+      "key": "glassish",
+      "volume_m3": 0.0005788583698204534
+    },
+    {
+      "name": "5A_model_case_GlassBack",
+      "assembly": "5A_model_case",
+      "key": "glassish",
+      "volume_m3": 0.0005788562126129444
+    },
+    {
+      "name": "5A_model_case_GlassLeft",
+      "assembly": "5A_model_case",
+      "key": "glassish",
+      "volume_m3": 0.00043041805086787
+    },
+    {
+      "name": "5A_model_case_GlassRight",
+      "assembly": "5A_model_case",
+      "key": "glassish",
+      "volume_m3": 0.00043041805086787
+    },
+    {
+      "name": "5A_model_case_GlassTop",
+      "assembly": "5A_model_case",
+      "key": "glassish",
+      "volume_m3": 0.0011578735622755423
+    },
+    {
+      "name": "4D_open_case_Bottom",
+      "assembly": "4D_open_case",
+      "key": "book_brown",
+      "volume_m3": 0.0010181022443850765
+    },
+    {
+      "name": "4D_open_case_WallY-0.17",
+      "assembly": "4D_open_case",
+      "key": "book_brown",
+      "volume_m3": 0.00040407970625279486
+    },
+    {
+      "name": "4D_open_case_WallY0.164",
+      "assembly": "4D_open_case",
+      "key": "book_brown",
+      "volume_m3": 0.00040407970625279486
+    },
+    {
+      "name": "4D_open_case_WallX-0.25",
+      "assembly": "4D_open_case",
+      "key": "book_brown",
+      "volume_m3": 0.00027471017582108247
+    },
+    {
+      "name": "4D_open_case_WallX0.244",
+      "assembly": "4D_open_case",
+      "key": "book_brown",
+      "volume_m3": 0.0002747101758210824
+    },
+    {
+      "name": "4D_open_case_LidShell",
+      "assembly": "4D_open_case",
+      "key": "book_brown",
+      "volume_m3": 0.0010181021997151213
+    },
+    {
+      "name": "4D_open_case_LidWallY0.17",
+      "assembly": "4D_open_case",
+      "key": "book_brown",
+      "volume_m3": 0.00010422384818508661
+    },
+    {
+      "name": "4D_open_case_LidWallY0.504",
+      "assembly": "4D_open_case",
+      "key": "book_brown",
+      "volume_m3": 0.00010422358714897024
+    },
+    {
+      "name": "4D_open_case_LidWallX-0.25",
+      "assembly": "4D_open_case",
+      "key": "book_brown",
+      "volume_m3": 7.08542641954701e-05
+    },
+    {
+      "name": "4D_open_case_LidWallX0.244",
+      "assembly": "4D_open_case",
+      "key": "book_brown",
+      "volume_m3": 7.085426419547012e-05
+    },
+    {
+      "name": "4D_open_case_LidLining",
+      "assembly": "4D_open_case",
+      "key": "linen",
+      "volume_m3": 0.000400029222870304
+    },
+    {
+      "name": "4D_open_case_Hinge-0.15",
+      "assembly": "4D_open_case",
+      "key": "brass",
+      "volume_m3": 6.678632165650214e-06
+    },
+    {
+      "name": "4D_open_case_Hinge0.15",
+      "assembly": "4D_open_case",
+      "key": "brass",
+      "volume_m3": 6.678632165650214e-06
+    },
+    {
+      "name": "4D_open_case_PackedShirts",
+      "assembly": "4D_open_case",
+      "key": "linen",
+      "volume_m3": 0.004531236835098475
+    },
+    {
+      "name": "4D_open_case_PackedJumper",
+      "assembly": "4D_open_case",
+      "key": "wool_burgundy",
+      "volume_m3": 0.0037484177465079995
     }
   ],
   "contacts": [
@@ -25536,61 +25740,61 @@
       "assembly": "6A_light_box",
       "owner": "support",
       "point": [
-        -0.17,
+        -0.105,
         0,
-        0.12
+        0.075
       ],
       "direction": [
         0,
         1,
         0
       ],
-      "label": "light box (-0.17, -0.12, 0)"
+      "label": "light box (-0.105, -0.075, 0)"
     },
     {
       "assembly": "6A_light_box",
       "owner": "support",
       "point": [
-        0.17,
+        0.105,
         0,
-        0.12
+        0.075
       ],
       "direction": [
         0,
         1,
         0
       ],
-      "label": "light box (0.17, -0.12, 0)"
+      "label": "light box (0.105, -0.075, 0)"
     },
     {
       "assembly": "6A_light_box",
       "owner": "support",
       "point": [
-        -0.17,
+        -0.105,
         0,
-        -0.12
+        -0.075
       ],
       "direction": [
         0,
         1,
         0
       ],
-      "label": "light box (-0.17, 0.12, 0)"
+      "label": "light box (-0.105, 0.075, 0)"
     },
     {
       "assembly": "6A_light_box",
       "owner": "support",
       "point": [
-        0.17,
+        0.105,
         0,
-        -0.12
+        -0.075
       ],
       "direction": [
         0,
         1,
         0
       ],
-      "label": "light box (0.17, 0.12, 0)"
+      "label": "light box (0.105, 0.075, 0)"
     },
     {
       "assembly": "2C_recorder",
@@ -25891,6 +26095,126 @@
         0
       ],
       "label": "oilcloth (0.09, 0.06, 0)"
+    },
+    {
+      "assembly": "5A_model_case",
+      "owner": "support",
+      "point": [
+        -0.315,
+        0,
+        0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (-0.315, -0.235, 0)"
+    },
+    {
+      "assembly": "5A_model_case",
+      "owner": "support",
+      "point": [
+        0.315,
+        0,
+        0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (0.315, -0.235, 0)"
+    },
+    {
+      "assembly": "5A_model_case",
+      "owner": "support",
+      "point": [
+        -0.315,
+        0,
+        -0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (-0.315, 0.235, 0)"
+    },
+    {
+      "assembly": "5A_model_case",
+      "owner": "support",
+      "point": [
+        0.315,
+        0,
+        -0.235
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (0.315, 0.235, 0)"
+    },
+    {
+      "assembly": "4D_open_case",
+      "owner": "support",
+      "point": [
+        -0.23,
+        0,
+        0.15
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (-0.23, -0.15, 0)"
+    },
+    {
+      "assembly": "4D_open_case",
+      "owner": "support",
+      "point": [
+        0.23,
+        0,
+        0.15
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (0.23, -0.15, 0)"
+    },
+    {
+      "assembly": "4D_open_case",
+      "owner": "support",
+      "point": [
+        -0.23,
+        0,
+        -0.49
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (-0.23, 0.49, 0)"
+    },
+    {
+      "assembly": "4D_open_case",
+      "owner": "support",
+      "point": [
+        0.23,
+        0,
+        -0.49
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "label": "case (0.23, 0.49, 0)"
     }
   ],
   "parts": [
@@ -29127,9 +29451,51 @@
       "cell": "3A",
       "key": "paint_red",
       "triangles": 376
+    },
+    {
+      "name": "5A_model_case__glassish",
+      "assembly": "5A_model_case",
+      "cell": "5A",
+      "key": "glassish",
+      "triangles": 940
+    },
+    {
+      "name": "5A_model_case__timber",
+      "assembly": "5A_model_case",
+      "cell": "5A",
+      "key": "timber",
+      "triangles": 2256
+    },
+    {
+      "name": "4D_open_case__book_brown",
+      "assembly": "4D_open_case",
+      "cell": "4D",
+      "key": "book_brown",
+      "triangles": 1880
+    },
+    {
+      "name": "4D_open_case__brass",
+      "assembly": "4D_open_case",
+      "cell": "4D",
+      "key": "brass",
+      "triangles": 376
+    },
+    {
+      "name": "4D_open_case__linen",
+      "assembly": "4D_open_case",
+      "cell": "4D",
+      "key": "linen",
+      "triangles": 376
+    },
+    {
+      "name": "4D_open_case__wool_burgundy",
+      "assembly": "4D_open_case",
+      "cell": "4D",
+      "key": "wool_burgundy",
+      "triangles": 188
     }
   ],
-  "triangles": 819244,
+  "triangles": 825260,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -35812,6 +36178,81 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "5A_model_case",
+        "parts": [
+          {
+            "name": "5A_model_case__glassish",
+            "key": "glassish",
+            "tile": 1.6
+          },
+          {
+            "name": "5A_model_case__timber",
+            "key": "timber",
+            "tile": 0.9,
+            "catalog_key": "oak_work_surface"
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "4D_open_case",
+        "parts": [
+          {
+            "name": "4D_open_case__book_brown",
+            "key": "book_brown",
+            "tile": 0.32,
+            "catalog_key": "book_brown"
+          },
+          {
+            "name": "4D_open_case__brass",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass",
+            "finish": {
+              "normal_scale": 0.03,
+              "roughness": 0.45
+            }
+          },
+          {
+            "name": "4D_open_case__linen",
+            "key": "linen",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "4D_open_case__wool_burgundy",
+            "key": "wool_burgundy",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.3,
+              0.05,
+              0.07,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.85
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "local_materials": {
@@ -35840,9 +36281,9 @@
       "surface_roughness": 0.06
     }
   },
-  "asset_sha256": "15c3e32e68d92c88bd51bc1ade5af12770be070763ca70cbc05f5bac1055e1f3",
+  "asset_sha256": "4f7304ca412a17a35077bbdd285042dda19ebba2af0f757cbb5623107fc89e81",
   "source_bindings": {
-    "art/data/surface_stock/source_plan.json": "7d16ce0d88007ca7c2f325b487dde1be3a2df91102bb068c7577b5589f7e54ba",
+    "art/data/surface_stock/source_plan.json": "077d26743d065538b6d04789c20d26a05a88636a6d5e1d95739ef5def52fb4f9",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_surface_stock.py": "abff6840ffd0b885f7fa1d7df7a574dd1c5896745b8b86d43f23644046e5123a",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -35958,13 +36399,13 @@
     "game/scripts/building/orison_v2_architectural_materials.gd": "db0d7ca6874fbc28e29522f7ae31b67316db2c9187dbfaec5ca7759782dab28d",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_surface_stock.py": "3a2c3ed80ba5f83789beb617c18d5f430b47b2efef3684b780e2c6cb4a8f1b9e",
-    "art/blender/scripts/surface_stock_geometry.py": "89029048e8d1dcee13f2a512ed5cf7ae43c0d24ddfc99c3624c54a4440f09259",
+    "art/blender/scripts/surface_stock_geometry.py": "62c49b9906e3d22c1833d5686934c702723ba9639f07079b211fa537d9d28039",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_surface_props.json": "cfaab13ded500f6d3993c649eb3f2db925e1c008bdfab331e896714d6d0fa3be",
+    "game/data/orison_v2/domestic_surface_props.json": "741a20b54e71ce17c12435686b8b18fb7a85538a3a21cd1e5ed7aa84c7c57275",
     "game/data/orison_v2/task_lamp_installations.json": "6a28133d04801aecb5f7148422c0ad4c7ef23423ebf236a4909f88735db27802",
-    "art/blender/task_lamps.blend": "f84d905fca6b94ce7ca3c8af198847565d35e6e8fe2600601e7263b3bf88865a",
+    "art/blender/task_lamps.blend": "b9a7912a7810eeef005cac1b610493c3923e9555d21a4e7038e83c94802e1265",
     "art/blender/work_tables.blend": "3dfd2f55d8bab11b6522c2faa842e77bd25ecd35c5b414c9090c77f432469d42",
-    "game/data/orison_v2/domestic_furniture.json": "0b2b229f8ea1d53ebf844a31e5db85122b04bb79a7103f870c22562cee373747"
+    "game/data/orison_v2/domestic_furniture.json": "28e646237b8e8fdce0a447dec4daa132f125ba74e46d7f167130990a6cfc11cf"
   },
   "retained_stock": [
     {
@@ -43554,10 +43995,10 @@
       "id": "6A_light_box_LightBox",
       "stocks": [
         "6A_light_box_Base",
-        "6A_light_box_Rail-0.18",
-        "6A_light_box_Rail0.16",
-        "6A_light_box_Stile-0.13",
-        "6A_light_box_Stile0.11",
+        "6A_light_box_Rail-0.115",
+        "6A_light_box_Rail0.095",
+        "6A_light_box_Stile-0.085",
+        "6A_light_box_Stile0.065",
         "6A_light_box_Socket",
         "6A_light_box_Bulb",
         "6A_light_box_Flex",
@@ -43652,6 +44093,50 @@
         "3A_secateurs_Pivot",
         "3A_secateurs_HandleA",
         "3A_secateurs_HandleB"
+      ]
+    },
+    {
+      "assembly": "5A_model_case",
+      "id": "5A_model_case_ModelCase",
+      "stocks": [
+        "5A_model_case_BaseRailY-0.245",
+        "5A_model_case_BaseRailY0.23",
+        "5A_model_case_BaseRailX-0.325",
+        "5A_model_case_BaseRailX0.31",
+        "5A_model_case_Post(-0.325, -0.245)",
+        "5A_model_case_Post(-0.325, 0.23)",
+        "5A_model_case_Post(0.31, -0.245)",
+        "5A_model_case_Post(0.31, 0.23)",
+        "5A_model_case_TopRailY-0.245",
+        "5A_model_case_TopRailY0.23",
+        "5A_model_case_TopRailX-0.325",
+        "5A_model_case_TopRailX0.31",
+        "5A_model_case_GlassFront",
+        "5A_model_case_GlassBack",
+        "5A_model_case_GlassLeft",
+        "5A_model_case_GlassRight",
+        "5A_model_case_GlassTop"
+      ]
+    },
+    {
+      "assembly": "4D_open_case",
+      "id": "4D_open_case_OpenCase",
+      "stocks": [
+        "4D_open_case_Bottom",
+        "4D_open_case_WallY-0.17",
+        "4D_open_case_WallY0.164",
+        "4D_open_case_WallX-0.25",
+        "4D_open_case_WallX0.244",
+        "4D_open_case_LidShell",
+        "4D_open_case_LidWallY0.17",
+        "4D_open_case_LidWallY0.504",
+        "4D_open_case_LidWallX-0.25",
+        "4D_open_case_LidWallX0.244",
+        "4D_open_case_LidLining",
+        "4D_open_case_Hinge-0.15",
+        "4D_open_case_Hinge0.15",
+        "4D_open_case_PackedShirts",
+        "4D_open_case_PackedJumper"
       ]
     }
   ],

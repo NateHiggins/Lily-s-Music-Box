@@ -2382,6 +2382,94 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "Wardrobe16",
+      "parts": [
+        {
+          "name": "Wardrobe16__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe16__Body_ON_metal",
+          "component": "Body",
+          "key": "metal",
+          "tile": 0.9,
+          "catalog_key": "metal",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe16__Body_ON_oak_quartered",
+          "component": "Body",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe16__LeftLeaf_ON_brass",
+          "component": "LeftLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe16__LeftLeaf_ON_oak_quartered",
+          "component": "LeftLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe16__RightLeaf_ON_brass",
+          "component": "RightLeaf",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.035,
+            "roughness": 0.48
+          }
+        },
+        {
+          "name": "Wardrobe16__RightLeaf_ON_oak_quartered",
+          "component": "RightLeaf",
+          "key": "oak_quartered",
+          "tile": 0.9,
+          "catalog_key": "oak_work_surface",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.48
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -2439,7 +2527,7 @@
     },
     {
       "id": "4D_wardrobe",
-      "variant": "Wardrobe07"
+      "variant": "Wardrobe16"
     },
     {
       "id": "5C_w1_wardrobe",
