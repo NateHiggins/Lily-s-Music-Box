@@ -229,6 +229,7 @@ Slices landed so far (evidence folders in parentheses):
 71. The luncheonette counter's sugar shakers and jar of pickled eggs.
 72. The basement toolboard a shadow board with one tool out.
 73. The basement nook's reader: a book tented on the cushion.
+74. The cobbler's floor in a warm leather dust and the dark pairs brown leather.
 
 Verification runs are made at WIP commits that are later squashed; the game
 and art paths of each squashed commit are byte-identical to the WIP tree the

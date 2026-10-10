@@ -20,22 +20,22 @@
     "cast_iron": "iron_blackened",
     "rubber_aged": "rubber_aged",
     "linen": "linen",
-    "soot": "smoked_plaster"
+    "soot": "linen"
   },
   "material_aliases": {
     "shoe_dark": "vinyl_oxblood"
   },
   "material_tints": {
     "shoe_dark": [
-      0.12,
-      0.105,
-      0.09,
-      1
+      0.3,
+      0.22,
+      0.16,
+      1.0
     ],
     "soot": [
-      1.0,
-      0.82,
-      0.65,
+      0.55,
+      0.45,
+      0.34,
       1.0
     ]
   },
@@ -161,6 +161,7 @@
     "Passive machinery: live motion, drive and utilities remain open.",
     "Rear store, independent service continuity/capacity require separate checks.",
     "Human/whole-V2 acceptance and remaining arcade trades remain open.",
-    "The finite dust stock stops 10mm short of its original south edge to clear the closed back-door casing. Original thickness, north edge and material remain."
+    "The finite dust stock stops 10mm short of its original south edge to clear the closed back-door casing. Original thickness, north edge and material remain.",
+    "Dossier slice 74 (CITY_SHOP_SHOE_REBUILDING-003): the floor's leather-dust deposit binds catalogue linen tinted to a warm dust (it was near-black smoked plaster over the whole floor) and the dark pairs read as brown leather. The second cage bulb over the bench and the ladder against the shelving remain open."
   ]
 }
