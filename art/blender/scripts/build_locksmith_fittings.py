@@ -48,6 +48,8 @@ for key in plan['runtime_keys']:
    normal=mat.node_tree.nodes.new('ShaderNodeNormalMap');normal.inputs['Strength'].default_value=spec['normal_scale'];mat.node_tree.links.new(tex.outputs['Color'],normal.inputs['Color']);mat.node_tree.links.new(normal.outputs[0],node.inputs[target])
   elif index==1:
    multiply=mat.node_tree.nodes.new('ShaderNodeMath');multiply.operation='MULTIPLY';multiply.inputs[1].default_value=spec['roughness'];mat.node_tree.links.new(tex.outputs['Color'],multiply.inputs[0]);mat.node_tree.links.new(multiply.outputs[0],node.inputs[target])
+  elif key in plan.get('material_tints',{}):
+   multiply=mat.node_tree.nodes.new('ShaderNodeMixRGB');multiply.blend_type='MULTIPLY';multiply.inputs[0].default_value=1.;multiply.inputs[2].default_value=plan['material_tints'][key];mat.node_tree.links.new(tex.outputs['Color'],multiply.inputs[1]);mat.node_tree.links.new(multiply.outputs[0],node.inputs[target])
   else:mat.node_tree.links.new(tex.outputs['Color'],node.inputs[target])
 def solid(name,verts,faces,identity,key,collection=closed):
  verts=[Vector(v) for v in verts];origin=Vector(tuple(round(sum(v[i] for v in verts)/len(verts),4) for i in range(3)))
@@ -65,8 +67,8 @@ def box(name,low,high,identity,key='timber',bevel=.003,collection=closed):
  if bevel:
   bpy.context.view_layer.objects.active=obj;mod=obj.modifiers.new('Worked edge','BEVEL');mod.width=min(bevel,min(high[i]-low[i] for i in range(3))*.4);mod.segments=3;bpy.ops.object.modifier_apply(modifier=mod.name)
  return obj
-def rod(name,a,b,r,identity,key='timber'):
- a=Vector(a);b=Vector(b);axis=(b-a).normalized();seed=Vector((0,0,1)) if abs(axis.z)<.9 else Vector((1,0,0));u=axis.cross(seed).normalized();v=axis.cross(u);n=48
+def rod(name,a,b,r,identity,key='timber',n=48):
+ a=Vector(a);b=Vector(b);axis=(b-a).normalized();seed=Vector((0,0,1)) if abs(axis.z)<.9 else Vector((1,0,0));u=axis.cross(seed).normalized();v=axis.cross(u)
  verts=[p+r*(u*math.cos(i*math.tau/n)+v*math.sin(i*math.tau/n)) for p in [a,b] for i in range(n)]
  return solid(name,verts,[tuple(reversed(range(n)))]+[(i,(i+1)%n,n+(i+1)%n,n+i) for i in range(n)]+[tuple(range(n,2*n))],identity,key)
 def torus(name,center,rx,ry,r,identity,key):
@@ -126,6 +128,21 @@ def annulus_x(name,x0,x1,cy,cz,outer,inner,identity,key):
  faces=[(j*n+i,j*n+(i+1)%n,((j+1)%4)*n+(i+1)%n,((j+1)%4)*n+i) for j in range(4) for i in range(n)]
  return solid(name,verts,faces,identity,key)
 
+def bow_ring(name,x0,x1,cy,cz,form,identity,key):
+ # Dossier slice 56: oval and rounded-square bows beside the original round one.
+ n=48;loops=[]
+ for rx,rz in ([(.024,.017),(.014,.0092)] if form=='oval' else [(.0185,.0185),(.0105,.0105)]):
+  pts=[]
+  for i in range(n):
+   a=i*math.tau/n;c,s=math.cos(a),math.sin(a)
+   k=1. if form=='oval' else 1./((abs(c)**4+abs(s)**4)**.25)
+   pts.append((cy+rx*k*c,cz+rz*k*s))
+  loops.append(pts)
+ rings=[(x0,loops[0]),(x1,loops[0]),(x1,loops[1]),(x0,loops[1])]
+ verts=[(x,y,z) for x,loop in rings for y,z in loop]
+ faces=[(j*n+i,j*n+(i+1)%n,((j+1)%4)*n+(i+1)%n,((j+1)%4)*n+i) for j in range(4) for i in range(n)]
+ return solid(name,verts,faces,identity,key)
+
 def prism_x(name,outline,x0,x1,identity,key):
  n=len(outline)
  return solid(name,[(x,y,z) for x in [x0,x1] for y,z in outline],[tuple(reversed(range(n))),tuple(range(n,2*n))]+[(i,(i+1)%n,n+(i+1)%n,n+i) for i in range(n)],identity,key)
@@ -147,6 +164,7 @@ def cabinet(identity,row,key,top,floor_z=.01):
  for xx in [x0,x1-th]:box(identity+f'_Side{xx}',(xx,y0,bottom+.04),(xx+th,y1,top),identity,key,.003)
  for yy in [y0,y1-th]:box(identity+f'_End{yy}',(x0+th,yy,bottom+.04),(x1-th,yy+th,top),identity,key,.003)
 
+key_forms={}
 for item in assemblies:
  identity=item['id'];row=item['body'];x0,y0,x1,y1=row['rect'];x=(x0+x1)*.5;y=(y0+y1)*.5;z=float(row['z0']);kind=item['kind']
  if kind=='key_board':
@@ -157,12 +175,23 @@ for item in assemblies:
    rod(identity+f'_WallSpacer{i}',(6.06,yy,zz),(6.079,yy,zz),.011,identity,'brass_dull')
    rod(identity+f'_Screw{i}',(6.10,yy,zz),(6.123,yy,zz),.0045,identity,'brass_dull')
    support(identity,'storm_shop_keys_cut_back_lo',(6.06,yy,zz),(1,0,0),'key board wall spacer')
+  # Dossier slice 56 (CITY_SHOP_KEYS_CUT-003): blanks vary by row (bow form, blade length and width,
+  # bitting); the fourth row hangs empty on its pegs and six more pegs are bare.
+  empties={(0,5),(1,11),(2,2),(4,8),(5,0),(6,12)};bows=('round','oval','square','round','oval','square','round')
   for blank in item['members'][1:]:
    a,b,c,d=blank['rect'];cy=(b+d)*.5;cz=float(blank['z0'])+.068;key=blank['mat'];name=blank['id']
-   annulus_x(name+'_PiercedBow',6.128,6.133,cy,cz,.020,.011,identity,key)
-   lo=float(blank['z0']);outline=[(cy-.005,cz-.010),(cy+.005,cz-.010),(cy+.005,lo+.003),(cy-.007,lo),(cy-.007,lo+.009),(cy-.011,lo+.013),(cy-.007,lo+.017),(cy-.012,lo+.024),(cy-.007,lo+.030),(cy-.010,lo+.038),(cy-.005,lo+.043)]
-   prism_x(name+'_NotchedBlade',outline,6.128,6.133,identity,key)
+   row_,col_=map(int,name.rsplit('_key',1)[1].split('_'));empty=row_==3 or (row_,col_) in empties
+   key_forms[name]={'row':row_,'column':col_,'bow':bows[row_],'empty':empty}
    curved_wire(name+'_Peg',[(6.112,cy,cz+.008),(6.130,cy,cz+.008),(6.139,cy,cz+.012),(6.142,cy,cz+.019)],.0023,identity,'brass_dull')
+   if empty:continue
+   if bows[row_]=='round':annulus_x(name+'_PiercedBow',6.128,6.133,cy,cz,.020,.011,identity,key)
+   else:bow_ring(name+'_PiercedBow',6.128,6.133,cy,cz,bows[row_],identity,key)
+   lo=float(blank['z0']);s=(.0,.006,.012,.0,.004,.009,.002)[row_];w=(.007,.009,.008,.007,.010,.008,.009)[row_]
+   step=(.035-s)/4;outline=[(cy-.005,cz-.012),(cy+.005,cz-.012),(cy+.005,lo+s+.003),(cy-w,lo+s)]
+   for k in range(4):
+    zk=lo+s+.004+k*step;outline+=[(cy-w,zk),(cy-w-.002-.0015*((row_*5+col_*3+k)%3),zk+step*.5)]
+   outline+=[(cy-w,lo+.040),(cy-.005,lo+.043)]
+   prism_x(name+'_NotchedBlade',outline,6.128,6.133,identity,key)
  elif kind=='workbench':
   # The authored end vise projects beyond the original bench. Extend only
   # this native top to seat that retained apparatus; the source rows remain.
@@ -234,6 +263,14 @@ for item in assemblies:
   for zz in [.29,.88]:rod(identity+f'_DoorHinge{zz}',(front,y0+.023,zz-.045),(front,y0+.023,zz+.045),.016,identity,'metal')
   for zz in [.42,.51]:rod(identity+f'_HandleStand{zz}',(front-.004,y+.18,zz),(front+.045,y+.18,zz),.010,identity,'brass_bright')
   rod(identity+'_PullHandle',(front+.045,y+.18,.42),(front+.045,y+.18,.51),.011,identity,'brass_bright')
+  # Dossier slice 56 (CITY_SHOP_KEYS_CUT-001): the second-hand fire safe's blank gold-leaf cartouche and
+  # a gold pinstripe round the door panel. No name, no lettering.
+  dy=(y0+y1)*.5
+  prism_x(identity+'_GoldCartouche',[(dy+.17*math.cos(i*math.tau/64),.93+.07*math.sin(i*math.tau/64)) for i in range(64)],front-.0004,front+.0009,identity,'brass_bright')
+  prism_x(identity+'_BlankField',[(dy+.152*math.cos(i*math.tau/64),.93+.056*math.sin(i*math.tau/64)) for i in range(64)],front+.0005,front+.0014,identity,'cast_iron')
+  for yy in [dy-.185,dy+.185]:rod(identity+f'_Flourish{yy}',(front-.0004,yy,.93),(front+.0009,yy,.93),.012,identity,'brass_bright',24)
+  for zz in [.16,1.02]:box(identity+f'_PinstripeH{zz}',(front-.0004,y0+.07,zz),(front+.0008,y1-.07,zz+.003),identity,'brass_bright',0)
+  for yy in [y0+.07,y1-.073]:box(identity+f'_PinstripeV{yy}',(front-.0004,yy,.16),(front+.0008,yy+.003,1.023),identity,'brass_bright',0)
  elif kind=='counter':
   cabinet(identity,row,'wood_dark',1.07)
   # Recessed end panels and a kick rail leave the retained transaction top
@@ -243,11 +280,29 @@ for item in assemblies:
   top=next(m for m in item['members'] if m['id'].endswith('_counter_top'));a,b,c,d=top['rect']
   box(identity+'_RetainedTop',(a,b,top['z0']),(c,d,top['z0']+top['h']),identity,'countertop',.003)
   ledger=next(m for m in item['members'] if m['id'].endswith('_ledger'));a,b,c,d=ledger['rect'];zz=1.12
-  box(identity+'_LedgerBinding',(a,b,zz),(c,d,zz+.009),identity,'vinyl_oxblood',.002)
-  box(identity+'_LedgerLeaves',(a+.007,b+.007,zz+.008),(c-.007,d-.007,zz+.043),identity,'paper',.001)
-  box(identity+'_LedgerCover',(a,b,zz+.041),(c,d,zz+.049),identity,'vinyl_oxblood',.002)
-  for i in range(7):
-   zz=1.131+i*.0039;box(identity+f'_PageEdge{i}',(a+.009,b+.003,zz),(c-.009,b+.009,zz+.0007),identity,'paper',0)
+  # Dossier slice 56 (CITY_SHOP_KEYS_CUT-002): the register lies open, the left page full, the right begun;
+  # a column of figures as ink strokes on blank rules, no legible numerals; a pencil on a string.
+  e=d+(d-b)
+  box(identity+'_LedgerBinding',(a,b,zz),(c,e,zz+.005),identity,'vinyl_oxblood',.002)
+  box(identity+'_LeftLeaves',(a+.006,b+.005,zz+.0045),(c-.006,d-.003,zz+.022),identity,'paper',.0015)
+  box(identity+'_RightLeaves',(a+.006,d+.003,zz+.0045),(c-.006,e-.005,zz+.016),identity,'paper',.0015)
+  box(identity+'_SpineGutter',(a+.004,d-.0035,zz+.0045),(c-.004,d+.0035,zz+.010),identity,'paper',.001)
+  for side,(p0,p1,top,filled) in enumerate([(b+.005,d-.003,zz+.022,17),(d+.003,e-.005,zz+.016,7)]):
+   for i in range(18):
+    xx=a+.03+i*(c-a-.05)/18
+    box(identity+f'_Rule{side}_{i}',(xx,p0+.012,top-.0002),(xx+.0007,p1-.012,top+.0002),identity,'ledger_rule',0)
+    if i>=filled or i==0:continue
+    name_len=.05+.012*((i*7+side*3)%5)
+    box(identity+f'_Entry{side}_{i}',(xx-.0030,p0+.03,top-.0001),(xx-.0018,p0+.03+name_len,top+.0004),identity,'ink',0)
+    for k in range(3+(i+side)%3):
+     ys=p1-.05+k*.0042
+     box(identity+f'_Figure{side}_{i}_{k}',(xx-.0048,ys,top-.0001),(xx-.0010,ys+.0011,top+.0004),identity,'ink',0)
+  pz=zz+.016+.0035-.0002
+  rod(identity+'_Pencil',(a+.10,d+.07,pz),(a+.22,d+.19,pz),.0035,identity,'timber',6)
+  rod(identity+'_PencilLead',(a+.219,d+.189,pz),(a+.226,d+.196,pz),.0012,identity,'cast_iron',12)
+  rod(identity+'_StringEye',(c+.08,d+.10,zz-.0002),(c+.08,d+.10,zz+.006),.0025,identity,'brass_dull',16)
+  rod(identity+'_StringEyeHead',(c+.08,d+.10,zz+.004),(c+.08,d+.10,zz+.0065),.0045,identity,'brass_dull',16)
+  curved_wire(identity+'_PencilString',[(a+.102,d+.072,pz),(a+.20,d+.075,zz+.0165),(c-.006,d+.08,zz+.0165),(c+.01,d+.085,zz+.004),(c+.04,d+.092,zz+.0007),(c+.08,d+.10,zz+.005)],.0007,identity,'linen')
  elif kind=='lock_table':
   # The source lock cloth and tools had no table beneath them. A bounded
   # support follows their union, keeping the existing four lock-case poses.
@@ -261,12 +316,28 @@ for item in assemblies:
   box(identity+'_LinenField',(x0,y0,.94),(x1,y1,.95),identity,'linen',.003)
   for xx in [x0,x1-.008]:box(identity+f'_ClothHem{xx}',(xx,y0,.908),(xx+.008,y1,.946),identity,'linen',.002)
   for case in [m for m in item['members'] if '_mortise' in m['id']]:
-   a,b,c,d=case['rect'];cx=(a+c)*.5;cy=(b+d)*.5
-   body=box(case['id']+'_Case',(a+.012,b,.95),(c-.012,d,1.045),identity,'brass_dull',.007)
-   drilled(body,(cx,cy,1.02),(0,0,1),.015,.19)
+   a,b,c,d=case['rect'];cx=(a+c)*.5;cy=(b+d)*.5;n=int(case['id'][-1])
+   if n==3:
+    # Dossier slice 56 (CITY_SHOP_KEYS_CUT-003): the fourth record is the open case's cover, lifted off and
+    # laid on the cloth, its two screws beside it.
+    box(case['id']+'_LiftedCover',(a+.03,b+.012,.9498),(c-.006,d-.012,.9528),identity,'brass_dull',.001)
+    for xx in [a+.06,c-.05]:rod(case['id']+f'_LooseScrew{xx}',(xx,d+.015,.9543),(xx+.012,d+.021,.9543),.0045,identity,'metal',16)
+    continue
+   if n==2:
+    # The open case: cover off, its bolt, stacked levers, spring and follower showing.
+    box(case['id']+'_CaseBack',(a+.012,b,.95),(c-.012,d,.956),identity,'brass_dull',.002)
+    for yy in [b,d-.004]:box(case['id']+f'_CaseWall{yy}',(a+.012,yy,.9555),(c-.012,yy+.004,1.045),identity,'brass_dull',.001)
+    box(case['id']+'_CaseEnd',(c-.016,b+.0035,.9555),(c-.012,d-.0035,1.045),identity,'brass_dull',.001)
+    box(case['id']+'_Bolt',(a+.016,cy-.03,.9558),(a+.12,cy+.03,.972),identity,'metal',.002)
+    for k in range(3):box(case['id']+f'_Lever{k}',(a+.03+.008*k,cy-.05,.9718+.0028*k),(cx,cy+.045,.9748+.0028*k),identity,'brass_dull',.0005)
+    rod(case['id']+'_Follower',(cx+.06,cy+.01,.9558),(cx+.06,cy+.01,.99),.017,identity,'brass_dull')
+    curved_wire(case['id']+'_LeverSpring',[(cx-.005,cy+.04,.979),(cx+.02,cy+.055,.979),(cx+.05,cy+.06,.979),(cx+.08,d-.002,.979)],.0016,identity,'metal')
+   else:
+    body=box(case['id']+'_Case',(a+.012,b,.95),(c-.012,d,1.045),identity,'brass_dull',.007)
+    drilled(body,(cx,cy,1.02),(0,0,1),.015,.19)
+    for xx in [a+.032,c-.032]:rod(case['id']+f'_CaseScrew{xx}',(xx,cy,1.039),(xx,cy,1.048),.0045,identity,'metal')
    box(case['id']+'_Faceplate',(a,b,.95),(a+.018,d,1.06),identity,'brass_dull',.003)
    for zz in [.981,1.024]:box(case['id']+f'_ProjectingBolt{zz}',(a-.012,cy-.034,zz),(a+.014,cy+.034,zz+.015),identity,'metal',.002)
-   for xx in [a+.032,c-.032]:rod(case['id']+f'_CaseScrew{xx}',(xx,cy,1.039),(xx,cy,1.048),.0045,identity,'metal')
   roll=next(m for m in item['members'] if m['id'].endswith('_pick_roll'));a,b,c,d=roll['rect']
   box(identity+'_UnrolledToolWallet',(a,b,.94),(c,d,.949),identity,'vinyl_oxblood',.003)
   for i in range(6):
@@ -373,7 +444,7 @@ for identity in sorted({a['cell'] for a in assemblies}):
  for item in items:
   for row in item['members']:
    x0,y0,x1,y1=row['rect'];z0=row['z0'];replace.append({'id':row['id'],'key':row['mat'],'low':[x0,z0,-y1],'high':[x1,z0+row['h'],-y0],'expected_triangles':12})
- cells.append({'id':identity,'parts':[{'name':p['name'],'key':p['key'],'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan['catalog_variants'] else {})} for p in inventory if p['cell']==identity],'replace':replace})
+ cells.append({'id':identity,'parts':[{'name':p['name'],'key':p['key'],'tile':sets[p['key']]['meters_per_tile'],**({'catalog_key':plan['catalog_variants'][p['key']]} if p['key'] in plan['catalog_variants'] else {}),**({'tint':plan['material_tints'][p['key']]} if p['key'] in plan.get('material_tints',{}) else {})} for p in inventory if p['cell']==identity],'replace':replace})
 runtime={'schema_version':1,'asset':'res://assets/props/locksmith_fittings.glb','tolerance':plan['trim_tolerance_m'],'cells':cells}
 (OUT/'game/data/orison_v2/locksmith_fittings.json').write_text(json.dumps(runtime,indent=2)+'\n',newline='\n')
 bindings=[plan_path,layout_path,Path(__file__),ROOT/'art/blender/scripts/fabrication_uvs.py',catalog_path,ROOT/'game/scripts/generated/material_sets.gd',OUT/'game/assets/props/locksmith_fittings.glb.import',*material_definitions]
@@ -382,6 +453,6 @@ bindings.extend([ROOT/'art/tools/build_iron_blackened.py',ROOT/'art/data/materia
 bindings.extend(ROOT/f'art/textures/procedural/iron_blackened/{name}.png' for name in ['albedo','roughness','normal','height'])
 bindings.extend(ROOT/f'game/assets/building/floor_01_cells/{identity}.{suffix}' for identity in sorted({a['cell'] for a in assemblies}) for suffix in ['gltf','bin'])
 bindings.append(ROOT/'art/blender/scripts/inspect_locksmith_fittings.py')
-report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
+report={'evidence_class':'INERT','classification':'ADAPTATION','original_records':selected,'assemblies':[{'id':a['id'],'kind':a['kind'],'cell':a['cell'],'floor':a['floor']} for a in assemblies],'closed_stocks':stock_checks,'contacts':contacts,'parts':inventory,'triangles':total_triangles,'precision_chart_fallbacks':fallbacks,'runtime':runtime,'key_forms':key_forms,'asset_sha256':digest(asset),'source_bindings':{p.relative_to(ROOT).as_posix():digest(p) for p in bindings},'open_work':plan['open_work']}
 for name in ['art/blender/locksmith_fittings_construction.json','game/tests/fixtures/orison_locksmith_fittings.json']:(OUT/name).write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 print('LOCKSMITH FITTINGS',len(selected),'original records;',len(assemblies),'assemblies;',len(stock_checks),'closed stocks;',len(draws),'parts;',total_triangles,'triangles;',len(contacts),'foot contacts')

@@ -91,23 +91,26 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 
 func _check_key_bows(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_keys_cut
-	var count:=0
+	var count:=0;var empties:=0
 	for row: Dictionary in fixture.original_records:
 		if not str(row.id).begins_with("storm_shop_keys_cut_key"):continue
 		var r: Array=row.rect;var cy: float=(r[1]+r[3])*.5;var z:=float(row.z0)
+		# Dossier slice 56: declared empty pegs hang no blank; every other blank keeps a pierced bow and blade.
+		var empty: bool=bool(fixture.key_forms[str(row.id)].empty)
+		if empty:empties+=1
 		for sample: Array in [[Vector3(6.135,z+.068,-cy),false,"open bow"],[Vector3(6.135,z+.070,-cy-.016),true,"bow metal"],[Vector3(6.135,z+.033,-cy-.002),true,"blade"]]:
 			var local: Vector3=sample[0]
 			var query:=PhysicsRayQueryParameters3D.create(cell.to_global(local+Vector3.RIGHT*2.5),cell.to_global(local-Vector3.RIGHT*.010),1,[world.player.get_rid()])
 			var hit:=world.get_world_3d().direct_space_state.intersect_ray(query)
 			var valid:=hit.is_empty()
-			if sample[1]:
+			if sample[1] and not empty:
 				valid=not hit.is_empty() and absf(cell.to_local(hit.position).x-6.133)<.00003
 				if valid:
 					var draw:=hit.collider.get_parent() as MeshInstance3D
 					valid=draw!=null and str(draw.get_meta("locksmith_part","")).begins_with("storm_shop_keys_cut_board__") and hit.normal.dot(cell.global_basis.x)>.999
 			check(valid,"actual "+str(sample[2])+": "+str(row.id))
 		count+=1
-	check(count==98,"all ninety-eight original blanks have physically pierced bows and blades")
+	check(count==98 and empties==20,"ninety-eight original pegs: seventy-eight blanks with pierced bows and blades, the fourth row and six more pegs empty")
 
 func _locksmith_views(world: OrisonV2RuntimeRoot, fixture: Dictionary) -> void:
 	var cell: Node3D=world.passage_region.cell_nodes.shop_keys_cut

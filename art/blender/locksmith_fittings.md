@@ -78,3 +78,12 @@ fittings result, resident-key contract, passage reload and full static board.
 The safe is shortened 90mm at its minimum-Y end to clear the closed door case and knob. Its front plane, dial, handle and upper datum stay fixed. Its floor feet follow the shorter shell; it gains no interaction.
 
 See **design/V2_CONTEXT_FITS_2026-10-07.md** for the coordinated checks.
+
+Dossier slice 56 (**CITY_SHOP_KEYS_CUT-001**, **-002**, **-003**): the key board's
+blanks vary by row (round, oval and rounded-square bows; blade lengths, widths
+and bitting); the fourth row and six more pegs hang empty, declared in the
+fixture's key forms so the test probes only hung blanks. One lock case stands
+open with its bolt, levers, spring and follower, and the fourth case record is
+its cover laid on the cloth. The safe carries a blank gold-leaf cartouche and
+pinstripe with no lettering. The register lies open with ink strokes on blank
+rules and a pencil on a string to a screw eye.
