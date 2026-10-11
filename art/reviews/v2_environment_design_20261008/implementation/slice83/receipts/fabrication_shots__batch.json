@@ -1,0 +1,444 @@
+{
+	"batch_checks": 12,
+	"elapsed_ms": 78263,
+	"evidence_class": "INERT",
+	"failures": [
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_brown_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_brown_rough.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_brown_normal.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_teal_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_teal_rough.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_teal_normal.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_burgundy_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_burgundy_rough.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_burgundy_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_soil_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_soil_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_soil_normal.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_navy_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_navy_rough.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_navy_normal.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_ochre_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_ochre_rough.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_ochre_normal.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_green_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_green_rough.png",
+		"owner_service_finish: real loaded mip chain: T_library_furniture_book_green_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_timber_b_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_timber_b_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_timber_b_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_paper_b_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_paper_b_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_paper_b_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_timber_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_timber_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_timber_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_countertop_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_countertop_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_countertop_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_plywood_b_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_plywood_b_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_plywood_b_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_wood_dark_b_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_wood_dark_b_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_wood_dark_b_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_countertop_b_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_countertop_b_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_countertop_b_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_plywood_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_plywood_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_plywood_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_fabric_warm_b_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_fabric_warm_b_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_fabric_warm_b_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_marble_lobby_b_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_marble_lobby_b_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_marble_lobby_b_normal.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_enamel_b_albedo.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_enamel_b_rough.png",
+		"owner_service_finish: real loaded mip chain: T_ai_materials_enamel_b_normal.png"
+	],
+	"module_checks": 16123,
+	"modules": {
+		"fixed_lighting": {
+			"actors": 218,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 6438,
+			"elapsed_ms": 21602,
+			"failures": [],
+			"fixture_sha256": "cd7b30033fd6820c4a25c77e8a45e7a2718d14aac571952304f3594252ea141f",
+			"parts": 818,
+			"unique_triangles": 480680,
+			"validator_sha256": "4f509bad4ba47f5e216a746324dd9282c204b2741afbb00460f19a14afa0d5d1",
+			"variants": 27,
+			"views": [
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						1.78470170497894,
+						3.21500015258789,
+						-8.98251724243164
+					],
+					"id": "F02_LANDING_LT_SCONCE_powered",
+					"image": "F02_LANDING_LT_SCONCE_powered.png",
+					"owner": "F02_LANDING_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						1.78470170497894,
+						3.21500015258789,
+						-8.98251724243164
+					],
+					"id": "F02_LANDING_LT_SCONCE_off",
+					"image": "F02_LANDING_LT_SCONCE_off.png",
+					"owner": "F02_LANDING_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						1.78470170497894,
+						6.41499996185303,
+						-8.98251724243164
+					],
+					"id": "F03_LANDING_LT_SCONCE_powered",
+					"image": "F03_LANDING_LT_SCONCE_powered.png",
+					"owner": "F03_LANDING_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						1.78470170497894,
+						6.41499996185303,
+						-8.98251724243164
+					],
+					"id": "F03_LANDING_LT_SCONCE_off",
+					"image": "F03_LANDING_LT_SCONCE_off.png",
+					"owner": "F03_LANDING_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						1.78470170497894,
+						9.61500072479248,
+						-8.98251724243164
+					],
+					"id": "F04_LANDING_LT_SCONCE_powered",
+					"image": "F04_LANDING_LT_SCONCE_powered.png",
+					"owner": "F04_LANDING_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						1.78470170497894,
+						9.61500072479248,
+						-8.98251724243164
+					],
+					"id": "F04_LANDING_LT_SCONCE_off",
+					"image": "F04_LANDING_LT_SCONCE_off.png",
+					"owner": "F04_LANDING_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						1.78470170497894,
+						12.8150005340576,
+						-8.98251724243164
+					],
+					"id": "F05_LANDING_LT_SCONCE_powered",
+					"image": "F05_LANDING_LT_SCONCE_powered.png",
+					"owner": "F05_LANDING_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						1.78470170497894,
+						12.8150005340576,
+						-8.98251724243164
+					],
+					"id": "F05_LANDING_LT_SCONCE_off",
+					"image": "F05_LANDING_LT_SCONCE_off.png",
+					"owner": "F05_LANDING_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						1.78470170497894,
+						16.0149993896484,
+						-8.98251724243164
+					],
+					"id": "F06_LANDING_LT_SCONCE_powered",
+					"image": "F06_LANDING_LT_SCONCE_powered.png",
+					"owner": "F06_LANDING_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						1.78470170497894,
+						16.0149993896484,
+						-8.98251724243164
+					],
+					"id": "F06_LANDING_LT_SCONCE_off",
+					"image": "F06_LANDING_LT_SCONCE_off.png",
+					"owner": "F06_LANDING_LT_SCONCE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.5999994277954,
+						-3.18499994277954,
+						-8.94999980926514
+					],
+					"id": "B1_BOILER_ROOM_LT_A_powered",
+					"image": "B1_BOILER_ROOM_LT_A_powered.png",
+					"owner": "B1_BOILER_ROOM_LT_A",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.5999994277954,
+						-3.18499994277954,
+						-8.94999980926514
+					],
+					"id": "B1_BOILER_ROOM_LT_A_off",
+					"image": "B1_BOILER_ROOM_LT_A_off.png",
+					"owner": "B1_BOILER_ROOM_LT_A",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.5999994277954,
+						-3.18499994277954,
+						-11.1500005722046
+					],
+					"id": "B1_BOILER_ROOM_LT_B_powered",
+					"image": "B1_BOILER_ROOM_LT_B_powered.png",
+					"owner": "B1_BOILER_ROOM_LT_B",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "same fitted fixture/camera; original power control; carried service lamp remains",
+					"feet": [
+						-10.5999994277954,
+						-3.18499994277954,
+						-11.1500005722046
+					],
+					"id": "B1_BOILER_ROOM_LT_B_off",
+					"image": "B1_BOILER_ROOM_LT_B_off.png",
+					"owner": "B1_BOILER_ROOM_LT_B",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"owner_service_finish": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"changed_slots": 3324,
+			"checks": 9454,
+			"elapsed_ms": 514,
+			"failures": [
+				"real loaded mip chain: T_library_furniture_book_brown_albedo.png",
+				"real loaded mip chain: T_library_furniture_book_brown_rough.png",
+				"real loaded mip chain: T_library_furniture_book_brown_normal.png",
+				"real loaded mip chain: T_library_furniture_book_teal_albedo.png",
+				"real loaded mip chain: T_library_furniture_book_teal_rough.png",
+				"real loaded mip chain: T_library_furniture_book_teal_normal.png",
+				"real loaded mip chain: T_library_furniture_book_burgundy_albedo.png",
+				"real loaded mip chain: T_library_furniture_book_burgundy_rough.png",
+				"real loaded mip chain: T_library_furniture_book_burgundy_normal.png",
+				"real loaded mip chain: T_ai_materials_soil_albedo.png",
+				"real loaded mip chain: T_ai_materials_soil_rough.png",
+				"real loaded mip chain: T_ai_materials_soil_normal.png",
+				"real loaded mip chain: T_library_furniture_book_navy_albedo.png",
+				"real loaded mip chain: T_library_furniture_book_navy_rough.png",
+				"real loaded mip chain: T_library_furniture_book_navy_normal.png",
+				"real loaded mip chain: T_library_furniture_book_ochre_albedo.png",
+				"real loaded mip chain: T_library_furniture_book_ochre_rough.png",
+				"real loaded mip chain: T_library_furniture_book_ochre_normal.png",
+				"real loaded mip chain: T_library_furniture_book_green_albedo.png",
+				"real loaded mip chain: T_library_furniture_book_green_rough.png",
+				"real loaded mip chain: T_library_furniture_book_green_normal.png",
+				"real loaded mip chain: T_ai_materials_timber_b_albedo.png",
+				"real loaded mip chain: T_ai_materials_timber_b_rough.png",
+				"real loaded mip chain: T_ai_materials_timber_b_normal.png",
+				"real loaded mip chain: T_ai_materials_paper_b_albedo.png",
+				"real loaded mip chain: T_ai_materials_paper_b_rough.png",
+				"real loaded mip chain: T_ai_materials_paper_b_normal.png",
+				"real loaded mip chain: T_ai_materials_timber_albedo.png",
+				"real loaded mip chain: T_ai_materials_timber_rough.png",
+				"real loaded mip chain: T_ai_materials_timber_normal.png",
+				"real loaded mip chain: T_ai_materials_countertop_albedo.png",
+				"real loaded mip chain: T_ai_materials_countertop_rough.png",
+				"real loaded mip chain: T_ai_materials_countertop_normal.png",
+				"real loaded mip chain: T_ai_materials_plywood_b_albedo.png",
+				"real loaded mip chain: T_ai_materials_plywood_b_rough.png",
+				"real loaded mip chain: T_ai_materials_plywood_b_normal.png",
+				"real loaded mip chain: T_ai_materials_wood_dark_b_albedo.png",
+				"real loaded mip chain: T_ai_materials_wood_dark_b_rough.png",
+				"real loaded mip chain: T_ai_materials_wood_dark_b_normal.png",
+				"real loaded mip chain: T_ai_materials_countertop_b_albedo.png",
+				"real loaded mip chain: T_ai_materials_countertop_b_rough.png",
+				"real loaded mip chain: T_ai_materials_countertop_b_normal.png",
+				"real loaded mip chain: T_ai_materials_plywood_albedo.png",
+				"real loaded mip chain: T_ai_materials_plywood_rough.png",
+				"real loaded mip chain: T_ai_materials_plywood_normal.png",
+				"real loaded mip chain: T_ai_materials_fabric_warm_b_albedo.png",
+				"real loaded mip chain: T_ai_materials_fabric_warm_b_rough.png",
+				"real loaded mip chain: T_ai_materials_fabric_warm_b_normal.png",
+				"real loaded mip chain: T_ai_materials_marble_lobby_b_albedo.png",
+				"real loaded mip chain: T_ai_materials_marble_lobby_b_rough.png",
+				"real loaded mip chain: T_ai_materials_marble_lobby_b_normal.png",
+				"real loaded mip chain: T_ai_materials_enamel_b_albedo.png",
+				"real loaded mip chain: T_ai_materials_enamel_b_rough.png",
+				"real loaded mip chain: T_ai_materials_enamel_b_normal.png"
+			],
+			"fixture_sha256": "aafe90be6624e99b78d0ce330f29f51bb238040ec4132120786dab41b79546d4",
+			"loaded_texture_maps": 105,
+			"owners": 599,
+			"shader_slots": 2304,
+			"validator_sha256": "2ebc288eab371f4b65f22383a2126337bd343bb96fb382eb9a60436b16f59e45"
+		},
+		"wet_cloth": {
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 231,
+			"cloth_count": 3,
+			"elapsed_ms": 6983,
+			"failures": [],
+			"fixture_sha256": "",
+			"local_residue_slots": 161,
+			"validator_sha256": "9d72a238686cfd41c52e3c65aa1ab51e314f4d3cad13d6d5328dcb36a48d2654",
+			"views": [],
+			"walked_service_approaches": [
+				{
+					"actual": [
+						-3.22146463394165,
+						-3.19917416572571,
+						-2.30341053009033
+					],
+					"ok": true,
+					"target": [
+						-3.20000004768372,
+						-3.20000004768372,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-6.90018701553345,
+						-3.19917416572571,
+						-2.39745044708252
+					],
+					"ok": true,
+					"target": [
+						-7.0,
+						-3.20000004768372,
+						-2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-8.29620456695557,
+						-3.19917416572571,
+						-0.233393669128418
+					],
+					"ok": true,
+					"target": [
+						-8.35000038146973,
+						-3.20000004768372,
+						-0.150000005960464
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-7.08989286422729,
+						-3.19917416572571,
+						-0.760704040527344
+					],
+					"ok": true,
+					"target": [
+						-7.0,
+						-3.20000004768372,
+						-0.800000011920929
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						-5.35912752151489,
+						-3.19917416572571,
+						1.52201652526855
+					],
+					"ok": true,
+					"target": [
+						-5.30000019073486,
+						-3.20000004768372,
+						1.60000002384186
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.6000003814697,
+						-3.19914078712463,
+						2.3035774230957
+					],
+					"ok": true,
+					"target": [
+						10.6000003814697,
+						-3.20000004768372,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						10.9819192886353,
+						-3.19914078712463,
+						2.38110637664795
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						2.40000009536743
+					],
+					"wall_contacts": {}
+				},
+				{
+					"actual": [
+						11.0622510910034,
+						-3.19914078712463,
+						3.00153732299805
+					],
+					"ok": true,
+					"target": [
+						11.0749998092651,
+						-3.20000004768372,
+						3.09999990463257
+					],
+					"wall_contacts": {}
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

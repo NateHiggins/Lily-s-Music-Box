@@ -4,7 +4,7 @@
  "layout_path": "art/data/building_layout.json",
  "universe_counts": {
   "floor": 8,
-  "v2_blockout": 2344,
+  "v2_blockout": 2352,
   "unit": 22,
   "room": 127,
   "marker": 631,
@@ -56420,6 +56420,113 @@
    "target_exists": true
   },
   {
+   "key": "542027fffb005336",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/room",
+    "/lighting/switches[*]/room"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c36d727c233e7fa8",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM_LT_A",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e112d379660495a2",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM_LT_B",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e5c19e1dacb08271",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM_SWITCH",
+   "file": "game/data/orison_v2/completion_interiors.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/lighting/switches[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "02b9fe503d02d850",
    "kind": "id_reference",
    "token": "B1_BOILER_STAIR_DOOR",
@@ -99560,6 +99667,58 @@
    "target_exists": true
   },
   {
+   "key": "eefe7e41e040d5db",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM_LT_A",
+   "file": "game/data/orison_v2/fixed_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ea2a5dfd65d6e5b5",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM_LT_B",
+   "file": "game/data/orison_v2/fixed_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "5c034431cc316048",
    "kind": "id_reference",
    "token": "B1_COAL_ROOM_LT",
@@ -101146,6 +101305,32 @@
    "target_exists": true
   },
   {
+   "key": "27834a6613054d1f",
+   "kind": "id_reference",
+   "token": "F02_LANDING_LT_SCONCE",
+   "file": "game/data/orison_v2/fixed_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "ce6da04875cb5049",
    "kind": "id_reference",
    "token": "F02_SOUTHWEST_HALL_LT",
@@ -101679,6 +101864,32 @@
    "key": "4555be78503e9b9f",
    "kind": "id_reference",
    "token": "F03_EAST_HALL_LT",
+   "file": "game/data/orison_v2/fixed_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "0519b8b0584934bb",
+   "kind": "id_reference",
+   "token": "F03_LANDING_LT_SCONCE",
    "file": "game/data/orison_v2/fixed_lighting.json",
    "tier": "data",
    "subsystem": "data",
@@ -102546,6 +102757,32 @@
    "target_exists": true
   },
   {
+   "key": "690c4ed5159a50e8",
+   "kind": "id_reference",
+   "token": "F04_LANDING_LT_SCONCE",
+   "file": "game/data/orison_v2/fixed_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "905cac8844b84ffb",
    "kind": "id_reference",
    "token": "F04_SOUTHWEST_HALL_LT",
@@ -103186,6 +103423,32 @@
    "target_exists": true
   },
   {
+   "key": "2d32beb89e878dee",
+   "kind": "id_reference",
+   "token": "F05_LANDING_LT_SCONCE",
+   "file": "game/data/orison_v2/fixed_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "1d23bacb1e5e702e",
    "kind": "id_reference",
    "token": "F05_WEST_HALL_LT_A",
@@ -103803,6 +104066,32 @@
    "key": "9901f455ac415769",
    "kind": "id_reference",
    "token": "F06_EAST_HALL_LT",
+   "file": "game/data/orison_v2/fixed_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c12681e92904f2b7",
+   "kind": "id_reference",
+   "token": "F06_LANDING_LT_SCONCE",
    "file": "game/data/orison_v2/fixed_lighting.json",
    "tier": "data",
    "subsystem": "data",
@@ -135129,6 +135418,32 @@
    "target_exists": true
   },
   {
+   "key": "fb2f710d0606d5e3",
+   "kind": "id_reference",
+   "token": "F02_LANDING_LT_SCONCE",
+   "file": "game/data/orison_v2/room_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "734d452d71469c88",
    "kind": "id_reference",
    "token": "F02_WEST_HALL",
@@ -135141,9 +135456,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -136277,6 +136593,32 @@
    "target_exists": true
   },
   {
+   "key": "349b9625346df608",
+   "kind": "id_reference",
+   "token": "F03_LANDING_LT_SCONCE",
+   "file": "game/data/orison_v2/room_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "2a739129e679b398",
    "kind": "id_reference",
    "token": "F03_WEST_HALL",
@@ -136289,9 +136631,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -137581,6 +137924,32 @@
    "target_exists": true
   },
   {
+   "key": "2d0e8f848ceeed1e",
+   "kind": "id_reference",
+   "token": "F04_LANDING_LT_SCONCE",
+   "file": "game/data/orison_v2/room_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "002336d959f59200",
    "kind": "id_reference",
    "token": "F04_WEST_HALL",
@@ -137593,9 +137962,10 @@
    ],
    "lines": [
     0,
+    0,
     0
    ],
-   "count": 2,
+   "count": 3,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -139459,6 +139829,32 @@
    "target_exists": true
   },
   {
+   "key": "a026bcece78f721b",
+   "kind": "id_reference",
+   "token": "F05_LANDING_LT_SCONCE",
+   "file": "game/data/orison_v2/room_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "7bd5b80968bbce24",
    "kind": "id_reference",
    "token": "F05_WEST_HALL",
@@ -139472,9 +139868,10 @@
    "lines": [
     0,
     0,
+    0,
     0
    ],
-   "count": 3,
+   "count": 4,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -141364,6 +141761,32 @@
    "target_exists": true
   },
   {
+   "key": "d704046eed6beaca",
+   "kind": "id_reference",
+   "token": "F06_LANDING_LT_SCONCE",
+   "file": "game/data/orison_v2/room_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "f36f2a87f97bfc99",
    "kind": "id_reference",
    "token": "F06_WEST_HALL",
@@ -141377,9 +141800,10 @@
    "lines": [
     0,
     0,
+    0,
     0
    ],
-   "count": 3,
+   "count": 4,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151639,7 +152063,7 @@
     0,
     0
    ],
-   "count": 128,
+   "count": 131,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151755,7 +152179,7 @@
     0,
     0
    ],
-   "count": 363,
+   "count": 364,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151813,7 +152237,7 @@
     0,
     0
    ],
-   "count": 300,
+   "count": 301,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151871,7 +152295,7 @@
     0,
     0
    ],
-   "count": 404,
+   "count": 405,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151928,7 +152352,7 @@
     0,
     0
    ],
-   "count": 322,
+   "count": 323,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -151985,7 +152409,7 @@
     0,
     0
    ],
-   "count": 318,
+   "count": 319,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -179575,7 +179999,7 @@
     "validate"
    ],
    "lines": [
-    248
+    250
    ],
    "count": 1,
    "context": [
@@ -179605,7 +180029,7 @@
     "validate"
    ],
    "lines": [
-    248
+    250
    ],
    "count": 1,
    "context": [
@@ -179633,7 +180057,7 @@
     "validate"
    ],
    "lines": [
-    248
+    250
    ],
    "count": 1,
    "context": [
@@ -179658,20 +180082,21 @@
    "tier": "production",
    "subsystem": "building",
    "symbols": [
+    "<module>",
     "mount_source",
     "validate"
    ],
    "lines": [
-    106,
-    143,
-    171,
-    205
+    23,
+    108,
+    145,
+    207
    ],
    "count": 4,
    "context": [
+    "const SOURCE_KINDS := [\"bed\", \"workbench\", \"toilet\", \"nightstand\", \"wardrobe\", \"shelf\", \"sofa\", \"counter\", \"desk\", \"chair\", \"table_round\", \"table_rect\", \"cupboa",
     "if not native_table and not native_furniture and not native_storage and not native_object and record.kind != \"bed\" and not record.get(\"collision_from_surfaces\",",
     "elif record.kind == \"bed\": _add_bed(body,record)",
-    "if record is not Dictionary or record.get(\"id\") is not String or record.get(\"kind\") not in [\"bed\", \"workbench\", \"toilet\", \"nightstand\", \"wardrobe\", \"shelf\", \"so",
     "if record.kind == \"bed\":"
    ],
    "gameplay_binding": false,
@@ -179693,16 +180118,17 @@
    "tier": "production",
    "subsystem": "building",
    "symbols": [
+    "<module>",
     "validate"
    ],
    "lines": [
-    171,
-    219,
-    235
+    23,
+    221,
+    237
    ],
    "count": 3,
    "context": [
-    "if record is not Dictionary or record.get(\"id\") is not String or record.get(\"kind\") not in [\"bed\", \"workbench\", \"toilet\", \"nightstand\", \"wardrobe\", \"shelf\", \"so",
+    "const SOURCE_KINDS := [\"bed\", \"workbench\", \"toilet\", \"nightstand\", \"wardrobe\", \"shelf\", \"sofa\", \"counter\", \"desk\", \"chair\", \"table_round\", \"table_rect\", \"cupboa",
     "if record.kind not in [\"desk\", \"counter\", \"prep_cabinet\"] or boxes is not Array \\",
     "or record.kind not in [\"desk\", \"table_rect\"] or record.has(\"collision_boxes\")):"
    ],
@@ -179728,7 +180154,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -179758,7 +180184,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -179788,7 +180214,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -179818,7 +180244,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -179848,7 +180274,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -179878,7 +180304,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -179908,7 +180334,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -179938,7 +180364,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -179968,7 +180394,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -179998,7 +180424,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -180028,7 +180454,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -180058,7 +180484,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -180088,7 +180514,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -180118,7 +180544,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -180148,7 +180574,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -180178,7 +180604,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -180208,7 +180634,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -180238,7 +180664,7 @@
     "validate"
    ],
    "lines": [
-    185
+    187
    ],
    "count": 1,
    "context": [
@@ -184376,7 +184802,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    785
+    786
    ],
    "count": 1,
    "context": [
@@ -184406,8 +184832,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    860,
-    863
+    861,
+    864
    ],
    "count": 2,
    "context": [
@@ -184619,8 +185045,8 @@
     "_compose_hot_water"
    ],
    "lines": [
-    782,
-    839
+    783,
+    840
    ],
    "count": 2,
    "context": [
@@ -184651,7 +185077,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    794
+    795
    ],
    "count": 1,
    "context": [
@@ -184681,7 +185107,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    786
+    787
    ],
    "count": 1,
    "context": [
@@ -184711,7 +185137,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    803
+    804
    ],
    "count": 1,
    "context": [
@@ -184771,7 +185197,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    795
+    796
    ],
    "count": 1,
    "context": [
@@ -184801,7 +185227,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    435
+    436
    ],
    "count": 1,
    "context": [
@@ -184861,7 +185287,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    436
+    437
    ],
    "count": 1,
    "context": [
@@ -184891,7 +185317,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    436
+    437
    ],
    "count": 1,
    "context": [
@@ -184921,7 +185347,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    435
+    436
    ],
    "count": 1,
    "context": [
@@ -184983,9 +185409,9 @@
    ],
    "lines": [
     168,
-    857,
-    861,
-    864
+    858,
+    862,
+    865
    ],
    "count": 4,
    "context": [
@@ -185048,7 +185474,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    307
+    308
    ],
    "count": 1,
    "context": [
@@ -185078,7 +185504,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    307
+    308
    ],
    "count": 1,
    "context": [
@@ -185108,7 +185534,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    306
+    307
    ],
    "count": 1,
    "context": [
@@ -185138,7 +185564,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    306
+    307
    ],
    "count": 1,
    "context": [
@@ -185168,7 +185594,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    771
+    772
    ],
    "count": 1,
    "context": [
@@ -185198,7 +185624,7 @@
     "_compose_service_round_props"
    ],
    "lines": [
-    772
+    773
    ],
    "count": 1,
    "context": [
@@ -185228,7 +185654,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    307
+    308
    ],
    "count": 1,
    "context": [
@@ -185348,7 +185774,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    692
+    693
    ],
    "count": 1,
    "context": [
@@ -185380,7 +185806,7 @@
    ],
    "lines": [
     169,
-    345
+    346
    ],
    "count": 2,
    "context": [
@@ -185412,8 +185838,8 @@
     "_compose_call_station"
    ],
    "lines": [
-    586,
-    677
+    587,
+    678
    ],
    "count": 2,
    "context": [
@@ -185444,7 +185870,7 @@
     "_compose_call_station"
    ],
    "lines": [
-    678
+    679
    ],
    "count": 1,
    "context": [
@@ -185594,7 +186020,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    823
+    824
    ],
    "count": 1,
    "context": [
@@ -185624,7 +186050,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    824
+    825
    ],
    "count": 1,
    "context": [
@@ -185654,7 +186080,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    825
+    826
    ],
    "count": 1,
    "context": [
@@ -185684,7 +186110,7 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    822
+    823
    ],
    "count": 1,
    "context": [
@@ -185745,7 +186171,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    341
+    342
    ],
    "count": 1,
    "context": [
@@ -185777,8 +186203,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    764,
-    823
+    765,
+    824
    ],
    "count": 2,
    "context": [
@@ -185811,8 +186237,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    767,
-    824
+    768,
+    825
    ],
    "count": 2,
    "context": [
@@ -185845,8 +186271,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    770,
-    825
+    771,
+    826
    ],
    "count": 2,
    "context": [
@@ -185879,8 +186305,8 @@
     "_bind_first_shift_station"
    ],
    "lines": [
-    761,
-    822
+    762,
+    823
    ],
    "count": 2,
    "context": [
@@ -185912,7 +186338,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    339
+    340
    ],
    "count": 1,
    "context": [
@@ -186005,7 +186431,7 @@
     "_compose_authorities"
    ],
    "lines": [
-    342
+    343
    ],
    "count": 1,
    "context": [
@@ -186068,8 +186494,8 @@
     "_compose_vantry"
    ],
    "lines": [
-    339,
-    863
+    340,
+    864
    ],
    "count": 2,
    "context": [
@@ -186100,7 +186526,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    730
+    731
    ],
    "count": 1,
    "context": [
@@ -186130,7 +186556,7 @@
     "_compose_observation_ledger"
    ],
    "lines": [
-    731
+    732
    ],
    "count": 1,
    "context": [
@@ -224465,7 +224891,7 @@
     "_check_specialist_devices"
    ],
    "lines": [
-    669
+    675
    ],
    "count": 1,
    "context": [
@@ -224496,8 +224922,8 @@
     "_check_specialist_devices"
    ],
    "lines": [
-    601,
-    668
+    607,
+    674
    ],
    "count": 2,
    "context": [
@@ -224528,7 +224954,7 @@
     "_check_prep_cabinets"
    ],
    "lines": [
-    596
+    602
    ],
    "count": 1,
    "context": [
@@ -224556,7 +224982,7 @@
     "_check_bath_details"
    ],
    "lines": [
-    960
+    966
    ],
    "count": 1,
    "context": [
@@ -224616,7 +225042,7 @@
     "_check_projectors"
    ],
    "lines": [
-    759
+    765
    ],
    "count": 1,
    "context": [
@@ -224645,8 +225071,8 @@
     "_check_specialist_devices"
    ],
    "lines": [
-    600,
-    675
+    606,
+    681
    ],
    "count": 2,
    "context": [
@@ -224677,7 +225103,7 @@
     "_check_specialist_devices"
    ],
    "lines": [
-    682
+    688
    ],
    "count": 1,
    "context": [
@@ -224733,7 +225159,7 @@
     "_check_heating"
    ],
    "lines": [
-    839
+    845
    ],
    "count": 1,
    "context": [
@@ -224763,8 +225189,8 @@
     "_check_wall_extensions"
    ],
    "lines": [
-    411,
-    417
+    417,
+    423
    ],
    "count": 2,
    "context": [
@@ -224937,7 +225363,7 @@
    ],
    "lines": [
     131,
-    844
+    850
    ],
    "count": 2,
    "context": [
@@ -224968,8 +225394,8 @@
     "_check_heating"
    ],
    "lines": [
-    845,
-    849
+    851,
+    855
    ],
    "count": 2,
    "context": [
@@ -224990,6 +225416,70 @@
    "target_exists": true
   },
   {
+   "key": "6ae4a6e6515dd393",
+   "kind": "unit_reference",
+   "token": "1A",
+   "file": "game/tests/orison_v2_apartment_batch_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_surface_props"
+   ],
+   "lines": [
+    337,
+    357
+   ],
+   "count": 2,
+   "context": [
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "00c40be31a900ba8",
+   "kind": "unit_reference",
+   "token": "1D",
+   "file": "game/tests/orison_v2_apartment_batch_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_surface_props"
+   ],
+   "lines": [
+    337,
+    357
+   ],
+   "count": 2,
+   "context": [
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
    "key": "afee923a2ce18482",
    "kind": "unit_reference",
    "token": "2A",
@@ -225005,17 +225495,17 @@
    "lines": [
     4,
     5,
-    333,
-    351,
-    494,
-    568
+    337,
+    357,
+    500,
+    574
    ],
    "count": 6,
    "context": [
     "const UNITS := [\"2A\", \"2B\", \"3B\", \"4B\"]",
     "const ALL_DOMESTIC_UNITS := [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\"]",
-    "var counts := {\"2A\":0, \"2B\":0, \"3A\":0, \"3B\":0, \"4A\":0, \"4B\":0, \"5A\":0, \"5B\":0, \"5C\":0, \"6A\":0, \"6B\":0, \"6C\":0}",
-    "check(counts == {\"2A\":5, \"2B\":4, \"3A\":4, \"3B\":8, \"4A\":3, \"4B\":2, \"5A\":7, \"5B\":4, \"5C\":4, \"6A\":6, \"6B\":5, \"6C\":3}, \"surface category roster across all apartments"
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -225046,18 +225536,50 @@
    "lines": [
     4,
     5,
-    333,
-    351,
-    494,
-    878,
-    904
+    337,
+    357,
+    500,
+    884,
+    910
    ],
    "count": 7,
    "context": [
     "const UNITS := [\"2A\", \"2B\", \"3B\", \"4B\"]",
     "const ALL_DOMESTIC_UNITS := [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\"]",
-    "var counts := {\"2A\":0, \"2B\":0, \"3A\":0, \"3B\":0, \"4A\":0, \"4B\":0, \"5A\":0, \"5B\":0, \"5C\":0, \"6A\":0, \"6B\":0, \"6C\":0}",
-    "check(counts == {\"2A\":5, \"2B\":4, \"3A\":4, \"3B\":8, \"4A\":3, \"4B\":2, \"5A\":7, \"5B\":4, \"5C\":4, \"6A\":6, \"6B\":5, \"6C\":3}, \"surface category roster across all apartments"
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "7d5aa87eeb36a74d",
+   "kind": "unit_reference",
+   "token": "2C",
+   "file": "game/tests/orison_v2_apartment_batch_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_surface_props"
+   ],
+   "lines": [
+    337,
+    357
+   ],
+   "count": 2,
+   "context": [
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -225087,17 +225609,17 @@
    ],
    "lines": [
     5,
-    333,
-    351,
-    494,
-    544,
-    572
+    337,
+    357,
+    500,
+    550,
+    578
    ],
    "count": 6,
    "context": [
     "const ALL_DOMESTIC_UNITS := [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\"]",
-    "var counts := {\"2A\":0, \"2B\":0, \"3A\":0, \"3B\":0, \"4A\":0, \"4B\":0, \"5A\":0, \"5B\":0, \"5C\":0, \"6A\":0, \"6B\":0, \"6C\":0}",
-    "check(counts == {\"2A\":5, \"2B\":4, \"3A\":4, \"3B\":8, \"4A\":3, \"4B\":2, \"5A\":7, \"5B\":4, \"5C\":4, \"6A\":6, \"6B\":5, \"6C\":3}, \"surface category roster across all apartments",
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \"",
     "check(cupboards == [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"], \"one kitchen wall cupboard per detailed apartment\")"
    ],
    "gameplay_binding": false,
@@ -225129,17 +225651,49 @@
    "lines": [
     4,
     5,
-    333,
-    351,
-    494,
-    597
+    337,
+    357,
+    500,
+    603
    ],
    "count": 6,
    "context": [
     "const UNITS := [\"2A\", \"2B\", \"3B\", \"4B\"]",
     "const ALL_DOMESTIC_UNITS := [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\"]",
-    "var counts := {\"2A\":0, \"2B\":0, \"3A\":0, \"3B\":0, \"4A\":0, \"4B\":0, \"5A\":0, \"5B\":0, \"5C\":0, \"6A\":0, \"6B\":0, \"6C\":0}",
-    "check(counts == {\"2A\":5, \"2B\":4, \"3A\":4, \"3B\":8, \"4A\":3, \"4B\":2, \"5A\":7, \"5B\":4, \"5C\":4, \"6A\":6, \"6B\":5, \"6C\":3}, \"surface category roster across all apartments"
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "ee65bd90644965b8",
+   "kind": "unit_reference",
+   "token": "3D",
+   "file": "game/tests/orison_v2_apartment_batch_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_surface_props"
+   ],
+   "lines": [
+    337,
+    357
+   ],
+   "count": 2,
+   "context": [
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -225169,16 +225723,16 @@
    ],
    "lines": [
     5,
-    333,
-    351,
-    494,
-    549
+    337,
+    357,
+    500,
+    555
    ],
    "count": 5,
    "context": [
     "const ALL_DOMESTIC_UNITS := [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\"]",
-    "var counts := {\"2A\":0, \"2B\":0, \"3A\":0, \"3B\":0, \"4A\":0, \"4B\":0, \"5A\":0, \"5B\":0, \"5C\":0, \"6A\":0, \"6B\":0, \"6C\":0}",
-    "check(counts == {\"2A\":5, \"2B\":4, \"3A\":4, \"3B\":8, \"4A\":3, \"4B\":2, \"5A\":7, \"5B\":4, \"5C\":4, \"6A\":6, \"6B\":5, \"6C\":3}, \"surface category roster across all apartments",
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \"",
     "check(cupboards == [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"], \"one kitchen wall cupboard per detailed apartment\")"
    ],
    "gameplay_binding": false,
@@ -225214,9 +225768,9 @@
     76,
     79,
     225,
-    333,
-    351,
-    494
+    337,
+    357,
+    500
    ],
    "count": 8,
    "context": [
@@ -225224,6 +225778,70 @@
     "const ALL_DOMESTIC_UNITS := [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\"]",
     "var dining_table := unit + \"_din_t\" if unit != \"4B\" else \"4B_meal_table\"",
     "var chair_id := unit + \"_din_dc\" + str(index) if unit != \"4B\" else \"4B_meal_chair_0\" + str(index)"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "2efee0c8dcae8d06",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/tests/orison_v2_apartment_batch_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_surface_props"
+   ],
+   "lines": [
+    337,
+    357
+   ],
+   "count": 2,
+   "context": [
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "0d8ac0f22b2c7600",
+   "kind": "unit_reference",
+   "token": "4D",
+   "file": "game/tests/orison_v2_apartment_batch_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_check_surface_props"
+   ],
+   "lines": [
+    337,
+    357
+   ],
+   "count": 2,
+   "context": [
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \""
    ],
    "gameplay_binding": false,
    "authority": [
@@ -225250,14 +225868,14 @@
     "_check_storage_tables_boards"
    ],
    "lines": [
-    333,
-    351,
-    494
+    337,
+    357,
+    500
    ],
    "count": 3,
    "context": [
-    "var counts := {\"2A\":0, \"2B\":0, \"3A\":0, \"3B\":0, \"4A\":0, \"4B\":0, \"5A\":0, \"5B\":0, \"5C\":0, \"6A\":0, \"6B\":0, \"6C\":0}",
-    "check(counts == {\"2A\":5, \"2B\":4, \"3A\":4, \"3B\":8, \"4A\":3, \"4B\":2, \"5A\":7, \"5B\":4, \"5C\":4, \"6A\":6, \"6B\":5, \"6C\":3}, \"surface category roster across all apartments",
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \"",
     "check(cupboards == [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"], \"one kitchen wall cupboard per detailed apartment\")"
    ],
    "gameplay_binding": false,
@@ -225285,14 +225903,14 @@
     "_check_storage_tables_boards"
    ],
    "lines": [
-    333,
-    351,
-    494
+    337,
+    357,
+    500
    ],
    "count": 3,
    "context": [
-    "var counts := {\"2A\":0, \"2B\":0, \"3A\":0, \"3B\":0, \"4A\":0, \"4B\":0, \"5A\":0, \"5B\":0, \"5C\":0, \"6A\":0, \"6B\":0, \"6C\":0}",
-    "check(counts == {\"2A\":5, \"2B\":4, \"3A\":4, \"3B\":8, \"4A\":3, \"4B\":2, \"5A\":7, \"5B\":4, \"5C\":4, \"6A\":6, \"6B\":5, \"6C\":3}, \"surface category roster across all apartments",
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \"",
     "check(cupboards == [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"], \"one kitchen wall cupboard per detailed apartment\")"
    ],
    "gameplay_binding": false,
@@ -225321,15 +225939,15 @@
     "_check_household_radios"
    ],
    "lines": [
-    333,
-    351,
-    494,
-    544
+    337,
+    357,
+    500,
+    550
    ],
    "count": 4,
    "context": [
-    "var counts := {\"2A\":0, \"2B\":0, \"3A\":0, \"3B\":0, \"4A\":0, \"4B\":0, \"5A\":0, \"5B\":0, \"5C\":0, \"6A\":0, \"6B\":0, \"6C\":0}",
-    "check(counts == {\"2A\":5, \"2B\":4, \"3A\":4, \"3B\":8, \"4A\":3, \"4B\":2, \"5A\":7, \"5B\":4, \"5C\":4, \"6A\":6, \"6B\":5, \"6C\":3}, \"surface category roster across all apartments",
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \"",
     "check(cupboards == [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"], \"one kitchen wall cupboard per detailed apartment\")",
     "if record.unit in [\"3A\", \"5C\"]:"
    ],
@@ -225358,14 +225976,14 @@
     "_check_storage_tables_boards"
    ],
    "lines": [
-    333,
-    351,
-    494
+    337,
+    357,
+    500
    ],
    "count": 3,
    "context": [
-    "var counts := {\"2A\":0, \"2B\":0, \"3A\":0, \"3B\":0, \"4A\":0, \"4B\":0, \"5A\":0, \"5B\":0, \"5C\":0, \"6A\":0, \"6B\":0, \"6C\":0}",
-    "check(counts == {\"2A\":5, \"2B\":4, \"3A\":4, \"3B\":8, \"4A\":3, \"4B\":2, \"5A\":7, \"5B\":4, \"5C\":4, \"6A\":6, \"6B\":5, \"6C\":3}, \"surface category roster across all apartments",
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \"",
     "check(cupboards == [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"], \"one kitchen wall cupboard per detailed apartment\")"
    ],
    "gameplay_binding": false,
@@ -225393,14 +226011,14 @@
     "_check_storage_tables_boards"
    ],
    "lines": [
-    333,
-    351,
-    494
+    337,
+    357,
+    500
    ],
    "count": 3,
    "context": [
-    "var counts := {\"2A\":0, \"2B\":0, \"3A\":0, \"3B\":0, \"4A\":0, \"4B\":0, \"5A\":0, \"5B\":0, \"5C\":0, \"6A\":0, \"6B\":0, \"6C\":0}",
-    "check(counts == {\"2A\":5, \"2B\":4, \"3A\":4, \"3B\":8, \"4A\":3, \"4B\":2, \"5A\":7, \"5B\":4, \"5C\":4, \"6A\":6, \"6B\":5, \"6C\":3}, \"surface category roster across all apartments",
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \"",
     "check(cupboards == [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"], \"one kitchen wall cupboard per detailed apartment\")"
    ],
    "gameplay_binding": false,
@@ -225428,14 +226046,14 @@
     "_check_storage_tables_boards"
    ],
    "lines": [
-    333,
-    351,
-    494
+    337,
+    357,
+    500
    ],
    "count": 3,
    "context": [
-    "var counts := {\"2A\":0, \"2B\":0, \"3A\":0, \"3B\":0, \"4A\":0, \"4B\":0, \"5A\":0, \"5B\":0, \"5C\":0, \"6A\":0, \"6B\":0, \"6C\":0}",
-    "check(counts == {\"2A\":5, \"2B\":4, \"3A\":4, \"3B\":8, \"4A\":3, \"4B\":2, \"5A\":7, \"5B\":4, \"5C\":4, \"6A\":6, \"6B\":5, \"6C\":3}, \"surface category roster across all apartments",
+    "for unit: String in [\"1A\", \"1D\", \"2A\", \"2B\", \"2C\", \"3A\", \"3B\", \"3D\", \"4A\", \"4B\", \"4C\", \"4D\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"]: counts[unit] = 0",
+    "check(counts == {\"1A\":14, \"1D\":12, \"2A\":20, \"2B\":13, \"2C\":11, \"3A\":14, \"3B\":15, \"3D\":9, \"4A\":11, \"4B\":13, \"4C\":16, \"4D\":7, \"5A\":17, \"5B\":15, \"5C\":11, \"6A\":15, \"",
     "check(cupboards == [\"2A\", \"2B\", \"3A\", \"3B\", \"4A\", \"4B\", \"5A\", \"5B\", \"5C\", \"6A\", \"6B\", \"6C\"], \"one kitchen wall cupboard per detailed apartment\")"
    ],
    "gameplay_binding": false,
@@ -225462,7 +226080,7 @@
     "_check_projector_surface_failures"
    ],
    "lines": [
-    803
+    809
    ],
    "count": 1,
    "context": [
@@ -237390,6 +238008,188 @@
    "target_exists": null
   },
   {
+   "key": "94421ff27e6c4c1b",
+   "kind": "floor_reference",
+   "token": "F02",
+   "file": "game/tests/orison_v2_fixed_lighting_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    104
+   ],
+   "count": 1,
+   "context": [
+    "for level: String in [\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "575ab31c4d236a6a",
+   "kind": "floor_reference",
+   "token": "F03",
+   "file": "game/tests/orison_v2_fixed_lighting_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    104
+   ],
+   "count": 1,
+   "context": [
+    "for level: String in [\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "89ebee0aa018eb50",
+   "kind": "floor_reference",
+   "token": "F04",
+   "file": "game/tests/orison_v2_fixed_lighting_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    104
+   ],
+   "count": 1,
+   "context": [
+    "for level: String in [\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "021838222c3b94f4",
+   "kind": "floor_reference",
+   "token": "F05",
+   "file": "game/tests/orison_v2_fixed_lighting_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    104
+   ],
+   "count": 1,
+   "context": [
+    "for level: String in [\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a219c142ceef1a86",
+   "kind": "floor_reference",
+   "token": "F06",
+   "file": "game/tests/orison_v2_fixed_lighting_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    104
+   ],
+   "count": 1,
+   "context": [
+    "for level: String in [\"F02\",\"F03\",\"F04\",\"F05\",\"F06\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "FLOOR_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "floor+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e56334c4355740f3",
+   "kind": "id_candidate",
+   "token": "B1_BOILER_ROOM_LT_",
+   "file": "game/tests/orison_v2_fixed_lighting_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    116,
+    119
+   ],
+   "count": 2,
+   "context": [
+    "var cage: LightFixtureProp = factory.installed[\"B1_BOILER_ROOM_LT_\"+suffix].get_ref()",
+    "check(switches._room_fixtures.get(\"B1_BOILER_ROOM\",[]).has(\"B1_BOILER_ROOM_LT_\"+suffix), \"boiler room cage bulb is on the boiler room circuit\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "63faedc6e56b3874",
    "kind": "id_candidate",
    "token": "F01_BAR_",
@@ -237400,7 +238200,7 @@
     "_capture_light"
    ],
    "lines": [
-    140
+    158
    ],
    "count": 1,
    "context": [
@@ -237460,7 +238260,7 @@
     "_capture_light"
    ],
    "lines": [
-    141
+    159
    ],
    "count": 1,
    "context": [
@@ -237510,6 +238310,34 @@
    "target_exists": true
   },
   {
+   "key": "432f48331186463f",
+   "kind": "id_reference",
+   "token": "B1_BOILER_ROOM",
+   "file": "game/tests/orison_v2_fixed_lighting_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "validate_in_world"
+   ],
+   "lines": [
+    119
+   ],
+   "count": 1,
+   "context": [
+    "check(switches._room_fixtures.get(\"B1_BOILER_ROOM\",[]).has(\"B1_BOILER_ROOM_LT_\"+suffix), \"boiler room cage bulb is on the boiler room circuit\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "ab19ba7fbf7a461d",
    "kind": "id_reference",
    "token": "B1_SERVICE_CORE_LT",
@@ -237521,8 +238349,8 @@
     "_capture_light"
    ],
    "lines": [
-    102,
-    138
+    120,
+    156
    ],
    "count": 2,
    "context": [
@@ -237551,7 +238379,7 @@
     "_capture_light"
    ],
    "lines": [
-    140
+    158
    ],
    "count": 1,
    "context": [
@@ -237612,7 +238440,7 @@
    ],
    "lines": [
     77,
-    104
+    122
    ],
    "count": 2,
    "context": [
@@ -237643,7 +238471,7 @@
     "_capture_light"
    ],
    "lines": [
-    143
+    161
    ],
    "count": 1,
    "context": [
@@ -237675,7 +238503,7 @@
    ],
    "lines": [
     77,
-    176
+    194
    ],
    "count": 2,
    "context": [
@@ -237706,7 +238534,7 @@
     "validate_in_world"
    ],
    "lines": [
-    106
+    124
    ],
    "count": 1,
    "context": [
@@ -252065,8 +252893,8 @@
    ],
    "lines": [
     13,
-    28,
-    36
+    29,
+    37
    ],
    "count": 3,
    "context": [
@@ -252096,8 +252924,8 @@
     "_route"
    ],
    "lines": [
-    17,
-    19
+    18,
+    20
    ],
    "count": 2,
    "context": [
@@ -252126,8 +252954,8 @@
     "_route"
    ],
    "lines": [
-    19,
-    21
+    20,
+    22
    ],
    "count": 2,
    "context": [
@@ -252156,8 +252984,8 @@
     "_route"
    ],
    "lines": [
-    24,
-    26
+    25,
+    27
    ],
    "count": 2,
    "context": [
@@ -252186,8 +253014,8 @@
     "_route"
    ],
    "lines": [
-    22,
-    24
+    23,
+    25
    ],
    "count": 2,
    "context": [

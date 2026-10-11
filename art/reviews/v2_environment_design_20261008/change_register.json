@@ -223,8 +223,8 @@
    "acceptance": "Firing-door detail station readable with the lamp off",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "B1_BOILER_ROOM",
-   "status": "deferred",
-   "owner_notes": "Deferred. Corrected reason (follow-ups; the earlier note deferred it to a 16/16 lighting budget): on desktop there is no 16/16 budget to exceed. The V2 runtime root composes LightRig, whose per-frame light budget has been off on desktop since 2026-08-08 (light_rig.gd; only shadow casters stay capped, at 32), and BW-017's twelve hall domes already rely on that; mobile keeps its caps (ACTIVE_N_MOBILE 12, SHADOW_N_MOBILE 4). The open work is the two cage bulbs over the firing aisle from the fixed-lighting family's cage_bulb_rise assemblies, rebuilt into that family as slice 3 did, then its fabrication module and a capture of the firing aisle."
+   "status": "verified",
+   "owner_notes": "Two cage_bulb_rise160 over the firing aisle at x 10.6, z -1.6 and 0.6 (anchors B1_BOILER_ROOM_LT_A/B, each under an F01 floor with collision, the cage's lowest point about 2.27 m, clear of the 2.13 m fire-door head and of the steam header at z -0.55 and its hangers), on a new B1_BOILER_ROOM circuit whose switch follows the B1 convention on the south wall (10.15, 1.12, -5.4); completion lighting gains the cage_bulb kind. The 16/16 budget the row names does not exist on desktop (light_rig.gd). Verified at 34b4c7c8 (implementation/slice83): fixed lighting 0 failures (ceiling contacts by ray, the door-head clearance, the circuit), switch model, boiler route, basement route and coal delivery 0 failures, wet cloth 0 failures. With the hand lamp off the firing-door station reads the firing door, gauge glass and controls (images/B1_firing_door_before_lampoff against _after_lampoff). The switch is about 5 m from the fire door, by the B1 convention; no route test walks to it."
   },
   {
    "id": "B1_ELECTRICAL-001",
@@ -793,7 +793,7 @@
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "BW_BUILDING_WIDE",
    "status": "verified",
-   "owner_notes": "Twelve flush domes (flush_dome_rise100 at 2.9 m) on the west and east public halls of F02-F06 (two on the 6.1 m halls of F05/F06), each hall on a landlord's switch beside the stair end or the unit door jamb; blockout anchors, room_lighting records, fixed_lighting plan instances and mirror; family rebuilt. Landings and cores (open stair voids) still have no practical: they need a wall sconce placed against the stair geometry and stay open. Verified at 4e589c0c: upper lighting 9,257 checks, 0 failures (the first run's four F05_C standing-capsule failures cleared with the 5C wardrobe and pigment-table moves); the hall sweep overviews show the domes lit and the switches on the wainscot (implementation/slice3b; the 4e589c0c upper-lighting receipt is implementation/slice4/receipts/upper_lighting.log.receipt.json)."
+   "owner_notes": "Twelve flush domes (flush_dome_rise100 at 2.9 m) on the west and east public halls of F02-F06 (two on the 6.1 m halls of F05/F06), each hall on a landlord's switch beside the stair end or the unit door jamb; blockout anchors, room_lighting records, fixed_lighting plan instances and mirror; family rebuilt. Landings and cores (open stair voids) had no practical here; slice 83 puts a sconce on each landing lobby's south core wall, F02-F06 (F04_LANDING-003). Verified at 4e589c0c: upper lighting 9,257 checks, 0 failures (the first run's four F05_C standing-capsule failures cleared with the 5C wardrobe and pigment-table moves); the hall sweep overviews show the domes lit and the switches on the wainscot (implementation/slice3b; the 4e589c0c upper-lighting receipt is implementation/slice4/receipts/upper_lighting.log.receipt.json)."
   },
   {
    "id": "BW-018",
@@ -6494,8 +6494,8 @@
    "acceptance": "Landing station with the hand lamp off reads the lift plate and the 4B transom",
    "signal": "no signal: 1927 vintage, second-hand, probably a bit broken",
    "area": "F04_LANDING",
-   "status": "deferred",
-   "owner_notes": "The landing has no ceiling (stair void); a sconce on the core wall is the remaining item after BW-017's hall domes."
+   "status": "verified",
+   "owner_notes": "A sconce_globe_back050 on the south core wall of the F04 lift lobby (anchor F04_LANDING_LT_SCONCE [-1.5, 2.0, -3.73], yaw 0: the wall face plus the 50 mm stand-off), on F04_WEST_HALL's circuit (BW-017: switched with the floor); the same sconce stands on the F02, F03, F05 and F06 landings, BW-017's 'one per landing'. Verified at 34b4c7c8 (implementation/slice83): fixed lighting 218 actors, 6,438 checks, 0 failures (each landing sconce's two wall contacts by ray, its envelope clear of the lift front and core wall, its circuit); upper lighting 9,677 checks, 0 failures; household state 210 controls; the elevator, vertical, first-upper-hall, golden-repair and resident-key routes, which walk the lobby, 0 failures. With the hand lamp off at 20:00 the landing station reads the lift plate (images/F04_landing_liftplate_before_lampoff against _after_lampoff) and the 4B transom, which BW-017's hall dome already lit."
   },
   {
    "id": "F04_WEST_HALL-001",

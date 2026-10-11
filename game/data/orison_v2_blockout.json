@@ -2063,7 +2063,15 @@
     {"id":"F04_WATCH_STATION","level":"F04","space":"F04_PUBLIC_CORE","position":[1.6,1.42,3.78],"yaw":3.141592653589793,"kind":"interaction"},
     {"id":"F05_WATCH_STATION","level":"F05","space":"F05_PUBLIC_CORE","position":[1.6,1.42,3.78],"yaw":3.141592653589793,"kind":"interaction"},
     {"id":"F06_WATCH_STATION","level":"F06","space":"F06_PUBLIC_CORE","position":[1.6,1.42,3.78],"yaw":3.141592653589793,"kind":"interaction"},
-    {"id":"F01_WATCH_STATION","level":"F01","space":"F01_LOBBY","position":[-4.85,1.42,-3.92],"yaw":3.141592653589793,"kind":"interaction"}
+    {"id":"F01_WATCH_STATION","level":"F01","space":"F01_LOBBY","position":[-4.85,1.42,-3.92],"yaw":3.141592653589793,"kind":"interaction"},
+    {"id":"F02_LANDING_LT_SCONCE","level":"F02","space":"F02_PUBLIC_CORE","position":[-1.5,2.0,-3.73],"yaw":0,"kind":"fixture"},
+    {"id":"F03_LANDING_LT_SCONCE","level":"F03","space":"F03_PUBLIC_CORE","position":[-1.5,2.0,-3.73],"yaw":0,"kind":"fixture"},
+    {"id":"F04_LANDING_LT_SCONCE","level":"F04","space":"F04_PUBLIC_CORE","position":[-1.5,2.0,-3.73],"yaw":0,"kind":"fixture"},
+    {"id":"F05_LANDING_LT_SCONCE","level":"F05","space":"F05_PUBLIC_CORE","position":[-1.5,2.0,-3.73],"yaw":0,"kind":"fixture"},
+    {"id":"F06_LANDING_LT_SCONCE","level":"F06","space":"F06_PUBLIC_CORE","position":[-1.5,2.0,-3.73],"yaw":0,"kind":"fixture"},
+    {"id":"B1_BOILER_ROOM_LT_A","level":"B1","position":[10.6,2.84,-1.6],"yaw":0,"kind":"fixture","space":"B1_BOILER_ROOM"},
+    {"id":"B1_BOILER_ROOM_LT_B","level":"B1","position":[10.6,2.84,0.6],"yaw":0,"kind":"fixture","space":"B1_BOILER_ROOM"},
+    {"id":"B1_BOILER_ROOM_SWITCH","level":"B1","position":[10.15,1.12,-5.4],"yaw":3.141592653589793,"kind":"interaction","space":"B1_BOILER_ROOM"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},

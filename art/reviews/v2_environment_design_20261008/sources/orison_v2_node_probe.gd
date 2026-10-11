@@ -2,9 +2,12 @@ extends "res://tests/orison_v2_floor_surface_test.gd"
 ## Dossier inspection probe: list the drawable nodes crossing a box and take framed captures.
 ## Copy beside game/tests to run it through the lane (it is not a suite).
 ## PROBE_BOXES: "name:x0,y0,z0,x1,y1,z1[@px,py,pz];..."  PROBE_SHOTS: "name:fx,fy,fz,tx,ty,tz;..." (feet, target) in adapter-root metres (the blockout frame).
+## The clock is frozen at the packet's 1928-11-10 20:00. PROBE_LAMP=0 takes the shots with the hand lamp off
+## (an acceptance condition for lighting rows); each shot settles 1.8 s so the storey gate has faded in.
 func _run() -> void:
 	RealityState.persistence_enabled=false
 	RealityState.reset_campaign_for_tests()
+	CampaignClock.new().configure_date(1928,11,10,20*60)
 	GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
 	var world := _world_scene().instantiate()
 	add_child(world)
@@ -34,13 +37,16 @@ func _run() -> void:
 	if not shots.is_empty() and world.player != null:
 		for layer: CanvasLayer in world.find_children("*", "CanvasLayer", true, false): layer.hide()
 		world.player.set_physics_process(false)
+		for driver: CampaignClockDriver in get_tree().get_nodes_in_group("campaign_time_owner"): driver.set_frozen_for_tests(true)
+		if world.get("service_set_carrier") != null: world.service_set_carrier.set_capture_hidden(true)
 		for spec: String in shots.split(";", false):
 			var name := spec.get_slice(":", 0)
 			var v := spec.get_slice(":", 1).split(",")
 			world.player.global_position = world.adapter.root.to_global(Vector3(float(v[0]), float(v[1]), float(v[2])))
 			world.player.velocity = Vector3.ZERO
-			world.player.set_lamp_enabled(true)
+			world.player.set_lamp_enabled(OS.get_environment("PROBE_LAMP") != "0")
 			for i in 12: await get_tree().physics_frame
+			await get_tree().create_timer(1.8).timeout
 			var target: Vector3 = world.adapter.root.to_global(Vector3(float(v[3]), float(v[4]), float(v[5])))
 			var eye: Vector3 = world.player.camera.global_position
 			var flat := Vector2(target.x - eye.x, target.z - eye.z)

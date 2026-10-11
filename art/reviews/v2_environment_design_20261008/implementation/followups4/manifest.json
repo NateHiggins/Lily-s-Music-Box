@@ -1,0 +1,186 @@
+{
+ "evidence_class": "INERT",
+ "note": "Follow-ups verification at 88c5a68f (C:/ov/envimpl_out/followups4): the suites the follow-ups repair and every route the merge report says never ran on the shipped tree (open finding 5). 22 of 23 runs exit 0; ApartmentBatch exits 1 with 26,057 checks and 204 failures and no script errors (finding 4's SE1/SE2 are gone). Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/patrol_F01_WATCH_STATION.jpg",
+   "source": "patrol_stations/patrol_F01_WATCH_STATION.png",
+   "sha256": "25c9610da36f4b91359e1d950472a5876787153378e8b2f369ed6a2faf918c18",
+   "bytes": 87397
+  },
+  {
+   "path": "images/patrol_register_after_round.jpg",
+   "source": "patrol_stations/patrol_register_after_round.png",
+   "sha256": "33e4de46ee18d416ef43f1ef6a54fa47aa4f2a96bdbea6a55f5ead641c929cbb",
+   "bytes": 43267
+  },
+  {
+   "path": "images/5C_bed0_bedding_4.jpg",
+   "source": "bedding/5C_bed0_bedding_4.png",
+   "sha256": "ec96edffaeb1c4be731dbf18c39a0ab3ef321beee6680182705fafd240b014f8",
+   "bytes": 88626
+  },
+  {
+   "path": "images/F02_C_PRIVATE_HALL_BATH_DOOR.jpg",
+   "source": "rear_wing_c/F02_C_PRIVATE_HALL_BATH_DOOR.png",
+   "sha256": "c62b5a049439b0b5f2bd68d863a089b4b303e10c3995f43d907378244db0fef6",
+   "bytes": 121956
+  },
+  {
+   "path": "images/1A_reading_chair_native.jpg",
+   "source": "fabrication_shots/domestic_seating/1A_reading_chair_native.png",
+   "sha256": "627083de11da19be5aa532e5352b5e0c31080f540918deeb177679916c062fcd",
+   "bytes": 112908
+  },
+  {
+   "path": "images/3A_story_cuttings_stock.jpg",
+   "source": "fabrication_shots/surface_stock/3A_story_cuttings_stock.png",
+   "sha256": "3ef3dd99a1081296127d84465857a525fdab82371171d6bc5df6d8af3aa18610",
+   "bytes": 65070
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "5ff9250029085d7cdb9d346feda6fcb22656e4001e072b9ded2f31a8cf3d04f2",
+   "bytes": 3201
+  },
+  {
+   "path": "receipts/apartment_door_route.log.receipt.json",
+   "source": "apartment_door_route.log.receipt.json",
+   "sha256": "2694caf0ccf5091bee2b5bcd16cec2ffe5664156a56f820b8571be2d73c05375",
+   "bytes": 3219
+  },
+  {
+   "path": "receipts/basement_route.log.receipt.json",
+   "source": "basement_route.log.receipt.json",
+   "sha256": "d11e5f562ead5c84731312290987fb86fe2a0e709e12d1850d42f4e7e196bcd5",
+   "bytes": 3196
+  },
+  {
+   "path": "receipts/bedding.log.receipt.json",
+   "source": "bedding.log.receipt.json",
+   "sha256": "3aa0cc9b5f63a606064d786b92184c58b800cc645a8d5883dcc5cca167f97ba2",
+   "bytes": 3202
+  },
+  {
+   "path": "receipts/blockout.log.receipt.json",
+   "source": "blockout.log.receipt.json",
+   "sha256": "5caca156b8b70513b7f313f8fb0cb92525540e87e662def885dd7601ec420e17",
+   "bytes": 5892
+  },
+  {
+   "path": "receipts/coal_delivery.log.receipt.json",
+   "source": "coal_delivery.log.receipt.json",
+   "sha256": "4e3a75b8c5b89db6a2611b79607fb4b656ecd7d81c49356dd51ce75b6f0be673",
+   "bytes": 3192
+  },
+  {
+   "path": "receipts/coal_heap.log.receipt.json",
+   "source": "coal_heap.log.receipt.json",
+   "sha256": "b73f448515e0c57879376769ed795e65e44a72b9466cbda0dfeae0a43c8f0e59",
+   "bytes": 3176
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "95e3967fa7ce6e1c7b0a49e46cf45802f789a0ca8b86c48a857293ec3e986f24",
+   "bytes": 3230
+  },
+  {
+   "path": "receipts/front_entry.log.receipt.json",
+   "source": "front_entry.log.receipt.json",
+   "sha256": "b3cc81e4ecef860f1dc1d45163f21527c4171bc4f26fe1a1422d23de46314d66",
+   "bytes": 3195
+  },
+  {
+   "path": "receipts/golden_repair.log.receipt.json",
+   "source": "golden_repair.log.receipt.json",
+   "sha256": "fb26e0952892c44951596d4443d4782086d3ec5191a2a9e22f9c277fcc74d5ce",
+   "bytes": 3203
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "6af4b40d32012c20e359fe57b6bd1ed26038b5df5585c24830469712a594cb0c",
+   "bytes": 3145
+  },
+  {
+   "path": "receipts/import2.log.receipt.json",
+   "source": "import2.log.receipt.json",
+   "sha256": "04932a9ad5c8555f2a420c7f69d78bac61f7cbb4e2f9061e8ffa6b49b2831a66",
+   "bytes": 3146
+  },
+  {
+   "path": "receipts/laundry_route.log.receipt.json",
+   "source": "laundry_route.log.receipt.json",
+   "sha256": "337185a279ceaf80e596ad15f1460ebaf07424a59048eda49feb2fa76f9ff3a3",
+   "bytes": 3191
+  },
+  {
+   "path": "receipts/m08f.log.receipt.json",
+   "source": "m08f.log.receipt.json",
+   "sha256": "c2952bd03040a7203406421a38f08a7410190478559675a4af2bdbf365738c3d",
+   "bytes": 5013
+  },
+  {
+   "path": "receipts/mail_route.log.receipt.json",
+   "source": "mail_route.log.receipt.json",
+   "sha256": "c78b1d4848f123b1909ec3aba8caa5b1d3f9a3135bd50672a7894ddaece232df",
+   "bytes": 3179
+  },
+  {
+   "path": "receipts/patrol_stations.log.receipt.json",
+   "source": "patrol_stations.log.receipt.json",
+   "sha256": "6d72a2c1ae4518d766806594c85fe21443920441bf25cc2a52c925c9c2405425",
+   "bytes": 3241
+  },
+  {
+   "path": "receipts/public_doors.log.receipt.json",
+   "source": "public_doors.log.receipt.json",
+   "sha256": "a3d978d8b8d1a62fc3c62e3ff174dbd60f4fc709e051a8bda678dda2dd5c280f",
+   "bytes": 3187
+  },
+  {
+   "path": "receipts/rear_wing_c.log.receipt.json",
+   "source": "rear_wing_c.log.receipt.json",
+   "sha256": "30d6b0cd72703442b59994a9b1035c0e7abd50ff47f45418910c84d62e6c441d",
+   "bytes": 3249
+  },
+  {
+   "path": "receipts/resident_key.log.receipt.json",
+   "source": "resident_key.log.receipt.json",
+   "sha256": "905a157e78fbb27bf879bf725ab6b7cd1f1b0e829cebd196122b86ef2101fab8",
+   "bytes": 3258
+  },
+  {
+   "path": "receipts/street_route.log.receipt.json",
+   "source": "street_route.log.receipt.json",
+   "sha256": "f41427da16f8d05ee4f9602ad865b11d8fc4389bfc5efe7ee557edb45f389b44",
+   "bytes": 3205
+  },
+  {
+   "path": "receipts/tour_key.log.receipt.json",
+   "source": "tour_key.log.receipt.json",
+   "sha256": "8b456ab0207a465824c2eef73031a361676b24cf267104596f87a3c756da9fed",
+   "bytes": 3191
+  },
+  {
+   "path": "receipts/watch_pair.log.receipt.json",
+   "source": "watch_pair.log.receipt.json",
+   "sha256": "2725024c3671cebf2dfec471965a73d379347a45c9ed1c2d49f97b030525972c",
+   "bytes": 3203
+  },
+  {
+   "path": "receipts/watch_register.log.receipt.json",
+   "source": "watch_register.log.receipt.json",
+   "sha256": "a1b0cc871619a4b8b145bfd6b2a418cd553995e6d708f06f056a7a22c35472d6",
+   "bytes": 3221
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "8b8242e606e71b1130773721b8c649e07d2ecfc46151888e1cac019537f63e7e",
+   "bytes": 2680
+  }
+ ]
+}

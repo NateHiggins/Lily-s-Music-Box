@@ -99,6 +99,24 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	clearance.transform = sconce.global_transform*Transform3D(Basis.IDENTITY,sconce_bounds.get_center())
 	clearance.collision_mask = 1
 	check(world.get_world_3d().direct_space_state.intersect_shape(clearance,1).is_empty(),"3B sconce envelope clears bath fittings and opening trim")
+	# Dossier slice 83: a sconce on each landing's south core wall, on its floor's west-hall circuit,
+	# and two cage bulbs over the boiler room's firing aisle on a new boiler-room circuit.
+	for level: String in ["F02","F03","F04","F05","F06"]:
+		var landing: LightFixtureProp = factory.installed[level+"_LANDING_LT_SCONCE"].get_ref()
+		var landing_bounds := _light_bounds(landing)
+		var landing_shape := BoxShape3D.new()
+		landing_shape.size = landing_bounds.size-Vector3.ONE*.0002
+		var landing_query := PhysicsShapeQueryParameters3D.new()
+		landing_query.shape = landing_shape
+		landing_query.transform = landing.global_transform*Transform3D(Basis.IDENTITY,landing_bounds.get_center())
+		landing_query.collision_mask = 1
+		check(world.get_world_3d().direct_space_state.intersect_shape(landing_query,1).is_empty(), level+" landing sconce envelope clears the lift front and core wall")
+		check(switches._room_fixtures.get(level+"_WEST_HALL",[]).has(level+"_LANDING_LT_SCONCE"), level+" landing sconce is on the floor's west-hall circuit")
+	for suffix: String in ["A","B"]:
+		var cage: LightFixtureProp = factory.installed["B1_BOILER_ROOM_LT_"+suffix].get_ref()
+		var cage_bounds := _light_bounds(cage)
+		check(world.adapter.root.to_local(cage.to_global(cage_bounds.position)).y > -3.2+2.2, "boiler room cage bulb hangs clear of the 2.13 m fire-door head")
+		check(switches._room_fixtures.get("B1_BOILER_ROOM",[]).has("B1_BOILER_ROOM_LT_"+suffix), "boiler room cage bulb is on the boiler room circuit")
 	var basement: LightFixtureProp = factory.installed["B1_SERVICE_CORE_LT"].get_ref()
 	if basement not in captures: captures.append(basement)
 	var well_pendant: LightFixtureProp = factory.installed["F01_BAR_LT_TAB2"].get_ref()

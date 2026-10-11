@@ -244,6 +244,10 @@ Slices landed so far (evidence folders in parentheses):
     owner's direction; verification of slices 76-80 (`slice80`).
 81. Every remaining row statused with its reason: deferrals and rejections, and rows
     closed from captures, including the street in its storm state (`slice81`).
+82. The patrol round worked by the player's own presses, and the domestic furniture
+    kinds held in one constant (`slice82`, its runs at 5467439f).
+83. A sconce on every landing lobby, F02-F06, and two cage bulbs over the boiler room's
+    firing aisle, judged with the hand lamp off before and after (`slice83`).
 
 Verification runs are made at WIP commits that are later squashed. For most
 slices the game and art paths of the squashed commit (outside this packet) are
@@ -268,7 +272,8 @@ Folders added after the merge: `slice4` (slice 4's evidence, restored);
 `slice9b` (slice 9's first runs, refused at startup before the cabinet fix);
 `slice82` (slice 82's own runs at 5467439f); `census80` (slice 80's register
 census); and the lane baselines `base80`, `base48_routes`, `bedding_base43` and
-`f01base`.
+`f01base`; and `followups4`, the follow-ups' own verification at 88c5a68f (every suite
+the follow-ups repair, and the lobby-crossing routes that never ran on the shipped tree).
 
 Slice commits 58 (e145c48d) to 66 (8f35dc22) do not compose the V2 world on
 their own: each carries the id 6A_light_box both in the domestic data

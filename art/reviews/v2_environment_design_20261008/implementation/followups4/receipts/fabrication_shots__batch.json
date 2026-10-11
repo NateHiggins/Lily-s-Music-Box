@@ -1,0 +1,99 @@
+{
+	"batch_checks": 11,
+	"elapsed_ms": 73172,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 6814,
+	"modules": {
+		"domestic_seating": {
+			"actors": 57,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 785,
+			"elapsed_ms": 7377,
+			"failures": [],
+			"fixture_sha256": "568b00932b3d46519c76283a0b1bae118e1dee6281a7a8c1233d906b9da481e5",
+			"parts": 75,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 52984,
+			"validator_sha256": "b075531e93b4cbd387afc38fd9f538a4c1c76b004cbea419fc914d1a1b3829f1",
+			"variants": 5,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						9.70300102233887,
+						3.22000002861023,
+						-8.49999809265137
+					],
+					"id": "2A_sofa_native",
+					"image": "2A_sofa_native.png",
+					"owner": "2A_sofa",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						12.6500005722046,
+						9.61999988555908,
+						-10.7319984436035
+					],
+					"id": "4B_couch_native",
+					"image": "4B_couch_native.png",
+					"owner": "4B_couch",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						14.7500009536743,
+						3.22000002861023,
+						-10.0999984741211
+					],
+					"id": "2A_din_dc1_native",
+					"image": "2A_din_dc1_native.png",
+					"owner": "2A_din_dc1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-13.7949991226196,
+						6.42000007629395,
+						-10.0550012588501
+					],
+					"id": "3B_din_dc1_native",
+					"image": "3B_din_dc1_native.png",
+					"owner": "3B_din_dc1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						14.7500009536743,
+						0.0199999995529652,
+						-5.09999799728394
+					],
+					"id": "1A_reading_chair_native",
+					"image": "1A_reading_chair_native.png",
+					"owner": "1A_reading_chair",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"surface_stock": {
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 6029,
+			"elapsed_ms": 15718,
+			"failures": [],
+			"fixture_sha256": "28cbec6364d396d4a84dd6725ef8ab54db7c7790207edc29223f7c377a1cc9d4",
+			"parts": 466,
+			"triangles": 824260,
+			"validator_sha256": "76eae7a2b6ea2d44a63a48adc7cda4c7f49fc70ac760827dfb27be1d6f5b07d9"
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

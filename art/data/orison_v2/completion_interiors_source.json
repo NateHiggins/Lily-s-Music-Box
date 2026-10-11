@@ -5643,6 +5643,42 @@
         "space": "B1_SERVICE_CORE"
       },
       {
+        "id": "B1_BOILER_ROOM_LT_A",
+        "level": "B1",
+        "position": [
+          10.6,
+          2.84,
+          -1.6
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "B1_BOILER_ROOM"
+      },
+      {
+        "id": "B1_BOILER_ROOM_LT_B",
+        "level": "B1",
+        "position": [
+          10.6,
+          2.84,
+          0.6
+        ],
+        "yaw": 0,
+        "kind": "fixture",
+        "space": "B1_BOILER_ROOM"
+      },
+      {
+        "id": "B1_BOILER_ROOM_SWITCH",
+        "level": "B1",
+        "position": [
+          10.15,
+          1.12,
+          -5.4
+        ],
+        "yaw": 3.141592653589793,
+        "kind": "interaction",
+        "space": "B1_BOILER_ROOM"
+      },
+      {
         "id": "B1_FUSE_PANEL",
         "level": "B1",
         "position": [
@@ -8549,6 +8585,24 @@
             "energy_scale": 1.5,
             "range_clamp": 6.5
           }
+        },
+        {
+          "id": "B1_BOILER_ROOM_LT_A",
+          "room": "B1_BOILER_ROOM",
+          "kind": "cage_bulb",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
+        },
+        {
+          "id": "B1_BOILER_ROOM_LT_B",
+          "room": "B1_BOILER_ROOM",
+          "kind": "cage_bulb",
+          "properties": {
+            "energy_scale": 1.5,
+            "range_clamp": 6.5
+          }
         }
       ],
       "switches": [
@@ -8759,6 +8813,10 @@
         {
           "id": "B1_SERVICE_CORE_SWITCH",
           "room": "B1_SERVICE_CORE"
+        },
+        {
+          "id": "B1_BOILER_ROOM_SWITCH",
+          "room": "B1_BOILER_ROOM"
         }
       ]
     },

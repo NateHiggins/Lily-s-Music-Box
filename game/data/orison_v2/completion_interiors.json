@@ -1588,6 +1588,24 @@
           "energy_scale": 1.5,
           "range_clamp": 6.5
         }
+      },
+      {
+        "id": "B1_BOILER_ROOM_LT_A",
+        "room": "B1_BOILER_ROOM",
+        "kind": "cage_bulb",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
+      },
+      {
+        "id": "B1_BOILER_ROOM_LT_B",
+        "room": "B1_BOILER_ROOM",
+        "kind": "cage_bulb",
+        "properties": {
+          "energy_scale": 1.5,
+          "range_clamp": 6.5
+        }
       }
     ],
     "switches": [
@@ -1798,6 +1816,10 @@
       {
         "id": "B1_SERVICE_CORE_SWITCH",
         "room": "B1_SERVICE_CORE"
+      },
+      {
+        "id": "B1_BOILER_ROOM_SWITCH",
+        "room": "B1_BOILER_ROOM"
       }
     ]
   },

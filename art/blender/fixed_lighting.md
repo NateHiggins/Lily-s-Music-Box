@@ -2,7 +2,7 @@
 
 Evidence class: **INERT**
 
-The Blender family fits 199 existing light actors: 133 authored room fixtures
+The Blender family fits 218 existing light actors: 152 authored room fixtures
 and 66 retained bar/passage fixtures. Twenty-seven native variants contain
 438 closed stocks, 133 material/component partitions and 480,680 unique
 triangles. All actors share immutable variant meshes within their world.

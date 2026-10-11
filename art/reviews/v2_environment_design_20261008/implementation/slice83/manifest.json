@@ -1,0 +1,276 @@
+{
+ "evidence_class": "INERT",
+ "note": "Slice 83 (landing sconces F02-F06, boiler room cage bulbs) at 34b4c7c8, with lamp-off probe frames before (88c5a68f) and after, and merge-base runs (receipts base_*) at 2ea28ee0 that classify the reds: owner_service_finish's 54 mip-chain failures, m08e's passenger-shaft block and Integrated's F02 stair block reproduce at the merge-base; ApartmentBatch adds no failure class (+12 receiver-material failures from slice 2's six radios). Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/B1_BOILER_ROOM_LT_A_powered.jpg",
+   "source": "picked/B1_BOILER_ROOM_LT_A_powered.png",
+   "sha256": "eeb4150f1c0298e563e4773a35cf47a154c25b74c34426ab5e5a270e2f95a59e",
+   "bytes": 85664
+  },
+  {
+   "path": "images/B1_aisle_from_south_after_lampoff.jpg",
+   "source": "picked/B1_aisle_from_south_after_lampoff.png",
+   "sha256": "8bf2473a8bc6e6ba5639fb001117c2c96513d4698c364be252458cfbfcd3cad3",
+   "bytes": 83066
+  },
+  {
+   "path": "images/B1_aisle_from_south_before_lampoff.jpg",
+   "source": "picked/B1_aisle_from_south_before_lampoff.png",
+   "sha256": "6057e093afc7633bb632ffaea343cdf3b8c02e0d8d72a738ceccf1d2785965f2",
+   "bytes": 11201
+  },
+  {
+   "path": "images/B1_firing_door_after_lampoff.jpg",
+   "source": "picked/B1_firing_door_after_lampoff.png",
+   "sha256": "896fc3ff5a6e73b7b4187cf9c289af59bc2049556579b07e2bcf0f171a5453b9",
+   "bytes": 73512
+  },
+  {
+   "path": "images/B1_firing_door_before_lampoff.jpg",
+   "source": "picked/B1_firing_door_before_lampoff.png",
+   "sha256": "a8b5b968133b836a06b08403e9531823ed6dc99bf72cc7ba5b9c21d6eb93c1cd",
+   "bytes": 10876
+  },
+  {
+   "path": "images/B1_switch_after_lampoff.jpg",
+   "source": "picked/B1_switch_after_lampoff.png",
+   "sha256": "e970329b3738045aa4fe2ed150571577289c15be534ddedfe8046fb3fda8ac8f",
+   "bytes": 47256
+  },
+  {
+   "path": "images/F02_landing_liftplate_after_lampoff.jpg",
+   "source": "picked/F02_landing_liftplate_after_lampoff.png",
+   "sha256": "d4e1bf27252dab2a5afd101883e4b0ae201f9204c7f53254b5bb7bea3350b3c8",
+   "bytes": 95964
+  },
+  {
+   "path": "images/F04_LANDING_LT_SCONCE_powered.jpg",
+   "source": "picked/F04_LANDING_LT_SCONCE_powered.png",
+   "sha256": "25fabd4121fb215ead010c449d75504d45c6c0fd4f248f1ced53f914029a42ae",
+   "bytes": 78457
+  },
+  {
+   "path": "images/F04_landing_4B_transom_after_lampoff.jpg",
+   "source": "picked/F04_landing_4B_transom_after_lampoff.png",
+   "sha256": "f0060466165ed60ac6e5765403a1ce7c3d1571b421369c787d1c0655e4c9252a",
+   "bytes": 89193
+  },
+  {
+   "path": "images/F04_landing_liftplate_after_lampoff.jpg",
+   "source": "picked/F04_landing_liftplate_after_lampoff.png",
+   "sha256": "eecf6dca145b495b74d220e8b6d183885736887e19e7a733ef85576d9781f79b",
+   "bytes": 89276
+  },
+  {
+   "path": "images/F04_landing_liftplate_before_lampoff.jpg",
+   "source": "picked/F04_landing_liftplate_before_lampoff.png",
+   "sha256": "e9f5d8f43294effdfdaa3bf9885b31806fb0fa1d6b376288fafdcc54c3f12f26",
+   "bytes": 24684
+  },
+  {
+   "path": "images/F04_landing_passage_after_lampoff.jpg",
+   "source": "picked/F04_landing_passage_after_lampoff.png",
+   "sha256": "dc36e805825567b278ac5e58b46a2e5a8c56745f77774d70bb194410b6c4115c",
+   "bytes": 70090
+  },
+  {
+   "path": "images/F04_landing_passage_before_lampoff.jpg",
+   "source": "picked/F04_landing_passage_before_lampoff.png",
+   "sha256": "b83c83cc08266f9edc1f36d1c71d8b6b4d75000c857cdd8916e5f8e9ec67ec53",
+   "bytes": 43277
+  },
+  {
+   "path": "images/F06_landing_liftplate_after_lampoff.jpg",
+   "source": "picked/F06_landing_liftplate_after_lampoff.png",
+   "sha256": "4dcd2b3e851cb31187a9832999ea89f32e30fd78614201e2fd6984fd5c4029dd",
+   "bytes": 86994
+  },
+  {
+   "path": "receipts/after_lampoff.log.receipt.json",
+   "source": "after_lampoff.log.receipt.json",
+   "sha256": "f87c688c51a08454f94b89e03b603ae9007526b15edec5deae785919cfdfa2a0",
+   "bytes": 3210
+  },
+  {
+   "path": "receipts/after_lampon.log.receipt.json",
+   "source": "after_lampon.log.receipt.json",
+   "sha256": "10f00d101910a79f45b25d3bc9455acf11d41a1b3965a9abdb087553bb071bcd",
+   "bytes": 3207
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "dac235e08f629c0792f71e85025e40d533bad918b0c152a34deb5b7f4c10f657",
+   "bytes": 3241
+  },
+  {
+   "path": "receipts/base_apartment_batch.log.receipt.json",
+   "source": "base_apartment_batch.log.receipt.json",
+   "sha256": "c20ab7450d2d0a50ce26c6d2c183f9d806da1e5f80ef495bcbebd430f44e58a9",
+   "bytes": 3256
+  },
+  {
+   "path": "receipts/base_connected_world.log.receipt.json",
+   "source": "base_connected_world.log.receipt.json",
+   "sha256": "cdd2c571688a638f4d394fd981d031132a4647a19801781646bfc71f3e716a3e",
+   "bytes": 3204
+  },
+  {
+   "path": "receipts/base_import.log.receipt.json",
+   "source": "base_import.log.receipt.json",
+   "sha256": "194768b3b5aa0a8280f0f4f330cf15ae05ea5cf39a46db79cb92512ad66dc151",
+   "bytes": 3149
+  },
+  {
+   "path": "receipts/base_import2.log.receipt.json",
+   "source": "base_import2.log.receipt.json",
+   "sha256": "fcf450900fc042516800bc2805f147893ed1b842311d8a8225914f81380b0de0",
+   "bytes": 3150
+  },
+  {
+   "path": "receipts/base_integrated.log.receipt.json",
+   "source": "base_integrated.log.receipt.json",
+   "sha256": "f49210e6be2cc403ffd67a921177e6d641895ee0ea775531c82fb9d1be3705c8",
+   "bytes": 3953
+  },
+  {
+   "path": "receipts/base_m08e.log.receipt.json",
+   "source": "base_m08e.log.receipt.json",
+   "sha256": "c7c3a8aacd0504d192642c7403afc7c864bd7c79e72f4a730955da359b3177d9",
+   "bytes": 3688
+  },
+  {
+   "path": "receipts/base_owner_service_finish.log.receipt.json",
+   "source": "base_owner_service_finish.log.receipt.json",
+   "sha256": "934cd5d960bcf298679098393507180791a93e1066fd4aedaf5b7ad9e6396943",
+   "bytes": 3257
+  },
+  {
+   "path": "receipts/basement_route.log.receipt.json",
+   "source": "basement_route.log.receipt.json",
+   "sha256": "365c02bff0e38b92667f45449a8b80f56c14fe4bb052a740072fd5c3af85caf6",
+   "bytes": 3190
+  },
+  {
+   "path": "receipts/before_lampoff.log.receipt.json",
+   "source": "before_lampoff.log.receipt.json",
+   "sha256": "5c1e94bc6ae79c5cbbb7f5e5086541f92334252df2cf252fbcd568a3d652b550",
+   "bytes": 3212
+  },
+  {
+   "path": "receipts/blockout.log.receipt.json",
+   "source": "blockout.log.receipt.json",
+   "sha256": "5eeedc223ba28ddd2d362024b89873f0c5b4231ebbe64adce213145e9866280c",
+   "bytes": 5886
+  },
+  {
+   "path": "receipts/boiler_route.log.receipt.json",
+   "source": "boiler_route.log.receipt.json",
+   "sha256": "e46574df6ceaee93395deae1d6ffb24137b642d2ebcf53f87417e68f45b980da",
+   "bytes": 3181
+  },
+  {
+   "path": "receipts/coal_delivery.log.receipt.json",
+   "source": "coal_delivery.log.receipt.json",
+   "sha256": "0b161aaa219e740ccbb737b4558c0b5802f857965d40e8da58d347b62807df0a",
+   "bytes": 3186
+  },
+  {
+   "path": "receipts/connected_world.log.receipt.json",
+   "source": "connected_world.log.receipt.json",
+   "sha256": "b69d9a63ed207f8e86c3f784072187ed87fea8eaadb05b27af1d2d66059622cf",
+   "bytes": 3194
+  },
+  {
+   "path": "receipts/elevator_route.log.receipt.json",
+   "source": "elevator_route.log.receipt.json",
+   "sha256": "9e46634e3e1430967eb4cae0595a52067dce371b034990c63ebb27ea681af6b0",
+   "bytes": 3190
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "1dfbd1887023dba2e1523803abf8b2eba62dac5d36707feae552ea163fba765b",
+   "bytes": 7501
+  },
+  {
+   "path": "receipts/first_upper_hall.log.receipt.json",
+   "source": "first_upper_hall.log.receipt.json",
+   "sha256": "7e056c76a9d10e667dee64985337926e336aa549bdfc4d3289db52d586dfa54d",
+   "bytes": 3208
+  },
+  {
+   "path": "receipts/golden_repair.log.receipt.json",
+   "source": "golden_repair.log.receipt.json",
+   "sha256": "1460fa4376dc5017c20d496cfaae3ebb1181c0f1c0319d8c32e184d834a28840",
+   "bytes": 3197
+  },
+  {
+   "path": "receipts/household_state.log.receipt.json",
+   "source": "household_state.log.receipt.json",
+   "sha256": "39f1a029455322a614e9dba99f307edaf0f72ebf694ca069e2e08a4d407af086",
+   "bytes": 3193
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "5d65dbea2cda3eeef28c6b98afe4eead592baa8c768464a01ed728109f01f567",
+   "bytes": 3139
+  },
+  {
+   "path": "receipts/import2.log.receipt.json",
+   "source": "import2.log.receipt.json",
+   "sha256": "9ea17db56a33aaca4eb8000c040d0a4b888a6c9e0f24dbfa0e0137007ffd1d80",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/integrated.log.receipt.json",
+   "source": "integrated.log.receipt.json",
+   "sha256": "74178eb27a362a4d5b313532d77a4b9c4f49fc1b7361ec1200aa62c7a197713a",
+   "bytes": 3943
+  },
+  {
+   "path": "receipts/m08e.log.receipt.json",
+   "source": "m08e.log.receipt.json",
+   "sha256": "e48baea014c1b3396cdd1a07e67cc3465c8ec442a35e98cc6182d1a4b0589664",
+   "bytes": 3677
+  },
+  {
+   "path": "receipts/resident_key.log.receipt.json",
+   "source": "resident_key.log.receipt.json",
+   "sha256": "94a21938a7868bc30c2e998f4386264afe60a8d65457d591b90119504a084725",
+   "bytes": 3252
+  },
+  {
+   "path": "receipts/switch_model.log.receipt.json",
+   "source": "switch_model.log.receipt.json",
+   "sha256": "99993d56d677a7e717620f3b5227ea8cc219731197d676136b2c7073ae44b6f3",
+   "bytes": 3175
+  },
+  {
+   "path": "receipts/upper_lighting.log.receipt.json",
+   "source": "upper_lighting.log.receipt.json",
+   "sha256": "bedd564538997d071a8cb536618d6a41734f506a6f6be074da9860b3295e02c5",
+   "bytes": 3190
+  },
+  {
+   "path": "receipts/vertical_route.log.receipt.json",
+   "source": "vertical_route.log.receipt.json",
+   "sha256": "ffb1686b231bd8232d95c72fc4a3f633e6fd5b870fd3157a628f6a0cf048b7de",
+   "bytes": 3190
+  },
+  {
+   "path": "receipts/base_owner_service_finish__batch.json",
+   "source": "base_owner_service_finish/batch.json",
+   "sha256": "411caa92a6019a7553a46abfd9fa9eae48e93c8332caf98f332842f9fffeab79",
+   "bytes": 9123
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "80703d0c21dd735021631629f8492fffc83194ae29ce7d3b1a592b8138e4eb3b",
+   "bytes": 17269
+  }
+ ]
+}

@@ -103,7 +103,7 @@ func validate(source: Variant, adapter: Variant) -> bool:
 	if not errors.is_empty():
 		return false
 	for record: Dictionary in source.fixtures:
-		if record.get("kind") not in ["lamp", "pendant_shade", "kitchen_linear", "flush_dome", "sconce_globe"] or record.get("properties") is not Dictionary:
+		if record.get("kind") not in ["lamp", "pendant_shade", "kitchen_linear", "flush_dome", "sconce_globe", "cage_bulb"] or record.get("properties") is not Dictionary:
 			errors.append("invalid fixture properties")
 			continue
 		if record.kind == "lamp":
