@@ -95,4 +95,24 @@ class Requirements(unittest.TestCase):
         data['materials']['material']['maps'].pop('normal_tex')
         self.assertTrue(evaluate(data)['findings'])
 
+    def test_derived_character_import_cache_does_not_change_qualification(self):
+        import v2_surface_evidence as evidence
+        original_glob=Path.glob
+        def with_derived_cache(folder,pattern):
+            yield from original_glob(folder,pattern)
+            if folder.name=='mina_vale' and pattern=='*.png.import':
+                yield folder/'ignored_surface_gate_probe.png.import'
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+            with patch.object(Path,'glob',with_derived_cache):
+                self.assertEqual(before,evidence.inputs()['sha256'])
+    def test_authored_shader_change_invalidates_qualification(self):
+        import v2_surface_evidence as evidence
+        with patch.object(evidence,'file_hash',return_value='source'):
+            before=evidence.inputs()['sha256']
+        def changed_shader(path):
+            return 'changed' if path.name=='lamp_glass_surface.gdshader' else 'source'
+        with patch.object(evidence,'file_hash',side_effect=changed_shader):
+            self.assertNotEqual(before,evidence.inputs()['sha256'])
+
 if __name__=='__main__':unittest.main()

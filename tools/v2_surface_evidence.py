@@ -43,8 +43,8 @@ def inputs(root=ROOT):
     sys.path.insert(0,str(root/'art/tools'))
     from fix_v2_mesh_imports import ASSETS as UV_IMPORTS
     imports.extend(root/'game/assets'/(asset+'.import') for asset in UV_IMPORTS)
-    imports.extend((root/'game/assets/characters/mina_vale').glob('*.png.import'))
-    imports.extend((root/'game/assets/ui/telegram').glob('*.png.import'))
+    imports.extend(p for p in (root/'game/assets/characters/mina_vale').glob('*.png.import') if p.relative_to(root).as_posix() in versioned)
+    imports.extend(p for p in (root/'game/assets/ui/telegram').glob('*.png.import') if p.relative_to(root).as_posix() in versioned)
     manifest=sorted([p.relative_to(root).as_posix(),file_hash(p)] for p in paths)
     for path in sorted(imports):
         text=path.read_text(encoding='utf-8').replace('\r\n','\n')
