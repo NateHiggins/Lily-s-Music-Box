@@ -40,8 +40,9 @@ All 283 recorded owner files remain byte-identical.
 
 REPORT - V2-ELECTRICAL-SERVICE - 2026-10-11
 
-Branch / HEAD / origin/main / merge-base: **main / source candidate pending /
-29d20095ff1e4abe0e132804f9c69fc4b13cc508 / pending**.
+Branch / HEAD / origin/main / merge-base: **main / 6233632aa4bc97805cfc918e6f2f617ebef78142 /
+29d20095ff1e4abe0e132804f9c69fc4b13cc508 /
+b73a8753615bcbdf4477f1a01ab989f1c08207bb**.
 
 Worktree clean: **no**, shared owner work preserved. Final gate comparison, ledger and clean source-candidate verification remain
 pending. Runtime and rendered details are archived in the packet below. Nothing in this report certifies the entire V2 build.
@@ -78,3 +79,22 @@ script errors; test-written receipt **113 checks, zero failures**, including
 real reconstruction and owned node/shape/audio retirement. The earlier
 source-bound receipt was stale after the new factory; it is replaced by this
 actual run, rather than carried forward by a report edit.
+
+Verified source candidate: **6233632aa4bc97805cfc918e6f2f617ebef78142**.
+Fresh clean-checkout verification against the recorded merge-base finds
+**zero regressions**, two programmed-service improvements, **17/17 protected
+paths unchanged**, selector **v2**, zero design-lint errors and zero blocking
+reasons. The verifier used **--no-godot** because the actual renewed runtime
+contracts above already establish their tested scope. No waiver is used.
+The 13 added manifest bindings were inspected; all existing records retain
+original values, order and serialization.
+
+The final ledger has **19 ABSENT, 120 PROGRAMMED, 63 SPATIALLY_PROVEN,
+34 RUNTIME_PROVEN, 3 SHELL_ONLY and 1 HUMAN_ACCEPTED** requirements. Scope
+blockers remain **0 / 1 / 127 / 35 / 144 / 146** in ledger scope order.
+Electrical service gains actual programmed construction; this report does
+not promote untested endpoints or whole-route/human acceptance.
+
+The packet's **verification** directory contains the complete independent
+verification and both boards. This final metadata commit changes no rendering
+inputs or runtime and needs no repeated Godot run.
