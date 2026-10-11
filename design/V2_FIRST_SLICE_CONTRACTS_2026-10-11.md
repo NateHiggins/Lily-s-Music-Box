@@ -13,8 +13,8 @@ consumer records register the new test's existing anchor/identity references;
 all older manifest records and thresholds remain unchanged. Two Git attributes
 preserve the hash-bound test source and receipt packet bytes in fresh checkouts.
 
-Final **runtime3.log.receipt.json**: completed headless long-runner execution,
-71 seconds, 113 checks, zero failures. The test itself writes schema-2
+Final **runtime4.log.receipt.json**: completed headless long-runner execution,
+79 seconds, 113 checks, zero failures. The test itself writes schema-2
 **runtime_authority_receipt.json**, with opening ritual, player-ray patrol,
 ordered service round, actual disk save/reconstruction and denial contracts.
 Both production worlds retire 105,221 tracked node observations, 70 tracked
@@ -43,4 +43,18 @@ world runtime obligations and prepare the complete environment for owner review.
 Human acceptance, full-building services/acoustics and V1 retirement remain open.
 Decision needed from owner: none for this batch.
 
-Fresh candidate verification will be appended after committing this delivery.
+The first fresh verification exposed raw CRLF/LF digest instability and two
+wall-clock review findings on test-only disk-duration variables. Runtime text
+digests now normalize CRLF to LF in the ledger and runner fallback. Actual text
+edits, additions and removals still invalidate receipts; asset/binary hashes
+remain byte-exact. A focused test verifies normalization and rejects changed
+content through both digest implementations. Timing variables are named as
+measurements; no world fact derives from them and no systemic baseline is waived.
+
+Historical capture-only smoke tests run against a read-only document fixture
+excluding this new executed checkpoint, retaining their negative assertions.
+A separate live assertion requires all seven current runtime proofs and an
+admissible executed receipt. The final contract was rerun under the normalized
+digest; earlier raw-digest receipts are historical, not current proof.
+
+Fresh candidate verification will be appended after committing the portability fix.

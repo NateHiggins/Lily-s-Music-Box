@@ -70,13 +70,15 @@ def sha256_file(path: Path) -> str:
 
 def runtime_inputs_sha256(root: Path) -> str:
     """Same algorithm as the ledger: canonical compact JSON of sorted
-    [posix_path, raw_bytes_sha256] pairs, UTF-8, ASCII-escaped."""
+    [posix_path, LF_normalized_text_sha256] pairs, UTF-8, ASCII-escaped."""
     ledger = _ledger_digest(root)
     if ledger is not None:
         return ledger
     paths = {path for pattern in RUNTIME_INPUT_GLOBS
              for path in root.glob(pattern) if path.is_file()}
-    manifest = sorted([path.relative_to(root).as_posix(), sha256_file(path)] for path in paths)
+    manifest = sorted([path.relative_to(root).as_posix(),
+                       hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()]
+                      for path in paths)
     encoded = json.dumps(manifest, separators=(",", ":"), ensure_ascii=True).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()
 

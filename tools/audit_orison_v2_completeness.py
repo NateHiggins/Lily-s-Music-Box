@@ -565,13 +565,15 @@ def runtime_inputs_sha256(root: Path) -> str:
     """Bind runtime proof to text inputs, including file additions/removals.
 
     Digest UTF-8 canonical JSON: sorted [relative_posix_path, file_sha256]
-    pairs with compact separators and no trailing newline. File hashes use
-    raw bytes. Texture/asset hashes remain separate visual evidence; this
+    pairs with compact separators and no trailing newline. Runtime text
+    hashes normalize CRLF to LF so Windows checkouts bind the same source.
+    Texture/asset hashes remain separate visual evidence; this
     digest does not claim to authenticate the appearance of the rendered game.
     """
     paths = {path for pattern in RUNTIME_INPUT_GLOBS
              for path in root.glob(pattern) if path.is_file()}
-    manifest = sorted([path.relative_to(root).as_posix(), sha256_file(path)]
+    manifest = sorted([path.relative_to(root).as_posix(),
+                       hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()]
                       for path in paths)
     encoded = json.dumps(manifest, separators=(",", ":"), ensure_ascii=True).encode("utf-8")
     return hashlib.sha256(encoded).hexdigest()

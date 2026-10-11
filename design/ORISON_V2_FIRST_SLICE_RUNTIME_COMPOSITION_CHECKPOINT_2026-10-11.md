@@ -7,7 +7,7 @@ The self-contained production test is
 **game/tests/orison_v2_first_slice_contract_test.gd**. Its test-written schema-2
 receipt is **art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json**.
 The receipt binds the root test source and current production runtime inputs.
-The wrapper **runtime3.log.receipt.json** confirms completed execution without
+The wrapper **runtime4.log.receipt.json** confirms completed execution without
 timeout. Final run: 113 checks, zero failures. An earlier parse-failed run is
 diagnostic only; it grants no proof.
 

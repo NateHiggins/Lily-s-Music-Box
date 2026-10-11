@@ -1180,7 +1180,27 @@ class LiveRepoSmokeTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.code, cls.payload, _ = run_payload(REPO_ROOT)
+        # Keep capture-only regression tests isolated from the new executed
+        # first-slice checkpoint. Copy documents read-only; never edit the repo.
+        cls.historical_design = tempfile.TemporaryDirectory()
+        cls.addClassCleanup(cls.historical_design.cleanup)
+        historical = Path(cls.historical_design.name)
+        for source in (REPO_ROOT / "design").glob("*"):
+            if source.is_file() and source.name != "ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md":
+                shutil.copy2(source, historical / source.name)
+        cls.code, cls.payload, _ = run_payload(REPO_ROOT, "--design-dir", str(historical))
+
+    def test_live_first_slice_current_checkpoint_has_executed_contracts(self):
+        code, current, _ = run_payload(REPO_ROOT)
+        self.assertEqual(code, 2)  # broader building remains incomplete
+        self.assertEqual(current["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"], [])
+        for rid in ("ritual.F01_WATCHMAN_DETECTOR", "ritual.F01_NIGHT_REGISTER",
+                    "ritual.F01_SIGNAL_REGISTER", "ritual.F01_TOUR_KEY_GUARD",
+                    "contract.B1_BOILER_01", "contract.F02_B_RADIATOR_01",
+                    "job.lena_radiator_round_2b"):
+            self.assertEqual(req(current, rid)["status"], "RUNTIME_PROVEN", rid)
+        receipt = json.loads((REPO_ROOT / "art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json").read_text(encoding="utf8"))
+        self.assertEqual(audit.runtime_receipt_errors(receipt, REPO_ROOT), [])
 
     M08D_TEN = {
         "ritual.F01_WATCHMAN_DETECTOR", "ritual.F01_NIGHT_REGISTER",
@@ -1219,6 +1239,7 @@ class LiveRepoSmokeTests(unittest.TestCase):
 
     def test_live_first_slice_does_not_claim_ready_from_captures(self):
         code, out, _ = run_main("--root", str(REPO_ROOT),
+                                "--design-dir", self.historical_design.name,
                                 "--blockers-for", "first-slice")
         self.assertEqual(code, 2)
         self.assertNotIn(

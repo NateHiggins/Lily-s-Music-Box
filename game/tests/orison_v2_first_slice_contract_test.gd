@@ -129,9 +129,9 @@ func _ready() -> void:
 	var old_path := RealityState.save_path
 	RealityState.save_path = save_path
 	RealityState.persistence_enabled = true
-	var save_started := Time.get_ticks_usec()
+	var disk_measurement_started := Time.get_ticks_usec()
 	var saved := RealityState.save_game()
-	var save_ms := float(Time.get_ticks_usec() - save_started) / 1000.0
+	var disk_measurement_ms := float(Time.get_ticks_usec() - disk_measurement_started) / 1000.0
 	var expected := world.work_orders.job_state(ServiceRoundDirector.JOB_ID).duplicate(true)
 	_track_retirement(world)
 	world.shutdown_for_tests()
@@ -161,7 +161,7 @@ func _ready() -> void:
 			== "F04_B_BED", "v2 wake uses explicit bedside-return contract")
 	_check_reconstruction(reconstructed)
 	print("[M08F PERF] cold_ms=%.3f compose_ms=%.3f save_ms=%.3f reconstruct_ms=%.3f nodes=%d collisions=%d cpu_ms=%.3f physics_ms=%.3f" % [
-			cold_ms, reconstructed.startup_ms, save_ms, reconstruct_ms,
+			cold_ms, reconstructed.startup_ms, disk_measurement_ms, reconstruct_ms,
 			_count_nodes(reconstructed), reconstructed.find_children(
 					"*", "CollisionObject3D", true, false).size(),
 			Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0,

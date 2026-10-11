@@ -7,6 +7,7 @@ import json
 import sys
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parents[1]
@@ -17,6 +18,18 @@ NL = chr(10)
 
 
 class ReceiptTests(unittest.TestCase):
+    def test_runtime_text_digest_survives_windows_checkout_but_rejects_content_change(self):
+        source = self.root / "game/scripts/a.gd"
+        source.write_bytes(b"extends Node\n# runtime owner\n")
+        digest = rr.runtime_inputs_sha256(self.root)
+        source.write_bytes(b"extends Node\r\n# runtime owner\r\n")
+        self.assertEqual(digest, rr.runtime_inputs_sha256(self.root))
+        with mock.patch.object(rr, "_ledger_digest", return_value=None):
+            self.assertEqual(digest, rr.runtime_inputs_sha256(self.root))
+            source.write_bytes(b"extends Node3D\r\n# runtime owner\r\n")
+            self.assertNotEqual(digest, rr.runtime_inputs_sha256(self.root))
+        self.assertNotEqual(digest, rr.runtime_inputs_sha256(self.root))
+
     def setUp(self):
         self.td = tempfile.TemporaryDirectory()
         self.root = Path(self.td.name)
