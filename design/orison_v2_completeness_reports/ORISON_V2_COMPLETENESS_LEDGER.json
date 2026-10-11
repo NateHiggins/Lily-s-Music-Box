@@ -5,18 +5,18 @@
   "by_status": {
    "ABSENT": 21,
    "HUMAN_ACCEPTED": 1,
-   "PROGRAMMED": 119,
-   "RUNTIME_PROVEN": 27,
+   "PROGRAMMED": 118,
+   "RUNTIME_PROVEN": 34,
    "SHELL_ONLY": 3,
-   "SPATIALLY_PROVEN": 69
+   "SPATIALLY_PROVEN": 63
   },
   "blockers_by_scope": {
-   "FIRST_SLICE_TECHNICAL": 7,
-   "GOLDEN_SHIFT_V2": 8,
+   "FIRST_SLICE_TECHNICAL": 0,
+   "GOLDEN_SHIFT_V2": 1,
    "FULL_BUILDING_STRUCTURAL": 127,
-   "FULL_BUILDING_RUNTIME": 42,
-   "PRODUCTION_CUTOVER": 151,
-   "V1_RETIREMENT": 153
+   "FULL_BUILDING_RUNTIME": 35,
+   "PRODUCTION_CUTOVER": 144,
+   "V1_RETIREMENT": 146
   },
   "v1_fallbacks": 2,
   "heuristic_conclusions": 117,
@@ -388,7 +388,7 @@
    "scope": {
     "identity": "F01_WATCHMAN_DETECTOR"
    },
-   "status": "SPATIALLY_PROVEN",
+   "status": "RUNTIME_PROVEN",
    "required_proof": "RUNTIME_PROVEN",
    "temporary_v1_fallback": false,
    "fallback_kind": null,
@@ -396,19 +396,21 @@
    "heuristic": false,
    "provenance": [
     "v2:F01_WATCHMAN_DETECTOR",
+    "checkpoint:art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+    "checkpoint:design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
     "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
     "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
     "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
    ],
    "notes": "",
-   "blocking_scopes": [
+   "blocking_scopes": [],
+   "complete_for_scopes": [
     "FIRST_SLICE_TECHNICAL",
     "GOLDEN_SHIFT_V2",
     "FULL_BUILDING_RUNTIME",
     "PRODUCTION_CUTOVER",
     "V1_RETIREMENT"
-   ],
-   "complete_for_scopes": []
+   ]
   },
   {
    "id": "ritual.F01_NIGHT_REGISTER",
@@ -416,7 +418,7 @@
    "scope": {
     "identity": "F01_NIGHT_REGISTER"
    },
-   "status": "SPATIALLY_PROVEN",
+   "status": "RUNTIME_PROVEN",
    "required_proof": "RUNTIME_PROVEN",
    "temporary_v1_fallback": false,
    "fallback_kind": null,
@@ -424,19 +426,21 @@
    "heuristic": false,
    "provenance": [
     "v2:F01_NIGHT_REGISTER",
+    "checkpoint:art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+    "checkpoint:design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
     "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
     "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
     "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
    ],
    "notes": "",
-   "blocking_scopes": [
+   "blocking_scopes": [],
+   "complete_for_scopes": [
     "FIRST_SLICE_TECHNICAL",
     "GOLDEN_SHIFT_V2",
     "FULL_BUILDING_RUNTIME",
     "PRODUCTION_CUTOVER",
     "V1_RETIREMENT"
-   ],
-   "complete_for_scopes": []
+   ]
   },
   {
    "id": "ritual.F01_SIGNAL_REGISTER",
@@ -444,7 +448,7 @@
    "scope": {
     "identity": "F01_SIGNAL_REGISTER"
    },
-   "status": "SPATIALLY_PROVEN",
+   "status": "RUNTIME_PROVEN",
    "required_proof": "RUNTIME_PROVEN",
    "temporary_v1_fallback": false,
    "fallback_kind": null,
@@ -452,19 +456,21 @@
    "heuristic": false,
    "provenance": [
     "v2:F01_SIGNAL_REGISTER",
+    "checkpoint:art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+    "checkpoint:design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
     "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
     "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
     "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
    ],
    "notes": "",
-   "blocking_scopes": [
+   "blocking_scopes": [],
+   "complete_for_scopes": [
     "FIRST_SLICE_TECHNICAL",
     "GOLDEN_SHIFT_V2",
     "FULL_BUILDING_RUNTIME",
     "PRODUCTION_CUTOVER",
     "V1_RETIREMENT"
-   ],
-   "complete_for_scopes": []
+   ]
   },
   {
    "id": "ritual.F01_TOUR_KEY_GUARD",
@@ -472,7 +478,7 @@
    "scope": {
     "identity": "F01_TOUR_KEY_GUARD"
    },
-   "status": "SPATIALLY_PROVEN",
+   "status": "RUNTIME_PROVEN",
    "required_proof": "RUNTIME_PROVEN",
    "temporary_v1_fallback": false,
    "fallback_kind": null,
@@ -480,19 +486,21 @@
    "heuristic": false,
    "provenance": [
     "v2:F01_TOUR_KEY_GUARD",
+    "checkpoint:art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+    "checkpoint:design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
     "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
     "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md",
     "blocker:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md (build and accept the F01 ritual desk identities before cutover)"
    ],
    "notes": "",
-   "blocking_scopes": [
+   "blocking_scopes": [],
+   "complete_for_scopes": [
     "FIRST_SLICE_TECHNICAL",
     "GOLDEN_SHIFT_V2",
     "FULL_BUILDING_RUNTIME",
     "PRODUCTION_CUTOVER",
     "V1_RETIREMENT"
-   ],
-   "complete_for_scopes": []
+   ]
   },
   {
    "id": "circ.F02.public_landing",
@@ -5171,7 +5179,7 @@
    "scope": {
     "identity": "B1_BOILER_01"
    },
-   "status": "SPATIALLY_PROVEN",
+   "status": "RUNTIME_PROVEN",
    "required_proof": "RUNTIME_PROVEN",
    "temporary_v1_fallback": false,
    "fallback_kind": null,
@@ -5180,18 +5188,20 @@
    "provenance": [
     "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
     "v2:B1_BOILER_01",
+    "checkpoint:art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+    "checkpoint:design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
     "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
     "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md"
    ],
    "notes": "",
-   "blocking_scopes": [
+   "blocking_scopes": [],
+   "complete_for_scopes": [
     "FIRST_SLICE_TECHNICAL",
     "GOLDEN_SHIFT_V2",
     "FULL_BUILDING_RUNTIME",
     "PRODUCTION_CUTOVER",
     "V1_RETIREMENT"
-   ],
-   "complete_for_scopes": []
+   ]
   },
   {
    "id": "contract.F01_DOOR_06",
@@ -5330,7 +5340,7 @@
    "scope": {
     "identity": "F02_B_RADIATOR_01"
    },
-   "status": "SPATIALLY_PROVEN",
+   "status": "RUNTIME_PROVEN",
    "required_proof": "RUNTIME_PROVEN",
    "temporary_v1_fallback": false,
    "fallback_kind": null,
@@ -5339,18 +5349,20 @@
    "provenance": [
     "contract:design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md",
     "v2:F02_B_RADIATOR_01",
+    "checkpoint:art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+    "checkpoint:design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
     "checkpoint:design/ORISON_V2_M08E_SPATIAL_OWNERS_CHECKPOINT_2026-08-28.md",
     "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md"
    ],
    "notes": "",
-   "blocking_scopes": [
+   "blocking_scopes": [],
+   "complete_for_scopes": [
     "FIRST_SLICE_TECHNICAL",
     "GOLDEN_SHIFT_V2",
     "FULL_BUILDING_RUNTIME",
     "PRODUCTION_CUTOVER",
     "V1_RETIREMENT"
-   ],
-   "complete_for_scopes": []
+   ]
   },
   {
    "id": "contract.F02_DOOR_02",
@@ -5658,6 +5670,8 @@
     "v2:LobbyPorterBoard",
     "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
     "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+    "checkpoint:design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
     "checkpoint:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
     "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md"
    ],
@@ -5707,7 +5721,7 @@
      "B1_BOILER_01"
     ]
    },
-   "status": "PROGRAMMED",
+   "status": "RUNTIME_PROVEN",
    "required_proof": "RUNTIME_PROVEN",
    "temporary_v1_fallback": false,
    "fallback_kind": null,
@@ -5717,14 +5731,14 @@
     "data:game/data/maintenance_jobs.json"
    ],
    "notes": "",
-   "blocking_scopes": [
+   "blocking_scopes": [],
+   "complete_for_scopes": [
     "FIRST_SLICE_TECHNICAL",
     "GOLDEN_SHIFT_V2",
     "FULL_BUILDING_RUNTIME",
     "PRODUCTION_CUTOVER",
     "V1_RETIREMENT"
-   ],
-   "complete_for_scopes": []
+   ]
   },
   {
    "id": "job.vantry_chirp_2a",
@@ -6132,6 +6146,8 @@
    "provenance": [
     "adapter:game/scripts/building/orison_v2_anchor_adapter.gd REQUIRED",
     "checkpoint:M08D twelve-anchor census + adapter REQUIRED",
+    "checkpoint:art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json",
+    "checkpoint:design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
     "checkpoint:design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
     "checkpoint:design/ORISON_V2_M08F_RUNTIME_COMPOSITION_CHECKPOINT_2026-08-28.md"
    ],
@@ -6376,23 +6392,8 @@
   }
  ],
  "blockers_by_scope": {
-  "FIRST_SLICE_TECHNICAL": [
-   "ritual.F01_WATCHMAN_DETECTOR",
-   "ritual.F01_NIGHT_REGISTER",
-   "ritual.F01_SIGNAL_REGISTER",
-   "ritual.F01_TOUR_KEY_GUARD",
-   "contract.B1_BOILER_01",
-   "contract.F02_B_RADIATOR_01",
-   "job.lena_radiator_round_2b"
-  ],
+  "FIRST_SLICE_TECHNICAL": [],
   "GOLDEN_SHIFT_V2": [
-   "ritual.F01_WATCHMAN_DETECTOR",
-   "ritual.F01_NIGHT_REGISTER",
-   "ritual.F01_SIGNAL_REGISTER",
-   "ritual.F01_TOUR_KEY_GUARD",
-   "contract.B1_BOILER_01",
-   "contract.F02_B_RADIATOR_01",
-   "job.lena_radiator_round_2b",
    "golden.eleven_beats"
   ],
   "FULL_BUILDING_STRUCTURAL": [
@@ -6532,10 +6533,6 @@
    "f01.parcel_package",
    "f01.common_room",
    "f01.staff_restroom",
-   "ritual.F01_WATCHMAN_DETECTOR",
-   "ritual.F01_NIGHT_REGISTER",
-   "ritual.F01_SIGNAL_REGISTER",
-   "ritual.F01_TOUR_KEY_GUARD",
    "unit.2A",
    "unit.3A",
    "unit.3B",
@@ -6554,17 +6551,14 @@
    "service.service_lift",
    "service.electrical_riser",
    "service.fire_service",
-   "contract.B1_BOILER_01",
    "contract.F01_LOBBY",
    "contract.F02_A_MAIN",
-   "contract.F02_B_RADIATOR_01",
    "contract.F04_B_ALCOVE",
    "contract.F04_B_BATH",
    "contract.F04_B_CLOSET",
    "contract.F04_B_KITCHEN",
    "contract.F04_B_MAIN",
    "contract.F04_B_VESTIBULE",
-   "job.lena_radiator_round_2b",
    "acoustic.v2_rederivation",
    "save.unit_rect_facts"
   ],
@@ -6582,10 +6576,6 @@
    "f01.parcel_package",
    "f01.common_room",
    "f01.staff_restroom",
-   "ritual.F01_WATCHMAN_DETECTOR",
-   "ritual.F01_NIGHT_REGISTER",
-   "ritual.F01_SIGNAL_REGISTER",
-   "ritual.F01_TOUR_KEY_GUARD",
    "circ.F02.public_landing",
    "circ.F02.public_core",
    "circ.F02.service_core",
@@ -6704,17 +6694,14 @@
    "service.service_lift",
    "service.electrical_riser",
    "service.fire_service",
-   "contract.B1_BOILER_01",
    "contract.F01_LOBBY",
    "contract.F02_A_MAIN",
-   "contract.F02_B_RADIATOR_01",
    "contract.F04_B_ALCOVE",
    "contract.F04_B_BATH",
    "contract.F04_B_CLOSET",
    "contract.F04_B_KITCHEN",
    "contract.F04_B_MAIN",
    "contract.F04_B_VESTIBULE",
-   "job.lena_radiator_round_2b",
    "acoustic.v2_rederivation",
    "save.unit_rect_facts",
    "evidence.whole_building_stations",
@@ -6735,10 +6722,6 @@
    "f01.parcel_package",
    "f01.common_room",
    "f01.staff_restroom",
-   "ritual.F01_WATCHMAN_DETECTOR",
-   "ritual.F01_NIGHT_REGISTER",
-   "ritual.F01_SIGNAL_REGISTER",
-   "ritual.F01_TOUR_KEY_GUARD",
    "circ.F02.public_landing",
    "circ.F02.public_core",
    "circ.F02.service_core",
@@ -6857,17 +6840,14 @@
    "service.service_lift",
    "service.electrical_riser",
    "service.fire_service",
-   "contract.B1_BOILER_01",
    "contract.F01_LOBBY",
    "contract.F02_A_MAIN",
-   "contract.F02_B_RADIATOR_01",
    "contract.F04_B_ALCOVE",
    "contract.F04_B_BATH",
    "contract.F04_B_CLOSET",
    "contract.F04_B_KITCHEN",
    "contract.F04_B_MAIN",
    "contract.F04_B_VESTIBULE",
-   "job.lena_radiator_round_2b",
    "acoustic.v2_rederivation",
    "save.bedside_return",
    "save.unit_rect_facts",
@@ -7110,6 +7090,13 @@
  "evidence_conflicts": [
   {
    "token": "B1_BOILER_01",
+   "source": "design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
+   "epoch": 2,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
+  },
+  {
+   "token": "B1_BOILER_01",
    "source": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
    "epoch": 6,
    "negative_epoch": 6,
@@ -7124,6 +7111,13 @@
   },
   {
    "token": "F01_NIGHT_REGISTER",
+   "source": "design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
+   "epoch": 2,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
+  },
+  {
+   "token": "F01_NIGHT_REGISTER",
    "source": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
    "epoch": 6,
    "negative_epoch": 6,
@@ -7138,6 +7132,13 @@
   },
   {
    "token": "F01_SIGNAL_REGISTER",
+   "source": "design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
+   "epoch": 2,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
+  },
+  {
+   "token": "F01_SIGNAL_REGISTER",
    "source": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
    "epoch": 6,
    "negative_epoch": 6,
@@ -7152,6 +7153,13 @@
   },
   {
    "token": "F01_TOUR_KEY_GUARD",
+   "source": "design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
+   "epoch": 2,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
+  },
+  {
+   "token": "F01_TOUR_KEY_GUARD",
    "source": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
    "epoch": 6,
    "negative_epoch": 6,
@@ -7166,6 +7174,13 @@
   },
   {
    "token": "F01_WATCHMAN_DETECTOR",
+   "source": "design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
+   "epoch": 2,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
+  },
+  {
+   "token": "F01_WATCHMAN_DETECTOR",
    "source": "design/ORISON_V2_M08D_RUNTIME_PARITY_CHECKPOINT_2026-08-28.md",
    "epoch": 6,
    "negative_epoch": 6,
@@ -7177,6 +7192,13 @@
    "epoch": 9,
    "negative_epoch": -1,
    "note": "composition claim without a passing runtime authority receipt covering this identity"
+  },
+  {
+   "token": "F02_B_RADIATOR_01",
+   "source": "design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
+   "epoch": 2,
+   "negative_epoch": 6,
+   "note": "mention suppressed by same-era or later statement of absence"
   },
   {
    "token": "F02_B_RADIATOR_01",
@@ -8946,126 +8968,15 @@
     "V1_RETIREMENT"
    ],
    "complete_for_scopes": []
-  },
-  {
-   "id": "job.lena_radiator_round_2b",
-   "dimension": "15 jobs and case routes",
-   "scope": {
-    "job": "lena_radiator_round_2b",
-    "unit": "2B",
-    "anchors": [
-     "F02_B_RADIATOR_01",
-     "LobbyPorterBoard",
-     "B1_BOILER_01"
-    ]
-   },
-   "status": "PROGRAMMED",
-   "required_proof": "RUNTIME_PROVEN",
-   "temporary_v1_fallback": false,
-   "fallback_kind": null,
-   "blocked_by": [],
-   "heuristic": true,
-   "provenance": [
-    "data:game/data/maintenance_jobs.json"
-   ],
-   "notes": "",
-   "blocking_scopes": [
-    "FIRST_SLICE_TECHNICAL",
-    "GOLDEN_SHIFT_V2",
-    "FULL_BUILDING_RUNTIME",
-    "PRODUCTION_CUTOVER",
-    "V1_RETIREMENT"
-   ],
-   "complete_for_scopes": []
   }
  ],
  "queue": [
-  {
-   "id": "M08E-f01-rituals-2b-b1",
-   "scope": "Build and spatially prove the F01 ritual desk spaces/identities, apartment 2B, and the B1 service route (boiler endpoint) in the v2 schema.",
-   "prerequisite": "M08D runtime-parity checkpoint (done)",
-   "outstanding": [
-    "ritual.F01_NIGHT_REGISTER",
-    "ritual.F01_SIGNAL_REGISTER",
-    "ritual.F01_TOUR_KEY_GUARD",
-    "ritual.F01_WATCHMAN_DETECTOR"
-   ],
-   "blocked_consumers": [
-    "FirstShiftDirector",
-    "ServiceRoundDirector",
-    "NightRegister",
-    "WatchStationNetwork",
-    "lena_radiator_round_2b"
-   ],
-   "required_ids": [
-    "F01_WATCHMAN_DETECTOR",
-    "F01_NIGHT_REGISTER",
-    "F01_SIGNAL_REGISTER",
-    "F01_TOUR_KEY_GUARD",
-    "B1_BOILER_01",
-    "F02_B_RADIATOR_01",
-    "LobbyPorterBoard",
-    "2B unit spaces"
-   ],
-   "automated_proof": "extended OrisonV2BlockoutTest census + clearance stations; drift-clean spatial dependency audit",
-   "human_evidence": "graybox route-readability frames for the new spaces; owner acceptance JSON",
-   "files_change": [
-    "game/data/orison_v2_blockout.json",
-    "game/scripts/building/orison_v2_*.gd",
-    "game/tests/orison_v2_*",
-    "design/ORISON_V2_M08E_*"
-   ],
-   "files_forbidden": [
-    "game/data/building_layout.json",
-    "art/data/*",
-    "game/scenes/building/orison_root.tscn",
-    "game/scripts/game/reality_game_state.gd",
-    "BuildingRootSelector.DEFAULT_ID"
-   ],
-   "exit": "All four ritual identities, unit 2B and the B1 boiler endpoint resolve uniquely in v2 with SPATIALLY_PROVEN status."
-  },
-  {
-   "id": "M08F-runtime-composition-of-m08e",
-   "scope": "Compose and runtime-prove the M08E spaces: first shift ritual, service round and night register under the v2 runtime root; authority census 1:1.",
-   "prerequisite": "M08E-f01-rituals-2b-b1",
-   "outstanding": [
-    "contract.B1_BOILER_01",
-    "contract.F02_B_RADIATOR_01",
-    "job.lena_radiator_round_2b"
-   ],
-   "blocked_consumers": [
-    "golden shift beats 1-3",
-    "service round proof"
-   ],
-   "required_ids": [
-    "B1_BOILER_01",
-    "F02_B_RADIATOR_01",
-    "LobbyPorterBoard",
-    "F01_WATCHMAN_DETECTOR",
-    "F01_NIGHT_REGISTER",
-    "F01_SIGNAL_REGISTER",
-    "F01_TOUR_KEY_GUARD"
-   ],
-   "automated_proof": "two-root matrix extension covering first shift + service round; save round trip",
-   "human_evidence": "none new (runtime milestone)",
-   "files_change": [
-    "game/scripts/building/orison_v2_runtime_root.gd",
-    "game/tests/orison_v2_*"
-   ],
-   "files_forbidden": [
-    "game/scripts/game/work_orders.gd",
-    "game/data/maintenance_jobs.json",
-    "BuildingRootSelector.DEFAULT_ID"
-   ],
-   "exit": "M08D authority census reports 1:1 for FirstShiftDirector and ServiceRoundDirector under explicit v2 selection.  FIRST_SLICE_TECHNICAL clean - production cutover NOT implied."
-  },
   {
    "id": "M10-golden-shift-v2",
    "scope": "Author and human-run the eleven golden-shift beats under EXPLICIT v2 selection (K3 matrix); v1 stays the production default throughout.",
    "prerequisite": "M08F-runtime-composition-of-m08e",
    "outstanding": [
-    "golden.eleven_beats",
-    "job.lena_radiator_round_2b"
+    "golden.eleven_beats"
    ],
    "blocked_consumers": [
     "K3 save/reload human matrix"
@@ -9292,17 +9203,14 @@
    "scope": "Whole-building runtime consumer and save matrix: every job, case, interaction, resident, wake and organism fact resolves and reconstructs under explicit v2 selection.",
    "prerequisite": "M12-apartments-by-case-dependency + M14-service-topology-and-acoustics",
    "outstanding": [
-    "contract.B1_BOILER_01",
     "contract.F01_LOBBY",
     "contract.F02_A_MAIN",
-    "contract.F02_B_RADIATOR_01",
     "contract.F04_B_ALCOVE",
     "contract.F04_B_BATH",
     "contract.F04_B_CLOSET",
     "contract.F04_B_KITCHEN",
     "contract.F04_B_MAIN",
     "contract.F04_B_VESTIBULE",
-    "job.lena_radiator_round_2b",
     "save.unit_rect_facts"
    ],
    "blocked_consumers": [
@@ -9382,10 +9290,8 @@
     "circ.F06.public_landing",
     "circ.F06.service_core",
     "circ.F06.service_route",
-    "contract.B1_BOILER_01",
     "contract.F01_LOBBY",
     "contract.F02_A_MAIN",
-    "contract.F02_B_RADIATOR_01",
     "contract.F04_B_ALCOVE",
     "contract.F04_B_BATH",
     "contract.F04_B_CLOSET",
@@ -9409,17 +9315,12 @@
     "floor.ROOF",
     "golden.eleven_beats",
     "human.whole_building_navigation",
-    "job.lena_radiator_round_2b",
     "region.arcade_hall",
     "region.arcade_portal",
     "region.arcade_throat",
     "region.construction_seam",
     "region.shops",
     "region.street",
-    "ritual.F01_NIGHT_REGISTER",
-    "ritual.F01_SIGNAL_REGISTER",
-    "ritual.F01_TOUR_KEY_GUARD",
-    "ritual.F01_WATCHMAN_DETECTOR",
     "roof.roof_bulkhead",
     "roof.tank_machinery",
     "save.unit_rect_facts",
@@ -9575,10 +9476,8 @@
     "circ.F06.public_landing",
     "circ.F06.service_core",
     "circ.F06.service_route",
-    "contract.B1_BOILER_01",
     "contract.F01_LOBBY",
     "contract.F02_A_MAIN",
-    "contract.F02_B_RADIATOR_01",
     "contract.F04_B_ALCOVE",
     "contract.F04_B_BATH",
     "contract.F04_B_CLOSET",
@@ -9602,7 +9501,6 @@
     "floor.ROOF",
     "golden.eleven_beats",
     "human.whole_building_navigation",
-    "job.lena_radiator_round_2b",
     "region.arcade_hall",
     "region.arcade_portal",
     "region.arcade_throat",
@@ -9610,10 +9508,6 @@
     "region.shops",
     "region.street",
     "retirement.authorization",
-    "ritual.F01_NIGHT_REGISTER",
-    "ritual.F01_SIGNAL_REGISTER",
-    "ritual.F01_TOUR_KEY_GUARD",
-    "ritual.F01_WATCHMAN_DETECTOR",
     "roof.roof_bulkhead",
     "roof.tank_machinery",
     "save.bedside_return",
@@ -9738,6 +9632,11 @@
    },
    {
     "file": "design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
+   {
+    "file": "design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
     "marker": "CHECKPOINT",
     "epoch": 2
    },
@@ -9975,6 +9874,38 @@
    },
    {
     "file": "design/ORISON_V2_MINA_MAIL_DOOR_PROGRESS_2026-10-03.md",
+    "reason": "not a checkpoint or acceptance receipt"
+   },
+   {
+    "file": "design/ORISON_V2_OWNER_BAR_FURNITURE_2026-10-08.md",
+    "reason": "not a checkpoint or acceptance receipt"
+   },
+   {
+    "file": "design/ORISON_V2_OWNER_BAR_RECEIVING_2026-10-08.md",
+    "reason": "not a checkpoint or acceptance receipt"
+   },
+   {
+    "file": "design/ORISON_V2_OWNER_BAR_SUPPLY_2026-10-08.md",
+    "reason": "not a checkpoint or acceptance receipt"
+   },
+   {
+    "file": "design/ORISON_V2_OWNER_BUILDING_FINISHES_2026-10-08.md",
+    "reason": "not a checkpoint or acceptance receipt"
+   },
+   {
+    "file": "design/ORISON_V2_OWNER_CLOTH_SHOPS_2026-10-08.md",
+    "reason": "not a checkpoint or acceptance receipt"
+   },
+   {
+    "file": "design/ORISON_V2_OWNER_HOUSEHOLD_FINISHES_2026-10-08.md",
+    "reason": "not a checkpoint or acceptance receipt"
+   },
+   {
+    "file": "design/ORISON_V2_OWNER_IMPROVEMENT_BATCH_2026-10-08.md",
+    "reason": "not a checkpoint or acceptance receipt"
+   },
+   {
+    "file": "design/ORISON_V2_OWNER_SIGNAGE_2026-10-08.md",
     "reason": "not a checkpoint or acceptance receipt"
    },
    {
@@ -10325,13 +10256,14 @@
  },
  "provenance": {
   "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-  "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
-  "tools/orison_spatial_dependency_manifest.json": "045d3b92c2b7745705df3f53a69a895bd2303df079ffefb904323d48adbb6850",
+  "game/data/orison_v2_blockout.json": "f651287aa38745eecae0f2be9149c0533131f64620b9d608d3c720126988b2f5",
+  "tools/orison_spatial_dependency_manifest.json": "41c628fa40a784dd5f5fa92c7414a6bcc7475590b54e002f3adc4e7c108abcb3",
   "design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json": "0681e59ad90e631ec9fa0f68a8ddb1afa5a06268de6f5540d09a6c05df055532",
   "design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md": "d4758366076e3309187d5d121112ef1ec888c4e78f2241146685bb229cedb572",
   "design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md": "6bbb9e719408adc992e0a0eef9576edd941f458c85c8b2abc3746236cb3e9154",
   "design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md": "9b1cf53b753d9ff21922e879c60c24f015d7abd34789ef69931c7bd78f2870b6",
   "design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md": "7becd4429dd05f0f87c91943f7f6df29948ceb77d81f2a21b7cb72590082c784",
+  "design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md": "7953f088b13ad9bf3834ddab519e9a91d1ac0932e02e24dacebc9755c63d3343",
   "design/ORISON_V2_FLOOR_LANDING_REHEARSAL_CHECKPOINT_2026-08-29.md": "33e53eac6ec02a7caa267ac69cf748877156f6c216ea15583c8a519ebd89774c",
   "design/ORISON_V2_M08_INTEGRATED_FIRST_SLICE_CHECKPOINT_2026-08-28.md": "358e82f0d9e17e835751240b9ace871c472aa0799e51868b61b58371c31225e4",
   "design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md": "aaadce2c9f8e38a1551ecda7e7daeb04872b4d66aab4a3a2f7cd5e95b0188b14",
@@ -10355,7 +10287,7 @@
   "design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md": "f8660762823f186550eacdde2771d7ae11c02ef62a6d3ea3055a7fd6b6a0dc01",
   "design/ORISON_V2_VERTICAL_CORE_CHECKPOINT_2026-08-28.md": "83cff9b36fd379d2bb50d60306e87c5c9f3ef701aa0c2a7326d34792241bd975",
   "design/ORISON_REBUILD_MIGRATION_CONTRACT_2026-08-28.md": "534567ba02295ef717bfaa798965c4ce7623c973af1312e022327702cf54dbb5",
-  "game/scripts/building/orison_v2_anchor_adapter.gd": "59a544e60c3b47514b009dbade4b3a159c6e84a11b5177c7b4d7346741e3c70a",
+  "game/scripts/building/orison_v2_anchor_adapter.gd": "aa4ca52d40177163df6e65cb22acf8ee4eb6906ad6f850f251185e12d948e34a",
   "art/renders/orison_v2/f04_4b_checkpoint_02/scene_capture_receipt.json": "544bb75d35a73c4f5f91cae9b86232c5e80c76a33e8b936a2db98b71a0085282",
   "art/renders/orison_v2/m08_integrated_checkpoint_01/scene_capture_receipt.json": "f0c1cb99fd4d1f593f0a94c15d4f41ce7c6afd8021b9c69c2fe181525c6f8ef1",
   "art/renders/orison_v2/m08a_readability_checkpoint_04/scene_capture_receipt.json": "e8f73826954a48f27807e30ecf1ec2c4a8f408e0a4857db1304328505ba6aa2d",
@@ -10380,6 +10312,8 @@
   "art/renders/orison_v2/druggist_drawers_20261006/runtime_authority_receipt.json": "3016eefb0ed94bee31a3f64de07b4be2561ebd284957e1b28b7ac382e8eebe4c",
   "art/renders/orison_v2/druggist_fountain_20261006/runtime_authority_receipt.json": "40fa6d272f8710c64f7ed3c5ad16dc790446058075285ebdd342aa1e06c5bdd1",
   "art/renders/orison_v2/druggist_mortar_20261006/runtime_authority_receipt.json": "66817e7b0a6967e1ee7c4d6b91afb4b254e62b21edcdc22fc318214ef98c4531",
+  "game/tests/orison_v2_first_slice_contract_test.gd": "0ca580f3d064b09a8a506fae82371d0862ea3a80eecaec2c2d7d1368be2707a1",
+  "art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json": "6d250325983e714157eed89ac6ee44f062b0057f4252a272b5cc61efd9b6e4e3",
   "art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json": "5e26f5379b290c589bbbc966b42753a66475eb1c7733d4efd03f3039f4b506ee",
   "art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json": "1b8f798a90ac6c81f8c2a12fe0ce34e7784ff8c9fe6ab70b5059198ee0cbbad6",
   "art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json": "8e0fad1ed7845bf410bd58421d84222c8e6cf4b32a017feafe17de24dadd1143",

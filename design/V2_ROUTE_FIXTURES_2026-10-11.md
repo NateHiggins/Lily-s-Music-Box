@@ -39,4 +39,12 @@ Ledger blockers remain **0/1/127/35/144/146**. Broad V2 completion, human review
 services and acoustics remain open. Decision needed from owner: none.
 
 Packet: **art/renders/orison_v2/route_fixtures_20261011**.
-Fresh candidate verification will be appended after the implementation commit.
+Fresh verification: **a64b8f87** against **d62ef031**, clean fresh checkout,
+53 gates, zero regressions, no changed gate files, 17/17 protected paths
+unchanged, selector V2 and zero lint errors. Requirement statuses are unchanged;
+the first-slice technical scope remains clean. **verification.json** archives
+the result. Fresh verification reuses the two completed bound runtime suites
+with **--no-godot**; unchanged production visuals need no recapture.
+The generated completeness ledger is refreshed to these current statuses.
+
+MERGE-CANDIDATE a64b8f87a1a176b50df064d928c77523e7d43fb0

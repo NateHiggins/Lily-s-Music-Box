@@ -5,8 +5,8 @@ Evidence class: **INERT**
 | Metric | Value |
 | --- | --- |
 | requirements | 240 |
-| by_status | ABSENT=21, HUMAN_ACCEPTED=1, PROGRAMMED=119, RUNTIME_PROVEN=27, SHELL_ONLY=3, SPATIALLY_PROVEN=69 |
-| blockers_by_scope | FIRST_SLICE_TECHNICAL=7, GOLDEN_SHIFT_V2=8, FULL_BUILDING_STRUCTURAL=127, FULL_BUILDING_RUNTIME=42, PRODUCTION_CUTOVER=151, V1_RETIREMENT=153 |
+| by_status | ABSENT=21, HUMAN_ACCEPTED=1, PROGRAMMED=118, RUNTIME_PROVEN=34, SHELL_ONLY=3, SPATIALLY_PROVEN=63 |
+| blockers_by_scope | FIRST_SLICE_TECHNICAL=0, GOLDEN_SHIFT_V2=1, FULL_BUILDING_STRUCTURAL=127, FULL_BUILDING_RUNTIME=35, PRODUCTION_CUTOVER=144, V1_RETIREMENT=146 |
 | v1_fallbacks | 2 |
 | heuristic_conclusions | 117 |
 | anchor_only_findings | 0 |
@@ -14,22 +14,8 @@ Evidence class: **INERT**
 
 ## Blockers by readiness scope
 
-- **FIRST_SLICE_TECHNICAL**: 7
-  - ritual.F01_WATCHMAN_DETECTOR
-  - ritual.F01_NIGHT_REGISTER
-  - ritual.F01_SIGNAL_REGISTER
-  - ritual.F01_TOUR_KEY_GUARD
-  - contract.B1_BOILER_01
-  - contract.F02_B_RADIATOR_01
-  - job.lena_radiator_round_2b
-- **GOLDEN_SHIFT_V2**: 8
-  - ritual.F01_WATCHMAN_DETECTOR
-  - ritual.F01_NIGHT_REGISTER
-  - ritual.F01_SIGNAL_REGISTER
-  - ritual.F01_TOUR_KEY_GUARD
-  - contract.B1_BOILER_01
-  - contract.F02_B_RADIATOR_01
-  - job.lena_radiator_round_2b
+- **FIRST_SLICE_TECHNICAL**: 0
+- **GOLDEN_SHIFT_V2**: 1
   - golden.eleven_beats
 - **FULL_BUILDING_STRUCTURAL**: 127
   - region.street
@@ -73,7 +59,7 @@ Evidence class: **INERT**
   - unit.2A.cooking
   - unit.2A.sanitary
   - ... 87 more
-- **FULL_BUILDING_RUNTIME**: 42
+- **FULL_BUILDING_RUNTIME**: 35
   - f01.street_vestibule
   - f01.lobby
   - f01.watch_station
@@ -81,10 +67,6 @@ Evidence class: **INERT**
   - f01.parcel_package
   - f01.common_room
   - f01.staff_restroom
-  - ritual.F01_WATCHMAN_DETECTOR
-  - ritual.F01_NIGHT_REGISTER
-  - ritual.F01_SIGNAL_REGISTER
-  - ritual.F01_TOUR_KEY_GUARD
   - unit.2A
   - unit.3A
   - unit.3B
@@ -103,19 +85,17 @@ Evidence class: **INERT**
   - service.service_lift
   - service.electrical_riser
   - service.fire_service
-  - contract.B1_BOILER_01
   - contract.F01_LOBBY
   - contract.F02_A_MAIN
-  - contract.F02_B_RADIATOR_01
   - contract.F04_B_ALCOVE
   - contract.F04_B_BATH
   - contract.F04_B_CLOSET
   - contract.F04_B_KITCHEN
   - contract.F04_B_MAIN
   - contract.F04_B_VESTIBULE
-  - job.lena_radiator_round_2b
-  - ... 2 more
-- **PRODUCTION_CUTOVER**: 151
+  - acoustic.v2_rederivation
+  - save.unit_rect_facts
+- **PRODUCTION_CUTOVER**: 144
   - region.street
   - region.construction_seam
   - region.arcade_portal
@@ -129,10 +109,6 @@ Evidence class: **INERT**
   - f01.parcel_package
   - f01.common_room
   - f01.staff_restroom
-  - ritual.F01_WATCHMAN_DETECTOR
-  - ritual.F01_NIGHT_REGISTER
-  - ritual.F01_SIGNAL_REGISTER
-  - ritual.F01_TOUR_KEY_GUARD
   - circ.F02.public_landing
   - circ.F02.public_core
   - circ.F02.service_core
@@ -156,8 +132,12 @@ Evidence class: **INERT**
   - circ.F01.public_landing
   - floor.F01
   - floor.F02
-  - ... 111 more
-- **V1_RETIREMENT**: 153
+  - floor.F03
+  - floor.F04
+  - floor.F05
+  - floor.F06
+  - ... 104 more
+- **V1_RETIREMENT**: 146
   - region.street
   - region.construction_seam
   - region.arcade_portal
@@ -171,10 +151,6 @@ Evidence class: **INERT**
   - f01.parcel_package
   - f01.common_room
   - f01.staff_restroom
-  - ritual.F01_WATCHMAN_DETECTOR
-  - ritual.F01_NIGHT_REGISTER
-  - ritual.F01_SIGNAL_REGISTER
-  - ritual.F01_TOUR_KEY_GUARD
   - circ.F02.public_landing
   - circ.F02.public_core
   - circ.F02.service_core
@@ -198,7 +174,11 @@ Evidence class: **INERT**
   - circ.F01.public_landing
   - floor.F01
   - floor.F02
-  - ... 113 more
+  - floor.F03
+  - floor.F04
+  - floor.F05
+  - floor.F06
+  - ... 106 more
 
 ## v1 fallbacks
 
@@ -253,10 +233,10 @@ Evidence class: **INERT**
 | f01.parcel_package | 02 public arrival and F01 program | PROGRAMMED | RUNTIME_PROVEN | FULL_BUILDING_STRUCTURAL, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | f01.common_room | 02 public arrival and F01 program | PROGRAMMED | RUNTIME_PROVEN | FULL_BUILDING_STRUCTURAL, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | f01.staff_restroom | 02 public arrival and F01 program | SPATIALLY_PROVEN | RUNTIME_PROVEN | FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
-| ritual.F01_WATCHMAN_DETECTOR | 10 F01 administrative/watch functions | SPATIALLY_PROVEN | RUNTIME_PROVEN | FIRST_SLICE_TECHNICAL, GOLDEN_SHIFT_V2, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
-| ritual.F01_NIGHT_REGISTER | 10 F01 administrative/watch functions | SPATIALLY_PROVEN | RUNTIME_PROVEN | FIRST_SLICE_TECHNICAL, GOLDEN_SHIFT_V2, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
-| ritual.F01_SIGNAL_REGISTER | 10 F01 administrative/watch functions | SPATIALLY_PROVEN | RUNTIME_PROVEN | FIRST_SLICE_TECHNICAL, GOLDEN_SHIFT_V2, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
-| ritual.F01_TOUR_KEY_GUARD | 10 F01 administrative/watch functions | SPATIALLY_PROVEN | RUNTIME_PROVEN | FIRST_SLICE_TECHNICAL, GOLDEN_SHIFT_V2, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
+| ritual.F01_WATCHMAN_DETECTOR | 10 F01 administrative/watch functions | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
+| ritual.F01_NIGHT_REGISTER | 10 F01 administrative/watch functions | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
+| ritual.F01_SIGNAL_REGISTER | 10 F01 administrative/watch functions | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
+| ritual.F01_TOUR_KEY_GUARD | 10 F01 administrative/watch functions | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
 | circ.F02.public_landing | 03/04 circulation | SHELL_ONLY | SPATIALLY_PROVEN | FULL_BUILDING_STRUCTURAL, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | circ.F02.public_core | 03/04 circulation | PROGRAMMED | SPATIALLY_PROVEN | FULL_BUILDING_STRUCTURAL, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | circ.F02.service_core | 03/04 circulation | PROGRAMMED | SPATIALLY_PROVEN | FULL_BUILDING_STRUCTURAL, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
@@ -434,13 +414,13 @@ Evidence class: **INERT**
 | service.service_lift | 12 service continuity | PROGRAMMED | RUNTIME_PROVEN | FULL_BUILDING_STRUCTURAL, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | service.electrical_riser | 12 service continuity | ABSENT | RUNTIME_PROVEN | FULL_BUILDING_STRUCTURAL, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | service.fire_service | 12 service continuity | ABSENT | RUNTIME_PROVEN | FULL_BUILDING_STRUCTURAL, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
-| contract.B1_BOILER_01 | 13/14 semantic contracts | SPATIALLY_PROVEN | RUNTIME_PROVEN | FIRST_SLICE_TECHNICAL, GOLDEN_SHIFT_V2, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
+| contract.B1_BOILER_01 | 13/14 semantic contracts | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
 | contract.F01_DOOR_06 | 13/14 semantic contracts | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
 | contract.F01_HOUSE_TELEPHONE_BOARD | 13/14 semantic contracts | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
 | contract.F01_LOBBY | 13/14 semantic contracts | SPATIALLY_PROVEN | RUNTIME_PROVEN | FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | contract.F02_A_MAIN | 13/14 semantic contracts | SPATIALLY_PROVEN | RUNTIME_PROVEN | FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | contract.F02_A_MAIN_VANTRY_POINT | 13/14 semantic contracts | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
-| contract.F02_B_RADIATOR_01 | 13/14 semantic contracts | SPATIALLY_PROVEN | RUNTIME_PROVEN | FIRST_SLICE_TECHNICAL, GOLDEN_SHIFT_V2, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
+| contract.F02_B_RADIATOR_01 | 13/14 semantic contracts | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
 | contract.F02_DOOR_02 | 13/14 semantic contracts | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
 | contract.F04_B_ALCOVE | 13/14 semantic contracts | PROGRAMMED | RUNTIME_PROVEN | FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
 | contract.F04_B_BATH | 13/14 semantic contracts | PROGRAMMED | RUNTIME_PROVEN | FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  |  |
@@ -454,7 +434,7 @@ Evidence class: **INERT**
 | contract.LobbyMailBank | 13/14 semantic contracts | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
 | contract.LobbyPorterBoard | 13/14 semantic contracts | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
 | contract.LobbyServiceDumbwaiter | 13/14 semantic contracts | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
-| job.lena_radiator_round_2b | 15 jobs and case routes | PROGRAMMED | RUNTIME_PROVEN | FIRST_SLICE_TECHNICAL, GOLDEN_SHIFT_V2, FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT |  | yes |
+| job.lena_radiator_round_2b | 15 jobs and case routes | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  | yes |
 | job.vantry_chirp_2a | 15 jobs and case routes | RUNTIME_PROVEN | RUNTIME_PROVEN | - |  |  |
 | acoustic.v2_rederivation | 16 acoustic topology | PROGRAMMED | RUNTIME_PROVEN | FULL_BUILDING_RUNTIME, PRODUCTION_CUTOVER, V1_RETIREMENT | yes |  |
 | save.bedside_return | 17 save/wake reconstruction | RUNTIME_PROVEN | RUNTIME_PROVEN | V1_RETIREMENT | yes |  |
@@ -482,22 +462,10 @@ Evidence class: **INERT**
 
 ## Recommended queue
 
-### M08E-f01-rituals-2b-b1
-- scope: Build and spatially prove the F01 ritual desk spaces/identities, apartment 2B, and the B1 service route (boiler endpoint) in the v2 schema.
-- prerequisite: M08D runtime-parity checkpoint (done)
-- outstanding: 4 requirements
-- exit: All four ritual identities, unit 2B and the B1 boiler endpoint resolve uniquely in v2 with SPATIALLY_PROVEN status.
-
-### M08F-runtime-composition-of-m08e
-- scope: Compose and runtime-prove the M08E spaces: first shift ritual, service round and night register under the v2 runtime root; authority census 1:1.
-- prerequisite: M08E-f01-rituals-2b-b1
-- outstanding: 3 requirements
-- exit: M08D authority census reports 1:1 for FirstShiftDirector and ServiceRoundDirector under explicit v2 selection.  FIRST_SLICE_TECHNICAL clean - production cutover NOT implied.
-
 ### M10-golden-shift-v2
 - scope: Author and human-run the eleven golden-shift beats under EXPLICIT v2 selection (K3 matrix); v1 stays the production default throughout.
 - prerequisite: M08F-runtime-composition-of-m08e
-- outstanding: 2 requirements
+- outstanding: 1 requirements
 - exit: GOLDEN_SHIFT_V2 scope clean - still not a production-default authorization.
 
 ### M11-structural-floors
@@ -521,7 +489,7 @@ Evidence class: **INERT**
 ### M15-whole-building-runtime-matrix
 - scope: Whole-building runtime consumer and save matrix: every job, case, interaction, resident, wake and organism fact resolves and reconstructs under explicit v2 selection.
 - prerequisite: M12-apartments-by-case-dependency + M14-service-topology-and-acoustics
-- outstanding: 12 requirements
+- outstanding: 9 requirements
 - exit: FULL_BUILDING_RUNTIME scope clean.
 
 ### M16-whole-building-performance-navigation
@@ -533,7 +501,7 @@ Evidence class: **INERT**
 ### M09-production-cutover-proposal
 - scope: Evidence-backed production default switch: flip BuildingRootSelector.DEFAULT_ID with a tagged v1 fallback and rollback instructions.  May exist earlier only as a dormant proposal template.
 - prerequisite: M16-whole-building-performance-navigation (PRODUCTION_CUTOVER scope must be clean)
-- outstanding: 151 requirements
+- outstanding: 144 requirements
 - exit: Owner-signed production-cutover authorization; DEFAULT_ID flips with a one-line revert as rollback.
 
 ### M17-v1-fallback-window
@@ -545,7 +513,7 @@ Evidence class: **INERT**
 ### M18-v1-retirement
 - scope: Retire the v1 fallback: remove the anonymous-bed fallback, freeze v1 generation as a migration fixture, retire adapter aliases id-by-id.
 - prerequisite: M17-v1-fallback-window
-- outstanding: 153 requirements
+- outstanding: 146 requirements
 - exit: No TEMPORARY_V1_FALLBACK flag remains anywhere in this ledger; v1 tagged as frozen fixture.
 
 ## Provenance
@@ -567,6 +535,7 @@ Evidence class: **INERT**
 - `art/renders/orison_v2/druggist_fountain_20261006/runtime_authority_receipt.json` sha256 `40fa6d272f8710c6...`
 - `art/renders/orison_v2/druggist_mortar_20261006/runtime_authority_receipt.json` sha256 `66817e7b0a6967e1...`
 - `art/renders/orison_v2/f04_4b_checkpoint_02/scene_capture_receipt.json` sha256 `544bb75d35a73c4f...`
+- `art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json` sha256 `6d250325983e7141...`
 - `art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json` sha256 `5e26f5379b290c58...`
 - `art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json` sha256 `1b8f798a90ac6c81...`
 - `art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json` sha256 `8e0fad1ed7845bf4...`
@@ -616,6 +585,7 @@ Evidence class: **INERT**
 - `design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md` sha256 `6bbb9e719408adc9...`
 - `design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md` sha256 `9b1cf53b753d9ff2...`
 - `design/ORISON_V2_F04_4B_GRAYBOX_CHECKPOINT_2026-08-28.md` sha256 `7becd4429dd05f0f...`
+- `design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md` sha256 `7953f088b13ad9bf...`
 - `design/ORISON_V2_FLOOR_LANDING_REHEARSAL_CHECKPOINT_2026-08-29.md` sha256 `33e53eac6ec02a7c...`
 - `design/ORISON_V2_M08A_ACCEPTANCE_HARDENING_CHECKPOINT_2026-08-28.md` sha256 `aaadce2c9f8e38a1...`
 - `design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json` sha256 `0681e59ad90e631e...`
@@ -639,6 +609,7 @@ Evidence class: **INERT**
 - `design/ORISON_V2_M11D_ZERO_GEOMETRY_CHECKPOINT_2026-09-13.md` sha256 `ce217547a44aa2ae...`
 - `design/ORISON_V2_SCHEMA_GENERATOR_CHECKPOINT_2026-08-28.md` sha256 `f8660762823f1865...`
 - `design/ORISON_V2_VERTICAL_CORE_CHECKPOINT_2026-08-28.md` sha256 `83cff9b36fd379d2...`
-- `game/data/orison_v2_blockout.json` sha256 `053033cbe95d8775...`
-- `game/scripts/building/orison_v2_anchor_adapter.gd` sha256 `59a544e60c3b4751...`
-- `tools/orison_spatial_dependency_manifest.json` sha256 `045d3b92c2b77457...`
+- `game/data/orison_v2_blockout.json` sha256 `f651287aa38745ee...`
+- `game/scripts/building/orison_v2_anchor_adapter.gd` sha256 `aa4ca52d40177163...`
+- `game/tests/orison_v2_first_slice_contract_test.gd` sha256 `0ca580f3d064b09a...`
+- `tools/orison_spatial_dependency_manifest.json` sha256 `41c628fa40a784dd...`
