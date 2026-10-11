@@ -74,3 +74,12 @@ those records were reviewed and registered: the local ajar-door naming pattern
 and two test lookups of the existing lobby bank identity. No prior manifest
 entry, classification or audit criterion was changed. All 56 dependency tests
 pass after registration; runtime and surface inputs are unchanged.
+
+Fresh checkout verification of **7e9af80d2097e0387dd71de107d02f0f6f09d9c6** against clean merge-base
+**a7693b6b6601b833e13ad3c49cfe53716aca6d6e**: 53 gates, zero
+regressions, 17/17 protected paths retained, selector V2, clean candidate
+checkout and zero document lint errors. No additional Godot runs were needed
+for the spatial inventory registration or report archive. The runtime receipts
+above cover the unchanged production source inputs.
+
+MERGE-CANDIDATE: **7e9af80d2097e0387dd71de107d02f0f6f09d9c6**
