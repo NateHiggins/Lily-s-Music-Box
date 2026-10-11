@@ -51,4 +51,12 @@ Spatial consumer manifest: three reviewed additions, zero drift.
 Historical seven texture RID shutdown warnings remain; full save/relaunch proof
 and broader V2 completion are not claimed. No decision needed from the owner.
 
-Fresh candidate verification will be appended after the implementation commit.
+Fresh verification: **1c3f89fa** against **f1b6c3b7**, clean fresh checkout,
+53 gates, zero regressions, 17/17 protected paths unchanged, selector V2,
+zero document lint errors. Ledger blockers remain 7/8/127/42/151/153;
+requirements_changed is empty. **watch_verification.json** archives the result.
+The three appended spatial manifest rows were reviewed; no gate threshold or
+existing consumer row was relaxed. Fresh verification used **--no-godot**;
+the unchanged rendering-input-bound production runtime proof above is reused.
+
+MERGE-CANDIDATE 1c3f89fa16920694b9a6a757749830acb6f1af16
