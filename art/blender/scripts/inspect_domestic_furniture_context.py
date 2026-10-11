@@ -89,6 +89,9 @@ stock_bearings=[]
 stock=json.loads((r/'game/tests/fixtures/orison_surface_stock.json').read_text())
 for row in json.loads((r/'game/data/orison_v2/domestic_surface_props.json').read_text())['props']:
  if row['support'] not in variants:continue
+ # As in inspect_surface_stock_context.py, a record standing on the floor beside its
+ # support bears on the floor, not on the support.
+ if abs(float(row['position'][1]))<1e-9:continue
  transform=pose(row['support'])@Matrix.Translation(bp(row['position']))@Matrix.Rotation(float(row['yaw']),4,'Z')
  for c in stock['contacts']:
   if c['assembly']!=row['id']:continue

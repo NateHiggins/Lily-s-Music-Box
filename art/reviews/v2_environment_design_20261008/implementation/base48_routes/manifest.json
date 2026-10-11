@@ -1,0 +1,24 @@
+{
+ "evidence_class": "INERT",
+ "note": "Lane baseline copied from C:/ov/envimpl_out/base48_routes, where it was the only copy (follow-ups; merge report open findings 6 and 10). Copies are LF-normalized and hashed as LF. Wrapper run receipts (suite_run), not runtime proof.",
+ "files": [
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "1dbe60e865ce587e46f7bf83b09b8885f9ec37ae93d69c8a297e6adeda8b6de9",
+   "bytes": 3150
+  },
+  {
+   "path": "receipts/rear_wing_c.log.receipt.json",
+   "source": "rear_wing_c.log.receipt.json",
+   "sha256": "b55a7c288588f4b89ee1308c126636380bf68471d2276682df08559f7ccdb351",
+   "bytes": 3220
+  },
+  {
+   "path": "receipts/resident_key.log.receipt.json",
+   "source": "resident_key.log.receipt.json",
+   "sha256": "4dddb281cdcb9e7a8f88d12d48af50318f80c7596d4284aec276975356f9e8d1",
+   "bytes": 3261
+  }
+ ]
+}

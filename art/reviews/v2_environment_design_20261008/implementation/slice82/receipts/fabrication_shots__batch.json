@@ -1,0 +1,1612 @@
+{
+	"batch_checks": 8,
+	"elapsed_ms": 230733,
+	"evidence_class": "INERT",
+	"failures": [
+		"domestic_objects: clear standing camera station: 2B_dress_form",
+		"domestic_objects: clear standing camera station: 5B_aerial_wire",
+		"domestic_objects: clear standing camera station: B1_cleat_run",
+		"domestic_objects: clear standing camera station: B1_washer_supply",
+		"domestic_objects: clear standing camera station: B1_rinse_taps"
+	],
+	"module_checks": 10137,
+	"modules": {
+		"domestic_objects": {
+			"actors": 236,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 10137,
+			"elapsed_ms": 172654,
+			"failures": [
+				"clear standing camera station: 2B_dress_form",
+				"clear standing camera station: 5B_aerial_wire",
+				"clear standing camera station: B1_cleat_run",
+				"clear standing camera station: B1_washer_supply",
+				"clear standing camera station: B1_rinse_taps"
+			],
+			"fixture_sha256": "a2d30a47ed31828acff443dd2662d5013a6a567175e801e8c0069edcb7d57138",
+			"parts": 955,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 587336,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 136,
+			"views": [
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						14.4187517166138,
+						3.22000002861023,
+						-19.1849098205566
+					],
+					"id": "2A_pinboard_native",
+					"image": "2A_pinboard_native.png",
+					"owner": "2A_pinboard",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-12.649998664856,
+						3.22000002861023,
+						-10.7100009918213
+					],
+					"id": "2B_story_pattern_board_native",
+					"image": "2B_story_pattern_board_native.png",
+					"owner": "2B_story_pattern_board",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-13.399998664856,
+						6.42000007629395,
+						-10.7100009918213
+					],
+					"id": "3B_toolboard_native",
+					"image": "3B_toolboard_native.png",
+					"owner": "3B_toolboard",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.3368263244629,
+						6.42000007629395,
+						-6.18682813644409
+					],
+					"id": "3B_partscrate_native",
+					"image": "3B_partscrate_native.png",
+					"owner": "3B_partscrate",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						10.8040714263916,
+						3.22000002861023,
+						-9.32499885559082
+					],
+					"id": "2A_deck_native",
+					"image": "2A_deck_native.png",
+					"owner": "2A_deck",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						13.5779781341553,
+						6.42000007629395,
+						-14.1507387161255
+					],
+					"id": "3A_story_specimen_native",
+					"image": "3A_story_specimen_native.png",
+					"owner": "3A_story_specimen",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						14.4100017547607,
+						12.8199996948242,
+						-6.19999837875366
+					],
+					"id": "5A_pins1_native",
+					"image": "5A_pins1_native.png",
+					"owner": "5A_pins1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						9.99918460845947,
+						12.8199996948242,
+						-0.397640526294708
+					],
+					"id": "5A_pins2_native",
+					"image": "5A_pins2_native.png",
+					"owner": "5A_pins2",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						15.0002298355103,
+						12.8199996948242,
+						-5.90437412261963
+					],
+					"id": "5A_floorstack_native",
+					"image": "5A_floorstack_native.png",
+					"owner": "5A_floorstack",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.36000108718872,
+						12.8199996948242,
+						-19.1499996185303
+					],
+					"id": "5C_story_colorboard_native",
+					"image": "5C_story_colorboard_native.png",
+					"owner": "5C_story_colorboard",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						12.6960144042969,
+						16.0200004577637,
+						-7.04999828338623
+					],
+					"id": "6A_tripod_native",
+					"image": "6A_tripod_native.png",
+					"owner": "6A_tripod",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						12.5829238891602,
+						16.0200004577637,
+						-6.51008749008179
+					],
+					"id": "6A_soft1_native",
+					"image": "6A_soft1_native.png",
+					"owner": "6A_soft1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						15.2002305984497,
+						16.0200004577637,
+						-8.90437412261963
+					],
+					"id": "6A_gearcrate_native",
+					"image": "6A_gearcrate_native.png",
+					"owner": "6A_gearcrate",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						13.4976425170898,
+						16.0200004577637,
+						-6.03918409347534
+					],
+					"id": "6A_coil1_native",
+					"image": "6A_coil1_native.png",
+					"owner": "6A_coil1",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						13.0891857147217,
+						16.0200004577637,
+						-8.84764003753662
+					],
+					"id": "6A_coil2_native",
+					"image": "6A_coil2_native.png",
+					"owner": "6A_coil2",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-6.79999876022339,
+						-3.1800000667572,
+						-16.1000003814697
+					],
+					"id": "b1_toolboard_native",
+					"image": "b1_toolboard_native.png",
+					"owner": "b1_toolboard",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						6.02875089645386,
+						3.22000002861023,
+						-12.2022533416748
+					],
+					"id": "2A_hallstand_native",
+					"image": "2A_hallstand_native.png",
+					"owner": "2A_hallstand",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						8.45317363739014,
+						9.61999988555908,
+						-12.0368251800537
+					],
+					"id": "4B_case_wall_native",
+					"image": "4B_case_wall_native.png",
+					"owner": "4B_case_wall",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						10.3272094726563,
+						12.8199996948242,
+						-9.68720722198486
+					],
+					"id": "5A_plan_wall_native",
+					"image": "5A_plan_wall_native.png",
+					"owner": "5A_plan_wall",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						0.585931062698364,
+						12.8199996948242,
+						-22.0250015258789
+					],
+					"id": "5C_canvas_a_native",
+					"image": "5C_canvas_a_native.png",
+					"owner": "5C_canvas_a",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						0.740001916885376,
+						12.8199996948242,
+						-22.3499984741211
+					],
+					"id": "5C_canvas_b_native",
+					"image": "5C_canvas_b_native.png",
+					"owner": "5C_canvas_b",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-12.5376405715942,
+						9.61999988555908,
+						-10.7491855621338
+					],
+					"id": "4A_frame_a_native",
+					"image": "4A_frame_a_native.png",
+					"owner": "4A_frame_a",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-12.8349103927612,
+						3.22000002861023,
+						-8.76875114440918
+					],
+					"id": "2B_repair_rail_native",
+					"image": "2B_repair_rail_native.png",
+					"owner": "2B_repair_rail",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						6.95000076293945,
+						9.61999988555908,
+						-18.3724975585938
+					],
+					"id": "4B_closet_rail_native",
+					"image": "4B_closet_rail_native.png",
+					"owner": "4B_closet_rail",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.90999841690063,
+						3.22000002861023,
+						-20.3500022888184
+					],
+					"id": "2C_blanket_a_native",
+					"image": "2C_blanket_a_native.png",
+					"owner": "2C_blanket_a",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						6.82000017166138,
+						0.0199999995529652,
+						-2.36999797821045
+					],
+					"id": "1A_hall_hamper_native",
+					"image": "1A_hall_hamper_native.png",
+					"owner": "1A_hall_hamper",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.2199983596802,
+						0.0199999995529652,
+						-7.07000064849854
+					],
+					"id": "1D_hall_boots_native",
+					"image": "1D_hall_boots_native.png",
+					"owner": "1D_hall_boots",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						5.00000190734863,
+						3.22000002861023,
+						-22.0599994659424
+					],
+					"id": "2C_album_a_native",
+					"image": "2C_album_a_native.png",
+					"owner": "2C_album_a",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						14.122501373291,
+						3.22000002861023,
+						-11.2499980926514
+					],
+					"id": "2A_caption_wall_native",
+					"image": "2A_caption_wall_native.png",
+					"owner": "2A_caption_wall",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						6.86407136917114,
+						9.61999988555908,
+						-6.83499956130981
+					],
+					"id": "4D_case_native",
+					"image": "4D_case_native.png",
+					"owner": "4D_case",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.5168266296387,
+						3.22000002861023,
+						-9.03682899475098
+					],
+					"id": "2B_sewing_machine_native",
+					"image": "2B_sewing_machine_native.png",
+					"owner": "2B_sewing_machine",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.4249992370605,
+						6.42000007629395,
+						-6.65407180786133
+					],
+					"id": "3B_teardown_native",
+					"image": "3B_teardown_native.png",
+					"owner": "3B_teardown",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.74949789047241,
+						12.8199996948242,
+						-20.8768939971924
+					],
+					"id": "5C_easel_native",
+					"image": "5C_easel_native.png",
+					"owner": "5C_easel",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.29999923706055,
+						12.8199996948242,
+						-20.7299995422363
+					],
+					"id": "5C_failed_canvases_native",
+					"image": "5C_failed_canvases_native.png",
+					"owner": "5C_failed_canvases",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.24999904632568,
+						16.0200004577637,
+						-20.9499988555908
+					],
+					"id": "6C_card_cabinet_native",
+					"image": "6C_card_cabinet_native.png",
+					"owner": "6C_card_cabinet",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						13.1974992752075,
+						16.0200004577637,
+						-6.04999876022339
+					],
+					"id": "6A_backdrop_rail_native",
+					"image": "6A_backdrop_rail_native.png",
+					"owner": "6A_backdrop_rail",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						10.1999998092651,
+						16.0200004577637,
+						-6.86599826812744
+					],
+					"id": "6A_print_line_native",
+					"image": "6A_print_line_native.png",
+					"owner": "6A_print_line",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						1.75000023841858,
+						0.0199999995529652,
+						-3.6399998664856
+					],
+					"id": "F01_lobby_board_native",
+					"image": "F01_lobby_board_native.png",
+					"owner": "F01_lobby_board",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						1.52634739875793,
+						3.22000002861023,
+						-21.5836524963379
+					],
+					"id": "2C_cable_hooks_native",
+					"image": "2C_cable_hooks_native.png",
+					"owner": "2C_cable_hooks",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.36000108718872,
+						9.61999988555908,
+						-19.1499996185303
+					],
+					"id": "4C_story_colorboard_native",
+					"image": "4C_story_colorboard_native.png",
+					"owner": "4C_story_colorboard",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						7.96000051498413,
+						0.0199999995529652,
+						-10.8699989318848
+					],
+					"id": "F01_headset_hook_native",
+					"image": "F01_headset_hook_native.png",
+					"owner": "F01_headset_hook",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						5.01106405258179,
+						0.0199999995529652,
+						-9.31564331054688
+					],
+					"id": "F01_watch_coat_native",
+					"image": "F01_watch_coat_native.png",
+					"owner": "F01_watch_coat",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						1.76764297485352,
+						0.0199999995529652,
+						-9.91918468475342
+					],
+					"id": "F01_watch_cot_native",
+					"image": "F01_watch_cot_native.png",
+					"owner": "F01_watch_cot",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-10.7399988174438,
+						-3.1800000667572,
+						-10.0500001907349
+					],
+					"id": "B1_boiler_shovel_native",
+					"image": "B1_boiler_shovel_native.png",
+					"owner": "B1_boiler_shovel",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-10.9354991912842,
+						-3.1800000667572,
+						-12.8000001907349
+					],
+					"id": "B1_boiler_rake_native",
+					"image": "B1_boiler_rake_native.png",
+					"owner": "B1_boiler_rake",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.0299987792969,
+						-3.1800000667572,
+						-9.30000114440918
+					],
+					"id": "B1_boiler_ash_can_native",
+					"image": "B1_boiler_ash_can_native.png",
+					"owner": "B1_boiler_ash_can",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-8.69999885559082,
+						-3.1800000667572,
+						-7.2185001373291
+					],
+					"id": "B1_signal_frame_native",
+					"image": "B1_signal_frame_native.png",
+					"owner": "B1_signal_frame",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-7.59999942779541,
+						-3.1800000667572,
+						-8.56900024414063
+					],
+					"id": "B1_fuse_conduit_native",
+					"image": "B1_fuse_conduit_native.png",
+					"owner": "B1_fuse_conduit",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						9.50000095367432,
+						-3.1800000667572,
+						-8.89999961853027
+					],
+					"id": "B1_laundry_oil_can_native",
+					"image": "B1_laundry_oil_can_native.png",
+					"owner": "B1_laundry_oil_can",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						8.76000118255615,
+						-3.1800000667572,
+						-11.6999988555908
+					],
+					"id": "B1_laundry_belt_native",
+					"image": "B1_laundry_belt_native.png",
+					"owner": "B1_laundry_belt",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						3.89650058746338,
+						-3.1800000667572,
+						-8.44999885559082
+					],
+					"id": "B1_laundry_stepladder_native",
+					"image": "B1_laundry_stepladder_native.png",
+					"owner": "B1_laundry_stepladder",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						1.75235772132874,
+						0.0199999995529652,
+						-0.939184546470642
+					],
+					"id": "F01_vestibule_umbrella_stand_native",
+					"image": "F01_vestibule_umbrella_stand_native.png",
+					"owner": "F01_vestibule_umbrella_stand",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						3.28918504714966,
+						0.0199999995529652,
+						-3.00235748291016
+					],
+					"id": "F01_lobby_spittoon_native",
+					"image": "F01_lobby_spittoon_native.png",
+					"owner": "F01_lobby_spittoon",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-6.50000047683716,
+						0.0199999995529652,
+						-4.59000158309937
+					],
+					"id": "F01_restroom_soap_dish_native",
+					"image": "F01_restroom_soap_dish_native.png",
+					"owner": "F01_restroom_soap_dish",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-6.63999938964844,
+						0.0199999995529652,
+						-4.65000009536743
+					],
+					"id": "F01_restroom_roller_towel_native",
+					"image": "F01_restroom_roller_towel_native.png",
+					"owner": "F01_restroom_roller_towel",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-6.1614408493042,
+						0.0199999995529652,
+						-5.35108470916748
+					],
+					"id": "F01_restroom_mop_bucket_native",
+					"image": "F01_restroom_mop_bucket_native.png",
+					"owner": "F01_restroom_mop_bucket",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						1.37500131130219,
+						19.2199993133545,
+						-11.654070854187
+					],
+					"id": "ROOF_bulkhead_washing_line_native",
+					"image": "ROOF_bulkhead_washing_line_native.png",
+					"owner": "ROOF_bulkhead_washing_line",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						1.65235936641693,
+						19.2199993133545,
+						-14.3108148574829
+					],
+					"id": "ROOF_bulkhead_watering_can_native",
+					"image": "ROOF_bulkhead_watering_can_native.png",
+					"owner": "ROOF_bulkhead_watering_can",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						1.62235951423645,
+						19.2199993133545,
+						-15.010814666748
+					],
+					"id": "ROOF_bulkhead_trug_native",
+					"image": "ROOF_bulkhead_trug_native.png",
+					"owner": "ROOF_bulkhead_trug",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-10.1476411819458,
+						19.2199993133545,
+						-14.93918800354
+					],
+					"id": "ROOF_service_soot_sack_native",
+					"image": "ROOF_service_soot_sack_native.png",
+					"owner": "ROOF_service_soot_sack",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.0600004196167,
+						19.2199993133545,
+						-16.5
+					],
+					"id": "ROOF_service_sweep_rods_native",
+					"image": "ROOF_service_sweep_rods_native.png",
+					"owner": "ROOF_service_sweep_rods",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						10.2976417541504,
+						0.0199999995529652,
+						-0.569183707237244
+					],
+					"id": "1A_lesson_trunk_native",
+					"image": "1A_lesson_trunk_native.png",
+					"owner": "1A_lesson_trunk",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						14.4572277069092,
+						9.61999988555908,
+						-18.6392726898193
+					],
+					"id": "4B_wake_boots_native",
+					"image": "4B_wake_boots_native.png",
+					"owner": "4B_wake_boots",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						9.99918460845947,
+						12.8199996948242,
+						-1.49764084815979
+					],
+					"id": "5A_tsquare_native",
+					"image": "5A_tsquare_native.png",
+					"owner": "5A_tsquare",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-13.8430404663086,
+						9.61999988555908,
+						-4.05000114440918
+					],
+					"id": "4A_hall_file_native",
+					"image": "4A_hall_file_native.png",
+					"owner": "4A_hall_file",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-6.63999891281128,
+						-3.1800000667572,
+						-12.9499988555908
+					],
+					"id": "B1_charging_case_native",
+					"image": "B1_charging_case_native.png",
+					"owner": "B1_charging_case",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-12.403172492981,
+						0.0199999995529652,
+						-9.9218282699585
+					],
+					"id": "1D_house_bell_native",
+					"image": "1D_house_bell_native.png",
+					"owner": "1D_house_bell",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-10.899998664856,
+						0.0199999995529652,
+						-9.03999996185303
+					],
+					"id": "1D_quiet_sign_native",
+					"image": "1D_quiet_sign_native.png",
+					"owner": "1D_quiet_sign",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.1131715774536,
+						9.61999988555908,
+						-8.85317420959473
+					],
+					"id": "4A_umbrella_tray_native",
+					"image": "4A_umbrella_tray_native.png",
+					"owner": "4A_umbrella_tray",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						7.55000019073486,
+						0.0199999995529652,
+						-0.539998412132263
+					],
+					"id": "1A_bath_shelf_native",
+					"image": "1A_bath_shelf_native.png",
+					"owner": "1A_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.4100008010864,
+						0.0199999995529652,
+						-1.60000038146973
+					],
+					"id": "1D_bath_shelf_native",
+					"image": "1D_bath_shelf_native.png",
+					"owner": "1D_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						7.85000133514404,
+						3.22000002861023,
+						-15.9899988174438
+					],
+					"id": "2A_bath_shelf_native",
+					"image": "2A_bath_shelf_native.png",
+					"owner": "2A_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.4100008010864,
+						3.22000002861023,
+						-1.60000038146973
+					],
+					"id": "2B_bath_shelf_native",
+					"image": "2B_bath_shelf_native.png",
+					"owner": "2B_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-1.04999840259552,
+						3.22000002861023,
+						-16.7399997711182
+					],
+					"id": "2C_bath_shelf_native",
+					"image": "2C_bath_shelf_native.png",
+					"owner": "2C_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						7.85000133514404,
+						6.42000007629395,
+						-15.9899988174438
+					],
+					"id": "3A_bath_shelf_native",
+					"image": "3A_bath_shelf_native.png",
+					"owner": "3A_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-15.1499996185303,
+						6.42000007629395,
+						-0.610000252723694
+					],
+					"id": "3B_bath_shelf_native",
+					"image": "3B_bath_shelf_native.png",
+					"owner": "3B_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						7.55000019073486,
+						6.42000007629395,
+						-0.539998412132263
+					],
+					"id": "3D_bath_shelf_native",
+					"image": "3D_bath_shelf_native.png",
+					"owner": "3D_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.4100008010864,
+						9.61999988555908,
+						-1.60000038146973
+					],
+					"id": "4A_bath_shelf_native",
+					"image": "4A_bath_shelf_native.png",
+					"owner": "4A_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						7.60000133514404,
+						9.61999988555908,
+						-16.3399982452393
+					],
+					"id": "4B_bath_shelf_native",
+					"image": "4B_bath_shelf_native.png",
+					"owner": "4B_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-1.04999840259552,
+						9.61999988555908,
+						-16.7399997711182
+					],
+					"id": "4C_bath_shelf_native",
+					"image": "4C_bath_shelf_native.png",
+					"owner": "4C_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						7.55000019073486,
+						9.61999988555908,
+						-0.539998412132263
+					],
+					"id": "4D_bath_shelf_native",
+					"image": "4D_bath_shelf_native.png",
+					"owner": "4D_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						7.05999994277954,
+						12.8199996948242,
+						-1.34999859333038
+					],
+					"id": "5A_bath_shelf_native",
+					"image": "5A_bath_shelf_native.png",
+					"owner": "5A_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						8.06000137329102,
+						12.8199996948242,
+						-16.0499992370605
+					],
+					"id": "5B_bath_shelf_native",
+					"image": "5B_bath_shelf_native.png",
+					"owner": "5B_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-1.04999840259552,
+						12.8199996948242,
+						-16.7399997711182
+					],
+					"id": "5C_bath_shelf_native",
+					"image": "5C_bath_shelf_native.png",
+					"owner": "5C_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						7.05999994277954,
+						16.0200004577637,
+						-1.34999859333038
+					],
+					"id": "6A_bath_shelf_native",
+					"image": "6A_bath_shelf_native.png",
+					"owner": "6A_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						8.06000137329102,
+						16.0200004577637,
+						-16.0499992370605
+					],
+					"id": "6B_bath_shelf_native",
+					"image": "6B_bath_shelf_native.png",
+					"owner": "6B_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-1.04999840259552,
+						16.0200004577637,
+						-16.7399997711182
+					],
+					"id": "6C_bath_shelf_native",
+					"image": "6C_bath_shelf_native.png",
+					"owner": "6C_bath_shelf",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-0.599998772144318,
+						0.0199999995529652,
+						-14.2600002288818
+					],
+					"id": "F01_PUBLIC_NOTICE_native",
+					"image": "F01_PUBLIC_NOTICE_native.png",
+					"owner": "F01_PUBLIC_NOTICE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-12.1999988555908,
+						0.0199999995529652,
+						-13.1900005340576
+					],
+					"id": "F01_SERVICE_NOTICE_native",
+					"image": "F01_SERVICE_NOTICE_native.png",
+					"owner": "F01_SERVICE_NOTICE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.38000106811523,
+						3.22000002861023,
+						-11.649998664856
+					],
+					"id": "2A_threshold_native",
+					"image": "2A_threshold_native.png",
+					"owner": "2A_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-8.27999973297119,
+						3.22000002861023,
+						-8.40000057220459
+					],
+					"id": "2B_threshold_native",
+					"image": "2B_threshold_native.png",
+					"owner": "2B_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						0.850001275539398,
+						3.22000002861023,
+						-14.2799997329712
+					],
+					"id": "2C_threshold_native",
+					"image": "2C_threshold_native.png",
+					"owner": "2C_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.38000106811523,
+						6.42000007629395,
+						-11.649998664856
+					],
+					"id": "3A_threshold_native",
+					"image": "3A_threshold_native.png",
+					"owner": "3A_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.38000059127808,
+						6.42000007629395,
+						-6.54999923706055
+					],
+					"id": "3D_threshold_native",
+					"image": "3D_threshold_native.png",
+					"owner": "3D_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-8.27999973297119,
+						9.61999988555908,
+						-8.40000057220459
+					],
+					"id": "4A_threshold_native",
+					"image": "4A_threshold_native.png",
+					"owner": "4A_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.38000106811523,
+						9.61999988555908,
+						-11.649998664856
+					],
+					"id": "4B_threshold_native",
+					"image": "4B_threshold_native.png",
+					"owner": "4B_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						0.850001275539398,
+						9.61999988555908,
+						-14.2799997329712
+					],
+					"id": "4C_threshold_native",
+					"image": "4C_threshold_native.png",
+					"owner": "4C_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						6.10407161712646,
+						12.8199996948242,
+						-11.6949987411499
+					],
+					"id": "5A_threshold_native",
+					"image": "5A_threshold_native.png",
+					"owner": "5A_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						6.10407161712646,
+						12.8199996948242,
+						-11.6049995422363
+					],
+					"id": "5B_threshold_native",
+					"image": "5B_threshold_native.png",
+					"owner": "5B_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						0.850001275539398,
+						12.8199996948242,
+						-14.2799997329712
+					],
+					"id": "5C_threshold_native",
+					"image": "5C_threshold_native.png",
+					"owner": "5C_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						6.10407161712646,
+						16.0200004577637,
+						-11.6049995422363
+					],
+					"id": "6B_threshold_native",
+					"image": "6B_threshold_native.png",
+					"owner": "6B_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						0.850001275539398,
+						16.0200004577637,
+						-14.2799997329712
+					],
+					"id": "6C_threshold_native",
+					"image": "6C_threshold_native.png",
+					"owner": "6C_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.38000059127808,
+						3.22000002861023,
+						-6.54999923706055
+					],
+					"id": "2D_threshold_native",
+					"image": "2D_threshold_native.png",
+					"owner": "2D_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.15999841690063,
+						0.0199999995529652,
+						-14.3999996185303
+					],
+					"id": "F01_PUBLIC_LANDING_PIECE_native",
+					"image": "F01_PUBLIC_LANDING_PIECE_native.png",
+					"owner": "F01_PUBLIC_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.15999841690063,
+						3.22000002861023,
+						-14.3999996185303
+					],
+					"id": "F02_PUBLIC_LANDING_PIECE_native",
+					"image": "F02_PUBLIC_LANDING_PIECE_native.png",
+					"owner": "F02_PUBLIC_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.15999841690063,
+						6.42000007629395,
+						-14.3999996185303
+					],
+					"id": "F03_PUBLIC_LANDING_PIECE_native",
+					"image": "F03_PUBLIC_LANDING_PIECE_native.png",
+					"owner": "F03_PUBLIC_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.15999841690063,
+						9.61999988555908,
+						-14.3999996185303
+					],
+					"id": "F04_PUBLIC_LANDING_PIECE_native",
+					"image": "F04_PUBLIC_LANDING_PIECE_native.png",
+					"owner": "F04_PUBLIC_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.15999841690063,
+						12.8199996948242,
+						-14.3999996185303
+					],
+					"id": "F05_PUBLIC_LANDING_PIECE_native",
+					"image": "F05_PUBLIC_LANDING_PIECE_native.png",
+					"owner": "F05_PUBLIC_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.15999841690063,
+						16.0200004577637,
+						-14.3999996185303
+					],
+					"id": "F06_PUBLIC_LANDING_PIECE_native",
+					"image": "F06_PUBLIC_LANDING_PIECE_native.png",
+					"owner": "F06_PUBLIC_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-4.15999841690063,
+						19.2199993133545,
+						-14.3999996185303
+					],
+					"id": "ROOF_PUBLIC_LANDING_PIECE_native",
+					"image": "ROOF_PUBLIC_LANDING_PIECE_native.png",
+					"owner": "ROOF_PUBLIC_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.9599990844727,
+						0.0199999995529652,
+						-14.2500009536743
+					],
+					"id": "F01_SERVICE_LANDING_PIECE_native",
+					"image": "F01_SERVICE_LANDING_PIECE_native.png",
+					"owner": "F01_SERVICE_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.9599990844727,
+						3.22000002861023,
+						-14.2500009536743
+					],
+					"id": "F02_SERVICE_LANDING_PIECE_native",
+					"image": "F02_SERVICE_LANDING_PIECE_native.png",
+					"owner": "F02_SERVICE_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.9599990844727,
+						6.42000007629395,
+						-14.2500009536743
+					],
+					"id": "F03_SERVICE_LANDING_PIECE_native",
+					"image": "F03_SERVICE_LANDING_PIECE_native.png",
+					"owner": "F03_SERVICE_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.9599990844727,
+						9.61999988555908,
+						-14.2500009536743
+					],
+					"id": "F04_SERVICE_LANDING_PIECE_native",
+					"image": "F04_SERVICE_LANDING_PIECE_native.png",
+					"owner": "F04_SERVICE_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.9599990844727,
+						12.8199996948242,
+						-14.2500009536743
+					],
+					"id": "F05_SERVICE_LANDING_PIECE_native",
+					"image": "F05_SERVICE_LANDING_PIECE_native.png",
+					"owner": "F05_SERVICE_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.9599990844727,
+						16.0200004577637,
+						-14.2500009536743
+					],
+					"id": "F06_SERVICE_LANDING_PIECE_native",
+					"image": "F06_SERVICE_LANDING_PIECE_native.png",
+					"owner": "F06_SERVICE_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-11.9599990844727,
+						19.2199993133545,
+						-14.2500009536743
+					],
+					"id": "ROOF_SERVICE_LANDING_PIECE_native",
+					"image": "ROOF_SERVICE_LANDING_PIECE_native.png",
+					"owner": "ROOF_SERVICE_LANDING_PIECE",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						0.850001275539398,
+						6.42000007629395,
+						-14.2799997329712
+					],
+					"id": "3C_threshold_native",
+					"image": "3C_threshold_native.png",
+					"owner": "3C_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						6.86317300796509,
+						0.0199999995529652,
+						-0.203171193599701
+					],
+					"id": "1A_bath_rail_native",
+					"image": "1A_bath_rail_native.png",
+					"owner": "1A_bath_rail",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.4100008010864,
+						0.0199999995529652,
+						-0.850000321865082
+					],
+					"id": "1D_window_towel_native",
+					"image": "1D_window_towel_native.png",
+					"owner": "1D_window_towel",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						9.65499973297119,
+						16.0200004577637,
+						-3.7099986076355
+					],
+					"id": "6A_light_table_native",
+					"image": "6A_light_table_native.png",
+					"owner": "6A_light_table",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						9.4399995803833,
+						9.61999988555908,
+						-0.649998605251312
+					],
+					"id": "4D_lost_shelves_native",
+					"image": "4D_lost_shelves_native.png",
+					"owner": "4D_lost_shelves",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						3.50000095367432,
+						-3.1800000667572,
+						-14.2600002288818
+					],
+					"id": "B1_painted_outlet_native",
+					"image": "B1_painted_outlet_native.png",
+					"owner": "B1_painted_outlet",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-7.7056450843811,
+						-3.1800000667572,
+						-10.2223176956177
+					],
+					"id": "B1_dropped_cartridge_native",
+					"image": "B1_dropped_cartridge_native.png",
+					"owner": "B1_dropped_cartridge",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-14.4063577651978,
+						-3.1800000667572,
+						-3.25000095367432
+					],
+					"id": "B1_coal_shovel_native",
+					"image": "B1_coal_shovel_native.png",
+					"owner": "B1_coal_shovel",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-8.27999973297119,
+						6.42000007629395,
+						-8.40000057220459
+					],
+					"id": "3B_threshold_native",
+					"image": "3B_threshold_native.png",
+					"owner": "3B_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						4.38000059127808,
+						9.61999988555908,
+						-6.54999923706055
+					],
+					"id": "4D_threshold_native",
+					"image": "4D_threshold_native.png",
+					"owner": "4D_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						6.10407161712646,
+						16.0200004577637,
+						-11.6949987411499
+					],
+					"id": "6A_threshold_native",
+					"image": "6A_threshold_native.png",
+					"owner": "6A_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						-8.27999973297119,
+						12.8199996948242,
+						-8.40000057220459
+					],
+					"id": "5D_threshold_native",
+					"image": "5D_threshold_native.png",
+					"owner": "5D_threshold",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						10.3450012207031,
+						9.61999988555908,
+						-17.3132095336914
+					],
+					"id": "4B_alcove_runner_native",
+					"image": "4B_alcove_runner_native.png",
+					"owner": "4B_alcove_runner",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native apartment furniture",
+					"feet": [
+						3.27370047569275,
+						0.0199999995529652,
+						-7.88999938964844
+					],
+					"id": "F01_watch_kettle_native",
+					"image": "F01_watch_kettle_native.png",
+					"owner": "F01_watch_kettle",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

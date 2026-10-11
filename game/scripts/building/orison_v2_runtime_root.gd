@@ -278,7 +278,8 @@ func _compose_authorities() -> void:
 	preload("res://scripts/building/orison_v2_ground_core_transfer.gd").mount(_blockout)
 	# Dossier slice 52: positional wear decals in the baths and halls.
 	if not preload("res://scripts/building/orison_v2_positional_wear.gd").mount(_blockout):
-		push_error("V2 positional wear could not be composed")
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: positional wear refused")
 	preload("res://scripts/building/orison_v2_rear_wing_a_support.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_rear_wing_c_support.gd").mount(_blockout)
 	preload("res://scripts/building/orison_v2_first_upper_hall_seats.gd").mount(_blockout)

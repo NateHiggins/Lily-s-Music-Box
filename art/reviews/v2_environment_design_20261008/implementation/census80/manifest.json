@@ -1,0 +1,24 @@
+{
+ "evidence_class": "INERT",
+ "note": "Slice 80's refabrication census of the signal register, copied from C:/ov/envimpl_out/census80, where it was the only copy (follow-ups; merge report open finding 10); the capture scene is in sources/. Copies are LF-normalized and hashed as LF. Wrapper run receipts (suite_run), not runtime proof.",
+ "files": [
+  {
+   "path": "receipts/census.log.receipt.json",
+   "source": "census.log.receipt.json",
+   "sha256": "35e89b46c42c919be8c63a482e7c3879385652d4dc59ca6ce0e5336cec82d64f",
+   "bytes": 3168
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "f73f6fe8d869321a6808f0636302d3d84fe5d48f3ec9ff763043b16f33d61c0f",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/register_census.json",
+   "source": "register_census.json",
+   "sha256": "eaef391c7eff4a41ea508268f56ba85832a96d3dd3f3f16c857d27fa013cb098",
+   "bytes": 25680
+  }
+ ]
+}

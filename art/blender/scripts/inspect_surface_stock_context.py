@@ -28,6 +28,12 @@ native_ids=set(json.loads((r/'game/data/orison_v2/work_tables.json').read_text()
 with bpy.data.libraries.load(str(r/'art/blender/work_tables.blend'),link=False) as (src,dst):dst.objects=[n for n in src.objects if '__' in n]
 for obj in dst.objects:bpy.context.scene.collection.objects.link(obj);obj.hide_render=True
 bpy.context.view_layer.update()
+# Chairs are native seating at runtime: stock seated on one bears on the native seat, not on the
+# retained source box (slice 31's garments sat on the source surface, 1.2-10 mm above the seat).
+seating={row['id']:row['variant'] for row in json.loads((r/'game/tests/fixtures/orison_domestic_seating.json').read_text())['runtime']['instances']}
+with bpy.data.libraries.load(str(r/'art/blender/domestic_seating.blend'),link=False) as (src3,seats):seats.objects=[n for n in src3.objects if '__' in n]
+for obj in seats.objects:bpy.context.scene.collection.objects.link(obj);obj.hide_render=True
+bpy.context.view_layer.update()
 completion={row['id']:row['template'] for row in json.loads((r/'game/data/orison_v2/completion_interiors.json').read_text())['furniture']}
 with bpy.data.libraries.load(str(r/'art/blender/domestic_objects.blend'),link=False) as (src2,objects):objects.objects=[n for n in src2.objects if n.startswith('DomesticObject16__')]
 for obj in objects.objects:bpy.context.scene.collection.objects.link(obj);obj.hide_render=True
@@ -35,6 +41,7 @@ bpy.context.view_layer.update()
 supports={}
 for identity in {p['support'] for p in props.values()}:
  if identity in native_ids:supports[identity]=[native_tree(obj) for obj in dst.objects if obj.name.startswith(identity+'__')]
+ elif identity in seating:supports[identity]=[native_tree(obj) for obj in seats.objects if obj.name.startswith(seating[identity]+'__')]
  elif identity.endswith('_hallstand'):
   # Native hall stand (slice 8): every instance shares the DomesticObject16 assembly in its own frame.
   supports[identity]=[native_tree(obj) for obj in objects.objects]

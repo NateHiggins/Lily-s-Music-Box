@@ -1,0 +1,48 @@
+{
+ "evidence_class": "INERT",
+ "note": "Slice 9's first verification set, copied from C:/ov/envimpl_out/slice9b, where it was the only copy (follow-ups; merge report open finding 8): seven runs at ae5f26f6, six of them refused at startup ('remaining interiors refused: invalid preparation cabinet mechanism'). The fix is shown in slice9e. Copies are LF-normalized and hashed as LF. Wrapper run receipts (suite_run), not runtime proof.",
+ "files": [
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "61f4b7014c13b994f4ad465542c86691f9297159948137c71b13507c43586619",
+   "bytes": 3195
+  },
+  {
+   "path": "receipts/completion_1D.log.receipt.json",
+   "source": "completion_1D.log.receipt.json",
+   "sha256": "6bf8852ddf076e701fcf7ffeb5922084c14f81c57dac1953d3ba614a14ce5aa4",
+   "bytes": 3201
+  },
+  {
+   "path": "receipts/completion_2C.log.receipt.json",
+   "source": "completion_2C.log.receipt.json",
+   "sha256": "102767c6757ba2e21b8dead3c9bbbaf6dcca761cd7e609ca0dd966b749c8d56e",
+   "bytes": 3201
+  },
+  {
+   "path": "receipts/completion_4C.log.receipt.json",
+   "source": "completion_4C.log.receipt.json",
+   "sha256": "ddb8f77a61cab0f5f0d55cd426552ab29f40b6a5e92d30379b9df4d8c1626d28",
+   "bytes": 3201
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "9d5f7daaaffe2dede85dbe0fe168149741d705bc8274a4fee5ea55412e44da02",
+   "bytes": 3223
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "53ef372c40fe389e2398a296b472cb42eb69a28ffce5736109773c74f1144b8a",
+   "bytes": 3138
+  },
+  {
+   "path": "receipts/sweep.log.receipt.json",
+   "source": "sweep.log.receipt.json",
+   "sha256": "7f5548da20e17052c03e57255a0a6d692a35725f965a9931f2250d39b0171cc1",
+   "bytes": 3220
+  }
+ ]
+}

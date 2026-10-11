@@ -1,0 +1,36 @@
+{
+ "evidence_class": "INERT",
+ "note": "Lane baseline copied from C:/ov/envimpl_out/base80, where it was the only copy (follow-ups; merge report open findings 6 and 10). Copies are LF-normalized and hashed as LF. Wrapper run receipts (suite_run), not runtime proof.",
+ "files": [
+  {
+   "path": "receipts/blockout.log.receipt.json",
+   "source": "blockout.log.receipt.json",
+   "sha256": "172feff87a9a50f190f2b7299ce697c91e1ef1f137faea07698a47b8aeb78dad",
+   "bytes": 5886
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "f7ef02e334df6739160c37677b664da23d72e02afe2466d9a57af1764182872f",
+   "bytes": 3136
+  },
+  {
+   "path": "receipts/m08e.log.receipt.json",
+   "source": "m08e.log.receipt.json",
+   "sha256": "2e43c8139135bac568aa571c10a261dc69c7d2adf4f3c5c5c26646c0bfd3156a",
+   "bytes": 3679
+  },
+  {
+   "path": "receipts/m08f.log.receipt.json",
+   "source": "m08f.log.receipt.json",
+   "sha256": "720b0297325ac04c6a12e616dcdc74d9d7208942bf33774f263f982fe9730ccc",
+   "bytes": 5007
+  },
+  {
+   "path": "receipts/mail_route.log.receipt.json",
+   "source": "mail_route.log.receipt.json",
+   "sha256": "29e2be13704981a2dbd90dd4b58ad59fe50afb19325b0a5f89c4fbd4e6021a35",
+   "bytes": 3174
+  }
+ ]
+}

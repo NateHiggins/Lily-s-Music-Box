@@ -178,6 +178,10 @@ func _run() -> void:
 		"modules":results, "module_checks":total, "batch_checks":checks, "failures":failures,
 		"elapsed_ms":Time.get_ticks_msec()-started, "scope":"Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate."}
 	FileAccess.open(directory.path_join("batch.json"), FileAccess.WRITE).store_string(JSON.stringify(receipt, "\t"))
+	# Name the modules this run selected (they come from the environment) and print
+	# one FAIL line per failure, so the run receipt counts what failed.
+	print("FABRICATION MODULES: ", ", ".join(PackedStringArray(results.keys())))
+	for message: String in failures: print("FABRICATION FAIL: ", message)
 	print("FABRICATION BATCH: worlds=",world_loads," modules=", results.size(), " module_checks=", total, " failures=", failures.size(), " elapsed_ms=", receipt.elapsed_ms)
 	get_tree().quit(0 if failures.is_empty() else 1)
 

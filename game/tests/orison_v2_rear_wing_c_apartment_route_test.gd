@@ -11,9 +11,10 @@ func _route() -> void:
 	await get_tree().physics_frame
 	var steps: Array=[
 		{"open":"F02_C_ENTRY_DOOR"},
-		{"walk":[-.85,4.75]},{"walk":[-.85,5.7]},{"walk":[-.85,6.85]},
-		{"walk":[-4,6.85]},{"walk":[-4,5.65]},{"walk":[-4.7,5.65]},{"walk":[-3.05,5.65]},
-		{"walk":[-4,5.65]},{"walk":[-4,6.85]},{"walk":[-.85,6.85]},{"walk":[-.85,7.1]},
+		{"walk":[-.85,4.75]},{"walk":[-.85,5.7]},{"walk":[-.85,6.85]},{"walk":[-.85,7.1]},
+		# The main-room leg keeps clear of Juno's bookcase on the south wall (dossier slice 26).
+		{"walk":[-4,7.1]},{"walk":[-4,5.65]},{"walk":[-4.7,5.65]},{"walk":[-3.05,5.65]},
+		{"walk":[-4,5.65]},{"walk":[-4,7.1]},{"walk":[-.85,7.1]},
 		{"walk":[2.1,7.1]},{"open":"F02_C_PRIVATE_HALL_BATH_DOOR"},
 		{"walk":[2.1,5.7]},{"walk":[2.1,5.1]},{"walk":[2.1,7.1]},
 		{"close":"F02_C_PRIVATE_HALL_BATH_DOOR"},{"open":"F02_C_PRIVATE_HALL_BED1_DOOR"},

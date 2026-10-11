@@ -6,7 +6,9 @@ REPORT - V2 ENVIRONMENT DESIGN - 2026-10-08
 
 Branch / base: `claude/orison-v2-environment-design-778e17` from main at
 `fdf01a36`. No code, data, generator or protected path is changed by this
-work; the packet is a review artefact under `art/reviews/`.
+work; the packet is a review artefact under `art/reviews/`. (That held for the packet as
+delivered. The implementation slices that followed on the branch change game code and data;
+see design/V2_ENVIRONMENT_DOSSIER_MERGE_REPORT_2026-10-10.md.)
 
 ## What was delivered
 

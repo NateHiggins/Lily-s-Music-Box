@@ -824,7 +824,7 @@ func _wall_segment(parent: Node3D, node_name: String, axis: String, fixed: float
 func _far_face_skin(parent: Node3D, node_name: String, axis: String, fixed: float,
 		at: Vector3, size: Vector3, pieces: Array[AABB], cls: String) -> void:
 	var owner: Dictionary = {}
-	for space: Dictionary in layout.spaces:
+	for space: Dictionary in layout.get("spaces", []):
 		if str(space.id) == str(parent.name): owner = space
 	if owner.is_empty(): return
 	var r: Array = owner.rect

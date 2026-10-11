@@ -5,7 +5,9 @@ Evidence class: **INERT**
 Review-and-design packet for every discrete area of the Orison V2, the street
 and the attached playable areas, captured from build `fdf01a36` on main and
 redesigned room by room. It is addressed to the owner and to the implementing
-agents (ChatGPT/Codex). It changes no code, no data and no ledger status.
+agents (ChatGPT/Codex). As delivered on 2026-10-08 the packet changed no code, no data
+and no ledger status; the implementation slices that followed on the same branch do change
+game code and data (merged 2026-10-10, see design/V2_ENVIRONMENT_DOSSIER_MERGE_REPORT_2026-10-10.md).
 
 ## Deliverables
 
@@ -68,7 +70,8 @@ Slices landed so far (evidence folders in parentheses):
 3. Public-hall flush domes on landlord switches, enamel unit numerals on the
    entry leaves, 5C stance moves (`slice3b`, `numerals`, `numerals2`).
 4. Period furniture forms: pedestal round tables, rolled sofa arms, oak shelf
-   posts (`slice34`).
+   posts (`slice4`; first filed under `slice34`, which slice 34 later overwrote, and restored
+   byte for byte from dae10668).
 5. Bath tile on one face only (a far-face skin on interior wet walls) and
    room leaves a step lower (`slice5`, `slice5b`; `skinbase` is the pre-skin
    comparison, `floorbase` the pre-skin floor-surface baseline).
@@ -131,7 +134,7 @@ Slices landed so far (evidence folders in parentheses):
     index (`slice24`, `slice24c`).
 25. 2C's rig deck and cable hook strip, 4D's print, 6A's archive crates
     (`slice25`).
-26. 2C's and 4C's bookcases and 4C's colour board (`slice26`, `slice26b`).
+26. 2C's and 4C's bookcases and 4C's colour board (`slice26`; the rerun is `slice26/receipts/rerun_b__*`).
 27. 3A's memorial pot, 6A's plate box, loupe and print rack, 6C's never-opened
     ledger (`slice27b`; its `wake_*` receipts hold the unchanged wake suite).
 28. The ground-floor service rooms: parcels, the parcel book, a scale and a stamp
@@ -242,9 +245,38 @@ Slices landed so far (evidence folders in parentheses):
 81. Every remaining row statused with its reason: deferrals and rejections, and rows
     closed from captures, including the street in its storm state (`slice81`).
 
-Verification runs are made at WIP commits that are later squashed; the game
-and art paths of each squashed commit are byte-identical to the WIP tree the
-receipts name, which `git diff --stat <wip> <commit> -- game art` confirms.
+Verification runs are made at WIP commits that are later squashed. For most
+slices the game and art paths of the squashed commit (outside this packet) are
+byte-identical to the WIP tree the receipts name, which
+`git diff --stat <wip> <commit> -- game art ':!art/reviews'` confirms. The
+exceptions: slices 3 to 5 were made as interleaved WIPs and squashed together,
+so no WIP has the tree of f99e4f2f (slice 3) or dae10668 (slice 4; its WIP
+4e589c0c differs in `orison_v2_domestic_doors.gd` and
+`orison_v2_readability_cues.gd`). The tree after slice 5, 5bf9202c, is
+numerals2's WIP 0b5f8a7b (filed under slice 3); slice 5's own WIPs 67c233a5
+and 47d93679 differ from it in `orison_v2_domestic_doors.gd` (67c233a5 also in
+`orison_v2_readability_cues.gd`). Slices 76 to 80 mostly ran at 129e02d3, which
+differs from d416d4ee in six files (the lobby station's anchor, the station
+table, the runtime root's patrol loop and three tests). Grouped slices were
+verified once, at the group's last WIP: slices 53, 55-56, 58-66, 68-74 and
+76-79 have no receipt at a tree equal to their own squashed commit (for
+example 088f987a differs from slice 68's 18faa509 in 55 files, and 129e02d3
+from slice 76's 0d9a2b4c in 27). Their receipts verify the group's last tree,
+not each step. The WIP shas are reachable from no ref.
+
+Folders added after the merge: `slice4` (slice 4's evidence, restored);
+`slice9b` (slice 9's first runs, refused at startup before the cabinet fix);
+`slice82` (slice 82's own runs at 5467439f); `census80` (slice 80's register
+census); and the lane baselines `base80`, `base48_routes`, `bedding_base43` and
+`f01base`.
+
+Slice commits 58 (e145c48d) to 66 (8f35dc22) do not compose the V2 world on
+their own: each carries the id 6A_light_box both in the domestic data
+(domestic_objects.json, domestic_furniture.json, the blockout) and in
+surface_stock.json, and the runtime refuses the surface props. Slice 67 (bbe0f527)
+renames it. A bisect into that range sees startup refusals, not the change
+under test. Corrections made after the merge are listed in
+`design/V2_ENVIRONMENT_DOSSIER_MERGE_ERRATA_2026-10-10.md`.
 
 ## Reading the register
 

@@ -24,13 +24,16 @@ static func mount(blockout: Node3D) -> bool:
 			push_error("positional wear texture missing: " + key)
 			return false
 		textures[key] = texture
-	var parent := Node3D.new()
-	parent.name = "PositionalWear"
-	blockout.add_child(parent)
+	# Refuse a bad row before anything is added, so a refusal never leaves a
+	# partial set of decals in the world.
 	for row: Dictionary in parsed.decals:
 		if str(row.kind) not in KINDS or not textures.has(str(row.texture)) or not levels.has(str(row.level)):
 			push_error("positional wear row refused: " + str(row.get("id", "")))
 			return false
+	var parent := Node3D.new()
+	parent.name = "PositionalWear"
+	blockout.add_child(parent)
+	for row: Dictionary in parsed.decals:
 		var decal := Decal.new()
 		decal.name = str(row.id)
 		decal.set_meta("wear_kind", str(row.kind))

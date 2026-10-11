@@ -330,13 +330,17 @@ func _check_apartment_doors(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) ->
 func _check_surface_props(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> void:
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
 			"res://data/orison_v2/domestic_surface_props.json"))
-	var counts := {"2A":0, "2B":0, "3A":0, "3B":0, "4A":0, "4B":0, "5A":0, "5B":0, "5C":0, "6A":0, "6B":0, "6C":0}
+	# All eighteen homes: the dossier gave resident surface stock to the six
+	# completion flats too (slices 7, 9 and 11), and an unknown unit must not
+	# abort the per-record checks below.
+	var counts := {}
+	for unit: String in ["1A", "1D", "2A", "2B", "2C", "3A", "3B", "3D", "4A", "4B", "4C", "4D", "5A", "5B", "5C", "6A", "6B", "6C"]: counts[unit] = 0
 	var dry_adapter := SurfaceSourceAdapter.new()
 	for record: Dictionary in source.props:
 		var support := world.adapter.resolve(record.support) as Node3D
 		var prop := world.adapter.resolve(record.id) as Node3D
 		dry_adapter.supports[record.support] = support
-		counts[record.unit] += 1
+		counts[record.unit] = int(counts.get(record.unit, 0)) + 1
 		check(prop != null and support != null, "surface prop and support exist: " + str(record.id))
 		if prop == null or support == null: continue
 		refs.append(weakref(prop))
@@ -348,7 +352,9 @@ func _check_surface_props(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> v
 				"fixed dressing adds no interaction or collision owner: " + str(record.id))
 		check(prop.find_children("*", "MeshInstance3D", true, false).size() >= record.surfaces.size(),
 				"material surfaces mounted: " + str(record.id))
-	check(counts == {"2A":5, "2B":4, "3A":4, "3B":8, "4A":3, "4B":2, "5A":7, "5B":4, "5C":4, "6A":6, "6B":5, "6C":3}, "surface category roster across all apartments")
+	# The original 55 category props plus the dossier's resident surface stock
+	# (slices 7 to 31); a change to any home's surface stock updates this roster.
+	check(counts == {"1A":14, "1D":12, "2A":20, "2B":13, "2C":11, "3A":14, "3B":15, "3D":9, "4A":11, "4B":13, "4C":16, "4D":7, "5A":17, "5B":15, "5C":11, "6A":15, "6B":14, "6C":20}, "surface category roster across all apartments")
 	var loader := preload("res://scripts/building/orison_v2_surface_props.gd").new()
 	check(loader.validate(source, dry_adapter), "complete source accepts available supports")
 	var missing := source.duplicate(true)

@@ -1,9 +1,9 @@
 {
  "evidence_class": "INERT",
- "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof. Follow-ups: the clear frames of facade_front_wide and route_orison_to_shop_bodega_1 were written over their storm twins (the clear sweep ran second); the storm frames are restored as images/*_storm.jpg.",
  "files": [
   {
-   "path": "images/facade_front_wide.jpg",
+   "path": "images/facade_front_wide_storm.jpg",
    "source": "sweep_city_storm/facade_front_wide.png",
    "sha256": "271c64538c4cc7180956951bb686c599aa606adc391c9189431ebcfe9b829550",
    "bytes": 94182
@@ -15,7 +15,7 @@
    "bytes": 94885
   },
   {
-   "path": "images/route_orison_to_shop_bodega_1.jpg",
+   "path": "images/route_orison_to_shop_bodega_1_storm.jpg",
    "source": "sweep_city_storm/route_orison_to_shop_bodega_1.png",
    "sha256": "d3964e41de97697000a1b220cd761c632d3aa448ddeadbb889093f33069a56e9",
    "bytes": 129266

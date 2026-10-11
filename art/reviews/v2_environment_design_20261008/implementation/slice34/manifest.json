@@ -1,6 +1,6 @@
 {
  "evidence_class": "INERT",
- "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "note": "Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof. Follow-ups: slice 4's evidence (commit dae10668) was first written to this folder and slice 34 overwrote it; it is restored byte for byte under implementation/slice4. The 2026-10-09 sweep and upper_lighting receipts that this manifest listed are slice 4's runs and moved there with slice 4's nine images.",
  "files": [
   {
    "path": "images/1A_lesson_trunk_native.jpg",
@@ -63,22 +63,10 @@
    "bytes": 3176
   },
   {
-   "path": "receipts/sweep.log.receipt.json",
-   "source": "sweep.log.receipt.json",
-   "sha256": "462b4123af98f75e3a04a1cb2f75236a18e88ff167816872e8ed33fed0991f7d",
-   "bytes": 3220
-  },
-  {
    "path": "receipts/sweep_a.log.receipt.json",
    "source": "sweep_a.log.receipt.json",
    "sha256": "fd2e30979d3b65eabb91c5ff4c466b6da439340fdba48713d7a3c89a827dc045",
    "bytes": 3224
-  },
-  {
-   "path": "receipts/upper_lighting.log.receipt.json",
-   "source": "upper_lighting.log.receipt.json",
-   "sha256": "466d8219981bb27c18d28fe5d490d460f40f3d57776062f87eab4293fcc793e9",
-   "bytes": 3192
   },
   {
    "path": "receipts/fabrication_shots__batch.json",

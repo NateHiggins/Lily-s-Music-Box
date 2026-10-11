@@ -1,0 +1,36 @@
+{
+ "evidence_class": "INERT",
+ "note": "Slice 82's own runs at its tip 5467439f, copied from C:/ov/envimpl_out/slice82, where they were the only copy (follow-ups; merge report open findings 1, 13 and 16). The fabrication batch records five failures: 2B_dress_form, 5B_aerial_wire, B1_cleat_run, B1_washer_supply and B1_rinse_taps. Copies are LF-normalized and hashed as LF. Wrapper run receipts (suite_run) and a fabrication batch file, not runtime proof.",
+ "files": [
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "10cc853a807cac81235cbe58ec3f00e61c811ecbc171e7ef86cc02052b47828e",
+   "bytes": 3222
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "725fdbae30f2749657bc912b5d0b526071a97507ceb867df94bff08ea3a1a043",
+   "bytes": 3138
+  },
+  {
+   "path": "receipts/laundry_route.log.receipt.json",
+   "source": "laundry_route.log.receipt.json",
+   "sha256": "cc35f33b9cdc7e3f05867d25ca9d52b651690d86fc5563652f4f2ba9575bae8a",
+   "bytes": 3222
+  },
+  {
+   "path": "receipts/patrol_stations.log.receipt.json",
+   "source": "patrol_stations.log.receipt.json",
+   "sha256": "7e0aaf570a31077611037f989503cdbe6b3589c7b61930381e7f40c51db6d654",
+   "bytes": 3232
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "5202fd877dd465b913d8394aa864b2ac2d6b817da74505b5a6f9d277f07489b4",
+   "bytes": 42877
+  }
+ ]
+}
