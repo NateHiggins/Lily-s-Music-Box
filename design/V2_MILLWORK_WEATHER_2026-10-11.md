@@ -6,7 +6,7 @@ REPORT - V2-MILLWORK-WEATHER - 2026-10-11
 
 Branch / HEAD / origin/main / merge-base: main; candidate recorded in verification JSON; base **8b070404**.
 Worktree clean at end: no; pre-existing owner renders, PDFs, UIDs and line-ending noise remain unstaged.
-Protected 17/17: verification pending. Selector: V2; explicit V1 rollback preserved.
+Protected 17/17: yes; fresh candidate verification. Selector: V2; explicit V1 rollback preserved.
 Ledger before -> after: 7/8/127/42/151/153 -> unchanged; requirements_changed: [].
 
 The standardized native Blender stock now finishes actual wall fragments on both
@@ -32,7 +32,7 @@ Assembly, API, node tree, rendering costs and compatibility limits are in
 not exercised with a credential. Engine TAA supplies temporal history; this
 pass does not claim a dedicated cloud velocity/history buffer or measured FPS.
 
-Gates and runtime receipts: pending final archive and candidate verification.
+Gates: fresh **1ea8619c** against **8b070404**, 53 gates, zero regressions; reader NEW 0; spatial drift zero; protected 17/17. Runtime proof: **art/renders/orison_v2/surface_requirements_20261011/runtime_contract.json**, 52 checks, zero failures. Wrapper receipts **world7.log.receipt.json**, **units9.log.receipt.json**, **provider.log.receipt.json** are archived beside it. Fresh verification: **verification.json** in the same packet.
 Numbers: 200 composed spaces; 19,599 sampled actual wall faces, zero trim gaps;
 20,971 surface draws, 16,025 unique meshes, 5,339 materials and 413 textures;
 zero loaded UV/PBR/mipmap/filter defects. The lightweight suite passes 37
@@ -51,4 +51,4 @@ RID shutdown warnings remain. Existing canonical CRLF rehearsal fixture failure
 is not part of this pass; fresh candidate verification checks its clean form.
 Decision needed from owner: none.
 
-MERGE-CANDIDATE pending
+MERGE-CANDIDATE 1ea8619cdd82a6c9c0fc951e1413b0699f0e61fa
