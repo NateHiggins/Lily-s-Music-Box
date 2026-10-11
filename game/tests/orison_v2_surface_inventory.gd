@@ -44,6 +44,8 @@ func _run() -> void:
 	await preload("res://tests/v2_mail_bank_review.gd").new().run(world,self)
 	# Reuse this production world for changed instrument geometry and its
 	# retained service owners, then measure retirement after the same audit.
+	var fire_review := preload("res://tests/v2_fire_service_review.gd").new()
+	await fire_review.run(world,self)
 	var instruments := preload("res://tests/orison_v2_service_instruments_test.gd").new()
 	instruments.capture_enabled = false
 	add_child(instruments)
@@ -54,6 +56,14 @@ func _run() -> void:
 	for frame in 600:
 		if world.passage_region.residency.state == "RESIDENT": break
 		await get_tree().process_frame
+	# Qualify both retained arcade worlds deterministically, including lazy boots.
+	var embedded_flags: Array[Dictionary] = []
+	for cabinet: Node in world.find_children("*","Node3D",true,false):
+		if not cabinet is ArcadeCabinetProp: continue
+		embedded_flags.append({"actor":cabinet,"processing":cabinet.is_processing()})
+		cabinet.set_process(false); cabinet._boot()
+		check(cabinet.machine.is_booted(),"embedded source world boots for surface review")
+	await get_tree().process_frame; await get_tree().process_frame
 	for node: Node in world.find_children("*", "GeometryInstance3D", true, false):
 		if node is Label3D: continue # Separately authored lettering, RUL-008.
 		if not node is MeshInstance3D and not node is MultiMeshInstance3D and not node is GPUParticles3D and not node is CPUParticles3D:
@@ -165,6 +175,8 @@ func _run() -> void:
 		if actor is RadiatorProp: actor.apply_open_shift_condition(saved_condition)
 	var after := _input_snapshot(root)
 	check(before.get("sha256","") == after.get("sha256","changed"),"rendering inputs stayed fixed during qualification")
+	for entry: Dictionary in embedded_flags:
+		entry.actor.set_process(entry.processing)
 	var owner_ref: WeakRef = weakref(world)
 	world.shutdown_for_tests()
 	world.free()
@@ -177,6 +189,7 @@ func _run() -> void:
 	for failure: String in instrument_post.failures:
 		if not failure in failures: failures.append(failure)
 	instruments.free()
+	fire_review.after_teardown(self)
 	var head: Array=[]; var digest: Array=[]
 	check(OS.execute("git",["-C",root,"rev-parse","HEAD"],head)==0,"record repository head")
 	check(OS.execute("python",[root.path_join("tools/run_receipt.py"),"digest","--root",root],digest)==0,"record runtime input digest")

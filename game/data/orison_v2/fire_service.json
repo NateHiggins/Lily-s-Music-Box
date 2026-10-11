@@ -1,0 +1,628 @@
+{
+  "schema_version": 1,
+  "asset": "res://assets/props/fire_service.glb",
+  "source_script": "res://scripts/props/fire_line_cabinet_prop.gd",
+  "source_sha256": "df48e02bf22107e8947fee757a486e6579293f11d154952c7c0017fa034830f3",
+  "parts": [
+    {
+      "index": 0,
+      "name": "@MeshInstance3D@7",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 1,
+      "name": "BranchRun",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 2,
+      "name": "@MeshInstance3D@9",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 3,
+      "name": "BranchRise",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 4,
+      "name": "@MeshInstance3D@11",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 5,
+      "name": "@MeshInstance3D@12",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 6,
+      "name": "DepartmentCap",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 7,
+      "name": "@MeshInstance3D@14",
+      "type": "BoxMesh",
+      "collision_size": [
+        0.620000004768372,
+        0.779999971389771,
+        0.0179999992251396
+      ]
+    },
+    {
+      "index": 8,
+      "name": "@MeshInstance3D@15",
+      "type": "BoxMesh",
+      "collision_size": [
+        0.0219999998807907,
+        0.779999971389771,
+        0.200000002980232
+      ]
+    },
+    {
+      "index": 9,
+      "name": "@MeshInstance3D@16",
+      "type": "BoxMesh",
+      "collision_size": [
+        0.0219999998807907,
+        0.779999971389771,
+        0.200000002980232
+      ]
+    },
+    {
+      "index": 10,
+      "name": "@MeshInstance3D@17",
+      "type": "BoxMesh",
+      "collision_size": [
+        0.620000004768372,
+        0.0219999998807907,
+        0.200000002980232
+      ]
+    },
+    {
+      "index": 11,
+      "name": "@MeshInstance3D@18",
+      "type": "BoxMesh",
+      "collision_size": [
+        0.620000004768372,
+        0.0219999998807907,
+        0.200000002980232
+      ]
+    },
+    {
+      "index": 12,
+      "name": "@MeshInstance3D@19",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 13,
+      "name": "@MeshInstance3D@20",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 14,
+      "name": "@MeshInstance3D@21",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 15,
+      "name": "@MeshInstance3D@22",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 16,
+      "name": "@MeshInstance3D@23",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 17,
+      "name": "@MeshInstance3D@24",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 18,
+      "name": "@MeshInstance3D@25",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 19,
+      "name": "@MeshInstance3D@26",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 20,
+      "name": "@MeshInstance3D@27",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 21,
+      "name": "@MeshInstance3D@28",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 22,
+      "name": "@MeshInstance3D@29",
+      "type": "TorusMesh"
+    },
+    {
+      "index": 23,
+      "name": "@MeshInstance3D@30",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 24,
+      "name": "@MeshInstance3D@31",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 25,
+      "name": "@MeshInstance3D@32",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 26,
+      "name": "@MeshInstance3D@33",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 27,
+      "name": "@MeshInstance3D@34",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 28,
+      "name": "@MeshInstance3D@35",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 29,
+      "name": "@MeshInstance3D@36",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 30,
+      "name": "Gasket",
+      "type": "TorusMesh"
+    },
+    {
+      "index": 31,
+      "name": "EmptyPocket",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 32,
+      "name": "@MeshInstance3D@39",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 33,
+      "name": "@MeshInstance3D@40",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 34,
+      "name": "@MeshInstance3D@41",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 35,
+      "name": "@MeshInstance3D@42",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 36,
+      "name": "@MeshInstance3D@43",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 37,
+      "name": "Fold_00",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 38,
+      "name": "Turn_00",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 39,
+      "name": "Fold_01",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 40,
+      "name": "Turn_01",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 41,
+      "name": "Fold_02",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 42,
+      "name": "Turn_02",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 43,
+      "name": "Fold_03",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 44,
+      "name": "Turn_03",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 45,
+      "name": "Fold_04",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 46,
+      "name": "Turn_04",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 47,
+      "name": "Fold_05",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 48,
+      "name": "Turn_05",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 49,
+      "name": "Fold_06",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 50,
+      "name": "Turn_06",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 51,
+      "name": "Fold_07",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 52,
+      "name": "Turn_07",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 53,
+      "name": "Fold_08",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 54,
+      "name": "Turn_08",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 55,
+      "name": "Fold_09",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 56,
+      "name": "Turn_09",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 57,
+      "name": "@MeshInstance3D@64",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 58,
+      "name": "@MeshInstance3D@65",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 59,
+      "name": "@MeshInstance3D@66",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 60,
+      "name": "@MeshInstance3D@67",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 61,
+      "name": "@MeshInstance3D@68",
+      "type": "CylinderMesh"
+    },
+    {
+      "index": 62,
+      "name": "@MeshInstance3D@69",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 63,
+      "name": "@MeshInstance3D@70",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 64,
+      "name": "SpareGasket",
+      "type": "TorusMesh"
+    },
+    {
+      "index": 65,
+      "name": "@MeshInstance3D@72",
+      "type": "BoxMesh",
+      "collision_size": [
+        0.0480000004172325,
+        0.779999971389771,
+        0.0240000002086163
+      ]
+    },
+    {
+      "index": 66,
+      "name": "@MeshInstance3D@73",
+      "type": "BoxMesh",
+      "collision_size": [
+        0.0480000004172325,
+        0.779999971389771,
+        0.0240000002086163
+      ]
+    },
+    {
+      "index": 67,
+      "name": "@MeshInstance3D@74",
+      "type": "BoxMesh",
+      "collision_size": [
+        0.610000014305115,
+        0.0520000010728836,
+        0.0240000002086163
+      ]
+    },
+    {
+      "index": 68,
+      "name": "@MeshInstance3D@75",
+      "type": "BoxMesh",
+      "collision_size": [
+        0.610000014305115,
+        0.150000005960464,
+        0.0240000002086163
+      ]
+    },
+    {
+      "index": 69,
+      "name": "@MeshInstance3D@76",
+      "type": "BoxMesh",
+      "collision_size": [
+        0.515999972820282,
+        0.610000014305115,
+        0.00899999961256981
+      ]
+    },
+    {
+      "index": 70,
+      "name": "@MeshInstance3D@77",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 71,
+      "name": "@MeshInstance3D@78",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 72,
+      "name": "@MeshInstance3D@79",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 73,
+      "name": "@MeshInstance3D@80",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 74,
+      "name": "@MeshInstance3D@81",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 75,
+      "name": "@MeshInstance3D@82",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 76,
+      "name": "@MeshInstance3D@83",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 77,
+      "name": "@MeshInstance3D@84",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 78,
+      "name": "@MeshInstance3D@85",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 79,
+      "name": "@MeshInstance3D@86",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 80,
+      "name": "@MeshInstance3D@87",
+      "type": "BoxMesh"
+    },
+    {
+      "index": 81,
+      "name": "@MeshInstance3D@88",
+      "type": "CylinderMesh"
+    }
+  ],
+  "materials": [
+    {
+      "key": "Paint",
+      "catalog": "iron_neutral",
+      "tint": [
+        0.52,
+        0.13,
+        0.088,
+        1
+      ],
+      "roughness": 0.7,
+      "metallic": 0.05,
+      "normal": 0.08,
+      "tile": 1.0
+    },
+    {
+      "key": "Lining",
+      "catalog": "enamel_appliance",
+      "tint": [
+        0.735,
+        0.715,
+        0.665,
+        1
+      ],
+      "roughness": 0.6,
+      "metallic": 0,
+      "normal": 0.08,
+      "tile": 1.0
+    },
+    {
+      "key": "Brass",
+      "catalog": "brass_dull",
+      "tint": [
+        0.72,
+        0.64,
+        0.49,
+        1
+      ],
+      "roughness": 0.5,
+      "metallic": 0.62,
+      "normal": 0.035,
+      "tile": 0.35
+    },
+    {
+      "key": "Iron",
+      "catalog": "iron_neutral",
+      "tint": [
+        0.32,
+        0.33,
+        0.31,
+        1
+      ],
+      "roughness": 0.7,
+      "metallic": 0.65,
+      "normal": 0.08,
+      "tile": 1.0
+    },
+    {
+      "key": "Linen",
+      "catalog": "linen",
+      "tint": [
+        0.75,
+        0.71,
+        0.59,
+        1
+      ],
+      "roughness": 0.9,
+      "metallic": 0,
+      "normal": 0.08,
+      "tile": 1.0
+    },
+    {
+      "key": "Rubber",
+      "catalog": "rubber_aged",
+      "tint": [
+        0.18,
+        0.17,
+        0.16,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "normal": 0.08,
+      "tile": 1.0
+    },
+    {
+      "key": "Paper",
+      "catalog": "paper",
+      "tint": [
+        0.86,
+        0.82,
+        0.69,
+        1
+      ],
+      "roughness": 0.9,
+      "metallic": 0,
+      "normal": 0.08,
+      "tile": 1.0
+    },
+    {
+      "key": "Glass",
+      "catalog": "enamel_appliance",
+      "tint": [
+        0.545,
+        0.575,
+        0.545,
+        1
+      ],
+      "roughness": 0.22,
+      "metallic": 0,
+      "normal": 0.08,
+      "tile": 1.0
+    },
+    {
+      "key": "Black",
+      "catalog": "iron_blackened",
+      "tint": [
+        0.11,
+        0.12,
+        0.11,
+        1
+      ],
+      "roughness": 0.8,
+      "metallic": 0.6,
+      "normal": 0.08,
+      "tile": 1.0
+    }
+  ],
+  "stations": [
+    "B1_FIRE_LINE_STAIR",
+    "F01_FIRE_LINE_STAIR",
+    "F02_FIRE_LINE_STAIR",
+    "F03_FIRE_LINE_STAIR",
+    "F04_FIRE_LINE_STAIR",
+    "F05_FIRE_LINE_STAIR",
+    "F06_FIRE_LINE_STAIR",
+    "ROOF_FIRE_LINE_STAIR"
+  ],
+  "feed_points": [
+    [
+      -8.6,
+      20.885,
+      -5.7
+    ],
+    [
+      -8.6,
+      18.72,
+      -5.7
+    ],
+    [
+      -8.6,
+      18.72,
+      -3.64
+    ],
+    [
+      4.71,
+      18.72,
+      -3.64
+    ]
+  ]
+}

@@ -1757,3 +1757,18 @@ art/renders/orison_v2/mail_bank_20261011/** -text
 game/scripts/props/fuse_panel_prop.gd -text
 game/scripts/props/house_switchboard_prop.gd -text
 art/renders/orison_v2/fuse_block_20261011/** -text
+
+# Native fire-service fabrication and source-bound qualification.
+art/blender/scripts/build_fire_service.py -text
+art/blender/scripts/review_fire_service.py -text
+art/data/fire_service/** -text
+game/data/orison_v2/fire_service.json -text
+game/scripts/building/orison_v2_native_fire_service.gd -text
+game/scripts/building/orison_v2_fire_hose_visual.gd -text
+game/scripts/building/v2_embedded_surface_stock.gd -text
+game/tests/v2_fire_service_review.gd -text
+game/tests/v2_fire_service_test.gd -text
+game/tests/v2_fire_service_source.gd -text
+game/tests/v2_changed_compile_check.gd -text
+art/renders/orison_v2/fire_service_20261011/** -text
+game/tests/v2_embedded_surface_preview.gd -text

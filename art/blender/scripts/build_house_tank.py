@@ -43,7 +43,13 @@ for record in records:
         # Floor owns the underside. Staves begin at its upper edge, avoiding
         # coplanar bottom faces while keeping the original external envelope.
         floor=.08; wall=.08
-        box('TankBottom',at+Vector((0,-size.y*.5+floor*.5,0)),(size.x,floor,size.z),'Timber',.001)
+        bottom=box('TankBottom',at+Vector((0,-size.y*.5+floor*.5,0)),(size.x,floor,size.z),'Timber',.001)
+        # Dedicated gravity standpipe take-off, through the actual timber floor.
+        bpy.ops.mesh.primitive_cylinder_add(vertices=48,radius=.0565,depth=.20,
+            location=(0,0,at.y-size.y*.5+floor*.5))
+        cutter=bpy.context.object; bpy.context.view_layer.objects.active=bottom
+        mod=bottom.modifiers.new('Fire feed bottom port','BOOLEAN');mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cutter
+        bpy.ops.object.modifier_apply(modifier=mod.name);bpy.data.objects.remove(cutter,do_unlink=True)
         height=size.y-floor; y=at.y+floor*.5
         for side in [-1,1]:
             count=math.ceil(size.x/.24); pitch=size.x/count

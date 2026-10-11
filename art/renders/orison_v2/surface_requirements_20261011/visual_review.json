@@ -1,7 +1,7 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "surface_inputs_sha256": "e0d6cda7e116ee4c4d8f05cd8e185c15edc44465967fec41dc189c9ac4fbf21a",
+  "surface_inputs_sha256": "53de9f9790dc2467cd609c9625572e0b4e2d77690f88bd6f8809046b4123a65c",
   "scope": "Current production V2 surface audit with native four-seat fuse block, service instrument controls and retirement, mail bank, patrol boxes, window stock, continuous millwork and seasonal sky. Changed images reviewed; unchanged native partitions retained. Low-light production images limit fine finish judgments.",
   "images": [
     {
@@ -283,6 +283,36 @@
       "file": "native_mail_bank_pocket_detail.png",
       "sha256": "59909fa076273601d94d297c39473a4a4bbb8b443ee4b45e583a63dfdae94a4c",
       "observation": "Open pocket has a real floor, cheeks and rear lining with existing pending mail supported inside; physical card and lock turn with the source hinge. Scene is dark, so fine surface detail is reviewed in the Blender close-up."
+    },
+    {
+      "file": "fire_F01_FIRE_LINE_STAIR_closed.png",
+      "sha256": "d69ab2f799124fee21bf19c7dd8f920b5f8d39b110b82bab801b9708bccdeb1b",
+      "observation": "Native source station against fitted wall stock; source wiring glass and linen folds retain readable form under temporary inspection light. Mounted trim clears the cabinet."
+    },
+    {
+      "file": "fire_F01_FIRE_LINE_STAIR_open.png",
+      "sha256": "7c0e4daa27f9d80dc6fe962643b475c3e2e7b9865bd856586cda233ee4ac5638",
+      "observation": "Native source station against fitted wall stock; source wiring glass and linen folds retain readable form under temporary inspection light. Mounted trim clears the cabinet."
+    },
+    {
+      "file": "fire_ROOF_FIRE_LINE_STAIR_closed.png",
+      "sha256": "dabec6bddb2dbf15ae2b66969fd707c0ac6a37fc8ae0b11021c771a9a00ab0d1",
+      "observation": "Native source station against fitted wall stock; source wiring glass and linen folds retain readable form under temporary inspection light. Mounted trim clears the cabinet."
+    },
+    {
+      "file": "fire_ROOF_FIRE_LINE_STAIR_open.png",
+      "sha256": "977d0b58459021a95d9efbd2f23e8180257faec941f59f0d99997895a8f5980c",
+      "observation": "Native source station against fitted wall stock; source wiring glass and linen folds retain readable form under temporary inspection light. Mounted trim clears the cabinet."
+    },
+    {
+      "file": "embedded_farm_and_market.png",
+      "sha256": "2296b6b37403bc11c80da4c1206d150d9809c17909e1bf16ea6ea621985be30f",
+      "observation": "Isolated render of the original retained software world with the same V2 delayed-load PBR policy. Original titles, tint, emission and geometry retained; mystery image deliberately dark. This is visual review, not composed runtime proof."
+    },
+    {
+      "file": "embedded_mystery_serial.png",
+      "sha256": "bf6d3297ae4d688484ae5606da4c6332a0b934b004c138142c361272afca0d4e",
+      "observation": "Isolated render of the original retained software world with the same V2 delayed-load PBR policy. Original titles, tint, emission and geometry retained; mystery image deliberately dark. This is visual review, not composed runtime proof."
     }
   ],
   "diagnostic_images": [

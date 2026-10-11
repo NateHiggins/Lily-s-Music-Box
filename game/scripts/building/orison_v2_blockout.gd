@@ -520,10 +520,16 @@ func _build_spaces() -> void:
 			if str(space.id) in space_geometry_exclusions: continue
 			var room := get_node_or_null(str(space.id)) as Node3D
 			if room==null: continue
+			var finish_clearances: Array[AABB] = preload("res://scripts/building/orison_v2_window_joinery.gd").clearance_boxes(self,space)
+			for mount: Dictionary in layout.anchors:
+				if str(mount.get("space","")) != str(space.id) or not mount.has("finish_bounds"): continue
+				var box := _service_box(mount.finish_bounds)
+				box.position.y += float(level_y[space.level])
+				finish_clearances.append(box)
 			millwork.build(room,space,float(level_y[space.level]),clear_h,float(dims.partition_wall),
 				architectural_materials.material_for("FrameTrim",str(space.get("class","private"))),
 				architectural_materials.material_for("Leaf",str(space.get("class","private"))),layout.doors,
-				preload("res://scripts/building/orison_v2_window_joinery.gd").clearance_boxes(self,space),wall_stock)
+				finish_clearances,wall_stock)
 
 ## A single slab render/collision owner retains the original stable node path.
 ## Only explicit, owner-bounded service apertures change its physical surface.

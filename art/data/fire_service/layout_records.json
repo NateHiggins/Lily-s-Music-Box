@@ -1,0 +1,304 @@
+{
+  "schema_version": 1,
+  "evidence_class": "INERT",
+  "records": {
+    "anchors": [
+      {
+        "id": "B1_FIRE_LINE_STAIR",
+        "level": "B1",
+        "space": "B1_PUBLIC_CORE",
+        "position": [
+          4.35,
+          1.2,
+          -3.78
+        ],
+        "yaw": 0,
+        "kind": "maintenance",
+        "finish_bounds": [
+          4.025,
+          1.18,
+          -3.85,
+          4.675,
+          2.0,
+          -3.52
+        ]
+      },
+      {
+        "id": "F01_FIRE_LINE_STAIR",
+        "level": "F01",
+        "space": "F01_PUBLIC_CORE",
+        "position": [
+          4.35,
+          1.2,
+          -3.78
+        ],
+        "yaw": 0,
+        "kind": "maintenance",
+        "finish_bounds": [
+          4.025,
+          1.18,
+          -3.85,
+          4.675,
+          2.0,
+          -3.52
+        ]
+      },
+      {
+        "id": "F02_FIRE_LINE_STAIR",
+        "level": "F02",
+        "space": "F02_PUBLIC_CORE",
+        "position": [
+          4.35,
+          1.2,
+          -3.78
+        ],
+        "yaw": 0,
+        "kind": "maintenance",
+        "finish_bounds": [
+          4.025,
+          1.18,
+          -3.85,
+          4.675,
+          2.0,
+          -3.52
+        ]
+      },
+      {
+        "id": "F03_FIRE_LINE_STAIR",
+        "level": "F03",
+        "space": "F03_PUBLIC_CORE",
+        "position": [
+          4.35,
+          1.2,
+          -3.78
+        ],
+        "yaw": 0,
+        "kind": "maintenance",
+        "finish_bounds": [
+          4.025,
+          1.18,
+          -3.85,
+          4.675,
+          2.0,
+          -3.52
+        ]
+      },
+      {
+        "id": "F04_FIRE_LINE_STAIR",
+        "level": "F04",
+        "space": "F04_PUBLIC_CORE",
+        "position": [
+          4.35,
+          1.2,
+          -3.78
+        ],
+        "yaw": 0,
+        "kind": "maintenance",
+        "finish_bounds": [
+          4.025,
+          1.18,
+          -3.85,
+          4.675,
+          2.0,
+          -3.52
+        ]
+      },
+      {
+        "id": "F05_FIRE_LINE_STAIR",
+        "level": "F05",
+        "space": "F05_PUBLIC_CORE",
+        "position": [
+          4.35,
+          1.2,
+          -3.78
+        ],
+        "yaw": 0,
+        "kind": "maintenance",
+        "finish_bounds": [
+          4.025,
+          1.18,
+          -3.85,
+          4.675,
+          2.0,
+          -3.52
+        ]
+      },
+      {
+        "id": "F06_FIRE_LINE_STAIR",
+        "level": "F06",
+        "space": "F06_PUBLIC_CORE",
+        "position": [
+          4.35,
+          1.2,
+          -3.78
+        ],
+        "yaw": 0,
+        "kind": "maintenance",
+        "finish_bounds": [
+          4.025,
+          1.18,
+          -3.85,
+          4.675,
+          2.0,
+          -3.52
+        ]
+      },
+      {
+        "id": "ROOF_FIRE_LINE_STAIR",
+        "level": "ROOF",
+        "space": "ROOF_PUBLIC_CORE",
+        "position": [
+          4.35,
+          1.2,
+          -3.78
+        ],
+        "yaw": 0,
+        "kind": "maintenance",
+        "finish_bounds": [
+          4.025,
+          1.18,
+          -3.85,
+          4.675,
+          2.0,
+          -3.52
+        ]
+      }
+    ],
+    "risers": [
+      {
+        "id": "FIRE_SERVICE_RISER",
+        "rect": [
+          4.825,
+          -3.705,
+          4.955,
+          -3.575
+        ],
+        "from_y": -3.2,
+        "to_y": 20.92,
+        "class": "fire",
+        "solid": false
+      }
+    ],
+    "service_connections": [
+      {
+        "id": "B1_FIRE_LINE_STAIR_BRANCH",
+        "from": "FIRE_SERVICE_RISER",
+        "to": "B1_FIRE_LINE_STAIR",
+        "system": "fire_service"
+      },
+      {
+        "id": "F01_FIRE_LINE_STAIR_BRANCH",
+        "from": "FIRE_SERVICE_RISER",
+        "to": "F01_FIRE_LINE_STAIR",
+        "system": "fire_service"
+      },
+      {
+        "id": "F02_FIRE_LINE_STAIR_BRANCH",
+        "from": "FIRE_SERVICE_RISER",
+        "to": "F02_FIRE_LINE_STAIR",
+        "system": "fire_service"
+      },
+      {
+        "id": "F03_FIRE_LINE_STAIR_BRANCH",
+        "from": "FIRE_SERVICE_RISER",
+        "to": "F03_FIRE_LINE_STAIR",
+        "system": "fire_service"
+      },
+      {
+        "id": "F04_FIRE_LINE_STAIR_BRANCH",
+        "from": "FIRE_SERVICE_RISER",
+        "to": "F04_FIRE_LINE_STAIR",
+        "system": "fire_service"
+      },
+      {
+        "id": "F05_FIRE_LINE_STAIR_BRANCH",
+        "from": "FIRE_SERVICE_RISER",
+        "to": "F05_FIRE_LINE_STAIR",
+        "system": "fire_service"
+      },
+      {
+        "id": "F06_FIRE_LINE_STAIR_BRANCH",
+        "from": "FIRE_SERVICE_RISER",
+        "to": "F06_FIRE_LINE_STAIR",
+        "system": "fire_service"
+      },
+      {
+        "id": "ROOF_FIRE_LINE_STAIR_BRANCH",
+        "from": "FIRE_SERVICE_RISER",
+        "to": "ROOF_FIRE_LINE_STAIR",
+        "system": "fire_service"
+      },
+      {
+        "id": "ROOF_TANK_FIRE_FEED",
+        "from": "ROOF_TANK_BODY",
+        "to": "FIRE_SERVICE_RISER",
+        "system": "fire_service"
+      }
+    ],
+    "wall_service_openings": [
+      {
+        "id": "FIRE_FEED_F06_A_MAIN_PORT",
+        "space": "F06_A_MAIN",
+        "side": "east",
+        "bounds": [
+          -8.370000000000001,
+          18.65,
+          -3.71,
+          -8.23,
+          18.79,
+          -3.57
+        ]
+      },
+      {
+        "id": "FIRE_FEED_F06_A_VESTIBULE_PORT",
+        "space": "F06_A_VESTIBULE",
+        "side": "east",
+        "bounds": [
+          -5.67,
+          18.65,
+          -3.71,
+          -5.529999999999999,
+          18.79,
+          -3.57
+        ]
+      },
+      {
+        "id": "FIRE_FEED_F06_PUBLIC_CORE_PORT",
+        "space": "F06_PUBLIC_CORE",
+        "side": "west",
+        "bounds": [
+          -2.27,
+          18.65,
+          -3.71,
+          -2.1300000000000003,
+          18.79,
+          -3.57
+        ]
+      }
+    ],
+    "slab_openings": [
+      {
+        "id": "FIRE_TANK_ROOF_DECK_WEST_PORT",
+        "space": "ROOF_DECK_WEST",
+        "surface": "Floor",
+        "rect": [
+          -8.67,
+          -5.77,
+          -8.53,
+          -5.63
+        ]
+      },
+      {
+        "id": "FIRE_TANK_F06_A_MAIN_PORT",
+        "space": "F06_A_MAIN",
+        "surface": "Ceiling",
+        "rect": [
+          -8.67,
+          -5.77,
+          -8.53,
+          -5.63
+        ]
+      }
+    ]
+  }
+}

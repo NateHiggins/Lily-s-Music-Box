@@ -12,7 +12,7 @@ ASSETS = (
     "props/stair_ironwork_service.glb", "props/boiler_body.glb",
     "props/bath_shower.glb", "props/bath_lavatory.glb",
     "props/bedding.glb", "props/roof_coping.glb",
-    "building/v2_lift_drive.glb",
+    "building/v2_lift_drive.glb", "props/fire_service.glb",
 )
 
 def main():

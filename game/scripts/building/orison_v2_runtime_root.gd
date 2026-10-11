@@ -214,6 +214,8 @@ func _ready() -> void:
 		return
 	preload("res://scripts/building/orison_v2_owner_building_finishes.gd").new().apply(self)
 	preload("res://scripts/building/v2_legacy_material_stock.gd").apply(self)
+	var embedded_stock := preload("res://scripts/building/v2_embedded_surface_stock.gd").new()
+	embedded_stock.name = "V2EmbeddedSurfaceStock"; add_child(embedded_stock)
 	atmosphere.bind_weather(self)
 	_compose_debug_controls()
 	get_node("CaretakerNotebook").debug = building_debug
@@ -429,6 +431,12 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: bookshelves refused: %s" % [bookshelves.errors])
 		return
+	var fire_service := preload("res://scripts/building/orison_v2_native_fire_service.gd").new()
+	if not fire_service.mount(adapter,_blockout.layout):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: fire service refused: %s" % [fire_service.errors])
+		return
+	adapter.root.set_meta("v2_native_fire_service",fire_service)
 	var service_instruments := preload("res://scripts/building/orison_v2_native_service_instruments.gd").new()
 	if not service_instruments.mount(self):
 		startup_failed = true
