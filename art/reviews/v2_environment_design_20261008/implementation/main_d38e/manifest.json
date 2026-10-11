@@ -1,0 +1,30 @@
+{
+ "evidence_class": "INERT",
+ "note": "Runs at main d38e7795 itself (the dossier merge), made after the follow-ups to classify two reds. OrisonV2M11BServiceOpeningsTest fails one ownership-lifecycle check there too (FAIL (1) checks=75: 'final teardown returns to the warmed ownership baseline'; at 9535800b the failing check is 'second warmed cycle causes no ObjectDB, resource, or orphan amplification'), so the M11B red predates the follow-ups. OrisonV2ConnectedWorldTest: 54710 checks, 8 failures, 'furniture has its extracted visible surfaces' twice each for 2A_din_t, 3B_din_t, 4A_din_t and 4B_meal_table, the failures slice 84 fixes (0 from 9535800b on). Run receipts; not runtime proof.",
+ "files": [
+  {
+   "path": "receipts/connected_world.log.receipt.json",
+   "source": "connected_world.log.receipt.json",
+   "sha256": "81669649d6a5ec5941181b9361a36202166d163169557b0e9a226d99f817bcde",
+   "bytes": 3245
+  },
+  {
+   "path": "receipts/import1.log.receipt.json",
+   "source": "import1.log.receipt.json",
+   "sha256": "d14629792e2f0a9a13d96b32459b0d9c2d8d581a0ba4f35383e70998a0eee722",
+   "bytes": 3145
+  },
+  {
+   "path": "receipts/import2.log.receipt.json",
+   "source": "import2.log.receipt.json",
+   "sha256": "073439be0e86bacd7fdb22c1a765c836af591d2499f64a61d0f056d655afd1fd",
+   "bytes": 3144
+  },
+  {
+   "path": "receipts/m11b_service_openings.log.receipt.json",
+   "source": "m11b_service_openings.log.receipt.json",
+   "sha256": "916919a19a0900b972d32cae118fc4f3051806e2f2f292cbedf3b79b2117a66c",
+   "bytes": 7010
+  }
+ ]
+}
