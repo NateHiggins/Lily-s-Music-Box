@@ -57,4 +57,13 @@ A separate live assertion requires all seven current runtime proofs and an
 admissible executed receipt. The final contract was rerun under the normalized
 digest; earlier raw-digest receipts are historical, not current proof.
 
-Fresh candidate verification will be appended after committing the portability fix.
+Fresh verification: **d62ef031** against **1c3f89fa**, clean fresh checkout,
+53 gates, zero regressions and 12 improvements. All 17 protected paths are
+unchanged, selector V2, no lint errors. The five changed gate files were
+reviewed: text normalization, runner fallback, focused tests and appended
+spatial records; no authority rule or defect threshold is waived.
+The fresh checkout admits the same seven runtime requirements. Verification
+uses **--no-godot**, reusing the final executed contract bound to identical
+runtime inputs and test source. **verification.json** archives the result.
+
+MERGE-CANDIDATE d62ef0317195e67855f766c96c0c354a4033e3fa
