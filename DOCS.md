@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| First-slice runtime contracts, actual save/reconstruction and remaining V2 blockers | `design/V2_FIRST_SLICE_CONTRACTS_2026-10-11.md` and `design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md` |
 | Adjustable resident blinds, curtain variants, saved settings and reviewed window stock | `game/docs/V2_WINDOW_TREATMENTS.md` and `design/V2_WINDOW_TREATMENTS_2026-10-11.md` |
 | Continuous millwork and seasonal NYC weather integration | `game/docs/V2_MILLWORK_AND_WEATHER.md` and `design/V2_MILLWORK_WEATHER_2026-10-11.md` |
 | Integrated V2 dossier follow-ups, remaining failures and final merge verification | `design/V2_DOSSIER_FOLLOWUPS_INTEGRATION_2026-10-11.md` and `design/V2_ENVIRONMENT_DOSSIER_FOLLOWUPS_REPORT_2026-10-10.md` |

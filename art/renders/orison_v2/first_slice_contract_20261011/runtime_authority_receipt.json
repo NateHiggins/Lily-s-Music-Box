@@ -1,0 +1,515 @@
+{
+	"checks": [
+		{
+			"label": "production-composed v2 root starts",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_WATCHMAN_DETECTOR",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_WATCHMAN_DETECTOR",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_NIGHT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_NIGHT_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_SIGNAL_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_SIGNAL_REGISTER",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F01_TOUR_KEY_GUARD",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F01_TOUR_KEY_GUARD",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: F02_B_RADIATOR_01",
+			"ok": true
+		},
+		{
+			"label": "one production gameplay authority: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "one preserved spatial owner: B1_BOILER_01",
+			"ok": true
+		},
+		{
+			"label": "one lifecycle and save authority per contract",
+			"ok": true
+		},
+		{
+			"label": "review-only cues are absent from production runtime",
+			"ok": true
+		},
+		{
+			"label": "central formatter produces carrier-neutral prompts",
+			"ok": true
+		},
+		{
+			"label": "ritual denial states refuse invented acts",
+			"ok": true
+		},
+		{
+			"label": "arrival refuses premature clock-out and report acceptance",
+			"ok": true
+		},
+		{
+			"label": "empty spindle cannot invent an opening report",
+			"ok": true
+		},
+		{
+			"label": "production detector clocks in and offers exactly the authored opening job",
+			"ok": true
+		},
+		{
+			"label": "production spindle acknowledges one report and denies duplicate taking",
+			"ok": true
+		},
+		{
+			"label": "one network carries a box from every floor",
+			"ok": true
+		},
+		{
+			"label": "the register has a drop for every box",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: B1_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F02_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F03_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F04_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F05_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F06_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "patrol station mounted: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "station number and legend: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "case hangs at 1.42 m on its own floor: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "box flush on an actual wall: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "nothing stands in front of the box: F01_WATCH_STATION",
+			"ok": true
+		},
+		{
+			"label": "the guard offers its key",
+			"ok": true
+		},
+		{
+			"label": "the tour key leaves its hook for the round by the player's press",
+			"ok": true
+		},
+		{
+			"label": "box offers its door: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "box worked by the player's presses: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "box offers its door: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box worked by the player's presses: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box offers its door: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box worked by the player's presses: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box offers its door: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box worked by the player's presses: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box offers its door: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box worked by the player's presses: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box offers its door: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box worked by the player's presses: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box offers its door: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "box worked by the player's presses: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "every mark reached the register",
+			"ok": true
+		},
+		{
+			"label": "the register's sequence is the round: plant, floors 2 to 6, lobby",
+			"ok": true
+		},
+		{
+			"label": "register drop 1 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 2 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 3 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 4 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 5 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 6 down",
+			"ok": true
+		},
+		{
+			"label": "register drop 7 down",
+			"ok": true
+		},
+		{
+			"label": "the key goes back on its hook by the player's press",
+			"ok": true
+		},
+		{
+			"label": "box reset: B1_STATION_BOILER",
+			"ok": true
+		},
+		{
+			"label": "box reset: F02_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box reset: F03_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box reset: F04_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box reset: F05_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box reset: F06_STATION_CORE",
+			"ok": true
+		},
+		{
+			"label": "box reset: F01_STATION_LOBBY",
+			"ok": true
+		},
+		{
+			"label": "register restored for the morning",
+			"ok": true
+		},
+		{
+			"label": "physical guard and first-shift observer agree on returned tour key",
+			"ok": true
+		},
+		{
+			"label": "service-set call issues exactly one authored radiator obligation",
+			"ok": true
+		},
+		{
+			"label": "premature mechanisms cannot counterfeit progress",
+			"ok": true
+		},
+		{
+			"label": "resident threshold acknowledges the production work order",
+			"ok": true
+		},
+		{
+			"label": "radiator, porter board, and boiler evidence earns repairability",
+			"ok": true
+		},
+		{
+			"label": "duplicate interaction cannot double-advance",
+			"ok": true
+		},
+		{
+			"label": "real 2B radiator authority records the repair",
+			"ok": true
+		},
+		{
+			"label": "resident return closes the authored service round",
+			"ok": true
+		},
+		{
+			"label": "production event trace preserves the complete round",
+			"ok": true
+		},
+		{
+			"label": "save, destroy, CampaignShell reconstruct, and load preserve round facts",
+			"ok": true
+		},
+		{
+			"label": "v2 wake uses explicit bedside-return contract",
+			"ok": true
+		},
+		{
+			"label": "disk load reconstructs durable ritual facts without repeating the opening job",
+			"ok": true
+		},
+		{
+			"label": "reconstruction preserves transient custody and register semantics without inventing saved marks",
+			"ok": true
+		},
+		{
+			"label": "reconstructed production owners preserve the closed Lena round",
+			"ok": true
+		},
+		{
+			"label": "production layout remains byte-stable",
+			"ok": true
+		},
+		{
+			"label": "committed selector is v2",
+			"ok": true
+		},
+		{
+			"label": "both production worlds release tracked nodes, authority shapes and observed audio playbacks",
+			"ok": true
+		},
+		{
+			"label": "record repository provenance",
+			"ok": true
+		},
+		{
+			"label": "record current runtime inputs",
+			"ok": true
+		},
+		{
+			"label": "open runtime contract output",
+			"ok": true
+		}
+	],
+	"contracts": {
+		"premature_action_denial": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"identities": [
+				"F01_WATCHMAN_DETECTOR",
+				"F01_NIGHT_REGISTER",
+				"F01_SIGNAL_REGISTER",
+				"F01_TOUR_KEY_GUARD",
+				"F02_B_RADIATOR_01",
+				"B1_BOILER_01",
+				"LobbyPorterBoard"
+			],
+			"status": "PASS"
+		},
+		"save_reconstruction": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"resource_scope": "Unpathed collision shapes below the seven exercised authorities; shared imported caches excluded.",
+			"retained_nodes": 0,
+			"retained_playbacks": 0,
+			"retained_resources": 0,
+			"status": "PASS",
+			"tracked_nodes": 105221,
+			"tracked_playbacks": 219,
+			"tracked_resources": 70
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"elapsed_s": 65.263,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": 0,
+	"production_runtime": true,
+	"route_beats": [
+		"call",
+		"resident",
+		"radiator_evidence",
+		"lobby_comparison",
+		"basement_comparison",
+		"diagnosis",
+		"repair",
+		"resident_return"
+	],
+	"schema_version": 2,
+	"scope": "Seven first-slice authorities: opening detector/report, seven player-ray patrol stations, ordered Lena round, actual disk save and CampaignShell rebuild. Direct service-owner calls are contract stimuli; continuous walking and whole-world visual acceptance are not claimed.",
+	"selector": "v2",
+	"source": {
+		"repository_head": "d2a7742dbe663e14f865cd9a95cefaf013d421e4",
+		"runtime_inputs_sha256": "3f6b2ba9d321060b509b100554d846f52fed047b738b1dfa570afca1d2fc20b9",
+		"test_path": "game/tests/orison_v2_first_slice_contract_test.gd",
+		"test_sha256": "92913ba71c8e3eda7292f9fd028df68b7d41b26e70b2c6ac8444706de48bb1c4"
+	}
+}

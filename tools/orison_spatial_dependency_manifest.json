@@ -277671,6 +277671,961 @@
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
-  }
+  },
+   {
+    "key": "f65e3561d28b7b5b",
+    "kind": "id_candidate",
+    "token": "F01_STATION_LOBBY",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     22
+    ],
+    "count": 1,
+    "context": [
+     "\"F01_WATCH_STATION\": [\"F01_STATION_LOBBY\", 7, 0.0],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "5bdba131027b0e70",
+    "kind": "id_candidate",
+    "token": "F02_STATION_CORE",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     17
+    ],
+    "count": 1,
+    "context": [
+     "\"F02_WATCH_STATION\": [\"F02_STATION_CORE\", 2, 3.2],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "917cc2df1471fe35",
+    "kind": "id_candidate",
+    "token": "F03_STATION_CORE",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     18
+    ],
+    "count": 1,
+    "context": [
+     "\"F03_WATCH_STATION\": [\"F03_STATION_CORE\", 3, 6.4],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "bcdd8e7e6a6d69fd",
+    "kind": "id_candidate",
+    "token": "F04_STATION_CORE",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     19
+    ],
+    "count": 1,
+    "context": [
+     "\"F04_WATCH_STATION\": [\"F04_STATION_CORE\", 4, 9.6],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "78599bd980897216",
+    "kind": "id_candidate",
+    "token": "F05_STATION_CORE",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     20
+    ],
+    "count": 1,
+    "context": [
+     "\"F05_WATCH_STATION\": [\"F05_STATION_CORE\", 5, 12.8],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "31378a3f65bfad25",
+    "kind": "id_candidate",
+    "token": "F06_STATION_CORE",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     21
+    ],
+    "count": 1,
+    "context": [
+     "\"F06_WATCH_STATION\": [\"F06_STATION_CORE\", 6, 16.0],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "UNKNOWN_DYNAMIC"
+    ],
+    "disposition": "UNRESOLVED",
+    "confidence": "LOW",
+    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+    "resolved_target": null,
+    "target_exists": false
+   },
+   {
+    "key": "dca254a47e60816a",
+    "kind": "id_reference",
+    "token": "B1_BOILER_01",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_ready"
+    ],
+    "lines": [
+     9,
+     27,
+     79
+    ],
+    "count": 3,
+    "context": [
+     "\"F02_B_RADIATOR_01\", \"B1_BOILER_01\"]",
+     "\"B1_BOILER_01\", \"LobbyPorterBoard\"]",
+     "var boiler := world.find_child(\"B1_BOILER_01\", true, false) as BoilerProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "4f876bbaceb211ae",
+    "kind": "id_reference",
+    "token": "B1_WATCH_STATION",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     16
+    ],
+    "count": 1,
+    "context": [
+     "\"B1_WATCH_STATION\": [\"B1_STATION_BOILER\", 1, -3.2],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "b28d0683d7b3f3a8",
+    "kind": "id_reference",
+    "token": "F01_WATCH_STATION",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     22
+    ],
+    "count": 1,
+    "context": [
+     "\"F01_WATCH_STATION\": [\"F01_STATION_LOBBY\", 7, 0.0],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "dac1b113cc735380",
+    "kind": "id_reference",
+    "token": "F02_B_RADIATOR_01",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_ready"
+    ],
+    "lines": [
+     9,
+     26,
+     77
+    ],
+    "count": 3,
+    "context": [
+     "\"F02_B_RADIATOR_01\", \"B1_BOILER_01\"]",
+     "\"F01_SIGNAL_REGISTER\", \"F01_TOUR_KEY_GUARD\", \"F02_B_RADIATOR_01\",",
+     "var radiator := world.find_child(\"F02_B_RADIATOR_01\", true, false) as RadiatorProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "13942f6a7bbef42a",
+    "kind": "id_reference",
+    "token": "F02_WATCH_STATION",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     17
+    ],
+    "count": 1,
+    "context": [
+     "\"F02_WATCH_STATION\": [\"F02_STATION_CORE\", 2, 3.2],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "eabb5aa539f07012",
+    "kind": "id_reference",
+    "token": "F03_WATCH_STATION",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     18
+    ],
+    "count": 1,
+    "context": [
+     "\"F03_WATCH_STATION\": [\"F03_STATION_CORE\", 3, 6.4],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "2e0f637a4b08db17",
+    "kind": "id_reference",
+    "token": "F04_WATCH_STATION",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     19
+    ],
+    "count": 1,
+    "context": [
+     "\"F04_WATCH_STATION\": [\"F04_STATION_CORE\", 4, 9.6],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f3b2a73848a921ee",
+    "kind": "id_reference",
+    "token": "F05_WATCH_STATION",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     20
+    ],
+    "count": 1,
+    "context": [
+     "\"F05_WATCH_STATION\": [\"F05_STATION_CORE\", 5, 12.8],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "f4125395eef8dc80",
+    "kind": "id_reference",
+    "token": "F06_WATCH_STATION",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     21
+    ],
+    "count": 1,
+    "context": [
+     "\"F06_WATCH_STATION\": [\"F06_STATION_CORE\", 6, 16.0],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+   },
+   {
+    "key": "356d2545150207d1",
+    "kind": "layout_load",
+    "token": "building_layout.json",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     185
+    ],
+    "count": 1,
+    "context": [],
+    "gameplay_binding": false,
+    "authority": [
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "DERIVED_LAYOUT_LOOKUP"
+    ],
+    "disposition": "REGENERATE_CONSUMER",
+    "confidence": "HIGH",
+    "rationale": "Reads the layout authority; follows the layout wherever it goes, subject to the ids it names.",
+    "resolved_target": null,
+    "target_exists": null
+   },
+   {
+    "key": "27ab30272da2239e",
+    "kind": "node_path",
+    "token": "B1_BOILER_01",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_ready"
+    ],
+    "lines": [
+     79
+    ],
+    "count": 1,
+    "context": [
+     "var boiler := world.find_child(\"B1_BOILER_01\", true, false) as BoilerProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "SCENE_NODE_PATH",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Node-path lookup embeds spatial identity.",
+    "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+    "target_exists": null
+   },
+   {
+    "key": "fe809b8c8a67cba9",
+    "kind": "node_path",
+    "token": "F01_NIGHT_REGISTER",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_ready"
+    ],
+    "lines": [
+     74
+    ],
+    "count": 1,
+    "context": [
+     "var register := world.find_child(\"F01_NIGHT_REGISTER\", true, false) as NightRegisterProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "SCENE_NODE_PATH",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Node-path lookup embeds spatial identity.",
+    "resolved_target": "v2_blockout+runtime_created",
+    "target_exists": null
+   },
+   {
+    "key": "fbf8b14f96932ad5",
+    "kind": "node_path",
+    "token": "F01_SIGNAL_REGISTER",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_ready",
+     "_run_patrol"
+    ],
+    "lines": [
+     75,
+     314
+    ],
+    "count": 2,
+    "context": [
+     "var signal_register := world.find_child(\"F01_SIGNAL_REGISTER\", true, false) as WatchRegisterProp",
+     "var register := world.find_child(\"F01_SIGNAL_REGISTER\",true,false) as WatchRegisterProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "SCENE_NODE_PATH",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Node-path lookup embeds spatial identity.",
+    "resolved_target": "v2_blockout+runtime_created",
+    "target_exists": null
+   },
+   {
+    "key": "a831b683bb555955",
+    "kind": "node_path",
+    "token": "F01_TOUR_KEY_GUARD",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_ready",
+     "_run_patrol"
+    ],
+    "lines": [
+     76,
+     315
+    ],
+    "count": 2,
+    "context": [
+     "var guard := world.find_child(\"F01_TOUR_KEY_GUARD\", true, false) as TourKeyGuardProp",
+     "var guard := world.find_child(\"F01_TOUR_KEY_GUARD\",true,false) as TourKeyGuardProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "SCENE_NODE_PATH",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Node-path lookup embeds spatial identity.",
+    "resolved_target": "v2_blockout+runtime_created",
+    "target_exists": null
+   },
+   {
+    "key": "8d57dc69f4efd7a4",
+    "kind": "node_path",
+    "token": "F01_WATCHMAN_DETECTOR",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_ready"
+    ],
+    "lines": [
+     73
+    ],
+    "count": 1,
+    "context": [
+     "var detector := world.find_child(\"F01_WATCHMAN_DETECTOR\", true, false) as WatchmanClockProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "SCENE_NODE_PATH",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Node-path lookup embeds spatial identity.",
+    "resolved_target": "v2_blockout+runtime_created",
+    "target_exists": null
+   },
+   {
+    "key": "d8c167d341198583",
+    "kind": "node_path",
+    "token": "F02_B_RADIATOR_01",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_ready"
+    ],
+    "lines": [
+     77
+    ],
+    "count": 1,
+    "context": [
+     "var radiator := world.find_child(\"F02_B_RADIATOR_01\", true, false) as RadiatorProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "SCENE_NODE_PATH",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Node-path lookup embeds spatial identity.",
+    "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+    "target_exists": null
+   },
+   {
+    "key": "87dcdc5604ba8a74",
+    "kind": "node_path",
+    "token": "LobbyPorterBoard",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_ready"
+    ],
+    "lines": [
+     78
+    ],
+    "count": 1,
+    "context": [
+     "var board := world.find_child(\"LobbyPorterBoard\", true, false) as OtisProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "SCENE_NODE_PATH",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "MEDIUM",
+    "rationale": "Node-path lookup embeds spatial identity.",
+    "resolved_target": "v2_blockout+runtime_created",
+    "target_exists": null
+   },
+   {
+    "key": "de5cd97f77f1bc3c",
+    "kind": "runtime_id",
+    "token": "B1_STATION_BOILER",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>"
+    ],
+    "lines": [
+     16
+    ],
+    "count": 1,
+    "context": [
+     "\"B1_WATCH_STATION\": [\"B1_STATION_BOILER\", 1, -3.2],"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "HIGH",
+    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+    "resolved_target": "runtime_created",
+    "target_exists": true
+   },
+   {
+    "key": "156ff1fc3dffeceb",
+    "kind": "runtime_id",
+    "token": "F01_NIGHT_REGISTER",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_ready",
+     "_exercise_ritual"
+    ],
+    "lines": [
+     7,
+     25,
+     74,
+     225
+    ],
+    "count": 4,
+    "context": [
+     "const REQUIRED := [\"F01_WATCHMAN_DETECTOR\", \"F01_NIGHT_REGISTER\",",
+     "const EXERCISED := [\"F01_WATCHMAN_DETECTOR\", \"F01_NIGHT_REGISTER\",",
+     "var register := world.find_child(\"F01_NIGHT_REGISTER\", true, false) as NightRegisterProp",
+     "var register := world.adapter.resolve(\"F01_NIGHT_REGISTER\") as NightRegisterProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "HIGH",
+    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+    "resolved_target": "v2_blockout+runtime_created",
+    "target_exists": true
+   },
+   {
+    "key": "80389a41ee6dbb4e",
+    "kind": "runtime_id",
+    "token": "F01_SIGNAL_REGISTER",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_ready",
+     "_check_reconstruction",
+     "_run_patrol"
+    ],
+    "lines": [
+     8,
+     26,
+     75,
+     262,
+     314
+    ],
+    "count": 5,
+    "context": [
+     "\"F01_SIGNAL_REGISTER\", \"F01_TOUR_KEY_GUARD\",",
+     "\"F01_SIGNAL_REGISTER\", \"F01_TOUR_KEY_GUARD\", \"F02_B_RADIATOR_01\",",
+     "var signal_register := world.find_child(\"F01_SIGNAL_REGISTER\", true, false) as WatchRegisterProp",
+     "var board := world.adapter.resolve(\"F01_SIGNAL_REGISTER\") as WatchRegisterProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "HIGH",
+    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+    "resolved_target": "v2_blockout+runtime_created",
+    "target_exists": true
+   },
+   {
+    "key": "ef36e04bc7248677",
+    "kind": "runtime_id",
+    "token": "F01_TOUR_KEY_GUARD",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_ready",
+     "_exercise_ritual",
+     "_check_reconstruction",
+     "_run_patrol"
+    ],
+    "lines": [
+     8,
+     26,
+     76,
+     226,
+     261,
+     315
+    ],
+    "count": 6,
+    "context": [
+     "\"F01_SIGNAL_REGISTER\", \"F01_TOUR_KEY_GUARD\",",
+     "\"F01_SIGNAL_REGISTER\", \"F01_TOUR_KEY_GUARD\", \"F02_B_RADIATOR_01\",",
+     "var guard := world.find_child(\"F01_TOUR_KEY_GUARD\", true, false) as TourKeyGuardProp",
+     "var guard := world.adapter.resolve(\"F01_TOUR_KEY_GUARD\") as TourKeyGuardProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "HIGH",
+    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+    "resolved_target": "v2_blockout+runtime_created",
+    "target_exists": true
+   },
+   {
+    "key": "a52b9106cb042043",
+    "kind": "runtime_id",
+    "token": "F01_WATCHMAN_DETECTOR",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_ready",
+     "_exercise_ritual"
+    ],
+    "lines": [
+     7,
+     25,
+     73,
+     224
+    ],
+    "count": 4,
+    "context": [
+     "const REQUIRED := [\"F01_WATCHMAN_DETECTOR\", \"F01_NIGHT_REGISTER\",",
+     "const EXERCISED := [\"F01_WATCHMAN_DETECTOR\", \"F01_NIGHT_REGISTER\",",
+     "var detector := world.find_child(\"F01_WATCHMAN_DETECTOR\", true, false) as WatchmanClockProp",
+     "var detector := world.adapter.resolve(\"F01_WATCHMAN_DETECTOR\") as WatchmanClockProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "HIGH",
+    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+    "resolved_target": "v2_blockout+runtime_created",
+    "target_exists": true
+   },
+   {
+    "key": "141be52cd40cd9a3",
+    "kind": "runtime_id",
+    "token": "F04_B_BED",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "_ready"
+    ],
+    "lines": [
+     161
+    ],
+    "count": 1,
+    "context": [
+     "== \"F04_B_BED\", \"v2 wake uses explicit bedside-return contract\")"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "HIGH",
+    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+    "resolved_target": "v2_blockout+runtime_created",
+    "target_exists": true
+   },
+   {
+    "key": "9a18a2a231ee60d9",
+    "kind": "runtime_id",
+    "token": "LobbyPorterBoard",
+    "file": "game/tests/orison_v2_first_slice_contract_test.gd",
+    "tier": "test",
+    "subsystem": "tests",
+    "symbols": [
+     "<module>",
+     "_ready"
+    ],
+    "lines": [
+     27,
+     78
+    ],
+    "count": 2,
+    "context": [
+     "\"B1_BOILER_01\", \"LobbyPorterBoard\"]",
+     "var board := world.find_child(\"LobbyPorterBoard\", true, false) as OtisProp"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+     "GENERATED_IDENTITY",
+     "TEST_CONTRACT"
+    ],
+    "spatial": [
+     "SEMANTIC_ANCHOR"
+    ],
+    "disposition": "UPDATE_TEST_FIXTURE",
+    "confidence": "HIGH",
+    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+    "resolved_target": "v2_blockout+runtime_created",
+    "target_exists": true
+   }
  ]
 }
