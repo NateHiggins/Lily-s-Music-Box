@@ -68,3 +68,41 @@ Seven pre-existing TextureRID shutdown warnings remain outside those scoped
 measurements. The two surface launches include one diagnostic failure that
 exposed the flat lamp; the successful combined review reuses one loaded world.
 No final requirement status is promoted by this INERT report.
+
+## Section 7 integration record
+
+REPORT - V2-FUSE-BLOCK - 2026-10-11
+
+Branch / HEAD / origin/main / merge-base: **main / b73a8753615bcbdf4477f1a01ab989f1c08207bb / ff9108911935a5029e822dda2be2d77ad0b609ba / 7e9af80d2097e0387dd71de107d02f0f6f09d9c6**.
+
+Worktree clean at end: **no**; 283 pre-existing owner files were preserved
+byte-for-byte, with other concurrent owner/test and import artifacts left alone.
+This batch is staged by named paths only. The fresh candidate checkout is clean.
+
+Protected 17/17: **yes**. Selector: **v2**, explicit V1 rollback retained.
+Ledger before -> after: **0/1/127/35/144/146 -> 0/1/127/35/144/146**;
+requirements_changed: **[]**.
+
+Gates: the archived verifier board records all 53 gate/tool results and their
+real exit codes; **zero regressions** against the authentic cached clean base.
+The gate input-binding change adds the invoked instrument test; it narrows no
+criterion or baseline. Reader comparison: **zero new unread fields**.
+Godot final surface and first-slice suites each completed with zero failures
+and zero script errors; their final LogPath wrapper receipts are in this packet.
+The test-written runtime contracts remain in the shared surface and first-slice
+packets. The verifier uses **--no-godot** to reuse those actual unchanged runs.
+
+Numbers: **2,954 combined checks**, including **2,467 service checks** and
+zero retained instrument nodes; **113 first-slice checks**; **zero surface
+defects**; **297/298 export partitions unchanged**.
+
+Outside the expected boundary: telephone source finish retention repairs the
+flat material exposed by control execution. Shared qualification now reuses
+the existing service validator and its retirement proof in one loaded world.
+No control or gameplay authority was replaced.
+
+Open findings: broader services and whole-building completion listed above;
+seven existing TextureRID shutdown warnings; no human full-world acceptance.
+Decision needed from owner: **none for this batch**.
+
+MERGE-CANDIDATE **b73a8753615bcbdf4477f1a01ab989f1c08207bb**
