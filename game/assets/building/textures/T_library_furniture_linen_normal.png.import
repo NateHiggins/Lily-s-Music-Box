@@ -3,25 +3,27 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dojqp7h0xry2s"
-path="res://.godot/imported/T_library_furniture_linen_normal.png-af81f5ff4c6ed27e88a7a06666829584.ctex"
+path.bptc="res://.godot/imported/T_library_furniture_linen_normal.png-af81f5ff4c6ed27e88a7a06666829584.bptc.ctex"
+path.astc="res://.godot/imported/T_library_furniture_linen_normal.png-af81f5ff4c6ed27e88a7a06666829584.astc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/building/textures/T_library_furniture_linen_normal.png"
-dest_files=["res://.godot/imported/T_library_furniture_linen_normal.png-af81f5ff4c6ed27e88a7a06666829584.ctex"]
+dest_files=["res://.godot/imported/T_library_furniture_linen_normal.png-af81f5ff4c6ed27e88a7a06666829584.bptc.ctex", "res://.godot/imported/T_library_furniture_linen_normal.png-af81f5ff4c6ed27e88a7a06666829584.astc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=2
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

@@ -14,6 +14,7 @@ var boundary_count := 0
 var boundary_visible_spans: Array = []
 
 var _boxes: Array = []
+var _boundary_stock := false
 var _city_masses: Array = []
 var _city_facades: Array = []
 var _cylinders: Array = []
@@ -477,6 +478,7 @@ func _build_car_identity(index: int, x0: float, x1: float,
 ## It does make every centimetre of collision visible and closes Check 1's
 ## south-pavement leak without extending another unexplained wall.
 func build_boundaries_only(parent: Node3D, open_east_north: bool = false) -> void:
+	_boundary_stock = true
 	add_to_group("storm_reflectors")
 	_build_street_ends(parent, open_east_north)
 	_emit_boxes(parent)
@@ -564,7 +566,11 @@ func _build_street_end_hoarding_faces(parent: Node3D, open_east_north: bool = fa
 	var shader := Shader.new()
 	shader.code = """
 shader_type spatial;
-render_mode unshaded, cull_disabled, shadows_disabled;
+render_mode cull_disabled, shadows_disabled;
+uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D rough_tex : filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D normal_tex : hint_normal, filter_linear_mipmap_anisotropic, repeat_enable;
+
 
 float rect(vec2 uv, vec2 centre, vec2 half_size) {
 	vec2 inside = 1.0 - step(half_size, abs(uv - centre));
@@ -601,11 +607,18 @@ void fragment() {
 	float ink = rect(UV, vec2(0.32, 0.53), vec2(0.08, 0.12)) * broadside((UV - vec2(0.32, 0.53)) / vec2(0.08, 0.12))
 			+ rect(UV, vec2(0.69, 0.60), vec2(0.07, 0.10)) * broadside((UV - vec2(0.69, 0.60)) / vec2(0.07, 0.10));
 	vec3 printed = mix(old_paper, vec3(0.05, 0.04, 0.03), clamp(ink, 0.0, 1.0) * 0.85);
-	ALBEDO = mix(timber, printed, paper);
+	ALBEDO = mix(timber * texture(albedo_tex, UV * vec2(5.0, 2.38)).rgb, printed, paper);
+	ROUGHNESS = texture(rough_tex, UV * vec2(5.0, 2.38)).r;
+	NORMAL_MAP = texture(normal_tex, UV * vec2(5.0, 2.38)).rgb;
+	NORMAL_MAP_DEPTH = 0.12;
 }
 """
 	var material := ShaderMaterial.new()
 	material.shader = shader
+	var stock := MatLib.get_mat("timber")
+	material.set_shader_parameter("albedo_tex",stock.albedo_texture)
+	material.set_shader_parameter("rough_tex",stock.roughness_texture)
+	material.set_shader_parameter("normal_tex",stock.normal_texture)
 	var multimesh := MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh.mesh = quad
@@ -689,6 +702,7 @@ func _build_street_end_weather(parent: Node3D, x: float, label: String) -> void:
 	for i in range(3):
 		var curtain := MeshInstance3D.new()
 		curtain.name = "StormCurtain_%s_%02d" % [label, i]
+		curtain.set_meta("surface_role", "storm_volume")
 		var quad := QuadMesh.new()
 		quad.size = Vector2(9.70, 7.80)
 		curtain.mesh = quad
@@ -748,6 +762,7 @@ void fragment() {
 	var material := ShaderMaterial.new()
 	material.shader = shader
 	material.set_shader_parameter("seed", seed)
+	material.resource_name = "V2_storm_volume"
 	_storm_materials.append(material)
 	return material
 
@@ -1002,6 +1017,9 @@ func _emit_colored_batch(parent: Node3D, entries: Array,
 	if entries.is_empty():
 		return
 	var material := StandardMaterial3D.new()
+	if _boundary_stock:
+		material = MatLib.get_mat("timber").duplicate() as StandardMaterial3D
+		material.normal_scale = .12
 	material.albedo_color = Color.WHITE
 	material.vertex_color_use_as_albedo = true
 	material.roughness = roughness

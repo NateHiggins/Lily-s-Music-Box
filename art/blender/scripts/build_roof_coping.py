@@ -3,6 +3,9 @@ from pathlib import Path
 import json, math
 import bpy
 ROOT=Path(__file__).resolve().parents[3]
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from repair_surface_uvs import repair_scene
 layout=json.loads((ROOT/'game/data/orison_v2_blockout.json').read_text())
 records=[r for r in layout['fixtures'] if r.get('fabrication')=='roof_coping']
 assert len(records)==4
@@ -47,8 +50,10 @@ for obj in list(bpy.context.scene.objects):
     bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
     bpy.ops.mesh.normals_make_consistent(inside=False); bpy.ops.uv.smart_project(island_margin=.01)
     bpy.ops.object.mode_set(mode='OBJECT')
+repair_scene()
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/roof_coping.blend'))
 bpy.ops.object.select_all(action='SELECT'); bpy.context.view_layer.objects.active=bpy.context.selected_objects[0]
 bpy.ops.object.join(); bpy.context.object.name='CopingCourse'
 bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
+repair_scene()
 bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/roof_coping.glb'),export_format='GLB',export_yup=True,export_apply=True)

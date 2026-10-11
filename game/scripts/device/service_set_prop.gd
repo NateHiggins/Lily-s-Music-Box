@@ -181,22 +181,22 @@ func _build_model() -> void:
 	# that makes them credible before any supernatural system is added. The
 	# long chassis is still oriented along local Y so the established carried
 	# pose and the real beam owner remain unchanged.
-	var japan := _mat(Color("302a22"), 0.34, 0.38)
-	var japan_edge := _mat(Color("44382c"), 0.42, 0.34)
-	var phenolic := _mat(Color("5a3527"), 0.56)
-	var phenolic_worn := _mat(Color("744a37"), 0.43)
-	var nickel := _mat(Color("a7a29a"), 0.26, 0.88)
-	var brass := _mat(Color("765c31"), 0.39, 0.82)
-	var brass_worn := _mat(Color("b29255"), 0.29, 0.86)
-	var steel := _mat(Color("4e4d49"), 0.31, 0.91)
-	var ceramic := _mat(Color("d8ccb0"), 0.70)
-	var paper := _mat(Color("d7c99f"), 0.84)
-	var ink := _mat(Color("17130e"), 0.78)
-	var leather := _mat(Color("6b4228"), 0.76)
-	var copper := _mat(Color("8d4e2e"), 0.31, 0.86)
-	var glass := _mat(Color(0.58, 0.62, 0.60, 0.32), 0.09)
+	var japan := _mat("beacon_lacquer", Color("302a22"), 0.34, 0.38)
+	var japan_edge := _mat("beacon_lacquer", Color("44382c"), 0.42, 0.34)
+	var phenolic := _mat("bakelite", Color("5a3527"), 0.56)
+	var phenolic_worn := _mat("bakelite", Color("744a37"), 0.43)
+	var nickel := _mat("nickel_plated", Color("a7a29a"), 0.26, 0.88)
+	var brass := _mat("brass_dull", Color("765c31"), 0.39, 0.82)
+	var brass_worn := _mat("brass", Color("b29255"), 0.29, 0.86)
+	var steel := _mat("iron_neutral", Color("4e4d49"), 0.31, 0.91)
+	var ceramic := _mat("porcelain_fixture", Color("d8ccb0"), 0.70)
+	var paper := _mat("paper", Color("d7c99f"), 0.84)
+	var ink := _mat("paper", Color("17130e"), 0.78)
+	var leather := _mat("leather_worn", Color("6b4228"), 0.76)
+	var copper := _mat("copper_aged", Color("8d4e2e"), 0.31, 0.86)
+	var glass := _mat("milk_glass", Color(0.58, 0.62, 0.60, 0.32), 0.09)
 	glass.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	var dark := _mat(Color("18140f"), 0.82)
+	var dark := _mat("bakelite_black", Color("18140f"), 0.82)
 
 	# Genuine frame, three separate shell plates and exposed dark seams.
 	var chassis := Node3D.new()
@@ -438,7 +438,7 @@ func _build_model() -> void:
 	_box(Vector3(0.074, 0.155, 0.012), Vector3(0, -0.028, 0.041), leather)
 	for x in [-0.031, 0.031]:
 		_box(Vector3(0.009, 0.124, 0.010), Vector3(x, -0.030, 0.058),
-				_mat(Color("3b3027"), 0.88))
+				_mat("leather_worn", Color("3b3027"), 0.88))
 
 
 func _build_legacy_model() -> void:
@@ -446,15 +446,15 @@ func _build_legacy_model() -> void:
 	# building material atlas is calibrated for metre-scale appliances and
 	# crushed this 85 mm case to featureless black, so the carried prop uses
 	# honest small-object colors here instead of sampling a wall-sized texel.
-	var phenolic := _mat(Color("613b28"), 0.54)
-	var edge := _mat(Color("7a5035"), 0.48)
-	var black := _mat(Color("39332d"), 0.50, 0.18)
-	var brass := _mat(Color("927440"), 0.44, 0.54)
-	var worn_brass := _mat(Color("c3a66a"), 0.38, 0.62)
-	var ceramic := _mat(CERAMIC, 0.76)
-	var grille := _mat(Color("100d0b"), 0.84)
-	var paper := _mat(Color("b8a77f"), 0.88)
-	var telegram_paper := _mat(Color.WHITE, 0.96)
+	var phenolic := _mat("bakelite", Color("613b28"), 0.54)
+	var edge := _mat("bakelite", Color("7a5035"), 0.48)
+	var black := _mat("iron_blackened", Color("39332d"), 0.50, 0.18)
+	var brass := _mat("brass_dull", Color("927440"), 0.44, 0.54)
+	var worn_brass := _mat("brass", Color("c3a66a"), 0.38, 0.62)
+	var ceramic := _mat("porcelain_fixture", CERAMIC, 0.76)
+	var grille := _mat("fabric_warm", Color("100d0b"), 0.84)
+	var paper := _mat("paper", Color("b8a77f"), 0.88)
+	var telegram_paper := _mat("paper", Color.WHITE, 0.96)
 	telegram_paper.albedo_texture = load(
 			"res://assets/ui/telegram/telegram_paper_stock_v1.png")
 	telegram_paper.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
@@ -601,11 +601,11 @@ func _build_legacy_model() -> void:
 	_box(Vector3(0.010, 0.170, 0.009), Vector3(-0.054, -0.010, 0.017),
 			MatLib.get_mat("rubber_aged", Color("6d5845"), 0.32))
 	_box(Vector3(0.020, 0.052, 0.012), Vector3(-0.055, 0.006, 0.017),
-			_mat(Color("4a2f1d"), 0.88))
+			_mat("leather_worn", Color("4a2f1d"), 0.88))
 
 
-func _mat(color: Color, roughness: float, metallic := 0.0) -> StandardMaterial3D:
-	var material := StandardMaterial3D.new()
+func _mat(key: String, color: Color, roughness: float, metallic := 0.0) -> StandardMaterial3D:
+	var material := MatLib.get_mat(key).duplicate() as StandardMaterial3D
 	material.albedo_color = color
 	material.roughness = roughness
 	material.metallic = metallic
@@ -613,7 +613,7 @@ func _mat(color: Color, roughness: float, metallic := 0.0) -> StandardMaterial3D
 
 
 func _jewel_material() -> StandardMaterial3D:
-	var material := _mat(GLASS_DARK, 0.20)
+	var material := _mat("milk_glass", GLASS_DARK, 0.20)
 	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	material.albedo_color.a = 0.96
 	return material

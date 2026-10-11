@@ -49,7 +49,8 @@ static func mount_cell(cell: Node3D, layout: Dictionary) -> bool:
 		var paper:=draw.mesh.surface_get_material(0) as StandardMaterial3D
 		var art:=paper.duplicate() as StandardMaterial3D
 		art.resource_name="LocalUnclaimedPortraitInk";art.albedo_texture=texture;art.albedo_color=Color.WHITE
-		art.metallic=0.;art.roughness_texture=null;art.roughness=float(ink.roughness);art.normal_enabled=false;art.normal_texture=null
+		var stock:=MatLib.get_mat("paper")
+		art.metallic=0.;art.roughness_texture=stock.roughness_texture;art.roughness=float(ink.roughness);art.normal_enabled=true;art.normal_texture=stock.normal_texture;art.normal_scale=.035
 		art.uv1_triplanar=false;art.uv1_scale=Vector3.ONE;art.uv1_offset=Vector3.ZERO
 		draw.mesh.surface_set_material(0,art);draw.set_meta("material_key","art");draw.set_meta("portrait_content_sha256",str(ink.sha256));mounted+=1
 	assert(mounted==7)

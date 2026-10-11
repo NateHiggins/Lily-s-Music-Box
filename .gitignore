@@ -1,6 +1,17 @@
 # Godot per-machine caches
 .godot/
 *.import
+!game/assets/building/textures/**/*.import
+!game/assets/props/stair_ironwork_service.glb.import
+!game/assets/props/boiler_body.glb.import
+!game/assets/props/bath_shower.glb.import
+!game/assets/props/bath_lavatory.glb.import
+!game/assets/props/bedding.glb.import
+!game/assets/props/roof_coping.glb.import
+!game/assets/building/v2_lift_drive.glb.import
+!game/assets/characters/mina_vale/texture_0_metallic-texture_0_roughness.png.import
+!game/assets/characters/mina_vale/texture_0_normal.png.import
+!game/assets/ui/telegram/telegram_paper_stock_v1.png.import
 !game/assets/props/ventilation_ducts.glb.import
 !game/assets/props/bodega_power.glb.import
 !game/assets/props/ventilation_slab_sleeve.glb.import

@@ -7,6 +7,8 @@ extends Node3D
 ## implementations at public semantic surfaces. It never reads either v1
 ## layout and contains no branch for a particular shop or street identity.
 
+const SURFACE_STOCK := {"pavement": "concrete", "asphalt": "asphalt", "curb": "concrete", "brick": "brick", "limestone": "concrete", "route_wear": "mineral_scale", "iron": "iron_neutral", "bodega_enamel": "enamel_appliance", "oxblood": "beacon_lacquer", "cream_tile": "ceramic", "terrazzo": "terrazzo", "oak_dark": "wood_dark", "shelf_steel": "iron_neutral", "cooler_enamel": "enamel_appliance", "glass": "milk_glass", "cooler_glass": "milk_glass", "paper_goods": "paper", "tinned_goods": "zinc_quiet", "dark_recess": "iron_blackened", "warm_practical": "milk_glass", "pavement_wet": "concrete", "paving_joint": "concrete", "aged_green": "beacon_lacquer", "window_amber": "milk_glass", "lamp_glass": "milk_glass", "crate_wood": "timber", "produce_green": "plant", "paper_cream": "paper", "paint_blue": "beacon_lacquer", "icebox_interior": "enamel_appliance"}
+
 const GEOMETRY_PATH := "res://data/orison_v2/exterior/exterior_geometry.json"
 const SpatialResolverScript := preload(
 		"res://scripts/building/orison_v2_exterior_spatial_resolver.gd")
@@ -940,7 +942,9 @@ func _material(material_id: String) -> StandardMaterial3D:
 	if _material_cache.has(material_id):
 		return _material_cache[material_id] as StandardMaterial3D
 	var record: Dictionary = _material_records.get(material_id, {})
-	var material := StandardMaterial3D.new()
+	assert(SURFACE_STOCK.has(material_id), "Unregistered exterior surface stock: " + material_id)
+	var material := MatLib.get_mat(SURFACE_STOCK[material_id]).duplicate() as StandardMaterial3D
+	material.normal_scale = .12
 	material.set_meta(&"orison_v2_exterior_owned", true)
 	var albedo := _color(record.get("albedo_rgba"), true)
 	material.albedo_color = albedo

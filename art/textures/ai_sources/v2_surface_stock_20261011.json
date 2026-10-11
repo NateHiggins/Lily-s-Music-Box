@@ -1,0 +1,22 @@
+{
+  "evidence_class": "INERT",
+  "tool": "built-in image_gen",
+  "sources": [
+    {
+      "key": "toast_crumb",
+      "path": "art/textures/ai_sources/toast_crumb.png",
+      "prompt": "Create a square seamless physically based material BASE COLOR texture for a photorealistic 1928 New York game. Subject: cut surface of well-toasted wheat bread, very fine irregular crumb cell pores and gently golden-brown toasted crust microstructure, viewed orthographically straight on, covering a 6 cm square of material. Small pores 0.1 to 1 mm, irregular sizes, understated mottled ochre and brown, natural porous texture. This is a texture tile, not a product photograph: every pixel is material, no loaf silhouette, no perimeter edge, no plate, no objects, no framing, no perspective, no baked lighting, no cast shadow, no specular highlight, no depth-of-field. Uniform diffuse illumination so pigment is usable as albedo. Edges must seamlessly match. Absolutely no text, letters, numbers or logos. One high-resolution material image only."
+    },
+    {
+      "key": "leather_worn",
+      "path": "art/textures/ai_sources/leather_worn.png",
+      "prompt": "Square seamless PBR base-color texture tile for a photorealistic 1928 game. Orthographic straight-on, all pixels are the one material. Uniform diffuse lighting, no perspective, highlights, cast shadows, baked ambient lighting, object silhouette, framing, furniture, hardware, folds, lettering, letters, numbers or logos. Opposite edges must match seamlessly. Worn vegetable-tanned brown leather grain, close-up covering a 12 cm square. Fine irregular pores and grain, subdued warm medium brown, natural slight uneven pigment. No stitching, no embossed design, no cracks, no seams, no fabric backing."
+    },
+    {
+      "key": "mineral_scale",
+      "path": "art/textures/ai_sources/mineral_scale.png",
+      "prompt": "Square seamless PBR base-color texture tile for a photorealistic 1928 game. Orthographic straight-on, all pixels are the one material. Uniform diffuse lighting, no perspective, highlights, cast shadows, baked ambient lighting, object silhouette, framing, furniture, hardware, folds, lettering, letters, numbers or logos. Opposite edges must match seamlessly. Fine chalky off-white calcium carbonate mineral scale on an old water fitting, close-up covering a 6 cm square. Entire image is dry granular mineral material, very small irregular chalk grains, subtle cream and pale warm gray variation, no underlying pipe, metal, masonry, tile or stains. No large dramatic cracks or crust silhouette."
+    }
+  ],
+  "status": "Source generation and pipeline ingestion; rendered material review required."
+}

@@ -90,8 +90,8 @@
       "catalog_mapping": "library/furniture/book_brown",
       "files": [
         "T_library_furniture_book_brown_albedo.png",
-        "T_library_furniture_book_brown_rough.png",
-        "T_library_furniture_book_brown_normal.png"
+        "T_library_furniture_book_burgundy_rough.png",
+        "T_library_furniture_book_burgundy_normal.png"
       ],
       "metallic": 0.0,
       "meters_per_tile": 0.32,
@@ -118,8 +118,8 @@
       "catalog_mapping": "library/furniture/book_green",
       "files": [
         "T_library_furniture_book_green_albedo.png",
-        "T_library_furniture_book_green_rough.png",
-        "T_library_furniture_book_green_normal.png"
+        "T_library_furniture_book_burgundy_rough.png",
+        "T_library_furniture_book_burgundy_normal.png"
       ],
       "metallic": 0.0,
       "meters_per_tile": 0.32,
@@ -132,8 +132,8 @@
       "catalog_mapping": "library/furniture/book_navy",
       "files": [
         "T_library_furniture_book_navy_albedo.png",
-        "T_library_furniture_book_navy_rough.png",
-        "T_library_furniture_book_navy_normal.png"
+        "T_library_furniture_book_burgundy_rough.png",
+        "T_library_furniture_book_burgundy_normal.png"
       ],
       "metallic": 0.0,
       "meters_per_tile": 0.32,
@@ -146,8 +146,8 @@
       "catalog_mapping": "library/furniture/book_ochre",
       "files": [
         "T_library_furniture_book_ochre_albedo.png",
-        "T_library_furniture_book_ochre_rough.png",
-        "T_library_furniture_book_ochre_normal.png"
+        "T_library_furniture_book_burgundy_rough.png",
+        "T_library_furniture_book_burgundy_normal.png"
       ],
       "metallic": 0.0,
       "meters_per_tile": 0.32,
@@ -160,8 +160,8 @@
       "catalog_mapping": "library/furniture/book_teal",
       "files": [
         "T_library_furniture_book_teal_albedo.png",
-        "T_library_furniture_book_teal_rough.png",
-        "T_library_furniture_book_teal_normal.png"
+        "T_library_furniture_book_burgundy_rough.png",
+        "T_library_furniture_book_burgundy_normal.png"
       ],
       "metallic": 0.0,
       "meters_per_tile": 0.32,
@@ -490,6 +490,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "leather_worn": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.12,
+      "catalog_mapping": "ai_materials/leather_worn",
+      "files": [
+        "T_ai_materials_leather_worn_albedo.png",
+        "T_ai_materials_leather_worn_rough.png",
+        "T_ai_materials_leather_worn_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.12,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "linen": {
       "alpha": false,
       "canonical_meters_per_tile": 0.5,
@@ -543,6 +557,20 @@
       ],
       "metallic": 0.0,
       "meters_per_tile": 0.5,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "mineral_scale": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.06,
+      "catalog_mapping": "ai_materials/mineral_scale",
+      "files": [
+        "T_ai_materials_mineral_scale_albedo.png",
+        "T_ai_materials_mineral_scale_rough.png",
+        "T_ai_materials_mineral_scale_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.06,
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
@@ -868,6 +896,20 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "toast_crumb": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.06,
+      "catalog_mapping": "ai_materials/toast_crumb",
+      "files": [
+        "T_ai_materials_toast_crumb_albedo.png",
+        "T_ai_materials_toast_crumb_rough.png",
+        "T_ai_materials_toast_crumb_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.06,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "trim": {
       "alpha": false,
       "canonical_meters_per_tile": 1.1,
@@ -881,6 +923,20 @@
       "meters_per_tile": 1.2,
       "roughness_multiplier": 1.0,
       "visual_lock": true
+    },
+    "water_clear": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.25,
+      "catalog_mapping": "ai_materials/water_clear",
+      "files": [
+        "T_ai_materials_water_clear_albedo.png",
+        "T_ai_materials_water_clear_rough.png",
+        "T_ai_materials_water_clear_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.25,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
     },
     "wood_dark": {
       "alpha": false,

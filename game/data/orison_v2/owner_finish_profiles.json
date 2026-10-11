@@ -32,16 +32,16 @@
         },
         {
           "source_key": "brass_dull",
-          "untextured": true,
           "color": [
             0.58,
             0.52,
             0.36,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.37,
-          "metallic": 0.85
+          "metallic": 0.85,
+          "pigment": 0.08
         },
         {
           "source_key": "linen",
@@ -88,16 +88,16 @@
         },
         {
           "source_key": "brass_dull",
-          "untextured": true,
           "color": [
             0.58,
             0.52,
             0.36,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.37,
-          "metallic": 0.85
+          "metallic": 0.85,
+          "pigment": 0.08
         }
       ]
     },
@@ -145,29 +145,29 @@
         },
         {
           "source_key": "nickel_plated",
-          "untextured": true,
           "color": [
             0.68,
             0.68,
             0.65,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.24,
-          "metallic": 0.95
+          "metallic": 0.95,
+          "pigment": 0.08
         },
         {
           "source_key": "chrome",
-          "untextured": true,
           "color": [
             0.68,
             0.68,
             0.65,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.24,
-          "metallic": 0.95
+          "metallic": 0.95,
+          "pigment": 0.08
         },
         {
           "source_key": "linen",
@@ -389,29 +389,29 @@
       "recipes": [
         {
           "source_key": "nickel_plated",
-          "untextured": true,
           "color": [
             0.68,
             0.68,
             0.65,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.24,
-          "metallic": 0.95
+          "metallic": 0.95,
+          "pigment": 0.08
         },
         {
           "source_key": "chrome",
-          "untextured": true,
           "color": [
             0.68,
             0.68,
             0.65,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.24,
-          "metallic": 0.95
+          "metallic": 0.95,
+          "pigment": 0.08
         },
         {
           "source_key": "enamel",
@@ -442,16 +442,16 @@
         },
         {
           "source_key": "brass_dull",
-          "untextured": true,
           "color": [
             0.58,
             0.52,
             0.36,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.37,
-          "metallic": 0.85
+          "metallic": 0.85,
+          "pigment": 0.08
         }
       ]
     },
@@ -573,16 +573,16 @@
         },
         {
           "source_key": "brass_dull",
-          "untextured": true,
           "color": [
             0.58,
             0.52,
             0.36,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.37,
-          "metallic": 0.85
+          "metallic": 0.85,
+          "pigment": 0.08
         },
         {
           "source_key": "wood_dark",
@@ -1095,10 +1095,10 @@
             1
           ],
           "retain_tint": false,
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.3,
           "metallic": 0.96,
-          "untextured": true
+          "pigment": 0.08
         },
         {
           "source_key": "brass_dull",
@@ -1109,10 +1109,10 @@
             1
           ],
           "retain_tint": false,
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.48,
           "metallic": 0.85,
-          "untextured": true
+          "pigment": 0.08
         },
         {
           "source_key": "brass",
@@ -1123,10 +1123,10 @@
             1
           ],
           "retain_tint": false,
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.42,
           "metallic": 0.87,
-          "untextured": true
+          "pigment": 0.08
         },
         {
           "source_key": "brass_bright",
@@ -1137,10 +1137,10 @@
             1
           ],
           "retain_tint": false,
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.32,
           "metallic": 0.9,
-          "untextured": true
+          "pigment": 0.08
         },
         {
           "source_key": "copper_aged",
@@ -1366,10 +1366,10 @@
             0.38,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.45,
           "metallic": 0.78,
-          "untextured": true
+          "pigment": 0.08
         }
       ]
     },
@@ -1453,10 +1453,10 @@
             0.38,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.45,
           "metallic": 0.78,
-          "untextured": true
+          "pigment": 0.08
         },
         {
           "source_key": "rubber_aged",
@@ -1525,10 +1525,10 @@
             0.38,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.45,
           "metallic": 0.78,
-          "untextured": true
+          "pigment": 0.08
         },
         {
           "source_key": "porcelain_fixture",
@@ -1585,10 +1585,10 @@
             0.38,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.45,
           "metallic": 0.78,
-          "untextured": true
+          "pigment": 0.08
         },
         {
           "source_key": "brass_dull",
@@ -1598,10 +1598,10 @@
             0.38,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.45,
           "metallic": 0.78,
-          "untextured": true
+          "pigment": 0.08
         },
         {
           "source_key": "brass",
@@ -1611,10 +1611,10 @@
             0.38,
             1
           ],
-          "normal": 0,
+          "normal": 0.035,
           "roughness": 0.45,
           "metallic": 0.78,
-          "untextured": true
+          "pigment": 0.08
         },
         {
           "source_key": "cast_iron",

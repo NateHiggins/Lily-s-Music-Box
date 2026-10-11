@@ -18,7 +18,7 @@
 # and the advisory lane holder record (tools/lane_common.ps1).
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory = $true)][string]$Scene,
+    [string]$Scene = "",
     [Parameter(Mandatory = $true)][string]$ProjectPath,
     [Parameter(Mandatory = $true)][string]$LogPath,
     [int]$TimeoutSeconds = 1500,
@@ -27,7 +27,8 @@ param(
     # second legitimate long suite, and it needs a real window: headless
     # rendering never fires frame_post_draw, so it writes nothing and exits 0.
     [switch]$Windowed,
-    [string]$ShotDir = ""
+    [string]$ShotDir = "",
+    [string[]]$ExtraArgs = @()
 )
 $ErrorActionPreference = "Stop"
 # Lane holder record and run receipts. On a tree that predates them the
@@ -66,7 +67,9 @@ try {
     Remove-Item -LiteralPath "$LogPath.receipt.json" -Force -ErrorAction SilentlyContinue
     $arguments = @()
     if (-not $Windowed) { $arguments += "--headless" }
-    $arguments += @("--path", $ProjectPath, $Scene)
+    $arguments += @("--path", $ProjectPath)
+    $arguments += $ExtraArgs
+    if (-not [string]::IsNullOrWhiteSpace($Scene)) { $arguments += $Scene }
     if (-not [string]::IsNullOrWhiteSpace($ShotDir)) { $env:SHOT_DIR = $ShotDir }
     $started = Get-Date
     $startedUtc = $started.ToUniversalTime()

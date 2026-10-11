@@ -276650,6 +276650,478 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "unit",
    "target_exists": true
+  },
+  {
+   "key": "1ceb03402eae395f",
+   "kind": "generated_name",
+   "token": "_make_lift_door",
+   "file": "game/scripts/building/orison_v2_bookshelf.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_make_lift_door"
+   ],
+   "lines": [
+    24
+   ],
+   "count": 1,
+   "context": [
+    "\"LiftDoor%d\" % _doors.size()"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "8ecea81c1e406268",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/T_glass_normal.png",
+   "file": "game/scripts/building/v2_clear_glass_finish.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    5
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c1dabbedeac76582",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/T_glass_rough.png",
+   "file": "game/scripts/building/v2_clear_glass_finish.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    4
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "1b53439ec1902804",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/T_fx_fx_shadow.png",
+   "file": "game/scripts/building/v2_legacy_material_stock.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "apply"
+   ],
+   "lines": [
+    176
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "b8306dcb882bbb77",
+   "kind": "id_reference",
+   "token": "B1_BOILER_01",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    123
+   ],
+   "count": 1,
+   "context": [
+    "[\"B1_BOILER_01\",Vector3(.6,1.45,-2.15),Vector3(0,1.,0),\"boiler\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "B1/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5ec0674db7a2c5f6",
+   "kind": "id_reference",
+   "token": "B1_FUSE_PANEL",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    118
+   ],
+   "count": 1,
+   "context": [
+    "[\"B1_FUSE_PANEL\",Vector3(.35,.7,1.25),Vector3(0,.6,.1),\"fuse_panel\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9f71e8483cfa90e2",
+   "kind": "id_reference",
+   "token": "B1_WATCH_STATION",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    120
+   ],
+   "count": 1,
+   "context": [
+    "[\"B1_WATCH_STATION\",Vector3(.2,.25,.7),Vector3(0,.16,.09),\"watch_station\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7fa83ddeb6fe6aa1",
+   "kind": "id_reference",
+   "token": "F02_2A_TOASTER_01",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    126
+   ],
+   "count": 1,
+   "context": [
+    "[\"F02_2A_TOASTER_01\",Vector3(.25,.35,-.65),Vector3(0,.1,0),\"toaster_crumbs\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/marker+acoustic_node",
+   "target_exists": true
+  },
+  {
+   "key": "86475fc6d570ff98",
+   "kind": "id_reference",
+   "token": "F02_A_MAIN",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    102
+   ],
+   "count": 1,
+   "context": [
+    "for room_id in [\"F02_A_MAIN\", \"F03_B_MAIN\", \"F04_C_MAIN\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6f02a2c6c41e81e2",
+   "kind": "id_reference",
+   "token": "F02_B_RADIATOR_01",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    122
+   ],
+   "count": 1,
+   "context": [
+    "[\"F02_B_RADIATOR_01\",Vector3(.35,.65,-1.1),Vector3(0,.48,0),\"radiator\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "372b54730410b244",
+   "kind": "id_reference",
+   "token": "F03_B_MAIN",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    102
+   ],
+   "count": 1,
+   "context": [
+    "for room_id in [\"F02_A_MAIN\", \"F03_B_MAIN\", \"F04_C_MAIN\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3248492c5c0dbd4d",
+   "kind": "id_reference",
+   "token": "F04_4A_BOOKSHELF_01",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    121
+   ],
+   "count": 1,
+   "context": [
+    "[\"F04_4A_BOOKSHELF_01\",Vector3(.35,.85,1.6),Vector3(0,.8,.15),\"bookcase\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/marker+bookshelf+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2661c570465a82af",
+   "kind": "id_reference",
+   "token": "F04_B_MONITOR_01",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    125
+   ],
+   "count": 1,
+   "context": [
+    "[\"F04_B_MONITOR_01\",Vector3(.35,.8,-1.3),Vector3(0,.3,-.2),\"signal_terminal\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/marker+acoustic_node+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e07ddd7110fab3db",
+   "kind": "id_reference",
+   "token": "F04_C_MAIN",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    102
+   ],
+   "count": 1,
+   "context": [
+    "for room_id in [\"F02_A_MAIN\", \"F03_B_MAIN\", \"F04_C_MAIN\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "55d6ab9fccab6dee",
+   "kind": "runtime_id",
+   "token": "LobbyMailBank",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    119
+   ],
+   "count": 1,
+   "context": [
+    "[\"LobbyMailBank\",Vector3(.35,1.,-1.5),Vector3(0,.9,-.1),\"mail_bank\"],"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
+  },
+  {
+   "key": "30ef92f6aa780d60",
+   "kind": "runtime_id",
+   "token": "LobbyServiceDumbwaiter",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    127
+   ],
+   "count": 1,
+   "context": [
+    "[\"LobbyServiceDumbwaiter\",Vector3(.65,1.,1.7),Vector3(0,1.,0),\"dumbwaiter\"]]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
   }
  ]
 }

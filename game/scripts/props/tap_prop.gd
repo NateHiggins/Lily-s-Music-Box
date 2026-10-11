@@ -104,6 +104,8 @@ func _build_visual() -> void:
 		[IRON, "cast_iron", Color(0.33, 0.32, 0.29), 0.68],
 		[LINEN, "linen", Color(0.88, 0.85, 0.75), 0.74],
 		[SHOWER_DUCK, "shower_duck", Color(0.90, 0.84, 0.67), 0.58],
+		[MINERAL, "mineral_scale", Color(0.91,0.88,0.78)],
+		[RUST, "cast_iron", Color(0.48,0.20,0.10), 0.42],
 	])
 	if fixture == "shower":
 		_finish_curtain_material()
@@ -703,7 +705,7 @@ func _make_stream(from: Vector3, drop: float, radius: float) -> Node3D:
 	holder.position = from
 	holder.visible = false
 	add_child(holder)
-	var mat := StandardMaterial3D.new()
+	var mat := MatLib.get_mat("water_clear").duplicate() as StandardMaterial3D
 	mat.albedo_color = Color(0.68, 0.80, 0.84, 0.36)
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	mat.roughness = 0.08
@@ -731,7 +733,8 @@ func _make_water_surface(at: Vector3, size: Vector2,
 		water.scale.z = size.y / size.x
 	else:
 		water = make_box(Vector3(size.x, 0.004, size.y), at, tint)
-	var mat: StandardMaterial3D = water.material_override
+	var mat := MatLib.get_mat("water_clear", tint).duplicate() as StandardMaterial3D
+	water.material_override = mat
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	mat.roughness = 0.08
 	water.visible = false

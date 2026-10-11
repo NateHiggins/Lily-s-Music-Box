@@ -10,6 +10,9 @@ import bpy
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[3]
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from repair_surface_uvs import repair_scene
 OUTPUT = ROOT / 'game/assets/building/v2_lift_drive.glb'
 
 def point(v):
@@ -209,6 +212,7 @@ def main():
             bpy.ops.object.join()
             members[0].name = (parent.name+'_' if parent else 'Fixed_') + mat.name
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    repair_scene()
     bpy.ops.export_scene.gltf(filepath=str(OUTPUT), export_format='GLB',
                               export_apply=True, export_yup=True,
                               export_animations=False)

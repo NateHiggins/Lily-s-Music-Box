@@ -189,7 +189,29 @@ def parse_unittest(code, out, err):
             "info": {"ran": int(ran[-1]) if ran else None}}
 
 
+def parse_v2_surface_imports(code, out, err):
+    data = _json(out)
+    return {"counts":{"missing":len(data.get("missing",[])),
+                      "wrong":len(data.get("wrong",[]))},
+            "defects":["missing:"+name for name in data.get("missing",[])]+
+                      ["wrong:"+name for name in data.get("wrong",[])],
+            "states":{},"info":{"referenced":data.get("referenced"),
+                                  "scope":data.get("scope")}}
+
+
 GATES = [
+    {"id":"v2_surface_qualification",
+     "argv":["tools/v2_surface_evidence.py"],
+     "parse":lambda code,out,err: {"counts":_json(out).get("counts",{}),"defects":_json(out).get("defects",[]),"states":{},"info":_json(out).get("coverage",{})},
+     "incomplete":set(),"error":set(),"optional":True},
+    {"id":"v2_mesh_uv_imports",
+     "argv":["art/tools/fix_v2_mesh_imports.py","--check"],
+     "parse":parse_v2_surface_imports,"incomplete":set(),"error":set(),
+     "optional":True},
+    {"id":"v2_surface_imports",
+     "argv":["art/tools/fix_runtime_texture_imports.py","--v2","--check","--json"],
+     "parse":parse_v2_surface_imports,"incomplete":set(),"error":set(),
+     "optional":True},
     {"id": "ledger", "argv": ["tools/audit_orison_v2_completeness.py", "--json"],
      "parse": parse_ledger, "incomplete": {2}, "error": {3, 4, 70}},
     {"id": "spatial", "argv": ["tools/audit_orison_spatial_dependencies.py", "--json"],

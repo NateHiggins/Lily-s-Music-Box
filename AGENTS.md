@@ -90,6 +90,9 @@ See `design/WORKTREE_CONSOLIDATION_2026-09-21.md` for preserved work and recover
 
 ## Art
 
+- Every V2 physical surface must pass the UV, custom PBR and loaded-mipmap
+  requirements in `design/V2_SURFACE_REQUIREMENTS_2026-10-11.md` (RUL-012).
+  New additions have no legacy exemption; discovery is not acceptance.
 - No letters, numbers, words or logos in generated textures; lettering is
   Label3D. New material keys go through the catalogue (RUL-008).
 - Reference photographs inform form only. They are never baked, projected or

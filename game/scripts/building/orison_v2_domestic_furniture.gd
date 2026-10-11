@@ -307,6 +307,11 @@ func _add_surfaces(body: Node3D, surfaces: Array) -> void:
 			normals.append(Vector3(surface.normals[i], surface.normals[i + 1], surface.normals[i + 2]))
 		arrays[Mesh.ARRAY_VERTEX] = vertices
 		arrays[Mesh.ARRAY_NORMAL] = normals
+		if surface.has("uvs"):
+			var uvs := PackedVector2Array()
+			for i in range(0, surface.uvs.size(), 2):
+				uvs.append(Vector2(surface.uvs[i], surface.uvs[i + 1]))
+			arrays[Mesh.ARRAY_TEX_UV] = uvs
 		var mesh := ArrayMesh.new()
 		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 		var visual := MeshInstance3D.new()
@@ -332,6 +337,8 @@ func _validate_surfaces(surfaces: Variant) -> void:
 			continue
 		if not _numbers(vertices, vertices.size()) or not _numbers(surface.get("normals"), vertices.size()):
 			errors.append("invalid furniture coordinates or normals")
+		if surface.has("uvs") and not _numbers(surface.uvs, vertices.size() / 3 * 2):
+			errors.append("invalid authored furniture UVs")
 
 func _numbers(values: Variant, count: int) -> bool:
 	if values is not Array or values.size() != count:
@@ -348,6 +355,7 @@ func _material(key: String) -> Material:
 	if key == "glassish":
 		var glass := ShaderMaterial.new()
 		glass.shader = preload("res://shaders/lamp_glass_surface.gdshader")
+		preload("res://scripts/building/v2_clear_glass_finish.gd").apply(glass)
 		return glass
 	var material := MatLib.get_mat(str(MATERIAL_ALIASES.get(key, key)), GARMENT_TINTS.get(key, Color.WHITE))
 	if GARMENT_TINTS.has(key):

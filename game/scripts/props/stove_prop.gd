@@ -110,6 +110,8 @@ func _build_visual() -> void:
 		merge_static(cap, _jet_plugs)
 	for i in _flames.size():
 		merge_static(_flames[i], [_dirty_flames[i]])
+		for draw: Node in _flames[i].find_children("*", "MeshInstance3D", true, false):
+			draw.set_meta("surface_role", "gas_flame")
 
 	var seed := _unit_seed()
 	for i in BURNER_SPOTS.size():

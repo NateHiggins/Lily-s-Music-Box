@@ -3,25 +3,27 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6yw8vmf446rg"
-path="res://.godot/imported/T_library_appliances_aged_enamel_worn_appliance_albedo.png-2f2c608bd46d148bbd3b7a79f73b58ed.ctex"
+path.bptc="res://.godot/imported/T_library_appliances_aged_enamel_worn_appliance_albedo.png-2f2c608bd46d148bbd3b7a79f73b58ed.bptc.ctex"
+path.astc="res://.godot/imported/T_library_appliances_aged_enamel_worn_appliance_albedo.png-2f2c608bd46d148bbd3b7a79f73b58ed.astc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/building/textures/T_library_appliances_aged_enamel_worn_appliance_albedo.png"
-dest_files=["res://.godot/imported/T_library_appliances_aged_enamel_worn_appliance_albedo.png-2f2c608bd46d148bbd3b7a79f73b58ed.ctex"]
+dest_files=["res://.godot/imported/T_library_appliances_aged_enamel_worn_appliance_albedo.png-2f2c608bd46d148bbd3b7a79f73b58ed.bptc.ctex", "res://.godot/imported/T_library_appliances_aged_enamel_worn_appliance_albedo.png-2f2c608bd46d148bbd3b7a79f73b58ed.astc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=2
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

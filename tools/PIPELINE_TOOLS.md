@@ -18,6 +18,29 @@ for work restricted to the canonical checkout.
 
 ## Gate board
 
+RUL-012 adds three surface gates: **v2_surface_imports** checks complete
+mipmap/HQ GPU-compression bindings, **v2_mesh_uv_imports** keeps the seven
+measured UV-precision overrides, and **v2_surface_qualification** requires a
+current composed inventory, test-written runtime contract and reviewed image
+hashes. New rendering inputs invalidate the qualification; a red baseline
+cannot waive it. See **design/V2_SURFACE_REQUIREMENTS_2026-10-11.md**.
+
+Run **OrisonV2SurfaceInventory.tscn** windowed through the serial runner with
+**SHOT_DIR** set to the review directory. It checks the whole loaded world and
+takes the close-up/room images in one process. Evaluate an inventory alone
+with **python tools/audit_v2_surfaces.py --inventory <file> --out <report>**.
+The independent saved-packet gate is **python tools/v2_surface_evidence.py**.
+
+Both lane runners accept **ExtraArgs**, and the long runner accepts an empty
+scene for imports. In PowerShell invoke the script directly with **&** when
+passing an argument array; a nested **pwsh -File** does not preserve the array
+as one parameter. For example:
+
+```powershell
+& tools/lane.ps1 run -Runner long -ExtraArgs @('--import') -LogPath tmp/import.log
+& tools/lane.ps1 run -ExtraArgs @('--headless','--editor','--quit') -LogPath tmp/import-refresh.log
+```
+
 ```
 python tools/gate_board.py --out C:/ov/boards/main          # a board for main
 python tools/gate_board.py --out <dir> --baseline C:/ov/boards/main/board.json

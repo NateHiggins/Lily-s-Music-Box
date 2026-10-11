@@ -10,6 +10,9 @@ import os
 from pathlib import Path
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from repair_surface_uvs import repair_scene
 def p(v): return Vector((v[0],-v[2],v[1]))
 def clear():
     bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
@@ -48,7 +51,9 @@ def apply():
         bpy.ops.object.select_all(action='DESELECT');o.select_set(True);bpy.context.view_layer.objects.active=o;bpy.ops.object.convert(target='MESH')
         bpy.ops.object.mode_set(mode='EDIT');bpy.ops.mesh.select_all(action='SELECT');bpy.ops.mesh.normals_make_consistent(inside=False);bpy.ops.uv.smart_project(island_margin=.01);bpy.ops.object.mode_set(mode='OBJECT')
 def save(name):
+    repair_scene()
     bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/f'art/blender/{name}.blend'))
+    repair_scene()
     bpy.ops.export_scene.gltf(filepath=str(ROOT/f'game/assets/props/{name}.glb'),export_format='GLB',export_yup=True,export_apply=True)
 
 clear()

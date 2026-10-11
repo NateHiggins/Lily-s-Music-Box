@@ -1,0 +1,97 @@
+{
+  "evidence_class": "INERT",
+  "status": "PASS",
+  "surface_inputs_sha256": "52dc97d9959057f6e2e4f055e26fcf477b73afb89876da3315c6989e65c8e5ea",
+  "scope": "Technical surface qualification with representative Blender and composed-world visual review. Not an all-viewpoint photorealism or gameplay acceptance.",
+  "images": [
+    {
+      "file": "F02_A_MAIN.png",
+      "sha256": "8fd51ee00c543c3a0032a41bc422775b3a3bc2c7d025db04ea02c7ed588bfa9a",
+      "observation": "Wood floor, plaster, furniture and lamp are present without missing-material appearance; warm lighting limits subtle surface judgment."
+    },
+    {
+      "file": "F03_B_MAIN.png",
+      "sha256": "554756be6c4f532aa79f1b46a1a43bed214af6916c57708dcec39e08770f23be",
+      "observation": "Table, chairs and workbench retain wood grain direction; plaster and hardware render in the composed apartment."
+    },
+    {
+      "file": "F04_C_MAIN.png",
+      "sha256": "859aff43f3058777d5fd56f10afd61d821f66a738fed84cda721082e48450ffd",
+      "observation": "Furniture, floor and wall stock render consistently in the occupied room."
+    },
+    {
+      "file": "boiler.png",
+      "sha256": "8e63b915c4bea878b9f92613e9abdc6ddaf00fc68ed2c18fe5fda81f042ff9ee",
+      "observation": "Jacket, cast doors, copper and mineral pipe fittings render with distinct finishes."
+    },
+    {
+      "file": "bookcase.png",
+      "sha256": "fc11d93c1b51453acee29bf866d102dc02b81224b40cef0902801c67ca71141f",
+      "observation": "Three glazed sectional sashes are visible; rail and stile grain follows the members."
+    },
+    {
+      "file": "signal_scope.png",
+      "sha256": "90cdbe0076df210e9e5ffdc3b69699f31d6c3caa235ecd55d8de7330c3ba9f26",
+      "observation": "Both circular live displays remain active within textured cabinet bodies."
+    },
+    {
+      "file": "toaster_crumbs.png",
+      "sha256": "f12e815e91a03df03872d80b90b988c6e8c95e650593260de727790a669f3ddd",
+      "observation": "Opened tray exposes individual crumbs with the new stock finish; appliance and kettle remain distinct."
+    },
+    {
+      "file": "watch_station.png",
+      "sha256": "f3396e9402d0ec6b1cf619c482698be7650d5ed13432cdaabfb9590adda5f25a",
+      "observation": "Station label, case, latch and indicator remain legible after finish binding."
+    },
+    {
+      "file": "fuse_panel.png",
+      "sha256": "520bd7ea1278d9e99e346f7630a161e9491736db2385ac17a642b6c227a23573",
+      "observation": "Open cabinet exposes ceramic holders and separate metal fittings."
+    },
+    {
+      "file": "mail_bank.png",
+      "sha256": "eea1c93481456d181e0b869d7c681a2382ff6eff5c5c06fde755134c769a713a",
+      "observation": "Wood frame, brass door stock, headers and occupant cards remain distinct."
+    },
+    {
+      "file": "signal_terminal.png",
+      "sha256": "2645dbe5ad448d7e3ce766d1ad6f9dd954c8d303ef82b6d400de37c174acee0c",
+      "observation": "Valve assembly and wood terminal cabinet remain present with retained glowing display."
+    },
+    {
+      "file": "native/contact-revised.png",
+      "sha256": "660eff7dc688226b9005e224e0a6691a49af200f834b34804004b8078018b9a2",
+      "observation": "Native Blender batch review: repaired authored UVs retain geometry and material orientation across the fittings."
+    },
+    {
+      "file": "native/bookcase_lift_door.png",
+      "sha256": "aefc7be3e500fe58f9960f5defdb14398f8019cbdcce5f3efc1a8c0111126e73",
+      "observation": "Native sash stock has longitudinal grain on rails and stiles, with separate clear glazing."
+    },
+    {
+      "file": "native/radiator_paper_tag.png",
+      "sha256": "5e34afe0444b362ef5e21d76d380e684ffec4da79f8bbeed03cf4494895bc9e3",
+      "observation": "Native physical paper plane has a visible paper finish and authored UVs; this view does not verify gameplay label placement."
+    },
+    {
+      "file": "native/boiler_body.png",
+      "sha256": "7eaabb4912824e01ebb0c5896b6b046f9dd6b7e2b174971ce893ea492dda8e9f",
+      "observation": "Native cast and sheet-metal geometry retains its silhouette with continuous mapped stock."
+    }
+  ],
+  "diagnostic_images": [
+    {
+      "file": "radiator.png",
+      "reason": "Cropped view; paper tag placement is not visible."
+    },
+    {
+      "file": "dumbwaiter.png",
+      "reason": "Camera faces a brick wall; does not accept brake-band appearance."
+    }
+  ],
+  "limitations": [
+    "Seven texture RIDs reported leaked at shutdown; runtime-owned root retirement passed, global GPU allocation cleanup is not claimed.",
+    "Save reconstruction and unrelated route suites were not run for this surface pass."
+  ]
+}

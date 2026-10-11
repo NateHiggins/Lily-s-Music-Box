@@ -501,6 +501,21 @@ func _build_visual() -> void:
 			_drop)
 
 	_knock = make_emitter("knock", -14.0)
+	# Explicit apparatus substances; each pivot keeps its original mechanism.
+	retexture(self, [
+		[iron, "iron_neutral", Color(0.42,0.42,0.46)],
+		[iron_light, "iron_neutral", Color(0.65,0.65,0.70)],
+		[brass, "brass_dull", Color.WHITE],
+		[enamel, "enamel_appliance", Color(0.90,0.87,0.80)],
+		[Color(0.68,0.66,0.60), "enamel_appliance", Color(0.78,0.76,0.70)],
+		[Color(0.05,0.05,0.06), "iron_blackened", Color.WHITE],
+		[Color(0.63,0.17,0.11), "indicator_enamel", Color(0.72,0.20,0.13)],
+		[Color(0.88,0.86,0.80), "indicator_enamel", Color.WHITE],
+	])
+	var glazing := ShaderMaterial.new()
+	glazing.shader = preload("res://shaders/lamp_glass_surface.gdshader")
+	preload("res://scripts/building/v2_clear_glass_finish.gd").apply(glazing)
+	glass.material_override = glazing
 	_click = make_emitter("pop", -19.0)
 	_build_reach()
 	_refresh_station()

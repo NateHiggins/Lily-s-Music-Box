@@ -40,16 +40,23 @@ mode=2 would appear to succeed and silently leave those 27 uncompressed.
 
 If a desktop ever does show a problem, this file is where to reverse that.
 
-Run:  python art/tools/fix_runtime_texture_imports.py [--check]
+The V2 owner direction of 2026-10-11 adds --v2: all shipped building surface
+maps (including height/masks/wall finishes), high-quality GPU compression,
+complete mip chains, preserved RGB normals. This supersedes lossless-only
+for that scope. It leaves the original dream policy unchanged.
+
+Run:  python art/tools/fix_runtime_texture_imports.py [--v2] [--check] [--json]
 
 Then re-import, because editing a .import does nothing until Godot re-reads it:
 
-    C:/devkit/bin/godot.cmd --headless --path game --import
+    pwsh -File tools/lane.ps1 run -ExtraArgs --import -LogPath tmp/texture-import.log
 """
 from __future__ import annotations
 
 import re
 import sys
+import subprocess
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -71,6 +78,42 @@ WANT = {
     "detect_3d/compress_to": "0",
 }
 
+V2_WANT = {
+    **WANT,
+    "mipmaps/limit": "-1",
+    "compress/mode": "2",
+    "compress/high_quality": "true",
+    # Existing custom shaders explicitly consume normal RGB. Preserve Z:
+    # RGTC is safe only once those consumers reconstruct it from XY.
+    "compress/normal_map": "2",
+}
+
+# Physical maps reached by the composed V2 world outside the building library.
+# Sky projections and UI-only images retain their own sampling authority.
+V2_EXTERNAL_MAPS = (
+    "game/assets/characters/mina_vale/texture_0_metallic-texture_0_roughness.png",
+    "game/assets/characters/mina_vale/texture_0_normal.png",
+    "game/assets/ui/telegram/telegram_paper_stock_v1.png",
+)
+
+
+def v2_sidecars() -> list[Path]:
+    """All shipped building images, including height, masks and wall finishes.
+
+    Git source paths prevent generated glTF image extracts and local review
+    inputs becoming accidental shipping authority. Sky is an environment
+    projection, governed by its separate half-dome import recipe.
+    """
+    paths = subprocess.check_output(
+        ["git", "-C", str(ROOT), "ls-files", "game/assets/building/textures"],
+        text=True, encoding="utf-8").splitlines()
+    runtime_names=set(re.findall(r'"([^"]+\.png)"',GDSCRIPT.read_text(encoding="utf-8")))
+    return sorted({ROOT / (name + ".import") for name in paths
+                   if Path(name).suffix.lower() in {".png", ".jpg", ".jpeg", ".webp"}
+                   and "/sky/" not in name} |
+                  {ROOT / (name + ".import") for name in V2_EXTERNAL_MAPS} |
+                  {TEXTURES / (name + ".import") for name in runtime_names})
+
 
 def sidecars() -> list[Path]:
     """Every .import this tool owns: the runtime prop set, plus the dream.
@@ -90,11 +133,11 @@ def sidecars() -> list[Path]:
     return found
 
 
-def patch(path: Path) -> bool:
+def patch(path: Path, wanted: dict[str, str] | None = None) -> bool:
     """Set the wanted params. Returns True if the file changed."""
     text = path.read_text(encoding="utf-8")
     original = text
-    for key, value in WANT.items():
+    for key, value in (WANT if wanted is None else wanted).items():
         pattern = re.compile(r"^%s=.*$" % re.escape(key), re.M)
         if pattern.search(text):
             text = pattern.sub("%s=%s" % (key, value), text)
@@ -110,7 +153,9 @@ def patch(path: Path) -> bool:
 
 def main() -> int:
     check_only = "--check" in sys.argv
-    names = sidecars()
+    v2 = "--v2" in sys.argv
+    names = v2_sidecars() if v2 else sidecars()
+    wanted = V2_WANT if v2 else WANT
     if not names:
         print("nothing to check -- has %s been generated?" % GDSCRIPT)
         return 1
@@ -119,15 +164,26 @@ def main() -> int:
     for sidecar in names:
         name = sidecar.name
         if not sidecar.is_file():
-            missing.append(name)
-            continue
+            source=Path(str(sidecar).removesuffix(".import"))
+            if v2 and not check_only and source.is_file():
+                resource="res://"+source.relative_to(ROOT/"game").as_posix()
+                sidecar.write_text('[remap]\nimporter="texture"\ntype="CompressedTexture2D"\n\n[deps]\nsource_file="'+resource+'"\n\n[params]\n',newline="\n")
+            else:
+                missing.append(name)
+                continue
         text = sidecar.read_text(encoding="utf-8")
         if all(re.search(r"^%s=%s$" % (re.escape(k), re.escape(v)), text, re.M)
-               for k, v in WANT.items()):
+               for k, v in wanted.items()):
             continue
         wrong.append(name)
-        if not check_only and patch(sidecar):
+        if not check_only and patch(sidecar, wanted):
             fixed.append(name)
+
+    if "--json" in sys.argv:
+        print(json.dumps({"scope":"v2" if v2 else "runtime_and_dream",
+                          "referenced":len(names),"missing":missing,
+                          "wrong":wrong,"fixed":fixed}))
+        return 1 if missing or (check_only and wrong) else 0
 
     print("runtime textures referenced: %d" % len(names))
     print("  already correct : %d" % (len(names) - len(wrong) - len(missing)))
@@ -143,7 +199,7 @@ def main() -> int:
     print("  repaired        : %d" % len(fixed))
     if fixed:
         print("\nNOW RE-IMPORT, or nothing above has taken effect:")
-        print("  C:/devkit/bin/godot.cmd --headless --path game --import")
+        print("  pwsh -File tools/lane.ps1 run -ExtraArgs --import -LogPath tmp/texture-import.log")
     return 1 if missing else 0
 
 

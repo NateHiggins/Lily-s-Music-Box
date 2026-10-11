@@ -55,6 +55,7 @@ func material_for(part: String, room_class: String) -> Material:
 		if not cache.has(key):
 			var glass := ShaderMaterial.new()
 			glass.shader = preload("res://shaders/lamp_glass_surface.gdshader")
+			preload("res://scripts/building/v2_clear_glass_finish.gd").apply(glass)
 			cache[key] = glass
 		return cache[key]
 	var family := "walls"

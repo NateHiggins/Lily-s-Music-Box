@@ -44,6 +44,7 @@ var light: OmniLight3D
 var bounce: OmniLight3D
 var _bulb_mat: StandardMaterial3D
 var _halo: MeshInstance3D
+static var _halo_texture: ImageTexture
 var _base_energy := 1.5
 var _target_scale := 1.0   # set by the LightRig
 var _bounce_on := false    # set by the LightRig
@@ -109,13 +110,20 @@ func _build_visual() -> void:
 	add_child(_swing_node)
 	var bulb_at := _build_body(_swing_node)
 	retexture(_swing_node, [
+		[Color(0.94,0.93,0.88), "milk_glass", Color.WHITE],
+		[Color(0.15,0.14,0.13), "iron_blackened", Color.WHITE],
+		[Color(0.1,0.1,0.1), "iron_blackened", Color.WHITE],
+		[Color(0.42,0.35,0.18), "brass_dull", Color.WHITE],
+		[Color(0.62,0.55,0.30).darkened(0.48), "brass_dull", Color(0.60,0.55,0.45)],
+		[Color(0.62,0.55,0.30).darkened(0.35), "brass_dull", Color(0.75,0.68,0.55)],
 		[Color(0.62, 0.55, 0.30), "brass", Color.WHITE],
 		[Color(0.78, 0.70, 0.58), "linen", Color(0.97, 0.90, 0.80), 0.5],
 		[Color(0.88, 0.86, 0.80), "enamel", Color.WHITE],
 		[Color(0.3, 0.3, 0.32), "metal", Color(0.46, 0.46, 0.50)],
 	])
 	# emissive envelope: the fixture reads lit even outside the budget
-	_bulb_mat = _pmat(Color(1.0, 0.97, 0.9), 0.2)
+	_bulb_mat = MatLib.get_mat("milk_glass", Color(1.0, 0.97, 0.9)).duplicate()
+	_bulb_mat.roughness = 0.2
 	_bulb_mat.emission_enabled = true
 	_bulb_mat.emission = tone
 	_bulb_mat.emission_energy_multiplier = 1.6
@@ -128,6 +136,7 @@ func _build_visual() -> void:
 			c.material_override = _bulb_mat
 	# additive halo billboard around the source
 	_halo = MeshInstance3D.new()
+	_halo.set_meta("surface_role", "optical_halo")
 	var quad := QuadMesh.new()
 	if prop_type == "chandelier":
 		quad.size = Vector2(1.2, 1.2)
@@ -145,15 +154,21 @@ func _build_visual() -> void:
 	hm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	hm.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
 	hm.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
-	var grad := Gradient.new()
-	grad.set_color(0, Color(tone.r, tone.g, tone.b, 0.30))
-	grad.set_color(1, Color(tone.r, tone.g, tone.b, 0.0))
-	var gt := GradientTexture2D.new()
-	gt.gradient = grad
-	gt.fill = GradientTexture2D.FILL_RADIAL
-	gt.fill_from = Vector2(0.5, 0.5)
-	gt.fill_to = Vector2(0.5, 0.0)
-	hm.albedo_texture = gt
+	if _halo_texture == null:
+		var grad := Gradient.new()
+		grad.set_color(0, Color(1.0, 1.0, 1.0, 0.30))
+		grad.set_color(1, Color(1.0, 1.0, 1.0, 0.0))
+		var gt := GradientTexture2D.new()
+		gt.gradient = grad
+		gt.fill = GradientTexture2D.FILL_RADIAL
+		gt.fill_from = Vector2(0.5, 0.5)
+		gt.fill_to = Vector2(0.5, 0.0)
+		var pixels := gt.get_image()
+		pixels.generate_mipmaps()
+		_halo_texture = ImageTexture.create_from_image(pixels)
+	hm.albedo_color = Color(tone.r, tone.g, tone.b, 1.0)
+	hm.albedo_texture = _halo_texture
+	hm.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	_halo.material_override = hm
 	_halo.position = bulb_at
 	_swing_node.add_child(_halo)
@@ -444,7 +459,7 @@ func _build_body(p: Node3D) -> Vector3:
 			lens.mesh = ls
 			lens.name = "stained_lens"
 			lens.position = Vector3(0, -0.06, 0)
-			var glass := StandardMaterial3D.new()
+			var glass := MatLib.get_mat("milk_glass").duplicate() as StandardMaterial3D
 			glass.albedo_texture = load("res://assets/building/textures/" +
 					"exterior_lighting/stained_cracked_prismatic_glass.png")
 			glass.albedo_color = Color(0.54, 0.38, 0.18)
@@ -489,7 +504,7 @@ func _build_entry_lantern(p: Node3D, brass: Color) -> Vector3:
 			brass.darkened(0.48)).reparent(p)
 	make_box(Vector3(0.10, 0.12, 0.30), Vector3(0, 0.02, 0.15),
 			brass.darkened(0.35)).reparent(p)
-	var glass := StandardMaterial3D.new()
+	var glass := MatLib.get_mat("milk_glass").duplicate() as StandardMaterial3D
 	glass.albedo_texture = load("res://assets/building/textures/" +
 			"exterior_lighting/stained_cracked_prismatic_glass.png")
 	glass.albedo_color = Color(0.72, 0.50, 0.22)

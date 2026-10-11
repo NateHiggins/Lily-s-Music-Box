@@ -21,7 +21,12 @@ func mount(parent: Node3D, stair: Dictionary, base_y: float) -> bool:
 		for surface in part.mesh.get_surface_count():
 			var source := part.mesh.surface_get_material(surface)
 			var key: String=source.resource_name
-			part.set_surface_override_material(surface,MatLib.get_mat("iron_blackened" if key=="cast_iron" else key))
+			key = "iron_blackened" if key == "cast_iron" else ("iron_neutral" if key == "steel" else key)
+			if not MatLib.SETS.has(key):
+				push_error("Unregistered stair stock: " + key)
+				model.free()
+				return false
+			part.set_surface_override_material(surface,MatLib.get_mat(key))
 	_mount_guards(parent,model.position,stair)
 	return true
 

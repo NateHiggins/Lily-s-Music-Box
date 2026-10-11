@@ -1,0 +1,15 @@
+{
+  "material": "water_clear",
+  "source": "art/tools/build_clear_water_maps.py",
+  "source_sha256": "4037f1fc60c5ccb083f30dce1efd804c057e1258df280d3666e157f72da43539",
+  "meters_per_tile": 0.25,
+  "relief_mm": 0.06,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "model": "periodic_still_water_microrelief_v1",
+  "albedo_policy": "Uniform neutral diffuse tint; no baked reflections."
+}

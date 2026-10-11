@@ -60,6 +60,8 @@ func _build_visual() -> void:
 		[CORD, "fabric_warm", Color(0.62, 0.48, 0.40), 0.35],
 		[MICA, "mica_heater", Color(0.86, 0.73, 0.52), 0.45],
 		[GREASE, "fx_grease", Color(0.42, 0.30, 0.18), 0.45],
+		[CRUMB, "toast_crumb", Color.WHITE],
+		[BURNT, "toast_crumb", Color(0.20, 0.17, 0.13)],
 	])
 	# Casework is fixed; the carrier, lever and service pan must remain
 	# separate because the hand and the director move them independently.
@@ -164,7 +166,7 @@ func _build_heater_cards(parent: Node3D) -> void:
 	for z in [-0.034, 0.034]:
 		_box_on(parent, Vector3(0.190, 0.098, 0.004),
 				Vector3(0, 0.100, z), MICA)
-	_coil_mat = StandardMaterial3D.new()
+	_coil_mat = MatLib.get_mat("iron_neutral").duplicate()
 	_coil_mat.albedo_color = Color(0.09, 0.025, 0.012)
 	_coil_mat.roughness = 0.62
 	_coil_mat.emission_enabled = true

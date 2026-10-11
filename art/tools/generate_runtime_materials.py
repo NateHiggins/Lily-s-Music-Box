@@ -8,6 +8,7 @@ appearance while those old library plates are reviewed one family at a time.
 from __future__ import annotations
 
 import json
+import hashlib
 import re
 from pathlib import Path
 
@@ -25,6 +26,9 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 # its authored roughness map by this value; selected finishes deliberately cap
 # that response. No texture path or physical scale is authored here.
 RUNTIME_POLICY = {
+    "water_clear": {},
+    "leather_worn": {}, "mineral_scale": {},
+    "toast_crumb": {},
     "plaster_stained": {}, "floor_oak": {}, "ceramic": {}, "subway_tile": {},
     "concrete": {}, "asphalt": {}, "roof_bitumen": {}, "terrazzo": {}, "stair": {}, "brick": {},
     "countertop": {},
@@ -170,6 +174,17 @@ def build_contract() -> dict:
             "catalog_mapping": mapped,
         }
         materials[key] = spec
+    # Share exact duplicate images by channel. Substance, scale, albedo tint
+    # and optical policy remain per material. A changed image automatically
+    # stops sharing: semantic similarity never substitutes for byte equality.
+    for channel in range(3):
+        canonical = {}
+        for spec in materials.values():
+            filename = spec["files"][channel]
+            path = GODOT_TEXTURES / filename
+            if not path.is_file(): continue  # validate reports the missing map.
+            identity = hashlib.sha256(path.read_bytes()).hexdigest()
+            spec["files"][channel] = canonical.setdefault(identity, filename)
     return {"schema": 1, "materials": materials,
             "visual_locks": sorted(VISUAL_LOCKS)}
 

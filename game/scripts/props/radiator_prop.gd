@@ -140,6 +140,12 @@ func _build_visual() -> void:
 	_build_pitch_shim()
 
 	retexture(_body, [
+		[iron, "iron_neutral", Color(0.55,0.56,0.55)],
+		[Color(0.27,0.23,0.16), "brass_dull", Color(0.72,0.65,0.50)],
+		[Color(0.12,0.105,0.09), "iron_blackened", Color.WHITE],
+		[Color(0.08,0.065,0.045), "iron_blackened", Color(0.7,0.65,0.55)],
+		[Color(0.62,0.59,0.47), "mineral_scale", Color(0.82,0.78,0.64)],
+		[Color(0.09,0.075,0.06), "fx_grease", Color(0.40,0.32,0.24)],
 		[IRON_DARK, "cast_iron", Color(0.32, 0.31, 0.30), 0.68],
 		[IRON_SILVER, "cast_iron", Color(0.74, 0.75, 0.76), 0.72],
 		[PIPE, "metal", Color(0.52, 0.48, 0.44), 0.50],
@@ -159,7 +165,7 @@ func _build_visual() -> void:
 	merge_static(_connection_pipe)
 	merge_static(_union, [_union_moving, _mineral_residue])
 	merge_static(_union_moving)
-	merge_static(_mineral_residue)
+	merge_static(_mineral_residue, [_vapor, _damp_patch])
 	merge_static(_body, [_shell, _wheel, _shim, _union, _connection_pipe,
 			_mineral_residue, _damp_patch, _vapor, _porter_tag,
 			_section_multimesh])
@@ -229,6 +235,14 @@ func _build_sections(iron: Color) -> void:
 
 
 func _cast_section_mesh() -> ArrayMesh:
+	# Shared native casting retains the original profile; every face now has
+	# a noncollapsed metre chart, including both closed header caps.
+	var model := preload("res://assets/props/radiator_section.glb").instantiate()
+	var mesh := (model.get_node("CastSection") as MeshInstance3D).mesh as ArrayMesh
+	model.free()
+	return mesh
+
+func _source_cast_section_mesh() -> ArrayMesh:
 	# One low-cost lathed three-column casting shared by every section. The
 	# pronounced header shoulders and narrow waist avoid tube-and-ball anatomy.
 	var rings := [
@@ -355,19 +369,22 @@ func _build_supply() -> void:
 				Vector3(0.018 + i * 0.007, 0.026 + i * 0.01,
 				0.012 + i * 0.005), Color(0.70, 0.72, 0.70, 0.30))
 		puff.transparency = 0.55
+		puff.set_meta("surface_role", "steam_volume")
 
 	_porter_tag = Node3D.new()
 	_porter_tag.name = "PorterShutoffTag"
 	_porter_tag.position = Vector3(SUPPLY_X + 0.12, 0.23, -0.15)
 	_body.add_child(_porter_tag)
-	var tag_image := Image.create(48, 72, false, Image.FORMAT_RGBA8)
-	tag_image.fill(Color(0.58, 0.47, 0.30))
-	var tag := Sprite3D.new()
+	var tag := MeshInstance3D.new()
+	var paper_model := preload("res://assets/props/radiator_paper_tag.glb").instantiate()
+	tag.mesh = (paper_model.get_node("PaperTag") as MeshInstance3D).mesh
+	paper_model.free()
 	tag.name = "PhysicalPaperTag"
-	tag.texture = ImageTexture.create_from_image(tag_image)
-	tag.pixel_size = 0.0022
+	var paper := MatLib.get_mat("paper", Color(.72,.58,.38)).duplicate() as StandardMaterial3D
+	paper.cull_mode = BaseMaterial3D.CULL_DISABLED
+	paper.uv1_triplanar = false
+	tag.material_override = paper
 	tag.position = Vector3(0.0, -0.06, 0.04)
-	tag.double_sided = true
 	_porter_tag.add_child(tag)
 	var tag_copy := Label3D.new()
 	tag_copy.text = "PORTER\nHEAT OFF"

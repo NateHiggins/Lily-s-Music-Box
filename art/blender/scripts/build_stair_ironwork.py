@@ -8,6 +8,9 @@ import bpy
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[3]
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from repair_surface_uvs import repair_scene
 
 def point(v):
     return Vector((v[0], -v[2], v[1]))
@@ -196,7 +199,9 @@ def build(name, width, tread, landing):
         bpy.context.view_layer.objects.active=parts[0]
         bpy.ops.object.join()
         parts[0].name=label
+    repair_scene()
     bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/f'art/blender/{name}.blend'))
+    repair_scene()
     bpy.ops.export_scene.gltf(filepath=str(ROOT/f'game/assets/props/{name}.glb'),
         export_format='GLB',export_apply=True,export_yup=True,export_animations=False)
 

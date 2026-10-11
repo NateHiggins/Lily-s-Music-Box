@@ -17,6 +17,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_lift_drive import box, material, point
 
 ROOT = Path(__file__).resolve().parents[3]
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from repair_surface_uvs import repair_scene
 
 
 class CoverFrame:
@@ -133,6 +136,7 @@ def main():
         bpy.ops.object.join()
         members[0].name='CoalDelivery_'+mat.name
     output=ROOT/'game/assets/building/v2_coal_delivery.glb'
+    repair_scene()
     bpy.ops.export_scene.gltf(filepath=str(output),export_format='GLB',export_apply=True,export_yup=True,export_animations=False)
     print('Exported coal delivery:',output)
 

@@ -8,6 +8,9 @@ import math
 import bpy
 
 ROOT = Path(__file__).resolve().parents[3]
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from repair_surface_uvs import repair_scene
 RADIUS, BEND, THICKNESS, SIDES = .17, .27, .003, 48
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False)
@@ -75,6 +78,7 @@ for index in range(1,6):
     angle=index*math.pi/12
     shell('GoreSeam', [station(angle-.008),station(angle),station(angle+.008)],
           RADIUS+.0025,RADIUS,'metal')
+repair_scene()
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/breeching.blend'))
 # Merge the elbow's five seams to one mesh while keeping material boundaries.
 bpy.ops.object.select_all(action='DESELECT')
@@ -82,5 +86,6 @@ for obj in bpy.context.scene.objects:
     if obj.name.startswith('GoreSeam') or obj.name=='Elbow': obj.select_set(True)
 bpy.context.view_layer.objects.active=bpy.data.objects['Elbow']; bpy.ops.object.join()
 bpy.ops.object.select_all(action='SELECT')
+repair_scene()
 bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/breeching.glb'),
                          export_format='GLB',export_yup=True,export_apply=True)

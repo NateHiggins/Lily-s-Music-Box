@@ -1,0 +1,12 @@
+{
+  "material": "toast_crumb",
+  "source": "art/textures/ai_sources/toast_crumb.png",
+  "generator": "ingest_material_sources.py",
+  "meters_per_tile": 0.06,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  }
+}

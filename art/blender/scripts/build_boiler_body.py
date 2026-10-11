@@ -11,6 +11,9 @@ import bpy
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[3]
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from repair_surface_uvs import repair_scene
 W, D = 1.16, 1.02
 bpy.ops.object.select_all(action='SELECT')
 bpy.ops.object.delete(use_global=False)
@@ -150,6 +153,7 @@ for obj in list(bpy.context.scene.objects):
         for loop in poly.loop_indices:
             p=obj.matrix_world@obj.data.vertices[obj.data.loops[loop].vertex_index].co
             uv.data[loop].uv=(p[axes[0]],p[axes[1]])
+repair_scene()
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/boiler_body.blend'))
 # One exported mesh per established finish role, with transforms baked.
 for role in materials:
@@ -161,5 +165,6 @@ for role in materials:
     obj=bpy.context.object; obj.name=role
     bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
 bpy.ops.object.select_all(action='SELECT')
+repair_scene()
 bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/boiler_body.glb'),
     export_format='GLB',export_yup=True,export_apply=True)

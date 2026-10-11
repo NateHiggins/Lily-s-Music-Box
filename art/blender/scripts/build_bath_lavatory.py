@@ -10,6 +10,9 @@ import bpy
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[3]
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from repair_surface_uvs import repair_scene
 OUT = ROOT / 'game/assets/props/bath_lavatory.glb'
 SOURCE = ROOT / 'art/blender/bath_lavatory.blend'
 bpy.ops.object.select_all(action='SELECT')
@@ -189,6 +192,8 @@ for parent in [fixed]+[o for o in bpy.context.scene.objects if o.name in {'HotVa
         bpy.context.object.name=parent.name+'_'+material.name
 OUT.parent.mkdir(parents=True,exist_ok=True)
 SOURCE.parent.mkdir(parents=True,exist_ok=True)
+repair_scene()
 bpy.ops.wm.save_as_mainfile(filepath=str(SOURCE))
+repair_scene()
 bpy.ops.export_scene.gltf(filepath=str(OUT),export_format='GLB',export_apply=True,export_yup=True,export_animations=False)
 print('LAVATORY EXPORTED',OUT)

@@ -59,7 +59,7 @@ static func mount(adapter: OrisonV2AnchorAdapter, layout: Dictionary) -> void:
 						screws.append(Transform3D(rotation,Vector3(x,y,z)))
 				for x in [-leaf.width*.32,leaf.width*.32]:
 					screws.append(Transform3D(rotation,Vector3(x,leaf.height+.045,z)))
-			_emit(anchor,"FrameFasteners",fastener,MatLib.get_mat("steel"),screws)
+			_emit(anchor,"FrameFasteners",fastener,MatLib.get_mat("iron_neutral"),screws)
 
 static func _emit(parent: Node3D, label: String, mesh: Mesh, material: Material,
 		transforms: Array[Transform3D]) -> void:

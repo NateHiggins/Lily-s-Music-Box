@@ -8,6 +8,9 @@ import hashlib,json,math,sys
 import bpy,bmesh
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from repair_surface_uvs import repair_scene
 sys.path.insert(0,str(Path(__file__).parent))
 bpy.ops.wm.read_factory_settings(use_empty=True)
 bpy.context.preferences.filepaths.save_version=0
@@ -118,7 +121,9 @@ for index,(cx,z,w,drop) in enumerate([(-.31,-.11,.32,.36),(.20,.11,.20,.26),(.43
 tube('SuspensionRope',[(0,0,0),(0,1,0)],.006,'linen',rope)
 bpy.context.view_layer.update()
 native=ROOT/'art/blender/basement_airer.blend';asset=ROOT/'game/assets/props/basement_airer.glb'
+repair_scene()
 bpy.ops.wm.save_as_mainfile(filepath=str(native))
+repair_scene()
 bpy.ops.export_scene.gltf(filepath=str(asset),export_format='GLB',export_yup=True,export_apply=True)
 def sha(path):return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n') if path.suffix not in ['.blend','.glb'] else path.read_bytes()).hexdigest()
 receipt={'evidence_class':'INERT','classification':'ADAPTATION of retained LaundryAirerProp dimensions; INFERRED cloth hems and wet-use finish','asset_sha256':sha(asset),'native_sha256':sha(native),'source_bindings':{str(p.relative_to(ROOT)).replace('\\','/'):sha(p) for p in [Path(__file__),ROOT/'game/scripts/props/laundry_airer_prop.gd']},'stocks':stocks,'cloth_count':3,'tub_count':2,'rack_travel':[1.38,1.98],'floor_feet':8,'cloth_bearing_gap_m':0.,'rope_top':[[-.52,2.42,0],[.52,2.42,0]],'rope_bottom':[[-.56,.075,0],[.56,.075,0]]}

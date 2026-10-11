@@ -1,0 +1,2112 @@
+{
+  "evidence_class": "INERT",
+  "result": "PASS_TECHNICAL_ONLY",
+  "visual_acceptance": "requires reviewed renders",
+  "counts": {},
+  "failing_surfaces": 0,
+  "findings": [],
+  "separate_effects": [
+    {
+      "id": "WakingAtmosphere/NightSkyHalfDome:0",
+      "class": "sky_projection"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_PRIMARY_ROUTE_ENVELOPE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_LOBBY_TURN_ENVELOPE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_CORE_DECISION_ENVELOPE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_WATCH_WORK_ENVELOPE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_MAIL_WORK_ENVELOPE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_PACKAGE_AISLE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_SERVICE_ROUTE_ENVELOPE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_PASSENGER_LIFT_RESERVATION:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_LOBBY_RADIATOR_W:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_LOBBY_RADIATOR_E:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_LANDING_DECISION_ENVELOPE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_WEST_HALL_ROUTE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_ENTRY_CLEARANCE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_MAIN_CLEAR_FLOOR:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_CAPTION_WORK_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_CONVERSATION_CLEARANCE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_LIVING_DINING_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_KITCHEN_WORK_RUN:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_KITCHEN_AISLE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_PRIVATE_HALL_ROUTE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_BATH_FIXTURE_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_BED_ROUTE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_BED_USE_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_WARDROBE_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_LANDING_DECISION_ENVELOPE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_WEST_HALL_ROUTE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_DOOR_03_SWING:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_VESTIBULE_TURN:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_MAIN_CLEAR_FLOOR:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_WORK_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_TERMINAL_USE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_TERMINAL_STANCE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_MESSAGE_PROVISION:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_KITCHEN_WORK_RUN:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_KITCHEN_AISLE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_PRIVATE_ROUTE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_HALL_DOOR_SWING:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_BATH_DOOR_SWING:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_BATH_FIXTURE_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_CLOSET_DOOR_SWING:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_CLOSET_STORAGE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_ALCOVE_ROUTE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_BED_USE_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_BEDSIDE_RETURN_CLEARANCE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_ALCOVE_RADIATOR:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_RITUAL_DESK_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_RITUAL_ROUTE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_DETECTOR_STANCE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_REGISTER_STANCE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_SIGNAL_STANCE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_KEY_STANCE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_BOILER_ROUTE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_BOILER_TENDED_SIDE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_BOILER_CONTROL_STANCE_ENVELOPE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_BOILER_ASH_DRAFT_SIDE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_BOILER_PIPE_FLUE_SIDE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_BOILER_DOOR_SWING:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_EAST_HALL_ROUTE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_ENTRY_TURN:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_MAIN_CLEAR_FLOOR:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_FABRIC_WORK_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_CONVERSATION_CLEARANCE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_KITCHEN_WORK_RUN:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_KITCHEN_AISLE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_PRIVATE_ROUTE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_BED_USE_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_STORAGE_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_BATH_FIXTURE_ZONE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_RADIATOR_USE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_RADIATOR_STANCE_ENVELOPE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_REPAIR_USE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_KITCHEN_WORK_AISLE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_BATH_USE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_SLEEP_USE:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_PASSENGER_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_PASSENGER_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_PASSENGER_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_PASSENGER_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_SERVICE_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_SERVICE_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_SERVICE_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_SERVICE_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_PASSENGER_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_SERVICE_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_PASSENGER_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_SERVICE_LIFT_LANDING/Clearance:0",
+      "class": "reservation_debug"
+    },
+    {
+      "id": "OrisonV2Blockout/ServiceAlley/@Node3D@2295/@Node3D@2296/@MeshInstance3D@2302:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/ServiceAlley/@Node3D@2305/@Node3D@2306/@MeshInstance3D@2312:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/ServiceAlley/@Node3D@2315/@Node3D@2316/@MeshInstance3D@2322:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/ServiceAlley/@Node3D@2325/@Node3D@2326/@MeshInstance3D@2332:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2803:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2804:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2805:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2861:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2862:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2863:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2921:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2922:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2923:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2979:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2980:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@2981:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3037:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3038:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3039:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3095:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3096:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3097:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3153:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3154:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3155:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3211:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3212:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3213:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3269:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3270:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3271:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3327:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3328:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3329:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3385:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3386:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_B_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3387:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3443:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3444:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3445:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3501:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3502:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_A_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3503:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_D_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3559:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_D_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3560:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_D_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3561:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3617:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3618:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3619:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_D_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3675:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_D_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3676:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_D_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3677:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3733:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3734:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_C_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3735:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_D_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3791:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_D_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3792:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_D_RADIATOR_01/WorkingAssembly/ServiceUnionAndPacking/MineralLeakResidue/LocalizedUnionVapor/@MeshInstance3D@3793:0",
+      "class": "steam_volume"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3B_STOVE_01/Flame1/@MeshInstance3D@6612:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3B_STOVE_01/Flame1/@MeshInstance3D@6699:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3B_STOVE_01/Flame2/@MeshInstance3D@6631:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3B_STOVE_01/Flame2/@MeshInstance3D@6700:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3B_STOVE_01/Flame3/@MeshInstance3D@6650:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3B_STOVE_01/Flame3/@MeshInstance3D@6701:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3B_STOVE_01/Flame4/@MeshInstance3D@6669:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3B_STOVE_01/Flame4/@MeshInstance3D@6702:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_STOVE_01/Flame1/@MeshInstance3D@6890:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_STOVE_01/Flame1/@MeshInstance3D@6977:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_STOVE_01/Flame2/@MeshInstance3D@6909:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_STOVE_01/Flame2/@MeshInstance3D@6978:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_STOVE_01/Flame3/@MeshInstance3D@6928:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_STOVE_01/Flame3/@MeshInstance3D@6979:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_STOVE_01/Flame4/@MeshInstance3D@6947:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_STOVE_01/Flame4/@MeshInstance3D@6980:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2A_STOVE_01/Flame1/@MeshInstance3D@7361:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2A_STOVE_01/Flame1/@MeshInstance3D@7448:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2A_STOVE_01/Flame2/@MeshInstance3D@7380:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2A_STOVE_01/Flame2/@MeshInstance3D@7449:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2A_STOVE_01/Flame3/@MeshInstance3D@7399:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2A_STOVE_01/Flame3/@MeshInstance3D@7450:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2A_STOVE_01/Flame4/@MeshInstance3D@7418:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2A_STOVE_01/Flame4/@MeshInstance3D@7451:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2B_STOVE_01/Flame1/@MeshInstance3D@7522:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2B_STOVE_01/Flame1/@MeshInstance3D@7609:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2B_STOVE_01/Flame2/@MeshInstance3D@7541:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2B_STOVE_01/Flame2/@MeshInstance3D@7610:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2B_STOVE_01/Flame3/@MeshInstance3D@7560:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2B_STOVE_01/Flame3/@MeshInstance3D@7611:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2B_STOVE_01/Flame4/@MeshInstance3D@7579:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2B_STOVE_01/Flame4/@MeshInstance3D@7612:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3A_STOVE_01/Flame1/@MeshInstance3D@7931:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3A_STOVE_01/Flame1/@MeshInstance3D@8018:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3A_STOVE_01/Flame2/@MeshInstance3D@7950:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3A_STOVE_01/Flame2/@MeshInstance3D@8019:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3A_STOVE_01/Flame3/@MeshInstance3D@7969:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3A_STOVE_01/Flame3/@MeshInstance3D@8020:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3A_STOVE_01/Flame4/@MeshInstance3D@7988:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3A_STOVE_01/Flame4/@MeshInstance3D@8021:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4A_STOVE_01/Flame1/@MeshInstance3D@8180:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4A_STOVE_01/Flame1/@MeshInstance3D@8267:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4A_STOVE_01/Flame2/@MeshInstance3D@8199:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4A_STOVE_01/Flame2/@MeshInstance3D@8268:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4A_STOVE_01/Flame3/@MeshInstance3D@8218:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4A_STOVE_01/Flame3/@MeshInstance3D@8269:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4A_STOVE_01/Flame4/@MeshInstance3D@8237:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4A_STOVE_01/Flame4/@MeshInstance3D@8270:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5A_STOVE_01/Flame1/@MeshInstance3D@8509:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5A_STOVE_01/Flame1/@MeshInstance3D@8596:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5A_STOVE_01/Flame2/@MeshInstance3D@8528:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5A_STOVE_01/Flame2/@MeshInstance3D@8597:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5A_STOVE_01/Flame3/@MeshInstance3D@8547:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5A_STOVE_01/Flame3/@MeshInstance3D@8598:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5A_STOVE_01/Flame4/@MeshInstance3D@8566:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5A_STOVE_01/Flame4/@MeshInstance3D@8599:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5B_STOVE_01/Flame1/@MeshInstance3D@8838:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5B_STOVE_01/Flame1/@MeshInstance3D@8925:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5B_STOVE_01/Flame2/@MeshInstance3D@8857:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5B_STOVE_01/Flame2/@MeshInstance3D@8926:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5B_STOVE_01/Flame3/@MeshInstance3D@8876:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5B_STOVE_01/Flame3/@MeshInstance3D@8927:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5B_STOVE_01/Flame4/@MeshInstance3D@8895:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5B_STOVE_01/Flame4/@MeshInstance3D@8928:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5C_STOVE_01/Flame1/@MeshInstance3D@9167:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5C_STOVE_01/Flame1/@MeshInstance3D@9254:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5C_STOVE_01/Flame2/@MeshInstance3D@9186:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5C_STOVE_01/Flame2/@MeshInstance3D@9255:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5C_STOVE_01/Flame3/@MeshInstance3D@9205:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5C_STOVE_01/Flame3/@MeshInstance3D@9256:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5C_STOVE_01/Flame4/@MeshInstance3D@9224:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_5C_STOVE_01/Flame4/@MeshInstance3D@9257:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6A_STOVE_01/Flame1/@MeshInstance3D@9498:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6A_STOVE_01/Flame1/@MeshInstance3D@9585:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6A_STOVE_01/Flame2/@MeshInstance3D@9517:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6A_STOVE_01/Flame2/@MeshInstance3D@9586:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6A_STOVE_01/Flame3/@MeshInstance3D@9536:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6A_STOVE_01/Flame3/@MeshInstance3D@9587:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6A_STOVE_01/Flame4/@MeshInstance3D@9555:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6A_STOVE_01/Flame4/@MeshInstance3D@9588:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6B_STOVE_01/Flame1/@MeshInstance3D@9827:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6B_STOVE_01/Flame1/@MeshInstance3D@9914:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6B_STOVE_01/Flame2/@MeshInstance3D@9846:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6B_STOVE_01/Flame2/@MeshInstance3D@9915:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6B_STOVE_01/Flame3/@MeshInstance3D@9865:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6B_STOVE_01/Flame3/@MeshInstance3D@9916:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6B_STOVE_01/Flame4/@MeshInstance3D@9884:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6B_STOVE_01/Flame4/@MeshInstance3D@9917:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6C_STOVE_01/Flame1/@MeshInstance3D@10157:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6C_STOVE_01/Flame1/@MeshInstance3D@10244:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6C_STOVE_01/Flame2/@MeshInstance3D@10176:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6C_STOVE_01/Flame2/@MeshInstance3D@10245:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6C_STOVE_01/Flame3/@MeshInstance3D@10195:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6C_STOVE_01/Flame3/@MeshInstance3D@10246:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6C_STOVE_01/Flame4/@MeshInstance3D@10214:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_6C_STOVE_01/Flame4/@MeshInstance3D@10247:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2C_STOVE_01/Flame1/@MeshInstance3D@10486:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2C_STOVE_01/Flame1/@MeshInstance3D@10573:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2C_STOVE_01/Flame2/@MeshInstance3D@10505:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2C_STOVE_01/Flame2/@MeshInstance3D@10574:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2C_STOVE_01/Flame3/@MeshInstance3D@10524:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2C_STOVE_01/Flame3/@MeshInstance3D@10575:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2C_STOVE_01/Flame4/@MeshInstance3D@10543:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_2C_STOVE_01/Flame4/@MeshInstance3D@10576:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4C_STOVE_01/Flame1/@MeshInstance3D@10816:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4C_STOVE_01/Flame1/@MeshInstance3D@10903:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4C_STOVE_01/Flame2/@MeshInstance3D@10835:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4C_STOVE_01/Flame2/@MeshInstance3D@10904:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4C_STOVE_01/Flame3/@MeshInstance3D@10854:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4C_STOVE_01/Flame3/@MeshInstance3D@10905:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4C_STOVE_01/Flame4/@MeshInstance3D@10873:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4C_STOVE_01/Flame4/@MeshInstance3D@10906:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1D_STOVE_01/Flame1/@MeshInstance3D@11147:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1D_STOVE_01/Flame1/@MeshInstance3D@11234:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1D_STOVE_01/Flame2/@MeshInstance3D@11166:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1D_STOVE_01/Flame2/@MeshInstance3D@11235:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1D_STOVE_01/Flame3/@MeshInstance3D@11185:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1D_STOVE_01/Flame3/@MeshInstance3D@11236:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1D_STOVE_01/Flame4/@MeshInstance3D@11204:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1D_STOVE_01/Flame4/@MeshInstance3D@11237:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1A_STOVE_01/Flame1/@MeshInstance3D@11476:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1A_STOVE_01/Flame1/@MeshInstance3D@11563:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1A_STOVE_01/Flame2/@MeshInstance3D@11495:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1A_STOVE_01/Flame2/@MeshInstance3D@11564:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1A_STOVE_01/Flame3/@MeshInstance3D@11514:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1A_STOVE_01/Flame3/@MeshInstance3D@11565:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1A_STOVE_01/Flame4/@MeshInstance3D@11533:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_1A_STOVE_01/Flame4/@MeshInstance3D@11566:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3D_STOVE_01/Flame1/@MeshInstance3D@11806:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3D_STOVE_01/Flame1/@MeshInstance3D@11893:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3D_STOVE_01/Flame2/@MeshInstance3D@11825:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3D_STOVE_01/Flame2/@MeshInstance3D@11894:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3D_STOVE_01/Flame3/@MeshInstance3D@11844:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3D_STOVE_01/Flame3/@MeshInstance3D@11895:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3D_STOVE_01/Flame4/@MeshInstance3D@11863:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_3D_STOVE_01/Flame4/@MeshInstance3D@11896:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4D_STOVE_01/Flame1/@MeshInstance3D@12136:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4D_STOVE_01/Flame1/@MeshInstance3D@12223:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4D_STOVE_01/Flame2/@MeshInstance3D@12155:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4D_STOVE_01/Flame2/@MeshInstance3D@12224:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4D_STOVE_01/Flame3/@MeshInstance3D@12174:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4D_STOVE_01/Flame3/@MeshInstance3D@12225:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4D_STOVE_01/Flame4/@MeshInstance3D@12193:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_4D_STOVE_01/Flame4/@MeshInstance3D@12226:0",
+      "class": "gas_flame"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_C_VESTIBULE_LT_FLUSH_DOME/@Node3D@14182/@MeshInstance3D@14186:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_C_MAIN_LT_PENDANT_SHADE/@Node3D@14189/@MeshInstance3D@14194:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_C_STUDIO_LT_FLUSH_DOME/@Node3D@14197/@MeshInstance3D@14201:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_C_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@14204/@MeshInstance3D@14208:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_C_BATH_LT_FLUSH_DOME/@Node3D@14211/@MeshInstance3D@14215:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_C_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@14218/@MeshInstance3D@14221:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_C_BED1_LT_FLUSH_DOME/@Node3D@14224/@MeshInstance3D@14228:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_C_BED2_LT_FLUSH_DOME/@Node3D@14231/@MeshInstance3D@14235:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_C_VESTIBULE_LT_FLUSH_DOME/@Node3D@14238/@MeshInstance3D@14242:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_C_MAIN_LT_PENDANT_SHADE/@Node3D@14245/@MeshInstance3D@14250:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_C_STUDIO_LT_FLUSH_DOME/@Node3D@14253/@MeshInstance3D@14257:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_C_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@14260/@MeshInstance3D@14264:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_C_BATH_LT_FLUSH_DOME/@Node3D@14267/@MeshInstance3D@14271:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_C_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@14274/@MeshInstance3D@14277:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_C_BED1_LT_FLUSH_DOME/@Node3D@14280/@MeshInstance3D@14284:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_C_BED2_LT_FLUSH_DOME/@Node3D@14287/@MeshInstance3D@14291:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_D_VESTIBULE_LT_FLUSH_DOME/@Node3D@14294/@MeshInstance3D@14298:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_D_MAIN_LT_PENDANT_SHADE/@Node3D@14301/@MeshInstance3D@14306:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_D_KITCHEN_LT_FLUSH_DOME/@Node3D@14309/@MeshInstance3D@14313:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_D_BED_LT_FLUSH_DOME/@Node3D@14316/@MeshInstance3D@14320:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_D_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@14323/@MeshInstance3D@14327:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_D_BATH_LT_FLUSH_DOME/@Node3D@14330/@MeshInstance3D@14334:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_A_VESTIBULE_LT/@Node3D@14337/@MeshInstance3D@14341:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_A_MAIN_LT/@Node3D@14344/@MeshInstance3D@14349:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_A_PRIVATE_HALL_LT/@Node3D@14352/@MeshInstance3D@14356:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_A_BATH_LT/@Node3D@14359/@MeshInstance3D@14363:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_A_KITCHEN_LT/@Node3D@14366/@MeshInstance3D@14370:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_A_BED_LT/@Node3D@14373/@MeshInstance3D@14377:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_A_STUDY_LT/@Node3D@14380/@MeshInstance3D@14384:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_D_VESTIBULE_LT/@Node3D@14387/@MeshInstance3D@14391:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_D_MAIN_LT/@Node3D@14394/@MeshInstance3D@14399:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_D_PRIVATE_HALL_LT/@Node3D@14402/@MeshInstance3D@14406:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_D_BATH_LT/@Node3D@14409/@MeshInstance3D@14413:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_D_KITCHEN_LT/@Node3D@14416/@MeshInstance3D@14420:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_D_BED_LT/@Node3D@14423/@MeshInstance3D@14427:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_D_STUDY_LT/@Node3D@14430/@MeshInstance3D@14434:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_D_VESTIBULE_LT/@Node3D@14437/@MeshInstance3D@14441:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_D_MAIN_LT/@Node3D@14444/@MeshInstance3D@14449:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_D_PRIVATE_HALL_LT/@Node3D@14452/@MeshInstance3D@14456:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_D_BATH_LT/@Node3D@14459/@MeshInstance3D@14463:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_D_KITCHEN_LT/@Node3D@14466/@MeshInstance3D@14470:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_D_BED_LT/@Node3D@14473/@MeshInstance3D@14477:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_D_STUDY_LT/@Node3D@14480/@MeshInstance3D@14484:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_SOUTHWEST_HALL_LT/@Node3D@14487/@MeshInstance3D@14491:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_SOUTHWEST_HALL_LT/@Node3D@14494/@MeshInstance3D@14498:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_SOUTHWEST_HALL_LT/@Node3D@14501/@MeshInstance3D@14505:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F01_STAFF_RESTROOM_LT/@Node3D@14508/@MeshInstance3D@14512:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_ELECTRICAL_LT/@Node3D@14515/@MeshInstance3D@14519:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_MAINTENANCE_SHOP_LT/@Node3D@14522/@MeshInstance3D@14526:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_COAL_ROOM_LT/@Node3D@14529/@MeshInstance3D@14533:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_RESIDENT_STORAGE_LT/@Node3D@14536/@MeshInstance3D@14540:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_SERVICE_CORE_LT/@Node3D@14543/@MeshInstance3D@14547:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_BOILER_ROOM_LT_A/@Node3D@14550/@MeshInstance3D@14556:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_BOILER_ROOM_LT_B/@Node3D@14559/@MeshInstance3D@14565:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/2A_projector_stand/2A_tv/@MeshInstance3D@23858:0",
+      "class": "projected_light"
+    },
+    {
+      "id": "OrisonV2Blockout/3B_projector_stand/3B_tv/@MeshInstance3D@23905:0",
+      "class": "projected_light"
+    },
+    {
+      "id": "OrisonV2Blockout/4B_projector_stand/4B_tv/@MeshInstance3D@23952:0",
+      "class": "projected_light"
+    },
+    {
+      "id": "OrisonV2Blockout/B1_LAUNDRY_LT_FLUSH_DOME/@Node3D@16825/@MeshInstance3D@16829:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_MAIN_LT_PENDANT_SHADE/@Node3D@16832/@MeshInstance3D@16837:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_MAIN_LT_PENDANT_SHADE/@Node3D@16840/@MeshInstance3D@16845:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@16848/@MeshInstance3D@16851:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_ALCOVE_LT_FLUSH_DOME/@Node3D@16854/@MeshInstance3D@16858:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/3B_LT_SCONCE/@Node3D@16861/@MeshInstance3D@16864:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_ALCOVE_LT_FLUSH_DOME/@Node3D@16870/@MeshInstance3D@16874:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_MAIN_LT_PENDANT_SHADE/@Node3D@16877/@MeshInstance3D@16882:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_BATH_LT_FLUSH_DOME/@Node3D@16885/@MeshInstance3D@16889:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_KITCHEN_LT_FLUSH_DOME/@Node3D@16892/@MeshInstance3D@16896:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@16899/@MeshInstance3D@16903:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_CLOSET_LT_FLUSH_DOME/@Node3D@16906/@MeshInstance3D@16910:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_VESTIBULE_LT_FLUSH_DOME/@Node3D@16913/@MeshInstance3D@16917:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_KITCHEN_LT_FLUSH_DOME/@Node3D@16920/@MeshInstance3D@16924:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@16927/@MeshInstance3D@16931:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_BATH_LT_FLUSH_DOME/@Node3D@16934/@MeshInstance3D@16938:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_A_BED_LT_FLUSH_DOME/@Node3D@16941/@MeshInstance3D@16945:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_VESTIBULE_LT_FLUSH_DOME/@Node3D@16948/@MeshInstance3D@16952:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_MAIN_LT_PENDANT_SHADE/@Node3D@16955/@MeshInstance3D@16960:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_KITCHEN_LT_FLUSH_DOME/@Node3D@16963/@MeshInstance3D@16967:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_BED_LT_FLUSH_DOME/@Node3D@16970/@MeshInstance3D@16974:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@16977/@MeshInstance3D@16981:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_B_BATH_LT_FLUSH_DOME/@Node3D@16984/@MeshInstance3D@16988:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_VESTIBULE_LT_FLUSH_DOME/@Node3D@16991/@MeshInstance3D@16995:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@16998/@MeshInstance3D@17002:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_VESTIBULE_LT_FLUSH_DOME/@Node3D@17005/@MeshInstance3D@17009:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_B_ALCOVE_APPROACH_LT_FLUSH_DOME/@Node3D@17012/@MeshInstance3D@17016:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_A_MAIN_LT_PENDANT_SHADE/@Node3D@17019/@MeshInstance3D@17024:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_A_VESTIBULE_LT_FLUSH_DOME/@Node3D@17027/@MeshInstance3D@17031:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_A_KITCHEN_LT_FLUSH_DOME/@Node3D@17034/@MeshInstance3D@17038:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_A_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@17041/@MeshInstance3D@17045:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_A_BATH_LT_FLUSH_DOME/@Node3D@17048/@MeshInstance3D@17052:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_A_BED_LT_FLUSH_DOME/@Node3D@17055/@MeshInstance3D@17059:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_A_VESTIBULE_LT_FLUSH_DOME/@Node3D@17062/@MeshInstance3D@17066:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_A_MAIN_LT_PENDANT_SHADE/@Node3D@17069/@MeshInstance3D@17074:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_A_KITCHEN_LT_FLUSH_DOME/@Node3D@17077/@MeshInstance3D@17081:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_A_BED_LT_FLUSH_DOME/@Node3D@17084/@MeshInstance3D@17088:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_A_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@17091/@MeshInstance3D@17095:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_A_BATH_LT_FLUSH_DOME/@Node3D@17098/@MeshInstance3D@17102:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_A_MAIN_LT_PENDANT_SHADE/@Node3D@17105/@MeshInstance3D@17110:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_A_VESTIBULE_LT_FLUSH_DOME/@Node3D@17113/@MeshInstance3D@17117:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_A_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@17120/@MeshInstance3D@17124:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_A_BATH_LT_FLUSH_DOME/@Node3D@17127/@MeshInstance3D@17131:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_A_BED_LT_FLUSH_DOME/@Node3D@17134/@MeshInstance3D@17138:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_A_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@17141/@MeshInstance3D@17144:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_A_STUDY_LT_FLUSH_DOME/@Node3D@17147/@MeshInstance3D@17151:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_B_MAIN_LT_PENDANT_SHADE/@Node3D@17154/@MeshInstance3D@17159:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_B_VESTIBULE_LT_FLUSH_DOME/@Node3D@17162/@MeshInstance3D@17166:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_B_BATH_LT_FLUSH_DOME/@Node3D@17169/@MeshInstance3D@17173:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_B_ALCOVE_LT_FLUSH_DOME/@Node3D@17176/@MeshInstance3D@17180:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@17183/@MeshInstance3D@17187:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_B_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@17190/@MeshInstance3D@17193:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_C_VESTIBULE_LT_FLUSH_DOME/@Node3D@17196/@MeshInstance3D@17200:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_C_MAIN_LT_PENDANT_SHADE/@Node3D@17203/@MeshInstance3D@17208:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_C_STUDIO_LT_FLUSH_DOME/@Node3D@17211/@MeshInstance3D@17215:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_C_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@17218/@MeshInstance3D@17222:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_C_BATH_LT_FLUSH_DOME/@Node3D@17225/@MeshInstance3D@17229:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_C_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@17232/@MeshInstance3D@17235:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_C_BED1_LT_FLUSH_DOME/@Node3D@17238/@MeshInstance3D@17242:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_C_BED2_LT_FLUSH_DOME/@Node3D@17245/@MeshInstance3D@17249:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_A_MAIN_LT_PENDANT_SHADE/@Node3D@17252/@MeshInstance3D@17257:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_A_VESTIBULE_LT_FLUSH_DOME/@Node3D@17260/@MeshInstance3D@17264:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_A_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@17267/@MeshInstance3D@17271:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_A_BATH_LT_FLUSH_DOME/@Node3D@17274/@MeshInstance3D@17278:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_A_BED_LT_FLUSH_DOME/@Node3D@17281/@MeshInstance3D@17285:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_A_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@17288/@MeshInstance3D@17291:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_A_STUDY_LT_FLUSH_DOME/@Node3D@17294/@MeshInstance3D@17298:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_B_MAIN_LT_PENDANT_SHADE/@Node3D@17301/@MeshInstance3D@17306:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_B_VESTIBULE_LT_FLUSH_DOME/@Node3D@17309/@MeshInstance3D@17313:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_B_BATH_LT_FLUSH_DOME/@Node3D@17316/@MeshInstance3D@17320:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_B_ALCOVE_LT_FLUSH_DOME/@Node3D@17323/@MeshInstance3D@17327:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_B_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@17330/@MeshInstance3D@17334:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_B_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@17337/@MeshInstance3D@17340:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_C_VESTIBULE_LT_FLUSH_DOME/@Node3D@17343/@MeshInstance3D@17347:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_C_MAIN_LT_PENDANT_SHADE/@Node3D@17350/@MeshInstance3D@17355:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_C_STUDIO_LT_FLUSH_DOME/@Node3D@17358/@MeshInstance3D@17362:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_C_PRIVATE_HALL_LT_FLUSH_DOME/@Node3D@17365/@MeshInstance3D@17369:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_C_BATH_LT_FLUSH_DOME/@Node3D@17372/@MeshInstance3D@17376:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_C_KITCHEN_LT_KITCHEN_LINEAR/@Node3D@17379/@MeshInstance3D@17382:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_C_BED1_LT_FLUSH_DOME/@Node3D@17385/@MeshInstance3D@17389:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_C_BED2_LT_FLUSH_DOME/@Node3D@17392/@MeshInstance3D@17396:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_WEST_HALL_LT/@Node3D@17399/@MeshInstance3D@17403:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_EAST_HALL_LT/@Node3D@17406/@MeshInstance3D@17410:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_WEST_HALL_LT/@Node3D@17413/@MeshInstance3D@17417:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_EAST_HALL_LT/@Node3D@17420/@MeshInstance3D@17424:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_WEST_HALL_LT/@Node3D@17427/@MeshInstance3D@17431:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_EAST_HALL_LT/@Node3D@17434/@MeshInstance3D@17438:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_WEST_HALL_LT_A/@Node3D@17441/@MeshInstance3D@17445:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_WEST_HALL_LT_B/@Node3D@17448/@MeshInstance3D@17452:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_EAST_HALL_LT/@Node3D@17455/@MeshInstance3D@17459:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_WEST_HALL_LT_A/@Node3D@17462/@MeshInstance3D@17466:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_WEST_HALL_LT_B/@Node3D@17469/@MeshInstance3D@17473:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_EAST_HALL_LT/@Node3D@17476/@MeshInstance3D@17480:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F02_LANDING_LT_SCONCE/@Node3D@17483/@MeshInstance3D@17486:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F03_LANDING_LT_SCONCE/@Node3D@17489/@MeshInstance3D@17492:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F04_LANDING_LT_SCONCE/@Node3D@17495/@MeshInstance3D@17498:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F05_LANDING_LT_SCONCE/@Node3D@17501/@MeshInstance3D@17504:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "OrisonV2Blockout/F06_LANDING_LT_SCONCE/@Node3D@17507/@MeshInstance3D@17510:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "StreetBoundaries/RetainedStreetEnds/StreetEndWeatherWest/StormCurtain_West_00:0",
+      "class": "storm_volume"
+    },
+    {
+      "id": "StreetBoundaries/RetainedStreetEnds/StreetEndWeatherWest/StormCurtain_West_01:0",
+      "class": "storm_volume"
+    },
+    {
+      "id": "StreetBoundaries/RetainedStreetEnds/StreetEndWeatherWest/StormCurtain_West_02:0",
+      "class": "storm_volume"
+    },
+    {
+      "id": "StreetBoundaries/RetainedStreetEnds/StreetEndWeatherEast/StormCurtain_East_00:0",
+      "class": "storm_volume"
+    },
+    {
+      "id": "StreetBoundaries/RetainedStreetEnds/StreetEndWeatherEast/StormCurtain_East_01:0",
+      "class": "storm_volume"
+    },
+    {
+      "id": "StreetBoundaries/RetainedStreetEnds/StreetEndWeatherEast/StormCurtain_East_02:0",
+      "class": "storm_volume"
+    },
+    {
+      "id": "StreetBoundaries/ShedEntryWorkLamp/@Node3D@21264/@MeshInstance3D@21270:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "StreetBoundaries/ShedTurnWorkLamp/@Node3D@21273/@MeshInstance3D@21279:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/ResidentGeometry/shop_otis_son/DruggistCarboys/F01_retail_druggist_carboys_storm_shop_otis___son_carboy0__glassish_shell/LampGlassHaze:0",
+      "class": "secondary_scattering_layer"
+    },
+    {
+      "id": "VantryArcade/ResidentGeometry/shop_otis_son/DruggistCarboys/F01_retail_druggist_carboys_storm_shop_otis___son_carboy1__glassish_shell/LampGlassHaze:0",
+      "class": "secondary_scattering_layer"
+    },
+    {
+      "id": "VantryArcade/ResidentGeometry/shop_otis_son/DruggistCarboys/F01_retail_druggist_carboys_storm_shop_otis___son_carboy2__glassish_shell/LampGlassHaze:0",
+      "class": "secondary_scattering_layer"
+    },
+    {
+      "id": "VantryArcade/ResidentGeometry/shop_otis_son/DruggistCarboys/F01_retail_druggist_carboys_storm_shop_otis___son_carboy3__glassish_shell/LampGlassHaze:0",
+      "class": "secondary_scattering_layer"
+    },
+    {
+      "id": "VantryArcade/PassageActors/PASSAGE_PORTAL_LT_W/@Node3D@21282/@MeshInstance3D@21288:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/PASSAGE_PORTAL_LT_E/@Node3D@21291/@MeshInstance3D@21297:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_00/@Node3D@21300/@MeshInstance3D@21306:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_01/@Node3D@21309/@MeshInstance3D@21315:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_02/@Node3D@21318/@MeshInstance3D@21324:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_03/@Node3D@21327/@MeshInstance3D@21333:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_04/@Node3D@21336/@MeshInstance3D@21342:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_05/@Node3D@21345/@MeshInstance3D@21351:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_06/@Node3D@21354/@MeshInstance3D@21360:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/PASSAGE_AISLE_LT_07/@Node3D@21363/@MeshInstance3D@21369:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_LT_MODEL_LAUNDRY/@Node3D@21395/@MeshInstance3D@21401:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN0_MODEL_LAUNDRY/@Node3D@21404/@MeshInstance3D@21410:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN1_MODEL_LAUNDRY/@Node3D@21413/@MeshInstance3D@21419:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN2_MODEL_LAUNDRY/@Node3D@21422/@MeshInstance3D@21428:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_LT_SHOE_REBUILDING/@Node3D@21456/@MeshInstance3D@21462:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN0_SHOE_REBUILDING/@Node3D@21465/@MeshInstance3D@21471:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN1_SHOE_REBUILDING/@Node3D@21474/@MeshInstance3D@21480:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_LT_KEYS_CUT/@Node3D@21508/@MeshInstance3D@21514:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN0_KEYS_CUT/@Node3D@21517/@MeshInstance3D@21523:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN1_KEYS_CUT/@Node3D@21526/@MeshInstance3D@21532:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_LT_HARDWARE_PAINT/@Node3D@21560/@MeshInstance3D@21566:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN0_HARDWARE_PAINT/@Node3D@21569/@MeshInstance3D@21575:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN1_HARDWARE_PAINT/@Node3D@21578/@MeshInstance3D@21584:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN2_HARDWARE_PAINT/@Node3D@21587/@MeshInstance3D@21593:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_LT_FUNERAL_PARLOUR/@Node3D@21619/@MeshInstance3D@21625:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN0_FUNERAL_PARLOUR/@Node3D@21628/@MeshInstance3D@21634:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN1_FUNERAL_PARLOUR/@Node3D@21637/@MeshInstance3D@21643:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN2_FUNERAL_PARLOUR/@Node3D@21646/@MeshInstance3D@21652:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_LT_PHOTO_SUPPLIES/@Node3D@21678/@MeshInstance3D@21684:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN0_PHOTO_SUPPLIES/@Node3D@21687/@MeshInstance3D@21693:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN1_PHOTO_SUPPLIES/@Node3D@21696/@MeshInstance3D@21702:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_LT_RADIO_SERVICE/@Node3D@21728/@MeshInstance3D@21734:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN0_RADIO_SERVICE/@Node3D@21737/@MeshInstance3D@21743:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN1_RADIO_SERVICE/@Node3D@21746/@MeshInstance3D@21752:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_LT_PAWNBROKER/@Node3D@21780/@MeshInstance3D@21786:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN0_PAWNBROKER/@Node3D@21789/@MeshInstance3D@21795:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN1_PAWNBROKER/@Node3D@21798/@MeshInstance3D@21804:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_LT_NEWS_CIGARS/@Node3D@21832/@MeshInstance3D@21838:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN0_NEWS_CIGARS/@Node3D@21841/@MeshInstance3D@21847:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN1_NEWS_CIGARS/@Node3D@21850/@MeshInstance3D@21856:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_LT_OTIS___SON/@Node3D@21882/@MeshInstance3D@21888:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN0_OTIS___SON/@Node3D@21891/@MeshInstance3D@21897:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN1_OTIS___SON/@Node3D@21900/@MeshInstance3D@21906:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN2_OTIS___SON/@Node3D@21909/@MeshInstance3D@21915:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_LT_LUNCHEONETTE/@Node3D@21941/@MeshInstance3D@21947:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN0_LUNCHEONETTE/@Node3D@21950/@MeshInstance3D@21956:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN1_LUNCHEONETTE/@Node3D@21959/@MeshInstance3D@21965:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "VantryArcade/PassageActors/SITE_SHOP_IN2_LUNCHEONETTE/@Node3D@21968/@MeshInstance3D@21974:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_DARTS/@Node3D@22298/@MeshInstance3D@22304:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_LOBBY/@Node3D@22465/@MeshInstance3D@22471:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_WELL/@Node3D@22474/@MeshInstance3D@22480:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_STAIR/@Node3D@22483/@MeshInstance3D@22489:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_CAN0/@Node3D@22492/@MeshInstance3D@22495:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_CAN1/@Node3D@22498/@MeshInstance3D@22501:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_POOL/@Node3D@22504/@MeshInstance3D@22509:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_TAB0/@Node3D@22512/@MeshInstance3D@22517:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_TAB1/@Node3D@22520/@MeshInstance3D@22525:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_TAB2/@Node3D@22528/@MeshInstance3D@22533:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_STAGE0/@Node3D@22536/@MeshInstance3D@22542:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_STAGE1/@Node3D@22545/@MeshInstance3D@22551:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_DECK0/@Node3D@22554/@MeshInstance3D@22557:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_DECK1/@Node3D@22560/@MeshInstance3D@22563:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_DECK2/@Node3D@22566/@MeshInstance3D@22569:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_WEST0/@Node3D@22572/@MeshInstance3D@22575:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_WEST1/@Node3D@22578/@MeshInstance3D@22581:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/F01_BAR_LT_WC/@Node3D@22584/@MeshInstance3D@22590:0",
+      "class": "optical_halo"
+    },
+    {
+      "id": "Harukiya/BarActors/Arcade_retail_bar_cab01/Screen:0",
+      "class": "live_display_signal",
+      "texture": "generated:-9223369239086124174"
+    },
+    {
+      "id": "Harukiya/BarActors/Arcade_retail_bar_cab02/Screen:0",
+      "class": "live_display_signal",
+      "texture": "generated:-9223369237710392395"
+    },
+    {
+      "id": "LampAtmosphere/CarriedLampDust:0",
+      "class": "light_scattering_dust"
+    }
+  ]
+}

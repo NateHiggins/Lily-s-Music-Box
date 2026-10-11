@@ -300,6 +300,7 @@ func _ready() -> void:
 		sign_prop.bind_hours_director(finish.hours_director)
 	_mount_counters()
 	if not _mount_key_counter(): return
+	preload("res://scripts/building/v2_legacy_material_stock.gd").apply(self)
 	add_to_group("orison_v2_passage_region")
 	print("[V2 PASSAGE] ", cell_nodes.size(), " resident cells; ", doors.size(), " doors; ", _counter_ids.size(), " shared-service counters")
 

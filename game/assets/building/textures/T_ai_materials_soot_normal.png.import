@@ -3,25 +3,27 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://knt0cfvwl0kj"
-path="res://.godot/imported/T_ai_materials_soot_normal.png-7fe43d97ecb5c52915f6ce58f6a9d294.ctex"
+path.bptc="res://.godot/imported/T_ai_materials_soot_normal.png-7fe43d97ecb5c52915f6ce58f6a9d294.bptc.ctex"
+path.astc="res://.godot/imported/T_ai_materials_soot_normal.png-7fe43d97ecb5c52915f6ce58f6a9d294.astc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/building/textures/T_ai_materials_soot_normal.png"
-dest_files=["res://.godot/imported/T_ai_materials_soot_normal.png-7fe43d97ecb5c52915f6ce58f6a9d294.ctex"]
+dest_files=["res://.godot/imported/T_ai_materials_soot_normal.png-7fe43d97ecb5c52915f6ce58f6a9d294.bptc.ctex", "res://.godot/imported/T_ai_materials_soot_normal.png-7fe43d97ecb5c52915f6ce58f6a9d294.astc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=2
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

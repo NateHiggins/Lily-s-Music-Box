@@ -83,6 +83,10 @@ func _brass_material(tint: float) -> StandardMaterial3D:
 	material.albedo_color = Color(tint, tint, tint)
 	material.albedo_texture = load(TEX_DIR + "T_mailbank_brass_albedo.png")
 	material.roughness_texture = load(TEX_DIR + "T_mailbank_brass_rough.png")
+	material.normal_enabled = true
+	material.normal_texture = MatLib.get_mat("brass_dull").normal_texture
+	material.normal_scale = .08
+	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	material.metallic = 0.55
 	material.metallic_specular = 0.6
 	return material
@@ -126,6 +130,11 @@ func _build() -> void:
 	header.mesh = header_quad
 	var header_mat := StandardMaterial3D.new()
 	header_mat.albedo_texture = load(TEX_DIR + "T_mailbank_header.png")
+	header_mat.roughness_texture = MatLib.get_mat("brass_dull").roughness_texture
+	header_mat.normal_texture = MatLib.get_mat("brass_dull").normal_texture
+	header_mat.normal_enabled = true
+	header_mat.normal_scale = .08
+	header_mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	header_mat.roughness = 0.5
 	header_mat.metallic = 0.45
 	header.material_override = header_mat
@@ -346,6 +355,11 @@ func _card_material(cards: Texture2D, atlas_index := -1) -> StandardMaterial3D:
 		card_mat.uv1_offset = Vector3(
 				float(atlas_index % CARD_COLS) / CARD_COLS,
 				float(atlas_index / CARD_COLS) / CARD_ROWS, 0.0)
+	card_mat.roughness_texture = MatLib.get_mat("milk_glass").roughness_texture
+	card_mat.normal_texture = MatLib.get_mat("milk_glass").normal_texture
+	card_mat.normal_enabled = true
+	card_mat.normal_scale = .035
+	card_mat.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
 	card_mat.roughness = 0.42  # glass front
 	card_mat.cull_mode = BaseMaterial3D.CULL_DISABLED
 	return card_mat

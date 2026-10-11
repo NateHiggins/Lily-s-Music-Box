@@ -35,6 +35,7 @@ static func mount(world: Node3D) -> bool:
 	stone.uv1_triplanar=false;stone.uv1_scale=Vector3.ONE/SurfacePass.TILE_M.limestone
 	var materials: Dictionary={"limestone_b":stone}
 	var glass:=ShaderMaterial.new();glass.shader=preload("res://shaders/lamp_glass_surface.gdshader");materials.glass=glass
+	preload("res://scripts/building/v2_clear_glass_finish.gd").apply(glass)
 	for branch: Node3D in [model,movable]:
 		for draw: MeshInstance3D in branch.find_children("*","MeshInstance3D",true,false):
 			var key:=str(draw.name).split("__")[1]

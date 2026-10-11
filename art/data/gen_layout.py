@@ -10609,6 +10609,22 @@ PROP_CATALOG = {
 }
 
 MATERIAL_CATALOG = {
+    'roof_bitumen': {'base_color': [0.16, 0.16, 0.15, 1.0], 'roughness': 0.86, 'metallic': 0.0},
+    'tank_staves': {'base_color': [0.576, 0.486, 0.369, 1.0], 'roughness': 0.67},
+    'beacon_lacquer': {'base_color': [0.5215686274509804, 0.1411764705882353, 0.10980392156862745, 1], 'roughness': 0.34, 'metallic': 0},
+    'bronze_sheet': {'base_color': [0.4392156862745098, 0.3568627450980392, 0.2235294117647059, 1], 'roughness': 0.56, 'metallic': 0.75},
+    'galvanized_roof': {'base_color': [0.6392156862745098, 0.6549019607843137, 0.6588235294117647, 1], 'roughness': 0.58, 'metallic': 0.9},
+    'iron_blackened': {'base_color': [0.20392156862745098, 0.20784313725490197, 0.21176470588235294, 1.0], 'roughness': 0.72, 'metallic': 0.55},
+    'billiard_resin': {'base_color': [0.9411764705882353, 0.9411764705882353, 0.9411764705882353, 1.0], 'roughness': 0.23, 'metallic': 0},
+    'smoked_plaster': {'base_color': [0.11, 0.109, 0.11, 1.0], 'roughness': 0.935, 'metallic': 0.0},
+    'oak_work_surface': {'base_color': [0.39, 0.255, 0.135, 1.0], 'roughness': 0.425, 'metallic': 0.0},
+    'iron_neutral': {'base_color': [0.36, 0.36, 0.36, 1.0], 'roughness': 0.68, 'metallic': 0.65},
+    'zinc_quiet': {'base_color': [0.62, 0.63, 0.64, 1.0], 'roughness': 0.58, 'metallic': 0.82},
+    "water_clear": {"base_color":[1.,1.,1.,1.], "roughness":.08, "metallic":0.},
+    "leather_worn": {"base_color": [0.43,0.25,0.14,1.0], "roughness":0.76},
+    "mineral_scale": {"base_color": [0.85,0.83,0.76,1.0], "roughness":0.92},
+    "toast_crumb": {"base_color": [0.72, 0.43, 0.18, 1.0],
+                    "roughness": 0.88, "metallic": 0.0},
     "plaster": {"base_color": [0.62, 0.64, 0.58, 1.0], "roughness": 0.80},
     "wallpaper_old": {"base_color": [0.56, 0.52, 0.37, 1.0],
                       "roughness": 0.90},

@@ -21,9 +21,11 @@ so Blender catches back-face probes that Godot collision rays reject. Review cat
 and normal response at player distance in the same batch. Generate new maps
 only for an observed deficiency, register new catalogue keys, keep textures
 unlettered, and use Label3D for lettering. New runtime texture sidecars must
-apply **art/tools/fix_runtime_texture_imports.py** policy before the first
-import: real mipmaps and disabled automatic 3D redetection, retaining lossless
-compression. Check actual loaded mip chains in the shared validator. Render room context and selected
+apply **art/tools/fix_runtime_texture_imports.py --v2** policy before the first
+import: real mipmaps, disabled automatic 3D redetection and reviewed efficient
+GPU compression. Owner direction 2026-10-11 requires this policy; preserve
+normal RGB semantics, and follow **design/V2_SURFACE_REQUIREMENTS_2026-10-11.md**
+(RUL-012). Check actual loaded mip chains in the shared validator. Render room context and selected
 details. A clean mesh census alone does not certify photorealism. Godot must
 still confirm its final lighting, glass, collisions and composed appearance.
 Preserve source plans and all non-visual owners; never hand-edit generated glTF.

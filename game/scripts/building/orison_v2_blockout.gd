@@ -975,6 +975,7 @@ func _build_envelopes() -> void:
 				Vector3(_rect_w(rect), height, _rect_d(rect)),
 				str(envelope.get("class", "unresolved")), false)
 		node.set_meta("purpose", str(envelope.get("purpose", "")))
+		node.set_meta("surface_role", "reservation_debug")
 		node.visible = show_reservation_volumes
 
 func _build_fixtures() -> void:
@@ -1027,6 +1028,7 @@ func _build_lift_landings() -> void:
 		var clearance := _box(parent, "Clearance", Vector3(0.0, 0.01, float(landing.clear_depth) * 0.5),
 				Vector3(maxf(width, 1.5), 0.02, float(landing.clear_depth)),
 				"clearance", false)
+		clearance.set_meta("surface_role", "reservation_debug")
 		clearance.visible = show_reservation_volumes
 
 func _build_stairs() -> void:

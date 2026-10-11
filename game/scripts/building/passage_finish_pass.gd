@@ -102,8 +102,12 @@ func _build_floor_wear() -> void:
 	var shader := Shader.new()
 	shader.code = """
 shader_type spatial;
-render_mode unshaded, blend_mix, cull_disabled, depth_draw_never,
+render_mode blend_mix, cull_disabled, depth_draw_never,
 		shadows_disabled;
+
+uniform sampler2D albedo_tex : source_color, filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D rough_tex : filter_linear_mipmap_anisotropic, repeat_enable;
+uniform sampler2D normal_tex : hint_normal, filter_linear_mipmap_anisotropic, repeat_enable;
 
 float hash(vec2 p) {
 	return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
@@ -116,13 +120,19 @@ void fragment() {
 		hash(floor(UV * vec2(18.0, 34.0))));
 	float feather = (1.0 - smoothstep(0.72, 1.0, abs(p.y)))
 		* (1.0 - smoothstep(0.58, 1.0, abs(p.x)));
-	ALBEDO = vec3(0.032, 0.026, 0.019);
-	ROUGHNESS = 0.34;
+	ALBEDO = texture(albedo_tex, UV).rgb * vec3(0.032, 0.026, 0.019);
+	ROUGHNESS = texture(rough_tex, UV).r;
+	NORMAL_MAP = texture(normal_tex, UV).rgb;
+	NORMAL_MAP_DEPTH = 0.04;
 	ALPHA = lane * feather * (0.035 + broken * 0.075);
 }
 """
 	var material := ShaderMaterial.new()
 	material.shader = shader
+	var stock := MatLib.get_mat("soot")
+	material.set_shader_parameter("albedo_tex",stock.albedo_texture)
+	material.set_shader_parameter("rough_tex",stock.roughness_texture)
+	material.set_shader_parameter("normal_tex",stock.normal_texture)
 	var marks := [
 		[12.72, -44.9, 0.38, 2.1, -0.08],
 		[15.30, -46.2, 0.34, 1.7, 0.05],

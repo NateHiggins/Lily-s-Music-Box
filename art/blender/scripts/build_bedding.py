@@ -4,6 +4,9 @@ import json, math
 import bpy, bmesh
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parents[3]
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from repair_surface_uvs import repair_scene
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 bpy.context.preferences.filepaths.save_version=0
 mats={}
@@ -118,6 +121,7 @@ for o in list(bpy.context.scene.objects):
   axis=max(range(3),key=lambda i:abs(p.normal[i]));axes=((1,2),(0,2),(0,1))[axis]
   for loop in p.loop_indices:
    v=o.matrix_world@o.data.vertices[o.data.loops[loop].vertex_index].co;uv.data[loop].uv=(v[axes[0]],v[axes[1]])
+repair_scene()
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'art/blender/bedding.blend'))
 for owner in owners:
  for role,mat in mats.items():
@@ -126,4 +130,5 @@ for owner in owners:
   for o in parts:o.select_set(True)
   bpy.context.view_layer.objects.active=parts[0];bpy.ops.object.join();o=bpy.context.object;o.name=owner.name+'_'+role;bpy.ops.object.transform_apply(location=True,rotation=True,scale=True)
 bpy.ops.object.select_all(action='SELECT')
+repair_scene()
 bpy.ops.export_scene.gltf(filepath=str(ROOT/'game/assets/props/bedding.glb'),export_format='GLB',export_yup=True,export_apply=True)

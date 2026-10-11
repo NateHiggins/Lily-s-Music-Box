@@ -198,12 +198,7 @@ function Invoke-OneRun {
     if ($Spec.timeout) { $params.TimeoutSeconds = [int]$Spec.timeout }
     if ($Spec.windowed) { $params.Windowed = $true }
     if ($Spec.shot_dir) { $params.ShotDir = $Spec.shot_dir }
-    if ($runnerName -eq "serial") {
-        if ($Spec.extra_args) { $params.ExtraArgs = [string[]]$Spec.extra_args }
-    }
-    elseif (-not $Spec.scene) {
-        throw "the long runner needs a scene"
-    }
+    if ($Spec.extra_args) { $params.ExtraArgs = [string[]]$Spec.extra_args }
     Write-OrisonLaneHolder -Runner "lane/$runnerName" -Scene $Spec.scene -Worktree (Split-Path $PSScriptRoot -Parent)
     & $script @params | Out-Host
     return $LASTEXITCODE

@@ -3,25 +3,27 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chvv45e3pxoc7"
-path="res://.godot/imported/T_ai_materials_terrazzo_dark_rough.png-4c5fbe6359253541c32c187d0f2a4b23.ctex"
+path.bptc="res://.godot/imported/T_ai_materials_terrazzo_dark_rough.png-4c5fbe6359253541c32c187d0f2a4b23.bptc.ctex"
+path.astc="res://.godot/imported/T_ai_materials_terrazzo_dark_rough.png-4c5fbe6359253541c32c187d0f2a4b23.astc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/building/textures/T_ai_materials_terrazzo_dark_rough.png"
-dest_files=["res://.godot/imported/T_ai_materials_terrazzo_dark_rough.png-4c5fbe6359253541c32c187d0f2a4b23.ctex"]
+dest_files=["res://.godot/imported/T_ai_materials_terrazzo_dark_rough.png-4c5fbe6359253541c32c187d0f2a4b23.bptc.ctex", "res://.godot/imported/T_ai_materials_terrazzo_dark_rough.png-4c5fbe6359253541c32c187d0f2a4b23.astc.ctex"]
 
 [params]
 
-compress/mode=0
-compress/high_quality=false
+compress/mode=2
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=2
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

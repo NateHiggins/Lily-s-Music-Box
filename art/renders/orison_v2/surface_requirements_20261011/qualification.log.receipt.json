@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 80.1,
+  "exit_code": 0,
+  "finished_utc": "2026-10-11T16:10:55Z",
+  "started_utc": "2026-10-11T16:09:34Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SURFACE QUALIFICATION: PASS; 45 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-surfaces-20261011/qualification-portable-final.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-surfaces-20261011/qualification-portable-final.log",
+  "stdout_sha256": "db7d8748c18cd7dba0e1435d05acd3db00008c9bb86873c09ab7d65de122e4a3"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-surfaces-20261011/qualification-portable-final",
+ "source": {
+  "dirty_paths": 2708,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "M  .gitignore",
+   "M  AGENTS.md",
+   "M  art/blender/basement_airer.blend",
+   "M  art/blender/bath_lavatory.blend",
+   "M  art/blender/bath_paper_holder.blend",
+   "M  art/blender/bath_shower.blend",
+   "A  art/blender/bath_surface_uvs.blend",
+   "M  art/blender/bath_towel.blend",
+   "M  art/blender/bath_water_closet.blend",
+   "M  art/blender/bedding.blend",
+   "M  art/blender/boiler_body.blend",
+   "M  art/blender/boiler_pipework.blend",
+   "A  art/blender/bookcase_lift_door.blend",
+   "M  art/blender/breeching.blend",
+   "A  art/blender/radiator_paper_tag.blend",
+   "A  art/blender/radiator_section.blend",
+   "M  art/blender/roof_coping.blend",
+   "M  art/blender/scripts/build_basement_airer.py",
+   "M  art/blender/scripts/build_bath_lavatory.py"
+  ],
+  "repository_head": "45ec315bfdddfa785cde5a3627f79a2f9e1b02bf",
+  "repository_tree": "af801b9cb79485d0fc57f31a5437c53522397ae2",
+  "runtime_inputs_sha256": "9a71177675504ddb2960b399ab31a84e8ffa718aa7a5989eb3eb8e37e8488f7d",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "9a4ca514f51ef4baf9ea2aaef7aef16da21527b07b460b68a556ec1b9d410b3e"
+ },
+ "windowed": true
+}
