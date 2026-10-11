@@ -229,15 +229,15 @@ func _integrated_waypoints() -> Array[Vector3]:
 		Vector3(0.0, 0.0, -11.0), Vector3(0.0, 0.0, -8.0),
 		Vector3(0.0, 0.0, -5.0), Vector3(1.925, 0.0, -3.0)]
 	_append_storey(points, 0.0)
-	points.append_array([Vector3(-1.5, 3.2, 0.0), Vector3(-4.6, 3.2, 0.0),
+	points.append_array([Vector3(-1.8,3.2,-3.45), Vector3(-1.8, 3.2, 0.0), Vector3(-4.6, 3.2, 0.0),
 		Vector3(-6.45, 3.2, 0.0), Vector3(-9.2, 3.2, 1.4),
 		Vector3(-6.45, 3.2, 0.0), Vector3(-4.6, 3.2, 0.0),
-		Vector3(-1.5, 3.2, 0.0), Vector3(1.4, 3.2, -2.5),
+		Vector3(-1.8, 3.2, 0.0), Vector3(-1.8,3.2,-3.45), Vector3(1.925, 3.2, -3.45),
 		Vector3(1.925, 3.2, -3.0)])
 	_append_storey(points, 3.2)
-	points.append_array([Vector3(1.4, 6.4, -2.5), Vector3(1.925, 6.4, -3.0)])
+	points.append_array([Vector3(1.925, 6.4, -3.45), Vector3(1.925, 6.4, -3.0)])
 	_append_storey(points, 6.4)
-	points.append_array([Vector3(-1.5, 9.6, 0.0), Vector3(-4.6, 9.6, 0.0),
+	points.append_array([Vector3(-1.8,9.6,-3.45), Vector3(-1.8, 9.6, 0.0), Vector3(-4.6, 9.6, 0.0),
 		Vector3(-6.45, 9.6, -0.55), Vector3(-9.9, 9.6, 1.25),
 		Vector3(-10.05, 9.6, 3.8), Vector3(-9.8, 9.6, 6.75),
 		Vector3(-11.1, 9.6, 7.25), Vector3(-11.95, 9.6, 8.9)])
@@ -251,8 +251,9 @@ func _append_storey(points: Array[Vector3], base_y: float) -> void:
 	for i in 10:
 		points.append(Vector3(3.975, base_y + 1.6 + 0.16 * float(i + 1), 1.03 - 0.285 * (i + 0.5)))
 	points.append(Vector3(3.975, base_y + 3.2, -3.45))
-	points.append(Vector3(1.4, base_y + 3.2, -3.45))
-	points.append(Vector3(1.4, base_y + 3.2, -2.5))
+	# Stand on the upper landing, clear of the solid passenger shaft and the
+	# next flight's first nosing. The old x=1.4 point was inside its capsule rim.
+	points.append(Vector3(1.925, base_y + 3.2, -3.45))
 
 func _walk(player: CharacterBody3D, waypoints: Array[Vector3]) -> bool:
 	for target: Vector3 in waypoints:
@@ -282,8 +283,8 @@ func _walk(player: CharacterBody3D, waypoints: Array[Vector3]) -> bool:
 func _station_label(point: Vector3) -> String:
 	if point.is_equal_approx(Vector3(0, 0, -11)): return "street_approach"
 	if point.is_equal_approx(Vector3(0, 0, -5)): return "f01_threshold_lobby"
-	if point.is_equal_approx(Vector3(1.4, 3.2, -2.5)): return "primary_stair_f01_f02"
-	if point.is_equal_approx(Vector3(-1.5, 3.2, 0)): return "f02_landing"
+	if point.is_equal_approx(Vector3(1.925, 3.2, -3.45)): return "primary_stair_f01_f02"
+	if point.is_equal_approx(Vector3(-1.8, 3.2, 0)): return "f02_landing"
 	if point.is_equal_approx(Vector3(-9.2, 3.2, 1.4)): return "2a_work_position"
 	if point.is_equal_approx(Vector3(1.4, 6.4, -2.5)): return "primary_stair_f02_f03"
 	if point.is_equal_approx(Vector3(1.4, 9.6, -2.5)): return "primary_stair_f03_f04"

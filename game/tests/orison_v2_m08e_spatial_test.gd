@@ -38,11 +38,12 @@ func _complete_route() -> Array[Vector3]:
 		Vector3(7.2, -3.2, -0.4), Vector3(4.9, -3.2, -0.4),
 		Vector3(4.9, -3.2, -2.5), Vector3(1.925, -3.2, -3.0)]
 	_append_up(points, -3.2)
-	points.append_array([Vector3(0.0, 0.0, -1.5), Vector3(-1.5, 0.0, -1.5),
+	_append_watch_approach(points)
+	points.append_array([
 		Vector3(-2.0, 0.0, -2.2),
 		Vector3(-3.25, 0.0, -0.95), Vector3(-4.0, 0.0, -0.6),
-		Vector3(-4.0, 0.0, -1.75), Vector3(-1.5, 0.0, -1.5),
-		Vector3(1.925, 0.0, -3.0)])
+		Vector3(-4.0, 0.0, -1.75), Vector3(-1.8, 0.0, -1.5)])
+	_append_watch_exit(points)
 	_append_up(points, 0.0)
 	points.append_array([Vector3(5.9, 3.2, -3.25), Vector3(8.7, 3.2, -3.25),
 		Vector3(10.15, 3.2, -3.25), Vector3(13.6, 3.2, -1.8),
@@ -50,9 +51,9 @@ func _complete_route() -> Array[Vector3]:
 		Vector3(10.8, 3.2, -2.5), Vector3(10.15, 3.2, -3.25),
 		Vector3(5.9, 3.2, -3.25), Vector3(1.925, 3.2, -3.0)])
 	_append_down(points, 0.0)
-	points.append_array([Vector3(0.0, 0.0, -1.5), Vector3(-1.5, 0.0, -1.5),
-		Vector3(-3.2, 0.0, -2.2), Vector3(-1.5, 0.0, -1.5),
-		Vector3(0.0, 0.0, -1.5), Vector3(1.925, 0.0, -3.0)])
+	_append_watch_approach(points)
+	points.append_array([Vector3(-3.2, 0.0, -2.2), Vector3(-1.8, 0.0, -1.5)])
+	_append_watch_exit(points)
 	_append_down(points, -3.2)
 	points.append_array([Vector3(1.925, -3.2, -3.0), Vector3(4.9, -3.2, -2.5),
 		Vector3(4.9, -3.2, -0.4), Vector3(7.2, -3.2, -0.4),
@@ -69,6 +70,15 @@ func _complete_route() -> Array[Vector3]:
 		Vector3(13.6, 3.2, -1.8), Vector3(14.5, 3.2, -3.0)])
 	return points
 
+# Use the same north-of-shaft approach as the production first-shift route.
+# The former (0,-1.5) point was inside the passenger shaft, and its diagonal
+# approach cut the solid east wall. Preserve all ritual and service endpoints.
+func _append_watch_approach(points: Array[Vector3]) -> void:
+	points.append_array([Vector3(1.925,0,-3.45), Vector3(-1.8,0,-3.45), Vector3(-1.8,0,-1.5)])
+
+func _append_watch_exit(points: Array[Vector3]) -> void:
+	points.append_array([Vector3(-1.8,0,-3.45), Vector3(1.925,0,-3.45), Vector3(1.925,0,-3.0)])
+
 func _append_up(points: Array[Vector3], base_y: float) -> void:
 	for i in 10:
 		points.append(Vector3(1.925, base_y + 0.16 * float(i + 1), -3.1 + 0.285 * (i + 0.5)))
@@ -77,7 +87,7 @@ func _append_up(points: Array[Vector3], base_y: float) -> void:
 	for i in 10:
 		points.append(Vector3(3.975, base_y + 1.6 + 0.16 * float(i + 1), 1.03 - 0.285 * (i + 0.5)))
 	points.append(Vector3(3.975, base_y + 3.2, -3.45))
-	points.append(Vector3(1.925, base_y + 3.2, -3.0))
+	points.append(Vector3(1.925, base_y + 3.2, -3.45))
 
 func _append_down(points: Array[Vector3], base_y: float) -> void:
 	var up: Array[Vector3] = []

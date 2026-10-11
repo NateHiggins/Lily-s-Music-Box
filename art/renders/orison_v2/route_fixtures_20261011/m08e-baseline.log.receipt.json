@@ -1,0 +1,73 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 19.08,
+  "exit_code": 1,
+  "finished_utc": "2026-10-11T19:27:46Z",
+  "started_utc": "2026-10-11T19:27:26Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 2,
+  "fail_lines": [
+   "ORISON V2 M08E SPATIAL TEST: FAIL (1)",
+   "ERROR:   FAIL  collision-bearing boiler-to-ritual-to-2B-to-porter-to-boiler-to-radiator route"
+  ],
+  "pass_count": 7,
+  "pass_lines": [
+   "PASS  unique spatial owner: F01_WATCHMAN_DETECTOR",
+   "PASS  unique spatial owner: F01_NIGHT_REGISTER",
+   "PASS  unique spatial owner: F01_SIGNAL_REGISTER",
+   "PASS  unique spatial owner: F01_TOUR_KEY_GUARD",
+   "PASS  unique spatial owner: F02_B_RADIATOR_01",
+   "PASS  unique spatial owner: B1_BOILER_01",
+   "PASS  production layout remains byte-stable"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-first-slice-20261011/m08e-baseline.log.stderr",
+  "stderr_sha256": "0ff688e1a45eef1296e32e9d12c46aa7bc9f636fe2467da8f05536e90b49b133",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-first-slice-20261011/m08e-baseline.log",
+  "stdout_sha256": "830af3d67a618a80e55a6cba240368497734e7a516ed62395b88022de2c37c7c"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/OrisonV2M08ESpatialTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": null,
+ "source": {
+  "dirty_paths": 1328,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baths/receipts/sweep.log.receipt.json"
+  ],
+  "repository_head": "050632b4b8ef135e9bacf2531f9779155dceac53",
+  "repository_tree": "32d5a75b85471b361f0e14f4aff295823bfe1b42",
+  "runtime_inputs_sha256": "3f6b2ba9d321060b509b100554d846f52fed047b738b1dfa570afca1d2fc20b9",
+  "test_path": "game/tests/orison_v2_m08e_spatial_test.gd",
+  "test_sha256": "6178ad37f188df0f0d3f070786b7ce3c5a8f27be916fbc63082caa0f957cda33"
+ },
+ "windowed": false
+}
