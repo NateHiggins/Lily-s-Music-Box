@@ -551,6 +551,17 @@
    "confidence": "HEURISTIC",
    "tier": "production",
    "disposition": "REVIEW"
+  },
+  {
+   "id": "73dd5b7c0856cf6d",
+   "domain": "timer",
+   "class": "TIMER_IMPERSONATES_ACTOR",
+   "file": "game/tests/orison_v2_surface_inventory.gd",
+   "scope": "_run",
+   "evidence": "elapsed gate + actor.apply_open_shift_condition(\"porter_temporary_shutoff\")",
+   "confidence": "HEURISTIC",
+   "tier": "test",
+   "disposition": "REVIEW"
   }
  ]
 }
