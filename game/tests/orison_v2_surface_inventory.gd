@@ -42,6 +42,14 @@ func _run() -> void:
 	await preload("res://tests/v2_window_treatments_review.gd").new().run(world,self)
 	await preload("res://tests/v2_millwork_weather_review.gd").new().run(world,self)
 	await preload("res://tests/v2_mail_bank_review.gd").new().run(world,self)
+	# Reuse this production world for changed instrument geometry and its
+	# retained service owners, then measure retirement after the same audit.
+	var instruments := preload("res://tests/orison_v2_service_instruments_test.gd").new()
+	instruments.capture_enabled = false
+	add_child(instruments)
+	var instrument_result: Dictionary = await instruments.validate_in_world(world)
+	batch_checks += int(instrument_result.checks)
+	for failure: String in instrument_result.failures: failures.append(failure)
 	world.player.global_position = world.adapter.root.to_global(Vector3(-4., .02, -5.))
 	for frame in 600:
 		if world.passage_region.residency.state == "RESIDENT": break
@@ -163,6 +171,12 @@ func _run() -> void:
 	for frame in 3: await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	check(owner_ref.get_ref() == null,"production world retires after inspection")
+	DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR").path_join("service_instruments"))
+	var instrument_post: Dictionary = await instruments.validate_after_teardown()
+	batch_checks += int(instrument_post.checks)-int(instrument_result.checks)
+	for failure: String in instrument_post.failures:
+		if not failure in failures: failures.append(failure)
+	instruments.free()
 	var head: Array=[]; var digest: Array=[]
 	check(OS.execute("git",["-C",root,"rev-parse","HEAD"],head)==0,"record repository head")
 	check(OS.execute("python",[root.path_join("tools/run_receipt.py"),"digest","--root",root],digest)==0,"record runtime input digest")

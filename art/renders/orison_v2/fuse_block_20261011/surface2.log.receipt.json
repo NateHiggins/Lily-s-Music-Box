@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 109.82,
+  "exit_code": 0,
+  "finished_utc": "2026-10-11T21:16:42Z",
+  "started_utc": "2026-10-11T21:14:52Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SURFACE QUALIFICATION: PASS; 2954 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-electrical-fittings-20261011/surface2.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-electrical-fittings-20261011/surface2.log",
+  "stdout_sha256": "8c34f1c0928f8a088532a75caec49c81bb37fa2203fad5bffdc7e3e4739226c0"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:\\PleaseRemainOnTheLine\\art\\renders\\orison_v2\\surface_requirements_20261011",
+ "source": {
+  "dirty_paths": 1388,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/blender/scripts/service_instruments_geometry.py",
+   " M art/blender/service_instruments.blend",
+   " M art/blender/service_instruments_construction.json",
+   " M art/data/service_instruments/source_plan.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/F02_A_MAIN.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/F03_B_MAIN.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/F04_C_MAIN.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/boiler.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/bookcase.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/cloud_shape_1.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/cloud_shape_2.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/cloud_shape_3.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/continuous_HistoricMillwork.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/continuous_PublicWainscotCap.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/dumbwaiter.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/fuse_panel.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/mail_bank.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/native_mail_bank_closed.png"
+  ],
+  "repository_head": "ff9108911935a5029e822dda2be2d77ad0b609ba",
+  "repository_tree": "2119b922b7ee410c06dc3fdc369d35c961ddd987",
+  "runtime_inputs_sha256": "d767335310ba2b283357d335723c0728d90146bd033e50bdd80b7de5f0633b9c",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "7884add741857a4ad84e88b4e58dcc08539d7f1ad425d1da645e8fec852cb3c3"
+ },
+ "windowed": true
+}

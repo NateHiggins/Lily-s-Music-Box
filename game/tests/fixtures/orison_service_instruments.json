@@ -1,7 +1,7 @@
 {
   "evidence_class": "INERT",
   "classification": "ADAPTATION",
-  "asset_sha256": "a2bb37a33de1e70317b5b61961e4435bbec8a0ba2d594dc49c5a51025aa061e5",
+  "asset_sha256": "e72dc907a1e79d9daa1ff617549561e3400a3dd0d542ceafce0020fa22f68f61",
   "closed_stocks": [
     {
       "name": "M01_000__Backboard",
@@ -1420,8 +1420,8 @@
       "volume_m3": 0.00017581169313107096
     },
     {
-      "name": "M07_007__Stock",
-      "volume_m3": 0.006899267187683396
+      "name": "M07_007__Bored porcelain fuse block",
+      "volume_m3": 0.006282333901457237
     },
     {
       "name": "M07_008__Porcelain screw base",
@@ -5855,11 +5855,11 @@
     ]
   },
   "source_bindings": {
-    "art/data/service_instruments/source_plan.json": "c83910c1b29fde272b4f448e1241750f222087a7ca2b550d4af327100d000e01",
+    "art/data/service_instruments/source_plan.json": "1654f0c5956eda26c9ff9d8f4e018c6406c64ab8a0035916f5bc643267bcefc1",
     "art/blender/scripts/build_service_instruments.py": "8ae97deb0cb0ac6c3d15143d77c382270ba1045edb2dd3e7785ac05c5475fee8",
-    "art/blender/scripts/service_instruments_geometry.py": "a770419f91e308aed04179830c44726dacda0e648dffd08525143814d8d67831",
+    "art/blender/scripts/service_instruments_geometry.py": "9db1a6364b515ee938a2fd4280eb210292d41bc8b764688cbd7b14b3f5c39b5f",
     "art/blender/scripts/render_service_instruments.py": "3d8ab6825caf28ef1cda3b51a287d4170ef148f6b5ea50c2a7f8fe1463247ecb",
-    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
+    "game/data/runtime_material_sets.json": "b6c54da7063abfc726fc85af229c108d308da2721641db7bd8c7d7532a883a58",
     "game/assets/props/service_instruments.glb.import": "0b0f3059ed84a1335943299e976240855d5fdbbc242b05fea753eccd0cdd8493",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
@@ -5895,8 +5895,8 @@
     "game/scripts/props/night_register_prop.gd": "52b5d58ee85f8ce8e92ff2bbc624b0c8e8a98916f15bb63b086c5e405d2c793e",
     "game/scripts/props/watch_register_prop.gd": "af099e187b73d16d5a76e2e8c8db37d9b414fb2df020cb0e28f6097ce78df4f0",
     "game/scripts/props/tour_key_guard_prop.gd": "22a1ae2606d6972131a049c62d8d22d7cd6843086a73bfcc974abf12150c428d",
-    "game/scripts/props/fuse_panel_prop.gd": "6a9fbbfaee6a0f1f7b52b83fceec8f6ce922f3551d76b3b866d9865b218fb258",
-    "game/scripts/props/house_switchboard_prop.gd": "1905b219985c7bf6127d7689393b01777a138d64d46a0bed59267a11c883f54d",
+    "game/scripts/props/fuse_panel_prop.gd": "88a838c0710c9a0b74f3f80f0e76e9587ac425c00b8b6edb4de3510ffd35737b",
+    "game/scripts/props/house_switchboard_prop.gd": "eee65069820a795e6485ec58f40bc6cf5cfaad9e5773a7f3b4446483c74cf31f",
     "game/scripts/props/dumbwaiter_prop.gd": "eca81aed6ecfbbc913fe3cea1eebf35aaac0206c8e18d8171155eb2ef6c09104"
   }
 }

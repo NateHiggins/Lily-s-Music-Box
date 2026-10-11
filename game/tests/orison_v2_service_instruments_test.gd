@@ -4,6 +4,16 @@ var contract_checks: Array[String] = []
 var contract_started := 0
 var retained: Array[WeakRef] = []
 
+func _fuse_bore_blocked(mesh: Mesh, center: Vector3) -> bool:
+	var ray_start := Vector3(center.x,center.y,.10)
+	var ray_end := Vector3(center.x,center.y,-.10)
+	var faces := mesh.get_faces()
+	for index in range(0,faces.size(),3):
+		if Geometry3D.segment_intersects_triangle(ray_start,ray_end,
+			faces[index],faces[index+1],faces[index+2]) != null:
+			return true
+	return false
+
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	contract_started = Time.get_ticks_msec()
 	var fixture: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/orison_service_instruments.json"))
@@ -101,6 +111,17 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	check(guard.maintenance_snapshot()==guard_before,"tour guard cancel restores custody")
 	contract_checks.append("tour key custody, duplicate denial and cancel")
 	var panel := world.find_child("B1_FUSE_PANEL",true,false) as FusePanelProp
+	var fuse_source: Array = factory.installed["B1_FUSE_PANEL"].source
+	var block_draw: MeshInstance3D = fuse_source[7].draw.get_ref()
+	var last_center := -1.0
+	for socket_index in [8,9,10,11]:
+		var socket_draw: MeshInstance3D = fuse_source[socket_index].draw.get_ref()
+		check(socket_draw.position.x-last_center > .080,
+			"four Edison holders are separated, including the fitted plug")
+		last_center = socket_draw.position.x
+		var center := block_draw.to_local(socket_draw.global_position)
+		check(not _fuse_bore_blocked(block_draw.mesh,center),
+			"actual porcelain triangles leave an open Edison seat")
 	var panel_before := panel.maintenance_snapshot()
 	panel.preview_maintenance_step({"id":"draw_the_plug"},.55)
 	check(not panel.plug_out,"energized fuse withdrawal refused")
@@ -111,9 +132,15 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	check(panel.maintenance_snapshot()==panel_before,"fuse service cancel restores state")
 	contract_checks.append("fuse live denial, main isolation, plug withdrawal and cancel")
 	var telephone := world.find_child("F01_HOUSE_TELEPHONE_BOARD",true,false) as HouseSwitchboardProp
+	var lamp_finish := telephone._asking_lamp.get_active_material(0) as StandardMaterial3D
 	var line := telephone.network as HouseTelephoneNetwork
 	check(line.state==HouseTelephoneNetwork.LineState.IDLE,"production house line initially idle")
 	check(line.request(str(line.endpoints.keys()[0])),"original house endpoint requests line")
+	var asking_finish := telephone._asking_lamp.get_active_material(0) as StandardMaterial3D
+	check(asking_finish.albedo_texture==lamp_finish.albedo_texture and asking_finish.normal_texture==lamp_finish.normal_texture and asking_finish.roughness_texture==lamp_finish.roughness_texture and asking_finish.normal_enabled,
+		"request lamp preserves custom PBR maps while changing its pigment")
+	check(asking_finish!=lamp_finish and asking_finish.albedo_color.is_equal_approx(Color(1.,.28,.035)),
+		"request lamp changes only its private state tint")
 	check(telephone.interact().accepted and telephone.interact().accepted,"original board answers and carries line")
 	check(telephone._cord.visible and not is_zero_approx(telephone._key.rotation.z),"native continuous cord and trunk key follow carrying state")
 	check(telephone.interact().accepted and not telephone._cord.visible,"original board releases and conceals native cord")

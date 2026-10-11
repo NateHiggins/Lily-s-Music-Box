@@ -122,7 +122,13 @@ func _on_line_changed(line: Dictionary) -> void:
 					StringName(name))
 		_heard_phase = phase
 	if _asking_lamp != null:
-		_asking_lamp.material_override = _pmat(Color(1.0, 0.28, 0.035)
-				if phase == "ASKING" else Color(0.18, 0.06, 0.02))
+		var tint := Color(1.0, 0.28, 0.035) if phase == "ASKING" else Color(0.18, 0.06, 0.02)
+		# The native/finish pass may have bound custom maps since startup.
+		# A line transition changes pigment, while retaining those maps and
+		# keeping this lamp's tint private from any shared stock material.
+		var active := _asking_lamp.get_active_material(0) as StandardMaterial3D
+		var finish := active.duplicate() as StandardMaterial3D if active != null else _pmat(tint)
+		finish.albedo_color = tint
+		_asking_lamp.material_override = finish
 	if _cord != null: _cord.visible = phase == "CARRYING"
 	if _key != null: _key.rotation.z = -0.42 if phase in ["ANSWERED", "CARRYING"] else 0.0

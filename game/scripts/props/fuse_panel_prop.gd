@@ -187,7 +187,7 @@ func _build_visual() -> void:
 	_block.name = "FuseBlock"
 	for i in 3:
 		make_cyl(0.038, 0.038, 0.030,
-				Vector3(-0.145 + float(i) * 0.145, 0.46, 0.104),
+				Vector3(-0.190 + float(i) * 0.112, 0.46, 0.104),
 				Color(0.30, 0.22, 0.14), 0.62, 0.10)
 
 	# THE FITTED PLUG, in the fourth base. Its mica window shows a link that

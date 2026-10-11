@@ -1,0 +1,16 @@
+{
+  "evidence_class": "INERT",
+  "text_hashing": "LF-normalized UTF-8; binary hashes byte-exact",
+  "source_bindings": {
+    "art/blender/scripts/build_service_instruments.py": "8ae97deb0cb0ac6c3d15143d77c382270ba1045edb2dd3e7785ac05c5475fee8",
+    "art/blender/scripts/service_instruments_geometry.py": "9db1a6364b515ee938a2fd4280eb210292d41bc8b764688cbd7b14b3f5c39b5f",
+    "art/data/service_instruments/source_plan.json": "1654f0c5956eda26c9ff9d8f4e018c6406c64ab8a0035916f5bc643267bcefc1",
+    "art/blender/service_instruments.blend": "cca94cf6a9393e86004f48f4c1383b20bd6dcd17fadd40751301e3c747300c1f",
+    "game/assets/props/service_instruments.glb": "e72dc907a1e79d9daa1ff617549561e3400a3dd0d542ceafce0020fa22f68f61",
+    "game/data/orison_v2/service_instruments.json": "defc1a16f79654bbc301ddb33c76d3d747b73c02e9c2e517a4aeb77333fd2c52",
+    "game/scripts/props/fuse_panel_prop.gd": "88a838c0710c9a0b74f3f80f0e76e9587ac425c00b8b6edb4de3510ffd35737b",
+    "game/scripts/props/house_switchboard_prop.gd": "eee65069820a795e6485ec58f40bc6cf5cfaad9e5773a7f3b4446483c74cf31f",
+    "game/tests/orison_v2_service_instruments_test.gd": "f08998730af19558437cc0ef99031e4504f0ff59a0f668da952aa331da13b556"
+  },
+  "unchanged_scope": "297 of 298 exported mesh partitions have identical primitive attributes, indices and material slots. Telephone source change affects private runtime tint materials; it does not alter its exported geometry."
+}

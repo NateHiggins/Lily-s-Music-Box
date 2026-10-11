@@ -101,6 +101,21 @@ for actor in plan['actors']:
   elif aid=='M07' and index==5:
    box('Common blade bridge',(.26,.012,.012),(0,-.009,0),key,.0005)
    for x in [-.095,0,.095]:box('Knife blade',(.007,.030,.030),(x,0,0),key,.0005)
+  elif aid=='M07' and index==7:
+   # Four distinct Edison seats, including the active plug. The source's
+   # third spare holder used to overlap that plug. Bore the porcelain through
+   # to the retained back lining rather than showing solid porcelain inside
+   # the annular holders. Positions come from the authoritative source plan.
+   block=box('Bored porcelain fuse block',part['size'],(0,0,0),key,.003)
+   for seat in [p for p in actor['meshes'] if p['index'] in [8,9,10,11]]:
+    at=Vector(seat['position'])-Vector(part['position']);at.z=0
+    bpy.ops.mesh.primitive_cylinder_add(vertices=48,radius=.0255,depth=.10,
+      location=C.to_3x3()@at,rotation=(math.pi/2,0,0))
+    cutter=bpy.context.object;bpy.context.view_layer.objects.active=block
+    mod=block.modifiers.new('Edison seat through bore','BOOLEAN')
+    mod.operation='DIFFERENCE';mod.solver='EXACT';mod.object=cutter
+    bpy.ops.object.modifier_apply(modifier=mod.name)
+    bpy.data.objects.remove(cutter,do_unlink=True)
   elif aid=='M07' and index in [8,9,10]:
    tube('Porcelain screw base',.038,.025,.030,(0,0,0),key)
   elif aid=='M07' and index in [11,23]:
