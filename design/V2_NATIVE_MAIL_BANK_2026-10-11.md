@@ -68,3 +68,9 @@ remain byte-identical. Fresh verification and source candidate follow below.
 Packet: **art/renders/orison_v2/mail_bank_20261011**. Broader V2 completion,
 full-building navigation, services, acoustics and human review remain open;
 blockers **0/1/127/35/144/146**. Decision needed from owner: none for this batch.
+
+The initial fresh candidate found three new spatial identity records. Exactly
+those records were reviewed and registered: the local ajar-door naming pattern
+and two test lookups of the existing lobby bank identity. No prior manifest
+entry, classification or audit criterion was changed. All 56 dependency tests
+pass after registration; runtime and surface inputs are unchanged.
