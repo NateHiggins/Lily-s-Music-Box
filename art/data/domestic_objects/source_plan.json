@@ -1944,6 +1944,78 @@
    "source_id": "F01_watch_kettle",
    "params": {},
    "rear_wall_y": -0.02
+  },
+  {
+   "id": "DomesticObject137",
+   "kind": "risermarks",
+   "source_id": "F03_riser_marks",
+   "params": {
+    "band": [
+     1.55,
+     1.62
+    ],
+    "cock": [
+     0.12,
+     0.45
+    ],
+    "risers": [
+     [
+      "Heat",
+      [
+       -0.225,
+       -0.47,
+       0.225,
+       -0.02
+      ],
+      "paint_ochre",
+      [
+       "near",
+       -0.12
+      ]
+     ],
+     [
+      "Telephone",
+      [
+       0.325,
+       -0.47,
+       0.625,
+       -0.02
+      ],
+      "paint_green",
+      [
+       "near",
+       0.475
+      ]
+     ],
+     [
+      "Electric",
+      [
+       -0.225,
+       -0.87,
+       0.075,
+       -0.57
+      ],
+      "paint_sky",
+      [
+       "west",
+       -0.72
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "id": "DomesticObject138",
+   "kind": "hosecoil",
+   "source_id": "F03_riser_hose",
+   "params": {
+    "H": 1.4,
+    "loop_r": 0.19,
+    "hose_r": 0.0115,
+    "turns": 5,
+    "pitch": 0.025
+   },
+   "rear_wall_y": -0.02
   }
  ],
  "instances": [
@@ -2890,6 +2962,54 @@
   {
    "id": "F01_tour_card",
    "variant": "DomesticObject89"
+  },
+  {
+   "id": "F03_riser_marks",
+   "variant": "DomesticObject137"
+  },
+  {
+   "id": "F03_riser_crate",
+   "variant": "DomesticObject03"
+  },
+  {
+   "id": "F03_riser_hose",
+   "variant": "DomesticObject138"
+  },
+  {
+   "id": "F04_riser_marks",
+   "variant": "DomesticObject137"
+  },
+  {
+   "id": "F04_riser_crate",
+   "variant": "DomesticObject03"
+  },
+  {
+   "id": "F04_riser_hose",
+   "variant": "DomesticObject138"
+  },
+  {
+   "id": "F05_riser_marks",
+   "variant": "DomesticObject137"
+  },
+  {
+   "id": "F05_riser_crate",
+   "variant": "DomesticObject03"
+  },
+  {
+   "id": "F05_riser_hose",
+   "variant": "DomesticObject138"
+  },
+  {
+   "id": "F06_riser_marks",
+   "variant": "DomesticObject137"
+  },
+  {
+   "id": "F06_riser_crate",
+   "variant": "DomesticObject03"
+  },
+  {
+   "id": "F06_riser_hose",
+   "variant": "DomesticObject138"
   }
  ],
  "runtime_keys": [
@@ -3484,7 +3604,8 @@
   "Slice 72 of the V2 environment dossier makes the basement maintenance shop's toolboard (b1_toolboard, DomesticObject15) a shadow board: a painted silhouette behind each wrench and the hammer, and a sixth peg with only a screwdriver's silhouette (B1_MAINTENANCE_SHOP-002). 3B's board keeps the plain form.",
   "Slice 77 of the V2 environment dossier gives the basement washers their water (B1_LAUNDRY-004): cold and hot mains out of the laundry's west wall on clips, a drop and brass bib cock at each machine with a rubber hose to its fill cock, and a cast-iron floor gully under each drain.",
   "Slice 78 of the V2 environment dossier gives the basement rinse tubs their water (B1_LAUNDRY-004): cold and hot out of the west wet stack's face on clips, a pair of long-reach brass bibs over each tub's back rim, and a cast-iron waste taking both drain tails back into the stack. The context inspector treats a solid blockout riser's faces as retained walls.",
-  "Slice 79 of the V2 environment dossier gives the night watch its routine (F01_WATCH-002): a gas ring and enamel kettle on a bracketed shelf on the wall the watch room shares with the lobby, fed by a rubber tube from a brass cock, and the tour card in the notice-frame family naming the patrol boxes."
+  "Slice 79 of the V2 environment dossier gives the night watch its routine (F01_WATCH-002): a gas ring and enamel kettle on a bracketed shelf on the wall the watch room shares with the lobby, fed by a rubber tube from a brass cock, and the tour card in the notice-frame family naming the patrol boxes.",
+  "Slice 85 of the V2 environment dossier gives the F03-F06 service halls their maintenance evidence (F03-F06_SERVICE_HALL-001): painted service-colour bands with blank kraft tags on each riser and a brass drain cock on the heat stack, a slatted crate in the pocket south of the cluster and a hose coiled on an iron wall bracket; nothing stands in the route, which passes the cluster by the bypass."
  ],
  "support_by_id": {
   "2A_deck": "2A_cof",

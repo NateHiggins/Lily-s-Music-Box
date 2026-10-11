@@ -1430,6 +1430,67 @@ def gasring(source):
  wire('GasTube',[(gx,back+.04,1.01),(gx,back+.06,.97),(gx-.01,back+.1,top+.07),(cx+.16,cy+.02,top+.05),(cx+.11,cy,top+.046)],.0075,'rubber_aged')
  group('WatchKettle',start)
 
+def risermarks(source):
+ # Dossier slice 85 (F03-F06_SERVICE_HALL-001): maintenance evidence on the service spine's riser cluster. A painted
+ # band round each riser at 1.55 m in its service colour (heat ochre, telephone green, electric sky), a blank kraft
+ # card on a brass wire from a screw eye under each band (no lettering), and a brass drain cock low on the heat
+ # stack's face. Every fitting stands under 0.08 m proud, so the 1.28 m bypass west of the cluster keeps its route.
+ t=.0025;z0,z1=source['band'];zm=(z0+z1)/2
+ for name,(x0,y0,x1,y1),key,(face,at) in source['risers']:
+  start=len(stock_checks)
+  stock(name+'BandNear',(x0-t,y1,z0),(x1+t,y1+t,z1),key,.0004)
+  stock(name+'BandFar',(x0-t,y0-t,z0),(x1+t,y0,z1),key,.0004)
+  stock(name+'BandWest',(x0-t,y0,z0),(x0,y1,z1),key,.0004)
+  stock(name+'BandEast',(x1,y0,z0),(x1+t,y1,z1),key,.0004)
+  support(identity,'wall',((x0+x1)/2,y1,zm),(0,1,0),'band painted on the riser face')
+  support(identity,'wall',((x0+x1)/2,y0,zm),(0,-1,0),'band painted on the riser face')
+  support(identity,'wall',(x0,(y0+y1)/2,zm),(-1,0,0),'band painted on the riser face')
+  support(identity,'wall',(x1,(y0+y1)/2,zm),(1,0,0),'band painted on the riser face')
+  # The tag: a screw eye just under the band, a brass wire and a blank card hung 3 mm off the face.
+  ez=z0-.0025
+  if face=='near':
+   tube(name+'Eye',(at,y1,ez),(at,y1+.010,ez),.003,'brass')
+   wire(name+'TagWire',[(at,y1+.009,ez),(at,y1+.006,z0-.04),(at,y1+.00325,z0-.082)],.0006,'brass')
+   stock(name+'Tag',(at-.025,y1+.003,z0-.17),(at+.025,y1+.0035,z0-.08),'kraft',.0001)
+   support(identity,'wall',(at,y1,ez),(0,1,0),'screw eye in the riser face')
+  else:
+   tube(name+'Eye',(x0,at,ez),(x0-.010,at,ez),.003,'brass')
+   wire(name+'TagWire',[(x0-.009,at,ez),(x0-.006,at,z0-.04),(x0-.00325,at,z0-.082)],.0006,'brass')
+   stock(name+'Tag',(x0-.0035,at-.025,z0-.17),(x0-.003,at+.025,z0-.08),'kraft',.0001)
+   support(identity,'wall',(x0,at,ez),(-1,0,0),'screw eye in the riser face')
+  group(name+'Band',start)
+ # The heat stack's drain cock: a flange on the face, a nipple, a brass plug cock with its lever and a down-turned spout.
+ start=len(stock_checks);cx,cz=source['cock'];f=source['risers'][0][1][3]
+ tube('CockFlange',(cx,f,cz),(cx,f+.008,cz),.028,'iron')
+ tube('CockNipple',(cx,f+.006,cz),(cx,f+.034,cz),.0105,'iron')
+ tube('CockBody',(cx,f+.03,cz),(cx,f+.058,cz),.015,'brass')
+ tube('CockBonnet',(cx,f+.044,cz),(cx,f+.044,cz+.04),.0095,'brass')
+ stock('CockLever',(cx-.004,f+.014,cz+.036),(cx+.004,f+.074,cz+.044),'brass',.0006)
+ tube('CockSpout',(cx,f+.05,cz-.004),(cx,f+.05,cz-.05),.0085,'brass')
+ support(identity,'wall',(cx,f,cz),(0,1,0),'drain cock threaded into the stack through its flange')
+ group('DrainCock',start)
+
+def hosecoil(source):
+ # Dossier slice 85 (F03-F06_SERVICE_HALL-001): the super's hose, coiled on an iron bracket on the hall's east wall
+ # south of the riser cluster. Five turns of rubber hose hang over the bracket arm, held by its end lip; one end
+ # carries a brass female coupling for the stack's drain cock, the other a brass nozzle.
+ start=len(stock_checks);back=variants[identity]['rear_wall_y']
+ H=source['H'];R=source['loop_r'];hr=source['hose_r'];n=source['turns'];p=source['pitch']
+ stock('Backplate',(-.04,back,H-.10),(.04,back+.006,H+.03),'iron',.0006)
+ stock('Arm',(-.012,back+.004,H-.018),(.012,back+.173,H),'iron',.0006)
+ stock('Lip',(-.012,back+.163,H-.001),(.012,back+.173,H+.03),'iron',.0006)
+ tube('Gusset',(0,back+.005,H-.09),(0,back+.12,H-.012),.006,'iron')
+ for x in [-.025,.025]:support(identity,'wall',(x,back,H-.035),(0,1,0),'hose bracket screwed to the wall')
+ y0=back+.022;zc=H+hr-R;steps=int(n*72)
+ coil=[(R*math.sin(math.tau*i/72),y0+p*i/72,zc+R*math.cos(math.tau*i/72)) for i in range(steps+1)]
+ ye=coil[-1][1]
+ path=[(-.24,y0-.008,H-.36),(-.235,y0-.008,H-.2),(-.17,y0-.008,H-.06),(-.07,y0-.006,H+.004)]+coil+[(.07,ye+.02,H+.005),(.17,ye+.03,H-.06),(.235,ye+.03,H-.2),(.24,ye+.03,H-.42)]
+ wire('Hose',path,hr,'rubber_aged')
+ tube('Coupling',(-.24,y0-.008,H-.355),(-.24,y0-.008,H-.40),.016,'brass')
+ tube('Nozzle',(.24,ye+.03,H-.415),(.24,ye+.03,H-.47),.009,'brass')
+ tube('NozzleTip',(.24,ye+.03,H-.465),(.24,ye+.03,H-.50),.005,'brass')
+ group('HoseCoil',start)
+
 # The remaining recipes are deliberately required before export. A scaffold
 # cannot silently fall back to the legacy source boxes and claim completion.
 for assembly in assemblies:
@@ -1505,4 +1566,6 @@ for assembly in assemblies:
  elif kind=='washersupply':washersupply(source)
  elif kind=='rinsetaps':rinsetaps(source)
  elif kind=='gasring':gasring(source)
+ elif kind=='risermarks':risermarks(source)
+ elif kind=='hosecoil':hosecoil(source)
  else:raise NotImplementedError(('native recipe still required',identity,kind))

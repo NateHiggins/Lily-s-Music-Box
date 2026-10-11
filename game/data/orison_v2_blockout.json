@@ -2071,7 +2071,19 @@
     {"id":"F06_LANDING_LT_SCONCE","level":"F06","space":"F06_PUBLIC_CORE","position":[-1.5,2.0,-3.73],"yaw":0,"kind":"fixture"},
     {"id":"B1_BOILER_ROOM_LT_A","level":"B1","position":[10.6,2.84,-1.6],"yaw":0,"kind":"fixture","space":"B1_BOILER_ROOM"},
     {"id":"B1_BOILER_ROOM_LT_B","level":"B1","position":[10.6,2.84,0.6],"yaw":0,"kind":"fixture","space":"B1_BOILER_ROOM"},
-    {"id":"B1_BOILER_ROOM_SWITCH","level":"B1","position":[10.15,1.12,-5.4],"yaw":3.141592653589793,"kind":"interaction","space":"B1_BOILER_ROOM"}
+    {"id":"B1_BOILER_ROOM_SWITCH","level":"B1","position":[10.15,1.12,-5.4],"yaw":3.141592653589793,"kind":"interaction","space":"B1_BOILER_ROOM"},
+    {"id":"F03_riser_marks","level":"F03","space":"F03_SERVICE_HALL","position":[8.675,0,0.28],"yaw":0.0,"kind":"furniture"},
+    {"id":"F03_riser_crate","level":"F03","space":"F03_SERVICE_HALL","position":[9.19,0,0.08],"yaw":0.0,"kind":"furniture"},
+    {"id":"F03_riser_hose","level":"F03","space":"F03_SERVICE_HALL","position":[9.41,0,-0.12],"yaw":1.5707963267948966,"kind":"furniture"},
+    {"id":"F04_riser_marks","level":"F04","space":"F04_SERVICE_HALL","position":[8.675,0,0.28],"yaw":0.0,"kind":"furniture"},
+    {"id":"F04_riser_crate","level":"F04","space":"F04_SERVICE_HALL","position":[9.19,0,0.08],"yaw":0.0,"kind":"furniture"},
+    {"id":"F04_riser_hose","level":"F04","space":"F04_SERVICE_HALL","position":[9.41,0,-0.12],"yaw":1.5707963267948966,"kind":"furniture"},
+    {"id":"F05_riser_marks","level":"F05","space":"F05_SERVICE_HALL","position":[8.675,0,0.28],"yaw":0.0,"kind":"furniture"},
+    {"id":"F05_riser_crate","level":"F05","space":"F05_SERVICE_HALL","position":[9.19,0,0.08],"yaw":0.0,"kind":"furniture"},
+    {"id":"F05_riser_hose","level":"F05","space":"F05_SERVICE_HALL","position":[9.41,0,-0.12],"yaw":1.5707963267948966,"kind":"furniture"},
+    {"id":"F06_riser_marks","level":"F06","space":"F06_SERVICE_HALL","position":[8.675,0,0.28],"yaw":0.0,"kind":"furniture"},
+    {"id":"F06_riser_crate","level":"F06","space":"F06_SERVICE_HALL","position":[9.19,0,0.08],"yaw":0.0,"kind":"furniture"},
+    {"id":"F06_riser_hose","level":"F06","space":"F06_SERVICE_HALL","position":[9.41,0,-0.12],"yaw":1.5707963267948966,"kind":"furniture"}
   ],
   "capsule_stations": [
     {"id":"F04_CAPSULE_LANDING","level":"F04","position":[-1.5,0.85,0.0]},

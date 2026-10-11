@@ -8,7 +8,7 @@ extends RefCounted
 ## Slice 61: the water line under each shower curtain's hem and the 5D fire's soot ghost.
 const DATA := "res://data/orison_v2/positional_wear.json"
 const ROOT := "res://assets/building/textures/wear_decals/"
-const KINDS := ["receptor", "corner", "path", "threshold", "trolley", "coal", "arc", "fan", "chalk", "waterline", "soot"]
+const KINDS := ["receptor", "corner", "path", "threshold", "trolley", "coal", "arc", "fan", "chalk", "waterline", "soot", "drip", "scuff"]
 
 static func mount(blockout: Node3D) -> bool:
 	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(DATA))

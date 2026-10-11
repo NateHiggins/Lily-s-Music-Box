@@ -9613,6 +9613,163 @@
         0
       ],
       "yaw": 0
+    },
+    {
+      "id": "DomesticObject137",
+      "parts": [
+        {
+          "name": "DomesticObject137__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject137__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.3,
+            0.3,
+            0.29,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject137__Body_ON_kraft",
+          "component": "Body",
+          "key": "kraft",
+          "tile": 0.5,
+          "catalog_key": "paper",
+          "tint": [
+            0.5,
+            0.38,
+            0.22,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        },
+        {
+          "name": "DomesticObject137__Body_ON_paint_green",
+          "component": "Body",
+          "key": "paint_green",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.2,
+            0.3,
+            0.16,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.1,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "DomesticObject137__Body_ON_paint_ochre",
+          "component": "Body",
+          "key": "paint_ochre",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.55,
+            0.42,
+            0.16,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.1,
+            "roughness": 0.85
+          }
+        },
+        {
+          "name": "DomesticObject137__Body_ON_paint_sky",
+          "component": "Body",
+          "key": "paint_sky",
+          "tile": 0.6,
+          "catalog_key": "linen",
+          "tint": [
+            0.62,
+            0.68,
+            0.72,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.1,
+            "roughness": 0.85
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
+    },
+    {
+      "id": "DomesticObject138",
+      "parts": [
+        {
+          "name": "DomesticObject138__Body_ON_brass",
+          "component": "Body",
+          "key": "brass",
+          "tile": 0.5,
+          "catalog_key": "brass_dull",
+          "finish": {
+            "normal_scale": 0.04,
+            "roughness": 0.5
+          }
+        },
+        {
+          "name": "DomesticObject138__Body_ON_iron",
+          "component": "Body",
+          "key": "iron",
+          "tile": 0.4,
+          "catalog_key": "iron_blackened",
+          "tint": [
+            0.3,
+            0.3,
+            0.29,
+            1
+          ],
+          "finish": {
+            "normal_scale": 0.25,
+            "roughness": 0.9
+          }
+        },
+        {
+          "name": "DomesticObject138__Body_ON_rubber_aged",
+          "component": "Body",
+          "key": "rubber_aged",
+          "tile": 0.26,
+          "catalog_key": "rubber_aged",
+          "finish": {
+            "normal_scale": 0.12,
+            "roughness": 0.8
+          }
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "yaw": 0
     }
   ],
   "instances": [
@@ -10559,6 +10716,54 @@
     {
       "id": "F01_tour_card",
       "variant": "DomesticObject89"
+    },
+    {
+      "id": "F03_riser_marks",
+      "variant": "DomesticObject137"
+    },
+    {
+      "id": "F03_riser_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "F03_riser_hose",
+      "variant": "DomesticObject138"
+    },
+    {
+      "id": "F04_riser_marks",
+      "variant": "DomesticObject137"
+    },
+    {
+      "id": "F04_riser_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "F04_riser_hose",
+      "variant": "DomesticObject138"
+    },
+    {
+      "id": "F05_riser_marks",
+      "variant": "DomesticObject137"
+    },
+    {
+      "id": "F05_riser_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "F05_riser_hose",
+      "variant": "DomesticObject138"
+    },
+    {
+      "id": "F06_riser_marks",
+      "variant": "DomesticObject137"
+    },
+    {
+      "id": "F06_riser_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "F06_riser_hose",
+      "variant": "DomesticObject138"
     }
   ],
   "tint_space": "linear"

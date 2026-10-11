@@ -1000,6 +1000,18 @@
       "kind": "gasring",
       "cell": "shared",
       "source_record": "F01_watch_kettle"
+    },
+    {
+      "id": "DomesticObject137",
+      "kind": "risermarks",
+      "cell": "shared",
+      "source_record": "F03_riser_marks"
+    },
+    {
+      "id": "DomesticObject138",
+      "kind": "hosecoil",
+      "cell": "shared",
+      "source_record": "F03_riser_hose"
     }
   ],
   "closed_stocks": [
@@ -16980,6 +16992,216 @@
       "assembly": "DomesticObject136",
       "key": "rubber_aged",
       "volume_m3": 3.117542764162767e-05
+    },
+    {
+      "name": "DomesticObject137_HeatBandNear",
+      "assembly": "DomesticObject137",
+      "key": "paint_ochre",
+      "volume_m3": 7.954078025082409e-05
+    },
+    {
+      "name": "DomesticObject137_HeatBandFar",
+      "assembly": "DomesticObject137",
+      "key": "paint_ochre",
+      "volume_m3": 7.954072092582778e-05
+    },
+    {
+      "name": "DomesticObject137_HeatBandWest",
+      "assembly": "DomesticObject137",
+      "key": "paint_ochre",
+      "volume_m3": 7.866698581786378e-05
+    },
+    {
+      "name": "DomesticObject137_HeatBandEast",
+      "assembly": "DomesticObject137",
+      "key": "paint_ochre",
+      "volume_m3": 7.866698581786372e-05
+    },
+    {
+      "name": "DomesticObject137_HeatEye",
+      "assembly": "DomesticObject137",
+      "key": "brass",
+      "volume_m3": 2.8193004117492604e-07
+    },
+    {
+      "name": "DomesticObject137_HeatTagWire",
+      "assembly": "DomesticObject137",
+      "key": "brass",
+      "volume_m3": 8.608371144859659e-08
+    },
+    {
+      "name": "DomesticObject137_HeatTag",
+      "assembly": "DomesticObject137",
+      "key": "kraft",
+      "volume_m3": 2.2486023449830715e-06
+    },
+    {
+      "name": "DomesticObject137_TelephoneBandNear",
+      "assembly": "DomesticObject137",
+      "key": "paint_green",
+      "volume_m3": 5.331475720843457e-05
+    },
+    {
+      "name": "DomesticObject137_TelephoneBandFar",
+      "assembly": "DomesticObject137",
+      "key": "paint_green",
+      "volume_m3": 5.331471743996724e-05
+    },
+    {
+      "name": "DomesticObject137_TelephoneBandWest",
+      "assembly": "DomesticObject137",
+      "key": "paint_green",
+      "volume_m3": 7.866651643331492e-05
+    },
+    {
+      "name": "DomesticObject137_TelephoneBandEast",
+      "assembly": "DomesticObject137",
+      "key": "paint_green",
+      "volume_m3": 7.866651643331492e-05
+    },
+    {
+      "name": "DomesticObject137_TelephoneEye",
+      "assembly": "DomesticObject137",
+      "key": "brass",
+      "volume_m3": 2.819303043333143e-07
+    },
+    {
+      "name": "DomesticObject137_TelephoneTagWire",
+      "assembly": "DomesticObject137",
+      "key": "brass",
+      "volume_m3": 8.608247719966343e-08
+    },
+    {
+      "name": "DomesticObject137_TelephoneTag",
+      "assembly": "DomesticObject137",
+      "key": "kraft",
+      "volume_m3": 2.248603002871728e-06
+    },
+    {
+      "name": "DomesticObject137_ElectricBandNear",
+      "assembly": "DomesticObject137",
+      "key": "paint_sky",
+      "volume_m3": 5.3314717439967323e-05
+    },
+    {
+      "name": "DomesticObject137_ElectricBandFar",
+      "assembly": "DomesticObject137",
+      "key": "paint_sky",
+      "volume_m3": 5.3314717439967323e-05
+    },
+    {
+      "name": "DomesticObject137_ElectricBandWest",
+      "assembly": "DomesticObject137",
+      "key": "paint_sky",
+      "volume_m3": 5.244082934598686e-05
+    },
+    {
+      "name": "DomesticObject137_ElectricBandEast",
+      "assembly": "DomesticObject137",
+      "key": "paint_sky",
+      "volume_m3": 5.244051642373825e-05
+    },
+    {
+      "name": "DomesticObject137_ElectricEye",
+      "assembly": "DomesticObject137",
+      "key": "brass",
+      "volume_m3": 2.8193037127990384e-07
+    },
+    {
+      "name": "DomesticObject137_ElectricTagWire",
+      "assembly": "DomesticObject137",
+      "key": "brass",
+      "volume_m3": 8.608341455301752e-08
+    },
+    {
+      "name": "DomesticObject137_ElectricTag",
+      "assembly": "DomesticObject137",
+      "key": "kraft",
+      "volume_m3": 2.248569547264284e-06
+    },
+    {
+      "name": "DomesticObject137_CockFlange",
+      "assembly": "DomesticObject137",
+      "key": "iron",
+      "volume_m3": 1.9647861951080664e-05
+    },
+    {
+      "name": "DomesticObject137_CockNipple",
+      "assembly": "DomesticObject137",
+      "key": "iron",
+      "volume_m3": 9.670396226821771e-06
+    },
+    {
+      "name": "DomesticObject137_CockBody",
+      "assembly": "DomesticObject137",
+      "key": "brass",
+      "volume_m3": 1.9735461036201396e-05
+    },
+    {
+      "name": "DomesticObject137_CockBonnet",
+      "assembly": "DomesticObject137",
+      "key": "brass",
+      "volume_m3": 1.13087930632537e-05
+    },
+    {
+      "name": "DomesticObject137_CockLever",
+      "assembly": "DomesticObject137",
+      "key": "brass",
+      "volume_m3": 3.8130005720611284e-06
+    },
+    {
+      "name": "DomesticObject137_CockSpout",
+      "assembly": "DomesticObject137",
+      "key": "brass",
+      "volume_m3": 1.0411293037943756e-05
+    },
+    {
+      "name": "DomesticObject138_Backplate",
+      "assembly": "DomesticObject138",
+      "key": "iron",
+      "volume_m3": 6.23225988782644e-05
+    },
+    {
+      "name": "DomesticObject138_Arm",
+      "assembly": "DomesticObject138",
+      "key": "iron",
+      "volume_m3": 7.293246260792067e-05
+    },
+    {
+      "name": "DomesticObject138_Lip",
+      "assembly": "DomesticObject138",
+      "key": "iron",
+      "volume_m3": 7.4169379565295685e-06
+    },
+    {
+      "name": "DomesticObject138_Gusset",
+      "assembly": "DomesticObject138",
+      "key": "iron",
+      "volume_m3": 1.5670615420594233e-05
+    },
+    {
+      "name": "DomesticObject138_Hose",
+      "assembly": "DomesticObject138",
+      "key": "rubber_aged",
+      "volume_m3": 0.0027823351163520547
+    },
+    {
+      "name": "DomesticObject138_Coupling",
+      "assembly": "DomesticObject138",
+      "key": "brass",
+      "volume_m3": 3.60878507419693e-05
+    },
+    {
+      "name": "DomesticObject138_Nozzle",
+      "assembly": "DomesticObject138",
+      "key": "brass",
+      "volume_m3": 1.3955866847520127e-05
+    },
+    {
+      "name": "DomesticObject138_NozzleTip",
+      "assembly": "DomesticObject138",
+      "key": "brass",
+      "volume_m3": 2.7410515264053955e-06
     }
   ],
   "contacts": [
@@ -25562,6 +25784,276 @@
         -1
       ],
       "label": "gas pipe clip"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.0,
+        1.585,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.0,
+        1.585,
+        0.47
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        -0.225,
+        1.585,
+        0.245
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.225,
+        1.585,
+        0.245
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        -0.12,
+        1.5475,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "screw eye in the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.475,
+        1.585,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.475,
+        1.585,
+        0.47
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.325,
+        1.585,
+        0.245
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.625,
+        1.585,
+        0.245
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.475,
+        1.5475,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "screw eye in the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        -0.07500000000000001,
+        1.585,
+        0.57
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        -0.07500000000000001,
+        1.585,
+        0.87
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        -0.225,
+        1.585,
+        0.72
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.075,
+        1.585,
+        0.72
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "label": "band painted on the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        -0.225,
+        1.5475,
+        0.72
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "screw eye in the riser face"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.12,
+        0.45,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "drain cock threaded into the stack through its flange"
+    },
+    {
+      "assembly": "DomesticObject138",
+      "owner": "wall",
+      "point": [
+        -0.025,
+        1.365,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "hose bracket screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject138",
+      "owner": "wall",
+      "point": [
+        0.025,
+        1.365,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "hose bracket screwed to the wall"
     }
   ],
   "parts": [
@@ -29827,9 +30319,72 @@
       "cell": "shared",
       "key": "wood_dark",
       "triangles": 188
+    },
+    {
+      "name": "DomesticObject137__Body_ON_brass",
+      "assembly": "DomesticObject137",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 1520
+    },
+    {
+      "name": "DomesticObject137__Body_ON_iron",
+      "assembly": "DomesticObject137",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 376
+    },
+    {
+      "name": "DomesticObject137__Body_ON_kraft",
+      "assembly": "DomesticObject137",
+      "cell": "shared",
+      "key": "kraft",
+      "triangles": 564
+    },
+    {
+      "name": "DomesticObject137__Body_ON_paint_green",
+      "assembly": "DomesticObject137",
+      "cell": "shared",
+      "key": "paint_green",
+      "triangles": 752
+    },
+    {
+      "name": "DomesticObject137__Body_ON_paint_ochre",
+      "assembly": "DomesticObject137",
+      "cell": "shared",
+      "key": "paint_ochre",
+      "triangles": 752
+    },
+    {
+      "name": "DomesticObject137__Body_ON_paint_sky",
+      "assembly": "DomesticObject137",
+      "cell": "shared",
+      "key": "paint_sky",
+      "triangles": 752
+    },
+    {
+      "name": "DomesticObject138__Body_ON_brass",
+      "assembly": "DomesticObject138",
+      "cell": "shared",
+      "key": "brass",
+      "triangles": 564
+    },
+    {
+      "name": "DomesticObject138__Body_ON_iron",
+      "assembly": "DomesticObject138",
+      "cell": "shared",
+      "key": "iron",
+      "triangles": 752
+    },
+    {
+      "name": "DomesticObject138__Body_ON_rubber_aged",
+      "assembly": "DomesticObject138",
+      "cell": "shared",
+      "key": "rubber_aged",
+      "triangles": 8852
     }
   ],
-  "triangles": 587336,
+  "triangles": 602220,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -39446,6 +40001,163 @@
           0
         ],
         "yaw": 0
+      },
+      {
+        "id": "DomesticObject137",
+        "parts": [
+          {
+            "name": "DomesticObject137__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          },
+          {
+            "name": "DomesticObject137__Body_ON_iron",
+            "component": "Body",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.3,
+              0.3,
+              0.29,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.9
+            }
+          },
+          {
+            "name": "DomesticObject137__Body_ON_kraft",
+            "component": "Body",
+            "key": "kraft",
+            "tile": 0.5,
+            "catalog_key": "paper",
+            "tint": [
+              0.5,
+              0.38,
+              0.22,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          },
+          {
+            "name": "DomesticObject137__Body_ON_paint_green",
+            "component": "Body",
+            "key": "paint_green",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.2,
+              0.3,
+              0.16,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.1,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "DomesticObject137__Body_ON_paint_ochre",
+            "component": "Body",
+            "key": "paint_ochre",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.55,
+              0.42,
+              0.16,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.1,
+              "roughness": 0.85
+            }
+          },
+          {
+            "name": "DomesticObject137__Body_ON_paint_sky",
+            "component": "Body",
+            "key": "paint_sky",
+            "tile": 0.6,
+            "catalog_key": "linen",
+            "tint": [
+              0.62,
+              0.68,
+              0.72,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.1,
+              "roughness": 0.85
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
+      },
+      {
+        "id": "DomesticObject138",
+        "parts": [
+          {
+            "name": "DomesticObject138__Body_ON_brass",
+            "component": "Body",
+            "key": "brass",
+            "tile": 0.5,
+            "catalog_key": "brass_dull",
+            "finish": {
+              "normal_scale": 0.04,
+              "roughness": 0.5
+            }
+          },
+          {
+            "name": "DomesticObject138__Body_ON_iron",
+            "component": "Body",
+            "key": "iron",
+            "tile": 0.4,
+            "catalog_key": "iron_blackened",
+            "tint": [
+              0.3,
+              0.3,
+              0.29,
+              1
+            ],
+            "finish": {
+              "normal_scale": 0.25,
+              "roughness": 0.9
+            }
+          },
+          {
+            "name": "DomesticObject138__Body_ON_rubber_aged",
+            "component": "Body",
+            "key": "rubber_aged",
+            "tile": 0.26,
+            "catalog_key": "rubber_aged",
+            "finish": {
+              "normal_scale": 0.12,
+              "roughness": 0.8
+            }
+          }
+        ],
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "yaw": 0
       }
     ],
     "instances": [
@@ -40392,15 +41104,63 @@
       {
         "id": "F01_tour_card",
         "variant": "DomesticObject89"
+      },
+      {
+        "id": "F03_riser_marks",
+        "variant": "DomesticObject137"
+      },
+      {
+        "id": "F03_riser_crate",
+        "variant": "DomesticObject03"
+      },
+      {
+        "id": "F03_riser_hose",
+        "variant": "DomesticObject138"
+      },
+      {
+        "id": "F04_riser_marks",
+        "variant": "DomesticObject137"
+      },
+      {
+        "id": "F04_riser_crate",
+        "variant": "DomesticObject03"
+      },
+      {
+        "id": "F04_riser_hose",
+        "variant": "DomesticObject138"
+      },
+      {
+        "id": "F05_riser_marks",
+        "variant": "DomesticObject137"
+      },
+      {
+        "id": "F05_riser_crate",
+        "variant": "DomesticObject03"
+      },
+      {
+        "id": "F05_riser_hose",
+        "variant": "DomesticObject138"
+      },
+      {
+        "id": "F06_riser_marks",
+        "variant": "DomesticObject137"
+      },
+      {
+        "id": "F06_riser_crate",
+        "variant": "DomesticObject03"
+      },
+      {
+        "id": "F06_riser_hose",
+        "variant": "DomesticObject138"
       }
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "8ccd1aaf78ae9e1fa09c2498f9cf7399390d9ce4e3c7b91aa3f756d3d4fa6c20",
+  "asset_sha256": "cf3d8e237eb4b5db80918bfab1f7f1ec4b0c65920fad930d6f8ea34309ba061c",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "9669f74c4be880e9b41016104a9c28a5cf509b03bd0e60e5d080b052f0435575",
+    "art/data/domestic_objects/source_plan.json": "becba5233687bb61a1abf95d58d3ae17c02d4473dc664c647bf796da1b38da60",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/blender/scripts/build_domestic_objects.py": "9457275893a50c91cbc450c2677b3a1a7862f830a53ade2d69cce50af81596c6",
+    "art/blender/scripts/build_domestic_objects.py": "55014ba5ccf45a7f48360d8663243431381d5b2fcb9cd967f887c2c36cc1b3b1",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
@@ -40502,18 +41262,18 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "da1ca42c0c1db5505e5449528b5f5af53f15dfcd920689e935b510539cc2c854",
+    "art/blender/scripts/domestic_objects_geometry.py": "6ac95b9b86a797d0edb74903d03cbcf8272605d6b5c5ac06d554047aabe5e33c",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "c56cbd3751baf010fb1d04af24f263d54ee983e4d6981cf48c99b916601a195b",
-    "game/data/orison_v2/completion_interiors.json": "c2e67fca657ce400d2a62cfafe4c13b7dd6cf2a5ea9dd605f95209c6730e75b5",
-    "art/data/orison_v2/completion_interiors_source.json": "7f1a989c2e4a02700ce931bc719311ce9d382360545bacb0448e073d4107fef8",
+    "game/data/orison_v2/domestic_furniture.json": "a8333ed0a1d9619a14ed2a8911434e4ac20634d0be4126bde0a4ed437a2f1e33",
+    "game/data/orison_v2/completion_interiors.json": "ad4c99dd215a65ea7a9798ae2fa30ef683e7292811526796fbe99d5aa82de97c",
+    "art/data/orison_v2/completion_interiors_source.json": "62f87da0bb9c6631f8c2afb29f4fa0557fa693988a920c57265ed1839eada6e3",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "b51ffeb229e043a3bb6a7b7dde70aa58ccd2c3004bde5aae9099d53b73a01f76",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "a23792cd8fa7512fede2f4dd9d6bf0c79ad26cfc542302528dc65963f2f4d0d3",
-    "game/data/orison_v2_blockout.json": "9f4f30c7b6a4338abb38a7ef5a4d3de875860a4fa80d6760a6c1fa8a18c62278",
+    "game/data/orison_v2_blockout.json": "991c31d8bf5c5d562d73e46965800cc37310a4a747f54fedcf7dd1148f72a46e",
     "art/blender/work_tables.blend": "ffc309d94421baa1307cffe02ba2b375b80329c1f98849e4ee4902c9bdd660c6",
-    "game/data/orison_v2/domestic_surface_props.json": "82e151adef3a647cb6b2a34187a76ccd47e0d3c538c32dca76230b48a0844ce6",
+    "game/data/orison_v2/domestic_surface_props.json": "20ec7e5a42f4db8d81db0eb63707b59aaa1eeafa053e8881d38d30800552acae",
     "game/tests/fixtures/orison_surface_stock.json": "28cbec6364d396d4a84dd6725ef8ab54db7c7790207edc29223f7c377a1cc9d4",
     "art/blender/domestic_storage.blend": "b5ffc7ece365396055d96397ebe5836b6cb041e5f2438b650623e6af837155bb",
     "art/blender/prep_cabinets.blend": "3418df8719df81fbcb977774264d74f0e35e339366d97e7bc9d47a2e91422f1b",
@@ -47314,6 +48074,71 @@
         "DomesticObject136_GasNozzle",
         "DomesticObject136_GasClip",
         "DomesticObject136_GasTube"
+      ]
+    },
+    {
+      "assembly": "DomesticObject137",
+      "id": "DomesticObject137_HeatBand",
+      "stocks": [
+        "DomesticObject137_HeatBandNear",
+        "DomesticObject137_HeatBandFar",
+        "DomesticObject137_HeatBandWest",
+        "DomesticObject137_HeatBandEast",
+        "DomesticObject137_HeatEye",
+        "DomesticObject137_HeatTagWire",
+        "DomesticObject137_HeatTag"
+      ]
+    },
+    {
+      "assembly": "DomesticObject137",
+      "id": "DomesticObject137_TelephoneBand",
+      "stocks": [
+        "DomesticObject137_TelephoneBandNear",
+        "DomesticObject137_TelephoneBandFar",
+        "DomesticObject137_TelephoneBandWest",
+        "DomesticObject137_TelephoneBandEast",
+        "DomesticObject137_TelephoneEye",
+        "DomesticObject137_TelephoneTagWire",
+        "DomesticObject137_TelephoneTag"
+      ]
+    },
+    {
+      "assembly": "DomesticObject137",
+      "id": "DomesticObject137_ElectricBand",
+      "stocks": [
+        "DomesticObject137_ElectricBandNear",
+        "DomesticObject137_ElectricBandFar",
+        "DomesticObject137_ElectricBandWest",
+        "DomesticObject137_ElectricBandEast",
+        "DomesticObject137_ElectricEye",
+        "DomesticObject137_ElectricTagWire",
+        "DomesticObject137_ElectricTag"
+      ]
+    },
+    {
+      "assembly": "DomesticObject137",
+      "id": "DomesticObject137_DrainCock",
+      "stocks": [
+        "DomesticObject137_CockFlange",
+        "DomesticObject137_CockNipple",
+        "DomesticObject137_CockBody",
+        "DomesticObject137_CockBonnet",
+        "DomesticObject137_CockLever",
+        "DomesticObject137_CockSpout"
+      ]
+    },
+    {
+      "assembly": "DomesticObject138",
+      "id": "DomesticObject138_HoseCoil",
+      "stocks": [
+        "DomesticObject138_Backplate",
+        "DomesticObject138_Arm",
+        "DomesticObject138_Lip",
+        "DomesticObject138_Gusset",
+        "DomesticObject138_Hose",
+        "DomesticObject138_Coupling",
+        "DomesticObject138_Nozzle",
+        "DomesticObject138_NozzleTip"
       ]
     }
   ],

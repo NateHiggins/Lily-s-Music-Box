@@ -4,7 +4,7 @@
  "layout_path": "art/data/building_layout.json",
  "universe_counts": {
   "floor": 8,
-  "v2_blockout": 2352,
+  "v2_blockout": 2364,
   "unit": 22,
   "room": 127,
   "marker": 631,
@@ -77181,6 +77181,84 @@
    "target_exists": true
   },
   {
+   "key": "8ffb3b966e51d1bf",
+   "kind": "id_reference",
+   "token": "F03_riser_crate",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "059931bc094bece5",
+   "kind": "id_reference",
+   "token": "F03_riser_hose",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6dfa75c1300522d9",
+   "kind": "id_reference",
+   "token": "F03_riser_marks",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "1403400c33b0c662",
    "kind": "id_reference",
    "token": "F04_PUBLIC_LANDING_PIECE",
@@ -77262,6 +77340,84 @@
    "key": "ea84d0863de55ad0",
    "kind": "id_reference",
    "token": "F04_SERVICE_NOTICE",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9a9c462e94b8b1ec",
+   "kind": "id_reference",
+   "token": "F04_riser_crate",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "862a081109f438ce",
+   "kind": "id_reference",
+   "token": "F04_riser_hose",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b5329ae019ba8e45",
+   "kind": "id_reference",
+   "token": "F04_riser_marks",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -77389,6 +77545,84 @@
    "target_exists": true
   },
   {
+   "key": "c526185d2114dc5c",
+   "kind": "id_reference",
+   "token": "F05_riser_crate",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "3e832b34a08fdbd6",
+   "kind": "id_reference",
+   "token": "F05_riser_hose",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7cf02859d2b92d40",
+   "kind": "id_reference",
+   "token": "F05_riser_marks",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "51d94f8498fa3ac7",
    "kind": "id_reference",
    "token": "F06_PUBLIC_LANDING_PIECE",
@@ -77470,6 +77704,84 @@
    "key": "66ef3159cd29a5d9",
    "kind": "id_reference",
    "token": "F06_SERVICE_NOTICE",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "45d5cb176ffe4830",
+   "kind": "id_reference",
+   "token": "F06_riser_crate",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e1384b0fa5b2e4d1",
+   "kind": "id_reference",
+   "token": "F06_riser_hose",
+   "file": "game/data/orison_v2/domestic_furniture.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/furniture[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "53918dc3a70445fb",
+   "kind": "id_reference",
+   "token": "F06_riser_marks",
    "file": "game/data/orison_v2/domestic_furniture.json",
    "tier": "data",
    "subsystem": "data",
@@ -83725,6 +84037,84 @@
    "target_exists": true
   },
   {
+   "key": "3ceb1b9964db74c3",
+   "kind": "id_reference",
+   "token": "F03_riser_crate",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "50ae5994c20f896c",
+   "kind": "id_reference",
+   "token": "F03_riser_hose",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "20f1d639a97846a8",
+   "kind": "id_reference",
+   "token": "F03_riser_marks",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "2bb6fe799f135061",
    "kind": "id_reference",
    "token": "F04_PUBLIC_LANDING_PIECE",
@@ -83806,6 +84196,84 @@
    "key": "a35a4d227b52216b",
    "kind": "id_reference",
    "token": "F04_SERVICE_NOTICE",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b752428465ad2a50",
+   "kind": "id_reference",
+   "token": "F04_riser_crate",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ed78c6165bfb797c",
+   "kind": "id_reference",
+   "token": "F04_riser_hose",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "78f46fd693a52088",
+   "kind": "id_reference",
+   "token": "F04_riser_marks",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -83933,6 +84401,84 @@
    "target_exists": true
   },
   {
+   "key": "08a0e27d15e7bed8",
+   "kind": "id_reference",
+   "token": "F05_riser_crate",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9889f75ff1056030",
+   "kind": "id_reference",
+   "token": "F05_riser_hose",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6f34bca653426e61",
+   "kind": "id_reference",
+   "token": "F05_riser_marks",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "c8069dbc5df34d4f",
    "kind": "id_reference",
    "token": "F06_PUBLIC_LANDING_PIECE",
@@ -84014,6 +84560,84 @@
    "key": "0647b797f64a0b9d",
    "kind": "id_reference",
    "token": "F06_SERVICE_NOTICE",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "5c31a13c2a86d7dd",
+   "kind": "id_reference",
+   "token": "F06_riser_crate",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "518560b06873d560",
+   "kind": "id_reference",
+   "token": "F06_riser_hose",
+   "file": "game/data/orison_v2/domestic_objects.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "620eaad372c7b774",
+   "kind": "id_reference",
+   "token": "F06_riser_marks",
    "file": "game/data/orison_v2/domestic_objects.json",
    "tier": "data",
    "subsystem": "data",
@@ -127819,7 +128443,7 @@
     0,
     0
    ],
-   "count": 20,
+   "count": 23,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -127866,7 +128490,7 @@
     0,
     0
    ],
-   "count": 23,
+   "count": 26,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -127909,9 +128533,11 @@
     0,
     0,
     0,
+    0,
+    0,
     0
    ],
-   "count": 18,
+   "count": 21,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -127953,9 +128579,12 @@
     0,
     0,
     0,
+    0,
+    0,
+    0,
     0
    ],
-   "count": 17,
+   "count": 20,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -129175,6 +129804,90 @@
    "target_exists": false
   },
   {
+   "key": "f981a6460a3f2308",
+   "kind": "id_candidate",
+   "token": "F03_SERVICE_HALL_WEAR_CHALK",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "5db5f930dd239899",
+   "kind": "id_candidate",
+   "token": "F03_SERVICE_HALL_WEAR_DRIP",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "4964e4366afe9670",
+   "kind": "id_candidate",
+   "token": "F03_SERVICE_HALL_WEAR_SCUFF",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "5759d865fa39b6e1",
    "kind": "id_candidate",
    "token": "F03_SOUTHWEST_HALL_WEAR_CORNER",
@@ -129819,6 +130532,90 @@
    "target_exists": false
   },
   {
+   "key": "901fec176b802f3e",
+   "kind": "id_candidate",
+   "token": "F04_SERVICE_HALL_WEAR_CHALK",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "f8f4e9cb7f0a053c",
+   "kind": "id_candidate",
+   "token": "F04_SERVICE_HALL_WEAR_DRIP",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "8bf792b2d5a8d54d",
+   "kind": "id_candidate",
+   "token": "F04_SERVICE_HALL_WEAR_SCUFF",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "67cb4e0f9b7710a9",
    "kind": "id_candidate",
    "token": "F04_SOUTHWEST_HALL_WEAR_CORNER",
@@ -130407,6 +131204,90 @@
    "target_exists": false
   },
   {
+   "key": "c893a85d38532d0d",
+   "kind": "id_candidate",
+   "token": "F05_SERVICE_HALL_WEAR_CHALK",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "affbff786b41b60a",
+   "kind": "id_candidate",
+   "token": "F05_SERVICE_HALL_WEAR_DRIP",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "a3fee3faf413284e",
+   "kind": "id_candidate",
+   "token": "F05_SERVICE_HALL_WEAR_SCUFF",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
    "key": "49f23b73092a8475",
    "kind": "id_candidate",
    "token": "F05_WEST_HALL_WEAR_CORNER",
@@ -130858,6 +131739,90 @@
    "key": "c4f20df73354d606",
    "kind": "id_candidate",
    "token": "F06_EAST_HALL_WEAR_TROLLEY",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "b5a041feb79faa94",
+   "kind": "id_candidate",
+   "token": "F06_SERVICE_HALL_WEAR_CHALK",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "fa48c5afa64059d5",
+   "kind": "id_candidate",
+   "token": "F06_SERVICE_HALL_WEAR_DRIP",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "bca292345e9729f8",
+   "kind": "id_candidate",
+   "token": "F06_SERVICE_HALL_WEAR_SCUFF",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -131510,6 +132475,34 @@
    "target_exists": true
   },
   {
+   "key": "1336e32277aab1f3",
+   "kind": "id_reference",
+   "token": "F03_SERVICE_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "f1c9004b1c281d2a",
    "kind": "id_reference",
    "token": "F03_SOUTHWEST_HALL",
@@ -131691,6 +132684,34 @@
    "key": "333718a46b36b3ae",
    "kind": "id_reference",
    "token": "F04_EAST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "04834b4f1e814390",
+   "kind": "id_reference",
+   "token": "F04_SERVICE_HALL",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -131918,6 +132939,34 @@
    "target_exists": true
   },
   {
+   "key": "837f2df6c28f371b",
+   "kind": "id_reference",
+   "token": "F05_SERVICE_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
    "key": "d72e83cc19a2d2ad",
    "kind": "id_reference",
    "token": "F05_WEST_HALL",
@@ -132041,6 +133090,34 @@
    "key": "09ebfeeccbf6e930",
    "kind": "id_reference",
    "token": "F06_EAST_HALL",
+   "file": "game/data/orison_v2/positional_wear.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/decals[*]/space"
+   ],
+   "lines": [
+    0,
+    0,
+    0
+   ],
+   "count": 3,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6452fcbe13579120",
+   "kind": "id_reference",
+   "token": "F06_SERVICE_HALL",
    "file": "game/data/orison_v2/positional_wear.json",
    "tier": "data",
    "subsystem": "data",
@@ -152237,7 +153314,7 @@
     0,
     0
    ],
-   "count": 301,
+   "count": 304,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -152295,7 +153372,7 @@
     0,
     0
    ],
-   "count": 405,
+   "count": 408,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -152352,7 +153429,7 @@
     0,
     0
    ],
-   "count": 323,
+   "count": 326,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -152409,7 +153486,7 @@
     0,
     0
    ],
-   "count": 319,
+   "count": 322,
    "context": [],
    "gameplay_binding": false,
    "authority": [
@@ -234370,8 +235447,8 @@
     "_teresa_route"
    ],
    "lines": [
-    135,
-    137
+    137,
+    139
    ],
    "count": 2,
    "context": [
@@ -234402,8 +235479,8 @@
     "_teresa_route"
    ],
    "lines": [
-    135,
-    137
+    137,
+    139
    ],
    "count": 2,
    "context": [
@@ -234434,7 +235511,7 @@
     "_teresa_route"
    ],
    "lines": [
-    127
+    129
    ],
    "count": 1,
    "context": [
@@ -234464,7 +235541,7 @@
     "_teresa_route"
    ],
    "lines": [
-    131
+    133
    ],
    "count": 1,
    "context": [
@@ -234494,7 +235571,7 @@
     "_route"
    ],
    "lines": [
-    106
+    108
    ],
    "count": 1,
    "context": [
@@ -234522,7 +235599,7 @@
     "_route"
    ],
    "lines": [
-    109
+    111
    ],
    "count": 1,
    "context": [
@@ -234550,7 +235627,7 @@
     "_teresa_route"
    ],
    "lines": [
-    121
+    123
    ],
    "count": 1,
    "context": [
@@ -234760,11 +235837,11 @@
     "_route"
    ],
    "lines": [
-    107,
-    107,
-    110,
-    111,
-    111
+    109,
+    109,
+    112,
+    113,
+    113
    ],
    "count": 5,
    "context": [
@@ -234797,11 +235874,11 @@
     "_teresa_route"
    ],
    "lines": [
-    126,
     128,
     130,
     132,
-    133
+    134,
+    135
    ],
    "count": 5,
    "context": [
@@ -234896,7 +235973,7 @@
     "_run"
    ],
    "lines": [
-    151
+    172
    ],
    "count": 1,
    "context": [
@@ -234926,7 +236003,7 @@
     "_capture_3b"
    ],
    "lines": [
-    368
+    389
    ],
    "count": 1,
    "context": [
@@ -234956,7 +236033,7 @@
     "_capture_3b"
    ],
    "lines": [
-    368
+    389
    ],
    "count": 1,
    "context": [
@@ -234986,7 +236063,7 @@
     "_run"
    ],
    "lines": [
-    76
+    97
    ],
    "count": 1,
    "context": [
@@ -235016,7 +236093,7 @@
     "_run"
    ],
    "lines": [
-    75
+    96
    ],
    "count": 1,
    "context": [
@@ -235046,7 +236123,7 @@
     "_run"
    ],
    "lines": [
-    138
+    159
    ],
    "count": 1,
    "context": [
@@ -235076,7 +236153,7 @@
     "_verify_3b_switches"
    ],
    "lines": [
-    280
+    301
    ],
    "count": 1,
    "context": [
@@ -235106,7 +236183,7 @@
     "_run"
    ],
    "lines": [
-    146
+    167
    ],
    "count": 1,
    "context": [
@@ -235136,7 +236213,7 @@
     "_verify_study_switch_sweep"
    ],
    "lines": [
-    300
+    321
    ],
    "count": 1,
    "context": [
@@ -235164,7 +236241,7 @@
     "_run"
    ],
    "lines": [
-    138
+    159
    ],
    "count": 1,
    "context": [
@@ -235195,7 +236272,7 @@
     "_verify_3b_switches"
    ],
    "lines": [
-    280
+    301
    ],
    "count": 1,
    "context": [
@@ -235226,7 +236303,7 @@
     "_run"
    ],
    "lines": [
-    146
+    167
    ],
    "count": 1,
    "context": [
@@ -235257,7 +236334,7 @@
     "_verify_study_switch_sweep"
    ],
    "lines": [
-    299
+    320
    ],
    "count": 1,
    "context": [
@@ -235288,9 +236365,9 @@
     "_run"
    ],
    "lines": [
-    77,
-    88,
-    147
+    98,
+    109,
+    168
    ],
    "count": 3,
    "context": [
@@ -235322,7 +236399,7 @@
     "_verify_3b_switches"
    ],
    "lines": [
-    228
+    249
    ],
    "count": 1,
    "context": [
@@ -258349,7 +259426,7 @@
     "_open_front_entrance"
    ],
    "lines": [
-    138
+    150
    ],
    "count": 1,
    "context": [
@@ -258380,8 +259457,8 @@
     "_enter_front_entrance"
    ],
    "lines": [
-    125,
-    135
+    137,
+    147
    ],
    "count": 2,
    "context": [
@@ -258409,9 +259486,9 @@
     "_enter_front_entrance"
    ],
    "lines": [
-    132,
-    134,
-    136
+    144,
+    146,
+    148
    ],
    "count": 3,
    "context": [
@@ -258444,8 +259521,8 @@
     "_leave_front_entrance"
    ],
    "lines": [
-    126,
-    128
+    138,
+    140
    ],
    "count": 2,
    "context": [
@@ -258527,7 +259604,7 @@
     71,
     71,
     71,
-    81
+    93
    ],
    "count": 26,
    "context": [

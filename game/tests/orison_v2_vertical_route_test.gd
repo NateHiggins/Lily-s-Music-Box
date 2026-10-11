@@ -70,6 +70,18 @@ func _route() -> void:
 				if not await _walk(point): return
 			for point in [Vector3(8.85, 6.4, -3.25), Vector3(5.0, 6.4, -3.25), Vector3(3.975, 6.4, -3.4)]:
 				if not await _walk(point): return
+		elif floor_index >= 2:
+			# Dossier slice 85: the F04-F06 service halls' first walked route, past the riser cluster's
+			# maintenance evidence by the bypass and into the service core, then back to the stair.
+			var y := base + 3.2
+			var hall := [Vector3(5.0, y, -3.25), Vector3(8.9, y, -3.25), Vector3(8.9, y, -1.0), Vector3(7.65, y, -1.0),
+					Vector3(7.65, y, 2.0), Vector3(8.9, y, 3.2), Vector3(10.05, y, 3.2)]
+			for point in hall:
+				if not await _walk(point): return
+			hall.reverse()
+			for point in hall:
+				if not await _walk(point): return
+			if not await _walk(Vector3(3.975, y, -3.4)): return
 		if not await _walk(Vector3(1.925, base + 3.2, -3.4)): return
 	# Return down the same physical stair, keeping the controller live throughout.
 	for floor_index in [4, 3, 2, 1, 0]:
