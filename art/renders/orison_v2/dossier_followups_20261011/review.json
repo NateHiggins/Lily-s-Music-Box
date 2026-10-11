@@ -1,0 +1,44 @@
+{
+  "evidence_class": "INERT",
+  "candidate": "3d8021c51ea66b4f31c3657b45c1714fa085f28c",
+  "interpretation": "Canonical focused integration checks; no ledger acceptance. connected_world.log timed out and has no verdict. Retry completed successfully. Renders reviewed; route captures include original carried service set.",
+  "owner_paths_preserved": 283,
+  "import_eol_paths_restored": 0,
+  "results": {
+    "connected_world": {
+      "checks": 57508,
+      "failures": 0
+    },
+    "switch_model": {
+      "checks": 1449,
+      "failures": 0
+    },
+    "completion_interiors": {
+      "waypoints": 154,
+      "failures": 0
+    }
+  },
+  "files": {
+    "1D_bathroom.png": "d9f0061b577c3980246d04fdc3c151b594c3f1823677c63c16257b875fa97a98",
+    "committed-source-comparison.json": "8127ecaecf3ab168d44fb83cb176923da176c2bcf7420531336982bbd597ee97",
+    "completion-route.json": "e0e606d72e39f8eb79c1d0a3db90cc25c555834ba8835feae3285cbe145e3fe4",
+    "completion_all.log": "558b0635e2149584909c2ba0911d235535e32b3e2fd3d4fecaf31e13c1b7bafd",
+    "completion_all.log.receipt.json": "959e81ecbcc5ab95513c530be3af93d212837530f04551860bb962588c544757",
+    "completion_all.log.stderr": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+    "connected_world.log": "e7c1119539a07eea34d95a95372e06a8587d7d42f83aad497defb0263bf0a146",
+    "connected_world.log.receipt.json": "d6cbc4480989aefb1744d27711bf7b0c3cb0923c2976cfa47525492cc8129c11",
+    "connected_world.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "connected_world_retry.log": "e2e4f159086e8845b6202398bbd56eaa1bc180f8be8442ca492a199a3ebf4c4a",
+    "connected_world_retry.log.receipt.json": "c7f1845e55ca69a68f3ee71eecf2c6508b0bfcbe0a19bd4fbd1c1946d2bf2669",
+    "connected_world_retry.log.stderr": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+    "F04_D_ENTRY_DOOR.png": "99a3b8fdbca40068fee72a5a3c0685db01baf34ec6841d370f4a932e9421045b",
+    "packet-canonical-check.json": "b1dc56877439fcb75951b7731f7e22043ddb3bad89cbb546f3fb02d12f71c2a7",
+    "packet-fresh-check.json": "ae46582e75e0011204aa8094c3f960b6fd395e05a40eb47ab83dce2a9e111c5f",
+    "switch_model.log": "b05cbb362d398ef931ffc05c7a8fdd53cae269522bfdd6b559f366d4d14bbd48",
+    "switch_model.log.receipt.json": "a6e474d00472ebecf15be3943835033547ec41863f96d6aeaa49f14effc656c9",
+    "switch_model.log.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "switch_thrown.png": "4f16a4d5e63449372d35a27df528cdf92d266bff4fe7be2eeb19ffc1497fd91b",
+    "verification.json": "18c16e7a94d63facf625599b6c0efed3cc06e45f8ab30e69073718274e3996d6",
+    "verification.md": "007510f3a7be763001258f910c8f4eb732eb9cf34b1b34270a5510e2f3b09f25"
+  }
+}
