@@ -47,6 +47,8 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 		if record.unit != "2B": _kinds[str(record.id)] = "radiator"
 	var shelves: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/bookshelves.json"))
 	for record: Dictionary in shelves.shelves: _kinds[str(record.id)] = "books"
+	for window: Node in get_tree().get_nodes_in_group("v2_window_treatments"):
+		if adapter.root.is_ancestor_of(window):_kinds[str(window.get_meta("semantic_window"))]="blind"
 	_kinds.merge(SERVICE_KINDS)
 	_kinds["B1_BOILER_AIR_E"]="window"
 	_service_library = MaintenanceActivityLibrary.load_default()
@@ -56,8 +58,10 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 	for identity: String in _kinds:
 		var prop: Node = adapter.resolve(identity)
 		var kind: String = _kinds[identity]
+		if kind=="blind" and prop!=null:prop=prop.get_node_or_null("WindowTreatment")
 		if kind=="window" and prop!=null:prop=prop.get_node_or_null("OperatingWindow")
-		if (kind == "light" and not prop is LightFixtureProp) \
+		if (kind == "blind" and (prop==null or not prop.has_method("settings_snapshot"))) \
+				or (kind == "light" and not prop is LightFixtureProp) \
 				or (kind == "fuse_service" and not prop is FusePanelProp) \
 				or (kind == "tank_service" and not prop is RoofTankBallcockProp) \
 				or (kind == "boiler_service" and not prop is BoilerProp) \
@@ -89,6 +93,8 @@ func bind(adapter: Variant, switches: SwitchSystem) -> bool:
 			_connect(_subjects[identity], "supply_changed", _on_valve_changed)
 		elif _kinds[identity] in ["prep", "mirror", "window"]:
 			_connect(_subjects[identity], "open_state_changed", _on_cabinet_changed)
+		elif _kinds[identity] == "blind":
+			_connect(_subjects[identity], "settings_changed", _commit_change)
 		elif _kinds[identity] == "books":
 			_connect(_subjects[identity], "order_changed", _commit_change)
 	return true
@@ -122,6 +128,8 @@ func validate(value: Variant, kinds: Dictionary) -> bool:
 			if typeof(setting) not in [TYPE_FLOAT, TYPE_INT] or not is_finite(float(setting)) \
 					or float(setting) < 0.0 or float(setting) > 1.0:
 				errors.append("invalid saved radiator position")
+		elif record.kind == "blind":
+			if not preload("res://scripts/building/orison_v2_window_treatment.gd").valid_settings(setting):errors.append("invalid saved blind settings")
 		elif record.kind == "books":
 			if not _valid_book_order(str(identity), setting): errors.append("saved books must be the resident library permutation")
 		elif setting is not bool:
@@ -151,6 +159,7 @@ func snapshot() -> Dictionary:
 			"radiator": setting = prop.get("supply_position")
 			"prep", "window": setting = prop.get("opened")
 			"mirror": setting = prop.call("is_door_open")
+			"blind": setting = prop.call("settings_snapshot")
 			"books": setting = prop.get("sorter").order.duplicate()
 		records[identity] = {"kind":kind, "value":setting}
 	return {"schema_version":1, "records":records}
@@ -164,6 +173,7 @@ func _restore(saved: Dictionary) -> void:
 			"fuse_service", "tank_service", "boiler_service": _restore_service(identity, record.value)
 			"light": prop.call("set_powered", record.value)
 			"radiator": prop.call("set_supply_position", float(record.value), 0.0)
+			"blind": prop.call("restore_settings", record.value)
 			"books": prop.call("restore_order", record.value)
 			_: prop.call("restore_open_state", record.value)
 	_last_saved = saved.duplicate(true)

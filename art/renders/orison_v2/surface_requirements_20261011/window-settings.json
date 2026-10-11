@@ -1,0 +1,857 @@
+{
+	"evidence_class": "INERT",
+	"windows": [
+		{
+			"character_note": "Quiet civic linen and matched blinds in the shared rooms.",
+			"initial": {
+				"curtain_open": 0.85,
+				"raise": 0.5,
+				"tilt_degrees": 20.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "",
+			"window": "F01_LOBBY_WINDOW_W"
+		},
+		{
+			"character_note": "Quiet civic linen and matched blinds in the shared rooms.",
+			"initial": {
+				"curtain_open": 0.85,
+				"raise": 0.5,
+				"tilt_degrees": 20.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "",
+			"window": "F01_LOBBY_WINDOW_E"
+		},
+		{
+			"character_note": "Quiet civic linen and matched blinds in the shared rooms.",
+			"initial": {
+				"curtain_open": 0.85,
+				"raise": 0.5,
+				"tilt_degrees": 20.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "",
+			"window": "F01_COMMON_WINDOW_S"
+		},
+		{
+			"character_note": "Quiet civic linen and matched blinds in the shared rooms.",
+			"initial": {
+				"curtain_open": 0.85,
+				"raise": 0.5,
+				"tilt_degrees": 20.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "",
+			"window": "F01_COMMON_WINDOW_N"
+		},
+		{
+			"character_note": "Precisely matched neutral panels and measured glare control at the caption desk.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.45,
+				"tilt_degrees": 24.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "2A",
+			"window": "F02_A_MAIN_WINDOW_W_S"
+		},
+		{
+			"character_note": "Precisely matched neutral panels and measured glare control at the caption desk.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.45,
+				"tilt_degrees": 24.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "2A",
+			"window": "F02_A_MAIN_WINDOW_W_N"
+		},
+		{
+			"character_note": "Precisely matched neutral panels and measured glare control at the caption desk.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.65,
+				"tilt_degrees": 20.0
+			},
+			"material": "linen",
+			"style": "bare",
+			"unit": "2A",
+			"window": "F02_A_KITCHEN_WINDOW_W"
+		},
+		{
+			"character_note": "Precisely matched neutral panels and measured glare control at the caption desk.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.45,
+				"tilt_degrees": 24.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "2A",
+			"window": "F02_A_BED_WINDOW_W"
+		},
+		{
+			"character_note": "Precisely matched neutral panels and measured glare control at the caption desk.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.45,
+				"tilt_degrees": 24.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "2A",
+			"window": "F02_A_BED_WINDOW_N"
+		},
+		{
+			"character_note": "Player’s worn practical curtains and partial privacy at the alcove.",
+			"initial": {
+				"curtain_open": 0.75,
+				"raise": 0.3,
+				"tilt_degrees": 38.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "4B",
+			"window": "F04_B_MAIN_WINDOW_W_S"
+		},
+		{
+			"character_note": "Player’s worn practical curtains and partial privacy at the alcove.",
+			"initial": {
+				"curtain_open": 0.75,
+				"raise": 0.3,
+				"tilt_degrees": 38.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "4B",
+			"window": "F04_B_MAIN_WINDOW_W_N"
+		},
+		{
+			"character_note": "Player’s worn practical curtains and partial privacy at the alcove.",
+			"initial": {
+				"curtain_open": 0.75,
+				"raise": 0.65,
+				"tilt_degrees": 20.0
+			},
+			"material": "linen",
+			"style": "bare",
+			"unit": "4B",
+			"window": "F04_B_KITCHEN_WINDOW_W"
+		},
+		{
+			"character_note": "Player’s worn practical curtains and partial privacy at the alcove.",
+			"initial": {
+				"curtain_open": 0.0,
+				"raise": 0.0,
+				"tilt_degrees": 75.0
+			},
+			"material": "linen",
+			"style": "cafe",
+			"unit": "4B",
+			"window": "F04_B_BATH_WINDOW_E"
+		},
+		{
+			"character_note": "Player’s worn practical curtains and partial privacy at the alcove.",
+			"initial": {
+				"curtain_open": 0.75,
+				"raise": 0.3,
+				"tilt_degrees": 38.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "4B",
+			"window": "F04_B_ALCOVE_WINDOW_W"
+		},
+		{
+			"character_note": "Player’s worn practical curtains and partial privacy at the alcove.",
+			"initial": {
+				"curtain_open": 0.75,
+				"raise": 0.3,
+				"tilt_degrees": 38.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "4B",
+			"window": "F04_B_ALCOVE_WINDOW_N"
+		},
+		{
+			"character_note": "Lena’s carefully sewn cafe panels leave the upper sash clear for fitting light.",
+			"initial": {
+				"curtain_open": 0.8,
+				"raise": 0.6,
+				"tilt_degrees": 18.0
+			},
+			"material": "linen",
+			"style": "cafe",
+			"unit": "2B",
+			"window": "F02_B_MAIN_WINDOW_E"
+		},
+		{
+			"character_note": "Lena’s carefully sewn cafe panels leave the upper sash clear for fitting light.",
+			"initial": {
+				"curtain_open": 0.8,
+				"raise": 0.6,
+				"tilt_degrees": 18.0
+			},
+			"material": "linen",
+			"style": "cafe",
+			"unit": "2B",
+			"window": "F02_B_BED_WINDOW_S"
+		},
+		{
+			"character_note": "Lena’s carefully sewn cafe panels leave the upper sash clear for fitting light.",
+			"initial": {
+				"curtain_open": 0.0,
+				"raise": 0.0,
+				"tilt_degrees": 75.0
+			},
+			"material": "linen",
+			"style": "cafe",
+			"unit": "2B",
+			"window": "F02_B_BATH_WINDOW_E"
+		},
+		{
+			"character_note": "Omar keeps economical washable panels gathered away from the repair bench.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.65,
+				"tilt_degrees": 20.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "3B",
+			"window": "F03_B_MAIN_WINDOW_E"
+		},
+		{
+			"character_note": "Omar keeps economical washable panels gathered away from the repair bench.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.65,
+				"tilt_degrees": 20.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "3B",
+			"window": "F03_B_ALCOVE_WINDOW_S"
+		},
+		{
+			"character_note": "Omar keeps economical washable panels gathered away from the repair bench.",
+			"initial": {
+				"curtain_open": 0.0,
+				"raise": 0.0,
+				"tilt_degrees": 75.0
+			},
+			"material": "linen",
+			"style": "cafe",
+			"unit": "3B",
+			"window": "F03_B_BATH_WINDOW_E"
+		},
+		{
+			"character_note": "Malcolm leaves the light path open for propagation trays.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.88,
+				"tilt_degrees": 0.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "3A",
+			"window": "F03_A_MAIN_WINDOW_W_S"
+		},
+		{
+			"character_note": "Malcolm leaves the light path open for propagation trays.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.88,
+				"tilt_degrees": 0.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "3A",
+			"window": "F03_A_MAIN_WINDOW_W_N"
+		},
+		{
+			"character_note": "Malcolm leaves the light path open for propagation trays.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.65,
+				"tilt_degrees": 20.0
+			},
+			"material": "linen",
+			"style": "bare",
+			"unit": "3A",
+			"window": "F03_A_KITCHEN_WINDOW_W"
+		},
+		{
+			"character_note": "Malcolm leaves the light path open for propagation trays.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.88,
+				"tilt_degrees": 0.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "3A",
+			"window": "F03_A_BED_WINDOW_W"
+		},
+		{
+			"character_note": "Malcolm leaves the light path open for propagation trays.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.88,
+				"tilt_degrees": 0.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "3A",
+			"window": "F03_A_BED_WINDOW_N"
+		},
+		{
+			"character_note": "Peter’s restrained matched panels and uniformly ordered slats.",
+			"initial": {
+				"curtain_open": 0.8,
+				"raise": 0.5,
+				"tilt_degrees": 25.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "4A",
+			"window": "F04_A_MAIN_WINDOW_E"
+		},
+		{
+			"character_note": "Peter’s restrained matched panels and uniformly ordered slats.",
+			"initial": {
+				"curtain_open": 0.8,
+				"raise": 0.5,
+				"tilt_degrees": 25.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "4A",
+			"window": "F04_A_BED_WINDOW_S"
+		},
+		{
+			"character_note": "Peter’s restrained matched panels and uniformly ordered slats.",
+			"initial": {
+				"curtain_open": 0.0,
+				"raise": 0.0,
+				"tilt_degrees": 75.0
+			},
+			"material": "linen",
+			"style": "cafe",
+			"unit": "4A",
+			"window": "F04_A_BATH_WINDOW_E"
+		},
+		{
+			"character_note": "Nadia’s economical straight panels admit drafting light.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.75,
+				"tilt_degrees": 15.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "5A",
+			"window": "F05_A_WINDOW_1"
+		},
+		{
+			"character_note": "Nadia’s economical straight panels admit drafting light.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.75,
+				"tilt_degrees": 15.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "5A",
+			"window": "F05_A_WINDOW_2"
+		},
+		{
+			"character_note": "Nadia’s economical straight panels admit drafting light.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.75,
+				"tilt_degrees": 15.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "5A",
+			"window": "F05_A_WINDOW_3"
+		},
+		{
+			"character_note": "Nadia’s economical straight panels admit drafting light.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.75,
+				"tilt_degrees": 15.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "5A",
+			"window": "F05_A_WINDOW_4"
+		},
+		{
+			"character_note": "Nadia’s economical straight panels admit drafting light.",
+			"initial": {
+				"curtain_open": 0.0,
+				"raise": 0.0,
+				"tilt_degrees": 75.0
+			},
+			"material": "linen",
+			"style": "cafe",
+			"unit": "5A",
+			"window": "F05_A_WINDOW_5"
+		},
+		{
+			"character_note": "Cal’s evening listening corner uses heavy muted green drapes.",
+			"initial": {
+				"curtain_open": 0.6,
+				"raise": 0.3,
+				"tilt_degrees": 45.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "5B",
+			"window": "F05_B_WINDOW_1"
+		},
+		{
+			"character_note": "Cal’s evening listening corner uses heavy muted green drapes.",
+			"initial": {
+				"curtain_open": 0.6,
+				"raise": 0.3,
+				"tilt_degrees": 45.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "5B",
+			"window": "F05_B_WINDOW_2"
+		},
+		{
+			"character_note": "Cal’s evening listening corner uses heavy muted green drapes.",
+			"initial": {
+				"curtain_open": 0.6,
+				"raise": 0.3,
+				"tilt_degrees": 45.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "5B",
+			"window": "F05_B_WINDOW_3"
+		},
+		{
+			"character_note": "Cal’s evening listening corner uses heavy muted green drapes.",
+			"initial": {
+				"curtain_open": 0.6,
+				"raise": 0.65,
+				"tilt_degrees": 20.0
+			},
+			"material": "fabric_warm",
+			"style": "bare",
+			"unit": "5B",
+			"window": "F05_B_WINDOW_4"
+		},
+		{
+			"character_note": "Iris keeps studio daylight open; paint-aged ochre cotton at the sides.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.8,
+				"tilt_degrees": 8.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "5C",
+			"window": "F05_C_WINDOW_1"
+		},
+		{
+			"character_note": "Iris keeps studio daylight open; paint-aged ochre cotton at the sides.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.8,
+				"tilt_degrees": 8.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "5C",
+			"window": "F05_C_WINDOW_2"
+		},
+		{
+			"character_note": "Iris keeps studio daylight open; paint-aged ochre cotton at the sides.",
+			"initial": {
+				"curtain_open": 1.0,
+				"raise": 0.8,
+				"tilt_degrees": 8.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "5C",
+			"window": "F05_C_WINDOW_3"
+		},
+		{
+			"character_note": "Sacha’s dark light-control cloth gathers clear when the photography workspace is in use.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.55,
+				"tilt_degrees": 25.0
+			},
+			"material": "fabric_warm",
+			"style": "blackout",
+			"unit": "6A",
+			"window": "F06_A_WINDOW_1"
+		},
+		{
+			"character_note": "Sacha’s dark light-control cloth gathers clear when the photography workspace is in use.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.55,
+				"tilt_degrees": 25.0
+			},
+			"material": "fabric_warm",
+			"style": "blackout",
+			"unit": "6A",
+			"window": "F06_A_WINDOW_2"
+		},
+		{
+			"character_note": "Sacha’s dark light-control cloth gathers clear when the photography workspace is in use.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.55,
+				"tilt_degrees": 25.0
+			},
+			"material": "fabric_warm",
+			"style": "blackout",
+			"unit": "6A",
+			"window": "F06_A_WINDOW_3"
+		},
+		{
+			"character_note": "Sacha’s dark light-control cloth gathers clear when the photography workspace is in use.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.55,
+				"tilt_degrees": 25.0
+			},
+			"material": "fabric_warm",
+			"style": "blackout",
+			"unit": "6A",
+			"window": "F06_A_WINDOW_4"
+		},
+		{
+			"character_note": "Sacha’s dark light-control cloth gathers clear when the photography workspace is in use.",
+			"initial": {
+				"curtain_open": 0.0,
+				"raise": 0.0,
+				"tilt_degrees": 75.0
+			},
+			"material": "linen",
+			"style": "cafe",
+			"unit": "6A",
+			"window": "F06_A_WINDOW_5"
+		},
+		{
+			"character_note": "Jonah leaves a narrow writing sightline while the rest of the room stays private.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.55,
+				"tilt_degrees": 22.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "6B",
+			"window": "F06_B_WINDOW_1"
+		},
+		{
+			"character_note": "Jonah leaves a narrow writing sightline while the rest of the room stays private.",
+			"initial": {
+				"curtain_open": 0.0,
+				"raise": 0.0,
+				"tilt_degrees": 75.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "6B",
+			"window": "F06_B_WINDOW_2"
+		},
+		{
+			"character_note": "Jonah leaves a narrow writing sightline while the rest of the room stays private.",
+			"initial": {
+				"curtain_open": 0.0,
+				"raise": 0.0,
+				"tilt_degrees": 75.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "6B",
+			"window": "F06_B_WINDOW_3"
+		},
+		{
+			"character_note": "Jonah leaves a narrow writing sightline while the rest of the room stays private.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.65,
+				"tilt_degrees": 20.0
+			},
+			"material": "linen",
+			"style": "bare",
+			"unit": "6B",
+			"window": "F06_B_WINDOW_4"
+		},
+		{
+			"character_note": "Mae’s heavy taupe drapes screen the archive against direct sunlight.",
+			"initial": {
+				"curtain_open": 0.4,
+				"raise": 0.25,
+				"tilt_degrees": 58.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "6C",
+			"window": "F06_C_WINDOW_1"
+		},
+		{
+			"character_note": "Mae’s heavy taupe drapes screen the archive against direct sunlight.",
+			"initial": {
+				"curtain_open": 0.4,
+				"raise": 0.25,
+				"tilt_degrees": 58.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "6C",
+			"window": "F06_C_WINDOW_2"
+		},
+		{
+			"character_note": "Mae’s heavy taupe drapes screen the archive against direct sunlight.",
+			"initial": {
+				"curtain_open": 0.4,
+				"raise": 0.25,
+				"tilt_degrees": 58.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "6C",
+			"window": "F06_C_WINDOW_3"
+		},
+		{
+			"character_note": "Juno’s improvised heavy drapes protect late sleep and soften the recording room.",
+			"initial": {
+				"curtain_open": 0.25,
+				"raise": 0.15,
+				"tilt_degrees": 55.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "2C",
+			"window": "F02_C_WINDOW_1"
+		},
+		{
+			"character_note": "Juno’s improvised heavy drapes protect late sleep and soften the recording room.",
+			"initial": {
+				"curtain_open": 0.25,
+				"raise": 0.15,
+				"tilt_degrees": 55.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "2C",
+			"window": "F02_C_WINDOW_2"
+		},
+		{
+			"character_note": "Juno’s improvised heavy drapes protect late sleep and soften the recording room.",
+			"initial": {
+				"curtain_open": 0.25,
+				"raise": 0.15,
+				"tilt_degrees": 55.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "2C",
+			"window": "F02_C_WINDOW_3"
+		},
+		{
+			"character_note": "Cam wants quick daylight; Noel protects archival objects from direct light.",
+			"initial": {
+				"curtain_open": 0.85,
+				"raise": 0.6,
+				"tilt_degrees": 18.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "4C",
+			"window": "F04_C_WINDOW_1"
+		},
+		{
+			"character_note": "Cam wants quick daylight; Noel protects archival objects from direct light.",
+			"initial": {
+				"curtain_open": 0.85,
+				"raise": 0.6,
+				"tilt_degrees": 18.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "4C",
+			"window": "F04_C_WINDOW_2"
+		},
+		{
+			"character_note": "Cam wants quick daylight; Noel protects archival objects from direct light.",
+			"initial": {
+				"curtain_open": 0.35,
+				"raise": 0.2,
+				"tilt_degrees": 60.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "4C",
+			"window": "F04_C_WINDOW_3"
+		},
+		{
+			"character_note": "Heavy dark cotton drawn for Teresa’s daytime sleep after night shifts.",
+			"initial": {
+				"curtain_open": 0.0,
+				"raise": 0.0,
+				"tilt_degrees": 75.0
+			},
+			"material": "fabric_warm",
+			"style": "blackout",
+			"unit": "1D",
+			"window": "F01_D_MAIN_WINDOW_E"
+		},
+		{
+			"character_note": "Heavy dark cotton drawn for Teresa’s daytime sleep after night shifts.",
+			"initial": {
+				"curtain_open": 0.0,
+				"raise": 0.0,
+				"tilt_degrees": 75.0
+			},
+			"material": "fabric_warm",
+			"style": "blackout",
+			"unit": "1D",
+			"window": "F01_D_BED_WINDOW_S"
+		},
+		{
+			"character_note": "Heavy dark cotton drawn for Teresa’s daytime sleep after night shifts.",
+			"initial": {
+				"curtain_open": 0.0,
+				"raise": 0.0,
+				"tilt_degrees": 75.0
+			},
+			"material": "linen",
+			"style": "cafe",
+			"unit": "1D",
+			"window": "F01_D_BATH_WINDOW_E"
+		},
+		{
+			"character_note": "Orderly paired ivory linen; reading light with modest privacy.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.5,
+				"tilt_degrees": 12.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "1A",
+			"window": "F01_A_MAIN_WINDOW"
+		},
+		{
+			"character_note": "Orderly paired ivory linen; reading light with modest privacy.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.5,
+				"tilt_degrees": 12.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "1A",
+			"window": "F01_A_BED_WINDOW"
+		},
+		{
+			"character_note": "Orderly paired ivory linen; reading light with modest privacy.",
+			"initial": {
+				"curtain_open": 0.9,
+				"raise": 0.5,
+				"tilt_degrees": 12.0
+			},
+			"material": "linen",
+			"style": "linen",
+			"unit": "1A",
+			"window": "F01_A_STUDY_WINDOW"
+		},
+		{
+			"character_note": "Rhea’s thrift theatrical drapes frame the vocal workspace.",
+			"initial": {
+				"curtain_open": 0.7,
+				"raise": 0.4,
+				"tilt_degrees": 30.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "3D",
+			"window": "F03_D_MAIN_WINDOW"
+		},
+		{
+			"character_note": "Rhea’s thrift theatrical drapes frame the vocal workspace.",
+			"initial": {
+				"curtain_open": 0.7,
+				"raise": 0.4,
+				"tilt_degrees": 30.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "3D",
+			"window": "F03_D_BED_WINDOW"
+		},
+		{
+			"character_note": "Rhea’s thrift theatrical drapes frame the vocal workspace.",
+			"initial": {
+				"curtain_open": 0.7,
+				"raise": 0.4,
+				"tilt_degrees": 30.0
+			},
+			"material": "fabric_warm",
+			"style": "heavy",
+			"unit": "3D",
+			"window": "F03_D_STUDY_WINDOW"
+		},
+		{
+			"character_note": "Neutral host curtains with a guest-adjusted blind, no invented permanent owner.",
+			"initial": {
+				"curtain_open": 0.85,
+				"raise": 0.55,
+				"tilt_degrees": 15.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "4D",
+			"window": "F04_D_MAIN_WINDOW"
+		},
+		{
+			"character_note": "Neutral host curtains with a guest-adjusted blind, no invented permanent owner.",
+			"initial": {
+				"curtain_open": 0.85,
+				"raise": 0.55,
+				"tilt_degrees": 15.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "4D",
+			"window": "F04_D_BED_WINDOW"
+		},
+		{
+			"character_note": "Neutral host curtains with a guest-adjusted blind, no invented permanent owner.",
+			"initial": {
+				"curtain_open": 0.85,
+				"raise": 0.55,
+				"tilt_degrees": 15.0
+			},
+			"material": "linen",
+			"style": "plain",
+			"unit": "4D",
+			"window": "F04_D_STUDY_WINDOW"
+		}
+	]
+}

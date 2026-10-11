@@ -37,7 +37,7 @@ def inputs(root=ROOT):
     for name in ('toast_crumb','leather_worn','mineral_scale'):
         paths.add(root/f'art/textures/ai_sources/{name}.png')
     paths.add(root/'art/textures/ai_sources/v2_surface_stock_20261011.json')
-    for name in ('v2_millwork_weather_review.gd','v2_millwork_weather_test.gd'):
+    for name in ('v2_millwork_weather_review.gd','v2_millwork_weather_test.gd','v2_window_treatments_review.gd','v2_window_treatments_test.gd'):
         paths.add(root/'game/tests'/name)
     # Texture source bindings and selective UV precision settings are authored
     # inputs. Cache destinations, generated UIDs, and line endings are not.

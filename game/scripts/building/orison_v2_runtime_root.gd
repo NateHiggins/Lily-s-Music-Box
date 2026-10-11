@@ -470,6 +470,8 @@ func _compose_authorities() -> void:
 	if open_shift_radiator:
 		open_shift_radiator.bind_inventory(maintenance_inventory)
 	_compose_observation_ledger()
+	if not preload("res://scripts/building/orison_v2_window_treatments.gd").mount(self):
+		startup_failed=true;push_error("V2 window treatments refused");return
 	mina_routine = preload("res://scripts/characters/orison_v2_mina_routine.gd").new()
 	mina_routine.name = "MinaRoutine"
 	add_child(mina_routine)

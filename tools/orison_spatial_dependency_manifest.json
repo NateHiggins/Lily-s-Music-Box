@@ -277338,6 +277338,247 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "floor+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "05d8d669a1171036",
+   "kind": "vector3_coordinate",
+   "token": "_run",
+   "file": "game/tests/v2_window_treatments_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_run"
+   ],
+   "lines": [
+    49
+   ],
+   "count": 1,
+   "context": [
+    "var camera := Camera3D.new();camera.position=Vector3(.8,1.6,2.2);add_child(camera);camera.look_at(Vector3(0,1.5,0));camera.make_current()"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "3149b3345ba8f0d2",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/tests/v2_window_treatments_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    56
+   ],
+   "count": 1,
+   "context": [
+    "for unit in [\"1D\",\"2B\",\"3A\",\"4C\",\"4B\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "315f246a65b4d3b6",
+   "kind": "unit_reference",
+   "token": "4B",
+   "file": "game/tests/v2_window_treatments_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    31,
+    56
+   ],
+   "count": 2,
+   "context": [
+    "if actor.get_meta(\"unit\")==\"4B\":player=actor;break",
+    "for unit in [\"1D\",\"2B\",\"3A\",\"4C\",\"4B\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "a67c436a10dadeb9",
+   "kind": "unit_reference",
+   "token": "1D",
+   "file": "game/tests/v2_window_treatments_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    56
+   ],
+   "count": 1,
+   "context": [
+    "for unit in [\"1D\",\"2B\",\"3A\",\"4C\",\"4B\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "d70d5a6602e371f4",
+   "kind": "generated_name",
+   "token": "_control",
+   "file": "game/scripts/building/orison_v2_window_treatment.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_control"
+   ],
+   "lines": [
+    101
+   ],
+   "count": 1,
+   "context": [
+    "id.capitalize()+\"Control\""
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "ddaec9803c8fa539",
+   "kind": "unit_reference",
+   "token": "3A",
+   "file": "game/tests/v2_window_treatments_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    56
+   ],
+   "count": 1,
+   "context": [
+    "for unit in [\"1D\",\"2B\",\"3A\",\"4C\",\"4B\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "e0d89ed25dbc9411",
+   "kind": "unit_reference",
+   "token": "2B",
+   "file": "game/tests/v2_window_treatments_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    56
+   ],
+   "count": 1,
+   "context": [
+    "for unit in [\"1D\",\"2B\",\"3A\",\"4C\",\"4B\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "f6f45a8387fe3c1e",
+   "kind": "id_reference",
+   "token": "B1_BOILER_AIR_E",
+   "file": "game/scripts/building/orison_v2_window_treatments.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    9
+   ],
+   "count": 1,
+   "context": [
+    "if str(record.id)==\"B1_BOILER_AIR_E\":continue"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Production code looks up a layout id at runtime.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }
