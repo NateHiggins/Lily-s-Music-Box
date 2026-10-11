@@ -75,7 +75,7 @@ its broader acceptance still needs explicit endpoint and route evidence.
 
 REPORT - V2-FIRE-SERVICE - 2026-10-11
 
-Branch / HEAD / origin/main / merge-base: **main / source candidate pending /
+Branch / HEAD / origin/main / merge-base: **main / abaea074b27f2125635341ba4f451bfebf4917fe /
 2552df6f9de2eb2ce995aad00625bdef6f1f9ce0 /
 b73a8753615bcbdf4477f1a01ab989f1c08207bb**.
 
@@ -96,3 +96,21 @@ prove process execution only; the embedded preview is INERT.
 Outside the initial boundary: delayed software PBR repairs were required by the
 complete loaded census. Open findings: whole V2 completion and lighting/human
 review above. Decision needed from owner: **none for this batch**.
+
+Verified source candidate: **abaea074b27f2125635341ba4f451bfebf4917fe**.
+Fresh clean-checkout comparison against the recorded merge-base: **zero
+regressions**, one improvement (fire service ABSENT to PROGRAMMED), **17/17
+protected paths unchanged**, selector **v2**, zero design-lint errors and zero
+contradicted claims. The verifier reused the successful composed runtime
+contracts above; its own invocation used **--no-godot**. No runtime evidence
+is inferred from the gate board.
+
+Requirement counts: **20 ABSENT, 119 PROGRAMMED, 63 SPATIALLY_PROVEN,
+34 RUNTIME_PROVEN, 3 SHELL_ONLY, 1 HUMAN_ACCEPTED**. Scope blockers remain
+**0 / 1 / 127 / 35 / 144 / 146**, in ledger scope order. Whole V2 is unfinished.
+The clean verifier avoids the owner's raw protected-file hash differences in
+the shared checkout; those files are preserved rather than waived or reset.
+
+Verification record and both complete boards are archived in the packet's
+**verification** subdirectory. This final report-only commit does not change
+source, geometry, textures or runtime and requires no repeated Godot launch.
