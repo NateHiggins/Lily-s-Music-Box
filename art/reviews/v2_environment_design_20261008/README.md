@@ -248,6 +248,16 @@ Slices landed so far (evidence folders in parentheses):
     kinds held in one constant (`slice82`, its runs at 5467439f).
 83. A sconce on every landing lobby, F02-F06, and two cage bulbs over the boiler room's
     firing aisle, judged with the hand lamp off before and after (`slice83`).
+84. The 1A, 3D and 4D fridges out of their kitchen-hall openings onto the kitchen's
+    south wall, and the completion route's legs round the open bath and kitchen leaves:
+    the route runs whole for the first time, staff leg included (`slice84`).
+85. Maintenance evidence on the F03-F06 service spine: service-colour bands with blank
+    tags on the risers, a drain cock, a crate and a coiled hose in the pocket south of
+    the cluster, chalk, drip and scuff marks; the F04-F06 halls walked for the first time
+    (`slice85`).
+86. At the owner's direction, every light switch seated flush on its finished wall, and
+    the blank brass plate beside each toggle (BW-013's signal outlet, which read as an
+    older dark switch) removed (`switches`).
 
 Verification runs are made at WIP commits that are later squashed. For most
 slices the game and art paths of the squashed commit (outside this packet) are

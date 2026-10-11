@@ -35,6 +35,7 @@ func _run() -> void:
 		print("PROBE ", name, " total=", found)
 	var shots := OS.get_environment("PROBE_SHOTS")
 	if not shots.is_empty() and world.player != null:
+		DirAccess.make_dir_recursive_absolute(OS.get_environment("SHOT_DIR"))
 		for layer: CanvasLayer in world.find_children("*", "CanvasLayer", true, false): layer.hide()
 		world.player.set_physics_process(false)
 		for driver: CampaignClockDriver in get_tree().get_nodes_in_group("campaign_time_owner"): driver.set_frozen_for_tests(true)

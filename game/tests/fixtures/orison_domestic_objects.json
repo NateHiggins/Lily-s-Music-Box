@@ -9977,37 +9977,43 @@
       "name": "DomesticObject66_Base",
       "assembly": "DomesticObject66",
       "key": "brass",
-      "volume_m3": 0.00017180555989080557
+      "volume_m3": 0.00017180539546830044
     },
     {
       "name": "DomesticObject66_Bracket",
       "assembly": "DomesticObject66",
       "key": "brass",
-      "volume_m3": 0.00015949747547846084
+      "volume_m3": 0.00015949743599944118
     },
     {
       "name": "DomesticObject66_Dome",
       "assembly": "DomesticObject66",
       "key": "bakelite",
-      "volume_m3": 0.00028995053572340723
+      "volume_m3": 0.00028995011560516815
     },
     {
       "name": "DomesticObject66_Knob",
       "assembly": "DomesticObject66",
       "key": "brass",
-      "volume_m3": 2.539532700511566e-06
+      "volume_m3": 2.539492867078656e-06
     },
     {
       "name": "DomesticObject66_Flex",
       "assembly": "DomesticObject66",
       "key": "blanket_grey",
-      "volume_m3": 3.5061432459148694e-05
+      "volume_m3": 7.100287575407068e-05
+    },
+    {
+      "name": "DomesticObject66_Terminal",
+      "assembly": "DomesticObject66",
+      "key": "bakelite",
+      "volume_m3": 1.6630246213458674e-05
     },
     {
       "name": "DomesticObject66_Tape",
       "assembly": "DomesticObject66",
       "key": "rubber_aged",
-      "volume_m3": 6.7052062259096785e-06
+      "volume_m3": 6.705234609198169e-06
     },
     {
       "name": "DomesticObject67_Backing",
@@ -21245,7 +21251,7 @@
       "owner": "wall",
       "point": [
         0,
-        1.0,
+        2.0,
         0.02
       ],
       "direction": [
@@ -21254,6 +21260,21 @@
         -1
       ],
       "label": "bell base screwed to the wall"
+    },
+    {
+      "assembly": "DomesticObject66",
+      "owner": "wall",
+      "point": [
+        0,
+        0.02,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "flex terminal screwed to the wall above the skirting"
     },
     {
       "assembly": "DomesticObject67",
@@ -27770,14 +27791,14 @@
       "assembly": "DomesticObject66",
       "cell": "shared",
       "key": "bakelite",
-      "triangles": 384
+      "triangles": 572
     },
     {
       "name": "DomesticObject66__Body_ON_blanket_grey",
       "assembly": "DomesticObject66",
       "cell": "shared",
       "key": "blanket_grey",
-      "triangles": 92
+      "triangles": 140
     },
     {
       "name": "DomesticObject66__Body_ON_brass",
@@ -30384,7 +30405,7 @@
       "triangles": 8852
     }
   ],
-  "triangles": 602220,
+  "triangles": 602456,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -41156,9 +41177,9 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "cf3d8e237eb4b5db80918bfab1f7f1ec4b0c65920fad930d6f8ea34309ba061c",
+  "asset_sha256": "edb93fcc35206ed0b6036fc8d13f4f9553d9837e06ad6c333dde8c425167f8ee",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "becba5233687bb61a1abf95d58d3ae17c02d4473dc664c647bf796da1b38da60",
+    "art/data/domestic_objects/source_plan.json": "9dc0757ac8c9352f6d0239b023348a5b3aa9992735fefaf8a9e369b069fb84c9",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_domestic_objects.py": "55014ba5ccf45a7f48360d8663243431381d5b2fcb9cd967f887c2c36cc1b3b1",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
@@ -41262,16 +41283,16 @@
     "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "6ac95b9b86a797d0edb74903d03cbcf8272605d6b5c5ac06d554047aabe5e33c",
+    "art/blender/scripts/domestic_objects_geometry.py": "87539b24e8836d208c44eefe10d0d23526503a08bb36ce83279abd03fafc48c6",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2/domestic_furniture.json": "a8333ed0a1d9619a14ed2a8911434e4ac20634d0be4126bde0a4ed437a2f1e33",
+    "game/data/orison_v2/domestic_furniture.json": "cc91252a2630d26b2632f5e266350378a321f0646e859367346b848b711d4c93",
     "game/data/orison_v2/completion_interiors.json": "ad4c99dd215a65ea7a9798ae2fa30ef683e7292811526796fbe99d5aa82de97c",
-    "art/data/orison_v2/completion_interiors_source.json": "62f87da0bb9c6631f8c2afb29f4fa0557fa693988a920c57265ed1839eada6e3",
+    "art/data/orison_v2/completion_interiors_source.json": "e605c782f3d6e8af8f98917c93a6a387453c773dc6692a5681041dce2dff5a7b",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
     "game/scripts/building/orison_v2_architectural_materials.gd": "b51ffeb229e043a3bb6a7b7dde70aa58ccd2c3004bde5aae9099d53b73a01f76",
     "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
     "art/blender/scripts/inspect_domestic_objects_context.py": "a23792cd8fa7512fede2f4dd9d6bf0c79ad26cfc542302528dc65963f2f4d0d3",
-    "game/data/orison_v2_blockout.json": "991c31d8bf5c5d562d73e46965800cc37310a4a747f54fedcf7dd1148f72a46e",
+    "game/data/orison_v2_blockout.json": "f651287aa38745eecae0f2be9149c0533131f64620b9d608d3c720126988b2f5",
     "art/blender/work_tables.blend": "ffc309d94421baa1307cffe02ba2b375b80329c1f98849e4ee4902c9bdd660c6",
     "game/data/orison_v2/domestic_surface_props.json": "20ec7e5a42f4db8d81db0eb63707b59aaa1eeafa053e8881d38d30800552acae",
     "game/tests/fixtures/orison_surface_stock.json": "28cbec6364d396d4a84dd6725ef8ab54db7c7790207edc29223f7c377a1cc9d4",
@@ -46418,6 +46439,7 @@
         "DomesticObject66_Dome",
         "DomesticObject66_Knob",
         "DomesticObject66_Flex",
+        "DomesticObject66_Terminal",
         "DomesticObject66_Tape"
       ]
     },

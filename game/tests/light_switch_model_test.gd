@@ -2,6 +2,7 @@ extends Node
 ## Installed production switches: model clearance, physical ray, circuit and reload.
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
 const State := preload("res://scripts/building/orison_v2_household_state.gd")
+const FlushProbe := preload("res://tests/switch_flush_probe.gd")
 var failures: Array[String] = []
 var checks := 0
 
@@ -33,6 +34,8 @@ func run() -> void:
 	var source: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/room_lighting.json"))
 	var completion: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/completion_interiors.json"))
 	var shared: Mesh
+	# Every plate sits flush on its finished wall (owner direction, 2026-10-10) and nothing lies beside it.
+	var flush := FlushProbe.new(world)
 	for record: Dictionary in source.switches + completion.lighting.switches:
 		var plate = world.adapter.resolve(record.id)
 		check(plate != null and plate.has_node("SwitchModel"), "model at " + str(record.id))
@@ -40,6 +43,11 @@ func run() -> void:
 		check(plate._toggle != null, "independent toggle pivot")
 		check(plate.find_children("*", "CollisionShape3D", true, false).size() == 1, "original single interaction collision")
 		check(plate.find_children("*", "Light3D", true, false).is_empty(), "no extra emitter")
+		check(plate.get_node_or_null("SignalOutlet") == null, "no plate beside the toggle: " + str(record.id))
+		var gaps: Array = flush.measure(plate)
+		var worst := 0.0
+		for gap: float in gaps: worst = maxf(worst, absf(gap))
+		check(worst <= .0015, "plate flush on its finished wall: %s (worst %.4f m)" % [str(record.id), worst])
 		for mesh: MeshInstance3D in plate.get_node("SwitchModel").find_children("*", "MeshInstance3D", true, false):
 			check(mesh.get_active_material(0) != null, "catalogue finish")
 			var transform: Transform3D = plate.global_transform.affine_inverse() * mesh.global_transform

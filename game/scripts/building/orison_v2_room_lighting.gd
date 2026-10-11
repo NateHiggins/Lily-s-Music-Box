@@ -58,33 +58,7 @@ func mount_source(adapter: Variant, parent: Node3D, source: Variant) -> bool:
 			plate.free()
 			return false
 		plate.mount_model()
-		_add_signal_outlet(plate, adapter, str(record.room))
 	return true
-
-## Dossier BW-013: a brass signal-outlet plate (70 x 115 mm, 6 mm proud) beside
-## every switch, on the side with wall, toward the room centre. A passive draw
-## under the plate: no collision, no owner, no lead stub until a device connects.
-func _add_signal_outlet(plate: Node3D, adapter: Variant, room: String) -> void:
-	var root := adapter.root as Node3D
-	var side := 1.0
-	if root != null and root.get("layout") is Dictionary:
-		for space: Dictionary in root.layout.get("spaces", []):
-			if str(space.get("id", "")) != room or not space.has("rect"): continue
-			var rect: Array = space.rect
-			var centre := root.to_global(Vector3((float(rect[0]) + float(rect[2])) * 0.5, 0.0, (float(rect[1]) + float(rect[3])) * 0.5))
-			var right := plate.to_global(Vector3(0.115, 0.0, 0.0))
-			var left := plate.to_global(Vector3(-0.115, 0.0, 0.0))
-			centre.y = 0.0; right.y = 0.0; left.y = 0.0
-			side = 1.0 if right.distance_to(centre) <= left.distance_to(centre) else -1.0
-			break
-	var outlet := MeshInstance3D.new()
-	outlet.name = "SignalOutlet"
-	var box := BoxMesh.new()
-	box.size = Vector3(0.07, 0.115, 0.006)
-	box.material = MatLib.get_mat("brass_dull", Color(0.78, 0.70, 0.52))
-	outlet.mesh = box
-	outlet.position = Vector3(side * 0.115, 0.0, -0.003)
-	plate.add_child(outlet)
 
 func validate(source: Variant, adapter: Variant) -> bool:
 	errors.clear()

@@ -893,15 +893,19 @@ def chargingcase(source):
 
 def wallbell(source):
  # Dossier slice 42: Teresa's 1912 house bell high on the wall, a Bakelite dome on a brass bracket,
- # its grey cloth flex run down to the signal outlet and taped where she tried to cut it.
+ # its grey cloth flex run down the wall, beside the switch, to a Bakelite terminal block above the skirting, taped
+ # where she tried to cut it. (The anchor stands at 0.18 m, just above the skirting's cap, so every part stays on or
+ # above the object's support plane.)
  start=len(stock_checks);height=source['H'];back=variants[identity]['rear_wall_y']
  stock('Base',(-.06,back,height-.08),(.06,back+.012,height+.04),'brass',.002)
  support(identity,'wall',(0,back,height-.02),(0,1,0),'bell base screwed to the wall')
  stock('Bracket',(-.03,back+.011,height-.03),(.03,back+.1,height),'brass',.002)
  lathe('Dome',0,back+.06,height-.001,[(0,0),(.05,0),(.05,.008),(.045,.03),(.03,.045),(0,.05)],'bakelite')
  lathe('Knob',0,back+.06,height+.048,[(0,0),(.008,0),(.008,.012),(0,.014)],'brass')
- wire('Flex',[(0,back+.008,height-.06),(0,back+.012,height-.2),(.004,back+.012,.5),(0,back+.012,.006)],.0035,'blanket_grey')
- stock('Tape',(-.008,back+.006,.55),(.008,back+.02,.58),'rubber_aged',.0005)
+ wire('Flex',[(0,back+.008,height-.06),(0,back+.012,height-.2),(.004,back+.012,1.5),(0,back+.012,1.006),(.003,back+.012,.4),(0,back+.012,.028)],.0035,'blanket_grey')
+ stock('Terminal',(-.014,back,.005),(.014,back+.02,.035),'bakelite',.0015)
+ support(identity,'wall',(0,back,.02),(0,1,0),'flex terminal screwed to the wall above the skirting')
+ stock('Tape',(-.008,back+.006,1.55),(.008,back+.02,1.58),'rubber_aged',.0005)
  group('HouseBell',start)
 
 def quietsign(source):
