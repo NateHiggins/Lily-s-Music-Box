@@ -1472,6 +1472,22 @@
    "protocol": "named-control",
    "rationale": "same node action (interact_control) resolved by source tracing",
    "role": "production"
+  },
+  {
+   "action_method": "interact_control",
+   "action_owner": "same node",
+   "action_source": "building/orison_v2_window_treatment.gd",
+   "extraction": "game-only",
+   "family": "control_prompt",
+   "file": "building/orison_v2_window_treatment.gd",
+   "identity": {
+    "family": "control_prompt",
+    "file": "building/orison_v2_window_treatment.gd"
+   },
+   "method": "control_prompt",
+   "protocol": "named-control",
+   "rationale": "Separate lift, tilt and curtain controls delegate through PropControlArea to the treatment owner; room-side production physics rays and durable settings verified.",
+   "role": "production"
   }
  ],
  "policy": "drift detector, not an interface; classifications authorize nothing.  Extraction dispositions are defaults for the post-EA boundary review.",
