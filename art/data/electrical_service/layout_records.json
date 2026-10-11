@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "evidence_class": "INERT",
+  "records": {
+    "risers": [
+      {
+        "id": "ELECTRICAL_SERVICE_RISER",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ],
+        "from_y": -3.2,
+        "to_y": 21.4,
+        "class": "electrical",
+        "solid": false
+      }
+    ],
+    "slab_openings": [
+      {
+        "id": "ELECTRIC_F01_SERVICE_HALL_FLOOR_PORT",
+        "space": "F01_SERVICE_HALL",
+        "surface": "Floor",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_F01_SERVICE_HALL_CEILING_PORT",
+        "space": "F01_SERVICE_HALL",
+        "surface": "Ceiling",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_F02_SERVICE_HALL_FLOOR_PORT",
+        "space": "F02_SERVICE_HALL",
+        "surface": "Floor",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_F02_SERVICE_HALL_CEILING_PORT",
+        "space": "F02_SERVICE_HALL",
+        "surface": "Ceiling",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_F04_SERVICE_HALL_FLOOR_PORT",
+        "space": "F04_SERVICE_HALL",
+        "surface": "Floor",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_F04_SERVICE_HALL_CEILING_PORT",
+        "space": "F04_SERVICE_HALL",
+        "surface": "Ceiling",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_F03_SERVICE_HALL_FLOOR_PORT",
+        "space": "F03_SERVICE_HALL",
+        "surface": "Floor",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_F03_SERVICE_HALL_CEILING_PORT",
+        "space": "F03_SERVICE_HALL",
+        "surface": "Ceiling",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_F05_SERVICE_HALL_FLOOR_PORT",
+        "space": "F05_SERVICE_HALL",
+        "surface": "Floor",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_F05_SERVICE_HALL_CEILING_PORT",
+        "space": "F05_SERVICE_HALL",
+        "surface": "Ceiling",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_F06_SERVICE_HALL_FLOOR_PORT",
+        "space": "F06_SERVICE_HALL",
+        "surface": "Floor",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_F06_SERVICE_HALL_CEILING_PORT",
+        "space": "F06_SERVICE_HALL",
+        "surface": "Ceiling",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_ROOF_DECK_MIDDLE_FLOOR_PORT",
+        "space": "ROOF_DECK_MIDDLE",
+        "surface": "Floor",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_B1_MAINTENANCE_SHOP_FLOOR_PORT",
+        "space": "B1_MAINTENANCE_SHOP",
+        "surface": "Floor",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      },
+      {
+        "id": "ELECTRIC_B1_MAINTENANCE_SHOP_CEILING_PORT",
+        "space": "B1_MAINTENANCE_SHOP",
+        "surface": "Ceiling",
+        "rect": [
+          9.355,
+          0.965,
+          9.425,
+          1.035
+        ]
+      }
+    ]
+  }
+}

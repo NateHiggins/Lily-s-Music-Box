@@ -37,6 +37,7 @@ Knowing which kind you are reading tells you how much to trust it.
 |---|---|
 | First-slice runtime contracts, actual save/reconstruction and remaining V2 blockers | `design/V2_FIRST_SLICE_CONTRACTS_2026-10-11.md` and `design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md` |
 | Native hollow mail compartments, delivery stock and retained 4B controls | `design/V2_NATIVE_MAIL_BANK_2026-10-11.md` |
+| Supported native electrical riser, real slab sleeves and retained fuse authority | `design/V2_ELECTRICAL_SERVICE_2026-10-11.md` |
 | Native fire-service stations, retained maintenance controls and delayed software PBR | `design/V2_FIRE_SERVICE_2026-10-11.md` |
 | Four native Edison fuse seats and telephone request-lamp PBR retention | `design/V2_FUSE_BLOCK_2026-10-11.md` |
 | Native apartment partitions, active PBR bindings and retained control/teardown checks | `design/V2_NATIVE_APARTMENT_CHECKS_2026-10-11.md` |

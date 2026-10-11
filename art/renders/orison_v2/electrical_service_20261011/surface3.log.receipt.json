@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 113.78,
+  "exit_code": 0,
+  "finished_utc": "2026-10-11T22:43:35Z",
+  "started_utc": "2026-10-11T22:41:41Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 SURFACE QUALIFICATION: PASS; 3859 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-electrical-service-20261011/surface3.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-electrical-service-20261011/surface3.log",
+  "stdout_sha256": "c0cbf54a35f69b0790e9a6ade7c080c7ccf7caabf4a86f25866e7f5306d7370a"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2SurfaceInventory.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-electrical-service-20261011/world3",
+ "source": {
+  "dirty_paths": 1359,
+  "dirty_sample": [
+   "M  .gitattributes",
+   "A  art/blender/electrical_service.blend",
+   "A  art/blender/scripts/build_electrical_service.py",
+   "A  art/blender/scripts/review_electrical_service.py",
+   "A  art/data/electrical_service/layout_records.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/dumbwaiter.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/radiator.png",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json"
+  ],
+  "repository_head": "29d20095ff1e4abe0e132804f9c69fc4b13cc508",
+  "repository_tree": "2e6dc8c49cc9993acc7136d9a899fc29b8f127c4",
+  "runtime_inputs_sha256": "b01347f5f2e365fd35b41754cf1d2e2e7d4c4fe01073146f704e4271a1c5ec0d",
+  "test_path": "game/tests/orison_v2_surface_inventory.gd",
+  "test_sha256": "dca6ef56ba384776620f5c436453746d895539474c5e22f40d4b52de7f60cdf9"
+ },
+ "windowed": true
+}

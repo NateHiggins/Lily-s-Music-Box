@@ -1,0 +1,166 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1422 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (261 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=47237.038
+  PASS  production-composed v2 root starts
+  PASS  one production gameplay authority: F01_WATCHMAN_DETECTOR
+  PASS  one preserved spatial owner: F01_WATCHMAN_DETECTOR
+  PASS  one production gameplay authority: F01_NIGHT_REGISTER
+  PASS  one preserved spatial owner: F01_NIGHT_REGISTER
+  PASS  one production gameplay authority: F01_SIGNAL_REGISTER
+  PASS  one preserved spatial owner: F01_SIGNAL_REGISTER
+  PASS  one production gameplay authority: F01_TOUR_KEY_GUARD
+  PASS  one preserved spatial owner: F01_TOUR_KEY_GUARD
+  PASS  one production gameplay authority: F02_B_RADIATOR_01
+  PASS  one preserved spatial owner: F02_B_RADIATOR_01
+  PASS  one production gameplay authority: B1_BOILER_01
+  PASS  one preserved spatial owner: B1_BOILER_01
+  PASS  one lifecycle and save authority per contract
+  PASS  review-only cues are absent from production runtime
+  PASS  central formatter produces carrier-neutral prompts
+  PASS  ritual denial states refuse invented acts
+  PASS  arrival refuses premature clock-out and report acceptance
+  PASS  empty spindle cannot invent an opening report
+  PASS  production detector clocks in and offers exactly the authored opening job
+  PASS  production spindle acknowledges one report and denies duplicate taking
+  PASS  one network carries a box from every floor
+  PASS  the register has a drop for every box
+  PASS  patrol station mounted: B1_WATCH_STATION
+  PASS  station number and legend: B1_WATCH_STATION
+  PASS  case hangs at 1.42 m on its own floor: B1_WATCH_STATION
+  PASS  box flush on an actual wall: B1_WATCH_STATION
+  PASS  nothing stands in front of the box: B1_WATCH_STATION
+[LIGHTING] 230 sources active in system; 230 full personalities; profiles steady/breathe/mains/beat/dropout=[56, 50, 41, 47, 36]
+[HARUKIYA] CLOSED, 18 fixtures
+  PASS  patrol station mounted: F02_WATCH_STATION
+  PASS  station number and legend: F02_WATCH_STATION
+  PASS  case hangs at 1.42 m on its own floor: F02_WATCH_STATION
+  PASS  box flush on an actual wall: F02_WATCH_STATION
+  PASS  nothing stands in front of the box: F02_WATCH_STATION
+  PASS  patrol station mounted: F03_WATCH_STATION
+  PASS  station number and legend: F03_WATCH_STATION
+  PASS  case hangs at 1.42 m on its own floor: F03_WATCH_STATION
+  PASS  box flush on an actual wall: F03_WATCH_STATION
+  PASS  nothing stands in front of the box: F03_WATCH_STATION
+  PASS  patrol station mounted: F04_WATCH_STATION
+  PASS  station number and legend: F04_WATCH_STATION
+  PASS  case hangs at 1.42 m on its own floor: F04_WATCH_STATION
+  PASS  box flush on an actual wall: F04_WATCH_STATION
+  PASS  nothing stands in front of the box: F04_WATCH_STATION
+  PASS  patrol station mounted: F05_WATCH_STATION
+  PASS  station number and legend: F05_WATCH_STATION
+  PASS  case hangs at 1.42 m on its own floor: F05_WATCH_STATION
+  PASS  box flush on an actual wall: F05_WATCH_STATION
+  PASS  nothing stands in front of the box: F05_WATCH_STATION
+  PASS  patrol station mounted: F06_WATCH_STATION
+  PASS  station number and legend: F06_WATCH_STATION
+  PASS  case hangs at 1.42 m on its own floor: F06_WATCH_STATION
+  PASS  box flush on an actual wall: F06_WATCH_STATION
+  PASS  nothing stands in front of the box: F06_WATCH_STATION
+  PASS  patrol station mounted: F01_WATCH_STATION
+  PASS  station number and legend: F01_WATCH_STATION
+  PASS  case hangs at 1.42 m on its own floor: F01_WATCH_STATION
+  PASS  box flush on an actual wall: F01_WATCH_STATION
+  PASS  nothing stands in front of the box: F01_WATCH_STATION
+  PASS  the guard offers its key
+  PASS  the tour key leaves its hook for the round by the player's press
+  PASS  box offers its door: B1_STATION_BOILER
+  PASS  box worked by the player's presses: B1_STATION_BOILER
+  PASS  box offers its door: F02_STATION_CORE
+  PASS  box worked by the player's presses: F02_STATION_CORE
+  PASS  box offers its door: F03_STATION_CORE
+  PASS  box worked by the player's presses: F03_STATION_CORE
+  PASS  box offers its door: F04_STATION_CORE
+  PASS  box worked by the player's presses: F04_STATION_CORE
+  PASS  box offers its door: F05_STATION_CORE
+  PASS  box worked by the player's presses: F05_STATION_CORE
+  PASS  box offers its door: F06_STATION_CORE
+  PASS  box worked by the player's presses: F06_STATION_CORE
+  PASS  box offers its door: F01_STATION_LOBBY
+  PASS  box worked by the player's presses: F01_STATION_LOBBY
+  PASS  every mark reached the register
+  PASS  the register's sequence is the round: plant, floors 2 to 6, lobby
+  PASS  register drop 1 down
+  PASS  register drop 2 down
+  PASS  register drop 3 down
+  PASS  register drop 4 down
+  PASS  register drop 5 down
+  PASS  register drop 6 down
+  PASS  register drop 7 down
+  PASS  the key goes back on its hook by the player's press
+  PASS  box reset: B1_STATION_BOILER
+  PASS  box reset: F02_STATION_CORE
+  PASS  box reset: F03_STATION_CORE
+  PASS  box reset: F04_STATION_CORE
+  PASS  box reset: F05_STATION_CORE
+  PASS  box reset: F06_STATION_CORE
+  PASS  box reset: F01_STATION_LOBBY
+  PASS  register restored for the morning
+PATROL STATIONS: stations=7 marks=7 delivered=7 failures=0
+  PASS  physical guard and first-shift observer agree on returned tour key
+  PASS  service-set call issues exactly one authored radiator obligation
+  PASS  premature mechanisms cannot counterfeit progress
+  PASS  resident threshold acknowledges the production work order
+  PASS  radiator, porter board, and boiler evidence earns repairability
+  PASS  duplicate interaction cannot double-advance
+  PASS  real 2B radiator authority records the repair
+  PASS  resident return closes the authored service round
+  PASS  production event trace preserves the complete round
+ORISON V2 BLOCKOUT: 200 spaces / 111 doors / 1422 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (261 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+[ORISON V2 RUNTIME] ready startup_ms=49937.930
+[LIGHTING] 230 sources active in system; 230 full personalities; profiles steady/breathe/mains/beat/dropout=[56, 50, 41, 47, 36]
+  PASS  save, destroy, CampaignShell reconstruct, and load preserve round facts
+  PASS  v2 wake uses explicit bedside-return contract
+  PASS  disk load reconstructs durable ritual facts without repeating the opening job
+  PASS  reconstruction preserves transient custody and register semantics without inventing saved marks
+  PASS  reconstructed production owners preserve the closed Lena round
+[M08F PERF] cold_ms=47269.663 compose_ms=49937.930 save_ms=20.865 reconstruct_ms=51551.345 nodes=54107 collisions=10219 cpu_ms=51471.420 physics_ms=1197.933
+[M08F SAVE EVIDENCE] C:/Users/nate_/AppData/Roaming/PleaseRemainOnTheLine/tests/m08f_runtime_2cfb3154afc0f06f.json
+  PASS  production layout remains byte-stable
+  PASS  committed selector is v2
+  PASS  both production worlds release tracked nodes, authority shapes and observed audio playbacks
+  PASS  record repository provenance
+  PASS  record current runtime inputs
+  PASS  open runtime contract output
+  PASS  flush runtime contract output
+ORISON V2 M08F RUNTIME: PASS checks=113

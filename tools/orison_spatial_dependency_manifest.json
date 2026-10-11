@@ -279133,6 +279133,372 @@
    "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
    "resolved_target": "v2_blockout+runtime_created",
    "target_exists": true
+  },
+  {
+   "key": "8303f1f4fe609e49",
+   "kind": "id_reference",
+   "token": "ELECTRICAL_SERVICE_RISER",
+   "file": "game/data/orison_v2/electrical_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/riser"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9319d073f4faab65",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/mailbank/T_mailbank_brass_albedo.png",
+   "file": "game/scripts/building/orison_v2_native_electrical_service.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    32
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "321d3c99097c20e9",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/mailbank/T_mailbank_brass_rough.png",
+   "file": "game/scripts/building/orison_v2_native_electrical_service.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    33
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "c7e6ca58ee31a95a",
+   "kind": "id_candidate",
+   "token": "B1_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/electrical_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/stations[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "c61d29eb20fc3a5f",
+   "kind": "id_candidate",
+   "token": "F01_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/electrical_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/stations[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "70ce1347bfbc6c42",
+   "kind": "id_candidate",
+   "token": "F02_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/electrical_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/stations[2]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "6cb43244ca9686cb",
+   "kind": "id_candidate",
+   "token": "F03_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/electrical_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/stations[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "1298ec9ab247b012",
+   "kind": "id_candidate",
+   "token": "F04_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/electrical_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/stations[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "ec8e9b476731bb25",
+   "kind": "id_candidate",
+   "token": "F05_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/electrical_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/stations[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "0c75a1d8a809f0d3",
+   "kind": "id_candidate",
+   "token": "F06_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/electrical_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/stations[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "fd32adf3e27c985a",
+   "kind": "id_candidate",
+   "token": "ROOF_ELECTRICAL_JUNCTION",
+   "file": "game/data/orison_v2/electrical_service.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/stations[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "e868fe4702df9905",
+   "kind": "id_candidate",
+   "token": "F01_ELECTRICAL_JUNCTION",
+   "file": "game/tests/v2_electrical_service_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    47
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_ELECTRICAL_JUNCTION\",\"ROOF_ELECTRICAL_JUNCTION\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
+  },
+  {
+   "key": "961a9092a12bc6d7",
+   "kind": "id_candidate",
+   "token": "ROOF_ELECTRICAL_JUNCTION",
+   "file": "game/tests/v2_electrical_service_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    47
+   ],
+   "count": 1,
+   "context": [
+    "for identity: String in [\"F01_ELECTRICAL_JUNCTION\",\"ROOF_ELECTRICAL_JUNCTION\"]:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "UNKNOWN_DYNAMIC"
+   ],
+   "disposition": "UNRESOLVED",
+   "confidence": "LOW",
+   "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
+   "resolved_target": null,
+   "target_exists": false
   }
  ]
 }

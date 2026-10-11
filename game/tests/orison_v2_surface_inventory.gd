@@ -46,6 +46,8 @@ func _run() -> void:
 	# retained service owners, then measure retirement after the same audit.
 	var fire_review := preload("res://tests/v2_fire_service_review.gd").new()
 	await fire_review.run(world,self)
+	var electrical_review := preload("res://tests/v2_electrical_service_review.gd").new()
+	await electrical_review.run(world,self)
 	var instruments := preload("res://tests/orison_v2_service_instruments_test.gd").new()
 	instruments.capture_enabled = false
 	add_child(instruments)
@@ -190,6 +192,7 @@ func _run() -> void:
 		if not failure in failures: failures.append(failure)
 	instruments.free()
 	fire_review.after_teardown(self)
+	electrical_review.after_teardown(self)
 	var head: Array=[]; var digest: Array=[]
 	check(OS.execute("git",["-C",root,"rev-parse","HEAD"],head)==0,"record repository head")
 	check(OS.execute("python",[root.path_join("tools/run_receipt.py"),"digest","--root",root],digest)==0,"record runtime input digest")

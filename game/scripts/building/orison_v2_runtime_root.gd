@@ -437,6 +437,12 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: fire service refused: %s" % [fire_service.errors])
 		return
 	adapter.root.set_meta("v2_native_fire_service",fire_service)
+	var electrical_service := preload("res://scripts/building/orison_v2_native_electrical_service.gd").new()
+	if not electrical_service.mount(adapter):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: electrical service refused: %s" % [electrical_service.errors])
+		return
+	adapter.root.set_meta("v2_native_electrical_service",electrical_service)
 	var service_instruments := preload("res://scripts/building/orison_v2_native_service_instruments.gd").new()
 	if not service_instruments.mount(self):
 		startup_failed = true
