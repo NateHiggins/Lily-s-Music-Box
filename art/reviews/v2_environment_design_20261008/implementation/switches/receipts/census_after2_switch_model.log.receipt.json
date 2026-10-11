@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 62.04,
+  "exit_code": 0,
+  "finished_utc": "2026-10-11T00:44:58Z",
+  "started_utc": "2026-10-11T00:43:55Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/envimpl_out/switches/census_after2_switch_model.log.stderr",
+  "stderr_sha256": "9d87489a6c0ef5acc8087e4a35a4bb2f474012d670a4ab0e6662f3dd92eed401",
+  "stdout": "C:/ov/envimpl_out/switches/census_after2_switch_model.log",
+  "stdout_sha256": "8580d190877f8a5037c085248aee58bf07418a321a863efd948d7f027c765fae"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/LightSwitchModelTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/envimpl_out/switches/census_after2_switch_model_shots",
+ "source": {
+  "dirty_paths": 417,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_normal.png.import"
+  ],
+  "repository_head": "32784e134a5e896dcc21f3f137141717e34a8c96",
+  "repository_tree": "368e0d2fd18157a115097d960c4919616a3b27d3",
+  "runtime_inputs_sha256": "39e52d2e3eb4c5cdc204a5bfc9d90f31a693517dcccc4b3e8ad8922c20447db4",
+  "test_path": "game/tests/light_switch_model_test.gd",
+  "test_sha256": "db1c235a2aeb826f954186221935864faa33df5f4f8e63b6cb82fff683542ed1"
+ },
+ "windowed": true
+}

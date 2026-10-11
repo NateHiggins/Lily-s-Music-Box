@@ -1,0 +1,240 @@
+{
+ "evidence_class": "INERT",
+ "note": "Light switches flush on their finished walls and BW-013's signal outlet removed. The census ran before the passes at 9535800b and after each: pass 1 fbea083e, pass 2 32784e13, pass 3 f70c3c95 (receipts census_<tag>, with each pass's suites as census_<tag>_<suite>). census/ holds the packet census's per-plate lines before the passes and after each: rear face, gap to the physics and visual wall, the worst gap over a 13 x 3 grid of the plate's rear face against visible meshes and multimesh finishes (from census_after2 on), and small geometry nearby. 'Standing off their visible wall' after pass 2 counts the 13 hall plates seated on the 16 mm public wainscot backing, which is a multimesh finish in front of the blockout wall; the footprint column is 0 for all 144. At f70c3c95 LightSwitchModelTest 1449 checks, UpperLighting 9677, ConnectedWorld 57508 and HouseholdState 154, each 0 failures; ApartmentBatch 204 failures with labels identical to slice 85's; the domestic-objects fabrication module 10220 checks, 0 failures, with 1D's bell capture (images/1D_house_bell_native.jpg). replica_clearance.txt is the static replica's clearance table (sources/switch_replica), the source of the 4 mm figure; no runtime test measures clearance. Implementation verification captures and run receipts; not runtime proof.",
+ "files": [
+  {
+   "path": "receipts/census_after1.log.receipt.json",
+   "source": "census_after1.log.receipt.json",
+   "sha256": "2fae419b149f8da2abbbe6f877c2ff553a9d6b0905abd30bc68feeba0df7f22c",
+   "bytes": 3216
+  },
+  {
+   "path": "receipts/census_after1_connected_world.log.receipt.json",
+   "source": "census_after1_connected_world.log.receipt.json",
+   "sha256": "dcc10542c6c825cbe7ad20ae5bc12822fb41dc2ebc1f0a2be9e51d2184727ab7",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/census_after1_household_state.log.receipt.json",
+   "source": "census_after1_household_state.log.receipt.json",
+   "sha256": "57862c80c91500b3a2763fa9d9599f3380d2bf4cc57536a2a5fba17e33e00be6",
+   "bytes": 3224
+  },
+  {
+   "path": "receipts/census_after1_import1.log.receipt.json",
+   "source": "census_after1_import1.log.receipt.json",
+   "sha256": "e18234bd34e48d4f590b8f98a1e1e5f2c2baa8f5563caead4bdd289bca7340e3",
+   "bytes": 3170
+  },
+  {
+   "path": "receipts/census_after1_import2.log.receipt.json",
+   "source": "census_after1_import2.log.receipt.json",
+   "sha256": "b916da8aa9dc90182e81197736ee67302f08c49a5d7af6a304f48167f3b9e752",
+   "bytes": 3170
+  },
+  {
+   "path": "receipts/census_after1_switch_model.log.receipt.json",
+   "source": "census_after1_switch_model.log.receipt.json",
+   "sha256": "7dc92b2eba2f221deaa08b0bf5635d5eaf5f8d0b43463fb6e8e1289078e560a2",
+   "bytes": 3204
+  },
+  {
+   "path": "receipts/census_after1_upper_lighting.log.receipt.json",
+   "source": "census_after1_upper_lighting.log.receipt.json",
+   "sha256": "72f4c22da8332882041660c1efada7f2a5a1fd4955911246da238d0e60c55923",
+   "bytes": 3219
+  },
+  {
+   "path": "receipts/census_after2.log.receipt.json",
+   "source": "census_after2.log.receipt.json",
+   "sha256": "4328601c43f8f4fac629374eb1e71e2e7db1567f8bd0761f832c563a8a5d8e2d",
+   "bytes": 3216
+  },
+  {
+   "path": "receipts/census_after2_apartment_batch.log.receipt.json",
+   "source": "census_after2_apartment_batch.log.receipt.json",
+   "sha256": "82f6ad4d1df889bc33308c6d7193d1ad05235461388b8cf0e706cfcaf0a09845",
+   "bytes": 3284
+  },
+  {
+   "path": "receipts/census_after2_connected_world.log.receipt.json",
+   "source": "census_after2_connected_world.log.receipt.json",
+   "sha256": "ba249bd641eeda52da3e00f31e0b4a9316871fc4ede2ac118d5b3e7cd7345f16",
+   "bytes": 3284
+  },
+  {
+   "path": "receipts/census_after2_household_state.log.receipt.json",
+   "source": "census_after2_household_state.log.receipt.json",
+   "sha256": "ca722cc79269fa7075eb1c6cd7a34ec92bd25a310b9957648ac399656d2c409e",
+   "bytes": 3283
+  },
+  {
+   "path": "receipts/census_after2_import1.log.receipt.json",
+   "source": "census_after2_import1.log.receipt.json",
+   "sha256": "676486933ce9333edf5cd0d4689308a18d8621f6c943d46ee9b5a087d9808810",
+   "bytes": 3170
+  },
+  {
+   "path": "receipts/census_after2_import2.log.receipt.json",
+   "source": "census_after2_import2.log.receipt.json",
+   "sha256": "3d80d5e0b6b1bff5a4051a3e38713e68c650ba8d5821eeb37cdc693aab3bb257",
+   "bytes": 3170
+  },
+  {
+   "path": "receipts/census_after2_switch_model.log.receipt.json",
+   "source": "census_after2_switch_model.log.receipt.json",
+   "sha256": "95f4fb612689a87d2641b37e028140be215c0ca6ffa7fffffa36c190b00c08b1",
+   "bytes": 3261
+  },
+  {
+   "path": "receipts/census_after2_upper_lighting.log.receipt.json",
+   "source": "census_after2_upper_lighting.log.receipt.json",
+   "sha256": "d4681fe5f604dd8e8428c7c2e3eb0705e92f12cfb6fad8f8e7a5e7fc8a0ec388",
+   "bytes": 3279
+  },
+  {
+   "path": "receipts/census_after3.log.receipt.json",
+   "source": "census_after3.log.receipt.json",
+   "sha256": "f9293c35f6c8f8f88dbbb86b2f7c8360b8d988fb02e3c9fc40ded1f0edc610d5",
+   "bytes": 3216
+  },
+  {
+   "path": "receipts/census_after3_apartment_batch.log.receipt.json",
+   "source": "census_after3_apartment_batch.log.receipt.json",
+   "sha256": "f861ad06e61e20111dbe846769f3c72675094a77a0d5f0ba3c67cea42cf848ce",
+   "bytes": 3283
+  },
+  {
+   "path": "receipts/census_after3_connected_world.log.receipt.json",
+   "source": "census_after3_connected_world.log.receipt.json",
+   "sha256": "e8afc5ea684696b9822ea2d679bc7617f06b6c80c2a66a92e7e9bd38f563e04e",
+   "bytes": 3283
+  },
+  {
+   "path": "receipts/census_after3_fabrication.log.receipt.json",
+   "source": "census_after3_fabrication.log.receipt.json",
+   "sha256": "71063371f21985eb483e452db448eab2379ea01ede90a9251249ef05a1406b72",
+   "bytes": 3266
+  },
+  {
+   "path": "receipts/census_after3_household_state.log.receipt.json",
+   "source": "census_after3_household_state.log.receipt.json",
+   "sha256": "ce5392835a0443b16c878f1c20274e5139b3753de67350d03f0786883141fe70",
+   "bytes": 3284
+  },
+  {
+   "path": "receipts/census_after3_import1.log.receipt.json",
+   "source": "census_after3_import1.log.receipt.json",
+   "sha256": "361ef487fa157807407844cc3e0f2a92eff6469edc8e9b5f601cd03f134ff25c",
+   "bytes": 3171
+  },
+  {
+   "path": "receipts/census_after3_import2.log.receipt.json",
+   "source": "census_after3_import2.log.receipt.json",
+   "sha256": "05a7e587f028a1c9aea433bbde69305cdbb664f05b35b725c3cec8957dcf7a3f",
+   "bytes": 3170
+  },
+  {
+   "path": "receipts/census_after3_switch_model.log.receipt.json",
+   "source": "census_after3_switch_model.log.receipt.json",
+   "sha256": "1f5f088303bd9a47bb47baa1ed8012c75c6f43ab5942ceffb1ec127d23628d42",
+   "bytes": 3260
+  },
+  {
+   "path": "receipts/census_after3_upper_lighting.log.receipt.json",
+   "source": "census_after3_upper_lighting.log.receipt.json",
+   "sha256": "cf4d1bbec1471a39d4a338568cca4fbe7ab578f1969422eeed809dbc8c4ad4f3",
+   "bytes": 3279
+  },
+  {
+   "path": "receipts/census_before.log.receipt.json",
+   "source": "census_before.log.receipt.json",
+   "sha256": "ed9526a473c3c29f3844d1d72e9b7d51959b4978bcec42eeb29246da0f8f042d",
+   "bytes": 3216
+  },
+  {
+   "path": "receipts/census_before_import1.log.receipt.json",
+   "source": "census_before_import1.log.receipt.json",
+   "sha256": "99ac66e50981c38725e5acf1da7ca36cd19f17f138c3f8428373964e31e9d71e",
+   "bytes": 3171
+  },
+  {
+   "path": "receipts/census_before_import2.log.receipt.json",
+   "source": "census_before_import2.log.receipt.json",
+   "sha256": "03130b2a2dbb22f7366dff81b580316956622704d42164b53e2da7a5684654d1",
+   "bytes": 3169
+  },
+  {
+   "path": "census/census_before.txt",
+   "source": "census_before.log",
+   "sha256": "adc395ffe7267b8071f75509847f853cedc23cc01bad0028188c8beb1572003c",
+   "bytes": 28804
+  },
+  {
+   "path": "census/census_after1.txt",
+   "source": "census_after1.log",
+   "sha256": "73c70663ebd1b5db8bb455481bb368801a1c58b8561dda20840d6bd11117ea77",
+   "bytes": 28892
+  },
+  {
+   "path": "census/census_after2.txt",
+   "source": "census_after2.log",
+   "sha256": "ed3b5cd5d25476f610303fe6294a5ac58346d030ece0978c8b3035ae71ddc666",
+   "bytes": 32272
+  },
+  {
+   "path": "census/census_after3.txt",
+   "source": "census_after3.log",
+   "sha256": "aa7e15f115e53f9d16a5233b18d09d23a998948852df874ea084b2318937e3a3",
+   "bytes": 32272
+  },
+  {
+   "path": "images/F01_A_STUDY_SWITCH_after3.jpg",
+   "source": "census_after3/F01_A_STUDY_SWITCH.png",
+   "sha256": "d3f23145723d57f679f2fd67c484f601a2d9f4442f9ad79d900d365cd24bc36e",
+   "bytes": 118886
+  },
+  {
+   "path": "images/F01_D_MAIN_SWITCH_after3.jpg",
+   "source": "census_after3/F01_D_MAIN_SWITCH.png",
+   "sha256": "1a3cc08de58a22e629fe11260dfa6f145d6f305d866ed1b239a3d1f5405280d8",
+   "bytes": 110976
+  },
+  {
+   "path": "images/F02_SOUTHWEST_HALL_SWITCH_after3.jpg",
+   "source": "census_after3/F02_SOUTHWEST_HALL_SWITCH.png",
+   "sha256": "f82ed9d8f1645e5c98e0bed5a7991fc3e22c7cc70fa57e65c71753538712898c",
+   "bytes": 135582
+  },
+  {
+   "path": "images/F03_B_ALCOVE_SWITCH_after3.jpg",
+   "source": "census_after3/F03_B_ALCOVE_SWITCH.png",
+   "sha256": "61a23274d29a2e818c58ff4dcb05fee718fe81919c6389a77ce7c0ccc2182bbd",
+   "bytes": 87978
+  },
+  {
+   "path": "images/F04_WEST_HALL_SWITCH_after3.jpg",
+   "source": "census_after3/F04_WEST_HALL_SWITCH.png",
+   "sha256": "34e0124a17c2a73a4f20ff9380184371c67c6a7e1c241248433a948c61ade8b3",
+   "bytes": 95069
+  },
+  {
+   "path": "images/F05_A_PRIVATE_HALL_SWITCH_after3.jpg",
+   "source": "census_after3/F05_A_PRIVATE_HALL_SWITCH.png",
+   "sha256": "e4d065af1263345fd908aac5ff80bec888c44de328f578b65f29038040ee5041",
+   "bytes": 91965
+  },
+  {
+   "path": "images/1D_house_bell_native.jpg",
+   "source": "census_after3_fabrication_shots/1D_house_bell_native.png",
+   "sha256": "c5c7935e6d60a7d2dd96565118e4bd5bff90f7dfa8b9dae286032e72c0ae4531",
+   "bytes": 149342
+  },
+  {
+   "path": "replica_clearance.txt",
+   "source": "sources/switch_replica at f70c3c95",
+   "sha256": "f62c777bf36743dfa64f80c0b64cceb1cb27f293cd60b4c18d256128ba00bd6e",
+   "bytes": 10758
+  }
+ ]
+}

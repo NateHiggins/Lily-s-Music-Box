@@ -1,0 +1,126 @@
+{
+ "evidence_class": "INERT",
+ "note": "Slice 84 at ebe9503b: the 1A, 3D and 4D fridges out of their kitchen-hall openings, the 2C/4C route legs round the open leaves, ConnectedWorld's native-part check. The completion route runs whole for the first time: 154 waypoints, 0 failures (per unit 1A 23, 3D 23, 4D 19, 2C 30, 4C 30, 1D 25, staff 4). This batch's ConnectedWorld (508 failures) is the first, too-broad version of the check, narrowed in 9535800b; ConnectedWorld passes there (implementation/slice85). Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F01_1A_FRIDGE_01_native_open.jpg",
+   "source": "fabrication_shots/household_fridges/F01_1A_FRIDGE_01_native_open.png",
+   "sha256": "63d8d02005fa47a1f56c7d47438fcfa9adc7d66283b2b78359f11697536be339",
+   "bytes": 119044
+  },
+  {
+   "path": "images/F01_1A_FRIDGE_01_native_closed.jpg",
+   "source": "fabrication_shots/household_fridges/F01_1A_FRIDGE_01_native_closed.png",
+   "sha256": "b25d37490d60a4ccb0ff0b6c3a89477deb9be607340cc62b8a43f438a58d85f9",
+   "bytes": 116719
+  },
+  {
+   "path": "images/F01_1A_STOVE_01_native_open.jpg",
+   "source": "fabrication_shots/household_stoves/F01_1A_STOVE_01_native_open.png",
+   "sha256": "d5d7f2b687f7e7db758fd90f8fbf8c86093ba124f77a22d91b941cf46e62f988",
+   "bytes": 109570
+  },
+  {
+   "path": "images/F02_2C_KITCHEN_SINK_01_hot.jpg",
+   "source": "completion_2C/F02_2C_KITCHEN_SINK_01_hot.png",
+   "sha256": "bb2477a5f0885fe1434465bdf3fb43c198107b17cc76bf98f322a37b89d5bc0e",
+   "bytes": 127621
+  },
+  {
+   "path": "images/F01_STAFF_SINK_hot.jpg",
+   "source": "completion_staff/F01_STAFF_SINK_hot.png",
+   "sha256": "2849660f39f9987165855282d17c19ff3cf42d56c73353e0fab2c493543f8acb",
+   "bytes": 208164
+  },
+  {
+   "path": "receipts/completion_1A.log.receipt.json",
+   "source": "completion_1A.log.receipt.json",
+   "sha256": "cc85381499346ca78b2470a24701de7ec42887704a7a9f5940bc920622968ce5",
+   "bytes": 3236
+  },
+  {
+   "path": "receipts/completion_1D.log.receipt.json",
+   "source": "completion_1D.log.receipt.json",
+   "sha256": "7c81b6b8cfd6d8f83051973e665987e3d98492cf329ae489b842e3167dc7c3e1",
+   "bytes": 3237
+  },
+  {
+   "path": "receipts/completion_2C.log.receipt.json",
+   "source": "completion_2C.log.receipt.json",
+   "sha256": "bff68940717080e544e8de81ca610d244820daed794ee11a084354197b2c509d",
+   "bytes": 3236
+  },
+  {
+   "path": "receipts/completion_3D.log.receipt.json",
+   "source": "completion_3D.log.receipt.json",
+   "sha256": "fadd44442409092db7e3eb90c380d4ecb576f9123b70e9a64fbd3454d5e21023",
+   "bytes": 3236
+  },
+  {
+   "path": "receipts/completion_4C.log.receipt.json",
+   "source": "completion_4C.log.receipt.json",
+   "sha256": "cc609052084aa1758a0b703994106e66f353404c1186bb71cdf9e526f68153de",
+   "bytes": 3236
+  },
+  {
+   "path": "receipts/completion_4D.log.receipt.json",
+   "source": "completion_4D.log.receipt.json",
+   "sha256": "ded8f316e87f8be95181d9ddf8e92075d0cce7ad278b971b89cef5695ee50d63",
+   "bytes": 3236
+  },
+  {
+   "path": "receipts/completion_all.log.receipt.json",
+   "source": "completion_all.log.receipt.json",
+   "sha256": "2941bbcbacdb530f9663ad300651523b46bf7bb153bf361bd9885fd090762b57",
+   "bytes": 3240
+  },
+  {
+   "path": "receipts/completion_staff.log.receipt.json",
+   "source": "completion_staff.log.receipt.json",
+   "sha256": "cccd44ac95e080e809d6035f4e735bd88b6e9e487930837bc40c36e97c12ce0e",
+   "bytes": 3245
+  },
+  {
+   "path": "receipts/connected_world.log.receipt.json",
+   "source": "connected_world.log.receipt.json",
+   "sha256": "82a9cb527b5610c80a717f26ec59981e07ab6d8d62fa8dcd7e698abc134c5be9",
+   "bytes": 3193
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "6bc1d98cebfb6305e47267e063723dfd060ca78d2801c612ab23d01d79fd292e",
+   "bytes": 3221
+  },
+  {
+   "path": "receipts/household_state.log.receipt.json",
+   "source": "household_state.log.receipt.json",
+   "sha256": "14990474ce79ea99bc7e6ea1c94a299f5d7583b0f6e282e2ff907354a72c9f6c",
+   "bytes": 3193
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "eb6ac65bf99040115ca6ad4fda558b79b56cdcfd3a0c3af56e9a601faba01f5d",
+   "bytes": 3139
+  },
+  {
+   "path": "receipts/import2.log.receipt.json",
+   "source": "import2.log.receipt.json",
+   "sha256": "6eaa139147ef518fceeca3dc6ab4a7e9189bb194fbb4f0260d4f9262a9e14146",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/rear_wing_c.log.receipt.json",
+   "source": "rear_wing_c.log.receipt.json",
+   "sha256": "cd259ec3093182259004b782fdf69b4eabaeafae77c4480caf9097659d6a899f",
+   "bytes": 3241
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "0a452cc7ca4335bd58fea298f69ca280677505ededd0c0a8e202d5b35b43ac0f",
+   "bytes": 2937
+  }
+ ]
+}

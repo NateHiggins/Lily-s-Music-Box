@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 96.52,
+  "exit_code": 0,
+  "finished_utc": "2026-10-11T01:10:33Z",
+  "started_utc": "2026-10-11T01:08:56Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/ov/envimpl_out/slice85/probe_before_lamp0.log.stderr",
+  "stderr_sha256": "77817702436e14871930d14ee65643f58c7a0a1e6a157771882dffd6790241db",
+  "stdout": "C:/ov/envimpl_out/slice85/probe_before_lamp0.log",
+  "stdout_sha256": "5abb21f23b5e0833e7201e2037f3fd1e4c979c0ea13ad8bc92a5a2afeb09f672"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2NodeProbe.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/ov/envimpl_out/slice85/probe_before_lamp0",
+ "source": {
+  "dirty_paths": 417,
+  "dirty_sample": [
+   "M game/assets/building/textures/T_ai_materials_bakelite_black_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bakelite_black_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_bright_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_dull_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_brass_mesh_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_bronze_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_normal.png.import",
+   " M game/assets/building/textures/T_ai_materials_car_paint_rough.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_albedo.png.import",
+   " M game/assets/building/textures/T_ai_materials_cast_iron_normal.png.import"
+  ],
+  "repository_head": "ebe9503b0f0f3a900fda5073840c4afa3f5b3669",
+  "repository_tree": "0bdcccfd541350a4d593732a35f93472f26ed8dc",
+  "runtime_inputs_sha256": "5e9f1f14ddf2dafd67ed2402d835c6210e7ff041def41c6f111d252119a20d49",
+  "test_path": "game/tests/orison_v2_node_probe.gd",
+  "test_sha256": "06adc371dae5e5f3ebd67fae43c942c87e57d3a8729f69c080c843aecd1c67d9"
+ },
+ "windowed": true
+}

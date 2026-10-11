@@ -1,0 +1,31 @@
+{
+	"batch_checks": 9,
+	"elapsed_ms": 56769,
+	"evidence_class": "INERT",
+	"failures": [
+		"domestic_objects: clear standing camera station: F03_riser_hose"
+	],
+	"module_checks": 10218,
+	"modules": {
+		"domestic_objects": {
+			"actors": 248,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 10218,
+			"elapsed_ms": 5192,
+			"failures": [
+				"clear standing camera station: F03_riser_hose"
+			],
+			"fixture_sha256": "d3fd935f3605f70c1383389bea33f3dc5b70ab5ddfc732b5b3224ae14f6447bf",
+			"parts": 999,
+			"shared_validator_sha256": "597b4e17024482f6d444e219304f9410f5bfc7f3bc1bed3d870953f25f01ab4a",
+			"unique_triangles": 602220,
+			"validator_sha256": "23f058241ca8e832a3dc7cf2cd8a6ce50d8f65359acbeb678588ebf9c0a1ea4f",
+			"variants": 138,
+			"views": []
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

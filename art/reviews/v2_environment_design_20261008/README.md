@@ -23,7 +23,7 @@ game code and data (merged 2026-10-10, see design/V2_ENVIRONMENT_DOSSIER_MERGE_R
 | `plans/plan_*.png` | Per-level plans drawn from the blockout with the capture stations. |
 | `images/` | 640 px JPEG review tiles, one per captioned view. |
 | `evidence/` | Sweep records (`sweep_run1.json`, `sweep_run2.json`), runtime node census, run receipts and logs, the copied-local-asset manifest and the full-resolution capture inventory (SHA-256 of 1,202 PNGs retained locally at `C:/ov/envdossier_out/<run>/shots`). |
-| `sources/` | The capture scene (`orison_v2_environment_dossier_sweep.gd` + `.tscn`), the stage script, the census, plan, sheet and merge builders. |
+| `sources/` | The capture scene (`orison_v2_environment_dossier_sweep.gd` + `.tscn`), the stage script, the census, plan, sheet and merge builders; the implementation probes (node probe, census capture, switch census) and `switch_replica/`, a read-only static mirror of the wall finish stack that measures each switch plate's flushness and clearance. |
 | `content/` | The authored content modules the builder reads (`front_matter.py`, `_common.py`, `areas_*.py`). |
 | `content/status.py` | Implementation status per change id (`proposed`, `implemented`, `verified`, `deferred`, `rejected`) with the owner note and evidence pointer; the builder overlays it on the register (`python build_dossier.py --register-only` rewrites the register without the PDF). |
 | `implementation/<slice>/` | Verification evidence for implemented changes: captures (1280 px JPEG), the fabrication `batch.json`, run receipts, sweep records and a SHA-256 manifest. INERT, never runtime proof. |
@@ -277,6 +277,15 @@ verified once, at the group's last WIP: slices 53, 55-56, 58-66, 68-74 and
 example 088f987a differs from slice 68's 18faa509 in 55 files, and 129e02d3
 from slice 76's 0d9a2b4c in 27). Their receipts verify the group's last tree,
 not each step. The WIP shas are reachable from no ref.
+
+The follow-ups and slices 83 to 86 were squashed with `git commit-tree` from the
+WIP trees the lane ran, so their game and art paths match the receipts: the
+follow-ups' commit is 35d42b3f's tree (game and art as 88c5a68f, where
+`followups4` ran), slice 83's a03be466's (as 34b4c7c8), slice 85's 9535800b's
+and slice 86's f70c3c95's. Slice 84's commit is ebe9503b's tree plus 9535800b's
+narrowed ConnectedWorld check, a test-only change; ConnectedWorld's passing
+slice 84 run is at 9535800b. A last commit carries the evidence and statuses
+for slices 84 to 86.
 
 Folders added after the merge: `slice4` (slice 4's evidence, restored);
 `slice9b` (slice 9's first runs, refused at startup before the cabinet fix);

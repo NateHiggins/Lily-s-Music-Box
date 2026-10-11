@@ -1,0 +1,102 @@
+{
+	"batch_checks": 15,
+	"elapsed_ms": 70443,
+	"evidence_class": "INERT",
+	"failures": [],
+	"module_checks": 13564,
+	"modules": {
+		"fixed_lighting": {
+			"actors": 218,
+			"additional_world_loads": 0,
+			"captured": false,
+			"checks": 6424,
+			"elapsed_ms": 1933,
+			"failures": [],
+			"fixture_sha256": "cea72da93a0b294f672e5398284f4077f6ad8399e950539a59027aa39c16219d",
+			"parts": 818,
+			"unique_triangles": 480680,
+			"validator_sha256": "4f509bad4ba47f5e216a746324dd9282c204b2741afbb00460f19a14afa0d5d1",
+			"variants": 27,
+			"views": []
+		},
+		"household_fridges": {
+			"actors": 18,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 1891,
+			"elapsed_ms": 5586,
+			"failures": [],
+			"fixture_sha256": "682941b0f575c3970b4a651b386a6eea8dd280877539cec382a70baf31dd8434",
+			"inventory_items": 50,
+			"monitors": 4,
+			"unique_triangles": 187660,
+			"validator_sha256": "7b60f96cb58859aec2d4bf37f6f92745f4fbdf5f4706675ce655acea4b5dec2c",
+			"views": [
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						10.7854156494141,
+						0.0199999995529652,
+						-3.08983683586121
+					],
+					"id": "F01_1A_FRIDGE_01_native_open",
+					"image": "F01_1A_FRIDGE_01_native_open.png",
+					"owner": "F01_1A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native refrigerator and source household inventory",
+					"feet": [
+						9.0,
+						0.0199999995529652,
+						-4.03999853134155
+					],
+					"id": "F01_1A_FRIDGE_01_native_closed",
+					"image": "F01_1A_FRIDGE_01_native_closed.png",
+					"owner": "F01_1A_FRIDGE_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		},
+		"household_stoves": {
+			"actors": 18,
+			"additional_world_loads": 0,
+			"captured": true,
+			"checks": 5249,
+			"elapsed_ms": 6552,
+			"failures": [],
+			"fixture_sha256": "183cf5b290a36e047c191570cf7f4d8fcce5340a5fbf7b687b36329bb821d8dc",
+			"unique_triangles": 476108,
+			"validator_sha256": "1578c36603ce01b9ecf5ba5013c7954cf4505339423288d660aebfff69dfec09",
+			"views": [
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						9.56583976745605,
+						0.0199999995529652,
+						-3.13223552703857
+					],
+					"id": "F01_1A_STOVE_01_native_open",
+					"image": "F01_1A_STOVE_01_native_open.png",
+					"owner": "F01_1A_STOVE_01",
+					"status": "captured_pending_visual_review"
+				},
+				{
+					"bucket": "native gas range and original service controls",
+					"feet": [
+						10.7996959686279,
+						0.0199999995529652,
+						-2.86746978759766
+					],
+					"id": "F01_1A_STOVE_01_native_closed",
+					"image": "F01_1A_STOVE_01_native_closed.png",
+					"owner": "F01_1A_STOVE_01",
+					"status": "captured_pending_visual_review"
+				}
+			]
+		}
+	},
+	"schema": "orison.fabrication-batch.v1",
+	"scope": "Detailed geometry/material/support QA; lifecycle and gameplay contracts remain separate.",
+	"world_loads": 1
+}

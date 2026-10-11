@@ -1,0 +1,186 @@
+{
+ "evidence_class": "INERT",
+ "note": "Slice 85 (F03-F06 service spine maintenance evidence) at 9535800b, frames re-shot at 32784e13 (same hall geometry) and before-frames at ebe9503b. Route boxes are identical before and after. Its one fabrication failure is the capture harness finding no camera station for F03's hose. M11B fails one ObjectDB/ownership lifecycle check both before (ebe9503b: final teardown) and after (9535800b: second warmed cycle), so that red predates the slice. Implementation verification captures and run receipts; teleported inspection stations under production lighting unless a receipt says otherwise. Not runtime proof.",
+ "files": [
+  {
+   "path": "images/F03_POCKET_after.jpg",
+   "source": "picked/F03_POCKET_after.png",
+   "sha256": "69772289afaaa59e33665062d7b57a28cb1f05abd2cb404bf423451147a71948",
+   "bytes": 89913
+  },
+  {
+   "path": "images/F03_POCKET_before.jpg",
+   "source": "picked/F03_POCKET_before.png",
+   "sha256": "e7217dc1166dc6a5c9ed92fa2ceb29c6056c8e8f349ffd531b1ec5a1420c76a7",
+   "bytes": 87157
+  },
+  {
+   "path": "images/F03_TH_after.jpg",
+   "source": "picked/F03_TH_after.png",
+   "sha256": "1188afa904c0a862fa61631242937604000e1240801f4e0f5d97d2871ff46892",
+   "bytes": 77750
+  },
+  {
+   "path": "images/F04_POCKET_after.jpg",
+   "source": "picked/F04_POCKET_after.png",
+   "sha256": "58ec2a4b4ece9ee905f140f86ded33c60f7d81be8ba3ae95c5c10faa82db7869",
+   "bytes": 56718
+  },
+  {
+   "path": "images/F04_TH_ROUTE_after.jpg",
+   "source": "picked/F04_TH_ROUTE_after.png",
+   "sha256": "b1f0719bee646594d2b8a47eb7b792fc0f82021e12913d9f806e2d2220039d7d",
+   "bytes": 44611
+  },
+  {
+   "path": "images/F04_TH_after.jpg",
+   "source": "picked/F04_TH_after.png",
+   "sha256": "7abecac16c028d11e856521fab1c42dea0e8910881f14ecb56bf11a9983724ee",
+   "bytes": 65229
+  },
+  {
+   "path": "images/F04_TH_after_lampoff.jpg",
+   "source": "picked/F04_TH_after_lampoff.png",
+   "sha256": "2f2eef56a0838265971bdceee28dbd62b6d8dbca55132dc442a35507ab2a6d27",
+   "bytes": 58783
+  },
+  {
+   "path": "images/F04_TH_before.jpg",
+   "source": "picked/F04_TH_before.png",
+   "sha256": "058aba20e51fa69db2b909e75f1816930200b7987a4316c17d238152f4fca739",
+   "bytes": 64973
+  },
+  {
+   "path": "images/F05_TH_after.jpg",
+   "source": "picked/F05_TH_after.png",
+   "sha256": "4cb1d8a9e1f1b1301ad6c1d4a178a0c104e1f365f20db8f06eba3b3bb6a17096",
+   "bytes": 87384
+  },
+  {
+   "path": "images/F06_TH_after.jpg",
+   "source": "picked/F06_TH_after.png",
+   "sha256": "8cf75956439102f63c3618fbe02f308b0716b88259514eed0b6017d7a43a80ae",
+   "bytes": 69412
+  },
+  {
+   "path": "receipts/apartment_batch.log.receipt.json",
+   "source": "apartment_batch.log.receipt.json",
+   "sha256": "f4a4602db7368b44edbb17498241536d98c569edc78e74be5039a5712a102f06",
+   "bytes": 3241
+  },
+  {
+   "path": "receipts/before_import1.log.receipt.json",
+   "source": "before_import1.log.receipt.json",
+   "sha256": "b20c36d150c59a7e1ae77a495f7663690d234912f31fa7e167d1a9812c3bdb77",
+   "bytes": 3154
+  },
+  {
+   "path": "receipts/before_import2.log.receipt.json",
+   "source": "before_import2.log.receipt.json",
+   "sha256": "f574c5e597685f2066c07b89ca9e66dd1fb00c2ea1fc99907d8eb8a2e03a281a",
+   "bytes": 3154
+  },
+  {
+   "path": "receipts/before_m11b_service_openings.log.receipt.json",
+   "source": "before_m11b_service_openings.log.receipt.json",
+   "sha256": "c708ad681e3c5f4e5da1fc318f50fc5f0c6ff290aead08ca345284dda68679f1",
+   "bytes": 7020
+  },
+  {
+   "path": "receipts/blockout.log.receipt.json",
+   "source": "blockout.log.receipt.json",
+   "sha256": "7151cc0b91f37cbf611a3201865f3d2d2fe8ccb684a7292d65d0b94c0cdc4647",
+   "bytes": 5886
+  },
+  {
+   "path": "receipts/connected_world.log.receipt.json",
+   "source": "connected_world.log.receipt.json",
+   "sha256": "18768c54831a2453b09fc3a82a0db9bd8b4728e2f919159810e53cbce7c3786c",
+   "bytes": 3194
+  },
+  {
+   "path": "receipts/fabrication.log.receipt.json",
+   "source": "fabrication.log.receipt.json",
+   "sha256": "2664ae8d040a43b7fff5e6329a06a43098610124a7d2957ca7395ff59fce7023",
+   "bytes": 3311
+  },
+  {
+   "path": "receipts/import.log.receipt.json",
+   "source": "import.log.receipt.json",
+   "sha256": "7b4b3615b5f014ee4868978e9dc0b76d4d31bb32253ad92b7ade125ead5ecc9a",
+   "bytes": 3138
+  },
+  {
+   "path": "receipts/import2.log.receipt.json",
+   "source": "import2.log.receipt.json",
+   "sha256": "db2db9af2b2fc4b5a938388f82deb0f7e3a58ec32cff45e8faceb327dd77de21",
+   "bytes": 3140
+  },
+  {
+   "path": "receipts/m11b_service_openings.log.receipt.json",
+   "source": "m11b_service_openings.log.receipt.json",
+   "sha256": "5a54f0bdfd7983a598e8e714fd61b8d9c7e274e56ce5b5cd3b7148d764ae8fa0",
+   "bytes": 7006
+  },
+  {
+   "path": "receipts/probe_after_lamp0.log.receipt.json",
+   "source": "probe_after_lamp0.log.receipt.json",
+   "sha256": "9fb4ce3ef5d12fff08689796211453f9e26e7742706cb5cef0c0a9ec625f894c",
+   "bytes": 3220
+  },
+  {
+   "path": "receipts/probe_after_lamp1.log.receipt.json",
+   "source": "probe_after_lamp1.log.receipt.json",
+   "sha256": "bdd677cf2963cc452bf95c0b7f3c88c3af36f9c5d48448bca5b04b31f5d6c6a1",
+   "bytes": 3220
+  },
+  {
+   "path": "receipts/probe_before_lamp0.log.receipt.json",
+   "source": "probe_before_lamp0.log.receipt.json",
+   "sha256": "53b542f1d9752e9cdbae1663c1d1a2da323f297604b0f181d3c9e724b1ff80db",
+   "bytes": 3222
+  },
+  {
+   "path": "receipts/probe_before_lamp1.log.receipt.json",
+   "source": "probe_before_lamp1.log.receipt.json",
+   "sha256": "84116e4fda1c9d82ff846d78cebf8a478e35bba20b9c34dd00c337b289e5d58c",
+   "bytes": 3221
+  },
+  {
+   "path": "receipts/reshoot_import1.log.receipt.json",
+   "source": "reshoot_import1.log.receipt.json",
+   "sha256": "2e54c65f9847a0fa701d0b5be4fbd09df68ef3d704c71e6acddef80e1db4aac5",
+   "bytes": 3156
+  },
+  {
+   "path": "receipts/reshoot_import2.log.receipt.json",
+   "source": "reshoot_import2.log.receipt.json",
+   "sha256": "660926a3c81ce225d6e4728080a8097f911ca386947c04983d6bbb17ece6c3c7",
+   "bytes": 3156
+  },
+  {
+   "path": "receipts/reshoot_lamp0.log.receipt.json",
+   "source": "reshoot_lamp0.log.receipt.json",
+   "sha256": "50f9224b50cc6a4af1da90504f9ec4bf772f8774b2ab15e3e1402812c3299372",
+   "bytes": 3207
+  },
+  {
+   "path": "receipts/reshoot_lamp1.log.receipt.json",
+   "source": "reshoot_lamp1.log.receipt.json",
+   "sha256": "7bf5ecb9e4a1b4237de21e469e35be080045e798ae53752469231cae6ea7e812",
+   "bytes": 3208
+  },
+  {
+   "path": "receipts/vertical_route.log.receipt.json",
+   "source": "vertical_route.log.receipt.json",
+   "sha256": "a3978a8bb8f55a6c5a1d6627f0056e30b20653215032a7d43470c4b64a0c39da",
+   "bytes": 3189
+  },
+  {
+   "path": "receipts/fabrication_shots__batch.json",
+   "source": "fabrication_shots/batch.json",
+   "sha256": "3434c3748e2a90ede95209d132a4a4622e2220d6a710fa07ed5ce57f7e8454f4",
+   "bytes": 943
+  }
+ ]
+}
