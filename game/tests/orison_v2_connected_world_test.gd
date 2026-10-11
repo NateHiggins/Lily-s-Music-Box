@@ -5,6 +5,7 @@ const Resolver := preload("res://scripts/building/orison_v2_exterior_spatial_res
 const Runtime := preload("res://scenes/building/orison_v2_runtime.tscn")
 const Fittings := preload("res://scripts/building/orison_v2_domestic_fittings.gd")
 const Furniture := preload("res://scripts/building/orison_v2_domestic_furniture.gd")
+const NativeFurniture := preload("res://scripts/building/orison_v2_native_domestic_furniture.gd")
 var failures: Array[String] = []
 var checks := 0
 
@@ -53,6 +54,17 @@ func _run() -> void:
 			var invalid_furniture := furniture_source.duplicate(true)
 			invalid_furniture.furniture[0].surfaces[0].vertices.pop_back()
 			_check(not furniture_loader.validate(invalid_furniture, world.adapter), "incomplete furniture triangle refused")
+			# Native seating and tables replace a record's extracted surfaces with their family's parts
+			# (dossier slice 4's pedestal table is one oak partition), so those bodies are held to
+			# every part of their variant instead of the extracted surface count.
+			var native_parts := {}
+			for family_path: String in [NativeFurniture.SEATING_PATH, NativeFurniture.TABLES_PATH]:
+				var family: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(family_path))
+				for row: Dictionary in family.assemblies:
+					var names: Array = []
+					for part: Dictionary in row.parts: names.append(str(part.name))
+					names.sort()
+					native_parts[str(row.id)] = names
 			for record: Dictionary in furniture_source.furniture:
 				var body := world.adapter.resolve(str(record.id)) as StaticBody3D
 				_check(body != null and body.get_meta("v2_furniture_id", "") == str(record.id),
@@ -69,6 +81,15 @@ func _run() -> void:
 								if actual.name == part.name and actual.mesh == part.mesh and actual.is_visible_in_tree(): matches += 1
 							_check(matches == 1, "imported furniture retains its visible mesh: " + str(record.id) + "/" + str(part.name))
 						reference.free()
+					elif native_parts.has(str(body.get_meta("v2_native_domestic_variant", ""))):
+						var shown: Array = []
+						for draw: MeshInstance3D in installed:
+							if draw.has_meta("native_domestic_part") and draw.mesh != null and draw.is_visible_in_tree():
+								shown.append(str(draw.get_meta("native_domestic_part")))
+						shown.sort()
+						var wanted: Array = native_parts[str(body.get_meta("v2_native_domestic_variant"))]
+						_check(shown == wanted,
+								"native furniture shows every part of its variant: " + str(record.id))
 					else:
 						_check(installed.size() >= record.surfaces.size(),
 								"furniture has its extracted visible surfaces: " + str(record.id))

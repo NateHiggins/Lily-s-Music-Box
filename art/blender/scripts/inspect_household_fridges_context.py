@@ -69,6 +69,15 @@ for row in plan['instances']:
   if np.any(fridge['high']<=right['low']+.00003) or np.any(right['high']<=fridge['low']+.00003):continue
   hits=fridge['tree'].overlap(right['tree']);clearances.append([identity,other,len(hits)])
   if hits:failures.append([identity,other,'closed native surfaces cross',len(hits)])
+ # A closed case must leave every same-level door and opening passage clear: its clear width, 0.30 m
+ # either side of the wall plane, to the passage head (3fbba2e5 stood three in a kitchen-hall opening).
+ for door in layout['doors']+layout['openings']:
+  if door['level']!=a['level']:continue
+  across=door['axis']=='z' if 'axis' in door else abs(float(door.get('yaw',0)))>.785
+  cx,cz=door['center'];half=door['width']*.5;fl=levels[a['level']]
+  gx=(cx-.30,cx+.30) if across else (cx-half,cx+half);gz=(cz-half,cz+half) if across else (cz-.30,cz+.30)
+  plo=np.array((gx[0],-gz[1],fl));phi=np.array((gx[1],-gz[0],fl+door['height']))
+  if not (np.any(fridge['high']<=plo+.00003) or np.any(phi<=fridge['low']+.00003)):failures.append([identity,door['id'],'closed case stands in a door or opening passage'])
  for (v,owner),(pp,faces) in leaves.items():
   if v!=variant:continue
   pts=np.asarray([matrix@p for p in pp]);pivot=np.asarray(matrix@Vector((-.36,.32,0) if monitor else (-.35,.29,0)))

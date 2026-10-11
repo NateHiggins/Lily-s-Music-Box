@@ -77,16 +77,18 @@ func _route() -> void:
 		for point in [Vector3(-4,y,7.1),Vector3(-.85,y,7.1),Vector3(2.1,y,7.1)]:
 			if not await _walk(point): return
 		if not await _open_door(prefix+"PRIVATE_HALL_BATH_DOOR"): return
-		for point in [Vector3(2.1,y,5.55),Vector3(1.05,y,5.1)]:
+		# Round the open bath leaf (its tip at z 5.34) rather than cutting across it.
+		for point in [Vector3(2.1,y,5.55),Vector3(2.1,y,4.8),Vector3(1.05,y,5.1)]:
 			if not await _walk(point): return
 		if not await _use_water_valves("F0"+unit[0]+"_"+unit+"_SINK_01"): return
-		for point in [Vector3(2.1,y,5.55),Vector3(2.1,y,7.1),Vector3(5.4,y,7.1)]:
+		for point in [Vector3(2.1,y,4.8),Vector3(2.1,y,5.55),Vector3(2.1,y,7.1),Vector3(5.4,y,7.1)]:
 			if not await _walk(point): return
 		if not await _open_door(prefix+"PRIVATE_HALL_KITCHEN_DOOR"): return
-		for point in [Vector3(5.4,y,5.5),Vector3(4.85,y,4.9)]:
+		# Likewise round the open kitchen leaf (its tip at z 5.34).
+		for point in [Vector3(5.4,y,5.5),Vector3(5.4,y,4.9),Vector3(4.85,y,4.9)]:
 			if not await _walk(point): return
 		if not await _use_water_valves("F0"+unit[0]+"_"+unit+"_KITCHEN_SINK_01"): return
-		for point in [Vector3(5.4,y,5.5),Vector3(5.4,y,7.1),Vector3(2.1,y,7.1)]:
+		for point in [Vector3(5.4,y,4.9),Vector3(5.4,y,5.5),Vector3(5.4,y,7.1),Vector3(2.1,y,7.1)]:
 			if not await _walk(point): return
 		if not await _open_door(prefix+"PRIVATE_HALL_BED1_DOOR"): return
 		if not await _walk(Vector3(2.5,y,9)): return
