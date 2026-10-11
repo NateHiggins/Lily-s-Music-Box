@@ -36,6 +36,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | If you want to knowâ€¦ | Read |
 |---|---|
 | First-slice runtime contracts, actual save/reconstruction and remaining V2 blockers | `design/V2_FIRST_SLICE_CONTRACTS_2026-10-11.md` and `design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md` |
+| Native hollow mail compartments, delivery stock and retained 4B controls | `design/V2_NATIVE_MAIL_BANK_2026-10-11.md` |
 | Native apartment partitions, active PBR bindings and retained control/teardown checks | `design/V2_NATIVE_APARTMENT_CHECKS_2026-10-11.md` |
 | Corrected shaft-clear review routes and retained continuous traversal checks | `design/V2_ROUTE_FIXTURES_2026-10-11.md` |
 | Adjustable resident blinds, curtain variants, saved settings and reviewed window stock | `game/docs/V2_WINDOW_TREATMENTS.md` and `design/V2_WINDOW_TREATMENTS_2026-10-11.md` |

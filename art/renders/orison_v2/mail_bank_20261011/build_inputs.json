@@ -1,0 +1,19 @@
+{
+  "evidence_class": "INERT",
+  "role": "native build input hashes and measured mesh QA; not runtime proof",
+  "sha256": {
+    "art/blender/scripts/build_mail_bank.py": "10fad5759d92c8b12dcad9e87e20a669e32746dfecc3979c6608b637cfa390a2",
+    "art/blender/scripts/review_mail_bank.py": "e125415929f145badf8116698e5574ce07dcf5a3ca1588f8e585a5190a75adb6",
+    "art/blender/mail_bank.blend": "53dd84ed0ac2dfb5bd73ddfd63666a5189680e6a2404f5870ccb1001835638f9",
+    "game/assets/props/mail_bank.glb": "84ec9692aa1305278bb43a0887ff74cb4460e640c8606857437e22437c540a6d",
+    "game/scripts/building/orison_v2_native_mail_bank.gd": "57a8fa2bd38d0d0103d45bc20491e1c8b928efc57e466e0f8195e62b325493d8",
+    "game/scripts/props/mail_bank_prop.gd": "8065d9114f59031b2c35169135024236cf92375aed4c7bb202e0ce2140213cab",
+    "game/tests/v2_mail_bank_review.gd": "de2911195956a4915029496f5f9bb7fa0c3484f8fdd967cdc4e9a6deef985d3e",
+    "game/scripts/building/orison_v2_runtime_root.gd": "083e8d85e85a8d56dcde16bb15e8746c65aaffd841f4712a2bf324fe4961a4b7",
+    "game/data/runtime_material_sets.json": "b6c54da7063abfc726fc85af229c108d308da2721641db7bd8c7d7532a883a58",
+    "art/data/material_catalog.json": "3024e39068933d8521277fd7809832085875cdfebc005817cf8f8ad64091f496",
+    "game/assets/building/textures/mailbank/T_mailbank_brass_albedo.png": "9f9dc1713962f7456637915f058a8122aa66695d116d59096707f6a97961257c",
+    "game/assets/building/textures/mailbank/T_mailbank_brass_rough.png": "b46d153285072ecf697990a66c1f0204abd26e38e8fcfb130e64152d926bd1da"
+  },
+  "algorithm": "sha256; LF-normalized text, byte-exact binary"
+}

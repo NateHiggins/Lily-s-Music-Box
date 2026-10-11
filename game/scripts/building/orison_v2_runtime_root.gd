@@ -235,7 +235,13 @@ func _compose_authorities() -> void:
 	maintenance_inventory.setup()
 	add_child(maintenance_inventory)
 	_compose_vantry()
-	_mount("LobbyMailBank", MailBankProp.new())
+	var mail_bank := MailBankProp.new()
+	mail_bank.set_meta("v2_mail_bank_visuals", true)
+	_mount("LobbyMailBank", mail_bank)
+	if not mail_bank.get_meta("v2_native_mail_bank", false):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: native mail bank mount failed")
+		return
 	_mount("LobbyPorterBoard", OtisProp.new())
 	var tank_ballcock := RoofTankBallcockProp.new()
 	tank_ballcock.prop_type = "tank_ballcock"

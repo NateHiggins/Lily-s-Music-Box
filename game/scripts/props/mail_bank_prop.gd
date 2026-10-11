@@ -57,6 +57,7 @@ var _contents: Node3D
 var _brass: StandardMaterial3D
 var _brass_dark: StandardMaterial3D
 var _fixed: Node3D
+var _native_content_meshes: Dictionary = {}
 
 
 func _ready() -> void:
@@ -67,6 +68,9 @@ func _ready() -> void:
 	_brass = _brass_material(1.0)
 	_brass_dark = _brass_material(0.72)
 	_build()
+	if bool(get_meta("v2_mail_bank_visuals", false)):
+		if not preload("res://scripts/building/orison_v2_native_mail_bank.gd").new().mount(self):
+			push_error("ORISON V2: native mail bank refused")
 	_panel = CaseDialoguePanel.new()
 	add_child(_panel)
 
@@ -125,6 +129,7 @@ func _build() -> void:
 	_part_box(Vector3(0, ARRAY_BASE + height + 0.085, Z_SURROUND - 0.028),
 			Vector3(width - 0.06, 0.13, 0.010), _brass_dark, _fixed)
 	var header := MeshInstance3D.new()
+	header.name = "HeaderLettering"
 	var header_quad := QuadMesh.new()
 	header_quad.size = Vector2(width - 0.06, 0.13)
 	header.mesh = header_quad
@@ -183,7 +188,7 @@ func _build() -> void:
 	flap.rotation.x = -0.14
 	# The fixed architecture is five material draws instead of roughly 140
 	# little meshes. The only unmerged door is 4B, because it really opens.
-	StaticMeshBatcher.merge(_fixed, [cards_mesh])
+	StaticMeshBatcher.merge(_fixed, [cards_mesh, header] if bool(get_meta("v2_mail_bank_visuals", false)) else [cards_mesh])
 
 
 ## A unit without a household does not get a plausible-looking fake name.
@@ -319,6 +324,7 @@ func _card(cards: Texture2D, atlas_index: int, local_at: Vector3,
 		parent: Node3D) -> void:
 	_card_frame(local_at, parent)
 	var card := MeshInstance3D.new()
+	card.name = "PlayerNameCard"
 	var quad := QuadMesh.new()
 	quad.size = Vector2(0.142, 0.038)
 	card.mesh = quad
@@ -526,23 +532,35 @@ func _refresh_contents() -> void:
 			"package":
 				_content_box(Vector3(0.01, 0.045, 0.014),
 						Vector3(0.13, 0.085, 0.055),
-						Color(0.62, 0.48, 0.30))
+						Color(0.62, 0.48, 0.30), "ParcelStock")
 				_content_box(Vector3(0.01, 0.045, -0.015),
 						Vector3(0.132, 0.012, 0.058),
-						Color(0.32, 0.24, 0.15))
+						Color(0.32, 0.24, 0.15), "ParcelBand")
 			"work_order":
 				_content_box(Vector3(-0.055, 0.05, 0.0),
 						Vector3(0.012, 0.10, 0.062),
-						Color(0.78, 0.68, 0.44))
+						Color(0.78, 0.68, 0.44), "WorkOrderStock")
 			_:
 				_content_box(Vector3(0.02, 0.006 + slot * 0.012, 0.0),
 						Vector3(0.125, 0.010, 0.085),
-						Color(0.88, 0.85, 0.76))
+						Color(0.88, 0.85, 0.76), "EnvelopeStock")
 				slot += 1
 
 
-func _content_box(at: Vector3, size: Vector3, color: Color) -> void:
+func _content_box(at: Vector3, size: Vector3, color: Color, stock := "") -> void:
 	var node := MeshInstance3D.new()
+	if _native_content_meshes.has(stock):
+		node.mesh = _native_content_meshes[stock]
+		var finish := node.mesh.surface_get_material(0).duplicate() as StandardMaterial3D
+		finish.albedo_color = color
+		node.material_override = finish
+		node.position = at + (Vector3(0, 0, .029) if stock == "ParcelBand" else Vector3.ZERO)
+		if stock in ["ParcelStock", "ParcelBand"]: node.position.y -= .0025
+		if stock == "WorkOrderStock": node.position.x -= .012
+		if stock == "EnvelopeStock": node.position.y = .00075 + roundf((at.y - .006) / .012) * .0017
+		node.set_meta("native_mail_content", stock)
+		_contents.add_child(node)
+		return
 	var mesh := BoxMesh.new()
 	mesh.size = size
 	node.mesh = mesh

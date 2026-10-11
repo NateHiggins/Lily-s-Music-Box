@@ -1,62 +1,62 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "surface_inputs_sha256": "ab16fcd80f393f42dc760ca6a932d88b07a8150f9667a5f816785edd487ee7ab",
-  "scope": "Current production V2 surfaces, native patrol boxes and corrected window stock UVs; unchanged native family reviews retained. Earlier isolated window images are historical and excluded.",
+  "surface_inputs_sha256": "19ae382a644688d7378e92f829ca58d28dabeed6818c071b647de300f26acddf",
+  "scope": "Current production V2 surface audit, native mail bank and delivery stock, patrol boxes, window stock, continuous millwork and seasonal sky. Unchanged native family renders retained; low-light production images limit fine finish judgments.",
   "images": [
     {
       "file": "F02_A_MAIN.png",
-      "sha256": "f296a6bc8549b3f553bdf0d486a17395c22ed5fcfc07abd6b3f344501ae106dc",
+      "sha256": "963bde32320851120a32c35bef51e33de79c3c63004089bf0a41dfd4c30fcf25",
       "observation": "Wood floor, plaster, furniture and lamp are present without missing-material appearance; warm lighting limits subtle surface judgment."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "6685ab03d22d5b74323fb5647e7ab4a414c87ecdaeb6320341405c02b30ac1ff",
+      "sha256": "ff4c049edf6922dcfb952d97dd6bc5c789d98e6f25aadafe47795ecdac1d4e0d",
       "observation": "Table, chairs and workbench retain wood grain direction; plaster and hardware render in the composed apartment."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "9fd220d026235bddfbac6ed6bebc848f23ac8d974d95314689ca36400a37c9a8",
+      "sha256": "160e8d6db375666b19153e2d8b4fc47531addbe2c572baa9ae3e86775d4c7791",
       "observation": "Furniture, floor and wall stock render consistently in the occupied room."
     },
     {
       "file": "boiler.png",
-      "sha256": "a1e6af195c3d7521c8b34b2ea3e725f53e9ea8ec5b5b03bb75258b97b8b35ea2",
+      "sha256": "fb07818d820394c65dec2d2c1526390e728c709e071948b2f9e7f61f2e7db859",
       "observation": "Jacket, cast doors, copper and mineral pipe fittings render with distinct finishes."
     },
     {
       "file": "bookcase.png",
-      "sha256": "672b05fd176a6029b8bdec655b1c283fd6ae027ed61550a549813b4675cf2b90",
+      "sha256": "3520e2da0f061c1ea061f3f9ad6e915f753c498a684692b1de32ddcbb7b89c45",
       "observation": "Three glazed sectional sashes are visible; rail and stile grain follows the members."
     },
     {
       "file": "signal_scope.png",
-      "sha256": "a2d027e059abc44e6490514f6b246ada1f1324f02b57b0fdd6ad7cdcfb7321c3",
+      "sha256": "b14ee095948512ebf02d80eba29dd602a5f18fa81dc6cb2b4bc770aa8ac8d732",
       "observation": "Both circular live displays remain active within textured cabinet bodies."
     },
     {
       "file": "toaster_crumbs.png",
-      "sha256": "733be57b99513360d56611b5dcf9550cc9fd794d067f2e3bd5209d2252804022",
+      "sha256": "dbb3c985292e3caf99052b71cd901c79c8cabf0bb78a850d8d493cd9c6eb83ba",
       "observation": "Opened tray exposes individual crumbs with the new stock finish; appliance and kettle remain distinct."
     },
     {
       "file": "watch_station.png",
-      "sha256": "39d5b9ed55152a71b0e0e812a8194ea073dc96039b72ae00f66d6897abfd0373",
+      "sha256": "32914713c2d0690ac086e04c981505281e7811fd213d4cf21282e41c67281b6c",
       "observation": "Station label, case, latch and indicator remain legible after finish binding."
     },
     {
       "file": "fuse_panel.png",
-      "sha256": "cbdb873193638eda6e5512ab1370959c4aa6b55058d2cc668d8fa9464b2f5c19",
+      "sha256": "5b2ce95d0237d94a0d93793b98b32d857247f91121d586b1ce5c26fb7cddf0e2",
       "observation": "Open cabinet exposes ceramic holders and separate metal fittings."
     },
     {
       "file": "mail_bank.png",
-      "sha256": "166ca2ce60f4efdb8256da4da356a5312ebc6901d99067b52bf5009d009e8b65",
+      "sha256": "a6505317cc2267de78aaaa13284d9e72c5a0d57d86924153134e1086d493c98c",
       "observation": "Wood frame, brass door stock, headers and occupant cards remain distinct."
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "d7aef94cd591e385e4379fb3a516552d58b6d5c47163ed728f0a187f3f84f388",
+      "sha256": "717994f2cfd776529bbbac1fed9c709ac3f3447453a1de31291fb9e96d846671",
       "observation": "Valve assembly and wood terminal cabinet remain present with retained glowing display."
     },
     {
@@ -81,12 +81,12 @@
     },
     {
       "file": "continuous_HistoricMillwork.png",
-      "sha256": "54cbe9088381065112796b6d51db1a992863e99b6dcb2c26ff3d8b96d538ebb5",
+      "sha256": "4a6eb3756c23ce4491727e5b27b269eaa7b2f35a4fd2489d6e685b4a236c613a",
       "observation": "Beaded baseboard seats on the wall and floor; separate bead and metre-scaled painted stock render clearly."
     },
     {
       "file": "continuous_PublicWainscotCap.png",
-      "sha256": "df1bc89f9b8b9039b7eb7e73a5008ab8207e5c200acca4aae18c1b0c5a809ce4",
+      "sha256": "745553be25a167056aeb1ed6eec1117794fc8cb049df0d2e4427b621ef4a8f81",
       "observation": "Molded wood cap has horizontal grain distinct from vertical panel backing, with separate rails, stiles and upper eye rail."
     },
     {
@@ -96,37 +96,37 @@
     },
     {
       "file": "weather_season_01.png",
-      "sha256": "e1ae5e252c3820f64f4764f59a3d6ff2c6bbdf1f6aa20ec3f901c3141ebd3efd",
+      "sha256": "88faf224b3a90a9a78bb15046478997aa34be29c5d182a8c608c3410cb794683",
       "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
     },
     {
       "file": "weather_season_04.png",
-      "sha256": "9a55ea72aa87b3c5a5dce6d4905d653954c95654b7a6bfad1c6f7e64cea7fc7b",
+      "sha256": "71a74c5bbdb6f5258e9afde4c55612760946d5f6aa5d3deb6545b230bebb2327",
       "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
     },
     {
       "file": "weather_season_07.png",
-      "sha256": "6acb4f2f9e4877fd21eefa2147e6342754f2de5755845eb4aee5459c32171873",
+      "sha256": "3beaa53283977d6bf2ec43788b40a02acca13e6ea48de7955a2747bfad40b205",
       "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
     },
     {
       "file": "weather_season_10.png",
-      "sha256": "04ebbb86e04a3d06941b7348541ba170a8166f54cd9dbd3404529ef53388af2c",
+      "sha256": "faac97d21207d00563975094a0cf5534838aac61fc47c07044cf4ae7a607d4ae",
       "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
     },
     {
       "file": "cloud_shape_1.png",
-      "sha256": "072ccdbe03215999229b123145f4a6519ceec17a3201bf17bac294966bea08b9",
+      "sha256": "e91b79239692b311aea1a38ab1bfc8173bf5b9c9ea85f87f5b379c1cec8b13da",
       "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
     },
     {
       "file": "cloud_shape_2.png",
-      "sha256": "56b0c0737faf0d23804e71cc1730a18a40f299cf813817f7f73607ce6aad08a3",
+      "sha256": "3912e777eed191f1ea28d648eda6a8bb51db7930e18e42816a7f3dc7801d8e8a",
       "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
     },
     {
       "file": "cloud_shape_3.png",
-      "sha256": "b04c2d3cf7a6a9aa35357af46d347669d2ec41271c4b9ac2781de5d5b35efc6e",
+      "sha256": "b1630562911fff9e9a4714ca4ee9a5486079c60c5e76ce1837f83dcef8f6ca2b",
       "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
     },
     {
@@ -171,27 +171,27 @@
     },
     {
       "file": "window_1D.png",
-      "sha256": "87b766320b13c8f1b6218b5a4ee89cab03218036f49c233ee145b8305f1b322a",
+      "sha256": "de9376e2b21c30eb5bc59c941fbe9d779485a3d5c30a8e4e1001f5a53ca91bb6",
       "observation": "Teresa has dark closed drapes above the sill, with modeled tabs, rod and wall supports; capture fill reveals their folds."
     },
     {
       "file": "window_2B.png",
-      "sha256": "2f9586c6705ed24ff97721c90fabc0d1cd5767ca43180574dcc2491584db9610",
+      "sha256": "2c74f8e19803c6323eda0bad4f20c741f8e33ae0463de5755f725592806ddde5",
       "observation": "Lena has ochre sewn cafe panels beside the sewing work area, retaining upper-window light and the independent blind mechanism."
     },
     {
       "file": "window_3A.png",
-      "sha256": "fb243b60c2b7b529cba3fb88c02dfb3ec90fb0a3847f6f65d20d011024386a3a",
+      "sha256": "acb82323c3ce69d9fe312db358a78da75ee0cbd4cfae32491bb9e7c7c8eaf2e6",
       "observation": "Malcolm has green gathered linen and mostly raised blinds; the existing courtyard brick view remains visible."
     },
     {
       "file": "window_4C.png",
-      "sha256": "998c387c85546dc21315fbe81417371bb31029c8a524f952c58aece03beed815",
+      "sha256": "aa49a63c723a8b110cc984c8d50c7dcf3b20d75e749c6022ef318206285e1133",
       "observation": "Cam and Noel share green linen, with their authored bedroom settings stored separately; this frame shows the common room."
     },
     {
       "file": "window_4B.png",
-      "sha256": "f77aba92207aef69bf9852a1c99b05ac5d000d9bacadbe8b5ba9b5bb43c05a7e",
+      "sha256": "4cf06cad64eb04fc5b0332ad3bb0d3b1d52e07652181f6ea5e04139f47f3f609",
       "observation": "The player has worn neutral gathered panels, visible ladder cords and partially raised painted wood slats."
     },
     {
@@ -201,57 +201,57 @@
     },
     {
       "file": "patrol_B1_WATCH_STATION.png",
-      "sha256": "5fc81397fee4145ee0eb4174ce10a2ee1addc4bfb56016136bb1b7b22283719b",
+      "sha256": "f9228c8b693927e235b90c7abfc6daee427e90640db60059f5e7bebaf1dfc0a9",
       "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
     },
     {
       "file": "patrol_F01_WATCH_STATION.png",
-      "sha256": "709820ec2ba43313095556b7c058cedb7b773b829effec973a453c5b7366e35a",
+      "sha256": "1070280ddaf652bdaefc613a1c1edb72b127bc5b27c6f86a0483a0665240ed5d",
       "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
     },
     {
       "file": "patrol_F02_WATCH_STATION.png",
-      "sha256": "ef1f76c394808c7e403e6e9fa450f1006f634a3ca81987d495a5d0ba39ca73d1",
+      "sha256": "d5f9ed7fd6af000dca72a7e560d04922862f6972a01621d3122dc604f5e45f80",
       "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
     },
     {
       "file": "patrol_F03_WATCH_STATION.png",
-      "sha256": "b0b1e11ba1fced2c2a01e4ff3226ccb2747992c55495c3c831ba9f6a2592f12c",
+      "sha256": "82a97ad73e385dba47a2ab0e6a58e43c77465d1411a306d372eb9490e0500d49",
       "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
     },
     {
       "file": "patrol_F04_WATCH_STATION.png",
-      "sha256": "1e99d033bc54a53ae95604d6295a358b4ced3c3b39ed215e80206658a3d42979",
+      "sha256": "e765d00f00dc0f342320e1ec395a54186a99007d165cf49926b13a767f5d80d9",
       "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
     },
     {
       "file": "patrol_F05_WATCH_STATION.png",
-      "sha256": "fde8708ee0cd52b44e2042d885fdf4a08a3d248744e5d13a0ee90c0241ae4926",
+      "sha256": "48fc66d59a72f5bce2f2a26173da04b8175c7e8173d2f45629b5e9daa6eb0f62",
       "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
     },
     {
       "file": "patrol_F06_WATCH_STATION.png",
-      "sha256": "1078b824a7f4b147ff3d563b283c068a5603989a251c05659f4600d14dab29c7",
+      "sha256": "27781c59ccf6cd549bf42e29c52b6c064113c80d9f6d23f96d65841ce8e920b4",
       "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
     },
     {
       "file": "patrol_register_after_round.png",
-      "sha256": "deb4dcc68ec69d34b79c9318acd4ba4fb30405a6d2a9f735ffa260b7e4849808",
+      "sha256": "343604e3a77cb17400726fefd8e5e7d57766687ea0b0f253af4930e4d0e1b34a",
       "observation": "Actual production patrol view; the inherited seven-box player-interaction round delivers seven marks to the existing register."
     },
     {
       "file": "native_station_closed.png",
-      "sha256": "01e3393f03c7c762cf904ab907b0d4e9c1b861e5372ff518aabed2a3f1fe61f9",
+      "sha256": "885fcc4f80c8ea468d15b1c8bb938230faa34393b5f709924bece8dcd1fc23f8",
       "observation": "Closed cast-iron signal box retains its Label3D station legend and real glazed aperture; the carried device is hidden for inspection."
     },
     {
       "file": "native_station_open.png",
-      "sha256": "2bd31c6a834d30e0761d5af2b4df1b17843135ae14292bb026b8e7ecea260d34",
+      "sha256": "206c6934661968c5124eea2e6922f600311c796cdc23501a7e088ed61f537710",
       "observation": "Open native door reveals the empty recessed socket, crank, toothed wheel, pawl and raised indicator inside the lined case."
     },
     {
       "file": "native_station_marked.png",
-      "sha256": "921d0f8e1c1a3a1f94c0e1aaaf6cc30f0edbab5d8049850a31087f9e57887e3c",
+      "sha256": "0ba5ea23757ef82770aa2bc9743eff473ccc3575ac7993c8bc6855ac7a38d687",
       "observation": "Real keyed marking rotates the wheel and lowers the numbered red/ivory indicator inside the case; original signaling owner remains active."
     },
     {
@@ -268,6 +268,21 @@
       "file": "native_watch/open_marked.png",
       "sha256": "73d839968a62f47b9408e8615664abeb9adf2fa61d82f784dbdd2ee51765531e",
       "observation": "Native stock assembly with registered PBR in open marked pose; no lettering is baked into textures. Runtime retains its original colors and Label3D numbers."
+    },
+    {
+      "file": "native_mail_bank_closed.png",
+      "sha256": "a4c30e357afedd739c45209ba86f938334f809e30278eb656d5573b48b68ab97",
+      "observation": "Original address cards and overfull/ajar characterization survive on the hollow native bank; low-light capture limits brass finish judgment."
+    },
+    {
+      "file": "native_mail_bank_open.png",
+      "sha256": "a5c21c813982ff79dc92e7b35829e93b5fa41a945998223802c146f395275f42",
+      "observation": "Original 4B leaf swings outward and exposes the compartment; other address cards and empty compartments retain their source placement. Low-light capture is supplemented by lit Blender review."
+    },
+    {
+      "file": "native_mail_bank_pocket_detail.png",
+      "sha256": "f91cf12ffb9521655a52b3ae330e35645d1adc2a015d31d9ff8042ecc1cf92d6",
+      "observation": "Open pocket has a real floor, cheeks and rear lining with existing pending mail supported inside; physical card and lock turn with the source hinge. Scene is dark, so fine surface detail is reviewed in the Blender close-up."
     }
   ],
   "diagnostic_images": [

@@ -41,6 +41,7 @@ func _run() -> void:
 	await preload("res://tests/v2_watch_stations_review.gd").new().run(world,self)
 	await preload("res://tests/v2_window_treatments_review.gd").new().run(world,self)
 	await preload("res://tests/v2_millwork_weather_review.gd").new().run(world,self)
+	await preload("res://tests/v2_mail_bank_review.gd").new().run(world,self)
 	world.player.global_position = world.adapter.root.to_global(Vector3(-4., .02, -5.))
 	for frame in 600:
 		if world.passage_region.residency.state == "RESIDENT": break
