@@ -109,14 +109,10 @@ func _ready() -> void:
 			refs.append(weakref(prop))
 			if record.kind == "plant":
 				check(str(record.id) == "3A_story_specimen", "authored Malcolm specimen mounted")
-				var bound_materials: Array[String] = []
-				for mesh: MeshInstance3D in prop.find_children("*", "MeshInstance3D", true, false):
-					var material := mesh.material_override as StandardMaterial3D
-					check(material != null and material.albedo_texture != null, "plant surfaces have textures")
-					for key: String in ["plant", "timber", "soil", "terracotta"]:
-						if material == MatLib.get_mat(key): bound_materials.append(key)
-				bound_materials.sort()
-				check(bound_materials == ["plant", "soil", "terracotta", "timber"], "plant uses all four semantic materials")
+				var plant_keys := _check_native_parts(prop, "res://data/orison_v2/domestic_objects.json", str(record.id), true)
+				plant_keys.sort()
+				check(plant_keys == ["oak_work_surface", "plant", "soil", "terracotta"],
+						"plant retains cane support, foliage, soil and fired-clay semantic finishes")
 			if record.kind == "wardrobe":
 				check(prop.get("_case_wood") == record.mechanism.case_wood,
 						"wardrobe retains its household wood: " + str(record.id))
@@ -157,7 +153,7 @@ func _ready() -> void:
 	if not directory.is_empty():
 		DirAccess.make_dir_recursive_absolute(directory)
 		FileAccess.open(directory.path_join("apartment_batch.json"),FileAccess.WRITE).store_string(
-				JSON.stringify({"checks":checks,"failures":failures},"\t"))
+				JSON.stringify({"checks":checks,"failures":failures, "loaded_mips_measured":DisplayServer.get_name() != "headless"},"\t"))
 	print("APARTMENT BATCH: %d checks, %d failures" % [checks,failures.size()])
 	get_tree().quit(0 if failures.is_empty() else 1)
 
@@ -459,42 +455,31 @@ func _check_storage_tables_boards(world: OrisonV2RuntimeRoot, source: Dictionary
 		if body == null: continue
 		check(not body.has_method("interact"), "fixed storage does not claim inventory mechanics")
 		var shapes := body.find_children("*", "CollisionShape3D", true, false)
-		check(shapes.size() == 1, "bounded fixed furniture collision: " + str(record.id))
+		var family_path := "res://data/orison_v2/domestic_storage.json" if record.kind == "cupboard" else (
+				"res://data/orison_v2/domestic_tables.json" if record.kind == "coffee" else "res://data/orison_v2/domestic_objects.json")
+		_check_native_parts(body, family_path, str(record.id), true)
 		if record.kind == "cupboard":
 			cupboards.append(str(record.id).left(2))
 			var local: Vector3 = world.adapter.root.to_local(body.global_position)
 			var floor := 3.2 * (int(str(record.id).left(1)) - 1)
 			check(is_equal_approx(local.y - floor, 1.65), "wall cupboard mounted above standing capsule")
-			if shapes.size() == 1:
-				var shape := shapes[0] as CollisionShape3D
-				check(is_equal_approx((shape.shape as BoxShape3D).size.y, .7),
-						"upper cupboard has no phantom lower cabinet collider")
+			for shape: CollisionShape3D in shapes:
+				var faces := (shape.shape as ConcavePolygonShape3D).get_faces() if shape.shape is ConcavePolygonShape3D else PackedVector3Array()
+				check(not faces.is_empty(), "upper cupboard retains its physical partitions: " + str(record.id))
+				for point: Vector3 in faces:
+					var local_point := shape.transform * point
+					check(local_point.y >= -.002 and local_point.y <= .702,
+							"upper cupboard has no phantom lower cabinet collider: " + str(record.id))
 			var attribution := _proof_record("furniture", str(record.id))
 			check(attribution.get("source_component", {}).get("component") == "upper_cabinet",
 					"cupboard retains partial source attribution")
-		var meshes: Array[Node] = body.find_children("*", "MeshInstance3D", true, false)
-		# Glass haze is a nested receiver; enumerate only direct material surfaces.
-		var direct: Array[MeshInstance3D] = []
-		for node in meshes:
-			if node.get_parent() == body: direct.append(node as MeshInstance3D)
-		check(direct.size() == record.surfaces.size(), "all category material surfaces mounted")
-		for i in mini(direct.size(), record.surfaces.size()):
-			var key := str(record.surfaces[i].material)
-			var material := direct[i].material_override
-			if key == "glassish":
-				glass_surfaces += 1
-				check(material is ShaderMaterial and (material as ShaderMaterial).shader.resource_path \
-						== "res://shaders/lamp_glass_surface.gdshader", "coffee table uses existing optical glass shader")
-			elif key in ["timber", "plywood"]:
-				if key == "timber": timber_surfaces += 1
-				else: plywood_surfaces += 1
-				check(material is StandardMaterial3D, "wood has catalogue material: " + key)
-				if material is StandardMaterial3D:
-					check(material.albedo_texture != null and material.normal_texture != null \
-							and material.roughness_texture != null, "complete wood texture triplet: " + key)
-					if material.albedo_texture != null:
-						check(material.albedo_texture.resource_path.get_file() == "T_ai_materials_" + key + "_albedo.png",
-								"wood uses its own canonical texture: " + key)
+		# Keep the extracted category coverage as provenance; native partitions
+		# are verified above against the current assembly and catalogue, not old indices.
+		for surface: Dictionary in record.surfaces:
+			var key := str(surface.material)
+			if key == "glassish": glass_surfaces += 1
+			elif key == "timber": timber_surfaces += 1
+			elif key == "plywood": plywood_surfaces += 1
 	check(seen == expected, "complete storage/table/board category roster")
 	cupboards.sort()
 	check(cupboards == ["2A", "2B", "3A", "3B", "4A", "4B", "5A", "5B", "5C", "6A", "6B", "6C"], "one kitchen wall cupboard per detailed apartment")
@@ -553,9 +538,8 @@ func _check_household_radios(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -
 			check(emitter != null and is_equal_approx(emitter.max_distance, 1.6)
 					and is_equal_approx(float(radio.public_state().reach), 1.6), "headphone reach matches emitter")
 		if record.unit == "4A": check(radio.family == "atwater_kent_44", "Peter retains authored AC set")
-		for mesh: MeshInstance3D in radio.find_children("*", "MeshInstance3D", true, false):
-			var material := mesh.material_override as StandardMaterial3D
-			check(material != null and material.albedo_texture != null, "all receiver parts have texture-backed materials")
+		for draw: MeshInstance3D in radio.find_children("*", "MeshInstance3D", true, false):
+			_check_draw_finish(draw, "receiver " + str(record.unit))
 	check(radios.size() == 18 and emitters.size() == 18, "all eighteen households have complete receivers")
 	var loader := preload("res://scripts/building/orison_v2_radios.gd").new()
 	check(loader.validate(source, catalog, dry_adapter), "complete household source accepts supports")
@@ -971,3 +955,108 @@ func _check_bath_details(world: OrisonV2RuntimeRoot, refs: Array[WeakRef]) -> vo
 			"surface": bad.props[0].surfaces[0].vertices[0] = 5.0
 			"material": bad.props[0].surfaces[0].material = "missing_bath_finish"
 		check(not loader.validate(bad, dry), "invalid bath detail batch rejected: " + mutation)
+
+var _qualified_textures: Dictionary = {}
+
+func _check_texture(texture: Texture2D, label: String) -> void:
+	check(texture != null, "texture exists: " + label)
+	if texture == null or _qualified_textures.has(texture): return
+	_qualified_textures[texture] = true
+	# Headless dummy rendering cannot return GPU-compressed mip chains.
+	# Windowed runs measure real loaded levels; headless makes no mip proof claim.
+	if DisplayServer.get_name() == "headless": return
+	var image := texture.get_image()
+	check(image != null and image.has_mipmaps() and image.get_mipmap_count() == int(floor(log(float(maxi(texture.get_width(), texture.get_height()))) / log(2.0))),
+			"real complete loaded mip chain: " + label)
+
+func _check_draw_finish(draw: MeshInstance3D, label: String) -> void:
+	check(draw.mesh != null and draw.mesh.get_surface_count() > 0, "visible part has geometry: " + label)
+	if draw.mesh == null: return
+	for index in draw.mesh.get_surface_count():
+		var arrays := draw.mesh.surface_get_arrays(index)
+		var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		var uvs: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV] if arrays[Mesh.ARRAY_TEX_UV] != null else PackedVector2Array()
+		check(not vertices.is_empty() and uvs.size() == vertices.size(), "part has complete authored UVs: " + label)
+		var finite := true
+		var spread := false
+		for uv: Vector2 in uvs:
+			finite = finite and uv.is_finite()
+			if not uvs.is_empty() and uv.distance_squared_to(uvs[0]) > .00000001: spread = true
+		check(finite and spread, "part UVs are finite and not collapsed: " + label)
+		var material := draw.get_active_material(index)
+		if material is StandardMaterial3D:
+			check(material.normal_enabled, "part enables its custom tangent normal: " + label)
+			check(material.texture_filter in [BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS,
+					BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC], "part samples filtered mipmaps: " + label)
+			_check_texture(material.albedo_texture, label + " albedo")
+			_check_texture(material.normal_texture, label + " normal")
+			_check_texture(material.roughness_texture, label + " roughness")
+		elif material is ShaderMaterial:
+			var shader_path: String = material.shader.resource_path if material.shader != null else ""
+			var glass := shader_path == "res://shaders/lamp_glass_surface.gdshader"
+			check(glass or shader_path in ["res://shaders/orison_surface.gdshader", "res://shaders/orison_surface_cutout.gdshader"],
+					"part uses a registered physical surface shader: " + label)
+			if not glass:
+				check(bool(material.get_shader_parameter("has_normal_tex")) and bool(material.get_shader_parameter("has_rough_tex")),
+						"layered finish enables custom roughness and normal maps: " + label)
+				_check_texture(material.get_shader_parameter("albedo_tex") as Texture2D, label + " shader albedo")
+			_check_texture(material.get_shader_parameter("rough_tex") as Texture2D, label + " shader roughness")
+			_check_texture(material.get_shader_parameter("normal_tex") as Texture2D, label + " shader normal")
+		else: check(false, "part has a qualified surface material: " + label)
+
+func _check_native_parts(body: StaticBody3D, path: String, identity: String, solid: bool) -> Array[String]:
+	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+	var variant := ""
+	for row: Dictionary in data.instances:
+		if str(row.id) == identity: variant = str(row.variant)
+	check(not variant.is_empty() and str(body.get_meta("v2_native_domestic_variant", "")) == variant,
+			"source actor owns its specified native variant: " + identity)
+	var parts: Array = []
+	for row: Dictionary in data.assemblies:
+		if str(row.id) == variant: parts = row.parts
+	var draws := body.find_children("*", "MeshInstance3D", true, false)
+	var shown: Array[String] = []
+	var wanted: Array[String] = []
+	var keys: Array[String] = []
+	for part: Dictionary in parts:
+		wanted.append(str(part.name))
+		var key := str(part.get("catalog_key", part.key))
+		if not keys.has(key): keys.append(key)
+		var draw := body.get_node_or_null(str(part.name)) as MeshInstance3D
+		check(draw != null and draw.is_visible_in_tree() and draw.get_meta("material_key", "") == str(part.key),
+				"native part and semantic finish mounted: " + identity + "/" + str(part.name))
+		if draw == null: continue
+		_check_draw_finish(draw, identity + "/" + str(part.name))
+		var material := draw.get_active_material(0)
+		if str(part.key) == "glassish":
+			check(material is ShaderMaterial and material.shader.resource_path == "res://shaders/lamp_glass_surface.gdshader",
+					"coffee table uses existing optical glass shader")
+		else:
+			var expected := MatLib.get_mat(key) as StandardMaterial3D
+			var albedo: Texture2D
+			var normal: Texture2D
+			var roughness: Texture2D
+			if material is StandardMaterial3D:
+				albedo = material.albedo_texture; normal = material.normal_texture; roughness = material.roughness_texture
+				check(not material.uv1_triplanar, "native finish uses authored mesh charts: " + identity)
+			elif material is ShaderMaterial:
+				albedo = material.get_shader_parameter("albedo_tex"); normal = material.get_shader_parameter("normal_tex"); roughness = material.get_shader_parameter("rough_tex")
+				var uv_mode: Variant = material.get_shader_parameter("uv_mode")
+				if uv_mode == null:
+					uv_mode = RenderingServer.shader_get_parameter_default(material.shader.get_rid(), "uv_mode")
+				check(uv_mode != null and uv_mode == 0, "native layered finish uses authored mesh charts: " + identity)
+			check(expected != null and albedo == expected.albedo_texture and normal == expected.normal_texture and roughness == expected.roughness_texture,
+					"native partition uses its own catalogue texture triplet: " + identity + "/" + str(part.name))
+		if solid:
+			var matches := 0
+			for shape: CollisionShape3D in body.find_children("*", "CollisionShape3D", true, false):
+				if shape.get_parent() == body and not shape.disabled and shape.shape is ConcavePolygonShape3D and shape.transform.is_equal_approx(draw.transform):
+					if (shape.shape as ConcavePolygonShape3D).get_faces() == draw.mesh.get_faces(): matches += 1
+			check(matches == 1, "one collision partition matches actual visible geometry: " + identity + "/" + str(part.name))
+	for draw: MeshInstance3D in draws:
+		if draw.is_visible_in_tree() and draw.has_meta("native_domestic_part"): shown.append(str(draw.get_meta("native_domestic_part")))
+	shown.sort(); wanted.sort()
+	check(not wanted.is_empty() and shown == wanted, "all native assembly parts visible exactly once: " + identity)
+	if solid: check(body.find_children("*", "CollisionShape3D", true, false).size() == parts.size(),
+			"bounded compound furniture collision has no extra envelope: " + identity)
+	return keys
