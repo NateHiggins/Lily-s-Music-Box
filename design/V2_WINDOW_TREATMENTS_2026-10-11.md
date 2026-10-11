@@ -49,3 +49,7 @@ schedule settings do not repeatedly override player adjustments. Capture fill
 was used for readable textile inspection. Historical seven texture RID shutdown
 warnings and broader V2 completion blockers remain outside this batch.
 Decision needed from owner: none.
+
+Fresh verification: **f1b6c3b7** against **999ae71c**, 53 gates, zero regressions, six reader improvements; 17/17 protected paths unchanged, selector V2, zero lint errors. Interaction censuses deliberately register the new named-control host and retain strict action-resolution assertions. Verification is archived as **window_verification.json** beside the runtime packet. Ledger blockers remain 7/8/127/42/151/153; requirements_changed is empty.
+
+MERGE-CANDIDATE f1b6c3b724a3957f095e53c18935de4c293384a4
