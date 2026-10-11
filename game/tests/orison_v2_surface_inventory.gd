@@ -32,6 +32,13 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	var patrol := preload("res://tests/orison_v2_patrol_stations_test.gd").new()
+	patrol.set_meta("shared_world_validation",true);add_child(patrol)
+	await patrol.validate_in_world(world)
+	batch_checks+=patrol.batch_checks
+	for failure: String in patrol.failures:failures.append(failure)
+	patrol.free()
+	await preload("res://tests/v2_watch_stations_review.gd").new().run(world,self)
 	await preload("res://tests/v2_window_treatments_review.gd").new().run(world,self)
 	await preload("res://tests/v2_millwork_weather_review.gd").new().run(world,self)
 	world.player.global_position = world.adapter.root.to_global(Vector3(-4., .02, -5.))

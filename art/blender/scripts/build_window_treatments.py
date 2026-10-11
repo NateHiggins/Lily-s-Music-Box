@@ -19,6 +19,7 @@ def finish(obj, name, key, bevel=0):
         mod = obj.modifiers.new('Stock edge radius', 'BEVEL'); mod.width = bevel; mod.segments = 3
         bpy.context.view_layer.objects.active = obj; bpy.ops.object.modifier_apply(modifier=mod.name)
     # Meter charts. Large sheets have continuous sewn-cloth UV below.
+    for previous in list(obj.data.uv_layers): obj.data.uv_layers.remove(previous)
     uv = obj.data.uv_layers.new(name='StockMetres')
     for face in obj.data.polygons:
         n = face.normal; axis = max(range(3), key=lambda i: abs(n[i]))

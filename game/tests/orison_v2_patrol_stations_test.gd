@@ -28,6 +28,11 @@ func _run() -> void:
 		return
 	world.player.set_physics_process(false)
 	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false): layer.hide()
+	await validate_in_world(world)
+	world.shutdown_for_tests(); world.free()
+	get_tree().quit(0 if failures.is_empty() else 1)
+
+func validate_in_world(world: Node) -> void:
 	var root: Node3D = world.adapter.root
 	var network: WatchStationNetwork = world.watch_station_network
 	var register := world.find_child("F01_SIGNAL_REGISTER",true,false) as WatchRegisterProp
@@ -89,8 +94,6 @@ func _run() -> void:
 	for station in ordered: check(station.reset_station() and not station.marked(),"box reset: "+station.station_id)
 	check(register.reset_shutters() and not register.shows(1),"register restored for the morning")
 	print("PATROL STATIONS: stations=%d marks=%d delivered=%d failures=%d" % [ordered.size(),network.mark_count(),delivered.size(),failures.size()])
-	world.shutdown_for_tests(); world.free()
-	get_tree().quit(0 if failures.is_empty() else 1)
 
 func _look(world: Node, feet: Vector3, target: Vector3) -> void:
 	world.player.global_position = feet

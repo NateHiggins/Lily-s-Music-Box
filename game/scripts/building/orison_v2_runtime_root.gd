@@ -815,7 +815,7 @@ func _compose_service_round_props() -> void:
 	# A patrol station on every floor (dossier slice 80): the existing signal box,
 	# worked with the existing tour key, wired to the watch room's register.
 	for anchor: String in PATROL_STATIONS:
-		var station := WatchStationProp.new()
+		var station := preload("res://scripts/building/orison_v2_watch_station.gd").new()
 		station.prop_type = "watch_station"
 		station.station_id = PATROL_STATIONS[anchor]
 		_mount(anchor, station)

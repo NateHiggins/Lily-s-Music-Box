@@ -277579,6 +277579,98 @@
    "rationale": "Production code looks up a layout id at runtime.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "3b2070b1d3801e2b",
+   "kind": "generated_name",
+   "token": "_build_visual",
+   "file": "game/scripts/building/orison_v2_watch_station.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "_build_visual"
+   ],
+   "lines": [
+    23
+   ],
+   "count": 1,
+   "context": [
+    "\"NativeHinge%d\" % i;hinge.mesh=_stock.HingeBarrel"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "REGENERATE_CONSUMER",
+   "confidence": "MEDIUM",
+   "rationale": "Node name is generated from layout data; consumers of the pattern regenerate with the new layout, but the TEMPLATE is a contract for any find_child/save use.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "62558ed5b23bd0df",
+   "kind": "node_path",
+   "token": "F01_TOUR_KEY_GUARD",
+   "file": "game/tests/v2_watch_stations_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    38
+   ],
+   "count": 1,
+   "context": [
+    "var guard := world.find_child(\"F01_TOUR_KEY_GUARD\",true,false) as TourKeyGuardProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "SCENE_NODE_PATH",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Node-path lookup embeds spatial identity.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": null
+  },
+  {
+   "key": "d81ff21b1810c6d4",
+   "kind": "runtime_id",
+   "token": "F01_TOUR_KEY_GUARD",
+   "file": "game/tests/v2_watch_stations_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    38
+   ],
+   "count": 1,
+   "context": [
+    "var guard := world.find_child(\"F01_TOUR_KEY_GUARD\",true,false) as TourKeyGuardProp"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "GENERATED_IDENTITY",
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "HIGH",
+   "rationale": "Stable identifier created at runtime by production code (station/register/service anchor); not in the layout JSON but a contract for props, saves and tests.",
+   "resolved_target": "v2_blockout+runtime_created",
+   "target_exists": true
   }
  ]
 }
