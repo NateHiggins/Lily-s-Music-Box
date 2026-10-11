@@ -214,6 +214,7 @@ func _ready() -> void:
 		return
 	preload("res://scripts/building/orison_v2_owner_building_finishes.gd").new().apply(self)
 	preload("res://scripts/building/v2_legacy_material_stock.gd").apply(self)
+	atmosphere.bind_weather(self)
 	_compose_debug_controls()
 	get_node("CaretakerNotebook").debug = building_debug
 	startup_ms = float(Time.get_ticks_usec() - started) / 1000.0

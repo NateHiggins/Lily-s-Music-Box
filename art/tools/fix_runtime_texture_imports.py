@@ -94,6 +94,7 @@ V2_EXTERNAL_MAPS = (
     "game/assets/characters/mina_vale/texture_0_metallic-texture_0_roughness.png",
     "game/assets/characters/mina_vale/texture_0_normal.png",
     "game/assets/ui/telegram/telegram_paper_stock_v1.png",
+    "game/assets/environment/weather/cirrus.png",
 )
 
 

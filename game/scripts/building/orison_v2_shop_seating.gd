@@ -277,7 +277,7 @@ static func mount_records(cell: Node3D, layout: Dictionary, data_path: String, m
 	cell.add_child(model)
 	return true
 
-static func _without_boxes(draw: MeshInstance3D, boxes: Array[Dictionary], tolerance: float, counts: Dictionary) -> ArrayMesh:
+static func _without_boxes(draw: MeshInstance3D, boxes: Array[Dictionary], tolerance: float, counts: Dictionary, require_boundary := true) -> ArrayMesh:
 	var result:=ArrayMesh.new()
 	var source_surfaces: Array=draw.mesh.get("_surfaces")
 	var selected_surfaces: Array=[]
@@ -302,6 +302,8 @@ static func _without_boxes(draw: MeshInstance3D, boxes: Array[Dictionary], toler
 					for axis in 3:
 						if point[axis]<low[axis]-tolerance or point[axis]>high[axis]+tolerance:within=false
 				if not within:continue
+				if not require_boundary:
+					match_id=str(box.id);break
 				var axis:=n.abs().max_axis_index()
 				if absf(n[axis])<.999:continue
 				var plane:=high[axis] if n[axis]>0. else low[axis]

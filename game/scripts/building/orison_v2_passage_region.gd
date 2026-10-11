@@ -280,6 +280,9 @@ func _ready() -> void:
 			_fail("native Diner receiving pair refused: "+identity)
 			return
 	var owner_finishes := preload("res://scripts/building/orison_v2_owner_finishes.gd").new()
+	for cell: Node3D in cell_nodes.values():
+		if not preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_cell(cell,source_layout):
+			_fail("standard wall millwork fit refused: "+str(cell.name)); return
 	for cell: Node3D in cell_nodes.values(): owner_finishes.apply_shop_cell(cell)
 	for cell: Node3D in cell_nodes.values(): owner_finishes.apply_shop_wear(cell)
 	surface_pass.apply(cell_nodes)

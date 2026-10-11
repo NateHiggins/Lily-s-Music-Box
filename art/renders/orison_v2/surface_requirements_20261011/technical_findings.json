@@ -2097,16 +2097,36 @@
     {
       "id": "Harukiya/BarActors/Arcade_retail_bar_cab01/Screen:0",
       "class": "live_display_signal",
-      "texture": "generated:-9223369239086124174"
+      "texture": "generated:-9223369226033449575"
     },
     {
       "id": "Harukiya/BarActors/Arcade_retail_bar_cab02/Screen:0",
       "class": "live_display_signal",
-      "texture": "generated:-9223369237710392395"
+      "texture": "generated:-9223369224657717796"
     },
     {
       "id": "LampAtmosphere/CarriedLampDust:0",
       "class": "light_scattering_dust"
+    },
+    {
+      "id": "WeatherFX/DrivingRainSpatter:0",
+      "class": "weather_optics"
+    },
+    {
+      "id": "WeatherFX/LiveSnow:0",
+      "class": "weather_optics"
+    },
+    {
+      "id": "WeatherFX/LiveHail:0",
+      "class": "weather_optics"
+    },
+    {
+      "id": "WeatherFX/DrivingRainMiddle:0",
+      "class": "weather_optics"
+    },
+    {
+      "id": "WeatherFX/RoadwayMist:0",
+      "class": "weather_optics"
     }
   ]
 }

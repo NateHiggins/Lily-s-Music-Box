@@ -11,7 +11,7 @@ from audit_v2_surfaces import evaluate
 ROOT=Path(__file__).resolve().parents[1]
 PACKET=ROOT/'art/renders/orison_v2/surface_requirements_20261011'
 TEXT={'.gd','.tscn','.tres','.godot','.json','.py','.gdshader','.gdshaderinc','.gltf','.import'}
-ASSETS={'.glb','.gltf','.bin','.png','.jpg','.jpeg','.webp','.tres','.tscn'}
+ASSETS={'.glb','.gltf','.bin','.rg8','.png','.jpg','.jpeg','.webp','.tres','.tscn'}
 
 def file_hash(path):
     raw=path.read_bytes()
@@ -37,9 +37,12 @@ def inputs(root=ROOT):
     for name in ('toast_crumb','leather_worn','mineral_scale'):
         paths.add(root/f'art/textures/ai_sources/{name}.png')
     paths.add(root/'art/textures/ai_sources/v2_surface_stock_20261011.json')
+    for name in ('v2_millwork_weather_review.gd','v2_millwork_weather_test.gd'):
+        paths.add(root/'game/tests'/name)
     # Texture source bindings and selective UV precision settings are authored
     # inputs. Cache destinations, generated UIDs, and line endings are not.
     imports=list((root/'game/assets/building/textures').glob('*.png.import'))
+    imports.extend((root/'game/assets/environment/weather').glob('*.png.import'))
     sys.path.insert(0,str(root/'art/tools'))
     from fix_v2_mesh_imports import ASSETS as UV_IMPORTS
     imports.extend(root/'game/assets'/(asset+'.import') for asset in UV_IMPORTS)

@@ -32,18 +32,22 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	await preload("res://tests/v2_millwork_weather_review.gd").new().run(world,self)
 	world.player.global_position = world.adapter.root.to_global(Vector3(-4., .02, -5.))
 	for frame in 600:
 		if world.passage_region.residency.state == "RESIDENT": break
 		await get_tree().process_frame
 	for node: Node in world.find_children("*", "GeometryInstance3D", true, false):
 		if node is Label3D: continue # Separately authored lettering, RUL-008.
-		if not node is MeshInstance3D and not node is MultiMeshInstance3D and not node is GPUParticles3D:
+		if not node is MeshInstance3D and not node is MultiMeshInstance3D and not node is GPUParticles3D and not node is CPUParticles3D:
 			unhandled_geometry.append({"path":str(world.get_path_to(node)),"type":node.get_class()})
 			continue
 		var mesh: Mesh
 		var instances := 1
 		if node is MeshInstance3D: mesh = node.mesh
+		elif node is CPUParticles3D:
+			mesh = node.mesh
+			instances = node.amount
 		elif node is GPUParticles3D:
 			if node.draw_passes != 1:
 				unhandled_geometry.append({"path":str(world.get_path_to(node)),"type":"unscanned particle draw passes"})

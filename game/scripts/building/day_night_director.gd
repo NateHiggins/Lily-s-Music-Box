@@ -164,7 +164,7 @@ func setup(root: Node3D, env: Environment, sky_key: DirectionalLight3D,
 	_apply(_minute_now())
 
 
-func bind_weather(weather: WeatherFX, exterior: ExteriorDetailPass) -> void:
+func bind_weather(weather: WeatherFX, exterior: ExteriorDetailPass = null) -> void:
 	_weather = weather
 	_exterior = exterior
 	if not _weather.weather_flash_changed.is_connected(set_weather_flash):
@@ -290,6 +290,12 @@ func _apply(minute: float) -> void:
 		profile.mist.a *= lerpf(0.34, 1.0,
 				maxf(low_clouds, precipitation))
 		profile["live_weather"] = _live_conditions.duplicate(true)
+		if _live_conditions.has("season_weights"):
+			var seasons: Vector4 = _live_conditions.season_weights
+			var tint := Color(.78,.87,1.0)*seasons.x+Color(.94,.97,1.0)*seasons.y+Color(1.0,.91,.80)*seasons.z+Color(.88,.93,1.0)*seasons.w
+			profile.ambient *= tint
+			profile.fog *= tint
+			profile.rays += seasons.y*low_clouds*(1.0-low_clouds)*.35
 	var source_a := _source_direction(a.elevation, a.azimuth)
 	var source_b := _source_direction(b.elevation, b.azimuth)
 	var source_dir := source_a.slerp(source_b, t).normalized()
@@ -346,7 +352,7 @@ func _apply(minute: float) -> void:
 		_sky.set_shader_parameter("fog_horizon_color", profile.fog)
 		_sky.set_shader_parameter("celestial_direction", source_dir)
 		_sky.set_shader_parameter("sun_direction",
-				profile.get("sun_direction", -source_dir))
+				profile.get("sun_direction", source_dir if minute>360.0 and minute<1110.0 else -source_dir))
 		_sky.set_shader_parameter("celestial_color", profile.source)
 		_sky.set_shader_parameter("celestial_strength", profile.source_e)
 		var phase_enabled := bool(profile.get("moon_phase_enabled", false))

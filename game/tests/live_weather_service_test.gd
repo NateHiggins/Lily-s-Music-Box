@@ -26,7 +26,7 @@ func _ready() -> void:
 			"res://scripts/building/live_weather_service.gd")
 	_check(source.contains("func _begin_request(stage: String, url: String)")
 			and source.contains("_awaiting = \"\"\n\t_fail(")
-			and source.count("return _begin_request(") == 2
+			and source.count("return _begin_request(") == 3
 			and source.contains("stage == \"weather\".\n\t\treturn"),
 			"request stages release failure gates and never cross-parse their bodies")
 	var queens_url: String = WeatherServiceScript.weather_url(

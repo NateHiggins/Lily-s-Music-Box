@@ -1,0 +1,25 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+  [weather service ok] default weather mode issues no request and preserves authored fallback
+  [weather service ok] request stages release failure gates and never cross-parse their bodies
+  [weather service ok] the fallback requests Queens and all sky-driving conditions over TLS
+  [weather service ok] opt-in geocodes only player-authored text, never an IP address
+  [weather service ok] a geocoder result becomes an explicit resolved observer
+  [weather service ok] weather JSON normalizes cloud strata, precipitation, wind and daylight
+  [weather service ok] the service publishes normalized facts without owning visual nodes
+  [weather service ok] no observation leaves the authored Queens storm untouched
+  [weather service ok] the clear simulator reaches true zero cloud and precipitation
+  [weather service ok] the storm simulator alone carries thunder with closed cloud and maximum rain
+  [weather service ok] clear and frozen precipitation cannot invent lightning
+  [weather service ok] WMO fog stays distinct from both dry cloud and liquid weather
+  [weather service ok] the snow simulator is a distinct frozen precipitation branch
+  [weather service ok] WMO hydrometeors resolve a reported total without inventing precipitation
+  [weather service ok] simulation can exercise bounded speed and every wind bearing
+  [weather service ok] strata simulation derives coherent total cover when not overridden
+  [weather service ok] temperature and humidity simulation stay inside the public bounds
+  [weather service ok] unknown simulation names cannot silently become weather
+  [weather service ok] simulation can deliberately reach every major production weather family
+  [weather service ok] an incomplete response cannot partially mutate the sky
+[LIVE WEATHER SERVICE] RESULT: PASS (0 failures)

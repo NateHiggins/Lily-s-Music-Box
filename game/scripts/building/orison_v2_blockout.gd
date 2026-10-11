@@ -512,12 +512,18 @@ func _build_spaces() -> void:
 						"z" if side in ["west","east"] else "x", edge.x,
 						float(extension.start), float(extension.end), y, wall_h,
 						float(layout.dimensions.partition_wall), cls)
-		if production_materials:
-			preload("res://scripts/building/orison_v2_millwork.gd").build(parent, space,
-					y, clear_h, float(dims.partition_wall),
-					architectural_materials.material_for("FrameTrim", cls),
-					architectural_materials.material_for("Leaf", cls), layout.doors,
-					preload("res://scripts/building/orison_v2_window_joinery.gd").clearance_boxes(self,space))
+	# Shared wall owners must all exist before fitting either room-facing side.
+	if production_materials:
+		var millwork := preload("res://scripts/building/orison_v2_millwork.gd")
+		var wall_stock := millwork.collect_wall_stock(self)
+		for space: Dictionary in layout.spaces:
+			if str(space.id) in space_geometry_exclusions: continue
+			var room := get_node_or_null(str(space.id)) as Node3D
+			if room==null: continue
+			millwork.build(room,space,float(level_y[space.level]),clear_h,float(dims.partition_wall),
+				architectural_materials.material_for("FrameTrim",str(space.get("class","private"))),
+				architectural_materials.material_for("Leaf",str(space.get("class","private"))),layout.doors,
+				preload("res://scripts/building/orison_v2_window_joinery.gd").clearance_boxes(self,space),wall_stock)
 
 ## A single slab render/collision owner retains the original stable node path.
 ## Only explicit, owner-bounded service apertures change its physical surface.

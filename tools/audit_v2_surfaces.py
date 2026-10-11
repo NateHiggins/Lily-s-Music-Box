@@ -41,6 +41,11 @@ def evaluate(data):
             # Explicit external effects only. Unshaded, transparent or flat
             # materials do not automatically become exempt physical stock.
             shader=material.get('shader','')
+            if (draw.get('surface_role')=='weather_optics' and
+                draw.get('owner_script')=='res://scripts/building/v2_weather_fx.gd' and
+                draw['path'].split('/')[-1] in ('DrivingRainSpatter','LiveSnow','LiveHail','DrivingRainMiddle','RoadwayMist') and
+                (material.get('unshaded') or material.get('shader_unshaded'))):
+                effects.append({'id':identity,'class':'weather_optics'});continue
             if (draw.get('surface_role')=='storm_volume' and
                 draw.get('owner_script')=='res://scripts/building/exterior_detail_pass.gd' and
                 material.get('name')=='V2_storm_volume' and material.get('shader_unshaded')):

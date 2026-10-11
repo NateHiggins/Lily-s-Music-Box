@@ -1739,3 +1739,4 @@ art/blender/scripts/repair_surface_uvs.py -text
 # Hash-bound source retains its recorded CRLF bytes.
 game/scripts/props/tap_prop.gd whitespace=cr-at-eol
 game/shaders/lamp_glass_surface.gdshader whitespace=cr-at-eol
+game/assets/environment/weather/*.rg8 -text

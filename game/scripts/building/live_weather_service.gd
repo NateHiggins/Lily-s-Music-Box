@@ -3,7 +3,8 @@ extends Node
 ## Privacy-explicit real weather for the waking Orison.
 ##
 ## Network weather is off by default. If enabled, fixed Queens coordinates are
-## sent to Open-Meteo; a separate local-weather opt-in first resolves the
+## sent to OpenWeatherMap when an environment credential exists, otherwise
+## Open-Meteo; a separate local-weather opt-in first resolves the
 ## player's city/postal text. No IP geolocation or device sensor is used.
 
 signal weather_updated(snapshot: Dictionary)
@@ -17,7 +18,8 @@ const QUEENS := {
 }
 const GEOCODE_ENDPOINT := "https://geocoding-api.open-meteo.com/v1/search"
 const WEATHER_ENDPOINT := "https://api.open-meteo.com/v1/forecast"
-const REFRESH_SECONDS := 15.0 * 60.0
+const REFRESH_SECONDS := 10.0 * 60.0
+const OPENWEATHER_ENDPOINT := "https://api.openweathermap.org/data/2.5/weather"
 const LIQUID_WEATHER_CODES := [51, 53, 55, 56, 57, 61, 63, 65, 66, 67,
 		80, 81, 82, 95, 96, 99]
 const FROZEN_WEATHER_CODES := [71, 73, 75, 77, 85, 86]
@@ -75,6 +77,10 @@ func refresh() -> bool:
 	if local_enabled and not query.is_empty():
 		return _begin_request("geocode", geocode_url(query))
 	_location = QUEENS.duplicate(true)
+	var api_key := OS.get_environment("OPENWEATHERMAP_API_KEY").strip_edges()
+	if not api_key.is_empty():
+		return _begin_request("openweather", OPENWEATHER_ENDPOINT
+				+ "?lat=40.75&lon=-73.92&units=metric&appid=" + api_key.uri_encode())
 	return _begin_request("weather", weather_url(_location.latitude,
 			_location.longitude))
 
@@ -302,7 +308,7 @@ func _on_request_completed(result: int, response_code: int,
 		# The geocoder body is not a weather body. The newly-started request
 		# completes through this handler again with stage == "weather".
 		return
-	var parsed := parse_weather(payload, _location)
+	var parsed := parse_openweather(payload) if stage == "openweather" else parse_weather(payload, _location)
 	if parsed.is_empty():
 		_fail("weather response was incomplete")
 		return
@@ -314,3 +320,42 @@ func _fail(reason: String) -> void:
 	# Failure never changes location policy and never turns on local lookup.
 	# The existing authored Queens storm remains the visual fallback.
 	weather_failed.emit(reason)
+
+
+static func parse_openweather(payload: Variant) -> Dictionary:
+	# Publish the same contract as the keyless provider. Never expose the key.
+	if payload is not Dictionary: return {}
+	for key in ["clouds", "main", "wind"]:
+		if payload.get(key) is not Dictionary: return {}
+	if payload.get("weather") is not Array or payload.weather.is_empty() or payload.weather[0] is not Dictionary: return {}
+	for pair: Array in [[payload.clouds,"all"],[payload.main,"humidity"],[payload.main,"temp"],[payload.wind,"speed"],[payload.wind,"deg"],[payload.weather[0],"id"]]:
+		var number: Variant = pair[0].get(pair[1])
+		if not (number is float or number is int) or not is_finite(float(number)): return {}
+	var identity := int(payload.weather[0].id)
+	var code := 3
+	if identity == 800: code = 0
+	elif identity in [801,802]: code = 2
+	elif identity >= 200 and identity < 300: code = 95
+	elif identity >= 300 and identity < 400: code = 53
+	elif identity >= 500 and identity < 600: code = 66 if identity == 511 else 63
+	elif identity >= 600 and identity < 700: code = 73
+	elif identity >= 700 and identity < 800: code = 45
+	elif identity not in [803,804]: return {}
+	var rain := 0.0
+	var snow := 0.0
+	for key in ["rain","snow"]:
+		var precipitation: Variant = payload.get(key, {})
+		if precipitation is not Dictionary: return {}
+		var value: Variant = precipitation.get("1h",0.0)
+		if not (value is int or value is float) or not is_finite(float(value)): return {}
+		if key == "rain": rain = maxf(0.0,float(value))
+		else: snow = maxf(0.0,float(value))
+	var cover := clampf(float(payload.clouds.all)/100.0,0.0,1.0)
+	return {"source":"openweathermap","observed_at":str(payload.get("dt","")),
+		"location":QUEENS.duplicate(true),"weather_code":code,"provider_weather_id":identity,
+		"temperature_c":float(payload.main.temp),"relative_humidity":clampf(float(payload.main.humidity),0.0,100.0),
+		"cloud_total":cover,"cloud_low":cover*.80,"cloud_mid":cover*.65,"cloud_high":cover*.35,
+		"wind_speed_kmh":clampf(float(payload.wind.speed)*3.6,0.0,432.0),
+		"wind_direction_degrees":fposmod(float(payload.wind.deg),360.0),
+		"precipitation_mm":rain+snow,"rain_mm":rain,"showers_mm":0.0,
+		"snowfall_cm":snow,"is_day":true}

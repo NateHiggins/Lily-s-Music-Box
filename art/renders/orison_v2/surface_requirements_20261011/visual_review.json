@@ -1,62 +1,62 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "surface_inputs_sha256": "61d6c4b7855beb2e6d01015110d8de400610e25cc3d101068f618e84332b651d",
-  "scope": "Technical surface qualification with representative Blender and composed-world visual review. Not an all-viewpoint photorealism or gameplay acceptance.",
+  "surface_inputs_sha256": "39710b9fcb6cc45959f28cbd4cb06a26a01152609f5b20e4d5f0541c83f9e5a8",
+  "scope": "Current composed surfaces and continuous millwork/seasonal sky, retaining unchanged native prop reviews.",
   "images": [
     {
       "file": "F02_A_MAIN.png",
-      "sha256": "218ae8e6aecc5f4f3359f8f1fcc81351faa091160d38ba15d14c2a9152b13c4b",
+      "sha256": "8150ec97499ad09ca9b03560ddd34442c8a7a881b650c55ed3d35dd7b957821e",
       "observation": "Wood floor, plaster, furniture and lamp are present without missing-material appearance; warm lighting limits subtle surface judgment."
     },
     {
       "file": "F03_B_MAIN.png",
-      "sha256": "f607125d84d12663cad55a95de414d0a02958366e67867c4ad47707184a97fc0",
+      "sha256": "5051608fe616531ce00a18f44e30107fa24b3a98904b56cae615ab3bf1b8cec2",
       "observation": "Table, chairs and workbench retain wood grain direction; plaster and hardware render in the composed apartment."
     },
     {
       "file": "F04_C_MAIN.png",
-      "sha256": "31626e7c4f7be2252553a3297da9760d5af126e3bb49f65fe786a8a90f558ee9",
+      "sha256": "ea4d1a427f56b17c6b65b8f466ffb83dcdc518d82285b71d40df116a8913be2c",
       "observation": "Furniture, floor and wall stock render consistently in the occupied room."
     },
     {
       "file": "boiler.png",
-      "sha256": "820cecbadb437e1c81bd14d82976eac4e9d39a67001f6a05ff3aaf6840e4b759",
+      "sha256": "2c1969738d8bcc34e9963dd43017bfe60bea8b0c40b2e391fb7d58d3b2bee717",
       "observation": "Jacket, cast doors, copper and mineral pipe fittings render with distinct finishes."
     },
     {
       "file": "bookcase.png",
-      "sha256": "0b6bf639e27d96ad96e72e408a250b0b3bc94ee8f4bbf1d1e52eb96ceaaa05ab",
+      "sha256": "05e27d09540af85faa06baff36aa791f441d183c4f15c8f66336a02bdcbd249f",
       "observation": "Three glazed sectional sashes are visible; rail and stile grain follows the members."
     },
     {
       "file": "signal_scope.png",
-      "sha256": "ffdb7c6f107988b5e88995f47a1d20e2ea33e331f6b58a22368682346f012f65",
+      "sha256": "84ff741edfe31d3d326e5807a3350a91bcd48563672f54fae5d2d820e87e3d17",
       "observation": "Both circular live displays remain active within textured cabinet bodies."
     },
     {
       "file": "toaster_crumbs.png",
-      "sha256": "18935c400f941313ab75b4446e3b932d9d9de6cef98b1d80b8a6af54d99ca9a3",
+      "sha256": "eab336c187de7ba70b7ca9343250ce093994bf715915dbe4af2c16decbec43a3",
       "observation": "Opened tray exposes individual crumbs with the new stock finish; appliance and kettle remain distinct."
     },
     {
       "file": "watch_station.png",
-      "sha256": "a448e8240488e119fa2c2d989aa4c3718828581ca0dce098ebb78633269a114e",
+      "sha256": "58d3794306fa59a1cd7288845cdbd2147441d1450b77db0e5b2a280af4eaddd8",
       "observation": "Station label, case, latch and indicator remain legible after finish binding."
     },
     {
       "file": "fuse_panel.png",
-      "sha256": "85c6461db7bb7cd87e2c7ea09a09989d84efd48f01ac94147d8502b51c5f8ea7",
+      "sha256": "3887487d5c133333aef4cc1e7342ab4d0419a7d65d55c98edbccf3383ad40e2a",
       "observation": "Open cabinet exposes ceramic holders and separate metal fittings."
     },
     {
       "file": "mail_bank.png",
-      "sha256": "291871dbbf0a33d0a1c90956d0527a677327f22f5597a096e347bfc5463d88af",
+      "sha256": "a3fac9caf18d384104973efd192d7e25a4cac0a35a1c99d731e727774de35701",
       "observation": "Wood frame, brass door stock, headers and occupant cards remain distinct."
     },
     {
       "file": "signal_terminal.png",
-      "sha256": "14da984765f7770a688ccbf61e2f288d566378cd4566d6a8f4024ccbb1c34524",
+      "sha256": "0d8d8fbb065016b8ff40f31028cf86e88fe91a6b47264bdcbeb9cb799318e690",
       "observation": "Valve assembly and wood terminal cabinet remain present with retained glowing display."
     },
     {
@@ -78,16 +78,108 @@
       "file": "native/boiler_body.png",
       "sha256": "7eaabb4912824e01ebb0c5896b6b046f9dd6b7e2b174971ce893ea492dda8e9f",
       "observation": "Native cast and sheet-metal geometry retains its silhouette with continuous mapped stock."
+    },
+    {
+      "file": "continuous_HistoricMillwork.png",
+      "sha256": "fcb03064672e1b4d9c3f13d262c6f058a0325b5cca84b491a9d0503faa27c661",
+      "observation": "Beaded baseboard seats on the wall and floor; separate bead and metre-scaled painted stock render clearly."
+    },
+    {
+      "file": "continuous_PublicWainscotCap.png",
+      "sha256": "39ed2991b7db3efda72b5d103680039cf8d09c02eaa7dcff07c89a7c37d8e816",
+      "observation": "Molded wood cap has horizontal grain distinct from vertical panel backing, with separate rails, stiles and upper eye rail."
+    },
+    {
+      "file": "native/millwork_stock.png",
+      "sha256": "83902781b6338ff9a07c75264556d87e30e9f80cb7941ad9d686513013f17e53",
+      "observation": "Native Blender profile review shows distinct cap, rails, stiles and backing with longitudinal grain and rounded section."
+    },
+    {
+      "file": "weather_season_01.png",
+      "sha256": "bf3a5e6e4c272c193cf5768ae7b691ae5c08704c686308b278fdbcbd54e624ec",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "weather_season_04.png",
+      "sha256": "086ca1f7d11a69c91b063f68364230ba0e7e62ac3c5a8b513753a8d26dd3df1e",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "weather_season_07.png",
+      "sha256": "0fc4ad62e490f4c02ba0f782029d64e071b4c30e31130b3c2df83aa700cbbcf6",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "weather_season_10.png",
+      "sha256": "57af893bcfad9849106fc813cadd08a2c249d0ea9c4d7e665f3cbd8f691f42bc",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "cloud_shape_1.png",
+      "sha256": "81f98811e34b96b5d5d0fadd4633f873920b82066dc6e1d458c2f058cc22d989",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "cloud_shape_2.png",
+      "sha256": "3a8a5d970304809e329c858234ae10b8f50b1cd6e1146573cab11db8a59748dc",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "cloud_shape_3.png",
+      "sha256": "bd3d9d35ed7237f9fecbc7e179a0f69a1eeb132d568fd28cd490212ec5a4989f",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "weather_optical/season_01.png",
+      "sha256": "48666eb50523ff9104a929c55c7f1fddacb267c8d2932b8b7d2a02fb3f18cf7d",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "weather_optical/season_04.png",
+      "sha256": "ed61898e25e60eafa888b1a09252a73495831035ab924398da92ed0c1d8ce520",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "weather_optical/season_07.png",
+      "sha256": "71dbc35cbdfe05582c7f95d66cd74c5701a229772ca85899f00a5a611cf9ac66",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "weather_optical/season_10.png",
+      "sha256": "ab2fd3c3f93112fc05906c45717d4b90d5654f70a9ac59a114499fe69775ad49",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "weather_optical/shape_1.png",
+      "sha256": "d5f37939d9cf7a28dc96f321e2f3d7515ca18d829ea2b14eb1b2a33cfebfa78e",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "weather_optical/shape_2.png",
+      "sha256": "26359cc3e69b0c2d732eee80a815cb7be9b30e80738b5c656a40a64d0deeb49c",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "weather_optical/shape_3.png",
+      "sha256": "2005ad1a3906298425ebe2232f41b2b5e1e4bf45de194bdf453d8f10f065ff21",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
+    },
+    {
+      "file": "weather_optical/summer_twilight.png",
+      "sha256": "ea56654437b5a6ffe5e0c88af1957fa25e4f553925a87ec28ad3430ddd528e21",
+      "observation": "Seasonal optical review: cloud density, sky palette and noise-edged silhouettes render without shader errors; representative artistic appearance, not universal photorealism or measured FPS."
     }
   ],
   "diagnostic_images": [
     {
       "file": "radiator.png",
-      "reason": "Cropped view; paper tag placement is not visible."
+      "reason": "Cropped view; paper tag placement is not visible.",
+      "sha256": "76faedba04b7517de5dd104b5d26f9bd335e195340978e9fedb1eca8e95e978e"
     },
     {
       "file": "dumbwaiter.png",
-      "reason": "Camera faces a brick wall; does not accept brake-band appearance."
+      "reason": "Camera faces a brick wall; does not accept brake-band appearance.",
+      "sha256": "72b2c5d5725b66479a781df96d5165feefaae46268a6e3f79f7619acd9832702"
     }
   ],
   "limitations": [

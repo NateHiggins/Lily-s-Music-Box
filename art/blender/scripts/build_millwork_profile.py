@@ -37,8 +37,23 @@ def extrusion(name, section, smooth=False):
     bpy.context.view_layer.objects.active=obj; obj.select_set(True)
     bpy.ops.object.mode_set(mode='EDIT'); bpy.ops.mesh.select_all(action='SELECT')
     bpy.ops.mesh.normals_make_consistent(inside=False)
-    bpy.ops.uv.smart_project(island_margin=.01)
     bpy.ops.object.mode_set(mode='OBJECT')
+    # Stock charts: local X is the full run; V follows the section perimeter.
+    uv=mesh.uv_layers.new(name="StockUV")
+    perimeter=[0.0]
+    for j in range(n-1):
+        perimeter.append(perimeter[-1]+math.dist(section[j],section[j+1]))
+    total=perimeter[-1]+math.dist(section[-1],section[0])
+    for poly in mesh.polygons:
+        for loop in poly.loop_indices:
+            vertex=mesh.vertices[mesh.loops[loop].vertex_index].co
+            k=mesh.loops[loop].vertex_index%n
+            if poly.index<2:
+                uv.data[loop].uv=(vertex.z+.5,-vertex.y+.5)
+            else:
+                edge=poly.index-2
+                distance=perimeter[k] if k!=0 or edge==0 else total
+                uv.data[loop].uv=(vertex.x+.5,distance/total)
     for face in mesh.polygons:
         face.use_smooth=smooth and 3<=face.index<=len(section)-1
 
@@ -50,6 +65,22 @@ frame=[(-.5,-.5),(-.5,-.08),(-.48,.08),(-.44,.20),(-.38,.27),
        (.16,.5),(.22,.12),(.27,.12),(.30,.27),(.38,.27),
        (.44,.20),(.48,.08),(.5,-.08),(.5,-.5)]
 extrusion('WainscotFrame',frame)
+# An independently textured crown piece: rolled shoulder, broad fillet,
+# shallow hollow and small upper bead. Grain follows the cap, never the panel.
+cap=[(-.5,-.5),(-.5,-.05),(-.38,.02),(-.24,.12),(-.14,.30),
+     (-.06,.48),(.02,.50),(.12,.42),(.22,.27),(.28,.24),
+     (.32,.40),(.38,.48),(.44,.40),(.5,.24),(.5,-.5)]
+extrusion('WainscotCap',cap)
+bpy.ops.mesh.primitive_cube_add(size=1)
+backing=bpy.context.object;backing.name='WainscotBacking'
+backing.data.materials.append(material)
+uv=backing.data.uv_layers.active
+for poly in backing.data.polygons:
+    axis=max(range(3),key=lambda j:abs(poly.normal[j]))
+    for loop in poly.loop_indices:
+        vertex=backing.data.vertices[backing.data.loops[loop].vertex_index].co
+        uv.data[loop].uv=(vertex.x+.5,vertex.z+.5) if axis==1 else ((-vertex.y+.5,vertex.z+.5) if axis==0 else (vertex.x+.5,-vertex.y+.5))
+
 # Door architrave: stepped outer fillets around a shallow cyma-like hollow.
 # Ends stay square for the existing upright/head butt construction.
 casing=[(-.5,-.5),(-.5,-.1),(-.46,.08),(-.40,.14),(-.34,.14),

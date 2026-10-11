@@ -181,6 +181,8 @@ func _stage_one() -> void:
 		cell.name = identity
 		_staging.add_child(cell)
 		_staged_cells[identity] = cell
+		if not preload("res://scripts/building/orison_v2_shop_millwork.gd").mount_cell(cell,region.source_layout):
+			_fail("standard wall millwork reload refused: "+identity); return
 		if not region.Seating.mount_cell(cell,region.source_layout):
 			_fail("native seating reload fit refused: "+identity)
 			return
