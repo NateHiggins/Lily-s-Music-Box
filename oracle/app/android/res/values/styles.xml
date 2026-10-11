@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The window is the table's own dark green before the page has drawn, so nothing flashes white. -->
+    <style name="AppTheme" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/baize_deep</item>
+        <item name="android:statusBarColor">@color/baize_deep</item>
+        <item name="android:navigationBarColor">@color/baize_deep</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:colorAccent">@color/brass</item>
+    </style>
+</resources>
