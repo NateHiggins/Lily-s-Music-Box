@@ -1,0 +1,3235 @@
+{
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "anchor": "B1_STORAGE_BAYS",
+  "floor_y": -3.2,
+  "asset": "res://assets/props/resident_storage.glb",
+  "bay_units": [
+    "1A",
+    "1D",
+    "2A",
+    "2B",
+    "2C",
+    "3A",
+    "3B",
+    "3D",
+    "4A",
+    "4B",
+    "4C",
+    "4D",
+    "5A",
+    "5B",
+    "5C",
+    "6A",
+    "6B",
+    "6C"
+  ],
+  "bays": [
+    {
+      "unit": "1A",
+      "row": "south",
+      "left": -9.85,
+      "right": -8.29,
+      "rear": 3.94,
+      "front": 6.1,
+      "front_direction": 1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -9.045,
+        0,
+        6.675
+      ],
+      "inside": [
+        -9.045,
+        0,
+        5.02
+      ]
+    },
+    {
+      "unit": "1D",
+      "row": "south",
+      "left": -8.29,
+      "right": -6.73,
+      "rear": 3.94,
+      "front": 6.1,
+      "front_direction": 1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -7.485,
+        0,
+        6.675
+      ],
+      "inside": [
+        -7.485,
+        0,
+        5.02
+      ]
+    },
+    {
+      "unit": "2A",
+      "row": "south",
+      "left": -5.68,
+      "right": -4.12,
+      "rear": 3.94,
+      "front": 6.1,
+      "front_direction": 1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -4.875,
+        0,
+        6.675
+      ],
+      "inside": [
+        -4.875,
+        0,
+        5.02
+      ]
+    },
+    {
+      "unit": "2B",
+      "row": "south",
+      "left": -4.12,
+      "right": -2.56,
+      "rear": 3.94,
+      "front": 6.1,
+      "front_direction": 1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -3.315,
+        0,
+        6.675
+      ],
+      "inside": [
+        -3.315,
+        0,
+        5.02
+      ]
+    },
+    {
+      "unit": "2C",
+      "row": "south",
+      "left": -2.56,
+      "right": -1.0,
+      "rear": 3.94,
+      "front": 6.1,
+      "front_direction": 1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -1.755,
+        0,
+        6.675
+      ],
+      "inside": [
+        -1.755,
+        0,
+        5.02
+      ]
+    },
+    {
+      "unit": "3A",
+      "row": "south",
+      "left": -1.0,
+      "right": 0.56,
+      "rear": 3.94,
+      "front": 6.1,
+      "front_direction": 1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -0.195,
+        0,
+        6.675
+      ],
+      "inside": [
+        -0.195,
+        0,
+        5.02
+      ]
+    },
+    {
+      "unit": "3B",
+      "row": "south",
+      "left": 0.56,
+      "right": 2.12,
+      "rear": 3.94,
+      "front": 6.1,
+      "front_direction": 1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        1.365,
+        0,
+        6.675
+      ],
+      "inside": [
+        1.365,
+        0,
+        5.02
+      ]
+    },
+    {
+      "unit": "3D",
+      "row": "south",
+      "left": 2.12,
+      "right": 3.68,
+      "rear": 3.94,
+      "front": 6.1,
+      "front_direction": 1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        2.925,
+        0,
+        6.675
+      ],
+      "inside": [
+        2.925,
+        0,
+        5.02
+      ]
+    },
+    {
+      "unit": "4B",
+      "row": "north",
+      "left": -9.85,
+      "right": -8.29,
+      "rear": 9.41,
+      "front": 7.25,
+      "front_direction": -1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -9.045,
+        0,
+        6.675
+      ],
+      "inside": [
+        -9.045,
+        0,
+        8.33
+      ]
+    },
+    {
+      "unit": "4C",
+      "row": "north",
+      "left": -8.29,
+      "right": -6.73,
+      "rear": 9.41,
+      "front": 7.25,
+      "front_direction": -1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -7.485,
+        0,
+        6.675
+      ],
+      "inside": [
+        -7.485,
+        0,
+        8.33
+      ]
+    },
+    {
+      "unit": "4D",
+      "row": "north",
+      "left": -6.73,
+      "right": -5.17,
+      "rear": 9.41,
+      "front": 7.25,
+      "front_direction": -1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -5.925,
+        0,
+        6.675
+      ],
+      "inside": [
+        -5.925,
+        0,
+        8.33
+      ]
+    },
+    {
+      "unit": "5A",
+      "row": "north",
+      "left": -5.17,
+      "right": -3.61,
+      "rear": 9.41,
+      "front": 7.25,
+      "front_direction": -1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -4.365,
+        0,
+        6.675
+      ],
+      "inside": [
+        -4.365,
+        0,
+        8.33
+      ]
+    },
+    {
+      "unit": "5B",
+      "row": "north",
+      "left": -3.61,
+      "right": -2.05,
+      "rear": 9.41,
+      "front": 7.25,
+      "front_direction": -1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -2.805,
+        0,
+        6.675
+      ],
+      "inside": [
+        -2.805,
+        0,
+        8.33
+      ]
+    },
+    {
+      "unit": "5C",
+      "row": "north",
+      "left": -2.05,
+      "right": -0.49,
+      "rear": 9.41,
+      "front": 7.25,
+      "front_direction": -1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        -1.245,
+        0,
+        6.675
+      ],
+      "inside": [
+        -1.245,
+        0,
+        8.33
+      ]
+    },
+    {
+      "unit": "6A",
+      "row": "north",
+      "left": -0.49,
+      "right": 1.07,
+      "rear": 9.41,
+      "front": 7.25,
+      "front_direction": -1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        0.315,
+        0,
+        6.675
+      ],
+      "inside": [
+        0.315,
+        0,
+        8.33
+      ]
+    },
+    {
+      "unit": "6B",
+      "row": "north",
+      "left": 1.07,
+      "right": 2.63,
+      "rear": 9.41,
+      "front": 7.25,
+      "front_direction": -1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        1.875,
+        0,
+        6.675
+      ],
+      "inside": [
+        1.875,
+        0,
+        8.33
+      ]
+    },
+    {
+      "unit": "6C",
+      "row": "north",
+      "left": 2.63,
+      "right": 4.19,
+      "rear": 9.41,
+      "front": 7.25,
+      "front_direction": -1,
+      "space": "B1_RESIDENT_STORAGE",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        3.435,
+        0,
+        6.675
+      ],
+      "inside": [
+        3.435,
+        0,
+        8.33
+      ]
+    },
+    {
+      "unit": "4A",
+      "row": "alcove",
+      "left": 3.62,
+      "right": 5.18,
+      "rear": 11.72,
+      "front": 9.56,
+      "front_direction": -1,
+      "space": "B1_STORAGE_NORTH_BAY",
+      "clear_fixed_width": 1.5,
+      "clear_fixed_depth": 2.1,
+      "approach": [
+        4.425,
+        0,
+        8.9
+      ],
+      "inside": [
+        4.425,
+        0,
+        10.64
+      ]
+    }
+  ],
+  "clearances": {
+    "central_aisle": 1.09,
+    "east_aisle": 1.12,
+    "wet_stack_gap": {
+      "left": -6.73,
+      "right": -5.68,
+      "riser_rect": [
+        -6.4,
+        3.1,
+        -5.95,
+        6.35
+      ]
+    }
+  },
+  "extension": {
+    "id": "B1_STORAGE_NORTH_BAY",
+    "level": "B1",
+    "rect": [
+      3.45,
+      9.5,
+      5.4,
+      11.85
+    ],
+    "class": "service",
+    "purpose": "one dry resident storage cage at the north end of the existing aisle",
+    "wall_sides": [
+      "north",
+      "west",
+      "east"
+    ]
+  },
+  "extension_opening": {
+    "id": "B1_STORAGE_NORTH_BAY_OPENING",
+    "level": "B1",
+    "center": [
+      4.4,
+      9.5
+    ],
+    "axis": "x",
+    "width": 1.2,
+    "height": 2.4,
+    "connects": [
+      "B1_RESIDENT_STORAGE",
+      "B1_STORAGE_NORTH_BAY"
+    ]
+  },
+  "material_keys": [
+    "timber",
+    "iron_neutral"
+  ],
+  "gate_state": "original open/folded fabric; no new keys, inventory or quests",
+  "stock": [
+    {
+      "id": "B1_bay_1A_case",
+      "unit": "1A",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 3.141592653589793,
+      "old_position": [
+        -9.0,
+        0,
+        4.053
+      ],
+      "position": [
+        -9.02,
+        0,
+        4.093
+      ],
+      "row": "south",
+      "rear": 3.94
+    },
+    {
+      "id": "B1_bay_1D_boots",
+      "unit": "1D",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 3.141592653589793,
+      "old_position": [
+        -7.4,
+        0,
+        4.13
+      ],
+      "position": [
+        -7.46,
+        0,
+        4.17
+      ],
+      "row": "south",
+      "rear": 3.94
+    },
+    {
+      "id": "B1_bay_2A_hamper",
+      "unit": "2A",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 3.141592653589793,
+      "old_position": [
+        -4.9,
+        0,
+        4.13
+      ],
+      "position": [
+        -4.85,
+        0,
+        4.17
+      ],
+      "row": "south",
+      "rear": 3.94
+    },
+    {
+      "id": "B1_bay_2B_crate",
+      "unit": "2B",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 3.141592653589793,
+      "old_position": [
+        -3.6,
+        0,
+        4.136
+      ],
+      "position": [
+        -3.29,
+        0,
+        4.176
+      ],
+      "row": "south",
+      "rear": 3.94
+    },
+    {
+      "id": "B1_bay_3A_boots",
+      "unit": "3A",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 3.141592653589793,
+      "old_position": [
+        -1.0,
+        0,
+        4.13
+      ],
+      "position": [
+        -0.17,
+        0,
+        4.17
+      ],
+      "row": "south",
+      "rear": 3.94
+    },
+    {
+      "id": "B1_bay_3B_crate",
+      "unit": "3B",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 3.141592653589793,
+      "old_position": [
+        0.3,
+        0,
+        4.136
+      ],
+      "position": [
+        1.39,
+        0,
+        4.176
+      ],
+      "row": "south",
+      "rear": 3.94
+    },
+    {
+      "id": "B1_bay_3D_case",
+      "unit": "3D",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 3.141592653589793,
+      "old_position": [
+        1.6,
+        0,
+        4.053
+      ],
+      "position": [
+        2.95,
+        0,
+        4.093
+      ],
+      "row": "south",
+      "rear": 3.94
+    },
+    {
+      "id": "B1_bay_4A_case",
+      "unit": "4A",
+      "space": "B1_STORAGE_NORTH_BAY",
+      "yaw": 0,
+      "old_position": [
+        2.9,
+        0,
+        4.053
+      ],
+      "position": [
+        4.45,
+        0,
+        11.567
+      ],
+      "row": "alcove",
+      "rear": 11.72
+    },
+    {
+      "id": "B1_bay_4B_crate",
+      "unit": "4B",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 0.0,
+      "old_position": [
+        -9.0,
+        0,
+        9.214
+      ],
+      "position": [
+        -9.02,
+        0,
+        9.174
+      ],
+      "row": "north",
+      "rear": 9.41
+    },
+    {
+      "id": "B1_bay_4C_hamper",
+      "unit": "4C",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 0.0,
+      "old_position": [
+        -7.4,
+        0,
+        9.22
+      ],
+      "position": [
+        -7.46,
+        0,
+        9.18
+      ],
+      "row": "north",
+      "rear": 9.41
+    },
+    {
+      "id": "B1_bay_5A_case",
+      "unit": "5A",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 0.0,
+      "old_position": [
+        -3.6,
+        0,
+        9.297
+      ],
+      "position": [
+        -4.34,
+        0,
+        9.257
+      ],
+      "row": "north",
+      "rear": 9.41
+    },
+    {
+      "id": "B1_bay_5B_crate",
+      "unit": "5B",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 0.0,
+      "old_position": [
+        -2.3,
+        0,
+        9.214
+      ],
+      "position": [
+        -2.78,
+        0,
+        9.174
+      ],
+      "row": "north",
+      "rear": 9.41
+    },
+    {
+      "id": "B1_bay_5C_canvases",
+      "unit": "5C",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 0.0,
+      "old_position": [
+        -1.0,
+        0,
+        9.41
+      ],
+      "position": [
+        -1.22,
+        0,
+        9.372
+      ],
+      "row": "north",
+      "rear": 9.41
+    },
+    {
+      "id": "B1_bay_6A_gear",
+      "unit": "6A",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 0.0,
+      "old_position": [
+        0.3,
+        0,
+        9.189
+      ],
+      "position": [
+        0.34,
+        0,
+        9.149
+      ],
+      "row": "north",
+      "rear": 9.41
+    },
+    {
+      "id": "B1_bay_6B_case",
+      "unit": "6B",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 0.0,
+      "old_position": [
+        1.6,
+        0,
+        9.297
+      ],
+      "position": [
+        1.9,
+        0,
+        9.257
+      ],
+      "row": "north",
+      "rear": 9.41
+    },
+    {
+      "id": "B1_bay_6C_hamper",
+      "unit": "6C",
+      "space": "B1_RESIDENT_STORAGE",
+      "yaw": 0.0,
+      "old_position": [
+        2.9,
+        0,
+        9.22
+      ],
+      "position": [
+        3.46,
+        0,
+        9.18
+      ],
+      "row": "north",
+      "rear": 9.41
+    }
+  ],
+  "source_layout_sha256": "4b612ac20a10dd1da1df87095bb2d66b48c810c33aab889148a7c2b7363d15c4",
+  "instances": [
+    {
+      "name": "1A_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -9.85,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "1A"
+    },
+    {
+      "name": "1A_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -9.85,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "1A"
+    },
+    {
+      "name": "1A_DepthPanel__timber.001",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -8.29,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "1A"
+    },
+    {
+      "name": "1A_DepthPanel__iron_neutral.001",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -8.29,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "1A"
+    },
+    {
+      "name": "1A_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -9.85,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "1A"
+    },
+    {
+      "name": "1A_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -9.85,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "1A"
+    },
+    {
+      "name": "1A_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -9.85,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "1A"
+    },
+    {
+      "name": "1A_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -9.85,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "1A"
+    },
+    {
+      "name": "1A_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        -8.389999999999999,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "1A"
+    },
+    {
+      "name": "1A_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        -8.389999999999999,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "1A"
+    },
+    {
+      "name": "1A_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -9.764999999999999,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "1A"
+    },
+    {
+      "name": "1A_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -9.764999999999999,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "1A"
+    },
+    {
+      "name": "1D_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -6.73,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "1D"
+    },
+    {
+      "name": "1D_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -6.73,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "1D"
+    },
+    {
+      "name": "1D_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -8.29,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "1D"
+    },
+    {
+      "name": "1D_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -8.29,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "1D"
+    },
+    {
+      "name": "1D_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -8.29,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "1D"
+    },
+    {
+      "name": "1D_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -8.29,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "1D"
+    },
+    {
+      "name": "1D_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        -6.83,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "1D"
+    },
+    {
+      "name": "1D_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        -6.83,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "1D"
+    },
+    {
+      "name": "1D_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -8.204999999999998,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "1D"
+    },
+    {
+      "name": "1D_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -8.204999999999998,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "1D"
+    },
+    {
+      "name": "2A_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -5.68,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "2A"
+    },
+    {
+      "name": "2A_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -5.68,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "2A"
+    },
+    {
+      "name": "2A_DepthPanel__timber.001",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -4.12,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "2A"
+    },
+    {
+      "name": "2A_DepthPanel__iron_neutral.001",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -4.12,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "2A"
+    },
+    {
+      "name": "2A_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -5.68,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "2A"
+    },
+    {
+      "name": "2A_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -5.68,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "2A"
+    },
+    {
+      "name": "2A_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -5.68,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2A"
+    },
+    {
+      "name": "2A_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -5.68,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2A"
+    },
+    {
+      "name": "2A_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        -4.22,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2A"
+    },
+    {
+      "name": "2A_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        -4.22,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2A"
+    },
+    {
+      "name": "2A_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -5.595,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "2A"
+    },
+    {
+      "name": "2A_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -5.595,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "2A"
+    },
+    {
+      "name": "2B_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -2.56,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "2B"
+    },
+    {
+      "name": "2B_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -2.56,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "2B"
+    },
+    {
+      "name": "2B_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -4.12,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "2B"
+    },
+    {
+      "name": "2B_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -4.12,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "2B"
+    },
+    {
+      "name": "2B_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -4.12,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2B"
+    },
+    {
+      "name": "2B_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -4.12,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2B"
+    },
+    {
+      "name": "2B_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        -2.66,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2B"
+    },
+    {
+      "name": "2B_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        -2.66,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2B"
+    },
+    {
+      "name": "2B_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -4.035,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "2B"
+    },
+    {
+      "name": "2B_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -4.035,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "2B"
+    },
+    {
+      "name": "2C_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -1.0,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "2C"
+    },
+    {
+      "name": "2C_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -1.0,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "2C"
+    },
+    {
+      "name": "2C_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -2.56,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "2C"
+    },
+    {
+      "name": "2C_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -2.56,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "2C"
+    },
+    {
+      "name": "2C_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -2.56,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2C"
+    },
+    {
+      "name": "2C_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -2.56,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2C"
+    },
+    {
+      "name": "2C_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        -1.1,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2C"
+    },
+    {
+      "name": "2C_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        -1.1,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "2C"
+    },
+    {
+      "name": "2C_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -2.475,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "2C"
+    },
+    {
+      "name": "2C_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -2.475,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "2C"
+    },
+    {
+      "name": "3A_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        0.56,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "3A"
+    },
+    {
+      "name": "3A_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        0.56,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "3A"
+    },
+    {
+      "name": "3A_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -1.0,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "3A"
+    },
+    {
+      "name": "3A_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -1.0,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "3A"
+    },
+    {
+      "name": "3A_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -1.0,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3A"
+    },
+    {
+      "name": "3A_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -1.0,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3A"
+    },
+    {
+      "name": "3A_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        0.4600000000000001,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3A"
+    },
+    {
+      "name": "3A_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        0.4600000000000001,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3A"
+    },
+    {
+      "name": "3A_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -0.915,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "3A"
+    },
+    {
+      "name": "3A_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -0.915,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "3A"
+    },
+    {
+      "name": "3B_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        2.12,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "3B"
+    },
+    {
+      "name": "3B_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        2.12,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "3B"
+    },
+    {
+      "name": "3B_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        0.56,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "3B"
+    },
+    {
+      "name": "3B_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        0.56,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "3B"
+    },
+    {
+      "name": "3B_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        0.56,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3B"
+    },
+    {
+      "name": "3B_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        0.56,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3B"
+    },
+    {
+      "name": "3B_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        2.02,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3B"
+    },
+    {
+      "name": "3B_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        2.02,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3B"
+    },
+    {
+      "name": "3B_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        0.645,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "3B"
+    },
+    {
+      "name": "3B_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        0.645,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "3B"
+    },
+    {
+      "name": "3D_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        3.68,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "3D"
+    },
+    {
+      "name": "3D_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        3.68,
+        0,
+        3.94
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "3D"
+    },
+    {
+      "name": "3D_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        2.12,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "3D"
+    },
+    {
+      "name": "3D_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        2.12,
+        0,
+        3.94
+      ],
+      "yaw": 0,
+      "unit": "3D"
+    },
+    {
+      "name": "3D_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        2.12,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3D"
+    },
+    {
+      "name": "3D_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        2.12,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3D"
+    },
+    {
+      "name": "3D_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        3.58,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3D"
+    },
+    {
+      "name": "3D_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        3.58,
+        0,
+        6.1
+      ],
+      "yaw": 0,
+      "unit": "3D"
+    },
+    {
+      "name": "3D_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        2.205,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "3D"
+    },
+    {
+      "name": "3D_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        2.205,
+        0,
+        6.1
+      ],
+      "yaw": 1.5707963267948966,
+      "unit": "3D"
+    },
+    {
+      "name": "4B_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -9.85,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4B"
+    },
+    {
+      "name": "4B_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -9.85,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4B"
+    },
+    {
+      "name": "4B_DepthPanel__timber.001",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -8.29,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4B"
+    },
+    {
+      "name": "4B_DepthPanel__iron_neutral.001",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -8.29,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4B"
+    },
+    {
+      "name": "4B_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -9.85,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "4B"
+    },
+    {
+      "name": "4B_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -9.85,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "4B"
+    },
+    {
+      "name": "4B_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -9.85,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4B"
+    },
+    {
+      "name": "4B_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -9.85,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4B"
+    },
+    {
+      "name": "4B_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        -8.389999999999999,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4B"
+    },
+    {
+      "name": "4B_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        -8.389999999999999,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4B"
+    },
+    {
+      "name": "4B_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -9.764999999999999,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4B"
+    },
+    {
+      "name": "4B_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -9.764999999999999,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4B"
+    },
+    {
+      "name": "4C_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -6.73,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4C"
+    },
+    {
+      "name": "4C_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -6.73,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4C"
+    },
+    {
+      "name": "4C_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -8.29,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "4C"
+    },
+    {
+      "name": "4C_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -8.29,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "4C"
+    },
+    {
+      "name": "4C_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -8.29,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4C"
+    },
+    {
+      "name": "4C_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -8.29,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4C"
+    },
+    {
+      "name": "4C_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        -6.83,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4C"
+    },
+    {
+      "name": "4C_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        -6.83,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4C"
+    },
+    {
+      "name": "4C_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -8.204999999999998,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4C"
+    },
+    {
+      "name": "4C_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -8.204999999999998,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4C"
+    },
+    {
+      "name": "4D_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -5.17,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4D"
+    },
+    {
+      "name": "4D_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -5.17,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4D"
+    },
+    {
+      "name": "4D_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -6.73,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "4D"
+    },
+    {
+      "name": "4D_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -6.73,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "4D"
+    },
+    {
+      "name": "4D_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -6.73,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4D"
+    },
+    {
+      "name": "4D_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -6.73,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4D"
+    },
+    {
+      "name": "4D_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        -5.27,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4D"
+    },
+    {
+      "name": "4D_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        -5.27,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "4D"
+    },
+    {
+      "name": "4D_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -6.6450000000000005,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4D"
+    },
+    {
+      "name": "4D_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -6.6450000000000005,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4D"
+    },
+    {
+      "name": "5A_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -3.61,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5A"
+    },
+    {
+      "name": "5A_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -3.61,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5A"
+    },
+    {
+      "name": "5A_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -5.17,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "5A"
+    },
+    {
+      "name": "5A_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -5.17,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "5A"
+    },
+    {
+      "name": "5A_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -5.17,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5A"
+    },
+    {
+      "name": "5A_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -5.17,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5A"
+    },
+    {
+      "name": "5A_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        -3.71,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5A"
+    },
+    {
+      "name": "5A_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        -3.71,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5A"
+    },
+    {
+      "name": "5A_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -5.085,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5A"
+    },
+    {
+      "name": "5A_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -5.085,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5A"
+    },
+    {
+      "name": "5B_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -2.05,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5B"
+    },
+    {
+      "name": "5B_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -2.05,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5B"
+    },
+    {
+      "name": "5B_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -3.61,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "5B"
+    },
+    {
+      "name": "5B_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -3.61,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "5B"
+    },
+    {
+      "name": "5B_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -3.61,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5B"
+    },
+    {
+      "name": "5B_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -3.61,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5B"
+    },
+    {
+      "name": "5B_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        -2.15,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5B"
+    },
+    {
+      "name": "5B_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        -2.15,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5B"
+    },
+    {
+      "name": "5B_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -3.525,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5B"
+    },
+    {
+      "name": "5B_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -3.525,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5B"
+    },
+    {
+      "name": "5C_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        -0.49,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5C"
+    },
+    {
+      "name": "5C_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        -0.49,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5C"
+    },
+    {
+      "name": "5C_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -2.05,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "5C"
+    },
+    {
+      "name": "5C_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -2.05,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "5C"
+    },
+    {
+      "name": "5C_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -2.05,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5C"
+    },
+    {
+      "name": "5C_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -2.05,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5C"
+    },
+    {
+      "name": "5C_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        -0.59,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5C"
+    },
+    {
+      "name": "5C_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        -0.59,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "5C"
+    },
+    {
+      "name": "5C_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -1.9649999999999999,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5C"
+    },
+    {
+      "name": "5C_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -1.9649999999999999,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "5C"
+    },
+    {
+      "name": "6A_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        1.07,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6A"
+    },
+    {
+      "name": "6A_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        1.07,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6A"
+    },
+    {
+      "name": "6A_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        -0.49,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "6A"
+    },
+    {
+      "name": "6A_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        -0.49,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "6A"
+    },
+    {
+      "name": "6A_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        -0.49,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6A"
+    },
+    {
+      "name": "6A_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        -0.49,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6A"
+    },
+    {
+      "name": "6A_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        0.9700000000000001,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6A"
+    },
+    {
+      "name": "6A_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        0.9700000000000001,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6A"
+    },
+    {
+      "name": "6A_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        -0.40499999999999997,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6A"
+    },
+    {
+      "name": "6A_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        -0.40499999999999997,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6A"
+    },
+    {
+      "name": "6B_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        2.63,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6B"
+    },
+    {
+      "name": "6B_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        2.63,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6B"
+    },
+    {
+      "name": "6B_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        1.07,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "6B"
+    },
+    {
+      "name": "6B_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        1.07,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "6B"
+    },
+    {
+      "name": "6B_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        1.07,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6B"
+    },
+    {
+      "name": "6B_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        1.07,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6B"
+    },
+    {
+      "name": "6B_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        2.53,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6B"
+    },
+    {
+      "name": "6B_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        2.53,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6B"
+    },
+    {
+      "name": "6B_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        1.155,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6B"
+    },
+    {
+      "name": "6B_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        1.155,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6B"
+    },
+    {
+      "name": "6C_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        4.19,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6C"
+    },
+    {
+      "name": "6C_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        4.19,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6C"
+    },
+    {
+      "name": "6C_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        2.63,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "6C"
+    },
+    {
+      "name": "6C_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        2.63,
+        0,
+        9.41
+      ],
+      "yaw": 0,
+      "unit": "6C"
+    },
+    {
+      "name": "6C_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        2.63,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6C"
+    },
+    {
+      "name": "6C_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        2.63,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6C"
+    },
+    {
+      "name": "6C_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        4.090000000000001,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6C"
+    },
+    {
+      "name": "6C_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        4.090000000000001,
+        0,
+        7.25
+      ],
+      "yaw": 0,
+      "unit": "6C"
+    },
+    {
+      "name": "6C_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        2.715,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6C"
+    },
+    {
+      "name": "6C_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        2.715,
+        0,
+        7.25
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "6C"
+    },
+    {
+      "name": "4A_DepthPanel__timber",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        3.62,
+        0,
+        9.56
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4A"
+    },
+    {
+      "name": "4A_DepthPanel__iron_neutral",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        3.62,
+        0,
+        9.56
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4A"
+    },
+    {
+      "name": "4A_DepthPanel__timber.001",
+      "part": "DepthPanel",
+      "key": "timber",
+      "position": [
+        5.18,
+        0,
+        9.56
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4A"
+    },
+    {
+      "name": "4A_DepthPanel__iron_neutral.001",
+      "part": "DepthPanel",
+      "key": "iron_neutral",
+      "position": [
+        5.18,
+        0,
+        9.56
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4A"
+    },
+    {
+      "name": "4A_BayBack__timber",
+      "part": "BayBack",
+      "key": "timber",
+      "position": [
+        3.62,
+        0,
+        11.72
+      ],
+      "yaw": 0,
+      "unit": "4A"
+    },
+    {
+      "name": "4A_BayBack__iron_neutral",
+      "part": "BayBack",
+      "key": "iron_neutral",
+      "position": [
+        3.62,
+        0,
+        11.72
+      ],
+      "yaw": 0,
+      "unit": "4A"
+    },
+    {
+      "name": "4A_FrontLeft__timber",
+      "part": "FrontLeft",
+      "key": "timber",
+      "position": [
+        3.62,
+        0,
+        9.56
+      ],
+      "yaw": 0,
+      "unit": "4A"
+    },
+    {
+      "name": "4A_FrontLeft__iron_neutral",
+      "part": "FrontLeft",
+      "key": "iron_neutral",
+      "position": [
+        3.62,
+        0,
+        9.56
+      ],
+      "yaw": 0,
+      "unit": "4A"
+    },
+    {
+      "name": "4A_FrontRight__timber",
+      "part": "FrontRight",
+      "key": "timber",
+      "position": [
+        5.08,
+        0,
+        9.56
+      ],
+      "yaw": 0,
+      "unit": "4A"
+    },
+    {
+      "name": "4A_FrontRight__iron_neutral",
+      "part": "FrontRight",
+      "key": "iron_neutral",
+      "position": [
+        5.08,
+        0,
+        9.56
+      ],
+      "yaw": 0,
+      "unit": "4A"
+    },
+    {
+      "name": "4A_OpenGate__timber",
+      "part": "OpenGate",
+      "key": "timber",
+      "position": [
+        3.705,
+        0,
+        9.56
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4A"
+    },
+    {
+      "name": "4A_OpenGate__iron_neutral",
+      "part": "OpenGate",
+      "key": "iron_neutral",
+      "position": [
+        3.705,
+        0,
+        9.56
+      ],
+      "yaw": -1.5707963267948966,
+      "unit": "4A"
+    }
+  ],
+  "stock_fit_review": [
+    {
+      "id": "B1_bay_1A_case",
+      "unit": "1A",
+      "native_bounds": {
+        "left": -9.320000648498535,
+        "right": -8.720000267028809,
+        "south": 3.990000009536743,
+        "north": 4.196000099182129,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_1D_boots",
+      "unit": "1D",
+      "native_bounds": {
+        "left": -7.760000228881836,
+        "right": -7.159999847412109,
+        "south": 3.990000009536743,
+        "north": 4.349999904632568,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_2A_hamper",
+      "unit": "2A",
+      "native_bounds": {
+        "left": -5.13569974899292,
+        "right": -4.564300060272217,
+        "south": 3.990000009536743,
+        "north": 4.349999904632568,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_2B_crate",
+      "unit": "2B",
+      "native_bounds": {
+        "left": -3.510999917984009,
+        "right": -3.069000005722046,
+        "south": 3.990000009536743,
+        "north": 4.361999988555908,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_3A_boots",
+      "unit": "3A",
+      "native_bounds": {
+        "left": -0.4700000286102295,
+        "right": 0.1300000250339508,
+        "south": 3.990000009536743,
+        "north": 4.349999904632568,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_3B_crate",
+      "unit": "3B",
+      "native_bounds": {
+        "left": 1.1689999103546143,
+        "right": 1.6110000610351562,
+        "south": 3.990000009536743,
+        "north": 4.361999988555908,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_3D_case",
+      "unit": "3D",
+      "native_bounds": {
+        "left": 2.6500000953674316,
+        "right": 3.25,
+        "south": 3.990000009536743,
+        "north": 4.196000099182129,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_4A_case",
+      "unit": "4A",
+      "native_bounds": {
+        "left": 4.149999618530273,
+        "right": 4.75,
+        "south": 11.464000701904297,
+        "north": 11.670000076293945,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_4B_crate",
+      "unit": "4B",
+      "native_bounds": {
+        "left": -9.241000175476074,
+        "right": -8.79900074005127,
+        "south": 8.98799991607666,
+        "north": 9.359999656677246,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_4C_hamper",
+      "unit": "4C",
+      "native_bounds": {
+        "left": -7.745699882507324,
+        "right": -7.174300193786621,
+        "south": 9.0,
+        "north": 9.360000610351562,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_5A_case",
+      "unit": "5A",
+      "native_bounds": {
+        "left": -4.640000343322754,
+        "right": -4.039999961853027,
+        "south": 9.154000282287598,
+        "north": 9.359999656677246,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_5B_crate",
+      "unit": "5B",
+      "native_bounds": {
+        "left": -3.000999927520752,
+        "right": -2.559000015258789,
+        "south": 8.98799991607666,
+        "north": 9.359999656677246,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_5C_canvases",
+      "unit": "5C",
+      "native_bounds": {
+        "left": -1.5199999809265137,
+        "right": -0.9200000166893005,
+        "south": 9.184399604797363,
+        "north": 9.359999656677246,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_6A_gear",
+      "unit": "6A",
+      "native_bounds": {
+        "left": 0.07899999618530273,
+        "right": 0.6010000109672546,
+        "south": 8.937999725341797,
+        "north": 9.360000610351562,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_6B_case",
+      "unit": "6B",
+      "native_bounds": {
+        "left": 1.5999999046325684,
+        "right": 2.200000047683716,
+        "south": 9.154000282287598,
+        "north": 9.359999656677246,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    },
+    {
+      "id": "B1_bay_6C_hamper",
+      "unit": "6C",
+      "native_bounds": {
+        "left": 3.1743004322052,
+        "right": 3.745699644088745,
+        "south": 9.0,
+        "north": 9.360000610351562,
+        "floor": -3.200000047683716
+      },
+      "inside_bay": true,
+      "floor_bearing": true
+    }
+  ]
+}

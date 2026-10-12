@@ -1,0 +1,77 @@
+{
+  "evidence_class": "INERT",
+  "asset_sha256": "2e98e7d23b810664d5fb44a18df9f2f7c672f61aca618aa227fe59be09179cb3",
+  "parts": [
+    {
+      "name": "DepthPanel__timber",
+      "partition": "DepthPanel",
+      "key": "timber",
+      "triangles": 1836,
+      "degenerate_uv": 0
+    },
+    {
+      "name": "DepthPanel__iron_neutral",
+      "partition": "DepthPanel",
+      "key": "iron_neutral",
+      "triangles": 648,
+      "degenerate_uv": 0
+    },
+    {
+      "name": "BayBack__timber",
+      "partition": "BayBack",
+      "key": "timber",
+      "triangles": 1188,
+      "degenerate_uv": 0
+    },
+    {
+      "name": "BayBack__iron_neutral",
+      "partition": "BayBack",
+      "key": "iron_neutral",
+      "triangles": 432,
+      "degenerate_uv": 0
+    },
+    {
+      "name": "FrontLeft__timber",
+      "partition": "FrontLeft",
+      "key": "timber",
+      "triangles": 432,
+      "degenerate_uv": 0
+    },
+    {
+      "name": "FrontLeft__iron_neutral",
+      "partition": "FrontLeft",
+      "key": "iron_neutral",
+      "triangles": 324,
+      "degenerate_uv": 0
+    },
+    {
+      "name": "FrontRight__timber",
+      "partition": "FrontRight",
+      "key": "timber",
+      "triangles": 432,
+      "degenerate_uv": 0
+    },
+    {
+      "name": "FrontRight__iron_neutral",
+      "partition": "FrontRight",
+      "key": "iron_neutral",
+      "triangles": 324,
+      "degenerate_uv": 0
+    },
+    {
+      "name": "OpenGate__timber",
+      "partition": "OpenGate",
+      "key": "timber",
+      "triangles": 1188,
+      "degenerate_uv": 0
+    },
+    {
+      "name": "OpenGate__iron_neutral",
+      "partition": "OpenGate",
+      "key": "iron_neutral",
+      "triangles": 464,
+      "degenerate_uv": 0
+    }
+  ],
+  "scope": "Source-owned partition/gate stock with actual longitudinal metre charts and zero collapsed triangle charts. Context, material/render and gameplay checks remain required."
+}

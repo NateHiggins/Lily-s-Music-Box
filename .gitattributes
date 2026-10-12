@@ -1803,3 +1803,16 @@ game/tests/OrisonV2UpperEntryStorageTest.tscn -text
 art/blender/scripts/review_upper_entry_hallstands.py -text
 tools/rebind_v2_hallstands.py -text
 art/renders/orison_v2/upper_entry_storage_20261011/** -text
+
+# Native resident storage cages and fixed open gates.
+art/blender/scripts/plan_resident_storage.py -text
+art/blender/scripts/build_resident_storage.py -text
+art/blender/scripts/review_resident_storage.py -text
+art/data/resident_storage/source_plan.json -text
+game/data/orison_v2/resident_storage.json -text
+game/scripts/building/orison_v2_native_resident_storage.gd -text
+game/scripts/building/orison_v2_basement.gd -text
+game/tests/orison_v2_basement_route_test.gd -text
+tools/rebind_v2_storage_context.py -text
+art/blender/scripts/export_resident_storage_data.py -text
+art/renders/orison_v2/basement_storage_20261011/** -text

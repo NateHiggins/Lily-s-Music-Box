@@ -3,20 +3,20 @@
  "summary": {
   "requirements": 240,
   "by_status": {
-   "ABSENT": 11,
+   "ABSENT": 10,
    "HUMAN_ACCEPTED": 1,
    "PROGRAMMED": 119,
    "RUNTIME_PROVEN": 34,
    "SHELL_ONLY": 3,
-   "SPATIALLY_PROVEN": 72
+   "SPATIALLY_PROVEN": 73
   },
   "blockers_by_scope": {
    "FIRST_SLICE_TECHNICAL": 0,
    "GOLDEN_SHIFT_V2": 1,
-   "FULL_BUILDING_STRUCTURAL": 118,
+   "FULL_BUILDING_STRUCTURAL": 117,
    "FULL_BUILDING_RUNTIME": 35,
-   "PRODUCTION_CUTOVER": 135,
-   "V1_RETIREMENT": 137
+   "PRODUCTION_CUTOVER": 134,
+   "V1_RETIREMENT": 136
   },
   "v1_fallbacks": 2,
   "heuristic_conclusions": 117,
@@ -1142,7 +1142,7 @@
    "blocked_by": [],
    "heuristic": false,
    "provenance": [
-    "v2:B1 (10 spaces; weakest PROGRAMMED: B1_BOILER_APPROACH, B1_BOILER_ROOM, B1_COAL_ROOM, B1_ELECTRICAL)",
+    "v2:B1 (11 spaces; weakest PROGRAMMED: B1_BOILER_APPROACH, B1_BOILER_ROOM, B1_COAL_ROOM, B1_ELECTRICAL)",
     "acceptance:design/ORISON_V2_M08E_A_HUMAN_ACCEPTANCE_RECEIPT_2026-08-28.md (Owner accepted the F01 ritual station, apartment 2B radiator service stance and B1 boiler route as a gray-box spatial contract (authorizes M08F only; not M09/cutover/retirement).)"
    ],
    "notes": "",
@@ -4946,24 +4946,27 @@
    "id": "b1.resident_storage",
    "dimension": "11 maintenance/service spaces",
    "scope": {
-    "floor": "B1"
+    "floor": "B1",
+    "space": "B1_STORAGE_NORTH_BAY"
    },
-   "status": "ABSENT",
+   "status": "SPATIALLY_PROVEN",
    "required_proof": "SPATIALLY_PROVEN",
    "temporary_v1_fallback": false,
    "fallback_kind": null,
    "blocked_by": [],
    "heuristic": false,
    "provenance": [
+    "v2:B1_STORAGE_NORTH_BAY (class + purpose + entrance present)",
+    "checkpoint:design/ORISON_V2_BASEMENT_STORAGE_CHECKPOINT_2026-10-11.md",
     "program:design/ORISON_ARCHITECTURAL_PROGRAM_2026-08-28.md (resident storage)"
    ],
    "notes": "",
-   "blocking_scopes": [
+   "blocking_scopes": [],
+   "complete_for_scopes": [
     "FULL_BUILDING_STRUCTURAL",
     "PRODUCTION_CUTOVER",
     "V1_RETIREMENT"
-   ],
-   "complete_for_scopes": []
+   ]
   },
   {
    "id": "roof.roof_bulkhead",
@@ -6357,7 +6360,7 @@
    "id": "furnishing.envelopes",
    "dimension": "22 final-furnishing readiness",
    "scope": {
-    "programmed_spaces": 195
+    "programmed_spaces": 196
    },
    "status": "PROGRAMMED",
    "required_proof": "PROGRAMMED",
@@ -6534,7 +6537,6 @@
    "b1.electrical_room",
    "b1.laundry",
    "b1.maintenance_shop",
-   "b1.resident_storage",
    "roof.roof_bulkhead",
    "roof.tank_machinery",
    "service.wet_stack",
@@ -6695,7 +6697,6 @@
    "b1.electrical_room",
    "b1.laundry",
    "b1.maintenance_shop",
-   "b1.resident_storage",
    "roof.roof_bulkhead",
    "roof.tank_machinery",
    "service.wet_stack",
@@ -6832,7 +6833,6 @@
    "b1.electrical_room",
    "b1.laundry",
    "b1.maintenance_shop",
-   "b1.resident_storage",
    "roof.roof_bulkhead",
    "roof.tank_machinery",
    "service.wet_stack",
@@ -8798,7 +8798,6 @@
     "b1.electrical_room",
     "b1.laundry",
     "b1.maintenance_shop",
-    "b1.resident_storage",
     "circ.F01.public_landing",
     "circ.F02.public_core",
     "circ.F02.public_landing",
@@ -9052,7 +9051,6 @@
     "b1.electrical_room",
     "b1.laundry",
     "b1.maintenance_shop",
-    "b1.resident_storage",
     "circ.F01.public_landing",
     "circ.F02.public_core",
     "circ.F02.public_landing",
@@ -9229,7 +9227,6 @@
     "b1.electrical_room",
     "b1.laundry",
     "b1.maintenance_shop",
-    "b1.resident_storage",
     "circ.F01.public_landing",
     "circ.F02.public_core",
     "circ.F02.public_landing",
@@ -9381,6 +9378,11 @@
  ],
  "evidence_intake": {
   "admitted": [
+   {
+    "file": "design/ORISON_V2_BASEMENT_STORAGE_CHECKPOINT_2026-10-11.md",
+    "marker": "CHECKPOINT",
+    "epoch": 2
+   },
    {
     "file": "design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md",
     "marker": "CHECKPOINT",
@@ -10027,9 +10029,10 @@
  },
  "provenance": {
   "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-  "game/data/orison_v2_blockout.json": "4b612ac20a10dd1da1df87095bb2d66b48c810c33aab889148a7c2b7363d15c4",
-  "tools/orison_spatial_dependency_manifest.json": "af200b7e06d96db736d0dc2de2047dbadca54b3320bf8f3fadc929d686bc5a83",
+  "game/data/orison_v2_blockout.json": "9de7a3bcfed5313b3520506c6b41844907eb440e02c540c159747c2465d7fd22",
+  "tools/orison_spatial_dependency_manifest.json": "a10b77d31ba3b378afe6bf20a05b09f326b9faceae2bd493fcdad63c43d7b455",
   "design/ORISON_V2_M08A_HUMAN_ACCEPTANCE_2026-08-28.json": "0681e59ad90e631ec9fa0f68a8ddb1afa5a06268de6f5540d09a6c05df055532",
+  "design/ORISON_V2_BASEMENT_STORAGE_CHECKPOINT_2026-10-11.md": "f82f185567c5064dd27969d4d48cc34e8d018b5893617dab18c22670d044344d",
   "design/ORISON_V2_COMPLETION_INTERIORS_CHECKPOINT_2026-09-25.md": "d4758366076e3309187d5d121112ef1ec888c4e78f2241146685bb229cedb572",
   "design/ORISON_V2_F01_GRAYBOX_CHECKPOINT_2026-08-28.md": "6bbb9e719408adc992e0a0eef9576edd941f458c85c8b2abc3746236cb3e9154",
   "design/ORISON_V2_F02_2A_GRAYBOX_CHECKPOINT_2026-08-28.md": "9b1cf53b753d9ff21922e879c60c24f015d7abd34789ef69931c7bd78f2870b6",
@@ -10085,7 +10088,7 @@
   "art/renders/orison_v2/druggist_fountain_20261006/runtime_authority_receipt.json": "40fa6d272f8710c64f7ed3c5ad16dc790446058075285ebdd342aa1e06c5bdd1",
   "art/renders/orison_v2/druggist_mortar_20261006/runtime_authority_receipt.json": "66817e7b0a6967e1ee7c4d6b91afb4b254e62b21edcdc22fc318214ef98c4531",
   "game/tests/orison_v2_first_slice_contract_test.gd": "0ca580f3d064b09a8a506fae82371d0862ea3a80eecaec2c2d7d1368be2707a1",
-  "art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json": "7a860190d6f5d7df98205698a30cb96242276949a9db1e69503642fd42981234",
+  "art/renders/orison_v2/first_slice_contract_20261011/runtime_authority_receipt.json": "e749dcf4fe09b1c9947a80646ac4b053c85d18af0c1cf9201cbae01397e42681",
   "art/renders/orison_v2/front_court_roof_20261005/runtime_authority_receipt.json": "5e26f5379b290c589bbbc966b42753a66475eb1c7733d4efd03f3039f4b506ee",
   "art/renders/orison_v2/front_facade_20261005/runtime_authority_receipt.json": "1b8f798a90ac6c81f8c2a12fe0ce34e7784ff8c9fe6ab70b5059198ee0cbbad6",
   "art/renders/orison_v2/front_facade_air_20261005/runtime_authority_receipt.json": "8e0fad1ed7845bf410bd58421d84222c8e6cf4b32a017feafe17de24dadd1143",

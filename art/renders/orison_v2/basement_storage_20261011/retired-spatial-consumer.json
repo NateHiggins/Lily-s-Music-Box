@@ -1,0 +1,30 @@
+[
+  {
+    "key": "affacc070c4059b4",
+    "kind": "id_reference",
+    "token": "B1_STORAGE_BAYS",
+    "file": "game/scripts/building/orison_v2_basement.gd",
+    "tier": "production",
+    "subsystem": "building",
+    "symbols": [
+      "mount"
+    ],
+    "lines": [
+      19
+    ],
+    "count": 1,
+    "context": [
+      "var bays := adapter.resolve(\"B1_STORAGE_BAYS\") as Node3D"
+    ],
+    "gameplay_binding": false,
+    "authority": [
+      "RUNTIME_LOOKUP"
+    ],
+    "spatial": [],
+    "disposition": "PRESERVE_OR_ALIAS",
+    "confidence": "MEDIUM",
+    "rationale": "Production code looks up a layout id at runtime.",
+    "resolved_target": "v2_blockout",
+    "target_exists": true
+  }
+]

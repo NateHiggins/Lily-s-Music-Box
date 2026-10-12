@@ -8,16 +8,21 @@ func _prepare_player_start() -> void:
 	player.velocity = Vector3.ZERO
 
 func _route() -> void:
-	for point in [Vector3(3.975,0,-3.4),Vector3(3.975,-1.6,1.3),Vector3(1.925,-1.6,1.3),Vector3(1.925,-3.2,-3.5),Vector3(5,-3.2,-3.5),Vector3(5,-3.2,2.8),Vector3(4.4,-3.2,2.8)]:
+	for point in [Vector3(3.975,0,-3.4),Vector3(3.975,-1.6,1.3),Vector3(1.925,-1.6,1.3),Vector3(1.925,-3.2,-3.5),Vector3(1.925,-3.2,-3.1),Vector3(5,-3.2,-3.1),Vector3(5,-3.2,2.8),Vector3(4.4,-3.2,2.8)]:
 		if not await _walk(point): return
 	if not await _open_door("B1_STORAGE_DOOR"): return
 	for point in [Vector3(4.4,-3.2,5),Vector3(4.4,-3.2,6.675)]:
 		if not await _walk(point): return
-	for column in 9:
-		var starts := [0.0,1.6,4.25,5.55,6.85,8.15,9.45,10.75,12.05]
-		var x: float = -9.85+starts[column]+(.8 if column < 2 else .65)+.025
-		for point in [Vector3(x,-3.2,6.675),Vector3(x,-3.2,4.9),Vector3(x,-3.2,6.675),Vector3(x,-3.2,8.45),Vector3(x,-3.2,6.675)]:
-			if not await _walk(point): return
+	var storage: Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/resident_storage.json"))
+	for bay: Dictionary in storage.labels:
+		var x:=float(bay.position[0]);var front:=float(bay.position[2])-(.06 if is_zero_approx(float(bay.yaw)) else -.06)
+		var inside:=front-1.05 if is_zero_approx(float(bay.yaw)) else front+1.05
+		if front>9:
+			for point in [Vector3(4.78,-3.2,6.675),Vector3(4.78,-3.2,8.9),Vector3(4.6,-3.2,9.1),Vector3(4.6,-3.2,9.9),Vector3(x,-3.2,inside),Vector3(4.6,-3.2,9.9),Vector3(4.6,-3.2,9.1),Vector3(4.78,-3.2,8.9),Vector3(4.78,-3.2,6.675)]:
+				if not await _walk(point):return
+		else:
+			for point in [Vector3(x,-3.2,6.675),Vector3(x,-3.2,inside),Vector3(x,-3.2,6.675)]:
+				if not await _walk(point):return
 	await _roof_capture("resident_storage",Vector3(-7,-1.8,6.675))
 	for point in [Vector3(4.4,-3.2,6.675),Vector3(4.4,-3.2,2.8),Vector3(5.0,-3.2,2.8),Vector3(5.0,-3.2,-.4),Vector3(7.4,-3.2,-.4)]:
 		if not await _walk(point): return

@@ -1,132 +1,137 @@
 {
-  "surface_inputs_sha256": "a4f135f64db85d04a94cc9747be81d87fcb46e41fc49fdd94e1ce7ec9170c22b",
+  "surface_inputs_sha256": "7430c262b8ec5e9fbd1e1aa2eba9f5e91c7d05008df843d5cdd8ad19a6de5c86",
   "status": "PASS",
-  "scope": "Representative current PBR/UV surfaces, retained room context and two changed upper entry fittings. No full photorealism, NPC narrative, whole-building navigation or human acceptance claim. Owner original dumbwaiter.png and radiator.png are untouched.",
+  "scope": "Representative current PBR/UV surfaces and newly rebuilt basement cages. No full photorealism, human acceptance or global navigation claim. Original owner dumbwaiter/radiator PNG preserved.",
   "images": [
     {
-      "file": "upper_entry_boiler.png",
-      "sha256": "ac4645df3e1bc7d44c148023e8a762091a9805e45db2a20f99e579b66230bc6d",
-      "observation": "Current composed view of boiler: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_boiler.png",
+      "sha256": "661840ac371e0d79e42aefa36d951d5b562c644abdc346f0634d950c549b9dcc",
+      "observation": "Current composed boiler view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_bookcase.png",
-      "sha256": "4677f445d1494e1bffb8e21b20386b784762dbb3ac2aa17daae797ab47a9866f",
-      "observation": "Current composed view of bookcase: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_bookcase.png",
+      "sha256": "867d9bb5939ba7199cad99d954b6c3a926b30d5419a4534b43e92d3946c2c6e6",
+      "observation": "Current composed bookcase view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_continuous_HistoricMillwork.png",
-      "sha256": "6986d0c18a01483aeef2244de28fed63aa87ca6c29a630dcc3e195845b41dbaa",
-      "observation": "Separate continuous moulding bands retain their mapped finish and seated profile against the wall."
+      "file": "basement_storage_F02_A_MAIN.png",
+      "sha256": "e8b688accdbb60e8e959ebc6be163826c2df021b9eb6137de7f1ae36a78d3c9c",
+      "observation": "Current composed F02_A_MAIN view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_continuous_PublicWainscotCap.png",
-      "sha256": "e42be97e139d6117b12aae8c3394355ff36c16b7ff52d73d1c5bfc3710e98e15",
-      "observation": "Panel boards and separate ornamented cap retain distinct mapped wood surfaces."
+      "file": "basement_storage_F03_B_MAIN.png",
+      "sha256": "c36d616b2d4d3745e05d66f78fc5cc531f4c74cf894336836f80d77474e151c6",
+      "observation": "Current composed F03_B_MAIN view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_electrical_panel_connection.png",
-      "sha256": "b3aa9dd753dbd11ede7bc9c166084df89a781e2e021180a20715871a9a87d4d6",
-      "observation": "Native pipe branch remains joined at its original panel bore and wall route."
+      "file": "basement_storage_F04_C_MAIN.png",
+      "sha256": "ab6e1139d9e7d9337a99eaa93970329f6c3917d5be2e81e2efbe9b316a12e118",
+      "observation": "Current composed F04_C_MAIN view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_electrical_riser_connection.png",
-      "sha256": "6b487a1a35e8aeda8fecb56a7807bef096e1be282e181f6a930957454c50ca3a",
-      "observation": "Native tee and supported ceiling branch remain physically seated with neutral metal finish."
+      "file": "basement_storage_radiator.png",
+      "sha256": "1746cac81061b9189a7635dcaeaaf7919e92c604490e9ff318c75ceb55f02376",
+      "observation": "Current composed radiator view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_F02_A_MAIN.png",
-      "sha256": "72682edd2c317f21e02eb3bd5086a4e7caf4ff031ed514a222ca80ff7f5b0bc1",
-      "observation": "Current composed view of F02_A_MAIN: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_dumbwaiter.png",
+      "sha256": "f5a75e5fd212107ba1055699a5178d469bb2ed88e113ee96b6049a3f52ed091b",
+      "observation": "Current composed dumbwaiter view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_F03_B_MAIN.png",
-      "sha256": "44c529252de14c201a4c3cc4c94e620a84c63b21c65fe7727625a950a171e45b",
-      "observation": "Current composed view of F03_B_MAIN: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_continuous_HistoricMillwork.png",
+      "sha256": "abe0f289eb319496eec2c8092ed14cc7b164cae1186b459f4644bf39030bd0c4",
+      "observation": "Current composed continuous_HistoricMillwork view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_F04_C_MAIN.png",
-      "sha256": "41f967f120252cd6c241d597680661213c5501d0be266542c2d8c7df5e7eb87e",
-      "observation": "Current composed view of F04_C_MAIN: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_continuous_PublicWainscotCap.png",
+      "sha256": "63a312560f3bfd94f00dff55185ea67444ee6d2580b66ab125531f2fe4d68760",
+      "observation": "Current composed continuous_PublicWainscotCap view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_fire_F01_FIRE_LINE_STAIR_open.png",
-      "sha256": "7fe9d67bce80999d4a2a9e657836511872c6f0f0240d2957302aa0a7a724f458",
-      "observation": "Current composed view of fire_F01_FIRE_LINE_STAIR_open: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_fuse_panel.png",
+      "sha256": "ad6f0fb63ff09992fe3526ab11e4fcb59da2e94560ca6af93372b9d36b5f9efd",
+      "observation": "Current composed fuse_panel view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_fire_ROOF_FIRE_LINE_STAIR_open.png",
-      "sha256": "d7c263d232621366a0344dab22a7b8de5975ce9efc22276d9300fad4e58966e0",
-      "observation": "Current composed view of fire_ROOF_FIRE_LINE_STAIR_open: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_signal_scope.png",
+      "sha256": "0657e6b698a486b2867e6776d1fcf94c467ba36ad401e303aba128162c8177c3",
+      "observation": "Current composed signal_scope view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_fuse_panel.png",
-      "sha256": "55845d2a18c4d840d18e4314859adae90ef5dfc21651627f51e1794d5cf69d08",
-      "observation": "Current composed view of fuse_panel: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_signal_terminal.png",
+      "sha256": "39549f72f78cee0ab346f60e64bdc7c63d2770a0081bcdd385150a978578907c",
+      "observation": "Current composed signal_terminal view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_native_mail_bank_pocket_detail.png",
-      "sha256": "4dcb19949900b97af1e9a60a12b4dbb1f777ebec362219913eb9b3a0a69683fc",
-      "observation": "Open compartment reveals the retained native folded rails and mapped metal; this is a close surface view, not broad mailbox lighting acceptance."
+      "file": "basement_storage_toaster_crumbs.png",
+      "sha256": "d4eae6c680a3c0497caae9a6a8ba3e0d5fa1b284dea943281f0c98bc357283fa",
+      "observation": "Current composed toaster_crumbs view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_native_station_open.png",
-      "sha256": "de1db8277eaa2190fa3882114a33617324f4ff0d3ea4c949b11cd8507ecbac96",
-      "observation": "Original marked dial and open case retain custom wood/brass/paper surfaces."
+      "file": "basement_storage_watch_station.png",
+      "sha256": "e244401104c3bac12adc325fe6b40065e355376e7ed353ab875c515d12affe8e",
+      "observation": "Current composed watch_station view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_radiator.png",
-      "sha256": "08020f25f3b05639c2a766de078acc2f0f5dc34c943f170ed487c7fc88d9d371",
-      "observation": "Dark cast-iron fins and nearby window treatment retain their existing finishes; owner original radiator.png is preserved."
+      "file": "basement_storage_weather_season_01.png",
+      "sha256": "4ea980c524b1409a6880ff67328e5282a3ffc8a136d8b3dcbcc0f5ef2ff68029",
+      "observation": "Current composed weather_season_01 view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_signal_scope.png",
-      "sha256": "7be1bafc0fe361412f32802b506ee0fd5236ca0b8bd199d643c4aaf8ef329d0a",
-      "observation": "Existing green luminous faces and timber frame remain legible in their authored lighting."
+      "file": "basement_storage_weather_season_04.png",
+      "sha256": "4fb4ba9a843928bf0220f905fcd919c824b5fa99db2540791a83351df3670b47",
+      "observation": "Current composed weather_season_04 view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_signal_terminal.png",
-      "sha256": "b7c97dbed9c4db169f668d84e54c33e2552edd364c889d97992b42c90673cdf9",
-      "observation": "Original passive terminal and its mapped table remain visible with their retained controlled light."
+      "file": "basement_storage_weather_season_07.png",
+      "sha256": "957115c691e8c9d4c3a465503fb0abb58dcb3c6b46c009abc5c290aa86ca47be",
+      "observation": "Current composed weather_season_07 view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_toaster_crumbs.png",
-      "sha256": "bb8fdd51507712bbdc81650841984b3a2dda05ee16bea8d3e4eff2dfa14149fc",
-      "observation": "Open crumb stock, enamel appliance and work surface retain their mapped finishes."
+      "file": "basement_storage_weather_season_10.png",
+      "sha256": "e26ed389044b3ddc3977333ff8624f6de46eeafbee527ec53f8d41c47f4e06dd",
+      "observation": "Current composed weather_season_10 view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_window_1D.png",
-      "sha256": "2179db7829d60bd33253e6c3aea27619bc49848c6b4bac2fa377f68247ba37df",
-      "observation": "Current composed view of window_1D: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_window_1D.png",
+      "sha256": "31a7e7208fcce359e177473411ced85eb68bc32dcaf568f66f263d1feb7efb87",
+      "observation": "Current composed window_1D view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_window_2B.png",
-      "sha256": "5eb3946e59d5d19ed01617af80ad48a96cd53ea801df2c358c6689ad3c01a8b9",
-      "observation": "Current composed view of window_2B: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_window_2B.png",
+      "sha256": "d6a36cec92cd52287098c1f979a11507184213e6befd26af72bd4bdc26fe3e54",
+      "observation": "Current composed window_2B view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_window_3A.png",
-      "sha256": "ddb3886819dd6e1b3fedf314d79ca90cb781fcb9a3eec031e2db6a193cfeb7fc",
-      "observation": "Current composed view of window_3A: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_window_3A.png",
+      "sha256": "b844c679934c8813af32745b44008d864abe7442578fe6dc7f57fc887f8f17a7",
+      "observation": "Current composed window_3A view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_window_4B.png",
-      "sha256": "d3f0bb985baf14ef596d923d5657cb526a705ad3688ca7db734499a7e9d4d8e4",
-      "observation": "Current composed view of window_4B: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_window_4B.png",
+      "sha256": "5f02c6cc8fd00c6e8653547897d28e423333c3315205bc11e6252e59592740f0",
+      "observation": "Current composed window_4B view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_window_4C.png",
-      "sha256": "3fa3d5775187db4974cffc9b88cef47bf250ab337e0d87625d1b9775daf98be3",
-      "observation": "Current composed view of window_4C: retained mapped surfaces and room/fitting context are visible. This renews the representative surface review, not whole-building visual or narrative acceptance."
+      "file": "basement_storage_window_4C.png",
+      "sha256": "3565e56ad6e56206eb5316eef80f35f4fabb31afb7f643fbd151be2bf014e9f9",
+      "observation": "Current composed window_4C view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_5B_vestibule.png",
-      "sha256": "b646d0d7752d007f961d76c658c5570d7174f5487d23ac5b84567b9ea08ca5f1",
-      "observation": "Relocated shallow hallstand remains on the original wall; open entry and bath/living routes are clear in the final walked 5B home."
+      "file": "basement_storage_electrical_panel_connection.png",
+      "sha256": "b4c8c5484dac55ca38bfb18e924fb70b5029033f9c577c194004cddfc75be830",
+      "observation": "Current composed electrical_panel_connection view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
     },
     {
-      "file": "upper_entry_6B_vestibule.png",
-      "sha256": "3db71fbda208ac84c81bf4f2bb56d403c3d60dbba0922548da447c9eb687a3c4",
-      "observation": "Relocated shallow hallstand remains on the original wall; open entry and bath/living routes are clear in the final walked 6B home."
+      "file": "basement_storage_fire_F01_FIRE_LINE_STAIR_open.png",
+      "sha256": "c5ab3746b8a4b892445daf43b3dd31abc48ad25ac8ca6cdc750a074f19963da1",
+      "observation": "Current composed fire_F01_FIRE_LINE_STAIR_open view inspected in the representative contact sheet; retained mapped finish and fitting context remain visible. Review covers this frame, not whole-world aesthetic acceptance."
+    },
+    {
+      "file": "basement_storage_resident_storage.png",
+      "sha256": "0d384ef00b9f7d76e10b083ed22138efc3e86c5e52fd7b01e4cb03561526e632",
+      "observation": "New mapped native timber panels and open folded gates frame the walked central aisle. Existing labels remain Label3D. Handheld device obscures the right side; complete bay/stock fit reviewed separately in Blender."
     }
   ]
 }

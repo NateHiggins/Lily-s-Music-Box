@@ -1,0 +1,15 @@
+{
+  "evidence_class": "INERT",
+  "base": "babc8b1c",
+  "applied": true,
+  "stock_models_unchanged_sha256": "1cbe0217a2410cbac6fb223ec33662ede0e5aa1fe9f8d389743bdd71f3ba55a2",
+  "stock_pose_count": 16,
+  "new_space": "B1_STORAGE_NORTH_BAY",
+  "new_opening": "B1_STORAGE_NORTH_BAY_OPENING",
+  "all_other_layout_values_identical": true,
+  "updated": [
+    "art\\blender\\domestic_objects_construction.json",
+    "game\\tests\\fixtures\\orison_domestic_objects.json"
+  ],
+  "scope": "Only unchanged native passive-stock provenance. Relocated installation proof is the new Blender fit review and composed Godot capture/walking, not this rebind. Other historical fixtures are not touched."
+}

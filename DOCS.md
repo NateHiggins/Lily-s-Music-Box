@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Native basement resident cages, retained stock fit and all-eighteen access | `design/V2_BASEMENT_STORAGE_2026-10-11.md` and `design/ORISON_V2_BASEMENT_STORAGE_CHECKPOINT_2026-10-11.md` |
 | First-slice runtime contracts, actual save/reconstruction and remaining V2 blockers | `design/V2_FIRST_SLICE_CONTRACTS_2026-10-11.md` and `design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md` |
 | Native hollow mail compartments, delivery stock and retained 4B controls | `design/V2_NATIVE_MAIL_BANK_2026-10-11.md` |
 | Source-owned panel-to-riser branch, real wall ports and relocated enamel inspection marks | `design/V2_ELECTRICAL_CONNECTIONS_2026-10-11.md` |
