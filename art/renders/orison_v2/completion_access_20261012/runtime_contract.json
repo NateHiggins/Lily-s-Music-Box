@@ -1404,7 +1404,7 @@
 				"F01_D_BATH": {
 					"actual": [
 						14.2665977478027,
-						0.000783281284384429,
+						0.000782637798693031,
 						-10.5039558410645
 					],
 					"leg": "COMPLETION ACCESS 1D"
@@ -1428,7 +1428,7 @@
 				"F01_D_MAIN": {
 					"actual": [
 						12.5906352996826,
-						0.000783281284384429,
+						0.000782637798693031,
 						-2.53139591217041
 					],
 					"leg": "COMPLETION ACCESS 1D"
@@ -1436,7 +1436,7 @@
 				"F01_D_PRIVATE_HALL": {
 					"actual": [
 						14.2009363174438,
-						0.000783281284384429,
+						0.000782637798693031,
 						-4.69712066650391
 					],
 					"leg": "COMPLETION ACCESS 1D"
@@ -1444,7 +1444,7 @@
 				"F01_D_VESTIBULE": {
 					"actual": [
 						10.9622774124146,
-						0.000783281284384429,
+						0.000782637798693031,
 						-3.15386772155762
 					],
 					"leg": "COMPLETION ACCESS 1D"
@@ -1467,16 +1467,16 @@
 				},
 				"F02_C_BED1": {
 					"actual": [
-						2.47530555725098,
-						3.20086002349854,
-						8.90726280212402
+						2.47535181045532,
+						3.20082235336304,
+						8.90729522705078
 					],
 					"leg": "COMPLETION ACCESS 2C"
 				},
 				"F02_C_BED2": {
 					"actual": [
 						5.39516973495483,
-						3.20093297958374,
+						3.20093321800232,
 						8.90372467041016
 					],
 					"leg": "COMPLETION ACCESS 2C"
@@ -1485,14 +1485,14 @@
 					"actual": [
 						5.38446187973022,
 						3.20082211494446,
-						5.40433692932129
+						5.40433502197266
 					],
 					"leg": "COMPLETION ACCESS 2C"
 				},
 				"F02_C_MAIN": {
 					"actual": [
 						-0.753879725933075,
-						3.20093297958374,
+						3.20093321800232,
 						7.1000919342041
 					],
 					"leg": "COMPLETION ACCESS 2C"
@@ -1500,7 +1500,7 @@
 				"F02_C_PRIVATE_HALL": {
 					"actual": [
 						2.1965446472168,
-						3.20093297958374,
+						3.20093321800232,
 						7.10283660888672
 					],
 					"leg": "COMPLETION ACCESS 2C"
@@ -1516,7 +1516,7 @@
 				"F02_C_VESTIBULE": {
 					"actual": [
 						-0.844841420650482,
-						3.20093297958374,
+						3.20093321800232,
 						5.39661026000977
 					],
 					"leg": "COMPLETION ACCESS 2C"
@@ -1703,7 +1703,7 @@
 	"evidence_kind": "runtime_contract",
 	"execution": {
 		"completed": true,
-		"elapsed_s": 275.927,
+		"elapsed_s": 277.535,
 		"exit_code": 0,
 		"timed_out": false
 	},
@@ -1918,9 +1918,9 @@
 				},
 				{
 					"actual": [
-						14.1443500518799,
-						0.000783281284384429,
-						-8.81267833709717
+						14.1443452835083,
+						0.000782637798693031,
+						-8.81267356872559
 					],
 					"ok": true,
 					"target": [
@@ -1929,13 +1929,13 @@
 						-8.8100004196167
 					],
 					"wall_contacts": {
-						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F01_D_BED_DOOR/F01_D_BED_DOOR_Leaf/HingedLeaf": "(-11.974, 1.194933, -2.443)"
+						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F01_D_BED_DOOR/F01_D_BED_DOOR_Leaf/HingedLeaf": "(-11.974, 1.194928, -2.443)"
 					}
 				},
 				{
 					"actual": [
 						14.2348985671997,
-						0.000783281284384429,
+						0.000782637798693031,
 						-10.5046663284302
 					],
 					"ok": true,
@@ -1949,7 +1949,7 @@
 				{
 					"actual": [
 						14.3676128387451,
-						0.000783281284384429,
+						0.000782637798693031,
 						-10.1391897201538
 					],
 					"ok": true,
@@ -1963,7 +1963,7 @@
 				{
 					"actual": [
 						14.2665977478027,
-						0.000783281284384429,
+						0.000782637798693031,
 						-10.5039558410645
 					],
 					"ok": true,
@@ -1977,7 +1977,7 @@
 				{
 					"actual": [
 						14.2415056228638,
-						0.000783281284384429,
+						0.000782637798693031,
 						-8.90586376190186
 					],
 					"ok": true,
@@ -1991,7 +1991,7 @@
 				{
 					"actual": [
 						14.2009363174438,
-						0.000783281284384429,
+						0.000782637798693031,
 						-4.69712066650391
 					],
 					"ok": true,
@@ -2005,7 +2005,7 @@
 				{
 					"actual": [
 						13.628833770752,
-						0.000783281284384429,
+						0.000782637798693031,
 						-2.89102649688721
 					],
 					"ok": true,
@@ -2019,7 +2019,7 @@
 				{
 					"actual": [
 						12.5906352996826,
-						0.000783281284384429,
+						0.000782637798693031,
 						-2.53139591217041
 					],
 					"ok": true,
@@ -2033,7 +2033,7 @@
 				{
 					"actual": [
 						11.0455522537231,
-						0.000783281284384429,
+						0.000782637798693031,
 						-2.50183010101318
 					],
 					"ok": true,
@@ -2047,7 +2047,7 @@
 				{
 					"actual": [
 						10.9622774124146,
-						0.000783281284384429,
+						0.000782637798693031,
 						-3.15386772155762
 					],
 					"ok": true,
@@ -2061,7 +2061,7 @@
 				{
 					"actual": [
 						8.71119976043701,
-						0.000783281284384429,
+						0.000782637798693031,
 						-3.24357604980469
 					],
 					"ok": true,
@@ -2071,7 +2071,7 @@
 						-3.25
 					],
 					"wall_contacts": {
-						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F01_SERVICE_HALL/WallWest_02/Collision": "(-8.37, 1.194928, -8.405963)"
+						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F01_SERVICE_HALL/WallWest_02/Collision": "(-8.37, 1.194928, -8.405973)"
 					}
 				}
 			]
@@ -3270,7 +3270,7 @@
 					"actual": [
 						5.38446187973022,
 						3.20082211494446,
-						5.40433692932129
+						5.40433502197266
 					],
 					"ok": true,
 					"target": [
@@ -3310,9 +3310,9 @@
 				},
 				{
 					"actual": [
-						2.47530555725098,
-						3.20086002349854,
-						8.90726280212402
+						2.47535181045532,
+						3.20082235336304,
+						8.90729522705078
 					],
 					"ok": true,
 					"target": [
@@ -3321,14 +3321,14 @@
 						9.0
 					],
 					"wall_contacts": {
-						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallSouth_02/Collision": "(-2.554998, 4.39494, -19.57)"
+						"/root/OrisonV2CompletionAccessContractTest/OrisonV2Runtime/OrisonV2Blockout/F02_C_BED1/WallSouth_02/Collision": "(-2.554998, 4.394944, -19.57)"
 					}
 				},
 				{
 					"actual": [
-						2.1142258644104,
-						3.20093297958374,
-						7.19813919067383
+						2.11421132087708,
+						3.20093321800232,
+						7.19814872741699
 					],
 					"ok": true,
 					"target": [
@@ -3342,8 +3342,8 @@
 				},
 				{
 					"actual": [
-						5.30479955673218,
-						3.20093297958374,
+						5.30479907989502,
+						3.20093321800232,
 						7.10284233093262
 					],
 					"ok": true,
@@ -3357,7 +3357,7 @@
 				{
 					"actual": [
 						5.39516973495483,
-						3.20093297958374,
+						3.20093321800232,
 						8.90372467041016
 					],
 					"ok": true,
@@ -3371,8 +3371,8 @@
 				{
 					"actual": [
 						5.39974164962769,
-						3.20093297958374,
-						7.19687271118164
+						3.20093321800232,
+						7.19686508178711
 					],
 					"ok": true,
 					"target": [
@@ -3385,7 +3385,7 @@
 				{
 					"actual": [
 						2.1965446472168,
-						3.20093297958374,
+						3.20093321800232,
 						7.10283660888672
 					],
 					"ok": true,
@@ -3399,7 +3399,7 @@
 				{
 					"actual": [
 						-0.753879725933075,
-						3.20093297958374,
+						3.20093321800232,
 						7.1000919342041
 					],
 					"ok": true,
@@ -3413,7 +3413,7 @@
 				{
 					"actual": [
 						-0.844841420650482,
-						3.20093297958374,
+						3.20093321800232,
 						5.39661026000977
 					],
 					"ok": true,
@@ -3942,9 +3942,9 @@
 	"scope": "Spatial room access and ordinary player-input interactions in 1D, 1A, 3D, 4D, 2C, 4C and staff restroom. The locked 4D study is excluded. Each unit leg starts with one placement; all subsequent travel uses the ordinary controller. No vertical connection, case completion, save reconstruction, whole-building runtime or human acceptance is claimed.",
 	"selector": "v2",
 	"source": {
-		"repository_head": "f4f93d5a213f43e4d45949686f43a3c11f336471",
-		"runtime_inputs_sha256": "d24f8cef7a54ab45c5a3699fcaf65c883d56ff36db47219b4b4069a44d29ebb6",
-		"surface_inputs_sha256": "fb4ffa9978e9248d5b036e2868ce4966b613613040207acf57953feadd6a3acd",
+		"repository_head": "c6366088282af09a16260e15d89899792929a4e0",
+		"runtime_inputs_sha256": "0c0d356c98a535dee581b9f7962f2f615a7cde04333fcd97be227d58099796cf",
+		"surface_inputs_sha256": "25963a74d66cbbd371cf05f6603e485a71f3b5c2c14ec3ddfd36608ef9d716ed",
 		"test_dependencies": {
 			"game/tests/OrisonV2CompletionAccessContractTest.tscn": "349e1cdec8468554d84380c80b4f6e81ab2706f02acf4b33c92826b184ab5079",
 			"game/tests/data/v2_apartment_door_routes.json": "305eceda78072eed3c60d97cfe2d21bff25e35ff03e55631a5eae1d33d115920",

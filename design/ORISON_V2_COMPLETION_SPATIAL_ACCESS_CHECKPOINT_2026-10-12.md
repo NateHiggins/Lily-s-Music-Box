@@ -108,3 +108,10 @@ polish, with the same rooms, route scope and passing check counts. Its wrapper
 is **art/renders/orison_v2/bedding_polish_20261012/final-completion-access.log.receipt.json**.
 The original wrapper and images above remain historical; this renewal grants
 no additional requirement status or human acceptance.
+
+## Roof-program runtime renewal
+
+The room receipt was renewed after the roof purpose and carried-light rotation
+changes, with the same 43 rooms and route scope. Its wrapper is
+**art/renders/orison_v2/roof_program_20261012/completion-access.log.receipt.json**.
+Earlier wrappers and images remain historical; the scope is unchanged.

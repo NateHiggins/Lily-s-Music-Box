@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 286.25,
+  "exit_code": 1,
+  "finished_utc": "2026-10-12T14:49:43Z",
+  "started_utc": "2026-10-12T14:44:56Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 1,
+  "fail_lines": [
+   "V2 ROOF PROGRAM CONTRACT: FAIL; 9 rooms; 161 checks; 2 failures"
+  ],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-roof-program-20261012/roof.log.stderr",
+  "stderr_sha256": "6bae295deae000d3bbf5fd2dc5e4c79ba8ac897ddd527b2446f7dbd51d919f1a",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-roof-program-20261012/roof.log",
+  "stdout_sha256": "265663bbad7f2a0b6c835a9316979132367678fec585ad30cdb4ed47ccd46577"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2RoofProgramContractTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-roof-program-20261012/roof",
+ "source": {
+  "dirty_paths": 1364,
+  "dirty_sample": [
+   "M .gitattributes",
+   " M art/data/orison_v2/roof_source.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/dumbwaiter.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/radiator.png",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/suite.log.receipt.json"
+  ],
+  "repository_head": "c6366088282af09a16260e15d89899792929a4e0",
+  "repository_tree": "3795f6dc4a0cc999d4add07c515f3500084c30db",
+  "runtime_inputs_sha256": "2276c99491e8ba4af9af8a551348767ecb3942b064ef027218a71de546dd7d1e",
+  "test_path": "game/tests/orison_v2_roof_program_contract_test.gd",
+  "test_sha256": "8b2cda1673bc5e8b26608af699f612ad5c29d64ee033999d9eca0af41d53f62a"
+ },
+ "windowed": true
+}

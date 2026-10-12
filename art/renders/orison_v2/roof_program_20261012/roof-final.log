@@ -1,0 +1,367 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Vulkan 1.4.341 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce RTX 4080
+
+[ACOUSTIC] 550 nodes loaded
+ORISON V2 BLOCKOUT: 201 spaces / 111 doors / 1426 anchors
+[V2 FRONT COURT ROOF] three seated girders; retained roof slabs; mapped exterior concrete
+[V2 BODEGA POWER] independent inlet; four existing fittings; 20 bearings
+[SURFACE] 402 surfaces layered (261 materials)
+[PASSAGE HOURS] OPEN; 10 grilles folded
+[PASSAGE HOURS] 11 shopfronts, 10 close after 02:00, HARDWARE PAINT keeps night service
+[PASSAGE FINISH] 6 gated draws, 3 handcarts, hours active
+[V2 PASSAGE] 13 resident cells; 11 doors; 1 shared-service counters
+[SURFACE] 215 surfaces layered (108 materials)
+[HARUKIYA] 9 interactables placed
+[ARCADE] 2 cabinet(s) from a catalog of 12: SOMETHING IN THE HALL (mystery_serial), OPERATIONS (farm_and_market)
+[ARCADE] all of them are running arcade_pit
+[V2 BAR] retained cell; 29 registered markers; 3 doors
+[V2 FRONT FACADE] native entrance, original landmark hardware, glazed marquee and fitted blade
+[SCHEDULE] director live: 18 residents on the clock
+[MOVES] personal library: res://assets/characters/mina_vale/mina_vale_moves.glb
+SOURCE PARAPET MATERIAL ROOF_PARAPET_EAST brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_NORTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_SOUTH brick 
+SOURCE PARAPET MATERIAL ROOF_PARAPET_WEST brick 
+V2 UV APPLICATION: initial corrected materials=2650
+[ORISON V2 RUNTIME] ready startup_ms=50166.426
+[LIGHTING] 232 sources active in system; 232 full personalities; profiles steady/breathe/mains/beat/dropout=[56, 50, 41, 47, 38]
+[HARUKIYA] OPEN, 18 fixtures
+ROOF PROGRAM CHECK: production V2 world starts = true
+ROOF PROGRAM CHECK: carried light recovers a finite unit rotation from measured-size scale drift = true
+ROOF PROGRAM CHECK: drift correction retains the light chasing the intended camera aim = true
+CONNECTED EXTERIOR CHECK: production handheld carrier is available for unobstructed roof review = true
+CONNECTED EXTERIOR CHECK: complete native roof supply is installed = true
+CONNECTED EXTERIOR CHECK: superseded upper cap retired; original lower cap retained = true
+CONNECTED EXTERIOR CHECK: actual bulkhead bore is clear at 5.4 = true
+CONNECTED EXTERIOR CHECK: actual bulkhead bore is clear at 9.5 = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (3.975, 19.2, -3.4) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (5.0, 19.2, -3.4) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (5.0, 19.2, 2.5) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 2.5) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-1.1, 19.2, 0.8) = true
+CONNECTED EXTERIOR CHECK: source-owned roof lamps and switch exist = true
+CONNECTED EXTERIOR CHECK: accepted native cage stock is installed = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches roof_public_switch0 = true
+[SWITCHES] ROOF_PUBLIC_CORE -> off (1 fixtures)
+CONNECTED EXTERIOR CHECK: ordinary E toggles only its own roof circuit = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches roof_public_switch1 = true
+[SWITCHES] ROOF_PUBLIC_CORE -> on (1 fixtures)
+CONNECTED EXTERIOR CHECK: ordinary E toggles only its own roof circuit = true
+CONNECTED EXTERIOR CHECK: original light owner supplies the visible task illumination = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: production leaf exists: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-3.6, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: open leaf ready to close: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches ROOF_PUBLIC_DOOR_close = true
+CONNECTED EXTERIOR CHECK: input closes physical leaf: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-14.5, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: live player is stopped by the west parapet above the street = true
+CONNECTED EXTERIOR CHECK: campaign advances from 20:00 to the next 08:00 = true
+[HARUKIYA] CLOSED, 18 fixtures
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-12.0, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-9.4, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-9.4, 19.2, -3.05) = true
+CONNECTED EXTERIOR CHECK: roof has the production overflowing ballcock = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches tank_service_reach = true
+CONNECTED EXTERIOR CHECK: ordinary E opens tank maintenance = true
+CONNECTED EXTERIOR CHECK: aborting tank service restores its state and returns movement = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches tank_service_reopen = true
+CONNECTED EXTERIOR CHECK: tank service can be reopened = true
+CONNECTED EXTERIOR CHECK: production tank activity is composed = true
+CONNECTED EXTERIOR CHECK: tank director accepts read_the_float = true
+CONNECTED EXTERIOR CHECK: tank director accepts shut_the_riser = true
+CONNECTED EXTERIOR CHECK: tank director accepts lift_the_float = true
+CONNECTED EXTERIOR CHECK: tank director accepts set_the_weight = true
+CONNECTED EXTERIOR CHECK: tank director accepts prove_the_hold = true
+CONNECTED EXTERIOR CHECK: serviced tank holds and releases the player = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-11.0, 19.2, -3.05) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-11.0, 19.2, -4.95) = true
+CONNECTED EXTERIOR CHECK: tank support stops the real upright controller: (-10.09512, 19.28997, -4.985035) = true
+CONNECTED EXTERIOR CHECK: raised tank body has matching solid collision = true
+CONNECTED EXTERIOR CHECK: tank support is solid 0 = true
+CONNECTED EXTERIOR CHECK: tank support is solid 1 = true
+CONNECTED EXTERIOR CHECK: tank support is solid 2 = true
+CONNECTED EXTERIOR CHECK: tank support is solid 3 = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-12.0, 19.2, -5.7) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-12.0, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-12.0, 19.2, -9.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (0.0, 19.2, -9.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (14.0, 19.2, -9.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (14.0, 19.2, -1.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (14.0, 19.2, 10.8) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (11.0, 19.2, 10.8) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (7.5, 19.2, 10.8) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (0.0, 19.2, 7.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-7.0, 19.2, 7.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (7.5, 19.2, 7.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (7.5, 19.2, 3.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (8.0, 19.2, 3.0) = true
+CONNECTED EXTERIOR CHECK: production leaf exists: ROOF_SERVICE_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: ROOF_SERVICE_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches ROOF_SERVICE_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: ROOF_SERVICE_DOOR = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (10.3, 19.2, 3.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (12.425, 19.2, 3.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (12.425, 19.2, 5.65) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (12.425, 19.2, 5.65) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (12.425, 19.2, 3.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (10.3, 19.2, 3.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (8.1, 19.2, 3.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (10.3, 19.2, 3.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (10.3, 19.2, 4.0) = true
+CONNECTED EXTERIOR CHECK: source-owned roof lamps and switch exist = true
+CONNECTED EXTERIOR CHECK: accepted native cage stock is installed = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches roof_service_switch0 = true
+[SWITCHES] ROOF_SERVICE_CORE -> off (1 fixtures)
+CONNECTED EXTERIOR CHECK: ordinary E toggles only its own roof circuit = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches roof_service_switch1 = true
+[SWITCHES] ROOF_SERVICE_CORE -> on (1 fixtures)
+CONNECTED EXTERIOR CHECK: ordinary E toggles only its own roof circuit = true
+CONNECTED EXTERIOR CHECK: original light owner supplies the visible task illumination = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (10.3, 19.2, 3.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (8.1, 19.2, 3.0) = true
+CONNECTED EXTERIOR CHECK: open leaf ready to close: ROOF_SERVICE_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches ROOF_SERVICE_DOOR_close = true
+CONNECTED EXTERIOR CHECK: input closes physical leaf: ROOF_SERVICE_DOOR = true
+CONNECTED EXTERIOR CHECK: solid roof edge SOUTH = true
+CONNECTED EXTERIOR CHECK: solid roof edge NORTH = true
+CONNECTED EXTERIOR CHECK: solid roof edge WEST = true
+CONNECTED EXTERIOR CHECK: solid roof edge EAST = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (7.0, 19.2, -6.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (14.1, 19.2, -6.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (14.1, 19.2, 2.15) = true
+CONNECTED EXTERIOR CHECK: chimney mouth remains open above the structural shaft = true
+CONNECTED EXTERIOR CHECK: chimney masonry has actual collision = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (14.1, 19.2, -6.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (7.0, 19.2, -6.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-4.0, 19.2, -6.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-3.4, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: production leaf exists: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 2.5) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (5.0, 19.2, 2.5) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (5.0, 19.2, -3.4) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (3.975, 19.2, -3.4) = true
+CONNECTED EXTERIOR CHECK: roof circuit returns to F06 with collision active = true
+ROOF PROGRAM CHECK: production handheld carrier is available for unobstructed roof review = true
+ROOF PROGRAM CHECK: complete native roof supply is installed = true
+ROOF PROGRAM CHECK: superseded upper cap retired; original lower cap retained = true
+ROOF PROGRAM CHECK: actual bulkhead bore is clear at 5.4 = true
+ROOF PROGRAM CHECK: actual bulkhead bore is clear at 9.5 = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (3.975, 19.2, -3.4) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (5.0, 19.2, -3.4) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (5.0, 19.2, 2.5) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 2.5) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-1.1, 19.2, 0.8) = true
+ROOF PROGRAM CHECK: source-owned roof lamps and switch exist = true
+ROOF PROGRAM CHECK: accepted native cage stock is installed = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches roof_public_switch0 = true
+ROOF PROGRAM CHECK: ordinary E toggles only its own roof circuit = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches roof_public_switch1 = true
+ROOF PROGRAM CHECK: ordinary E toggles only its own roof circuit = true
+ROOF PROGRAM CHECK: original light owner supplies the visible task illumination = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: production leaf exists: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: leaf starts closed and usable: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: input opens physical leaf to its stop: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-3.6, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: open leaf ready to close: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches ROOF_PUBLIC_DOOR_close = true
+ROOF PROGRAM CHECK: input closes physical leaf: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-14.5, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: live player is stopped by the west parapet above the street = true
+ROOF PROGRAM CHECK: campaign advances from 20:00 to the next 08:00 = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-12.0, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-9.4, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-9.4, 19.2, -3.05) = true
+ROOF PROGRAM CHECK: roof has the production overflowing ballcock = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches tank_service_reach = true
+ROOF PROGRAM CHECK: ordinary E opens tank maintenance = true
+ROOF PROGRAM CHECK: aborting tank service restores its state and returns movement = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches tank_service_reopen = true
+ROOF PROGRAM CHECK: tank service can be reopened = true
+ROOF PROGRAM CHECK: production tank activity is composed = true
+ROOF PROGRAM CHECK: tank director accepts read_the_float = true
+ROOF PROGRAM CHECK: tank director accepts shut_the_riser = true
+ROOF PROGRAM CHECK: tank director accepts lift_the_float = true
+ROOF PROGRAM CHECK: tank director accepts set_the_weight = true
+ROOF PROGRAM CHECK: tank director accepts prove_the_hold = true
+ROOF PROGRAM CHECK: serviced tank holds and releases the player = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-11.0, 19.2, -3.05) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-11.0, 19.2, -4.95) = true
+ROOF PROGRAM CHECK: tank support stops the real upright controller: (-10.09512, 19.28997, -4.985035) = true
+ROOF PROGRAM CHECK: raised tank body has matching solid collision = true
+ROOF PROGRAM CHECK: tank support is solid 0 = true
+ROOF PROGRAM CHECK: tank support is solid 1 = true
+ROOF PROGRAM CHECK: tank support is solid 2 = true
+ROOF PROGRAM CHECK: tank support is solid 3 = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-12.0, 19.2, -5.7) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-12.0, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-12.0, 19.2, -9.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (0.0, 19.2, -9.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (14.0, 19.2, -9.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (14.0, 19.2, -1.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (14.0, 19.2, 10.8) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (11.0, 19.2, 10.8) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (7.5, 19.2, 10.8) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (0.0, 19.2, 7.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-7.0, 19.2, 7.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (7.5, 19.2, 7.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (7.5, 19.2, 3.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (8.0, 19.2, 3.0) = true
+ROOF PROGRAM CHECK: production leaf exists: ROOF_SERVICE_DOOR = true
+ROOF PROGRAM CHECK: leaf starts closed and usable: ROOF_SERVICE_DOOR = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches ROOF_SERVICE_DOOR = true
+ROOF PROGRAM CHECK: input opens physical leaf to its stop: ROOF_SERVICE_DOOR = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (10.3, 19.2, 3.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (12.425, 19.2, 3.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (12.425, 19.2, 5.65) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (12.425, 19.2, 5.65) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (12.425, 19.2, 3.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (10.3, 19.2, 3.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (8.1, 19.2, 3.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (10.3, 19.2, 3.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (10.3, 19.2, 4.0) = true
+ROOF PROGRAM CHECK: source-owned roof lamps and switch exist = true
+ROOF PROGRAM CHECK: accepted native cage stock is installed = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches roof_service_switch0 = true
+ROOF PROGRAM CHECK: ordinary E toggles only its own roof circuit = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches roof_service_switch1 = true
+ROOF PROGRAM CHECK: ordinary E toggles only its own roof circuit = true
+ROOF PROGRAM CHECK: original light owner supplies the visible task illumination = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (10.3, 19.2, 3.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (8.1, 19.2, 3.0) = true
+ROOF PROGRAM CHECK: open leaf ready to close: ROOF_SERVICE_DOOR = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches ROOF_SERVICE_DOOR_close = true
+ROOF PROGRAM CHECK: input closes physical leaf: ROOF_SERVICE_DOOR = true
+ROOF PROGRAM CHECK: solid roof edge SOUTH = true
+ROOF PROGRAM CHECK: solid roof edge NORTH = true
+ROOF PROGRAM CHECK: solid roof edge WEST = true
+ROOF PROGRAM CHECK: solid roof edge EAST = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (7.0, 19.2, -6.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (14.1, 19.2, -6.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (14.1, 19.2, 2.15) = true
+ROOF PROGRAM CHECK: chimney mouth remains open above the structural shaft = true
+ROOF PROGRAM CHECK: chimney masonry has actual collision = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (14.1, 19.2, -6.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (7.0, 19.2, -6.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-4.0, 19.2, -6.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-3.4, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: production leaf exists: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: leaf starts closed and usable: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: input opens physical leaf to its stop: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 2.5) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (5.0, 19.2, 2.5) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (5.0, 19.2, -3.4) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (3.975, 19.2, -3.4) = true
+ROOF PROGRAM CHECK: roof circuit returns to F06 with collision active = true
+ROOF PROGRAM CHECK: complete collision-bearing leg: ROOF PLANT = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (3.975, 19.2, -3.4) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (5.0, 19.2, -3.4) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (5.0, 19.2, 2.5) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 2.5) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (0.0, 19.2, 0.15) = true
+CONNECTED EXTERIOR CHECK: drive observes the production lift = true
+CONNECTED EXTERIOR CHECK: imported sheave stands vertically on its driven X axle: (0.235, 0.68, 0.68) = true
+CONNECTED EXTERIOR CHECK: actual capsule stops at the extended machinery guard: (-0.096114, 19.19995, -0.039937) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (0.0, 19.2, 0.15) = true
+CONNECTED EXTERIOR CHECK: guarded machine has not changed idle lift state = true
+[ELEVATOR] F01 -> F02 (2.7s)
+CONNECTED EXTERIOR CHECK: rear rope tangent raises the car with the sheave = true
+CONNECTED EXTERIOR CHECK: stopped car stops the sheave = true
+CONNECTED EXTERIOR CHECK: imported counterweight matches the rear-shaft envelope: (0.4, 1.58, 0.1) = true
+[ELEVATOR] F02 -> F06 (10.7s)
+CONNECTED EXTERIOR CHECK: suspension reaches F06 = true
+CONNECTED EXTERIOR CHECK: counterweight follows the car in opposite travel = true
+[ELEVATOR] F06 -> B1 (16.0s)
+CONNECTED EXTERIOR CHECK: suspension reaches B1 = true
+CONNECTED EXTERIOR CHECK: counterweight follows the car in opposite travel = true
+[ELEVATOR] B1 -> F01 (2.7s)
+CONNECTED EXTERIOR CHECK: suspension reaches F01 = true
+CONNECTED EXTERIOR CHECK: counterweight follows the car in opposite travel = true
+CONNECTED EXTERIOR CHECK: continuous real-physics clearance samples: 2062 = true
+CONNECTED EXTERIOR CHECK: rope passes through a real roof opening at -2.141 = true
+CONNECTED EXTERIOR CHECK: rope passes through a real roof opening at -0.474 = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: open leaf ready to close: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches ROOF_PUBLIC_DOOR_close = true
+CONNECTED EXTERIOR CHECK: input closes physical leaf: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: production leaf exists: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: leaf starts closed and usable: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: actual player ray/prompt reaches ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: input opens physical leaf to its stop: ROOF_PUBLIC_DOOR = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-3.6, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 2.5) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (5.0, 19.2, 2.5) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (5.0, 19.2, -3.4) = true
+CONNECTED EXTERIOR CHECK: retained route has its actual fitted floor at (3.975, 19.2, -3.4) = true
+CONNECTED EXTERIOR CHECK: machine route returns to F06 with ordinary collision = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (3.975, 19.2, -3.4) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (5.0, 19.2, -3.4) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (5.0, 19.2, 2.5) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 2.5) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (0.0, 19.2, 0.15) = true
+ROOF PROGRAM CHECK: drive observes the production lift = true
+ROOF PROGRAM CHECK: imported sheave stands vertically on its driven X axle: (0.235, 0.68, 0.68) = true
+ROOF PROGRAM CHECK: actual capsule stops at the extended machinery guard: (-0.096114, 19.19995, -0.039937) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (0.0, 19.2, 0.15) = true
+ROOF PROGRAM CHECK: guarded machine has not changed idle lift state = true
+ROOF PROGRAM CHECK: rear rope tangent raises the car with the sheave = true
+ROOF PROGRAM CHECK: stopped car stops the sheave = true
+ROOF PROGRAM CHECK: imported counterweight matches the rear-shaft envelope: (0.4, 1.58, 0.1) = true
+ROOF PROGRAM CHECK: suspension reaches F06 = true
+ROOF PROGRAM CHECK: counterweight follows the car in opposite travel = true
+ROOF PROGRAM CHECK: suspension reaches B1 = true
+ROOF PROGRAM CHECK: counterweight follows the car in opposite travel = true
+ROOF PROGRAM CHECK: suspension reaches F01 = true
+ROOF PROGRAM CHECK: counterweight follows the car in opposite travel = true
+ROOF PROGRAM CHECK: continuous real-physics clearance samples: 2062 = true
+ROOF PROGRAM CHECK: rope passes through a real roof opening at -2.141 = true
+ROOF PROGRAM CHECK: rope passes through a real roof opening at -0.474 = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: open leaf ready to close: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches ROOF_PUBLIC_DOOR_close = true
+ROOF PROGRAM CHECK: input closes physical leaf: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: production leaf exists: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: leaf starts closed and usable: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: actual player ray/prompt reaches ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: input opens physical leaf to its stop: ROOF_PUBLIC_DOOR = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-3.6, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 0.0) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (-1.35, 19.2, 2.5) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (5.0, 19.2, 2.5) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (5.0, 19.2, -3.4) = true
+ROOF PROGRAM CHECK: retained route has its actual fitted floor at (3.975, 19.2, -3.4) = true
+ROOF PROGRAM CHECK: machine route returns to F06 with ordinary collision = true
+ROOF PROGRAM CHECK: complete collision-bearing leg: LIFT DRIVE = true
+ROOF PROGRAM CHECK: walk reaches authored room: ROOF_PUBLIC_CORE = true
+ROOF PROGRAM CHECK: walk reaches authored room: ROOF_SERVICE_CORE = true
+ROOF PROGRAM CHECK: walk reaches authored room: ROOF_DECK_WEST = true
+ROOF PROGRAM CHECK: walk reaches authored room: ROOF_DECK_SOUTH = true
+ROOF PROGRAM CHECK: walk reaches authored room: ROOF_DECK_NORTH = true
+ROOF PROGRAM CHECK: walk reaches authored room: ROOF_DECK_MIDDLE = true
+ROOF PROGRAM CHECK: walk reaches authored room: ROOF_DECK_EAST = true
+ROOF PROGRAM CHECK: walk reaches authored room: ROOF_DECK_SOUTHEAST = true
+ROOF PROGRAM CHECK: walk reaches authored room: ROOF_DECK_NORTHEAST = true
+ROOF PROGRAM CHECK: production root and both route drivers retire = true
+ROOF PROGRAM CHECK: record repository provenance = true
+ROOF PROGRAM CHECK: bind current production inputs = true
+ROOF PROGRAM CHECK: bind loaded geometry and surface inputs = true
+ROOF PROGRAM CHECK: explicit receipt destination supplied = true
+ROOF PROGRAM CHECK: open access contract output = true
+ROOF PROGRAM CHECK: flush access contract output = true
+V2 ROOF PROGRAM CONTRACT: PASS; 9 rooms; 175 checks; 0 failures

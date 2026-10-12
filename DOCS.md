@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Current roof program access, guarded lift motion and source-owned plant purposes | `design/ORISON_V2_ROOF_PROGRAM_SPATIAL_ACCESS_CHECKPOINT_2026-10-12.md` |
 | Bedding folds, sewn edges, eased timber and current installed-bed verification | `design/V2_BEDDING_POLISH_2026-10-12.md` |
 | Played spatial access proof for 43 further rooms across six apartments and staff facilities | `design/ORISON_V2_COMPLETION_SPATIAL_ACCESS_CHECKPOINT_2026-10-12.md` |
 | Played spatial access proof for 19 rooms in 2A, 2B and 4B, with automatic proof expiry | `design/ORISON_V2_APARTMENT_SPATIAL_ACCESS_CHECKPOINT_2026-10-12.md` |

@@ -462,8 +462,9 @@ func _carry_service_light(delta: float) -> void:
 	# hand-lag, and stacking a second one on the light doubled it.
 	_update_throw(delta)
 	var chase := minf(1.0, delta * (16.0 if flashlight.visible else 60.0))
+	# Repeated interpolation can accumulate scale drift; slerp needs rotations.
 	_hand.transform = Transform3D(
-			_hand.transform.basis.slerp(hold.basis, chase),
+			_hand.transform.basis.orthonormalized().slerp(hold.basis.orthonormalized(), chase),
 			_hand.transform.origin.lerp(hold.origin, chase))
 	# The beam's own drift lives in the mask shader now, where it can be
 	# scaled by walking speed; nudging the Control here as well would

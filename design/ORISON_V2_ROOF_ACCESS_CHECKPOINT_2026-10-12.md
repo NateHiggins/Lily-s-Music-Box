@@ -46,8 +46,9 @@ adequate maintenance task lighting. Finish calibration remains an art review ite
 The route writes a trace and wrapper suite-run receipt, not a schema-2 authority
 receipt. No save/reconstruction, denial or resource-retention status follows
 from it. Separate current first-slice authority proof remains separately scoped.
-The generic source purposes still do not explicitly identify tank/machinery
-spatial functions; that program requirement remains open rather than being
-promoted through a room-name inference.
+At this earlier checkpoint, generic source purposes did not identify the
+tank/machinery functions. The subsequent October 12 roof-program spatial access
+checkpoint records the source-owned purposes and a new bound nine-space route.
+That later proof supplies the current scoped coverage.
 
 Packet: **art/renders/orison_v2/uv_application_20261012**. Full V2 remains incomplete.
