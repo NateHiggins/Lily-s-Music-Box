@@ -49,8 +49,9 @@ remain unscoped and are not claimed fixed.
 
 REPORT - V2-ELECTRICAL-CONNECTIONS - 2026-10-11
 
-Branch / HEAD / origin/main / merge-base: **main / source candidate pending /
-bea7337b3154fadae5bcd782c806fb01478d0c89 / pending**.
+Branch / HEAD / origin/main / merge-base: **main / 2aa2fa4a74e95fecd5b17d4154d8da005251c502 /
+bea7337b3154fadae5bcd782c806fb01478d0c89 /
+b73a8753615bcbdf4477f1a01ab989f1c08207bb**.
 
 Worktree clean at end: **no**, shared owner work preserved. Named-path staging
 only; generated UIDs and unrelated import changes remain outside this batch.
@@ -72,3 +73,15 @@ acceptance. Whole V2 remains unfinished. Owner decision needed for this batch:
 Renewed first-slice process receipt: **first-slice.log.receipt.json**, exit
 zero, zero script errors; test-written contract **113 checks, zero failures**,
 including real reconstruction and owned node/shape/audio retirement.
+
+Verified source candidate: **2aa2fa4a74e95fecd5b17d4154d8da005251c502**.
+Fresh clean-checkout comparison: **zero regressions**, two programmed-service
+improvements against the recorded merge-base, **17/17 protected paths unchanged**,
+selector **v2**, zero design-lint errors and zero blocking reasons. Complete
+verification and both boards are archived in the packet's **verification**
+directory. The verifier used **--no-godot**; the actual renewed test-written
+contracts above establish the tested runtime scope. No waiver is used.
+
+Scope blockers remain **0 / 1 / 127 / 35 / 144 / 146** in ledger scope order.
+The full V2 objective remains unfinished. This metadata-only commit changes
+no rendering inputs or runtime and needs no repeated Godot run.
