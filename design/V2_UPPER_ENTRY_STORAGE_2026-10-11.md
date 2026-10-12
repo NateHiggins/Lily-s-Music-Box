@@ -8,7 +8,7 @@ Verification baseline: **3c356b41**, its authentic complete clean board from the
 previous upper-household verifier. The intervening commit is its metadata archive.
 Worktree clean at end: **no**; the shared owner's original 283 dirty files and
 Godot UID/import noise are preserved. No broad staging or stash is used.
-Protected 17/17 and selector V2: pending fresh verification.
+Protected **17/17 unchanged**, selector **V2**: confirmed in the clean verifier.
 
 ## Changes and boundary
 
@@ -61,7 +61,11 @@ unclassified/classification/vanished/save-contract failures; eleven new named te
 UPDATE_TEST_FIXTURE. Every pre-existing manifest record is preserved; scanner
 code and gate rules are unchanged. The initial clean verifier rejected these
 unregistered references; its rejected result remains diagnostic only. Design documents are linted before staging.
-Fresh clean candidate verifier is pending. Ledger blockers are
+Fresh clean candidate **6d8bcd71** verifier passes: **zero regressions**,
+zero blocking reasons, zero lint errors and the nine supported requirement
+promotions. The single manifest diff was reviewed: only eleven new test
+consumer records are added; every old record and all gate/scanner rules remain.
+The verifier reused the current completed canonical Godot runs with **--no-godot**. Ledger blockers are
 **0/1/127/35/144/146 → 0/1/118/35/135/137** in the six standing scopes.
 The first slice stays clear; full structural/cutover/retirement improve by nine.
 
@@ -92,4 +96,4 @@ Next substantive work is the basement resident-storage bays and roof equipment,
 or the remaining enclosed upper storage/sleep routes, with their actual access,
 fit, retained controls and scoped evidence. Owner decision required: **none**.
 
-MERGE-CANDIDATE pending
+MERGE-CANDIDATE 6d8bcd716ac42128263b2e0f18c7bef7bf214fe0
