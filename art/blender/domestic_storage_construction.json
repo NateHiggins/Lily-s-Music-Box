@@ -4045,40 +4045,52 @@
       "volume_m3": 0.0007789260560676938
     },
     {
-      "name": "CounterCompact_CompactRail-0.19",
+      "name": "CounterCompact_CompactBowlRail-0.19",
       "assembly": "CounterCompact",
       "key": "metal",
-      "volume_m3": 0.0006535109449207098
+      "volume_m3": 0.0002920218466302628
+    },
+    {
+      "name": "CounterCompact_CompactBoardRail-0.19",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 0.00028164338485203375
     },
     {
       "name": "CounterCompact_CompactLipSeat-0.19",
       "assembly": "CounterCompact",
       "key": "metal",
-      "volume_m3": 3.718987296924938e-05
+      "volume_m3": 7.017392111436423e-05
     },
     {
-      "name": "CounterCompact_CompactRail0.19",
+      "name": "CounterCompact_CompactBowlRail0.19",
       "assembly": "CounterCompact",
       "key": "metal",
-      "volume_m3": 0.0006535109449207089
+      "volume_m3": 0.0002920218466302628
+    },
+    {
+      "name": "CounterCompact_CompactBoardRail0.19",
+      "assembly": "CounterCompact",
+      "key": "metal",
+      "volume_m3": 0.00028164338485203353
     },
     {
       "name": "CounterCompact_CompactLipSeat0.19",
       "assembly": "CounterCompact",
       "key": "metal",
-      "volume_m3": 3.718987296924981e-05
+      "volume_m3": 7.017392111436423e-05
     },
     {
-      "name": "CounterCompact_CompactEnd-0.251",
+      "name": "CounterCompact_CompactEnd-0.258",
       "assembly": "CounterCompact",
       "key": "metal",
-      "volume_m3": 0.00041537270049475314
+      "volume_m3": 0.00019362893547037363
     },
     {
-      "name": "CounterCompact_CompactEnd0.251",
+      "name": "CounterCompact_CompactEnd0.258",
       "assembly": "CounterCompact",
       "key": "metal",
-      "volume_m3": 0.00041537270049475314
+      "volume_m3": 0.00019362893547037363
     },
     {
       "name": "CounterCompact_CompactEnd0.654",
@@ -5282,10 +5294,10 @@
       "assembly": "CounterCompact",
       "cell": "shared",
       "key": "metal",
-      "triangles": 2068
+      "triangles": 2444
     }
   ],
-  "triangles": 122648,
+  "triangles": 123024,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -6054,7 +6066,7 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "ef6734e7a1d942ec2619bb895406a6298a48ebe50447108abb97a97d9ffa400f",
+  "asset_sha256": "dc9f310eead2bced1b1f35ac8dbbd2033dd6e42a67648539175936ffbfd32681",
   "source_bindings": {
     "art/data/domestic_storage/source_plan.json": "70bc3840cdecd1987a70cd100a6586ed3da1942e2b08cf019262e0aac487f3d8",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
@@ -6114,7 +6126,7 @@
     "art/tools/generate_runtime_materials.py": "06002304fdc7b6d29955dac69f0c54ff2a28686da739279d857e357fb02360b7",
     "art/blender/scripts/inspect_domestic_storage.py": "6983b0b46d292cc2fcdf8bb05fa764fd8b3b8c3a973a15e5e148afab9b29d36d",
     "art/blender/scripts/render_domestic_storage.py": "8947b65d2e99d41ca1acbeb33075a5852bfbe2d7d8e7158c04657db20912e6b5",
-    "art/blender/scripts/domestic_storage_geometry.py": "eda43d567fba33c9598f29f8bdb0d6cf9b77425a96cb47faaa6401527e3dbbdf",
+    "art/blender/scripts/domestic_storage_geometry.py": "421edf834f79aeda82e12c8fe6d919df5e8dc54f3950caf48a58edc4f2ae43a0",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "game/data/orison_v2/domestic_furniture.json": "cc91252a2630d26b2632f5e266350378a321f0646e859367346b848b711d4c93",
     "game/data/orison_v2/completion_interiors.json": "ad4c99dd215a65ea7a9798ae2fa30ef683e7292811526796fbe99d5aa82de97c",
@@ -7257,12 +7269,14 @@
         "CounterCompact_CompactLeg(-0.251, 0.19)",
         "CounterCompact_CompactLeg(0.654, -0.19)",
         "CounterCompact_CompactLeg(0.654, 0.19)",
-        "CounterCompact_CompactRail-0.19",
+        "CounterCompact_CompactBowlRail-0.19",
+        "CounterCompact_CompactBoardRail-0.19",
         "CounterCompact_CompactLipSeat-0.19",
-        "CounterCompact_CompactRail0.19",
+        "CounterCompact_CompactBowlRail0.19",
+        "CounterCompact_CompactBoardRail0.19",
         "CounterCompact_CompactLipSeat0.19",
-        "CounterCompact_CompactEnd-0.251",
-        "CounterCompact_CompactEnd0.251",
+        "CounterCompact_CompactEnd-0.258",
+        "CounterCompact_CompactEnd0.258",
         "CounterCompact_CompactEnd0.654"
       ]
     }

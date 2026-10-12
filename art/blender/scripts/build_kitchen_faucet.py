@@ -87,9 +87,11 @@ for x in [-.335,.775]:
         cylinder('Adjuster',(x,.804,z),.009,.094,iron,bearing)
         cylinder('LockNut',(x,.765,z),.016,.012,nickel,bearing,sides=6)
         box('Carrier',(x,.850,z),(.05,.044,.035),iron,bearing)
-for z in [-.215,.215]:
-    box('BearingRail',(.22,.878,z),(1.16,.012,.034),iron,bearing)
-    box('RimSeat',(-.285,.88575,z),(.035,.0035,.034),iron,bearing)
+for z in [-.236,.236]:
+    # Narrow upper rails sit beneath the rolled edge, outside the curved
+    # bowl. The original wider rails projected into the basin interior.
+    box('BearingRail',(.22,.878,z),(1.16,.012,.022),iron,bearing)
+    box('RimSeat',(-.285,.88575,z),(.035,.0035,.022),iron,bearing)
 
 frame=group('IndependentFrame')
 for x in [-.335,.775]:

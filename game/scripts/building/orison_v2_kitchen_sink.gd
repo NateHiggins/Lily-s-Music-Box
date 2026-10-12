@@ -1,5 +1,10 @@
 extends TapProp
 ## Native kitchen faucet and fitted bearers; TapProp retains every water verb.
+var _kitchen_plug: Node3D
+var _casting_mesh: Mesh
+var _plug_pose_closed := false
+var _plug_progress := 1.0
+var _plug_start := Vector3.ZERO
 
 func kitchen_rim_height() -> float:
 	# The rolled lip bears ON the 905 mm worktop instead of being half buried.
@@ -9,8 +14,7 @@ func _build_kitchen_sink(parent: Node3D) -> void:
 	var width := .50 if compact_kitchen else .61
 	var depth := .38 if compact_kitchen else .46
 	var top := kitchen_rim_height()
-	_open_rect_basin(parent, Vector3(0, top, 0), width, depth, .15, ENAMEL)
-	_box_on(parent, Vector3(width+.03,.16,.035), Vector3(0,top+.075,depth*.5-.004), ENAMEL)
+	var water_mesh := _install_casting(parent)
 	_panel_front_z = depth*.5-.0215
 	_valve_mount_z = _panel_front_z+VALVE_SEAT_DZ
 	var model := preload("res://assets/props/kitchen_faucet.glb").instantiate() as Node3D
@@ -45,13 +49,55 @@ func _build_kitchen_sink(parent: Node3D) -> void:
 	outlet.name = "SpoutOutlet"
 	outlet.position = Vector3(0,top+.126,.015)
 	add_child(outlet)
-	_build_stopper(Vector3(0,top-.135,.01))
-	if has_drainboard: _build_drainboard(parent,width,depth,top)
-	_add_use_wear(parent,Vector3(-width*.35,top+.004,-depth*.37),true)
 	_stream = _make_stream(outlet.position+Vector3(0,-.002,0),.254,.007)
 	_water_empty_y = top-.137
 	_water_full_y = top-.025
 	_basin_water = _make_water_surface(Vector3(0,_water_empty_y,0),Vector2(width-.09,depth-.09))
+	_basin_water.mesh = water_mesh
+	_update_kitchen_plug(1.0)
+
+func _install_casting(parent: Node3D) -> Mesh:
+	var model := preload("res://assets/props/kitchen_basins.glb").instantiate() as Node3D
+	parent.add_child(model)
+	var family := "Standard" if not compact_kitchen else ("Compact" if has_drainboard else "Countertop")
+	for child: Node in model.get_children():
+		if child.name != family:
+			model.remove_child(child)
+			child.free()
+	_skin_kitchen_model(model)
+	_kitchen_plug = model.find_child("Plug"+family,true,false) as Node3D
+	_kitchen_plug.reparent(self)
+	var water := model.find_child("Water"+family,true,false) as MeshInstance3D
+	var water_mesh := water.mesh
+	water.get_parent().remove_child(water)
+	water.free()
+	for draw: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
+		if str(draw.name).begins_with("ContinuousCasting"): _casting_mesh = draw.mesh
+		# Only the board changes side. Mirroring the whole casting would swap
+		# the valve convention and the drain's original slight fore/aft offset.
+		if drain_side < 0 and (str(draw.name).begins_with("SlopingDrainboard") or str(draw.name).begins_with("DrainFlute")):
+			draw.position.x = -draw.position.x
+			draw.scale.x = -draw.scale.x
+		draw.reparent(parent)
+	model.free()
+	return water_mesh
+
+func _process(delta: float) -> void:
+	super._process(delta)
+	_update_kitchen_plug(delta)
+
+func _update_kitchen_plug(delta: float) -> void:
+	if _kitchen_plug == null: return
+	var top := kitchen_rim_height()
+	var target := Vector3(0,top-.123,.01) if _stopper else Vector3(.095,top-.124,-.045)
+	if _plug_pose_closed != _stopper:
+		_plug_pose_closed = _stopper
+		_plug_start = _kitchen_plug.position
+		_plug_progress = 0.0
+	_plug_progress = minf(1.0,_plug_progress+delta*4.0)
+	# Lift clear of the ferrule before sliding aside. These are presentation
+	# values only; the inherited stopper flag remains the water authority.
+	_kitchen_plug.position = _plug_start.lerp(target,_plug_progress) + Vector3.UP*.04*sin(PI*_plug_progress)
 
 func install_kitchen_stand() -> void:
 	# The original 3B pilot has no passive sink stand record. Give its retained

@@ -1918,3 +1918,9 @@ art/renders/orison_v2/door_polish_20261012/** -text
 art/renders/orison_v2/kitchen_sinks_20261012/** -text
 
 art/renders/orison_v2/apartment_kitchen_route_20261012/** -text
+
+# Native kitchen casting source and verification packets.
+art/blender/scripts/build_kitchen_basins.py -text
+art/blender/scripts/inspect_kitchen_basins.py -text
+game/assets/props/kitchen_basins.glb.import -text
+art/renders/orison_v2/kitchen_castings_20261012/** -text

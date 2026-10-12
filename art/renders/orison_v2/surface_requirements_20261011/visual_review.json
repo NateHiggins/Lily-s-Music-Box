@@ -1,27 +1,32 @@
 {
-  "surface_inputs_sha256": "21890cb668f83b9a70fd99b0087fa84adf90c85dadf1cc62ab105d0a26865b1a",
+  "surface_inputs_sha256": "19737fb6f81d7db76d3664ddd423b73f837c54d22c578ab51e242ade4693097b",
   "status": "PASS",
-  "scope": "Scoped kitchen fitting and live-water visual review; not whole-world photorealism or owner acceptance.",
+  "scope": "Scoped kitchen casting, bearing and live-water review; not whole-world photorealism or owner acceptance.",
   "images": [
     {
-      "file": "sink_pass_kitchen_1A_fit.png",
-      "sha256": "7f6578cfda02bcc6ef7820bd64c086d5bbb6510d98e52de7e1758190fd0af35c",
-      "observation": "Compact bowl and retained drainboard now sit on a source-sized frame; old over-wide stand removed."
+      "file": "casting_pass_kitchen_2A_hot.png",
+      "sha256": "4cd68dfc07b2314db9a296397e552c2fcbfc63c83b6336bef799f80c9305ebf8",
+      "observation": "Rounded standard bowl, open drain bore and parked plug; the rear bearing rail no longer enters the basin."
     },
     {
-      "file": "sink_pass_kitchen_4B_fit.png",
-      "sha256": "78e9d594b04e75f6fe6698036cb6b60c8bfa034fadea9dbbfc72426bbf370f12",
-      "observation": "Compact rolled lip sits on the pierced timber-counter worktop; existing dish stock retained."
+      "file": "casting_pass_kitchen_2A_filled.png",
+      "sha256": "7ab68a93cae4bf51069c9465abed85cea7192fb323849c88998f318eaa16824f",
+      "observation": "Plug seated on ferrule, with a single rounded water surface inside the standard bowl."
     },
     {
-      "file": "sink_pass_kitchen_2A_hot.png",
-      "sha256": "ffbb3bfa7cadab856957094dce66d1b0aea6468dd2c837f9e6f548bd31fc7113",
-      "observation": "Curved nickel faucet, separate marked valve caps and a stream aligned to the downward mouth. Room reflections give the nickel a blue cast."
+      "file": "casting_pass_kitchen_4B_filled.png",
+      "sha256": "6620d33cc0167ce962122f3dbd063a672788f1d4bbecf65b935048fcbecf9fb9",
+      "observation": "Compact rolled lip bears on the countertop; rounded water stays within the bowl."
     },
     {
-      "file": "sink_pass_kitchen_5C_fit.png",
-      "sha256": "128395e45a789d4b28143731ab29e45018679c9fbf3018886ee8d97ae94e6c67",
-      "observation": "Upper standard bowl and board retain their frame and receive connecting bearings beneath the rim."
+      "file": "casting_pass_kitchen_1A_fit.png",
+      "sha256": "ca22109302d42b3e8337bb4232d831312a9a3581d75c5b4a83c4ef941cec88c0",
+      "observation": "Compact bowl and drainboard sit on the revised source-owned support frame."
+    },
+    {
+      "file": "casting_pass_kitchen_5C_fit.png",
+      "sha256": "727298597d92dda8e4f6826b17e5325be5356ef3838965f2701b2c8cad33be8d",
+      "observation": "Standard upper-floor sink keeps its frame and outboard bearing rails beneath the rolled rim."
     }
   ]
 }

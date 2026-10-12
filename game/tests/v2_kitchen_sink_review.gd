@@ -17,6 +17,10 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 		count += 1
 		suite.check(tap.get_script() == preload("res://scripts/building/orison_v2_kitchen_sink.gd"), "native kitchen owner: " + tap.unit)
 		suite.check(world.boiler_tend.taps.count(tap) == 1, "one boiler supply: " + tap.unit)
+		var top := tap.kitchen_rim_height()
+		suite.check(tap._casting_mesh != null and _mesh_hit(tap._casting_mesh,Vector3(.08,top+.03,0),Vector3(.08,top-.17,0)),"native casting has a physical inner floor: " + tap.unit)
+		suite.check(tap._casting_mesh != null and not _mesh_hit(tap._casting_mesh,Vector3(.012,top+.03,.01),Vector3(.012,top-.17,.01)),"drain bore passes through actual casting triangles: " + tap.unit)
+		suite.check(not tap._basin_water.mesh is BoxMesh,"water footprint follows the rounded bowl: " + tap.unit)
 		var saved := tap.get_flow_state()
 		var temperature := tap._boiler_temperature
 		var processing := tap.is_processing()
@@ -38,10 +42,12 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 		tap.set_stopper(true)
 		tap._water_level = 0
 		tap._process(1.0)
+		suite.check(tap._kitchen_plug.position.distance_to(Vector3(0,top-.123,.01))<.001,"closed plug seats on drain ferrule: " + tap.unit)
 		suite.check(tap._water_level > .07 and tap._basin_water.visible and tap._stream.visible,"cold flow fills stopped bowl: " + tap.unit)
 		cold.interact(world.player)
 		tap.set_stopper(false)
 		tap._process(1.0)
+		suite.check(tap._kitchen_plug.position.distance_to(Vector3(.095,top-.124,-.045))<.001,"open plug parks clear of drain: " + tap.unit)
 		suite.check(not tap._stream.visible and is_zero_approx(tap._water_level),"both closed and bowl drains: " + tap.unit)
 		var stand: Node3D = tap.get_node_or_null("KitchenStand") as Node3D
 		var support_id := tap.unit + ("_sink_counter" if tap.unit == "4B" else "_sink_support")
@@ -71,6 +77,11 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 			camera.global_position = tap.to_global(Vector3(.25,1.3,-.55))
 			camera.look_at(tap.to_global(Vector3(0,1.01,.10)))
 			await suite.shot("kitchen_" + tap.unit + "_hot")
+			if tap.unit in ["2A","4B"]:
+				tap.set_stopper(true)
+				tap._water_level = .85
+				tap._process(.25)
+				await suite.shot("kitchen_" + tap.unit + "_filled")
 		tap.set_hot(bool(saved.hot)); tap.set_cold(bool(saved.cold)); tap.set_stopper(bool(saved.stopper))
 		tap._water_level = float(saved.water_level)
 		tap.set_boiler_temperature(temperature)
@@ -80,6 +91,15 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 	camera.free()
 	world.player.camera.make_current()
 	suite.check(count == expected and count > 0,"all authored kitchen sinks reviewed: " + str(count))
+
+func _mesh_hit(mesh: Mesh, start: Vector3, end: Vector3) -> bool:
+	for surface in mesh.get_surface_count():
+		var arrays := mesh.surface_get_arrays(surface)
+		var points: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		var indices: PackedInt32Array = arrays[Mesh.ARRAY_INDEX]
+		for i in range(0,indices.size(),3):
+			if Geometry3D.segment_intersects_triangle(start,end,points[indices[i]],points[indices[i+1]],points[indices[i+2]]) != null: return true
+	return false
 
 func _bearing(stand: Node3D, point: Vector3) -> bool:
 	for node: Node in stand.find_children("*","CollisionShape3D",true,false):

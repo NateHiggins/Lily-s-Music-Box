@@ -154,11 +154,16 @@ def counter(row,p):
     stock('CompactLeg'+str((x,y)),(x-.015,y-.015,0),(x+.015,y+.015,.8665),'metal',.001)
     foot('compact sink foot'+str((x,y)),x,y)
   for y in [-.19,.19]:
-   stock('CompactRail'+str(y),(-.266,y-.01,.8665),(.669,y+.01,.9015),'metal',.001)
-   stock('CompactLipSeat'+str(y),(-.266,y-.01,.9015),(.266,y+.01,.905),'metal',.0003)
-  for x in [-.251,.251,.654]:
+   # Lower the bowl portion to clear its tapered casting, while retaining
+   # the drainboard bearing plane. Narrow outboard saddles meet the rim.
+   stock('CompactBowlRail'+str(y),(-.266,y-.01,.8665),(.266,y+.01,.894),'metal',.001)
+   stock('CompactBoardRail'+str(y),(.266,y-.01,.8665),(.669,y+.01,.9015),'metal',.001)
+   seat_y=.198 if y>0 else -.198
+   stock('CompactLipSeat'+str(y),(-.266,seat_y-.006,.894),(.266,seat_y+.006,.905),'metal',.0003)
+  for x in [-.258,.258,.654]:
    top=.9015 if x>.6 else .905
-   stock('CompactEnd'+str(x),(x-.015,-.18,.8665),(x+.015,.18,top),'metal',.001)
+   half=.015 if x>.6 else .007
+   stock('CompactEnd'+str(x),(x-half,-.18,.8665),(x+half,.18,top),'metal',.001)
   return
  surfaces={s['material']:s for s in row['surfaces']}
  if 'countertop' in surfaces:

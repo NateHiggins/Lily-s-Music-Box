@@ -1,0 +1,28 @@
+{
+  "domestic_storage": {
+    "before_parts": 42,
+    "after_parts": 42,
+    "changed": [
+      "CounterCompact__metal"
+    ],
+    "unchanged": 41,
+    "added": []
+  },
+  "kitchen_faucet": {
+    "before_parts": 60,
+    "after_parts": 60,
+    "changed": [
+      "BearingRailSurface",
+      "BearingRail.001Surface",
+      "RimSeatSurface",
+      "RimSeat.001Surface"
+    ],
+    "unchanged": 56,
+    "added": []
+  },
+  "basin_constructor_reuse": {
+    "base": "99c9e1a7",
+    "imported_functions_and_uv_loop_identical": true,
+    "changed_faucet_bearing_statements_are_not_executed_by_basin_builder": true
+  }
+}
