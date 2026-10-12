@@ -54,7 +54,13 @@ was weakened. The receiver builder now runs this export check before success.
 zero script errors. Census: **23,577 draws / 16,323 meshes / 5,833 materials /
 434 textures**. The initial seven rejected clip surfaces remain recorded in
 **surfaces1**. No qualification is drawn from that failed run. Final independent
-input-bound surface qualification and save/reconstruction results follow below. The composed sweep checks native stock, complete four-lead
+input-bound surface qualification reports zero defects. **first_slice1** passed
+in 133.01 seconds with 113 checks, zero failures and zero script errors.
+The original seven authority/save/reconstruction contracts and tracked
+node/audio retirement pass. Existing seven TextureRID shutdown warnings remain;
+no global GPU-retention claim. Thirty-three installed media/retained finish
+frames and the corrected neutral native views were reviewed. All 283 original
+owner-file hashes remain unchanged. Clean candidate verification follows. The composed sweep checks native stock, complete four-lead
 assemblies, actual installed floor bearing, exclusion of incompatible receiver
 families, original controls and owned-node retirement. Eight additional low
 operator-station captures show the installed floor supplies. The existing
