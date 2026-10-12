@@ -1924,3 +1924,11 @@ art/blender/scripts/build_kitchen_basins.py -text
 art/blender/scripts/inspect_kitchen_basins.py -text
 game/assets/props/kitchen_basins.glb.import -text
 art/renders/orison_v2/kitchen_castings_20261012/** -text
+
+# Source-bound played apartment access contracts.
+game/tests/orison_v2_apartment_access_contract_test.gd -text
+game/tests/OrisonV2ApartmentAccessContractTest.tscn -text
+game/tests/orison_v2_connected_exterior_route_test.gd -text
+game/tests/orison_v2_apartment_door_route_test.gd -text
+game/tests/data/v2_apartment_door_routes.json -text
+art/renders/orison_v2/apartment_access_20261012/** -text

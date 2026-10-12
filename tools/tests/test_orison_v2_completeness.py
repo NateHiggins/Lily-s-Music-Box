@@ -1181,12 +1181,16 @@ class LiveRepoSmokeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # Keep capture-only regression tests isolated from the new executed
-        # first-slice checkpoint. Copy documents read-only; never edit the repo.
+        # first-slice and played-room checkpoints. Copy documents read-only;
+        # never edit the repo. Current spatial admission is tested separately.
         cls.historical_design = tempfile.TemporaryDirectory()
         cls.addClassCleanup(cls.historical_design.cleanup)
         historical = Path(cls.historical_design.name)
         for source in (REPO_ROOT / "design").glob("*"):
-            if source.is_file() and source.name != "ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md":
+            if source.is_file() and source.name not in {
+                "ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md",
+                "ORISON_V2_APARTMENT_SPATIAL_ACCESS_CHECKPOINT_2026-10-12.md",
+            }:
                 shutil.copy2(source, historical / source.name)
         cls.code, cls.payload, _ = run_payload(REPO_ROOT, "--design-dir", str(historical))
 

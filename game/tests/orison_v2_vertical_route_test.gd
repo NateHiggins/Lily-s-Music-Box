@@ -5,9 +5,11 @@ var player: PlayerController
 var trace: Array[Dictionary] = []
 var failures: Array[String] = []
 var route_label := "VERTICAL ROUTE"
+var externally_managed := false
+var interaction_checks: Array[Dictionary] = []
 
 func _ready() -> void:
-	call_deferred("_run")
+	if not externally_managed: call_deferred("_run")
 
 func _run() -> void:
 	RealityState.persistence_enabled = false

@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Played spatial access proof for 19 rooms in 2A, 2B and 4B, with automatic proof expiry | `design/ORISON_V2_APARTMENT_SPATIAL_ACCESS_CHECKPOINT_2026-10-12.md` |
 | Native cast sink bowls, open drains, movable plugs and rounded water surfaces | `design/V2_KITCHEN_CASTINGS_2026-10-12.md` |
 | Native kitchen faucets, fitted sink frames and independent hot/cold checks | `design/V2_KITCHEN_SINKS_2026-10-12.md` |
 | Native raised-panel doors, actual keyways and fitted entrance hardware | `design/V2_DOOR_POLISH_2026-10-12.md` |

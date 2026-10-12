@@ -1,0 +1,64 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 187.91,
+  "exit_code": 0,
+  "finished_utc": "2026-10-12T13:32:49Z",
+  "started_utc": "2026-10-12T13:29:41Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 1,
+  "pass_lines": [
+   "V2 APARTMENT ACCESS CONTRACT: PASS; 19 rooms; 153 checks; 0 failures"
+  ],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-apartment-access-20261012/run1.log.stderr",
+  "stderr_sha256": "92d59e52fe95baf3630352157d3a15fb4c3223d8d29d363113c010204a039c6d",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-apartment-access-20261012/run1.log",
+  "stdout_sha256": "16ff6fcc9a5b2f6ec53986c7ed34cf7bc9862eeec0214ab67f9719247703c52d"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "long",
+ "scene": "res://tests/OrisonV2ApartmentAccessContractTest.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-apartment-access-20261012/run1",
+ "source": {
+  "dirty_paths": 1359,
+  "dirty_sample": [
+   "M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/dumbwaiter.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/radiator.png",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/completion_4D.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_4D/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_integrated/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_upper_furniture/receipts/import_back.log.receipt.json"
+  ],
+  "repository_head": "55e3d6a2694e111f843ca758f316ec8c07039525",
+  "repository_tree": "299fadb70cb34e85049e5f541ea73848301c1840",
+  "runtime_inputs_sha256": "d24f8cef7a54ab45c5a3699fcaf65c883d56ff36db47219b4b4069a44d29ebb6",
+  "test_path": "game/tests/orison_v2_apartment_access_contract_test.gd",
+  "test_sha256": "0d447c6b23babeffd0f6c7754e25b11d05458110217652800a0aa766e4f99cdc"
+ },
+ "windowed": true
+}

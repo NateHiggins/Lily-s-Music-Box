@@ -1031,6 +1031,30 @@ class Evidence:
         for rel, text in inputs.checkpoints:
             name = Path(rel).name
             epoch = doc_epoch(name)
+            access_rooms = None
+            access_problems = []
+            if "SPATIAL_ACCESS" in name:
+                # New played-room checkpoints must expire when the actual
+                # geometry, route helpers or runtime changes. This channel
+                # grants spatial proof only, never full runtime acceptance.
+                from spatial_access_evidence import validate as validate_access
+                from v2_surface_evidence import inputs as surface_inputs
+                access_rooms = set()
+                packets = set(PACKET_DIR_RE.findall(text))
+                if not packets:
+                    access_problems.append("no spatial access packet named")
+                for packet in packets:
+                    path = inputs.root / "art/renders/orison_v2" / packet / "runtime_contract.json"
+                    try:
+                        receipt = json.loads(path.read_text(encoding="utf-8"))
+                        problems = validate_access(receipt, inputs.root,
+                            runtime_inputs_sha256(inputs.root), surface_inputs(inputs.root)["sha256"])
+                    except (OSError, ValueError, KeyError) as exc:
+                        problems = [str(exc)]
+                    if problems:
+                        access_problems.extend(problems)
+                    else:
+                        access_rooms.update(receipt["contracts"]["room_access"]["rooms"])
             acceptance = bool(ACCEPTANCE_DOC_RE.search(name))
             composition = bool(RUNTIME_COMPOSITION_DOC_RE.search(name))
             status_line = next(
@@ -1053,6 +1077,12 @@ class Evidence:
                         r"Verdict:.*PASS", text, re.IGNORECASE))})
                 continue
             for token in tokens:
+                if access_rooms is not None and token not in access_rooms:
+                    self.conflicts.append({"token": token, "source": rel,
+                        "epoch": epoch, "negative_epoch": -1,
+                        "note": "spatial access claim lacks current played proof: " +
+                                "; ".join(access_problems or ["room absent from receipt"])})
+                    continue
                 if token not in model.all_ids and \
                         token not in RITUAL_IDENTITIES:
                     if re.match(r"^(B1|F0\d|ROOF)_", token) or \

@@ -68,6 +68,7 @@ func _wait_for_door(door: DoorProp) -> bool:
 	return _require(false, "door motion did not settle: " + str(door.name))
 
 func _require(ok: bool, label: String) -> bool:
+	interaction_checks.append({"label":label,"ok":ok})
 	print("CONNECTED EXTERIOR CHECK: ", label, " = ", ok)
 	if not ok:
 		failures.append(label)
