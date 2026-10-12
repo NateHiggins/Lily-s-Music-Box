@@ -56,7 +56,11 @@ views cover standard and compact bowls. The complete retained native storage
 suite runs in the same production world.
 
 The reader audit reports zero new unread fields and spatial dependencies are
-clean. Clean candidate verification is pending. Existing owner work remains
+clean. Clean candidate **4be49f1d** passes against the recorded clean **25840bed**
+baseline with zero regressions, no gate changes, all 17 protected paths
+unchanged, selector V2, and zero lint errors. No exemptions were used. The
+comparison used **--no-godot** in a clean temporary checkout; the canonical
+bound runtime receipts above supply the separate runtime evidence. Existing owner work remains
 outside this batch. The prior apartment walking route is not rerun or claimed
 current after these geometry changes.
 
