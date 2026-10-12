@@ -1,0 +1,32 @@
+{
+  "resident_storage": "2e98e7d23b810664d5fb44a18df9f2f7c672f61aca618aa227fe59be09179cb3",
+  "exterior_masonry": "9ce9ff8e160d1cc9b0131b0ce41c4aaeef2dc319f8365c5d12904e7130c0e028",
+  "spatial_manifest": {
+    "added": 20,
+    "retired": 1,
+    "other_records_modified": []
+  },
+  "ledger": {
+    "requirements": 240,
+    "by_status": {
+      "ABSENT": 10,
+      "HUMAN_ACCEPTED": 1,
+      "PROGRAMMED": 119,
+      "RUNTIME_PROVEN": 34,
+      "SHELL_ONLY": 3,
+      "SPATIALLY_PROVEN": 73
+    },
+    "blockers_by_scope": {
+      "FIRST_SLICE_TECHNICAL": 0,
+      "GOLDEN_SHIFT_V2": 1,
+      "FULL_BUILDING_STRUCTURAL": 117,
+      "FULL_BUILDING_RUNTIME": 35,
+      "PRODUCTION_CUTOVER": 134,
+      "V1_RETIREMENT": 136
+    },
+    "v1_fallbacks": 2,
+    "heuristic_conclusions": 117,
+    "anchor_only_findings": 0,
+    "stale_checkpoint_ids": 1
+  }
+}

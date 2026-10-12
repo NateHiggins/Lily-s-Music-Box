@@ -31,7 +31,9 @@ the opening. Above-ground geometry, normals and UVs compare equal at 0.00001
 tolerance: 8,322 triangles and 24,966 corners. The source generator is unchanged.
 The passive-object construction/fixture layout bindings refresh only after a typed
 comparison allowing the new space/opening, storage purpose and sixteen stock poses.
-Other historical provenance drift is preserved.
+Other historical provenance drift is preserved. The completion-interiors source
+also receives the same single storage purpose update, so its generator cannot
+restore the old text. Its three ventilation owner-projection tests pass.
 
 ## Gates and observed numbers
 
@@ -72,6 +74,12 @@ Packet: **art/renders/orison_v2/basement_storage_20261011**.
 Checkpoint: **ORISON_V2_BASEMENT_STORAGE_CHECKPOINT_2026-10-11.md**.
 The canonical first-slice and surface receipts are renewed against current inputs.
 Unchanged above-ground fabrication checks are reused, avoiding duplicate Godot runs.
+The runtime-data exporter lives in **tools/export_v2_storage_data.py** and reproduces
+the reviewed JSON byte-for-byte. Native geometry remains authored by the Blender
+builder; run its context review before this export. The first rejected verifier
+exposed the source-purpose projection and a newly added helper in the rendering
+input directory; the second rejection retains only the source-purpose defect.
+Both are archived as diagnostics, not acceptance. No gate code or threshold changes.
 
 ## Open findings and next work
 
@@ -80,4 +88,14 @@ runtime owners, global navigation, human acceptance and retirement remain. The
 existing seven TextureRID shutdown warnings remain visible; this batch makes no
 process-wide GPU-retention claim. Owner decision required: **none**.
 
-Candidate verification is pending the named source commit.
+Fresh clean candidate **e91b81dd** passes: zero regressions, zero blocking
+reasons, zero lint errors, all 17 protected paths unchanged, selector V2.
+The reviewed manifest diff adds twenty consumers and retires one moved owner;
+all other records remain identical. Godot is reused with **--no-godot** from
+the completed current-input canonical runs. Ledger **0/1/118/35/135/137 →
+0/1/117/35/134/136**; only **b1.resident_storage** changes from baseline
+ABSENT to SPATIALLY_PROVEN. The checkpoint lint sees PROGRAMMED before its own
+evidence is admitted because the current purpose already identifies storage.
+All 283 original owner-file hashes remain unchanged.
+
+MERGE-CANDIDATE e91b81dd653c621d5bee651aeb9152c37bf9ba41
