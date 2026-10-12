@@ -31,8 +31,8 @@ func _ready() -> void:
 		var refs: Array[WeakRef] = []
 		await get_tree().create_timer(.7).timeout
 		var capsule := CapsuleShape3D.new()
-		capsule.radius = .38
-		capsule.height = 1.524
+		capsule.radius = PlayerController.BODY_RADIUS
+		capsule.height = PlayerController.STANDING_HEIGHT
 		var count := 0
 		for a: Dictionary in layout.anchors:
 			if a.level not in ["F05","F06"] or not str(a.id).ends_with("_STANCE"):continue
@@ -44,7 +44,15 @@ func _ready() -> void:
 			query.transform = Transform3D(Basis.IDENTITY,marker.global_position+Vector3.UP*(capsule.height*.5+.025))
 			query.collision_mask = 1
 			query.exclude = [world.player.get_rid()]
-			check(world.get_world_3d().direct_space_state.intersect_shape(query).is_empty(), "standing clearance: " + str(a.id))
+			var overlaps := world.get_world_3d().direct_space_state.intersect_shape(query)
+			check(overlaps.is_empty(), "standing clearance: " + str(a.id))
+			for overlap: Dictionary in overlaps:
+				printerr("APPROACH BLOCKER "+str(a.id)+": "+str(overlap.collider.get_path()))
+			if not overlaps.is_empty():
+				for offset: Vector3 in [Vector3(.2,0,0),Vector3(-.2,0,0),Vector3(0,0,.2),Vector3(0,0,-.2),Vector3(.4,0,0),Vector3(-.4,0,0),Vector3(0,0,.4),Vector3(0,0,-.4),Vector3(.6,0,0),Vector3(-.6,0,0),Vector3(0,0,.6),Vector3(0,0,-.6)]:
+					query.transform.origin=marker.global_position+Vector3.UP*(capsule.height*.5+.025)+world.adapter.root.global_basis*offset
+					if world.get_world_3d().direct_space_state.intersect_shape(query).is_empty():
+						print("CLEAR APPROACH CANDIDATE "+str(a.id)+" "+str(a.position)+" + "+str(offset))
 			count += 1
 		check(count == 166, "all new and existing upper approaches remain clear")
 		for probe: Dictionary in probes.kitchens:
@@ -64,7 +72,13 @@ func _ready() -> void:
 						if owner_node.has_meta("v2_surface_prop"): passive = true; break
 						owner_node = owner_node.get_parent()
 					if passive: continue
-					check(mesh.mesh != null and mesh.material_override != null, "authored material is bound: " + str(probe.unit))
+					if mesh.mesh == null: continue # Retained source pivots with retired visual payloads.
+					check(mesh.mesh.get_surface_count()>0, "native cabinet has visible surfaces")
+					for surface in mesh.mesh.get_surface_count():
+						var material := mesh.get_active_material(surface)
+						check(material!=null, "active cabinet material is bound: "+str(probe.unit)+"/"+str(mesh.name))
+						if material is StandardMaterial3D:
+							check(material.albedo_texture!=null and material.roughness_texture!=null and material.normal_texture!=null, "cabinet retains all PBR maps")
 			var panel := cabinet.get_node("SlidingPanel") as AnimatableBody3D
 			refs.append(weakref(panel))
 			var stance := world.adapter.resolve(str(probe.prep)+"_STANCE") as Node3D

@@ -41,6 +41,7 @@ Knowing which kind you are reading tells you how much to trust it.
 | Supported native electrical riser, real slab sleeves and retained fuse authority | `design/V2_ELECTRICAL_SERVICE_2026-10-11.md` |
 | Native fire-service stations, retained maintenance controls and delayed software PBR | `design/V2_FIRE_SERVICE_2026-10-11.md` |
 | Four native Edison fuse seats and telephone request-lamp PBR retention | `design/V2_FUSE_BLOCK_2026-10-11.md` |
+| Native upper household materials, desk supports and production-size approach checks | `design/V2_UPPER_HOUSEHOLD_CHECKS_2026-10-11.md` |
 | Native apartment partitions, active PBR bindings and retained control/teardown checks | `design/V2_NATIVE_APARTMENT_CHECKS_2026-10-11.md` |
 | Corrected shaft-clear review routes and retained continuous traversal checks | `design/V2_ROUTE_FIXTURES_2026-10-11.md` |
 | Adjustable resident blinds, curtain variants, saved settings and reviewed window stock | `game/docs/V2_WINDOW_TREATMENTS.md` and `design/V2_WINDOW_TREATMENTS_2026-10-11.md` |
