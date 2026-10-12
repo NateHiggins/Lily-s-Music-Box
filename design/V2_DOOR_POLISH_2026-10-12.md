@@ -83,4 +83,9 @@ scoped runtime contracts, not proof that all V2 areas are complete.
 Reviewed renders and wrapper receipts are in
 **art/renders/orison_v2/door_polish_20261012**. Current schema-2 runtime
 contracts remain in the canonical surface and first-slice packets.
-Clean candidate verification is pending before publication.
+Candidate **777a7ee8** passed clean-checkout verification against the recorded
+**09d0d75d** baseline: zero new gate regressions, 17/17 protected paths retained,
+V2 selector retained, no ledger changes, and clean design-document lint.
+The gate-manifest and additive-tool guard-test diffs were reviewed. This
+verification reused the bound runtime receipts; it did not rerun Godot in
+the clean checkout. Verification files are archived alongside the renders.
