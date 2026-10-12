@@ -90,3 +90,14 @@ V2 remains incomplete. No whole-building navigation, human photorealism review,
 new gameplay authority or retirement acceptance is inferred from native meshes
 or this inert report. Scope blockers are still **0/1/115/35/132/134** before
 qualification. Packet destination: **art/renders/orison_v2/active_media_20261012**.
+
+Clean candidate **c4afae3f** passes against the authentic complete **690c9745**
+board: zero regressions, zero blocking reasons, all 17 protected paths unchanged,
+selector V2, no ledger status changes. The first comparison caught three new
+test-unit consumers; the manifest now records those exact references and leaves
+every old record unchanged. No regression waiver or baseline replacement is used.
+**--no-godot** reuses the current bound runtime evidence; all static gates/tools
+tests run in a fresh clean checkout. Complete boards and verification output are
+archived in the packet. All 283 original owner-file hashes remain unchanged.
+
+MERGE-CANDIDATE c4afae3f0f5d3f9b9ab3893f5f3f7c91e47cfe3b
