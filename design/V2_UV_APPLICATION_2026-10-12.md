@@ -98,4 +98,15 @@ human acceptance and retirement remain open. The existing seven TextureRID shutd
 warnings remain recorded; no process-wide GPU-retention claim is made.
 Owner decision required for this batch: **none**.
 
-Candidate verification is pending the named source commit.
+Fresh clean candidate **e934b8e2** passes against **e91b81dd**: zero
+regressions, zero blocking reasons, zero lint errors, all 17 protected paths
+unchanged and selector V2. The complete tools suite includes **108** passing
+completeness tests and **19** passing surface/import tests. Gate diffs were
+reviewed: actual-UV enforcement, its regressions, the one added spatial consumer,
+and the two stricter current-roof smoke expectations. No ranking or admission
+rule is weakened. **--no-godot** reuses completed current-input canonical runs.
+Ledger **0/1/117/35/134/136 → 0/1/115/35/132/134**; only **floor.ROOF** and
+**roof.roof_bulkhead** become SPATIALLY_PROVEN. All 283 original owner-file
+byte hashes remain unchanged. The initial rejected verifier is diagnostic only.
+
+MERGE-CANDIDATE e934b8e2fd6e71999228fb8c5f6194569ef4275b
