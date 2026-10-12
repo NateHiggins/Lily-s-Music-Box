@@ -75,7 +75,12 @@ seven TextureRID shutdown warnings remain; no process-wide GPU retention claim.
 Independent final-input surface qualification: PASS, zero defects. Reader and
 spatial gates remain clean; source projection and 19 surface tools tests pass.
 Original 283 owner-file hashes remain unchanged. Clean candidate verification
-will be archived after the source commit.
+passes for **690c9745** against the authentic complete clean **321d4027** board:
+zero regressions, zero blocking reasons, all 17 protected paths unchanged,
+selector V2 and no ledger requirement changes. **--no-godot** reuses the bound
+canonical runtime runs; the full static gates/tools tests run in a fresh clean
+checkout. Complete candidate/base boards and verifier output are archived in
+the packet. No regression waiver or replacement baseline is used.
 
 ## Remaining scope
 
@@ -87,3 +92,5 @@ The ledger remains **0/1/115/35/132/134** scope blockers and 240 requirements;
 this inert report changes no requirement status.
 
 Packet destination: **art/renders/orison_v2/roof_supply_20261012**.
+
+MERGE-CANDIDATE 690c9745dcf6ace62c01bc59a1e80dde5149107a
