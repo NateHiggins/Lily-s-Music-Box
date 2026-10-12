@@ -30,12 +30,12 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 	camera.global_position = bank.to_global(Vector3(.40, 1.42, -1.65)); camera.look_at(bank.to_global(Vector3(0, 1.24, -.09)), Vector3.UP)
 	world.player.carried_device.set_capture_hidden(true)
 	await suite.shot("native_mail_bank_closed")
-	bank._set_door(true); await world.get_tree().create_timer(.45).timeout
+	bank._set_door(true); await _wait_leaf(bank, deg_to_rad(95))
 	suite.check(bank.door_open and is_equal_approx(bank._hinge.rotation.y, deg_to_rad(95)), "native leaf follows original 95-degree mechanism")
 	await suite.shot("native_mail_bank_open")
 	camera.global_position = bank.to_global(Vector3(-.40, 1.57, -.64)); camera.look_at(bank.to_global(Vector3(-.155, 1.41, -.05)), Vector3.UP)
 	await suite.shot("native_mail_bank_pocket_detail")
-	bank._set_door(false); await world.get_tree().create_timer(.45).timeout
+	bank._set_door(false); await _wait_leaf(bank, 0.0)
 	suite.check(not bank.door_open and is_zero_approx(bank._hinge.rotation.y), "native door returns fully closed")
 	suite.check(_custody() == custody and JSON.stringify(bank.deliveries) == catalog,
 			"geometry review neither grants nor consumes catalog deliveries")
@@ -54,6 +54,14 @@ func run(world: OrisonV2RuntimeRoot, suite: Node) -> void:
 			if point.x < -.155-.142-.001 or point.x > -.155+.142+.001 or point.y < 1.410-.061-.001 or point.y > 1.410+.061+.001 or point.z < -.108 or point.z > -.018: fits = false
 		suite.check(fits, "delivery fits lining and closed-leaf clearance: " + str(item.get_meta("native_mail_content", "")))
 	camera.free(); world.player.camera.make_current()
+
+func _wait_leaf(bank: MailBankProp, target: float) -> void:
+	# Timers can expire before tween processing on a slow rendered frame.
+	# Observe the production endpoint; never set the hinge or weaken its angle.
+	var deadline := Time.get_ticks_msec() + 2000
+	while not is_equal_approx(bank._hinge.rotation.y, target) and Time.get_ticks_msec() < deadline:
+		await bank.get_tree().process_frame
+	await bank.get_tree().process_frame
 
 func _custody() -> String:
 	# Other production owners can update the campaign while the tween runs.

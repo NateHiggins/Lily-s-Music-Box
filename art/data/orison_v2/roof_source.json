@@ -1253,6 +1253,35 @@
           4.475
         ]
       }
-    ]
+    ],
+    "wall_service_openings": [
+      {
+        "id": "ROOF_PUBLIC_CORE_LIGHT_SUPPLY_WALL_PORT",
+        "space": "ROOF_PUBLIC_CORE",
+        "side": "east",
+        "bounds": [
+          5.33,
+          21.86,
+          0.96,
+          5.470000000000001,
+          21.94,
+          1.04
+        ]
+      },
+      {
+        "id": "ROOF_SERVICE_CORE_LIGHT_SUPPLY_WALL_PORT",
+        "space": "ROOF_SERVICE_CORE",
+        "side": "west",
+        "bounds": [
+          9.43,
+          21.86,
+          0.96,
+          9.57,
+          21.94,
+          1.04
+        ]
+      }
+    ],
+    "masonry_service_openings": []
   }
 }

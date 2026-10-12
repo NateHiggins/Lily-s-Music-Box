@@ -9,6 +9,20 @@ func _init() -> void:
 func _prepare_player_start() -> void:
 	super._prepare_player_start()
 	player.set_lamp_enabled(false)
+	var supply: RefCounted = world.adapter.root.get_meta("v2_native_roof_lighting_supply", null)
+	if not _require(supply != null and supply.errors.is_empty() and supply.installed.size() == 53,
+		"complete native roof supply is installed"): return
+	var electrical: RefCounted = world.adapter.root.get_meta("v2_native_electrical_service", null)
+	var caps := 0
+	for draw: MeshInstance3D in electrical.installed:
+		if draw.get_meta("native_electrical_part", "") == "ConduitCap": caps += 1
+	_require(caps == 1, "superseded upper cap retired; original lower cap retained")
+	for x in [5.4, 9.5]:
+		var ray := PhysicsRayQueryParameters3D.create(world.adapter.root.to_global(Vector3(x-.09,21.9,1)), world.adapter.root.to_global(Vector3(x+.09,21.9,1)),1)
+		for draw: MeshInstance3D in supply.installed:
+			for child in draw.get_children():
+				if child is StaticBody3D: ray.exclude.append(child.get_rid())
+		_require(world.get_world_3d().direct_space_state.intersect_ray(ray).is_empty(), "actual bulkhead bore is clear at " + str(x))
 
 func _open_door(identity: String) -> bool:
 	if identity=="ROOF_PUBLIC_DOOR" and not public_checked:
@@ -25,6 +39,7 @@ func _close_door(identity: String) -> bool:
 		if not await _switch_lamp("ROOF_SERVICE_PLANT_SWITCH","ROOF_SERVICE_PLANT_LT","ROOF_PUBLIC_PLANT_LT","service"):return false
 		for point in [Vector3(10.3,19.2,3),Vector3(8.1,19.2,3)]:
 			if not await _walk(point):return false
+		await _roof_capture("roof_supply_bridge", Vector3(7.45,21.9,1))
 		service_checked=true
 	return await super._close_door(identity)
 

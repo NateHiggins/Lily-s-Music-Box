@@ -1833,3 +1833,15 @@ game/tests/orison_v2_roof_plant_test.gd -text
 game/tests/OrisonV2RoofPlantTest.tscn -text
 tools/prepare_v2_roof_plant_lighting.py -text
 art/renders/orison_v2/roof_plant_20261012/** -text
+
+# Roof physical lighting supply.
+art/blender/scripts/build_roof_lighting_supply.py -text
+art/blender/scripts/review_roof_lighting_supply.py -text
+tools/prepare_roof_lighting_supply.py -text
+tools/rebind_roof_lighting_supply_context.py -text
+game/data/orison_v2/roof_lighting_supply.json -text
+game/assets/props/roof_lighting_supply.glb -text
+game/assets/props/roof_lighting_supply.glb.import -text
+art/tools/fix_v2_mesh_imports.py -text
+game/scripts/building/orison_v2_roof_lighting_supply.gd -text
+art/renders/orison_v2/roof_supply_20261012/** -text

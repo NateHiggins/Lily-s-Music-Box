@@ -1,0 +1,33 @@
+{
+  "evidence_class": "INERT",
+  "contacts": [
+    {
+      "owner": "Public",
+      "contact": [
+        5.470000267028809,
+        -1.0,
+        22.0
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "owner": "Service",
+      "contact": [
+        9.430000305175781,
+        -1.0,
+        22.0
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "bulkhead_bores_clear": 2,
+  "scope": "Blender source-owned bulkhead contacts and native catalogue appearance; runtime route remains required."
+}

@@ -456,6 +456,12 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: electrical connections refused: %s" % [electrical_connections.errors])
 		return
 	adapter.root.set_meta("v2_native_electrical_connections",electrical_connections)
+	var roof_supply := preload("res://scripts/building/orison_v2_roof_lighting_supply.gd").new()
+	if not roof_supply.mount(self, electrical_service):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: roof lighting supply refused: %s" % [roof_supply.errors])
+		return
+	adapter.root.set_meta("v2_native_roof_lighting_supply", roof_supply)
 	var service_instruments := preload("res://scripts/building/orison_v2_native_service_instruments.gd").new()
 	if not service_instruments.mount(self):
 		startup_failed = true

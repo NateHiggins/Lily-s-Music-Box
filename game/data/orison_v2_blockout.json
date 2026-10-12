@@ -2438,7 +2438,9 @@
     {"id":"FIRE_FEED_F06_PUBLIC_CORE_PORT","space":"F06_PUBLIC_CORE","side":"west","bounds":[-2.27,18.65,-3.71,-2.1300000000000003,18.79,-3.57]},
     {"id":"ELECTRICAL_FEED_1_PORT","space":"B1_ELECTRICAL","side":"north","bounds":[7.885,-0.355,-2.07,7.955,-0.285,-1.93]},
     {"id":"ELECTRICAL_FEED_2_PORT","space":"B1_BOILER_APPROACH","side":"south","bounds":[7.885,-0.355,-1.07,7.955,-0.285,-0.93]},
-    {"id":"ELECTRICAL_FEED_3_PORT","space":"B1_BOILER_APPROACH","side":"north","bounds":[7.885,-0.355,0.13,7.955,-0.285,0.27]}
+    {"id":"ELECTRICAL_FEED_3_PORT","space":"B1_BOILER_APPROACH","side":"north","bounds":[7.885,-0.355,0.13,7.955,-0.285,0.27]},
+    {"id":"ROOF_PUBLIC_CORE_LIGHT_SUPPLY_WALL_PORT","space":"ROOF_PUBLIC_CORE","side":"east","bounds":[5.33,21.86,0.96,5.470000000000001,21.94,1.04]},
+    {"id":"ROOF_SERVICE_CORE_LIGHT_SUPPLY_WALL_PORT","space":"ROOF_SERVICE_CORE","side":"west","bounds":[9.43,21.86,0.96,9.57,21.94,1.04]}
   ],
   "masonry_service_openings": [
     {"id":"VENT_A_F05_B_BATH_VENT_REGISTER_1_MASONRY_EXTERIORMASONRY_CLEAR","bounds":[-7.35,15.39,4.625,-6.075,15.59,4.825],"owner":"ExteriorMasonry"},
