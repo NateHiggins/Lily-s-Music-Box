@@ -30,6 +30,14 @@ details. A clean mesh census alone does not certify photorealism. Godot must
 still confirm its final lighting, glass, collisions and composed appearance.
 Preserve source plans and all non-visual owners; never hand-edit generated glTF.
 
+Before the final combined capture, stage new texture and sidecar paths **by
+name**, then run **art/tools/fix_runtime_texture_imports.py --v2 --check --json**
+and **art/tools/fix_v2_mesh_imports.py --check**. The texture gate includes
+tracked shipping files as well as referenced maps; an unreferenced new duplicate
+is invisible to that inventory until it is staged. Correct those imports and
+re-import before qualifying the world, so the clean-checkout gate does not
+invalidate an otherwise finished capture batch.
+
 ## Plan only changed work
 
 ```powershell

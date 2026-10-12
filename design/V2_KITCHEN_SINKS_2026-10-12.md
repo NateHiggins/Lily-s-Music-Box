@@ -48,7 +48,11 @@ cover standard, compact, upper and rear-wing placements. Final surface run: **25
 covering all 18 authored kitchen sinks. The loaded inventory contains 23,519
 draws, 16,266 meshes, 5,831 materials and 445 textures, with zero unresolved
 surface findings. The first-slice save/reconstruction contract also passed all 113 checks.
-Clean candidate verification is pending before publication.
+Clean candidate verification is pending before publication. The first clean
+check exposed default import parameters on the unused duplicate faucet normal
+map. Its parameters now match the shared normal map, and fresh bound runtime
+qualification passes. The batch workflow now requires named staging and the
+all-tracked V2 import checks before final captures, including unused duplicates.
 The complete native-storage contract is included in the shared run, covering
 all 52 retained storage actors as well as the newly fitted variant. Its asset
 contains 42 partitions and 122,648 triangles; strict export validation passes.
@@ -61,8 +65,9 @@ their actual triangle faces, without broadening contact tolerance. Initial
 runs are retained as failed diagnostics, not acceptance evidence.
 
 Additive-material provenance verification retained all 205 previous runtime
-map files unchanged and refreshed four current bindings. The 804 older stale
-bindings remain stale; this report grants them no renewed acceptance.
+map files unchanged and refreshed four current bindings. The additive operation left 804 older
+stale bindings unchanged. Native storage was subsequently regenerated and
+verified separately; unrelated stale evidence gains no renewed acceptance.
 The unrelated unfinished apartment-route edit remains outside this batch.
 
 ## Remaining work
