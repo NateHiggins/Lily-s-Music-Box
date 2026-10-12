@@ -282679,6 +282679,1430 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "F04/room+v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "3a40f961710c5c0d",
+   "kind": "id_reference",
+   "token": "F01_A_BATH",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "823b10f32c4e2a8c",
+   "kind": "id_reference",
+   "token": "F01_A_BED",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "974bec40435bae12",
+   "kind": "id_reference",
+   "token": "F01_A_KITCHEN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "25e5988a42343864",
+   "kind": "id_reference",
+   "token": "F01_A_MAIN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e84cfaf9d292969b",
+   "kind": "id_reference",
+   "token": "F01_A_PRIVATE_HALL",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d8d81e4c2dbf2627",
+   "kind": "id_reference",
+   "token": "F01_A_STUDY",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "fc366f61f672e2e1",
+   "kind": "id_reference",
+   "token": "F01_A_VESTIBULE",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "09515dba79ed0e68",
+   "kind": "id_reference",
+   "token": "F01_D_BATH",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "2e8f2f9582fde2fa",
+   "kind": "id_reference",
+   "token": "F01_D_BED",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "40daf025992a7882",
+   "kind": "id_reference",
+   "token": "F01_D_KITCHEN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4b5ec9ea47be96af",
+   "kind": "id_reference",
+   "token": "F01_D_MAIN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F01/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d7e3fcbe57bd1c5d",
+   "kind": "id_reference",
+   "token": "F01_D_PRIVATE_HALL",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a251f5fa7908c132",
+   "kind": "id_reference",
+   "token": "F01_D_VESTIBULE",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8ee5cba4e9abee96",
+   "kind": "id_reference",
+   "token": "F01_STAFF_RESTROOM",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c0e085dddf5fe18f",
+   "kind": "id_reference",
+   "token": "F02_C_BATH",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f43f491ec9d6813a",
+   "kind": "id_reference",
+   "token": "F02_C_BED1",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4b28bf06568b6528",
+   "kind": "id_reference",
+   "token": "F02_C_BED2",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e295a226b4da9f4e",
+   "kind": "id_reference",
+   "token": "F02_C_KITCHEN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "63b1d7e33e2268d3",
+   "kind": "id_reference",
+   "token": "F02_C_MAIN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F02/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "f3df193af73dae70",
+   "kind": "id_reference",
+   "token": "F02_C_PRIVATE_HALL",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7db3812f20a38018",
+   "kind": "id_reference",
+   "token": "F02_C_STUDIO",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "d4c5ae691afa3a8b",
+   "kind": "id_reference",
+   "token": "F02_C_VESTIBULE",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "64324b7f4c2e6e8a",
+   "kind": "id_reference",
+   "token": "F03_D_BATH",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b823534ed13d4ec9",
+   "kind": "id_reference",
+   "token": "F03_D_BED",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "462e2536fd9b0f64",
+   "kind": "id_reference",
+   "token": "F03_D_KITCHEN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "1962057150083336",
+   "kind": "id_reference",
+   "token": "F03_D_MAIN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F03/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bca002589fa29294",
+   "kind": "id_reference",
+   "token": "F03_D_PRIVATE_HALL",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "814471891c90d89b",
+   "kind": "id_reference",
+   "token": "F03_D_STUDY",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "991b0b130cba5233",
+   "kind": "id_reference",
+   "token": "F03_D_VESTIBULE",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "26aef606e3f158bc",
+   "kind": "id_reference",
+   "token": "F04_C_BATH",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "92a6e8af8866e13d",
+   "kind": "id_reference",
+   "token": "F04_C_BED1",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "434ec88489ebd670",
+   "kind": "id_reference",
+   "token": "F04_C_BED2",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "af6a209b638787d5",
+   "kind": "id_reference",
+   "token": "F04_C_KITCHEN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "b2feb878f2b75b1a",
+   "kind": "id_reference",
+   "token": "F04_C_MAIN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "6b55c3c6fc508212",
+   "kind": "id_reference",
+   "token": "F04_C_PRIVATE_HALL",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "c99b5d4eb5d3e146",
+   "kind": "id_reference",
+   "token": "F04_C_STUDIO",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "692b8ffcc5b84c96",
+   "kind": "id_reference",
+   "token": "F04_C_VESTIBULE",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8a65c06c6ec36bdb",
+   "kind": "id_reference",
+   "token": "F04_D_BATH",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "60701c7c3e1d2776",
+   "kind": "id_reference",
+   "token": "F04_D_BED",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "57079272d2975389",
+   "kind": "id_reference",
+   "token": "F04_D_KITCHEN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "8ebbcf10c999135f",
+   "kind": "id_reference",
+   "token": "F04_D_MAIN",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "ROOM_MEMBERSHIP"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "F04/room+v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a2e12e496f5fe4d8",
+   "kind": "id_reference",
+   "token": "F04_D_PRIVATE_HALL",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "757230fc139d721b",
+   "kind": "id_reference",
+   "token": "F04_D_VESTIBULE",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    7
+   ],
+   "count": 1,
+   "context": [
+    "const ROOMS := [\"F02_C_VESTIBULE\", \"F02_C_MAIN\", \"F02_C_STUDIO\", \"F02_C_PRIVATE_HALL\", \"F02_C_BATH\", \"F02_C_KITCHEN\", \"F02_C_BED1\", \"F02_C_BED2\", \"F04_C_VESTIBU"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "95819c16a4162386",
+   "kind": "unit_reference",
+   "token": "1A",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1D\",\"1A\",\"3D\",\"4D\",\"2C\",\"4C\",\"staff\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "4042c525379f1776",
+   "kind": "unit_reference",
+   "token": "1D",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1D\",\"1A\",\"3D\",\"4D\",\"2C\",\"4C\",\"staff\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "6dd239c2431ada00",
+   "kind": "unit_reference",
+   "token": "2C",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1D\",\"1A\",\"3D\",\"4D\",\"2C\",\"4C\",\"staff\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "4200e40d8a32618c",
+   "kind": "unit_reference",
+   "token": "3D",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1D\",\"1A\",\"3D\",\"4D\",\"2C\",\"4C\",\"staff\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "6923c0179ba59050",
+   "kind": "unit_reference",
+   "token": "4C",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1D\",\"1A\",\"3D\",\"4D\",\"2C\",\"4C\",\"staff\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
+  },
+  {
+   "key": "e0b341504b47b172",
+   "kind": "unit_reference",
+   "token": "4D",
+   "file": "game/tests/orison_v2_completion_access_contract_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "<module>"
+   ],
+   "lines": [
+    6
+   ],
+   "count": 1,
+   "context": [
+    "const UNITS := [\"1D\",\"1A\",\"3D\",\"4D\",\"2C\",\"4C\",\"staff\"]"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "SEMANTIC_ANCHOR"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "unit",
+   "target_exists": true
   }
  ]
 }
