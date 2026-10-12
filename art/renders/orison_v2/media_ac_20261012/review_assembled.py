@@ -77,7 +77,7 @@ source_rows=read('game/data/orison_v2/domestic_radios.json')['receivers']+read('
 for identity in ['DomesticRadio_2A','DomesticRadio_1A','DomesticRadio_5B','2A_tv']:
 
     row=next(r for r in plan['installations'] if r['id']==identity)
-    
+
     source=next(r for r in source_rows if r['id']==identity)
     selected=projector_parts if row['family']=='projector' else radio_parts[row['family']]
     for obj in body+projector:

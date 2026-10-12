@@ -1,4 +1,4 @@
-# REPORT — V2-MEDIA-AC-SUPPLY — 2026-10-12
+# REPORT â€” V2-MEDIA-AC-SUPPLY â€” 2026-10-12
 
 Evidence class: **INERT**. Section 7 implementation report. No whole-world,
 spatial, gameplay-authority or human acceptance promotion follows.
@@ -53,6 +53,13 @@ Battery/aerial receiver connections, individual wear details and broader V2
 completion remain open. This report does not certify full photorealism or
 whole-building play acceptance. The original seven authority/save/reconstruction contracts pass: **first_slice1**
 completed in **130.37 seconds**, 113 checks, zero failures and zero
-script errors. Candidate verification remains pending below.
+script errors. Fresh clean candidate **8b81b3c0** passes against **c4afae3f** with zero
+regressions and zero blocking findings. All 17 protected paths remain unchanged;
+selector V2 and ledger statuses are unchanged. The comparison reuses the bound
+canonical Godot receipts with **--no-godot**, and runs every static gate/tools test.
+No waiver or synthetic baseline was used. The fourteen new spatial references
+were reviewed as actual existing-support and generated-root consumers.
 
 Packet: **art/renders/orison_v2/media_ac_20261012**.
+
+MERGE-CANDIDATE 8b81b3c0ea9f9d7043ad0c32786ce775d3872587
