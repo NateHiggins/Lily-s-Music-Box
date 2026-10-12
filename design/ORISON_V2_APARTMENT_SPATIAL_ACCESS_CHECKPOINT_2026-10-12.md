@@ -69,7 +69,18 @@ this proof until reverified. The channel grants spatial proof only.
 Eight mutation tests cover stale helpers, omitted dependencies, changed runtime
 or geometry, failed/short walks, invented room claims, retained roots and malformed
 receipts, including actual ledger admission and expiry. The existing 108 ledger
-tests also pass. Clean candidate comparison is pending before publication.
+tests also pass. Clean candidate **6faf490e** passes against the recorded
+**4be49f1d** baseline with zero regressions, all 17 protected paths unchanged,
+selector V2 and zero document lint errors. No exemptions were used. The
+comparison ran in the clean temporary checkout with **--no-godot**; the bound
+runtime receipts above provide the separate execution proof. The four changed
+gate files were reviewed: they add validated spatial intake and dependency
+records, test rejection of stale or invented claims, and isolate the historical
+acceptance fixture from the new checkpoint. No runtime or human acceptance
+threshold is relaxed. Fifteen requirement statuses improve, reducing structural
+blockers from 115 to 103 and production-cutover blockers from 132 to 120.
+The comparison is retained in the packet as **verification.json** and
+**verification.md**.
 
 ## Remaining scope
 
