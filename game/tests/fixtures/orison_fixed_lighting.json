@@ -11204,13 +11204,21 @@
       {
         "id": "B1_BOILER_ROOM_LT_B",
         "variant": "cage_bulb_rise160"
+      },
+      {
+        "id": "ROOF_PUBLIC_PLANT_LT",
+        "variant": "cage_bulb_rise300"
+      },
+      {
+        "id": "ROOF_SERVICE_PLANT_LT",
+        "variant": "cage_bulb_rise300"
       }
     ],
     "tint_space": "linear"
   },
   "asset_sha256": "1a1e3b472f82a7b0d9c356be7b0b26fc8851bfe1d99dc25a787e3778c046d170",
   "source_bindings": {
-    "art/data/fixed_lighting/source_plan.json": "f8ed45d9bb351898fc772f8099fcf16ff17e8b75eda8508ec2e2ed79a52ecc9f",
+    "art/data/fixed_lighting/source_plan.json": "8d3b544b1f2d6c1df58e9d3b87cdc6cb7d56e3ce76a0e908b80ba05d61220854",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_fixed_lighting.py": "f0693aa28e5633093a93b0a5fbb4149cc0c8edef1f23649afd8ccc183f59ff6f",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",

@@ -951,6 +951,54 @@
         ],
         "yaw": 0,
         "kind": "fixture"
+      },
+      {
+        "id": "ROOF_PUBLIC_PLANT_LT",
+        "level": "ROOF",
+        "space": "ROOF_PUBLIC_CORE",
+        "position": [
+          0.2,
+          2.7,
+          -0.4
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "ROOF_SERVICE_PLANT_LT",
+        "level": "ROOF",
+        "space": "ROOF_SERVICE_CORE",
+        "position": [
+          11.9,
+          2.7,
+          2.3
+        ],
+        "yaw": 0,
+        "kind": "fixture"
+      },
+      {
+        "id": "ROOF_PUBLIC_PLANT_SWITCH",
+        "level": "ROOF",
+        "space": "ROOF_PUBLIC_CORE",
+        "position": [
+          -2.01,
+          1.2,
+          0.8
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "interaction"
+      },
+      {
+        "id": "ROOF_SERVICE_PLANT_SWITCH",
+        "level": "ROOF",
+        "space": "ROOF_SERVICE_CORE",
+        "position": [
+          9.685,
+          1.2,
+          4.0
+        ],
+        "yaw": 1.5707963267948966,
+        "kind": "interaction"
       }
     ],
     "route_edges": [

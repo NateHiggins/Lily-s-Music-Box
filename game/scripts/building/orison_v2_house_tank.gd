@@ -14,6 +14,8 @@ static func mount(root: Node3D) -> void:
 	model.name="FittedHouseTank"
 	model.position=Vector3(body.position.x,floor_y,body.position.z)
 	root.add_child(model)
+	var iron := preload("res://scripts/building/orison_v2_roof_plant_materials.gd").iron()
+	var hardware := preload("res://scripts/building/orison_v2_roof_plant_materials.gd").hardware()
 	for part: MeshInstance3D in model.find_children("*","MeshInstance3D",true,false):
-		part.material_override=body.get_active_material(0) if str(part.name)=="Timber" else column.get_active_material(0) if str(part.name)=="Iron" else MatLib.get_mat("metal")
+		part.material_override=body.get_active_material(0) if str(part.name)=="Timber" else iron if str(part.name)=="Iron" else hardware
 	for fixture: MeshInstance3D in fixtures: fixture.hide()

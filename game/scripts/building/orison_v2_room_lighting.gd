@@ -1,5 +1,6 @@
 extends RefCounted
 const PATH := "res://data/orison_v2/room_lighting.json"
+const ROOF_PATH := "res://data/orison_v2/roof_plant_lighting.json"
 const Plate := preload("res://scripts/building/switch_plate.gd")
 const NativeLamp := preload("res://scripts/props/native_task_lamp.gd")
 var errors: Array[String] = []
@@ -12,6 +13,10 @@ func mount_completion(adapter: Variant, parent: Node3D) -> bool:
 	var source: Variant = JSON.parse_string(FileAccess.get_file_as_string("res://data/orison_v2/completion_interiors.json"))
 	if source is not Dictionary or source.get("lighting") is not Dictionary: return false
 	return mount_source(adapter, parent, source.lighting)
+
+func mount_roof(adapter: Variant,parent: Node3D) -> bool:
+	var source: Variant=JSON.parse_string(FileAccess.get_file_as_string(ROOF_PATH))
+	return mount_source(adapter,parent,source)
 
 func mount_source(adapter: Variant, parent: Node3D, source: Variant) -> bool:
 	if not validate(source, adapter):

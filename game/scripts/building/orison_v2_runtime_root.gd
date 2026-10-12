@@ -327,6 +327,10 @@ func _compose_authorities() -> void:
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: room lighting refused: %s" % [lighting.errors])
 		return
+	if not lighting.mount_roof(adapter,self):
+		startup_failed=true
+		push_error("ORISON V2 RUNTIME: roof plant lighting refused: %s" % [lighting.errors])
+		return
 	if not preload("res://scripts/building/orison_v2_reading_nook.gd").mount(adapter):
 		startup_failed = true
 		push_error("ORISON V2 RUNTIME: original reading nook refused")

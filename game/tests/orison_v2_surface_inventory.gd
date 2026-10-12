@@ -36,6 +36,11 @@ func _run() -> void:
 		get_tree().quit(1)
 		return
 	world.player.set_physics_process(false)
+	var fixed_review := preload("res://tests/orison_v2_fixed_lighting_test.gd").new()
+	fixed_review.capture_enabled=false; add_child(fixed_review)
+	var fixed_result: Dictionary=await fixed_review.validate_in_world(world)
+	batch_checks+=int(fixed_result.checks)
+	for failure: String in fixed_result.failures:failures.append(failure)
 	var patrol := preload("res://tests/orison_v2_patrol_stations_test.gd").new()
 	patrol.set_meta("shared_world_validation",true);add_child(patrol)
 	await patrol.validate_in_world(world)
@@ -214,6 +219,7 @@ func _run() -> void:
 	var owner_ref: WeakRef = weakref(world)
 	world.shutdown_for_tests()
 	world.free()
+	fixed_review.free()
 	for frame in 3: await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	for row: Dictionary in shared_uv_defaults:

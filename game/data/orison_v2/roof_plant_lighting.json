@@ -1,0 +1,32 @@
+{
+  "fixtures": [
+    {
+      "id": "ROOF_PUBLIC_PLANT_LT",
+      "room": "ROOF_PUBLIC_CORE",
+      "kind": "cage_bulb",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 2.0
+      }
+    },
+    {
+      "id": "ROOF_SERVICE_PLANT_LT",
+      "room": "ROOF_SERVICE_CORE",
+      "kind": "cage_bulb",
+      "properties": {
+        "range_clamp": 6.5,
+        "energy_scale": 2.0
+      }
+    }
+  ],
+  "switches": [
+    {
+      "id": "ROOF_PUBLIC_PLANT_SWITCH",
+      "room": "ROOF_PUBLIC_CORE"
+    },
+    {
+      "id": "ROOF_SERVICE_PLANT_SWITCH",
+      "room": "ROOF_SERVICE_CORE"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 extends Node3D
 ## Presentation of the existing lift. No independent travel or fault authority.
 const Model := preload("res://assets/building/v2_lift_drive.glb")
+var plant_finishes: Dictionary = {}
 const SHEAVE_RADIUS := .315
 var lift: OrisonElevator
 var sheave: Node3D
@@ -120,10 +121,15 @@ func _clear_scene_owner(node: Node) -> void:
 	for child: Node in node.get_children(): _clear_scene_owner(child)
 
 func _apply_materials(node: Node) -> void:
+	if plant_finishes.is_empty():
+		plant_finishes={"cast_iron":preload("res://scripts/building/orison_v2_roof_plant_materials.gd").iron(),
+			"metal":preload("res://scripts/building/orison_v2_roof_plant_materials.gd").hardware()}
 	if node is MeshInstance3D:
 		var visual := node as MeshInstance3D
 		for index in visual.mesh.get_surface_count():
 			var material := visual.mesh.surface_get_material(index)
 			if material != null and MatLib.SETS.has(material.resource_name):
-				visual.set_surface_override_material(index,MatLib.get_mat(material.resource_name))
+				var stock: Material = MatLib.get_mat(material.resource_name)
+				if plant_finishes.has(material.resource_name):stock=plant_finishes[material.resource_name]
+				visual.set_surface_override_material(index,stock)
 	for child: Node in node.get_children(): _apply_materials(child)

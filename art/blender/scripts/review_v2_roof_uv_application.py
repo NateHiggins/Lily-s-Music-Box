@@ -34,10 +34,12 @@ for index, source in enumerate(sources):
         for slot in obj.material_slots:
             name = slot.material.name.split(".")[0]
             key = "tank_staves" if index == 0 and name == "timber" else name
+            if key=="cast_iron": key="iron_blackened"
+            elif key=="metal": key="iron_neutral"
             assert key in catalog, (source, key)
             if key not in mapped:
                 mapped[key] = material(ROOT, key, dict(catalog_key=key, tint=[1,1,1,1],
-                    pigment=1, normal=.12, roughness=catalog[key]["roughness_multiplier"]), catalog)
+                    pigment=1, normal=.08, roughness=catalog[key]["roughness_multiplier"]), catalog)
             slot.material = mapped[key]
     # Roof-drive ropes extend down the shaft. Framing is the service apparatus;
     # the native asset and shaft geometry remain untouched.

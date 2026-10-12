@@ -35,6 +35,7 @@ Knowing which kind you are reading tells you how much to trust it.
 
 | If you want to knowâ€¦ | Read |
 |---|---|
+| Roof plant metal calibration and two native switched cage fixtures | `design/V2_ROOF_PLANT_FINISH_LIGHTING_2026-10-12.md` |
 | Actual V2 UV sampling, metre architectural charts and scoped roof access | `design/V2_UV_APPLICATION_2026-10-12.md` and `design/ORISON_V2_ROOF_ACCESS_CHECKPOINT_2026-10-12.md` |
 | Native basement resident cages, retained stock fit and all-eighteen access | `design/V2_BASEMENT_STORAGE_2026-10-11.md` and `design/ORISON_V2_BASEMENT_STORAGE_CHECKPOINT_2026-10-11.md` |
 | First-slice runtime contracts, actual save/reconstruction and remaining V2 blockers | `design/V2_FIRST_SLICE_CONTRACTS_2026-10-11.md` and `design/ORISON_V2_FIRST_SLICE_RUNTIME_COMPOSITION_CHECKPOINT_2026-10-11.md` |

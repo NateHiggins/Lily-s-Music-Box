@@ -280720,6 +280720,423 @@
    "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
    "resolved_target": "v2_blockout",
    "target_exists": true
+  },
+  {
+   "key": "fc0432da2c4703e8",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_PLANT_LT",
+   "file": "game/data/orison_v2/fixed_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "50172141d7dfefc8",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_PLANT_LT",
+   "file": "game/data/orison_v2/fixed_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/instances[*]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "25a81d3700e95c4e",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_CORE",
+   "file": "game/data/orison_v2/roof_plant_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[0]/room",
+    "/switches[0]/room"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ca4ef07d4b99584e",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_PLANT_LT",
+   "file": "game/data/orison_v2/roof_plant_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "e76562f4b96be133",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_PLANT_SWITCH",
+   "file": "game/data/orison_v2/roof_plant_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/switches[0]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "06ff625e9b771aad",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_CORE",
+   "file": "game/data/orison_v2/roof_plant_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[1]/room",
+    "/switches[1]/room"
+   ],
+   "lines": [
+    0,
+    0
+   ],
+   "count": 2,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "9809eb1582ab94ac",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_PLANT_LT",
+   "file": "game/data/orison_v2/roof_plant_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/fixtures[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "4caa31e4167499cd",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_PLANT_SWITCH",
+   "file": "game/data/orison_v2/roof_plant_lighting.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/switches[1]/id"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ed16c3e84deb1114",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_DOOR",
+   "file": "game/tests/orison_v2_roof_plant_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_open_door"
+   ],
+   "lines": [
+    14
+   ],
+   "count": 1,
+   "context": [
+    "if identity==\"ROOF_PUBLIC_DOOR\" and not public_checked:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "a5a9176b6433f7f9",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_PLANT_LT",
+   "file": "game/tests/orison_v2_roof_plant_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_open_door",
+    "_close_door"
+   ],
+   "lines": [
+    16,
+    25
+   ],
+   "count": 2,
+   "context": [
+    "if not await _switch_lamp(\"ROOF_PUBLIC_PLANT_SWITCH\",\"ROOF_PUBLIC_PLANT_LT\",\"ROOF_SERVICE_PLANT_LT\",\"public\"):return false",
+    "if not await _switch_lamp(\"ROOF_SERVICE_PLANT_SWITCH\",\"ROOF_SERVICE_PLANT_LT\",\"ROOF_PUBLIC_PLANT_LT\",\"service\"):return false"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "76ad7b70c4f76e4a",
+   "kind": "id_reference",
+   "token": "ROOF_PUBLIC_PLANT_SWITCH",
+   "file": "game/tests/orison_v2_roof_plant_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_open_door"
+   ],
+   "lines": [
+    16
+   ],
+   "count": 1,
+   "context": [
+    "if not await _switch_lamp(\"ROOF_PUBLIC_PLANT_SWITCH\",\"ROOF_PUBLIC_PLANT_LT\",\"ROOF_SERVICE_PLANT_LT\",\"public\"):return false"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "630e885f206e0351",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_DOOR",
+   "file": "game/tests/orison_v2_roof_plant_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_close_door"
+   ],
+   "lines": [
+    22
+   ],
+   "count": 1,
+   "context": [
+    "if identity==\"ROOF_SERVICE_DOOR\" and not service_checked:"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "7a7521c657d6566e",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_PLANT_LT",
+   "file": "game/tests/orison_v2_roof_plant_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_open_door",
+    "_close_door"
+   ],
+   "lines": [
+    16,
+    25
+   ],
+   "count": 2,
+   "context": [
+    "if not await _switch_lamp(\"ROOF_PUBLIC_PLANT_SWITCH\",\"ROOF_PUBLIC_PLANT_LT\",\"ROOF_SERVICE_PLANT_LT\",\"public\"):return false",
+    "if not await _switch_lamp(\"ROOF_SERVICE_PLANT_SWITCH\",\"ROOF_SERVICE_PLANT_LT\",\"ROOF_PUBLIC_PLANT_LT\",\"service\"):return false"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "65265c976d4f4886",
+   "kind": "id_reference",
+   "token": "ROOF_SERVICE_PLANT_SWITCH",
+   "file": "game/tests/orison_v2_roof_plant_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_close_door"
+   ],
+   "lines": [
+    25
+   ],
+   "count": 1,
+   "context": [
+    "if not await _switch_lamp(\"ROOF_SERVICE_PLANT_SWITCH\",\"ROOF_SERVICE_PLANT_LT\",\"ROOF_PUBLIC_PLANT_LT\",\"service\"):return false"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "bf3a1e46489fa7e6",
+   "kind": "vector3_coordinate",
+   "token": "_open_door",
+   "file": "game/tests/orison_v2_roof_plant_test.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "_open_door"
+   ],
+   "lines": [
+    17
+   ],
+   "count": 1,
+   "context": [
+    "if not await _walk(Vector3(-1.35,19.2,0)):return false"
+   ],
+   "gameplay_binding": true,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [
+    "CAMERA_STATION",
+    "RAW_GODOT_COORDINATE"
+   ],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test/capture Godot-space coordinate.",
+   "resolved_target": null,
+   "target_exists": null
   }
  ]
 }

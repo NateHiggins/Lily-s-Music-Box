@@ -1825,3 +1825,11 @@ game/tests/v2_uv_application_test.gd -text
 game/tests/V2UVApplicationTest.tscn -text
 art/blender/scripts/review_v2_roof_uv_application.py -text
 art/renders/orison_v2/uv_application_20261012/** -text
+
+# Roof plant finish and task fixtures.
+game/scripts/building/orison_v2_roof_plant_materials.gd -text
+game/data/orison_v2/roof_plant_lighting.json -text
+game/tests/orison_v2_roof_plant_test.gd -text
+game/tests/OrisonV2RoofPlantTest.tscn -text
+tools/prepare_v2_roof_plant_lighting.py -text
+art/renders/orison_v2/roof_plant_20261012/** -text
