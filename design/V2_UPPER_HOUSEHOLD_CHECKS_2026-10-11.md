@@ -37,7 +37,14 @@ candidates, without moving any production actor or marker.
 
 Final kitchen run: **1,841 checks / zero failures / zero script errors**,
 121 seconds, both reconstruction cycles. Both successful wrapper receipts
-bind the exact current root-test bytes. Fresh candidate verification pending.
+bind the exact current root-test bytes. Fresh candidate **3c356b41** verification completed in a clean short-path
+checkout: **zero regressions**, 17 protected paths unchanged, selector V2,
+zero lint errors and zero blocking reasons. The baseline also predates the
+previous electrical/fire service metadata: those two PROGRAMMED improvements
+and the spatial-manifest change are intervening work, not upper-suite edits.
+The scoped candidate diff was reviewed. Verification uses **--no-godot** to
+reuse the two completed, hash-bound canonical runs and unchanged asset reviews.
+Full gate boards and **verification.json** are archived with the packet.
 The completed furniture run has **1,867 checks / zero failures / zero script
 errors**, including both full-world reconstruction cycles. The revised-material
 kitchen run with the old wider capsule has **1,841 checks / six failures / zero
