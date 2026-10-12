@@ -36,7 +36,11 @@ charts, full PBR maps, active normals, complete loaded mips and filtering. Two
 regression tests reject unused/unobserved charts and projected shader modes.
 The standing RUL-012 surface document now states this actual sampling requirement.
 One new roof capture reference is registered as TEST_CONTRACT / UPDATE_TEST_FIXTURE;
-all other spatial manifest records and scanner rules remain.
+all other spatial manifest records and scanner rules remain. Two live completeness
+smoke assertions now require the roof checkpoint's exact spatial status and
+provenance, while retaining tank/machinery and whole-building blockers. The
+initial clean verifier rejected their old assumption that the roof must stay
+PROGRAMMED; no ledger-ranking or evidence-admission rule is changed.
 
 ## Observed verification
 

@@ -1280,7 +1280,7 @@ class LiveRepoSmokeTests(unittest.TestCase):
             self.payload["blockers_by_scope"]["FIRST_SLICE_TECHNICAL"])
         self.assertTrue(first_slice <= production)
         self.assertGreater(len(production), 80)
-        for gap in ("floor.F05", "floor.F06", "floor.ROOF", "unit.3B",
+        for gap in ("floor.F05", "floor.F06", "roof.tank_machinery", "unit.3B",
                     "acoustic.v2_rederivation",
                     "human.whole_building_navigation"):
             self.assertIn(gap, production, gap)
@@ -1298,11 +1298,16 @@ class LiveRepoSmokeTests(unittest.TestCase):
                                 audit.RANK["PROGRAMMED"])
         # Authored upper-floor geometry is now present, but neither
         # an ID nor its source geometry supplies runtime/cutover proof.
-        for rid in ("floor.F05", "floor.F06", "floor.ROOF"):
+        for rid in ("floor.F05", "floor.F06"):
             floors = req(self.payload, rid)
             self.assertEqual(floors["status"], "PROGRAMMED")
             self.assertIn(rid, self.payload["blockers_by_scope"]["PRODUCTION_CUTOVER"])
-        self.assertEqual(req(self.payload, "roof.roof_bulkhead")["status"], "PROGRAMMED")
+        # The current played circuit supplies spatial roof access proof only.
+        for rid in ("floor.ROOF", "roof.roof_bulkhead"):
+            self.assertEqual(req(self.payload, rid)["status"], "SPATIALLY_PROVEN")
+            self.assertNotIn(rid, self.payload["blockers_by_scope"]["PRODUCTION_CUTOVER"])
+        self.assertTrue(any("ROOF_ACCESS_CHECKPOINT_2026-10-12" in p
+                            for p in req(self.payload, "roof.roof_bulkhead")["provenance"]))
         self.assertEqual(req(self.payload, "roof.tank_machinery")["status"], "ABSENT")
 
     def test_live_route_acceptance_is_scoped(self):
