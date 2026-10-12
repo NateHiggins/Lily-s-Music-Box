@@ -30,7 +30,11 @@ The preceding failed wall-approach receipt is retained as a diagnostic.
 These wrapper receipts and route traces are not schema-2 runtime contracts
 and do not promote apartment completeness. Existing bound surface evidence
 still passes with zero defects; no rendering input changed. The reader gate
-reports zero new unread fields. Clean candidate comparison is pending.
+reports zero new unread fields. Clean candidate **25840bed** passes the recorded **09d0d75d** baseline
+with zero regressions, all 17 protected paths unchanged, selector V2, and
+zero lint errors. No exemptions were used. The clean temporary checkout
+comparison used **--no-godot**; the canonical played route above supplies
+the separate runtime result.
 
 ## Remaining work
 
