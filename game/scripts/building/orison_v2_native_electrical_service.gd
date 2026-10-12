@@ -72,6 +72,10 @@ func _draw(key: String,parent: Node3D,at: Vector3,basis: Basis = WALL_BASIS) -> 
 
 func _segment(low: float,high: float) -> void:
 	if high <= low: errors.append("electrical span reversed"); return
+	if data.has("feed_tee_y"):
+		var y := float(data.feed_tee_y)
+		if y > low+.055 and y < high-.055:
+			_segment(low,y-.055); _segment(y+.055,high); return
 	var draw := _draw("ConduitUnit",_root,Vector3(data.axis[0],(low+high)*.5,data.axis[1]))
 	draw.mesh = _scale_stock._length_mesh(meshes.ConduitUnit,high-low)
 	var body := StaticBody3D.new(); draw.add_child(body)

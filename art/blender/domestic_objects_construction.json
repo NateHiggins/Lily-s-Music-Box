@@ -8951,43 +8951,121 @@
       "name": "DomesticObject46_Riser",
       "assembly": "DomesticObject46",
       "key": "metal",
-      "volume_m3": 0.000517259664181148
-    },
-    {
-      "name": "DomesticObject46_RiserFlange",
-      "assembly": "DomesticObject46",
-      "key": "metal",
-      "volume_m3": 6.547193836946728e-05
-    },
-    {
-      "name": "DomesticObject46_RiserSaddle0.2",
-      "assembly": "DomesticObject46",
-      "key": "metal",
-      "volume_m3": 0.00010746278631780577
-    },
-    {
-      "name": "DomesticObject46_RiserSaddle0.53",
-      "assembly": "DomesticObject46",
-      "key": "metal",
-      "volume_m3": 0.00010746272402073053
+      "volume_m3": 0.00020147855456802816
     },
     {
       "name": "DomesticObject46_Trunk",
       "assembly": "DomesticObject46",
       "key": "metal",
-      "volume_m3": 0.0011427830701585848
+      "volume_m3": 0.0003045968825528526
     },
     {
-      "name": "DomesticObject46_TrunkJunction",
+      "name": "DomesticObject46_SpareStub",
       "assembly": "DomesticObject46",
       "key": "metal",
-      "volume_m3": 0.0019584950322760874
+      "volume_m3": 9.679784044021163e-05
     },
     {
-      "name": "DomesticObject46_TrunkSaddle1.7",
+      "name": "DomesticObject46_RiserFlange",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 5.9945750047275065e-05
+    },
+    {
+      "name": "DomesticObject46_LowerCabinetBush",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 1.0838440456858449e-05
+    },
+    {
+      "name": "DomesticObject46_UpperCabinetBush",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 1.083845650694111e-05
+    },
+    {
+      "name": "DomesticObject46_Saddle0.2",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 0.00010746278631780577
+    },
+    {
+      "name": "DomesticObject46_Saddle0.53",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 0.00010746272402073053
+    },
+    {
+      "name": "DomesticObject46_Saddle1.7",
       "assembly": "DomesticObject46",
       "key": "metal",
       "volume_m3": 0.00010746299922302378
+    },
+    {
+      "name": "DomesticObject46_JunctionBack",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 0.00015672834824404208
+    },
+    {
+      "name": "DomesticObject46_JunctionLeft",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 9.118638444613095e-05
+    },
+    {
+      "name": "DomesticObject46_JunctionRight",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 0.00010410007617579677
+    },
+    {
+      "name": "DomesticObject46_JunctionBottom",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 8.554296100177677e-05
+    },
+    {
+      "name": "DomesticObject46_JunctionTop",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 8.554298729021128e-05
+    },
+    {
+      "name": "DomesticObject46_JunctionCover",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 9.241096564533227e-05
+    },
+    {
+      "name": "DomesticObject46_JunctionScrew(-0.052, 2.5479999999999996)",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 8.385638119380527e-08
+    },
+    {
+      "name": "DomesticObject46_JunctionScrew(-0.052, 2.6519999999999997)",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 8.385577230647072e-08
+    },
+    {
+      "name": "DomesticObject46_JunctionScrew(0.052, 2.5479999999999996)",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 8.385638119380732e-08
+    },
+    {
+      "name": "DomesticObject46_JunctionScrew(0.052, 2.6519999999999997)",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 8.385577230647588e-08
+    },
+    {
+      "name": "DomesticObject46_SpareCap",
+      "assembly": "DomesticObject46",
+      "key": "metal",
+      "volume_m3": 6.785320928631601e-06
     },
     {
       "name": "DomesticObject47_Rag",
@@ -17002,25 +17080,25 @@
     {
       "name": "DomesticObject137_HeatBandNear",
       "assembly": "DomesticObject137",
-      "key": "paint_ochre",
+      "key": "riser_ochre",
       "volume_m3": 7.954078025082409e-05
     },
     {
       "name": "DomesticObject137_HeatBandFar",
       "assembly": "DomesticObject137",
-      "key": "paint_ochre",
+      "key": "riser_ochre",
       "volume_m3": 7.954072092582778e-05
     },
     {
       "name": "DomesticObject137_HeatBandWest",
       "assembly": "DomesticObject137",
-      "key": "paint_ochre",
+      "key": "riser_ochre",
       "volume_m3": 7.866698581786378e-05
     },
     {
       "name": "DomesticObject137_HeatBandEast",
       "assembly": "DomesticObject137",
-      "key": "paint_ochre",
+      "key": "riser_ochre",
       "volume_m3": 7.866698581786372e-05
     },
     {
@@ -17044,25 +17122,25 @@
     {
       "name": "DomesticObject137_TelephoneBandNear",
       "assembly": "DomesticObject137",
-      "key": "paint_green",
+      "key": "riser_green",
       "volume_m3": 5.331475720843457e-05
     },
     {
       "name": "DomesticObject137_TelephoneBandFar",
       "assembly": "DomesticObject137",
-      "key": "paint_green",
+      "key": "riser_green",
       "volume_m3": 5.331471743996724e-05
     },
     {
       "name": "DomesticObject137_TelephoneBandWest",
       "assembly": "DomesticObject137",
-      "key": "paint_green",
+      "key": "riser_green",
       "volume_m3": 7.866651643331492e-05
     },
     {
       "name": "DomesticObject137_TelephoneBandEast",
       "assembly": "DomesticObject137",
-      "key": "paint_green",
+      "key": "riser_green",
       "volume_m3": 7.866651643331492e-05
     },
     {
@@ -17084,46 +17162,28 @@
       "volume_m3": 2.248603002871728e-06
     },
     {
-      "name": "DomesticObject137_ElectricBandNear",
+      "name": "DomesticObject137_ElectricPaint",
       "assembly": "DomesticObject137",
-      "key": "paint_sky",
-      "volume_m3": 5.3314717439967323e-05
-    },
-    {
-      "name": "DomesticObject137_ElectricBandFar",
-      "assembly": "DomesticObject137",
-      "key": "paint_sky",
-      "volume_m3": 5.3314717439967323e-05
-    },
-    {
-      "name": "DomesticObject137_ElectricBandWest",
-      "assembly": "DomesticObject137",
-      "key": "paint_sky",
-      "volume_m3": 5.244082934598686e-05
-    },
-    {
-      "name": "DomesticObject137_ElectricBandEast",
-      "assembly": "DomesticObject137",
-      "key": "paint_sky",
-      "volume_m3": 5.244051642373825e-05
+      "key": "riser_sky",
+      "volume_m3": 2.9793314798609115e-06
     },
     {
       "name": "DomesticObject137_ElectricEye",
       "assembly": "DomesticObject137",
       "key": "brass",
-      "volume_m3": 2.8193037127990384e-07
+      "volume_m3": 2.819299511711348e-07
     },
     {
       "name": "DomesticObject137_ElectricTagWire",
       "assembly": "DomesticObject137",
       "key": "brass",
-      "volume_m3": 8.608341455301752e-08
+      "volume_m3": 8.608289151914151e-08
     },
     {
       "name": "DomesticObject137_ElectricTag",
       "assembly": "DomesticObject137",
       "key": "kraft",
-      "volume_m3": 2.248569547264284e-06
+      "volume_m3": 2.248435437028336e-06
     },
     {
       "name": "DomesticObject137_CockFlange",
@@ -20134,7 +20194,7 @@
         0,
         -1
       ],
-      "label": "saddle screwed to the wall"
+      "label": "saddle screwed to original wall face"
     },
     {
       "assembly": "DomesticObject46",
@@ -20149,22 +20209,7 @@
         0,
         -1
       ],
-      "label": "saddle screwed to the wall"
-    },
-    {
-      "assembly": "DomesticObject46",
-      "owner": "wall",
-      "point": [
-        0,
-        2.6,
-        0.02
-      ],
-      "direction": [
-        0,
-        0,
-        -1
-      ],
-      "label": "junction box screwed to the wall"
+      "label": "saddle screwed to original wall face"
     },
     {
       "assembly": "DomesticObject46",
@@ -20179,7 +20224,22 @@
         0,
         -1
       ],
-      "label": "saddle screwed to the wall"
+      "label": "saddle screwed to original wall face"
+    },
+    {
+      "assembly": "DomesticObject46",
+      "owner": "wall",
+      "point": [
+        0,
+        2.5999999999999996,
+        0.02
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "fixed junction seated on the original wall"
     },
     {
       "assembly": "DomesticObject47",
@@ -25960,52 +26020,7 @@
       "assembly": "DomesticObject137",
       "owner": "wall",
       "point": [
-        -0.07500000000000001,
-        1.585,
-        0.57
-      ],
-      "direction": [
-        0,
-        0,
-        -1
-      ],
-      "label": "band painted on the riser face"
-    },
-    {
-      "assembly": "DomesticObject137",
-      "owner": "wall",
-      "point": [
-        -0.07500000000000001,
-        1.585,
-        0.87
-      ],
-      "direction": [
-        0,
-        0,
-        1
-      ],
-      "label": "band painted on the riser face"
-    },
-    {
-      "assembly": "DomesticObject137",
-      "owner": "wall",
-      "point": [
-        -0.225,
-        1.585,
-        0.72
-      ],
-      "direction": [
-        -1,
-        0,
-        0
-      ],
-      "label": "band painted on the riser face"
-    },
-    {
-      "assembly": "DomesticObject137",
-      "owner": "wall",
-      "point": [
-        0.075,
+        0.7374999999999999,
         1.585,
         0.72
       ],
@@ -26014,13 +26029,58 @@
         0,
         0
       ],
-      "label": "band painted on the riser face"
+      "label": "band painted on the actual electrical conduit"
     },
     {
       "assembly": "DomesticObject137",
       "owner": "wall",
       "point": [
-        -0.225,
+        0.6925,
+        1.585,
+        0.72
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "label": "band painted on the actual electrical conduit"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.715,
+        1.585,
+        0.6975
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "label": "band painted on the actual electrical conduit"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.715,
+        1.585,
+        0.7424999999999999
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "label": "band painted on the actual electrical conduit"
+    },
+    {
+      "assembly": "DomesticObject137",
+      "owner": "wall",
+      "point": [
+        0.6925,
         1.5475,
         0.72
       ],
@@ -26029,7 +26089,7 @@
         0,
         0
       ],
-      "label": "screw eye in the riser face"
+      "label": "screw eye in the actual electrical conduit"
     },
     {
       "assembly": "DomesticObject137",
@@ -27385,7 +27445,7 @@
       "assembly": "DomesticObject46",
       "cell": "shared",
       "key": "metal",
-      "triangles": 1416
+      "triangles": 7464
     },
     {
       "name": "DomesticObject47__Body_ON_brass",
@@ -30363,25 +30423,25 @@
       "triangles": 564
     },
     {
-      "name": "DomesticObject137__Body_ON_paint_green",
+      "name": "DomesticObject137__Body_ON_riser_green",
       "assembly": "DomesticObject137",
       "cell": "shared",
-      "key": "paint_green",
+      "key": "riser_green",
       "triangles": 752
     },
     {
-      "name": "DomesticObject137__Body_ON_paint_ochre",
+      "name": "DomesticObject137__Body_ON_riser_ochre",
       "assembly": "DomesticObject137",
       "cell": "shared",
-      "key": "paint_ochre",
+      "key": "riser_ochre",
       "triangles": 752
     },
     {
-      "name": "DomesticObject137__Body_ON_paint_sky",
+      "name": "DomesticObject137__Body_ON_riser_sky",
       "assembly": "DomesticObject137",
       "cell": "shared",
-      "key": "paint_sky",
-      "triangles": 752
+      "key": "riser_sky",
+      "triangles": 768
     },
     {
       "name": "DomesticObject138__Body_ON_brass",
@@ -30405,7 +30465,7 @@
       "triangles": 8852
     }
   ],
-  "triangles": 602456,
+  "triangles": 608520,
   "precision_chart_fallbacks": 0,
   "runtime": {
     "schema_version": 1,
@@ -40072,11 +40132,11 @@
             }
           },
           {
-            "name": "DomesticObject137__Body_ON_paint_green",
+            "name": "DomesticObject137__Body_ON_riser_green",
             "component": "Body",
-            "key": "paint_green",
-            "tile": 0.6,
-            "catalog_key": "linen",
+            "key": "riser_green",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
             "tint": [
               0.2,
               0.3,
@@ -40089,11 +40149,11 @@
             }
           },
           {
-            "name": "DomesticObject137__Body_ON_paint_ochre",
+            "name": "DomesticObject137__Body_ON_riser_ochre",
             "component": "Body",
-            "key": "paint_ochre",
-            "tile": 0.6,
-            "catalog_key": "linen",
+            "key": "riser_ochre",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
             "tint": [
               0.55,
               0.42,
@@ -40106,15 +40166,15 @@
             }
           },
           {
-            "name": "DomesticObject137__Body_ON_paint_sky",
+            "name": "DomesticObject137__Body_ON_riser_sky",
             "component": "Body",
-            "key": "paint_sky",
-            "tile": 0.6,
-            "catalog_key": "linen",
+            "key": "riser_sky",
+            "tile": 0.72,
+            "catalog_key": "enamel_appliance",
             "tint": [
-              0.62,
-              0.68,
-              0.72,
+              0.22,
+              0.45,
+              0.65,
               1
             ],
             "finish": {
@@ -41177,17 +41237,17 @@
     ],
     "tint_space": "linear"
   },
-  "asset_sha256": "edb93fcc35206ed0b6036fc8d13f4f9553d9837e06ad6c333dde8c425167f8ee",
+  "asset_sha256": "1cbe0217a2410cbac6fb223ec33662ede0e5aa1fe9f8d389743bdd71f3ba55a2",
   "source_bindings": {
-    "art/data/domestic_objects/source_plan.json": "9dc0757ac8c9352f6d0239b023348a5b3aa9992735fefaf8a9e369b069fb84c9",
+    "art/data/domestic_objects/source_plan.json": "422faee0b7a35c79aa7e43154fb41eeac75ac28b840a18209612c4b4f2bee4fa",
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
     "art/blender/scripts/build_domestic_objects.py": "55014ba5ccf45a7f48360d8663243431381d5b2fcb9cd967f887c2c36cc1b3b1",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979",
     "art/blender/scripts/fabrication_grain.py": "6da15d1c41873a28066bec238fa320a953c4d13c13a43f940276c20ed00ee39b",
     "art/blender/scripts/fabrication_normals.py": "2720b0e1149123b6fb8c44b20662c22ca3bd1fe67a641476696a68fc4c970762",
     "art/blender/scripts/fabrication_chart_batch.py": "df5858f6ac094627ed65361943cbe898d24db736b42835085089327d1d28cae4",
-    "game/data/runtime_material_sets.json": "a7ea33442e4a59644aa12ec8090cecfe217246830416cd7428972b82555966e4",
-    "game/scripts/generated/material_sets.gd": "4ff5ac3aba0613f114822e6081a46c3ca6b659d43acd030c55f9a5333b359a9a",
+    "game/data/runtime_material_sets.json": "b6c54da7063abfc726fc85af229c108d308da2721641db7bd8c7d7532a883a58",
+    "game/scripts/generated/material_sets.gd": "b0dcbdfd9eb1ab6cf3dfeb0217ff9dbc6456cd30e5ea3401d0eedb6fd0137857",
     "game/assets/props/domestic_objects.glb.import": "8d6270d138a0fabf0d20368717103e8557a1c436e9841a4d7535a9de1533120c",
     "art/textures/ai_materials/bakelite/material.json": "a9979288e10d43fe67a3bd3ff60e3dbf0c67ade40ab878da0e4832bf2342f45e",
     "art/textures/library/furniture/book_brown/asset.json": "79a749706b6867089cebcdca24c8c1cf127ef7e58f796e71cf99b70bfe6162ff",
@@ -41215,23 +41275,13 @@
     "game/assets/building/textures/T_library_appliances_bakelite_rough.png": "d694bca509d7a1975ccd94022cbbe7c070a48c1660ac5d66b289d143c43952dc",
     "game/assets/building/textures/T_library_appliances_bakelite_normal.png": "25233fb0ab914a3b5f63a0439aafbb6c5452cbc542a4e99956146bdcaaf59628",
     "game/assets/building/textures/T_library_furniture_book_brown_albedo.png": "c46d6e88f528786d6986576cc9e34279d343d3ecc8435f4617fe0cef8a44ce0e",
-    "game/assets/building/textures/T_library_furniture_book_brown_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
-    "game/assets/building/textures/T_library_furniture_book_brown_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
-    "game/assets/building/textures/T_library_furniture_book_burgundy_albedo.png": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9",
     "game/assets/building/textures/T_library_furniture_book_burgundy_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
     "game/assets/building/textures/T_library_furniture_book_burgundy_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
+    "game/assets/building/textures/T_library_furniture_book_burgundy_albedo.png": "1c36264dd1376e44442cd2d4e217d75096e088d3d77977b59f98edffabf688e9",
     "game/assets/building/textures/T_library_furniture_book_green_albedo.png": "090beba64471030a0995a1d07a917884d90b85de20895e0eae2b99ed899d197f",
-    "game/assets/building/textures/T_library_furniture_book_green_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
-    "game/assets/building/textures/T_library_furniture_book_green_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
     "game/assets/building/textures/T_library_furniture_book_navy_albedo.png": "ab6a0fc5e8122699113a933e9ca30c0b0378dbdaba0eef2bb1840879cf8900c1",
-    "game/assets/building/textures/T_library_furniture_book_navy_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
-    "game/assets/building/textures/T_library_furniture_book_navy_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
     "game/assets/building/textures/T_library_furniture_book_ochre_albedo.png": "ca059ff78b62b4093d01a62b07583b05e8ef88d6e0248d56e094a2965020e983",
-    "game/assets/building/textures/T_library_furniture_book_ochre_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
-    "game/assets/building/textures/T_library_furniture_book_ochre_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
     "game/assets/building/textures/T_library_furniture_book_teal_albedo.png": "ef7f3267f18b6073a888fcd95c435dd9b5b9e6a5f65bc95c73fef8d93e1949ef",
-    "game/assets/building/textures/T_library_furniture_book_teal_rough.png": "dcd4c2b2fb059e3605d07448358c30b533b304ae64ec5cf2043f4ebbec0de345",
-    "game/assets/building/textures/T_library_furniture_book_teal_normal.png": "82f11923d5e92211b66b39625b072ffe33f61bf04f348340efb7cdaf4fe207b4",
     "game/assets/building/textures/T_ai_materials_brass_dull_albedo.png": "d60e3544057b523fd8a5edf0715b872a73686600299616dfa619fb731e213ab9",
     "game/assets/building/textures/T_ai_materials_brass_dull_rough.png": "e17858f4ab27c65f070bd532f557f93a65b3252fb53075288204dde9a10bae29",
     "game/assets/building/textures/T_ai_materials_brass_dull_normal.png": "d039e347d23cab7f731e11086bdfa6553a3764f14d1d9fe3fb171bb7cf575bfa",
@@ -41277,22 +41327,22 @@
     "game/assets/building/textures/T_ai_materials_iron_blackened_albedo.png": "e6108049bc2c6ed91d391bc1f3e86239ba7f87e6bd5a0918c80d2de7e663e93e",
     "game/assets/building/textures/T_ai_materials_iron_blackened_rough.png": "1e462295aa21593cd02c921e0926d1ab7b2c217ca54c6d8c9d648c30e8bda706",
     "game/assets/building/textures/T_ai_materials_iron_blackened_normal.png": "1c5be2d42551004b823bedd712d230edcd08476ee3ddb98451d6fac353715b65",
-    "art/tools/fix_runtime_texture_imports.py": "98958d685e0cc0b415d528c625da054b72e85da14b8b3807de5adf6aa27efe1f",
-    "art/data/material_catalog.json": "0a03636fdf378371b90036abf14309c17810157fe29fc36eff97f6fc1831f9df",
-    "art/textures/catalog_mapping.json": "c88aca80fb4bb6ca04166eb2c7b5a500744bc11395419009ea3b29df3c2a493a",
-    "art/tools/generate_runtime_materials.py": "f86fa67fde8ee05fb8857184820505d61b5af9705cd8a1f851b4768b8f4843ae",
+    "art/tools/fix_runtime_texture_imports.py": "b8cbde25553ddfdce14d28f3fa0793a9c36cde7c6ee047ffad3e8da6f98491f2",
+    "art/data/material_catalog.json": "3024e39068933d8521277fd7809832085875cdfebc005817cf8f8ad64091f496",
+    "art/textures/catalog_mapping.json": "e612f96ba72336d2d16cecf9413af80f03708399ccfde50e3d6cbce6672491da",
+    "art/tools/generate_runtime_materials.py": "974c67869e64336e5baf5c424471a3636b5c6c13166304883a91836a06bdf6d1",
     "art/blender/scripts/inspect_domestic_objects.py": "bc0684214fba14898e7e87e4bfe2fcc8c60c5b6ca857c04276e2ae621d9be0cb",
     "art/blender/scripts/render_domestic_objects.py": "19fb2769778f2cbe137a499480e530010436068f08d916f638044d2caa27217b",
-    "art/blender/scripts/domestic_objects_geometry.py": "87539b24e8836d208c44eefe10d0d23526503a08bb36ce83279abd03fafc48c6",
+    "art/blender/scripts/domestic_objects_geometry.py": "1b41714917487dba11f89b675fa582fbdad3a8eeebfb85193140cc4122b83ddf",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
     "game/data/orison_v2/domestic_furniture.json": "cc91252a2630d26b2632f5e266350378a321f0646e859367346b848b711d4c93",
     "game/data/orison_v2/completion_interiors.json": "ad4c99dd215a65ea7a9798ae2fa30ef683e7292811526796fbe99d5aa82de97c",
     "art/data/orison_v2/completion_interiors_source.json": "e605c782f3d6e8af8f98917c93a6a387453c773dc6692a5681041dce2dff5a7b",
     "game/assets/building/floor_b1.gltf": "8b0f6061e25df80548ba81bde89240dc1efeed0033f3749e633c547edc1ac82e",
-    "game/scripts/building/orison_v2_architectural_materials.gd": "b51ffeb229e043a3bb6a7b7dde70aa58ccd2c3004bde5aae9099d53b73a01f76",
-    "game/shaders/lamp_glass_surface.gdshader": "255fd477c66d0d983bb4f00c943aec892bec82d794fb599919e300f309cb6fe2",
+    "game/scripts/building/orison_v2_architectural_materials.gd": "11731012ba017b828aa554f24dd17e0a7a17b6b772d6a9a0982ea669787de6ef",
+    "game/shaders/lamp_glass_surface.gdshader": "61a6c7de7497a95d1ea3c09773c48da5be9a18bb75c6265e997fc8d69587c1d0",
     "art/blender/scripts/inspect_domestic_objects_context.py": "a23792cd8fa7512fede2f4dd9d6bf0c79ad26cfc542302528dc65963f2f4d0d3",
-    "game/data/orison_v2_blockout.json": "f651287aa38745eecae0f2be9149c0533131f64620b9d608d3c720126988b2f5",
+    "game/data/orison_v2_blockout.json": "66594afcfac74ab4a1b6d5f598cf587cb15bdc6a8457cc441dd47d3628d7afad",
     "art/blender/work_tables.blend": "ffc309d94421baa1307cffe02ba2b375b80329c1f98849e4ee4902c9bdd660c6",
     "game/data/orison_v2/domestic_surface_props.json": "20ec7e5a42f4db8d81db0eb63707b59aaa1eeafa053e8881d38d30800552acae",
     "game/tests/fixtures/orison_surface_stock.json": "28cbec6364d396d4a84dd6725ef8ab54db7c7790207edc29223f7c377a1cc9d4",
@@ -46135,21 +46185,28 @@
     },
     {
       "assembly": "DomesticObject46",
-      "id": "DomesticObject46_Riser",
+      "id": "DomesticObject46_PanelConduit",
       "stocks": [
         "DomesticObject46_Riser",
-        "DomesticObject46_RiserFlange",
-        "DomesticObject46_RiserSaddle0.2",
-        "DomesticObject46_RiserSaddle0.53"
-      ]
-    },
-    {
-      "assembly": "DomesticObject46",
-      "id": "DomesticObject46_Trunk",
-      "stocks": [
         "DomesticObject46_Trunk",
-        "DomesticObject46_TrunkJunction",
-        "DomesticObject46_TrunkSaddle1.7"
+        "DomesticObject46_SpareStub",
+        "DomesticObject46_RiserFlange",
+        "DomesticObject46_LowerCabinetBush",
+        "DomesticObject46_UpperCabinetBush",
+        "DomesticObject46_Saddle0.2",
+        "DomesticObject46_Saddle0.53",
+        "DomesticObject46_Saddle1.7",
+        "DomesticObject46_JunctionBack",
+        "DomesticObject46_JunctionLeft",
+        "DomesticObject46_JunctionRight",
+        "DomesticObject46_JunctionBottom",
+        "DomesticObject46_JunctionTop",
+        "DomesticObject46_JunctionCover",
+        "DomesticObject46_JunctionScrew(-0.052, 2.5479999999999996)",
+        "DomesticObject46_JunctionScrew(-0.052, 2.6519999999999997)",
+        "DomesticObject46_JunctionScrew(0.052, 2.5479999999999996)",
+        "DomesticObject46_JunctionScrew(0.052, 2.6519999999999997)",
+        "DomesticObject46_SpareCap"
       ]
     },
     {
@@ -48128,10 +48185,7 @@
       "assembly": "DomesticObject137",
       "id": "DomesticObject137_ElectricBand",
       "stocks": [
-        "DomesticObject137_ElectricBandNear",
-        "DomesticObject137_ElectricBandFar",
-        "DomesticObject137_ElectricBandWest",
-        "DomesticObject137_ElectricBandEast",
+        "DomesticObject137_ElectricPaint",
         "DomesticObject137_ElectricEye",
         "DomesticObject137_ElectricTagWire",
         "DomesticObject137_ElectricTag"

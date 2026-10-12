@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "evidence_class": "INERT",
+  "records": {
+    "wall_service_openings": [
+      {
+        "id": "ELECTRICAL_FEED_1_PORT",
+        "space": "B1_ELECTRICAL",
+        "side": "north",
+        "bounds": [
+          7.885,
+          -0.355,
+          -2.07,
+          7.955,
+          -0.285,
+          -1.93
+        ]
+      },
+      {
+        "id": "ELECTRICAL_FEED_2_PORT",
+        "space": "B1_BOILER_APPROACH",
+        "side": "south",
+        "bounds": [
+          7.885,
+          -0.355,
+          -1.07,
+          7.955,
+          -0.285,
+          -0.93
+        ]
+      },
+      {
+        "id": "ELECTRICAL_FEED_3_PORT",
+        "space": "B1_BOILER_APPROACH",
+        "side": "north",
+        "bounds": [
+          7.885,
+          -0.355,
+          0.13,
+          7.955,
+          -0.285,
+          0.27
+        ]
+      }
+    ],
+    "slab_openings": [
+      {
+        "id": "B1_ELECTRICAL_UTILITY_ENTRY_PORT",
+        "space": "B1_ELECTRICAL",
+        "surface": "Floor",
+        "rect": [
+          7.58,
+          -6.19,
+          7.62,
+          -6.15
+        ]
+      }
+    ]
+  }
+}

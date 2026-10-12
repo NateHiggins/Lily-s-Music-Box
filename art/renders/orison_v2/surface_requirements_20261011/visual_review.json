@@ -1,8 +1,8 @@
 {
   "evidence_class": "INERT",
   "status": "PASS",
-  "surface_inputs_sha256": "88c5ee8227a634947665181aa3c01b73990b3823dc225b82bd26b30d72f8b2eb",
-  "scope": "Current production V2 surface census including eight fixed electrical junctions, real supported conduit, bored slab sleeves, retained native fire service and original service owners. Two changed production details reviewed with temporary inspection light; unchanged accepted imagery retained. Whole electrical endpoints, complete routes and whole-world artistic acceptance remain open.",
+  "surface_inputs_sha256": "1b4aecb08b7bf82e239d7e6ba33b7994a67c697724c4de63c0ed77b0d2165daa",
+  "scope": "Production V2 census with physical panel-to-riser supply branch, source-owned hollow conduit and relocated enamel inspection marks. Source native-family and original service controls verified in one world. Changed connection details reviewed under temporary inspection light; unchanged accepted images retained. Entire electrical endpoint network and whole-building artistic acceptance remain open.",
   "images": [
     {
       "file": "F02_A_MAIN.png",
@@ -323,6 +323,16 @@
       "file": "electrical_ROOF_ELECTRICAL_JUNCTION.png",
       "sha256": "fc4c5604f5a0658056fedef8c6824a6c4a4db71071bbd0ed21a28e9b5158d23c",
       "observation": "Separate dark metal casting and cover, small screw heads and galvanized conduit render against their actual bearing wall. The roof detail includes the closed terminal cap. Temporary inspection light helps finish review; this is not whole-room lighting or electrical endpoint acceptance."
+    },
+    {
+      "file": "electrical_panel_connection.png",
+      "sha256": "4b1b12eec33d58e36f48afd57495f68967197a514816b4a35d46b2a9246c617d",
+      "observation": "Source-owned casing, supported conduit and bored riser tee join render in the actual basement. Temporary inspection light permits finish inspection; it does not establish whole-room lighting or circuit energization."
+    },
+    {
+      "file": "electrical_riser_connection.png",
+      "sha256": "cd95a7e35645ff91b68ba28f7dc1c1721ce2dcd7131da3e890e577539c8ae092",
+      "observation": "Source-owned casing, supported conduit and bored riser tee join render in the actual basement. Temporary inspection light permits finish inspection; it does not establish whole-room lighting or circuit energization."
     }
   ],
   "diagnostic_images": [

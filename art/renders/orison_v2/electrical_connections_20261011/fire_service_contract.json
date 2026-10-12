@@ -1,0 +1,35 @@
+{
+	"checks": 860,
+	"contracts": {
+		"fire_service": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"production_composition": {
+			"executed": true,
+			"status": "PASS"
+		},
+		"teardown": {
+			"executed": true,
+			"measurement_scope": "runtime_owned",
+			"retained_nodes": 0,
+			"status": "PASS"
+		}
+	},
+	"evidence_kind": "runtime_contract",
+	"execution": {
+		"completed": true,
+		"exit_code": 0,
+		"timed_out": false
+	},
+	"failures": [],
+	"production_runtime": true,
+	"schema_version": 2,
+	"scope": "Eight native original maintenance stations, line geometry, landing approaches, wall contacts and owned retirement; no water-flow, capacity or statutory acceptance.",
+	"selector": "v2",
+	"source": {
+		"runtime_inputs_sha256": "a9220c780086d9a3a2e58ca61edc1cbfe6d7d0cf1943e87c00b5d3af0c87add3",
+		"test_path": "game/tests/v2_fire_service_review.gd",
+		"test_sha256": "951fce53987155bd85165dca787d677da99b3f699c27547cd4e8b47d27db564b"
+	}
+}

@@ -1,0 +1,62 @@
+{
+  "evidence_class": "INERT",
+  "result": "PASS",
+  "unchanged": "every existing blockout record and field",
+  "new_records": {
+    "wall_service_openings": [
+      {
+        "id": "ELECTRICAL_FEED_1_PORT",
+        "space": "B1_ELECTRICAL",
+        "side": "north",
+        "bounds": [
+          7.885,
+          -0.355,
+          -2.07,
+          7.955,
+          -0.285,
+          -1.93
+        ]
+      },
+      {
+        "id": "ELECTRICAL_FEED_2_PORT",
+        "space": "B1_BOILER_APPROACH",
+        "side": "south",
+        "bounds": [
+          7.885,
+          -0.355,
+          -1.07,
+          7.955,
+          -0.285,
+          -0.93
+        ]
+      },
+      {
+        "id": "ELECTRICAL_FEED_3_PORT",
+        "space": "B1_BOILER_APPROACH",
+        "side": "north",
+        "bounds": [
+          7.885,
+          -0.355,
+          0.13,
+          7.955,
+          -0.285,
+          0.27
+        ]
+      }
+    ],
+    "slab_openings": [
+      {
+        "id": "B1_ELECTRICAL_UTILITY_ENTRY_PORT",
+        "space": "B1_ELECTRICAL",
+        "surface": "Floor",
+        "rect": [
+          7.58,
+          -6.19,
+          7.62,
+          -6.15
+        ]
+      }
+    ]
+  },
+  "new_blockout_sha256": "66594afcfac74ab4a1b6d5f598cf587cb15bdc6a8457cc441dd47d3628d7afad"
+}

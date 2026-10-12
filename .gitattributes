@@ -1781,3 +1781,13 @@ game/data/orison_v2/electrical_service.json -text
 game/scripts/building/orison_v2_native_electrical_service.gd -text
 game/tests/v2_electrical_service_review.gd -text
 art/renders/orison_v2/electrical_service_20261011/** -text
+
+# Native panel-to-riser supply branch and source-owned review.
+art/blender/scripts/build_electrical_connections.py -text
+art/blender/scripts/review_electrical_connections.py -text
+game/data/orison_v2/electrical_connections.json -text
+game/scripts/building/orison_v2_native_electrical_connections.gd -text
+game/tests/v2_electrical_connections_review.gd -text
+game/tests/v2_electrical_connection_probe.gd -text
+game/tests/V2ElectricalConnectionProbe.tscn -text
+art/renders/orison_v2/electrical_connections_20261011/** -text

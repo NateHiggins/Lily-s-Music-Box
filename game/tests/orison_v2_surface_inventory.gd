@@ -48,6 +48,13 @@ func _run() -> void:
 	await fire_review.run(world,self)
 	var electrical_review := preload("res://tests/v2_electrical_service_review.gd").new()
 	await electrical_review.run(world,self)
+	var connections_review := preload("res://tests/v2_electrical_connections_review.gd").new()
+	await connections_review.run(world,self)
+	var domestic_review := preload("res://tests/orison_v2_domestic_objects_test.gd").new()
+	domestic_review.capture_enabled=false;add_child(domestic_review)
+	var domestic_result: Dictionary=await domestic_review.validate_in_world(world)
+	batch_checks+=int(domestic_result.checks)
+	for failure: String in domestic_result.failures:failures.append(failure)
 	var instruments := preload("res://tests/orison_v2_service_instruments_test.gd").new()
 	instruments.capture_enabled = false
 	add_child(instruments)
@@ -193,6 +200,11 @@ func _run() -> void:
 	instruments.free()
 	fire_review.after_teardown(self)
 	electrical_review.after_teardown(self)
+	connections_review.after_teardown(self)
+	var domestic_retired: Dictionary=domestic_review.validate_after_teardown()
+	for failure: String in domestic_retired.failures:
+		if not failures.has(failure):failures.append(failure)
+	domestic_review.free()
 	var head: Array=[]; var digest: Array=[]
 	check(OS.execute("git",["-C",root,"rev-parse","HEAD"],head)==0,"record repository head")
 	check(OS.execute("python",[root.path_join("tools/run_receipt.py"),"digest","--root",root],digest)==0,"record runtime input digest")

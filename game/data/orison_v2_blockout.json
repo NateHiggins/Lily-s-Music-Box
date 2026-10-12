@@ -2333,7 +2333,8 @@
     {"id":"ELECTRIC_F06_SERVICE_HALL_CEILING_PORT","space":"F06_SERVICE_HALL","surface":"Ceiling","rect":[9.355,0.965,9.425,1.035]},
     {"id":"ELECTRIC_ROOF_DECK_MIDDLE_FLOOR_PORT","space":"ROOF_DECK_MIDDLE","surface":"Floor","rect":[9.355,0.965,9.425,1.035]},
     {"id":"ELECTRIC_B1_MAINTENANCE_SHOP_FLOOR_PORT","space":"B1_MAINTENANCE_SHOP","surface":"Floor","rect":[9.355,0.965,9.425,1.035]},
-    {"id":"ELECTRIC_B1_MAINTENANCE_SHOP_CEILING_PORT","space":"B1_MAINTENANCE_SHOP","surface":"Ceiling","rect":[9.355,0.965,9.425,1.035]}
+    {"id":"ELECTRIC_B1_MAINTENANCE_SHOP_CEILING_PORT","space":"B1_MAINTENANCE_SHOP","surface":"Ceiling","rect":[9.355,0.965,9.425,1.035]},
+    {"id":"B1_ELECTRICAL_UTILITY_ENTRY_PORT","space":"B1_ELECTRICAL","surface":"Floor","rect":[7.58,-6.19,7.62,-6.15]}
   ],
   "riser_openings": [
     {"id":"VENT_A_CHASE_BORE","riser":"WEST_WET_STACK","bounds":[-6.275,5.79,3.55,-6.075,19.2,3.75]},
@@ -2428,7 +2429,10 @@
     {"id":"HEAT_APPROACH_NORTH_INLET_CLEAR","space":"B1_BOILER_APPROACH","side":"north","bounds":[8.575,-0.65,0.13,8.775,-0.45,0.27]},
     {"id":"FIRE_FEED_F06_A_MAIN_PORT","space":"F06_A_MAIN","side":"east","bounds":[-8.370000000000001,18.65,-3.71,-8.23,18.79,-3.57]},
     {"id":"FIRE_FEED_F06_A_VESTIBULE_PORT","space":"F06_A_VESTIBULE","side":"east","bounds":[-5.67,18.65,-3.71,-5.529999999999999,18.79,-3.57]},
-    {"id":"FIRE_FEED_F06_PUBLIC_CORE_PORT","space":"F06_PUBLIC_CORE","side":"west","bounds":[-2.27,18.65,-3.71,-2.1300000000000003,18.79,-3.57]}
+    {"id":"FIRE_FEED_F06_PUBLIC_CORE_PORT","space":"F06_PUBLIC_CORE","side":"west","bounds":[-2.27,18.65,-3.71,-2.1300000000000003,18.79,-3.57]},
+    {"id":"ELECTRICAL_FEED_1_PORT","space":"B1_ELECTRICAL","side":"north","bounds":[7.885,-0.355,-2.07,7.955,-0.285,-1.93]},
+    {"id":"ELECTRICAL_FEED_2_PORT","space":"B1_BOILER_APPROACH","side":"south","bounds":[7.885,-0.355,-1.07,7.955,-0.285,-0.93]},
+    {"id":"ELECTRICAL_FEED_3_PORT","space":"B1_BOILER_APPROACH","side":"north","bounds":[7.885,-0.355,0.13,7.955,-0.285,0.27]}
   ],
   "masonry_service_openings": [
     {"id":"VENT_A_F05_B_BATH_VENT_REGISTER_1_MASONRY_EXTERIORMASONRY_CLEAR","bounds":[-7.35,15.39,4.625,-6.075,15.59,4.825],"owner":"ExteriorMasonry"},

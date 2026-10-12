@@ -1,3621 +1,3664 @@
 {
- "evidence_class": "INERT",
- "classification": "ADAPTATION",
- "source_ids": [
-  "2A_pinboard",
-  "2B_story_pattern_board",
-  "3B_toolboard",
-  "3B_partscrate",
-  "2A_deck",
-  "3A_story_specimen",
-  "5A_pins1",
-  "5A_pins2",
-  "5A_floorstack",
-  "5C_story_colorboard",
-  "6A_tripod",
-  "6A_soft1",
-  "6A_soft2",
-  "6A_gearcrate",
-  "6A_coil1",
-  "6A_coil2"
- ],
- "variants": [
-  {
-   "id": "DomesticObject00",
-   "kind": "pinboard",
-   "source_id": "2A_pinboard",
-   "params": {
-    "id": "2A_pinboard",
-    "asm": "pinboard",
-    "at": [
-     -13.645,
-     -5.5
-    ],
-    "yaw": -90,
-    "z0": 1.05,
-    "W": 0.95,
-    "cards": 24,
-    "neat": true
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject01",
-   "kind": "pinboard",
-   "source_id": "2B_story_pattern_board",
-   "params": {
-    "id": "2B_story_pattern_board",
-    "asm": "pinboard",
-    "at": [
-     -13.645,
-     6.16
-    ],
-    "yaw": -90,
-    "z0": 1.01,
-    "W": 0.66,
-    "H": 0.66,
-    "cards": 0,
-    "neat": false
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject02",
-   "kind": "toolboard",
-   "source_id": "3B_toolboard",
-   "params": {
-    "id": "3B_toolboard",
-    "asm": "toolboard",
-    "at": [
-     -13.645,
-     5.94
-    ],
-    "yaw": -90,
-    "z0": 1.15,
-    "W": 0.9,
-    "H": 0.65
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject03",
-   "kind": "crate",
-   "source_id": "3B_partscrate",
-   "params": {
-    "id": "3B_partscrate",
-    "asm": "crate",
-    "at": [
-     -13.27,
-     2.97
-    ],
-    "yaw": 8,
-    "fill": "metal"
-   }
-  },
-  {
-   "id": "DomesticObject04",
-   "kind": "reeldeck",
-   "source_id": "2A_deck",
-   "params": {
-    "id": "2A_deck",
-    "asm": "reeldeck",
-    "at": [
-     -11.23,
-     -5.47
-    ],
-    "yaw": 0,
-    "z0": 0.735
-   }
-  },
-  {
-   "id": "DomesticObject05",
-   "kind": "plant",
-   "source_id": "3A_story_specimen",
-   "params": {
-    "id": "3A_story_specimen",
-    "asm": "plant",
-    "at": [
-     -12.72,
-     -1.82
-    ],
-    "yaw": 155,
-    "big": true,
-    "species": "rubber"
-   }
-  },
-  {
-   "id": "DomesticObject06",
-   "kind": "pinboard",
-   "source_id": "5A_pins1",
-   "params": {
-    "id": "5A_pins1",
-    "asm": "pinboard",
-    "at": [
-     -13.695,
-     -5.2
-    ],
-    "yaw": -90,
-    "z0": 1.0,
-    "W": 1.25,
-    "H": 0.85,
-    "cards": 18,
-    "neat": false
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject07",
-   "kind": "pinboard",
-   "source_id": "5A_pins2",
-   "params": {
-    "id": "5A_pins2",
-    "asm": "pinboard",
-    "at": [
-     -13.695,
-     -1.7
-    ],
-    "yaw": -90,
-    "z0": 1.15,
-    "W": 1.05,
-    "H": 0.7,
-    "cards": 14,
-    "neat": false
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject08",
-   "kind": "bookpile",
-   "source_id": "5A_floorstack",
-   "params": {
-    "id": "5A_floorstack",
-    "asm": "bookpile",
-    "at": [
-     -11.3,
-     -1.07
-    ],
-    "yaw": 5,
-    "n": 6
-   }
-  },
-  {
-   "id": "DomesticObject09",
-   "kind": "pinboard",
-   "source_id": "5C_story_colorboard",
-   "params": {
-    "id": "5C_story_colorboard",
-    "asm": "pinboard",
-    "at": [
-     13.695,
-     4.385
-    ],
-    "yaw": 90,
-    "z0": 1.16,
-    "W": 1.1,
-    "H": 0.8,
-    "cards": 22,
-    "neat": false
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject10",
-   "kind": "tripod",
-   "source_id": "6A_tripod",
-   "params": {
-    "id": "6A_tripod",
-    "asm": "tripod",
-    "at": [
-     -11.3,
-     -5.05
-    ],
-    "yaw": 90
-   }
-  },
-  {
-   "id": "DomesticObject11",
-   "kind": "softbox",
-   "source_id": "6A_soft1",
-   "params": {
-    "id": "6A_soft1",
-    "asm": "softbox",
-    "at": [
-     -11.65,
-     -5.9
-    ],
-    "yaw": 50
-   }
-  },
-  {
-   "id": "DomesticObject12",
-   "kind": "crate",
-   "source_id": "6A_gearcrate",
-   "params": {
-    "id": "6A_gearcrate",
-    "asm": "crate",
-    "at": [
-     -13.2,
-     -3.2
-    ],
-    "yaw": 355,
-    "fill": "soot",
-    "W": 0.5,
-    "D": 0.4,
-    "H": 0.36
-   }
-  },
-  {
-   "id": "DomesticObject13",
-   "kind": "cablecoil",
-   "source_id": "6A_coil1",
-   "params": {
-    "id": "6A_coil1",
-    "asm": "cablecoil",
-    "at": [
-     -12.15,
-     -4.35
-    ],
-    "yaw": 30
-   }
-  },
-  {
-   "id": "DomesticObject14",
-   "kind": "cablecoil",
-   "source_id": "6A_coil2",
-   "params": {
-    "id": "6A_coil2",
-    "asm": "cablecoil",
-    "at": [
-     -11.05,
-     -5.6
-    ],
-    "yaw": 240,
-    "r": 0.09
-   }
-  },
-  {
-   "id": "DomesticObject15",
-   "kind": "toolboard",
-   "source_id": "3B_toolboard",
-   "params": {
-    "id": "3B_toolboard",
-    "asm": "toolboard",
-    "at": [
-     -13.645,
-     5.94
-    ],
-    "yaw": -90,
-    "z0": 1.15,
-    "W": 0.9,
-    "H": 0.65,
-    "silhouettes": true
-   },
-   "rear_wall_y": -0.13
-  },
-  {
-   "id": "DomesticObject16",
-   "kind": "hallstand",
-   "source_id": "2A_hallstand",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject17",
-   "kind": "pinboard",
-   "source_id": "4B_case_wall",
-   "params": {
-    "id": "4B_case_wall",
-    "asm": "pinboard",
-    "W": 1.0,
-    "H": 1.0,
-    "cards": 24,
-    "neat": true
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject18",
-   "kind": "pinboard",
-   "source_id": "5A_plan_wall",
-   "params": {
-    "id": "5A_plan_wall",
-    "asm": "pinboard",
-    "W": 1.6,
-    "H": 1.0,
-    "cards": 20,
-    "neat": true
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject19",
-   "kind": "artframe",
-   "source_id": "5C_canvas_a",
-   "params": {
-    "W": 0.6,
-    "H": 0.8,
-    "style": "canvas",
-    "fields": [
-     [
-      0.08,
-      0.08,
-      0.92,
-      0.55,
-      "terracotta"
-     ],
-     [
-      0.08,
-      0.6,
-      0.55,
-      0.92,
-      "book_ochre"
-     ],
-     [
-      0.6,
-      0.6,
-      0.92,
-      0.92,
-      "soot"
-     ]
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject20",
-   "kind": "artframe",
-   "source_id": "5C_canvas_b",
-   "params": {
-    "W": 0.6,
-    "H": 0.8,
-    "style": "canvas",
-    "fields": [
-     [
-      0.08,
-      0.45,
-      0.92,
-      0.92,
-      "book_teal"
-     ],
-     [
-      0.08,
-      0.08,
-      0.4,
-      0.4,
-      "soot"
-     ],
-     [
-      0.45,
-      0.08,
-      0.92,
-      0.4,
-      "terracotta"
-     ]
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject21",
-   "kind": "artframe",
-   "source_id": "4A_frame_a",
-   "params": {
-    "W": 0.32,
-    "H": 0.42,
-    "style": "document"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject22",
-   "kind": "garmentrail",
-   "source_id": "2B_repair_rail",
-   "params": {
-    "W": 0.9,
-    "H": 0.95,
-    "garments": [
-     "wool_burgundy",
-     "jersey_maroon",
-     "cape_navy",
-     "coat_grey",
-     "linen"
-    ],
-    "tags": true
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject23",
-   "kind": "garmentrail",
-   "source_id": "4B_closet_rail",
-   "params": {
-    "W": 0.9,
-    "H": 0.95,
-    "garments": [
-     "coat_grey",
-     "linen",
-     "cape_navy",
-     "coat_grey"
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject24",
-   "kind": "blanket",
-   "source_id": "2C_blanket_a",
-   "params": {
-    "W": 1.2,
-    "H": 2.0,
-    "key": "blanket_grey"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject25",
-   "kind": "hamper",
-   "source_id": "2A_hall_hamper",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject26",
-   "kind": "boottray",
-   "source_id": "4B_hall_boots",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject27",
-   "kind": "artframe",
-   "source_id": "2C_album_a",
-   "params": {
-    "W": 0.3,
-    "H": 0.4,
-    "style": "photo",
-    "print": "book_brown"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject28",
-   "kind": "pinboard",
-   "source_id": "2A_caption_wall",
-   "params": {
-    "id": "2A_caption_wall",
-    "asm": "pinboard",
-    "W": 1.2,
-    "H": 0.9,
-    "cards": 24,
-    "neat": true
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject29",
-   "kind": "suitcase",
-   "source_id": "4D_case",
-   "params": {
-    "W": 0.6,
-    "D": 0.2,
-    "H": 0.42,
-    "key": "book_brown"
-   }
-  },
-  {
-   "id": "DomesticObject30",
-   "kind": "sewingmachine",
-   "source_id": "2B_sewing_machine",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject31",
-   "kind": "teardown",
-   "source_id": "3B_teardown",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject32",
-   "kind": "easel",
-   "source_id": "5C_easel",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject33",
-   "kind": "canvasstack",
-   "source_id": "5C_failed_canvases",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject34",
-   "kind": "cardcabinet",
-   "source_id": "6C_card_cabinet",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject35",
-   "kind": "backdroprail",
-   "source_id": "6A_backdrop_rail",
-   "params": {
-    "W": 1.2,
-    "H": 2.25
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject36",
-   "kind": "printline",
-   "source_id": "6A_print_line",
-   "params": {
-    "W": 1.6
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject37",
-   "kind": "pinboard",
-   "source_id": "F01_lobby_board",
-   "params": {
-    "id": "F01_lobby_board",
-    "asm": "pinboard",
-    "W": 1.2,
-    "H": 0.9,
-    "cards": 23,
-    "neat": true
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject38",
-   "kind": "hookstrip",
-   "source_id": "2C_cable_hooks",
-   "params": {
-    "W": 0.6,
-    "H": 0.5
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject39",
-   "kind": "headsethook",
-   "source_id": "F01_headset_hook",
-   "params": {
-    "W": 0.14,
-    "H": 0.45
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject40",
-   "kind": "coathook",
-   "source_id": "F01_watch_coat",
-   "params": {
-    "W": 0.5,
-    "H": 1.1,
-    "key": "coat_grey"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject41",
-   "kind": "foldedcot",
-   "source_id": "F01_watch_cot",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject42",
-   "kind": "shovel",
-   "source_id": "B1_boiler_shovel",
-   "params": {},
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject43",
-   "kind": "rakerack",
-   "source_id": "B1_boiler_rake",
-   "params": {
-    "L": 1.5
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject44",
-   "kind": "ashcan",
-   "source_id": "B1_boiler_ash_can",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject45",
-   "kind": "signalframe",
-   "source_id": "B1_signal_frame",
-   "params": {
-    "W": 1.2,
-    "H": 0.9,
-    "top": 2.23
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject46",
-   "kind": "conduit",
-   "source_id": "B1_fuse_conduit",
-   "params": {
-    "low": 0.645,
-    "high": 1.555,
-    "top": 2.98
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject47",
-   "kind": "oilcan",
-   "source_id": "B1_laundry_oil_can",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject48",
-   "kind": "beltnail",
-   "source_id": "B1_laundry_belt",
-   "params": {
-    "H": 0.45
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject49",
-   "kind": "stepladder",
-   "source_id": "B1_laundry_stepladder",
-   "params": {},
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject50",
-   "kind": "umbrellastand",
-   "source_id": "F01_vestibule_umbrella_stand",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject51",
-   "kind": "spittoon",
-   "source_id": "F01_lobby_spittoon",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject52",
-   "kind": "soapdish",
-   "source_id": "F01_restroom_soap_dish",
-   "params": {
-    "H": 0.1
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject53",
-   "kind": "rollertowel",
-   "source_id": "F01_restroom_roller_towel",
-   "params": {
-    "W": 0.5,
-    "H": 1.0
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject54",
-   "kind": "mopbucket",
-   "source_id": "F01_restroom_mop_bucket",
-   "params": {},
-   "rear_wall_y": -0.28
-  },
-  {
-   "id": "DomesticObject55",
-   "kind": "ropecoil",
-   "source_id": "ROOF_bulkhead_washing_line",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject56",
-   "kind": "wateringcan",
-   "source_id": "ROOF_bulkhead_watering_can",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject57",
-   "kind": "trug",
-   "source_id": "ROOF_bulkhead_trug",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject58",
-   "kind": "sootsack",
-   "source_id": "ROOF_service_soot_sack",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject59",
-   "kind": "sweeprods",
-   "source_id": "ROOF_service_sweep_rods",
-   "params": {},
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject60",
-   "kind": "suitcase",
-   "source_id": "1A_lesson_trunk",
-   "params": {
-    "W": 0.8,
-    "D": 0.44,
-    "H": 0.44,
-    "key": "wood_dark"
-   }
-  },
-  {
-   "id": "DomesticObject61",
-   "kind": "workboots",
-   "source_id": "4B_wake_boots",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject62",
-   "kind": "dressform",
-   "source_id": "2B_dress_form",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject63",
-   "kind": "tsquare",
-   "source_id": "5A_tsquare",
-   "params": {
-    "H": 0.75
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject64",
-   "kind": "verticalfile",
-   "source_id": "4A_hall_file",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject65",
-   "kind": "chargingcase",
-   "source_id": "B1_charging_case",
-   "params": {},
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject66",
-   "kind": "wallbell",
-   "source_id": "1D_house_bell",
-   "params": {
-    "H": 2.02
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject67",
-   "kind": "quietsign",
-   "source_id": "1D_quiet_sign",
-   "params": {},
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject68",
-   "kind": "pinboard",
-   "source_id": "5C_story_colorboard",
-   "params": {
-    "id": "5C_story_colorboard",
-    "asm": "pinboard",
-    "at": [
-     13.695,
-     4.385
-    ],
-    "yaw": 90,
-    "z0": 1.16,
-    "W": 1.1,
-    "H": 0.8,
-    "cards": 22,
-    "neat": false,
-    "route": true
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject69",
-   "kind": "overflowtray",
-   "source_id": "4A_umbrella_tray",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject70",
-   "kind": "bathshelf",
-   "source_id": "1A_bath_shelf",
-   "params": {
-    "set": [
-     "glass_spoon",
-     "pillbottle",
-     "pillbottle",
-     "powder",
-     "pins"
-    ],
-    "widths": [
-     0.066,
-     0.036,
-     0.036,
-     0.074,
-     0.052
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject71",
-   "kind": "bathshelf",
-   "source_id": "1D_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "pins",
-     "antiseptic"
-    ],
-    "widths": [
-     0.066,
-     0.052,
-     0.05
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject72",
-   "kind": "bathshelf",
-   "source_id": "2A_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "coldcream",
-     "powder",
-     "comb"
-    ],
-    "widths": [
-     0.066,
-     0.064,
-     0.074,
-     0.12
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject73",
-   "kind": "bathshelf",
-   "source_id": "2B_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "soap",
-     "selvedge"
-    ],
-    "widths": [
-     0.066,
-     0.07,
-     0.12
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject74",
-   "kind": "bathshelf",
-   "source_id": "2C_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "kohl",
-     "compact"
-    ],
-    "widths": [
-     0.066,
-     0.034,
-     0.062
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject75",
-   "kind": "bathshelf",
-   "source_id": "3A_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "nailbrush",
-     "mug",
-     "razor"
-    ],
-    "widths": [
-     0.066,
-     0.082,
-     0.078,
-     0.088
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject76",
-   "kind": "bathshelf",
-   "source_id": "3B_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "mug",
-     "nailbrush",
-     "pumice",
-     "carbolic"
-    ],
-    "widths": [
-     0.066,
-     0.078,
-     0.082,
-     0.062,
-     0.072
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject77",
-   "kind": "bathshelf",
-   "source_id": "3D_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "glass_plain",
-     "pastilles",
-     "inhaler",
-     "lipstick"
-    ],
-    "widths": [
-     0.066,
-     0.062,
-     0.064,
-     0.02,
-     0.018
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject78",
-   "kind": "bathshelf",
-   "source_id": "4A_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "mug",
-     "razor",
-     "comb"
-    ],
-    "widths": [
-     0.066,
-     0.078,
-     0.088,
-     0.12
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject79",
-   "kind": "bathshelf",
-   "source_id": "4B_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "soap",
-     "comb"
-    ],
-    "widths": [
-     0.066,
-     0.07,
-     0.12
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject80",
-   "kind": "bathshelf",
-   "source_id": "4C_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "soap",
-     "tape",
-     "soap",
-     "glass"
-    ],
-    "widths": [
-     0.066,
-     0.07,
-     0.02,
-     0.07,
-     0.066
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject81",
-   "kind": "bathshelf",
-   "source_id": "4D_bath_shelf",
-   "params": {
-    "set": [
-     "wrapped",
-     "wrapped",
-     "card"
-    ],
-    "widths": [
-     0.062,
-     0.062,
-     0.085
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject82",
-   "kind": "bathshelf",
-   "source_id": "5A_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "nailbrush",
-     "pumice",
-     "carbolic",
-     "lipstick"
-    ],
-    "widths": [
-     0.066,
-     0.082,
-     0.062,
-     0.072,
-     0.018
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject83",
-   "kind": "bathshelf",
-   "source_id": "5B_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "mug",
-     "razor",
-     "cells"
-    ],
-    "widths": [
-     0.066,
-     0.078,
-     0.088,
-     0.066
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject84",
-   "kind": "bathshelf",
-   "source_id": "5C_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "turps",
-     "brushtin",
-     "nailbrush"
-    ],
-    "widths": [
-     0.066,
-     0.074,
-     0.074,
-     0.082
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject85",
-   "kind": "bathshelf",
-   "source_id": "6A_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "amber",
-     "amber",
-     "tongs"
-    ],
-    "widths": [
-     0.066,
-     0.05,
-     0.05,
-     0.14
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject86",
-   "kind": "bathshelf",
-   "source_id": "6B_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "mug",
-     "razor"
-    ],
-    "widths": [
-     0.066,
-     0.078,
-     0.088
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject87",
-   "kind": "bathshelf",
-   "source_id": "6C_bath_shelf",
-   "params": {
-    "set": [
-     "glass",
-     "powder",
-     "pins",
-     "lipstick",
-     "buttonhook"
-    ],
-    "widths": [
-     0.066,
-     0.074,
-     0.052,
-     0.018,
-     0.11
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject88",
-   "kind": "noticeframe",
-   "source_id": "F01_PUBLIC_NOTICE",
-   "params": {
-    "taped": true
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject89",
-   "kind": "noticeframe",
-   "source_id": "F01_SERVICE_NOTICE",
-   "params": {
-    "taped": false
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject90",
-   "kind": "threshold",
-   "source_id": "2A_threshold",
-   "params": {
-    "mat": "coir",
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject91",
-   "kind": "threshold",
-   "source_id": "2B_threshold",
-   "params": {
-    "mat": "rag",
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject92",
-   "kind": "threshold",
-   "source_id": "2C_threshold",
-   "params": {
-    "mat": "worn",
-    "bottles": 2,
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject93",
-   "kind": "threshold",
-   "source_id": "3A_threshold",
-   "params": {
-    "mat": "soil",
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject94",
-   "kind": "threshold",
-   "source_id": "3D_threshold",
-   "params": {
-    "mat": "coir",
-    "jamb": 0.575
-   }
-  },
-  {
-   "id": "DomesticObject95",
-   "kind": "threshold",
-   "source_id": "4A_threshold",
-   "params": {
-    "mat": "coir",
-    "news": true,
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject96",
-   "kind": "threshold",
-   "source_id": "4B_threshold",
-   "params": {
-    "mat": "worn",
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject97",
-   "kind": "threshold",
-   "source_id": "4C_threshold",
-   "params": {
-    "mat": "rubber",
-    "bottles": 2,
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject98",
-   "kind": "threshold",
-   "source_id": "5A_threshold",
-   "params": {
-    "mat": "coir",
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject99",
-   "kind": "threshold",
-   "source_id": "5B_threshold",
-   "params": {
-    "mat": "coir",
-    "news": true,
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject100",
-   "kind": "threshold",
-   "source_id": "5C_threshold",
-   "params": {
-    "mat": "paint",
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject101",
-   "kind": "threshold",
-   "source_id": "6B_threshold",
-   "params": {
-    "mat": "worn",
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject102",
-   "kind": "threshold",
-   "source_id": "6C_threshold",
-   "params": {
-    "mat": "coir",
-    "parcel": true,
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject103",
-   "kind": "threshold",
-   "source_id": "2D_threshold",
-   "params": {
-    "mat": "dust",
-    "jamb": 0.575
-   }
-  },
-  {
-   "id": "DomesticObject104",
-   "kind": "artframe",
-   "source_id": "F01_PUBLIC_LANDING_PIECE",
-   "params": {
-    "W": 0.6,
-    "H": 0.45,
-    "style": "canvas",
-    "fields": [
-     [
-      0.06,
-      0.55,
-      0.94,
-      0.94,
-      "cape_navy"
-     ],
-     [
-      0.06,
-      0.25,
-      0.94,
-      0.55,
-      "paint_teal"
-     ],
-     [
-      0.06,
-      0.06,
-      0.94,
-      0.25,
-      "terracotta"
-     ],
-     [
-      0.3,
-      0.3,
-      0.33,
-      0.62,
-      "paint_cream"
-     ],
-     [
-      0.33,
-      0.45,
-      0.42,
-      0.6,
-      "paint_cream"
-     ],
-     [
-      0.62,
-      0.3,
-      0.65,
-      0.55,
-      "paint_cream"
-     ],
-     [
-      0.65,
-      0.42,
-      0.72,
-      0.54,
-      "paint_cream"
-     ],
-     [
-      0.76,
-      0.72,
-      0.81,
-      0.79,
-      "paint_ochre"
-     ]
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject105",
-   "kind": "artframe",
-   "source_id": "F02_PUBLIC_LANDING_PIECE",
-   "params": {
-    "W": 0.6,
-    "H": 0.45,
-    "style": "canvas",
-    "fields": [
-     [
-      0.06,
-      0.5,
-      0.94,
-      0.94,
-      "paint_sky"
-     ],
-     [
-      0.06,
-      0.06,
-      0.94,
-      0.5,
-      "paint_ochre"
-     ],
-     [
-      0.7,
-      0.55,
-      0.86,
-      0.72,
-      "paint_green"
-     ],
-     [
-      0.77,
-      0.5,
-      0.79,
-      0.56,
-      "terracotta"
-     ]
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject106",
-   "kind": "artframe",
-   "source_id": "F03_PUBLIC_LANDING_PIECE",
-   "params": {
-    "W": 0.42,
-    "H": 0.52,
-    "style": "photo",
-    "print": "sepia"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject107",
-   "kind": "artframe",
-   "source_id": "F04_PUBLIC_LANDING_PIECE",
-   "params": {
-    "W": 0.5,
-    "H": 0.6,
-    "style": "canvas",
-    "fields": [
-     [
-      0.06,
-      0.06,
-      0.94,
-      0.35,
-      "terracotta"
-     ],
-     [
-      0.06,
-      0.35,
-      0.94,
-      0.94,
-      "soot"
-     ],
-     [
-      0.25,
-      0.35,
-      0.45,
-      0.62,
-      "paint_cream"
-     ],
-     [
-      0.55,
-      0.35,
-      0.7,
-      0.48,
-      "wool_burgundy"
-     ],
-     [
-      0.72,
-      0.35,
-      0.84,
-      0.46,
-      "paint_ochre"
-     ]
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject108",
-   "kind": "artframe",
-   "source_id": "F05_PUBLIC_LANDING_PIECE",
-   "params": {
-    "W": 0.7,
-    "H": 0.42,
-    "style": "canvas",
-    "fields": [
-     [
-      0.06,
-      0.6,
-      0.94,
-      0.94,
-      "paint_sky"
-     ],
-     [
-      0.06,
-      0.32,
-      0.94,
-      0.6,
-      "voile"
-     ],
-     [
-      0.06,
-      0.06,
-      0.94,
-      0.32,
-      "paint_green"
-     ],
-     [
-      0.35,
-      0.52,
-      0.6,
-      0.6,
-      "paint_cream"
-     ]
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject109",
-   "kind": "artframe",
-   "source_id": "F06_PUBLIC_LANDING_PIECE",
-   "params": {
-    "W": 0.56,
-    "H": 0.42,
-    "style": "canvas",
-    "fields": [
-     [
-      0.06,
-      0.06,
-      0.94,
-      0.94,
-      "paint_cream"
-     ],
-     [
-      0.08,
-      0.1,
-      0.92,
-      0.28,
-      "sepia"
-     ],
-     [
+  "evidence_class": "INERT",
+  "classification": "ADAPTATION",
+  "source_ids": [
+    "2A_pinboard",
+    "2B_story_pattern_board",
+    "3B_toolboard",
+    "3B_partscrate",
+    "2A_deck",
+    "3A_story_specimen",
+    "5A_pins1",
+    "5A_pins2",
+    "5A_floorstack",
+    "5C_story_colorboard",
+    "6A_tripod",
+    "6A_soft1",
+    "6A_soft2",
+    "6A_gearcrate",
+    "6A_coil1",
+    "6A_coil2"
+  ],
+  "variants": [
+    {
+      "id": "DomesticObject00",
+      "kind": "pinboard",
+      "source_id": "2A_pinboard",
+      "params": {
+        "id": "2A_pinboard",
+        "asm": "pinboard",
+        "at": [
+          -13.645,
+          -5.5
+        ],
+        "yaw": -90,
+        "z0": 1.05,
+        "W": 0.95,
+        "cards": 24,
+        "neat": true
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject01",
+      "kind": "pinboard",
+      "source_id": "2B_story_pattern_board",
+      "params": {
+        "id": "2B_story_pattern_board",
+        "asm": "pinboard",
+        "at": [
+          -13.645,
+          6.16
+        ],
+        "yaw": -90,
+        "z0": 1.01,
+        "W": 0.66,
+        "H": 0.66,
+        "cards": 0,
+        "neat": false
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject02",
+      "kind": "toolboard",
+      "source_id": "3B_toolboard",
+      "params": {
+        "id": "3B_toolboard",
+        "asm": "toolboard",
+        "at": [
+          -13.645,
+          5.94
+        ],
+        "yaw": -90,
+        "z0": 1.15,
+        "W": 0.9,
+        "H": 0.65
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject03",
+      "kind": "crate",
+      "source_id": "3B_partscrate",
+      "params": {
+        "id": "3B_partscrate",
+        "asm": "crate",
+        "at": [
+          -13.27,
+          2.97
+        ],
+        "yaw": 8,
+        "fill": "metal"
+      }
+    },
+    {
+      "id": "DomesticObject04",
+      "kind": "reeldeck",
+      "source_id": "2A_deck",
+      "params": {
+        "id": "2A_deck",
+        "asm": "reeldeck",
+        "at": [
+          -11.23,
+          -5.47
+        ],
+        "yaw": 0,
+        "z0": 0.735
+      }
+    },
+    {
+      "id": "DomesticObject05",
+      "kind": "plant",
+      "source_id": "3A_story_specimen",
+      "params": {
+        "id": "3A_story_specimen",
+        "asm": "plant",
+        "at": [
+          -12.72,
+          -1.82
+        ],
+        "yaw": 155,
+        "big": true,
+        "species": "rubber"
+      }
+    },
+    {
+      "id": "DomesticObject06",
+      "kind": "pinboard",
+      "source_id": "5A_pins1",
+      "params": {
+        "id": "5A_pins1",
+        "asm": "pinboard",
+        "at": [
+          -13.695,
+          -5.2
+        ],
+        "yaw": -90,
+        "z0": 1.0,
+        "W": 1.25,
+        "H": 0.85,
+        "cards": 18,
+        "neat": false
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject07",
+      "kind": "pinboard",
+      "source_id": "5A_pins2",
+      "params": {
+        "id": "5A_pins2",
+        "asm": "pinboard",
+        "at": [
+          -13.695,
+          -1.7
+        ],
+        "yaw": -90,
+        "z0": 1.15,
+        "W": 1.05,
+        "H": 0.7,
+        "cards": 14,
+        "neat": false
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject08",
+      "kind": "bookpile",
+      "source_id": "5A_floorstack",
+      "params": {
+        "id": "5A_floorstack",
+        "asm": "bookpile",
+        "at": [
+          -11.3,
+          -1.07
+        ],
+        "yaw": 5,
+        "n": 6
+      }
+    },
+    {
+      "id": "DomesticObject09",
+      "kind": "pinboard",
+      "source_id": "5C_story_colorboard",
+      "params": {
+        "id": "5C_story_colorboard",
+        "asm": "pinboard",
+        "at": [
+          13.695,
+          4.385
+        ],
+        "yaw": 90,
+        "z0": 1.16,
+        "W": 1.1,
+        "H": 0.8,
+        "cards": 22,
+        "neat": false
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject10",
+      "kind": "tripod",
+      "source_id": "6A_tripod",
+      "params": {
+        "id": "6A_tripod",
+        "asm": "tripod",
+        "at": [
+          -11.3,
+          -5.05
+        ],
+        "yaw": 90
+      }
+    },
+    {
+      "id": "DomesticObject11",
+      "kind": "softbox",
+      "source_id": "6A_soft1",
+      "params": {
+        "id": "6A_soft1",
+        "asm": "softbox",
+        "at": [
+          -11.65,
+          -5.9
+        ],
+        "yaw": 50
+      }
+    },
+    {
+      "id": "DomesticObject12",
+      "kind": "crate",
+      "source_id": "6A_gearcrate",
+      "params": {
+        "id": "6A_gearcrate",
+        "asm": "crate",
+        "at": [
+          -13.2,
+          -3.2
+        ],
+        "yaw": 355,
+        "fill": "soot",
+        "W": 0.5,
+        "D": 0.4,
+        "H": 0.36
+      }
+    },
+    {
+      "id": "DomesticObject13",
+      "kind": "cablecoil",
+      "source_id": "6A_coil1",
+      "params": {
+        "id": "6A_coil1",
+        "asm": "cablecoil",
+        "at": [
+          -12.15,
+          -4.35
+        ],
+        "yaw": 30
+      }
+    },
+    {
+      "id": "DomesticObject14",
+      "kind": "cablecoil",
+      "source_id": "6A_coil2",
+      "params": {
+        "id": "6A_coil2",
+        "asm": "cablecoil",
+        "at": [
+          -11.05,
+          -5.6
+        ],
+        "yaw": 240,
+        "r": 0.09
+      }
+    },
+    {
+      "id": "DomesticObject15",
+      "kind": "toolboard",
+      "source_id": "3B_toolboard",
+      "params": {
+        "id": "3B_toolboard",
+        "asm": "toolboard",
+        "at": [
+          -13.645,
+          5.94
+        ],
+        "yaw": -90,
+        "z0": 1.15,
+        "W": 0.9,
+        "H": 0.65,
+        "silhouettes": true
+      },
+      "rear_wall_y": -0.13
+    },
+    {
+      "id": "DomesticObject16",
+      "kind": "hallstand",
+      "source_id": "2A_hallstand",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject17",
+      "kind": "pinboard",
+      "source_id": "4B_case_wall",
+      "params": {
+        "id": "4B_case_wall",
+        "asm": "pinboard",
+        "W": 1.0,
+        "H": 1.0,
+        "cards": 24,
+        "neat": true
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject18",
+      "kind": "pinboard",
+      "source_id": "5A_plan_wall",
+      "params": {
+        "id": "5A_plan_wall",
+        "asm": "pinboard",
+        "W": 1.6,
+        "H": 1.0,
+        "cards": 20,
+        "neat": true
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject19",
+      "kind": "artframe",
+      "source_id": "5C_canvas_a",
+      "params": {
+        "W": 0.6,
+        "H": 0.8,
+        "style": "canvas",
+        "fields": [
+          [
+            0.08,
+            0.08,
+            0.92,
+            0.55,
+            "terracotta"
+          ],
+          [
+            0.08,
+            0.6,
+            0.55,
+            0.92,
+            "book_ochre"
+          ],
+          [
+            0.6,
+            0.6,
+            0.92,
+            0.92,
+            "soot"
+          ]
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject20",
+      "kind": "artframe",
+      "source_id": "5C_canvas_b",
+      "params": {
+        "W": 0.6,
+        "H": 0.8,
+        "style": "canvas",
+        "fields": [
+          [
+            0.08,
+            0.45,
+            0.92,
+            0.92,
+            "book_teal"
+          ],
+          [
+            0.08,
+            0.08,
+            0.4,
+            0.4,
+            "soot"
+          ],
+          [
+            0.45,
+            0.08,
+            0.92,
+            0.4,
+            "terracotta"
+          ]
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject21",
+      "kind": "artframe",
+      "source_id": "4A_frame_a",
+      "params": {
+        "W": 0.32,
+        "H": 0.42,
+        "style": "document"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject22",
+      "kind": "garmentrail",
+      "source_id": "2B_repair_rail",
+      "params": {
+        "W": 0.9,
+        "H": 0.95,
+        "garments": [
+          "wool_burgundy",
+          "jersey_maroon",
+          "cape_navy",
+          "coat_grey",
+          "linen"
+        ],
+        "tags": true
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject23",
+      "kind": "garmentrail",
+      "source_id": "4B_closet_rail",
+      "params": {
+        "W": 0.9,
+        "H": 0.95,
+        "garments": [
+          "coat_grey",
+          "linen",
+          "cape_navy",
+          "coat_grey"
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject24",
+      "kind": "blanket",
+      "source_id": "2C_blanket_a",
+      "params": {
+        "W": 1.2,
+        "H": 2.0,
+        "key": "blanket_grey"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject25",
+      "kind": "hamper",
+      "source_id": "2A_hall_hamper",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject26",
+      "kind": "boottray",
+      "source_id": "4B_hall_boots",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject27",
+      "kind": "artframe",
+      "source_id": "2C_album_a",
+      "params": {
+        "W": 0.3,
+        "H": 0.4,
+        "style": "photo",
+        "print": "book_brown"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject28",
+      "kind": "pinboard",
+      "source_id": "2A_caption_wall",
+      "params": {
+        "id": "2A_caption_wall",
+        "asm": "pinboard",
+        "W": 1.2,
+        "H": 0.9,
+        "cards": 24,
+        "neat": true
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject29",
+      "kind": "suitcase",
+      "source_id": "4D_case",
+      "params": {
+        "W": 0.6,
+        "D": 0.2,
+        "H": 0.42,
+        "key": "book_brown"
+      }
+    },
+    {
+      "id": "DomesticObject30",
+      "kind": "sewingmachine",
+      "source_id": "2B_sewing_machine",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject31",
+      "kind": "teardown",
+      "source_id": "3B_teardown",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject32",
+      "kind": "easel",
+      "source_id": "5C_easel",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject33",
+      "kind": "canvasstack",
+      "source_id": "5C_failed_canvases",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject34",
+      "kind": "cardcabinet",
+      "source_id": "6C_card_cabinet",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject35",
+      "kind": "backdroprail",
+      "source_id": "6A_backdrop_rail",
+      "params": {
+        "W": 1.2,
+        "H": 2.25
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject36",
+      "kind": "printline",
+      "source_id": "6A_print_line",
+      "params": {
+        "W": 1.6
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject37",
+      "kind": "pinboard",
+      "source_id": "F01_lobby_board",
+      "params": {
+        "id": "F01_lobby_board",
+        "asm": "pinboard",
+        "W": 1.2,
+        "H": 0.9,
+        "cards": 23,
+        "neat": true
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject38",
+      "kind": "hookstrip",
+      "source_id": "2C_cable_hooks",
+      "params": {
+        "W": 0.6,
+        "H": 0.5
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject39",
+      "kind": "headsethook",
+      "source_id": "F01_headset_hook",
+      "params": {
+        "W": 0.14,
+        "H": 0.45
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject40",
+      "kind": "coathook",
+      "source_id": "F01_watch_coat",
+      "params": {
+        "W": 0.5,
+        "H": 1.1,
+        "key": "coat_grey"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject41",
+      "kind": "foldedcot",
+      "source_id": "F01_watch_cot",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject42",
+      "kind": "shovel",
+      "source_id": "B1_boiler_shovel",
+      "params": {},
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject43",
+      "kind": "rakerack",
+      "source_id": "B1_boiler_rake",
+      "params": {
+        "L": 1.5
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject44",
+      "kind": "ashcan",
+      "source_id": "B1_boiler_ash_can",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject45",
+      "kind": "signalframe",
+      "source_id": "B1_signal_frame",
+      "params": {
+        "W": 1.2,
+        "H": 0.9,
+        "top": 2.23
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject46",
+      "kind": "conduit",
+      "source_id": "B1_fuse_conduit",
+      "params": {
+        "low": 0.645,
+        "high": 1.555,
+        "top": 2.98
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject47",
+      "kind": "oilcan",
+      "source_id": "B1_laundry_oil_can",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject48",
+      "kind": "beltnail",
+      "source_id": "B1_laundry_belt",
+      "params": {
+        "H": 0.45
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject49",
+      "kind": "stepladder",
+      "source_id": "B1_laundry_stepladder",
+      "params": {},
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject50",
+      "kind": "umbrellastand",
+      "source_id": "F01_vestibule_umbrella_stand",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject51",
+      "kind": "spittoon",
+      "source_id": "F01_lobby_spittoon",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject52",
+      "kind": "soapdish",
+      "source_id": "F01_restroom_soap_dish",
+      "params": {
+        "H": 0.1
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject53",
+      "kind": "rollertowel",
+      "source_id": "F01_restroom_roller_towel",
+      "params": {
+        "W": 0.5,
+        "H": 1.0
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject54",
+      "kind": "mopbucket",
+      "source_id": "F01_restroom_mop_bucket",
+      "params": {},
+      "rear_wall_y": -0.28
+    },
+    {
+      "id": "DomesticObject55",
+      "kind": "ropecoil",
+      "source_id": "ROOF_bulkhead_washing_line",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject56",
+      "kind": "wateringcan",
+      "source_id": "ROOF_bulkhead_watering_can",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject57",
+      "kind": "trug",
+      "source_id": "ROOF_bulkhead_trug",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject58",
+      "kind": "sootsack",
+      "source_id": "ROOF_service_soot_sack",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject59",
+      "kind": "sweeprods",
+      "source_id": "ROOF_service_sweep_rods",
+      "params": {},
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject60",
+      "kind": "suitcase",
+      "source_id": "1A_lesson_trunk",
+      "params": {
+        "W": 0.8,
+        "D": 0.44,
+        "H": 0.44,
+        "key": "wood_dark"
+      }
+    },
+    {
+      "id": "DomesticObject61",
+      "kind": "workboots",
+      "source_id": "4B_wake_boots",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject62",
+      "kind": "dressform",
+      "source_id": "2B_dress_form",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject63",
+      "kind": "tsquare",
+      "source_id": "5A_tsquare",
+      "params": {
+        "H": 0.75
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject64",
+      "kind": "verticalfile",
+      "source_id": "4A_hall_file",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject65",
+      "kind": "chargingcase",
+      "source_id": "B1_charging_case",
+      "params": {},
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject66",
+      "kind": "wallbell",
+      "source_id": "1D_house_bell",
+      "params": {
+        "H": 2.02
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject67",
+      "kind": "quietsign",
+      "source_id": "1D_quiet_sign",
+      "params": {},
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject68",
+      "kind": "pinboard",
+      "source_id": "5C_story_colorboard",
+      "params": {
+        "id": "5C_story_colorboard",
+        "asm": "pinboard",
+        "at": [
+          13.695,
+          4.385
+        ],
+        "yaw": 90,
+        "z0": 1.16,
+        "W": 1.1,
+        "H": 0.8,
+        "cards": 22,
+        "neat": false,
+        "route": true
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject69",
+      "kind": "overflowtray",
+      "source_id": "4A_umbrella_tray",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject70",
+      "kind": "bathshelf",
+      "source_id": "1A_bath_shelf",
+      "params": {
+        "set": [
+          "glass_spoon",
+          "pillbottle",
+          "pillbottle",
+          "powder",
+          "pins"
+        ],
+        "widths": [
+          0.066,
+          0.036,
+          0.036,
+          0.074,
+          0.052
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject71",
+      "kind": "bathshelf",
+      "source_id": "1D_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "pins",
+          "antiseptic"
+        ],
+        "widths": [
+          0.066,
+          0.052,
+          0.05
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject72",
+      "kind": "bathshelf",
+      "source_id": "2A_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "coldcream",
+          "powder",
+          "comb"
+        ],
+        "widths": [
+          0.066,
+          0.064,
+          0.074,
+          0.12
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject73",
+      "kind": "bathshelf",
+      "source_id": "2B_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "soap",
+          "selvedge"
+        ],
+        "widths": [
+          0.066,
+          0.07,
+          0.12
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject74",
+      "kind": "bathshelf",
+      "source_id": "2C_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "kohl",
+          "compact"
+        ],
+        "widths": [
+          0.066,
+          0.034,
+          0.062
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject75",
+      "kind": "bathshelf",
+      "source_id": "3A_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "nailbrush",
+          "mug",
+          "razor"
+        ],
+        "widths": [
+          0.066,
+          0.082,
+          0.078,
+          0.088
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject76",
+      "kind": "bathshelf",
+      "source_id": "3B_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "mug",
+          "nailbrush",
+          "pumice",
+          "carbolic"
+        ],
+        "widths": [
+          0.066,
+          0.078,
+          0.082,
+          0.062,
+          0.072
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject77",
+      "kind": "bathshelf",
+      "source_id": "3D_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "glass_plain",
+          "pastilles",
+          "inhaler",
+          "lipstick"
+        ],
+        "widths": [
+          0.066,
+          0.062,
+          0.064,
+          0.02,
+          0.018
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject78",
+      "kind": "bathshelf",
+      "source_id": "4A_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "mug",
+          "razor",
+          "comb"
+        ],
+        "widths": [
+          0.066,
+          0.078,
+          0.088,
+          0.12
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject79",
+      "kind": "bathshelf",
+      "source_id": "4B_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "soap",
+          "comb"
+        ],
+        "widths": [
+          0.066,
+          0.07,
+          0.12
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject80",
+      "kind": "bathshelf",
+      "source_id": "4C_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "soap",
+          "tape",
+          "soap",
+          "glass"
+        ],
+        "widths": [
+          0.066,
+          0.07,
+          0.02,
+          0.07,
+          0.066
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject81",
+      "kind": "bathshelf",
+      "source_id": "4D_bath_shelf",
+      "params": {
+        "set": [
+          "wrapped",
+          "wrapped",
+          "card"
+        ],
+        "widths": [
+          0.062,
+          0.062,
+          0.085
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject82",
+      "kind": "bathshelf",
+      "source_id": "5A_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "nailbrush",
+          "pumice",
+          "carbolic",
+          "lipstick"
+        ],
+        "widths": [
+          0.066,
+          0.082,
+          0.062,
+          0.072,
+          0.018
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject83",
+      "kind": "bathshelf",
+      "source_id": "5B_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "mug",
+          "razor",
+          "cells"
+        ],
+        "widths": [
+          0.066,
+          0.078,
+          0.088,
+          0.066
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject84",
+      "kind": "bathshelf",
+      "source_id": "5C_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "turps",
+          "brushtin",
+          "nailbrush"
+        ],
+        "widths": [
+          0.066,
+          0.074,
+          0.074,
+          0.082
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject85",
+      "kind": "bathshelf",
+      "source_id": "6A_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "amber",
+          "amber",
+          "tongs"
+        ],
+        "widths": [
+          0.066,
+          0.05,
+          0.05,
+          0.14
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject86",
+      "kind": "bathshelf",
+      "source_id": "6B_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "mug",
+          "razor"
+        ],
+        "widths": [
+          0.066,
+          0.078,
+          0.088
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject87",
+      "kind": "bathshelf",
+      "source_id": "6C_bath_shelf",
+      "params": {
+        "set": [
+          "glass",
+          "powder",
+          "pins",
+          "lipstick",
+          "buttonhook"
+        ],
+        "widths": [
+          0.066,
+          0.074,
+          0.052,
+          0.018,
+          0.11
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject88",
+      "kind": "noticeframe",
+      "source_id": "F01_PUBLIC_NOTICE",
+      "params": {
+        "taped": true
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject89",
+      "kind": "noticeframe",
+      "source_id": "F01_SERVICE_NOTICE",
+      "params": {
+        "taped": false
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject90",
+      "kind": "threshold",
+      "source_id": "2A_threshold",
+      "params": {
+        "mat": "coir",
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject91",
+      "kind": "threshold",
+      "source_id": "2B_threshold",
+      "params": {
+        "mat": "rag",
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject92",
+      "kind": "threshold",
+      "source_id": "2C_threshold",
+      "params": {
+        "mat": "worn",
+        "bottles": 2,
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject93",
+      "kind": "threshold",
+      "source_id": "3A_threshold",
+      "params": {
+        "mat": "soil",
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject94",
+      "kind": "threshold",
+      "source_id": "3D_threshold",
+      "params": {
+        "mat": "coir",
+        "jamb": 0.575
+      }
+    },
+    {
+      "id": "DomesticObject95",
+      "kind": "threshold",
+      "source_id": "4A_threshold",
+      "params": {
+        "mat": "coir",
+        "news": true,
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject96",
+      "kind": "threshold",
+      "source_id": "4B_threshold",
+      "params": {
+        "mat": "worn",
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject97",
+      "kind": "threshold",
+      "source_id": "4C_threshold",
+      "params": {
+        "mat": "rubber",
+        "bottles": 2,
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject98",
+      "kind": "threshold",
+      "source_id": "5A_threshold",
+      "params": {
+        "mat": "coir",
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject99",
+      "kind": "threshold",
+      "source_id": "5B_threshold",
+      "params": {
+        "mat": "coir",
+        "news": true,
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject100",
+      "kind": "threshold",
+      "source_id": "5C_threshold",
+      "params": {
+        "mat": "paint",
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject101",
+      "kind": "threshold",
+      "source_id": "6B_threshold",
+      "params": {
+        "mat": "worn",
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject102",
+      "kind": "threshold",
+      "source_id": "6C_threshold",
+      "params": {
+        "mat": "coir",
+        "parcel": true,
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject103",
+      "kind": "threshold",
+      "source_id": "2D_threshold",
+      "params": {
+        "mat": "dust",
+        "jamb": 0.575
+      }
+    },
+    {
+      "id": "DomesticObject104",
+      "kind": "artframe",
+      "source_id": "F01_PUBLIC_LANDING_PIECE",
+      "params": {
+        "W": 0.6,
+        "H": 0.45,
+        "style": "canvas",
+        "fields": [
+          [
+            0.06,
+            0.55,
+            0.94,
+            0.94,
+            "cape_navy"
+          ],
+          [
+            0.06,
+            0.25,
+            0.94,
+            0.55,
+            "paint_teal"
+          ],
+          [
+            0.06,
+            0.06,
+            0.94,
+            0.25,
+            "terracotta"
+          ],
+          [
+            0.3,
+            0.3,
+            0.33,
+            0.62,
+            "paint_cream"
+          ],
+          [
+            0.33,
+            0.45,
+            0.42,
+            0.6,
+            "paint_cream"
+          ],
+          [
+            0.62,
+            0.3,
+            0.65,
+            0.55,
+            "paint_cream"
+          ],
+          [
+            0.65,
+            0.42,
+            0.72,
+            0.54,
+            "paint_cream"
+          ],
+          [
+            0.76,
+            0.72,
+            0.81,
+            0.79,
+            "paint_ochre"
+          ]
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject105",
+      "kind": "artframe",
+      "source_id": "F02_PUBLIC_LANDING_PIECE",
+      "params": {
+        "W": 0.6,
+        "H": 0.45,
+        "style": "canvas",
+        "fields": [
+          [
+            0.06,
+            0.5,
+            0.94,
+            0.94,
+            "paint_sky"
+          ],
+          [
+            0.06,
+            0.06,
+            0.94,
+            0.5,
+            "paint_ochre"
+          ],
+          [
+            0.7,
+            0.55,
+            0.86,
+            0.72,
+            "paint_green"
+          ],
+          [
+            0.77,
+            0.5,
+            0.79,
+            0.56,
+            "terracotta"
+          ]
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject106",
+      "kind": "artframe",
+      "source_id": "F03_PUBLIC_LANDING_PIECE",
+      "params": {
+        "W": 0.42,
+        "H": 0.52,
+        "style": "photo",
+        "print": "sepia"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject107",
+      "kind": "artframe",
+      "source_id": "F04_PUBLIC_LANDING_PIECE",
+      "params": {
+        "W": 0.5,
+        "H": 0.6,
+        "style": "canvas",
+        "fields": [
+          [
+            0.06,
+            0.06,
+            0.94,
+            0.35,
+            "terracotta"
+          ],
+          [
+            0.06,
+            0.35,
+            0.94,
+            0.94,
+            "soot"
+          ],
+          [
+            0.25,
+            0.35,
+            0.45,
+            0.62,
+            "paint_cream"
+          ],
+          [
+            0.55,
+            0.35,
+            0.7,
+            0.48,
+            "wool_burgundy"
+          ],
+          [
+            0.72,
+            0.35,
+            0.84,
+            0.46,
+            "paint_ochre"
+          ]
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject108",
+      "kind": "artframe",
+      "source_id": "F05_PUBLIC_LANDING_PIECE",
+      "params": {
+        "W": 0.7,
+        "H": 0.42,
+        "style": "canvas",
+        "fields": [
+          [
+            0.06,
+            0.6,
+            0.94,
+            0.94,
+            "paint_sky"
+          ],
+          [
+            0.06,
+            0.32,
+            0.94,
+            0.6,
+            "voile"
+          ],
+          [
+            0.06,
+            0.06,
+            0.94,
+            0.32,
+            "paint_green"
+          ],
+          [
+            0.35,
+            0.52,
+            0.6,
+            0.6,
+            "paint_cream"
+          ]
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject109",
+      "kind": "artframe",
+      "source_id": "F06_PUBLIC_LANDING_PIECE",
+      "params": {
+        "W": 0.56,
+        "H": 0.42,
+        "style": "canvas",
+        "fields": [
+          [
+            0.06,
+            0.06,
+            0.94,
+            0.94,
+            "paint_cream"
+          ],
+          [
+            0.08,
+            0.1,
+            0.92,
+            0.28,
+            "sepia"
+          ],
+          [
+            0.14,
+            0.28,
+            0.4,
+            0.4,
+            "sepia_dark"
+          ],
+          [
+            0.58,
+            0.28,
+            0.86,
+            0.4,
+            "sepia_dark"
+          ],
+          [
+            0.12,
+            0.62,
+            0.88,
+            0.665,
+            "sepia_dark"
+          ],
+          [
+            0.2,
+            0.4,
+            0.225,
+            0.62,
+            "sepia_dark"
+          ],
+          [
+            0.775,
+            0.4,
+            0.8,
+            0.62,
+            "sepia_dark"
+          ],
+          [
+            0.45,
+            0.28,
+            0.475,
+            0.5,
+            "sepia_dark"
+          ],
+          [
+            0.51,
+            0.28,
+            0.535,
+            0.47,
+            "sepia_dark"
+          ],
+          [
+            0.64,
+            0.4,
+            0.66,
+            0.55,
+            "sepia_dark"
+          ]
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject110",
+      "kind": "artframe",
+      "source_id": "ROOF_PUBLIC_LANDING_PIECE",
+      "params": {
+        "W": 0.6,
+        "H": 0.45,
+        "style": "canvas",
+        "fields": [
+          [
+            0.06,
+            0.06,
+            0.94,
+            0.94,
+            "cape_navy"
+          ],
+          [
+            0.2,
+            0.7,
+            0.23,
+            0.74,
+            "paint_cream"
+          ],
+          [
+            0.5,
+            0.8,
+            0.53,
+            0.84,
+            "paint_cream"
+          ],
+          [
+            0.75,
+            0.62,
+            0.78,
+            0.66,
+            "paint_cream"
+          ],
+          [
+            0.62,
+            0.45,
+            0.72,
+            0.6,
+            "paint_ochre"
+          ],
+          [
+            0.06,
+            0.06,
+            0.94,
+            0.2,
+            "soot"
+          ]
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject111",
+      "kind": "artframe",
+      "source_id": "F01_SERVICE_LANDING_PIECE",
+      "params": {
+        "W": 0.36,
+        "H": 0.46,
+        "style": "document"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject112",
+      "kind": "artframe",
+      "source_id": "F02_SERVICE_LANDING_PIECE",
+      "params": {
+        "W": 0.3,
+        "H": 0.4,
+        "style": "photo",
+        "print": "print_blue"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject113",
+      "kind": "artframe",
+      "source_id": "F03_SERVICE_LANDING_PIECE",
+      "params": {
+        "W": 0.4,
+        "H": 0.3,
+        "style": "photo",
+        "print": "sepia"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject114",
+      "kind": "artframe",
+      "source_id": "F04_SERVICE_LANDING_PIECE",
+      "params": {
+        "W": 0.3,
+        "H": 0.4,
+        "style": "photo",
+        "print": "print_green"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject115",
+      "kind": "artframe",
+      "source_id": "F05_SERVICE_LANDING_PIECE",
+      "params": {
+        "W": 0.42,
+        "H": 0.32,
+        "style": "document"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject116",
+      "kind": "artframe",
+      "source_id": "F06_SERVICE_LANDING_PIECE",
+      "params": {
+        "W": 0.34,
+        "H": 0.44,
+        "style": "photo",
+        "print": "print_grey"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject117",
+      "kind": "artframe",
+      "source_id": "ROOF_SERVICE_LANDING_PIECE",
+      "params": {
+        "W": 0.3,
+        "H": 0.38,
+        "style": "photo",
+        "print": "sepia_dark"
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject118",
+      "kind": "threshold",
+      "source_id": "3C_threshold",
+      "params": {
+        "mat": "dust",
+        "jamb": 0.575
+      }
+    },
+    {
+      "id": "DomesticObject120",
+      "kind": "aerialwire",
+      "source_id": "5B_aerial_wire",
+      "params": {
+        "L": 4.145
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject121",
+      "kind": "bathrail",
+      "source_id": "1A_bath_rail",
+      "params": {
+        "L": 0.45
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject122",
+      "kind": "windowtowel",
+      "source_id": "1D_window_towel",
+      "params": {
+        "W": 0.86
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject123",
+      "kind": "lightbox",
+      "source_id": "6A_light_table",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject124",
+      "kind": "lostshelves",
+      "source_id": "4D_lost_shelves",
+      "params": {},
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject125",
+      "kind": "paintedoutlet",
+      "source_id": "B1_painted_outlet",
+      "params": {},
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject126",
+      "kind": "cleatrun",
+      "source_id": "B1_cleat_run",
+      "params": {
+        "L": 1.6,
+        "H": 0.77,
+        "shelf_x": -0.18
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject127",
+      "kind": "droppedcartridge",
+      "source_id": "B1_dropped_cartridge",
+      "params": {}
+    },
+    {
+      "id": "DomesticObject128",
+      "kind": "coalshovel",
+      "source_id": "B1_coal_shovel",
+      "params": {},
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject129",
+      "kind": "threshold",
+      "source_id": "3B_threshold",
+      "params": {
+        "mat": "rubber",
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject130",
+      "kind": "threshold",
+      "source_id": "4D_threshold",
+      "params": {
+        "mat": "coir",
+        "flyer": true,
+        "jamb": 0.575
+      }
+    },
+    {
+      "id": "DomesticObject131",
+      "kind": "threshold",
+      "source_id": "6A_threshold",
+      "params": {
+        "mat": "coir",
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject132",
+      "kind": "threshold",
+      "source_id": "5D_threshold",
+      "params": {
+        "mat": "dust",
+        "jamb": 0.505
+      }
+    },
+    {
+      "id": "DomesticObject133",
+      "kind": "runner",
+      "source_id": "4B_alcove_runner",
+      "params": {
+        "L": 2.1,
+        "W": 0.62,
+        "hx": -0.4
+      }
+    },
+    {
+      "id": "DomesticObject134",
+      "kind": "washersupply",
+      "source_id": "B1_washer_supply",
+      "params": {
+        "entry": -1.8,
+        "hot": [
+          -0.955,
+          0.745
+        ],
+        "cold": [
+          -0.745,
+          0.955
+        ],
+        "drains": [
+          -0.58,
+          1.12
+        ],
+        "clips": [
+          -1.45,
+          -0.35,
+          0.35
+        ]
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject135",
+      "kind": "rinsetaps",
+      "source_id": "B1_rinse_taps",
+      "params": {
+        "tubs": [
+          -0.145,
+          0.495
+        ],
+        "clips": {
+          "Cold": [
+            0.15
+          ],
+          "Hot": [
+            -0.12,
+            0.15
+          ]
+        },
+        "tail_y": 0.31,
+        "tail_ry": 0.095
+      },
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject136",
+      "kind": "gasring",
+      "source_id": "F01_watch_kettle",
+      "params": {},
+      "rear_wall_y": -0.02
+    },
+    {
+      "id": "DomesticObject137",
+      "kind": "risermarks",
+      "source_id": "F03_riser_marks",
+      "params": {
+        "band": [
+          1.55,
+          1.62
+        ],
+        "cock": [
+          0.12,
+          0.45
+        ],
+        "risers": [
+          [
+            "Heat",
+            [
+              -0.225,
+              -0.47,
+              0.225,
+              -0.02
+            ],
+            "paint_ochre",
+            [
+              "near",
+              -0.12
+            ]
+          ],
+          [
+            "Telephone",
+            [
+              0.325,
+              -0.47,
+              0.625,
+              -0.02
+            ],
+            "paint_green",
+            [
+              "near",
+              0.475
+            ]
+          ],
+          [
+            "Electric",
+            [
+              -0.225,
+              -0.87,
+              0.075,
+              -0.57
+            ],
+            "paint_sky",
+            [
+              "west",
+              -0.72
+            ]
+          ]
+        ],
+        "electric_pipe": {
+          "centre": [
+            0.715,
+            -0.72
+          ],
+          "radius": 0.0225
+        }
+      }
+    },
+    {
+      "id": "DomesticObject138",
+      "kind": "hosecoil",
+      "source_id": "F03_riser_hose",
+      "params": {
+        "H": 1.4,
+        "loop_r": 0.19,
+        "hose_r": 0.0115,
+        "turns": 5,
+        "pitch": 0.025
+      },
+      "rear_wall_y": -0.02
+    }
+  ],
+  "instances": [
+    {
+      "id": "2A_pinboard",
+      "variant": "DomesticObject00"
+    },
+    {
+      "id": "2B_story_pattern_board",
+      "variant": "DomesticObject01"
+    },
+    {
+      "id": "3B_toolboard",
+      "variant": "DomesticObject02"
+    },
+    {
+      "id": "3B_partscrate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "2A_deck",
+      "variant": "DomesticObject04"
+    },
+    {
+      "id": "3A_story_specimen",
+      "variant": "DomesticObject05"
+    },
+    {
+      "id": "5A_pins1",
+      "variant": "DomesticObject06"
+    },
+    {
+      "id": "5A_pins2",
+      "variant": "DomesticObject07"
+    },
+    {
+      "id": "5A_floorstack",
+      "variant": "DomesticObject08"
+    },
+    {
+      "id": "5C_story_colorboard",
+      "variant": "DomesticObject09"
+    },
+    {
+      "id": "6A_tripod",
+      "variant": "DomesticObject10"
+    },
+    {
+      "id": "6A_soft1",
+      "variant": "DomesticObject11"
+    },
+    {
+      "id": "6A_soft2",
+      "variant": "DomesticObject11"
+    },
+    {
+      "id": "6A_gearcrate",
+      "variant": "DomesticObject12"
+    },
+    {
+      "id": "6A_coil1",
+      "variant": "DomesticObject13"
+    },
+    {
+      "id": "6A_coil2",
+      "variant": "DomesticObject14"
+    },
+    {
+      "id": "b1_toolboard",
+      "variant": "DomesticObject15"
+    },
+    {
+      "id": "2A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "3A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "4B_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "2B_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "3B_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "4A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "5C_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "6C_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "5A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "6A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "5B_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "6B_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "1D_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "2C_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "4C_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "1A_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "3D_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "4D_hallstand",
+      "variant": "DomesticObject16"
+    },
+    {
+      "id": "5B_deck",
+      "variant": "DomesticObject04"
+    },
+    {
+      "id": "4B_case_wall",
+      "variant": "DomesticObject17"
+    },
+    {
+      "id": "5A_plan_wall",
+      "variant": "DomesticObject18"
+    },
+    {
+      "id": "5C_canvas_a",
+      "variant": "DomesticObject19"
+    },
+    {
+      "id": "5C_canvas_b",
+      "variant": "DomesticObject20"
+    },
+    {
+      "id": "4A_frame_a",
+      "variant": "DomesticObject21"
+    },
+    {
+      "id": "4A_frame_b",
+      "variant": "DomesticObject21"
+    },
+    {
+      "id": "1A_frame_a",
+      "variant": "DomesticObject21"
+    },
+    {
+      "id": "1A_frame_b",
+      "variant": "DomesticObject21"
+    },
+    {
+      "id": "2B_repair_rail",
+      "variant": "DomesticObject22"
+    },
+    {
+      "id": "4B_closet_rail",
+      "variant": "DomesticObject23"
+    },
+    {
+      "id": "2C_blanket_a",
+      "variant": "DomesticObject24"
+    },
+    {
+      "id": "2C_blanket_b",
+      "variant": "DomesticObject24"
+    },
+    {
+      "id": "3D_blanket_a",
+      "variant": "DomesticObject24"
+    },
+    {
+      "id": "3D_blanket_b",
+      "variant": "DomesticObject24"
+    },
+    {
+      "id": "1A_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "1D_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "2A_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "2B_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "2C_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "3A_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "3B_hall_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "3D_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "4A_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "4B_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "4C_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "4D_hall_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "5A_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "5B_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "5C_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "6A_hall_crate",
+      "variant": "DomesticObject12"
+    },
+    {
+      "id": "6B_hall_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "6C_hall_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "2C_album_a",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "2C_album_b",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "3A_portrait",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "3A_diagram",
+      "variant": "DomesticObject21"
+    },
+    {
+      "id": "5B_work_a",
+      "variant": "DomesticObject19"
+    },
+    {
+      "id": "5B_work_b",
+      "variant": "DomesticObject20"
+    },
+    {
+      "id": "2A_caption_wall",
+      "variant": "DomesticObject28"
+    },
+    {
+      "id": "3D_image_a",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "3D_image_b",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "3D_image_c",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "4D_case",
+      "variant": "DomesticObject29"
+    },
+    {
+      "id": "2B_sewing_machine",
+      "variant": "DomesticObject30"
+    },
+    {
+      "id": "3B_teardown",
+      "variant": "DomesticObject31"
+    },
+    {
+      "id": "5C_easel",
+      "variant": "DomesticObject32"
+    },
+    {
+      "id": "5C_failed_canvases",
+      "variant": "DomesticObject33"
+    },
+    {
+      "id": "6C_card_cabinet",
+      "variant": "DomesticObject34"
+    },
+    {
+      "id": "6A_backdrop_rail",
+      "variant": "DomesticObject35"
+    },
+    {
+      "id": "6A_print_line",
+      "variant": "DomesticObject36"
+    },
+    {
+      "id": "F01_lobby_board",
+      "variant": "DomesticObject37"
+    },
+    {
+      "id": "F01_lobby_photo",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "B1_bay_1A_case",
+      "variant": "DomesticObject29"
+    },
+    {
+      "id": "B1_bay_1D_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "B1_bay_2A_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "B1_bay_2B_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "B1_bay_3A_boots",
+      "variant": "DomesticObject26"
+    },
+    {
+      "id": "B1_bay_3B_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "B1_bay_3D_case",
+      "variant": "DomesticObject29"
+    },
+    {
+      "id": "B1_bay_4A_case",
+      "variant": "DomesticObject29"
+    },
+    {
+      "id": "B1_bay_4B_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "B1_bay_4C_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "B1_bay_5A_case",
+      "variant": "DomesticObject29"
+    },
+    {
+      "id": "B1_bay_5B_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "B1_bay_5C_canvases",
+      "variant": "DomesticObject33"
+    },
+    {
+      "id": "B1_bay_6A_gear",
+      "variant": "DomesticObject12"
+    },
+    {
+      "id": "B1_bay_6B_case",
+      "variant": "DomesticObject29"
+    },
+    {
+      "id": "B1_bay_6C_hamper",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "B1_laundry_basket_1",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "B1_laundry_basket_2",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "B1_laundry_basket_3",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "B1_laundry_basket_4",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "B1_laundry_basket_5",
+      "variant": "DomesticObject25"
+    },
+    {
+      "id": "3D_card_index",
+      "variant": "DomesticObject34"
+    },
+    {
+      "id": "2C_cable_hooks",
+      "variant": "DomesticObject38"
+    },
+    {
+      "id": "2C_deck",
+      "variant": "DomesticObject04"
+    },
+    {
+      "id": "4D_print",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "6A_archive_box_a",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "6A_archive_box_b",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "6A_archive_box_c",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "4C_story_colorboard",
+      "variant": "DomesticObject68"
+    },
+    {
+      "id": "F01_headset_hook",
+      "variant": "DomesticObject39"
+    },
+    {
+      "id": "F01_watch_coat",
+      "variant": "DomesticObject40"
+    },
+    {
+      "id": "F01_watch_cot",
+      "variant": "DomesticObject41"
+    },
+    {
+      "id": "F01_cord_pile",
+      "variant": "DomesticObject13"
+    },
+    {
+      "id": "B1_boiler_shovel",
+      "variant": "DomesticObject42"
+    },
+    {
+      "id": "B1_boiler_rake",
+      "variant": "DomesticObject43"
+    },
+    {
+      "id": "B1_boiler_ash_can",
+      "variant": "DomesticObject44"
+    },
+    {
+      "id": "B1_signal_frame",
+      "variant": "DomesticObject45"
+    },
+    {
+      "id": "B1_fuse_conduit",
+      "variant": "DomesticObject46"
+    },
+    {
+      "id": "B1_laundry_oil_can",
+      "variant": "DomesticObject47"
+    },
+    {
+      "id": "B1_laundry_belt",
+      "variant": "DomesticObject48"
+    },
+    {
+      "id": "B1_laundry_stepladder",
+      "variant": "DomesticObject49"
+    },
+    {
+      "id": "F01_vestibule_umbrella_stand",
+      "variant": "DomesticObject50"
+    },
+    {
+      "id": "F01_lobby_spittoon",
+      "variant": "DomesticObject51"
+    },
+    {
+      "id": "F01_restroom_soap_dish",
+      "variant": "DomesticObject52"
+    },
+    {
+      "id": "F01_restroom_roller_towel",
+      "variant": "DomesticObject53"
+    },
+    {
+      "id": "F01_restroom_mop_bucket",
+      "variant": "DomesticObject54"
+    },
+    {
+      "id": "ROOF_bulkhead_washing_line",
+      "variant": "DomesticObject55"
+    },
+    {
+      "id": "ROOF_bulkhead_watering_can",
+      "variant": "DomesticObject56"
+    },
+    {
+      "id": "ROOF_bulkhead_trug",
+      "variant": "DomesticObject57"
+    },
+    {
+      "id": "6A_editorial_a",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "6A_editorial_b",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "6A_editorial_c",
+      "variant": "DomesticObject27"
+    },
+    {
+      "id": "ROOF_service_soot_sack",
+      "variant": "DomesticObject58"
+    },
+    {
+      "id": "ROOF_service_sweep_rods",
+      "variant": "DomesticObject59"
+    },
+    {
+      "id": "1A_lesson_trunk",
+      "variant": "DomesticObject60"
+    },
+    {
+      "id": "4B_wake_boots",
+      "variant": "DomesticObject61"
+    },
+    {
+      "id": "2B_dress_form",
+      "variant": "DomesticObject62"
+    },
+    {
+      "id": "5A_tsquare",
+      "variant": "DomesticObject63"
+    },
+    {
+      "id": "4A_hall_file",
+      "variant": "DomesticObject64"
+    },
+    {
+      "id": "B1_charging_case",
+      "variant": "DomesticObject65"
+    },
+    {
+      "id": "B1_capsule_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "1D_house_bell",
+      "variant": "DomesticObject66"
+    },
+    {
+      "id": "1D_quiet_sign",
+      "variant": "DomesticObject67"
+    },
+    {
+      "id": "4A_umbrella_tray",
+      "variant": "DomesticObject69"
+    },
+    {
+      "id": "1A_bath_shelf",
+      "variant": "DomesticObject70"
+    },
+    {
+      "id": "1D_bath_shelf",
+      "variant": "DomesticObject71"
+    },
+    {
+      "id": "2A_bath_shelf",
+      "variant": "DomesticObject72"
+    },
+    {
+      "id": "2B_bath_shelf",
+      "variant": "DomesticObject73"
+    },
+    {
+      "id": "2C_bath_shelf",
+      "variant": "DomesticObject74"
+    },
+    {
+      "id": "3A_bath_shelf",
+      "variant": "DomesticObject75"
+    },
+    {
+      "id": "3B_bath_shelf",
+      "variant": "DomesticObject76"
+    },
+    {
+      "id": "3D_bath_shelf",
+      "variant": "DomesticObject77"
+    },
+    {
+      "id": "4A_bath_shelf",
+      "variant": "DomesticObject78"
+    },
+    {
+      "id": "4B_bath_shelf",
+      "variant": "DomesticObject79"
+    },
+    {
+      "id": "4C_bath_shelf",
+      "variant": "DomesticObject80"
+    },
+    {
+      "id": "4D_bath_shelf",
+      "variant": "DomesticObject81"
+    },
+    {
+      "id": "5A_bath_shelf",
+      "variant": "DomesticObject82"
+    },
+    {
+      "id": "5B_bath_shelf",
+      "variant": "DomesticObject83"
+    },
+    {
+      "id": "5C_bath_shelf",
+      "variant": "DomesticObject84"
+    },
+    {
+      "id": "6A_bath_shelf",
+      "variant": "DomesticObject85"
+    },
+    {
+      "id": "6B_bath_shelf",
+      "variant": "DomesticObject86"
+    },
+    {
+      "id": "6C_bath_shelf",
+      "variant": "DomesticObject87"
+    },
+    {
+      "id": "F01_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F02_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F03_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F04_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F05_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F06_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "ROOF_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "B1_PUBLIC_NOTICE",
+      "variant": "DomesticObject88"
+    },
+    {
+      "id": "F01_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F02_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F03_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F04_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F05_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F06_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "ROOF_SERVICE_NOTICE",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "2A_threshold",
+      "variant": "DomesticObject90"
+    },
+    {
+      "id": "2B_threshold",
+      "variant": "DomesticObject91"
+    },
+    {
+      "id": "2C_threshold",
+      "variant": "DomesticObject92"
+    },
+    {
+      "id": "3A_threshold",
+      "variant": "DomesticObject93"
+    },
+    {
+      "id": "3D_threshold",
+      "variant": "DomesticObject94"
+    },
+    {
+      "id": "4A_threshold",
+      "variant": "DomesticObject95"
+    },
+    {
+      "id": "4B_threshold",
+      "variant": "DomesticObject96"
+    },
+    {
+      "id": "4C_threshold",
+      "variant": "DomesticObject97"
+    },
+    {
+      "id": "5A_threshold",
+      "variant": "DomesticObject98"
+    },
+    {
+      "id": "5B_threshold",
+      "variant": "DomesticObject99"
+    },
+    {
+      "id": "5C_threshold",
+      "variant": "DomesticObject100"
+    },
+    {
+      "id": "6B_threshold",
+      "variant": "DomesticObject101"
+    },
+    {
+      "id": "6C_threshold",
+      "variant": "DomesticObject102"
+    },
+    {
+      "id": "2D_threshold",
+      "variant": "DomesticObject103"
+    },
+    {
+      "id": "2D_sealed_notice",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F01_PUBLIC_LANDING_PIECE",
+      "variant": "DomesticObject104"
+    },
+    {
+      "id": "F02_PUBLIC_LANDING_PIECE",
+      "variant": "DomesticObject105"
+    },
+    {
+      "id": "F03_PUBLIC_LANDING_PIECE",
+      "variant": "DomesticObject106"
+    },
+    {
+      "id": "F04_PUBLIC_LANDING_PIECE",
+      "variant": "DomesticObject107"
+    },
+    {
+      "id": "F05_PUBLIC_LANDING_PIECE",
+      "variant": "DomesticObject108"
+    },
+    {
+      "id": "F06_PUBLIC_LANDING_PIECE",
+      "variant": "DomesticObject109"
+    },
+    {
+      "id": "ROOF_PUBLIC_LANDING_PIECE",
+      "variant": "DomesticObject110"
+    },
+    {
+      "id": "F01_SERVICE_LANDING_PIECE",
+      "variant": "DomesticObject111"
+    },
+    {
+      "id": "F02_SERVICE_LANDING_PIECE",
+      "variant": "DomesticObject112"
+    },
+    {
+      "id": "F03_SERVICE_LANDING_PIECE",
+      "variant": "DomesticObject113"
+    },
+    {
+      "id": "F04_SERVICE_LANDING_PIECE",
+      "variant": "DomesticObject114"
+    },
+    {
+      "id": "F05_SERVICE_LANDING_PIECE",
+      "variant": "DomesticObject115"
+    },
+    {
+      "id": "F06_SERVICE_LANDING_PIECE",
+      "variant": "DomesticObject116"
+    },
+    {
+      "id": "ROOF_SERVICE_LANDING_PIECE",
+      "variant": "DomesticObject117"
+    },
+    {
+      "id": "3C_sealed_notice",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "3C_threshold",
+      "variant": "DomesticObject118"
+    },
+    {
+      "id": "5D_sealed_notice",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "5B_aerial_wire",
+      "variant": "DomesticObject120"
+    },
+    {
+      "id": "1A_bath_rail",
+      "variant": "DomesticObject121"
+    },
+    {
+      "id": "1D_window_towel",
+      "variant": "DomesticObject122"
+    },
+    {
+      "id": "6A_light_table",
+      "variant": "DomesticObject123"
+    },
+    {
+      "id": "4D_lost_shelves",
+      "variant": "DomesticObject124"
+    },
+    {
+      "id": "B1_painted_outlet",
+      "variant": "DomesticObject125"
+    },
+    {
+      "id": "B1_cleat_run",
+      "variant": "DomesticObject126"
+    },
+    {
+      "id": "B1_dropped_cartridge",
+      "variant": "DomesticObject127"
+    },
+    {
+      "id": "B1_coal_shovel",
+      "variant": "DomesticObject128"
+    },
+    {
+      "id": "B1_laundry_rota",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "3B_threshold",
+      "variant": "DomesticObject129"
+    },
+    {
+      "id": "4D_threshold",
+      "variant": "DomesticObject130"
+    },
+    {
+      "id": "6A_threshold",
+      "variant": "DomesticObject131"
+    },
+    {
+      "id": "5D_threshold",
+      "variant": "DomesticObject132"
+    },
+    {
+      "id": "4B_alcove_runner",
+      "variant": "DomesticObject133"
+    },
+    {
+      "id": "B1_washer_supply",
+      "variant": "DomesticObject134"
+    },
+    {
+      "id": "B1_rinse_taps",
+      "variant": "DomesticObject135"
+    },
+    {
+      "id": "F01_watch_kettle",
+      "variant": "DomesticObject136"
+    },
+    {
+      "id": "F01_tour_card",
+      "variant": "DomesticObject89"
+    },
+    {
+      "id": "F03_riser_marks",
+      "variant": "DomesticObject137"
+    },
+    {
+      "id": "F03_riser_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "F03_riser_hose",
+      "variant": "DomesticObject138"
+    },
+    {
+      "id": "F04_riser_marks",
+      "variant": "DomesticObject137"
+    },
+    {
+      "id": "F04_riser_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "F04_riser_hose",
+      "variant": "DomesticObject138"
+    },
+    {
+      "id": "F05_riser_marks",
+      "variant": "DomesticObject137"
+    },
+    {
+      "id": "F05_riser_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "F05_riser_hose",
+      "variant": "DomesticObject138"
+    },
+    {
+      "id": "F06_riser_marks",
+      "variant": "DomesticObject137"
+    },
+    {
+      "id": "F06_riser_crate",
+      "variant": "DomesticObject03"
+    },
+    {
+      "id": "F06_riser_hose",
+      "variant": "DomesticObject138"
+    }
+  ],
+  "runtime_keys": [
+    "bakelite",
+    "book_brown",
+    "book_burgundy",
+    "book_green",
+    "book_navy",
+    "book_ochre",
+    "book_teal",
+    "brass",
+    "enamel",
+    "linen",
+    "metal",
+    "milk_glass",
+    "paper",
+    "plant",
+    "plywood",
+    "rubber_aged",
+    "soil",
+    "soot",
+    "terracotta",
+    "timber",
+    "wood_dark",
+    "cane",
+    "leaf_rib",
+    "wool_burgundy",
+    "jersey_maroon",
+    "cape_navy",
+    "coat_grey",
+    "blanket_grey",
+    "voile",
+    "opal",
+    "tumbler",
+    "amber",
+    "bone",
+    "standwater",
+    "kraft",
+    "coir",
+    "coir_mid",
+    "coir_dark",
+    "paint_ochre",
+    "paint_green",
+    "paint_teal",
+    "paint_sky",
+    "paint_cream",
+    "sepia",
+    "sepia_dark",
+    "print_blue",
+    "print_green",
+    "print_grey",
+    "jute",
+    "jute_worn",
+    "galv",
+    "copper",
+    "iron",
+    "riser_sky",
+    "riser_green",
+    "riser_ochre"
+  ],
+  "catalog_variants": {
+    "bakelite": "bakelite",
+    "book_brown": "book_brown",
+    "book_burgundy": "book_burgundy",
+    "book_green": "book_green",
+    "book_navy": "book_navy",
+    "book_ochre": "book_ochre",
+    "book_teal": "book_teal",
+    "brass": "brass_dull",
+    "enamel": "enamel_appliance",
+    "linen": "linen",
+    "metal": "nickel_plated",
+    "milk_glass": "milk_glass",
+    "paper": "paper",
+    "plant": "plant",
+    "plywood": "plywood",
+    "rubber_aged": "rubber_aged",
+    "soil": "soil",
+    "soot": "bakelite",
+    "terracotta": "terracotta",
+    "timber": "oak_work_surface",
+    "wood_dark": "oak_work_surface",
+    "cane": "oak_work_surface",
+    "leaf_rib": "plant",
+    "wool_burgundy": "linen",
+    "jersey_maroon": "linen",
+    "cape_navy": "linen",
+    "coat_grey": "linen",
+    "blanket_grey": "linen",
+    "voile": "linen",
+    "opal": "milk_glass",
+    "tumbler": "milk_glass",
+    "amber": "milk_glass",
+    "bone": "enamel_appliance",
+    "standwater": "milk_glass",
+    "kraft": "paper",
+    "coir": "linen",
+    "coir_mid": "linen",
+    "coir_dark": "linen",
+    "paint_ochre": "linen",
+    "paint_green": "linen",
+    "paint_teal": "linen",
+    "paint_sky": "linen",
+    "paint_cream": "linen",
+    "sepia": "paper",
+    "sepia_dark": "paper",
+    "print_blue": "paper",
+    "print_green": "paper",
+    "print_grey": "paper",
+    "jute": "linen",
+    "jute_worn": "linen",
+    "galv": "zinc_liner",
+    "copper": "copper_aged",
+    "iron": "iron_blackened",
+    "riser_sky": "enamel_appliance",
+    "riser_green": "enamel_appliance",
+    "riser_ochre": "enamel_appliance"
+  },
+  "material_tints": {
+    "wood_dark": [
+      0.27,
       0.14,
-      0.28,
-      0.4,
-      0.4,
-      "sepia_dark"
-     ],
-     [
-      0.58,
-      0.28,
-      0.86,
-      0.4,
-      "sepia_dark"
-     ],
-     [
-      0.12,
-      0.62,
-      0.88,
-      0.665,
-      "sepia_dark"
-     ],
-     [
-      0.2,
-      0.4,
-      0.225,
-      0.62,
-      "sepia_dark"
-     ],
-     [
-      0.775,
-      0.4,
-      0.8,
-      0.62,
-      "sepia_dark"
-     ],
-     [
-      0.45,
-      0.28,
-      0.475,
-      0.5,
-      "sepia_dark"
-     ],
-     [
-      0.51,
-      0.28,
-      0.535,
-      0.47,
-      "sepia_dark"
-     ],
-     [
-      0.64,
-      0.4,
-      0.66,
-      0.55,
-      "sepia_dark"
-     ]
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject110",
-   "kind": "artframe",
-   "source_id": "ROOF_PUBLIC_LANDING_PIECE",
-   "params": {
-    "W": 0.6,
-    "H": 0.45,
-    "style": "canvas",
-    "fields": [
-     [
+      0.065,
+      1
+    ],
+    "milk_glass": [
+      0.02,
+      0.027,
+      0.034,
+      1
+    ],
+    "plant": [
+      0.1,
+      0.25,
       0.06,
-      0.06,
-      0.94,
-      0.94,
-      "cape_navy"
-     ],
-     [
-      0.2,
-      0.7,
+      1
+    ],
+    "leaf_rib": [
+      0.32,
+      0.36,
+      0.11,
+      1
+    ],
+    "cane": [
+      0.38,
+      0.34,
       0.23,
-      0.74,
-      "paint_cream"
-     ],
-     [
+      1
+    ],
+    "bakelite": [
+      0.3,
+      0.32,
+      0.34,
+      1
+    ],
+    "soot": [
+      0.3,
+      0.32,
+      0.34,
+      1
+    ],
+    "wool_burgundy": [
+      0.3,
+      0.05,
+      0.07,
+      1
+    ],
+    "jersey_maroon": [
+      0.22,
+      0.045,
+      0.06,
+      1
+    ],
+    "cape_navy": [
+      0.05,
+      0.065,
+      0.16,
+      1
+    ],
+    "coat_grey": [
+      0.22,
+      0.22,
+      0.23,
+      1
+    ],
+    "blanket_grey": [
+      0.28,
+      0.27,
+      0.25,
+      1
+    ],
+    "voile": [
+      0.42,
       0.5,
-      0.8,
-      0.53,
-      0.84,
-      "paint_cream"
-     ],
-     [
-      0.75,
       0.62,
+      1
+    ],
+    "tumbler": [
+      0.62,
+      0.7,
+      0.66,
+      1
+    ],
+    "amber": [
+      0.16,
+      0.065,
+      0.018,
+      1
+    ],
+    "bone": [
+      0.84,
+      0.8,
+      0.68,
+      1
+    ],
+    "standwater": [
+      0.2,
+      0.235,
+      0.26,
+      1
+    ],
+    "kraft": [
+      0.5,
+      0.38,
+      0.22,
+      1
+    ],
+    "coir": [
+      0.42,
+      0.3,
+      0.15,
+      1
+    ],
+    "coir_mid": [
+      0.33,
+      0.23,
+      0.11,
+      1
+    ],
+    "coir_dark": [
+      0.24,
+      0.16,
+      0.08,
+      1
+    ],
+    "paint_ochre": [
+      0.55,
+      0.42,
+      0.16,
+      1
+    ],
+    "paint_green": [
+      0.2,
+      0.3,
+      0.16,
+      1
+    ],
+    "paint_teal": [
+      0.16,
+      0.32,
+      0.33,
+      1
+    ],
+    "paint_sky": [
+      0.62,
+      0.68,
+      0.72,
+      1
+    ],
+    "paint_cream": [
+      0.82,
       0.78,
       0.66,
-      "paint_cream"
-     ],
-     [
-      0.62,
-      0.45,
+      1
+    ],
+    "sepia": [
+      0.5,
+      0.36,
+      0.22,
+      1
+    ],
+    "sepia_dark": [
+      0.27,
+      0.18,
+      0.1,
+      1
+    ],
+    "print_blue": [
+      0.24,
+      0.29,
+      0.35,
+      1
+    ],
+    "print_green": [
+      0.26,
+      0.32,
+      0.25,
+      1
+    ],
+    "print_grey": [
+      0.36,
+      0.36,
+      0.34,
+      1
+    ],
+    "jute": [
+      0.5,
+      0.39,
+      0.23,
+      1
+    ],
+    "jute_worn": [
+      0.36,
+      0.27,
+      0.15,
+      1
+    ],
+    "galv": [
+      0.74,
+      0.75,
       0.72,
-      0.6,
-      "paint_ochre"
-     ],
-     [
-      0.06,
-      0.06,
-      0.94,
+      1
+    ],
+    "copper": [
+      0.78,
+      0.5,
+      0.34,
+      1
+    ],
+    "iron": [
+      0.3,
+      0.3,
+      0.29,
+      1
+    ],
+    "riser_sky": [
+      0.22,
+      0.45,
+      0.65,
+      1
+    ],
+    "riser_green": [
       0.2,
-      "soot"
-     ]
+      0.3,
+      0.16,
+      1
+    ],
+    "riser_ochre": [
+      0.55,
+      0.42,
+      0.16,
+      1
     ]
-   },
-   "rear_wall_y": -0.02
   },
-  {
-   "id": "DomesticObject111",
-   "kind": "artframe",
-   "source_id": "F01_SERVICE_LANDING_PIECE",
-   "params": {
-    "W": 0.36,
-    "H": 0.46,
-    "style": "document"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject112",
-   "kind": "artframe",
-   "source_id": "F02_SERVICE_LANDING_PIECE",
-   "params": {
-    "W": 0.3,
-    "H": 0.4,
-    "style": "photo",
-    "print": "print_blue"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject113",
-   "kind": "artframe",
-   "source_id": "F03_SERVICE_LANDING_PIECE",
-   "params": {
-    "W": 0.4,
-    "H": 0.3,
-    "style": "photo",
-    "print": "sepia"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject114",
-   "kind": "artframe",
-   "source_id": "F04_SERVICE_LANDING_PIECE",
-   "params": {
-    "W": 0.3,
-    "H": 0.4,
-    "style": "photo",
-    "print": "print_green"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject115",
-   "kind": "artframe",
-   "source_id": "F05_SERVICE_LANDING_PIECE",
-   "params": {
-    "W": 0.42,
-    "H": 0.32,
-    "style": "document"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject116",
-   "kind": "artframe",
-   "source_id": "F06_SERVICE_LANDING_PIECE",
-   "params": {
-    "W": 0.34,
-    "H": 0.44,
-    "style": "photo",
-    "print": "print_grey"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject117",
-   "kind": "artframe",
-   "source_id": "ROOF_SERVICE_LANDING_PIECE",
-   "params": {
-    "W": 0.3,
-    "H": 0.38,
-    "style": "photo",
-    "print": "sepia_dark"
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject118",
-   "kind": "threshold",
-   "source_id": "3C_threshold",
-   "params": {
-    "mat": "dust",
-    "jamb": 0.575
-   }
-  },
-  {
-   "id": "DomesticObject120",
-   "kind": "aerialwire",
-   "source_id": "5B_aerial_wire",
-   "params": {
-    "L": 4.145
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject121",
-   "kind": "bathrail",
-   "source_id": "1A_bath_rail",
-   "params": {
-    "L": 0.45
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject122",
-   "kind": "windowtowel",
-   "source_id": "1D_window_towel",
-   "params": {
-    "W": 0.86
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject123",
-   "kind": "lightbox",
-   "source_id": "6A_light_table",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject124",
-   "kind": "lostshelves",
-   "source_id": "4D_lost_shelves",
-   "params": {},
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject125",
-   "kind": "paintedoutlet",
-   "source_id": "B1_painted_outlet",
-   "params": {},
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject126",
-   "kind": "cleatrun",
-   "source_id": "B1_cleat_run",
-   "params": {
-    "L": 1.6,
-    "H": 0.77,
-    "shelf_x": -0.18
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject127",
-   "kind": "droppedcartridge",
-   "source_id": "B1_dropped_cartridge",
-   "params": {}
-  },
-  {
-   "id": "DomesticObject128",
-   "kind": "coalshovel",
-   "source_id": "B1_coal_shovel",
-   "params": {},
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject129",
-   "kind": "threshold",
-   "source_id": "3B_threshold",
-   "params": {
-    "mat": "rubber",
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject130",
-   "kind": "threshold",
-   "source_id": "4D_threshold",
-   "params": {
-    "mat": "coir",
-    "flyer": true,
-    "jamb": 0.575
-   }
-  },
-  {
-   "id": "DomesticObject131",
-   "kind": "threshold",
-   "source_id": "6A_threshold",
-   "params": {
-    "mat": "coir",
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject132",
-   "kind": "threshold",
-   "source_id": "5D_threshold",
-   "params": {
-    "mat": "dust",
-    "jamb": 0.505
-   }
-  },
-  {
-   "id": "DomesticObject133",
-   "kind": "runner",
-   "source_id": "4B_alcove_runner",
-   "params": {
-    "L": 2.1,
-    "W": 0.62,
-    "hx": -0.4
-   }
-  },
-  {
-   "id": "DomesticObject134",
-   "kind": "washersupply",
-   "source_id": "B1_washer_supply",
-   "params": {
-    "entry": -1.8,
-    "hot": [
-     -0.955,
-     0.745
-    ],
-    "cold": [
-     -0.745,
-     0.955
-    ],
-    "drains": [
-     -0.58,
-     1.12
-    ],
-    "clips": [
-     -1.45,
-     -0.35,
-     0.35
-    ]
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject135",
-   "kind": "rinsetaps",
-   "source_id": "B1_rinse_taps",
-   "params": {
-    "tubs": [
-     -0.145,
-     0.495
-    ],
-    "clips": {
-     "Cold": [
-      0.15
-     ],
-     "Hot": [
-      -0.12,
-      0.15
-     ]
+  "finish_parameters": {
+    "enamel": {
+      "normal_scale": 0.015,
+      "roughness": 0.32
     },
-    "tail_y": 0.31,
-    "tail_ry": 0.095
-   },
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject136",
-   "kind": "gasring",
-   "source_id": "F01_watch_kettle",
-   "params": {},
-   "rear_wall_y": -0.02
-  },
-  {
-   "id": "DomesticObject137",
-   "kind": "risermarks",
-   "source_id": "F03_riser_marks",
-   "params": {
-    "band": [
-     1.55,
-     1.62
-    ],
-    "cock": [
-     0.12,
-     0.45
-    ],
-    "risers": [
-     [
-      "Heat",
-      [
-       -0.225,
-       -0.47,
-       0.225,
-       -0.02
-      ],
-      "paint_ochre",
-      [
-       "near",
-       -0.12
-      ]
-     ],
-     [
-      "Telephone",
-      [
-       0.325,
-       -0.47,
-       0.625,
-       -0.02
-      ],
-      "paint_green",
-      [
-       "near",
-       0.475
-      ]
-     ],
-     [
-      "Electric",
-      [
-       -0.225,
-       -0.87,
-       0.075,
-       -0.57
-      ],
-      "paint_sky",
-      [
-       "west",
-       -0.72
-      ]
-     ]
-    ]
-   }
-  },
-  {
-   "id": "DomesticObject138",
-   "kind": "hosecoil",
-   "source_id": "F03_riser_hose",
-   "params": {
-    "H": 1.4,
-    "loop_r": 0.19,
-    "hose_r": 0.0115,
-    "turns": 5,
-    "pitch": 0.025
-   },
-   "rear_wall_y": -0.02
-  }
- ],
- "instances": [
-  {
-   "id": "2A_pinboard",
-   "variant": "DomesticObject00"
-  },
-  {
-   "id": "2B_story_pattern_board",
-   "variant": "DomesticObject01"
-  },
-  {
-   "id": "3B_toolboard",
-   "variant": "DomesticObject02"
-  },
-  {
-   "id": "3B_partscrate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "2A_deck",
-   "variant": "DomesticObject04"
-  },
-  {
-   "id": "3A_story_specimen",
-   "variant": "DomesticObject05"
-  },
-  {
-   "id": "5A_pins1",
-   "variant": "DomesticObject06"
-  },
-  {
-   "id": "5A_pins2",
-   "variant": "DomesticObject07"
-  },
-  {
-   "id": "5A_floorstack",
-   "variant": "DomesticObject08"
-  },
-  {
-   "id": "5C_story_colorboard",
-   "variant": "DomesticObject09"
-  },
-  {
-   "id": "6A_tripod",
-   "variant": "DomesticObject10"
-  },
-  {
-   "id": "6A_soft1",
-   "variant": "DomesticObject11"
-  },
-  {
-   "id": "6A_soft2",
-   "variant": "DomesticObject11"
-  },
-  {
-   "id": "6A_gearcrate",
-   "variant": "DomesticObject12"
-  },
-  {
-   "id": "6A_coil1",
-   "variant": "DomesticObject13"
-  },
-  {
-   "id": "6A_coil2",
-   "variant": "DomesticObject14"
-  },
-  {
-   "id": "b1_toolboard",
-   "variant": "DomesticObject15"
-  },
-  {
-   "id": "2A_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "3A_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "4B_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "2B_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "3B_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "4A_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "5C_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "6C_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "5A_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "6A_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "5B_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "6B_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "1D_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "2C_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "4C_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "1A_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "3D_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "4D_hallstand",
-   "variant": "DomesticObject16"
-  },
-  {
-   "id": "5B_deck",
-   "variant": "DomesticObject04"
-  },
-  {
-   "id": "4B_case_wall",
-   "variant": "DomesticObject17"
-  },
-  {
-   "id": "5A_plan_wall",
-   "variant": "DomesticObject18"
-  },
-  {
-   "id": "5C_canvas_a",
-   "variant": "DomesticObject19"
-  },
-  {
-   "id": "5C_canvas_b",
-   "variant": "DomesticObject20"
-  },
-  {
-   "id": "4A_frame_a",
-   "variant": "DomesticObject21"
-  },
-  {
-   "id": "4A_frame_b",
-   "variant": "DomesticObject21"
-  },
-  {
-   "id": "1A_frame_a",
-   "variant": "DomesticObject21"
-  },
-  {
-   "id": "1A_frame_b",
-   "variant": "DomesticObject21"
-  },
-  {
-   "id": "2B_repair_rail",
-   "variant": "DomesticObject22"
-  },
-  {
-   "id": "4B_closet_rail",
-   "variant": "DomesticObject23"
-  },
-  {
-   "id": "2C_blanket_a",
-   "variant": "DomesticObject24"
-  },
-  {
-   "id": "2C_blanket_b",
-   "variant": "DomesticObject24"
-  },
-  {
-   "id": "3D_blanket_a",
-   "variant": "DomesticObject24"
-  },
-  {
-   "id": "3D_blanket_b",
-   "variant": "DomesticObject24"
-  },
-  {
-   "id": "1A_hall_hamper",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "1D_hall_boots",
-   "variant": "DomesticObject26"
-  },
-  {
-   "id": "2A_hall_hamper",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "2B_hall_hamper",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "2C_hall_boots",
-   "variant": "DomesticObject26"
-  },
-  {
-   "id": "3A_hall_boots",
-   "variant": "DomesticObject26"
-  },
-  {
-   "id": "3B_hall_crate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "3D_hall_hamper",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "4A_hall_boots",
-   "variant": "DomesticObject26"
-  },
-  {
-   "id": "4B_hall_boots",
-   "variant": "DomesticObject26"
-  },
-  {
-   "id": "4C_hall_hamper",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "4D_hall_crate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "5A_hall_boots",
-   "variant": "DomesticObject26"
-  },
-  {
-   "id": "5B_hall_hamper",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "5C_hall_boots",
-   "variant": "DomesticObject26"
-  },
-  {
-   "id": "6A_hall_crate",
-   "variant": "DomesticObject12"
-  },
-  {
-   "id": "6B_hall_hamper",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "6C_hall_boots",
-   "variant": "DomesticObject26"
-  },
-  {
-   "id": "2C_album_a",
-   "variant": "DomesticObject27"
-  },
-  {
-   "id": "2C_album_b",
-   "variant": "DomesticObject27"
-  },
-  {
-   "id": "3A_portrait",
-   "variant": "DomesticObject27"
-  },
-  {
-   "id": "3A_diagram",
-   "variant": "DomesticObject21"
-  },
-  {
-   "id": "5B_work_a",
-   "variant": "DomesticObject19"
-  },
-  {
-   "id": "5B_work_b",
-   "variant": "DomesticObject20"
-  },
-  {
-   "id": "2A_caption_wall",
-   "variant": "DomesticObject28"
-  },
-  {
-   "id": "3D_image_a",
-   "variant": "DomesticObject27"
-  },
-  {
-   "id": "3D_image_b",
-   "variant": "DomesticObject27"
-  },
-  {
-   "id": "3D_image_c",
-   "variant": "DomesticObject27"
-  },
-  {
-   "id": "4D_case",
-   "variant": "DomesticObject29"
-  },
-  {
-   "id": "2B_sewing_machine",
-   "variant": "DomesticObject30"
-  },
-  {
-   "id": "3B_teardown",
-   "variant": "DomesticObject31"
-  },
-  {
-   "id": "5C_easel",
-   "variant": "DomesticObject32"
-  },
-  {
-   "id": "5C_failed_canvases",
-   "variant": "DomesticObject33"
-  },
-  {
-   "id": "6C_card_cabinet",
-   "variant": "DomesticObject34"
-  },
-  {
-   "id": "6A_backdrop_rail",
-   "variant": "DomesticObject35"
-  },
-  {
-   "id": "6A_print_line",
-   "variant": "DomesticObject36"
-  },
-  {
-   "id": "F01_lobby_board",
-   "variant": "DomesticObject37"
-  },
-  {
-   "id": "F01_lobby_photo",
-   "variant": "DomesticObject27"
-  },
-  {
-   "id": "B1_bay_1A_case",
-   "variant": "DomesticObject29"
-  },
-  {
-   "id": "B1_bay_1D_boots",
-   "variant": "DomesticObject26"
-  },
-  {
-   "id": "B1_bay_2A_hamper",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "B1_bay_2B_crate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "B1_bay_3A_boots",
-   "variant": "DomesticObject26"
-  },
-  {
-   "id": "B1_bay_3B_crate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "B1_bay_3D_case",
-   "variant": "DomesticObject29"
-  },
-  {
-   "id": "B1_bay_4A_case",
-   "variant": "DomesticObject29"
-  },
-  {
-   "id": "B1_bay_4B_crate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "B1_bay_4C_hamper",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "B1_bay_5A_case",
-   "variant": "DomesticObject29"
-  },
-  {
-   "id": "B1_bay_5B_crate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "B1_bay_5C_canvases",
-   "variant": "DomesticObject33"
-  },
-  {
-   "id": "B1_bay_6A_gear",
-   "variant": "DomesticObject12"
-  },
-  {
-   "id": "B1_bay_6B_case",
-   "variant": "DomesticObject29"
-  },
-  {
-   "id": "B1_bay_6C_hamper",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "B1_laundry_basket_1",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "B1_laundry_basket_2",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "B1_laundry_basket_3",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "B1_laundry_basket_4",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "B1_laundry_basket_5",
-   "variant": "DomesticObject25"
-  },
-  {
-   "id": "3D_card_index",
-   "variant": "DomesticObject34"
-  },
-  {
-   "id": "2C_cable_hooks",
-   "variant": "DomesticObject38"
-  },
-  {
-   "id": "2C_deck",
-   "variant": "DomesticObject04"
-  },
-  {
-   "id": "4D_print",
-   "variant": "DomesticObject27"
-  },
-  {
-   "id": "6A_archive_box_a",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "6A_archive_box_b",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "6A_archive_box_c",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "4C_story_colorboard",
-   "variant": "DomesticObject68"
-  },
-  {
-   "id": "F01_headset_hook",
-   "variant": "DomesticObject39"
-  },
-  {
-   "id": "F01_watch_coat",
-   "variant": "DomesticObject40"
-  },
-  {
-   "id": "F01_watch_cot",
-   "variant": "DomesticObject41"
-  },
-  {
-   "id": "F01_cord_pile",
-   "variant": "DomesticObject13"
-  },
-  {
-   "id": "B1_boiler_shovel",
-   "variant": "DomesticObject42"
-  },
-  {
-   "id": "B1_boiler_rake",
-   "variant": "DomesticObject43"
-  },
-  {
-   "id": "B1_boiler_ash_can",
-   "variant": "DomesticObject44"
-  },
-  {
-   "id": "B1_signal_frame",
-   "variant": "DomesticObject45"
-  },
-  {
-   "id": "B1_fuse_conduit",
-   "variant": "DomesticObject46"
-  },
-  {
-   "id": "B1_laundry_oil_can",
-   "variant": "DomesticObject47"
-  },
-  {
-   "id": "B1_laundry_belt",
-   "variant": "DomesticObject48"
-  },
-  {
-   "id": "B1_laundry_stepladder",
-   "variant": "DomesticObject49"
-  },
-  {
-   "id": "F01_vestibule_umbrella_stand",
-   "variant": "DomesticObject50"
-  },
-  {
-   "id": "F01_lobby_spittoon",
-   "variant": "DomesticObject51"
-  },
-  {
-   "id": "F01_restroom_soap_dish",
-   "variant": "DomesticObject52"
-  },
-  {
-   "id": "F01_restroom_roller_towel",
-   "variant": "DomesticObject53"
-  },
-  {
-   "id": "F01_restroom_mop_bucket",
-   "variant": "DomesticObject54"
-  },
-  {
-   "id": "ROOF_bulkhead_washing_line",
-   "variant": "DomesticObject55"
-  },
-  {
-   "id": "ROOF_bulkhead_watering_can",
-   "variant": "DomesticObject56"
-  },
-  {
-   "id": "ROOF_bulkhead_trug",
-   "variant": "DomesticObject57"
-  },
-  {
-   "id": "6A_editorial_a",
-   "variant": "DomesticObject27"
-  },
-  {
-   "id": "6A_editorial_b",
-   "variant": "DomesticObject27"
-  },
-  {
-   "id": "6A_editorial_c",
-   "variant": "DomesticObject27"
-  },
-  {
-   "id": "ROOF_service_soot_sack",
-   "variant": "DomesticObject58"
-  },
-  {
-   "id": "ROOF_service_sweep_rods",
-   "variant": "DomesticObject59"
-  },
-  {
-   "id": "1A_lesson_trunk",
-   "variant": "DomesticObject60"
-  },
-  {
-   "id": "4B_wake_boots",
-   "variant": "DomesticObject61"
-  },
-  {
-   "id": "2B_dress_form",
-   "variant": "DomesticObject62"
-  },
-  {
-   "id": "5A_tsquare",
-   "variant": "DomesticObject63"
-  },
-  {
-   "id": "4A_hall_file",
-   "variant": "DomesticObject64"
-  },
-  {
-   "id": "B1_charging_case",
-   "variant": "DomesticObject65"
-  },
-  {
-   "id": "B1_capsule_crate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "1D_house_bell",
-   "variant": "DomesticObject66"
-  },
-  {
-   "id": "1D_quiet_sign",
-   "variant": "DomesticObject67"
-  },
-  {
-   "id": "4A_umbrella_tray",
-   "variant": "DomesticObject69"
-  },
-  {
-   "id": "1A_bath_shelf",
-   "variant": "DomesticObject70"
-  },
-  {
-   "id": "1D_bath_shelf",
-   "variant": "DomesticObject71"
-  },
-  {
-   "id": "2A_bath_shelf",
-   "variant": "DomesticObject72"
-  },
-  {
-   "id": "2B_bath_shelf",
-   "variant": "DomesticObject73"
-  },
-  {
-   "id": "2C_bath_shelf",
-   "variant": "DomesticObject74"
-  },
-  {
-   "id": "3A_bath_shelf",
-   "variant": "DomesticObject75"
-  },
-  {
-   "id": "3B_bath_shelf",
-   "variant": "DomesticObject76"
-  },
-  {
-   "id": "3D_bath_shelf",
-   "variant": "DomesticObject77"
-  },
-  {
-   "id": "4A_bath_shelf",
-   "variant": "DomesticObject78"
-  },
-  {
-   "id": "4B_bath_shelf",
-   "variant": "DomesticObject79"
-  },
-  {
-   "id": "4C_bath_shelf",
-   "variant": "DomesticObject80"
-  },
-  {
-   "id": "4D_bath_shelf",
-   "variant": "DomesticObject81"
-  },
-  {
-   "id": "5A_bath_shelf",
-   "variant": "DomesticObject82"
-  },
-  {
-   "id": "5B_bath_shelf",
-   "variant": "DomesticObject83"
-  },
-  {
-   "id": "5C_bath_shelf",
-   "variant": "DomesticObject84"
-  },
-  {
-   "id": "6A_bath_shelf",
-   "variant": "DomesticObject85"
-  },
-  {
-   "id": "6B_bath_shelf",
-   "variant": "DomesticObject86"
-  },
-  {
-   "id": "6C_bath_shelf",
-   "variant": "DomesticObject87"
-  },
-  {
-   "id": "F01_PUBLIC_NOTICE",
-   "variant": "DomesticObject88"
-  },
-  {
-   "id": "F02_PUBLIC_NOTICE",
-   "variant": "DomesticObject88"
-  },
-  {
-   "id": "F03_PUBLIC_NOTICE",
-   "variant": "DomesticObject88"
-  },
-  {
-   "id": "F04_PUBLIC_NOTICE",
-   "variant": "DomesticObject88"
-  },
-  {
-   "id": "F05_PUBLIC_NOTICE",
-   "variant": "DomesticObject88"
-  },
-  {
-   "id": "F06_PUBLIC_NOTICE",
-   "variant": "DomesticObject88"
-  },
-  {
-   "id": "ROOF_PUBLIC_NOTICE",
-   "variant": "DomesticObject88"
-  },
-  {
-   "id": "B1_PUBLIC_NOTICE",
-   "variant": "DomesticObject88"
-  },
-  {
-   "id": "F01_SERVICE_NOTICE",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "F02_SERVICE_NOTICE",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "F03_SERVICE_NOTICE",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "F04_SERVICE_NOTICE",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "F05_SERVICE_NOTICE",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "F06_SERVICE_NOTICE",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "ROOF_SERVICE_NOTICE",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "2A_threshold",
-   "variant": "DomesticObject90"
-  },
-  {
-   "id": "2B_threshold",
-   "variant": "DomesticObject91"
-  },
-  {
-   "id": "2C_threshold",
-   "variant": "DomesticObject92"
-  },
-  {
-   "id": "3A_threshold",
-   "variant": "DomesticObject93"
-  },
-  {
-   "id": "3D_threshold",
-   "variant": "DomesticObject94"
-  },
-  {
-   "id": "4A_threshold",
-   "variant": "DomesticObject95"
-  },
-  {
-   "id": "4B_threshold",
-   "variant": "DomesticObject96"
-  },
-  {
-   "id": "4C_threshold",
-   "variant": "DomesticObject97"
-  },
-  {
-   "id": "5A_threshold",
-   "variant": "DomesticObject98"
-  },
-  {
-   "id": "5B_threshold",
-   "variant": "DomesticObject99"
-  },
-  {
-   "id": "5C_threshold",
-   "variant": "DomesticObject100"
-  },
-  {
-   "id": "6B_threshold",
-   "variant": "DomesticObject101"
-  },
-  {
-   "id": "6C_threshold",
-   "variant": "DomesticObject102"
-  },
-  {
-   "id": "2D_threshold",
-   "variant": "DomesticObject103"
-  },
-  {
-   "id": "2D_sealed_notice",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "F01_PUBLIC_LANDING_PIECE",
-   "variant": "DomesticObject104"
-  },
-  {
-   "id": "F02_PUBLIC_LANDING_PIECE",
-   "variant": "DomesticObject105"
-  },
-  {
-   "id": "F03_PUBLIC_LANDING_PIECE",
-   "variant": "DomesticObject106"
-  },
-  {
-   "id": "F04_PUBLIC_LANDING_PIECE",
-   "variant": "DomesticObject107"
-  },
-  {
-   "id": "F05_PUBLIC_LANDING_PIECE",
-   "variant": "DomesticObject108"
-  },
-  {
-   "id": "F06_PUBLIC_LANDING_PIECE",
-   "variant": "DomesticObject109"
-  },
-  {
-   "id": "ROOF_PUBLIC_LANDING_PIECE",
-   "variant": "DomesticObject110"
-  },
-  {
-   "id": "F01_SERVICE_LANDING_PIECE",
-   "variant": "DomesticObject111"
-  },
-  {
-   "id": "F02_SERVICE_LANDING_PIECE",
-   "variant": "DomesticObject112"
-  },
-  {
-   "id": "F03_SERVICE_LANDING_PIECE",
-   "variant": "DomesticObject113"
-  },
-  {
-   "id": "F04_SERVICE_LANDING_PIECE",
-   "variant": "DomesticObject114"
-  },
-  {
-   "id": "F05_SERVICE_LANDING_PIECE",
-   "variant": "DomesticObject115"
-  },
-  {
-   "id": "F06_SERVICE_LANDING_PIECE",
-   "variant": "DomesticObject116"
-  },
-  {
-   "id": "ROOF_SERVICE_LANDING_PIECE",
-   "variant": "DomesticObject117"
-  },
-  {
-   "id": "3C_sealed_notice",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "3C_threshold",
-   "variant": "DomesticObject118"
-  },
-  {
-   "id": "5D_sealed_notice",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "5B_aerial_wire",
-   "variant": "DomesticObject120"
-  },
-  {
-   "id": "1A_bath_rail",
-   "variant": "DomesticObject121"
-  },
-  {
-   "id": "1D_window_towel",
-   "variant": "DomesticObject122"
-  },
-  {
-   "id": "6A_light_table",
-   "variant": "DomesticObject123"
-  },
-  {
-   "id": "4D_lost_shelves",
-   "variant": "DomesticObject124"
-  },
-  {
-   "id": "B1_painted_outlet",
-   "variant": "DomesticObject125"
-  },
-  {
-   "id": "B1_cleat_run",
-   "variant": "DomesticObject126"
-  },
-  {
-   "id": "B1_dropped_cartridge",
-   "variant": "DomesticObject127"
-  },
-  {
-   "id": "B1_coal_shovel",
-   "variant": "DomesticObject128"
-  },
-  {
-   "id": "B1_laundry_rota",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "3B_threshold",
-   "variant": "DomesticObject129"
-  },
-  {
-   "id": "4D_threshold",
-   "variant": "DomesticObject130"
-  },
-  {
-   "id": "6A_threshold",
-   "variant": "DomesticObject131"
-  },
-  {
-   "id": "5D_threshold",
-   "variant": "DomesticObject132"
-  },
-  {
-   "id": "4B_alcove_runner",
-   "variant": "DomesticObject133"
-  },
-  {
-   "id": "B1_washer_supply",
-   "variant": "DomesticObject134"
-  },
-  {
-   "id": "B1_rinse_taps",
-   "variant": "DomesticObject135"
-  },
-  {
-   "id": "F01_watch_kettle",
-   "variant": "DomesticObject136"
-  },
-  {
-   "id": "F01_tour_card",
-   "variant": "DomesticObject89"
-  },
-  {
-   "id": "F03_riser_marks",
-   "variant": "DomesticObject137"
-  },
-  {
-   "id": "F03_riser_crate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "F03_riser_hose",
-   "variant": "DomesticObject138"
-  },
-  {
-   "id": "F04_riser_marks",
-   "variant": "DomesticObject137"
-  },
-  {
-   "id": "F04_riser_crate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "F04_riser_hose",
-   "variant": "DomesticObject138"
-  },
-  {
-   "id": "F05_riser_marks",
-   "variant": "DomesticObject137"
-  },
-  {
-   "id": "F05_riser_crate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "F05_riser_hose",
-   "variant": "DomesticObject138"
-  },
-  {
-   "id": "F06_riser_marks",
-   "variant": "DomesticObject137"
-  },
-  {
-   "id": "F06_riser_crate",
-   "variant": "DomesticObject03"
-  },
-  {
-   "id": "F06_riser_hose",
-   "variant": "DomesticObject138"
-  }
- ],
- "runtime_keys": [
-  "bakelite",
-  "book_brown",
-  "book_burgundy",
-  "book_green",
-  "book_navy",
-  "book_ochre",
-  "book_teal",
-  "brass",
-  "enamel",
-  "linen",
-  "metal",
-  "milk_glass",
-  "paper",
-  "plant",
-  "plywood",
-  "rubber_aged",
-  "soil",
-  "soot",
-  "terracotta",
-  "timber",
-  "wood_dark",
-  "cane",
-  "leaf_rib",
-  "wool_burgundy",
-  "jersey_maroon",
-  "cape_navy",
-  "coat_grey",
-  "blanket_grey",
-  "voile",
-  "opal",
-  "tumbler",
-  "amber",
-  "bone",
-  "standwater",
-  "kraft",
-  "coir",
-  "coir_mid",
-  "coir_dark",
-  "paint_ochre",
-  "paint_green",
-  "paint_teal",
-  "paint_sky",
-  "paint_cream",
-  "sepia",
-  "sepia_dark",
-  "print_blue",
-  "print_green",
-  "print_grey",
-  "jute",
-  "jute_worn",
-  "galv",
-  "copper",
-  "iron"
- ],
- "catalog_variants": {
-  "bakelite": "bakelite",
-  "book_brown": "book_brown",
-  "book_burgundy": "book_burgundy",
-  "book_green": "book_green",
-  "book_navy": "book_navy",
-  "book_ochre": "book_ochre",
-  "book_teal": "book_teal",
-  "brass": "brass_dull",
-  "enamel": "enamel_appliance",
-  "linen": "linen",
-  "metal": "nickel_plated",
-  "milk_glass": "milk_glass",
-  "paper": "paper",
-  "plant": "plant",
-  "plywood": "plywood",
-  "rubber_aged": "rubber_aged",
-  "soil": "soil",
-  "soot": "bakelite",
-  "terracotta": "terracotta",
-  "timber": "oak_work_surface",
-  "wood_dark": "oak_work_surface",
-  "cane": "oak_work_surface",
-  "leaf_rib": "plant",
-  "wool_burgundy": "linen",
-  "jersey_maroon": "linen",
-  "cape_navy": "linen",
-  "coat_grey": "linen",
-  "blanket_grey": "linen",
-  "voile": "linen",
-  "opal": "milk_glass",
-  "tumbler": "milk_glass",
-  "amber": "milk_glass",
-  "bone": "enamel_appliance",
-  "standwater": "milk_glass",
-  "kraft": "paper",
-  "coir": "linen",
-  "coir_mid": "linen",
-  "coir_dark": "linen",
-  "paint_ochre": "linen",
-  "paint_green": "linen",
-  "paint_teal": "linen",
-  "paint_sky": "linen",
-  "paint_cream": "linen",
-  "sepia": "paper",
-  "sepia_dark": "paper",
-  "print_blue": "paper",
-  "print_green": "paper",
-  "print_grey": "paper",
-  "jute": "linen",
-  "jute_worn": "linen",
-  "galv": "zinc_liner",
-  "copper": "copper_aged",
-  "iron": "iron_blackened"
- },
- "material_tints": {
-  "wood_dark": [
-   0.27,
-   0.14,
-   0.065,
-   1
+    "paper": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "milk_glass": {
+      "normal_scale": 0.015,
+      "roughness": 0.12
+    },
+    "terracotta": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "bakelite": {
+      "normal_scale": 0.02,
+      "roughness": 0.42
+    },
+    "book_ochre": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "book_teal": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "linen": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "metal": {
+      "normal_scale": 0.018,
+      "roughness": 0.4
+    },
+    "plant": {
+      "normal_scale": 0.012,
+      "roughness": 0.35
+    },
+    "soil": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "wood_dark": {
+      "normal_scale": 0.04,
+      "roughness": 0.5
+    },
+    "book_green": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "rubber_aged": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "book_brown": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "timber": {
+      "normal_scale": 0.04,
+      "roughness": 0.5
+    },
+    "soot": {
+      "normal_scale": 0.02,
+      "roughness": 0.42
+    },
+    "plywood": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "book_burgundy": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "brass": {
+      "normal_scale": 0.04,
+      "roughness": 0.5
+    },
+    "book_navy": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "leaf_rib": {
+      "normal_scale": 0.008,
+      "roughness": 0.45
+    },
+    "cane": {
+      "normal_scale": 0.015,
+      "roughness": 0.85
+    },
+    "wool_burgundy": {
+      "normal_scale": 0.16,
+      "roughness": 0.9
+    },
+    "jersey_maroon": {
+      "normal_scale": 0.16,
+      "roughness": 0.9
+    },
+    "cape_navy": {
+      "normal_scale": 0.16,
+      "roughness": 0.9
+    },
+    "coat_grey": {
+      "normal_scale": 0.16,
+      "roughness": 0.9
+    },
+    "blanket_grey": {
+      "normal_scale": 0.16,
+      "roughness": 0.9
+    },
+    "voile": {
+      "normal_scale": 0.1,
+      "roughness": 0.85
+    },
+    "opal": {
+      "normal_scale": 0.015,
+      "roughness": 0.2
+    },
+    "tumbler": {
+      "normal_scale": 0.015,
+      "roughness": 0.12
+    },
+    "amber": {
+      "normal_scale": 0.015,
+      "roughness": 0.15
+    },
+    "bone": {
+      "normal_scale": 0.02,
+      "roughness": 0.4
+    },
+    "standwater": {
+      "normal_scale": 0.01,
+      "roughness": 0.06
+    },
+    "kraft": {
+      "normal_scale": 0.12,
+      "roughness": 0.8
+    },
+    "coir": {
+      "normal_scale": 0.16,
+      "roughness": 0.92
+    },
+    "coir_mid": {
+      "normal_scale": 0.16,
+      "roughness": 0.92
+    },
+    "coir_dark": {
+      "normal_scale": 0.16,
+      "roughness": 0.92
+    },
+    "paint_ochre": {
+      "normal_scale": 0.1,
+      "roughness": 0.85
+    },
+    "paint_green": {
+      "normal_scale": 0.1,
+      "roughness": 0.85
+    },
+    "paint_teal": {
+      "normal_scale": 0.1,
+      "roughness": 0.85
+    },
+    "paint_sky": {
+      "normal_scale": 0.1,
+      "roughness": 0.85
+    },
+    "paint_cream": {
+      "normal_scale": 0.1,
+      "roughness": 0.85
+    },
+    "sepia": {
+      "normal_scale": 0.06,
+      "roughness": 0.85
+    },
+    "sepia_dark": {
+      "normal_scale": 0.06,
+      "roughness": 0.85
+    },
+    "print_blue": {
+      "normal_scale": 0.06,
+      "roughness": 0.85
+    },
+    "print_green": {
+      "normal_scale": 0.06,
+      "roughness": 0.85
+    },
+    "print_grey": {
+      "normal_scale": 0.06,
+      "roughness": 0.85
+    },
+    "jute": {
+      "normal_scale": 0.18,
+      "roughness": 0.93
+    },
+    "jute_worn": {
+      "normal_scale": 0.18,
+      "roughness": 0.93
+    },
+    "galv": {
+      "normal_scale": 0.18,
+      "roughness": 0.72
+    },
+    "copper": {
+      "normal_scale": 0.15,
+      "roughness": 0.62
+    },
+    "iron": {
+      "normal_scale": 0.25,
+      "roughness": 0.9
+    },
+    "riser_sky": {
+      "normal_scale": 0.1,
+      "roughness": 0.85
+    },
+    "riser_green": {
+      "normal_scale": 0.1,
+      "roughness": 0.85
+    },
+    "riser_ochre": {
+      "normal_scale": 0.1,
+      "roughness": 0.85
+    }
+  },
+  "placement": {
+    "floor_y": 0,
+    "frame": "Original passive furniture actors; wall spacers extend to actual existing wall faces."
+  },
+  "adaptations": [
+    "Preserve all original source object counts, actor poses and passive ownership.",
+    "Source-equivalent forms share a variant only when their source geometry and rear-wall fit match.",
+    "Rubber plant retains six source-sized leaves and their node heights; tapered living stem, radial leaf directions and curved blades replace the legacy post and aligned discs. Fine existing catalogue nickel and dark moulded bakelite replace oversized galvanized and pebbled finishes locally.",
+    "Slice 8 of the V2 environment dossier adds the hall stand (DomesticObject16) to the seventeen apartment vestibules, standing clear of every leaf's swing and switch approach; the sixteen V1 records are unchanged.",
+    "Slice 11 of the V2 environment dossier adds a second reel deck (DomesticObject04) on 5B's deck table; it bears on that table like 2A's on the coffee table.",
+    "Slice 12 of the V2 environment dossier adds two pinboards (4B's case wall, 5A's plan wall) and a wall-art form (artframe: stretched canvas with painted fields and edge tacks, or a moulded frame holding a document with a brass seal) for 5C's diptych and the framed pairs in 4A and 1A.",
+    "Slice 13 of the V2 environment dossier adds cloth: a garment rail (header board, brackets, rail, garments on wooden hangers, optional repair tags) and a hung moving blanket (batten, bound edges, quilted rows), with five tinted cloth keys on the catalogue linen.",
+    "Slice 14 of the V2 environment dossier puts one object in each of the eighteen private halls by the resident's routine: a lidded wicker hamper (new form), a galvanised boot tray with galoshes (new form) or a copy of an existing crate, each against a wall clear of every door and opening approach.",
+    "Slice 15 of the V2 environment dossier adds a photograph style to the wall-art form (a toned print under a mat) and hangs wall art in 2C, 3D, 3A and 5B, with 2A's caption wall as a 1.2 x 0.9 m pinboard.",
+    "Slice 17 of the V2 environment dossier adds a suitcase form (a leather case on its edge with straps, brass feet and a handle) for 4D's luggage in the vestibule.",
+    "Slice 18 of the V2 environment dossier adds four studio forms: a treadle sewing machine (2B), a radio teardown on newspaper (3B), an easel with a blank canvas and a stack of six failed canvases face to the wall (5C).",
+    "Slice 19 of the V2 environment dossier adds a card-index cabinet form (twelve drawers, brass pulls and blank label frames, one brass lock plate) for 6C's archive.",
+    "Slice 20 of the V2 environment dossier adds a backdrop rail (header, brackets, rail, paper roll and hanging sheet) and a print line (two hook plates, a string, six pegged contact sheets) for 6A's studio.",
+    "Slice 21 of the V2 environment dossier adds the lobby noticeboard (a 1.2 x 0.9 m pinboard of 23 drifted notices) and the 1928 photograph (a copy of the photograph frame) beside the inner door.",
+    "Slice 23 of the V2 environment dossier stores one household object against the back of sixteen basement bays (two stay padlocked and empty) and sets five wicker baskets along the laundry's north wall, all copies of existing forms.",
+    "Slice 24 of the V2 environment dossier adds 3D's error-archive card index as a completion copy of 6C's card cabinet.",
+    "Slice 25 of the V2 environment dossier adds a cable hook strip form (batten, five hooks, taped cable loops) and copies: a third reel deck on 2C's rig table, 4D's print over the settee, 6A's three archive crates under the desk wall.",
+    "Slice 26 of the V2 environment dossier mounts 4C's colour board (a completion copy of 5C's) at its existing anchor.",
+    "Slice 28 of the V2 environment dossier adds three forms for the ground-floor service rooms (the operator's headset on its hook, a coat on a wall hook, the night watch's folded camp cot) and a copy of 6A's cable coil as the cord pile under the house board.",
+    "Slice 29 of the V2 environment dossier adds five basement forms: the boiler room's leaning coal shovel, the clinker rake on two nails, the lidded ash can with an oil can on a rag, the Vantry signal frame (terminal strips, blank tag cards, cloth leads in a trunk cleated to the ceiling) and the steel conduit into and out of the fuse panel.",
+    "Slice 32 of the V2 environment dossier adds eight service forms: an oil can on a rag, a spare belt on a nail and a folded stepladder in the basement laundry, a cast-iron umbrella stand in the vestibule, a brass spittoon in the lobby, and the staff restroom's soap dish, roller towel and mop bucket.",
+    "Slice 33 of the V2 environment dossier adds three forms for the roof bulkhead (a coil of washing line, a watering can, a gardening trug) and 6A's row of three small prints as copies of 2C_album_a.",
+    "Slice 34 of the V2 environment dossier adds the chimney sweep's soot sack and rod bundle inside the roof service bulkhead and 1A's trunk of lesson plans, a larger variant of the suitcase form.",
+    "Slice 35 of the V2 environment dossier fills 2A's bedroom pinboard (DomesticObject00) to a full grid of 24 cards.",
+    "Slice 37 of the V2 environment dossier adds a workboots form: 4B's pair of boots kicked off at the alcove bed's foot, one fallen against the other.",
+    "Slice 38 of the V2 environment dossier adds a dressform form: Lena's tripod dress form in 2B wearing her own printed voile frock with a row of pins in the turned-up hem. voile is a tinted alias of the catalogue linen.",
+    "Slice 40 of the V2 environment dossier adds a tsquare form: Nadia's boxwood T-square hung head-down on a nail on 5A's study wall beside her pinboard.",
+    "Slice 41 of the V2 environment dossier adds a verticalfile form (4A's oak four-drawer hall file, top drawer not quite shut) and a chargingcase form (the basement shop's SR7 charging case with its lead to a wall plate), and a copy of 3B_partscrate as the shop's capsule crate at the bench's east end.",
+    "Slice 42 of the V2 environment dossier adds a wallbell form (1D's house bell above the signal outlet, its flex run down to it), a quietsign form (1D's framed card with one stroke and the watch hook), and DomesticObject68, 4C's colour board with Cam's route thread and ticket stubs pinned over it.",
+    "Slice 44 of the V2 environment dossier adds an overflowtray form: 4A's japanned umbrella drip tray by the door, water at the rim and a dark water line on the oak around it.",
+    "Slice 47 of the V2 environment dossier adds a bathshelf form: an opal glass shelf on two nickel brackets over each of the 18 apartment basins, between the basin's coved back and the medicine cabinet's lower edge, carrying the household's own bath set (glasses and brushes, shaving mugs, nail brushes and pumice, powder, pins, cosmetics, bottles, the 4C tape line, 4D's hotel soap). opal, tumbler and amber are tinted aliases of the catalogue milk glass; bone of the catalogue enamel.",
+    "Slice 47 gives 4A's overflowed drip tray grey standing water (standwater, a tinted alias of the catalogue milk glass) and Wren's furled umbrella, tip in the tray, leaning toward the wall: the black water alone read as a floor register.",
+    "Slice 48 of the V2 environment dossier adds a noticeframe form: an oak-framed notice board on each core level, the 1928 house rules on the public core (its cracked corner taped) and the service notice on the service core (pinned). The words are a Label3D the runtime lays on the paper. kraft is a tinted alias of the catalogue paper.",
+    "Slice 49 of the V2 environment dossier adds a threshold form: a household's mat on the hall side of its door (squared coir, worn coir, a rag rug, ribbed rubber, soil- or paint-flecked coir, an unworn dust mat at the sealed 2D), a folded newspaper for two, milk bottles and a parcel only on the wide core floor. The sealed 2D door also gets a one-line notice in the notice-frame family.",
+    "Slice 50 of the V2 environment dossier hangs one framed piece of its own above each core landing: on the public side a harbour, a wheat field, a toned photograph, a still life, a mountain view, a sealed certificate and a night sky; on the service side certificates and toned photographs. No lettering.",
+    "Slice 50b: the landing pieces' paint fields and prints take plain tinted keys (paint_* aliases of the catalogue linen, sepia and print_* aliases of the catalogue paper); the book-cover materials carry gilt tooling and ruled panels.",
+    "Slice 51 of the V2 environment dossier adds an aerialwire form (Cal's lead on four porcelain insulators along the F05 west hall into a drilled hole beside 5B's door) and a sootfan form (the soot ghost above the burnt 5D door's head), and seals the 3C and 5D thresholds with a one-line notice (and 3C's unworn dust mat).",
+    "Slice 58 of the V2 environment dossier adds four resident forms: Evelyn's brass grab rail on two roses in the 1A shower (F01_A_BATH-003), a towel pegged over a cord across the 1D bath window head (F01_D_BATH-003), Sacha's light box for negatives on the 6A prep cabinet beside the toaster (F06_A_KITCHEN-003) and two shelves of tagged lost property in 4D's study (F04_D_STUDY-002).",
+    "Slice 59 of the V2 environment dossier adds four basement forms: the brass signal outlet painted over high on the laundry's north wall with its cloth lead cut short (B1_LAUNDRY-002, beside the laundry rota in the notice-frame family), a twisted cloth pair on porcelain cleats to the fuse panel with a shelf of cartridges and chalk (B1_ELECTRICAL-002), a cartridge dropped in the electrical recess (B1_ELECTRICAL_RECESS-001) and a coal shovel leaning by the bunker (B1_COAL_ROOM-001).",
+    "Slice 61 of the V2 environment dossier retires slice 51's stepped soot boards over the 5D door: the fire's soot ghost is now a soft projected decal in the positional wear layer.",
+    "Slice 66 of the V2 environment dossier completes the thresholds (3B's ribbed rubber mat at the service crossing, the 4D short-let's new coir with a handbill nobody picked up, 6A's coir, a dust mat at the sealed 5D) and adds a runner form: a bound jute runner worn through where the hall turn meets the way to 4B's alcove (F04_B_ALCOVE_APPROACH-001).",
+    "Slice 67 renames slice 58's light box 6A_light_table: slice 38's surface-stock light box already owns 6A_light_box, and the runtime refuses an occupied identity. The table moves to the clear front of the cabinet top beside the toaster, off the plate, and its flex is no longer modelled.",
+    "Slice 72 of the V2 environment dossier makes the basement maintenance shop's toolboard (b1_toolboard, DomesticObject15) a shadow board: a painted silhouette behind each wrench and the hammer, and a sixth peg with only a screwdriver's silhouette (B1_MAINTENANCE_SHOP-002). 3B's board keeps the plain form.",
+    "Slice 77 of the V2 environment dossier gives the basement washers their water (B1_LAUNDRY-004): cold and hot mains out of the laundry's west wall on clips, a drop and brass bib cock at each machine with a rubber hose to its fill cock, and a cast-iron floor gully under each drain.",
+    "Slice 78 of the V2 environment dossier gives the basement rinse tubs their water (B1_LAUNDRY-004): cold and hot out of the west wet stack's face on clips, a pair of long-reach brass bibs over each tub's back rim, and a cast-iron waste taking both drain tails back into the stack. The context inspector treats a solid blockout riser's faces as retained walls.",
+    "Slice 79 of the V2 environment dossier gives the night watch its routine (F01_WATCH-002): a gas ring and enamel kettle on a bracketed shelf on the wall the watch room shares with the lobby, fed by a rubber tube from a brass cock, and the tour card in the notice-frame family naming the patrol boxes.",
+    "Slice 85 of the V2 environment dossier gives the F03-F06 service halls their maintenance evidence (F03-F06_SERVICE_HALL-001): painted service-colour bands with blank kraft tags on each riser and a brass drain cock on the heat stack, a slatted crate in the pocket south of the cluster and a hose coiled on an iron wall bracket; nothing stands in the route, which passes the cluster by the bypass."
   ],
-  "milk_glass": [
-   0.02,
-   0.027,
-   0.034,
-   1
+  "support_by_id": {
+    "2A_deck": "2A_cof",
+    "5B_deck": "5B_deck_table",
+    "2C_deck": "2C_rig_table",
+    "6A_light_table": "6A_prep_cabinet"
+  },
+  "open_work": [
+    "Broad room lighting and surface calibration remain open. Native form, supports and runtime controls validated in the scoped object/radio batch.",
+    "3B parts crate production image is partly masked by the adjacent pier; retain its native close-up and capture a clearer room view with the next planned batch."
   ],
-  "plant": [
-   0.1,
-   0.25,
-   0.06,
-   1
-  ],
-  "leaf_rib": [
-   0.32,
-   0.36,
-   0.11,
-   1
-  ],
-  "cane": [
-   0.38,
-   0.34,
-   0.23,
-   1
-  ],
-  "bakelite": [
-   0.3,
-   0.32,
-   0.34,
-   1
-  ],
-  "soot": [
-   0.3,
-   0.32,
-   0.34,
-   1
-  ],
-  "wool_burgundy": [
-   0.3,
-   0.05,
-   0.07,
-   1
-  ],
-  "jersey_maroon": [
-   0.22,
-   0.045,
-   0.06,
-   1
-  ],
-  "cape_navy": [
-   0.05,
-   0.065,
-   0.16,
-   1
-  ],
-  "coat_grey": [
-   0.22,
-   0.22,
-   0.23,
-   1
-  ],
-  "blanket_grey": [
-   0.28,
-   0.27,
-   0.25,
-   1
-  ],
-  "voile": [
-   0.42,
-   0.5,
-   0.62,
-   1
-  ],
-  "tumbler": [
-   0.62,
-   0.7,
-   0.66,
-   1
-  ],
-  "amber": [
-   0.16,
-   0.065,
-   0.018,
-   1
-  ],
-  "bone": [
-   0.84,
-   0.8,
-   0.68,
-   1
-  ],
-  "standwater": [
-   0.2,
-   0.235,
-   0.26,
-   1
-  ],
-  "kraft": [
-   0.5,
-   0.38,
-   0.22,
-   1
-  ],
-  "coir": [
-   0.42,
-   0.3,
-   0.15,
-   1
-  ],
-  "coir_mid": [
-   0.33,
-   0.23,
-   0.11,
-   1
-  ],
-  "coir_dark": [
-   0.24,
-   0.16,
-   0.08,
-   1
-  ],
-  "paint_ochre": [
-   0.55,
-   0.42,
-   0.16,
-   1
-  ],
-  "paint_green": [
-   0.2,
-   0.3,
-   0.16,
-   1
-  ],
-  "paint_teal": [
-   0.16,
-   0.32,
-   0.33,
-   1
-  ],
-  "paint_sky": [
-   0.62,
-   0.68,
-   0.72,
-   1
-  ],
-  "paint_cream": [
-   0.82,
-   0.78,
-   0.66,
-   1
-  ],
-  "sepia": [
-   0.5,
-   0.36,
-   0.22,
-   1
-  ],
-  "sepia_dark": [
-   0.27,
-   0.18,
-   0.1,
-   1
-  ],
-  "print_blue": [
-   0.24,
-   0.29,
-   0.35,
-   1
-  ],
-  "print_green": [
-   0.26,
-   0.32,
-   0.25,
-   1
-  ],
-  "print_grey": [
-   0.36,
-   0.36,
-   0.34,
-   1
-  ],
-  "jute": [
-   0.5,
-   0.39,
-   0.23,
-   1
-  ],
-  "jute_worn": [
-   0.36,
-   0.27,
-   0.15,
-   1
-  ],
-  "galv": [
-   0.74,
-   0.75,
-   0.72,
-   1
-  ],
-  "copper": [
-   0.78,
-   0.5,
-   0.34,
-   1
-  ],
-  "iron": [
-   0.3,
-   0.3,
-   0.29,
-   1
-  ]
- },
- "finish_parameters": {
-  "enamel": {
-   "normal_scale": 0.015,
-   "roughness": 0.32
-  },
-  "paper": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "milk_glass": {
-   "normal_scale": 0.015,
-   "roughness": 0.12
-  },
-  "terracotta": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "bakelite": {
-   "normal_scale": 0.02,
-   "roughness": 0.42
-  },
-  "book_ochre": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "book_teal": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "linen": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "metal": {
-   "normal_scale": 0.018,
-   "roughness": 0.4
-  },
-  "plant": {
-   "normal_scale": 0.012,
-   "roughness": 0.35
-  },
-  "soil": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "wood_dark": {
-   "normal_scale": 0.04,
-   "roughness": 0.5
-  },
-  "book_green": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "rubber_aged": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "book_brown": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "timber": {
-   "normal_scale": 0.04,
-   "roughness": 0.5
-  },
-  "soot": {
-   "normal_scale": 0.02,
-   "roughness": 0.42
-  },
-  "plywood": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "book_burgundy": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "brass": {
-   "normal_scale": 0.04,
-   "roughness": 0.5
-  },
-  "book_navy": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "leaf_rib": {
-   "normal_scale": 0.008,
-   "roughness": 0.45
-  },
-  "cane": {
-   "normal_scale": 0.015,
-   "roughness": 0.85
-  },
-  "wool_burgundy": {
-   "normal_scale": 0.16,
-   "roughness": 0.9
-  },
-  "jersey_maroon": {
-   "normal_scale": 0.16,
-   "roughness": 0.9
-  },
-  "cape_navy": {
-   "normal_scale": 0.16,
-   "roughness": 0.9
-  },
-  "coat_grey": {
-   "normal_scale": 0.16,
-   "roughness": 0.9
-  },
-  "blanket_grey": {
-   "normal_scale": 0.16,
-   "roughness": 0.9
-  },
-  "voile": {
-   "normal_scale": 0.1,
-   "roughness": 0.85
-  },
-  "opal": {
-   "normal_scale": 0.015,
-   "roughness": 0.2
-  },
-  "tumbler": {
-   "normal_scale": 0.015,
-   "roughness": 0.12
-  },
-  "amber": {
-   "normal_scale": 0.015,
-   "roughness": 0.15
-  },
-  "bone": {
-   "normal_scale": 0.02,
-   "roughness": 0.4
-  },
-  "standwater": {
-   "normal_scale": 0.01,
-   "roughness": 0.06
-  },
-  "kraft": {
-   "normal_scale": 0.12,
-   "roughness": 0.8
-  },
-  "coir": {
-   "normal_scale": 0.16,
-   "roughness": 0.92
-  },
-  "coir_mid": {
-   "normal_scale": 0.16,
-   "roughness": 0.92
-  },
-  "coir_dark": {
-   "normal_scale": 0.16,
-   "roughness": 0.92
-  },
-  "paint_ochre": {
-   "normal_scale": 0.1,
-   "roughness": 0.85
-  },
-  "paint_green": {
-   "normal_scale": 0.1,
-   "roughness": 0.85
-  },
-  "paint_teal": {
-   "normal_scale": 0.1,
-   "roughness": 0.85
-  },
-  "paint_sky": {
-   "normal_scale": 0.1,
-   "roughness": 0.85
-  },
-  "paint_cream": {
-   "normal_scale": 0.1,
-   "roughness": 0.85
-  },
-  "sepia": {
-   "normal_scale": 0.06,
-   "roughness": 0.85
-  },
-  "sepia_dark": {
-   "normal_scale": 0.06,
-   "roughness": 0.85
-  },
-  "print_blue": {
-   "normal_scale": 0.06,
-   "roughness": 0.85
-  },
-  "print_green": {
-   "normal_scale": 0.06,
-   "roughness": 0.85
-  },
-  "print_grey": {
-   "normal_scale": 0.06,
-   "roughness": 0.85
-  },
-  "jute": {
-   "normal_scale": 0.18,
-   "roughness": 0.93
-  },
-  "jute_worn": {
-   "normal_scale": 0.18,
-   "roughness": 0.93
-  },
-  "galv": {
-   "normal_scale": 0.18,
-   "roughness": 0.72
-  },
-  "copper": {
-   "normal_scale": 0.15,
-   "roughness": 0.62
-  },
-  "iron": {
-   "normal_scale": 0.25,
-   "roughness": 0.9
-  }
- },
- "placement": {
-  "floor_y": 0,
-  "frame": "Original passive furniture actors; wall spacers extend to actual existing wall faces."
- },
- "adaptations": [
-  "Preserve all original source object counts, actor poses and passive ownership.",
-  "Source-equivalent forms share a variant only when their source geometry and rear-wall fit match.",
-  "Rubber plant retains six source-sized leaves and their node heights; tapered living stem, radial leaf directions and curved blades replace the legacy post and aligned discs. Fine existing catalogue nickel and dark moulded bakelite replace oversized galvanized and pebbled finishes locally.",
-  "Slice 8 of the V2 environment dossier adds the hall stand (DomesticObject16) to the seventeen apartment vestibules, standing clear of every leaf's swing and switch approach; the sixteen V1 records are unchanged.",
-  "Slice 11 of the V2 environment dossier adds a second reel deck (DomesticObject04) on 5B's deck table; it bears on that table like 2A's on the coffee table.",
-  "Slice 12 of the V2 environment dossier adds two pinboards (4B's case wall, 5A's plan wall) and a wall-art form (artframe: stretched canvas with painted fields and edge tacks, or a moulded frame holding a document with a brass seal) for 5C's diptych and the framed pairs in 4A and 1A.",
-  "Slice 13 of the V2 environment dossier adds cloth: a garment rail (header board, brackets, rail, garments on wooden hangers, optional repair tags) and a hung moving blanket (batten, bound edges, quilted rows), with five tinted cloth keys on the catalogue linen.",
-  "Slice 14 of the V2 environment dossier puts one object in each of the eighteen private halls by the resident's routine: a lidded wicker hamper (new form), a galvanised boot tray with galoshes (new form) or a copy of an existing crate, each against a wall clear of every door and opening approach.",
-  "Slice 15 of the V2 environment dossier adds a photograph style to the wall-art form (a toned print under a mat) and hangs wall art in 2C, 3D, 3A and 5B, with 2A's caption wall as a 1.2 x 0.9 m pinboard.",
-  "Slice 17 of the V2 environment dossier adds a suitcase form (a leather case on its edge with straps, brass feet and a handle) for 4D's luggage in the vestibule.",
-  "Slice 18 of the V2 environment dossier adds four studio forms: a treadle sewing machine (2B), a radio teardown on newspaper (3B), an easel with a blank canvas and a stack of six failed canvases face to the wall (5C).",
-  "Slice 19 of the V2 environment dossier adds a card-index cabinet form (twelve drawers, brass pulls and blank label frames, one brass lock plate) for 6C's archive.",
-  "Slice 20 of the V2 environment dossier adds a backdrop rail (header, brackets, rail, paper roll and hanging sheet) and a print line (two hook plates, a string, six pegged contact sheets) for 6A's studio.",
-  "Slice 21 of the V2 environment dossier adds the lobby noticeboard (a 1.2 x 0.9 m pinboard of 23 drifted notices) and the 1928 photograph (a copy of the photograph frame) beside the inner door.",
-  "Slice 23 of the V2 environment dossier stores one household object against the back of sixteen basement bays (two stay padlocked and empty) and sets five wicker baskets along the laundry's north wall, all copies of existing forms.",
-  "Slice 24 of the V2 environment dossier adds 3D's error-archive card index as a completion copy of 6C's card cabinet.",
-  "Slice 25 of the V2 environment dossier adds a cable hook strip form (batten, five hooks, taped cable loops) and copies: a third reel deck on 2C's rig table, 4D's print over the settee, 6A's three archive crates under the desk wall.",
-  "Slice 26 of the V2 environment dossier mounts 4C's colour board (a completion copy of 5C's) at its existing anchor.",
-  "Slice 28 of the V2 environment dossier adds three forms for the ground-floor service rooms (the operator's headset on its hook, a coat on a wall hook, the night watch's folded camp cot) and a copy of 6A's cable coil as the cord pile under the house board.",
-  "Slice 29 of the V2 environment dossier adds five basement forms: the boiler room's leaning coal shovel, the clinker rake on two nails, the lidded ash can with an oil can on a rag, the Vantry signal frame (terminal strips, blank tag cards, cloth leads in a trunk cleated to the ceiling) and the steel conduit into and out of the fuse panel.",
-  "Slice 32 of the V2 environment dossier adds eight service forms: an oil can on a rag, a spare belt on a nail and a folded stepladder in the basement laundry, a cast-iron umbrella stand in the vestibule, a brass spittoon in the lobby, and the staff restroom's soap dish, roller towel and mop bucket.",
-  "Slice 33 of the V2 environment dossier adds three forms for the roof bulkhead (a coil of washing line, a watering can, a gardening trug) and 6A's row of three small prints as copies of 2C_album_a.",
-  "Slice 34 of the V2 environment dossier adds the chimney sweep's soot sack and rod bundle inside the roof service bulkhead and 1A's trunk of lesson plans, a larger variant of the suitcase form.",
-  "Slice 35 of the V2 environment dossier fills 2A's bedroom pinboard (DomesticObject00) to a full grid of 24 cards.",
-  "Slice 37 of the V2 environment dossier adds a workboots form: 4B's pair of boots kicked off at the alcove bed's foot, one fallen against the other.",
-  "Slice 38 of the V2 environment dossier adds a dressform form: Lena's tripod dress form in 2B wearing her own printed voile frock with a row of pins in the turned-up hem. voile is a tinted alias of the catalogue linen.",
-  "Slice 40 of the V2 environment dossier adds a tsquare form: Nadia's boxwood T-square hung head-down on a nail on 5A's study wall beside her pinboard.",
-  "Slice 41 of the V2 environment dossier adds a verticalfile form (4A's oak four-drawer hall file, top drawer not quite shut) and a chargingcase form (the basement shop's SR7 charging case with its lead to a wall plate), and a copy of 3B_partscrate as the shop's capsule crate at the bench's east end.",
-  "Slice 42 of the V2 environment dossier adds a wallbell form (1D's house bell above the signal outlet, its flex run down to it), a quietsign form (1D's framed card with one stroke and the watch hook), and DomesticObject68, 4C's colour board with Cam's route thread and ticket stubs pinned over it.",
-  "Slice 44 of the V2 environment dossier adds an overflowtray form: 4A's japanned umbrella drip tray by the door, water at the rim and a dark water line on the oak around it.",
-  "Slice 47 of the V2 environment dossier adds a bathshelf form: an opal glass shelf on two nickel brackets over each of the 18 apartment basins, between the basin's coved back and the medicine cabinet's lower edge, carrying the household's own bath set (glasses and brushes, shaving mugs, nail brushes and pumice, powder, pins, cosmetics, bottles, the 4C tape line, 4D's hotel soap). opal, tumbler and amber are tinted aliases of the catalogue milk glass; bone of the catalogue enamel.",
-  "Slice 47 gives 4A's overflowed drip tray grey standing water (standwater, a tinted alias of the catalogue milk glass) and Wren's furled umbrella, tip in the tray, leaning toward the wall: the black water alone read as a floor register.",
-  "Slice 48 of the V2 environment dossier adds a noticeframe form: an oak-framed notice board on each core level, the 1928 house rules on the public core (its cracked corner taped) and the service notice on the service core (pinned). The words are a Label3D the runtime lays on the paper. kraft is a tinted alias of the catalogue paper.",
-  "Slice 49 of the V2 environment dossier adds a threshold form: a household's mat on the hall side of its door (squared coir, worn coir, a rag rug, ribbed rubber, soil- or paint-flecked coir, an unworn dust mat at the sealed 2D), a folded newspaper for two, milk bottles and a parcel only on the wide core floor. The sealed 2D door also gets a one-line notice in the notice-frame family.",
-  "Slice 50 of the V2 environment dossier hangs one framed piece of its own above each core landing: on the public side a harbour, a wheat field, a toned photograph, a still life, a mountain view, a sealed certificate and a night sky; on the service side certificates and toned photographs. No lettering.",
-  "Slice 50b: the landing pieces' paint fields and prints take plain tinted keys (paint_* aliases of the catalogue linen, sepia and print_* aliases of the catalogue paper); the book-cover materials carry gilt tooling and ruled panels.",
-  "Slice 51 of the V2 environment dossier adds an aerialwire form (Cal's lead on four porcelain insulators along the F05 west hall into a drilled hole beside 5B's door) and a sootfan form (the soot ghost above the burnt 5D door's head), and seals the 3C and 5D thresholds with a one-line notice (and 3C's unworn dust mat).",
-  "Slice 58 of the V2 environment dossier adds four resident forms: Evelyn's brass grab rail on two roses in the 1A shower (F01_A_BATH-003), a towel pegged over a cord across the 1D bath window head (F01_D_BATH-003), Sacha's light box for negatives on the 6A prep cabinet beside the toaster (F06_A_KITCHEN-003) and two shelves of tagged lost property in 4D's study (F04_D_STUDY-002).",
-  "Slice 59 of the V2 environment dossier adds four basement forms: the brass signal outlet painted over high on the laundry's north wall with its cloth lead cut short (B1_LAUNDRY-002, beside the laundry rota in the notice-frame family), a twisted cloth pair on porcelain cleats to the fuse panel with a shelf of cartridges and chalk (B1_ELECTRICAL-002), a cartridge dropped in the electrical recess (B1_ELECTRICAL_RECESS-001) and a coal shovel leaning by the bunker (B1_COAL_ROOM-001).",
-  "Slice 61 of the V2 environment dossier retires slice 51's stepped soot boards over the 5D door: the fire's soot ghost is now a soft projected decal in the positional wear layer.",
-  "Slice 66 of the V2 environment dossier completes the thresholds (3B's ribbed rubber mat at the service crossing, the 4D short-let's new coir with a handbill nobody picked up, 6A's coir, a dust mat at the sealed 5D) and adds a runner form: a bound jute runner worn through where the hall turn meets the way to 4B's alcove (F04_B_ALCOVE_APPROACH-001).",
-  "Slice 67 renames slice 58's light box 6A_light_table: slice 38's surface-stock light box already owns 6A_light_box, and the runtime refuses an occupied identity. The table moves to the clear front of the cabinet top beside the toaster, off the plate, and its flex is no longer modelled.",
-  "Slice 72 of the V2 environment dossier makes the basement maintenance shop's toolboard (b1_toolboard, DomesticObject15) a shadow board: a painted silhouette behind each wrench and the hammer, and a sixth peg with only a screwdriver's silhouette (B1_MAINTENANCE_SHOP-002). 3B's board keeps the plain form.",
-  "Slice 77 of the V2 environment dossier gives the basement washers their water (B1_LAUNDRY-004): cold and hot mains out of the laundry's west wall on clips, a drop and brass bib cock at each machine with a rubber hose to its fill cock, and a cast-iron floor gully under each drain.",
-  "Slice 78 of the V2 environment dossier gives the basement rinse tubs their water (B1_LAUNDRY-004): cold and hot out of the west wet stack's face on clips, a pair of long-reach brass bibs over each tub's back rim, and a cast-iron waste taking both drain tails back into the stack. The context inspector treats a solid blockout riser's faces as retained walls.",
-  "Slice 79 of the V2 environment dossier gives the night watch its routine (F01_WATCH-002): a gas ring and enamel kettle on a bracketed shelf on the wall the watch room shares with the lobby, fed by a rubber tube from a brass cock, and the tour card in the notice-frame family naming the patrol boxes.",
-  "Slice 85 of the V2 environment dossier gives the F03-F06 service halls their maintenance evidence (F03-F06_SERVICE_HALL-001): painted service-colour bands with blank kraft tags on each riser and a brass drain cock on the heat stack, a slatted crate in the pocket south of the cluster and a hose coiled on an iron wall bracket; nothing stands in the route, which passes the cluster by the bypass."
- ],
- "support_by_id": {
-  "2A_deck": "2A_cof",
-  "5B_deck": "5B_deck_table",
-  "2C_deck": "2C_rig_table",
-  "6A_light_table": "6A_prep_cabinet"
- },
- "open_work": [
-  "Broad room lighting and surface calibration remain open. Native form, supports and runtime controls validated in the scoped object/radio batch.",
-  "3B parts crate production image is partly masked by the adjacent pier; retain its native close-up and capture a clearer room view with the next planned batch."
- ],
- "tint_space": "linear"
+  "tint_space": "linear"
 }

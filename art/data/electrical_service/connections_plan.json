@@ -1,0 +1,138 @@
+{
+  "evidence_class": "INERT",
+  "status": "geometry design; not runtime acceptance",
+  "source_sha256": {
+    "art/data/domestic_objects/source_plan.json": "9dc0757ac8c9352f6d0239b023348a5b3aa9992735fefaf8a9e369b069fb84c9",
+    "art/blender/domestic_objects.blend": "996a12a8ea51578b67a50c6373cd9c3e9d76a4a74c5f6008dc846b11554544bd",
+    "game/data/orison_v2_blockout.json": "610599f0a7eee4045e2190904cdc0c6b7c43f4d6a8aa1ed882033ba462ba4100",
+    "game/scripts/props/fuse_panel_prop.gd": "88a838c0710c9a0b74f3f80f0e76e9587ac425c00b8b6edb4de3510ffd35737b"
+  },
+  "retained_conduit": "B1_fuse_conduit",
+  "retained_variant": "DomesticObject46",
+  "retained_junction_centre": [
+    7.6,
+    -0.6,
+    -6.17
+  ],
+  "outlet": [
+    7.67,
+    -0.6,
+    -6.17
+  ],
+  "riser_tee": [
+    9.39,
+    -0.32,
+    1.0
+  ],
+  "route_corners": [
+    [
+      7.67,
+      -0.6,
+      -6.17
+    ],
+    [
+      7.92,
+      -0.6,
+      -6.17
+    ],
+    [
+      7.92,
+      -0.32,
+      -6.17
+    ],
+    [
+      7.92,
+      -0.32,
+      1.0
+    ],
+    [
+      9.27,
+      -0.32,
+      1.0
+    ]
+  ],
+  "bend_radius": 0.12,
+  "outer_radius": 0.0225,
+  "inner_radius": 0.0185,
+  "wall_ports": [
+    {
+      "space": "B1_ELECTRICAL",
+      "side": "north",
+      "bounds": [
+        7.885,
+        -0.355,
+        -2.07,
+        7.955,
+        -0.285,
+        -1.93
+      ]
+    },
+    {
+      "space": "B1_BOILER_APPROACH",
+      "side": "south",
+      "bounds": [
+        7.885,
+        -0.355,
+        -1.07,
+        7.955,
+        -0.285,
+        -0.93
+      ]
+    },
+    {
+      "space": "B1_BOILER_APPROACH",
+      "side": "north",
+      "bounds": [
+        7.885,
+        -0.355,
+        0.13,
+        7.955,
+        -0.285,
+        0.27
+      ]
+    }
+  ],
+  "ceiling_bearings": [
+    [
+      7.92,
+      -0.2,
+      -5.5
+    ],
+    [
+      7.92,
+      -0.2,
+      -4.0
+    ],
+    [
+      7.92,
+      -0.2,
+      -2.5
+    ],
+    [
+      7.92,
+      -0.2,
+      -1.5
+    ],
+    [
+      7.92,
+      -0.2,
+      -0.5
+    ],
+    [
+      7.92,
+      -0.2,
+      0.6
+    ],
+    [
+      8.5,
+      -0.2,
+      1.0
+    ],
+    [
+      9.0,
+      -0.2,
+      1.0
+    ]
+  ],
+  "authority": "Original FusePanelProp and SwitchSystem unchanged; no new circuit/save owner. Physical panel/outlet/branch endpoint proof remains required."
+}

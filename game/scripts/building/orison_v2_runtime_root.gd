@@ -443,6 +443,12 @@ func _compose_authorities() -> void:
 		push_error("ORISON V2 RUNTIME: electrical service refused: %s" % [electrical_service.errors])
 		return
 	adapter.root.set_meta("v2_native_electrical_service",electrical_service)
+	var electrical_connections := preload("res://scripts/building/orison_v2_native_electrical_connections.gd").new()
+	if not electrical_connections.mount(self,electrical_service):
+		startup_failed = true
+		push_error("ORISON V2 RUNTIME: electrical connections refused: %s" % [electrical_connections.errors])
+		return
+	adapter.root.set_meta("v2_native_electrical_connections",electrical_connections)
 	var service_instruments := preload("res://scripts/building/orison_v2_native_service_instruments.gd").new()
 	if not service_instruments.mount(self):
 		startup_failed = true

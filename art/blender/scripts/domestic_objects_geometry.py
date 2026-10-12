@@ -638,24 +638,44 @@ def signalframe(source):
  group('SignalFrame',start)
 
 def conduit(source):
- # Dossier slice 29: steel conduit from the floor into the fuse panel's backing box and out of
- # its top to a junction box under the ceiling; two runs, each saddled to the wall.
+ # Original panel placement and actor remain authoritative. This selected
+ # passive variant gains genuinely hollow runs and a side-fed fixed junction.
  low=source['low'];high=source['high'];top=source['top'];back=variants[identity]['rear_wall_y'];y=.04
- for label,z0,z1 in [('Riser',0,low),('Trunk',high,top)]:
-  start=len(stock_checks)
-  tube(label,(0,y,z0),(0,y,z1),.016,'metal')
-  if z0==0:
-   lathe(label+'Flange',0,y,0,[(0,0),(.035,0),(.035,.012),(.02,.02),(0,.02)],'metal')
-   for p in [(.03,y,0),(-.03,y,0),(0,y+.03,0)]:bearing('flange '+str(p),p)
-   saddles=[.2,low-.12]
-  else:
-   stock(label+'Junction',(-.07,back,top-.45),(.07,y+.04,top-.31),'metal',.002)
-   support(identity,'wall',(0,back,top-.38),(0,1,0),'junction box screwed to the wall')
-   saddles=[high+.15]
-  for z in saddles:
-   stock(label+'Saddle'+str(round(z,2)),(-.028,back,z-.012),(.028,y+.02,z+.012),'metal',.0006)
-   support(identity,'wall',(0,back,z),(0,1,0),'saddle screwed to the wall')
-  group(label,start)
+ start=len(stock_checks)
+ for label,z0,z1 in [('Riser',0,low),('Trunk',high,top-.45),('SpareStub',top-.31,top)]:
+  ring(label,0,y,z0,.016,.0125,z1-z0,'metal')
+ ring('RiserFlange',0,y,0,.035,.0163,.020,'metal')
+ for label,at in [('LowerCabinetBush',low+.005),('UpperCabinetBush',high-.005)]:
+  ring(label,0,y,at-.013,.020,.0163,.026,'metal')
+ for p in [(.03,y,0),(-.03,y,0),(0,y+.03,0)]:bearing('flange '+str(p),p)
+ for z in [.2,low-.12,high+.15]:
+  stock('Saddle'+str(round(z,2)),(-.028,back,z-.012),(.028,y+.02,z+.012),'metal',.0006)
+  support(identity,'wall',(0,back,z),(0,1,0),'saddle screwed to original wall face')
+ z0=top-.45;z1=top-.31;mid=(z0+z1)*.5
+ def bore(obj,at,radius,height,side=False):
+  bpy.ops.mesh.primitive_cylinder_add(vertices=48,radius=radius,depth=height,location=at)
+  cutter=bpy.context.object
+  if side:cutter.rotation_euler.y=math.pi*.5
+  bpy.context.view_layer.update();bpy.context.view_layer.objects.active=obj
+  modifier=obj.modifiers.new('Actual conductor entry','BOOLEAN');modifier.operation='DIFFERENCE';modifier.solver='EXACT';modifier.object=cutter
+  bpy.ops.object.modifier_apply(modifier=modifier.name);bpy.data.objects.remove(cutter,do_unlink=True)
+  return obj
+ stock('JunctionBack',(-.07,back,z0),(.07,back+.008,z1),'metal',.0005)
+ left=stock('JunctionLeft',(-.07,back+.007,z0),(-.062,y+.04,z1),'metal',.0005)
+ stock('JunctionRight',(.062,back+.007,z0),(.07,y+.04,z1),'metal',.0005)
+ # The retained actor yaw is PI: local -X mates the world +X branch.
+ bore(left,(-.066,y,mid),.0227,.030,True)
+ for label,a,b in [('Bottom',z0,z0+.008),('Top',z1-.008,z1)]:
+  plate=stock('Junction'+label,(-.062,back+.007,a),(.062,y+.04,b),'metal',.0005)
+  bore(plate,(0,y,(a+b)*.5),.0163,.025)
+ # Separate screwed cover and a real cap on the retained spare upper stub.
+ stock('JunctionCover',(-.068,y+.041,z0+.002),(.068,y+.046,z1-.002),'metal',.0005)
+ for x in [-.052,.052]:
+  for z in [mid-.052,mid+.052]:
+   axial(identity+'_JunctionScrew'+str((x,z)),x,z,[(0,y+.046),(.003,y+.046),(.003,y+.049),(0,y+.049)],identity,'metal',24)
+ lathe('SpareCap',0,y,top,[(0,0),(.019,0),(.019,.006),(0,.006)],'metal')
+ support(identity,'wall',(0,back,mid),(0,1,0),'fixed junction seated on the original wall')
+ group('PanelConduit',start)
 
 def oilcan(source):
  # Dossier slice 32: an oil can standing on a folded rag.
@@ -1441,7 +1461,19 @@ def risermarks(source):
  # stack's face. Every fitting stands under 0.08 m proud, so the 1.28 m bypass west of the cluster keeps its route.
  t=.0025;z0,z1=source['band'];zm=(z0+z1)/2
  for name,(x0,y0,x1,y1),key,(face,at) in source['risers']:
+  key={'paint_sky':'riser_sky','paint_green':'riser_green','paint_ochre':'riser_ochre'}[key]
   start=len(stock_checks)
+  if name=='Electric':
+   cx,cy=source['electric_pipe']['centre'];r=source['electric_pipe']['radius']
+   ring('ElectricPaint',cx,cy,z0,r+.0003,r,z1-z0,key)
+   for p,direction in [((cx+r,cy,zm),(1,0,0)),((cx-r,cy,zm),(-1,0,0)),((cx,cy+r,zm),(0,1,0)),((cx,cy-r,zm),(0,-1,0))]:
+    support(identity,'wall',p,direction,'band painted on the actual electrical conduit')
+   x=cx-r;ez=z0-.0025
+   tube(name+'Eye',(x,cy,ez),(x-.010,cy,ez),.003,'brass')
+   wire(name+'TagWire',[(x-.009,cy,ez),(x-.006,cy,z0-.04),(x-.00325,cy,z0-.082)],.0006,'brass')
+   stock(name+'Tag',(x-.0035,cy-.025,z0-.17),(x-.003,cy+.025,z0-.08),'kraft',.0001)
+   support(identity,'wall',(x,cy,ez),(-1,0,0),'screw eye in the actual electrical conduit')
+   group(name+'Band',start);continue
   stock(name+'BandNear',(x0-t,y1,z0),(x1+t,y1+t,z1),key,.0004)
   stock(name+'BandFar',(x0-t,y0-t,z0),(x1+t,y0,z1),key,.0004)
   stock(name+'BandWest',(x0-t,y0,z0),(x0,y1,z1),key,.0004)

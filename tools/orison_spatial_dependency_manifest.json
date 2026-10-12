@@ -279499,6 +279499,116 @@
    "rationale": "Id-shaped literal not present in the layout universe: stale reference, runtime-created name or dynamic fragment; resolve by hand.",
    "resolved_target": null,
    "target_exists": false
+  },
+  {
+   "key": "eca9043618fe4a0b",
+   "kind": "id_reference",
+   "token": "B1_fuse_conduit",
+   "file": "game/data/orison_v2/electrical_connections.json",
+   "tier": "data",
+   "subsystem": "data",
+   "symbols": [
+    "/panel_actor"
+   ],
+   "lines": [
+    0
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "DATA_FOREIGN_KEY"
+   ],
+   "spatial": [],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Data file keys on a layout id; the id (or an alias) must survive or this data silently stops applying.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
+  },
+  {
+   "key": "ebe204901dc1faee",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/mailbank/T_mailbank_brass_albedo.png",
+   "file": "game/scripts/building/orison_v2_native_electrical_connections.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    34
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "8ba19d490cc2384e",
+   "kind": "asset_path",
+   "token": "res://assets/building/textures/mailbank/T_mailbank_brass_rough.png",
+   "file": "game/scripts/building/orison_v2_native_electrical_connections.gd",
+   "tier": "production",
+   "subsystem": "building",
+   "symbols": [
+    "mount"
+   ],
+   "lines": [
+    35
+   ],
+   "count": 1,
+   "context": [],
+   "gameplay_binding": false,
+   "authority": [
+    "RUNTIME_LOOKUP"
+   ],
+   "spatial": [
+    "ASSET_PATH"
+   ],
+   "disposition": "PRESERVE_OR_ALIAS",
+   "confidence": "MEDIUM",
+   "rationale": "Building asset path; the rebuild will re-bake these files or remap the reference.",
+   "resolved_target": null,
+   "target_exists": null
+  },
+  {
+   "key": "fcd0c9c64d739805",
+   "kind": "id_reference",
+   "token": "B1_fuse_conduit",
+   "file": "game/tests/v2_electrical_connections_review.gd",
+   "tier": "test",
+   "subsystem": "tests",
+   "symbols": [
+    "run"
+   ],
+   "lines": [
+    13
+   ],
+   "count": 1,
+   "context": [
+    "check(suite,actor!=null and actor.get_meta(\"v2_furniture_id\",\"\")==\"B1_fuse_conduit\",\"original source owner retained\")"
+   ],
+   "gameplay_binding": false,
+   "authority": [
+    "TEST_CONTRACT"
+   ],
+   "spatial": [],
+   "disposition": "UPDATE_TEST_FIXTURE",
+   "confidence": "MEDIUM",
+   "rationale": "Test names a layout id; regenerate or update the fixture when the id moves.",
+   "resolved_target": "v2_blockout",
+   "target_exists": true
   }
  ]
 }
