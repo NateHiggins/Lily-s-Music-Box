@@ -1,5 +1,6 @@
 extends "res://tests/orison_v2_ceiling_top_closures_test.gd"
 ## Native surface fit, actual wall bearings and the single moving collision owner.
+var capture_prefix := ""
 func _run() -> void:
 	RealityState.persistence_enabled=false;RealityState.reset_campaign_for_tests()
 	CampaignClock.new().configure_date(1928,11,10,20*60);GameBoot.launch_mode=GameBoot.LaunchMode.CINEMATIC
@@ -13,6 +14,9 @@ func _run() -> void:
 	world.shutdown_for_tests();world.free();await _retired_audio();get_tree().quit(0 if failures.is_empty() else 1)
 
 func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
+	var canvas_states: Array[Dictionary] = []
+	for layer: CanvasLayer in world.find_children("*","CanvasLayer",true,false):
+		canvas_states.append({"layer":layer,"visible":layer.visible});layer.hide()
 	var old_camera_pose := world.player.camera.transform
 	var old_player_pose := world.player.global_transform
 	var old_fov: float = world.player.camera.fov
@@ -41,6 +45,18 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 			if branch==model:check(shapes.size()==1 and shapes[0].shape.get_faces()==draw.mesh.get_faces() and shapes[0].global_transform.is_equal_approx(draw.global_transform),"fixed native faces have exactly matching collision")
 			else:check(shapes.is_empty(),"fabricated leaf has no second collider or interaction owner")
 	check(parts==fixture.parts.size() and triangles==int(fixture.triangles),"complete fixed and moving export accounted")
+	var leaf_faces := PackedVector3Array()
+	for draw: MeshInstance3D in door._body.find_children("*","MeshInstance3D",true,false):
+		for point: Vector3 in draw.mesh.get_faces():leaf_faces.append(draw.global_transform*point)
+	for y: float in [.862,.854]:
+		for face: float in [-1.0,1.0]:
+			var origin := door.to_global(Vector3(door.width-.085,y,face*.20))
+			var direction := door.global_basis*Vector3(0,0,-face)
+			var clear := true
+			for i in range(0,leaf_faces.size(),3):
+				if Geometry3D.ray_intersects_triangle(origin,direction,leaf_faces[i],leaf_faces[i+1],leaf_faces[i+2])!=null:
+					clear=false;break
+			check(clear,"actual entrance keyway passes through plates and timber on both faces")
 	for row: Dictionary in fixture.contacts:
 		var at:=model.to_global(Vector3(row.point[0],row.point[1],row.point[2]));var outward:=model.global_basis.z.normalized()
 		var query:=PhysicsRayQueryParameters3D.create(at+outward*.003,at-outward*.03,1,excluded)
@@ -76,7 +92,7 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 		var blockers: Array=world.get_world_3d().direct_space_state.intersect_shape(stance,4)
 		for blocker: Dictionary in blockers:print("FACADE STATION BLOCKER ",view[0]," ",blocker.collider.get_path())
 		check(blockers.is_empty(),"ordinary standing capsule clears capture station "+str(view[0]))
-		world.player.set_lamp_enabled(true);await _settled_optics();await shot(str(view[0]))
+		world.player.set_lamp_enabled(true);await _settled_optics();await shot(capture_prefix+str(view[0]))
 	world.player.global_position=Vector3(blade.global_position.x,.02,2.1)
 	var inspection: Node3D=blade.get_node("NeonSignInspection")
 	world.player.face_world_point(inspection.get_child(0).global_position)
@@ -92,4 +108,5 @@ func validate_in_world(world: OrisonV2RuntimeRoot) -> Dictionary:
 	world.player.camera.make_current()
 	world.mirror_renderer._main_camera=world.player.camera
 	camera.free()
+	for row: Dictionary in canvas_states:row.layer.visible=row.visible
 	return {"checks":batch_checks,"failures":failures}

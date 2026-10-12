@@ -47,6 +47,7 @@ PIPELINE_VERSION = 3
 # source file -> (catalog keys, meters_per_tile, rough_base, rough_span,
 #                 normal_strength)
 SLOTS = {
+    "door_oak": (["door_oak"], 0.60, 0.38, 0.12, 6.0),
     "leather_worn": (["leather_worn"], 0.12, 0.76, 0.08, 0.35),
     "mineral_scale": (["mineral_scale"], 0.06, 0.92, 0.06, 0.25),
     "toast_crumb": (["toast_crumb"], 0.06, 0.88, 0.06, 0.25),
@@ -269,7 +270,7 @@ RECOLOR = {"rug_persian_worn": [("rug_cool", 150.0), ("rug_green", 90.0)]}
 # res://assets/building/textures/ and MatLib silently falls back to flat
 # colour. Copying them here keeps that reproducible instead of a manual
 # step somebody has to remember after every regeneration.
-GODOT_STAGE = ("water_clear", "leather_worn", "mineral_scale", "toast_crumb", "brass_bright", "brass_dull", "bronze", "car_paint",
+GODOT_STAGE = ("door_oak", "water_clear", "leather_worn", "mineral_scale", "toast_crumb", "brass_bright", "brass_dull", "bronze", "car_paint",
                "oak_quartered", "enamel_appliance", "zinc_liner", "copper_aged",
                "cast_iron", "soot", "fx_grease", "nickel_plated", "mirror_aged",
                "mica_heater", "porcelain_fixture",

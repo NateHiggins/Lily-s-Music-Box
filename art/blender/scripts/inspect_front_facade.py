@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib,json,math,os
 import bpy,bmesh,numpy as np
 from mathutils import Vector
+from mathutils.bvhtree import BVHTree
 ROOT=Path(__file__).resolve().parents[3]
 fixture=json.loads((ROOT/'art/blender/front_facade_inventory.json').read_bytes())
 bpy.ops.wm.open_mainfile(filepath=str(ROOT/'art/blender/front_facade.blend'))
@@ -18,6 +19,20 @@ for image in bpy.data.images:
 for group in ['source_bindings','retained_bindings']:
     for rel,h in fixture[group].items():assert hashlib.sha256((ROOT/rel).read_bytes().replace(b'\r\n',b'\n')).hexdigest()==h,rel
 assert hashlib.sha256((ROOT/'game/assets/props/front_facade.glb').read_bytes()).hexdigest()==fixture['asset_sha256']
+keyway_checks=0
+for row in fixture['stocks']:
+    if not (row['name'].startswith('LockEscutcheon') or
+            row['name'].startswith('LeafStile') and row['bounds'][0]>.5):continue
+    obj=bpy.data.objects[row['name']]
+    bm=bmesh.new();bm.from_mesh(obj.data);tree=BVHTree.FromBMesh(bm);bm.free()
+    for x,y,clear in [(fixture['door']['width']-.085,.862,True),
+                      (fixture['door']['width']-.085,.854,True),
+                      (fixture['door']['width']-.077,.862,False)]:
+        for side in [-1,1]:
+            location,*_=tree.ray_cast(Vector((x,side*.15,y)),Vector((0,-side,0)))
+            hit=location is not None
+            assert hit!=clear,(row['name'],x,y,side,hit)
+            keyway_checks+=1
 for row in fixture['parts']:
     obj=bpy.data.objects[row['name']];obj.data.calc_loop_triangles();assert len(obj.data.loop_triangles)==row['triangles']
 leaf=bpy.data.objects['EntryLeaf'];leaf.location=(fixture['door']['width']/2,-.035,0);leaf.rotation_euler.z=math.pi
@@ -41,5 +56,5 @@ out=ROOT/'tmp/v2-facade/native';out.mkdir(parents=True,exist_ok=True)
 for name,at,target,lens in [('entrance',(3,-6,2.2),(0,-.2,1.9),45),('canopy',(2,-3,2.1),(0,-.8,3.25),44),('leaf',(.7,-1.6,1.6),(0,-.04,1.1),48)]:
     camera.location=at;camera.rotation_euler=(Vector(target)-camera.location).to_track_quat('-Z','Y').to_euler();data.lens=lens
     scene.render.filepath=str(out/(name+'.png'));bpy.ops.render.render(write_still=True)
-(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','closed_positive_stocks':len(checks),'triangles':fixture['triangles'],'renders':3,'source_file_sha256':hashlib.sha256((ROOT/'art/blender/front_facade.blend').read_bytes()).hexdigest()},indent=2)+'\n')
+(out/'inspection.json').write_text(json.dumps({'evidence_class':'INERT','closed_positive_stocks':len(checks),'keyway_rays':keyway_checks,'triangles':fixture['triangles'],'renders':3,'source_file_sha256':hashlib.sha256((ROOT/'art/blender/front_facade.blend').read_bytes()).hexdigest()},indent=2)+'\n')
 print('NATIVE FRONT FACADE INSPECTION:',len(checks),'positive closed stocks; all bounds, volumes, maps and bindings checked; three renders')

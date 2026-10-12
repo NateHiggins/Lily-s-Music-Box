@@ -1,0 +1,62 @@
+{
+ "evidence_kind": "suite_run",
+ "execution": {
+  "completed": true,
+  "elapsed_s": 9.16,
+  "exit_code": 0,
+  "finished_utc": "2026-10-12T11:32:48Z",
+  "started_utc": "2026-10-12T11:32:38Z",
+  "timed_out": false
+ },
+ "log": {
+  "fail_count": 0,
+  "fail_lines": [],
+  "pass_count": 0,
+  "pass_lines": [],
+  "script_error_count": 0,
+  "script_error_lines": [],
+  "stale_cache_lines": [],
+  "stale_cache_suspect": false,
+  "stderr": "C:/PleaseRemainOnTheLine/tmp/v2-door-polish-20261012/domestic-uv-runtime.log.stderr",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout": "C:/PleaseRemainOnTheLine/tmp/v2-door-polish-20261012/domestic-uv-runtime.log",
+  "stdout_sha256": "cef931f359e50f1c55b1afcd20533489f323ee5b2c5d4fce31d41322dec869d4"
+ },
+ "note": "Wrapper receipt: proves the process ran and how it ended. It is not a runtime_contract and grants no ledger proof by itself; a contract-writing test may copy `execution` and `source` verbatim.",
+ "runner": "serial",
+ "scene": "res://tests/V2DoorKeywayReview.tscn",
+ "schema": "orison.run-receipt.v1",
+ "schema_version": 1,
+ "shot_dir": "C:/PleaseRemainOnTheLine/tmp/v2-door-polish-20261012/domestic-uv-runtime",
+ "source": {
+  "dirty_paths": 1418,
+  "dirty_sample": [
+   "M art/blender/domestic_objects_construction.json",
+   " M art/blender/front_facade.blend",
+   " M art/blender/front_facade_inventory.json",
+   " M art/blender/scripts/build_front_facade.py",
+   " M art/blender/scripts/inspect_front_facade.py",
+   " M art/blender/service_instruments_construction.json",
+   " M art/data/front_facade/source_fit.json",
+   " M art/data/material_catalog.json",
+   " M art/data/runtime_material_sets.json",
+   " M art/renders/insitu/shots.md",
+   " M art/renders/orison_v2/surface_requirements_20261011/dumbwaiter.png",
+   " M art/renders/orison_v2/surface_requirements_20261011/radiator.png",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_apartment_batch/receipts/suite.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/completion_windowed.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion/receipts/import_back.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import.log.receipt.json",
+   " M art/reviews/v2_environment_design_20261008/implementation/baseline_completion_2C/receipts/import_back.log.receipt.json"
+  ],
+  "repository_head": "8e762f49704a18cb4b7d53f09679e267dfd0c659",
+  "repository_tree": "fb9b9bfc3be29e88234e08aff14a7fa7a0d40d83",
+  "runtime_inputs_sha256": "3397b1cd2a2942b8b3fa6c89754616011b67debba82dba02a8d905b8fdd79bca",
+  "test_path": "game/tests/v2_door_keyway_review.gd",
+  "test_sha256": "492912ec9698873d58872910c0090bfb6394e7d16b35c59c36ce7719b8fda516"
+ },
+ "windowed": true
+}

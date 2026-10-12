@@ -1,0 +1,4 @@
+Built-in image_gen; 2026-10-12.
+Prompt: Create a square seamless PBR base-color texture of continuous quarter-sawn white oak for a worn 1928 Queens entrance door. A 0.6m patch, fine vertical grain, slender pores, understated medullary rays, medium honey brown under amber shellac. Flat even diffuse albedo only; no highlights, shadows, AO, perspective, vignette, board seams, nails, objects, borders, letters, numbers, words, logos or symbols. Edge-to-edge finished joinery.
+Generated source: exec-706d1be5-c117-4c06-b6f4-5bc810be86e5.png.
+Production ingest: python art/tools/ingest_material_sources.py --slot door_oak. Roughness and normal are derived approximations, not measured scans.

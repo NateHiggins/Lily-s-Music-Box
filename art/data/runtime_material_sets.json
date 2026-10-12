@@ -364,6 +364,48 @@
       "roughness_multiplier": 1.0,
       "visual_lock": false
     },
+    "door_brass": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.18,
+      "catalog_mapping": "procedural/door_brass",
+      "files": [
+        "T_ai_materials_door_brass_albedo.png",
+        "T_ai_materials_door_brass_rough.png",
+        "T_ai_materials_door_brass_normal.png"
+      ],
+      "metallic": 0.92,
+      "meters_per_tile": 0.18,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "door_oak": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.6,
+      "catalog_mapping": "ai_materials/door_oak",
+      "files": [
+        "T_ai_materials_door_oak_albedo.png",
+        "T_ai_materials_door_oak_rough.png",
+        "T_ai_materials_door_oak_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.6,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
+    "door_paint": {
+      "alpha": false,
+      "canonical_meters_per_tile": 0.3,
+      "catalog_mapping": "procedural/door_paint",
+      "files": [
+        "T_ai_materials_door_paint_albedo.png",
+        "T_ai_materials_door_paint_rough.png",
+        "T_ai_materials_door_paint_normal.png"
+      ],
+      "metallic": 0.0,
+      "meters_per_tile": 0.3,
+      "roughness_multiplier": 1.0,
+      "visual_lock": false
+    },
     "enamel": {
       "alpha": false,
       "canonical_meters_per_tile": 0.6,

@@ -1,20 +1,48 @@
 {
   "evidence_class": "INERT",
-  "asset_sha256": "8e5c1cc7ba3e8a0fc875518d12d4d44144f47616ea52f7540b003760b8ba6103",
+  "asset_sha256": "bb53dc07d46da49568808756b9363632e85ed84560eaa38583eabd2a42d69c6d",
   "parts": [
     {
       "name": "EntryLeaf__cast_iron__0_-1_0",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "triangles": 336,
+      "triangles": 1092,
       "tile": 0.4
     },
     {
       "name": "EntryLeaf__cast_iron__0_0_0",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "triangles": 336,
+      "triangles": 1092,
       "tile": 0.4
+    },
+    {
+      "name": "EntryLeaf__door_brass__0_-1_0",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "triangles": 6608,
+      "tile": 0.18
+    },
+    {
+      "name": "EntryLeaf__door_brass__0_0_0",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "triangles": 6608,
+      "tile": 0.18
+    },
+    {
+      "name": "EntryLeaf__door_oak__0_-1_0",
+      "key": "door_oak",
+      "branch": "EntryLeaf",
+      "triangles": 6660,
+      "tile": 0.6
+    },
+    {
+      "name": "EntryLeaf__door_oak__0_0_0",
+      "key": "door_oak",
+      "branch": "EntryLeaf",
+      "triangles": 6667,
+      "tile": 0.6
     },
     {
       "name": "EntryLeaf__glass__0_-1_0",
@@ -29,20 +57,6 @@
       "branch": "EntryLeaf",
       "triangles": 28,
       "tile": 1.0
-    },
-    {
-      "name": "EntryLeaf__oak_quartered__0_-1_0",
-      "key": "oak_quartered",
-      "branch": "EntryLeaf",
-      "triangles": 470,
-      "tile": 0.9
-    },
-    {
-      "name": "EntryLeaf__oak_quartered__0_0_0",
-      "key": "oak_quartered",
-      "branch": "EntryLeaf",
-      "triangles": 470,
-      "tile": 0.9
     },
     {
       "name": "FixedFacade__brass__-1_-1_0",
@@ -71,6 +85,34 @@
       "branch": "FixedFacade",
       "triangles": 168,
       "tile": 0.4
+    },
+    {
+      "name": "FixedFacade__door_oak__-1_-1_0",
+      "key": "door_oak",
+      "branch": "FixedFacade",
+      "triangles": 330,
+      "tile": 0.6
+    },
+    {
+      "name": "FixedFacade__door_oak__-1_0_0",
+      "key": "door_oak",
+      "branch": "FixedFacade",
+      "triangles": 206,
+      "tile": 0.6
+    },
+    {
+      "name": "FixedFacade__door_oak__0_-1_0",
+      "key": "door_oak",
+      "branch": "FixedFacade",
+      "triangles": 332,
+      "tile": 0.6
+    },
+    {
+      "name": "FixedFacade__door_oak__0_0_0",
+      "key": "door_oak",
+      "branch": "FixedFacade",
+      "triangles": 208,
+      "tile": 0.6
     },
     {
       "name": "FixedFacade__glass__-1_-1_0",
@@ -160,42 +202,42 @@
       "name": "FixedFacade__limestone_b__-3_0_0",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "triangles": 158,
+      "triangles": 182,
       "tile": 1.6
     },
     {
       "name": "FixedFacade__limestone_b__-3_0_1",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "triangles": 72,
+      "triangles": 84,
       "tile": 1.6
     },
     {
       "name": "FixedFacade__limestone_b__-3_0_2",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "triangles": 72,
+      "triangles": 84,
       "tile": 1.6
     },
     {
       "name": "FixedFacade__limestone_b__-3_0_3",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "triangles": 72,
+      "triangles": 84,
       "tile": 1.6
     },
     {
       "name": "FixedFacade__limestone_b__-3_0_4",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "triangles": 72,
+      "triangles": 84,
       "tile": 1.6
     },
     {
       "name": "FixedFacade__limestone_b__-2_0_0",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "triangles": 68,
+      "triangles": 92,
       "tile": 1.6
     },
     {
@@ -364,34 +406,6 @@
       "key": "metal",
       "branch": "FixedFacade",
       "triangles": 192,
-      "tile": 0.9
-    },
-    {
-      "name": "FixedFacade__oak_quartered__-1_-1_0",
-      "key": "oak_quartered",
-      "branch": "FixedFacade",
-      "triangles": 38,
-      "tile": 0.9
-    },
-    {
-      "name": "FixedFacade__oak_quartered__-1_0_0",
-      "key": "oak_quartered",
-      "branch": "FixedFacade",
-      "triangles": 26,
-      "tile": 0.9
-    },
-    {
-      "name": "FixedFacade__oak_quartered__0_-1_0",
-      "key": "oak_quartered",
-      "branch": "FixedFacade",
-      "triangles": 40,
-      "tile": 0.9
-    },
-    {
-      "name": "FixedFacade__oak_quartered__0_0_0",
-      "key": "oak_quartered",
-      "branch": "FixedFacade",
-      "triangles": 28,
       "tile": 0.9
     },
     {
@@ -2169,9 +2183,9 @@
     },
     {
       "name": "OakJamb_125",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "FixedFacade",
-      "volume_m3": 0.08437496856786358,
+      "volume_m3": 0.0843710473984604,
       "bounds": [
         -0.6499999761581421,
         -0.02500000037252903,
@@ -2183,9 +2197,9 @@
     },
     {
       "name": "OakJamb_126",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "FixedFacade",
-      "volume_m3": 0.08437496856786358,
+      "volume_m3": 0.08437104739846042,
       "bounds": [
         0.550000011920929,
         -0.02500000037252903,
@@ -2197,9 +2211,9 @@
     },
     {
       "name": "OakHead_127",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "FixedFacade",
-      "volume_m3": 0.05849994119257031,
+      "volume_m3": 0.05849735993953531,
       "bounds": [
         -0.6499999761581421,
         -0.02500000037252903,
@@ -2211,9 +2225,9 @@
     },
     {
       "name": "SteppedOakHead_128",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "FixedFacade",
-      "volume_m3": 0.005543994903087432,
+      "volume_m3": 0.005541744656840361,
       "bounds": [
         -0.7200000286102295,
         -0.054999999701976776,
@@ -2225,9 +2239,9 @@
     },
     {
       "name": "LeafStile_129",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.016204799530291518,
+      "volume_m3": 0.016201499111670636,
       "bounds": [
         0.0,
         -0.03200000151991844,
@@ -2239,9 +2253,9 @@
     },
     {
       "name": "LeafStile_130",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.016204800536417922,
+      "volume_m3": 0.01619374327843318,
       "bounds": [
         0.9800000190734863,
         -0.03200000151991844,
@@ -2253,9 +2267,9 @@
     },
     {
       "name": "LeafRail_131",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.008806400751781483,
+      "volume_m3": 0.008804842741613608,
       "bounds": [
         0.11999999731779099,
         -0.03200000151991844,
@@ -2267,9 +2281,9 @@
     },
     {
       "name": "LeafRail_132",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0055040017129183855,
+      "volume_m3": 0.005502530025965581,
       "bounds": [
         0.11999999731779099,
         -0.03200000151991844,
@@ -2281,9 +2295,9 @@
     },
     {
       "name": "LeafRail_133",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0044031961213108865,
+      "volume_m3": 0.004401753251077639,
       "bounds": [
         0.11999999731779099,
         -0.03200000151991844,
@@ -2295,9 +2309,9 @@
     },
     {
       "name": "LeafRail_134",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.011007996864556991,
+      "volume_m3": 0.011006381592495507,
       "bounds": [
         0.11999999731779099,
         -0.03200000151991844,
@@ -2309,9 +2323,9 @@
     },
     {
       "name": "LeafMuntin_135",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0023743998087465664,
+      "volume_m3": 0.0023734465342228795,
       "bounds": [
         0.5149999856948853,
         -0.03200000151991844,
@@ -2323,9 +2337,9 @@
     },
     {
       "name": "LeafMuntin_136",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0018815999718785146,
+      "volume_m3": 0.0018808051033253476,
       "bounds": [
         0.5149999856948853,
         -0.03200000151991844,
@@ -2337,9 +2351,9 @@
     },
     {
       "name": "LeafMuntin_137",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0027775998694777367,
+      "volume_m3": 0.0027765169594908745,
       "bounds": [
         0.5149999856948853,
         -0.03200000151991844,
@@ -2351,9 +2365,9 @@
     },
     {
       "name": "RaisedLeafPanel_138",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.010048799531736971,
+      "volume_m3": 0.010047401307512823,
       "bounds": [
         0.11999999731779099,
         -0.024000000208616257,
@@ -2365,9 +2379,9 @@
     },
     {
       "name": "PanelBolection_139",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.000152639996730983,
+      "volume_m3": 0.00015183076847965978,
       "bounds": [
         0.12300000339746475,
         0.020999999716877937,
@@ -2379,9 +2393,9 @@
     },
     {
       "name": "PanelBolection_140",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0001526403126356074,
+      "volume_m3": 0.00015183101663298156,
       "bounds": [
         0.49399998784065247,
         0.020999999716877937,
@@ -2393,9 +2407,9 @@
     },
     {
       "name": "PanelBolection_141",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604654,
+      "volume_m3": 0.000101109696030377,
       "bounds": [
         0.14100000262260437,
         0.020999999716877937,
@@ -2407,9 +2421,9 @@
     },
     {
       "name": "PanelBolection_142",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0001016640382760472,
+      "volume_m3": 0.00010110970088415957,
       "bounds": [
         0.14100000262260437,
         0.020999999716877937,
@@ -2421,9 +2435,9 @@
     },
     {
       "name": "PanelBolection_143",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0001526399967309829,
+      "volume_m3": 0.00015183076847965978,
       "bounds": [
         0.12300000339746475,
         -0.03700000047683716,
@@ -2435,9 +2449,9 @@
     },
     {
       "name": "PanelBolection_144",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0001526403126356074,
+      "volume_m3": 0.0001518310166329826,
       "bounds": [
         0.49399998784065247,
         -0.03700000047683716,
@@ -2449,9 +2463,9 @@
     },
     {
       "name": "PanelBolection_145",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604655,
+      "volume_m3": 0.00010110969603036081,
       "bounds": [
         0.14100000262260437,
         -0.03700000047683716,
@@ -2463,9 +2477,9 @@
     },
     {
       "name": "PanelBolection_146",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604719,
+      "volume_m3": 0.00010110970088415914,
       "bounds": [
         0.14100000262260437,
         -0.03700000047683716,
@@ -2477,9 +2491,9 @@
     },
     {
       "name": "RaisedLeafPanel_147",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.007963200151330225,
+      "volume_m3": 0.007961960320231212,
       "bounds": [
         0.11999999731779099,
         -0.024000000208616257,
@@ -2491,9 +2505,9 @@
     },
     {
       "name": "PanelBolection_148",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00012096000534474822,
+      "volume_m3": 0.00012030917811476059,
       "bounds": [
         0.12300000339746475,
         0.020999999716877937,
@@ -2505,9 +2519,9 @@
     },
     {
       "name": "PanelBolection_149",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00012096025568427869,
+      "volume_m3": 0.0001203093744118054,
       "bounds": [
         0.49399998784065247,
         0.020999999716877937,
@@ -2519,9 +2533,9 @@
     },
     {
       "name": "PanelBolection_150",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604742,
+      "volume_m3": 0.00010110970088417193,
       "bounds": [
         0.14100000262260437,
         0.020999999716877937,
@@ -2533,9 +2547,9 @@
     },
     {
       "name": "PanelBolection_151",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604727,
+      "volume_m3": 0.00010110960045981473,
       "bounds": [
         0.14100000262260437,
         0.020999999716877937,
@@ -2547,9 +2561,9 @@
     },
     {
       "name": "PanelBolection_152",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00012096000534474817,
+      "volume_m3": 0.00012030917811476056,
       "bounds": [
         0.12300000339746475,
         -0.03700000047683716,
@@ -2561,9 +2575,9 @@
     },
     {
       "name": "PanelBolection_153",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00012096025568427847,
+      "volume_m3": 0.00012030937441180531,
       "bounds": [
         0.49399998784065247,
         -0.03700000047683716,
@@ -2575,9 +2589,9 @@
     },
     {
       "name": "PanelBolection_154",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0001016640382760474,
+      "volume_m3": 0.00010110970088417172,
       "bounds": [
         0.14100000262260437,
         -0.03700000047683716,
@@ -2589,9 +2603,9 @@
     },
     {
       "name": "PanelBolection_155",
-      "key": "oak_quartered",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604727,
+      "volume_m3": 0.00010110960045981408,
       "bounds": [
         0.14100000262260437,
         -0.03700000047683716,
@@ -2619,13 +2633,13 @@
       "name": "WireGlassVertical_157",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 7.439978533311408e-06,
+      "volume_m3": 3.0379866704124446e-07,
       "bounds": [
-        0.19750000536441803,
-        -0.0020000000949949026,
+        0.14464999735355377,
+        -0.0003499999875202775,
         1.2999999523162842,
-        0.2004999965429306,
-        0.0020000000949949026,
+        0.14534999430179596,
+        0.0003499999875202775,
         1.9199999570846558
       ]
     },
@@ -2633,13 +2647,13 @@
       "name": "WireGlassVertical_158",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 7.44005244307489e-06,
+      "volume_m3": 3.0379866704124446e-07,
       "bounds": [
-        0.27649998664855957,
-        -0.0020000000949949026,
+        0.16965000331401825,
+        -0.0003499999875202775,
         1.2999999523162842,
-        0.27950000762939453,
-        0.0020000000949949026,
+        0.17035000026226044,
+        0.0003499999875202775,
         1.9199999570846558
       ]
     },
@@ -2647,13 +2661,13 @@
       "name": "WireGlassVertical_159",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 7.439978533311435e-06,
+      "volume_m3": 3.038051341450575e-07,
       "bounds": [
-        0.3555000126361847,
-        -0.0020000000949949026,
+        0.19464999437332153,
+        -0.0003499999875202775,
         1.2999999523162842,
-        0.35850000381469727,
-        0.0020000000949949026,
+        0.19535000622272491,
+        0.0003499999875202775,
         1.9199999570846558
       ]
     },
@@ -2661,133 +2675,511 @@
       "name": "WireGlassVertical_160",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 7.439978533311435e-06,
+      "volume_m3": 3.0379866704124107e-07,
       "bounds": [
-        0.4345000088214874,
-        -0.0020000000949949026,
+        0.219650000333786,
+        -0.0003499999875202775,
         1.2999999523162842,
-        0.4375,
-        0.0020000000949949026,
+        0.2203499972820282,
+        0.0003499999875202775,
         1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_161",
+      "name": "WireGlassVertical_161",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033235382765e-06,
+      "volume_m3": 3.0379866704124107e-07,
       "bounds": [
-        0.11999999731779099,
-        -0.0020000000949949026,
-        1.3673888444900513,
-        0.5149999856948853,
-        0.0020000000949949026,
-        1.3703888654708862
+        0.2446500062942505,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.24535000324249268,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_162",
+      "name": "WireGlassVertical_162",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033235382765e-06,
+      "volume_m3": 3.0379866704122074e-07,
       "bounds": [
-        0.11999999731779099,
-        -0.0020000000949949026,
-        1.4362777471542358,
-        0.5149999856948853,
-        0.0020000000949949026,
-        1.4392777681350708
+        0.26965001225471497,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.27035000920295715,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_163",
+      "name": "WireGlassVertical_163",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.7400332353831265e-06,
+      "volume_m3": 3.0379866704124107e-07,
       "bounds": [
-        0.11999999731779099,
-        -0.0020000000949949026,
-        1.5051666498184204,
-        0.5149999856948853,
-        0.0020000000949949026,
-        1.5081666707992554
+        0.29464998841285706,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.29534998536109924,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_164",
+      "name": "WireGlassVertical_164",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033235382982e-06,
+      "volume_m3": 3.0379866704124107e-07,
       "bounds": [
-        0.11999999731779099,
-        -0.0020000000949949026,
-        1.574055552482605,
-        0.5149999856948853,
-        0.0020000000949949026,
-        1.57705557346344
+        0.31964999437332153,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.3203499913215637,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_165",
+      "name": "WireGlassVertical_165",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033235382873e-06,
+      "volume_m3": 3.0379866704124107e-07,
       "bounds": [
-        0.11999999731779099,
-        -0.0020000000949949026,
-        1.6429444551467896,
-        0.5149999856948853,
-        0.0020000000949949026,
-        1.6459444761276245
+        0.344650000333786,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.3453499972820282,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_166",
+      "name": "WireGlassVertical_166",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033235382873e-06,
+      "volume_m3": 3.0379866704124107e-07,
       "bounds": [
-        0.11999999731779099,
-        -0.0020000000949949026,
-        1.7118333578109741,
-        0.5149999856948853,
-        0.0020000000949949026,
-        1.714833378791809
+        0.3696500062942505,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.3703500032424927,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_167",
+      "name": "WireGlassVertical_167",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033235383271e-06,
+      "volume_m3": 3.0379866704124107e-07,
       "bounds": [
-        0.11999999731779099,
-        -0.0020000000949949026,
-        1.7807222604751587,
-        0.5149999856948853,
-        0.0020000000949949026,
-        1.7837222814559937
+        0.39465001225471497,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.39535000920295715,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_168",
+      "name": "WireGlassVertical_168",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.739844884701829e-06,
+      "volume_m3": 3.037986670412072e-07,
       "bounds": [
-        0.11999999731779099,
-        -0.0020000000949949026,
-        1.8496111631393433,
-        0.5149999856948853,
-        0.0020000000949949026,
-        1.8526110649108887
+        0.41964998841285706,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.42034998536109924,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "PaneBead_169",
-      "key": "oak_quartered",
+      "name": "WireGlassVertical_169",
+      "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00024800004278868477,
+      "volume_m3": 3.0379866704124785e-07,
+      "bounds": [
+        0.44464999437332153,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.4453499913215637,
+        0.0003499999875202775,
+        1.9199999570846558
+      ]
+    },
+    {
+      "name": "WireGlassVertical_170",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 3.0379866704124785e-07,
+      "bounds": [
+        0.469650000333786,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.4703499972820282,
+        0.0003499999875202775,
+        1.9199999570846558
+      ]
+    },
+    {
+      "name": "WireGlassVertical_171",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 3.0379866704124785e-07,
+      "bounds": [
+        0.4946500062942505,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.4953500032424927,
+        0.0003499999875202775,
+        1.9199999570846558
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_172",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.93549143592486e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.3246500492095947,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.325350046157837
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_173",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359253115e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.3496500253677368,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.350350022315979
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_174",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359249052e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.374650001525879,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.375349998474121
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_175",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359250404e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.399649977684021,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.4003499746322632
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_176",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.93549143592486e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.424649953842163,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.4253499507904053
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_177",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.93549143592486e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.4496500492095947,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.450350046157837
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_178",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359252662e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.4746500253677368,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.475350022315979
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_179",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359249052e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.499650001525879,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.500349998474121
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_180",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359249952e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.524649977684021,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.5253499746322632
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_181",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359248147e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.549649953842163,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.5503499507904053
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_182",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359248147e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.5746500492095947,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.575350046157837
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_183",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359252662e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.5996500253677368,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.600350022315979
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_184",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359249052e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.624650001525879,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.625349998474121
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_185",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359249952e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.649649977684021,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.6503499746322632
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_186",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359248147e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.674649953842163,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.6753499507904053
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_187",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359248147e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.6996500492095947,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.700350046157837
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_188",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359252662e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.7246500253677368,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.725350022315979
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_189",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359249052e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.749650001525879,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.750349998474121
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_190",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359248147e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.774649977684021,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.7753499746322632
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_191",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359254468e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.799649953842163,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.8003499507904053
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_192",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359257178e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.8246500492095947,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.825350046157837
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_193",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359248147e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.8496500253677368,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.850350022315979
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_194",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359249052e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.874650001525879,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.875349998474121
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_195",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354914359248147e-07,
+      "bounds": [
+        0.11999999731779099,
+        -0.0003499999875202775,
+        1.899649977684021,
+        0.5149999856948853,
+        0.0003499999875202775,
+        1.9003499746322632
+      ]
+    },
+    {
+      "name": "PaneBead_196",
+      "key": "door_oak",
+      "branch": "EntryLeaf",
+      "volume_m3": 0.000247052571370884,
       "bounds": [
         0.11999999731779099,
         0.004000000189989805,
@@ -2798,10 +3190,10 @@
       ]
     },
     {
-      "name": "PaneBead_170",
-      "key": "oak_quartered",
+      "name": "PaneBead_197",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0002479997656270839,
+      "volume_m3": 0.0002470523083470483,
       "bounds": [
         0.4950000047683716,
         0.004000000189989805,
@@ -2812,10 +3204,10 @@
       ]
     },
     {
-      "name": "PaneBead_171",
-      "key": "oak_quartered",
+      "name": "PaneBead_198",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00014200071276538982,
+      "volume_m3": 0.00014143475800760868,
       "bounds": [
         0.14000000059604645,
         0.004000000189989805,
@@ -2826,10 +3218,10 @@
       ]
     },
     {
-      "name": "PaneBead_172",
-      "key": "oak_quartered",
+      "name": "PaneBead_199",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0001419998663794219,
+      "volume_m3": 0.000141433984660599,
       "bounds": [
         0.14000000059604645,
         0.004000000189989805,
@@ -2840,10 +3232,10 @@
       ]
     },
     {
-      "name": "PaneBead_173",
-      "key": "oak_quartered",
+      "name": "PaneBead_200",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00024800004278868477,
+      "volume_m3": 0.000247052571370884,
       "bounds": [
         0.11999999731779099,
         -0.024000000208616257,
@@ -2854,10 +3246,10 @@
       ]
     },
     {
-      "name": "PaneBead_174",
-      "key": "oak_quartered",
+      "name": "PaneBead_201",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0002479997656270839,
+      "volume_m3": 0.0002470523083470482,
       "bounds": [
         0.4950000047683716,
         -0.024000000208616257,
@@ -2868,10 +3260,10 @@
       ]
     },
     {
-      "name": "PaneBead_175",
-      "key": "oak_quartered",
+      "name": "PaneBead_202",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0001420007127653898,
+      "volume_m3": 0.00014143475800760825,
       "bounds": [
         0.14000000059604645,
         -0.024000000208616257,
@@ -2882,10 +3274,10 @@
       ]
     },
     {
-      "name": "PaneBead_176",
-      "key": "oak_quartered",
+      "name": "PaneBead_203",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0001419998663794219,
+      "volume_m3": 0.00014143398466059985,
       "bounds": [
         0.14000000059604645,
         -0.024000000208616257,
@@ -2896,10 +3288,10 @@
       ]
     },
     {
-      "name": "RaisedLeafPanel_177",
-      "key": "oak_quartered",
+      "name": "RaisedLeafPanel_204",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.010048800858536343,
+      "volume_m3": 0.010047402664829274,
       "bounds": [
         0.5849999785423279,
         -0.024000000208616257,
@@ -2910,10 +3302,10 @@
       ]
     },
     {
-      "name": "PanelBolection_178",
-      "key": "oak_quartered",
+      "name": "PanelBolection_205",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0001526400599119078,
+      "volume_m3": 0.00015183078798361747,
       "bounds": [
         0.5879999995231628,
         0.020999999716877937,
@@ -2924,10 +3316,10 @@
       ]
     },
     {
-      "name": "PanelBolection_179",
-      "key": "oak_quartered",
+      "name": "PanelBolection_206",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00015264005991190736,
+      "volume_m3": 0.00015183081231966345,
       "bounds": [
         0.9589999914169312,
         0.020999999716877937,
@@ -2938,10 +3330,10 @@
       ]
     },
     {
-      "name": "PanelBolection_180",
-      "key": "oak_quartered",
+      "name": "PanelBolection_207",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604665,
+      "volume_m3": 0.00010110969330157695,
       "bounds": [
         0.6060000061988831,
         0.020999999716877937,
@@ -2952,10 +3344,10 @@
       ]
     },
     {
-      "name": "PanelBolection_181",
-      "key": "oak_quartered",
+      "name": "PanelBolection_208",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604711,
+      "volume_m3": 0.00010110969815534652,
       "bounds": [
         0.6060000061988831,
         0.020999999716877937,
@@ -2966,10 +3358,10 @@
       ]
     },
     {
-      "name": "PanelBolection_182",
-      "key": "oak_quartered",
+      "name": "PanelBolection_209",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0001526400599119078,
+      "volume_m3": 0.00015183078798361704,
       "bounds": [
         0.5879999995231628,
         -0.03700000047683716,
@@ -2980,10 +3372,10 @@
       ]
     },
     {
-      "name": "PanelBolection_183",
-      "key": "oak_quartered",
+      "name": "PanelBolection_210",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00015264005991190736,
+      "volume_m3": 0.00015183081231956544,
       "bounds": [
         0.9589999914169312,
         -0.03700000047683716,
@@ -2994,10 +3386,10 @@
       ]
     },
     {
-      "name": "PanelBolection_184",
-      "key": "oak_quartered",
+      "name": "PanelBolection_211",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604665,
+      "volume_m3": 0.00010110969330156069,
       "bounds": [
         0.6060000061988831,
         -0.03700000047683716,
@@ -3008,10 +3400,10 @@
       ]
     },
     {
-      "name": "PanelBolection_185",
-      "key": "oak_quartered",
+      "name": "PanelBolection_212",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604711,
+      "volume_m3": 0.00010110969815534652,
       "bounds": [
         0.6060000061988831,
         -0.03700000047683716,
@@ -3022,10 +3414,10 @@
       ]
     },
     {
-      "name": "RaisedLeafPanel_186",
-      "key": "oak_quartered",
+      "name": "RaisedLeafPanel_213",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00796320120275621,
+      "volume_m3": 0.007961961396338436,
       "bounds": [
         0.5849999785423279,
         -0.024000000208616257,
@@ -3036,10 +3428,10 @@
       ]
     },
     {
-      "name": "PanelBolection_187",
-      "key": "oak_quartered",
+      "name": "PanelBolection_214",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00012096005541265388,
+      "volume_m3": 0.00012030919336217458,
       "bounds": [
         0.5879999995231628,
         0.020999999716877937,
@@ -3050,10 +3442,10 @@
       ]
     },
     {
-      "name": "PanelBolection_188",
-      "key": "oak_quartered",
+      "name": "PanelBolection_215",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00012096005541265388,
+      "volume_m3": 0.00012030921279988514,
       "bounds": [
         0.9589999914169312,
         0.020999999716877937,
@@ -3064,10 +3456,10 @@
       ]
     },
     {
-      "name": "PanelBolection_189",
-      "key": "oak_quartered",
+      "name": "PanelBolection_216",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604762,
+      "volume_m3": 0.00010110969815535931,
       "bounds": [
         0.6060000061988831,
         0.020999999716877937,
@@ -3078,10 +3470,10 @@
       ]
     },
     {
-      "name": "PanelBolection_190",
-      "key": "oak_quartered",
+      "name": "PanelBolection_217",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604742,
+      "volume_m3": 0.0001011095977309672,
       "bounds": [
         0.6060000061988831,
         0.020999999716877937,
@@ -3092,10 +3484,10 @@
       ]
     },
     {
-      "name": "PanelBolection_191",
-      "key": "oak_quartered",
+      "name": "PanelBolection_218",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00012096005541265367,
+      "volume_m3": 0.00012030919336217437,
       "bounds": [
         0.5879999995231628,
         -0.03700000047683716,
@@ -3106,10 +3498,10 @@
       ]
     },
     {
-      "name": "PanelBolection_192",
-      "key": "oak_quartered",
+      "name": "PanelBolection_219",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00012096005541265388,
+      "volume_m3": 0.00012030921279980816,
       "bounds": [
         0.9589999914169312,
         -0.03700000047683716,
@@ -3120,10 +3512,10 @@
       ]
     },
     {
-      "name": "PanelBolection_193",
-      "key": "oak_quartered",
+      "name": "PanelBolection_220",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604762,
+      "volume_m3": 0.0001011096981553591,
       "bounds": [
         0.6060000061988831,
         -0.03700000047683716,
@@ -3134,10 +3526,10 @@
       ]
     },
     {
-      "name": "PanelBolection_194",
-      "key": "oak_quartered",
+      "name": "PanelBolection_221",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00010166403827604742,
+      "volume_m3": 0.00010110959773096677,
       "bounds": [
         0.6060000061988831,
         -0.03700000047683716,
@@ -3148,7 +3540,7 @@
       ]
     },
     {
-      "name": "WiredPane_195",
+      "name": "WiredPane_222",
       "key": "glass",
       "branch": "EntryLeaf",
       "volume_m3": 0.002938800349698965,
@@ -3162,178 +3554,556 @@
       ]
     },
     {
-      "name": "WireGlassVertical_196",
+      "name": "WireGlassVertical_223",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 7.439904623547872e-06,
+      "volume_m3": 3.0379866704124785e-07,
       "bounds": [
-        0.6625000238418579,
-        -0.0020000000949949026,
+        0.6096500158309937,
+        -0.0003499999875202775,
         1.2999999523162842,
-        0.6654999852180481,
-        0.0020000000949949026,
+        0.6103500127792358,
+        0.0003499999875202775,
         1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassVertical_197",
+      "name": "WireGlassVertical_224",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 7.439904623547655e-06,
+      "volume_m3": 3.0379866704124785e-07,
       "bounds": [
-        0.7415000200271606,
-        -0.0020000000949949026,
+        0.6346499919891357,
+        -0.0003499999875202775,
         1.2999999523162842,
-        0.7444999814033508,
-        0.0020000000949949026,
+        0.6353499889373779,
+        0.0003499999875202775,
         1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassVertical_198",
+      "name": "WireGlassVertical_225",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 7.439904623548197e-06,
+      "volume_m3": 3.0379866704124785e-07,
       "bounds": [
-        0.8205000162124634,
-        -0.0020000000949949026,
+        0.6596500277519226,
+        -0.0003499999875202775,
         1.2999999523162842,
-        0.8234999775886536,
-        0.0020000000949949026,
+        0.6603500247001648,
+        0.0003499999875202775,
         1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassVertical_199",
+      "name": "WireGlassVertical_226",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 7.4399046235477636e-06,
+      "volume_m3": 3.0379866704124785e-07,
       "bounds": [
-        0.8995000123977661,
-        -0.0020000000949949026,
+        0.6846500039100647,
+        -0.0003499999875202775,
         1.2999999523162842,
-        0.9024999737739563,
-        0.0020000000949949026,
+        0.6853500008583069,
+        0.0003499999875202775,
         1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_200",
+      "name": "WireGlassVertical_227",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033861236156e-06,
+      "volume_m3": 3.0379866704122074e-07,
       "bounds": [
-        0.5849999785423279,
-        -0.0020000000949949026,
-        1.3673888444900513,
-        0.9800000190734863,
-        0.0020000000949949026,
-        1.3703888654708862
+        0.7096499800682068,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.710349977016449,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_201",
+      "name": "WireGlassVertical_228",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033861235903e-06,
+      "volume_m3": 3.0379866704124785e-07,
       "bounds": [
-        0.5849999785423279,
-        -0.0020000000949949026,
-        1.4362777471542358,
-        0.9800000190734863,
-        0.0020000000949949026,
-        1.4392777681350708
+        0.7346500158309937,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.7353500127792358,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_202",
+      "name": "WireGlassVertical_229",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033861235505e-06,
+      "volume_m3": 3.0379866704124785e-07,
       "bounds": [
-        0.5849999785423279,
-        -0.0020000000949949026,
-        1.5051666498184204,
-        0.9800000190734863,
-        0.0020000000949949026,
-        1.5081666707992554
+        0.7596499919891357,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.7603499889373779,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_203",
+      "name": "WireGlassVertical_230",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033861235903e-06,
+      "volume_m3": 3.0379866704124785e-07,
       "bounds": [
-        0.5849999785423279,
-        -0.0020000000949949026,
-        1.574055552482605,
-        0.9800000190734863,
-        0.0020000000949949026,
-        1.57705557346344
+        0.7846500277519226,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.7853500247001648,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_204",
+      "name": "WireGlassVertical_231",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033861236047e-06,
+      "volume_m3": 3.0379866704124785e-07,
       "bounds": [
-        0.5849999785423279,
-        -0.0020000000949949026,
-        1.6429444551467896,
-        0.9800000190734863,
-        0.0020000000949949026,
-        1.6459444761276245
+        0.8096500039100647,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.8103500008583069,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_205",
+      "name": "WireGlassVertical_232",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033861236156e-06,
+      "volume_m3": 3.0379866704124785e-07,
       "bounds": [
-        0.5849999785423279,
-        -0.0020000000949949026,
-        1.7118333578109741,
-        0.9800000190734863,
-        0.0020000000949949026,
-        1.714833378791809
+        0.8346499800682068,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.835349977016449,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_206",
+      "name": "WireGlassVertical_233",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.740033861236047e-06,
+      "volume_m3": 3.0379866704124785e-07,
       "bounds": [
-        0.5849999785423279,
-        -0.0020000000949949026,
-        1.7807222604751587,
-        0.9800000190734863,
-        0.0020000000949949026,
-        1.7837222814559937
+        0.8596500158309937,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.8603500127792358,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "WireGlassHorizontal_207",
+      "name": "WireGlassVertical_234",
       "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 4.739845510529922e-06,
+      "volume_m3": 3.0379866704124785e-07,
       "bounds": [
-        0.5849999785423279,
-        -0.0020000000949949026,
-        1.8496111631393433,
-        0.9800000190734863,
-        0.0020000000949949026,
-        1.8526110649108887
+        0.8846499919891357,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.8853499889373779,
+        0.0003499999875202775,
+        1.9199999570846558
       ]
     },
     {
-      "name": "PaneBead_208",
-      "key": "oak_quartered",
+      "name": "WireGlassVertical_235",
+      "key": "cast_iron",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0002480005047246856,
+      "volume_m3": 3.0379866704124785e-07,
+      "bounds": [
+        0.9096500277519226,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.9103500247001648,
+        0.0003499999875202775,
+        1.9199999570846558
+      ]
+    },
+    {
+      "name": "WireGlassVertical_236",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 3.0379866704124785e-07,
+      "bounds": [
+        0.9346500039100647,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.9353500008583069,
+        0.0003499999875202775,
+        1.9199999570846558
+      ]
+    },
+    {
+      "name": "WireGlassVertical_237",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 3.0379866704124785e-07,
+      "bounds": [
+        0.9596499800682068,
+        -0.0003499999875202775,
+        1.2999999523162842,
+        0.960349977016449,
+        0.0003499999875202775,
+        1.9199999570846558
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_238",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.3246500492095947,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.325350046157837
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_239",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.3496500253677368,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.350350022315979
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_240",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914793985e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.374650001525879,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.375349998474121
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_241",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.399649977684021,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.4003499746322632
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_242",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.424649953842163,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.4253499507904053
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_243",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.4496500492095947,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.450350046157837
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_244",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.4746500253677368,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.475350022315979
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_245",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914793985e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.499650001525879,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.500349998474121
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_246",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.524649977684021,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.5253499746322632
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_247",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.549649953842163,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.5503499507904053
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_248",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.5746500492095947,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.575350046157837
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_249",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.5996500253677368,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.600350022315979
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_250",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914793985e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.624650001525879,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.625349998474121
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_251",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.649649977684021,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.6503499746322632
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_252",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.674649953842163,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.6753499507904053
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_253",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.6996500492095947,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.700350046157837
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_254",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.7246500253677368,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.725350022315979
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_255",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914793985e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.749650001525879,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.750349998474121
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_256",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.774649977684021,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.7753499746322632
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_257",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.799649953842163,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.8003499507904053
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_258",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.8246500492095947,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.825350046157837
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_259",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.8496500253677368,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.850350022315979
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_260",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914797595e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.874650001525879,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.875349998474121
+      ]
+    },
+    {
+      "name": "WireGlassHorizontal_261",
+      "key": "cast_iron",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.9354916914787659e-07,
+      "bounds": [
+        0.5849999785423279,
+        -0.0003499999875202775,
+        1.899649977684021,
+        0.9800000190734863,
+        0.0003499999875202775,
+        1.9003499746322632
+      ]
+    },
+    {
+      "name": "PaneBead_262",
+      "key": "door_oak",
+      "branch": "EntryLeaf",
+      "volume_m3": 0.0002470530274697293,
       "bounds": [
         0.5849999785423279,
         0.004000000189989805,
@@ -3344,10 +4114,10 @@
       ]
     },
     {
-      "name": "PaneBead_209",
-      "key": "oak_quartered",
+      "name": "PaneBead_263",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0002480005047246865,
+      "volume_m3": 0.0002470530443640629,
       "bounds": [
         0.9599999785423279,
         0.004000000189989805,
@@ -3358,10 +4128,10 @@
       ]
     },
     {
-      "name": "PaneBead_210",
-      "key": "oak_quartered",
+      "name": "PaneBead_264",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0001420006948839081,
+      "volume_m3": 0.0001414347341669028,
       "bounds": [
         0.6050000190734863,
         0.004000000189989805,
@@ -3372,10 +4142,10 @@
       ]
     },
     {
-      "name": "PaneBead_211",
-      "key": "oak_quartered",
+      "name": "PaneBead_265",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00014199984849804761,
+      "volume_m3": 0.00014143396081999372,
       "bounds": [
         0.6050000190734863,
         0.004000000189989805,
@@ -3386,10 +4156,10 @@
       ]
     },
     {
-      "name": "PaneBead_212",
-      "key": "oak_quartered",
+      "name": "PaneBead_266",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0002480005047246856,
+      "volume_m3": 0.00024705302746974394,
       "bounds": [
         0.5849999785423279,
         -0.024000000208616257,
@@ -3400,10 +4170,10 @@
       ]
     },
     {
-      "name": "PaneBead_213",
-      "key": "oak_quartered",
+      "name": "PaneBead_267",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.0002480005047246865,
+      "volume_m3": 0.0002470530443640628,
       "bounds": [
         0.9599999785423279,
         -0.024000000208616257,
@@ -3414,10 +4184,10 @@
       ]
     },
     {
-      "name": "PaneBead_214",
-      "key": "oak_quartered",
+      "name": "PaneBead_268",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00014200069488390813,
+      "volume_m3": 0.00014143473416690236,
       "bounds": [
         0.6050000190734863,
         -0.024000000208616257,
@@ -3428,10 +4198,10 @@
       ]
     },
     {
-      "name": "PaneBead_215",
-      "key": "oak_quartered",
+      "name": "PaneBead_269",
+      "key": "door_oak",
       "branch": "EntryLeaf",
-      "volume_m3": 0.00014199984849804756,
+      "volume_m3": 0.00014143396081999198,
       "bounds": [
         0.6050000190734863,
         -0.024000000208616257,
@@ -3442,7 +4212,427 @@
       ]
     },
     {
-      "name": "WaterTable_216",
+      "name": "LockEscutcheon_270",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 0.00012882313232381203,
+      "bounds": [
+        0.9850000143051147,
+        0.03200000151991844,
+        0.800000011920929,
+        1.0449999570846558,
+        0.03799999877810478,
+        1.159999966621399
+      ]
+    },
+    {
+      "name": "EscutcheonBead_271",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.379648027145995e-06,
+      "bounds": [
+        0.9869999885559082,
+        0.03799999877810478,
+        0.8050000071525574,
+        0.9890000224113464,
+        0.03999999910593033,
+        1.1549999713897705
+      ]
+    },
+    {
+      "name": "EscutcheonBead_272",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.3796154387362698e-06,
+      "bounds": [
+        1.0410000085830688,
+        0.03799999877810478,
+        0.8050000071525574,
+        1.0429999828338623,
+        0.03999999910593033,
+        1.1549999713897705
+      ]
+    },
+    {
+      "name": "EscutcheonBead_273",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 2.0480007313500846e-07,
+      "bounds": [
+        0.9890000224113464,
+        0.03799999877810478,
+        0.8029999732971191,
+        1.0410000085830688,
+        0.03999999910593033,
+        0.8050000071525574
+      ]
+    },
+    {
+      "name": "EscutcheonBead_274",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 2.0479534014364214e-07,
+      "bounds": [
+        0.9890000224113464,
+        0.03799999877810478,
+        1.1549999713897705,
+        1.0410000085830688,
+        0.03999999910593033,
+        1.156999945640564
+      ]
+    },
+    {
+      "name": "TurnedEntranceKnob_275",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 0.00010463564682908533,
+      "bounds": [
+        0.9830290079116821,
+        0.03799999877810478,
+        1.0130290985107422,
+        1.0469709634780884,
+        0.10599999874830246,
+        1.0769710540771484
+      ]
+    },
+    {
+      "name": "ThumbpieceSeat_276",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 3.2343127520680686e-06,
+      "bounds": [
+        1.0049999952316284,
+        0.03799999877810478,
+        1.1050000190734863,
+        1.024999976158142,
+        0.04699999839067459,
+        1.1230000257492065
+      ]
+    },
+    {
+      "name": "Thumbpiece_277",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 2.7270174430950127e-06,
+      "bounds": [
+        1.0049999952316284,
+        0.04423264041543007,
+        1.1114031076431274,
+        1.024999976158142,
+        0.05976735055446625,
+        1.144597053527832
+      ]
+    },
+    {
+      "name": "EscutcheonScrew_278",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 8.154590473256228e-08,
+      "bounds": [
+        1.0119999647140503,
+        0.03799999877810478,
+        0.8140000104904175,
+        1.0180000066757202,
+        0.04100000113248825,
+        0.8199999928474426
+      ]
+    },
+    {
+      "name": "EscutcheonScrew_279",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 8.154567694801799e-08,
+      "bounds": [
+        1.0119999647140503,
+        0.03799999877810478,
+        1.1410000324249268,
+        1.0180000066757202,
+        0.04100000113248825,
+        1.1469999551773071
+      ]
+    },
+    {
+      "name": "PullShoe_280",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 4.398609314115555e-05,
+      "bounds": [
+        0.8849999904632568,
+        0.024000000208616257,
+        0.8180000185966492,
+        0.9350000023841858,
+        0.04399999976158142,
+        0.8619999885559082
+      ]
+    },
+    {
+      "name": "PullReturn_281",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.7388849276779538e-05,
+      "bounds": [
+        0.8999999761581421,
+        0.04399999976158142,
+        0.8299999833106995,
+        0.9200000166893005,
+        0.10000000149011612,
+        0.8500000238418579
+      ]
+    },
+    {
+      "name": "PullShoe_282",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 2.6387033012020584e-05,
+      "bounds": [
+        0.8849999904632568,
+        0.03200000151991844,
+        1.218000054359436,
+        0.9350000023841858,
+        0.04399999976158142,
+        1.2619999647140503
+      ]
+    },
+    {
+      "name": "PullReturn_283",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.7388832134783968e-05,
+      "bounds": [
+        0.8999999761581421,
+        0.04399999976158142,
+        1.2300000190734863,
+        0.9200000166893005,
+        0.10000000149011612,
+        1.25
+      ]
+    },
+    {
+      "name": "EntrancePull_284",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 0.00017979080784246142,
+      "bounds": [
+        0.8980000019073486,
+        0.08799999952316284,
+        0.8399999737739563,
+        0.921999990940094,
+        0.1120000034570694,
+        1.2400000095367432
+      ]
+    },
+    {
+      "name": "LockEscutcheon_285",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 0.00012882313232383903,
+      "bounds": [
+        0.9850000143051147,
+        -0.03799999877810478,
+        0.800000011920929,
+        1.0449999570846558,
+        -0.03200000151991844,
+        1.159999966621399
+      ]
+    },
+    {
+      "name": "EscutcheonBead_286",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.3796480271460085e-06,
+      "bounds": [
+        0.9869999885559082,
+        -0.03999999910593033,
+        0.8050000071525574,
+        0.9890000224113464,
+        -0.03799999877810478,
+        1.1549999713897705
+      ]
+    },
+    {
+      "name": "EscutcheonBead_287",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.3796154387363113e-06,
+      "bounds": [
+        1.0410000085830688,
+        -0.03999999910593033,
+        0.8050000071525574,
+        1.0429999828338623,
+        -0.03799999877810478,
+        1.1549999713897705
+      ]
+    },
+    {
+      "name": "EscutcheonBead_288",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 2.048000731349983e-07,
+      "bounds": [
+        0.9890000224113464,
+        -0.03999999910593033,
+        0.8029999732971191,
+        1.0410000085830688,
+        -0.03799999877810478,
+        0.8050000071525574
+      ]
+    },
+    {
+      "name": "EscutcheonBead_289",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 2.047953401436557e-07,
+      "bounds": [
+        0.9890000224113464,
+        -0.03999999910593033,
+        1.1549999713897705,
+        1.0410000085830688,
+        -0.03799999877810478,
+        1.156999945640564
+      ]
+    },
+    {
+      "name": "TurnedEntranceKnob_290",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 0.00010463564832826418,
+      "bounds": [
+        0.9830290675163269,
+        -0.10599999874830246,
+        1.0130289793014526,
+        1.0469709634780884,
+        -0.03799999877810478,
+        1.0769709348678589
+      ]
+    },
+    {
+      "name": "ThumbpieceSeat_291",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 3.2343127520680754e-06,
+      "bounds": [
+        1.0049999952316284,
+        -0.04699999839067459,
+        1.1050000190734863,
+        1.024999976158142,
+        -0.03799999877810478,
+        1.1230000257492065
+      ]
+    },
+    {
+      "name": "Thumbpiece_292",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 2.7270174433145365e-06,
+      "bounds": [
+        1.0049999952316284,
+        -0.05976735055446625,
+        1.1114031076431274,
+        1.024999976158142,
+        -0.04423264041543007,
+        1.144597053527832
+      ]
+    },
+    {
+      "name": "EscutcheonScrew_293",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 8.154590473256894e-08,
+      "bounds": [
+        1.0119999647140503,
+        -0.04100000113248825,
+        0.8140000104904175,
+        1.0180000066757202,
+        -0.03799999877810478,
+        0.8199999928474426
+      ]
+    },
+    {
+      "name": "EscutcheonScrew_294",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 8.154567694802071e-08,
+      "bounds": [
+        1.0119999647140503,
+        -0.04100000113248825,
+        1.1410000324249268,
+        1.0180000066757202,
+        -0.03799999877810478,
+        1.1469999551773071
+      ]
+    },
+    {
+      "name": "PullShoe_295",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 4.398609314115563e-05,
+      "bounds": [
+        0.8849999904632568,
+        -0.04399999976158142,
+        0.8180000185966492,
+        0.9350000023841858,
+        -0.024000000208616257,
+        0.8619999885559082
+      ]
+    },
+    {
+      "name": "PullReturn_296",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.7388849260222724e-05,
+      "bounds": [
+        0.8999999761581421,
+        -0.10000000149011612,
+        0.8299999833106995,
+        0.9200000166893005,
+        -0.04399999976158142,
+        0.8500000238418579
+      ]
+    },
+    {
+      "name": "PullShoe_297",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 2.6387033012020584e-05,
+      "bounds": [
+        0.8849999904632568,
+        -0.04399999976158142,
+        1.218000054359436,
+        0.9350000023841858,
+        -0.03200000151991844,
+        1.2619999647140503
+      ]
+    },
+    {
+      "name": "PullReturn_298",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 1.7388832134783948e-05,
+      "bounds": [
+        0.8999999761581421,
+        -0.10000000149011612,
+        1.2300000190734863,
+        0.9200000166893005,
+        -0.04399999976158142,
+        1.25
+      ]
+    },
+    {
+      "name": "EntrancePull_299",
+      "key": "door_brass",
+      "branch": "EntryLeaf",
+      "volume_m3": 0.00017979080784246248,
+      "bounds": [
+        0.8980000019073486,
+        -0.1120000034570694,
+        0.8399999737739563,
+        0.921999990940094,
+        -0.08799999952316284,
+        1.2400000095367432
+      ]
+    },
+    {
+      "name": "WaterTable_300",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.024300001287460314,
@@ -3456,7 +4646,7 @@
       ]
     },
     {
-      "name": "WaterTable_217",
+      "name": "WaterTable_301",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0127575012794137,
@@ -3470,7 +4660,7 @@
       ]
     },
     {
-      "name": "WaterTable_218",
+      "name": "WaterTable_302",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.012757501279413701,
@@ -3484,7 +4674,7 @@
       ]
     },
     {
-      "name": "WaterTable_219",
+      "name": "WaterTable_303",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.024300001287460314,
@@ -3498,7 +4688,7 @@
       ]
     },
     {
-      "name": "WaterTable_220",
+      "name": "WaterTable_304",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.06075010138749795,
@@ -3512,12 +4702,12 @@
       ]
     },
     {
-      "name": "WaterTable_221",
+      "name": "WaterTable_305",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.06075010138749811,
+      "volume_m3": 0.04910632616131304,
       "bounds": [
-        -5.400000095367432,
+        -4.824999809265137,
         2.3550000190734863,
         0.0,
         -2.4000000953674316,
@@ -3526,7 +4716,35 @@
       ]
     },
     {
-      "name": "WaterTable_222",
+      "name": "WaterTable_306",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.0026325067108907,
+      "bounds": [
+        -4.954999923706055,
+        2.3550000190734863,
+        0.0,
+        -4.824999809265137,
+        2.4000000953674316,
+        0.44999998807907104
+      ]
+    },
+    {
+      "name": "WaterTable_307",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.009011268515294206,
+      "bounds": [
+        -5.400000095367432,
+        2.3550000190734863,
+        0.0,
+        -4.954999923706055,
+        2.4000000953674316,
+        0.44999998807907104
+      ]
+    },
+    {
+      "name": "WaterTable_308",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00303749734460005,
@@ -3540,12 +4758,12 @@
       ]
     },
     {
-      "name": "WaterTable_223",
+      "name": "WaterTable_309",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.006075014001137233,
+      "volume_m3": 0.009112511345737262,
       "bounds": [
-        -8.75,
+        -8.899999618530273,
         2.3550000190734863,
         0.0,
         -8.449999809265137,
@@ -3554,21 +4772,7 @@
       ]
     },
     {
-      "name": "WaterTable_224",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.00303749734460005,
-      "bounds": [
-        -8.899999618530273,
-        2.3550000190734863,
-        0.0,
-        -8.75,
-        2.4000000953674316,
-        0.44999998807907104
-      ]
-    },
-    {
-      "name": "WaterTable_225",
+      "name": "WaterTable_310",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0020250111043581265,
@@ -3582,7 +4786,7 @@
       ]
     },
     {
-      "name": "WaterTable_226",
+      "name": "WaterTable_311",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.006075014001137233,
@@ -3596,12 +4800,12 @@
       ]
     },
     {
-      "name": "WaterTable_227",
+      "name": "WaterTable_312",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.004050002896779106,
+      "volume_m3": 0.001113738726653546,
       "bounds": [
-        -9.5,
+        -9.354999542236328,
         2.3550000190734863,
         0.0,
         -9.300000190734863,
@@ -3610,7 +4814,35 @@
       ]
     },
     {
-      "name": "WaterTable_228",
+      "name": "WaterTable_313",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.001417515497825532,
+      "bounds": [
+        -9.425000190734863,
+        2.3550000190734863,
+        0.0,
+        -9.354999542236328,
+        2.4000000953674316,
+        0.44999998807907104
+      ]
+    },
+    {
+      "name": "WaterTable_314",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.0015187486723000215,
+      "bounds": [
+        -9.5,
+        2.3550000190734863,
+        0.0,
+        -9.425000190734863,
+        2.4000000953674316,
+        0.44999998807907104
+      ]
+    },
+    {
+      "name": "WaterTable_315",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.004049997532366359,
@@ -3624,7 +4856,7 @@
       ]
     },
     {
-      "name": "WaterTable_229",
+      "name": "WaterTable_316",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.026325012928248487,
@@ -3638,7 +4870,7 @@
       ]
     },
     {
-      "name": "WaterTable_230",
+      "name": "WaterTable_317",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.010125003486871634,
@@ -3652,7 +4884,7 @@
       ]
     },
     {
-      "name": "WaterTable_231",
+      "name": "WaterTable_318",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0263250129282485,
@@ -3666,7 +4898,7 @@
       ]
     },
     {
-      "name": "WaterTable_232",
+      "name": "WaterTable_319",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.008099995064732676,
@@ -3680,7 +4912,7 @@
       ]
     },
     {
-      "name": "WaterTable_233",
+      "name": "WaterTable_320",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.03746252062618963,
@@ -3694,7 +4926,7 @@
       ]
     },
     {
-      "name": "WaterTable_234",
+      "name": "WaterTable_321",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.009112499275802141,
@@ -3708,7 +4940,7 @@
       ]
     },
     {
-      "name": "WaterTable_235",
+      "name": "WaterTable_322",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00303749332129688,
@@ -3722,7 +4954,7 @@
       ]
     },
     {
-      "name": "WaterTable_236",
+      "name": "WaterTable_323",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.03645000675916432,
@@ -3736,7 +4968,7 @@
       ]
     },
     {
-      "name": "WaterTable_237",
+      "name": "WaterTable_324",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00911250893175792,
@@ -3750,7 +4982,7 @@
       ]
     },
     {
-      "name": "WaterTable_238",
+      "name": "WaterTable_325",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.011137498041985314,
@@ -3764,7 +4996,7 @@
       ]
     },
     {
-      "name": "WaterTable_239",
+      "name": "WaterTable_326",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.08808751874863618,
@@ -3778,7 +5010,7 @@
       ]
     },
     {
-      "name": "WaterTable_240",
+      "name": "WaterTable_327",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.042525022369625395,
@@ -3792,7 +5024,7 @@
       ]
     },
     {
-      "name": "WaterTable_241",
+      "name": "WaterTable_328",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.02025000697374324,
@@ -3806,7 +5038,7 @@
       ]
     },
     {
-      "name": "WaterTable_242",
+      "name": "WaterTable_329",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.058724788802860334,
@@ -3820,7 +5052,7 @@
       ]
     },
     {
-      "name": "StringCourse_243",
+      "name": "StringCourse_330",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.001079998340606899,
@@ -3834,7 +5066,7 @@
       ]
     },
     {
-      "name": "StringCourse_244",
+      "name": "StringCourse_331",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0070199969387023595,
@@ -3848,7 +5080,7 @@
       ]
     },
     {
-      "name": "StringCourse_245",
+      "name": "StringCourse_332",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.002699998426436423,
@@ -3862,7 +5094,7 @@
       ]
     },
     {
-      "name": "StringCourse_246",
+      "name": "StringCourse_333",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007019996938702356,
@@ -3876,7 +5108,7 @@
       ]
     },
     {
-      "name": "StringCourse_247",
+      "name": "StringCourse_334",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0021599966812138015,
@@ -3890,7 +5122,7 @@
       ]
     },
     {
-      "name": "StringCourse_248",
+      "name": "StringCourse_335",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.009989996237750088,
@@ -3904,7 +5136,7 @@
       ]
     },
     {
-      "name": "StringCourse_249",
+      "name": "StringCourse_336",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.002429997553825114,
@@ -3918,7 +5150,7 @@
       ]
     },
     {
-      "name": "StringCourse_250",
+      "name": "StringCourse_337",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0008099974679955414,
@@ -3932,7 +5164,7 @@
       ]
     },
     {
-      "name": "StringCourse_251",
+      "name": "StringCourse_338",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0008099985408754513,
@@ -3946,12 +5178,12 @@
       ]
     },
     {
-      "name": "StringCourse_252",
+      "name": "StringCourse_339",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.0016200022315961196,
+      "volume_m3": 0.002430000772471356,
       "bounds": [
-        -8.75,
+        -8.899999618530273,
         2.3550000190734863,
         3.2300000190734863,
         -8.449999809265137,
@@ -3960,21 +5192,7 @@
       ]
     },
     {
-      "name": "StringCourse_253",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.0008099985408753785,
-      "bounds": [
-        -8.899999618530273,
-        2.3550000190734863,
-        3.2300000190734863,
-        -8.75,
-        2.4000000953674316,
-        3.3499999046325684
-      ]
-    },
-    {
-      "name": "StringCourse_254",
+      "name": "StringCourse_340",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0005400024604804328,
@@ -3988,7 +5206,7 @@
       ]
     },
     {
-      "name": "StringCourse_255",
+      "name": "StringCourse_341",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0016200022315961196,
@@ -4002,12 +5220,12 @@
       ]
     },
     {
-      "name": "StringCourse_256",
+      "name": "StringCourse_342",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.0010799997711155758,
+      "volume_m3": 0.00029699671840364636,
       "bounds": [
-        -9.5,
+        -9.354999542236328,
         2.3550000190734863,
         3.2300000190734863,
         -9.300000190734863,
@@ -4016,7 +5234,35 @@
       ]
     },
     {
-      "name": "StringCourse_257",
+      "name": "StringCourse_343",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.000378003782274261,
+      "bounds": [
+        -9.425000190734863,
+        2.3550000190734863,
+        3.2300000190734863,
+        -9.354999542236328,
+        2.4000000953674316,
+        3.3499999046325684
+      ]
+    },
+    {
+      "name": "StringCourse_344",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.0004049992704377309,
+      "bounds": [
+        -9.5,
+        2.3550000190734863,
+        3.2300000190734863,
+        -9.425000190734863,
+        2.4000000953674316,
+        3.3499999046325684
+      ]
+    },
+    {
+      "name": "StringCourse_345",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.029159980945578368,
@@ -4030,7 +5276,7 @@
       ]
     },
     {
-      "name": "StringCourse_258",
+      "name": "StringCourse_346",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0070199969387023595,
@@ -4044,7 +5290,7 @@
       ]
     },
     {
-      "name": "StringCourse_259",
+      "name": "StringCourse_347",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0075599935340866405,
@@ -4058,7 +5304,7 @@
       ]
     },
     {
-      "name": "StringCourse_260",
+      "name": "StringCourse_348",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.006209996895787528,
@@ -4072,7 +5318,7 @@
       ]
     },
     {
-      "name": "StringCourse_261",
+      "name": "StringCourse_349",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0024300001287441714,
@@ -4086,7 +5332,7 @@
       ]
     },
     {
-      "name": "StringCourse_262",
+      "name": "StringCourse_350",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0018899983835217009,
@@ -4100,7 +5346,7 @@
       ]
     },
     {
-      "name": "StringCourse_263",
+      "name": "StringCourse_351",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0008100017595231712,
@@ -4114,12 +5360,12 @@
       ]
     },
     {
-      "name": "StringCourse_264",
+      "name": "StringCourse_352",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.0016200086689127993,
+      "volume_m3": 0.002430010428436564,
       "bounds": [
-        -8.75,
+        -8.899999618530273,
         2.3550000190734863,
         6.429999828338623,
         -8.449999809265137,
@@ -4128,21 +5374,7 @@
       ]
     },
     {
-      "name": "StringCourse_265",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.0008100017595236153,
-      "bounds": [
-        -8.899999618530273,
-        2.3550000190734863,
-        6.429999828338623,
-        -8.75,
-        2.4000000953674316,
-        6.550000190734863
-      ]
-    },
-    {
-      "name": "StringCourse_266",
+      "name": "StringCourse_353",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0005400046062593589,
@@ -4156,7 +5388,7 @@
       ]
     },
     {
-      "name": "StringCourse_267",
+      "name": "StringCourse_354",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0016200086689128028,
@@ -4170,12 +5402,12 @@
       ]
     },
     {
-      "name": "StringCourse_268",
+      "name": "StringCourse_355",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.0010800040626532913,
+      "volume_m3": 0.00029699789856348427,
       "bounds": [
-        -9.5,
+        -9.354999542236328,
         2.3550000190734863,
         6.429999828338623,
         -9.300000190734863,
@@ -4184,7 +5416,35 @@
       ]
     },
     {
-      "name": "StringCourse_269",
+      "name": "StringCourse_356",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.0003780052843280028,
+      "bounds": [
+        -9.425000190734863,
+        2.3550000190734863,
+        6.429999828338623,
+        -9.354999542236328,
+        2.4000000953674316,
+        6.550000190734863
+      ]
+    },
+    {
+      "name": "StringCourse_357",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.0004050008797615856,
+      "bounds": [
+        -9.5,
+        2.3550000190734863,
+        6.429999828338623,
+        -9.425000190734863,
+        2.4000000953674316,
+        6.550000190734863
+      ]
+    },
+    {
+      "name": "StringCourse_358",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0010800026321386227,
@@ -4198,7 +5458,7 @@
       ]
     },
     {
-      "name": "StringCourse_270",
+      "name": "StringCourse_359",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0070200248336907516,
@@ -4212,7 +5472,7 @@
       ]
     },
     {
-      "name": "StringCourse_271",
+      "name": "StringCourse_360",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0027000091552764616,
@@ -4226,7 +5486,7 @@
       ]
     },
     {
-      "name": "StringCourse_272",
+      "name": "StringCourse_361",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.008100027465829385,
@@ -4240,7 +5500,7 @@
       ]
     },
     {
-      "name": "StringCourse_273",
+      "name": "StringCourse_362",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0010800026321386262,
@@ -4254,7 +5514,7 @@
       ]
     },
     {
-      "name": "StringCourse_274",
+      "name": "StringCourse_363",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00999003593446652,
@@ -4268,7 +5528,7 @@
       ]
     },
     {
-      "name": "StringCourse_275",
+      "name": "StringCourse_364",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0024300072097770027,
@@ -4282,7 +5542,7 @@
       ]
     },
     {
-      "name": "StringCourse_276",
+      "name": "StringCourse_365",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0008100006866390945,
@@ -4296,7 +5556,7 @@
       ]
     },
     {
-      "name": "StringCourse_277",
+      "name": "StringCourse_366",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.003510009841915327,
@@ -4310,7 +5570,7 @@
       ]
     },
     {
-      "name": "StringCourse_278",
+      "name": "StringCourse_367",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.006210021572121685,
@@ -4324,7 +5584,7 @@
       ]
     },
     {
-      "name": "StringCourse_279",
+      "name": "StringCourse_368",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0024300097847066854,
@@ -4338,7 +5598,7 @@
       ]
     },
     {
-      "name": "StringCourse_280",
+      "name": "StringCourse_369",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0018900058937076896,
@@ -4352,7 +5612,7 @@
       ]
     },
     {
-      "name": "StringCourse_281",
+      "name": "StringCourse_370",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.02349007656099079,
@@ -4366,7 +5626,7 @@
       ]
     },
     {
-      "name": "StringCourse_282",
+      "name": "StringCourse_371",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005670020256052521,
@@ -4380,7 +5640,7 @@
       ]
     },
     {
-      "name": "StringCourse_283",
+      "name": "StringCourse_372",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007020024833690748,
@@ -4394,7 +5654,7 @@
       ]
     },
     {
-      "name": "StringCourse_284",
+      "name": "StringCourse_373",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.004050013732914691,
@@ -4408,7 +5668,7 @@
       ]
     },
     {
-      "name": "StringCourse_285",
+      "name": "StringCourse_374",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0010799983406071974,
@@ -4422,7 +5682,7 @@
       ]
     },
     {
-      "name": "StringCourse_286",
+      "name": "StringCourse_375",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00701999693870194,
@@ -4436,7 +5696,7 @@
       ]
     },
     {
-      "name": "StringCourse_287",
+      "name": "StringCourse_376",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.002699998426436423,
@@ -4450,7 +5710,7 @@
       ]
     },
     {
-      "name": "StringCourse_288",
+      "name": "StringCourse_377",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007019996938701936,
@@ -4464,7 +5724,7 @@
       ]
     },
     {
-      "name": "StringCourse_289",
+      "name": "StringCourse_378",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0021599966812144017,
@@ -4478,7 +5738,7 @@
       ]
     },
     {
-      "name": "StringCourse_290",
+      "name": "StringCourse_379",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.009989996237749245,
@@ -4492,7 +5752,7 @@
       ]
     },
     {
-      "name": "StringCourse_291",
+      "name": "StringCourse_380",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0024299975538254193,
@@ -4506,7 +5766,7 @@
       ]
     },
     {
-      "name": "StringCourse_292",
+      "name": "StringCourse_381",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0008099974679955935,
@@ -4520,7 +5780,7 @@
       ]
     },
     {
-      "name": "StringCourse_293",
+      "name": "StringCourse_382",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0008099985408753039,
@@ -4534,12 +5794,12 @@
       ]
     },
     {
-      "name": "StringCourse_294",
+      "name": "StringCourse_383",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.0016200022315961994,
+      "volume_m3": 0.002430000772471949,
       "bounds": [
-        -8.75,
+        -8.899999618530273,
         2.3550000190734863,
         9.630000114440918,
         -8.449999809265137,
@@ -4548,21 +5808,7 @@
       ]
     },
     {
-      "name": "StringCourse_295",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.0008099985408755988,
-      "bounds": [
-        -8.899999618530273,
-        2.3550000190734863,
-        9.630000114440918,
-        -8.75,
-        2.4000000953674316,
-        9.75
-      ]
-    },
-    {
-      "name": "StringCourse_296",
+      "name": "StringCourse_384",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0005400024604802524,
@@ -4576,7 +5822,7 @@
       ]
     },
     {
-      "name": "StringCourse_297",
+      "name": "StringCourse_385",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0016200022315961994,
@@ -4590,12 +5836,12 @@
       ]
     },
     {
-      "name": "StringCourse_298",
+      "name": "StringCourse_386",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.001079999771115503,
+      "volume_m3": 0.0002969967184035145,
       "bounds": [
-        -9.5,
+        -9.354999542236328,
         2.3550000190734863,
         9.630000114440918,
         -9.300000190734863,
@@ -4604,7 +5850,35 @@
       ]
     },
     {
-      "name": "StringCourse_299",
+      "name": "StringCourse_387",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.00037800378227441367,
+      "bounds": [
+        -9.425000190734863,
+        2.3550000190734863,
+        9.630000114440918,
+        -9.354999542236328,
+        2.4000000953674316,
+        9.75
+      ]
+    },
+    {
+      "name": "StringCourse_388",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.0004049992704376511,
+      "bounds": [
+        -9.5,
+        2.3550000190734863,
+        9.630000114440918,
+        -9.425000190734863,
+        2.4000000953674316,
+        9.75
+      ]
+    },
+    {
+      "name": "StringCourse_389",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.003509995894432027,
@@ -4618,7 +5892,7 @@
       ]
     },
     {
-      "name": "StringCourse_300",
+      "name": "StringCourse_390",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.006209996895787977,
@@ -4632,7 +5906,7 @@
       ]
     },
     {
-      "name": "StringCourse_301",
+      "name": "StringCourse_391",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.002430000128744064,
@@ -4646,7 +5920,7 @@
       ]
     },
     {
-      "name": "StringCourse_302",
+      "name": "StringCourse_392",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0018899983835215881,
@@ -4660,7 +5934,7 @@
       ]
     },
     {
-      "name": "StringCourse_303",
+      "name": "StringCourse_393",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.023489983220093512,
@@ -4674,7 +5948,7 @@
       ]
     },
     {
-      "name": "StringCourse_304",
+      "name": "StringCourse_394",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.001079998340606604,
@@ -4688,7 +5962,7 @@
       ]
     },
     {
-      "name": "StringCourse_305",
+      "name": "StringCourse_395",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0029699992990480303,
@@ -4702,7 +5976,7 @@
       ]
     },
     {
-      "name": "StringCourse_306",
+      "name": "StringCourse_396",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.008099995279308974,
@@ -4716,7 +5990,7 @@
       ]
     },
     {
-      "name": "StringCourse_307",
+      "name": "StringCourse_397",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.004589999384877258,
@@ -4730,7 +6004,7 @@
       ]
     },
     {
-      "name": "StringCourse_308",
+      "name": "StringCourse_398",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0008099985408751582,
@@ -4744,12 +6018,12 @@
       ]
     },
     {
-      "name": "StringCourse_309",
+      "name": "StringCourse_399",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.0016200022315955992,
+      "volume_m3": 0.002430000772472237,
       "bounds": [
-        -8.75,
+        -8.899999618530273,
         2.3550000190734863,
         12.829999923706055,
         -8.449999809265137,
@@ -4758,21 +6032,7 @@
       ]
     },
     {
-      "name": "StringCourse_310",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.0008099985408754531,
-      "bounds": [
-        -8.899999618530273,
-        2.3550000190734863,
-        12.829999923706055,
-        -8.75,
-        2.4000000953674316,
-        12.949999809265137
-      ]
-    },
-    {
-      "name": "StringCourse_311",
+      "name": "StringCourse_400",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0005400024604802489,
@@ -4786,7 +6046,7 @@
       ]
     },
     {
-      "name": "StringCourse_312",
+      "name": "StringCourse_401",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0016200022315955992,
@@ -4800,12 +6060,12 @@
       ]
     },
     {
-      "name": "StringCourse_313",
+      "name": "StringCourse_402",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.001079999771115503,
+      "volume_m3": 0.0002969967184035145,
       "bounds": [
-        -9.5,
+        -9.354999542236328,
         2.3550000190734863,
         12.829999923706055,
         -9.300000190734863,
@@ -4814,7 +6074,35 @@
       ]
     },
     {
-      "name": "StringCourse_314",
+      "name": "StringCourse_403",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.00037800378227448306,
+      "bounds": [
+        -9.425000190734863,
+        2.3550000190734863,
+        12.829999923706055,
+        -9.354999542236328,
+        2.4000000953674316,
+        12.949999809265137
+      ]
+    },
+    {
+      "name": "StringCourse_404",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.0004049992704375782,
+      "bounds": [
+        -9.5,
+        2.3550000190734863,
+        12.829999923706055,
+        -9.425000190734863,
+        2.4000000953674316,
+        12.949999809265137
+      ]
+    },
+    {
+      "name": "StringCourse_405",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.009719995365140108,
@@ -4828,7 +6116,7 @@
       ]
     },
     {
-      "name": "StringCourse_315",
+      "name": "StringCourse_406",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.000539999170303597,
@@ -4842,7 +6130,7 @@
       ]
     },
     {
-      "name": "StringCourse_316",
+      "name": "StringCourse_407",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0024300001287442096,
@@ -4856,7 +6144,7 @@
       ]
     },
     {
-      "name": "StringCourse_317",
+      "name": "StringCourse_408",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0018899983835215881,
@@ -4870,7 +6158,7 @@
       ]
     },
     {
-      "name": "StringCourse_318",
+      "name": "StringCourse_409",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.024029984965316286,
@@ -4884,7 +6172,7 @@
       ]
     },
     {
-      "name": "StringCourse_319",
+      "name": "StringCourse_410",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.010259991960523927,
@@ -4898,7 +6186,7 @@
       ]
     },
     {
-      "name": "StringCourse_320",
+      "name": "StringCourse_411",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005399996852872844,
@@ -4912,7 +6200,7 @@
       ]
     },
     {
-      "name": "StringCourse_321",
+      "name": "StringCourse_412",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0010799983406071904,
@@ -4926,7 +6214,7 @@
       ]
     },
     {
-      "name": "StringCourse_322",
+      "name": "StringCourse_413",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007019996938701884,
@@ -4940,7 +6228,7 @@
       ]
     },
     {
-      "name": "StringCourse_323",
+      "name": "StringCourse_414",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.011879992046351217,
@@ -4954,7 +6242,7 @@
       ]
     },
     {
-      "name": "StringCourse_324",
+      "name": "StringCourse_415",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00998999623774919,
@@ -4968,7 +6256,7 @@
       ]
     },
     {
-      "name": "StringCourse_325",
+      "name": "StringCourse_416",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0024299975538255546,
@@ -4982,7 +6270,7 @@
       ]
     },
     {
-      "name": "StringCourse_326",
+      "name": "StringCourse_417",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0008099974679961104,
@@ -4996,7 +6284,7 @@
       ]
     },
     {
-      "name": "StringCourse_327",
+      "name": "StringCourse_418",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0008099921035794218,
@@ -5010,12 +6298,12 @@
       ]
     },
     {
-      "name": "StringCourse_328",
+      "name": "StringCourse_419",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.0016199893569632806,
+      "volume_m3": 0.0024299814605429973,
       "bounds": [
-        -8.75,
+        -8.899999618530273,
         2.3550000190734863,
         16.030000686645508,
         -8.449999809265137,
@@ -5024,21 +6312,7 @@
       ]
     },
     {
-      "name": "StringCourse_329",
-      "key": "limestone_b",
-      "branch": "FixedFacade",
-      "volume_m3": 0.0008099921035791269,
-      "bounds": [
-        -8.899999618530273,
-        2.3550000190734863,
-        16.030000686645508,
-        -8.75,
-        2.4000000953674316,
-        16.149999618530273
-      ]
-    },
-    {
-      "name": "StringCourse_330",
+      "name": "StringCourse_420",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0005399981689224731,
@@ -5052,7 +6326,7 @@
       ]
     },
     {
-      "name": "StringCourse_331",
+      "name": "StringCourse_421",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.001619989356963284,
@@ -5066,12 +6340,12 @@
       ]
     },
     {
-      "name": "StringCourse_332",
+      "name": "StringCourse_422",
       "key": "limestone_b",
       "branch": "FixedFacade",
-      "volume_m3": 0.0010799911880402177,
+      "volume_m3": 0.00029699435808350216,
       "bounds": [
-        -9.5,
+        -9.354999542236328,
         2.3550000190734863,
         16.030000686645508,
         -9.300000190734863,
@@ -5080,7 +6354,35 @@
       ]
     },
     {
-      "name": "StringCourse_333",
+      "name": "StringCourse_423",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.0003780007781672978,
+      "bounds": [
+        -9.425000190734863,
+        2.3550000190734863,
+        16.030000686645508,
+        -9.354999542236328,
+        2.4000000953674316,
+        16.149999618530273
+      ]
+    },
+    {
+      "name": "StringCourse_424",
+      "key": "limestone_b",
+      "branch": "FixedFacade",
+      "volume_m3": 0.00040499605178970915,
+      "bounds": [
+        -9.5,
+        2.3550000190734863,
+        16.030000686645508,
+        -9.425000190734863,
+        2.4000000953674316,
+        16.149999618530273
+      ]
+    },
+    {
+      "name": "StringCourse_425",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00971991811748239,
@@ -5094,7 +6396,7 @@
       ]
     },
     {
-      "name": "StringCourse_334",
+      "name": "StringCourse_426",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0005399948787719513,
@@ -5108,7 +6410,7 @@
       ]
     },
     {
-      "name": "StringCourse_335",
+      "name": "StringCourse_427",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.002429980816819414,
@@ -5122,7 +6424,7 @@
       ]
     },
     {
-      "name": "StringCourse_336",
+      "name": "StringCourse_428",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0018899833631496749,
@@ -5136,7 +6438,7 @@
       ]
     },
     {
-      "name": "StringCourse_337",
+      "name": "StringCourse_429",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.024029793991967734,
@@ -5150,7 +6452,7 @@
       ]
     },
     {
-      "name": "StringCourse_338",
+      "name": "StringCourse_430",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.010259910421356856,
@@ -5164,7 +6466,7 @@
       ]
     },
     {
-      "name": "StringCourse_339",
+      "name": "StringCourse_431",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005399953937512709,
@@ -5178,7 +6480,7 @@
       ]
     },
     {
-      "name": "StringCourse_340",
+      "name": "StringCourse_432",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0010799897575433093,
@@ -5192,7 +6494,7 @@
       ]
     },
     {
-      "name": "StringCourse_341",
+      "name": "StringCourse_433",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007019941148725412,
@@ -5206,7 +6508,7 @@
       ]
     },
     {
-      "name": "StringCourse_342",
+      "name": "StringCourse_434",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.011879897632569032,
@@ -5220,7 +6522,7 @@
       ]
     },
     {
-      "name": "StringCourse_343",
+      "name": "StringCourse_435",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.009989916844315161,
@@ -5234,7 +6536,7 @@
       ]
     },
     {
-      "name": "StringCourse_344",
+      "name": "StringCourse_436",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.002429978241922065,
@@ -5248,7 +6550,7 @@
       ]
     },
     {
-      "name": "StringCourse_345",
+      "name": "StringCourse_437",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0008099910307080779,
@@ -5262,7 +6564,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_346",
+      "name": "WindowStoneSill_438",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014240019078252458,
@@ -5276,7 +6578,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_347",
+      "name": "WindowStoneHead_439",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007832002960195891,
@@ -5290,7 +6592,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_348",
+      "name": "WindowStoneJamb_440",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005152038355890037,
@@ -5304,7 +6606,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_349",
+      "name": "WindowStoneJamb_441",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005152038355890051,
@@ -5318,7 +6620,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_350",
+      "name": "WindowStoneSill_442",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014240019078252448,
@@ -5332,7 +6634,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_351",
+      "name": "WindowStoneHead_443",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007832002960195886,
@@ -5346,7 +6648,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_352",
+      "name": "WindowStoneJamb_444",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005152038355890051,
@@ -5360,7 +6662,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_353",
+      "name": "WindowStoneJamb_445",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005152038355890037,
@@ -5374,7 +6676,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_354",
+      "name": "WindowStoneSill_446",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014240030117036735,
@@ -5388,7 +6690,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_355",
+      "name": "WindowStoneHead_447",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007832039056776822,
@@ -5402,7 +6704,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_356",
+      "name": "WindowStoneJamb_448",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151979394904027,
@@ -5416,7 +6718,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_357",
+      "name": "WindowStoneJamb_449",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151979394904027,
@@ -5430,7 +6732,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_358",
+      "name": "WindowStoneSill_450",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.01423998767852552,
@@ -5444,7 +6746,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_359",
+      "name": "WindowStoneHead_451",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007831992374420373,
@@ -5458,7 +6760,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_360",
+      "name": "WindowStoneJamb_452",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980730043193,
@@ -5472,7 +6774,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_361",
+      "name": "WindowStoneJamb_453",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980730043304,
@@ -5486,7 +6788,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_362",
+      "name": "WindowStoneSill_454",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014239987678525523,
@@ -5500,7 +6802,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_363",
+      "name": "WindowStoneHead_455",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007831992374418818,
@@ -5514,7 +6816,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_364",
+      "name": "WindowStoneJamb_456",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980730043415,
@@ -5528,7 +6830,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_365",
+      "name": "WindowStoneJamb_457",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00515198073004286,
@@ -5542,7 +6844,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_366",
+      "name": "WindowStoneSill_458",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.01423998767852789,
@@ -5556,7 +6858,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_367",
+      "name": "WindowStoneHead_459",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007831992374417375,
@@ -5570,7 +6872,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_368",
+      "name": "WindowStoneJamb_460",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980730043415,
@@ -5584,7 +6886,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_369",
+      "name": "WindowStoneJamb_461",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980730043415,
@@ -5598,7 +6900,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_370",
+      "name": "WindowStoneSill_462",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014239987678526703,
@@ -5612,7 +6914,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_371",
+      "name": "WindowStoneHead_463",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007831992374417677,
@@ -5626,7 +6928,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_372",
+      "name": "WindowStoneJamb_464",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0051519807300428044,
@@ -5640,7 +6942,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_373",
+      "name": "WindowStoneJamb_465",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0051519807300433595,
@@ -5654,7 +6956,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_374",
+      "name": "WindowStoneSill_466",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.010239994354243682,
@@ -5668,7 +6970,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_375",
+      "name": "WindowStoneHead_467",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005631996284485002,
@@ -5682,7 +6984,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_376",
+      "name": "WindowStoneJamb_468",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.003192010501391687,
@@ -5696,7 +6998,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_377",
+      "name": "WindowStoneJamb_469",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0031920105013915484,
@@ -5710,7 +7012,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_378",
+      "name": "WindowStoneSill_470",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014239987678527924,
@@ -5724,7 +7026,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_379",
+      "name": "WindowStoneHead_471",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007831992374422708,
@@ -5738,7 +7040,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_380",
+      "name": "WindowStoneJamb_472",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980730043082,
@@ -5752,7 +7054,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_381",
+      "name": "WindowStoneJamb_473",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980730043693,
@@ -5766,7 +7068,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_382",
+      "name": "WindowStoneSill_474",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.01423998767852852,
@@ -5780,7 +7082,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_383",
+      "name": "WindowStoneHead_475",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007831992374421564,
@@ -5794,7 +7096,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_384",
+      "name": "WindowStoneJamb_476",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980730042777,
@@ -5808,7 +7110,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_385",
+      "name": "WindowStoneJamb_477",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0051519807300428044,
@@ -5822,7 +7124,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_386",
+      "name": "WindowStoneSill_478",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.010239994354245534,
@@ -5836,7 +7138,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_387",
+      "name": "WindowStoneHead_479",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005631996284486462,
@@ -5850,7 +7152,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_388",
+      "name": "WindowStoneJamb_480",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0031920078310958555,
@@ -5864,7 +7166,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_389",
+      "name": "WindowStoneJamb_481",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0031920078310949673,
@@ -5878,7 +7180,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_390",
+      "name": "WindowStoneSill_482",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014239998288153807,
@@ -5892,7 +7194,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_391",
+      "name": "WindowStoneHead_483",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007831992374420262,
@@ -5906,7 +7208,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_392",
+      "name": "WindowStoneJamb_484",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980229365971,
@@ -5920,7 +7222,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_393",
+      "name": "WindowStoneJamb_485",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980229365916,
@@ -5934,7 +7236,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_394",
+      "name": "WindowStoneSill_486",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014240016527181987,
@@ -5948,7 +7250,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_395",
+      "name": "WindowStoneHead_487",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00783201991177511,
@@ -5962,7 +7264,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_396",
+      "name": "WindowStoneJamb_488",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00515205025293769,
@@ -5976,7 +7278,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_397",
+      "name": "WindowStoneJamb_489",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005152050252937634,
@@ -5990,7 +7292,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_398",
+      "name": "WindowStoneSill_490",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014240008897781542,
@@ -6004,7 +7306,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_399",
+      "name": "WindowStoneHead_491",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007832015715598436,
@@ -6018,7 +7320,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_400",
+      "name": "WindowStoneJamb_492",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980062473582,
@@ -6032,7 +7334,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_401",
+      "name": "WindowStoneJamb_493",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980062473527,
@@ -6046,7 +7348,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_402",
+      "name": "WindowStoneSill_494",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014239995307914186,
@@ -6060,7 +7362,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_403",
+      "name": "WindowStoneHead_495",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007831996570583203,
@@ -6074,7 +7376,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_404",
+      "name": "WindowStoneJamb_496",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0051520509205164045,
@@ -6088,7 +7390,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_405",
+      "name": "WindowStoneJamb_497",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0051520509205164045,
@@ -6102,7 +7404,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_406",
+      "name": "WindowStoneSill_498",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014239987678525821,
@@ -6116,7 +7418,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_407",
+      "name": "WindowStoneHead_499",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00783199237441974,
@@ -6130,7 +7432,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_408",
+      "name": "WindowStoneJamb_500",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980730043082,
@@ -6144,7 +7446,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_409",
+      "name": "WindowStoneJamb_501",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0051519807300430265,
@@ -6158,7 +7460,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_410",
+      "name": "WindowStoneSill_502",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014239995307914241,
@@ -6172,7 +7474,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_411",
+      "name": "WindowStoneHead_503",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007831996570583147,
@@ -6186,7 +7488,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_412",
+      "name": "WindowStoneJamb_504",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005152050920516349,
@@ -6200,7 +7502,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_413",
+      "name": "WindowStoneJamb_505",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.0051520509205164045,
@@ -6214,7 +7516,7 @@
       ]
     },
     {
-      "name": "WindowStoneSill_414",
+      "name": "WindowStoneSill_506",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.014239987678525523,
@@ -6228,7 +7530,7 @@
       ]
     },
     {
-      "name": "WindowStoneHead_415",
+      "name": "WindowStoneHead_507",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.007831992374419781,
@@ -6242,7 +7544,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_416",
+      "name": "WindowStoneJamb_508",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.005151980730042832,
@@ -6256,7 +7558,7 @@
       ]
     },
     {
-      "name": "WindowStoneJamb_417",
+      "name": "WindowStoneJamb_509",
       "key": "limestone_b",
       "branch": "FixedFacade",
       "volume_m3": 0.00515198073004286,
@@ -6400,24 +7702,26 @@
     -12.629999999999999
   ],
   "source_bindings": {
-    "art/data/front_facade/source_fit.json": "7e72d302620c0318c7de527abc87cae61ecec3caaee72e3cb99feff1b9296509",
-    "art/blender/scripts/build_front_facade.py": "a85226d3ad7dd9d764a16faadbb6b007172e57e32f42454ef8379e18c3c6ebd6",
+    "art/data/front_facade/source_fit.json": "c69e4baceb9c4c8b179242583175c619b8711a50cc0a8e95511b85f7af18f161",
+    "art/blender/scripts/build_front_facade.py": "3ef4fa7fbf4369a45e3e304e105472a2bc5f2e9ed49dbc6968de212999110bb0",
+    "art/blender/scripts/build_media_battery_supply.py": "8993a40cfebfaf8f9df9e12b22c9dd8bcb413c9e5162a19643d6fa3318700efe",
     "art/blender/scripts/prepare_front_facade.py": "811bea921e9664c14091628ffe1e708211d1a398dc3a36083569d733b98c6fb6",
     "art/blender/scripts/fabrication_uvs.py": "d603b812af9c3dd43e56d0be8c05f4b62867ff0c75a06e33d9b0b8ae42c58979"
   },
   "retained_bindings": {
     "art/data/building_layout.json": "f4815741dd37ab14984c06f0a468410ca3795ec0ce5d9c91f0bff28181187a6c",
-    "art/data/gen_layout.py": "0f84b5affa7012046e5e01043dd43e9ded0808ca077c47f28124e6e34fdaff97",
+    "art/data/gen_layout.py": "9b1c29fed2e926ba8dc11fa6acf83470aa8234a7fc01fb43b0cc11e88e04edfd",
     "art/blender/scripts/build_orison.py": "042a2489bfadf5b076e2d4575e8a77f8cd21ed19d320d42d87674707afb876d0",
-    "game/data/orison_v2_blockout.json": "053033cbe95d8775b8b16f6f6a7c8043397621e533e11a93a3e80bf936d4bf9d",
+    "game/data/orison_v2_blockout.json": "6e686b22b21c3db4aa63dd9da40ceb608a976a0f18a12f5ee2cba5abf58519f6",
     "game/data/orison_v2/world_connection.json": "60200e89511d8e3725726b9039a5046ccabb46cb2e227625ed591b9d79dd9a0e",
     "game/scripts/props/landmark_entry_door.gd": "639daf2a1dd2573cd72de9c82efe0c925314f2de8d7bc92d9e1d22b81a106ec9",
     "game/scripts/props/entrance_marquee_dress.gd": "090dee3113973e5069f81f52af3847d885802531c66f983716edc1544dbf0351",
     "game/assets/building/floor_01.gltf": "46756641f389b29f287731bb88b31af13972b098b483d92d66d077112909bd89",
-    "art/data/material_catalog.json": "da6505ee80a88d36dd8d85c6d7c31c3790bb36664c28c6072078544baf2aab78",
-    "art/textures/catalog_mapping.json": "83e26e92281b2fc31d4393145668d75a91923355d603b4c711c48b8fc13fe9c6",
-    "game/data/runtime_material_sets.json": "2de6c8f8b32a7599983f3a9d7b0988b0c78cffbc687cf08683d16846617a3198"
+    "art/data/material_catalog.json": "35e1dbd102ccb46fb0e064ebddc2359fdb5ca42276957a880cb31c520eb0d5af",
+    "art/textures/catalog_mapping.json": "6e8add12d60bc34b7ecde3ec49bc6c374cf6bc2da432687eba19864eada1c9d1",
+    "game/data/runtime_material_sets.json": "7bf23882585cf919ce537df4cb4b501053b958e2890a304c6003fe98a69851d2"
   },
   "uv_fallbacks": 0,
-  "triangles": 8480
+  "zero_area_tessellation_helpers": 1,
+  "triangles": 36635
 }

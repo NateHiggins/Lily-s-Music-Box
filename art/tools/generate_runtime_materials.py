@@ -26,6 +26,9 @@ GODOT_TEXTURES = ROOT / "game/assets/building/textures"
 # its authored roughness map by this value; selected finishes deliberately cap
 # that response. No texture path or physical scale is authored here.
 RUNTIME_POLICY = {
+    "door_brass": {},
+    "door_oak": {},
+    "door_paint": {},
     "water_clear": {},
     "leather_worn": {}, "mineral_scale": {},
     "toast_crumb": {},

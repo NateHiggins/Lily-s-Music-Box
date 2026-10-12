@@ -47,6 +47,13 @@ func _run() -> void:
 	batch_checks+=patrol.batch_checks
 	for failure: String in patrol.failures:failures.append(failure)
 	patrol.free()
+	var entrance_review := preload("res://tests/orison_v2_front_facade_test.gd").new()
+	entrance_review.set_meta("shared_world_validation",true)
+	entrance_review.capture_prefix="entrance_";add_child(entrance_review)
+	var entrance_result: Dictionary=await entrance_review.validate_in_world(world)
+	batch_checks+=int(entrance_result.checks)
+	for failure: String in entrance_result.failures:failures.append(failure)
+	entrance_review.free()
 	await preload("res://tests/v2_watch_stations_review.gd").new().run(world,self)
 	await preload("res://tests/v2_window_treatments_review.gd").new().run(world,self)
 	await preload("res://tests/v2_millwork_weather_review.gd").new().run(world,self)

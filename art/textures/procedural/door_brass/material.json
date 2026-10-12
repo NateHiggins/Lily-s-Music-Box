@@ -1,0 +1,20 @@
+{
+  "material": "door_brass",
+  "generator": "art/tools/build_door_brass.py",
+  "source": "Periodic hand-buffed brass: micron relief, quiet colour, fine wiping marks.\n\nNo baked illumination, lettering, photographic source or large corrosion spots.\nPatina belongs to separate recessed hardware, not random blotches on a knob.\n",
+  "seed": 19281012,
+  "meters_per_tile": 0.18,
+  "relief_mm": 0.004,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "35438c523607ba8d7a08a5a508127be993821dc6431d8c233d7fae596c16d5c7",
+    "roughness": "a643985dfe69149fdbd0d4a376b381000a86df598fa669454302dc9a5e88bdc4",
+    "height": "f6da81be57e23aef0629b6d3b39776da4179110075d218560ab6f9960d30d96d",
+    "normal": "70ec93e51de6f8993fb7a435436356869690c136c08cf9c229f9ec1229827e40"
+  }
+}

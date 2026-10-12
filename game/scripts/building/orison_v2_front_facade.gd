@@ -40,9 +40,9 @@ static func mount(world: Node3D) -> bool:
 		for draw: MeshInstance3D in branch.find_children("*","MeshInstance3D",true,false):
 			var key:=str(draw.name).split("__")[1]
 			if not materials.has(key):
-				var tint: Color={"oak_quartered":Color(.30,.22,.15),"cast_iron":Color(.12,.13,.12),"metal":Color(.24,.25,.23),"brass":Color(.72,.63,.46)}.get(key,Color.WHITE)
+				var tint: Color={"door_oak":Color(.82,.76,.67),"cast_iron":Color(.12,.13,.12),"metal":Color(.24,.25,.23),"brass":Color(.72,.63,.46)}.get(key,Color.WHITE)
 				var material:=MatLib.get_mat(key,tint).duplicate() as StandardMaterial3D
-				if key=="oak_quartered":material.normal_scale=.18
+				if key=="door_oak":material.normal_scale=.45
 				material.uv1_triplanar=false;materials[key]=material
 			draw.material_override=materials[key];draw.set_meta("facade_material_key",key)
 			if branch==movable:continue

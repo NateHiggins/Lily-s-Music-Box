@@ -1,0 +1,20 @@
+{
+  "material": "door_paint",
+  "generator": "art/tools/build_door_paint.py",
+  "source": "Periodic oil-painted timber finish; brush ridges have 0.05-mm relief.",
+  "seed": 19281013,
+  "meters_per_tile": 0.3,
+  "relief_mm": 0.05,
+  "maps": {
+    "albedo": "albedo.png",
+    "roughness": "roughness.png",
+    "height": "height.png",
+    "normal": "normal.png"
+  },
+  "map_sha256": {
+    "albedo": "3a68fb4497fb0f5b56edfcd168a4d05593b760b0437c20aa4b2ec4e97f19616f",
+    "roughness": "31232d24578d907132c6a97ff15fe93939ab644529968fdad466551647cf83d0",
+    "height": "861370a5dbeb40fdc24b46c1cbd64fa420d2cd088fda31c364f0d2c9121abc4e",
+    "normal": "660c2582ee91be3aae0746662cc7c24bf9eb77467cbde8aece2104f920127cc5"
+  }
+}
